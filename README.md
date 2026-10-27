@@ -8,6 +8,10 @@ Godot 4.7.2로 만든 세로 화면 RPG 웹 검수판입니다. 토르바에서 
 
 **[웹에서 플레이](https://aredsea.github.io/into-the-abyss-web/)**
 
+[웹 원정 구조·게임 6종·UI 레퍼런스 조사](https://aredsea.github.io/into-the-abyss-web/research/) · [로딩 화면 시안](https://aredsea.github.io/into-the-abyss-web/research/loading.html)
+
+조사 페이지의 갈림길 구조는 제안이며 현재 게임 규칙에 반영하지 않았습니다. 새 로딩 삽화는 별도 시안이고 경량화·실제 로더 연결이 남아 있습니다.
+
 GitHub 로그인이나 Tailscale, 개발 PC 없이 열 수 있습니다. WebGL 2를 지원하는 브라우저가 필요하며 첫 실행에는 엔진과 게임 데이터를 내려받습니다.
 
 ## 저장

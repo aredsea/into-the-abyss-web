@@ -1,0 +1,27 @@
+{
+  "asset": "academy-loading-v1.png",
+  "tool": "built-in image_gen.imagegen",
+  "prompt": "Use case: stylized-concept. Asset type: original portrait loading illustration for Into the Abyss, a mobile fantasy dungeon RPG. Create one vertical 2:3 illustration, ideally 768x1152, with NO typography or interface. Scene: the ruined upper corridors of an old magical academy, fractured stone arches and worn lecture-room doors, a descending stair opening beyond the central arch, a few scattered closed books and a broken mundane brass scholarly instrument. The setting should feel like an abandoned place of learning, not a church, palace or hellscape. No humans or characters, no creatures. Style: restrained hand-painted fantasy environment with deliberate graphic shapes, etched material detail, subtle coarse painted grain; readable at phone size, not photorealistic. Composition: main arch and descending route occupy middle 55%; top 18% is quiet dark stone shadow for separate HTML title; bottom 24% is quiet near-black foreground for separate HTML loading text and bar. Real architectural perspective, clear silhouette, modest scene scale. Palette: gunmetal #151A1B, stone gray #545B56, faded brass #B6A075, off-white muted ambient daylight. A small natural daylight opening beyond the arch, no supernatural glow. No ornate framing, no runes, no glowing magic circles, no purple-blue gradient, no particles, no interface panels, no progress bars, no text, no letters, no logos, no watermark. This is original environmental concept art, not a copy of any other game's image.",
+  "status": "First concept; not integrated into game loader",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "bytes": 2371723,
+  "design": {
+    "palette": {
+      "base": "#151A1B",
+      "stone": "#545B56",
+      "brass": "#B6A075",
+      "text": "#EAE4D6"
+    },
+    "type": "HTML Georgia title; Korean system sans body >=13px",
+    "layout": "Single academy threshold illustration, top title, lower status bar; all text and controls remain HTML.",
+    "limitations": [
+      "PNG derivative compression pending",
+      "Dense environment detail differs from combat pixel art",
+      "Physical mobile and actual loader integration pending"
+    ]
+  },
+  "sha256": "6b5fa0b58bd82918c7c99b76bca84364ca6ba16efd44d20dfebc32173834eb11"
+}
