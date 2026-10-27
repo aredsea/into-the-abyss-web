@@ -6,6 +6,9 @@ var session_save: Callable
 
 const BattleState = preload("res://game/battle_state.gd")
 const ModernBattle=preload("res://game/battle_v3.gd")
+const CharacterSprite=preload("res://ui/character_sprite.gd")
+const SignatureSequence=preload("res://ui/signature_sequence.gd")
+const ForgedButton=preload("res://ui/forged_button.gd")
 const CombatFX=preload("res://ui/combat_fx.gd")
 const SaveStore = preload("res://game/save_store.gd")
 const INK = Color("eae4d6")
@@ -21,7 +24,7 @@ var text_metrics = []
 var skills_open = false
 var items_open=false
 var ally_open = ""
-var actor: TextureRect
+var actor: Control
 var preview_tween: Tween
 var storage_error = OK
 var motion_reduced = false
@@ -105,7 +108,8 @@ func _style(bg: Color, line: Color) -> StyleBoxFlat:
 	return style
 
 func _button(id: String, rect: Rect2, callback: Callable, active = false, parent: Control = self, bare = false) -> Button:
-	var button = Button.new()
+	var button = Button.new() if bare else ForgedButton.new()
+	if not bare: button.active=active
 	button.name = id.replace(":", "_")
 	if bare:
 		button.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
@@ -228,22 +232,14 @@ func _battlefield(rect: Rect2) -> void:
 			summary.add_theme_stylebox_override("panel",_style(Color("30291e"),GOLD))
 		_label("Lv.%d %s" % [e.level,e.name],Rect2(3,1,summary_w-6,18),12,INK,summary,HORIZONTAL_ALIGNMENT_CENTER)
 		_meter(Rect2(3,21,summary_w-6,16),e.hp,e.mhp,true,summary,"HP %d / %d" % [e.hp,e.mhp])
-	actor = TextureRect.new()
-	actor.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	actor.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	actor = CharacterSprite.new()
 	_actor_texture(false)
-	_put(actor,Rect2(rect.size.x*0.34-133.333,rect.size.y-140,233.333,140),field)
+	_put(actor,Rect2(rect.size.x*.10,rect.size.y-136,rect.size.x*.49,132),field)
 	controls["field"]={"rect":[rect.position.x,rect.position.y,rect.size.x,rect.size.y]}
 
 func _actor_texture(attack: bool) -> void:
 	var a=state.ally(animation_ally if not animation_ally.is_empty() else state.last_ally)
-	if a.sprite_row<0:
-		actor.texture=_texture("res://assets/"+a.id+".webp")
-		actor.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		actor.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-	else:
-		var atlas=AtlasTexture.new(); atlas.atlas=_texture("res://assets/sprites_4.png")
-		atlas.region=Rect2(640 if attack else 0,a.sprite_row*384,640,384); actor.texture=atlas
+	actor.configure(a.id,attack)
 
 func _party(rect: Rect2) -> void:
 	var gap = 3.0
@@ -251,8 +247,10 @@ func _party(rect: Rect2) -> void:
 	for i in range(4):
 		var a = state.data.allies[i]
 		var button = _button("ally:"+a.id,Rect2(rect.position+Vector2(i*(col+gap),0),Vector2(col,rect.size.y)),_ally_pressed.bind(a.id),a.id==state.current_id)
+		button.textured=false
 		var pic_h = rect.size.y-88
-		_picture("res://assets/"+a.id+".webp",Rect2(4,4,col-8,pic_h),button)
+		var portrait=_picture("res://assets/"+a.id+".webp",Rect2(4,4,col-8,pic_h),button)
+		portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		_color(Rect2(7,7,30,18),Color("18201e"),button)
 		_label(a.row,Rect2(8,7,28,18),12,INK,button,HORIZONTAL_ALIGNMENT_CENTER)
 		_label(a.name,Rect2(3,pic_h+5,col-6,18),12,INK,button,HORIZONTAL_ALIGNMENT_CENTER)
@@ -434,14 +432,24 @@ func _commit() -> void:
 	for u in state.data.allies+state.data.enemies: before[u.id]={"hp":u.hp,"shield":u.get("shield",0),"gauge":u.get("gauge",0),"effects":u.effects.duplicate(true)}
 	animation_ally=state.current_id
 	if not state.act(id): return
-	pending_action=""; busy=true; _persist(); _rebuild(); _preview(id); _effect_feedback(before,animation_ally,id)
-	_resume_automatic()
+	pending_action=""; busy=true; _persist(); _rebuild()
+	if id=="personal":
+		var r=controls.field.rect
+		var sequence=SignatureSequence.new(); sequence.character_id=animation_ally
+		sequence.reduced=OS.has_feature("web") and bool(JavaScriptBridge.eval("window.matchMedia('(prefers-reduced-motion: reduce)').matches",true))
+		_put(sequence,Rect2(r[0],r[1],r[2],r[3]))
+		sequence.impact.connect(_effect_feedback.bind(before,animation_ally,id))
+		call_deferred("_publish_metrics")
+		await get_tree().create_timer(sequence.duration).timeout
+	else:
+		_preview(id); _effect_feedback(before,animation_ally,id)
+	_resume_automatic(.12 if id=="personal" else .7)
 
-func _resume_automatic() -> void:
+func _resume_automatic(initial_delay=.7) -> void:
 	busy=true; playback_generation+=1
 	call_deferred("_publish_metrics")
 	var generation=playback_generation
-	await get_tree().create_timer(0.7).timeout
+	await get_tree().create_timer(initial_delay).timeout
 	if generation!=playback_generation: return
 	animation_ally=""
 	while state.result.is_empty() and (not state.player_turn() or state.ally(state.current_id).charging):
@@ -490,7 +498,7 @@ func _persist() -> void:
 func _publish_metrics() -> void:
 	if not OS.has_feature("web"):
 		return
-	var report={"build":state.data.build,"busy":busy,"pending_action":pending_action,"result":state.result,"current_id":state.current_id,"events":state.events,"engine":Engine.get_version_info().string,"state":state.snapshot(),"controls":controls,"text":text_metrics,"skills_open":skills_open,"ally_open":ally_open,"motion_reduced":motion_reduced,"storage_persistent":OS.is_userfs_persistent(),"storage_error":storage_error,"frame":[frame.position.x,frame.position.y,frame.size.x,frame.size.y],"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"enemy_hp":state.data.enemies.map(func(e):return {"id":e.id,"hp":e.hp,"mhp":e.mhp})}
+	var report={"build":state.data.build,"busy":busy,"pending_action":pending_action,"result":state.result,"current_id":state.current_id,"events":state.events,"engine":Engine.get_version_info().string,"state":state.snapshot(),"controls":controls,"text":text_metrics,"skills_open":skills_open,"ally_open":ally_open,"motion_reduced":motion_reduced,"storage_persistent":OS.is_userfs_persistent(),"storage_error":storage_error,"frame":[frame.position.x,frame.position.y,frame.size.x,frame.size.y],"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"actor_art":CharacterSprite.info(animation_ally if not animation_ally.is_empty() else state.last_ally).get("path",""),"enemy_hp":state.data.enemies.map(func(e):return {"id":e.id,"hp":e.hp,"mhp":e.mhp})}
 	JavaScriptBridge.eval("window.__abyssPreview = "+JSON.stringify(report)+";",true)
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -499,7 +507,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 func _effect_feedback(before: Dictionary,source: String,action: String) -> void:
 	var a=state.ally(source); var element=a.element if not a.is_empty() else "fire"
-	if action in ["personal","tactic"] and not a.is_empty():
+	if action=="tactic" and not a.is_empty():
 		var field=controls.field.rect
 		var banner=_panel(Rect2(field[0]+5,field[1]+field[3]-62,field[2]-10,58))
 		_picture("res://assets/"+a.id+".webp",Rect2(3,3,48,52),banner)

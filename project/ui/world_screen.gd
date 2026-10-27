@@ -5,6 +5,9 @@ const World=preload("res://game/expansion_world.gd")
 const Store=preload("res://game/world_store.gd")
 const BattleScreen=preload("res://ui/battle_screen.gd")
 const FONT=preload("res://assets/fonts/NanumGothic-Regular.ttf")
+const CharacterSprite=preload("res://ui/character_sprite.gd")
+const SignatureSequence=preload("res://ui/signature_sequence.gd")
+const ForgedButton=preload("res://ui/forged_button.gd")
 const INK=Color("eae4d6")
 const GOLD=Color("d7b67e")
 const MUTED=Color("afb8b3")
@@ -27,8 +30,13 @@ var battle: Control
 var save_error=OK
 var restored=false
 var metrics_time=0.0
+var motion_reduced=false
+var last_drawn_screen=""
+var art_preview: Control
+var art_preview_id=""
 
 func _ready() -> void:
+	motion_reduced=OS.has_feature("web") and bool(JavaScriptBridge.eval("window.matchMedia('(prefers-reduced-motion: reduce)').matches",true))
 	var theme=Theme.new()
 	theme.default_font=FONT; theme.default_font_size=14
 	theme.set_color("font_color","Label",INK)
@@ -72,16 +80,16 @@ func _draw_screen() -> void:
 		_publish()
 		return
 	for c in get_children(): remove_child(c); c.queue_free()
-	battle=null; controls.clear()
+	battle=null; controls.clear(); art_preview_id=""
 	var width=minf(size.x,440); var height=size.y
 	var base=Control.new(); add_child(base); base.position=Vector2((size.x-width)/2,0); base.size=Vector2(width,height)
 	var back=ColorRect.new(); base.add_child(back); back.size=base.size; back.color=Color("151a1b"); back.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	var metal=TextureRect.new(); base.add_child(metal); metal.texture=load("res://assets/metal.png"); metal.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; metal.size=Vector2(width,68); metal.modulate=Color(1,1,1,0.3); metal.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	var heading=Label.new(); base.add_child(heading); heading.position=Vector2(16,10); heading.size=Vector2(width-32,26); heading.text=_title(); heading.add_theme_font_size_override("font_size",22); heading.add_theme_color_override("font_color",GOLD)
-	var status=Label.new(); base.add_child(status); status.position=Vector2(16,40); status.text="%d일째     금화 %d     검수판" % [model.s.day,model.s.gold]; status.add_theme_font_size_override("font_size",12)
+	var status=Label.new(); base.add_child(status); status.position=Vector2(16,40); status.text="%d일째     금화 %d" % [model.s.day,model.s.gold]; status.add_theme_font_size_override("font_size",12)
 	scroll=ScrollContainer.new(); base.add_child(scroll); scroll.position=Vector2(12,76); scroll.size=Vector2(width-24,height-152)
 	scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
-	content=VBoxContainer.new(); scroll.add_child(content); content.size_flags_horizontal=Control.SIZE_EXPAND_FILL; content.add_theme_constant_override("separation",12)
+	content=VBoxContainer.new(); scroll.add_child(content); content.size_flags_horizontal=Control.SIZE_EXPAND_FILL; content.add_theme_constant_override("separation",8 if screen=="town" else 12)
 	if not message.is_empty(): text(message,14,GOLD)
 	if save_error!=OK: button("save_retry","저장 다시 시도",func(): _save(); _draw_screen())
 	if not confirm.is_empty(): _confirmation()
@@ -104,8 +112,11 @@ func _draw_screen() -> void:
 			"research": _research()
 	var nav=HBoxContainer.new(); base.add_child(nav); nav.position=Vector2(12,height-66); nav.size=Vector2(width-24,54); nav.add_theme_constant_override("separation",6)
 	for item in [["explore" if model.active() else "town","원정" if model.active() else "거점"],["party","동료"],["bag","가방"],["journal","기록"]]:
-		var b=Button.new(); nav.add_child(b); b.text=item[1]; b.custom_minimum_size=Vector2(0,52); b.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+		var b=ForgedButton.new(); b.active=screen==item[0]; nav.add_child(b); b.text=item[1]; b.custom_minimum_size=Vector2(0,52); b.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 		b.pressed.connect(go.bind(item[0])); controls["nav:"+item[0]]=b
+	if last_drawn_screen!=screen and not motion_reduced:
+		content.modulate.a=0; create_tween().tween_property(content,"modulate:a",1,.18)
+	last_drawn_screen=screen
 	call_deferred("_publish")
 
 func _title() -> String:
@@ -132,7 +143,7 @@ func box() -> VBoxContainer:
 	return body
 
 func button(id: String, value: String, callback: Callable, disabled=false, parent: Node=null) -> Button:
-	var b=Button.new(); (parent if parent else content).add_child(b)
+	var b=ForgedButton.new(); (parent if parent else content).add_child(b)
 	b.text=value; b.custom_minimum_size.y=54; b.size_flags_horizontal=Control.SIZE_EXPAND_FILL; b.disabled=disabled
 	b.mouse_filter=Control.MOUSE_FILTER_PASS
 	b.pressed.connect(callback); controls[id]=b
@@ -140,7 +151,7 @@ func button(id: String, value: String, callback: Callable, disabled=false, paren
 
 func image(path: String, target: Node, dims: Vector2) -> TextureRect:
 	var t=TextureRect.new(); target.add_child(t); t.texture=load(path); t.custom_minimum_size=dims
-	t.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; t.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	t.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; t.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	t.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	t.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	return t
@@ -161,18 +172,24 @@ func _portrait(id: String, parent: Node, large=false) -> void:
 	bar("HP",m.hp,b.hp,body); bar("MP",m.mp,b.mp,body,false)
 
 func _town() -> void:
-	image("res://assets/src/torva-town-v1.png",content,Vector2(0,188))
-	text("계약을 맺고, 다시 폐허로",20,GOLD)
-	text("케른 용병단과 마렌토 상인의 변경 도시",13,MUTED)
-	var party=HBoxContainer.new(); content.add_child(party); party.add_theme_constant_override("separation",6)
-	for id in model.s.party:
-		var cell=VBoxContainer.new(); party.add_child(cell); cell.size_flags_horizontal=SIZE_EXPAND_FILL
-		image("res://assets/"+id+".webp",cell,Vector2(0,76)); text(model.person(id).name,12,INK,cell)
-	button("depart","성문으로 · 원정 준비",go.bind("depart"))
+	var city=image("res://assets/src/torva-town-v1.png",content,Vector2(0,132))
+	city.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	var grid=GridContainer.new(); content.add_child(grid); grid.columns=2; grid.add_theme_constant_override("h_separation",8); grid.add_theme_constant_override("v_separation",8)
-	for facility in [["guild","연합 길드","의뢰 · 동료 영입","guild"],["shop","마렌토 상회","보급품 · 장비","shop"],["inn","아랫마을 여관","교류 · 하루 휴식","inn"],["smithy","한나의 대장간","강화 · 장비 가공","smithy"]]:
+	for facility in [["guild","연합 길드","의뢰 · 영입","guild"],["shop","마렌토 상회","보급 · 장비","shop"],["inn","아랫마을 여관","교류 · 휴식","inn"],["smithy","한나의 대장간","강화 · 가공","smithy"]]:
 		var b=button(facility[0],facility[1]+"\n"+facility[2],go.bind(facility[0]),false,grid)
-		b.icon=load("res://assets/ic_pl_"+facility[3]+".webp"); b.add_theme_constant_override("icon_max_width",24); b.add_theme_font_size_override("font_size",13); b.custom_minimum_size.y=76
+		b.icon=load("res://assets/ic_pl_"+facility[3]+".webp"); b.add_theme_constant_override("icon_max_width",28); b.add_theme_font_size_override("font_size",13); b.custom_minimum_size.y=64
+	var caption=HBoxContainer.new(); content.add_child(caption)
+	text("출전 파티",17,GOLD,caption)
+	var edit=button("town_formation","편성",go.bind("party"),false,caption); edit.custom_minimum_size=Vector2(62,44); edit.size_flags_horizontal=Control.SIZE_SHRINK_END
+	var party=HBoxContainer.new(); content.add_child(party); party.add_theme_constant_override("separation",5)
+	for id in model.s.party:
+		var b=button("town_member:"+id,"",func(): who=id; go("member"),false,party); b.custom_minimum_size.y=160; b.textured=false
+		var stack=VBoxContainer.new(); b.add_child(stack); stack.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); stack.offset_left=3; stack.offset_right=-3; stack.offset_top=3; stack.offset_bottom=-3; stack.add_theme_constant_override("separation",2); stack.mouse_filter=Control.MOUSE_FILTER_IGNORE
+		var pic=image("res://assets/"+id+".webp",stack,Vector2(0,112)); pic.set_meta("uncropped_portrait",id)
+		var name_label=text(model.person(id).name,12,INK,stack); name_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+		var role=text(model.person(id)["class"],12,MUTED,stack); role.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	var depart=button("depart","원정 준비",go.bind("depart")); depart.emphasis=true; depart.custom_minimum_size.y=58; depart.add_theme_font_size_override("font_size",18)
+	depart.icon=load("res://assets/ic_pl_guild.webp"); depart.add_theme_constant_override("icon_max_width",24)
 
 func _party() -> void:
 	var row=HBoxContainer.new(); content.add_child(row)
@@ -193,6 +210,8 @@ func _member() -> void:
 	var panel=box(); _portrait(who,panel,true)
 	var p=model.person(who); var m=model.s.members[who]; var b=model.stats(who,m.level)
 	text(p.race+" · "+p.nation,14,INK,panel)
+	text("전용 무기 · "+CharacterSprite.info(who).weapon,13,MUTED,panel)
+	button("signature_preview","전용 도트 · 고유 기술 연출",_show_art.bind(who),false,panel)
 	bar("경험치",m.xp,model.need(m.level),panel,false)
 	text("호감 %s / 200" % number(m.aff),14,GOLD,panel)
 	text("힘 %.1f   민첩 %.1f   지능 %.1f\n방어 %.1f   속도 %.1f" % [b.str,b.agi,b.int,b.def,b.spd],14,INK,panel)
@@ -416,7 +435,7 @@ func _publish() -> void:
 		if not is_instance_valid(controls[id]): continue
 		var b=controls[id]; var r=b.get_global_rect()
 		buttons[id]={"rect":[r.position.x,r.position.y,r.size.x,r.size.y],"disabled":b.disabled,"needed":FONT.get_multiline_string_size(b.text,HORIZONTAL_ALIGNMENT_LEFT,-1,b.get_theme_font_size("font_size")).x+24}
-	var report={"build":model.config.build,"screen":"battle" if is_instance_valid(battle) else screen,"state":model.s,"controls":buttons,"viewport":[size.x,size.y],"restored":restored,"save_error":save_error}
+	var report={"build":model.config.build,"screen":"battle" if is_instance_valid(battle) else screen,"state":model.s,"controls":buttons,"viewport":[size.x,size.y],"restored":restored,"save_error":save_error,"art_preview":art_preview_id,"town_scroll_height":content.size.y if is_instance_valid(content) else 0}
 	JavaScriptBridge.eval("window.__abyssWorld="+JSON.stringify(report)+";",true)
 
 func _process(delta: float) -> void:
@@ -535,3 +554,34 @@ func _research() -> void:
 		button("train:"+kind,("몸통" if kind=="prefix" else "덧효과")+" +%d → +%d · 금화 %d" % [level,level+1,amount],func(): _ask("금화를 소모해 전술 조각을 강화할까요?",model.train.bind(who,kind)),level>=10 or model.s.gold<amount)
 	button("research_clear","전술 해제 · 기본 방어 복원",func(): model.s.research[who].prefix=""; model.s.research[who].suffix=""; _save(); _draw_screen(),model.active())
 	button("research_back","길드 접수로",go.bind("guild"))
+
+
+func _show_art(id: String) -> void:
+	if is_instance_valid(art_preview): remove_child(art_preview); art_preview.queue_free()
+	for key in ["art_prev","art_next","art_replay","art_close"]: controls.erase(key)
+	art_preview_id=id
+	art_preview=Control.new(); add_child(art_preview); art_preview.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); art_preview.mouse_filter=Control.MOUSE_FILTER_STOP
+	var shade=ColorRect.new(); art_preview.add_child(shade); shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); shade.color=Color(0,0,0,.88); shade.mouse_filter=MOUSE_FILTER_IGNORE
+	var width=minf(size.x-24,406); var height=minf(size.y-96,510)
+	var box=VBoxContainer.new(); art_preview.add_child(box); box.position=Vector2((size.x-width)/2,(size.y-height)/2); box.size=Vector2(width,height); box.add_theme_constant_override("separation",10)
+	var data=CharacterSprite.info(id)
+	text(data.name+" · "+data["class"],18,GOLD,box)
+	text("전용 무기 · "+data.weapon,13,INK,box)
+	var stage=Control.new(); box.add_child(stage); stage.custom_minimum_size=Vector2(0,300); stage.size_flags_vertical=SIZE_EXPAND_FILL
+	var sprite=CharacterSprite.new(); stage.add_child(sprite); sprite.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); sprite.configure(id,true); sprite.visible=false
+	var seq=SignatureSequence.new(); seq.character_id=id; seq.preview=true; seq.reduced=motion_reduced; stage.add_child(seq); seq.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	seq.finished.connect(func(): sprite.visible=true)
+	text("연출 미리보기 · 전투 수치와 저장에는 영향 없음",12,MUTED,box)
+	var row=HBoxContainer.new(); box.add_child(row); row.add_theme_constant_override("separation",6)
+	var ids=model.config.companions.map(func(p): return p.id); var index=ids.find(id)
+	button("art_prev","이전",_show_art.bind(ids[posmod(index-1,ids.size())]),false,row)
+	button("art_replay","다시 재생",_show_art.bind(id),false,row)
+	button("art_next","다음",_show_art.bind(ids[(index+1)%ids.size()]),false,row)
+	button("art_close","닫기",_close_art,false,box)
+	call_deferred("_publish")
+
+func _close_art() -> void:
+	if is_instance_valid(art_preview): art_preview.queue_free()
+	art_preview_id=""
+	for key in ["art_prev","art_next","art_replay","art_close"]: controls.erase(key)
+	_publish()
