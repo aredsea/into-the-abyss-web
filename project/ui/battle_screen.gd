@@ -254,6 +254,7 @@ func _battlefield(rect: Rect2) -> void:
 		_label("Lv.%d %s" % [e.level,e.name],Rect2(3,1,summary_w-6,18),12,INK,summary,HORIZONTAL_ALIGNMENT_CENTER)
 		_meter(Rect2(3,21,summary_w-6,16),e.hp,e.mhp,true,summary,"HP %d / %d" % [e.hp,e.mhp])
 	actor = CharacterSprite.new()
+	actor.idle_enabled = true
 	_actor_texture(false)
 	_put(actor,Rect2(rect.size.x*.10,rect.size.y-136,rect.size.x*.49,132),field)
 	controls["field"]={"rect":[rect.position.x,rect.position.y,rect.size.x,rect.size.y]}

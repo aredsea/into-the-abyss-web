@@ -2,6 +2,7 @@ extends Node2D
 ## Visual-only sequence. Battle resolution stays in battle_v3 / battle_state.
 signal impact
 signal finished
+const Motion = preload("res://ui/motion_library.gd")
 const Clock = preload("res://ui/combat_timeline.gd")
 const Figure = preload("res://ui/character_sprite.gd")
 const Signature = preload("res://ui/signature_sequence.gd")
@@ -37,20 +38,18 @@ func _ready() -> void:
 	var length = 0.65 if action == "attack" else 0.78
 	var contact = 0.22 if action == "attack" else 0.30
 	if enemy_action: length = 0.58; contact = 0.20
-	var manifest_path = "res://data/combat-motion.json"
-	if FileAccess.file_exists(manifest_path) and not enemy_action:
-		var catalog = JSON.parse_string(FileAccess.get_file_as_string(manifest_path))
-		clip = catalog.get(character_id + ":" + action, {})
+	if not enemy_action:
+		var visual_action = "charge" if character_id == "teiris" and action == "burst" and not damaging else action
+		clip = Motion.get_clip(character_id, visual_action)
 		if not clip.is_empty():
-			sheet = load(clip.path)
-			if clip.has("weapon"): weapon_texture = load(clip.weapon.path)
-			length = float(clip.get("duration", length))
-			contact = float(clip.get("impact_at", contact))
-			contact_frame = int(clip.get("contact_frame", 4))
+			sheet = Motion.texture(clip.path)
+			length = float(clip.duration)
+			contact = float(clip.impact_at)
+			contact_frame = int(clip.contact_frame)
 	if reduced: length = 0.36; contact = 0.12
 	# Keep the existing 30 distinct personal-skill presentations. Their clock
 	# follows the same contact timeline as HP, so skipping cannot apply twice.
-	if action == "personal" and not enemy_action:
+	if action == "personal" and not enemy_action and clip.is_empty():
 		length = 0.7 if reduced else 1.6
 		contact = length * 0.42
 		signature = Signature.new()
@@ -61,6 +60,18 @@ func _ready() -> void:
 		signature.size = field.size
 		add_child(signature)
 	clock.configure(contact, length, 0.0 if reduced or not damaging else 0.035 if character_id == "bargut" else 0.05)
+	if action == "personal" and not clip.is_empty():
+		var title = Label.new()
+		title.text = Figure.info(character_id).name + " · " + clip.label
+		title.position = field.position + Vector2(8, 4)
+		title.size = Vector2(field.size.x - 16, 30)
+		title.add_theme_font_override("font", preload("res://assets/fonts/NanumGothic-Regular.ttf"))
+		title.add_theme_font_size_override("font_size", 14)
+		title.add_theme_color_override("font_color", tint)
+		title.add_theme_color_override("font_shadow_color", Color.BLACK)
+		title.add_theme_constant_override("shadow_offset_x", 1)
+		title.add_theme_constant_override("shadow_offset_y", 1)
+		add_child(title)
 	if sheet == null and signature == null:
 		if enemy_action:
 			var picture = TextureRect.new()
@@ -107,43 +118,12 @@ func _step() -> Vector2:
 
 func _draw() -> void:
 	if sheet != null:
-		var count = int(clip.frames)
-		var t = clock.elapsed
-		if clip.has("durations_ms"):
-			body_frame = count - 1
-			var boundary = 0.0
-			for i in range(count):
-				boundary += float(clip.durations_ms[i]) / 1000.0
-				if t < boundary:
-					body_frame = i
-					break
-		elif t <= clock.impact_at:
-			body_frame = mini(contact_frame, int(t / clock.impact_at * contact_frame))
-		else:
-			body_frame = mini(count - 1, contact_frame + int((t - clock.impact_at) / (clock.duration - clock.impact_at) * (count - contact_frame)))
+		body_frame = Motion.frame_at(clip, clock.elapsed)
 		if reduced: body_frame = contact_frame if clock.impacted else 0
-		var cell = int(clip.get("frame_size", 256))
-		var columns = int(clip.get("columns", 5))
-		var region = Rect2((body_frame % columns) * cell, int(body_frame / columns) * cell, cell, cell)
-		var side = source_rect.size.y * float(cell) / float(clip.get("body_height", 204))
-		var origin = Vector2(source_rect.get_center().x - side / 2.0, source_rect.end.y - side * float(clip.get("foot_y", 230)) / cell)
-		draw_texture_rect_region(sheet, Rect2(origin + _step(), Vector2.ONE * side), region)
-		if weapon_texture != null:
-			var attachment = clip.weapon
-			var grip = attachment.anchors[body_frame]
-			var hand = Vector2(grip[0], grip[1])
-			var scale_factor = side / cell
-			var pivot = Vector2(attachment.pivot[0], attachment.pivot[1])
-			draw_set_transform(origin + _step() + hand * scale_factor, deg_to_rad(float(grip[2]) - float(attachment.base_angle)), Vector2.ONE * scale_factor)
-			draw_texture(weapon_texture, -pivot)
-			draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
-			# Redraw the small original glove region in front of the fixed grip.
-			var patch = attachment.hand_patch
-			var offset = hand + Vector2(patch[0], patch[1])
-			var patch_size = Vector2(patch[2], patch[3])
-			draw_texture_rect_region(sheet, Rect2(origin + _step() + offset * scale_factor, patch_size * scale_factor), Rect2(region.position + offset, patch_size))
+		Motion.draw_frame(self, clip, body_frame, source_rect, _step())
 	if not clock.impacted: return
 	var age = maxf(0.0, float(Time.get_ticks_msec() - contact_wall_time) / 1000.0)
+	if not enemy_action and not clip.is_empty(): _skill_effect(age)
 	if damaging and age < 0.19:
 		for rect in hurt_targets:
 			var center: Vector2 = rect.get_center()
@@ -163,6 +143,40 @@ func _draw() -> void:
 		for rect in centers:
 			var center: Vector2 = rect.get_center()
 			draw_arc(center, 12 + ratio * 14, -PI, 0, 18, Color("b7d7bd", 1 - ratio), 2)
+
+func _skill_effect(age: float) -> void:
+	# These strokes depict resolved results; they never create damage or statuses.
+	if age > 0.38 or reduced: return
+	var p = clampf(age / 0.38, 0, 1)
+	var col = Color(tint, (1.0 - p) * 0.8)
+	if action == "guard" or (character_id == "hildegard" and action in ["personal", "duty"]):
+		var c = source_rect.get_center() + Vector2(35, 0)
+		var h = 28.0 + p * 5
+		draw_polyline(PackedVector2Array([c + Vector2(-11,-h),c + Vector2(9,-h*.8),c + Vector2(14,0),c + Vector2(7,h*.7),c + Vector2(-9,h)]),col,2)
+	if character_id == "hildegard" and action in ["taunt", "personal", "duty"]:
+		var c = source_rect.get_center() + Vector2(12, -4)
+		for i in range(2): draw_arc(c, 22 + p * 30 + i * 6, -0.65, 0.65, 16, col, 2)
+	elif character_id == "bargut" and action == "personal" and damaging:
+		for rect in hurt_targets:
+			var c = rect.get_center()
+			draw_polyline(PackedVector2Array([c+Vector2(-19,-13),c+Vector2(-5,-4),c+Vector2(-9,6),c+Vector2(13,16)]),col,2)
+	elif character_id == "teiris" and damaging:
+		for rect in hurt_targets:
+			var c = rect.get_center()
+			var reach = (23 if action in ["personal", "burst"] else 13) * p
+			for i in range(5):
+				var direction = Vector2.from_angle(i * TAU / 5)
+				var tip = c + direction * reach
+				draw_line(tip, tip + direction * 7, col, 2)
+	elif character_id == "berenga" and not damaging and action in ["personal", "hshield", "bless"]:
+		for rect in targets:
+			var c = rect.get_center()
+			if action == "personal":
+				draw_line(c + Vector2(-7,-5), c + Vector2(7,-5), col, 2)
+				draw_line(c + Vector2(0,-12), c + Vector2(0,2), col, 2)
+				for i in range(2): draw_arc(c, 13 + i * 5, p * PI + i * PI, p * PI + i * PI + 1.6, 12, col, 2)
+			elif action == "hshield": draw_arc(c, 18, PI, TAU, 20, col, 2)
+			else: draw_polyline(PackedVector2Array([c+Vector2(-8,2-p*12),c+Vector2(0,-6-p*12),c+Vector2(8,2-p*12)]),col,2)
 
 func reaction_offset() -> Vector2:
 	if reduced or not damaging or not clock.impacted: return Vector2.ZERO

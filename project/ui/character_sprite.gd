@@ -1,6 +1,10 @@
 extends Control
 ## Displays unmodified sheet pixels through a transparent-seam UV polygon.
 ## A straight atlas crop would cut wide weapons that cross the sheet midpoint.
+const Motion = preload("res://ui/motion_library.gd")
+var idle_enabled = false
+var idle_reduced = false
+var idle_clip: Dictionary = {}
 static var catalog: Dictionary={}
 var character_id=""
 var action_pose=false
@@ -17,6 +21,7 @@ func configure(id: String, action=false) -> void:
 	character_id=id; action_pose=action
 	var data=info(id)
 	if not data.is_empty(): sheet=load(data.path)
+	idle_clip = Motion.get_clip(id, "idle") if idle_enabled and not portrait_mode and not action_pose else {}
 	queue_redraw()
 
 func _ready() -> void:
@@ -24,8 +29,16 @@ func _ready() -> void:
 	clip_contents=portrait_mode
 	texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
 	resized.connect(queue_redraw)
+	idle_reduced = OS.has_feature("web") and bool(JavaScriptBridge.eval("window.matchMedia('(prefers-reduced-motion: reduce)').matches", true))
+
+func _process(_delta: float) -> void:
+	if idle_enabled and not idle_clip.is_empty() and not idle_reduced and is_visible_in_tree(): queue_redraw()
 
 func _draw() -> void:
+	if idle_enabled and not idle_clip.is_empty() and not idle_reduced:
+		var time = fmod(float(Time.get_ticks_msec()) / 1000.0, float(idle_clip.duration))
+		Motion.draw_frame(self, idle_clip, Motion.frame_at(idle_clip, time), Rect2(Vector2.ZERO, size))
+		return
 	if sheet==null: return
 	var data=info(character_id); var frame=data.frames[1 if action_pose else 0]; var b=frame.bounds
 	if portrait_mode:

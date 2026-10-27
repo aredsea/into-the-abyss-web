@@ -1,4 +1,36 @@
 {
+  "hildegard:idle": {
+    "key": "hildegard:idle",
+    "path": "res://assets/motion-r8/hildegard-idle.png",
+    "frames": 9,
+    "frame_size": 256,
+    "columns": 5,
+    "body_height": 204,
+    "foot_y": 230,
+    "root_motion": true,
+    "durations_ms": [
+      340,
+      260,
+      240,
+      260,
+      360,
+      260,
+      240,
+      260,
+      340
+    ],
+    "duration": 2.56,
+    "contact_frame": 0,
+    "impact_at": 0.0,
+    "label": "대기",
+    "note": "발을 고정하고 호흡과 머리카락·옷자락의 움직임을 확인합니다.",
+    "contact_sheet": "assets/hildegard-idle-contact.png",
+    "reference_path": "res://assets/motion-r8/hildegard-seed.png",
+    "reference_frames": [
+      0,
+      8
+    ]
+  },
   "hildegard:attack": {
     "frames": 12,
     "frame_size": 256,
@@ -99,6 +131,780 @@
       ],
       "path": "res://assets/motion-r7/hildegard-sword.png"
     },
-    "path": "res://assets/motion-r7/hildegard-attack-body.png"
+    "path": "res://assets/motion-r7/hildegard-attack-body.png",
+    "key": "hildegard:attack",
+    "label": "일반 공격",
+    "note": "몸을 모으고 발을 디딘 뒤 상체를 돌려 크게 벱니다. 검기는 없습니다.",
+    "contact_sheet": "../r7/assets/contact.png",
+    "reference_path": "res://assets/motion-r8/hildegard-seed.png",
+    "reference_frames": [
+      0,
+      11
+    ]
+  },
+  "hildegard:guard": {
+    "key": "hildegard:guard",
+    "path": "res://assets/motion-r8/hildegard-guard.png",
+    "frames": 8,
+    "frame_size": 256,
+    "columns": 5,
+    "body_height": 204,
+    "foot_y": 230,
+    "root_motion": true,
+    "durations_ms": [
+      55,
+      60,
+      65,
+      150,
+      100,
+      100,
+      80,
+      70
+    ],
+    "duration": 0.68,
+    "contact_frame": 3,
+    "impact_at": 0.18,
+    "label": "방어",
+    "note": "무릎을 낮추고 장검을 세워 몸 앞을 지킵니다. 실제 방패 장비는 추가하지 않습니다.",
+    "contact_sheet": "assets/hildegard-guard-contact.png",
+    "reference_path": "res://assets/motion-r8/hildegard-seed.png",
+    "reference_frames": [
+      0,
+      7
+    ],
+    "weapon": {
+      "path": "res://assets/motion-r7/hildegard-sword.png",
+      "pivot": [
+        88,
+        125
+      ],
+      "base_angle": 29,
+      "hand_patch": [
+        -3,
+        -4,
+        7,
+        9
+      ],
+      "anchors": [
+        [
+          88,
+          125,
+          29
+        ],
+        [
+          97,
+          126,
+          -10
+        ],
+        [
+          133,
+          119,
+          -55
+        ],
+        [
+          136,
+          116,
+          -65
+        ],
+        [
+          128,
+          122,
+          -65
+        ],
+        [
+          135,
+          117,
+          -65
+        ],
+        [
+          111,
+          121,
+          -10
+        ],
+        [
+          88,
+          125,
+          29
+        ]
+      ]
+    }
+  },
+  "hildegard:taunt": {
+    "key": "hildegard:taunt",
+    "path": "res://assets/motion-r8/hildegard-taunt.png",
+    "frames": 10,
+    "frame_size": 256,
+    "columns": 5,
+    "body_height": 204,
+    "foot_y": 230,
+    "root_motion": true,
+    "durations_ms": [
+      45,
+      60,
+      85,
+      80,
+      60,
+      80,
+      70,
+      90,
+      70,
+      65
+    ],
+    "duration": 0.705,
+    "contact_frame": 3,
+    "impact_at": 0.19,
+    "label": "도발",
+    "note": "적을 향해 빈손을 내밀고 당긴 뒤 방어 자세로 받습니다.",
+    "contact_sheet": "assets/hildegard-taunt-contact.png",
+    "reference_path": "res://assets/motion-r8/hildegard-seed.png",
+    "reference_frames": [
+      0,
+      9
+    ],
+    "weapon": {
+      "path": "res://assets/motion-r7/hildegard-sword.png",
+      "pivot": [
+        88,
+        125
+      ],
+      "base_angle": 29,
+      "hand_patch": [
+        -3,
+        -4,
+        7,
+        9
+      ],
+      "anchors": [
+        [
+          88,
+          125,
+          29
+        ],
+        [
+          92,
+          124,
+          15
+        ],
+        [
+          129,
+          119,
+          -15
+        ],
+        [
+          132,
+          123,
+          -15
+        ],
+        [
+          127,
+          118,
+          -15
+        ],
+        [
+          128,
+          120,
+          -15
+        ],
+        [
+          133,
+          120,
+          -45
+        ],
+        [
+          136,
+          117,
+          -65
+        ],
+        [
+          107,
+          123,
+          0
+        ],
+        [
+          88,
+          125,
+          29
+        ]
+      ]
+    }
+  },
+  "hildegard:personal": {
+    "key": "hildegard:personal",
+    "path": "res://assets/motion-r8/hildegard-personal.png",
+    "frames": 10,
+    "frame_size": 256,
+    "columns": 5,
+    "body_height": 204,
+    "foot_y": 230,
+    "root_motion": true,
+    "durations_ms": [
+      45,
+      70,
+      60,
+      65,
+      140,
+      85,
+      75,
+      65,
+      65,
+      65
+    ],
+    "duration": 0.735,
+    "contact_frame": 3,
+    "impact_at": 0.175,
+    "label": "전방 근무 개시",
+    "note": "앞발을 디디고 장검을 세워 전선을 막습니다. 피해 감소·도발을 부여하는 기술입니다.",
+    "contact_sheet": "assets/hildegard-personal-contact.png",
+    "reference_path": "res://assets/motion-r8/hildegard-seed.png",
+    "reference_frames": [
+      0,
+      9
+    ],
+    "weapon": {
+      "path": "res://assets/motion-r7/hildegard-sword.png",
+      "pivot": [
+        88,
+        125
+      ],
+      "base_angle": 29,
+      "hand_patch": [
+        -3,
+        -4,
+        7,
+        9
+      ],
+      "anchors": [
+        [
+          88,
+          125,
+          29
+        ],
+        [
+          90,
+          124,
+          -5
+        ],
+        [
+          134,
+          122,
+          -45
+        ],
+        [
+          151,
+          120,
+          -72
+        ],
+        [
+          157,
+          122,
+          -72
+        ],
+        [
+          150,
+          122,
+          -72
+        ],
+        [
+          135,
+          118,
+          -65
+        ],
+        [
+          126,
+          118,
+          -40
+        ],
+        [
+          98,
+          126,
+          -5
+        ],
+        [
+          88,
+          125,
+          29
+        ]
+      ]
+    }
+  },
+  "bargut:idle": {
+    "key": "bargut:idle",
+    "path": "res://assets/motion-r8/bargut-idle.png",
+    "frames": 9,
+    "frame_size": 256,
+    "columns": 5,
+    "body_height": 204,
+    "foot_y": 230,
+    "root_motion": true,
+    "durations_ms": [
+      340,
+      260,
+      240,
+      260,
+      360,
+      260,
+      240,
+      260,
+      340
+    ],
+    "duration": 2.56,
+    "contact_frame": 0,
+    "impact_at": 0.0,
+    "label": "대기",
+    "note": "발을 고정하고 호흡과 머리카락·옷자락의 움직임을 확인합니다.",
+    "contact_sheet": "assets/bargut-idle-contact.png",
+    "reference_path": "res://assets/motion-r8/bargut-seed.png",
+    "reference_frames": [
+      0,
+      8
+    ]
+  },
+  "bargut:attack": {
+    "key": "bargut:attack",
+    "path": "res://assets/motion-r8/bargut-attack.png",
+    "frames": 10,
+    "frame_size": 256,
+    "columns": 5,
+    "body_height": 204,
+    "foot_y": 230,
+    "root_motion": true,
+    "durations_ms": [
+      45,
+      60,
+      45,
+      65,
+      60,
+      60,
+      55,
+      65,
+      65,
+      60
+    ],
+    "duration": 0.58,
+    "contact_frame": 3,
+    "impact_at": 0.15,
+    "label": "일반 공격",
+    "note": "낮게 중심을 모으고 짧게 파고들어 단검으로 벤 뒤 발을 거둡니다.",
+    "contact_sheet": "assets/bargut-attack-contact.png",
+    "reference_path": "res://assets/motion-r8/bargut-seed.png",
+    "reference_frames": [
+      0,
+      9
+    ]
+  },
+  "bargut:guard": {
+    "key": "bargut:guard",
+    "path": "res://assets/motion-r8/bargut-guard.png",
+    "frames": 9,
+    "frame_size": 256,
+    "columns": 5,
+    "body_height": 204,
+    "foot_y": 230,
+    "root_motion": true,
+    "durations_ms": [
+      50,
+      65,
+      75,
+      110,
+      110,
+      90,
+      75,
+      65,
+      60
+    ],
+    "duration": 0.7,
+    "contact_frame": 3,
+    "impact_at": 0.19,
+    "label": "방어",
+    "note": "몸을 낮추고 무기를 가까이 모아 방어한 뒤 원래 자세로 돌아갑니다.",
+    "contact_sheet": "assets/bargut-guard-contact.png",
+    "reference_path": "res://assets/motion-r8/bargut-seed.png",
+    "reference_frames": [
+      0,
+      8
+    ]
+  },
+  "bargut:personal": {
+    "key": "bargut:personal",
+    "path": "res://assets/motion-r8/bargut-personal.png",
+    "frames": 12,
+    "frame_size": 256,
+    "columns": 5,
+    "body_height": 204,
+    "foot_y": 230,
+    "root_motion": true,
+    "durations_ms": [
+      40,
+      45,
+      45,
+      35,
+      25,
+      65,
+      65,
+      65,
+      60,
+      60,
+      55,
+      50
+    ],
+    "duration": 0.61,
+    "contact_frame": 5,
+    "impact_at": 0.19,
+    "label": "선점 효과",
+    "note": "낮은 진입에서 두 단검으로 한 표적을 기습한 뒤 빠르게 회수합니다.",
+    "contact_sheet": "assets/bargut-personal-contact.png",
+    "reference_path": "res://assets/motion-r8/bargut-seed.png",
+    "reference_frames": [
+      0,
+      11
+    ]
+  },
+  "teiris:idle": {
+    "key": "teiris:idle",
+    "path": "res://assets/motion-r8/teiris-idle.png",
+    "frames": 9,
+    "frame_size": 256,
+    "columns": 5,
+    "body_height": 204,
+    "foot_y": 230,
+    "root_motion": true,
+    "durations_ms": [
+      340,
+      260,
+      240,
+      260,
+      360,
+      260,
+      240,
+      260,
+      340
+    ],
+    "duration": 2.56,
+    "contact_frame": 0,
+    "impact_at": 0.0,
+    "label": "대기",
+    "note": "발을 고정하고 호흡과 머리카락·옷자락의 움직임을 확인합니다.",
+    "contact_sheet": "assets/teiris-idle-contact.png",
+    "reference_path": "res://assets/motion-r8/teiris-seed.png",
+    "reference_frames": [
+      0,
+      8
+    ]
+  },
+  "teiris:attack": {
+    "key": "teiris:attack",
+    "path": "res://assets/motion-r8/teiris-attack.png",
+    "frames": 13,
+    "frame_size": 256,
+    "columns": 5,
+    "body_height": 204,
+    "foot_y": 230,
+    "root_motion": true,
+    "durations_ms": [
+      40,
+      50,
+      55,
+      45,
+      55,
+      70,
+      70,
+      65,
+      65,
+      65,
+      60,
+      55,
+      50
+    ],
+    "duration": 0.745,
+    "contact_frame": 4,
+    "impact_at": 0.19,
+    "label": "일반 공격",
+    "note": "수정 지팡이를 받치고 빈손을 내밀어 한 적에게 마력을 보냅니다.",
+    "contact_sheet": "assets/teiris-attack-contact.png",
+    "reference_path": "res://assets/motion-r8/teiris-seed.png",
+    "reference_frames": [
+      0,
+      12
+    ]
+  },
+  "teiris:guard": {
+    "key": "teiris:guard",
+    "path": "res://assets/motion-r8/teiris-guard.png",
+    "frames": 9,
+    "frame_size": 256,
+    "columns": 5,
+    "body_height": 204,
+    "foot_y": 230,
+    "root_motion": true,
+    "durations_ms": [
+      50,
+      65,
+      75,
+      110,
+      110,
+      90,
+      75,
+      65,
+      60
+    ],
+    "duration": 0.7,
+    "contact_frame": 3,
+    "impact_at": 0.19,
+    "label": "방어",
+    "note": "몸을 낮추고 무기를 가까이 모아 방어한 뒤 원래 자세로 돌아갑니다.",
+    "contact_sheet": "assets/teiris-guard-contact.png",
+    "reference_path": "res://assets/motion-r8/teiris-seed.png",
+    "reference_frames": [
+      0,
+      8
+    ]
+  },
+  "teiris:personal": {
+    "key": "teiris:personal",
+    "path": "res://assets/motion-r8/teiris-personal.png",
+    "frames": 13,
+    "frame_size": 256,
+    "columns": 5,
+    "body_height": 204,
+    "foot_y": 230,
+    "root_motion": true,
+    "durations_ms": [
+      40,
+      50,
+      55,
+      45,
+      55,
+      70,
+      70,
+      65,
+      65,
+      65,
+      60,
+      55,
+      50
+    ],
+    "duration": 0.745,
+    "contact_frame": 4,
+    "impact_at": 0.19,
+    "label": "마감 전날 대폭발",
+    "note": "짧게 몸을 모으고 손바닥을 밀어 즉시 발동한 뒤 반동을 받아냅니다. 긴 충전이 없습니다.",
+    "contact_sheet": "assets/teiris-personal-contact.png",
+    "reference_path": "res://assets/motion-r8/teiris-seed.png",
+    "reference_frames": [
+      0,
+      12
+    ]
+  },
+  "teiris:charge": {
+    "key": "teiris:charge",
+    "path": "res://assets/motion-r8/teiris-charge.png",
+    "frames": 9,
+    "frame_size": 256,
+    "columns": 5,
+    "body_height": 204,
+    "foot_y": 230,
+    "root_motion": true,
+    "durations_ms": [
+      60,
+      75,
+      80,
+      100,
+      120,
+      95,
+      80,
+      70,
+      70
+    ],
+    "duration": 0.75,
+    "contact_frame": 4,
+    "impact_at": 0.315,
+    "label": "마력 충전",
+    "note": "마력을 모으는 준비 자세입니다. 이 단계에서 폭발 피해를 표현하지 않습니다.",
+    "contact_sheet": "assets/teiris-charge-contact.png",
+    "reference_path": "res://assets/motion-r8/teiris-seed.png",
+    "reference_frames": [
+      0,
+      8
+    ]
+  },
+  "berenga:idle": {
+    "key": "berenga:idle",
+    "path": "res://assets/motion-r8/berenga-idle.png",
+    "frames": 9,
+    "frame_size": 256,
+    "columns": 5,
+    "body_height": 204,
+    "foot_y": 230,
+    "root_motion": true,
+    "durations_ms": [
+      340,
+      260,
+      240,
+      260,
+      360,
+      260,
+      240,
+      260,
+      340
+    ],
+    "duration": 2.56,
+    "contact_frame": 0,
+    "impact_at": 0.0,
+    "label": "대기",
+    "note": "발을 고정하고 호흡과 머리카락·옷자락의 움직임을 확인합니다.",
+    "contact_sheet": "assets/berenga-idle-contact.png",
+    "reference_path": "res://assets/motion-r8/berenga-seed.png",
+    "reference_frames": [
+      0,
+      8
+    ]
+  },
+  "berenga:attack": {
+    "key": "berenga:attack",
+    "path": "res://assets/motion-r8/berenga-attack.png",
+    "frames": 13,
+    "frame_size": 256,
+    "columns": 5,
+    "body_height": 204,
+    "foot_y": 230,
+    "root_motion": true,
+    "durations_ms": [
+      40,
+      50,
+      55,
+      45,
+      55,
+      70,
+      70,
+      65,
+      65,
+      65,
+      60,
+      55,
+      50
+    ],
+    "duration": 0.745,
+    "contact_frame": 2,
+    "impact_at": 0.09,
+    "label": "일반 공격",
+    "note": "나무 성표 지팡이를 잡고 한 적을 향해 손을 뻗습니다.",
+    "contact_sheet": "assets/berenga-attack-contact.png",
+    "reference_path": "res://assets/motion-r8/berenga-seed.png",
+    "reference_frames": [
+      0,
+      12
+    ]
+  },
+  "berenga:guard": {
+    "key": "berenga:guard",
+    "path": "res://assets/motion-r8/berenga-guard.png",
+    "frames": 9,
+    "frame_size": 256,
+    "columns": 5,
+    "body_height": 204,
+    "foot_y": 230,
+    "root_motion": true,
+    "durations_ms": [
+      50,
+      65,
+      75,
+      110,
+      110,
+      90,
+      75,
+      65,
+      60
+    ],
+    "duration": 0.7,
+    "contact_frame": 3,
+    "impact_at": 0.19,
+    "label": "방어",
+    "note": "몸을 낮추고 무기를 가까이 모아 방어한 뒤 원래 자세로 돌아갑니다.",
+    "contact_sheet": "assets/berenga-guard-contact.png",
+    "reference_path": "res://assets/motion-r8/berenga-seed.png",
+    "reference_frames": [
+      0,
+      8
+    ]
+  },
+  "berenga:personal": {
+    "key": "berenga:personal",
+    "path": "res://assets/motion-r8/berenga-personal.png",
+    "frames": 13,
+    "frame_size": 256,
+    "columns": 5,
+    "body_height": 204,
+    "foot_y": 230,
+    "root_motion": true,
+    "durations_ms": [
+      40,
+      50,
+      55,
+      45,
+      55,
+      70,
+      70,
+      65,
+      65,
+      65,
+      60,
+      55,
+      50
+    ],
+    "duration": 0.745,
+    "contact_frame": 6,
+    "impact_at": 0.315,
+    "label": "트리아지",
+    "note": "몸을 기울여 한 아군을 살피고 빈손을 둥글게 펴 치유할 곳을 지정합니다.",
+    "contact_sheet": "assets/berenga-personal-contact.png",
+    "reference_path": "res://assets/motion-r8/berenga-seed.png",
+    "reference_frames": [
+      0,
+      12
+    ]
+  },
+  "berenga:cast": {
+    "key": "berenga:cast",
+    "path": "res://assets/motion-r8/berenga-cast.png",
+    "frames": 9,
+    "frame_size": 256,
+    "columns": 5,
+    "body_height": 204,
+    "foot_y": 230,
+    "root_motion": true,
+    "durations_ms": [
+      60,
+      75,
+      80,
+      100,
+      120,
+      95,
+      80,
+      70,
+      70
+    ],
+    "duration": 0.75,
+    "contact_frame": 4,
+    "impact_at": 0.315,
+    "label": "파티 축복",
+    "note": "지팡이를 받치고 빈팔을 넓게 열어 파티를 향해 축복합니다.",
+    "contact_sheet": "assets/berenga-cast-contact.png",
+    "reference_path": "res://assets/motion-r8/berenga-seed.png",
+    "reference_frames": [
+      0,
+      8
+    ]
+  },
+  "hildegard:duty": {
+    "alias": "hildegard:personal"
+  },
+  "berenga:hshield": {
+    "alias": "berenga:cast"
+  },
+  "berenga:bless": {
+    "alias": "berenga:cast"
+  },
+  "teiris:burst": {
+    "alias": "teiris:personal"
   }
 }
