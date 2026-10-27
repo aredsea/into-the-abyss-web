@@ -37,3 +37,10 @@
 - 결과: `verification/qa.json`, `verification/public-touch-qa.json`, `verification/files.json`. 화면: `verification/town_390.png`, `verification/town_360.png`.
 
 Pages 게시 원본은 [`main` 브랜치 `/docs` 방식](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)을 사용하도록 준비했습니다.
+
+
+## r2 공개 주소 검증
+
+[GitHub Pages](https://aredsea.github.io/into-the-abyss-web/)의 `world-route-20261027-r2`에서 390×844·360×780 전체 지도/카드/전투/저장 흐름을 다시 통과했다. 콘솔 오류 0개이며, 합성 터치 선택·스크롤·귀환·저장 복원도 통과했다. 공개 지도와 실제 로딩 스크린샷 두 크기를 직접 열어 확인했다. 공개 PCK·WASM의 SHA-256이 최종 로컬 내보내기와 일치하고 WASM MIME은 application/wasm이다. 자료는 `verification/route/public/`에 있다.
+
+구현 게시 커밋: `f834fe4`. [Pages 게시 작업 40453325520](https://github.com/aredsea/into-the-abyss-web/actions/runs/40453325520) 성공. 실제 휴대폰 검사나 밸런스 합격 판정을 뜻하지 않는다.
