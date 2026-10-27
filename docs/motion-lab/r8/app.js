@@ -18,4 +18,3 @@ $('play').onclick=()=>{if(!clip)return;time=0;frame=0;playing=true;$('pause').te
 $('pause').onclick=()=>{if(!clip)return;playing=!playing;$('pause').textContent=playing?'일시 정지':'재생'};
 $('timeline').oninput=()=>seek(Number($('timeline').value));$('prev').onclick=()=>seek(frame-1);$('next').onclick=()=>seek(frame+1);$('compare').onchange=draw;$('body').onchange=draw;
 (async()=>{manifest=await(await fetch('manifest.json')).json();for(const[id,a]of Object.entries(manifest.characters)){const b=document.createElement('button');b.textContent=a.name;b.dataset.id=id;b.onclick=()=>choose(id);$('characters').append(b)}await img('../assets/academy.png');await choose(character);requestAnimationFrame(tick)})().catch(e=>{$('description').textContent='모션을 불러오지 못했습니다. 새로고침해 주세요.';console.error(e)});
-

@@ -10,4 +10,3 @@ const art=JSON.parse(fs.readFileSync(root+'/project/data/character-art-r4.json',
  fs.writeFileSync(out+'/'+id+'-seed.png',canvas.toBuffer('image/png'));
  records.push({id,source_sha256:crypto.createHash('sha256').update(fs.readFileSync(source)).digest('hex'),seed_size:[256,256],source_bounds:b,scale,foot_y:230,original_modified:false});
 }fs.writeFileSync(out+'/seed-provenance.json',JSON.stringify(records,null,2));console.log(JSON.stringify(records));})();
-
