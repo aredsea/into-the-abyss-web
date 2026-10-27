@@ -1,0 +1,32 @@
+; Godot 4 project. Open this file in Godot 4.7.2 standard (GDScript).
+config_version=5
+
+[application]
+config/name="Into the Abyss"
+run/main_scene="res://scenes/world.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+
+[display]
+window/size/viewport_width=360
+window/size/viewport_height=780
+window/size/window_width_override=390
+window/size/window_height_override=844
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+environment/defaults/default_clear_color=Color(0.055,0.067,0.071,1)
+
+[gui]
+theme/default_font_multichannel_signed_distance_field=false
+
+[debug]
+file_logging/enable_file_logging=false
+
+[input_devices]
+pointing/emulate_touch_from_mouse=true
+pointing/emulate_mouse_from_touch=true

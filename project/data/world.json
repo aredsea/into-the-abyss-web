@@ -1,0 +1,948 @@
+{
+  "build": "world-public-20261027-r1",
+  "curves": {
+    "hp": {
+      "label": "HP",
+      "a": 0.085,
+      "b": 0.0012
+    },
+    "mp": {
+      "label": "MP",
+      "a": 0.03,
+      "b": 0.0
+    },
+    "atk": {
+      "label": "힘·민첩·지능(계수)",
+      "a": 0.07,
+      "b": 0.001
+    },
+    "def": {
+      "label": "방어",
+      "a": 0.06,
+      "b": 0.0008
+    },
+    "spd": {
+      "label": "속도(덧셈)",
+      "add": 0.25
+    },
+    "crit": {
+      "label": "치명%(덧셈)",
+      "add": 0.0
+    }
+  },
+  "classes": [
+    {
+      "id": "warrior",
+      "name": "전사",
+      "line": "힘",
+      "row": "전열",
+      "base": {
+        "hp": 118,
+        "mp": 33,
+        "str": 18,
+        "agi": 6,
+        "int": 3,
+        "def": 17,
+        "spd": 86,
+        "crit": 3
+      },
+      "grow": {
+        "hp": 1.1,
+        "mp": 1.0,
+        "str": 1.05,
+        "agi": 1.0,
+        "int": 1.0,
+        "def": 1.1,
+        "spd": 1.0,
+        "crit": 1.0
+      },
+      "skills": [
+        {
+          "id": "atk",
+          "name": "일반 공격",
+          "kind": "기본",
+          "mp": 0,
+          "target": "적 1",
+          "power": 1.0,
+          "turns": 0,
+          "chance": 100,
+          "brk": 12,
+          "note": "힘 계수 · 단일"
+        },
+        {
+          "id": "taunt",
+          "name": "도발",
+          "kind": "능동",
+          "mp": 10,
+          "target": "자신",
+          "power": 0,
+          "turns": 2,
+          "chance": 100,
+          "brk": 20,
+          "note": "적의 공격을 자신에게 끌어온다 · 위압으로 심연을 깎는다"
+        },
+        {
+          "id": "guard",
+          "name": "방어",
+          "kind": "능동",
+          "mp": 8,
+          "target": "자신",
+          "power": 0.4,
+          "turns": 2,
+          "chance": 100,
+          "brk": 0,
+          "note": "받는 피해 -40% (모든 직업의 기본 '방어'는 1턴 — 전사는 2턴)"
+        }
+      ]
+    },
+    {
+      "id": "assassin",
+      "name": "암살자",
+      "line": "민첩",
+      "row": "전열",
+      "base": {
+        "hp": 93,
+        "mp": 40,
+        "str": 8,
+        "agi": 18,
+        "int": 4,
+        "def": 10,
+        "spd": 114,
+        "crit": 5
+      },
+      "grow": {
+        "hp": 1.0,
+        "mp": 1.0,
+        "str": 1.0,
+        "agi": 1.05,
+        "int": 1.0,
+        "def": 1.0,
+        "spd": 1.0,
+        "crit": 1.0
+      },
+      "skills": [
+        {
+          "id": "atk",
+          "name": "일반 공격",
+          "kind": "기본",
+          "mp": 0,
+          "target": "적 1",
+          "power": 1.0,
+          "turns": 0,
+          "chance": 100,
+          "brk": 3,
+          "note": "민첩 계수 · 단일"
+        }
+      ],
+      "passive": {
+        "crit": 50,
+        "extra": 0.2
+      }
+    },
+    {
+      "id": "archer",
+      "name": "궁수",
+      "line": "민첩",
+      "row": "후열",
+      "base": {
+        "hp": 82,
+        "mp": 60,
+        "str": 6,
+        "agi": 20,
+        "int": 6,
+        "def": 9,
+        "spd": 100,
+        "crit": 5
+      },
+      "grow": {
+        "hp": 1.0,
+        "mp": 1.0,
+        "str": 1.0,
+        "agi": 1.05,
+        "int": 1.0,
+        "def": 1.0,
+        "spd": 1.0,
+        "crit": 1.0
+      },
+      "skills": [
+        {
+          "id": "atk",
+          "name": "일반 공격",
+          "kind": "기본",
+          "mp": 0,
+          "target": "적 1",
+          "power": 1.0,
+          "turns": 0,
+          "chance": 100,
+          "brk": 3,
+          "note": "민첩 계수 · 단일"
+        },
+        {
+          "id": "snipe",
+          "name": "일발필살",
+          "kind": "능동",
+          "mp": 24,
+          "target": "적 1",
+          "power": 2.0,
+          "turns": 0,
+          "chance": 70,
+          "brk": 0,
+          "note": "치명타 확률 70% · 치명 배율 1.5~2.5(스킬 레벨에 따라 오름, 시제품 2.0)"
+        }
+      ]
+    },
+    {
+      "id": "sanctioned",
+      "name": "공인 마법사",
+      "line": "지능",
+      "row": "후열",
+      "base": {
+        "hp": 77,
+        "mp": 86,
+        "str": 3,
+        "agi": 6,
+        "int": 20,
+        "def": 8,
+        "spd": 88,
+        "crit": 0
+      },
+      "grow": {
+        "hp": 0.9,
+        "mp": 1.0,
+        "str": 1.0,
+        "agi": 1.0,
+        "int": 1.05,
+        "def": 0.9,
+        "spd": 1.0,
+        "crit": 1.0
+      },
+      "skills": [
+        {
+          "id": "atk",
+          "name": "일반 공격",
+          "kind": "기본",
+          "mp": 0,
+          "target": "적 1",
+          "power": 1.0,
+          "turns": 0,
+          "chance": 100,
+          "brk": 3,
+          "note": "지능 계수 · 단일"
+        },
+        {
+          "id": "burst",
+          "name": "마력 폭발",
+          "kind": "능동",
+          "mp": 36,
+          "target": "적 전체",
+          "power": 1.9,
+          "turns": 2,
+          "chance": 100,
+          "brk": 0,
+          "note": "2턴 충전 뒤 발동"
+        },
+        {
+          "id": "delay",
+          "name": "상대 차례 지연",
+          "kind": "부가",
+          "mp": 0,
+          "target": "적 1",
+          "power": 0.25,
+          "turns": 0,
+          "chance": 100,
+          "brk": 0,
+          "note": "마력 폭발 충전 시작 때 지정한 적의 차례를 25% 뒤로"
+        }
+      ],
+      "passive": {
+        "delay": 0.08
+      }
+    },
+    {
+      "id": "unsanctioned",
+      "name": "비공인 마법사",
+      "line": "지능",
+      "row": "후열",
+      "base": {
+        "hp": 73,
+        "mp": 79,
+        "str": 2,
+        "agi": 6,
+        "int": 22,
+        "def": 7,
+        "spd": 90,
+        "crit": 0
+      },
+      "grow": {
+        "hp": 0.9,
+        "mp": 1.0,
+        "str": 1.0,
+        "agi": 1.0,
+        "int": 1.05,
+        "def": 0.9,
+        "spd": 1.0,
+        "crit": 1.0
+      },
+      "skills": [
+        {
+          "id": "atk",
+          "name": "일반 공격",
+          "kind": "기본",
+          "mp": 0,
+          "target": "적 1",
+          "power": 1.0,
+          "turns": 0,
+          "chance": 100,
+          "brk": 3,
+          "note": "지능 계수 · 단일"
+        },
+        {
+          "id": "ruin",
+          "name": "파괴적 마법",
+          "kind": "능동",
+          "mp": 40,
+          "target": "적 전체",
+          "power": 0.6,
+          "turns": 3,
+          "chance": 100,
+          "brk": 0,
+          "note": "즉시 피해 + 매 턴 지속 피해(지능×0.5) 3턴 + 적 공격 -15%"
+        },
+        {
+          "id": "stack",
+          "name": "지속 피해 중첩",
+          "kind": "지속",
+          "mp": 0,
+          "target": "-",
+          "power": 0,
+          "turns": 0,
+          "chance": 100,
+          "brk": 0,
+          "note": "같은 적에게 지속 피해 최대 5겹(엔진 값 · 10-10)"
+        }
+      ],
+      "passive": {
+        "dot": 0.12,
+        "cap": 5
+      }
+    },
+    {
+      "id": "paladin",
+      "name": "성기사",
+      "line": "힘",
+      "row": "전열",
+      "base": {
+        "hp": 111,
+        "mp": 53,
+        "str": 16,
+        "agi": 5,
+        "int": 7,
+        "def": 19,
+        "spd": 82,
+        "crit": 0
+      },
+      "grow": {
+        "hp": 1.1,
+        "mp": 1.0,
+        "str": 1.05,
+        "agi": 1.0,
+        "int": 1.0,
+        "def": 1.1,
+        "spd": 1.0,
+        "crit": 1.0
+      },
+      "skills": [
+        {
+          "id": "atk",
+          "name": "일반 공격",
+          "kind": "기본",
+          "mp": 0,
+          "target": "적 1",
+          "power": 1.0,
+          "turns": 0,
+          "chance": 100,
+          "brk": 12,
+          "note": "힘 계수 · 단일"
+        },
+        {
+          "id": "pshield",
+          "name": "파티 보호막",
+          "kind": "능동",
+          "mp": 30,
+          "target": "아군 전체",
+          "power": 1.2,
+          "turns": 2,
+          "chance": 100,
+          "brk": 0,
+          "note": "보호막 = 힘 × 1.2"
+        },
+        {
+          "id": "ptaunt",
+          "name": "도발",
+          "kind": "능동",
+          "mp": 10,
+          "target": "자신",
+          "power": 0,
+          "turns": 2,
+          "chance": 100,
+          "brk": 20,
+          "note": "적의 공격을 자신에게 · 위압으로 심연을 깎는다"
+        }
+      ]
+    },
+    {
+      "id": "priest",
+      "name": "사제",
+      "line": "지능",
+      "row": "후열",
+      "base": {
+        "hp": 79,
+        "mp": 99,
+        "str": 4,
+        "agi": 5,
+        "int": 18,
+        "def": 10,
+        "spd": 86,
+        "crit": 0
+      },
+      "grow": {
+        "hp": 1.0,
+        "mp": 1.0,
+        "str": 1.0,
+        "agi": 1.0,
+        "int": 1.05,
+        "def": 1.0,
+        "spd": 1.0,
+        "crit": 1.0
+      },
+      "skills": [
+        {
+          "id": "atk",
+          "name": "일반 공격",
+          "kind": "기본",
+          "mp": 0,
+          "target": "적 1",
+          "power": 1.0,
+          "turns": 0,
+          "chance": 100,
+          "brk": 8,
+          "note": "지능 계수 · 단일"
+        },
+        {
+          "id": "hshield",
+          "name": "파티 보호막",
+          "kind": "능동",
+          "mp": 30,
+          "target": "아군 전체",
+          "power": 1.0,
+          "turns": 2,
+          "chance": 100,
+          "brk": 0,
+          "note": "보호막 = 지능 × 1.0"
+        },
+        {
+          "id": "bless",
+          "name": "파티 능력치 상향",
+          "kind": "능동",
+          "mp": 28,
+          "target": "아군 전체",
+          "power": 0.15,
+          "turns": 3,
+          "chance": 100,
+          "brk": 0,
+          "note": "공격·방어 +15%"
+        },
+        {
+          "id": "ward",
+          "name": "이탈 방지",
+          "kind": "지속",
+          "mp": 0,
+          "target": "아군 1",
+          "power": 0.5,
+          "turns": 0,
+          "chance": 100,
+          "brk": 0,
+          "note": "HP 가 0 이 되는 일격을 받으면 최대 HP 50% 회복 — 파티원마다 전투당 1회(사제가 살아 있을 때)"
+        }
+      ]
+    },
+    {
+      "id": "alchemist",
+      "name": "연금술사",
+      "line": "지능",
+      "row": "후열",
+      "base": {
+        "hp": 82,
+        "mp": 79,
+        "str": 5,
+        "agi": 8,
+        "int": 16,
+        "def": 9,
+        "spd": 96,
+        "crit": 2
+      },
+      "grow": {
+        "hp": 1.0,
+        "mp": 1.0,
+        "str": 1.0,
+        "agi": 1.0,
+        "int": 1.05,
+        "def": 1.0,
+        "spd": 1.0,
+        "crit": 1.0
+      },
+      "skills": [
+        {
+          "id": "atk",
+          "name": "일반 공격",
+          "kind": "기본",
+          "mp": 0,
+          "target": "적 1",
+          "power": 1.0,
+          "turns": 0,
+          "chance": 100,
+          "brk": 8,
+          "note": "지능 계수 · 단일"
+        },
+        {
+          "id": "heal",
+          "name": "파티 회복",
+          "kind": "능동",
+          "mp": 30,
+          "target": "아군 전체",
+          "power": 1.4,
+          "turns": 0,
+          "chance": 100,
+          "brk": 0,
+          "note": "회복량 = 지능 × 1.4"
+        },
+        {
+          "id": "acid",
+          "name": "적 능력 디버프",
+          "kind": "능동",
+          "mp": 20,
+          "target": "적 1",
+          "power": 0.2,
+          "turns": 3,
+          "chance": 100,
+          "brk": 12,
+          "note": "방어 -20%"
+        },
+        {
+          "id": "tonic",
+          "name": "아군 능력 버프",
+          "kind": "능동",
+          "mp": 20,
+          "target": "아군 1",
+          "power": 0.15,
+          "turns": 3,
+          "chance": 100,
+          "brk": 0,
+          "note": "공격 +15%"
+        }
+      ],
+      "passive": {
+        "spd": 0.06
+      }
+    },
+    {
+      "id": "gladiator",
+      "name": "검투사",
+      "line": "힘",
+      "row": "전열",
+      "base": {
+        "hp": 114,
+        "mp": 33,
+        "str": 19,
+        "agi": 9,
+        "int": 3,
+        "def": 13,
+        "spd": 92,
+        "crit": 5
+      },
+      "grow": {
+        "hp": 1.1,
+        "mp": 1.0,
+        "str": 1.05,
+        "agi": 1.0,
+        "int": 1.0,
+        "def": 1.1,
+        "spd": 1.0,
+        "crit": 1.0
+      },
+      "skills": [
+        {
+          "id": "atk",
+          "name": "일반 공격",
+          "kind": "기본",
+          "mp": 0,
+          "target": "적 1",
+          "power": 1.0,
+          "turns": 0,
+          "chance": 100,
+          "brk": 3,
+          "note": "힘 계수 · 단일"
+        },
+        {
+          "id": "vigor",
+          "name": "체력 비례 강화",
+          "kind": "지속",
+          "mp": 0,
+          "target": "자신",
+          "power": 0.2,
+          "turns": 0,
+          "chance": 100,
+          "brk": 0,
+          "note": "남은 HP 비율만큼 공격·방어·속도·치명 확률 최대 +20%"
+        },
+        {
+          "id": "blood",
+          "name": "피의 갈증",
+          "kind": "능동",
+          "mp": 0,
+          "target": "자신",
+          "power": 0.15,
+          "turns": 2,
+          "chance": 100,
+          "brk": 0,
+          "note": "HP 15% 소모 → 치명 확률 +30%p · 치명 피해 +50%"
+        }
+      ],
+      "passive": {
+        "atk": 0.2,
+        "def": 0.1,
+        "spd": 0.08,
+        "crit": 8
+      }
+    },
+    {
+      "id": "chaos",
+      "name": "심연 마도사",
+      "line": "지능",
+      "row": "후열",
+      "base": {
+        "hp": 88,
+        "mp": 45,
+        "str": 3,
+        "agi": 6,
+        "int": 15,
+        "def": 8,
+        "spd": 96,
+        "crit": 0
+      },
+      "grow": {
+        "hp": 1.0,
+        "mp": 1.0,
+        "str": 1.0,
+        "agi": 1.0,
+        "int": 1.0,
+        "def": 1.0,
+        "spd": 1.0,
+        "crit": 1.0
+      },
+      "skills": [
+        {
+          "id": "atk",
+          "name": "일반 공격",
+          "kind": "기본",
+          "mp": 0,
+          "target": "적 1",
+          "power": 0.7,
+          "turns": 0,
+          "chance": 100,
+          "brk": 20,
+          "note": "지능 계수 · 단일 — 피해는 가장 약하지만 심연을 크게 깎는다"
+        },
+        {
+          "id": "rift",
+          "name": "균열",
+          "kind": "능동",
+          "mp": 24,
+          "target": "적 1",
+          "power": 0.6,
+          "turns": 0,
+          "chance": 100,
+          "brk": 40,
+          "note": "심연을 가장 크게 깎는 한 방"
+        },
+        {
+          "id": "chaoswave",
+          "name": "혼돈 파동",
+          "kind": "능동",
+          "mp": 32,
+          "target": "적 전체",
+          "power": 0.4,
+          "turns": 0,
+          "chance": 100,
+          "brk": 20,
+          "note": "맞은 적마다 심연을 깎는다"
+        },
+        {
+          "id": "resonance",
+          "name": "고갈 공명",
+          "kind": "지속",
+          "mp": 0,
+          "target": "-",
+          "power": 2.5,
+          "turns": 0,
+          "chance": 100,
+          "brk": 0,
+          "note": "고갈 상태인 적에게 주는 피해 배율 ×2.5(다른 직업 ×1.5) — 고갈시키고 직접 가장 크게 터뜨린다"
+        }
+      ]
+    }
+  ],
+  "companions": [
+    {
+      "id": "teiris",
+      "name": "테이리스",
+      "race": "엘프",
+      "lineage": "",
+      "nation": "나에린",
+      "class": "공인 마법사",
+      "row": "후열",
+      "element": "ice",
+      "mod": {
+        "hp": 0,
+        "mp": 0,
+        "str": 0,
+        "agi": 0,
+        "int": 0,
+        "def": 0,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "마감 전날 대폭발",
+        "kind": "능동",
+        "mp": 36,
+        "target": "적 전체",
+        "power": 1.9,
+        "turns": 0,
+        "chance": 100,
+        "brk": 0,
+        "note": "전투당 1회, 충전 없이 마력 폭발을 곧바로 터뜨린다(적 전체 ×1.9). 「이건 노트에 적어 둬야겠어요!」"
+      },
+      "trait": {
+        "name": "상대성 이론",
+        "value": 16.1,
+        "note": "두 번째 행동을 마칠 때마다 행동 게이지가 100% 차서 곧바로 한 번 더 움직인다.",
+        "p": {
+          "every": 2,
+          "pull": 1.0
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "실버리프의 인장을 받은 사절. 바깥세상이 궁금해서 숲을 나왔다",
+      "full_name": "테이리스 실바넨",
+      "full_name_en": "Teiris Silvanen",
+      "name_note": "세계수 가까운 씨족 숲의 이름. 인장을 받은 자만 숲 밖에서 이 이름을 쓴다",
+      "alignment": "중립 선",
+      "gap": "차분한 142세 엘프 사절이 인간 길거리 문물을 「학술 조사」로 적어 모으는 덕후",
+      "source_name": "테이리스"
+    },
+    {
+      "id": "hildegard",
+      "name": "힐데가르트",
+      "race": "인간",
+      "lineage": "",
+      "nation": "신성 세레디아 제국",
+      "class": "전사",
+      "row": "전열",
+      "element": "ice",
+      "mod": {
+        "hp": 0,
+        "mp": 0,
+        "str": 0,
+        "agi": 0,
+        "int": 0,
+        "def": 0,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "전방 근무 개시",
+        "kind": "능동",
+        "mp": 10,
+        "target": "자신",
+        "power": 0,
+        "turns": 0,
+        "chance": 100,
+        "brk": 15,
+        "note": "2턴 동안 받는 피해를 25% 줄이고 도발 상태가 된다(심연 −15)."
+      },
+      "trait": {
+        "name": "첫 번째 펭귄",
+        "value": 14.4,
+        "note": "도발 중이 아니어도 적의 단일 공격이 35% 확률로 힐데가에게 쏠린다. 받는 피해는 15% 줄고, 쏠려 온 공격을 받을 때마다 최대 HP의 4%를 회복한다.",
+        "p": {
+          "pull": 0.35,
+          "red": 0.15,
+          "heal": 0.04
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "변경백의 변경령에서 「변경 복무」를 치르다 눌러앉은 귀족 자제",
+      "proposed": true,
+      "full_name": "힐데가 폰 아이젠마르크",
+      "full_name_en": "Hildegard von Eisenmark",
+      "name_note": "「철의 변경」. 변경백 가문의 자제라 「폰」이 붙는다",
+      "alignment": "질서 선",
+      "source_name": "힐데가"
+    },
+    {
+      "id": "berenga",
+      "name": "베렝가",
+      "race": "하프엘프",
+      "lineage": "",
+      "nation": "신성 세레디아 제국",
+      "class": "사제",
+      "row": "후열",
+      "element": "holy",
+      "mod": {
+        "hp": 0,
+        "mp": 0,
+        "str": 0,
+        "agi": 0,
+        "int": 0,
+        "def": 0,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "트리아지",
+        "kind": "능동",
+        "mp": 12,
+        "target": "아군 1",
+        "power": 0,
+        "turns": 0,
+        "chance": 100,
+        "brk": 15,
+        "note": "아군 1명을 회복시키고 디버프 1개를 푼다. 대상이 잃은 HP가 클수록 더 많이 회복된다."
+      },
+      "trait": {
+        "name": "한계효용 체감",
+        "value": 19.6,
+        "note": "모든 회복량이 대상이 잃은 HP에 비례해 늘어나, 최대 +60%까지 커진다.",
+        "p": {
+          "k": 0.6
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "이름책을 지고 길을 도는 등불 사제. 심연에 잠든 이름들을 부르러 왔다",
+      "proposed": true,
+      "full_name": "베렌가 츠바이팔트",
+      "full_name_en": "Berenga Zweifalt",
+      "name_note": "「두 겹」. 산 자의 이름과 이름책의 망자 이름, 두 겹을 지고 다닌다는 뜻으로, 등불지기 사제가 스스로 붙인 성이다",
+      "alignment": "중립 선",
+      "source_name": "베렌가"
+    },
+    {
+      "id": "bargut",
+      "name": "바르구트",
+      "race": "수인",
+      "lineage": "표범",
+      "nation": "대카라쉰",
+      "class": "암살자",
+      "row": "전열",
+      "element": "bolt",
+      "mod": {
+        "hp": 0,
+        "mp": 0,
+        "str": 0,
+        "agi": 0,
+        "int": 0,
+        "def": 0,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "선점 효과",
+        "kind": "능동",
+        "mp": 12,
+        "target": "적 1",
+        "power": 1.2,
+        "turns": 0,
+        "chance": 100,
+        "brk": 15,
+        "note": "적 1명을 위력 ×1.2로 기습한다. 행동 순서가 가장 빠르면 피해가 +50% 더 들어간다(심연 −15)."
+      },
+      "trait": {
+        "name": "스노우볼 효과",
+        "value": 17.4,
+        "note": "치명 확률이 30%p 높다. 치명타가 나면 다음 차례가 30% 앞당겨진다.",
+        "p": {
+          "crit": 30,
+          "pull": 0.3
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "표범 부족에서 산악전을 맡았다. 홀로 다니는 문화에서 자라 파티에는 서툴다",
+      "proposed": true,
+      "full_name": "표범 부족의 바르굿",
+      "full_name_en": "Bargut of the Leopard Banner",
+      "name_note": "서열 낮은 부족이라 이름 앞에 붙이면 대접이 나빠진다. 그래도 뗄 수는 없다",
+      "alignment": "중립",
+      "gap": "혼자가 편하다던 암살자가 밤마다 동료 곁에 몸을 말고 자는 외로움쟁이",
+      "source_name": "바르굿"
+    }
+  ],
+  "items": [
+    {
+      "id": "hp_s",
+      "name": "소형 회복약",
+      "price": 40,
+      "kind": "hp",
+      "fraction": 0.2,
+      "level": 1,
+      "icon": "it_hp"
+    },
+    {
+      "id": "mp_s",
+      "name": "소형 마나 물약",
+      "price": 50,
+      "kind": "mp",
+      "fraction": 0.15,
+      "level": 1,
+      "icon": "it_mp"
+    },
+    {
+      "id": "bandage",
+      "name": "붕대",
+      "price": 15,
+      "kind": "revive",
+      "fraction": 0.25,
+      "level": 1,
+      "icon": "it_band"
+    }
+  ],
+  "cards": [
+    {
+      "id": "key",
+      "name": "봉인 해제",
+      "text": "봉인된 보관함을 열어 소형 회복약 1개를 얻는다.",
+      "context": "sealed"
+    },
+    {
+      "id": "camp",
+      "name": "안전한 야영",
+      "text": "탐색 중 파티 HP를 최대치의 20%만큼 회복한다.",
+      "context": "explore"
+    }
+  ],
+  "provisional": {
+    "starting_gold": 200,
+    "starting_items": {
+      "hp_s": 2,
+      "mp_s": 1,
+      "bandage": 1
+    },
+    "battle_gold": 40,
+    "battle_xp": 14,
+    "cache_gold": 20,
+    "steps": 5,
+    "rest_hp": 0.3,
+    "rest_mp": 0.6,
+    "camp_hp": 0.2
+  }
+}

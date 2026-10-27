@@ -1,0 +1,680 @@
+{
+  "allies": [
+    {
+      "id": "hildegard",
+      "name": "힐데가르트",
+      "row": "전열",
+      "hp": 58,
+      "mhp": 118,
+      "mp": 23,
+      "mmp": 33,
+      "cls": "전사",
+      "sprite_row": 1,
+      "level": 1,
+      "base": {
+        "hp": 118,
+        "mp": 33,
+        "str": 18,
+        "agi": 6,
+        "int": 3,
+        "def": 17,
+        "spd": 86,
+        "crit": 3
+      },
+      "line": "str",
+      "element": "ice",
+      "passive": {},
+      "trait": {
+        "name": "첫 번째 펭귄",
+        "value": 14.4,
+        "note": "도발 중이 아니어도 적의 단일 공격이 35% 확률로 힐데가에게 쏠린다. 받는 피해는 15% 줄고, 쏠려 온 공격을 받을 때마다 최대 HP의 4%를 회복한다.",
+        "p": {
+          "pull": 0.35,
+          "red": 0.15,
+          "heal": 0.04
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "skills": {
+        "attack": {
+          "id": "atk",
+          "name": "일반 공격",
+          "kind": "기본",
+          "mp": 0,
+          "target": "적 1",
+          "power": 1.0,
+          "turns": 0,
+          "chance": 100,
+          "brk": 12,
+          "note": "힘 계수 · 단일"
+        },
+        "taunt": {
+          "id": "taunt",
+          "name": "도발",
+          "kind": "능동",
+          "mp": 10,
+          "target": "자신",
+          "power": 0,
+          "turns": 2,
+          "chance": 100,
+          "brk": 20,
+          "note": "적의 공격을 자신에게 끌어온다 · 위압으로 심연을 깎는다"
+        },
+        "guard": {
+          "id": "guard",
+          "name": "방어",
+          "kind": "능동",
+          "mp": 8,
+          "target": "자신",
+          "power": 0.4,
+          "turns": 2,
+          "chance": 100,
+          "brk": 0,
+          "note": "받는 피해 -40% (모든 직업의 기본 '방어'는 1턴 — 전사는 2턴)"
+        },
+        "duty": {
+          "name": "전방 근무 개시",
+          "kind": "능동",
+          "mp": 10,
+          "target": "자신",
+          "power": 0,
+          "turns": 2,
+          "chance": 100,
+          "brk": 15,
+          "note": "2턴 동안 받는 피해를 25% 줄이고 도발 상태가 된다(심연 −15)."
+        }
+      },
+      "remaining": 0
+    },
+    {
+      "id": "bargut",
+      "name": "바르구트",
+      "row": "전열",
+      "hp": 68,
+      "mhp": 93,
+      "mp": 28,
+      "mmp": 40,
+      "cls": "암살자",
+      "sprite_row": 2,
+      "level": 1,
+      "base": {
+        "hp": 93,
+        "mp": 40,
+        "str": 8,
+        "agi": 18,
+        "int": 4,
+        "def": 10,
+        "spd": 114,
+        "crit": 5
+      },
+      "line": "agi",
+      "element": "bolt",
+      "passive": {
+        "crit": 50,
+        "extra": 0.2
+      },
+      "trait": {
+        "name": "스노우볼 효과",
+        "value": 17.4,
+        "note": "치명 확률이 30%p 높다. 치명타가 나면 다음 차례가 30% 앞당겨진다.",
+        "p": {
+          "crit": 30,
+          "pull": 0.3
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "skills": {
+        "attack": {
+          "id": "atk",
+          "name": "일반 공격",
+          "kind": "기본",
+          "mp": 0,
+          "target": "적 1",
+          "power": 1.0,
+          "turns": 0,
+          "chance": 100,
+          "brk": 3,
+          "note": "민첩 계수 · 단일"
+        },
+        "personal": {
+          "name": "선점 효과",
+          "kind": "능동",
+          "mp": 12,
+          "target": "적 1",
+          "power": 1.2,
+          "turns": 0,
+          "chance": 100,
+          "brk": 15,
+          "note": "적 1명을 위력 ×1.2로 기습한다. 행동 순서가 가장 빠르면 피해가 +50% 더 들어간다(심연 −15).",
+          "disabled": "선점 판정 기준 미정"
+        },
+        "guard": {
+          "name": "방어",
+          "mp": 0,
+          "power": 0.4,
+          "turns": 1,
+          "brk": 0,
+          "target": "자신",
+          "note": "자기 다음 차례까지 받는 피해 -40%",
+          "disabled": "MP 비용 미정"
+        }
+      },
+      "remaining": 2280
+    },
+    {
+      "id": "teiris",
+      "name": "테이리스",
+      "row": "후열",
+      "hp": 61,
+      "mhp": 77,
+      "mp": 50,
+      "mmp": 86,
+      "cls": "공인 마법사",
+      "sprite_row": 0,
+      "level": 1,
+      "base": {
+        "hp": 77,
+        "mp": 86,
+        "str": 3,
+        "agi": 6,
+        "int": 20,
+        "def": 8,
+        "spd": 88,
+        "crit": 0
+      },
+      "line": "int",
+      "element": "ice",
+      "passive": {
+        "delay": 0.08
+      },
+      "trait": {
+        "name": "상대성 이론",
+        "value": 16.1,
+        "note": "두 번째 행동을 마칠 때마다 행동 게이지가 100% 차서 곧바로 한 번 더 움직인다.",
+        "p": {
+          "every": 2,
+          "pull": 1.0
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "skills": {
+        "attack": {
+          "id": "atk",
+          "name": "일반 공격",
+          "kind": "기본",
+          "mp": 0,
+          "target": "적 1",
+          "power": 1.0,
+          "turns": 0,
+          "chance": 100,
+          "brk": 3,
+          "note": "지능 계수 · 단일"
+        },
+        "burst": {
+          "id": "burst",
+          "name": "마력 폭발",
+          "kind": "능동",
+          "mp": 36,
+          "target": "적 전체",
+          "power": 1.9,
+          "turns": 2,
+          "chance": 100,
+          "brk": 0,
+          "note": "2턴 충전 뒤 발동"
+        },
+        "personal": {
+          "name": "마감 전날 대폭발",
+          "kind": "능동",
+          "mp": 36,
+          "target": "적 전체",
+          "power": 1.9,
+          "turns": 0,
+          "chance": 100,
+          "brk": 0,
+          "note": "전투당 1회, 충전 없이 마력 폭발을 곧바로 터뜨린다(적 전체 ×1.9). 「이건 노트에 적어 둬야겠어요!」"
+        },
+        "guard": {
+          "name": "방어",
+          "mp": 0,
+          "power": 0.4,
+          "turns": 1,
+          "brk": 0,
+          "target": "자신",
+          "note": "자기 다음 차례까지 받는 피해 -40%",
+          "disabled": "MP 비용 미정"
+        }
+      },
+      "remaining": 880,
+      "delay": 0.25
+    },
+    {
+      "id": "berenga",
+      "name": "베렝가",
+      "row": "후열",
+      "hp": 63,
+      "mhp": 79,
+      "mp": 72,
+      "mmp": 99,
+      "cls": "사제",
+      "sprite_row": 3,
+      "level": 1,
+      "base": {
+        "hp": 79,
+        "mp": 99,
+        "str": 4,
+        "agi": 5,
+        "int": 18,
+        "def": 10,
+        "spd": 86,
+        "crit": 0
+      },
+      "line": "int",
+      "element": "holy",
+      "passive": {},
+      "trait": {
+        "name": "한계효용 체감",
+        "value": 19.6,
+        "note": "모든 회복량이 대상이 잃은 HP에 비례해 늘어나, 최대 +60%까지 커진다.",
+        "p": {
+          "k": 0.6
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "skills": {
+        "attack": {
+          "id": "atk",
+          "name": "일반 공격",
+          "kind": "기본",
+          "mp": 0,
+          "target": "적 1",
+          "power": 1.0,
+          "turns": 0,
+          "chance": 100,
+          "brk": 8,
+          "note": "지능 계수 · 단일"
+        },
+        "hshield": {
+          "id": "hshield",
+          "name": "파티 보호막",
+          "kind": "능동",
+          "mp": 30,
+          "target": "아군 전체",
+          "power": 1.0,
+          "turns": 2,
+          "chance": 100,
+          "brk": 0,
+          "note": "보호막 = 지능 × 1.0"
+        },
+        "bless": {
+          "id": "bless",
+          "name": "파티 능력치 상향",
+          "kind": "능동",
+          "mp": 28,
+          "target": "아군 전체",
+          "power": 0.15,
+          "turns": 3,
+          "chance": 100,
+          "brk": 0,
+          "note": "공격·방어 +15%"
+        },
+        "personal": {
+          "name": "트리아지",
+          "kind": "능동",
+          "mp": 12,
+          "target": "아군 1",
+          "power": 0,
+          "turns": 0,
+          "chance": 100,
+          "brk": 15,
+          "note": "아군 1명을 회복시키고 디버프 1개를 푼다. 대상이 잃은 HP가 클수록 더 많이 회복된다.",
+          "disabled": "회복 계수 미정"
+        },
+        "guard": {
+          "name": "방어",
+          "mp": 0,
+          "power": 0.4,
+          "turns": 1,
+          "brk": 0,
+          "target": "자신",
+          "note": "자기 다음 차례까지 받는 피해 -40%",
+          "disabled": "MP 비용 미정"
+        }
+      },
+      "remaining": 2580
+    }
+  ],
+  "enemies": [
+    {
+      "id": "executor",
+      "name": "마도 집행 인형",
+      "short": "집행 인형",
+      "row": "전열",
+      "role": "돌격 정예",
+      "weak": [
+        "bolt",
+        "ice"
+      ],
+      "gauge": 18,
+      "max": 80,
+      "intent": "증기 분출",
+      "target": "아군 전체",
+      "kind": "전체 공격",
+      "state": "과열 중",
+      "hint": "과열·증기 분출(전체 공격) / 냉기 심연 18 → 취소",
+      "top": "과열 · 증기 분출",
+      "aim": "아군 전체 공격",
+      "w": 144,
+      "h": 142,
+      "level": 2,
+      "hp": 62,
+      "mhp": 163,
+      "art": "res://assets/src/executor-v2.png",
+      "bbox": [
+        0,
+        22,
+        1136,
+        1360
+      ],
+      "attack": 33.673608488991164,
+      "defense": 21.216,
+      "speed": 105.0,
+      "acts": [
+        {
+          "name": "내려치기",
+          "kind": "atk",
+          "vb": "내려쳤다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "과열",
+          "kind": "charge",
+          "id": "charge_2"
+        },
+        {
+          "name": "증기 분출",
+          "kind": "big_all",
+          "vb": "증기를 뿜어냈다",
+          "m": 0.9,
+          "id": "big_all_3"
+        },
+        {
+          "name": "내려치기",
+          "kind": "atk",
+          "vb": "내려쳤다",
+          "m": 1,
+          "id": "atk_4"
+        }
+      ],
+      "rules": {
+        "break_self": 0.1
+      },
+      "remaining": 525,
+      "act_index": 2,
+      "charged": true,
+      "target_id": "hildegard"
+    },
+    {
+      "id": "apprentice",
+      "name": "견습 인형",
+      "short": "견습 인형",
+      "row": "전열",
+      "role": "돌격",
+      "weak": [
+        "fire",
+        "bolt"
+      ],
+      "gauge": 21,
+      "max": 30,
+      "intent": "휘두르기",
+      "target": "힐데가르트",
+      "kind": "근접 공격",
+      "state": "효과 없음",
+      "hint": "다음 휘두르기 → 힐데가르트",
+      "top": "휘두르기 → 힐데가르트",
+      "aim": "",
+      "w": 82,
+      "h": 100,
+      "level": 2,
+      "hp": 34,
+      "mhp": 47,
+      "art": "res://assets/src/apprentice-v2.png",
+      "bbox": [
+        0,
+        23,
+        1089,
+        1384
+      ],
+      "attack": 28.061340407492636,
+      "defense": 21.216,
+      "speed": 105.0,
+      "acts": [
+        {
+          "name": "휘두르기",
+          "kind": "atk",
+          "vb": "휘둘렀다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "태엽 감기",
+          "kind": "buff",
+          "stat": "spd",
+          "amount": 0.2,
+          "turns": 3,
+          "target": "self",
+          "vb": "태엽을 감았다",
+          "id": "buff_2"
+        },
+        {
+          "name": "휘두르기",
+          "kind": "atk",
+          "vb": "휘둘렀다",
+          "m": 1,
+          "id": "atk_3"
+        }
+      ],
+      "rules": {},
+      "remaining": 2625,
+      "act_index": 0,
+      "charged": false,
+      "target_id": "hildegard"
+    },
+    {
+      "id": "orb",
+      "name": "경보 수정구",
+      "short": "경보 수정구",
+      "row": "후열",
+      "role": "사격",
+      "weak": [
+        "ice",
+        "dark"
+      ],
+      "gauge": 24,
+      "max": 30,
+      "intent": "광선",
+      "target": "테이리스",
+      "kind": "사격",
+      "state": "효과 없음",
+      "hint": "다음 광선 → 테이리스",
+      "top": "광선 → 테이리스",
+      "aim": "",
+      "w": 72,
+      "h": 79,
+      "level": 2,
+      "hp": 30,
+      "mhp": 37,
+      "art": "res://assets/src/orb-v2.png",
+      "bbox": [
+        0,
+        22,
+        1050,
+        1391
+      ],
+      "attack": 30.867474448241907,
+      "defense": 16.972800000000003,
+      "speed": 100,
+      "acts": [
+        {
+          "name": "광선",
+          "kind": "shoot",
+          "vb": "광선을 쏘았다",
+          "m": 1.1,
+          "id": "shoot_1"
+        },
+        {
+          "name": "경보",
+          "kind": "buff",
+          "stat": "spd",
+          "amount": 0.1,
+          "turns": 3,
+          "target": "allies",
+          "id": "buff_2"
+        },
+        {
+          "name": "광선",
+          "kind": "shoot",
+          "vb": "광선을 쏘았다",
+          "m": 1.1,
+          "id": "shoot_3"
+        }
+      ],
+      "rules": {},
+      "remaining": 1500,
+      "act_index": 0,
+      "charged": false,
+      "target_id": "teiris"
+    },
+    {
+      "id": "lantern",
+      "name": "떠도는 등불",
+      "short": "떠도는 등불",
+      "row": "후열",
+      "role": "지원",
+      "weak": [
+        "wind",
+        "dark"
+      ],
+      "gauge": 30,
+      "max": 30,
+      "intent": "등불 보수",
+      "target": "집행 인형",
+      "kind": "회복",
+      "state": "효과 없음",
+      "hint": "다음 등불 보수 → 집행 인형",
+      "top": "회복 → 집행 인형",
+      "aim": "",
+      "w": 56,
+      "h": 76,
+      "level": 2,
+      "hp": 35,
+      "mhp": 37,
+      "art": "res://assets/src/lantern-v2.png",
+      "bbox": [
+        0,
+        61,
+        1123,
+        1376
+      ],
+      "attack": 16.836804244495582,
+      "defense": 21.216,
+      "speed": 105.0,
+      "acts": [
+        {
+          "name": "등불 보수",
+          "kind": "heal",
+          "amount": 0.2,
+          "target": "lowest",
+          "id": "heal_1"
+        },
+        {
+          "name": "불씨 튀기기",
+          "kind": "spell",
+          "vb": "불씨를 튀겼다",
+          "m": 1.1,
+          "magic": true,
+          "id": "spell_2"
+        },
+        {
+          "name": "등불 보수",
+          "kind": "heal",
+          "amount": 0.2,
+          "target": "lowest",
+          "id": "heal_3"
+        }
+      ],
+      "rules": {},
+      "remaining": 3675,
+      "act_index": 0,
+      "charged": false,
+      "target_id": "executor"
+    }
+  ],
+  "queue": [
+    "hildegard",
+    "executor",
+    "teiris",
+    "orb",
+    "bargut",
+    "apprentice",
+    "berenga",
+    "lantern"
+  ],
+  "elements": {
+    "bolt": "번개",
+    "ice": "냉기",
+    "fire": "화염",
+    "dark": "어둠",
+    "wind": "바람",
+    "holy": "신성",
+    "none": "무속성"
+  },
+  "actions": {
+    "attack": {
+      "name": "일반 공격",
+      "summary": "일반 공격 · 적 1 · 냉기 · 심연 깎기 12",
+      "mp": 0
+    },
+    "guard": {
+      "name": "방어",
+      "summary": "방어 · 자신 · 2턴 · 받는 피해 −40%",
+      "mp": 8
+    },
+    "taunt": {
+      "name": "도발",
+      "summary": "도발 · 자신 · 2턴 · 공격을 자신에게 · 심연 20",
+      "mp": 10
+    },
+    "duty": {
+      "name": "전방 근무 개시",
+      "summary": "전방 근무 개시 · 자신 · 2턴 · 도발 / 피해 −25%",
+      "mp": 10
+    }
+  },
+  "formula": {
+    "atk_per_stat": 2,
+    "crit_dmg": 1.5,
+    "crit_per_agi": 20,
+    "def_std_base": 20,
+    "def_k_ratio": 2.0,
+    "weak_mult": 1.3,
+    "break_mult": 1.5,
+    "guard_reduce": 0.4,
+    "mp_regen": 5,
+    "gauge": 10000,
+    "brk_weak_mult": 1.5,
+    "break_mult_abyss": 2.5
+  },
+  "seed": 20261018,
+  "build": "battle-playable-20261018-r1",
+  "source_hashes": {
+    "design\\stats.json": "fe901acce0b00e1b82fd7451aca071578c0f8d16fdbf2008938bf08081e5eca2",
+    "design\\enemies.json": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1",
+    "design\\FORMULA.md": "897fe5ad16468d010b1775759e8e34be94f7aa9a992be1006d9a14eda586ff2e",
+    "design\\CLASSES.md": "31e38d51046550dbea8be7c1d910b46b4320f16cee4077ba7ebd00c89064dc8b"
+  },
+  "def_curve": {
+    "a": 0.06,
+    "b": 0.0008
+  }
+}

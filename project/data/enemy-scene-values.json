@@ -1,0 +1,55 @@
+{
+  "assumptions": "Four level-1 allies, floor 2, zone order 2, exploration stat modifiers, no extra difficulty or small-party modifiers. Fixed elite composition overrides floor spawn probability only. Current HP is illustrative.",
+  "sources": [
+    "design/stats.json meta.enemy_std and meta.curves.atk",
+    "design/enemies.json roles and grades",
+    "bot/src/27-compose.lua B.floor_level",
+    "bot/src/24-stats.lua B.foe_stats",
+    "bot/src/77-explore.lua B.EX.FOE and EARLY",
+    "bot/src/20-state.lua HP rounding"
+  ],
+  "calculation": {
+    "standard_hp_at_level": 64.25999999999999,
+    "exploration_curve": 1.5777896154561606,
+    "early_hp_multiplier": 0.4600928661782691,
+    "rounding": "floor(value + 0.5)"
+  },
+  "enemies": [
+    {
+      "id": "executor",
+      "name": "마도 집행 인형",
+      "level": 2,
+      "hp": 62,
+      "mhp": 163,
+      "role": "돌격",
+      "grade": "elite"
+    },
+    {
+      "id": "apprentice",
+      "name": "견습 인형",
+      "level": 2,
+      "hp": 34,
+      "mhp": 47,
+      "role": "돌격",
+      "grade": "mob"
+    },
+    {
+      "id": "orb",
+      "name": "경보 수정구",
+      "level": 2,
+      "hp": 30,
+      "mhp": 37,
+      "role": "사격",
+      "grade": "mob"
+    },
+    {
+      "id": "lantern",
+      "name": "떠도는 등불",
+      "level": 2,
+      "hp": 35,
+      "mhp": 37,
+      "role": "지원",
+      "grade": "mob"
+    }
+  ]
+}

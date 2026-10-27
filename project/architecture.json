@@ -1,0 +1,25 @@
+{
+  "engine": "Godot",
+  "version": "4.7.2 stable",
+  "language": "GDScript",
+  "renderer": "gl_compatibility",
+  "web_threads": false,
+  "release_order": [
+    "Web",
+    "iOS/Android"
+  ],
+  "ui": "Godot Control nodes; original HTML remains a reference mockup",
+  "boundaries": {
+    "game": "Pure GDScript combat model: canonical values, CTB, enemy intents, seeded resolution and validated full battle snapshots",
+    "ui": "rendering and input only",
+    "storage": "versioned user:// save; browser IndexedDB through Godot",
+    "data": "canonical document values separated from example scene state"
+  },
+  "source_policy": "No bot code copied or modified. Original character assets copied byte-for-byte. No third-party reference code copied.",
+  "milestone": "Hub, companions, inventory, shop, inn, fixed exploration with consumable cards, CTB battles, settlement and local save; GitHub Pages web preview",
+  "unresolved_disabled": [
+    "triage coefficient",
+    "preemptive timing predicate",
+    "non-warrior guard MP"
+  ]
+}
