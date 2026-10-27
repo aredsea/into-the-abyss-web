@@ -1,0 +1,157 @@
+{
+  "source": "https://aredsea.github.io/into-the-abyss-web/motion-lab/assets/hildegard-seed.png",
+  "result_id": "b7642cd4-7e5d-4a6a-a36d-771a279652b3",
+  "operations": [
+    {
+      "operation": "select_mask",
+      "layer": "image",
+      "frames": [
+        1
+      ],
+      "name": "outside",
+      "selector": {
+        "kind": "rectangle",
+        "region": [
+          0,
+          0,
+          255,
+          255
+        ]
+      },
+      "reason": "Create an isolated physical sword layer; the original sheet remains unmodified."
+    },
+    {
+      "operation": "select_mask",
+      "layer": "image",
+      "frames": [
+        1
+      ],
+      "name": "outside",
+      "combine": "subtract",
+      "selector": {
+        "kind": "polygon",
+        "points": [
+          [
+            77,
+            110
+          ],
+          [
+            82,
+            109
+          ],
+          [
+            97,
+            127
+          ],
+          [
+            105,
+            127
+          ],
+          [
+            107,
+            132
+          ],
+          [
+            204,
+            190
+          ],
+          [
+            207,
+            194
+          ],
+          [
+            193,
+            191
+          ],
+          [
+            102,
+            141
+          ],
+          [
+            97,
+            147
+          ],
+          [
+            94,
+            144
+          ],
+          [
+            96,
+            137
+          ],
+          [
+            89,
+            131
+          ],
+          [
+            77,
+            120
+          ]
+        ]
+      },
+      "reason": "Keep the observed steel blade, crossguard and grip while excluding surrounding costume pixels."
+    },
+    {
+      "operation": "brush",
+      "layer": "image",
+      "frames": [
+        1
+      ],
+      "mask": "outside",
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          255
+        ],
+        [
+          32,
+          255
+        ],
+        [
+          32,
+          0
+        ],
+        [
+          96,
+          0
+        ],
+        [
+          96,
+          255
+        ],
+        [
+          160,
+          255
+        ],
+        [
+          160,
+          0
+        ],
+        [
+          224,
+          0
+        ],
+        [
+          224,
+          255
+        ],
+        [
+          255,
+          255
+        ],
+        [
+          255,
+          0
+        ]
+      ],
+      "mode": "erase",
+      "size": 64,
+      "shape": "square",
+      "reason": "Erase only the area outside the chosen weapon silhouette in this derivative."
+    }
+  ]
+}

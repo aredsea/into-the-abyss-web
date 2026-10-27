@@ -19,6 +19,7 @@ var source_image: Texture2D
 var figure: Control
 var figure_home = Vector2.ZERO
 var sheet: Texture2D
+var weapon_texture: Texture2D
 var clip: Dictionary = {}
 var body_frame = 0
 var contact_frame = 4
@@ -32,15 +33,17 @@ var signature: Control
 func _ready() -> void:
 	set_meta("combat_sequence", true)
 	z_index = 20
+	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	var length = 0.65 if action == "attack" else 0.78
 	var contact = 0.22 if action == "attack" else 0.30
 	if enemy_action: length = 0.58; contact = 0.20
-	var manifest_path = "res://data/motion-r6.json"
+	var manifest_path = "res://data/combat-motion.json"
 	if FileAccess.file_exists(manifest_path) and not enemy_action:
 		var catalog = JSON.parse_string(FileAccess.get_file_as_string(manifest_path))
 		clip = catalog.get(character_id + ":" + action, {})
 		if not clip.is_empty():
 			sheet = load(clip.path)
+			if clip.has("weapon"): weapon_texture = load(clip.weapon.path)
 			length = float(clip.get("duration", length))
 			contact = float(clip.get("impact_at", contact))
 			contact_frame = int(clip.get("contact_frame", 4))
@@ -96,6 +99,8 @@ func _process(delta: float) -> void:
 
 func _step() -> Vector2:
 	if reduced or not damaging or enemy_action: return Vector2.ZERO
+	# A posed step already moves the pelvis and planted feet inside the frames.
+	if clip.get("root_motion", false): return Vector2.ZERO
 	var t = clock.elapsed
 	var fraction = smoothstep(0.05, clock.impact_at, t) * (1.0 - smoothstep(clock.impact_at + 0.13, clock.duration, t))
 	return Vector2(22.0 * fraction, -2.0 * fraction)
@@ -104,15 +109,39 @@ func _draw() -> void:
 	if sheet != null:
 		var count = int(clip.frames)
 		var t = clock.elapsed
-		if t <= clock.impact_at:
+		if clip.has("durations_ms"):
+			body_frame = count - 1
+			var boundary = 0.0
+			for i in range(count):
+				boundary += float(clip.durations_ms[i]) / 1000.0
+				if t < boundary:
+					body_frame = i
+					break
+		elif t <= clock.impact_at:
 			body_frame = mini(contact_frame, int(t / clock.impact_at * contact_frame))
 		else:
 			body_frame = mini(count - 1, contact_frame + int((t - clock.impact_at) / (clock.duration - clock.impact_at) * (count - contact_frame)))
 		if reduced: body_frame = contact_frame if clock.impacted else 0
-		var region = Rect2((body_frame % 5) * 256, int(body_frame / 5) * 256, 256, 256)
-		var side = source_rect.size.y * 256.0 / 204.0
-		var origin = Vector2(source_rect.get_center().x - side / 2.0, source_rect.end.y - side * 230.0 / 256.0)
+		var cell = int(clip.get("frame_size", 256))
+		var columns = int(clip.get("columns", 5))
+		var region = Rect2((body_frame % columns) * cell, int(body_frame / columns) * cell, cell, cell)
+		var side = source_rect.size.y * float(cell) / float(clip.get("body_height", 204))
+		var origin = Vector2(source_rect.get_center().x - side / 2.0, source_rect.end.y - side * float(clip.get("foot_y", 230)) / cell)
 		draw_texture_rect_region(sheet, Rect2(origin + _step(), Vector2.ONE * side), region)
+		if weapon_texture != null:
+			var attachment = clip.weapon
+			var grip = attachment.anchors[body_frame]
+			var hand = Vector2(grip[0], grip[1])
+			var scale_factor = side / cell
+			var pivot = Vector2(attachment.pivot[0], attachment.pivot[1])
+			draw_set_transform(origin + _step() + hand * scale_factor, deg_to_rad(float(grip[2]) - float(attachment.base_angle)), Vector2.ONE * scale_factor)
+			draw_texture(weapon_texture, -pivot)
+			draw_set_transform(Vector2.ZERO, 0, Vector2.ONE)
+			# Redraw the small original glove region in front of the fixed grip.
+			var patch = attachment.hand_patch
+			var offset = hand + Vector2(patch[0], patch[1])
+			var patch_size = Vector2(patch[2], patch[3])
+			draw_texture_rect_region(sheet, Rect2(origin + _step() + offset * scale_factor, patch_size * scale_factor), Rect2(region.position + offset, patch_size))
 	if not clock.impacted: return
 	var age = maxf(0.0, float(Time.get_ticks_msec() - contact_wall_time) / 1000.0)
 	if damaging and age < 0.19:

@@ -1,0 +1,16 @@
+<!doctype html><html lang="ko">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,">
+<title>힐데가르트 · 몸으로 베기</title><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="style.css">
+<body><main>
+<header><h1>힐데가르트 · 몸으로 베기</h1><a href="../../">게임으로</a></header>
+<p class="notice">일반 공격부터 검수합니다. 방어·도발·고유 스킬의 새 연속 모션은 아직 없습니다. 외형과 동작의 최종 판정은 검수 후 남깁니다.</p>
+<nav aria-label="비교 방식"><button id="new" aria-pressed="true">새 몸동작</button><button id="old" aria-pressed="false">이전 시안 A</button></nav>
+<section class="viewer"><div class="stage-head"><span id="method">몸 12프레임 + 고정된 장검</span><span id="phase">준비</span></div><canvas id="stage" width="640" height="500" aria-label="검기 없이 힐데가르트의 준비, 발 디딤, 베기와 회수를 재생합니다"></canvas></section>
+<p class="rule" id="description">몸을 뒤로 모았다가 앞발을 딛고, 상체를 돌려 크게 벤 뒤 낮게 받아 회수합니다. 검기·흔들림·타격 섬광 없이 보여 줍니다.</p>
+<div class="playback"><button id="play" class="primary">다시 재생</button><button id="pause">계속 재생</button><label class="speed">속도<select id="speed" aria-label="재생 속도"><option value="1">1배</option><option value="0.5">0.5배</option><option value="0.25">0.25배</option></select></label></div>
+<div class="scrubber"><button id="prev" aria-label="이전 프레임">‹</button><input id="timeline" type="range" min="0" max="11" step="1" value="0" aria-label="프레임 이동"><button id="next" aria-label="다음 프레임">›</button><output id="frame">0 / 11</output></div>
+<div class="options"><label><input type="checkbox" id="body">몸동작만 보기</label><label><input type="checkbox" id="loop">반복</label></div>
+<p class="caption-note" id="body-note">같은 검 이미지를 손 위치에 붙입니다. 프레임마다 검을 새로 그리지 않습니다.</p>
+<details><summary>무엇을 확인할까</summary><ol><li>검을 숨겨도 준비·발 디딤·회전·회수가 구별되는가?</li><li>검의 길이가 유지되고 손에서 떨어지지 않는가?</li><li>느리게 볼 때 팔·발·코트의 연결이 어색하지 않은가?</li><li>1배속에서 준비보다 베기가 짧고 명확하게 느껴지는가?</li></ol><p>프레임마다 지정한 관절을 따라 몸을 생성하고, 실제 그려진 손 위치를 따로 확인했습니다. 새 동작 700ms 중 접촉은 265ms로 잡은 연출 시험값입니다. 게임 피해·MP·턴 규칙은 바꾸지 않았습니다.</p><a href="assets/contact.png">검을 붙인 전체 프레임</a> · <a href="assets/body-contact.png">몸만 보기</a> · <a href="assets/rig.png">지정한 관절</a></details>
+<footer><a href="../r6/">이전 6시안</a> · <a href="https://github.com/aredsea/into-the-abyss-web/blob/main/ANIMATION-TEST-R7.md">제작·검수 기록</a></footer>
+</main><script src="app.js"></script></body></html>
