@@ -6,6 +6,7 @@ const Store=preload("res://game/world_store.gd")
 const BattleScreen=preload("res://ui/battle_screen.gd")
 const FONT=preload("res://assets/fonts/NanumGothic-Regular.ttf")
 const CharacterSprite=preload("res://ui/character_sprite.gd")
+const CharacterPortrait=preload("res://ui/character_portrait.gd")
 const SignatureSequence=preload("res://ui/signature_sequence.gd")
 const ForgedButton=preload("res://ui/forged_button.gd")
 const INK=Color("eae4d6")
@@ -164,7 +165,7 @@ func bar(label: String, value: float, maximum: float, parent: Node, hp=true) -> 
 	var fill=StyleBoxFlat.new(); fill.bg_color=Color("b56651") if hp else Color("719da9"); p.add_theme_stylebox_override("fill",fill)
 
 func companion_image(id: String, target: Node, dims: Vector2) -> Control:
-	var pic=CharacterSprite.new(); pic.portrait_mode=true; pic.custom_minimum_size=dims
+	var pic=CharacterPortrait.new(); pic.custom_minimum_size=dims
 	target.add_child(pic); pic.configure(id); pic.size_flags_horizontal=SIZE_EXPAND_FILL
 	return pic
 
@@ -452,7 +453,7 @@ func _process(delta: float) -> void:
 
 func _npc(id: String,title: String,line: String) -> void:
 	var p=box(); var row=HBoxContainer.new(); p.add_child(row); row.add_theme_constant_override("separation",14)
-	image("res://assets/"+id+".webp",row,Vector2(86,112))
+	companion_image(id,row,Vector2(86,112))
 	var body=VBoxContainer.new(); row.add_child(body); body.size_flags_horizontal=SIZE_EXPAND_FILL
 	text(title,18,GOLD,body); text(line,14,INK,body)
 
