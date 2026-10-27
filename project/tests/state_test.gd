@@ -95,6 +95,6 @@ func run_tests() -> void:
 	expect(defeated.restore(JSON.parse_string(JSON.stringify(m.snapshot()))),"Defeat save can restore")
 	var scene=load("res://scenes/battle.tscn").instantiate(); root.add_child(scene)
 	await process_frame; await process_frame
-	expect(scene.actor.texture is AtlasTexture and scene.controls.has("action:attack"),"Scene and original sprite load")
+	expect(scene.actor.sheet is Texture2D and scene.actor.character_id==scene.state.last_ally and scene.controls.has("action:attack"),"Scene and current character sprite load")
 	print("COMBAT CHECKS: ",checks,"; FAILURES: ",failures)
 	quit(1 if failures else 0)

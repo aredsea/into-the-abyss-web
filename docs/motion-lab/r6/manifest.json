@@ -1,0 +1,72 @@
+{
+  "version": "r6-reference-test",
+  "status": "not-accepted",
+  "clips": [
+    {
+      "id": "hildegard-attack-a",
+      "label": "대각선 베기 A",
+      "frames": 13,
+      "contact": 6,
+      "duration": 0.72,
+      "review": "보류 · 몸을 가리는 흰 검기, 검 모양 변화. 준비 전 불필요한 휘두르기도 보입니다.",
+      "cost": 2,
+      "sheet": "assets/hildegard-attack-a/sheet.png",
+      "contact_sheet": "assets/hildegard-attack-a/contact.png"
+    },
+    {
+      "id": "hildegard-attack-b",
+      "label": "수평 베기 B",
+      "frames": 13,
+      "contact": 6,
+      "duration": 0.72,
+      "review": "보류 · 흰 띠와 회색 잔상, 검 길이 변화. 어깨·골반의 연결도 더 필요합니다.",
+      "cost": 2,
+      "sheet": "assets/hildegard-attack-b/sheet.png",
+      "contact_sheet": "assets/hildegard-attack-b/contact.png"
+    },
+    {
+      "id": "hildegard-windup",
+      "label": "고정 자세 · 준비",
+      "frames": 5,
+      "contact": null,
+      "duration": 0.28,
+      "review": "탈락 · 공격하지 않는 준비 동작에도 흰 검기를 생성했습니다.",
+      "cost": 1,
+      "sheet": "assets/hildegard-windup/sheet.png",
+      "contact_sheet": "assets/hildegard-windup/contact.png"
+    },
+    {
+      "id": "hildegard-strike",
+      "label": "고정 자세 · 베기",
+      "frames": 5,
+      "contact": 2,
+      "duration": 0.22,
+      "review": "탈락 · 시작과 끝 자세는 고정됐지만 중간 프레임의 흰 궤적이 남습니다.",
+      "cost": 1,
+      "sheet": "assets/hildegard-strike/sheet.png",
+      "contact_sheet": "assets/hildegard-strike/contact.png"
+    },
+    {
+      "id": "hildegard-recover",
+      "label": "고정 자세 · 회수",
+      "frames": 5,
+      "contact": null,
+      "duration": 0.32,
+      "review": "탈락 · 복귀 동작에도 큰 흰 궤적을 만들었습니다.",
+      "cost": 1,
+      "sheet": "assets/hildegard-recover/sheet.png",
+      "contact_sheet": "assets/hildegard-recover/contact.png"
+    },
+    {
+      "id": "hildegard-v3",
+      "label": "다른 모델 · 베기 C",
+      "frames": 9,
+      "contact": 4,
+      "duration": 0.72,
+      "review": "탈락 · 준비·베기 변화가 작고, 3–5번 프레임에 흰 궤적이 남습니다. 비용은 8회분으로 더 큽니다.",
+      "cost": 8,
+      "sheet": "assets/hildegard-v3/sheet.png",
+      "contact_sheet": "assets/hildegard-v3/contact.png"
+    }
+  ]
+}

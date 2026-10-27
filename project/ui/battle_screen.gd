@@ -10,6 +10,7 @@ const CharacterSprite=preload("res://ui/character_sprite.gd")
 const SignatureSequence=preload("res://ui/signature_sequence.gd")
 const ForgedButton=preload("res://ui/forged_button.gd")
 const CombatFX=preload("res://ui/combat_fx.gd")
+const CombatPresentation=preload("res://ui/combat_presentation.gd")
 const SaveStore = preload("res://game/save_store.gd")
 const INK = Color("eae4d6")
 const GOLD = Color("d7b67e")
@@ -35,6 +36,15 @@ var notice = ""
 var scene_data: Dictionary
 var animation_ally = ""
 var playback_generation = 0
+var motion: Node2D
+var motion_serial = 0
+var enemy_visuals: Dictionary = {}
+var field_visual: Control
+var field_home = Vector2.ZERO
+var field_back: Control
+var motion_hurt_ids: Array = []
+var shown_hp: Dictionary = {}
+var presenting_source = ""
 
 func _ready() -> void:
 	scene_data = JSON.parse_string(FileAccess.get_file_as_string("res://data/battle_scene.json"))
@@ -149,10 +159,13 @@ func _rebuild() -> void:
 	if preview_tween:
 		preview_tween.kill()
 	for child in get_children():
+		if child.has_meta("combat_sequence"): continue
 		remove_child(child)
 		child.queue_free()
 	controls.clear()
 	text_metrics.clear()
+	enemy_visuals.clear()
+	shown_hp.clear()
 	var view = get_viewport_rect().size
 	var w = minf(view.x,430)
 	var h = minf(view.y,860)
@@ -184,7 +197,7 @@ func _rebuild() -> void:
 		_confirm_sheet(Rect2(x+6,frame.end.y-310,width-12,162))
 	if log_open:
 		_log_sheet(Rect2(x+6,field.position.y+12,width-12,field.size.y+party_h-24))
-	if not state.result.is_empty():
+	if not state.result.is_empty() and not busy:
 		_result_sheet(Rect2(x+12,field.position.y+36,width-24,220))
 	call_deferred("_publish_metrics")
 
@@ -207,7 +220,9 @@ func _battlefield(rect: Rect2) -> void:
 	var field = Control.new()
 	field.clip_contents = true
 	_put(field,rect)
+	field_visual=field; field_home=field.position
 	var back = _picture("res://assets/src/academy.png",Rect2(Vector2.ZERO,rect.size),field,true)
+	field_back=back
 	back.modulate = Color(0.53,0.53,0.53)
 	for id in ["lantern","apprentice","orb","executor"]:
 		var e = state.enemy(id)
@@ -231,6 +246,8 @@ func _battlefield(rect: Rect2) -> void:
 		art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 		art.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 		_put(art,Rect2((hit_width-art_w)/2,0,art_w,height),hit)
+		enemy_visuals[id]={"node":art,"home":art.position}
+		shown_hp[id]=e.hp
 		var summary = _panel(Rect2((hit_width-summary_w)/2,height,summary_w,40),hit)
 		if id==state.selected_enemy:
 			summary.add_theme_stylebox_override("panel",_style(Color("30291e"),GOLD))
@@ -250,6 +267,7 @@ func _party(rect: Rect2) -> void:
 	var col = (rect.size.x-gap*3)/4
 	for i in range(4):
 		var a = state.data.allies[i]
+		shown_hp[a.id]=a.hp
 		var button = _button("ally:"+a.id,Rect2(rect.position+Vector2(i*(col+gap),0),Vector2(col,rect.size.y)),_ally_pressed.bind(a.id),a.id==state.current_id)
 		button.textured=false
 		var pic_h = rect.size.y-88
@@ -286,11 +304,18 @@ func _commands(rect: Rect2) -> void:
 		_label("보급품",Rect2(0,0,64,44),12,INK,item_button,HORIZONTAL_ALIGNMENT_CENTER)
 		controls.supplies.rect=[rect.end.x-70,rect.position.y+3,64,44]
 	var title=a.name+"의 차례" if not a.is_empty() else state.enemy(state.current_id).short+" 행동 중"
+	if busy and not presenting_source.is_empty():
+		var performer=state.ally(presenting_source)
+		title=(performer.name if not performer.is_empty() else state.enemy(presenting_source).name)+" 행동 중"
 	_label(title,Rect2(8,2,rect.size.x-88,23),15,GOLD,panel)
 	var hint="스킬 선택 → 대상 터치"
 	if busy: hint=state.events[-1] if not state.events.is_empty() else "행동 처리 중"
 	elif not pending_action.is_empty(): hint=state.actions()[pending_action].name+" · "+state.actions()[pending_action].target+" 선택"
 	_label(_wrap(hint,rect.size.x-88,12),Rect2(8,25,rect.size.x-88,30),12,INK,panel)
+	if busy:
+		var skip=_button("skip-motion",Rect2(8,68,rect.size.x-16,48),_skip_motion,false,panel)
+		_label("연출 건너뛰기",Rect2(0,0,rect.size.x-16,48),14,INK,skip,HORIZONTAL_ALIGNMENT_CENTER)
+		controls["skip-motion"].rect=[rect.position.x+8,rect.position.y+68,rect.size.x-16,48]
 	var ids=state.actions().keys().filter(func(id):return not id.begins_with("item:")) if ready else []
 	var col=(rect.size.x-20)/2
 	for i in range(ids.size()):
@@ -361,6 +386,7 @@ func _confirm_sheet(rect: Rect2) -> void:
 		controls[id].rect=[rect.position.x+8+i*(col+10),rect.position.y+106,col,48]
 
 func _toggle_log() -> void:
+	if busy: return
 	log_open=not log_open; _rebuild()
 
 func _log_sheet(rect: Rect2) -> void:
@@ -426,29 +452,99 @@ func _action_pressed(id: String) -> void:
 	else: _rebuild()
 
 func _close_sheets() -> void:
+	if busy: return
 	skills_open=false; items_open=false; ally_open=""; pending_action=""; log_open=false; _rebuild()
+
+func _capture_visual_before() -> Dictionary:
+	var before={}
+	for unit in state.data.allies+state.data.enemies:
+		before[unit.id]={"hp":unit.hp,"shield":unit.get("shield",0),"gauge":unit.get("gauge",0),"effects":unit.effects.duplicate(true)}
+	return before
 
 func _commit() -> void:
 	if busy or pending_action.is_empty(): return
 	var id=pending_action
-	var before={}
-	for u in state.data.allies+state.data.enemies: before[u.id]={"hp":u.hp,"shield":u.get("shield",0),"gauge":u.get("gauge",0),"effects":u.effects.duplicate(true)}
+	var before=_capture_visual_before()
 	animation_ally=state.current_id
-	if not state.act(id): return
-	pending_action=""; busy=true; _persist(); _rebuild()
-	if id=="personal":
-		var r=controls.field.rect
-		var sequence=SignatureSequence.new(); sequence.character_id=animation_ally
-		sequence.reduced=OS.has_feature("web") and bool(JavaScriptBridge.eval("window.matchMedia('(prefers-reduced-motion: reduce)').matches",true))
-		_put(sequence,Rect2(r[0],r[1],r[2],r[3]))
-		sequence.impact.connect(_effect_feedback.bind(before,animation_ally,id))
-		call_deferred("_publish_metrics")
-		await get_tree().create_timer(sequence.duration).timeout
-	else:
-		_preview(id); _effect_feedback(before,animation_ally,id)
-	_resume_automatic(.12 if id=="personal" else .7)
+	presenting_source=animation_ally
+	# Build the old visual state before resolving once. No post-action HP leak.
+	pending_action=""; skills_open=false; items_open=false; ally_open=""; busy=true
+	_rebuild()
+	if not state.act(id):
+		busy=false; _rebuild(); return
+	_persist()
+	await _present_action(before,animation_ally,id)
+	_resume_automatic(0.08)
 
-func _resume_automatic(initial_delay=.7) -> void:
+func _present_action(before: Dictionary, source: String, action_id: String) -> void:
+	motion_serial+=1
+	var current=CombatPresentation.new()
+	motion=current
+	current.sequence_id=motion_serial
+	current.character_id=source
+	current.action=action_id
+	current.reduced=OS.has_feature("web") and bool(JavaScriptBridge.eval("window.matchMedia('(prefers-reduced-motion: reduce)').matches",true))
+	motion_reduced=current.reduced
+	current.enemy_action=state.ally(source).is_empty()
+	var r=controls.field.rect
+	current.field=Rect2(r[0],r[1],r[2],r[3])
+	if current.enemy_action:
+		var enemy=state.enemy(source)
+		if enemy_visuals.has(source):
+			var visual=enemy_visuals[source].node
+			current.source_rect=Rect2(visual.global_position,visual.size)
+			current.source_image=visual.texture
+		else: current.source_rect=current.field
+	else:
+		current.source_rect=Rect2(actor.global_position,actor.size)
+		current.tint={"ice":Color("b9e0e4"),"bolt":Color("e9d494"),"holy":Color("e9e1ba")}.get(state.ally(source).element,Color("edc69b"))
+	motion_hurt_ids=[]
+	for unit in state.data.allies+state.data.enemies:
+		var old=before[unit.id]
+		var hurt=unit.hp<old.hp or unit.get("shield",0)<old.shield
+		var changed=hurt or unit.hp!=old.hp or unit.effects!=old.effects or unit.get("gauge",0)!=old.gauge or unit.get("shield",0)!=old.shield
+		var ally_unit=not state.ally(unit.id).is_empty()
+		var key=("ally:" if ally_unit else "enemy:")+unit.id
+		if not changed or not controls.has(key): continue
+		var rect=controls[key].rect
+		var target=Rect2(rect[0],rect[1],rect[2],minf(rect[3],72) if ally_unit else rect[3]-40)
+		current.targets.append(target)
+		if hurt and ally_unit==current.enemy_action:
+			current.hurt_targets.append(target)
+			motion_hurt_ids.append(unit.id)
+	current.damaging=not current.hurt_targets.is_empty()
+	current.impact.connect(_motion_impact.bind(before,source,action_id))
+	current.on_visual_update=_motion_visuals
+	add_child(current)
+	_motion_visuals(current)
+	call_deferred("_publish_metrics")
+	await current.finished
+	motion=null
+	_rebuild()
+
+func _motion_impact(before: Dictionary, source: String, action_id: String) -> void:
+	_rebuild()
+	_effect_feedback(before,source,action_id)
+	if is_instance_valid(motion): _motion_visuals(motion)
+
+func _motion_visuals(current) -> void:
+	if is_instance_valid(actor): actor.visible=current==null or current.enemy_action
+	if is_instance_valid(field_back): field_back.position=current.shake_offset() if current!=null else Vector2.ZERO
+	for id in enemy_visuals:
+		var visual=enemy_visuals[id].node
+		if not is_instance_valid(visual): continue
+		visual.visible=current==null or not (current.enemy_action and current.character_id==id)
+		visual.position=enemy_visuals[id].home
+		if current!=null: visual.position+=current.shake_offset()
+		visual.modulate=Color.WHITE
+		if current!=null and id in motion_hurt_ids and current.clock.impacted:
+			visual.position+=current.reaction_offset()
+			if current.clock.remaining_stop>0: visual.modulate=Color(1.3,1.2,1.1)
+
+func _skip_motion() -> void:
+	if is_instance_valid(motion): motion.skip()
+
+func _resume_automatic(initial_delay=0.08) -> void:
 	busy=true; playback_generation+=1
 	call_deferred("_publish_metrics")
 	var generation=playback_generation
@@ -456,11 +552,12 @@ func _resume_automatic(initial_delay=.7) -> void:
 	if generation!=playback_generation: return
 	animation_ally=""
 	while state.result.is_empty() and (not state.player_turn() or state.ally(state.current_id).charging):
-		var before={}
-		for u in state.data.allies+state.data.enemies: before[u.id]={"hp":u.hp,"shield":u.get("shield",0),"gauge":u.get("gauge",0),"effects":u.effects.duplicate(true)}
+		var before=_capture_visual_before()
 		var source=state.current_id
-		state.automatic_turn(); _persist(); _rebuild(); _effect_feedback(before,source,"enemy")
-		await get_tree().create_timer(0.7).timeout
+		presenting_source=source
+		_rebuild()
+		state.automatic_turn(); _persist()
+		await _present_action(before,source,"enemy" if state.ally(source).is_empty() else "burst")
 		if generation!=playback_generation: return
 	busy=false; _rebuild()
 
@@ -501,7 +598,7 @@ func _persist() -> void:
 func _publish_metrics() -> void:
 	if not OS.has_feature("web"):
 		return
-	var report={"build":state.data.build,"busy":busy,"pending_action":pending_action,"result":state.result,"current_id":state.current_id,"events":state.events,"engine":Engine.get_version_info().string,"state":state.snapshot(),"controls":controls,"text":text_metrics,"skills_open":skills_open,"ally_open":ally_open,"motion_reduced":motion_reduced,"storage_persistent":OS.is_userfs_persistent(),"storage_error":storage_error,"frame":[frame.position.x,frame.position.y,frame.size.x,frame.size.y],"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"actor_art":CharacterSprite.info(animation_ally if not animation_ally.is_empty() else state.last_ally).get("path",""),"enemy_hp":state.data.enemies.map(func(e):return {"id":e.id,"hp":e.hp,"mhp":e.mhp})}
+	var report={"build":state.data.build,"busy":busy,"pending_action":pending_action,"result":state.result,"current_id":state.current_id,"events":state.events,"engine":Engine.get_version_info().string,"state":state.snapshot(),"controls":controls,"text":text_metrics,"skills_open":skills_open,"ally_open":ally_open,"motion_reduced":motion_reduced,"storage_persistent":OS.is_userfs_persistent(),"storage_error":storage_error,"frame":[frame.position.x,frame.position.y,frame.size.x,frame.size.y],"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"shown_hp":shown_hp,"motion_serial":motion_serial,"actor_art":CharacterSprite.info(animation_ally if not animation_ally.is_empty() else state.last_ally).get("path",""),"enemy_hp":state.data.enemies.map(func(e):return {"id":e.id,"hp":e.hp,"mhp":e.mhp})}
 	JavaScriptBridge.eval("window.__abyssPreview = "+JSON.stringify(report)+";",true)
 
 func _unhandled_key_input(event: InputEvent) -> void:

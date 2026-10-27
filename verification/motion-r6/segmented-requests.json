@@ -1,0 +1,74 @@
+[
+  {
+    "key": "windup",
+    "args": {
+      "first_frame_url": "https://aredsea.github.io/into-the-abyss-web/motion-lab/assets/hildegard-seed.png",
+      "last_frame_url": "https://api.pixellab.ai/mcp/images/6ac212fb-4bda-410b-ad02-ecc579743a08/download?index=4",
+      "description": "Only the preparation of one sword cut, not the strike. From first pose to the exact supplied last pose: pull the rigid sword back beside the shoulder, bend knees slightly, coil hips. No swinging at a target. Keep one unchanged steel sword opaque and visible. Plain clean body and weapon pixels only, zero bright trails, zero effects. Do not return to first pose. Preserve face, clothing, red coat and black armor.",
+      "frame_count": 4,
+      "no_background": true,
+      "enhance_prompt": false,
+      "view": "side",
+      "direction": "south-east",
+      "subject_description": "Hildegard red-haired armored swordswoman, same reference outfit and single straight steel longsword",
+      "initial_pose": "The exact supplied first pose"
+    },
+    "response": {
+      "content": [
+        {
+          "type": "text",
+          "text": "id: 7a4699d2-bf8e-4d9b-bd5c-59251a365def\njob_id: 7a4699d2-bf8e-4d9b-bd5c-59251a365def\ndescription: Only the preparation of one sword cut, not the strike. From first pose to the exact supplied last pose: pull the rigid sword back beside the shoulder, bend knees slightly, coil hips. No swinging at a target. Keep one unchanged steel sword opaque and visible. Plain clean body and weapon pixels only, zero bright trails, zero effects. Do not return to first pose. Preserve face, clothing, red coat and black armor.\nframes: 4\nsize: 256x256px\ntransparent: True\nlast_frame: yes (animating toward it)\ncost: 1 generation\nstatus: processing (~1-5 min)\n\nhint: get_image(job_id=\"7a4699d2-bf8e-4d9b-bd5c-59251a365def\")\nasset_id: 453bca9b-e2bb-5abf-83e6-9fa0b02efaad\nasset_status: pending (saved to your gallery when generation completes)"
+        }
+      ],
+      "isError": false
+    }
+  },
+  {
+    "key": "strike",
+    "args": {
+      "first_frame_url": "https://api.pixellab.ai/mcp/images/6ac212fb-4bda-410b-ad02-ecc579743a08/download?index=4",
+      "last_frame_url": "https://api.pixellab.ai/mcp/images/6ac212fb-4bda-410b-ad02-ecc579743a08/download?index=9",
+      "description": "Only ONE diagonal downward sword swing connecting these exact two poses. Drive hips forward and rotate shoulders, commit weight over front knee. Single rigid steel blade travels from shoulder guard to low extended finish; two hands remain on hilt. Stop at exact last pose; no recovery, no second attack. Clean opaque body and rigid sword only; NO slash streaks, white arcs, magic, particles or motion blur. Keep the same straight blade length and the entire body inside frame.",
+      "frame_count": 4,
+      "no_background": true,
+      "enhance_prompt": false,
+      "view": "side",
+      "direction": "south-east",
+      "subject_description": "Hildegard red-haired armored swordswoman, same reference outfit and single straight steel longsword",
+      "initial_pose": "The exact supplied first pose"
+    },
+    "response": {
+      "content": [
+        {
+          "type": "text",
+          "text": "id: f1440f7d-da2f-4429-826b-11cad3236236\njob_id: f1440f7d-da2f-4429-826b-11cad3236236\ndescription: Only ONE diagonal downward sword swing connecting these exact two poses. Drive hips forward and rotate shoulders, commit weight over front knee. Single rigid steel blade travels from shoulder guard to low extended finish; two hands remain on hilt. Stop at exact last pose; no recovery, no second attack. Clean opaque body and rigid sword only; NO slash streaks, white arcs, magic, particles or motion blur. Keep the same straight blade length and the entire body inside frame.\nframes: 4\nsize: 256x256px\ntransparent: True\nlast_frame: yes (animating toward it)\ncost: 1 generation\nstatus: processing (~1-5 min)\n\nhint: get_image(job_id=\"f1440f7d-da2f-4429-826b-11cad3236236\")\nasset_id: 3a45d6e8-a542-5040-a239-9763ccdcec43\nasset_status: pending (saved to your gallery when generation completes)"
+        }
+      ],
+      "isError": false
+    }
+  },
+  {
+    "key": "recover",
+    "args": {
+      "first_frame_url": "https://api.pixellab.ai/mcp/images/6ac212fb-4bda-410b-ad02-ecc579743a08/download?index=9",
+      "last_frame_url": "https://aredsea.github.io/into-the-abyss-web/motion-lab/assets/hildegard-seed.png",
+      "description": "Only recover from the supplied low sword follow-through to the supplied relaxed starting guard. Pull the front foot back and bring the sword in slowly, coat settling. No attack, no flourish, no spin. The exact same steel sword remains solid with constant length. No white arcs, slash trails, motion blur, particles or effects. Finish precisely at the supplied last pose. Preserve all costume and face details.",
+      "frame_count": 4,
+      "no_background": true,
+      "enhance_prompt": false,
+      "view": "side",
+      "direction": "south-east",
+      "subject_description": "Hildegard red-haired armored swordswoman, same reference outfit and single straight steel longsword",
+      "initial_pose": "The exact supplied first pose"
+    },
+    "response": {
+      "content": [
+        {
+          "type": "text",
+          "text": "id: b536e3e5-e7c1-48eb-a20c-b59e152e0b31\njob_id: b536e3e5-e7c1-48eb-a20c-b59e152e0b31\ndescription: Only recover from the supplied low sword follow-through to the supplied relaxed starting guard. Pull the front foot back and bring the sword in slowly, coat settling. No attack, no flourish, no spin. The exact same steel sword remains solid with constant length. No white arcs, slash trails, motion blur, particles or effects. Finish precisely at the supplied last pose. Preserve all costume and face details.\nframes: 4\nsize: 256x256px\ntransparent: True\nlast_frame: yes (animating toward it)\ncost: 1 generation\nstatus: processing (~1-5 min)\n\nhint: get_image(job_id=\"b536e3e5-e7c1-48eb-a20c-b59e152e0b31\")\nasset_id: dc67bf75-f9fd-5e98-b529-c03bcbc0fef7\nasset_status: pending (saved to your gallery when generation completes)"
+        }
+      ],
+      "isError": false
+    }
+  }
+]

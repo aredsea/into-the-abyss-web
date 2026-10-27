@@ -8,6 +8,7 @@ var character_id="hildegard"
 var reduced=false
 var preview=false
 var elapsed=0.0
+var externally_timed=false
 var duration=1.6
 var impacted=false
 var art: Dictionary
@@ -38,7 +39,7 @@ func _layout() -> void:
 	figure.size=Vector2(size.x*.57,size.y-64); figure.position=Vector2(size.x*.30,58)
 
 func _process(delta: float) -> void:
-	elapsed+=delta
+	if not externally_timed: elapsed+=delta
 	var t=elapsed/duration
 	phase="intro" if t<.22 else "windup" if t<.42 else "impact" if t<.78 else "release"
 	if not impacted and t>=.42:

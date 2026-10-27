@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>힐데가르트 검격 비교 · Into the Abyss</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="style.css">
+<body><main>
+<header><h1>힐데가르트 · 검격 비교</h1><a href="../">기존 모션</a></header>
+<p class="notice">본편 미적용. 흰 검기와 무기 형태가 불안정해 채택을 보류했습니다. 30명의 새 모션이 완성된 상태는 아닙니다.</p>
+<div class="viewer">
+  <div class="stage-head"><span>장검 · 몸동작 검수</span><span id="phase">불러오는 중</span></div>
+  <canvas id="stage" width="640" height="480" aria-label="힐데가르트 검격과 타격 반응 비교"></canvas>
+</div>
+<nav id="variants" aria-label="검격 시안 선택"></nav>
+<p id="quality" class="quality" role="status">모션을 불러오고 있습니다.</p>
+<div class="playback"><button id="play" class="primary">다시 재생</button><button id="pause">계속 재생</button><label class="speed">속도<select id="speed" aria-label="재생 속도"><option value="1">1배</option><option value="0.5">0.5배</option><option value="0.25">0.25배</option></select></label></div>
+<div class="scrubber"><input id="timeline" type="range" min="0" max="1000" value="0" aria-label="프레임 이동"><output id="frame">0</output></div>
+<div class="options"><label><input id="impact" type="checkbox" checked> 타격 반응</label><label><input id="compare" type="checkbox"> 원본 나란히</label><label><input id="loop" type="checkbox"> 반복</label></div>
+<p class="note">타격 반응을 꺼도 남는 흰 궤적은 생성 이미지에 들어 있는 결함입니다. 추가 검기는 넣지 않았습니다. 이 화면의 타격 위치·시점은 비교용 예시입니다.</p>
+<a id="contact" href="manifest.json">전체 프레임 펼쳐 보기</a>
+<details open><summary>검술에서 가져올 동작</summary>
+<p>발을 디디며 중심을 옮기고, 골반과 어깨가 검을 이끌게 합니다. 크게 준비하되 타격은 짧게, 베기 뒤에는 무게를 받아 자세를 회수합니다. 생성 결과가 이 설계를 따랐는지 별도로 검수합니다.</p>
+<p><a href="https://www.wiktenauer.com/wiki/Joachim_Meyer" target="_blank" rel="noreferrer">Meyer의 대각선·수평 베기</a> · <a href="https://wiki.swordschool.com/wiki/Fiore%27s_Footwork" target="_blank" rel="noreferrer">Fiore 계열 스텝</a></p>
+</details>
+<details><summary>다른 캐릭터는 어떻게 다른가</summary>
+<dl><dt>바르구트 · 쌍단검</dt><dd>몸을 낮추고 짧게 진입, 교차 기습 뒤 빠르게 이탈. 공중회전은 제외합니다.</dd><dt>테이리스 · 수정 지팡이</dt><dd>지팡이를 안정시키고 빈손의 중심 이동과 뻗기를 사용합니다. 즉시 발동 기술이므로 긴 충전은 넣지 않습니다.</dd><dt>베렝가 · 치유</dt><dd>빈팔의 둥근 경로로 아군을 지정하고 손끝부터 회수합니다. 공격 반동과 구별합니다.</dd><dt>궁수와 석궁수</dt><dd>활은 당김·릴리스·조준선 유지, 석궁은 지지·발사·작은 반동으로 구분합니다.</dd></dl>
+<p><a href="https://github.com/aredsea/into-the-abyss-web/blob/main/ANIMATION-ACTION-REFERENCES-R6.md">30명 동작표와 출처</a></p></details>
+<footer><a href="../../">게임으로</a> · <a href="manifest.json">생성 기록</a> · <a href="https://github.com/aredsea/into-the-abyss-web/blob/main/ANIMATION-TEST-R6.md">검수 결과와 사용량</a></footer>
+</main><script src="app.js"></script></body></html>
