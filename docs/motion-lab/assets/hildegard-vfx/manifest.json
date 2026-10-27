@@ -1,0 +1,225 @@
+{
+ "app": "PixelLab VFX Creator",
+ "name": "Into the Abyss - Hildegard Frontline Duty r5 test",
+ "fps": 18,
+ "frame_ms": 56,
+ "frames": 24,
+ "loop": false,
+ "canvas": {
+  "w": 294,
+  "h": 231
+ },
+ "anchor": {
+  "kind": "feet",
+  "x": 147,
+  "y": 207
+ },
+ "clips": [
+  {
+   "name": "whole",
+   "title": "the whole effect, no sprite",
+   "depth": "both",
+   "loop": false,
+   "start_frame": 5,
+   "frames": 16,
+   "frame": {
+    "w": 288,
+    "h": 215
+   },
+   "sheets": [
+    {
+     "file": "whole.png",
+     "first_frame": 0,
+     "frames": 16,
+     "columns": 4,
+     "rows": 4
+    }
+   ],
+   "offset": {
+    "x": -144,
+    "y": -194
+   }
+  },
+  {
+   "name": "whole-with-sprite",
+   "title": "the whole effect with the sprite in it",
+   "depth": "both",
+   "loop": false,
+   "start_frame": 0,
+   "frames": 24,
+   "frame": {
+    "w": 288,
+    "h": 225
+   },
+   "sheets": [
+    {
+     "file": "whole-with-sprite.png",
+     "first_frame": 0,
+     "frames": 24,
+     "columns": 5,
+     "rows": 5
+    }
+   ],
+   "offset": {
+    "x": -144,
+    "y": -204
+   }
+  },
+  {
+   "name": "behind",
+   "title": "everything behind the sprite",
+   "depth": "behind",
+   "loop": false,
+   "start_frame": 5,
+   "frames": 16,
+   "frame": {
+    "w": 288,
+    "h": 199
+   },
+   "sheets": [
+    {
+     "file": "behind.png",
+     "first_frame": 0,
+     "frames": 16,
+     "columns": 4,
+     "rows": 4
+    }
+   ],
+   "offset": {
+    "x": -144,
+    "y": -183
+   }
+  },
+  {
+   "name": "front",
+   "title": "everything in front of the sprite",
+   "depth": "front",
+   "loop": false,
+   "start_frame": 5,
+   "frames": 16,
+   "frame": {
+    "w": 214,
+    "h": 215
+   },
+   "sheets": [
+    {
+     "file": "front.png",
+     "first_frame": 0,
+     "frames": 16,
+     "columns": 4,
+     "rows": 4
+    }
+   ],
+   "offset": {
+    "x": -104,
+    "y": -194
+   }
+  },
+  {
+   "name": "part-mist",
+   "title": "the frost mist part",
+   "role": "linger",
+   "part": "frost_mist",
+   "depth": "both",
+   "loop": false,
+   "start_frame": 5,
+   "frames": 16,
+   "frame": {
+    "w": 147,
+    "h": 68
+   },
+   "sheets": [
+    {
+     "file": "part-mist.png",
+     "first_frame": 0,
+     "frames": 16,
+     "columns": 4,
+     "rows": 4
+    }
+   ],
+   "offset": {
+    "x": -75,
+    "y": -47
+   }
+  },
+  {
+   "name": "part-rest",
+   "title": "the layers in no part",
+   "depth": "both",
+   "loop": false,
+   "start_frame": 6,
+   "frames": 15,
+   "frame": {
+    "w": 94,
+    "h": 156
+   },
+   "sheets": [
+    {
+     "file": "part-rest.png",
+     "first_frame": 0,
+     "frames": 15,
+     "columns": 4,
+     "rows": 4
+    }
+   ],
+   "offset": {
+    "x": 15,
+    "y": -194
+   }
+  },
+  {
+   "name": "part-challenge",
+   "title": "the shockwave ring part",
+   "role": "impact",
+   "part": "shockwave_ring",
+   "depth": "both",
+   "loop": false,
+   "start_frame": 8,
+   "frames": 10,
+   "frame": {
+    "w": 288,
+    "h": 76
+   },
+   "sheets": [
+    {
+     "file": "part-challenge.png",
+     "first_frame": 0,
+     "frames": 10,
+     "columns": 4,
+     "rows": 3
+    }
+   ],
+   "offset": {
+    "x": -144,
+    "y": -90
+   }
+  },
+  {
+   "name": "part-glints",
+   "title": "the twinkles part",
+   "role": "cast",
+   "part": "twinkles",
+   "depth": "front",
+   "loop": false,
+   "start_frame": 9,
+   "frames": 11,
+   "frame": {
+    "w": 60,
+    "h": 101
+   },
+   "sheets": [
+    {
+     "file": "part-glints.png",
+     "first_frame": 0,
+     "frames": 11,
+     "columns": 4,
+     "rows": 3
+    }
+   ],
+   "offset": {
+    "x": 40,
+    "y": -154
+   }
+  }
+ ]
+}

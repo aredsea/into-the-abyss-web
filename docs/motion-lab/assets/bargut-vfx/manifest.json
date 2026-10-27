@@ -1,0 +1,94 @@
+{
+ "app": "PixelLab VFX Creator",
+ "name": "Into the Abyss - Bargut First Strike r5 test",
+ "fps": 24,
+ "frame_ms": 42,
+ "frames": 20,
+ "loop": false,
+ "canvas": {
+  "w": 320,
+  "h": 256
+ },
+ "anchor": {
+  "kind": "origin",
+  "x": 160,
+  "y": 128
+ },
+ "clips": [
+  {
+   "name": "whole",
+   "title": "the whole effect, no sprite",
+   "depth": "both",
+   "loop": false,
+   "start_frame": 5,
+   "frames": 9,
+   "frame": {
+    "w": 170,
+    "h": 111
+   },
+   "sheets": [
+    {
+     "file": "whole.png",
+     "first_frame": 0,
+     "frames": 9,
+     "columns": 3,
+     "rows": 3
+    }
+   ],
+   "offset": {
+    "x": -76,
+    "y": -47
+   }
+  },
+  {
+   "name": "behind",
+   "title": "everything behind the sprite",
+   "depth": "behind",
+   "loop": false,
+   "start_frame": 7,
+   "frames": 7,
+   "frame": {
+    "w": 161,
+    "h": 106
+   },
+   "sheets": [
+    {
+     "file": "behind.png",
+     "first_frame": 0,
+     "frames": 7,
+     "columns": 3,
+     "rows": 3
+    }
+   ],
+   "offset": {
+    "x": -67,
+    "y": -42
+   }
+  },
+  {
+   "name": "front",
+   "title": "everything in front of the sprite",
+   "depth": "front",
+   "loop": false,
+   "start_frame": 5,
+   "frames": 7,
+   "frame": {
+    "w": 159,
+    "h": 98
+   },
+   "sheets": [
+    {
+     "file": "front.png",
+     "first_frame": 0,
+     "frames": 7,
+     "columns": 3,
+     "rows": 3
+    }
+   ],
+   "offset": {
+    "x": -76,
+    "y": -47
+   }
+  }
+ ]
+}

@@ -1,0 +1,40 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/bargut-vfx/front.png" id="1"]
+
+[sub_resource type="AtlasTexture" id="Atlas_0"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 159, 98)
+
+[sub_resource type="AtlasTexture" id="Atlas_1"]
+atlas = ExtResource("1")
+region = Rect2(159, 0, 159, 98)
+
+[sub_resource type="AtlasTexture" id="Atlas_2"]
+atlas = ExtResource("1")
+region = Rect2(318, 0, 159, 98)
+
+[sub_resource type="AtlasTexture" id="Atlas_3"]
+atlas = ExtResource("1")
+region = Rect2(0, 98, 159, 98)
+
+[sub_resource type="AtlasTexture" id="Atlas_4"]
+atlas = ExtResource("1")
+region = Rect2(159, 98, 159, 98)
+
+[sub_resource type="AtlasTexture" id="Atlas_5"]
+atlas = ExtResource("1")
+region = Rect2(318, 98, 159, 98)
+
+[sub_resource type="AtlasTexture" id="Atlas_6"]
+atlas = ExtResource("1")
+region = Rect2(0, 196, 159, 98)
+
+[resource]
+animations = [{"frames": [{"duration": 1.0, "texture": SubResource("Atlas_0")},
+{"duration": 1.0, "texture": SubResource("Atlas_1")},
+{"duration": 1.0, "texture": SubResource("Atlas_2")},
+{"duration": 1.0, "texture": SubResource("Atlas_3")},
+{"duration": 1.0, "texture": SubResource("Atlas_4")},
+{"duration": 1.0, "texture": SubResource("Atlas_5")},
+{"duration": 1.0, "texture": SubResource("Atlas_6")}], "loop": false, "name": &"bargut-personal-front", "speed": 20.00000}]

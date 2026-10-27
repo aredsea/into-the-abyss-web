@@ -1,0 +1,1149 @@
+{
+  "version": "r5-test",
+  "status": "review-required",
+  "people": {
+    "hildegard": {
+      "name": "힐데가르트",
+      "weapon": "장검",
+      "skill": {
+        "name": "전방 근무 개시",
+        "kind": "능동",
+        "mp": 10,
+        "target": "자신",
+        "power": 0,
+        "turns": 0,
+        "chance": 100,
+        "brk": 15,
+        "note": "2턴 동안 받는 피해를 25% 줄이고 도발 상태가 된다(심연 −15)."
+      }
+    },
+    "teiris": {
+      "name": "테이리스",
+      "weapon": "수정 지팡이",
+      "skill": {
+        "name": "마감 전날 대폭발",
+        "kind": "능동",
+        "mp": 36,
+        "target": "적 전체",
+        "power": 1.9,
+        "turns": 0,
+        "chance": 100,
+        "brk": 0,
+        "note": "전투당 1회, 충전 없이 마력 폭발을 곧바로 터뜨린다(적 전체 ×1.9). 「이건 노트에 적어 둬야겠어요!」"
+      }
+    },
+    "bargut": {
+      "name": "바르구트",
+      "weapon": "쌍단검",
+      "skill": {
+        "name": "선점 효과",
+        "kind": "능동",
+        "mp": 12,
+        "target": "적 1",
+        "power": 1.2,
+        "turns": 0,
+        "chance": 100,
+        "brk": 15,
+        "note": "적 1명을 위력 ×1.2로 기습한다. 행동 순서가 가장 빠르면 피해가 +50% 더 들어간다(심연 −15)."
+      }
+    }
+  },
+  "clips": [
+    {
+      "id": "hildegard-personal",
+      "character": "hildegard",
+      "action": "personal",
+      "label": "전방 근무 개시",
+      "target": "보호 · 도발",
+      "rule": "2턴 동안 받는 피해를 25% 줄이고 도발 상태가 된다(심연 −15).",
+      "review": "칼을 세우는 자세는 생성됨. 보호막 윤곽·발 위치·얼굴의 미세한 변화를 검수 중.",
+      "sheet": "assets/hildegard-personal/sheet.png",
+      "frames": 25,
+      "duration": 1.6,
+      "job_id": "4c36f83b-2737-4f60-bac9-f00b1c01ad04",
+      "sha256": "18f7d72e5f69f3d5da6973a0184a6d738f9c49cccdf85e64c814eabbf74f06f6",
+      "audit": {
+        "frames": 25,
+        "frameSize": 256,
+        "columns": 5,
+        "bounds": [
+          [
+            51,
+            26,
+            204,
+            229
+          ],
+          [
+            51,
+            26,
+            204,
+            229
+          ],
+          [
+            53,
+            27,
+            207,
+            229
+          ],
+          [
+            56,
+            32,
+            201,
+            231
+          ],
+          [
+            55,
+            25,
+            202,
+            232
+          ],
+          [
+            48,
+            22,
+            207,
+            232
+          ],
+          [
+            45,
+            23,
+            208,
+            232
+          ],
+          [
+            47,
+            23,
+            204,
+            232
+          ],
+          [
+            57,
+            23,
+            204,
+            232
+          ],
+          [
+            60,
+            23,
+            204,
+            232
+          ],
+          [
+            60,
+            23,
+            204,
+            232
+          ],
+          [
+            60,
+            23,
+            204,
+            232
+          ],
+          [
+            60,
+            23,
+            204,
+            232
+          ],
+          [
+            60,
+            23,
+            204,
+            232
+          ],
+          [
+            60,
+            23,
+            204,
+            232
+          ],
+          [
+            60,
+            23,
+            204,
+            232
+          ],
+          [
+            60,
+            23,
+            204,
+            232
+          ],
+          [
+            60,
+            23,
+            204,
+            232
+          ],
+          [
+            60,
+            23,
+            204,
+            232
+          ],
+          [
+            62,
+            25,
+            202,
+            232
+          ],
+          [
+            60,
+            32,
+            201,
+            231
+          ],
+          [
+            53,
+            27,
+            207,
+            229
+          ],
+          [
+            51,
+            26,
+            204,
+            229
+          ],
+          [
+            51,
+            26,
+            204,
+            229
+          ],
+          [
+            51,
+            26,
+            204,
+            229
+          ]
+        ],
+        "edgeTouch": false
+      },
+      "vfx": {
+        "app": "PixelLab VFX Creator",
+        "name": "Into the Abyss - Hildegard Frontline Duty r5 test",
+        "fps": 18,
+        "frame_ms": 56,
+        "frames": 24,
+        "loop": false,
+        "canvas": {
+          "w": 294,
+          "h": 231
+        },
+        "anchor": {
+          "kind": "feet",
+          "x": 147,
+          "y": 207
+        },
+        "clips": [
+          {
+            "name": "whole",
+            "title": "the whole effect, no sprite",
+            "depth": "both",
+            "loop": false,
+            "start_frame": 5,
+            "frames": 16,
+            "frame": {
+              "w": 288,
+              "h": 215
+            },
+            "sheets": [
+              {
+                "file": "whole.png",
+                "first_frame": 0,
+                "frames": 16,
+                "columns": 4,
+                "rows": 4
+              }
+            ],
+            "offset": {
+              "x": -144,
+              "y": -194
+            }
+          },
+          {
+            "name": "whole-with-sprite",
+            "title": "the whole effect with the sprite in it",
+            "depth": "both",
+            "loop": false,
+            "start_frame": 0,
+            "frames": 24,
+            "frame": {
+              "w": 288,
+              "h": 225
+            },
+            "sheets": [
+              {
+                "file": "whole-with-sprite.png",
+                "first_frame": 0,
+                "frames": 24,
+                "columns": 5,
+                "rows": 5
+              }
+            ],
+            "offset": {
+              "x": -144,
+              "y": -204
+            }
+          },
+          {
+            "name": "behind",
+            "title": "everything behind the sprite",
+            "depth": "behind",
+            "loop": false,
+            "start_frame": 5,
+            "frames": 16,
+            "frame": {
+              "w": 288,
+              "h": 199
+            },
+            "sheets": [
+              {
+                "file": "behind.png",
+                "first_frame": 0,
+                "frames": 16,
+                "columns": 4,
+                "rows": 4
+              }
+            ],
+            "offset": {
+              "x": -144,
+              "y": -183
+            }
+          },
+          {
+            "name": "front",
+            "title": "everything in front of the sprite",
+            "depth": "front",
+            "loop": false,
+            "start_frame": 5,
+            "frames": 16,
+            "frame": {
+              "w": 214,
+              "h": 215
+            },
+            "sheets": [
+              {
+                "file": "front.png",
+                "first_frame": 0,
+                "frames": 16,
+                "columns": 4,
+                "rows": 4
+              }
+            ],
+            "offset": {
+              "x": -104,
+              "y": -194
+            }
+          },
+          {
+            "name": "part-mist",
+            "title": "the frost mist part",
+            "role": "linger",
+            "part": "frost_mist",
+            "depth": "both",
+            "loop": false,
+            "start_frame": 5,
+            "frames": 16,
+            "frame": {
+              "w": 147,
+              "h": 68
+            },
+            "sheets": [
+              {
+                "file": "part-mist.png",
+                "first_frame": 0,
+                "frames": 16,
+                "columns": 4,
+                "rows": 4
+              }
+            ],
+            "offset": {
+              "x": -75,
+              "y": -47
+            }
+          },
+          {
+            "name": "part-rest",
+            "title": "the layers in no part",
+            "depth": "both",
+            "loop": false,
+            "start_frame": 6,
+            "frames": 15,
+            "frame": {
+              "w": 94,
+              "h": 156
+            },
+            "sheets": [
+              {
+                "file": "part-rest.png",
+                "first_frame": 0,
+                "frames": 15,
+                "columns": 4,
+                "rows": 4
+              }
+            ],
+            "offset": {
+              "x": 15,
+              "y": -194
+            }
+          },
+          {
+            "name": "part-challenge",
+            "title": "the shockwave ring part",
+            "role": "impact",
+            "part": "shockwave_ring",
+            "depth": "both",
+            "loop": false,
+            "start_frame": 8,
+            "frames": 10,
+            "frame": {
+              "w": 288,
+              "h": 76
+            },
+            "sheets": [
+              {
+                "file": "part-challenge.png",
+                "first_frame": 0,
+                "frames": 10,
+                "columns": 4,
+                "rows": 3
+              }
+            ],
+            "offset": {
+              "x": -144,
+              "y": -90
+            }
+          },
+          {
+            "name": "part-glints",
+            "title": "the twinkles part",
+            "role": "cast",
+            "part": "twinkles",
+            "depth": "front",
+            "loop": false,
+            "start_frame": 9,
+            "frames": 11,
+            "frame": {
+              "w": 60,
+              "h": 101
+            },
+            "sheets": [
+              {
+                "file": "part-glints.png",
+                "first_frame": 0,
+                "frames": 11,
+                "columns": 4,
+                "rows": 3
+              }
+            ],
+            "offset": {
+              "x": 40,
+              "y": -154
+            }
+          }
+        ],
+        "path": "assets/hildegard-vfx"
+      }
+    },
+    {
+      "id": "hildegard-attack",
+      "character": "hildegard",
+      "action": "attack",
+      "label": "일반 공격",
+      "target": "적 1명",
+      "rule": "장검을 이용한 단일 공격 모션 시험. 피해 수치는 이 화면에서 적용하지 않습니다.",
+      "review": "첫 생성본: 칼 크기와 과장된 궤적이 불안정해 본편 적용 보류.",
+      "sheet": "assets/hildegard-attack/sheet.png",
+      "frames": 13,
+      "duration": 0.85,
+      "job_id": "38e77d2c-3243-4075-8fac-c33e30074b42",
+      "sha256": "a9a6ad29df3e37a166315f83eba67042dc796648aa10158f36f791c350989b08",
+      "audit": {
+        "frames": 13,
+        "frameSize": 256,
+        "columns": 5,
+        "bounds": [
+          [
+            51,
+            26,
+            204,
+            229
+          ],
+          [
+            31,
+            8,
+            198,
+            229
+          ],
+          [
+            36,
+            6,
+            198,
+            229
+          ],
+          [
+            11,
+            33,
+            204,
+            227
+          ],
+          [
+            47,
+            35,
+            244,
+            248
+          ],
+          [
+            51,
+            35,
+            243,
+            248
+          ],
+          [
+            59,
+            35,
+            243,
+            248
+          ],
+          [
+            62,
+            34,
+            237,
+            245
+          ],
+          [
+            67,
+            31,
+            225,
+            240
+          ],
+          [
+            67,
+            28,
+            214,
+            228
+          ],
+          [
+            64,
+            27,
+            208,
+            229
+          ],
+          [
+            52,
+            26,
+            205,
+            229
+          ],
+          [
+            51,
+            26,
+            204,
+            229
+          ]
+        ],
+        "edgeTouch": false
+      }
+    },
+    {
+      "id": "hildegard-guard",
+      "character": "hildegard",
+      "action": "guard",
+      "label": "방어",
+      "target": "자신",
+      "rule": "검을 몸 앞에 세워 막는 방어 모션 시험. 새 방패 장비를 추가하지 않습니다.",
+      "review": "몸을 낮추고 검으로 막는 동작. 손과 검의 접점·복귀를 검수 중.",
+      "sheet": "assets/hildegard-guard/sheet.png",
+      "frames": 9,
+      "duration": 0.7,
+      "job_id": "ec8edb2f-7522-4a7f-9b62-7ef477212c46",
+      "sha256": "1beaec8691569167ccf43b2f01ae87ac0a02c912c7644e502c08725a32ddcbfc",
+      "audit": {
+        "frames": 9,
+        "frameSize": 256,
+        "columns": 5,
+        "bounds": [
+          [
+            51,
+            26,
+            204,
+            229
+          ],
+          [
+            56,
+            28,
+            219,
+            229
+          ],
+          [
+            65,
+            32,
+            200,
+            229
+          ],
+          [
+            65,
+            32,
+            205,
+            229
+          ],
+          [
+            65,
+            32,
+            203,
+            229
+          ],
+          [
+            65,
+            32,
+            197,
+            229
+          ],
+          [
+            65,
+            31,
+            210,
+            229
+          ],
+          [
+            58,
+            28,
+            219,
+            229
+          ],
+          [
+            51,
+            26,
+            204,
+            229
+          ]
+        ],
+        "edgeTouch": false
+      }
+    },
+    {
+      "id": "hildegard-taunt",
+      "character": "hildegard",
+      "action": "taunt",
+      "label": "도발",
+      "target": "적의 주의 유도",
+      "rule": "적의 주의를 끄는 몸짓 시험. 피해나 새로운 상태이상을 추가하지 않습니다.",
+      "review": "도발 능력이 있는 힐데가르트만 제작. 손짓과 무기 유지 여부를 검수 중.",
+      "sheet": "assets/hildegard-taunt/sheet.png",
+      "frames": 13,
+      "duration": 1.1,
+      "job_id": "7a31d369-8b0d-4102-a7a2-a2f176fe3fa7",
+      "sha256": "74dc2ae6128a71daaeab2ec035498a76ece4c59bb354109b4f87141026278da9",
+      "audit": {
+        "frames": 13,
+        "frameSize": 256,
+        "columns": 5,
+        "bounds": [
+          [
+            51,
+            26,
+            204,
+            229
+          ],
+          [
+            56,
+            26,
+            200,
+            229
+          ],
+          [
+            67,
+            26,
+            198,
+            229
+          ],
+          [
+            66,
+            26,
+            198,
+            229
+          ],
+          [
+            66,
+            26,
+            198,
+            229
+          ],
+          [
+            66,
+            26,
+            203,
+            229
+          ],
+          [
+            66,
+            26,
+            203,
+            229
+          ],
+          [
+            66,
+            26,
+            203,
+            229
+          ],
+          [
+            66,
+            26,
+            198,
+            229
+          ],
+          [
+            67,
+            26,
+            198,
+            229
+          ],
+          [
+            59,
+            26,
+            200,
+            229
+          ],
+          [
+            51,
+            26,
+            204,
+            229
+          ],
+          [
+            51,
+            26,
+            204,
+            229
+          ]
+        ],
+        "edgeTouch": false
+      }
+    },
+    {
+      "id": "teiris-personal",
+      "character": "teiris",
+      "action": "personal",
+      "label": "마감 전날 대폭발",
+      "target": "적 전체",
+      "rule": "전투당 1회, 충전 없이 마력 폭발을 곧바로 터뜨린다(적 전체 ×1.9). 「이건 노트에 적어 둬야겠어요!」",
+      "review": "두 번째 시험: 지팡이를 유지하고 빈손으로 시전합니다. 폭발은 별도 레이어이며 손·망토·발의 미세한 변형은 검수 중입니다.",
+      "sheet": "assets/teiris-personal/sheet.png",
+      "frames": 17,
+      "duration": 1.25,
+      "job_id": "531451f4-7bef-4857-a2c3-221c5d4dc7af",
+      "sha256": "79091a7fa3d8852cfe4cb299764bdd5065f8370d5a3c1e2dd327330b85368e61",
+      "audit": {
+        "frames": 17,
+        "frameSize": 256,
+        "columns": 5,
+        "bounds": [
+          [
+            26,
+            26,
+            229,
+            229
+          ],
+          [
+            25,
+            26,
+            228,
+            229
+          ],
+          [
+            24,
+            26,
+            213,
+            229
+          ],
+          [
+            22,
+            24,
+            209,
+            229
+          ],
+          [
+            23,
+            23,
+            205,
+            229
+          ],
+          [
+            25,
+            23,
+            203,
+            229
+          ],
+          [
+            27,
+            23,
+            204,
+            229
+          ],
+          [
+            29,
+            23,
+            204,
+            229
+          ],
+          [
+            33,
+            24,
+            203,
+            229
+          ],
+          [
+            35,
+            24,
+            204,
+            229
+          ],
+          [
+            37,
+            25,
+            207,
+            229
+          ],
+          [
+            38,
+            26,
+            212,
+            229
+          ],
+          [
+            36,
+            26,
+            217,
+            229
+          ],
+          [
+            33,
+            26,
+            222,
+            229
+          ],
+          [
+            31,
+            26,
+            226,
+            229
+          ],
+          [
+            29,
+            26,
+            229,
+            229
+          ],
+          [
+            27,
+            26,
+            229,
+            229
+          ]
+        ],
+        "edgeTouch": false
+      },
+      "vfx": {
+        "app": "PixelLab VFX Creator",
+        "name": "Into the Abyss - Teiris Instant Nova r5 test",
+        "fps": 20,
+        "frame_ms": 50,
+        "frames": 24,
+        "loop": false,
+        "canvas": {
+          "w": 384,
+          "h": 320
+        },
+        "anchor": {
+          "kind": "origin",
+          "x": 192,
+          "y": 160
+        },
+        "clips": [
+          {
+            "name": "whole",
+            "title": "the whole effect, no sprite",
+            "depth": "both",
+            "loop": false,
+            "start_frame": 6,
+            "frames": 15,
+            "frame": {
+              "w": 273,
+              "h": 271
+            },
+            "sheets": [
+              {
+                "file": "whole.png",
+                "first_frame": 0,
+                "frames": 15,
+                "columns": 4,
+                "rows": 4
+              }
+            ],
+            "offset": {
+              "x": -135,
+              "y": -135
+            }
+          },
+          {
+            "name": "behind",
+            "title": "everything behind the sprite",
+            "depth": "behind",
+            "loop": false,
+            "start_frame": 6,
+            "frames": 15,
+            "frame": {
+              "w": 273,
+              "h": 271
+            },
+            "sheets": [
+              {
+                "file": "behind.png",
+                "first_frame": 0,
+                "frames": 15,
+                "columns": 4,
+                "rows": 4
+              }
+            ],
+            "offset": {
+              "x": -135,
+              "y": -135
+            }
+          }
+        ],
+        "path": "assets/teiris-vfx"
+      }
+    },
+    {
+      "id": "bargut-personal",
+      "character": "bargut",
+      "action": "personal",
+      "label": "선점 효과",
+      "target": "적 1명",
+      "rule": "적 1명을 위력 ×1.2로 기습한다. 행동 순서가 가장 빠르면 피해가 +50% 더 들어간다(심연 −15).",
+      "review": "쌍단검 기습 시험본. 큰 금색 궤적은 생성 이미지에 포함되어 추가 이펙트를 꺼도 남습니다.",
+      "sheet": "assets/bargut-personal/sheet.png",
+      "frames": 17,
+      "duration": 1.0,
+      "job_id": "7d41adb9-7966-4171-a731-3713ee183005",
+      "sha256": "3b5fd362063c60126605e3f80082246f27e990e6151fc1d66d97e8e1007c1250",
+      "audit": {
+        "frames": 17,
+        "frameSize": 256,
+        "columns": 5,
+        "bounds": [
+          [
+            40,
+            26,
+            215,
+            229
+          ],
+          [
+            39,
+            48,
+            203,
+            229
+          ],
+          [
+            36,
+            45,
+            203,
+            229
+          ],
+          [
+            35,
+            45,
+            203,
+            229
+          ],
+          [
+            22,
+            65,
+            234,
+            229
+          ],
+          [
+            58,
+            28,
+            232,
+            231
+          ],
+          [
+            54,
+            38,
+            230,
+            229
+          ],
+          [
+            33,
+            21,
+            228,
+            231
+          ],
+          [
+            42,
+            21,
+            219,
+            229
+          ],
+          [
+            33,
+            26,
+            211,
+            229
+          ],
+          [
+            36,
+            65,
+            235,
+            229
+          ],
+          [
+            37,
+            50,
+            232,
+            229
+          ],
+          [
+            39,
+            34,
+            221,
+            229
+          ],
+          [
+            40,
+            26,
+            215,
+            229
+          ],
+          [
+            40,
+            26,
+            215,
+            229
+          ],
+          [
+            40,
+            13,
+            215,
+            229
+          ],
+          [
+            40,
+            26,
+            215,
+            229
+          ]
+        ],
+        "edgeTouch": false
+      },
+      "vfx": {
+        "app": "PixelLab VFX Creator",
+        "name": "Into the Abyss - Bargut First Strike r5 test",
+        "fps": 24,
+        "frame_ms": 42,
+        "frames": 20,
+        "loop": false,
+        "canvas": {
+          "w": 320,
+          "h": 256
+        },
+        "anchor": {
+          "kind": "origin",
+          "x": 160,
+          "y": 128
+        },
+        "clips": [
+          {
+            "name": "whole",
+            "title": "the whole effect, no sprite",
+            "depth": "both",
+            "loop": false,
+            "start_frame": 5,
+            "frames": 9,
+            "frame": {
+              "w": 170,
+              "h": 111
+            },
+            "sheets": [
+              {
+                "file": "whole.png",
+                "first_frame": 0,
+                "frames": 9,
+                "columns": 3,
+                "rows": 3
+              }
+            ],
+            "offset": {
+              "x": -76,
+              "y": -47
+            }
+          },
+          {
+            "name": "behind",
+            "title": "everything behind the sprite",
+            "depth": "behind",
+            "loop": false,
+            "start_frame": 7,
+            "frames": 7,
+            "frame": {
+              "w": 161,
+              "h": 106
+            },
+            "sheets": [
+              {
+                "file": "behind.png",
+                "first_frame": 0,
+                "frames": 7,
+                "columns": 3,
+                "rows": 3
+              }
+            ],
+            "offset": {
+              "x": -67,
+              "y": -42
+            }
+          },
+          {
+            "name": "front",
+            "title": "everything in front of the sprite",
+            "depth": "front",
+            "loop": false,
+            "start_frame": 5,
+            "frames": 7,
+            "frame": {
+              "w": 159,
+              "h": 98
+            },
+            "sheets": [
+              {
+                "file": "front.png",
+                "first_frame": 0,
+                "frames": 7,
+                "columns": 3,
+                "rows": 3
+              }
+            ],
+            "offset": {
+              "x": -76,
+              "y": -47
+            }
+          }
+        ],
+        "path": "assets/bargut-vfx"
+      }
+    }
+  ],
+  "production": {
+    "provider": "PixelLab PixMiniMax / VFX workbench",
+    "original_frame_size": [
+      256,
+      256
+    ],
+    "game_integration": false,
+    "timing": "presentation test values, not game rules"
+  }
+}

@@ -1,0 +1,782 @@
+[
+  {
+    "id": "marceline",
+    "name": "마르셀린",
+    "weapon": "장검과 방패",
+    "appearance": "옅은 갈색 머리를 어깨 아래로 내려 한쪽만 한 갈래로 길게 땋고, 앞머리를 내렸다. 에메랄드빛 눈에 각진 턱. 배까지 덮는 은빛 판금 갑옷에 진홍 망토를 두르고, 가슴 한가운데 큼직한 금 십자를, 어깨판에는 금 별을 단다.",
+    "element": "holy",
+    "skill": {
+      "name": "총대 메기",
+      "kind": "능동",
+      "mp": 15,
+      "target": "아군 1",
+      "power": 0.3,
+      "turns": 1,
+      "chance": 100,
+      "brk": 0,
+      "note": "아군 1명 앞을 막아서서, 다음 적 공격 1회를 마르셀린이 대신 맞는다(받는 피해 −30%). 「소설 속 기사는 이렇게 막아섰다」"
+    },
+    "direction_proposal": {
+      "motion": "한 걸음 끼어들며 방패를 먼저 세우고 장검을 몸 뒤로 거둔다. 충격을 어깨로 버틴다.",
+      "effect": "선택 아군 앞에 성광 방패와 짧은 충격 파문.",
+      "avoid": "전체 무적·반격·추가 피해로 보이는 폭발 금지."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "49599a3f16a98f8b8b51d8f255088225688e5bd32c3df6ecd7ddd41b2c920c4d"
+  },
+  {
+    "id": "naran",
+    "name": "나란",
+    "weapon": "사냥활",
+    "appearance": "아담한 몸에 은백색 긴 생머리. 진한 호박색 눈에 세로로 갈라진 동공. 은백색 여우 귀와, 끝만 검은 풍성한 꼬리가 하나 있다. 깃이 높은 홍백 사냥 외투에 금색 테와 금단추를 달고 화살통 가죽끈을 가슴에 비껴 맨다.",
+    "element": "fire",
+    "skill": {
+      "name": "낙인 효과",
+      "kind": "능동",
+      "mp": 12,
+      "target": "적 1",
+      "power": 0,
+      "turns": 0,
+      "chance": 100,
+      "brk": 3,
+      "note": "적 1명에게 여우불 표식을 새긴다. 표식이 붙은 적이 다음에 맞는 공격은 반드시 치명타가 된다(심연 −3)."
+    },
+    "direction_proposal": {
+      "motion": "사냥활을 짧게 당겨 표적을 고정하고 시위를 가볍게 놓는다.",
+      "effect": "한 표적에 여우불이 모여 낙인을 남긴다.",
+      "avoid": "광역 화염이나 즉시 치명타 피해로 표현하지 않는다."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "707dd558df089074ab4883889c25d61a67718fa7713fc6f7ac2bf27c8d719b37"
+  },
+  {
+    "id": "teiris",
+    "name": "테이리스",
+    "weapon": "수정 지팡이",
+    "appearance": "긴 목과 긴 다리. 금발 물결머리를 가운데로 갈라 이마를 훤히 드러냈고, 중간 길이의 엘프 귀가 그 사이로 나온다. 연보랏빛 눈. 깊게 파인 흰 민소매 드레스 위에 짙은 녹색 로브를 양어깨에 걸쳤다. 드레스 허리는 은 매듭 장식으로 조이고, 로브 자락에도 은 장식이 달렸다.",
+    "element": "ice",
+    "skill": {
+      "name": "마감 전날 대폭발",
+      "kind": "능동",
+      "mp": 36,
+      "target": "적 전체",
+      "power": 1.9,
+      "turns": 0,
+      "chance": 100,
+      "brk": 0,
+      "note": "전투당 1회, 충전 없이 마력 폭발을 곧바로 터뜨린다(적 전체 ×1.9). 「이건 노트에 적어 둬야겠어요!」"
+    },
+    "direction_proposal": {
+      "motion": "수정 지팡이를 즉시 앞으로 내밀고 폭발 반동을 몸과 망토로 받아낸다.",
+      "effect": "적 전체 위치에 차가운 마력 핵·확산 파동·파편. 긴 충전 없음.",
+      "avoid": "실제 동결 상태이상이나 여러 번의 피해 판정 추가 금지."
+    },
+    "motion_status": "test",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "af21493c17a0005b1a00b7ca9f419dc784fa137eb89754c43334a134d248b98d"
+  },
+  {
+    "id": "haldric",
+    "name": "할드리크",
+    "weapon": "전투도끼",
+    "appearance": "황갈빛 피부에 짧은 엘프 귀. 짙은 남색 머리를 턱 선 단발로 잘랐고, 그 위로 끝이 옅어지는 뿔 두 개가 솟았다. 금빛 호박색 눈에 넓은 광대. 깃이 높은 짙은 남색 속옷 위에 갈색 가죽 가슴싸개를 가죽끈으로 조여 배를 드러냈고, 한쪽 어깨에만 철 어깨판을 단다. 버클은 놋이다.",
+    "element": "dark",
+    "skill": {
+      "name": "면책 조항",
+      "kind": "능동",
+      "mp": 20,
+      "target": "자신+옆 아군",
+      "power": 0.2,
+      "turns": 3,
+      "chance": 100,
+      "brk": 0,
+      "note": "할드리크와 같은 줄에 선 아군이 3턴간 받는 피해 −20%. 할드리크가 쓰러지면 효과도 사라진다. 무서울 때마다 되뇌던 조항이 방패 노릇을 한다."
+    },
+    "direction_proposal": {
+      "motion": "전투도끼 자루를 버팀대로 세우고 같은 줄의 동료 쪽으로 몸을 틀어 선다.",
+      "effect": "자신과 같은 줄을 연결하는 어두운 방호선.",
+      "avoid": "상대를 도끼로 공격하거나 모든 아군을 보호하는 연출 금지."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "5c0c7316935fd36454aa97f996eea3a563c9c1544027a0cd7bdeef5c9043b741"
+  },
+  {
+    "id": "erdene",
+    "name": "에르데네",
+    "weapon": "창",
+    "appearance": "짙은 잿빛 머리를 높이 묶은 말총머리(뿌리 쪽은 숯빛). 밝은 금색 눈. 넓고 곧게 선 회색 늑대 귀와 굵은 꼬리, 근육이 붙은 등. 어깨에 철판을 덧댄 잿빛 외투의 앞섶을 열어 흰 속감을 드러냈다. 흰 문양을 넣은 짙은 남색 깃발 천을 가슴에 비스듬히 걸쳐 허리에서 띠로 묶는다.",
+    "element": "wind",
+    "skill": {
+      "name": "스포트라이트 효과",
+      "kind": "능동",
+      "mp": 15,
+      "target": "적 전체",
+      "power": 0.15,
+      "turns": 2,
+      "chance": 100,
+      "brk": 20,
+      "note": "포효로 적 전체의 공격력을 15% 낮추고, 3턴 동안 도발 상태가 된다(적마다 심연 −20)."
+    },
+    "direction_proposal": {
+      "motion": "창을 바닥에 짚고 흉곽을 열어 정면으로 포효한다.",
+      "effect": "적 전체 쪽으로 퍼지는 풍압과 자신에게 모이는 시선.",
+      "avoid": "포효를 피해 폭발이나 기절로 표현하지 않는다."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": true,
+    "source_sha256": "3c37b4f104f3d9a99b4bccf79a8429ea1aec15902ab8fbc2d9e03efa42f8f7bc"
+  },
+  {
+    "id": "bianca",
+    "name": "비앙카",
+    "weapon": "암살검과 단검",
+    "appearance": "가는 몸. 검은 긴 생머리에 앞머리를 일자로 내렸고, 처진 눈매에 옅은 청회색 눈. 붉은 가죽 경갑 드레스 속에 깃이 높은 청록 속옷을 받쳐 입고, 금색 테와 금 장식을 둘렀다.",
+    "element": "dark",
+    "skill": {
+      "name": "엎친 데 덮친 격",
+      "kind": "능동",
+      "mp": 16,
+      "target": "적 1",
+      "power": 1.4,
+      "turns": 0,
+      "chance": 100,
+      "brk": 0,
+      "note": "적 1명에게 ×1.4의 피해를 준다. 디버프에 걸린 적에게는 피해가 +40% 더 들어간다."
+    },
+    "direction_proposal": {
+      "motion": "암살검으로 틈을 벌린 뒤 단검으로 한 표적의 약점을 찌르고 빠진다.",
+      "effect": "짧고 낮은 암색 베기. 약화된 적일 때 접촉 강조.",
+      "avoid": "디버프가 없는 적에게 조건부 강화 표시 금지."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "9d9330685d6dadfa9a30448fedff155be811ada2c0c7c2bdd5675ce68405c531"
+  },
+  {
+    "id": "saya",
+    "name": "사야",
+    "weapon": "단검과 그림자 실",
+    "appearance": "잿빛 피부. 관자놀이에서 바깥으로 크게 말려 내려오는 굵은 검은 숫양 뿔. 은회색 긴 머리를 낮게 묶었고, 졸린 눈매에 진홍 눈과 가는 동공. 보랏빛 옷 위로 흰 무늬가 흐르는 먹빛 경갑을 입고, 허리에 보라 띠를 매고 흑철 버클을 쓴다.",
+    "element": "dark",
+    "skill": {
+      "name": "발목 뜨개질",
+      "kind": "능동",
+      "mp": 18,
+      "target": "적 1",
+      "power": 0.4,
+      "turns": 0,
+      "chance": 100,
+      "brk": 3,
+      "note": "그림자로 짠 실로 적 1명의 발목을 감아 다음 차례를 40% 뒤로 미룬다(심연 −3)."
+    },
+    "direction_proposal": {
+      "motion": "낮은 자세로 단검을 들고 빈손 손가락을 당겨 그림자 실을 조인다.",
+      "effect": "한 적의 발목에 감기는 가는 그림자 매듭.",
+      "avoid": "결박으로 이동 불가·기절·출혈을 새로 부여하지 않는다."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "df5efeea095fe0589e60329b396b9930dbf88fcb20be3d06ffed5a50befb10b5"
+  },
+  {
+    "id": "gerda",
+    "name": "게르다",
+    "weapon": "석궁",
+    "appearance": "짙은 적갈색 머리를 어깨 길이로 잘라 옆으로 넘겨 이마를 드러냈다. 가늘고 긴 눈매에 회청색 눈. 제국 녹회색 군복 외투에 은단추, 가슴에 화살통 끈을 비껴 맨다.",
+    "element": "bolt",
+    "skill": {
+      "name": "일석이조 기원",
+      "kind": "능동",
+      "mp": 22,
+      "target": "적 1",
+      "power": 1.3,
+      "turns": 0,
+      "chance": 100,
+      "brk": 3,
+      "note": "소원을 빌고 쏜 볼트가 표적과 그 뒤의 적 1명을 ×1.3씩 꿰뚫는다(심연 −3씩)."
+    },
+    "direction_proposal": {
+      "motion": "석궁을 어깨에 고정하고 한 발 발사한 뒤 작은 반동을 받는다.",
+      "effect": "표적과 그 뒤 한 적을 관통하는 동일한 볼트 궤적.",
+      "avoid": "활 시위 자세나 전장 전체 난사로 대체하지 않는다."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "a3e8825bade23edde162a339a1a1a77520580b6a032b2dac904942831c2f9ca2"
+  },
+  {
+    "id": "judith",
+    "name": "유디트",
+    "weapon": "금서",
+    "appearance": "작고 좁은 얼굴에 크고 세로로 긴 눈. 백금발 단발에 앞머리를 일자로 내렸고, 눈은 진녹색이다. 금실로 잎 덩굴을 수놓은 검은 학자 로브 안에 흰 깃 높은 속옷과 진녹 셔츠를 입고, 술 달린 놋 걸쇠로 로브를 여민다.",
+    "element": "dark",
+    "skill": {
+      "name": "머피의 법칙",
+      "kind": "능동",
+      "mp": 30,
+      "target": "적 1",
+      "power": 0,
+      "turns": 3,
+      "chance": 100,
+      "brk": 3,
+      "note": "금서를 펼쳐 적 1명에게 방어↓, 속도↓, 공격↓ 디버프 3개를 차례로 건다. 부식도 1중첩 붙는다(심연 −3)."
+    },
+    "direction_proposal": {
+      "motion": "금서를 펼치고 손가락으로 세 구절을 짚으며 페이지를 넘긴다.",
+      "effect": "한 표적에 세 번의 얇은 어두운 인장과 부식 입자.",
+      "avoid": "세 번의 피해 숫자나 직접 공격 폭발로 표현하지 않는다."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "a88db4d7de00b5d841b86935381b7ef15bd66f903ea1268cb5c16691d3ab5710"
+  },
+  {
+    "id": "levia",
+    "name": "레비아",
+    "weapon": "공명구",
+    "appearance": "흰 피부에 뿔이 없다. 먹빛 남색 긴 생머리를 옆으로 땋아 반만 묶어 올리고 앞머리와 옆머리를 내렸으며, 작은 은 머리핀을 꽂았다. 둥근 얼굴, 처진 눈썹, 크고 둥근 옅은 금빛 눈. 높은 깃의 회백 예복 위에 붉은 숄을 두르고, 검은 구슬 줄에 흑철 펜던트를 건다.",
+    "element": "none",
+    "skill": {
+      "name": "하이 리스크 하이 리턴",
+      "kind": "능동",
+      "mp": 0,
+      "target": "자신",
+      "power": 1.5,
+      "turns": 0,
+      "chance": 100,
+      "brk": 0,
+      "note": "HP 10%를 치르고, 다음 균열과 혼돈 파동이 깎는 심연의 양을 ×1.5로 늘린다."
+    },
+    "direction_proposal": {
+      "motion": "공명구를 가슴 쪽으로 끌어당기고 고통을 짧게 견딘 뒤 다시 밀어 든다.",
+      "effect": "자신의 생명빛이 공명구로 흐르고 내부 균열이 밝아진다.",
+      "avoid": "시전 즉시 적의 심연을 깎는 것으로 표현하지 않는다."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "dd7c72c04771fc293150635b9320e2adbf4252fed967a57aaeed0a418be876c7"
+  },
+  {
+    "id": "urda",
+    "name": "우르다",
+    "weapon": "성표 지팡이",
+    "appearance": "흰 피부에 끝이 뾰족한 귀. 이마 한가운데 작은 뿔 하나와 양옆으로 크게 굽은 숫양 뿔, 모두 세 개다. 은발을 길게 길러 느슨하게 땋았고, 처진 눈매에 이끼 녹색 눈. 흰 성직자 깃을 단 흙빛 법의에, 구슬 줄에 꿴 구릿빛 성표를 건다.",
+    "element": "ice",
+    "skill": {
+      "name": "레버리지 효과",
+      "kind": "능동",
+      "mp": 24,
+      "target": "아군 1",
+      "power": 2.0,
+      "turns": 0,
+      "chance": 100,
+      "brk": 0,
+      "note": "아군 1명이 가진 버프 하나의 효과를 두 배로 키운다. 지속 시간은 그대로다."
+    },
+    "direction_proposal": {
+      "motion": "성표 지팡이로 선택 아군 쪽을 가리키고 손바닥을 위로 들어 올린다.",
+      "effect": "이미 있는 버프 표식 하나가 겹쳐 밝아진다.",
+      "avoid": "없는 버프 생성·지속 시간 증가·즉시 회복 표시 금지."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "71408024c221a11a3a8dbd9b58a196e077892331bd3d73e7b01329fa40ff011d"
+  },
+  {
+    "id": "lynette",
+    "name": "리네트",
+    "weapon": "기도홀",
+    "appearance": "끝이 뾰족한 긴 귀에 발그레한 볼. 밝은 적동색 곱슬머리를 길게 길러 옆머리를 땋아 뒤로 둘렀고, 크고 둥근 하늘색 눈. 깃이 높은 상아색 법의에 청록 띠를 매고, 가슴에 은 성표를 단다.",
+    "element": "holy",
+    "skill": {
+      "name": "끼워 팔기",
+      "kind": "능동",
+      "mp": 30,
+      "target": "아군 전체",
+      "power": 0.5,
+      "turns": 2,
+      "chance": 100,
+      "brk": 0,
+      "note": "아군 전체에게 회복과 보호막을 한꺼번에 건다. 두 효과 모두 크기는 절반이다."
+    },
+    "direction_proposal": {
+      "motion": "기도홀을 가슴 앞에 모은 뒤 두 팔을 파티 쪽으로 연다.",
+      "effect": "아군 전체에 작은 회복 입자와 얇은 보호막을 함께 펼친다.",
+      "avoid": "절반 효과를 대형 완전 회복·무적처럼 표현하지 않는다."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "f77a4a56b1451f2375cc0c185c42b5760855d48419d823ae66d6b140b59c374b"
+  },
+  {
+    "id": "felice",
+    "name": "펠리스",
+    "weapon": "시약병과 조제봉",
+    "appearance": "옆으로 길게 뻗은 뾰족한 귀에 발그레한 볼, 하트형 얼굴. 짙은 갈색 짧은 머리를 층지게 잘랐고 눈은 금록색. 짙은 갈색 긴소매 셔츠 위에 주황 가죽 앞치마를 둘렀다. 앞치마에는 초록 약이 든 유리병을 달고, 허리띠에도 약병을 꽂았다. 버클은 놋이다.",
+    "element": "wind",
+    "skill": {
+      "name": "가성비 처방",
+      "kind": "능동",
+      "mp": 15,
+      "target": "아군 1",
+      "power": 0.4,
+      "turns": 0,
+      "chance": 100,
+      "brk": 0,
+      "note": "약을 즉석에서 섞어 아군 1명을 조금 회복시키고(지능 ×0.4) 디버프 1개를 푼다."
+    },
+    "direction_proposal": {
+      "motion": "시약병을 기울이고 조제봉으로 짧게 섞은 다음 선택 아군에게 건넨다.",
+      "effect": "한 아군에 작은 치유 파문과 디버프 한 개가 흩어지는 효과.",
+      "avoid": "약병을 폭탄처럼 투척하거나 모든 약화를 해제하지 않는다."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "a7e2d5ba58d3d2790f8ff8826fc0daeba7170be9e7a60f001e118fb9600ab803"
+  },
+  {
+    "id": "sorel",
+    "name": "소렐",
+    "weapon": "수액 약병",
+    "appearance": "창백한 피부에 아주 긴 엘프 귀. 은녹빛 긴 생머리, 졸린 듯한 호박색 눈. 깃이 높은 짙은 보라 여행 외투에 금 걸쇠를 단다.",
+    "element": "wind",
+    "skill": {
+      "name": "시간이 약이다",
+      "kind": "능동",
+      "mp": 34,
+      "target": "아군 전체",
+      "power": 1.0,
+      "turns": 2,
+      "chance": 100,
+      "brk": 0,
+      "note": "세계수 수액을 풀어 아군 전체를 회복시키고, 다음 2라운드 동안 재생을 남긴다. 값이 비싼 만큼 제값을 한다."
+    },
+    "direction_proposal": {
+      "motion": "수액 약병의 마개를 열어 파티 방향으로 천천히 풀어낸다.",
+      "effect": "아군을 잇는 수액빛 흐름과 천천히 남는 재생 입자.",
+      "avoid": "즉발 공격·독 구름·무한 회복 연출 금지."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "fb67e8f930be861676feb0e6324d8fe81bc8a7255603808f1caefd1123e1db0f"
+  },
+  {
+    "id": "tika",
+    "name": "티카",
+    "weapon": "검투 쌍검",
+    "appearance": "아담하고 마른 몸에 머리가 커 보인다. 주황색 짧은 머리를 헝클어 두었고, 세로 동공의 청록 눈. 머리와 같은 주황 털의 삼각 고양이 귀와 가늘고 긴 꼬리. 흰 천 검투 상의 위에 갈색 가죽 조끼를 입고, 한쪽 어깨에 가죽 어깨받이를 대고, 청록 띠를 맨다. 장식은 놋이다.",
+    "element": "fire",
+    "skill": {
+      "name": "출혈 마케팅",
+      "kind": "능동",
+      "mp": 0,
+      "target": "자신",
+      "power": 0.1,
+      "turns": 0,
+      "chance": 100,
+      "brk": 0,
+      "note": "HP 10%를 치르고, 다음 2회의 공격을 연속 행동으로 이어서 한다."
+    },
+    "direction_proposal": {
+      "motion": "쌍검을 가까이 모으고 몸을 낮춰 다음 연속 행동을 준비한다.",
+      "effect": "자신의 생명빛이 짧게 줄고 두 번의 공격을 예고하는 두 잔광.",
+      "avoid": "스킬 발동 자체에서 적을 두 번 때리지 않는다."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "705c411e8d441521ea223727a884fbcaac1fba98479178f06b644251fee6cabb"
+  },
+  {
+    "id": "hedwig",
+    "name": "헤드비히",
+    "weapon": "룬 지팡이",
+    "appearance": "긴 목. 백금발 긴 생머리를 반만 묶어 땋았고, 아몬드형 눈은 옅은 금빛이다. 짙은 남색 학자 로브 안에 흰 셔츠를 받쳐 입고 은 걸쇠를 단다.",
+    "element": "bolt",
+    "skill": {
+      "name": "중2병 각성",
+      "kind": "능동",
+      "mp": 12,
+      "target": "적 1",
+      "power": 1.2,
+      "turns": 0,
+      "chance": 100,
+      "brk": 15,
+      "note": "거창한 이름을 붙여 외치는 주문. 적 1명에게 지능 ×1.2의 피해를 주고, 다음 아군 마법의 피해를 +10% 높인다(심연 −15)."
+    },
+    "direction_proposal": {
+      "motion": "룬 지팡이를 높이 들고 과장된 선언 뒤 한 표적에 정확히 내린다.",
+      "effect": "단일 번개와 다음 아군 마법으로 이어지는 잔여 룬빛.",
+      "avoid": "광역 낙뢰·감전 상태이상 추가 금지."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "11657197197a76373bc68a15541d0e047bbf5de3e8618af9d193fa6c1e980fd8"
+  },
+  {
+    "id": "hildegard",
+    "name": "힐데가르트",
+    "weapon": "장검",
+    "appearance": "짙은 와인빛 머리를 턱 선 단발로 잘랐고 앞머리를 일자로 내렸다. 차가운 강철빛 회색 눈에 흰 피부. 깃이 높은 검은 속옷과 배까지 덮는 어두운 강철 흉갑 위에 진홍 겉옷을 걸치고, 검은 가죽끈으로 조이고, 가슴에 은 핀을 단다.",
+    "element": "ice",
+    "skill": {
+      "name": "전방 근무 개시",
+      "kind": "능동",
+      "mp": 10,
+      "target": "자신",
+      "power": 0,
+      "turns": 0,
+      "chance": 100,
+      "brk": 15,
+      "note": "2턴 동안 받는 피해를 25% 줄이고 도발 상태가 된다(심연 −15)."
+    },
+    "direction_proposal": {
+      "motion": "두 발을 벌려 체중을 낮추고 장검을 세운 채 전선을 막는다.",
+      "effect": "자신 앞 냉기색 방호 윤곽, 발밑 도발 파동, 낮은 서리.",
+      "avoid": "검격 피해·적 전체 얼리기·별도 방패 장비 추가 금지."
+    },
+    "motion_status": "test",
+    "personal_skill_has_taunt": true,
+    "source_sha256": "088bf0fdc34d0a71357f26d56314e6f5b8b0b065e94bc17b8ac51e982bb99f9f"
+  },
+  {
+    "id": "berenga",
+    "name": "베렝가",
+    "weapon": "나무 성표 지팡이",
+    "appearance": "두건 밖으로 뾰족하게 뻗은 긴 귀에 발그레한 볼, 둥근 얼굴. 크림색 두건 아래로 따뜻한 밤색 물결머리를 어깨 아래까지 풀어 내렸고, 처진 눈매에 개암색 눈. 크림색 모직 수도복에 잎 무늬를 수놓은 짙은 녹색 영대를 두르고, 쇠붙이 대신 나무 목걸이를 건다.",
+    "element": "holy",
+    "skill": {
+      "name": "트리아지",
+      "kind": "능동",
+      "mp": 12,
+      "target": "아군 1",
+      "power": 1.0,
+      "turns": 0,
+      "chance": 100,
+      "brk": 15,
+      "note": "아군 1명을 회복시키고 디버프 1개를 푼다. 대상이 잃은 HP가 클수록 더 많이 회복된다."
+    },
+    "direction_proposal": {
+      "motion": "나무 성표 지팡이를 선택 아군에게 기울이고 빈손으로 상태를 살핀다.",
+      "effect": "선택 아군 한 명에게 모이는 성광 봉합과 약화 한 개 소멸.",
+      "avoid": "아군 전체 회복이나 부활로 표현하지 않는다."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "414b25e4cfcbdc257472d4c152240318d0a43597ecd0a60b6e4d837548b440a0"
+  },
+  {
+    "id": "gunhild",
+    "name": "군힐트",
+    "weapon": "검투검",
+    "appearance": "꿀빛 금발을 턱 길이로 덥수룩하게 길렀고, 같은 털빛에 끝이 흰 개 귀가 아래로 늘어져 있다. 둥글게 말린 꼬리. 호박빛 갈색 눈에 흰 피부. 어깨를 드러낸 채 가슴부터 허리까지 끈으로 조인 황갈색 가죽 몸통 갑옷을 입고, 짙은 갈색 투기장 치마를 둘렀다. 팔에는 짙은 갈색 토시 위로 청동 보호대를 찬다.",
+    "element": "fire",
+    "skill": {
+      "name": "엄근진 일격",
+      "kind": "능동",
+      "mp": 12,
+      "target": "적 1",
+      "power": 1.2,
+      "turns": 0,
+      "chance": 100,
+      "brk": 15,
+      "note": "호령과 함께 적 1명을 크게 때린다(위력 ×1.2, 심연 −15). 목소리는 엄한데 꼬리는 숨기지 못한다."
+    },
+    "direction_proposal": {
+      "motion": "검투검을 양손으로 잡고 호령과 함께 무게 있는 한 번의 일격을 넣는다. 꼬리는 뒤늦게 따라온다.",
+      "effect": "짧은 불빛 충격선과 접촉 지점의 파편.",
+      "avoid": "꼬리를 무기로 사용하거나 다단히트로 바꾸지 않는다."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "99a911f040e49c702b56cff61807c97fbdc2c3131cbac58d4bd23a5cc7ec2cfb"
+  },
+  {
+    "id": "bargut",
+    "name": "바르구트",
+    "weapon": "쌍단검",
+    "appearance": "가는 팔다리에 좁은 어깨. 밝은 금발을 허리까지 길렀는데 끝으로 갈수록 희게 바래고, 정수리에 한 가닥이 삐쳐 있다. 테두리가 검은 작고 둥근 표범 귀, 왼쪽으로만 늘어진 굵은 점박이 꼬리 하나. 밝은 녹색 눈이 가장자리로 갈수록 노랗게 번지고, 볼에는 늘 홍조가 있다. 깃이 높은 검은 튜닉에 숯빛 깃발 천을 허리에 감아 금빛 끈으로 묶고, 짙은 승마 바지에 가죽 팔목 보호대를 찬다.",
+    "element": "bolt",
+    "skill": {
+      "name": "선점 효과",
+      "kind": "능동",
+      "mp": 12,
+      "target": "적 1",
+      "power": 1.2,
+      "turns": 0,
+      "chance": 100,
+      "brk": 15,
+      "note": "적 1명을 위력 ×1.2로 기습한다. 행동 순서가 가장 빠르면 피해가 +50% 더 들어간다(심연 −15)."
+    },
+    "direction_proposal": {
+      "motion": "몸을 낮추고 짧게 도약하듯 파고들어 두 단검을 교차한 뒤 빠르게 회수한다.",
+      "effect": "한 적에 금빛 번개 궤적 두 줄과 하나의 접촉 파열.",
+      "avoid": "장검 생성·광역 베기·순서 조건 없는 강화 표시 금지."
+    },
+    "motion_status": "test",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "e9aeff012ae2c57353e5fac0e2dcedde68c872301220883c9aa49b2aa06c148b"
+  },
+  {
+    "id": "altan",
+    "name": "알탄",
+    "weapon": "조제홀과 약병",
+    "appearance": "흑발 긴 생머리를 낮게 쪽 지었고, 긴 얼굴에 졸린 듯한 짙은 갈색 눈. 소매가 넓은 녹슨 주황빛 관복 로브에 크림색 속 튜닉, 놋 핀 하나.",
+    "element": "wind",
+    "skill": {
+      "name": "규모의 경제",
+      "kind": "능동",
+      "mp": 12,
+      "target": "아군 전체",
+      "power": 0,
+      "turns": 0,
+      "chance": 100,
+      "brk": 15,
+      "note": "아군 전체에게 공격이나 방어 중 하나를 골라 +15%를 2턴간 건다."
+    },
+    "direction_proposal": {
+      "motion": "선택한 처방의 약병을 조제홀로 두드린 다음 파티를 향해 분배한다.",
+      "effect": "공격 선택은 바깥으로 뻗는 힘의 빛, 방어 선택은 안으로 감싸는 보호빛.",
+      "avoid": "공격과 방어를 동시에 부여하는 연출 금지."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "449f6d3ee10fa58931eb5eeaa1392fcdb7de5448a7996b5a7d31ecefd9c6e6f1"
+  },
+  {
+    "id": "colette",
+    "name": "콜레트",
+    "weapon": "교단 인장과 마도서",
+    "appearance": "보랏빛이 도는 검은 머리를 길게 길러 앞머리를 일자로 내렸고, 양옆 머리를 땋아 뒤로 둘렀다. 크고 세로로 긴 옅은 라일락빛 눈. 금빛 테와 금 무늬를 두른 상아색 성직 로브에 청록 띠를 매고, 금빛 교단 인장 펜던트를 목에 건다.",
+    "element": "holy",
+    "skill": {
+      "name": "침묵의 나선",
+      "kind": "능동",
+      "mp": 12,
+      "target": "적 1",
+      "power": 0,
+      "turns": 0,
+      "chance": 100,
+      "brk": 15,
+      "note": "적 1명의 마법 공격을 2턴 동안 봉인한다(심연 −15). 어깨가 떨리는 건 인장이 무거워서다."
+    },
+    "direction_proposal": {
+      "motion": "마도서를 받치고 떨리는 인장을 한 표적 쪽으로 힘주어 누른다.",
+      "effect": "대상의 마법 징후를 감싸 닫는 성광 봉인.",
+      "avoid": "물리 행동까지 봉쇄하거나 적을 기절시키지 않는다."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "c3e0f65c4c1ed21b91886215e91a03c7e3463c63a413e501b662ca058b59beeb"
+  },
+  {
+    "id": "selva",
+    "name": "셀바",
+    "weapon": "검투도끼",
+    "appearance": "흰 피부에 끝이 뾰족한 귀, 뒤로 굽은 검은 뿔 두 개. 허리 아래로 끝이 하트 모양인 검은 꼬리가 하나 있고 끝이 붉다. 선명한 붉은 머리를 길게 길러 높이 묶었고, 올라간 눈매에 반쯤 감긴 옅은 금빛 눈. 붉은 홀터 상의 위에 짙은 청록 천을 한쪽 어깨로 비스듬히 두르고, 검은 가죽 하네스와 놋 장식 목깃을 찼다. 한쪽 어깨에 금빛 보호대.",
+    "element": "fire",
+    "skill": {
+      "name": "성과급 챙기기",
+      "kind": "능동",
+      "mp": 12,
+      "target": "적 1",
+      "power": 1.2,
+      "turns": 0,
+      "chance": 100,
+      "brk": 15,
+      "note": "적 1명에게 위력 ×1.2의 피해를 준다(심연 −15). 그 일격으로 쓰러뜨리면 MP 6을 회복한다."
+    },
+    "direction_proposal": {
+      "motion": "검투도끼를 짧게 당긴 후 한 적을 내리치고 바로 거둔다.",
+      "effect": "단일 불빛 절단. 실제 처치가 확정된 때만 MP 회수빛을 자신에게 돌린다.",
+      "avoid": "처치하지 않았는데 MP 회복 연출 재생 금지."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "7ee36d342d82e6df2acd57f278459de0c6e4aa60a06038d24394636e9b759e1a"
+  },
+  {
+    "id": "ornel",
+    "name": "오르넬",
+    "weapon": "나무 장궁",
+    "appearance": "창백한 피부에 아주 긴 엘프 귀. 옅은 은발을 아주 길게 곧게 길렀고, 작고 또렷한 숲 녹색 눈. 깃이 높은 민소매 이끼빛 순찰 튜닉에 나무껍질빛 가죽을 덧대 옆구리를 끈으로 엮었고, 엮은 나무껍질 팔목 보호대를 찼다. 쇠붙이는 하나도 지니지 않는다.",
+    "element": "wind",
+    "skill": {
+      "name": "덫 놓은 화살",
+      "kind": "능동",
+      "mp": 12,
+      "target": "적 1",
+      "power": 1.2,
+      "turns": 0,
+      "chance": 100,
+      "brk": 15,
+      "note": "적 1명에게 위력 ×1.2의 피해를 준다(심연 −15). 덫을 겸한 화살이라, 맞은 적은 2턴 동안 공격이 20% 줄어든다."
+    },
+    "direction_proposal": {
+      "motion": "나무 장궁을 끝까지 당겨 한 발을 보내고 손가락을 회수한다.",
+      "effect": "화살 접촉 뒤 대상 발밑에 접히는 덫 형태의 바람 궤적.",
+      "avoid": "기절·이동 불가를 새 규칙처럼 표현하지 않는다."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "b413812305a1b3bf3b87507099ab75a9e19f72b11c2ce0f4f84130f6ec1fa699"
+  },
+  {
+    "id": "zahar",
+    "name": "자하르",
+    "weapon": "광산 곡괭이",
+    "appearance": "붉은빛 피부에 뼈처럼 흰 숫양 뿔이 크게 굽었다. 짙은 진홍 머리를 턱 선 단발로 잘랐고, 탁한 노란 눈에 넓은 광대. 그을음빛 사슬 갑옷 셔츠 위에 숯빛 가죽을 덧대고 쇠 목깃을 찼다.",
+    "element": "fire",
+    "skill": {
+      "name": "번아웃 증후군",
+      "kind": "능동",
+      "mp": 12,
+      "target": "적 전체",
+      "power": 1.2,
+      "turns": 0,
+      "chance": 100,
+      "brk": 15,
+      "note": "곡괭이를 휘둘러 적 전체에 ×1.2의 피해를 준다(심연 −15씩). 대신 자하르의 방어가 1턴 동안 20% 줄어든다."
+    },
+    "direction_proposal": {
+      "motion": "곡괭이의 무게를 이용해 큰 수평 휘두르기를 하고 지친 어깨로 복귀한다.",
+      "effect": "적 전열 전체를 가로지르는 불씨·돌가루와 시전자 방어 약화 잔광.",
+      "avoid": "곡괭이를 도끼로 바꾸거나 자기 약화 연출을 생략하지 않는다."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "05b7bf1bc7c5cde826565bbe937ba061459f7852fc9a2eca087e7806808e7fab"
+  },
+  {
+    "id": "jorund",
+    "name": "요르드",
+    "weapon": "쌍단검",
+    "appearance": "황갈빛 피부에 짧은 엘프 귀와 작은 뿔. 옅은 금발을 짧게 비대칭으로 잘라 옆으로 비스듬히 넘겼고, 한쪽은 귀 뒤로 넘겼다. 날카로운 호박빛 노란 눈. 흰 민소매 여밈 상의에 짙은 녹색 목도리를 두르고, 위팔에 가죽 팔띠를 차고 허리를 끈으로 묶는다.",
+    "element": "dark",
+    "skill": {
+      "name": "연체 이자",
+      "kind": "능동",
+      "mp": 12,
+      "target": "적 1",
+      "power": 1.2,
+      "turns": 0,
+      "chance": 100,
+      "brk": 15,
+      "note": "적 1명에게 위력 ×1.2의 피해를 준다(심연 −15). 계약 표식이 붙은 적에게는 +40%가 더해진다."
+    },
+    "direction_proposal": {
+      "motion": "쌍단검을 몸 가까이 숨겼다가 한 표적의 계약 표식을 향해 찌른다.",
+      "effect": "단일 암색 절단. 계약 표식이 있을 때만 표식이 반응한다.",
+      "avoid": "표식 없는 대상에 조건부 강화 연출 금지."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "59f7ae6b939fd064686d4713add1d46b20232304c9ca8f0844922f69cd70df93"
+  },
+  {
+    "id": "lavinia",
+    "name": "라비니아",
+    "weapon": "허가 인장과 주문봉",
+    "appearance": "짙은 자두빛 보라 머리를 길게 길러 앞머리를 일자로 내리고 풀어 내렸다. 아몬드형 눈은 옅은 자수정빛이다. 짙은 남색 코트에 깃이 높은 흰 셔츠를 받쳐 입고 깃을 놋 걸쇠로 여몄다. 가슴에는 사슬 달린 놋 허가 배지를, 소매에는 문장 견장을 단다.",
+    "element": "bolt",
+    "skill": {
+      "name": "불허 도장 쾅",
+      "kind": "능동",
+      "mp": 12,
+      "target": "적 1",
+      "power": 1.2,
+      "turns": 0,
+      "chance": 100,
+      "brk": 15,
+      "note": "적 1명에게 위력 ×1.2의 지력 피해를 준다(심연 −15). 주문, 약화, 소환을 예고한 적에게는 +30%가 더해진다."
+    },
+    "direction_proposal": {
+      "motion": "주문봉으로 표적을 지정하고 허가 인장을 단호하게 내려찍는다.",
+      "effect": "한 적에 번개 인장 충격. 해당 행동 예고 조건에서만 강한 잔광.",
+      "avoid": "모든 행동을 취소하거나 침묵 상태를 새로 추가하지 않는다."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "5336cb4bb6362869149c8136ce5bf707b9ded369d891f1fc1e9f949d517809af"
+  },
+  {
+    "id": "tove",
+    "name": "토베",
+    "weapon": "검투검",
+    "appearance": "잿빛 피부. 관자놀이에서 바깥으로 말려 내려오는 굵은 검은 숫양 뿔. 잿빛 흰 머리를 길게 풀어 내렸고, 졸린 듯한 붉은 눈. 배가 드러나는 짧은 올리브색 터틀넥 스웨터 위에 천 조각을 덧대 기운 검은 여행 코트를 걸치고, 징이 박힌 어깨 갑옷을 한쪽에 찼다.",
+    "element": "ice",
+    "skill": {
+      "name": "꽁꽁 언 어그로",
+      "kind": "능동",
+      "mp": 10,
+      "target": "적 1",
+      "power": 0,
+      "turns": 0,
+      "chance": 100,
+      "brk": 40,
+      "note": "적 1명의 심연을 크게(−40) 깎고, 자신은 2턴 동안 도발 상태가 된다."
+    },
+    "direction_proposal": {
+      "motion": "검투검으로 한 적을 강하게 겨누고 앞발을 딛어 정면 도전을 건다.",
+      "effect": "대상의 심연을 깨는 냉기 파열과 자신에게 돌아오는 도발 고리.",
+      "avoid": "심연 감소를 HP 대미지나 동결로 혼동시키지 않는다."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": true,
+    "source_sha256": "49ee43db4b4abcf1a6025654e5789c3355b07261a03456a14599b355786abc81"
+  },
+  {
+    "id": "miko",
+    "name": "미코",
+    "weapon": "약병과 조제봉",
+    "appearance": "흰 피부에 끝이 뾰족한 귀와 연보랏빛 작은 뿔, 끝이 하트 모양인 꼬리 하나. 연분홍 머리를 턱 선 단발로 잘랐다. 크고 세로로 긴 눈은 옅은 금빛이고 늘 반쯤 감겨 있다. 검은 깃을 단 흰 셔츠 위에 청록 앞치마를 두르고 소매를 걷었다. 앞치마 가슴께에 쇠 집게로 허가증 카드를 달았다.",
+    "element": "bolt",
+    "skill": {
+      "name": "링거 투혼",
+      "kind": "능동",
+      "mp": 12,
+      "target": "아군 1",
+      "power": 0,
+      "turns": 0,
+      "chance": 100,
+      "brk": 15,
+      "note": "아군 1명을 회복시키고, 그 아군의 다음 차례를 30% 앞당긴다."
+    },
+    "direction_proposal": {
+      "motion": "약병을 조제봉으로 짧게 섞고 선택 아군에게 빠르게 처방한다.",
+      "effect": "한 아군에 치유 입자와 앞으로 흐르는 전기빛 시간 궤적.",
+      "avoid": "즉시 추가 턴이나 전체 속도 버프로 표현하지 않는다."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "750b13cae576b90e2a7ff143e5675fdbedf16128ceb3faa1925487144a2b5e7c"
+  },
+  {
+    "id": "adeline",
+    "name": "아델린",
+    "weapon": "성서와 태양 성표",
+    "appearance": "크림빛 흰 머리를 중간 길이 물결머리로 길러 앞머리를 내렸고, 같은 털빛의 개 귀가 아래로 늘어져 있다. 둥글게 말린 꼬리. 옅은 라벤더빛 눈. 흰 베일을 쓰고 그 위에 금빛 머리띠를 둘렀다. 흰 수도복에 무늬를 수놓은 연한 청록 영대를 두르고 금 태양 펜던트를 건다.",
+    "element": "holy",
+    "skill": {
+      "name": "플라시보 효과",
+      "kind": "능동",
+      "mp": 12,
+      "target": "아군 전체",
+      "power": 0,
+      "turns": 0,
+      "chance": 100,
+      "brk": 15,
+      "note": "아군 전체를 조금 회복시키고, 2턴 동안 받는 피해를 10% 줄이며 재생을 건다. 아델린이 쓰러지면 효과가 사라진다."
+    },
+    "direction_proposal": {
+      "motion": "성서를 펼치고 태양 성표를 들며 파티를 향해 조용히 축복한다.",
+      "effect": "아군 전체에 작은 회복, 얇은 성광 방호, 남는 재생빛.",
+      "avoid": "완전 회복·무적·사망 후에도 유지되는 효과처럼 표현하지 않는다."
+    },
+    "motion_status": "not_generated",
+    "personal_skill_has_taunt": false,
+    "source_sha256": "76b68e50ab649e9dc17f639b29fa79444e1b48561511263f16e7cf1dc713c56a"
+  }
+]

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>전투 모션 검수 · Into the Abyss</title>
+<link rel="stylesheet" href="style.css">
+<body><main>
+<header><div><small>Into the Abyss 모션 검수</small><h1>기술에 맞는 움직임</h1></div><a href="../">게임으로</a></header>
+<p class="notice">제작 테스트 · 외형 흔들림과 무기 궤적 검수 중. 본편 전투에는 아직 적용하지 않았습니다.</p>
+<nav id="characters" aria-label="캐릭터 선택"></nav>
+<section class="viewer" aria-label="전투 모션 미리보기">
+  <div class="stage-head"><span id="character-name"></span><span id="phase">준비</span></div>
+  <canvas id="stage" width="720" height="560" aria-label="선택한 캐릭터의 스킬 모션과 이펙트"></canvas>
+  <div class="caption"><b id="skill-name"></b><span id="target"></span></div>
+</section>
+<div id="actions" role="group" aria-label="동작 선택"></div>
+<p id="rule" class="rule"></p>
+<div class="playback"><button id="play" class="primary">다시 재생</button><button id="pause">일시 정지</button><label class="speed">속도<select id="speed" aria-label="재생 속도"><option value="1">1배</option><option value="0.5">0.5배</option><option value="0.25">0.25배</option></select></label></div>
+<div class="scrubber"><input id="timeline" type="range" min="0" max="1000" value="0" aria-label="모션 프레임 이동"><output id="frame">0 / 0</output></div>
+<div class="options"><label><input id="fx" type="checkbox" checked> 추가 이펙트</label><label><input id="loop" type="checkbox"> 반복</label><label><input id="base" type="checkbox"> 원본 비교</label></div>
+<p id="quality" class="quality" role="status"></p>
+<details><summary>검수 기준 · 실제 스킬 설정</summary><p>얼굴·의상·무기 형태, 손과 무기의 접점, 발 미끄러짐, 복귀 시 튐을 확인합니다. 이펙트를 꺼서 몸동작만 비교할 수 있습니다.</p><p>이 화면은 저장·HP·MP를 변경하지 않는 재생 시험입니다. 모션 길이·발동 시점은 연출 시험값이며 게임 규칙값이 아닙니다. PixelLab 원본은 256×256입니다.</p><a href="manifest.json">모션·출처 기록</a> · <a href="https://github.com/aredsea/into-the-abyss-web/blob/main/ANIMATION-TEST-R5.md">제작 기록</a></details>
+<footer>검수용 · 3명 / 6동작 · 투명 스프라이트 + 분리 이펙트</footer>
+</main><script src="app.js"></script></body></html>
