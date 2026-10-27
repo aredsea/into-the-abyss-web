@@ -14,6 +14,12 @@
 - 추가/확인 에셋 39개와 이전 원본 에셋 목록을 SHA-256 대조. 원본 초상·sprites_4 픽셀 변경 없음. 마을 환경 삽화만 신규 생성.
 - 증거: `verification/expansion/browser/`, `legacy/`, 모델 로그 및 `balance.json`. 범위와 문서값/웹판 변경은 [TORVA-COMBAT-UPGRADE.md](TORVA-COMBAT-UPGRADE.md).
 
+## r3 공개 주소 검증
+
+[공개 검수판](https://aredsea.github.io/into-the-abyss-web/)에서 새 Chromium 세션으로 390×844와 360×780의 영입·편성·구입·장착·전술·여관·전투·귀환·강화·저장 복원 흐름을 다시 통과했습니다. 콘솔 오류 0개이며 공개 화면을 직접 열어 확인했습니다. PCK와 WASM은 HTTP 200, 최종 로컬 빌드와 SHA-256 일치, WASM MIME은 `application/wasm`입니다. 증거는 `verification/expansion/public/`에 있습니다.
+
+구현 커밋 `0c44a66`, [Pages 배포 40463743721](https://github.com/aredsea/into-the-abyss-web/actions/runs/40463743721) 성공. 검수 통과가 시각 품질이나 밸런스 합격을 의미하지는 않습니다.
+
 아래는 이전 빌드 검증 기록입니다.
 
 ---
