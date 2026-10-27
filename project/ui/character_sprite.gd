@@ -4,7 +4,10 @@ extends Control
 static var catalog: Dictionary={}
 var character_id=""
 var action_pose=false
+var portrait_mode=false
 var sheet: Texture2D
+# Ready-pose head framing, in the unchanged 1536x1024 source sheet.
+const HEAD={"marceline":[400,95],"naran":[430,65],"teiris":[410,195],"haldric":[400,70],"erdene":[400,155],"bianca":[370,100],"saya":[390,125],"gerda":[330,50],"judith":[350,35],"levia":[420,85],"urda":[400,205],"lynette":[380,185],"felice":[410,50],"sorel":[430,205],"tika":[430,75],"hedwig":[390,150],"hildegard":[380,65],"berenga":[400,165],"gunhild":[410,190],"bargut":[410,90],"altan":[380,95],"colette":[370,75],"selva":[430,165],"ornel":[400,125],"zahar":[440,105],"jorund":[400,55],"lavinia":[400,65],"tove":[370,30],"miko":[430,90],"adeline":[400,100]}
 
 static func info(id: String) -> Dictionary:
 	if catalog.is_empty(): catalog=JSON.parse_string(FileAccess.get_file_as_string("res://data/character-art-r4.json"))
@@ -18,12 +21,16 @@ func configure(id: String, action=false) -> void:
 
 func _ready() -> void:
 	mouse_filter=Control.MOUSE_FILTER_IGNORE
+	clip_contents=portrait_mode
 	texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
 	resized.connect(queue_redraw)
 
 func _draw() -> void:
 	if sheet==null: return
 	var data=info(character_id); var frame=data.frames[1 if action_pose else 0]; var b=frame.bounds
+	if portrait_mode:
+		var head=HEAD[character_id]
+		b=[head[0]-175,maxf(0,head[1]-15),350,500]
 	var extent=Vector2(b[2],b[3]); var ratio=minf(size.x/extent.x,size.y/extent.y)
 	var origin=Vector2((size.x-extent.x*ratio)/2,size.y-extent.y*ratio)
 	var vertices=PackedVector2Array(); var uv=PackedVector2Array()

@@ -163,9 +163,14 @@ func bar(label: String, value: float, maximum: float, parent: Node, hp=true) -> 
 	var bg=StyleBoxFlat.new(); bg.bg_color=Color("090f11"); p.add_theme_stylebox_override("background",bg)
 	var fill=StyleBoxFlat.new(); fill.bg_color=Color("b56651") if hp else Color("719da9"); p.add_theme_stylebox_override("fill",fill)
 
+func companion_image(id: String, target: Node, dims: Vector2) -> Control:
+	var pic=CharacterSprite.new(); pic.portrait_mode=true; pic.custom_minimum_size=dims
+	target.add_child(pic); pic.configure(id); pic.size_flags_horizontal=SIZE_EXPAND_FILL
+	return pic
+
 func _portrait(id: String, parent: Node, large=false) -> void:
 	var row=HBoxContainer.new(); parent.add_child(row); row.add_theme_constant_override("separation",14)
-	image("res://assets/"+id+".webp",row,Vector2(128,170) if large else Vector2(76,104))
+	companion_image(id,row,Vector2(128,170) if large else Vector2(76,104))
 	var body=VBoxContainer.new(); row.add_child(body); body.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	var m=model.s.members[id]; var p=model.person(id); var b=model.stats(id,m.level)
 	text(p.name,18,GOLD,body); text("Lv.%d  %s\n%s" % [m.level,p["class"],p.row],13,MUTED,body)
@@ -185,7 +190,7 @@ func _town() -> void:
 	for id in model.s.party:
 		var b=button("town_member:"+id,"",func(): who=id; go("member"),false,party); b.custom_minimum_size.y=160; b.textured=false
 		var stack=VBoxContainer.new(); b.add_child(stack); stack.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); stack.offset_left=3; stack.offset_right=-3; stack.offset_top=3; stack.offset_bottom=-3; stack.add_theme_constant_override("separation",2); stack.mouse_filter=Control.MOUSE_FILTER_IGNORE
-		var pic=image("res://assets/"+id+".webp",stack,Vector2(0,112)); pic.set_meta("uncropped_portrait",id)
+		companion_image(id,stack,Vector2(0,112))
 		var name_label=text(model.person(id).name,12,INK,stack); name_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 		var role=text(model.person(id)["class"],12,MUTED,stack); role.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	var depart=button("depart","원정 준비",go.bind("depart")); depart.emphasis=true; depart.custom_minimum_size.y=58; depart.add_theme_font_size_override("font_size",18)
@@ -200,7 +205,7 @@ func _party() -> void:
 	for p in model.config.companions:
 		if not catalog_all and p.id not in model.s.owned: continue
 		var cell=VBoxContainer.new(); grid.add_child(cell); cell.size_flags_horizontal=SIZE_EXPAND_FILL
-		image("res://assets/"+p.id+".webp",cell,Vector2(0,156))
+		companion_image(p.id,cell,Vector2(0,156))
 		text(p.name,16,GOLD,cell); text(p.row+" · "+p["class"],12,MUTED,cell)
 		var status="편성 중" if p.id in model.s.party else "보유" if p.id in model.s.owned else "미영입"
 		button("member:"+p.id,status+" · 상세",func(): who=p.id; go("member"),false,cell)

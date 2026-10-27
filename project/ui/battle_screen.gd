@@ -78,6 +78,10 @@ func _picture(path: String, rect: Rect2, parent: Control = self, pixel = false) 
 	node.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST if pixel else CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	return _put(node, rect, parent)
 
+func _companion_picture(id: String, rect: Rect2, parent: Control=self) -> Control:
+	var pic=CharacterSprite.new(); pic.portrait_mode=true; pic.configure(id)
+	return _put(pic,rect,parent)
+
 func _label(text: String, rect: Rect2, fs = 12, color = INK, parent: Control = self, align = HORIZONTAL_ALIGNMENT_LEFT) -> Label:
 	# NanumGothic has ASCII hyphen, but not mathematical minus U+2212.
 	text=text.replace("−","-")
@@ -193,7 +197,7 @@ func _queue(rect: Rect2) -> void:
 		var entry = state.ally(id) if friend else state.enemy(id)
 		var xpos = rect.position.x+34+i*col
 		if friend:
-			_picture("res://assets/"+id+".webp",Rect2(xpos+3,rect.position.y+1,25,27))
+			_companion_picture(id,Rect2(xpos+3,rect.position.y+1,25,27))
 		else:
 			_picture(entry.art,Rect2(xpos+3,rect.position.y+1,25,27),self,true)
 		var short_names = {"hildegard":"힐데","executor":"집행","teiris":"테이","orb":"수정","bargut":"바르","apprentice":"견습","berenga":"베렝","lantern":"등불"}
@@ -249,8 +253,7 @@ func _party(rect: Rect2) -> void:
 		var button = _button("ally:"+a.id,Rect2(rect.position+Vector2(i*(col+gap),0),Vector2(col,rect.size.y)),_ally_pressed.bind(a.id),a.id==state.current_id)
 		button.textured=false
 		var pic_h = rect.size.y-88
-		var portrait=_picture("res://assets/"+a.id+".webp",Rect2(4,4,col-8,pic_h),button)
-		portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		_companion_picture(a.id,Rect2(4,4,col-8,pic_h),button)
 		_color(Rect2(7,7,30,18),Color("18201e"),button)
 		_label(a.row,Rect2(8,7,28,18),12,INK,button,HORIZONTAL_ALIGNMENT_CENTER)
 		_label(a.name,Rect2(3,pic_h+5,col-6,18),12,INK,button,HORIZONTAL_ALIGNMENT_CENTER)
@@ -398,7 +401,7 @@ func _ally_sheet(rect: Rect2) -> void:
 	var panel = _panel(rect)
 	_label(a.name,Rect2(8,6,210,40),14,GOLD,panel)
 	_close_button(Rect2(rect.size.x-52,6,44,44),panel)
-	_picture("res://assets/"+a.id+".webp",Rect2(10,59,56,76),panel)
+	_companion_picture(a.id,Rect2(10,59,56,76),panel)
 	_label(a.row+" · "+a.cls,Rect2(74,57,rect.size.x-84,24),13,INK,panel)
 	_label("HP %d/%d · MP %d/%d" % [a.hp,a.mhp,a.mp,a.mmp],Rect2(74,81,rect.size.x-84,24),13,INK,panel)
 	_label(_wrap(state.effects_text(a),rect.size.x-84,12),Rect2(74,104,rect.size.x-84,42),12,INK,panel)
@@ -510,7 +513,7 @@ func _effect_feedback(before: Dictionary,source: String,action: String) -> void:
 	if action=="tactic" and not a.is_empty():
 		var field=controls.field.rect
 		var banner=_panel(Rect2(field[0]+5,field[1]+field[3]-62,field[2]-10,58))
-		_picture("res://assets/"+a.id+".webp",Rect2(3,3,48,52),banner)
+		_companion_picture(a.id,Rect2(3,3,48,52),banner)
 		_label(a.name,Rect2(59,4,field[2]-78,20),12,INK,banner)
 		_label(a.skills[action].name.split("(")[0].strip_edges(),Rect2(59,24,field[2]-78,29),14,GOLD,banner)
 	for u in state.data.allies+state.data.enemies:

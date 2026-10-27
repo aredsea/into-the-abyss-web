@@ -12,7 +12,7 @@ var duration=1.6
 var impacted=false
 var art: Dictionary
 var figure: Control
-var portrait: TextureRect
+var portrait: Control
 var heading: Label
 var tint=Color.WHITE
 var phase="intro"
@@ -24,7 +24,7 @@ func _ready() -> void:
 	assert(not art.is_empty(),"Missing character cinematic: "+character_id)
 	tint={"ice":Color("a5dbe2"),"bolt":Color("e4cf8b"),"fire":Color("ef9d66"),"holy":Color("efe0ae"),"wind":Color("a4d6a5"),"dark":Color("bba0d4"),"none":Color("d4c6ad")}.get(art.element,Color.WHITE)
 	duration=.7 if reduced else 2.0 if preview else 1.6
-	portrait=TextureRect.new(); add_child(portrait); portrait.texture=load("res://assets/"+character_id+".webp"); portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; portrait.mouse_filter=MOUSE_FILTER_IGNORE
+	portrait=Sprite.new(); portrait.portrait_mode=true; add_child(portrait); portrait.configure(character_id)
 	figure=Sprite.new(); add_child(figure); figure.configure(character_id,true)
 	heading=Label.new(); add_child(heading); heading.add_theme_font_override("font",FONT); heading.add_theme_font_size_override("font_size",16); heading.add_theme_color_override("font_color",tint); heading.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; heading.mouse_filter=MOUSE_FILTER_IGNORE
 	heading.text=art.name+"  ·  "+art.skill
