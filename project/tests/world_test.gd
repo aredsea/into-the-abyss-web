@@ -28,7 +28,7 @@ func run_tests() -> void:
 	expect(w.inn("hildegard","rest") and w.s.day==2 and w.s.gold==180,"Inn rest day/cost")
 	expect(w.inn("hildegard","talk"),"New day reopens interaction")
 	expect(w.swap(0,1) and not w.swap(0,2),"Same-row formation only")
-	expect(w.depart() and not w.depart() and w.s.members.hildegard.hp==118,"Departure full restore / duplicate prevented")
+	expect(legacy_depart(w) and not legacy_depart(w) and w.s.members.hildegard.hp==118,"Departure full restore / duplicate prevented")
 	expect(not w.buy("hp_s") and not w.inn("hildegard","talk") and not w.swap(0,1),"Town actions guarded during expedition")
 	expect(w.advance() and w.s.hand==["key"],"Exploration event adds to owned hand")
 	expect(not w.use_card("key") and w.s.hand==["key"],"Wrong context does not consume card")
@@ -82,9 +82,9 @@ func run_tests() -> void:
 			"battle": corrupt.run.phase="battle"; corrupt.run.battle={"x":1}
 		var before=restored.s.duplicate(true)
 		expect(not restored.restore(corrupt) and restored.s==before,"Malformed save rejected atomically: "+edit)
-	var retreat=World.new(); retreat.depart(); retreat.advance(); retreat.s.run.gold=20
+	var retreat=World.new(); legacy_depart(retreat); retreat.advance(); retreat.s.run.gold=20
 	expect(retreat.settle("retreat") and retreat.s.gold==220 and retreat.s.hand==["key"],"Retreat and provisional retained hand")
-	var loss=World.new(); loss.depart(); loss.s.run.gold=40
+	var loss=World.new(); legacy_depart(loss); loss.s.run.gold=40
 	expect(loss.settle("defeat") and loss.s.gold==200 and loss.s.summary.lost==40,"Defeat loses unbanked gold, not existing purse")
 	var store=Store.new("user://world_test_fixture.json")
 	expect(store.write(w.s)==OK and store.write(w.s)==OK,"Atomic store writes and backs up")
@@ -95,3 +95,9 @@ func run_tests() -> void:
 	expect(store.read_into(from_disk) and from_disk.s.members.hildegard.level==2,"Corrupt primary falls back to last valid backup")
 	print("WORLD TESTS: %d checks, %d failures" % [checks,failures])
 	quit(1 if failures else 0)
+
+func legacy_depart(w) -> bool:
+	if not w.depart(): return false
+	for key in ["route_version","route_seed","node","path"]: w.s.run.erase(key)
+	w.s.run.event=""; w.s.run.resolved=false
+	return true

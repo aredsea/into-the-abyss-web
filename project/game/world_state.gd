@@ -1,5 +1,6 @@
 extends RefCounted
 
+const Route = preload("res://game/route_v1.gd")
 const Battle = preload("res://game/battle_state.gd")
 const IDS = ["hildegard","bargut","teiris","berenga"]
 var config: Dictionary
@@ -97,6 +98,8 @@ func depart() -> bool:
 	if active(): return false
 	s.runs+=1
 	s.run={"phase":"explore","step":0,"gold":0,"xp":0,"wins":0,"event":"","resolved":false,"final":false,"battle":{},"rested":false,"id":s.runs}
+	s.run.merge({"route_version":1,"route_seed":1,"node":"entry","path":["entry"]})
+	s.run.event="entry"; s.run.resolved=true
 	s.summary={}
 	# Bot expeditions start with full HP/MP; resources carry between encounters.
 	for id in IDS:
@@ -105,7 +108,35 @@ func depart() -> bool:
 	note("학술원 폐허 상층 2층 검수 원정 출발")
 	return true
 
+func mapped() -> bool:
+	return not s.run.is_empty() and s.run.has("route_version")
+
+func destinations() -> Array:
+	if not active() or not mapped() or s.run.phase!="explore" or not s.run.resolved: return []
+	return Route.NODES[s.run.node].next.duplicate()
+
+func travel(id: String) -> bool:
+	if id not in destinations(): return false
+	var r=s.run
+	r.node=id; r.path.append(id); r.step=r.path.size()-1
+	r.event=Route.NODES[id].kind; r.resolved=true
+	note(Route.NODES[id].name+" 도착")
+	match r.event:
+		"find_card": s.hand.append("key")
+		"supplies": s.hand.append("camp")
+		"coins": r.gold+=config.provisional.cache_gold
+		"sealed", "rest": r.resolved=false
+		"battle":
+			r.phase="battle"; r.resolved=false; r.final=id=="gate"; r.battle={}
+	return true
+
+func skip_rest() -> bool:
+	if not active() or not mapped() or s.run.phase!="explore" or s.run.node!="rest" or s.run.resolved: return false
+	s.run.resolved=true; note("휴게실에서 쉬지 않고 이동을 준비했다.")
+	return true
+
 func advance() -> bool:
+	if mapped(): return false
 	if not active() or s.run.phase!="explore" or (not s.run.event.is_empty() and not s.run.resolved): return false
 	var r=s.run
 	if r.step==5:
@@ -159,15 +190,22 @@ func leave_cache() -> bool:
 	return true
 
 func rest() -> bool:
-	if not active() or s.run.phase!="rest" or s.run.rested: return false
+	if not active() or s.run.rested: return false
+	if mapped():
+		if s.run.phase!="explore" or s.run.node!="rest": return false
+	else:
+		if s.run.phase!="rest": return false
 	for id in IDS:
 		var m=s.members[id]; var b=stats(id,m.level)
 		m.hp=mini(b.hp,m.hp+int(round(b.hp*0.3)))
 		m.mp=mini(b.mp,m.mp+int(round(b.mp*0.6)))
-	s.run.rested=true; note("휴식: 파티 HP 30%, MP 60% 회복")
+	s.run.rested=true
+	if mapped(): s.run.resolved=true
+	note("휴식: 파티 HP 30%, MP 60% 회복")
 	return true
 
 func final_battle() -> bool:
+	if mapped(): return false
 	if not active() or s.run.phase!="rest" or not s.run.rested: return false
 	s.run.phase="battle"; s.run.final=true; s.run.battle={}
 	return true
@@ -184,6 +222,8 @@ func battle_data() -> Dictionary:
 			a.base=b; a.mhp=b.hp; a.mmp=b.mp; a.hp=m.hp; a.mp=m.mp; a.level=m.level
 			members.append(a)
 	d.allies=members
+	if not s.run.battle.is_empty() and s.run.battle.get("build") is String:
+		d.build=s.run.battle.build
 	return d
 
 func record_battle(snapshot: Dictionary) -> void:
@@ -250,7 +290,10 @@ func restore(value: Variant) -> bool:
 	if not r.is_empty():
 		var sample={"phase":"","step":0,"gold":0,"xp":0,"wins":0,"event":"","resolved":false,"final":false,"battle":{},"rested":false,"id":0}
 		if not _shape(r,sample) or r.phase not in ["explore","battle","rest","done"] or r.step<0 or r.step>5 or r.step!=int(r.step) or r.gold<0 or r.xp<0 or r.wins<0 or r.wins>2: return false
-		if r.event not in ["","find_card","battle","sealed","supplies","coins"]: return false
+		if r.has("route_version"):
+			if not Route.valid(r): return false
+		else:
+			if r.event not in ["","find_card","battle","sealed","supplies","coins"]: return false
 		if r.id<1 or r.id!=value.runs or r.gold>1000000 or r.xp>1000000: return false
 	var result=value.summary
 	if not result.is_empty():

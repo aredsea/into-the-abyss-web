@@ -1,5 +1,6 @@
 extends Control
 
+const RouteMap=preload("res://ui/route_map.gd")
 const World=preload("res://game/world_state.gd")
 const Store=preload("res://game/world_store.gd")
 const BattleScreen=preload("res://ui/battle_screen.gd")
@@ -159,7 +160,7 @@ func _town() -> void:
 	shop_button.icon=load("res://assets/ic_pl_shop.webp"); shop_button.add_theme_constant_override("icon_max_width",24)
 	var inn_button=button("inn","여관 · 교류",go.bind("inn"),false,row)
 	inn_button.icon=load("res://assets/ic_pl_inn.webp"); inn_button.add_theme_constant_override("icon_max_width",24)
-	text("학술원 2층의 짧은 검수 원정입니다.\n탐색 5회와 전투, 카드 사용, 귀환을 확인할 수 있습니다.",13,MUTED)
+	text("학술원 2층의 짧은 검수 원정입니다.\n갈림길을 고르고 탐색 카드와 보급품으로 원정을 이어갑니다.",13,MUTED)
 	if not model.s.summary.is_empty(): button("last_summary","지난 원정 정산",go.bind("summary"))
 
 func _party() -> void:
@@ -187,14 +188,17 @@ func _member() -> void:
 func _departure() -> void:
 	var p=box(); image("res://assets/src/academy.png",p,Vector2(0,155))
 	text("학술원 폐허 상층 · 2층",20,GOLD,p)
-	text("탐색 5회 → 휴식 → 마지막 정예 → 정산",14,INK,p)
-	text("검수용 고정 경로입니다. 마지막 전투는 기존 정예전으로 연결하며, 층 보스 돌파 기록은 주지 않습니다.",13,MUTED,p)
+	text("갈림길 탐색 → 집행실 정예 → 귀환",14,INK,p)
+	text("8개 장소 중 길을 골라 이동합니다. 전투를 피하거나 추가 보상을 노릴 수 있습니다. 마지막 집행실은 기존 정예전이며, 층 보스는 아직 없습니다.",13,MUTED,p)
 	for id in model.s.party: text(model.person(id).row+"  "+model.person(id).name+"  Lv."+str(int(model.s.members[id].level)),14)
 	text("출발 시 HP·MP가 채워집니다. 전투 사이에는 남은 수치가 이어집니다.",13,MUTED)
 	button("start_run","원정 출발",func(): _act(model.depart,"원정을 시작했습니다."); go("explore"))
 
 func _explore() -> void:
 	if not model.active(): go("town"); return
+	if model.mapped():
+		_route_explore(); return
+	text("이전 저장의 원정 · 이 원정 이후 새 지도가 적용됩니다.",12,MUTED)
 	var r=model.s.run
 	text("2층 탐색  %d / 5" % r.step,20,GOLD)
 	var progress=HBoxContainer.new(); content.add_child(progress); progress.add_theme_constant_override("separation",6)
@@ -225,6 +229,34 @@ func _explore() -> void:
 		var row=VBoxContainer.new(); grid.add_child(row); row.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 		text(model.person(id).name,14,GOLD,row); bar("HP",m.hp,b.hp,row); bar("MP",m.mp,b.mp,row,false)
 	button("retreat","모은 보상을 챙겨 귀환",func(): _ask("지금까지 모은 금화와 경험치를 정산하고 귀환할까요?",model.settle.bind("retreat")))
+
+func _route_explore() -> void:
+	var r=model.s.run; var node=World.Route.NODES[r.node]
+	text("2층 · "+node.name,20,GOLD)
+	var map=RouteMap.new(); content.add_child(map)
+	map.custom_minimum_size.y=158; map.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	map.current=r.node; map.path=r.path; map.options=model.destinations()
+	text("● 현재 위치   금빛 길: 지나온 길   목표: 집행실",12,MUTED)
+	var panel=box()
+	if r.event=="sealed" and r.resolved:
+		text("보관함 탐색을 마쳤다.",15,INK,panel)
+	else: text(node.detail,15,INK,panel)
+	if r.event=="sealed" and not r.resolved:
+		button("unlock","봉인 해제 · 회복약 1개 획득",func(): _ask("봉인 해제 카드 1장을 소모해 회복약을 얻을까요?",model.use_card.bind("key")),not model.card_reason("key").is_empty(),panel)
+		if "key" not in model.s.hand: text("봉인 해제 카드가 없습니다. 지나갈 수 있습니다.",12,MUTED,panel)
+		button("leave_cache","열지 않고 지나가기",func(): _act(model.leave_cache,"보관함을 지나쳤습니다."),false,panel)
+	elif r.event=="rest":
+		button("rest","휴식 완료" if r.rested else "휴식 · HP 30%, MP 60% 회복",func(): _act(model.rest,"파티가 휴식을 취했습니다."),r.rested,panel)
+		if not r.resolved: button("skip_rest","쉬지 않고 이동 준비",func(): _act(model.skip_rest,""),false,panel)
+	if not model.destinations().is_empty():
+		text("다음 장소",16,GOLD)
+		for id in model.destinations():
+			var n=World.Route.NODES[id]
+			var b=button("travel:"+id,n.name+"\n"+n.hint,func(): _act(model.travel.bind(id),""))
+			b.custom_minimum_size.y=70; b.add_theme_font_size_override("font_size",13)
+	button("cards","탐색 카드 · %d장 보유" % model.s.hand.size(),go.bind("cards"))
+	text("미정산 금화 %d · 경험치 %d" % [r.gold,r.xp],13,GOLD)
+	button("retreat","보상을 챙겨 귀환",func(): _ask("모은 금화와 경험치를 정산하고 귀환할까요?",model.settle.bind("retreat")))
 
 func _cards() -> void:
 	text("사용한 카드는 소모됩니다. 전투와 탐색 이벤트에서 새 카드를 얻습니다.",14)
@@ -334,7 +366,7 @@ func _publish() -> void:
 	for id in controls:
 		if not is_instance_valid(controls[id]): continue
 		var b=controls[id]; var r=b.get_global_rect()
-		buttons[id]={"rect":[r.position.x,r.position.y,r.size.x,r.size.y],"disabled":b.disabled,"needed":FONT.get_string_size(b.text,HORIZONTAL_ALIGNMENT_LEFT,-1,14).x+24}
+		buttons[id]={"rect":[r.position.x,r.position.y,r.size.x,r.size.y],"disabled":b.disabled,"needed":FONT.get_multiline_string_size(b.text,HORIZONTAL_ALIGNMENT_LEFT,-1,b.get_theme_font_size("font_size")).x+24}
 	var report={"build":model.config.build,"screen":"battle" if is_instance_valid(battle) else screen,"state":model.s,"controls":buttons,"viewport":[size.x,size.y],"restored":restored,"save_error":save_error}
 	JavaScriptBridge.eval("window.__abyssWorld="+JSON.stringify(report)+";",true)
 
