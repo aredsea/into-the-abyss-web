@@ -1,0 +1,708 @@
+{
+  "ally_open": "",
+  "build": "torva-combat-20261027-r3-1false",
+  "busy": false,
+  "controls": {
+    "action:attack": {
+      "rect": [
+        13,
+        598,
+        163,
+        52
+      ]
+    },
+    "action:personal": {
+      "rect": [
+        13,
+        654,
+        163,
+        52
+      ]
+    },
+    "action:tactic": {
+      "rect": [
+        184,
+        654,
+        163,
+        52
+      ]
+    },
+    "action:taunt": {
+      "rect": [
+        184,
+        598,
+        163,
+        52
+      ]
+    },
+    "ally:bargut": {
+      "rect": [
+        94.25,
+        346,
+        84.25,
+        144
+      ]
+    },
+    "ally:felice": {
+      "rect": [
+        268.75,
+        346,
+        84.25,
+        144
+      ]
+    },
+    "ally:hildegard": {
+      "rect": [
+        7,
+        346,
+        84.25,
+        144
+      ]
+    },
+    "ally:teiris": {
+      "rect": [
+        181.5,
+        346,
+        84.25,
+        144
+      ]
+    },
+    "enemy:apprentice": {
+      "rect": [
+        119.08,
+        87,
+        108,
+        120
+      ]
+    },
+    "enemy:executor": {
+      "rect": [
+        227.99,
+        206,
+        122,
+        134
+      ]
+    },
+    "enemy:lantern": {
+      "rect": [
+        8.36,
+        87,
+        108,
+        104
+      ]
+    },
+    "enemy:orb": {
+      "rect": [
+        243.64,
+        87,
+        108,
+        104
+      ]
+    },
+    "field": {
+      "rect": [
+        7,
+        84,
+        346,
+        259
+      ]
+    },
+    "log": {
+      "rect": [
+        305,
+        0,
+        48,
+        28
+      ]
+    },
+    "supplies": {
+      "rect": [
+        283,
+        543,
+        64,
+        44
+      ]
+    }
+  },
+  "current_id": "hildegard",
+  "enemy_hp": [
+    {
+      "hp": 163,
+      "id": "executor",
+      "mhp": 163
+    },
+    {
+      "hp": 47,
+      "id": "apprentice",
+      "mhp": 47
+    },
+    {
+      "hp": 37,
+      "id": "orb",
+      "mhp": 37
+    },
+    {
+      "hp": 37,
+      "id": "lantern",
+      "mhp": 37
+    }
+  ],
+  "engine": "4.7.2-stable (official)",
+  "events": [],
+  "frame": [
+    0,
+    0,
+    360,
+    780
+  ],
+  "motion_reduced": false,
+  "pending_action": "",
+  "result": "",
+  "skills_open": false,
+  "state": {
+    "build": "torva-combat-20261027-r3-1false",
+    "current_id": "hildegard",
+    "events": [],
+    "extra_state": {
+      "apprentice": {},
+      "bargut": {},
+      "executor": {},
+      "felice": {},
+      "hildegard": {},
+      "lantern": {},
+      "orb": {},
+      "teiris": {}
+    },
+    "history": [],
+    "inventory": {
+      "antidote": 0,
+      "bandage": 1,
+      "hp_l": 0,
+      "hp_m": 0,
+      "hp_s": 2,
+      "level_scroll": 0,
+      "mp_l": 0,
+      "mp_m": 0,
+      "mp_s": 1,
+      "return": 0,
+      "shield_l": 0,
+      "shield_m": 0,
+      "shield_s": 0
+    },
+    "last_ally": "hildegard",
+    "result": "",
+    "rng": 20261018,
+    "schema_version": 3,
+    "selected_action": "attack",
+    "selected_ally": "hildegard",
+    "selected_enemy": "executor",
+    "turn_count": 0,
+    "units": {
+      "apprentice": {
+        "act_index": 0,
+        "broken": false,
+        "charged": false,
+        "effects": {},
+        "gauge": 21,
+        "hp": 47,
+        "redirected": false,
+        "remaining": 2625
+      },
+      "bargut": {
+        "actions": 0,
+        "charging": false,
+        "effects": {},
+        "hp": 93,
+        "mp": 40,
+        "once": false,
+        "remaining": 900,
+        "shield": 0,
+        "ward_used": false
+      },
+      "executor": {
+        "act_index": 2,
+        "broken": false,
+        "charged": true,
+        "effects": {},
+        "gauge": 18,
+        "hp": 163,
+        "redirected": false,
+        "remaining": 525
+      },
+      "felice": {
+        "actions": 0,
+        "charging": false,
+        "effects": {},
+        "hp": 82,
+        "mp": 79,
+        "once": false,
+        "remaining": 2700,
+        "shield": 0,
+        "ward_used": false
+      },
+      "hildegard": {
+        "actions": 0,
+        "charging": false,
+        "effects": {},
+        "hp": 118,
+        "mp": 33,
+        "once": false,
+        "remaining": 0,
+        "shield": 0,
+        "ward_used": false
+      },
+      "lantern": {
+        "act_index": 0,
+        "broken": false,
+        "charged": false,
+        "effects": {},
+        "gauge": 30,
+        "hp": 37,
+        "redirected": false,
+        "remaining": 3675
+      },
+      "orb": {
+        "act_index": 0,
+        "broken": false,
+        "charged": false,
+        "effects": {},
+        "gauge": 24,
+        "hp": 37,
+        "redirected": false,
+        "remaining": 1500
+      },
+      "teiris": {
+        "actions": 0,
+        "charging": false,
+        "effects": {},
+        "hp": 77,
+        "mp": 92,
+        "once": false,
+        "remaining": 1800,
+        "shield": 0,
+        "ward_used": false
+      }
+    }
+  },
+  "storage_error": 0,
+  "storage_persistent": true,
+  "text": [
+    {
+      "available": 230,
+      "font": 14,
+      "missing_glyphs": [],
+      "needed": 134,
+      "text": "학술원 폐허 상층 · 2층"
+    },
+    {
+      "available": 48,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 23,
+      "text": "기록"
+    },
+    {
+      "available": 30,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 23,
+      "text": "지금\n이후\n→"
+    },
+    {
+      "available": 39,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 23,
+      "text": "힐데"
+    },
+    {
+      "available": 39,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 23,
+      "text": "집행"
+    },
+    {
+      "available": 39,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 23,
+      "text": "바르"
+    },
+    {
+      "available": 39,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 23,
+      "text": "수정"
+    },
+    {
+      "available": 39,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 23,
+      "text": "테이"
+    },
+    {
+      "available": 39,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 23,
+      "text": "견습"
+    },
+    {
+      "available": 39,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 23,
+      "text": "펠리"
+    },
+    {
+      "available": 39,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 23,
+      "text": "등불"
+    },
+    {
+      "available": 102,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 86,
+      "text": "Lv.2 떠도는 등불"
+    },
+    {
+      "available": 102,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 60,
+      "text": "HP 37 / 37"
+    },
+    {
+      "available": 102,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 75,
+      "text": "Lv.2 견습 인형"
+    },
+    {
+      "available": 102,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 60,
+      "text": "HP 47 / 47"
+    },
+    {
+      "available": 102,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 86,
+      "text": "Lv.2 경보 수정구"
+    },
+    {
+      "available": 102,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 60,
+      "text": "HP 37 / 37"
+    },
+    {
+      "available": 116,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 101,
+      "text": "Lv.2 마도 집행 인형"
+    },
+    {
+      "available": 116,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 74,
+      "text": "HP 163 / 163"
+    },
+    {
+      "available": 28,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 23,
+      "text": "전열"
+    },
+    {
+      "available": 78.25,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 57,
+      "text": "힐데가르트"
+    },
+    {
+      "available": 22,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 16,
+      "text": "HP"
+    },
+    {
+      "available": 56.25,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 49,
+      "text": "118/118"
+    },
+    {
+      "available": 22,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 19,
+      "text": "MP"
+    },
+    {
+      "available": 56.25,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 34,
+      "text": "33/33"
+    },
+    {
+      "available": 28,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 23,
+      "text": "전열"
+    },
+    {
+      "available": 78.25,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 46,
+      "text": "바르구트"
+    },
+    {
+      "available": 22,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 16,
+      "text": "HP"
+    },
+    {
+      "available": 56.25,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 34,
+      "text": "93/93"
+    },
+    {
+      "available": 22,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 19,
+      "text": "MP"
+    },
+    {
+      "available": 56.25,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 34,
+      "text": "40/40"
+    },
+    {
+      "available": 28,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 23,
+      "text": "후열"
+    },
+    {
+      "available": 78.25,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 46,
+      "text": "테이리스"
+    },
+    {
+      "available": 22,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 16,
+      "text": "HP"
+    },
+    {
+      "available": 56.25,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 34,
+      "text": "77/77"
+    },
+    {
+      "available": 22,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 19,
+      "text": "MP"
+    },
+    {
+      "available": 56.25,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 34,
+      "text": "92/92"
+    },
+    {
+      "available": 28,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 23,
+      "text": "후열"
+    },
+    {
+      "available": 78.25,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 34,
+      "text": "펠리스"
+    },
+    {
+      "available": 22,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 16,
+      "text": "HP"
+    },
+    {
+      "available": 56.25,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 34,
+      "text": "82/82"
+    },
+    {
+      "available": 22,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 19,
+      "text": "MP"
+    },
+    {
+      "available": 56.25,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 34,
+      "text": "79/79"
+    },
+    {
+      "available": 27,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 23,
+      "text": "약점"
+    },
+    {
+      "available": 30,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 23,
+      "text": "번개"
+    },
+    {
+      "available": 30,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 23,
+      "text": "냉기"
+    },
+    {
+      "available": 106,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 67,
+      "text": "심연 18 / 80"
+    },
+    {
+      "available": 334,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 208,
+      "text": "증기 분출 → 아군 전체 / 심연 0이면 취소"
+    },
+    {
+      "available": 64,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 34,
+      "text": "보급품"
+    },
+    {
+      "available": 258,
+      "font": 15,
+      "missing_glyphs": [],
+      "needed": 117,
+      "text": "힐데가르트의 차례"
+    },
+    {
+      "available": 258,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 115,
+      "text": "스킬 선택 → 대상 터치"
+    },
+    {
+      "available": 125,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 49,
+      "text": "일반 공격"
+    },
+    {
+      "available": 125,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 62,
+      "text": "MP 0 · 적 1"
+    },
+    {
+      "available": 125,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 23,
+      "text": "도발"
+    },
+    {
+      "available": 125,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 70,
+      "text": "MP 10 · 자신"
+    },
+    {
+      "available": 125,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 75,
+      "text": "전방 근무 개시"
+    },
+    {
+      "available": 125,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 70,
+      "text": "MP 10 · 자신"
+    },
+    {
+      "available": 125,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 60,
+      "text": "돌파의 추격"
+    },
+    {
+      "available": 125,
+      "font": 12,
+      "missing_glyphs": [],
+      "needed": 69,
+      "text": "MP 12 · 적 1"
+    }
+  ],
+  "viewport": [
+    360,
+    780
+  ]
+}

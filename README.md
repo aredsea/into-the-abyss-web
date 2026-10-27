@@ -1,8 +1,15 @@
-부족한 점: 개발 중인 검수판입니다. 8개 장소의 고정 갈림길 지도이며 절차 생성은 없습니다. 마지막 전투와 순찰로는 같은 정예전 구성을 사용합니다. 길드·영입·장비·대장간·파견·페르소나·층 보스·다층 진행은 아직 없습니다. 카드 효과와 보상량은 검수용 예시입니다. 일부 전투 스킬은 규칙 미확정으로 비활성화되어 있습니다.
+부족한 점: 26명은 전용 도트가 없어 원본 초상으로 전투에 표시됩니다. 균열 의뢰는 현재 학술원 지도·인형 전장을 재사용합니다. 종족·국가 시너지의 전투 밖 효과 일부, 페르소나 생성·다층 던전·층 보스는 미구현입니다. 조합별 전투 길이 편차가 커서 밸런스 합격 판정은 하지 않았습니다.
 
-확인하지 못한 점: 실제 iPhone·Android 기기, Safari·Firefox, 다른 네트워크의 실물 기기, 장시간 밸런스는 검증하지 않았습니다. 클라우드 저장은 미구현입니다. 공개 HTTPS 주소에서 Chromium 두 화면 크기의 실행·전투·저장 복원과 합성 터치를 확인했습니다. [검증 기록](VERIFICATION.md)
+확인하지 못한 점: 실제 iPhone·Android, Safari·Firefox, 장시간 플레이, 모든 전설 장비와 특성의 교차 조합은 검증하지 않았습니다. 클라우드 저장은 없습니다.
 
 # Into the Abyss
+
+2026-10-27 r3 검수판: 30명 동료 목록·영입·편성, 직업/고유 스킬, 전투 중 보급품, 원본 초상 컷인과 속성 효과, 상회·여관·길드·대장간을 연결했습니다. 스킬은 화면에 바로 표시하며 일반 공격·자신·전체 대상 기술은 즉시 사용하고, 단일 대상 기술은 기술 선택 후 대상을 터치합니다. 장미 골목은 요청에 따라 목록에서 제외했습니다.
+
+[구현 범위·원문과 웹판 차이·읽힘 답안표](TORVA-COMBAT-UPGRADE.md) · [원본 SHA-256 대조](project/data/expansion-assets.json) · [모바일 화면 검수](verification/expansion/)
+
+로레다나의 조합 기능은 웹판에서 동료의 선택형 전술 슬롯으로 바꿨습니다. 장착하면 방어 버튼을 대신하며 해제하면 기본 방어가 돌아옵니다. 기존 페르소나 생성은 별도 미구현입니다. 이전 진행 중 전투는 기존 엔진으로 마친 뒤 새 원정부터 새 규칙을 사용합니다.
+
 
 Godot 4.7.2로 만든 세로 화면 RPG 웹 검수판입니다. 토르바에서 보급품을 사고 동료를 살핀 뒤, 탐색 카드와 CTB 전투를 거쳐 귀환합니다.
 
@@ -25,7 +32,7 @@ GitHub 로그인이나 Tailscale, 개발 PC 없이 열 수 있습니다. WebGL 2
 - `project/`: Godot 프로젝트와 GDScript 게임 소스, 원본 초상 및 도트 사본.
 - `docs/`: GitHub Pages에 게시하는 웹 실행 파일. HTML·JS·WASM·PCK를 함께 배포합니다.
 - `ASSET-HASHES.json`: 공개용 사본의 에셋 SHA-256. 원본 픽셀은 변경하지 않았습니다.
-- `project/tests/`: 이전 원정 44개, 새 지도 41개, 전투 모델 54개 검사.
+- `project/tests/`: 기존 모델 139개, 전투·시설 확장 3,350개 검사와 320회 초반 전투 시뮬레이션.
 
 봇 원본 코드, 외부 작품 레퍼런스, 로컬 호스팅 설정과 개인 작업 로그는 이 저장소에 포함하지 않습니다. 게임에서 쓰지 않는 성격유형·이전 특성 메타데이터도 공개 사본에서 제외했습니다.
 
@@ -38,6 +45,8 @@ godot --headless --path project --editor --import
 godot --headless --path project --script tests/world_test.gd
 godot --headless --path project --script tests/state_test.gd
 godot --headless --path project --script tests/route_test.gd
+godot --headless --path project --script tests/expansion_test.gd
+godot --headless --path project --script tests/balance_probe.gd
 godot --headless --path project --export-release Web ../docs/index.html
 python tools/update_version.py
 ```

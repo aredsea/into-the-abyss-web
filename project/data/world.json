@@ -1,5 +1,5 @@
 {
-  "build": "world-route-20261027-r2",
+  "build": "torva-combat-20261027-r3",
   "curves": {
     "hp": {
       "label": "HP",
@@ -694,6 +694,112 @@
   ],
   "companions": [
     {
+      "id": "marceline",
+      "name": "마르셀린",
+      "race": "인간",
+      "lineage": "",
+      "nation": "솔렌 성왕국",
+      "class": "성기사",
+      "row": "전열",
+      "element": "holy",
+      "mod": {
+        "hp": 0,
+        "mp": 0,
+        "str": 0,
+        "agi": 0,
+        "int": 0,
+        "def": 0,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "총대 메기",
+        "kind": "능동",
+        "mp": 15,
+        "target": "아군 1",
+        "power": 0.3,
+        "turns": 1,
+        "chance": 100,
+        "brk": 0,
+        "note": "아군 1명 앞을 막아서서, 다음 적 공격 1회를 마르셀린이 대신 맞는다(받는 피해 −30%). 「소설 속 기사는 이렇게 막아섰다」"
+      },
+      "trait": {
+        "name": "9회말 2아웃",
+        "value": 14.7,
+        "note": "전투당 1회, HP가 0이 될 피해를 입어도 HP 1로 버티고, 곧바로 최대 HP의 25%를 회복한 뒤 최대 HP 15%만큼 보호막을 두른다.",
+        "p": {
+          "times": 1,
+          "heal": 0.25,
+          "shield": 0.15
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "서임받은 성기사. 이단 심문소의 판결을 처음으로 의심하기 시작했다",
+      "full_name": "마르셀린 드 아르카스",
+      "full_name_en": "Marceline de Arcas",
+      "name_note": "서임 때 교단이 수도의 이름을 붙여 준다. 가문이 아니라 **직책의 성**이다",
+      "alignment": "질서 선",
+      "temperament": "ISFJ",
+      "gap": "몰래 읽는 연애 소설의 규칙대로 연애하려 드는 원칙주의 성기사",
+      "trait_v1": {
+        "name": "성지 출신",
+        "value": 10,
+        "note": "언데드에게 주는 피해 +10%"
+      }
+    },
+    {
+      "id": "naran",
+      "name": "나란",
+      "race": "수인",
+      "lineage": "여우",
+      "nation": "대카라쉰",
+      "class": "궁수",
+      "row": "후열",
+      "element": "fire",
+      "mod": {
+        "hp": 0,
+        "mp": 0,
+        "str": 0,
+        "agi": 0,
+        "int": 0,
+        "def": 0,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "낙인 효과",
+        "kind": "능동",
+        "mp": 12,
+        "target": "적 1",
+        "power": 0,
+        "turns": 0,
+        "chance": 100,
+        "brk": 3,
+        "note": "적 1명에게 여우불 표식을 새긴다. 표식이 붙은 적이 다음에 맞는 공격은 반드시 치명타가 된다(심연 −3)."
+      },
+      "trait": {
+        "name": "밴드왜건 효과",
+        "value": 1.0,
+        "note": "나란이 공격한 적에게 3턴 동안 「여우불」이 붙는다. 여우불이 붙은 적은 누가 때려도 받는 피해가 +60% 늘어난다(다시 맞으면 지속만 갱신되고 중첩은 없다).",
+        "p": {
+          "turns": 3,
+          "bonus": 0.6
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "여우 부족 정찰병. 웃고 있어도 눈은 계산하고 있다",
+      "full_name": "여우 부족의 나란",
+      "full_name_en": "Naran of the Fox Tribe",
+      "name_note": "부족이 곧 가문이다. 부족 이름을 앞에 두는 것이 대카라쉰의 관례다",
+      "alignment": "혼돈 중립",
+      "temperament": "ENTP",
+      "trait_v1": {
+        "name": "잔꾀",
+        "value": 15,
+        "note": "회피에 성공하면 다음 공격 피해 +15%"
+      }
+    },
+    {
       "id": "teiris",
       "name": "테이리스",
       "race": "엘프",
@@ -738,8 +844,696 @@
       "full_name_en": "Teiris Silvanen",
       "name_note": "세계수 가까운 씨족 숲의 이름. 인장을 받은 자만 숲 밖에서 이 이름을 쓴다",
       "alignment": "중립 선",
+      "temperament": "ENFP",
       "gap": "차분한 142세 엘프 사절이 인간 길거리 문물을 「학술 조사」로 적어 모으는 덕후",
-      "source_name": "테이리스"
+      "trait_v1": {
+        "name": "오래된 기억",
+        "value": 15,
+        "note": "심연 유적 층에서 MP 소모 -15%"
+      }
+    },
+    {
+      "id": "haldric",
+      "name": "할드리크",
+      "race": "녹스",
+      "lineage": "",
+      "nation": "케른 연방",
+      "class": "전사",
+      "row": "전열",
+      "element": "dark",
+      "mod": {
+        "hp": 6,
+        "mp": 0,
+        "str": 4,
+        "agi": -12,
+        "int": 0,
+        "def": 10,
+        "spd": -4,
+        "crit": 0
+      },
+      "skill": {
+        "name": "면책 조항",
+        "kind": "능동",
+        "mp": 20,
+        "target": "자신+옆 아군",
+        "power": 0.2,
+        "turns": 3,
+        "chance": 100,
+        "brk": 0,
+        "note": "할드리크와 같은 줄에 선 아군이 3턴간 받는 피해 −20%. 할드리크가 쓰러지면 효과도 사라진다. 무서울 때마다 되뇌던 조항이 방패 노릇을 한다."
+      },
+      "trait": {
+        "name": "연대 보증 책임",
+        "value": 16.3,
+        "note": "도발 중에는 파티 전원이 받는 피해가 15% 줄어든다. 도발 중이 아닐 때는 할드리크 자신만 15% 줄어든다.",
+        "p": {
+          "red": 0.15
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "케른 용병대 부대장. 계약서를 경전처럼 품고 다닌다",
+      "name_was": "가르마",
+      "full_name": "할드리크 폼 알트탈",
+      "full_name_en": "Haldric vom Alttal",
+      "name_note": "알트 계곡 사람. 케른에서 계곡 이름은 **계약의 보증**이라 반드시 붙인다",
+      "alignment": "질서 중립",
+      "temperament": "ISTJ",
+      "gap": "계약서를 성경처럼 외우는 부대장인데 실은 유령과 언데드를 무서워한다",
+      "trait_v1": {
+        "name": "계약 집행자",
+        "value": 10,
+        "note": "도발 중 반격 확률 +10%"
+      }
+    },
+    {
+      "id": "erdene",
+      "name": "에르데네",
+      "race": "수인",
+      "lineage": "늑대",
+      "nation": "대카라쉰",
+      "class": "전사",
+      "row": "전열",
+      "element": "wind",
+      "mod": {
+        "hp": -3,
+        "mp": 0,
+        "str": 7,
+        "agi": 25,
+        "int": 0,
+        "def": -5,
+        "spd": 6,
+        "crit": 2
+      },
+      "skill": {
+        "name": "스포트라이트 효과",
+        "kind": "능동",
+        "mp": 15,
+        "target": "적 전체",
+        "power": 0.15,
+        "turns": 2,
+        "chance": 100,
+        "brk": 20,
+        "note": "포효로 적 전체의 공격력을 15% 낮추고, 3턴 동안 도발 상태가 된다(적마다 심연 −20)."
+      },
+      "trait": {
+        "name": "캐시백 이벤트",
+        "value": 16.8,
+        "note": "도발 중에는 받는 피해가 15% 줄고, 도발이 끝나면 그동안 막아 낸 피해의 25%만큼 HP를 회복한다.",
+        "p": {
+          "red": 0.15,
+          "heal": 0.25
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "칸이 해체한 늑대 부족 족장의 딸. 흩어진 부족을 다시 일으켜 세우려 한다",
+      "full_name": "에르데네 보르추",
+      "full_name_en": "Erdene Borchu",
+      "name_note": "해체된 부족의 **가문 이름만** 남았다. 명부에는 「○○ 부족 몇째 천막 줄」로 적혀 있고, 옛 부족 이름을 되찾는 것이 목표다",
+      "alignment": "혼돈 선",
+      "temperament": "ESTP",
+      "trait_v1": {
+        "name": "무리의 선두",
+        "value": 15,
+        "note": "아군 수인이 같은 적을 치면 자신의 다음 공격 +15%"
+      }
+    },
+    {
+      "id": "bianca",
+      "name": "비앙카",
+      "race": "인간",
+      "lineage": "",
+      "nation": "마렌토 공화국",
+      "class": "암살자",
+      "row": "전열",
+      "element": "dark",
+      "mod": {
+        "hp": -4,
+        "mp": 17,
+        "str": 0,
+        "agi": 4,
+        "int": 40,
+        "def": 0,
+        "spd": 2,
+        "crit": 3
+      },
+      "skill": {
+        "name": "엎친 데 덮친 격",
+        "kind": "능동",
+        "mp": 16,
+        "target": "적 1",
+        "power": 1.4,
+        "turns": 0,
+        "chance": 100,
+        "brk": 0,
+        "note": "적 1명에게 ×1.4의 피해를 준다. 디버프에 걸린 적에게는 피해가 +40% 더 들어간다."
+      },
+      "trait": {
+        "name": "손절 타이밍",
+        "value": 19.9,
+        "note": "공격한 뒤 대상의 HP가 25% 이하면 그 자리에서 처형한다(구역 보스·층 끝 우두머리·균열 핵에게는 처형 대신 피해 +30%). 처형하면 행동 게이지가 50% 찬다.",
+        "p": {
+          "thr": 0.25,
+          "boss": 0.3,
+          "pull": 0.5
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "상인 가문의 막내로 알려졌지만, 실은 십인 위원회의 첩보원이다",
+      "full_name": "비앙카 코르넬리",
+      "full_name_en": "Bianca Corneli",
+      "name_note": "황금 명부에 **아직 오르지 못한** 가문. 이름은 있으나 정치에는 못 든다",
+      "alignment": "질서 악",
+      "temperament": "ENFJ",
+      "trait_v1": {
+        "name": "가면 축제",
+        "value": 1,
+        "note": "전투 첫 턴에 적의 표적이 되지 않는다"
+      }
+    },
+    {
+      "id": "saya",
+      "name": "사야",
+      "race": "악마",
+      "lineage": "",
+      "nation": "모르가스 신관국",
+      "class": "암살자",
+      "row": "전열",
+      "element": "dark",
+      "mod": {
+        "hp": 4,
+        "mp": -17,
+        "str": 10,
+        "agi": 4,
+        "int": 0,
+        "def": 0,
+        "spd": 4,
+        "crit": 0
+      },
+      "skill": {
+        "name": "발목 뜨개질",
+        "kind": "능동",
+        "mp": 18,
+        "target": "적 1",
+        "power": 0.4,
+        "turns": 0,
+        "chance": 100,
+        "brk": 3,
+        "note": "그림자로 짠 실로 적 1명의 발목을 감아 다음 차례를 40% 뒤로 미룬다(심연 −3)."
+      },
+      "trait": {
+        "name": "삼십육계 역습",
+        "value": 13.0,
+        "note": "회피 확률이 늘 10%p 높다. 공격을 피하면 곧바로 위력 ×1.5로 반격한다.",
+        "p": {
+          "dodge": 10,
+          "k": 1.5
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "노동 계급 신분에서 도망쳐 나온 악마. 말수가 적고, 빚은 반드시 갚는다",
+      "full_name": "사야",
+      "full_name_en": "Saya",
+      "name_note": "🔴 성이 없다. 모르가스 노동 계급은 신전에서 성을 받지 못한다",
+      "alignment": "중립",
+      "temperament": "ISTP",
+      "gap": "말 없는 탈주 암살자가 빚을 털실 인형과 목도리로 갚는 뜨개질 장인",
+      "trait_v1": {
+        "name": "탈주자의 감",
+        "value": 15,
+        "note": "HP 50% 이하에서 회피 +15%"
+      }
+    },
+    {
+      "id": "gerda",
+      "name": "게르다",
+      "race": "인간",
+      "lineage": "",
+      "nation": "신성 세레디아 제국",
+      "class": "궁수",
+      "row": "후열",
+      "element": "bolt",
+      "mod": {
+        "hp": 4,
+        "mp": -11,
+        "str": 12,
+        "agi": 0,
+        "int": 0,
+        "def": 20,
+        "spd": -2,
+        "crit": 0
+      },
+      "skill": {
+        "name": "일석이조 기원",
+        "kind": "능동",
+        "mp": 22,
+        "target": "적 1",
+        "power": 1.3,
+        "turns": 0,
+        "chance": 100,
+        "brk": 3,
+        "note": "소원을 빌고 쏜 볼트가 표적과 그 뒤의 적 1명을 ×1.3씩 꿰뚫는다(심연 −3씩)."
+      },
+      "trait": {
+        "name": "도미노 이론",
+        "value": 19.9,
+        "note": "모든 공격이 뒤에 선 적 1명까지 꿰뚫어 60%의 피해를 입힌다. 적이 하나뿐이면 같은 적에게 30%가 한 번 더 들어간다.",
+        "p": {
+          "pen": 0.6
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "변경령 석궁수 출신 탈영병. 제국 조사단 사람들 얼굴을 전부 알아본다",
+      "name_was": "이졸데",
+      "full_name": "게르다 바이트만",
+      "full_name_en": "Gerda Weidmann",
+      "name_note": "「사냥꾼」이라는 뜻의 평민 성. 「폰」이 없는 것이 신분을 말한다",
+      "alignment": "혼돈 중립",
+      "temperament": "INTP",
+      "gap": "냉소하는 탈영병 사수가 부적, 징조, 소원을 철석같이 믿는 미신쟁이",
+      "trait_v1": {
+        "name": "변경의 눈",
+        "value": 1,
+        "note": "적의 행동 예고를 한 차례 더 앞까지 본다"
+      }
+    },
+    {
+      "id": "judith",
+      "name": "유디트",
+      "race": "인간",
+      "lineage": "",
+      "nation": "신성 세레디아 제국",
+      "class": "비공인 마법사",
+      "row": "후열",
+      "element": "dark",
+      "mod": {
+        "hp": -5,
+        "mp": 8,
+        "str": 0,
+        "agi": 0,
+        "int": 7,
+        "def": -14,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "머피의 법칙",
+        "kind": "능동",
+        "mp": 30,
+        "target": "적 1",
+        "power": 0,
+        "turns": 3,
+        "chance": 100,
+        "brk": 3,
+        "note": "금서를 펼쳐 적 1명에게 방어↓, 속도↓, 공격↓ 디버프 3개를 차례로 건다. 부식도 1중첩 붙는다(심연 −3)."
+      },
+      "trait": {
+        "name": "바이럴 확산",
+        "value": 14.0,
+        "note": "일반 공격과 스킬이 「부식」 1중첩(최대 3, 2턴)을 남기고, 중첩 하나당 매 턴 지능 ×1.5의 피해를 준다. 부식에 걸린 적이 죽으면 남은 중첩이 다른 적 1명에게 옮겨 간다.",
+        "p": {
+          "k": 1.5
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "프리엔 학술원에서 퇴학당한 천재. 금지된 파괴 마법을 연구한다",
+      "name_was": "브리타 → 엘스베트",
+      "full_name": "유디트 폰 프리엔",
+      "full_name_en": "Judith von Prien",
+      "name_note": "학술원 도시의 이름을 쓰는 학자 가문. **제적된 뒤에도 성은 남았다**",
+      "alignment": "중립 악",
+      "temperament": "INTJ",
+      "trait_v1": {
+        "name": "학술원 기초",
+        "value": 15,
+        "note": "지속 피해 스킬 MP -15%"
+      }
+    },
+    {
+      "id": "levia",
+      "name": "레비아",
+      "race": "악마",
+      "lineage": "",
+      "nation": "모르가스 신관국",
+      "class": "심연 마도사",
+      "row": "후열",
+      "element": "none",
+      "mod": {
+        "hp": 0,
+        "mp": -8,
+        "str": 0,
+        "agi": 0,
+        "int": 11,
+        "def": -14,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "하이 리스크 하이 리턴",
+        "kind": "능동",
+        "mp": 0,
+        "target": "자신",
+        "power": 1.5,
+        "turns": 0,
+        "chance": 100,
+        "brk": 0,
+        "note": "HP 10%를 치르고, 다음 균열과 혼돈 파동이 깎는 심연의 양을 ×1.5로 늘린다."
+      },
+      "trait": {
+        "name": "깨진 유리창 이론",
+        "value": 18.2,
+        "note": "레비아가 심연을 깎으면 살아 있는 모든 적의 심연도 그 양의 7%만큼 함께 깎인다. 적이 줄어들수록 레비아의 고갈 피해(심연을 깎는 양과 고갈된 적에게 주는 피해)가 최대 +30%까지 커진다.",
+        "p": {
+          "x": 0.07,
+          "y": 0.3
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "뿔 없이 태어난 돌연변이. 신관국은 그 힘을 「다른 형태의 마법」으로 분류해 고위 사제의 감시 아래 두었다. 레비아는 감시를 뿌리치고 몰래 달아났다",
+      "full_name": "레비아",
+      "full_name_en": "Levia",
+      "name_note": "🔴 성이 없다. 감시 대상으로 분류된 자는 신전명을 받지 못한다",
+      "alignment": "중립 선",
+      "temperament": "ISFP",
+      "trait_v1": {
+        "name": "깨진 수정구",
+        "value": 25,
+        "note": "HP 30% 이하에서 심연 깎기 +25%"
+      }
+    },
+    {
+      "id": "urda",
+      "name": "우르다",
+      "race": "녹스",
+      "lineage": "",
+      "nation": "케른 연방",
+      "class": "사제",
+      "row": "후열",
+      "element": "ice",
+      "mod": {
+        "hp": 14,
+        "mp": -7,
+        "str": 20,
+        "agi": -17,
+        "int": -4,
+        "def": 18,
+        "spd": -2,
+        "crit": 0
+      },
+      "skill": {
+        "name": "레버리지 효과",
+        "kind": "능동",
+        "mp": 24,
+        "target": "아군 1",
+        "power": 2.0,
+        "turns": 0,
+        "chance": 100,
+        "brk": 0,
+        "note": "아군 1명이 가진 버프 하나의 효과를 두 배로 키운다. 지속 시간은 그대로다."
+      },
+      "trait": {
+        "name": "소울푸드",
+        "value": 18.4,
+        "note": "매 라운드 시작 때(차례는 쓰지 않는다) HP가 가장 낮은 아군 1명을 지능 ×0.35만큼 회복시키고 디버프 1개를 풀어 준다.",
+        "p": {
+          "k": 0.35
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "「두 신은 하나였다」는 녹스 교리를 따라 군대와 함께 다니는 사제. 케른 밖에서는 이단이라는 소리를 듣고, 설 신전도 없다",
+      "full_name": "우르다 폼 타른탈",
+      "full_name_en": "Urda vom Tarntal",
+      "name_note": "타른 계곡 사람. 계곡은 우르다를 내치지 않았다. 산 밖의 신전들이 문을 닫았을 뿐이다",
+      "alignment": "혼돈 선",
+      "temperament": "ENFP",
+      "trait_v1": {
+        "name": "이단의 평안",
+        "value": 1,
+        "note": "매혹, 공포 같은 정신 상태이상 면역"
+      }
+    },
+    {
+      "id": "lynette",
+      "name": "리네트",
+      "race": "하프엘프",
+      "lineage": "",
+      "nation": "마렌토 공화국",
+      "class": "사제",
+      "row": "후열",
+      "element": "holy",
+      "mod": {
+        "hp": 0,
+        "mp": 7,
+        "str": 0,
+        "agi": 17,
+        "int": 0,
+        "def": 0,
+        "spd": 2,
+        "crit": 0
+      },
+      "skill": {
+        "name": "끼워 팔기",
+        "kind": "능동",
+        "mp": 30,
+        "target": "아군 전체",
+        "power": 0.5,
+        "turns": 2,
+        "chance": 100,
+        "brk": 0,
+        "note": "아군 전체에게 회복과 보호막을 한꺼번에 건다. 두 효과 모두 크기는 절반이다."
+      },
+      "trait": {
+        "name": "단체 할인",
+        "value": 20.4,
+        "note": "리네트가 전투에 살아 있는 동안 아군 전원이 쓰는 스킬의 MP 비용이 15% 줄어든다.",
+        "p": {
+          "cut": 0.15
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "마렌토 운하 빈민가의 젊은 등불 사제. 삯을 받지 않고 장례를 치러 주며 빈민가를 돌보다 왔다",
+      "full_name": "리네트 바실리",
+      "full_name_en": "Lynette Basili",
+      "name_note": "마렌토 명부 밖 가문. 하프엘프라 어느 쪽 성도 온전하지 않다",
+      "alignment": "중립 선",
+      "temperament": "ESFJ",
+      "trait_v1": {
+        "name": "빈민가의 손",
+        "value": 30,
+        "note": "HP 30% 이하 아군을 치유하면 회복량 +30%"
+      }
+    },
+    {
+      "id": "felice",
+      "name": "펠리스",
+      "race": "하프엘프",
+      "lineage": "",
+      "nation": "경계도시",
+      "class": "연금술사",
+      "row": "후열",
+      "element": "wind",
+      "mod": {
+        "hp": 0,
+        "mp": 0,
+        "str": 0,
+        "agi": 10,
+        "int": 0,
+        "def": 0,
+        "spd": 4,
+        "crit": 0
+      },
+      "skill": {
+        "name": "가성비 처방",
+        "kind": "능동",
+        "mp": 15,
+        "target": "아군 1",
+        "power": 0.4,
+        "turns": 0,
+        "chance": 100,
+        "brk": 0,
+        "note": "약을 즉석에서 섞어 아군 1명을 조금 회복시키고(지능 ×0.4) 디버프 1개를 푼다."
+      },
+      "trait": {
+        "name": "패자 부활전",
+        "value": 16.8,
+        "note": "전투당 1회, 쓰러진 아군을 그 아군의 다음 차례에 최대 HP 25%로 일으켜 세운다(펠리스의 차례는 쓰지 않는다).",
+        "p": {
+          "times": 1,
+          "hp": 0.25
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "토르바 통역 골목에서 자란 연금술사. 무레나 섬의 공방에서 수련을 마쳤다",
+      "full_name": "펠리스 다 토르바",
+      "full_name_en": "Felice da Torva",
+      "name_note": "「토르바의」. 경계도시는 가문 대신 **어느 도시 사람인지**로 부른다",
+      "alignment": "중립",
+      "temperament": "ESFP",
+      "trait_v1": {
+        "name": "골목 인맥",
+        "value": 1,
+        "note": "원정 출발 시 정해진 소모품 1개"
+      }
+    },
+    {
+      "id": "sorel",
+      "name": "소렐",
+      "race": "엘프",
+      "lineage": "",
+      "nation": "나에린",
+      "class": "연금술사",
+      "row": "후열",
+      "element": "wind",
+      "mod": {
+        "hp": -4,
+        "mp": 17,
+        "str": 0,
+        "agi": 0,
+        "int": 10,
+        "def": 0,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "시간이 약이다",
+        "kind": "능동",
+        "mp": 34,
+        "target": "아군 전체",
+        "power": 1.0,
+        "turns": 2,
+        "chance": 100,
+        "brk": 0,
+        "note": "세계수 수액을 풀어 아군 전체를 회복시키고, 다음 2라운드 동안 재생을 남긴다. 값이 비싼 만큼 제값을 한다."
+      },
+      "trait": {
+        "name": "골든타임",
+        "value": 18.9,
+        "note": "전투당 2회, 아군의 HP가 25% 이하로 떨어지면 소렐의 지능 ×1.0만큼 즉시 회복시킨다. 소렐의 차례는 쓰지 않는다.",
+        "p": {
+          "times": 2,
+          "thr": 0.25,
+          "k": 1.0
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "숲의 약초를 바깥에 팔았다가 추방된 엘프. 돈이 좋다고 대놓고 말한다",
+      "full_name": "소렐 아엔윈",
+      "full_name_en": "Sorel Aenwyn",
+      "name_note": "씨족 숲의 이름. 추방돼도 숲 이름은 떼이지 않는다. 떼면 숲이 소렐을 지운 셈이 된다",
+      "alignment": "중립",
+      "temperament": "INTJ",
+      "trait_v1": {
+        "name": "추방자의 값",
+        "value": 1,
+        "note": "전투 보상 재료 +1"
+      },
+      "name_was": "엘로윈"
+    },
+    {
+      "id": "tika",
+      "name": "티카",
+      "race": "수인",
+      "lineage": "고양이",
+      "nation": "마렌토 공화국",
+      "class": "검투사",
+      "row": "전열",
+      "element": "fire",
+      "mod": {
+        "hp": -6,
+        "mp": 0,
+        "str": 0,
+        "agi": 18,
+        "int": 0,
+        "def": -7,
+        "spd": 6,
+        "crit": 3
+      },
+      "skill": {
+        "name": "출혈 마케팅",
+        "kind": "능동",
+        "mp": 0,
+        "target": "자신",
+        "power": 0.1,
+        "turns": 0,
+        "chance": 100,
+        "brk": 0,
+        "note": "HP 10%를 치르고, 다음 2회의 공격을 연속 행동으로 이어서 한다."
+      },
+      "trait": {
+        "name": "앙코르 요청 쇄도",
+        "value": 15.9,
+        "note": "공격한 뒤 30% 확률로 곧바로 한 번 더 공격한다. 연속은 최대 2번까지다.",
+        "p": {
+          "prob": 0.3
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "마렌토 투기장의 인기 검투사. 빚을 갚고 자유의 몸이 된 지 얼마 안 됐다",
+      "full_name": "티카",
+      "full_name_en": "Tika",
+      "name_note": "🔴 성이 없다. 투기장 노예로 팔릴 때 지워졌고, 자유를 산 뒤에도 되찾지 않았다",
+      "alignment": "혼돈 중립",
+      "temperament": "ISFP",
+      "gap": "관객 앞에서는 큰소리치는 쇼맨인데 무대 밖에서는 낯가림에 말을 더듬는 검투사",
+      "trait_v1": {
+        "name": "투기장의 별",
+        "value": 5,
+        "note": "치명타가 나면 HP 5% 회복"
+      }
+    },
+    {
+      "id": "hedwig",
+      "name": "헤드비히",
+      "race": "인간",
+      "lineage": "",
+      "nation": "신성 세레디아 제국",
+      "class": "공인 마법사",
+      "row": "후열",
+      "element": "bolt",
+      "mod": {
+        "hp": 0,
+        "mp": 0,
+        "str": 0,
+        "agi": 0,
+        "int": 0,
+        "def": 0,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "중2병 각성",
+        "kind": "능동",
+        "mp": 12,
+        "target": "적 1",
+        "power": 1.2,
+        "turns": 0,
+        "chance": 100,
+        "brk": 15,
+        "note": "거창한 이름을 붙여 외치는 주문. 적 1명에게 지능 ×1.2의 피해를 주고, 다음 아군 마법의 피해를 +10% 높인다(심연 −15)."
+      },
+      "trait": {
+        "name": "삼세번의 법칙",
+        "value": 4.2,
+        "note": "세 번째 행동마다 「선언」을 외친다. 선언 뒤 첫 공격은 위력이 +60%이고, 이 주기는 전투 내내 되풀이된다.",
+        "p": {
+          "every": 3,
+          "bonus": 0.6
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "제국 학술원 마도사. 「루미엘로 돌아갈 때까지」라는 문구를 문서 첫머리에 적으며 자랐다",
+      "proposed": true,
+      "full_name": "헤드비히 폰 오렐린",
+      "full_name_en": "Hedwig von Orelin",
+      "name_note": "임시 수도의 이름을 쓰는 공인 마법사 가문. 「루미엘로 돌아갈 때까지」를 성처럼 여긴다",
+      "alignment": "질서 중립",
+      "temperament": "ISTJ",
+      "gap": "격식 차리는 학술원 마도사가 직접 지은 거창한 주문 이름을 외치는 영웅담 광팬",
+      "trait_v1": {
+        "name": "첫머리의 맹세",
+        "value": 10,
+        "note": "전투 첫 턴 MP 소모 −30%"
+      },
+      "name_was": "엘리네"
     },
     {
       "id": "hildegard",
@@ -788,7 +1582,12 @@
       "full_name_en": "Hildegard von Eisenmark",
       "name_note": "「철의 변경」. 변경백 가문의 자제라 「폰」이 붙는다",
       "alignment": "질서 선",
-      "source_name": "힐데가"
+      "temperament": "ESTJ",
+      "trait_v1": {
+        "name": "귀족 자제",
+        "value": 10,
+        "note": "아군이 쓰러지면 자신의 공격 +15%"
+      }
     },
     {
       "id": "berenga",
@@ -814,7 +1613,7 @@
         "kind": "능동",
         "mp": 12,
         "target": "아군 1",
-        "power": 0,
+        "power": 1.0,
         "turns": 0,
         "chance": 100,
         "brk": 15,
@@ -835,7 +1634,67 @@
       "full_name_en": "Berenga Zweifalt",
       "name_note": "「두 겹」. 산 자의 이름과 이름책의 망자 이름, 두 겹을 지고 다닌다는 뜻으로, 등불지기 사제가 스스로 붙인 성이다",
       "alignment": "중립 선",
-      "source_name": "베렌가"
+      "temperament": "ENFP",
+      "trait_v1": {
+        "name": "어디에도 없는 신전",
+        "value": 10,
+        "note": "회복량이 대상의 잃은 HP 비례로 +20%"
+      }
+    },
+    {
+      "id": "gunhild",
+      "name": "군힐트",
+      "race": "수인",
+      "lineage": "개",
+      "nation": "신성 세레디아 제국",
+      "class": "검투사",
+      "row": "전열",
+      "element": "fire",
+      "mod": {
+        "hp": 0,
+        "mp": 0,
+        "str": 0,
+        "agi": 0,
+        "int": 0,
+        "def": 0,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "엄근진 일격",
+        "kind": "능동",
+        "mp": 12,
+        "target": "적 1",
+        "power": 1.2,
+        "turns": 0,
+        "chance": 100,
+        "brk": 15,
+        "note": "호령과 함께 적 1명을 크게 때린다(위력 ×1.2, 심연 −15). 목소리는 엄한데 꼬리는 숨기지 못한다."
+      },
+      "trait": {
+        "name": "선택과 집중",
+        "value": 0.4,
+        "note": "같은 적을 연달아 공격할 때마다 주는 피해가 5%씩 쌓인다(최대 +50%). 다른 적을 공격하면 처음부터 다시 쌓는다.",
+        "p": {
+          "per": 0.05,
+          "max": 0.5
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "제국 시절 군인 가문으로 자리 잡은 개 계통. 지금은 가문의 옛 이름만 남았다",
+      "proposed": true,
+      "full_name": "군힐트 폰 할렌",
+      "full_name_en": "Gunhild von Halen",
+      "name_note": "제국 군인 가문의 옛 성. 🔴 **땅은 돌아오지 않았고 「폰」만 남았다**",
+      "alignment": "질서 중립",
+      "temperament": "ENTJ",
+      "gap": "자부심 강한 몰락 가문 검투사가 칭찬 한마디에 꼬리를 숨기지 못한다",
+      "trait_v1": {
+        "name": "남은 것은 이름뿐",
+        "value": 10,
+        "note": "HP 50% 이하에서 치명타 +15%"
+      },
+      "name_was": "테오드라"
     },
     {
       "id": "bargut",
@@ -883,37 +1742,667 @@
       "full_name_en": "Bargut of the Leopard Banner",
       "name_note": "서열 낮은 부족이라 이름 앞에 붙이면 대접이 나빠진다. 그래도 뗄 수는 없다",
       "alignment": "중립",
+      "temperament": "ISTP",
       "gap": "혼자가 편하다던 암살자가 밤마다 동료 곁에 몸을 말고 자는 외로움쟁이",
-      "source_name": "바르굿"
+      "trait_v1": {
+        "name": "홀로 다니는 버릇",
+        "value": 10,
+        "note": "인접 아군이 없으면 회피 +15%"
+      }
+    },
+    {
+      "id": "altan",
+      "name": "알탄",
+      "race": "인간",
+      "lineage": "",
+      "nation": "대카라쉰",
+      "class": "연금술사",
+      "row": "후열",
+      "element": "wind",
+      "mod": {
+        "hp": 0,
+        "mp": 0,
+        "str": 0,
+        "agi": 0,
+        "int": 0,
+        "def": 0,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "규모의 경제",
+        "kind": "능동",
+        "mp": 12,
+        "target": "아군 전체",
+        "power": 0,
+        "turns": 0,
+        "chance": 100,
+        "brk": 15,
+        "note": "아군 전체에게 공격이나 방어 중 하나를 골라 +15%를 2턴간 건다."
+      },
+      "trait": {
+        "name": "리스크 헤지",
+        "value": 14.2,
+        "note": "전투가 시작되면 아군 전원에게 보호막(알탄 지능 ×1.0, 3턴)을 씌운다. 적이 강공격을 예고하면 그 표적의 보호막을 같은 양만큼 다시 채운다(전투당 2회).",
+        "p": {
+          "k": 1.0,
+          "times": 2
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "지배당하는 인간이면서도 능력 하나로 부족 귀족 못지않은 대접을 받는 관료 출신",
+      "proposed": true,
+      "full_name": "알탄",
+      "full_name_en": "Altan",
+      "name_note": "🔴 부족이 없다. 피지배 인간은 부족에 들지 못해 관청 문서에도 이름만 적힌다",
+      "alignment": "중립 악",
+      "temperament": "ISTJ",
+      "trait_v1": {
+        "name": "장부의 눈",
+        "value": 10,
+        "note": "소모품 효과 +25%"
+      }
+    },
+    {
+      "id": "colette",
+      "name": "콜레트",
+      "race": "인간",
+      "lineage": "",
+      "nation": "솔렌 성왕국",
+      "class": "공인 마법사",
+      "row": "후열",
+      "element": "holy",
+      "mod": {
+        "hp": 0,
+        "mp": 0,
+        "str": 0,
+        "agi": 0,
+        "int": 0,
+        "def": 0,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "침묵의 나선",
+        "kind": "능동",
+        "mp": 12,
+        "target": "적 1",
+        "power": 0,
+        "turns": 0,
+        "chance": 100,
+        "brk": 15,
+        "note": "적 1명의 마법 공격을 2턴 동안 봉인한다(심연 −15). 어깨가 떨리는 건 인장이 무거워서다."
+      },
+      "trait": {
+        "name": "위축 효과",
+        "value": 15.9,
+        "note": "콜레트의 공격과 스킬이 적 전체에 2턴 약화를 건다. 약화된 적은 주는 피해가 15% 줄어든다.",
+        "p": {
+          "red": 0.15
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "인장 서약을 맺은 마법사. 마법을 쓸 때면 늘 교단 인장을 몸에 지니고 있다",
+      "proposed": true,
+      "full_name": "콜레트 드 카델",
+      "full_name_en": "Colette de Cadell",
+      "name_note": "인장 서약을 맺은 곳의 이름. 허가증이자 **어디서 감시받는지**를 밝히는 이름이다",
+      "alignment": "질서 선",
+      "temperament": "INFJ",
+      "gap": "엄숙한 봉인 서약 마법사가 사소한 농담에 터지는 웃음을 필사적으로 참는다",
+      "trait_v1": {
+        "name": "인장의 무게",
+        "value": 10,
+        "note": "디버프 성공률 +15%, 자신의 최대 MP −10%"
+      },
+      "name_was": "이자벨"
+    },
+    {
+      "id": "selva",
+      "name": "셀바",
+      "race": "녹스",
+      "lineage": "",
+      "nation": "마렌토 공화국",
+      "class": "검투사",
+      "row": "전열",
+      "element": "fire",
+      "mod": {
+        "hp": 0,
+        "mp": 0,
+        "str": 0,
+        "agi": 0,
+        "int": 0,
+        "def": 0,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "성과급 챙기기",
+        "kind": "능동",
+        "mp": 12,
+        "target": "적 1",
+        "power": 1.2,
+        "turns": 0,
+        "chance": 100,
+        "brk": 15,
+        "note": "적 1명에게 위력 ×1.2의 피해를 준다(심연 −15). 그 일격으로 쓰러뜨리면 MP 6을 회복한다."
+      },
+      "trait": {
+        "name": "복리 효과",
+        "value": 15.6,
+        "note": "준 피해의 30%만큼 HP를 회복한다. HP가 가득 차 있으면 넘친 회복량이 다음 공격의 피해에 더해진다.",
+        "p": {
+          "steal": 0.3
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "공화국에 고용됐다가 눌러앉은 케른 용병",
+      "proposed": true,
+      "full_name": "셀바 폼 호흐탈",
+      "full_name_en": "Selva vom Hochtal",
+      "name_note": "높은 계곡 사람. 계약을 떠났어도 계곡 이름은 그대로다",
+      "alignment": "중립",
+      "temperament": "ESTJ",
+      "trait_v1": {
+        "name": "계약은 끝났다",
+        "value": 10,
+        "note": "전투 시작 시 심연 +20%"
+      }
+    },
+    {
+      "id": "ornel",
+      "name": "오르넬",
+      "race": "엘프",
+      "lineage": "",
+      "nation": "나에린",
+      "class": "궁수",
+      "row": "후열",
+      "element": "wind",
+      "mod": {
+        "hp": 0,
+        "mp": 0,
+        "str": 0,
+        "agi": 0,
+        "int": 0,
+        "def": 0,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "덫 놓은 화살",
+        "kind": "능동",
+        "mp": 12,
+        "target": "적 1",
+        "power": 1.2,
+        "turns": 0,
+        "chance": 100,
+        "brk": 15,
+        "note": "적 1명에게 위력 ×1.2의 피해를 준다(심연 −15). 덫을 겸한 화살이라, 맞은 적은 2턴 동안 공격이 20% 줄어든다."
+      },
+      "trait": {
+        "name": "모난 돌이 정 맞는다",
+        "value": 8.8,
+        "note": "HP가 70% 이상인 적에게 주는 피해가 +60% 커진다.",
+        "p": {
+          "thr": 0.7,
+          "bonus": 0.6
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "숲지기 순찰대. 숲 안에서는 대륙 최강이어도 숲 밖은 처음 나와 본다",
+      "proposed": true,
+      "full_name": "오르넬 바엔딜",
+      "full_name_en": "Ornel Vaendil",
+      "name_note": "숲지기 씨족의 이름. 순찰대는 씨족 이름으로 서로를 부른다",
+      "alignment": "질서 중립",
+      "temperament": "ISFP",
+      "gap": "숲 최강의 숲지기가 거미와 지네, 다리 많은 것 앞에서만 시위를 당기는 손이 멈칫한다",
+      "trait_v1": {
+        "name": "숲 밖은 처음",
+        "value": 10,
+        "note": "전투 첫 2턴 명중 −10%, 이후 치명타 +20%"
+      },
+      "name_was": "리아넬"
+    },
+    {
+      "id": "zahar",
+      "name": "자하르",
+      "race": "악마",
+      "lineage": "",
+      "nation": "모르가스 신관국",
+      "class": "전사",
+      "row": "전열",
+      "element": "fire",
+      "mod": {
+        "hp": 0,
+        "mp": 0,
+        "str": 0,
+        "agi": 0,
+        "int": 0,
+        "def": 0,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "번아웃 증후군",
+        "kind": "능동",
+        "mp": 12,
+        "target": "적 전체",
+        "power": 1.2,
+        "turns": 0,
+        "chance": 100,
+        "brk": 15,
+        "note": "곡괭이를 휘둘러 적 전체에 ×1.2의 피해를 준다(심연 −15씩). 대신 자하르의 방어가 1턴 동안 20% 줄어든다."
+      },
+      "trait": {
+        "name": "짬밥 보정",
+        "value": 14.8,
+        "note": "받는 물리 피해가 38% 줄어든다.",
+        "p": {
+          "red": 0.38
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "드룸 광산에서 징집된 노동 계급 병사. 반란에 가담했다가 쫓겨났다",
+      "proposed": true,
+      "full_name": "자하르",
+      "full_name_en": "Zahar",
+      "name_note": "🔴 성이 없다. 드룸 광산의 징집병에게는 번호만 있었다",
+      "alignment": "혼돈 선",
+      "temperament": "ISTP",
+      "trait_v1": {
+        "name": "징집병의 몸",
+        "value": 10,
+        "note": "받는 물리 피해 −10%"
+      }
+    },
+    {
+      "id": "jorund",
+      "name": "요르드",
+      "race": "녹스",
+      "lineage": "",
+      "nation": "케른 연방",
+      "class": "암살자",
+      "row": "전열",
+      "element": "dark",
+      "mod": {
+        "hp": 0,
+        "mp": 0,
+        "str": 0,
+        "agi": 0,
+        "int": 0,
+        "def": 0,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "연체 이자",
+        "kind": "능동",
+        "mp": 12,
+        "target": "적 1",
+        "power": 1.2,
+        "turns": 0,
+        "chance": 100,
+        "brk": 15,
+        "note": "적 1명에게 위력 ×1.2의 피해를 준다(심연 −15). 계약 표식이 붙은 적에게는 +40%가 더해진다."
+      },
+      "trait": {
+        "name": "티핑 포인트",
+        "value": 3.3,
+        "note": "공격마다 「출혈」 1중첩이 쌓인다(최대 3, 3턴, 중첩당 매 턴 민첩 ×0.2). 3중첩이 되면 즉시 터져서 남은 출혈 피해 전부에 ×(1+50%)를 곱해 한꺼번에 주고, 중첩은 0으로 돌아간다. 맞은 적은 다음 차례가 5% 늦어지며(폭발은 18%), 이 효과는 한 차례에 한 번만 걸린다.",
+        "p": {
+          "k": 0.2,
+          "burst": 0.5,
+          "z": 0.05,
+          "z2": 0.18
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)",
+        "role": "레이드 특화(일반 미달 수용 — 사장님 2026-10-07)"
+      },
+      "background": "타른 계곡 원로의 손녀. 고용주가 서로 적이어도 계약대로 싸운다",
+      "proposed": true,
+      "full_name": "요르드 폼 타른탈",
+      "full_name_en": "Jorund vom Tarntal",
+      "name_note": "우르다와 같은 계곡. 원로의 손녀라 계곡 이름의 무게가 다르다",
+      "alignment": "질서 악",
+      "temperament": "INTJ",
+      "trait_v1": {
+        "name": "원로의 손녀",
+        "value": 10,
+        "note": "같은 적을 연속 공격하면 피해 누적 +8%"
+      }
+    },
+    {
+      "id": "lavinia",
+      "name": "라비니아",
+      "race": "인간",
+      "lineage": "",
+      "nation": "경계도시",
+      "class": "공인 마법사",
+      "row": "후열",
+      "element": "bolt",
+      "mod": {
+        "hp": 0,
+        "mp": 0,
+        "str": 0,
+        "agi": 0,
+        "int": 0,
+        "def": 0,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "불허 도장 쾅",
+        "kind": "능동",
+        "mp": 12,
+        "target": "적 1",
+        "power": 1.2,
+        "turns": 0,
+        "chance": 100,
+        "brk": 15,
+        "note": "적 1명에게 위력 ×1.2의 지력 피해를 준다(심연 −15). 주문, 약화, 소환을 예고한 적에게는 +30%가 더해진다."
+      },
+      "trait": {
+        "name": "에코 챔버",
+        "value": 15.0,
+        "note": "공격이 50% 확률로 한 번 더 시전된다(메아리, 피해 70%).",
+        "p": {
+          "prob": 0.5
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "카델의 이단 심문소 분소에서 허가를 받은 마법사",
+      "proposed": true,
+      "full_name": "라비니아 다 카델",
+      "full_name_en": "Lavinia da Cadell",
+      "name_note": "「카델의」. 분소에서 허가를 받았다는 표시이기도 하다",
+      "alignment": "질서 중립",
+      "temperament": "ESTJ",
+      "trait_v1": {
+        "name": "서류상 합법",
+        "value": 10,
+        "note": "이단 심문소 관련 적에게 받는 피해 −15%"
+      }
+    },
+    {
+      "id": "tove",
+      "name": "토베",
+      "race": "악마",
+      "lineage": "",
+      "nation": "경계도시",
+      "class": "검투사",
+      "row": "전열",
+      "element": "ice",
+      "mod": {
+        "hp": 0,
+        "mp": 0,
+        "str": 0,
+        "agi": 0,
+        "int": 0,
+        "def": 0,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "꽁꽁 언 어그로",
+        "kind": "능동",
+        "mp": 10,
+        "target": "적 1",
+        "power": 0,
+        "turns": 0,
+        "chance": 100,
+        "brk": 40,
+        "note": "적 1명의 심연을 크게(−40) 깎고, 자신은 2턴 동안 도발 상태가 된다."
+      },
+      "trait": {
+        "name": "공격이 최선의 방어",
+        "value": 14.6,
+        "note": "매 라운드가 시작될 때 최대 HP의 6%만큼 보호막이 생긴다(남은 것과 합쳐 최대 HP 30%까지). 보호막이 남아 있는 동안은 주는 피해가 +35% 늘어난다.",
+        "p": {
+          "shield": 0.06,
+          "bonus": 0.35
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "하르벤의 얼어붙은 옛 병영을 떠돌던 방랑자. 성안에 묵을 데가 없어 밖에서 잤다",
+      "proposed": true,
+      "full_name": "토베",
+      "full_name_en": "Tove",
+      "name_note": "🔴 성이 없다. 성안 숙박 허가가 없는 자는 호적도 없다",
+      "alignment": "중립 선",
+      "temperament": "INFP",
+      "trait_v1": {
+        "name": "밖에서 자는 버릇",
+        "value": 10,
+        "note": "전투 시작 시 디버프 저항 +20%"
+      }
+    },
+    {
+      "id": "miko",
+      "name": "미코",
+      "race": "녹스",
+      "lineage": "",
+      "nation": "경계도시",
+      "class": "연금술사",
+      "row": "후열",
+      "element": "bolt",
+      "mod": {
+        "hp": 0,
+        "mp": 0,
+        "str": 0,
+        "agi": 0,
+        "int": 0,
+        "def": 0,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "링거 투혼",
+        "kind": "능동",
+        "mp": 12,
+        "target": "아군 1",
+        "power": 0,
+        "turns": 0,
+        "chance": 100,
+        "brk": 15,
+        "note": "아군 1명을 회복시키고, 그 아군의 다음 차례를 30% 앞당긴다."
+      },
+      "trait": {
+        "name": "약발 받는 한 방",
+        "value": 17.5,
+        "note": "회복한 동료의 다음 공격 피해가 60% 증가한다. 봇 런타임 variant 1 적용.",
+        "p": {
+          "variant": 1,
+          "bonus": 0.6,
+          "pull": 0.4
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-10 개편 · 후보 둘 중 variant 가 켠 쪽 · value = 시뮬 평균 등가 % · 정본 miko_cand.py)"
+      },
+      "background": "케른 막사 훈련장에서 약을 짓다가 길드의 눈에 들어 영입됐다",
+      "proposed": true,
+      "full_name": "미코 폼 케른",
+      "full_name_en": "Miko vom Kern",
+      "name_note": "계곡을 특정하지 않는다. 막사에서 자라 어느 계곡 사람인지 모른다",
+      "alignment": "중립 선",
+      "temperament": "ISFJ",
+      "trait_v1": {
+        "name": "막사 출신",
+        "value": 10,
+        "note": "전투 종료 시 아군 전체 HP 5% 회복"
+      }
+    },
+    {
+      "id": "adeline",
+      "name": "아델린",
+      "race": "수인",
+      "lineage": "개",
+      "nation": "솔렌 성왕국",
+      "class": "사제",
+      "row": "후열",
+      "element": "holy",
+      "mod": {
+        "hp": 0,
+        "mp": 0,
+        "str": 0,
+        "agi": 0,
+        "int": 0,
+        "def": 0,
+        "spd": 0,
+        "crit": 0
+      },
+      "skill": {
+        "name": "플라시보 효과",
+        "kind": "능동",
+        "mp": 12,
+        "target": "아군 전체",
+        "power": 0,
+        "turns": 0,
+        "chance": 100,
+        "brk": 15,
+        "note": "아군 전체를 조금 회복시키고, 2턴 동안 받는 피해를 10% 줄이며 재생을 건다. 아델린이 쓰러지면 효과가 사라진다."
+      },
+      "trait": {
+        "name": "무상 애프터서비스",
+        "value": 16.3,
+        "note": "회복 스킬이 대상에게 2턴 동안 재생을 남긴다(매 턴 아델린 지능 ×0.08).",
+        "p": {
+          "k": 0.08,
+          "turns": 2
+        },
+        "src": "proto/sim_traits/traits_v2.json (2026-10-07 개편 v2 · value = 시뮬 평균 등가 %)"
+      },
+      "background": "주신께 귀의한 개 계통이라 성왕국이 받아들여 준 드문 수인",
+      "proposed": true,
+      "full_name": "아델린 드 아르카스",
+      "full_name_en": "Adeline de Arcas",
+      "name_note": "마르셀린과 같은 성. 교단이 서임하며 준 것이라 **혈연이 아니다**",
+      "alignment": "질서 선",
+      "temperament": "ESFJ",
+      "gap": "온순한 개 수인 사제가 판이 깔리면 눈빛이 바뀌는 승부사다. 판은 스스로 고르고 진 값은 스스로 치른다",
+      "trait_v1": {
+        "name": "받아들여진 자",
+        "value": 10,
+        "note": "주신 계열 아군이 있으면 회복량 +15%"
+      }
     }
   ],
   "items": [
     {
       "id": "hp_s",
-      "name": "소형 회복약",
-      "price": 40,
+      "name": "회복약 · 소",
       "kind": "hp",
+      "price": 40,
       "fraction": 0.2,
       "level": 1,
       "icon": "it_hp"
     },
     {
+      "id": "hp_m",
+      "name": "회복약 · 중",
+      "kind": "hp",
+      "price": 90,
+      "fraction": 0.35,
+      "level": 15,
+      "icon": "it_hp"
+    },
+    {
+      "id": "hp_l",
+      "name": "회복약 · 대",
+      "kind": "hp",
+      "price": 180,
+      "fraction": 0.5,
+      "level": 30,
+      "icon": "it_hp"
+    },
+    {
       "id": "mp_s",
-      "name": "소형 마나 물약",
-      "price": 50,
+      "name": "마나약 · 소",
       "kind": "mp",
+      "price": 50,
       "fraction": 0.15,
       "level": 1,
       "icon": "it_mp"
     },
     {
+      "id": "mp_m",
+      "name": "마나약 · 중",
+      "kind": "mp",
+      "price": 110,
+      "fraction": 0.25,
+      "level": 15,
+      "icon": "it_hp"
+    },
+    {
+      "id": "mp_l",
+      "name": "마나약 · 대",
+      "kind": "mp",
+      "price": 220,
+      "fraction": 0.4,
+      "level": 30,
+      "icon": "it_hp"
+    },
+    {
+      "id": "shield_s",
+      "name": "보호막약 · 소",
+      "kind": "shield",
+      "price": 60,
+      "fraction": 0.15,
+      "level": 1,
+      "icon": "defend"
+    },
+    {
+      "id": "shield_m",
+      "name": "보호막약 · 중",
+      "kind": "shield",
+      "price": 130,
+      "fraction": 0.25,
+      "level": 15,
+      "icon": "defend"
+    },
+    {
+      "id": "shield_l",
+      "name": "보호막약 · 대",
+      "kind": "shield",
+      "price": 260,
+      "fraction": 0.4,
+      "level": 30,
+      "icon": "defend"
+    },
+    {
       "id": "bandage",
       "name": "붕대",
-      "price": 15,
       "kind": "revive",
+      "price": 15,
       "fraction": 0.25,
       "level": 1,
       "icon": "it_band"
+    },
+    {
+      "id": "antidote",
+      "name": "해독제",
+      "kind": "cleanse",
+      "price": 30,
+      "fraction": 0,
+      "level": 1,
+      "icon": "it_hp"
+    },
+    {
+      "id": "return",
+      "name": "귀환 주문서",
+      "kind": "return",
+      "price": 120,
+      "fraction": 0,
+      "level": 1,
+      "icon": "it_hp"
+    },
+    {
+      "id": "level_scroll",
+      "name": "성장 주문서",
+      "kind": "level",
+      "price": 1200,
+      "fraction": 0,
+      "level": 1,
+      "icon": "it_hp"
     }
   ],
   "cards": [

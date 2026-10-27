@@ -120,6 +120,9 @@ func _finish_turn(interval_scale: float=1) -> void:
 		if t<elapsed: elapsed=t; next=entry
 	for entry in living(true)+living(false): entry.remaining=maxf(0,float(entry.remaining)-elapsed*speed(entry))
 	current_id=next.id; _tick(next)
+	if living(false).is_empty() or living(true).is_empty():
+		result="victory" if living(false).is_empty() else "defeat"
+		refresh_forecast(); return
 	if next.has("mp"):
 		next.mp=mini(next.mmp,next.mp+int(data.formula.mp_regen)); last_ally=next.id
 	if enemy(selected_enemy).hp<=0: selected_enemy=living(false)[0].id

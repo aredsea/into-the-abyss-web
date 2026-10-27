@@ -5,6 +5,8 @@ var session_snapshot: Dictionary={}
 var session_save: Callable
 
 const BattleState = preload("res://game/battle_state.gd")
+const ModernBattle=preload("res://game/battle_v3.gd")
+const CombatFX=preload("res://ui/combat_fx.gd")
 const SaveStore = preload("res://game/save_store.gd")
 const INK = Color("eae4d6")
 const GOLD = Color("d7b67e")
@@ -17,6 +19,7 @@ var frame = Rect2()
 var controls = {}
 var text_metrics = []
 var skills_open = false
+var items_open=false
 var ally_open = ""
 var actor: TextureRect
 var preview_tween: Tween
@@ -36,7 +39,7 @@ func _ready() -> void:
 	state = BattleState.new(scene_data)
 	if not session_data.is_empty():
 		scene_data=session_data
-		state=BattleState.new(scene_data)
+		state=ModernBattle.new(scene_data) if scene_data.get("rules_version",2)==3 else BattleState.new(scene_data)
 		state.restore(session_snapshot)
 		_persist()
 	else:
@@ -146,8 +149,8 @@ func _rebuild() -> void:
 	var w = minf(view.x,430)
 	var h = minf(view.y,860)
 	frame = Rect2((view-Vector2(w,h))/2,Vector2(w,h))
-	var party_h = clampf(180+(h-780)*0.375,180,210)
-	var stage_h = h-283-party_h
+	var party_h = clampf(144+(h-780)*0.375,144,174)
+	var stage_h = h-377-party_h
 	var x = frame.position.x+7
 	var y = frame.position.y
 	var width = w-14
@@ -162,13 +165,14 @@ func _rebuild() -> void:
 	_party(Rect2(x,party_y,width,party_h))
 	var detail_y = party_y+party_h+3
 	_detail(Rect2(x,detail_y,width,44))
-	_commands(Rect2(x,detail_y+47,width,140))
+	_commands(Rect2(x,detail_y+47,width,234))
+	if items_open: _supplies(Rect2(x+6,field.position.y+4,width-12,field.size.y+party_h-8))
 	if skills_open:
 		var count=_skill_ids().size()
 		_skills(Rect2(x+6,frame.end.y-146-(54+count*54),width-12,54+count*54))
 	if not ally_open.is_empty():
 		_ally_sheet(Rect2(x+8,field.end.y-156,width-16,150))
-	if not pending_action.is_empty():
+	if not pending_action.is_empty() and not state is ModernBattle:
 		_confirm_sheet(Rect2(x+6,frame.end.y-310,width-12,162))
 	if log_open:
 		_log_sheet(Rect2(x+6,field.position.y+12,width-12,field.size.y+party_h-24))
@@ -189,7 +193,7 @@ func _queue(rect: Rect2) -> void:
 		else:
 			_picture(entry.art,Rect2(xpos+3,rect.position.y+1,25,27),self,true)
 		var short_names = {"hildegard":"힐데","executor":"집행","teiris":"테이","orb":"수정","bargut":"바르","apprentice":"견습","berenga":"베렝","lantern":"등불"}
-		_label(short_names[id],Rect2(xpos,rect.position.y+30,col,18),12,GOLD if i==0 else INK,self,HORIZONTAL_ALIGNMENT_CENTER)
+		_label(short_names.get(id,entry.name.left(2)),Rect2(xpos,rect.position.y+30,col,18),12,GOLD if i==0 else INK,self,HORIZONTAL_ALIGNMENT_CENTER)
 
 func _battlefield(rect: Rect2) -> void:
 	var field = Control.new()
@@ -201,7 +205,7 @@ func _battlefield(rect: Rect2) -> void:
 		var e = state.enemy(id)
 		if e.hp<=0:
 			continue
-		var height = (140 if frame.size.y<820 else 162) if id=="executor" else (110 if id=="apprentice" else 90)
+		var height = (94 if frame.size.y<820 else 116) if id=="executor" else (80 if id=="apprentice" else 64)
 		var bbox = e.bbox
 		var art_w = height*(bbox[2]-bbox[0])/(bbox[3]-bbox[1])
 		var summary_w = 122 if id=="executor" else 108
@@ -228,15 +232,18 @@ func _battlefield(rect: Rect2) -> void:
 	actor.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	actor.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	_actor_texture(false)
-	_put(actor,Rect2(rect.size.x*0.34-133.333,rect.size.y-166,266.667,160),field)
+	_put(actor,Rect2(rect.size.x*0.34-133.333,rect.size.y-140,233.333,140),field)
 	controls["field"]={"rect":[rect.position.x,rect.position.y,rect.size.x,rect.size.y]}
 
 func _actor_texture(attack: bool) -> void:
-	var atlas = AtlasTexture.new()
-	atlas.atlas = _texture("res://assets/sprites_4.png")
 	var a=state.ally(animation_ally if not animation_ally.is_empty() else state.last_ally)
-	atlas.region = Rect2(640 if attack else 0,a.sprite_row*384,640,384)
-	actor.texture = atlas
+	if a.sprite_row<0:
+		actor.texture=_texture("res://assets/"+a.id+".webp")
+		actor.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		actor.texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	else:
+		var atlas=AtlasTexture.new(); atlas.atlas=_texture("res://assets/sprites_4.png")
+		atlas.region=Rect2(640 if attack else 0,a.sprite_row*384,640,384); actor.texture=atlas
 
 func _party(rect: Rect2) -> void:
 	var gap = 3.0
@@ -271,30 +278,37 @@ func _detail(rect: Rect2) -> void:
 	_label(state.intent(e),Rect2(6,22,rect.size.x-12,18),12,GOLD,panel)
 
 func _commands(rect: Rect2) -> void:
-	var panel=_panel(rect)
-	var a=state.ally(state.current_id)
-	var is_player=state.player_turn() and not busy
+	var panel=_panel(rect); var a=state.ally(state.current_id); var ready=state.player_turn() and not busy
+	if state is ModernBattle:
+		var item_button=_button("supplies",Rect2(rect.size.x-70,3,64,44),func(): items_open=not items_open; _rebuild(),false,panel)
+		item_button.disabled=not ready
+		_label("보급품",Rect2(0,0,64,44),12,INK,item_button,HORIZONTAL_ALIGNMENT_CENTER)
+		controls.supplies.rect=[rect.end.x-70,rect.position.y+3,64,44]
 	var title=a.name+"의 차례" if not a.is_empty() else state.enemy(state.current_id).short+" 행동 중"
-	if not state.result.is_empty(): title="전투 승리" if state.result=="victory" else "전투 패배"
-	_label(title,Rect2(6,2,rect.size.x-12,20),14,GOLD,panel)
-	var summary="적을 선택하고 행동하세요"
-	if not a.is_empty(): summary="%s · 심연 깎기 %d · MP %d/%d" % [state.data.elements[a.element],a.skills.attack.brk,a.mp,a.mmp]
-	if busy: summary=state.events[-1] if not state.events.is_empty() else "행동 처리 중 · 입력 대기"
-	_label(_wrap(summary,rect.size.x-12,12),Rect2(6,22,rect.size.x-12,28),12,INK,panel)
-	var col=(rect.size.x-24)/3
-	for i in range(3):
-		var id=["attack","skills","guard"][i]
-		var button=_button("action:"+id,Rect2(6+i*(col+6),50,col,84),_action_pressed.bind(id),pending_action==id,panel)
-		button.disabled=not is_player
-		if not a.is_empty() and id=="guard": button.disabled=button.disabled or not state.unavailable(id).is_empty()
-		controls["action:"+id].rect=[rect.position.x+6+i*(col+6),rect.position.y+50,col,84]
-		var icon={"attack":"attack","skills":"taunt","guard":"defend"}[id]
-		_picture("res://assets/ic_"+icon+".webp",Rect2((col-36)/2,7,36,36),button)
-		_label({"attack":"공격","skills":"스킬","guard":"방어"}[id],Rect2(0,46,col,23),16,INK,button,HORIZONTAL_ALIGNMENT_CENTER)
-		var cost="선택" if id=="skills" else "MP %d" % a.skills[id].mp if not a.is_empty() else "대기"
-		if not a.is_empty() and id=="guard" and a.skills.guard.has("disabled"): cost="비용 미정"
-		_label(cost,Rect2(0,68,col,14),12,INK,button,HORIZONTAL_ALIGNMENT_CENTER)
-
+	_label(title,Rect2(8,2,rect.size.x-88,23),15,GOLD,panel)
+	var hint="스킬 선택 → 대상 터치"
+	if busy: hint=state.events[-1] if not state.events.is_empty() else "행동 처리 중"
+	elif not pending_action.is_empty(): hint=state.actions()[pending_action].name+" · "+state.actions()[pending_action].target+" 선택"
+	_label(_wrap(hint,rect.size.x-88,12),Rect2(8,25,rect.size.x-88,30),12,INK,panel)
+	var ids=state.actions().keys().filter(func(id):return not id.begins_with("item:")) if ready else []
+	var col=(rect.size.x-20)/2
+	for i in range(ids.size()):
+		var id=ids[i]; var sk=state.actions()[id]; var pos=Vector2(6+(i%2)*(col+8),58+int(i/2)*56)
+		var b=_button("action:"+id,Rect2(pos,Vector2(col,52)),_action_pressed.bind(id),pending_action==id,panel)
+		controls["action:"+id].rect=[rect.position.x+pos.x,rect.position.y+pos.y,col,52]
+		b.disabled=not state.unavailable(id).is_empty()
+		var icon="attack" if sk.target.begins_with("적") else "defend" if id in ["guard","taunt","ptaunt"] else (a.element if a.element!="none" else "taunt")
+		_picture("res://assets/ic_"+icon+".webp",Rect2(7,15,22,22),b)
+		var title_text=sk.name.split("(")[0].strip_edges()
+		var short={"파티 능력치 상향":"파티 축복","아군 능력 버프":"강화 약","적 능력 디버프":"산성 약","마감 전날 대폭발":"마감 전날 대폭발"}
+		title_text=short.get(title_text,title_text)
+		_label(_wrap(title_text,col-38,12),Rect2(34,2,col-38,30),12,GOLD,b)
+		var mp=state.cost(id) if state is ModernBattle else sk.mp
+		var target_text="같은 열" if sk.target=="자신+옆 아군" else sk.target
+		var resource="MP %d" % mp
+		if state is ModernBattle and (id=="blood" or (id=="personal" and a.id in ["tika","levia"])): resource="HP %d" % state.hp_cost(a,id)
+		_label(resource+" · "+target_text,Rect2(34,33,col-38,16),12,INK,b)
+		b.tooltip_text=sk.note
 func _skill_ids() -> Array:
 	var ids=[]
 	for id in state.actions():
@@ -392,43 +406,50 @@ func _ally_sheet(rect: Rect2) -> void:
 	_label(_wrap(state.effects_text(a),rect.size.x-84,12),Rect2(74,104,rect.size.x-84,42),12,INK,panel)
 
 func _enemy_pressed(id: String) -> void:
+	if busy: return
 	state.choose_enemy(id)
-	_persist()
-	_rebuild()
+	if state is ModernBattle and not pending_action.is_empty() and state.actions()[pending_action].target=="적 1": _commit(); return
+	_persist(); _rebuild()
 
 func _ally_pressed(id: String) -> void:
-	ally_open=id
-	skills_open=false
-	_rebuild()
+	if busy: return
+	if state is ModernBattle and not pending_action.is_empty() and state.actions()[pending_action].target=="아군 1":
+		if state.choose_ally(id): _commit()
+		return
+	ally_open=id; skills_open=false; _rebuild()
 
 func _action_pressed(id: String) -> void:
-	if busy or not state.player_turn(): return
-	if id=="skills":
-		skills_open=not skills_open; ally_open=""; pending_action=""; _rebuild(); return
-	if not state.unavailable(id).is_empty(): return
-	state.choose_action(id); pending_action=id; skills_open=false; ally_open=""; _rebuild()
+	if busy or not state.player_turn() or not state.unavailable(id).is_empty(): return
+	state.choose_action(id); pending_action=id; skills_open=false; ally_open=""
+	if state is ModernBattle and (id=="attack" or state.actions()[id].target not in ["적 1","아군 1"]): _commit()
+	else: _rebuild()
 
 func _close_sheets() -> void:
-	skills_open=false; ally_open=""; pending_action=""; log_open=false; _rebuild()
+	skills_open=false; items_open=false; ally_open=""; pending_action=""; log_open=false; _rebuild()
 
 func _commit() -> void:
 	if busy or pending_action.is_empty(): return
 	var id=pending_action
+	var before={}
+	for u in state.data.allies+state.data.enemies: before[u.id]={"hp":u.hp,"shield":u.get("shield",0),"gauge":u.get("gauge",0),"effects":u.effects.duplicate(true)}
 	animation_ally=state.current_id
 	if not state.act(id): return
-	pending_action=""; busy=true; _persist(); _rebuild(); _preview(id)
+	pending_action=""; busy=true; _persist(); _rebuild(); _preview(id); _effect_feedback(before,animation_ally,id)
 	_resume_automatic()
 
 func _resume_automatic() -> void:
 	busy=true; playback_generation+=1
 	call_deferred("_publish_metrics")
 	var generation=playback_generation
-	await get_tree().create_timer(0.85).timeout
+	await get_tree().create_timer(0.7).timeout
 	if generation!=playback_generation: return
 	animation_ally=""
 	while state.result.is_empty() and (not state.player_turn() or state.ally(state.current_id).charging):
-		state.automatic_turn(); _persist(); _rebuild()
-		await get_tree().create_timer(1.0).timeout
+		var before={}
+		for u in state.data.allies+state.data.enemies: before[u.id]={"hp":u.hp,"shield":u.get("shield",0),"gauge":u.get("gauge",0),"effects":u.effects.duplicate(true)}
+		var source=state.current_id
+		state.automatic_turn(); _persist(); _rebuild(); _effect_feedback(before,source,"enemy")
+		await get_tree().create_timer(0.7).timeout
 		if generation!=playback_generation: return
 	busy=false; _rebuild()
 
@@ -436,7 +457,7 @@ func _retry() -> void:
 	if session_save.is_valid():
 		session_finished.emit()
 		return
-	playback_generation+=1; state=BattleState.new(scene_data)
+	playback_generation+=1; state=ModernBattle.new(scene_data) if scene_data.get("rules_version",2)==3 else BattleState.new(scene_data)
 	busy=false; pending_action=""; animation_ally=""; skills_open=false; ally_open=""; log_open=false
 	_persist(); _rebuild()
 
@@ -475,3 +496,44 @@ func _publish_metrics() -> void:
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		_close_sheets()
+
+func _effect_feedback(before: Dictionary,source: String,action: String) -> void:
+	var a=state.ally(source); var element=a.element if not a.is_empty() else "fire"
+	if action in ["personal","tactic"] and not a.is_empty():
+		var field=controls.field.rect
+		var banner=_panel(Rect2(field[0]+5,field[1]+field[3]-62,field[2]-10,58))
+		_picture("res://assets/"+a.id+".webp",Rect2(3,3,48,52),banner)
+		_label(a.name,Rect2(59,4,field[2]-78,20),12,INK,banner)
+		_label(a.skills[action].name.split("(")[0].strip_edges(),Rect2(59,24,field[2]-78,29),14,GOLD,banner)
+	for u in state.data.allies+state.data.enemies:
+		var previous=before[u.id]; var delta=int(u.hp)-int(previous.hp)
+		var text_value=("+" if delta>0 else "-")+str(absi(delta))
+		var healing=delta>0; var fs=24
+		if delta==0:
+			var shield=int(u.get("shield",0))-int(previous.shield); var abyss=int(previous.gauge)-int(u.get("gauge",0))
+			if shield>0: text_value="보호막 +"+str(shield); healing=true
+			elif abyss>0: text_value="심연 -"+str(abyss)
+			elif u.effects!=previous.effects: text_value="효과 적용"; healing=u.has("base")
+			else: continue
+			fs=14
+		var key=("ally:" if u.has("base") else "enemy:")+u.id
+		if not controls.has(key): continue
+		var r=controls[key].rect; var center=Vector2(r[0]+r[2]/2,r[1]+r[3]*.4)
+		var fx=CombatFX.new(); fx.position=center; fx.element=element; fx.healing=healing; fx.reduced=motion_reduced; add_child(fx)
+		var label=_label(text_value,Rect2(center-Vector2(53,10),Vector2(106,32)),fs,Color("9bd9b0") if healing else INK,self,HORIZONTAL_ALIGNMENT_CENTER)
+		var tween=create_tween(); tween.tween_property(label,"position:y",label.position.y-24,.48); tween.tween_property(label,"modulate:a",0,.18)
+
+func _supplies(rect: Rect2) -> void:
+	var panel=_panel(rect); panel.mouse_filter=Control.MOUSE_FILTER_STOP
+	_label("보급품 · 사용하면 차례 소모",Rect2(10,4,rect.size.x-68,44),14,GOLD,panel)
+	_close_button(Rect2(rect.size.x-54,4,44,44),panel)
+	var scroll=ScrollContainer.new(); _put(scroll,Rect2(8,52,rect.size.x-16,rect.size.y-60),panel); scroll.mouse_filter=Control.MOUSE_FILTER_STOP
+	scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+	var list=VBoxContainer.new(); scroll.add_child(list); list.size_flags_horizontal=SIZE_EXPAND_FILL
+	for id in state.actions():
+		if not id.begins_with("item:"): continue
+		var sk=state.actions()[id]; var amount=state.inventory.get(id.substr(5),0)
+		if amount<=0: continue
+		var b=Button.new(); list.add_child(b); b.custom_minimum_size.y=54; b.text=sk.name+" ×"+str(int(amount))+" · Lv."+str(int(sk.item.level))
+		b.add_theme_font_override("font",font); b.add_theme_font_size_override("font_size",14)
+		b.pressed.connect(func(): items_open=false; _action_pressed(id))

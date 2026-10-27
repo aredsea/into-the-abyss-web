@@ -102,7 +102,7 @@ func depart() -> bool:
 	s.run.event="entry"; s.run.resolved=true
 	s.summary={}
 	# Bot expeditions start with full HP/MP; resources carry between encounters.
-	for id in IDS:
+	for id in s.party:
 		var b=stats(id,s.members[id].level)
 		s.members[id].hp=b.hp; s.members[id].mp=b.mp
 	note("학술원 폐허 상층 2층 검수 원정 출발")
@@ -168,7 +168,7 @@ func card_reason(id: String) -> String:
 	if id=="key" and (s.run.event!="sealed" or s.run.resolved): return "봉인된 보관함에서 사용합니다."
 	if id=="camp":
 		var hurt=false
-		for who in IDS:
+		for who in s.party:
 			if s.members[who].hp>0 and s.members[who].hp<stats(who,s.members[who].level).hp: hurt=true
 		if not hurt: return "회복할 동료가 없습니다."
 	return ""
@@ -178,7 +178,7 @@ func use_card(id: String) -> bool:
 	if id=="key":
 		s.items.hp_s+=1; s.run.resolved=true
 	else:
-		for who in IDS:
+		for who in s.party:
 			var m=s.members[who]; var b=stats(who,m.level)
 			if m.hp>0: m.hp=mini(b.hp,m.hp+int(round(b.hp*0.2)))
 	s.hand.erase(id); note(card_def(id).name+" 사용 · 카드 1장 소모")
@@ -195,7 +195,7 @@ func rest() -> bool:
 		if s.run.phase!="explore" or s.run.node!="rest": return false
 	else:
 		if s.run.phase!="rest": return false
-	for id in IDS:
+	for id in s.party:
 		var m=s.members[id]; var b=stats(id,m.level)
 		m.hp=mini(b.hp,m.hp+int(round(b.hp*0.3)))
 		m.mp=mini(b.mp,m.mp+int(round(b.mp*0.6)))
@@ -233,12 +233,12 @@ func finish_battle() -> bool:
 	if not active() or s.run.phase!="battle" or s.run.battle.is_empty(): return false
 	var battle=Battle.new(battle_data())
 	if not battle.restore(s.run.battle) or battle.result.is_empty(): return false
-	for id in IDS:
+	for id in s.party:
 		s.members[id].hp=battle.ally(id).hp; s.members[id].mp=battle.ally(id).mp
 	if battle.result=="defeat": return settle("defeat")
 	s.run.gold+=40; s.run.xp+=14; s.run.wins+=1
 	s.hand.append("camp"); note("인형의 짐에서 안전한 야영 카드 1장을 얻었다.")
-	for id in IDS:
+	for id in s.party:
 		var m=s.members[id]
 		m.aff=minf(200,m.aff+1 if m.aff<100 else m.aff+0.4)
 		if m.hp==0: m.hp=maxi(1,int(stats(id,m.level).hp*0.2))
@@ -252,7 +252,7 @@ func settle(result: String) -> bool:
 	var gold=0 if result=="defeat" else int(s.run.gold)
 	var xp=0 if result=="defeat" else int(s.run.xp)
 	s.gold+=gold; var gains=[]
-	for id in IDS:
+	for id in s.party:
 		var m=s.members[id]; var before=m.level
 		m.xp+=xp
 		while m.level<40 and m.xp>=need(m.level):

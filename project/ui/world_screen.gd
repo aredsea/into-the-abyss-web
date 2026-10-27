@@ -1,7 +1,7 @@
 extends Control
 
 const RouteMap=preload("res://ui/route_map.gd")
-const World=preload("res://game/world_state.gd")
+const World=preload("res://game/expansion_world.gd")
 const Store=preload("res://game/world_store.gd")
 const BattleScreen=preload("res://ui/battle_screen.gd")
 const FONT=preload("res://assets/fonts/NanumGothic-Regular.ttf")
@@ -13,6 +13,11 @@ var storage=Store.new()
 var screen="town"
 var who="hildegard"
 var selected_item=""
+var catalog_all=false
+var shop_tab="items"
+var gear_filter="weapon"
+var research_prefix="strike"
+var research_suffix="bane"
 var message=""
 var confirm: Dictionary={}
 var content: VBoxContainer
@@ -49,7 +54,7 @@ func _save() -> void:
 	if save_error!=OK: message="저장 실패: 창을 닫기 전에 다시 시도하세요."
 
 func go(page: String) -> void:
-	if model.active() and page in ["town","shop","inn","depart"]: page="explore"
+	if model.active() and page in ["town","shop","inn","depart","guild","smithy"]: page="explore"
 	screen=page; confirm={}; selected_item=""; message=""; _draw_screen()
 
 func _draw_screen() -> void:
@@ -93,6 +98,10 @@ func _draw_screen() -> void:
 			"inn": _inn()
 			"summary": _summary()
 			"journal": _journal()
+			"guild": _guild()
+			"smithy": _smithy()
+			"equipment": _equipment()
+			"research": _research()
 	var nav=HBoxContainer.new(); base.add_child(nav); nav.position=Vector2(12,height-66); nav.size=Vector2(width-24,54); nav.add_theme_constant_override("separation",6)
 	for item in [["explore" if model.active() else "town","원정" if model.active() else "거점"],["party","동료"],["bag","가방"],["journal","기록"]]:
 		var b=Button.new(); nav.add_child(b); b.text=item[1]; b.custom_minimum_size=Vector2(0,52); b.size_flags_horizontal=Control.SIZE_EXPAND_FILL
@@ -100,7 +109,8 @@ func _draw_screen() -> void:
 	call_deferred("_publish")
 
 func _title() -> String:
-	return {"town":"토르바","party":"함께하는 동료","member":model.person(who).name,"depart":"원정 준비","explore":"학술원 폐허 상층","cards":"탐색 카드","bag":"공용 가방","shop":"마렌토 상회","inn":"아랫마을 여관","summary":"원정 정산","journal":"모험 기록"}.get(screen,"토르바")
+	if screen=="research": return "로레다나의 전술 연구"
+	return {"guild":"연합 길드 본관","smithy":"한나의 대장간","equipment":"장비 보관함","town":"토르바","party":"함께하는 동료","member":model.person(who).name,"depart":"원정 준비","explore":"학술원 폐허 상층","cards":"탐색 카드","bag":"공용 가방","shop":"마렌토 상회","inn":"아랫마을 여관","summary":"원정 정산","journal":"모험 기록"}.get(screen,"토르바")
 
 func number(value: float) -> String:
 	return str(int(value)) if value==int(value) else str(snappedf(value,0.01))
@@ -151,26 +161,33 @@ func _portrait(id: String, parent: Node, large=false) -> void:
 	bar("HP",m.hp,b.hp,body); bar("MP",m.mp,b.mp,body,false)
 
 func _town() -> void:
-	var hero=box(); _portrait(model.s.party[0],hero,true)
-	text("성문 밖, 옛 학술원으로",19,GOLD,hero)
-	text("동료를 살피고 보급품을 챙긴 뒤 폐허로 향한다.",14,INK,hero)
-	button("depart","대던전 원정 준비",go.bind("depart"),false,hero)
-	var row=HBoxContainer.new(); content.add_child(row); row.add_theme_constant_override("separation",8)
-	var shop_button=button("shop","상회 · 보급",go.bind("shop"),false,row)
-	shop_button.icon=load("res://assets/ic_pl_shop.webp"); shop_button.add_theme_constant_override("icon_max_width",24)
-	var inn_button=button("inn","여관 · 교류",go.bind("inn"),false,row)
-	inn_button.icon=load("res://assets/ic_pl_inn.webp"); inn_button.add_theme_constant_override("icon_max_width",24)
-	text("학술원 2층의 짧은 검수 원정입니다.\n갈림길을 고르고 탐색 카드와 보급품으로 원정을 이어갑니다.",13,MUTED)
-	if not model.s.summary.is_empty(): button("last_summary","지난 원정 정산",go.bind("summary"))
+	image("res://assets/src/torva-town-v1.png",content,Vector2(0,188))
+	text("계약을 맺고, 다시 폐허로",20,GOLD)
+	text("케른 용병단과 마렌토 상인의 변경 도시",13,MUTED)
+	var party=HBoxContainer.new(); content.add_child(party); party.add_theme_constant_override("separation",6)
+	for id in model.s.party:
+		var cell=VBoxContainer.new(); party.add_child(cell); cell.size_flags_horizontal=SIZE_EXPAND_FILL
+		image("res://assets/"+id+".webp",cell,Vector2(0,76)); text(model.person(id).name,12,INK,cell)
+	button("depart","성문으로 · 원정 준비",go.bind("depart"))
+	var grid=GridContainer.new(); content.add_child(grid); grid.columns=2; grid.add_theme_constant_override("h_separation",8); grid.add_theme_constant_override("v_separation",8)
+	for facility in [["guild","연합 길드","의뢰 · 동료 영입","guild"],["shop","마렌토 상회","보급품 · 장비","shop"],["inn","아랫마을 여관","교류 · 하루 휴식","inn"],["smithy","한나의 대장간","강화 · 장비 가공","smithy"]]:
+		var b=button(facility[0],facility[1]+"\n"+facility[2],go.bind(facility[0]),false,grid)
+		b.icon=load("res://assets/ic_pl_"+facility[3]+".webp"); b.add_theme_constant_override("icon_max_width",24); b.add_theme_font_size_override("font_size",13); b.custom_minimum_size.y=76
 
 func _party() -> void:
-	text("초상을 눌러 능력치와 스킬을 확인하세요.",13,MUTED)
-	for i in range(4):
-		var id=model.s.party[i]; var panel=box()
-		_portrait(id,panel)
-		button("member:"+id,"동료 상세",func(): who=id; go("member"),false,panel)
-		if i in [0,2]: button("swap:"+str(i),"같은 열의 자리 교환",func(): _act(model.swap.bind(i,i+1),"자리를 교환했습니다."),model.active(),panel)
-	if model.active(): text("원정 중에는 편성을 바꿀 수 없습니다.",13,MUTED)
+	var row=HBoxContainer.new(); content.add_child(row)
+	button("roster_owned","보유 %d명" % model.s.owned.size(),func(): catalog_all=false; _draw_screen(),false,row)
+	button("roster_all","전체 30명",func(): catalog_all=true; _draw_screen(),false,row)
+	text("전열 2명 · 후열 2명 / 동료 상세에서 편성",13,MUTED)
+	var grid=GridContainer.new(); content.add_child(grid); grid.columns=2; grid.add_theme_constant_override("h_separation",8); grid.add_theme_constant_override("v_separation",12)
+	for p in model.config.companions:
+		if not catalog_all and p.id not in model.s.owned: continue
+		var cell=VBoxContainer.new(); grid.add_child(cell); cell.size_flags_horizontal=SIZE_EXPAND_FILL
+		image("res://assets/"+p.id+".webp",cell,Vector2(0,156))
+		text(p.name,16,GOLD,cell); text(p.row+" · "+p["class"],12,MUTED,cell)
+		var status="편성 중" if p.id in model.s.party else "보유" if p.id in model.s.owned else "미영입"
+		button("member:"+p.id,status+" · 상세",func(): who=p.id; go("member"),false,cell)
+	button("recruit_go","길드에서 동료 소개받기",go.bind("guild"),model.active())
 
 func _member() -> void:
 	var panel=box(); _portrait(who,panel,true)
@@ -183,6 +200,17 @@ func _member() -> void:
 	text(p.trait.note,14)
 	text("고유 스킬 · "+p.skill.name,17,GOLD)
 	text("MP %d · %s\n%s" % [p.skill.mp,p.skill.target,p.skill.note],14)
+
+	if who in model.s.owned:
+		text("편성 위치",17,GOLD)
+		for i in range(4):
+			if p.row==("전열" if i<2 else "후열"):
+				button("assign:"+str(i),model.person(model.s.party[i]).name+" 자리로",func(): _act(model.assign.bind(who,i),"편성을 변경했습니다."),model.active() or model.s.party[i]==who)
+		button("gear_for_member","장비 관리",go.bind("equipment"),model.active())
+	else: text("길드에서 소개받으면 편성할 수 있습니다.",14,MUTED)
+	text("직업 스킬",17,GOLD)
+	for sk in model.class_def(who).skills:
+		if sk.kind in ["기본","능동"]: text("%s · MP %d\n%s" % [sk.name,sk.mp,sk.note],14)
 	button("party_back","동료 목록",go.bind("party"))
 
 func _departure() -> void:
@@ -273,6 +301,7 @@ func _cards() -> void:
 	button("cards_back","원정으로" if model.active() else "거점으로",go.bind("explore" if model.active() else "town"))
 
 func _bag() -> void:
+	button("equipment","장비 보관함",go.bind("equipment"))
 	text("파티가 함께 쓰는 보급품입니다.",14,MUTED)
 	if not selected_item.is_empty():
 		text(model.item_def(selected_item).name+" · 사용할 동료",19,GOLD)
@@ -289,17 +318,37 @@ func _bag() -> void:
 	button("bag_cards","탐색 카드 보기",go.bind("cards"))
 
 func _item_text(item: Dictionary) -> String:
-	if item.kind=="revive": return "쓰러진 동료를 최대 HP 25%로 일으킵니다."
-	return "Lv.%d부터 · 최대 %s %d%% 회복" % [item.level,item.kind.to_upper(),item.fraction*100]
+	var extra={"hp":"최대 HP의 %d%% 회복" % int(item.fraction*100),"mp":"최대 MP의 %d%% 회복" % int(item.fraction*100),"shield":"최대 HP의 %d%% 보호막 · 3턴" % int(item.fraction*100),"revive":"쓰러진 동료를 HP 25%로 소생","cleanse":"지속 피해 해제 · 전투 중 사용","return":"탐색 중 원정을 끝내고 보상 정산","level":"레벨 +1 · 최대 40 · 마을에서 사용"}
+	return "Lv.%d부터 · %s" % [item.level,extra.get(item.kind,"")]
 
 func _shop() -> void:
-	text("마렌토 상회에서 원정 보급품을 준비한다.",15)
-	for item in model.config.items:
-		var p=box(); text(item.name,19,GOLD,p); text(_item_text(item),14,INK,p)
-		text("보유 %d개" % model.s.items[item.id],13,MUTED,p)
-		button("buy:"+item.id,"1개 구입 · 금화 %d" % item.price,func(): _ask(item.name+" 1개를 금화 %d에 구입할까요?" % item.price,model.buy.bind(item.id)),model.s.gold<item.price or model.s.items[item.id]>=99,p)
+	_npc("pietro","마렌토 상회","원정에 필요한 물건은 여기서 챙기십시오.")
+	var tabs=HBoxContainer.new(); content.add_child(tabs)
+	button("shop_items","보급품",func(): shop_tab="items"; _draw_screen(),false,tabs)
+	button("shop_equipment","장비",func(): shop_tab="gear"; _draw_screen(),false,tabs)
+	if shop_tab=="items":
+		for item in model.config.items:
+			var p=box(); text(item.name+" · 보유 "+str(int(model.s.items[item.id])),17,GOLD,p)
+			text(_item_text(item),13,MUTED,p)
+			button("buy:"+item.id,"구입 · 금화 %d" % model.price(item),func(): _act(model.buy.bind(item.id),"구입했습니다."),model.s.gold<model.price(item) or model.active(),p)
+	else:
+		_member_picker()
+		text(model.person(who).name+"의 직업 장비 · 하루마다 재고 변경",13,MUTED)
+		var slots=HBoxContainer.new(); content.add_child(slots)
+		for slot in World.Gear.SLOT:
+			button("shop_slot:"+slot,World.Gear.SLOT[slot],func(): gear_filter=slot; _draw_screen(),false,slots)
+		for id in model.gear.stock(model.class_def(who).id,model.s.day):
+			var item=model.gear.by_id[id]
+			if item.slot!=gear_filter: continue
+			var p=box()
+			text(item.name,17,GOLD,p); text(_gear_caption(item),13,MUTED,p)
+			text(_gear_values(item.base),13,INK,p)
+			button("buygear:"+id,"구입 · 금화 %d" % model.price({"price":model.gear.price(id)}),func(): _act(model.buy_gear.bind(id,who),"장비를 구입했습니다."),model.s.gold<model.price({"price":model.gear.price(id)}),p)
+	button("shop_bag","가방과 장비 확인",go.bind("equipment"))
 
 func _inn() -> void:
+	_npc("dorothea","도로테아 · 여관 주인","동료와 식사하고, 다음 출발을 준비하세요.")
+	_member_picker()
 	var p=box(); _portrait(who,p,true)
 	text("호감 %s / 200" % number(model.s.members[who].aff),14,GOLD,p)
 	text("대화·식사·선물은 동료마다 하루 한 번. 숙박하면 하루가 지납니다.",14)
@@ -376,3 +425,113 @@ func _process(delta: float) -> void:
 	if metrics_time<0.2: return
 	metrics_time=0
 	if is_instance_valid(scroll) and not is_instance_valid(battle): _publish()
+
+func _npc(id: String,title: String,line: String) -> void:
+	var p=box(); var row=HBoxContainer.new(); p.add_child(row); row.add_theme_constant_override("separation",14)
+	image("res://assets/"+id+".webp",row,Vector2(86,112))
+	var body=VBoxContainer.new(); row.add_child(body); body.size_flags_horizontal=SIZE_EXPAND_FILL
+	text(title,18,GOLD,body); text(line,14,INK,body)
+
+func _member_picker() -> void:
+	if who not in model.s.owned: who=model.s.party[0]
+	var pick=OptionButton.new(); content.add_child(pick); pick.custom_minimum_size.y=52
+	for id in model.s.owned: pick.add_item(model.person(id).name+" · "+model.person(id)["class"])
+	pick.selected=model.s.owned.find(who)
+	pick.item_selected.connect(func(i): who=model.s.owned[i]; _draw_screen())
+
+func _guild() -> void:
+	_npc("fenella","페넬라 · 길드 접수","의뢰와 동료 소개를 맡고 있어요.")
+	button("research","로레다나 · 전술 연구",go.bind("research"))
+	button("recruit","동료 소개 · 금화 %d" % (100+20*model.s.recruits),func(): _act(model.recruit,""); message=model.s.log[-1]; _draw_screen(),model.s.gold<100+20*model.s.recruits or model.s.owned.size()==30)
+	text("미영입 동료 중 1명 합류 · 중복 없음\n현재 보유 %d / 30명" % model.s.owned.size(),13,MUTED)
+	if not model.s.quest.is_empty():
+		var p=box(); text("수락한 의뢰 · "+model.s.quest.name,17,GOLD,p)
+		text("현재 검수판에서는 학술원 원정 완료로 의뢰를 정산합니다. 균열 전용 전장은 아직 없습니다.",13,MUTED,p)
+		button("quest_depart","원정 준비",go.bind("depart"),false,p)
+		button("quest_abandon","의뢰 포기",func(): _ask("현재 의뢰를 포기할까요?",model.abandon_quest),false,p)
+	else:
+		text("의뢰 게시판",20,GOLD)
+		for q in model.s.board:
+			var p=box(); text(q.name,17,GOLD,p); text("%s · %s · Lv.%d\n보수 금화 %d" % [q.rift,q.difficulty,q.level,q.gold],13,INK,p)
+			button("quest:"+str(int(q.id)),"의뢰 수락",func(): _act(model.accept_quest.bind(q.id),"의뢰를 수락했습니다."),false,p)
+	button("refresh_board","게시판 갱신 · 금화 %d" % (10*int(pow(2,mini(model.s.refreshes,4)))),func(): _act(model.refresh_board,"게시판을 갱신했습니다."))
+
+func _gear_caption(item: Dictionary) -> String:
+	return "%s · %s · 착용 Lv.%d" % [World.Gear.RARITY[item.rarity],World.Gear.SLOT[item.slot],model.gear.rules.equip_lv[item.rarity]]
+
+func _gear_values(values: Dictionary) -> String:
+	var out=[]
+	for key in values:
+		var label=model.gear.rules.base.get(key,model.gear.rules.affix.get(key,{})).get("name",key)
+		out.append(label+" +"+number(values[key])+"%")
+	return " · ".join(out)
+
+func _equipment() -> void:
+	_member_picker()
+	var eq=model.s.equipment[who]
+	text(model.person(who).name+"의 장착 장비",19,GOLD)
+	for slot in World.Gear.SLOT:
+		if eq.has(slot):
+			var entry=model.gear_entry(eq[slot]); var item=model.gear.by_id[entry.id]
+			button("unequip:"+slot,World.Gear.SLOT[slot]+" · "+item.name+" 해제",func(): _act(model.unequip.bind(who,slot),"해제했습니다."),model.active())
+		else: text(World.Gear.SLOT[slot]+" · 미장착",13,MUTED)
+	if model.s.gear.is_empty(): text("보유 장비가 없습니다. 상회에서 구입하거나 한나에게 가공을 맡기세요.")
+	for entry in model.s.gear:
+		var item=model.gear.by_id[entry.id]
+		if item.cls!=model.class_def(who).id: continue
+		var p=box(); text(item.name+" +"+str(int(entry.forge)),17,GOLD,p); text(_gear_caption(item),13,MUTED,p)
+		text(_gear_values(model.gear.roll(entry,model.s.members[who].level)),13,INK,p)
+		if item.has("unique"): text(item.unique.name+" · "+item.unique.text,13,GOLD,p)
+		if item.has("sig"): text(item.sig.name+" · "+item.sig.text,13,GOLD,p)
+		var wearer=model.wearer(entry.uid)
+		if not wearer.is_empty(): text(model.person(wearer).name+" 장착 중",13,GOLD,p)
+		button("equip:"+str(int(entry.uid)),"장착",func(): _act(model.equip.bind(who,entry.uid),"장착했습니다."),model.active() or model.s.members[who].level<model.gear.rules.equip_lv[item.rarity] or wearer==who,p)
+		button("sell:"+str(int(entry.uid)),"판매 · 금화 %d" % model.gear.sell_price(entry),func(): _ask(item.name+"을 판매할까요?",model.sell_gear.bind(entry.uid)),model.active() or not wearer.is_empty(),p)
+
+func _smithy() -> void:
+	_npc("hanna","한나 · 대장장이","장비는 실패해도 사라지지 않아. 비용부터 확인해.")
+	_member_picker()
+	var band=model.gear.band(model.highest_level()); var odds=[]
+	for key in band.w: odds.append(World.Gear.RARITY[key]+" "+str(band.w[key])+"%")
+	text("가공 확률 · "+" / ".join(odds),13,MUTED)
+	button("process_gear","장비 가공 · 금화 %d" % band.price,func(): _act(model.process_gear.bind(who),""); message=model.s.log[-1]; _draw_screen(),model.s.gold<band.price)
+	text("보유 장비 강화 · 최대 +10",19,GOLD)
+	text("강화 단계마다 장비 수치 +4% · 실패 시 단계 유지",13,MUTED)
+	for entry in model.s.gear:
+		var item=model.gear.by_id[entry.id]; var p=box(); text(item.name+" +"+str(int(entry.forge)),17,GOLD,p)
+		if entry.forge>=10: text("최대 강화",13,MUTED,p); continue
+		text("다음 단계 성공률 %d%%" % model.gear.rules.forge.success[int(entry.forge)],14,INK,p)
+		button("forge:"+str(int(entry.uid)),"강화 · 금화 %d" % model.gear.forge_cost(entry),func(): _ask(item.name+" 강화 시도? 실패해도 비용은 소모됩니다.",model.forge.bind(entry.uid)),model.s.gold<model.gear.forge_cost(entry),p)
+	button("smith_equipment","장비 장착하기",go.bind("equipment"))
+
+func _research() -> void:
+	_npc("loredana","로레다나 · 길드장","기술의 몸통과 덧효과를 조합해 보죠.")
+	_member_picker()
+	text("웹판 전술 슬롯: 조합한 기술이 방어 버튼을 대신합니다. 원래 스킬은 유지됩니다.",13,MUTED)
+	var r=model.s.research[who]
+	var current=model.tactic(who)
+	text("장착: "+current.get("name","없음 · 기본 방어 사용"),16,GOLD)
+	for kind in ["prefixes","suffixes"]:
+		var pick=OptionButton.new(); content.add_child(pick); pick.custom_minimum_size.y=52
+		pick.fit_to_longest_item=false; pick.clip_text=true
+		var parts=[]
+		for part in model.research[kind]:
+			if kind=="prefixes" or model.compatible(research_prefix,part.id): parts.append(part)
+		for part in parts: pick.add_item(part.name+" · "+part.note)
+		var selected=research_prefix if kind=="prefixes" else research_suffix
+		for i in range(parts.size()):
+			if parts[i].id==selected: pick.selected=i
+		pick.item_selected.connect(func(i):
+			if kind=="prefixes":
+				research_prefix=parts[i].id
+				for suffix in model.research.suffixes:
+					if model.compatible(research_prefix,suffix.id): research_suffix=suffix.id; break
+			else: research_suffix=parts[i].id
+			_draw_screen())
+	button("compose","이 조합 장착 · 무료",func(): _act(model.compose.bind(who,research_prefix,research_suffix),"전술을 장착했습니다."))
+	for kind in ["prefix","suffix"]:
+		if r[kind].is_empty(): continue
+		var level=r[kind+"_lv"].get(r[kind],0); var amount=40+20*level*level
+		button("train:"+kind,("몸통" if kind=="prefix" else "덧효과")+" +%d → +%d · 금화 %d" % [level,level+1,amount],func(): _ask("금화를 소모해 전술 조각을 강화할까요?",model.train.bind(who,kind)),level>=10 or model.s.gold<amount)
+	button("research_clear","전술 해제 · 기본 방어 복원",func(): model.s.research[who].prefix=""; model.s.research[who].suffix=""; _save(); _draw_screen(),model.active())
+	button("research_back","길드 접수로",go.bind("guild"))
