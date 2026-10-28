@@ -110,6 +110,18 @@ func _process(delta: float) -> void:
 
 func _step() -> Vector2:
 	if reduced or not damaging or enemy_action: return Vector2.ZERO
+	if clip.get("approach", false) and not hurt_targets.is_empty():
+		# Close actual distance to the selected enemy, then return after recovery.
+		# The sprite keeps its scale; no jumping, stretching or duplicate ghost.
+		var target: Rect2 = hurt_targets[0]
+		var destination = Vector2(target.get_center().x - 47.0, target.end.y - 5.0)
+		destination.x = clampf(destination.x, field.position.x + 48, field.end.x - 48)
+		destination.y = clampf(destination.y, field.position.y + source_rect.size.y + 8, field.end.y - 8)
+		var origin = Vector2(source_rect.get_center().x, source_rect.end.y)
+		var ready = minf(clock.impact_at * 0.7, 0.24)
+		var recovery = float(clip.get("return_at", clock.duration * 0.66))
+		var fraction = smoothstep(0.035, ready, clock.elapsed) * (1.0 - smoothstep(recovery, clock.duration - 0.03, clock.elapsed))
+		return (destination - origin) * fraction
 	# A posed step already moves the pelvis and planted feet inside the frames.
 	if clip.get("root_motion", false): return Vector2.ZERO
 	var t = clock.elapsed
@@ -121,6 +133,7 @@ func _draw() -> void:
 		body_frame = Motion.frame_at(clip, clock.elapsed)
 		if reduced: body_frame = contact_frame if clock.impacted else 0
 		Motion.draw_frame(self, clip, body_frame, source_rect, _step())
+	_draw_projectile()
 	if not clock.impacted: return
 	var age = maxf(0.0, float(Time.get_ticks_msec() - contact_wall_time) / 1000.0)
 	if not enemy_action and not clip.is_empty(): _skill_effect(age)
@@ -143,6 +156,19 @@ func _draw() -> void:
 		for rect in centers:
 			var center: Vector2 = rect.get_center()
 			draw_arc(center, 12 + ratio * 14, -PI, 0, 18, Color("b7d7bd", 1 - ratio), 2)
+
+func _draw_projectile() -> void:
+	if reduced or enemy_action or not damaging or not clip.has("launch_at") or clock.impacted: return
+	var launch = float(clip.launch_at)
+	if clock.elapsed < launch or clock.impact_at <= launch: return
+	var p = clampf((clock.elapsed - launch) / (clock.impact_at - launch), 0, 1)
+	var origin = source_rect.get_center() + Vector2(35, -12)
+	for target in hurt_targets:
+		var end: Vector2 = target.get_center()
+		var position = origin.lerp(end, p)
+		var direction = (end - origin).normalized()
+		draw_line(position - direction * 12, position, Color(tint, 0.8), 2)
+		draw_circle(position, 3, Color("fff2cf"))
 
 func _skill_effect(age: float) -> void:
 	# These strokes depict resolved results; they never create damage or statuses.

@@ -22,11 +22,17 @@ func _initialize() -> void:
 			if i < c.contact_frame: contact += c.durations_ms[i]
 		assert(is_equal_approx(total / 1000, c.duration))
 		assert(is_equal_approx(contact / 1000, c.impact_at))
+		assert(Motion.frame_at(c, c.impact_at) == int(c.contact_frame), "Exact contact pose: " + key)
 		var body = Motion.texture(c.path)
 		assert(body.get_width() == c.frame_size * c.columns)
 		assert(body.get_height() >= ceili(float(c.frames) / c.columns) * c.frame_size)
-		assert(c.reference_frames.size() == 2 and int(c.reference_frames[0]) == 0 and int(c.reference_frames[1]) == int(c.frames) - 1, "Original bookends")
-		assert(Motion.uses_reference(c, 0) and Motion.uses_reference(c, int(c.frames) - 1) and not Motion.uses_reference(c, 1))
+		assert(Motion.uses_reference(c, 0) and not Motion.uses_reference(c, 1), "Original start")
+		if int(c.get("revision", 8)) >= 9:
+			assert(not Motion.uses_reference(c, int(c.frames) - 1), "Do not snap final pose to another image")
+			assert(c.return_at > c.impact_at and c.return_at < c.duration)
+			if c.has("launch_at"): assert(c.launch_at < c.impact_at)
+		else:
+			assert(Motion.uses_reference(c, int(c.frames) - 1))
 		assert(Motion.texture(c.reference_path).get_size() == Vector2(256,256))
 		if c.has("weapon"):
 			assert(c.weapon.anchors.size() == c.frames)
@@ -34,5 +40,5 @@ func _initialize() -> void:
 		assert(c.root_motion, "Do not add a second whole-body slide")
 	assert(Motion.get_clip("teiris", "burst").key == "teiris:personal")
 	assert(Motion.get_clip("berenga", "hshield").key == "berenga:cast")
-	print("MOTION ASSET PASS: ", checked, " clips, original bookends, timing, attachments and mappings")
+	print("MOTION ASSET PASS: ", checked, " clips, original starts, natural recovery, timing, attachments and mappings")
 	quit()

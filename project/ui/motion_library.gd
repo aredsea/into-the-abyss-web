@@ -18,7 +18,9 @@ static func frame_at(clip: Dictionary, time: float) -> int:
 	var boundary = 0.0
 	for i in range(int(clip.frames)):
 		boundary += float(clip.durations_ms[i]) / 1000.0
-		if time < boundary: return i
+		# Contact time and cumulative frame time can differ by floating-point dust.
+		# At the boundary, show the new pose (including during hitstop).
+		if time + 0.000001 < boundary: return i
 	return int(clip.frames) - 1
 
 static func uses_reference(clip: Dictionary, frame: int) -> bool:

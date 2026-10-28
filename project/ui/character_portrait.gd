@@ -13,7 +13,9 @@ const PAPER_GAPS = {
 	"urda": [[100,235],[417,235],[105,410],[414,410]],
 	"zahar": [[110,210],[420,210],[115,380],[170,400],[330,399],[410,365]],
 	"gerda": [[111,226],[420,250],[84,345],[148,387],[394,384],[439,342]],
-	"hildegard": [[87,345],[140,367],[390,343],[426,315]]
+	"hildegard": [[250,24],[90,229],[430,213],[103,225],[429,282],[433,306],[93,311],[437,336],[109,350],[407,356],[143,368],[314,370],[375,366],[216,370],[361,375],[329,382]],
+	"bargut": [[131,185],[398,213],[119,216],[129,251],[393,247],[405,291],[122,331],[411,338],[436,389],[435,400],[71,483],[61,490],[455,486],[84,492],[463,493],[477,501],[447,500],[433,518],[101,519]],
+	"teiris": [[138,181],[143,217],[134,223],[135,269],[139,260],[396,292],[134,287],[130,310],[411,352],[121,357],[430,384],[112,378],[101,391],[406,381],[62,441],[489,480],[46,484],[26,562],[15,594],[512,600],[512,620]]
 }
 
 static func prepare(id: String, rebuild=false) -> Dictionary:
@@ -52,12 +54,34 @@ static func prepare(id: String, rebuild=false) -> Dictionary:
 		for n in [i - w, i + w, i - 1 if i % w > 0 else -1, i + 1 if i % w < w - 1 else -1]:
 			if n >= 0 and n < w * h and outside[n] == 0 and paper[n] == 1:
 				outside[n] = 1; queue[tail] = n; tail += 1
-	# Clip the one-pixel paper antialias fringe as well; keep original RGB intact.
+	# Remove detached foreground specks and sub-four-pixel flyaway strands from
+	# the silhouette, rather than repainting the portrait or keying white clothes.
+	# Opening erodes then restores broad contours; all operations affect geometry.
+	var opened = outside.duplicate()
+	for pass_index in range(2):
+		var next = opened.duplicate()
+		for y in range(1, h - 1):
+			for x in range(1, w - 1):
+				var i = y * w + x
+				if opened[i] == 0 and (opened[i-1] == 1 or opened[i+1] == 1 or opened[i-w] == 1 or opened[i+w] == 1): next[i] = 1
+		opened = next
+	for pass_index in range(2):
+		var next = opened.duplicate()
+		for y in range(1, h - 1):
+			for x in range(1, w - 1):
+				var i = y * w + x
+				if outside[i] == 0 and (opened[i-1] == 0 or opened[i+1] == 0 or opened[i-w] == 0 or opened[i+w] == 0): next[i] = 0
+		opened = next
+	outside = opened
+	# Recede one source pixel from white-contaminated antialias boundaries.
 	var edge = outside.duplicate()
 	for y in range(1, h - 1):
 		for x in range(1, w - 1):
 			var i = y * w + x
-			if outside[i] == 0 and (outside[i - 1] == 1 or outside[i + 1] == 1 or outside[i - w] == 1 or outside[i + w] == 1): edge[i] = 1
+			if outside[i] == 0:
+				for dy in range(-1, 2):
+					for dx in range(-1, 2):
+						if outside[(y+dy)*w+x+dx] == 1: edge[i] = 1
 	outside = edge
 	# One mesh instead of thousands of canvas draw calls. UVs sample the original.
 	var vertices = PackedVector3Array(); var uv = PackedVector2Array()

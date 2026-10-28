@@ -5,6 +5,7 @@ const Motion = preload("res://ui/motion_library.gd")
 var idle_enabled = false
 var idle_reduced = false
 var idle_clip: Dictionary = {}
+var idle_elapsed = 0.0
 static var catalog: Dictionary={}
 var character_id=""
 var action_pose=false
@@ -19,6 +20,7 @@ static func info(id: String) -> Dictionary:
 
 func configure(id: String, action=false) -> void:
 	character_id=id; action_pose=action
+	idle_elapsed = 0.0
 	var data=info(id)
 	if not data.is_empty(): sheet=load(data.path)
 	idle_clip = Motion.get_clip(id, "idle") if idle_enabled and not portrait_mode and not action_pose else {}
@@ -31,12 +33,17 @@ func _ready() -> void:
 	resized.connect(queue_redraw)
 	idle_reduced = OS.has_feature("web") and bool(JavaScriptBridge.eval("window.matchMedia('(prefers-reduced-motion: reduce)').matches", true))
 
-func _process(_delta: float) -> void:
-	if idle_enabled and not idle_clip.is_empty() and not idle_reduced and is_visible_in_tree(): queue_redraw()
+func _process(delta: float) -> void:
+	if not is_visible_in_tree():
+		idle_elapsed = 0.0
+		return
+	if idle_enabled and not idle_clip.is_empty() and not idle_reduced:
+		idle_elapsed += delta
+		queue_redraw()
 
 func _draw() -> void:
 	if idle_enabled and not idle_clip.is_empty() and not idle_reduced:
-		var time = fmod(float(Time.get_ticks_msec()) / 1000.0, float(idle_clip.duration))
+		var time = fmod(idle_elapsed, float(idle_clip.duration))
 		Motion.draw_frame(self, idle_clip, Motion.frame_at(idle_clip, time), Rect2(Vector2.ZERO, size))
 		return
 	if sheet==null: return

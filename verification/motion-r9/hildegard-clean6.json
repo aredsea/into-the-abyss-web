@@ -1,0 +1,119 @@
+{
+  "changes": [
+    {
+      "operation": "select_mask",
+      "layer": "image",
+      "frames": [
+        1
+      ],
+      "name": "trail",
+      "selector": {
+        "kind": "polygon",
+        "points": [
+          [
+            121,
+            25
+          ],
+          [
+            161,
+            32
+          ],
+          [
+            207,
+            80
+          ],
+          [
+            254,
+            165
+          ],
+          [
+            255,
+            245
+          ],
+          [
+            237,
+            227
+          ],
+          [
+            167,
+            146
+          ],
+          [
+            159,
+            127
+          ],
+          [
+            156,
+            102
+          ],
+          [
+            145,
+            86
+          ],
+          [
+            155,
+            61
+          ]
+        ]
+      },
+      "reason": "Remove generated white arc outside the head, body and straight blade."
+    },
+    {
+      "operation": "brush",
+      "layer": "image",
+      "frames": [
+        1
+      ],
+      "mask": "trail",
+      "points": [
+        [
+          160,
+          20
+        ],
+        [
+          224,
+          20
+        ],
+        [
+          224,
+          224
+        ],
+        [
+          160,
+          224
+        ],
+        [
+          160,
+          20
+        ]
+      ],
+      "size": 64,
+      "shape": "square",
+      "mode": "erase",
+      "reason": "Erase only the reviewed arc mask, retaining the articulated pose."
+    },
+    {
+      "operation": "brush",
+      "layer": "image",
+      "frames": [
+        1
+      ],
+      "points": [
+        [
+          103,
+          20
+        ]
+      ],
+      "size": 12,
+      "shape": "square",
+      "mode": "erase",
+      "reason": "Detached white speck above the head."
+    }
+  ],
+  "result": [
+    {
+      "type": "text",
+      "text": "image_id: fbbbaca3-fb90-4d82-9c17-11d49f5909c6  (edited from 63f003d9-cd3c-4d40-9230-4b831990980c)\ncanvas: 256x256, 1 frame(s)\n1. select_mask: 0 px changed, 11039 matched\n2. brush: 5172 px changed, 11011 matched\n3. brush: 14 px changed, 144 matched\nsheet rows: frames [1]\npalette (59): #a22124ff x891, #070304ff x868, #1e191aff x777, #3a1317ff x747, #191112ff x615, #312a2bff x452, #272122ff x436, #3f3233ff x362, #681920ff x356, #59151aff x346, #7b1d23ff x344, #5e1218ff x329, #0f090aff x308, #565359ff x305, #342f33ff x273, #70171cff x265, … +43 more\ndownload https://api.pixellab.ai/mcp/pixel-tools/fbbbaca3-fb90-4d82-9c17-11d49f5909c6/: image.png, frames.png, animation.gif\nnext: edit fbbbaca3-fb90-4d82-9c17-11d49f5909c6 --changes […]"
+    }
+  ]
+}

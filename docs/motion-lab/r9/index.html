@@ -1,0 +1,13 @@
+<!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="data:,"><title>출전 파티 · 전투 동작 r9</title><link rel="stylesheet" href="../style.css"><link rel="stylesheet" href="style.css">
+<body><main><header><h1>출전 파티 · 전투 동작 r9</h1><a href="../../">게임으로</a></header>
+<p class="notice">원본과 움직이는 모습을 비교해 주세요. 얼굴·무기 세부 변화와 일부 빠른 전환의 잔상이 남습니다. 15개 행동을 교체했고 대기 4개는 유지했습니다. 실제 휴대폰 성능은 미확인입니다.</p>
+<nav id="characters" aria-label="캐릭터 선택"></nav>
+<div class="choice"><label for="action">동작</label><select id="action"></select></div>
+<section class="viewer"><div class="stage-head"><strong id="skill">대기</strong><span id="phase">호흡</span></div><canvas id="stage" width="640" height="480" aria-label="원본과 전투 모션 비교"></canvas><div class="stage-foot"><span id="original-label"></span><span id="motion-label">모션</span></div></section>
+<p class="rule" id="description"></p>
+<div class="playback"><button id="play" class="primary">다시 재생</button><button id="pause">재생</button><label class="speed">속도<select id="speed" aria-label="재생 속도"><option value="1">1배</option><option value="0.5">0.5배</option><option value="0.25">0.25배</option></select></label></div>
+<div class="scrubber"><button id="prev" aria-label="이전 프레임">‹</button><input id="timeline" type="range" min="0" max="8" value="0" step="1" aria-label="프레임 이동"><button id="next" aria-label="다음 프레임">›</button><output id="frame"></output></div>
+<div class="options"><label><input id="compare" type="checkbox">원본 나란히</label><label><input id="loop" type="checkbox" checked>대기와 연결 반복</label><label><input id="body" type="checkbox">검 분리 보기</label></div>
+<p id="body-note" class="caption-note"></p>
+<details><summary>원형과 동작 확인</summary><ul><li>얼굴·머리·옷·무기의 특징이 원본과 같은가?</li><li>대기 중 발이 미끄러지거나 전체 몸이 늘어나지 않는가?</li><li>준비·발동·회수가 구별되고 대기로 자연스럽게 돌아오는가?</li></ul><p>이 화면에는 게임에서 더하는 이펙트가 없습니다. 바르구트·테이리스 고유의 빠른 전환 한 장에는 생성된 궤적이 남습니다. 타격 정지·피해 표시·상태 효과는 본편에서 확인할 수 있습니다.</p><a id="contact" href="#">전체 프레임</a> · <a id="seed" href="#">기준 도트</a></details>
+<footer><a href="../r8/">이전 4명 모션</a> · <a href="https://github.com/aredsea/into-the-abyss-web/blob/main/ANIMATION-TEST-R9.md">제작·검수 기록</a></footer></main><script src="app.js"></script></body></html>
