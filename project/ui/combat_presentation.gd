@@ -65,7 +65,7 @@ func _ready() -> void:
 		title.text = Figure.info(character_id).name + " · " + clip.label
 		title.position = field.position + Vector2(8, 4)
 		title.size = Vector2(field.size.x - 16, 30)
-		title.add_theme_font_override("font", preload("res://assets/fonts/NanumGothic-Regular.ttf"))
+		title.add_theme_font_override("font", preload("res://assets/fonts/GowunBatang-Bold.ttf"))
 		title.add_theme_font_size_override("font_size", 14)
 		title.add_theme_color_override("font_color", tint)
 		title.add_theme_color_override("font_shadow_color", Color.BLACK)

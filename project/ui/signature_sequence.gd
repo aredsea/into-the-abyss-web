@@ -3,7 +3,7 @@ extends Control
 signal impact
 signal finished
 const Sprite=preload("res://ui/character_sprite.gd")
-const FONT=preload("res://assets/fonts/NanumGothic-Regular.ttf")
+const FONT=preload("res://assets/fonts/GowunBatang-Regular.ttf")
 var character_id="hildegard"
 var reduced=false
 var preview=false

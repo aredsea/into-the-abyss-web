@@ -1,0 +1,501 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-28T08:09:26.230Z",
+  "title": "Design System: Into the Abyss · 밝은 토르바 r11",
+  "extensions": {
+    "provenance": {
+      "revision": "r11",
+      "formSeed": "seed:5b4c8f653e0e6ee4",
+      "world": "blue-white porcelain",
+      "method": "Source extraction; existing confirmed direction reconciled with implementation.",
+      "sources": [
+        "PRODUCT.md",
+        "project/ui/fantasy_theme.gd",
+        "project/ui/forged_button.gd",
+        "project/ui/navigation_button.gd",
+        "project/ui/portrait_card.gd",
+        "project/ui/facility_button.gd",
+        "project/ui/character_portrait.gd",
+        "project/ui/world_screen.gd",
+        "project/ui/battle_screen.gd",
+        "project/project.godot",
+        "project/web_shell.html"
+      ]
+    },
+    "colorMeta": {
+      "ground": {
+        "role": "neutral",
+        "displayName": "맑은 바탕",
+        "tonalRamp": [
+          "oklch(15.00% 0.0093 242.84)",
+          "oklch(26.43% 0.0093 242.84)",
+          "oklch(37.86% 0.0093 242.84)",
+          "oklch(49.29% 0.0093 242.84)",
+          "oklch(60.71% 0.0093 242.84)",
+          "oklch(72.14% 0.0093 242.84)",
+          "oklch(83.57% 0.0093 242.84)",
+          "oklch(95.00% 0.0093 242.84)"
+        ],
+        "tonalRampOrigin": "Synthesized OKLCH lightness steps for documentation preview; not runtime tokens. Chroma and hue preserved; display gamut mapping may apply."
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "도자기 흰색",
+        "tonalRamp": [
+          "oklch(15.00% 0.0069 88.64)",
+          "oklch(26.43% 0.0069 88.64)",
+          "oklch(37.86% 0.0069 88.64)",
+          "oklch(49.29% 0.0069 88.64)",
+          "oklch(60.71% 0.0069 88.64)",
+          "oklch(72.14% 0.0069 88.64)",
+          "oklch(83.57% 0.0069 88.64)",
+          "oklch(95.00% 0.0069 88.64)"
+        ],
+        "tonalRampOrigin": "Synthesized OKLCH lightness steps for documentation preview; not runtime tokens. Chroma and hue preserved; display gamut mapping may apply."
+      },
+      "pale": {
+        "role": "neutral",
+        "displayName": "옅은 청색",
+        "tonalRamp": [
+          "oklch(15.00% 0.0187 242.98)",
+          "oklch(26.43% 0.0187 242.98)",
+          "oklch(37.86% 0.0187 242.98)",
+          "oklch(49.29% 0.0187 242.98)",
+          "oklch(60.71% 0.0187 242.98)",
+          "oklch(72.14% 0.0187 242.98)",
+          "oklch(83.57% 0.0187 242.98)",
+          "oklch(95.00% 0.0187 242.98)"
+        ],
+        "tonalRampOrigin": "Synthesized OKLCH lightness steps for documentation preview; not runtime tokens. Chroma and hue preserved; display gamut mapping may apply."
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "짙은 청회색",
+        "tonalRamp": [
+          "oklch(15.00% 0.0483 248.31)",
+          "oklch(26.43% 0.0483 248.31)",
+          "oklch(37.86% 0.0483 248.31)",
+          "oklch(49.29% 0.0483 248.31)",
+          "oklch(60.71% 0.0483 248.31)",
+          "oklch(72.14% 0.0483 248.31)",
+          "oklch(83.57% 0.0483 248.31)",
+          "oklch(95.00% 0.0483 248.31)"
+        ],
+        "tonalRampOrigin": "Synthesized OKLCH lightness steps for documentation preview; not runtime tokens. Chroma and hue preserved; display gamut mapping may apply."
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "보조 청회색",
+        "tonalRamp": [
+          "oklch(15.00% 0.0423 241.38)",
+          "oklch(26.43% 0.0423 241.38)",
+          "oklch(37.86% 0.0423 241.38)",
+          "oklch(49.29% 0.0423 241.38)",
+          "oklch(60.71% 0.0423 241.38)",
+          "oklch(72.14% 0.0423 241.38)",
+          "oklch(83.57% 0.0423 241.38)",
+          "oklch(95.00% 0.0423 241.38)"
+        ],
+        "tonalRampOrigin": "Synthesized OKLCH lightness steps for documentation preview; not runtime tokens. Chroma and hue preserved; display gamut mapping may apply."
+      },
+      "blue": {
+        "role": "primary",
+        "displayName": "푸른 법랑",
+        "tonalRamp": [
+          "oklch(15.00% 0.0715 243.87)",
+          "oklch(26.43% 0.0715 243.87)",
+          "oklch(37.86% 0.0715 243.87)",
+          "oklch(49.29% 0.0715 243.87)",
+          "oklch(60.71% 0.0715 243.87)",
+          "oklch(72.14% 0.0715 243.87)",
+          "oklch(83.57% 0.0715 243.87)",
+          "oklch(95.00% 0.0715 243.87)"
+        ],
+        "tonalRampOrigin": "Synthesized OKLCH lightness steps for documentation preview; not runtime tokens. Chroma and hue preserved; display gamut mapping may apply."
+      },
+      "gold": {
+        "role": "primary",
+        "displayName": "황동",
+        "tonalRamp": [
+          "oklch(15.00% 0.0838 74.95)",
+          "oklch(26.43% 0.0838 74.95)",
+          "oklch(37.86% 0.0838 74.95)",
+          "oklch(49.29% 0.0838 74.95)",
+          "oklch(60.71% 0.0838 74.95)",
+          "oklch(72.14% 0.0838 74.95)",
+          "oklch(83.57% 0.0838 74.95)",
+          "oklch(95.00% 0.0838 74.95)"
+        ],
+        "tonalRampOrigin": "Synthesized OKLCH lightness steps for documentation preview; not runtime tokens. Chroma and hue preserved; display gamut mapping may apply."
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "청회색 경계",
+        "tonalRamp": [
+          "oklch(15.00% 0.0242 240.15)",
+          "oklch(26.43% 0.0242 240.15)",
+          "oklch(37.86% 0.0242 240.15)",
+          "oklch(49.29% 0.0242 240.15)",
+          "oklch(60.71% 0.0242 240.15)",
+          "oklch(72.14% 0.0242 240.15)",
+          "oklch(83.57% 0.0242 240.15)",
+          "oklch(95.00% 0.0242 240.15)"
+        ],
+        "tonalRampOrigin": "Synthesized OKLCH lightness steps for documentation preview; not runtime tokens. Chroma and hue preserved; display gamut mapping may apply."
+      },
+      "hp": {
+        "role": "secondary",
+        "displayName": "HP",
+        "tonalRamp": [
+          "oklch(15.00% 0.1117 23.36)",
+          "oklch(26.43% 0.1117 23.36)",
+          "oklch(37.86% 0.1117 23.36)",
+          "oklch(49.29% 0.1117 23.36)",
+          "oklch(60.71% 0.1117 23.36)",
+          "oklch(72.14% 0.1117 23.36)",
+          "oklch(83.57% 0.1117 23.36)",
+          "oklch(95.00% 0.1117 23.36)"
+        ],
+        "tonalRampOrigin": "Synthesized OKLCH lightness steps for documentation preview; not runtime tokens. Chroma and hue preserved; display gamut mapping may apply."
+      },
+      "mp": {
+        "role": "secondary",
+        "displayName": "MP",
+        "tonalRamp": [
+          "oklch(15.00% 0.0780 237.91)",
+          "oklch(26.43% 0.0780 237.91)",
+          "oklch(37.86% 0.0780 237.91)",
+          "oklch(49.29% 0.0780 237.91)",
+          "oklch(60.71% 0.0780 237.91)",
+          "oklch(72.14% 0.0780 237.91)",
+          "oklch(83.57% 0.0780 237.91)",
+          "oklch(95.00% 0.0780 237.91)"
+        ],
+        "tonalRampOrigin": "Synthesized OKLCH lightness steps for documentation preview; not runtime tokens. Chroma and hue preserved; display gamut mapping may apply."
+      },
+      "battle-hp": {
+        "role": "secondary",
+        "displayName": "전투 HP",
+        "tonalRamp": [
+          "oklch(15.00% 0.0780 26.06)",
+          "oklch(26.43% 0.0780 26.06)",
+          "oklch(37.86% 0.0780 26.06)",
+          "oklch(49.29% 0.0780 26.06)",
+          "oklch(60.71% 0.0780 26.06)",
+          "oklch(72.14% 0.0780 26.06)",
+          "oklch(83.57% 0.0780 26.06)",
+          "oklch(95.00% 0.0780 26.06)"
+        ],
+        "tonalRampOrigin": "Synthesized OKLCH lightness steps for documentation preview; not runtime tokens. Chroma and hue preserved; display gamut mapping may apply."
+      },
+      "battle-mp": {
+        "role": "secondary",
+        "displayName": "전투 MP",
+        "tonalRamp": [
+          "oklch(15.00% 0.0489 237.81)",
+          "oklch(26.43% 0.0489 237.81)",
+          "oklch(37.86% 0.0489 237.81)",
+          "oklch(49.29% 0.0489 237.81)",
+          "oklch(60.71% 0.0489 237.81)",
+          "oklch(72.14% 0.0489 237.81)",
+          "oklch(83.57% 0.0489 237.81)",
+          "oklch(95.00% 0.0489 237.81)"
+        ],
+        "tonalRampOrigin": "Synthesized OKLCH lightness steps for documentation preview; not runtime tokens. Chroma and hue preserved; display gamut mapping may apply."
+      },
+      "plate": {
+        "role": "neutral",
+        "displayName": "따뜻한 명패",
+        "tonalRamp": [
+          "oklch(15.00% 0.0142 84.58)",
+          "oklch(26.43% 0.0142 84.58)",
+          "oklch(37.86% 0.0142 84.58)",
+          "oklch(49.29% 0.0142 84.58)",
+          "oklch(60.71% 0.0142 84.58)",
+          "oklch(72.14% 0.0142 84.58)",
+          "oklch(83.57% 0.0142 84.58)",
+          "oklch(95.00% 0.0142 84.58)"
+        ],
+        "tonalRampOrigin": "Synthesized OKLCH lightness steps for documentation preview; not runtime tokens. Chroma and hue preserved; display gamut mapping may apply."
+      },
+      "plate-line": {
+        "role": "neutral",
+        "displayName": "명패 경계",
+        "tonalRamp": [
+          "oklch(15.00% 0.0615 83.41)",
+          "oklch(26.43% 0.0615 83.41)",
+          "oklch(37.86% 0.0615 83.41)",
+          "oklch(49.29% 0.0615 83.41)",
+          "oklch(60.71% 0.0615 83.41)",
+          "oklch(72.14% 0.0615 83.41)",
+          "oklch(83.57% 0.0615 83.41)",
+          "oklch(95.00% 0.0615 83.41)"
+        ],
+        "tonalRampOrigin": "Synthesized OKLCH lightness steps for documentation preview; not runtime tokens. Chroma and hue preserved; display gamut mapping may apply."
+      },
+      "inset": {
+        "role": "primary",
+        "displayName": "옅은 황동 안쪽 선",
+        "tonalRamp": [
+          "oklch(15.00% 0.0681 85.65)",
+          "oklch(26.43% 0.0681 85.65)",
+          "oklch(37.86% 0.0681 85.65)",
+          "oklch(49.29% 0.0681 85.65)",
+          "oklch(60.71% 0.0681 85.65)",
+          "oklch(72.14% 0.0681 85.65)",
+          "oklch(83.57% 0.0681 85.65)",
+          "oklch(95.00% 0.0681 85.65)"
+        ],
+        "tonalRampOrigin": "Synthesized OKLCH lightness steps for documentation preview; not runtime tokens. Chroma and hue preserved; display gamut mapping may apply."
+      },
+      "hover-target": {
+        "role": "neutral",
+        "displayName": "호버 보간 목표",
+        "tonalRamp": [
+          "oklch(15.00% 0.0118 239.91)",
+          "oklch(26.43% 0.0118 239.91)",
+          "oklch(37.86% 0.0118 239.91)",
+          "oklch(49.29% 0.0118 239.91)",
+          "oklch(60.71% 0.0118 239.91)",
+          "oklch(72.14% 0.0118 239.91)",
+          "oklch(83.57% 0.0118 239.91)",
+          "oklch(95.00% 0.0118 239.91)"
+        ],
+        "tonalRampOrigin": "Synthesized OKLCH lightness steps for documentation preview; not runtime tokens. Chroma and hue preserved; display gamut mapping may apply."
+      },
+      "disabled": {
+        "role": "neutral",
+        "displayName": "비활성 바탕",
+        "tonalRamp": [
+          "oklch(15.00% 0.0068 233.65)",
+          "oklch(26.43% 0.0068 233.65)",
+          "oklch(37.86% 0.0068 233.65)",
+          "oklch(49.29% 0.0068 233.65)",
+          "oklch(60.71% 0.0068 233.65)",
+          "oklch(72.14% 0.0068 233.65)",
+          "oklch(83.57% 0.0068 233.65)",
+          "oklch(95.00% 0.0068 233.65)"
+        ],
+        "tonalRampOrigin": "Synthesized OKLCH lightness steps for documentation preview; not runtime tokens. Chroma and hue preserved; display gamut mapping may apply."
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "화면 제목",
+        "purpose": "World header; bundled Bold TTF."
+      },
+      "title": {
+        "displayName": "주요 제목",
+        "purpose": "Member names and expedition action; bundled Bold TTF."
+      },
+      "body": {
+        "displayName": "기본 본문",
+        "purpose": "Default Godot theme; bundled Regular TTF."
+      },
+      "navigation": {
+        "displayName": "내비게이션",
+        "purpose": "Custom navigation labels; Bold TTF."
+      },
+      "supporting": {
+        "displayName": "보조 정보",
+        "purpose": "Status and compact labels; Regular TTF."
+      },
+      "loading-display": {
+        "displayName": "로딩 제목",
+        "purpose": "Web shell only; bundled WOFF2 registered as Gowun."
+      }
+    },
+    "shadows": [],
+    "depth": {
+      "description": "Tonal layers and 1px borders; no reusable panel shadow token. Emphasis button has a second inset border."
+    },
+    "motion": [
+      {
+        "name": "button-hover",
+        "value": "move_toward(hover_amount, goal, delta * 8)",
+        "purpose": "Linear scalar interpolation toward 0 or 1; ordinary button color blend uses hover_amount * 0.65."
+      },
+      {
+        "name": "button-press",
+        "value": "surface offset +1px; background darkened(0.06)",
+        "purpose": "Direct pressed-state drawing; no fixed release duration."
+      },
+      {
+        "name": "world-content-fade",
+        "value": "0.18s alpha 0 → 1",
+        "purpose": "Runs on changed world screen; skipped when web prefers-reduced-motion is true."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "loading-short-height",
+        "value": "max-height: 700px",
+        "purpose": "Web shell only: title 38px, top spacing 18px and spacer minimum 120px."
+      }
+    ],
+    "layout": {
+      "godotViewport": [
+        360,
+        780
+      ],
+      "stretchMode": "canvas_items",
+      "stretchAspect": "expand",
+      "reviewViewports": [
+        [
+          360,
+          780
+        ],
+        [
+          390,
+          844
+        ]
+      ],
+      "worldMaxWidth": 440,
+      "battleMaxSize": [
+        430,
+        860
+      ],
+      "loadingMaxWidth": 460,
+      "worldHeaderHeight": 68,
+      "worldContent": {
+        "x": 12,
+        "y": 76,
+        "height": "viewport height - 152"
+      },
+      "navigation": {
+        "height": 54,
+        "buttonMinHeight": 52,
+        "bottom": 12
+      },
+      "controls": {
+        "menuHeight": 54,
+        "battleMainHeight": "64 if action count <= 4 else 52",
+        "battleLog": [
+          48,
+          44
+        ],
+        "close": [
+          44,
+          44
+        ],
+        "skillButtonHeight": 50,
+        "skillRowPitch": 54
+      }
+    },
+    "assets": {
+      "portraitPreservation": "Original identity, costume, texture files preserved; menu face crops / silhouette meshes are distinct from combat sprites.",
+      "menuPortraitFilter": "CanvasItem.TEXTURE_FILTER_LINEAR",
+      "fontFiles": [
+        "res://assets/fonts/GowunBatang-Regular.ttf",
+        "res://assets/fonts/GowunBatang-Bold.ttf"
+      ],
+      "loadingFont": "ui-r11/GowunBatang-loading.woff2"
+    },
+    "review": {
+      "limitedReviewerVerdict": "ship",
+      "resolvedMaterialFixes": 3,
+      "userVisualApproval": false,
+      "scope": "Status supplied by coordinating task; this documentation pass did not independently rerun visual acceptance."
+    },
+    "previewLimitations": [
+      "HTML/CSS snippets are static schematic translations of Godot draw commands, not shipped DOM components.",
+      "Preview fonts use a local Gowun Batang family if available, otherwise serif; bundled Godot font files are not embedded in these snippets.",
+      "Portrait preview deliberately labels the original-art slot rather than substituting a new face.",
+      "CSS hover previews show end states without inventing runtime tween durations; actual motion remains specified in extensions.motion.",
+      "No browser, new screenshots, full-game audit, or user visual approval performed in this documentation pass."
+    ],
+    "notCanonized": [
+      "Removed stale fixed 140ms button release claim.",
+      "Did not transfer general TextureRect mipmap filtering to menu portraits.",
+      "Did not promote all-motion reduced-motion compliance: custom hover and some battle numeric feedback have separate behavior."
+    ]
+  },
+  "components": [
+    {
+      "name": "Blue enamel primary",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "World primary action. Schematic inset-border and state preview.",
+      "html": "<button class=\"ds-primary\">원정 준비</button>",
+      "css": ".ds-primary{font-family:\"Gowun Batang\",serif;font-size:14px;font-weight:700;border:1px solid #bbcbd7;border-radius:7px;padding:8px 12px;min-height:54px;cursor:pointer;position:relative;background:#355f80;color:#fffdf8;border-color:#8c6833;font-size:18px}.ds-primary::after{content:\"\";position:absolute;inset:4px;border:1px solid #bda778;border-radius:4px;pointer-events:none}.ds-primary:hover{background:#355f80}.ds-primary:focus-visible{outline:1px solid #355f80;outline-offset:-5px}.ds-primary:active{transform:translateY(1px);background:#325978}.ds-primary:disabled{background:#e3e8eb;color:#526b7e;cursor:default}"
+    },
+    {
+      "name": "Porcelain secondary",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Menu action with interpolated pale hover. Preview shows final blend only.",
+      "html": "<button class=\"ds-secondary\">동료 상세</button>",
+      "css": ".ds-secondary{font-family:\"Gowun Batang\",serif;font-size:14px;font-weight:700;border:1px solid #bbcbd7;border-radius:7px;padding:8px 12px;min-height:54px;cursor:pointer;background:#fffdf8;color:#253c52}.ds-secondary:hover{background:color-mix(in srgb,#fffdf8 35%,#e9f1f7 65%)}.ds-secondary:focus-visible{outline:1px solid #355f80;outline-offset:-5px}.ds-secondary:active{transform:translateY(1px);background:#f0eee9}.ds-secondary:disabled{background:#e3e8eb;color:#526b7e;cursor:default}"
+    },
+    {
+      "name": "Active navigation",
+      "kind": "nav",
+      "refersTo": "navigation-active",
+      "description": "Original home SVG with integrated caption and blue active underline.",
+      "html": "<nav aria-label=\"게임 메뉴\"><button class=\"ds-nav\" aria-current=\"page\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"23\" height=\"23\" viewBox=\"0 0 48 48\" aria-hidden=\"true\"><g fill=\"none\" stroke=\"#355f80\" stroke-width=\"2\" stroke-linejoin=\"round\" stroke-linecap=\"round\"><path d=\"M5 22 24 7l19 15M10 20v22h28V20M20 42V29h8v13\"/></g></svg><span class=\"ds-nav-label\">거점</span></button></nav>",
+      "css": ".ds-nav{position:relative;display:flex;align-items:center;flex-direction:column;gap:5px;width:80px;height:54px;padding:5px 2px 3px;border:0;border-radius:8px;background:#dce8f2;cursor:pointer}.ds-nav-label{font-family:\"Gowun Batang\",serif;font-weight:700;font-size:12px;color:#355f80}.ds-nav::after{content:\"\";position:absolute;bottom:3px;left:28%;right:28%;height:2px;background:#355f80}.ds-nav:hover{background:#dce8f2}.ds-nav:focus-visible{outline:1px solid #355f80;outline-offset:-4px}.ds-nav:active{background:#dce8f2}"
+    },
+    {
+      "name": "Integrated portrait card",
+      "kind": "card",
+      "refersTo": "portrait-card-large",
+      "description": "Large portrait/nameplate geometry. Original portrait is intentionally omitted from this schematic.",
+      "html": "<button class=\"ds-card\"><span class=\"ds-art\">원본 초상 영역</span><span class=\"ds-plate\"><strong class=\"ds-name\">동료 이름</strong><span class=\"ds-role\">직업 · 편성 중</span></span></button>",
+      "css": ".ds-card{position:relative;overflow:hidden;width:160px;height:222px;border:1px solid #bbcbd7;border-radius:8px;background:#dce8f2;padding:0;color:#253c52;cursor:pointer;font-family:\"Gowun Batang\",serif}.ds-art{position:absolute;inset:5px 4px 20px;display:grid;place-items:center;color:#526b7e;font-size:12px}.ds-plate{position:absolute;left:1px;right:1px;bottom:1px;height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:#fffaf0;border:1px solid #cfb98f;border-radius:5px}.ds-name{font-size:16px;font-weight:700}.ds-role{font-size:12px;color:#526b7e}.ds-card:hover,.ds-card:active{border-color:#8c6833}.ds-card:focus-visible{outline:1px solid #8c6833;outline-offset:-2px}"
+    },
+    {
+      "name": "Member resource meter",
+      "kind": "custom",
+      "refersTo": "resource-meter",
+      "description": "World detail HP meter; illustrative sample ratio, not a game statistic.",
+      "html": "<div class=\"ds-meter\" role=\"meter\" aria-label=\"HP 표시 예시\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"60\"><div class=\"ds-meter-fill\"></div></div>",
+      "css": ".ds-meter{width:220px;height:10px;background:#dce8f2}.ds-meter-fill{width:60%;height:10px;background:#ad5855}"
+    }
+  ],
+  "narrative": {
+    "northStar": "청백자 판타지 · Blue-white porcelain",
+    "overview": "밝고 정제된 판타지 세계를 청백색 바탕, 따뜻한 명패, 푸른 법랑색 행동 버튼으로 표현한다. 고운바탕의 한글 세리프와 원래 인물 그림이 게임의 성격을 이끈다. 색만 교체한 금속 UI가 아니라 인물 카드, 시설 입구, 명령, 내비게이션의 역할이 각각 보이는 구성이다.\n\n기준은 실제 r11 구현이다. FORM 출처는 `seed:5b4c8f653e0e6ee4`이며 기존의 blue-white porcelain 방향을 보존한다. 원본 인물의 얼굴·의상·정체성을 유지하고 이미지와 명패를 하나의 카드로 묶는다. 플랫폼과 자산 보존 조건은 [PRODUCT.md](PRODUCT.md)를 따른다.",
+    "keyCharacteristics": [
+      "밝은 청백색 바탕과 절제된 황동 테두리.",
+      "고운바탕 Regular/Bold로 이어지는 한글 판타지 활자.",
+      "원본 초상과 명패가 결합된 클릭 가능한 인물 카드.",
+      "휴대폰 세로 화면의 고정 내비게이션과 스크롤 콘텐츠.",
+      "명확한 선택 표시와 짧은 화면 전환."
+    ],
+    "rules": [
+      {
+        "name": "The Role Contrast Rule",
+        "body": "강조 행동은 Blue와 Paper, 일반 정보는 Paper와 Ink의 역할 구분을 유지한다.",
+        "section": "colors"
+      },
+      {
+        "name": "The Korean Serif Rule",
+        "body": "새 UI는 고운바탕의 한글 세리프 성격을 이어가며 나눔고딕 중심의 이전 방향으로 돌아가지 않는다.",
+        "section": "typography"
+      },
+      {
+        "name": "The Porcelain Surface Rule",
+        "body": "패널의 깊이는 면과 선으로 표현하고 반복되는 검은 금속 패널로 되돌리지 않는다.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Integrated Portrait Rule",
+        "body": "얼굴·의상·원본 정체성을 보존하고 초상과 명패를 하나의 카드 안에 둔다.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do preserve original character faces, costumes, portrait files, and the separate combat sprites.",
+      "Do keep portrait and nameplate inside one interactive card.",
+      "Do use the light porcelain palette, Korean serif typography, and clear action hierarchy.",
+      "Do check long Korean labels and touch controls at both phone review sizes.",
+      "Do preserve the implemented reduced-motion branches when extending transitions."
+    ],
+    "donts": [
+      "Don't restore the dark metal shell, Nanum Gothic identity, or identical rectangular controls for every role.",
+      "Don't replace character art to solve a framing problem.",
+      "Don't describe menu portraits as mipmap filtered or invent a fixed button release duration.",
+      "Don't treat schematic HTML component previews or a limited reviewer ship verdict as user visual approval."
+    ]
+  }
+}

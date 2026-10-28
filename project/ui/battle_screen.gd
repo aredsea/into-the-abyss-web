@@ -12,12 +12,13 @@ const ForgedButton=preload("res://ui/forged_button.gd")
 const CombatFX=preload("res://ui/combat_fx.gd")
 const CombatPresentation=preload("res://ui/combat_presentation.gd")
 const SaveStore = preload("res://game/save_store.gd")
-const INK = Color("eae4d6")
-const GOLD = Color("d7b67e")
-const LINE = Color("756a50")
+const UI=preload("res://ui/fantasy_theme.gd")
+const INK = UI.INK
+const GOLD = UI.GOLD
+const LINE = UI.LINE
 var state
 var storage = SaveStore.new()
-var font: Font = preload("res://assets/fonts/NanumGothic-Regular.ttf")
+var font: Font = UI.BODY
 var textures = {}
 var frame = Rect2()
 var controls = {}
@@ -47,6 +48,7 @@ var shown_hp: Dictionary = {}
 var presenting_source = ""
 
 func _ready() -> void:
+	theme=UI.make_theme()
 	scene_data = JSON.parse_string(FileAccess.get_file_as_string("res://data/battle_scene.json"))
 	assert(scene_data is Dictionary)
 	state = BattleState.new(scene_data)
@@ -93,7 +95,7 @@ func _companion_picture(id: String, rect: Rect2, parent: Control=self) -> Contro
 	return _put(pic,rect,parent)
 
 func _label(text: String, rect: Rect2, fs = 12, color = INK, parent: Control = self, align = HORIZONTAL_ALIGNMENT_LEFT) -> Label:
-	# NanumGothic has ASCII hyphen, but not mathematical minus U+2212.
+	# Normalize game-source minus to the standard hyphen.
 	text=text.replace("−","-")
 	var node = Label.new()
 	node.text = text
@@ -129,9 +131,9 @@ func _button(id: String, rect: Rect2, callback: Callable, active = false, parent
 		button.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
 		button.add_theme_stylebox_override("hover", StyleBoxEmpty.new())
 	else:
-		button.add_theme_stylebox_override("normal", _style(Color("4b402c") if active else Color("242c2a"), GOLD if active else LINE))
-		button.add_theme_stylebox_override("hover", _style(Color("414137"), GOLD))
-	button.add_theme_stylebox_override("pressed", _style(Color("55462d"), GOLD))
+		button.add_theme_stylebox_override("normal", _style(Color("dce8f2") if active else Color("fffdf8"), GOLD if active else LINE))
+		button.add_theme_stylebox_override("hover", _style(Color("e9f1f7"), GOLD))
+	button.add_theme_stylebox_override("pressed", _style(Color("cbdce9"), GOLD))
 	button.add_theme_stylebox_override("focus", _style(Color(0,0,0,0), GOLD))
 	button.pressed.connect(callback)
 	_put(button, rect, parent)
@@ -140,16 +142,14 @@ func _button(id: String, rect: Rect2, callback: Callable, active = false, parent
 
 func _panel(rect: Rect2, parent: Control = self) -> Panel:
 	var panel = Panel.new()
-	panel.add_theme_stylebox_override("panel", _style(Color("191f1e"), LINE))
+	panel.add_theme_stylebox_override("panel", _style(Color("fffdf8"), LINE))
 	_put(panel, rect, parent)
-	var metal = _picture("res://assets/metal.png", Rect2(Vector2.ONE,rect.size-Vector2(2,2)), panel)
-	metal.modulate = Color(1,1,1,0.16)
 	return panel
 
 func _meter(rect: Rect2, current: int, maximum: int, hp = true, parent: Control = self, inline_text = "") -> void:
-	_color(rect, Color("080c0d"), parent)
+	_color(rect, Color("dce8f2"), parent)
 	var inner = rect.grow(-1)
-	_color(Rect2(inner.position,Vector2(inner.size.x*float(current)/maximum,inner.size.y)),Color("b56651") if hp else Color("719da9"),parent)
+	_color(Rect2(inner.position,Vector2(inner.size.x*float(current)/maximum,inner.size.y)),Color("db9b94") if hp else Color("a3c5dc"),parent)
 	if not inline_text.is_empty():
 		_label(inline_text,rect,12,INK,parent,HORIZONTAL_ALIGNMENT_CENTER)
 
@@ -171,16 +171,16 @@ func _rebuild() -> void:
 	var h = minf(view.y,860)
 	frame = Rect2((view-Vector2(w,h))/2,Vector2(w,h))
 	var party_h = clampf(144+(h-780)*0.375,144,174)
-	var stage_h = h-377-party_h
+	var stage_h = h-393-party_h
 	var x = frame.position.x+7
 	var y = frame.position.y
 	var width = w-14
-	_color(frame,Color("151a1b"))
-	_label("학술원 폐허 상층 · 2층",Rect2(x+3,y,230,28),14)
-	var log_button=_button("log",Rect2(x+width-48,y,48,28),_toggle_log)
-	_label("기록",Rect2(0,0,48,28),12,GOLD,log_button,HORIZONTAL_ALIGNMENT_CENTER)
-	_queue(Rect2(x,y+31,width,50))
-	var field = Rect2(x,y+84,width,stage_h)
+	_color(frame,Color("edf3f8"))
+	_label("학술원 폐허 상층 · 2층",Rect2(x+3,y,230,44),14)
+	var log_button=_button("log",Rect2(x+width-48,y,48,44),_toggle_log)
+	_label("기록",Rect2(0,0,48,44),12,GOLD,log_button,HORIZONTAL_ALIGNMENT_CENTER)
+	_queue(Rect2(x,y+47,width,50))
+	var field = Rect2(x,y+100,width,stage_h)
 	_battlefield(field)
 	var party_y = field.end.y+3
 	_party(Rect2(x,party_y,width,party_h))
@@ -223,7 +223,7 @@ func _battlefield(rect: Rect2) -> void:
 	field_visual=field; field_home=field.position
 	var back = _picture("res://assets/src/academy.png",Rect2(Vector2.ZERO,rect.size),field,true)
 	field_back=back
-	back.modulate = Color(0.53,0.53,0.53)
+	back.modulate = Color(0.78,0.78,0.78)
 	for id in ["lantern","apprentice","orb","executor"]:
 		var e = state.enemy(id)
 		if e.hp<=0:
@@ -250,7 +250,7 @@ func _battlefield(rect: Rect2) -> void:
 		shown_hp[id]=e.hp
 		var summary = _panel(Rect2((hit_width-summary_w)/2,height,summary_w,40),hit)
 		if id==state.selected_enemy:
-			summary.add_theme_stylebox_override("panel",_style(Color("30291e"),GOLD))
+			summary.add_theme_stylebox_override("panel",_style(Color("fff1d9"),GOLD))
 		_label("Lv.%d %s" % [e.level,e.name],Rect2(3,1,summary_w-6,18),12,INK,summary,HORIZONTAL_ALIGNMENT_CENTER)
 		_meter(Rect2(3,21,summary_w-6,16),e.hp,e.mhp,true,summary,"HP %d / %d" % [e.hp,e.mhp])
 	actor = CharacterSprite.new()
@@ -273,7 +273,7 @@ func _party(rect: Rect2) -> void:
 		button.textured=false
 		var pic_h = rect.size.y-88
 		_companion_picture(a.id,Rect2(4,4,col-8,pic_h),button)
-		_color(Rect2(7,7,30,18),Color("18201e"),button)
+		_color(Rect2(7,7,30,18),Color("dce8f2"),button)
 		_label(a.row,Rect2(8,7,28,18),12,INK,button,HORIZONTAL_ALIGNMENT_CENTER)
 		_label(a.name,Rect2(3,pic_h+5,col-6,18),12,INK,button,HORIZONTAL_ALIGNMENT_CENTER)
 		for n in range(2):
@@ -290,7 +290,7 @@ func _detail(rect: Rect2) -> void:
 	_label("약점",Rect2(6,1,27,20),12,GOLD,panel)
 	var xpos = 34.0
 	for element in e.weak:
-		_picture("res://assets/ic_"+element+".webp",Rect2(xpos,4,15,15),panel)
+		_picture("res://assets/ui-r11/"+element+".svg",Rect2(xpos,4,15,15),panel)
 		_label(state.data.elements[element],Rect2(xpos+17,1,30,20),12,INK,panel)
 		xpos+=51
 	var remaining=str(int(e.gauge)) if e.gauge==floor(e.gauge) else "%.1f" % e.gauge
@@ -319,13 +319,15 @@ func _commands(rect: Rect2) -> void:
 		controls["skip-motion"].rect=[rect.position.x+8,rect.position.y+68,rect.size.x-16,48]
 	var ids=state.actions().keys().filter(func(id):return not id.begins_with("item:")) if ready else []
 	var col=(rect.size.x-20)/2
+	var action_height=64 if ids.size()<=4 else 52
+	var action_step=72 if ids.size()<=4 else 56
 	for i in range(ids.size()):
-		var id=ids[i]; var sk=state.actions()[id]; var pos=Vector2(6+(i%2)*(col+8),58+int(i/2)*56)
-		var b=_button("action:"+id,Rect2(pos,Vector2(col,52)),_action_pressed.bind(id),pending_action==id,panel)
-		controls["action:"+id].rect=[rect.position.x+pos.x,rect.position.y+pos.y,col,52]
+		var id=ids[i]; var sk=state.actions()[id]; var pos=Vector2(6+(i%2)*(col+8),58+int(i/2)*action_step)
+		var b=_button("action:"+id,Rect2(pos,Vector2(col,action_height)),_action_pressed.bind(id),pending_action==id,panel)
+		controls["action:"+id].rect=[rect.position.x+pos.x,rect.position.y+pos.y,col,action_height]
 		b.disabled=not state.unavailable(id).is_empty()
 		var icon="attack" if sk.target.begins_with("적") else "defend" if id in ["guard","taunt","ptaunt"] else (a.element if a.element!="none" else "taunt")
-		_picture("res://assets/ic_"+icon+".webp",Rect2(7,15,22,22),b)
+		_picture("res://assets/ui-r11/"+("defend" if icon=="taunt" else icon)+".svg",Rect2(7,15,22,22),b)
 		var title_text=sk.name.split("(")[0].strip_edges()
 		var short={"파티 능력치 상향":"파티 축복","아군 능력 버프":"강화 약","적 능력 디버프":"산성 약","마감 전날 대폭발":"마감 전날 대폭발"}
 		title_text=short.get(title_text,title_text)
@@ -629,7 +631,7 @@ func _effect_feedback(before: Dictionary,source: String,action: String) -> void:
 		if not controls.has(key): continue
 		var r=controls[key].rect; var center=Vector2(r[0]+r[2]/2,r[1]+r[3]*.4)
 		var fx=CombatFX.new(); fx.position=center; fx.element=element; fx.healing=healing; fx.reduced=motion_reduced; add_child(fx)
-		var label=_label(text_value,Rect2(center-Vector2(53,10),Vector2(106,32)),fs,Color("9bd9b0") if healing else INK,self,HORIZONTAL_ALIGNMENT_CENTER)
+		var label=_label(text_value,Rect2(center-Vector2(53,10),Vector2(106,32)),fs,Color("9bd9b0") if healing else UI.PAPER,self,HORIZONTAL_ALIGNMENT_CENTER)
 		var tween=create_tween(); tween.tween_property(label,"position:y",label.position.y-24,.48); tween.tween_property(label,"modulate:a",0,.18)
 
 func _supplies(rect: Rect2) -> void:

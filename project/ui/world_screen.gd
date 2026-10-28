@@ -4,14 +4,18 @@ const RouteMap=preload("res://ui/route_map.gd")
 const World=preload("res://game/expansion_world.gd")
 const Store=preload("res://game/world_store.gd")
 const BattleScreen=preload("res://ui/battle_screen.gd")
-const FONT=preload("res://assets/fonts/NanumGothic-Regular.ttf")
+const UI=preload("res://ui/fantasy_theme.gd")
+const FONT=UI.BODY
+const PortraitCard=preload("res://ui/portrait_card.gd")
+const NavigationButton=preload("res://ui/navigation_button.gd")
+const FacilityButton=preload("res://ui/facility_button.gd")
 const CharacterSprite=preload("res://ui/character_sprite.gd")
 const CharacterPortrait=preload("res://ui/character_portrait.gd")
 const SignatureSequence=preload("res://ui/signature_sequence.gd")
 const ForgedButton=preload("res://ui/forged_button.gd")
-const INK=Color("eae4d6")
-const GOLD=Color("d7b67e")
-const MUTED=Color("afb8b3")
+const INK=UI.INK
+const GOLD=UI.GOLD
+const MUTED=UI.MUTED
 var model=World.new()
 var storage=Store.new()
 var screen="town"
@@ -38,20 +42,7 @@ var art_preview_id=""
 
 func _ready() -> void:
 	motion_reduced=OS.has_feature("web") and bool(JavaScriptBridge.eval("window.matchMedia('(prefers-reduced-motion: reduce)').matches",true))
-	var theme=Theme.new()
-	theme.default_font=FONT; theme.default_font_size=14
-	theme.set_color("font_color","Label",INK)
-	theme.set_color("font_color","Button",INK)
-	theme.set_color("font_disabled_color","Button",Color("a1a6a0"))
-	for type in ["normal","hover","pressed","focus","disabled"]:
-		var style=StyleBoxFlat.new()
-		style.bg_color=Color("292e2c") if type!="pressed" else Color("4b402c")
-		style.border_color=Color("756a50") if type!="focus" else GOLD
-		style.set_border_width_all(1)
-		style.content_margin_left=12; style.content_margin_right=12
-		style.content_margin_top=10; style.content_margin_bottom=10
-		theme.set_stylebox(type,"Button",style)
-	self.theme=theme
+	self.theme=UI.make_theme()
 	restored=storage.read_into(model)
 	if model.active(): screen="explore"
 	elif not model.s.summary.is_empty(): screen="summary"
@@ -84,9 +75,9 @@ func _draw_screen() -> void:
 	battle=null; controls.clear(); art_preview_id=""
 	var width=minf(size.x,440); var height=size.y
 	var base=Control.new(); add_child(base); base.position=Vector2((size.x-width)/2,0); base.size=Vector2(width,height)
-	var back=ColorRect.new(); base.add_child(back); back.size=base.size; back.color=Color("151a1b"); back.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	var metal=TextureRect.new(); base.add_child(metal); metal.texture=load("res://assets/metal.png"); metal.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; metal.size=Vector2(width,68); metal.modulate=Color(1,1,1,0.3); metal.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	var heading=Label.new(); base.add_child(heading); heading.position=Vector2(16,10); heading.size=Vector2(width-32,26); heading.text=_title(); heading.add_theme_font_size_override("font_size",22); heading.add_theme_color_override("font_color",GOLD)
+	var back=ColorRect.new(); base.add_child(back); back.size=base.size; back.color=UI.GROUND; back.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	var header=Panel.new(); base.add_child(header); header.size=Vector2(width,68); header.add_theme_stylebox_override("panel",UI.panel(UI.PAPER,UI.LINE,0)); header.mouse_filter=MOUSE_FILTER_IGNORE
+	var heading=Label.new(); base.add_child(heading); heading.position=Vector2(16,10); heading.size=Vector2(width-32,26); heading.text=_title(); heading.add_theme_font_size_override("font_size",22); heading.add_theme_font_override("font",UI.TITLE); heading.add_theme_color_override("font_color",UI.INK)
 	var status=Label.new(); base.add_child(status); status.position=Vector2(16,40); status.text="%d일째     금화 %d" % [model.s.day,model.s.gold]; status.add_theme_font_size_override("font_size",12)
 	scroll=ScrollContainer.new(); base.add_child(scroll); scroll.position=Vector2(12,76); scroll.size=Vector2(width-24,height-152)
 	scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
@@ -113,7 +104,7 @@ func _draw_screen() -> void:
 			"research": _research()
 	var nav=HBoxContainer.new(); base.add_child(nav); nav.position=Vector2(12,height-66); nav.size=Vector2(width-24,54); nav.add_theme_constant_override("separation",6)
 	for item in [["explore" if model.active() else "town","원정" if model.active() else "거점"],["party","동료"],["bag","가방"],["journal","기록"]]:
-		var b=ForgedButton.new(); b.active=screen==item[0]; nav.add_child(b); b.text=item[1]; b.custom_minimum_size=Vector2(0,52); b.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+		var b=NavigationButton.new(); b.configure(item[1],{"town":"home","explore":"gate"}.get(item[0],item[0])); b.active=screen==item[0]; nav.add_child(b); b.custom_minimum_size=Vector2(0,52); b.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 		b.pressed.connect(go.bind(item[0])); controls["nav:"+item[0]]=b
 	if last_drawn_screen!=screen and not motion_reduced:
 		content.modulate.a=0; create_tween().tween_property(content,"modulate:a",1,.18)
@@ -129,6 +120,7 @@ func number(value: float) -> String:
 
 func text(value: String, fs=14, color=INK, parent: Node=null) -> Label:
 	var label=Label.new(); (parent if parent else content).add_child(label)
+	if fs>=17: label.add_theme_font_override("font",UI.TITLE)
 	label.text=value.replace("−","-"); label.add_theme_font_size_override("font_size",fs); label.add_theme_color_override("font_color",color)
 	label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; label.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	label.mouse_filter=Control.MOUSE_FILTER_IGNORE
@@ -137,7 +129,7 @@ func text(value: String, fs=14, color=INK, parent: Node=null) -> Label:
 func box() -> VBoxContainer:
 	var panel=PanelContainer.new(); content.add_child(panel)
 	panel.mouse_filter=Control.MOUSE_FILTER_PASS
-	var style=StyleBoxFlat.new(); style.bg_color=Color("202725"); style.border_color=Color("655e4c"); style.set_border_width_all(1)
+	var style=UI.panel()
 	style.content_margin_left=12; style.content_margin_right=12; style.content_margin_top=12; style.content_margin_bottom=12
 	panel.add_theme_stylebox_override("panel",style)
 	var body=VBoxContainer.new(); panel.add_child(body); body.add_theme_constant_override("separation",8)
@@ -161,8 +153,8 @@ func bar(label: String, value: float, maximum: float, parent: Node, hp=true) -> 
 	text("%s %d / %d" % [label,value,maximum],12,INK,parent)
 	var p=ProgressBar.new(); parent.add_child(p); p.custom_minimum_size.y=10; p.show_percentage=false; p.max_value=maximum; p.value=value
 	p.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	var bg=StyleBoxFlat.new(); bg.bg_color=Color("090f11"); p.add_theme_stylebox_override("background",bg)
-	var fill=StyleBoxFlat.new(); fill.bg_color=Color("b56651") if hp else Color("719da9"); p.add_theme_stylebox_override("fill",fill)
+	var bg=StyleBoxFlat.new(); bg.bg_color=UI.PALE; p.add_theme_stylebox_override("background",bg)
+	var fill=StyleBoxFlat.new(); fill.bg_color=UI.HP if hp else UI.MP; p.add_theme_stylebox_override("fill",fill)
 
 func companion_image(id: String, target: Node, dims: Vector2) -> Control:
 	var pic=CharacterPortrait.new(); pic.custom_minimum_size=dims
@@ -178,24 +170,23 @@ func _portrait(id: String, parent: Node, large=false) -> void:
 	bar("HP",m.hp,b.hp,body); bar("MP",m.mp,b.mp,body,false)
 
 func _town() -> void:
-	var city=image("res://assets/src/torva-town-v1.png",content,Vector2(0,132))
+	var city=image("res://assets/ui-r11/torva-daylight.png",content,Vector2(0,148))
 	city.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED
-	var grid=GridContainer.new(); content.add_child(grid); grid.columns=2; grid.add_theme_constant_override("h_separation",8); grid.add_theme_constant_override("v_separation",8)
-	for facility in [["guild","연합 길드","의뢰 · 영입","guild"],["shop","마렌토 상회","보급 · 장비","shop"],["inn","아랫마을 여관","교류 · 휴식","inn"],["smithy","한나의 대장간","강화 · 가공","smithy"]]:
-		var b=button(facility[0],facility[1]+"\n"+facility[2],go.bind(facility[0]),false,grid)
-		b.icon=load("res://assets/ic_pl_"+facility[3]+".webp"); b.add_theme_constant_override("icon_max_width",28); b.add_theme_font_size_override("font_size",13); b.custom_minimum_size.y=64
 	var caption=HBoxContainer.new(); content.add_child(caption)
-	text("출전 파티",17,GOLD,caption)
+	text("출전 파티",18,INK,caption)
 	var edit=button("town_formation","편성",go.bind("party"),false,caption); edit.custom_minimum_size=Vector2(62,44); edit.size_flags_horizontal=Control.SIZE_SHRINK_END
-	var party=HBoxContainer.new(); content.add_child(party); party.add_theme_constant_override("separation",5)
+	var party=HBoxContainer.new(); content.add_child(party); party.add_theme_constant_override("separation",6)
 	for id in model.s.party:
-		var b=button("town_member:"+id,"",func(): who=id; go("member"),false,party); b.custom_minimum_size.y=176; b.textured=false
-		var stack=VBoxContainer.new(); b.add_child(stack); stack.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); stack.offset_left=3; stack.offset_right=-3; stack.offset_top=3; stack.offset_bottom=-3; stack.add_theme_constant_override("separation",2); stack.mouse_filter=Control.MOUSE_FILTER_IGNORE
-		companion_image(id,stack,Vector2(0,128))
-		var name_label=text(model.person(id).name,12,INK,stack); name_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-		var role=text(model.person(id)["class"],12,MUTED,stack); role.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-	var depart=button("depart","원정 준비",go.bind("depart")); depart.emphasis=true; depart.custom_minimum_size.y=58; depart.add_theme_font_size_override("font_size",18)
-	depart.icon=load("res://assets/ic_pl_guild.webp"); depart.add_theme_constant_override("icon_max_width",24)
+		var card=PortraitCard.new(); card.configure(id,model.person(id).name,model.person(id)["class"])
+		card.custom_minimum_size=Vector2(0,164); card.size_flags_horizontal=SIZE_EXPAND_FILL; party.add_child(card)
+		card.pressed.connect(func(): who=id; go("member")); controls["town_member:"+id]=card
+	var depart=button("depart","원정 준비",go.bind("depart")); depart.emphasis=true; depart.custom_minimum_size.y=54; depart.add_theme_font_size_override("font_size",18)
+	text("마을 시설",16,INK)
+	var grid=GridContainer.new(); content.add_child(grid); grid.columns=2; grid.add_theme_constant_override("h_separation",8); grid.add_theme_constant_override("v_separation",8)
+	for facility in [["guild","연합 길드","의뢰 · 영입"],["shop","마렌토 상회","보급 · 장비"],["inn","아랫마을 여관","교류 · 휴식"],["smithy","한나의 대장간","강화 · 가공"]]:
+		var b=FacilityButton.new(); b.configure(facility[1],facility[2],facility[0]); grid.add_child(b)
+		b.custom_minimum_size=Vector2(0,60); b.size_flags_horizontal=SIZE_EXPAND_FILL
+		b.pressed.connect(go.bind(facility[0])); controls[facility[0]]=b
 
 func _party() -> void:
 	var row=HBoxContainer.new(); content.add_child(row)
@@ -206,10 +197,10 @@ func _party() -> void:
 	for p in model.config.companions:
 		if not catalog_all and p.id not in model.s.owned: continue
 		var cell=VBoxContainer.new(); grid.add_child(cell); cell.size_flags_horizontal=SIZE_EXPAND_FILL
-		companion_image(p.id,cell,Vector2(0,156))
-		text(p.name,16,GOLD,cell); text(p.row+" · "+p["class"],12,MUTED,cell)
 		var status="편성 중" if p.id in model.s.party else "보유" if p.id in model.s.owned else "미영입"
-		button("member:"+p.id,status+" · 상세",func(): who=p.id; go("member"),false,cell)
+		var card=PortraitCard.new(); card.large=true; card.selected=p.id in model.s.party
+		card.configure(p.id,p.name,p["class"]+" · "+status,true); card.custom_minimum_size=Vector2(0,222); cell.add_child(card)
+		card.pressed.connect(func(): who=p.id; go("member")); controls["member:"+p.id]=card
 	button("recruit_go","길드에서 동료 소개받기",go.bind("guild"),model.active())
 
 func _member() -> void:
@@ -455,7 +446,7 @@ func _npc(id: String,title: String,line: String) -> void:
 	var p=box(); var row=HBoxContainer.new(); p.add_child(row); row.add_theme_constant_override("separation",14)
 	companion_image(id,row,Vector2(86,112))
 	var body=VBoxContainer.new(); row.add_child(body); body.size_flags_horizontal=SIZE_EXPAND_FILL
-	text(title,18,GOLD,body); text(line,14,INK,body)
+	text(title.replace(" · ","\n"),18,GOLD,body); text(line,14,INK,body)
 
 func _member_picker() -> void:
 	if who not in model.s.owned: who=model.s.party[0]
@@ -571,13 +562,13 @@ func _show_art(id: String) -> void:
 	var width=minf(size.x-24,406); var height=minf(size.y-96,510)
 	var box=VBoxContainer.new(); art_preview.add_child(box); box.position=Vector2((size.x-width)/2,(size.y-height)/2); box.size=Vector2(width,height); box.add_theme_constant_override("separation",10)
 	var data=CharacterSprite.info(id)
-	text(data.name+" · "+data["class"],18,GOLD,box)
-	text("전용 무기 · "+data.weapon,13,INK,box)
+	text(data.name+" · "+data["class"],18,UI.PAPER,box)
+	text("전용 무기 · "+data.weapon,13,UI.PALE,box)
 	var stage=Control.new(); box.add_child(stage); stage.custom_minimum_size=Vector2(0,300); stage.size_flags_vertical=SIZE_EXPAND_FILL
 	var sprite=CharacterSprite.new(); stage.add_child(sprite); sprite.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); sprite.configure(id,true); sprite.visible=false
 	var seq=SignatureSequence.new(); seq.character_id=id; seq.preview=true; seq.reduced=motion_reduced; stage.add_child(seq); seq.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	seq.finished.connect(func(): sprite.visible=true)
-	text("연출 미리보기 · 전투 수치와 저장에는 영향 없음",12,MUTED,box)
+	text("연출 미리보기 · 전투 수치와 저장에는 영향 없음",12,UI.PALE,box)
 	var row=HBoxContainer.new(); box.add_child(row); row.add_theme_constant_override("separation",6)
 	var ids=model.config.companions.map(func(p): return p.id); var index=ids.find(id)
 	button("art_prev","이전",_show_art.bind(ids[posmod(index-1,ids.size())]),false,row)
