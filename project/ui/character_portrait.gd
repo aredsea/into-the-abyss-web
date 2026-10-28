@@ -5,6 +5,8 @@ static var cache: Dictionary = {}
 static var framing: Dictionary = {}
 var character_id = ""
 var portrait: Dictionary = {}
+var face_texture: Texture2D
+const FACE_IDS = ["hildegard", "bargut", "teiris", "berenga"]
 # Explicit empty spaces enclosed by horns / hair, checked against source art.
 # Do not globally key white pixels: clothing, eyes and pale hair must survive.
 const PAPER_GAPS = {
@@ -106,7 +108,10 @@ static func prepare(id: String, rebuild=false) -> Dictionary:
 	return cache[id]
 
 func configure(id: String) -> void:
-	character_id = id; portrait = prepare(id); queue_redraw()
+	character_id = id
+	face_texture = load("res://assets/portraits-r10/" + id + "-face.png") if id in FACE_IDS else null
+	portrait = {} if face_texture else prepare(id)
+	queue_redraw()
 
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -115,6 +120,13 @@ func _ready() -> void:
 	resized.connect(queue_redraw)
 
 func _draw() -> void:
+	if face_texture:
+		# Dedicated alpha PNG: face fills the slot, preserving image proportions.
+		var ratio = maxf(size.x / face_texture.get_width(), size.y / face_texture.get_height())
+		var scaled = face_texture.get_size() * ratio
+		var origin = Vector2((size.x-scaled.x)*0.5, (size.y-scaled.y)*0.35)
+		draw_texture_rect(face_texture, Rect2(origin,scaled), false)
+		return
 	if portrait.is_empty(): return
 	var bounds: Rect2 = portrait.bounds
 	var ratio = maxf(size.x / bounds.size.x, size.y / bounds.size.y)

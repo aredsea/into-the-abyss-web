@@ -189,9 +189,9 @@ func _town() -> void:
 	var edit=button("town_formation","편성",go.bind("party"),false,caption); edit.custom_minimum_size=Vector2(62,44); edit.size_flags_horizontal=Control.SIZE_SHRINK_END
 	var party=HBoxContainer.new(); content.add_child(party); party.add_theme_constant_override("separation",5)
 	for id in model.s.party:
-		var b=button("town_member:"+id,"",func(): who=id; go("member"),false,party); b.custom_minimum_size.y=160; b.textured=false
+		var b=button("town_member:"+id,"",func(): who=id; go("member"),false,party); b.custom_minimum_size.y=176; b.textured=false
 		var stack=VBoxContainer.new(); b.add_child(stack); stack.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); stack.offset_left=3; stack.offset_right=-3; stack.offset_top=3; stack.offset_bottom=-3; stack.add_theme_constant_override("separation",2); stack.mouse_filter=Control.MOUSE_FILTER_IGNORE
-		companion_image(id,stack,Vector2(0,112))
+		companion_image(id,stack,Vector2(0,128))
 		var name_label=text(model.person(id).name,12,INK,stack); name_label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 		var role=text(model.person(id)["class"],12,MUTED,stack); role.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	var depart=button("depart","원정 준비",go.bind("depart")); depart.emphasis=true; depart.custom_minimum_size.y=58; depart.add_theme_font_size_override("font_size",18)
