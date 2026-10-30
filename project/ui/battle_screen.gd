@@ -32,6 +32,7 @@ var controls = {}
 var text_metrics = []
 var skills_open = false
 var items_open=false
+var supply_target_set=false # an ally card was tapped in this supplies sheet
 var ally_open = ""
 var actor: Control
 var preview_tween: Tween
@@ -197,10 +198,13 @@ func _battlefield(rect: Rect2) -> void:
 	var small=enemies.filter(func(e): return e.id!="executor")
 	var order={"lantern":0,"apprentice":1,"orb":2}
 	small.sort_custom(func(a,b): return order.get(a.id,3)<order.get(b.id,3))
+	var big_height=minf(103,65+(rect.size.y-224)*.594)
+	# Keep small-enemy touch areas above the executor's so short fields never overlap.
+	var small_height=75.0 if small.size()==enemies.size() else minf(75.0,rect.size.y-big_height-44-12-34-1)
 	for i in range(enemies.size()):
 		var e=enemies[i]; var big=e.id=="executor"; var index=small.find(e)
 		var center=rect.size.x*.815 if big else rect.size.x*(index+.5)/maxi(1,small.size())
-		var height=minf(103,65+(rect.size.y-224)*.594) if big else 75.0
+		var height=big_height if big else small_height
 		var top=rect.size.y-height-44 if big else 12.0
 		var hud_w=minf(119 if big else 112,rect.size.x/maxi(1,small.size())-4)
 		var hit=_button("enemy:"+e.id,Rect2(center-hud_w/2,top,hud_w,height+34),_enemy_pressed.bind(e.id),false,field,true)
@@ -229,11 +233,11 @@ func _party(rect: Rect2) -> void:
 		var a=state.data.allies[i]; shown_hp[a.id]=a.hp
 		var b=_button("ally:"+a.id,Rect2(rect.position+Vector2(i*(col+6),7),Vector2(col,143)),_ally_pressed.bind(a.id),false,self,true)
 		var face=FaceR17.new(); face.configure(a.id); _put(face,Rect2(0,0,col,51),b)
-		if a.id==state.current_id or a.id==ally_open or (items_open and a.id==state.selected_ally):
+		if a.id==state.current_id or a.id==ally_open or (items_open and supply_target_set and a.id==state.selected_ally):
 			var border=_panel(Rect2(0,0,col,51),b); var sb=_style(Color.TRANSPARENT,RED); sb.set_border_width_all(2); border.add_theme_stylebox_override("panel",sb)
 		_label(a.name,Rect2(0,51,col,17),12,INK,b)
 		_label(a.row,Rect2(0,68,col*.5,17),12,Color("575f55"),b)
-		_label("차례" if a.id==state.current_id else "선택" if a.id==ally_open or (items_open and a.id==state.selected_ally) else "",Rect2(col*.5,68,col*.5,17),12,RED,b,HORIZONTAL_ALIGNMENT_RIGHT)
+		_label("차례" if a.id==state.current_id else "선택" if a.id==ally_open or (items_open and supply_target_set and a.id==state.selected_ally) else "",Rect2(col*.5,68,col*.5,17),12,RED,b,HORIZONTAL_ALIGNMENT_RIGHT)
 		for j in range(2):
 			var current=a.hp if j==0 else a.mp; var maximum=a.mhp if j==0 else a.mmp; var yy=85+j*25
 			_label("HP" if j==0 else "MP",Rect2(0,yy,18,19),12,INK,b)
@@ -392,7 +396,7 @@ func _enemy_pressed(id: String) -> void:
 func _ally_pressed(id: String) -> void:
 	if busy: return
 	if items_open:
-		if state is ModernBattle: state.choose_ally(id)
+		if state is ModernBattle and state.choose_ally(id): supply_target_set=true
 		_rebuild(); return
 	if state is ModernBattle and not pending_action.is_empty() and state.actions()[pending_action].target=="아군 1":
 		if state.choose_ally(id): _commit()
@@ -612,7 +616,7 @@ func _supplies(rect: Rect2) -> void:
 		_label("×"+str(int(amount)),Rect2(width-48,0,40,44),14,Color.WHITE if pending_action==id else INK,b,HORIZONTAL_ALIGNMENT_RIGHT)
 	if count==0: _label("사용할 보급품이 없습니다.",Rect2(12,80,rect.size.x-24,44),14,INK,p)
 	var a=state.ally(state.selected_ally)
-	_label("아군 카드를 눌러 대상 선택" if pending_action.is_empty() else "대상 "+a.name+" · HP %d/%d · MP %d/%d" % [a.hp,a.mhp,a.mp,a.mmp],Rect2(12,175,rect.size.x-24,24),12,INK,p)
+	_label("아군 카드를 눌러 대상 선택" if pending_action.is_empty() or not supply_target_set else "대상 "+a.name+" · HP %d/%d · MP %d/%d" % [a.hp,a.mhp,a.mp,a.mmp],Rect2(12,175,rect.size.x-24,24),12,INK,p)
 	var col=(rect.size.x-32)/2
 	var cancel=_button("cancel-action",Rect2(12,201,col,44),_close_sheets,false,p)
 	_label("취소",Rect2(0,0,col,44),14,INK,cancel,HORIZONTAL_ALIGNMENT_CENTER)
@@ -688,7 +692,7 @@ func _toggle_skills() -> void:
 
 
 func _toggle_supplies() -> void:
-	items_open=not items_open; skills_open=false; log_open=false; ally_open=""; pending_action=""; _rebuild()
+	items_open=not items_open; supply_target_set=false; skills_open=false; log_open=false; ally_open=""; pending_action=""; _rebuild()
 
 
 func _sheet(rect: Rect2, title: String, kind: String) -> Panel:
@@ -713,7 +717,7 @@ func _select_supply(id: String) -> void:
 func _supply_reason() -> String:
 	if pending_action.is_empty(): return "보급품 선택"
 	var item=state.actions()[pending_action].item; var a=state.ally(state.selected_ally)
-	if a.is_empty(): return "대상 선택"
+	if a.is_empty() or not supply_target_set: return "대상 선택"
 	if a.level<item.level: return "레벨 %d 필요" % item.level
 	if item.kind=="revive": return "쓰러진 동료 필요" if a.hp>0 else ""
 	if a.hp<=0: return "소생이 필요합니다"

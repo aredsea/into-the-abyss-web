@@ -132,6 +132,20 @@ func run() -> void:
 		await click(s,"use-supply")
 		check(s.state.inventory.hp_s==supplies-1 and s.state.ally("berenga").hp>1,"Supply use heals chosen ally and consumes one")
 		await clean(s)
+		# A target left over in the model must not be used until a card is tapped in this sheet.
+		s=fixture(w); s.state.ally("berenga").hp=1; s.state.selected_ally="berenga"; s._rebuild()
+		var stale_before=s.state.inventory.duplicate(true)
+		await click(s,"supplies"); await click(s,"item:hp_s"); await click(s,"use-supply")
+		check(s.state.inventory==stale_before and not s.busy and s.items_open,"Supply needs a fresh target tap")
+		await clean(s)
+		s=fixture(w); await process_frame
+		var hits=s.controls.keys().filter(func(k): return k.begins_with("enemy:"))
+		check(hits.size()==4,"Four enemy touch areas "+str(dim.x))
+		for i in range(hits.size()):
+			for j in range(i+1,hits.size()):
+				var ra=s.controls[hits[i]].rect; var rb=s.controls[hits[j]].rect
+				check(not Rect2(ra[0],ra[1],ra[2],ra[3]).intersects(Rect2(rb[0],rb[1],rb[2],rb[3])),"Enemy touch areas apart "+hits[i]+"/"+hits[j]+" "+str(dim.x))
+		await clean(s)
 		s=fixture(w); s.busy=false; s.state.current_id="teiris"; s.state.last_ally="teiris"; s.state.ally("teiris").mp=0
 		for unit in s.state.data.allies+s.state.data.enemies: unit.remaining=0.0 if unit.id=="teiris" else unit.remaining+900
 		s.state.refresh_forecast(); s._rebuild()
