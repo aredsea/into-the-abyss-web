@@ -288,7 +288,8 @@ func _commands(rect: Rect2) -> void:
 		for i in range(2):
 			var id="supplies" if i==0 else "log"
 			var b=_button(id,Rect2(pos+Vector2(i*(col+7),0),Vector2(col,44)),_toggle_supplies if i==0 else _toggle_log)
-			b.disabled=not ready
+			# Legacy (pre-v3) battles have no item actions or selected_ally.
+			b.disabled=not ready or (i==0 and not state is ModernBattle)
 			_label("보급품" if i==0 else "전투 기록",Rect2(0,0,col,44),14,INK,b,HORIZONTAL_ALIGNMENT_CENTER)
 		if ready:
 			var more=_button("skills",Rect2(frame.end.x-56,frame.position.y+390+(frame.size.y-844),44,44),_toggle_skills,false,self,true)
@@ -692,6 +693,7 @@ func _toggle_skills() -> void:
 
 
 func _toggle_supplies() -> void:
+	if not state is ModernBattle: return
 	items_open=not items_open; supply_target_set=false; skills_open=false; log_open=false; ally_open=""; pending_action=""; _rebuild()
 
 

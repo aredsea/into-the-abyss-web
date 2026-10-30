@@ -138,6 +138,15 @@ func run() -> void:
 		await click(s,"supplies"); await click(s,"item:hp_s"); await click(s,"use-supply")
 		check(s.state.inventory==stale_before and not s.busy and s.items_open,"Supply needs a fresh target tap")
 		await clean(s)
+		# Battles saved under the old rules run on BattleState, which has no supplies.
+		var legacy_data=w.battle_data(); legacy_data.erase("rules_version")
+		s=Screen.new(); s.session_data=legacy_data; s.session_save=func(_snapshot): return OK
+		root.add_child(s); await process_frame
+		check(not s.state is Screen.ModernBattle,"Legacy fixture uses BattleState")
+		await click(s,"supplies")
+		check(not s.items_open,"Legacy battle keeps supplies closed "+str(dim.x))
+		await click(s,"log"); check(s.log_open,"Legacy battle log opens "+str(dim.x))
+		await clean(s)
 		s=fixture(w); await process_frame
 		var hits=s.controls.keys().filter(func(k): return k.begins_with("enemy:"))
 		check(hits.size()==4,"Four enemy touch areas "+str(dim.x))
