@@ -85,7 +85,7 @@ function render(id) {
   $("screen").setAttribute("aria-label",s.title+" 클릭 시안");
   $("screen").classList.toggle("is-home",!!s.home);
   $("screen").classList.remove("flash");
-  $("screen").style.setProperty("--ratio",s.home?853/1844:1448/3/1086);
+  $("screen").style.setProperty("--ratio",s.ratio||(s.home?853/1844:1448/3/1086));
   $("image-loading").hidden=false;
   const img=$("scene-art");
   img.onload=()=>{if(token===renderToken)$("image-loading").hidden=true;};
