@@ -10,5 +10,9 @@ func _init() -> void:
 	for key in licenses:
 		out.store_string("\n\n"+key+"\n\n"+licenses[key])
 	out.flush()
+	var font_license=FileAccess.get_file_as_string("res://assets/fonts/OFL-AbyssNoto.txt")
+	out.store_string("\n\nAbyss Noto Black Condensed — Noto Sans KR derived font\n"+font_license)
+	out.store_string("\n\nAbyss Noto Text 500 / 800 — static subset body fonts\n"+FileAccess.get_file_as_string("res://assets/fonts/OFL-AbyssNotoText.txt"))
+	out.flush()
 	print("Exported Godot and bundled library license notices.")
 	quit()

@@ -8,7 +8,7 @@ func check(value: bool, label: String) -> void:
 	if not value: failures.append(label); push_error(label)
 func _initialize() -> void: call_deferred("run")
 func run() -> void:
-	var folder = ProjectSettings.globalize_path("res://../../../work/motion-r9/qa-game").simplify_path()
+	var folder = ProjectSettings.globalize_path("res://../verification/ui-r17/motion-r9").simplify_path()
 	DirAccess.make_dir_recursive_absolute(folder)
 	for dimensions in [Vector2i(390,844), Vector2i(360,780)]:
 		root.content_scale_size = dimensions; root.size = dimensions
