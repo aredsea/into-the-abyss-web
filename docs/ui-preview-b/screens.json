@@ -1,0 +1,1975 @@
+[
+  {
+    "id": "town",
+    "title": "토르바",
+    "family": "town",
+    "image": "00-town-approved-direction.png",
+    "panel": 0,
+    "home": true,
+    "nav": "town",
+    "back": null,
+    "hotspots": [
+      {
+        "label": "힐데가르트",
+        "x": 3,
+        "y": 64.7,
+        "w": 22,
+        "h": 9,
+        "to": "member",
+        "message": ""
+      },
+      {
+        "label": "바르구트",
+        "x": 27,
+        "y": 64.7,
+        "w": 22,
+        "h": 9,
+        "to": "member",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "테이리스",
+        "x": 51,
+        "y": 64.7,
+        "w": 22,
+        "h": 9,
+        "to": "member",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "베렝가",
+        "x": 75,
+        "y": 64.7,
+        "w": 22,
+        "h": 9,
+        "to": "member",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "원정 준비",
+        "x": 3.5,
+        "y": 74.5,
+        "w": 93,
+        "h": 8.7,
+        "to": "depart"
+      },
+      {
+        "label": "길드",
+        "x": 3.5,
+        "y": 85.4,
+        "w": 22,
+        "h": 6.5,
+        "to": "guild"
+      },
+      {
+        "label": "상회",
+        "x": 27.5,
+        "y": 85.4,
+        "w": 22,
+        "h": 6.5,
+        "to": "shop"
+      },
+      {
+        "label": "여관",
+        "x": 51.5,
+        "y": 85.4,
+        "w": 22,
+        "h": 6.5,
+        "to": "inn"
+      },
+      {
+        "label": "대장간",
+        "x": 75.5,
+        "y": 85.4,
+        "w": 22,
+        "h": 6.5,
+        "to": "smithy"
+      }
+    ]
+  },
+  {
+    "id": "roster",
+    "title": "동료",
+    "family": "companions",
+    "image": "01-companions.png",
+    "panel": 0,
+    "nav": "roster",
+    "back": "town",
+    "hotspots": [
+      {
+        "label": "힐데가르트",
+        "x": 2,
+        "y": 9,
+        "w": 52,
+        "h": 38,
+        "to": "member",
+        "message": ""
+      },
+      {
+        "label": "바르구트",
+        "x": 50,
+        "y": 15,
+        "w": 48,
+        "h": 33,
+        "to": "member",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "테이리스",
+        "x": 2,
+        "y": 46,
+        "w": 50,
+        "h": 41,
+        "to": "member",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "베렝가",
+        "x": 50,
+        "y": 48,
+        "w": 48,
+        "h": 39,
+        "to": "member",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "보유 동료 / 전체 동료 보기",
+        "x": 49,
+        "y": 1,
+        "w": 49,
+        "h": 5,
+        "message": "이 시안은 출전 동료 4명을 보여줍니다."
+      }
+    ]
+  },
+  {
+    "id": "member",
+    "title": "힐데가르트 · 개요",
+    "family": "companions",
+    "image": "01-companions.png",
+    "panel": 1,
+    "nav": "roster",
+    "back": "roster",
+    "hotspots": [
+      {
+        "label": "개요",
+        "x": 2,
+        "y": 57.7,
+        "w": 31,
+        "h": 5.5,
+        "to": "member"
+      },
+      {
+        "label": "기술",
+        "x": 34,
+        "y": 57.7,
+        "w": 31,
+        "h": 5.5,
+        "to": "skills"
+      },
+      {
+        "label": "편성 · 장비",
+        "x": 66,
+        "y": 57.7,
+        "w": 31,
+        "h": 5.5,
+        "to": "formation"
+      }
+    ]
+  },
+  {
+    "id": "skills",
+    "title": "힐데가르트 · 기술",
+    "family": "companions",
+    "image": "01-companions.png",
+    "panel": 2,
+    "nav": "roster",
+    "back": "member",
+    "hotspots": [
+      {
+        "label": "개요",
+        "x": 2,
+        "y": 34,
+        "w": 31,
+        "h": 4.5,
+        "to": "member"
+      },
+      {
+        "label": "기술",
+        "x": 34,
+        "y": 34,
+        "w": 31,
+        "h": 4.5,
+        "to": "skills"
+      },
+      {
+        "label": "편성 · 장비",
+        "x": 66,
+        "y": 34,
+        "w": 31,
+        "h": 4.5,
+        "to": "formation"
+      },
+      {
+        "label": "전방 근무 개시 연출 보기",
+        "x": 48,
+        "y": 55.4,
+        "w": 47,
+        "h": 5.4,
+        "to": "art"
+      },
+      {
+        "label": "일반 공격",
+        "x": 5,
+        "y": 63,
+        "w": 91,
+        "h": 8,
+        "message": "일반 공격 기술 설명 선택",
+        "selectGroup": "skill-description",
+        "value": "일반 공격"
+      },
+      {
+        "label": "도발",
+        "x": 5,
+        "y": 72.6,
+        "w": 91,
+        "h": 8,
+        "message": "도발 기술 설명 선택",
+        "selectGroup": "skill-description",
+        "value": "도발"
+      },
+      {
+        "label": "방어",
+        "x": 5,
+        "y": 82.2,
+        "w": 91,
+        "h": 8,
+        "message": "방어 기술 설명 선택",
+        "selectGroup": "skill-description",
+        "value": "방어"
+      }
+    ]
+  },
+  {
+    "id": "formation",
+    "title": "편성",
+    "family": "companions",
+    "image": "02-equipment.png",
+    "panel": 0,
+    "nav": "roster",
+    "back": "member",
+    "hotspots": [
+      {
+        "label": "힐데가르트 · 전열",
+        "x": 2,
+        "y": 17,
+        "w": 47,
+        "h": 20,
+        "message": "힐데가르트 · 전열 선택",
+        "selectGroup": "formation",
+        "value": "힐데가르트 · 전열"
+      },
+      {
+        "label": "바르구트 · 전열",
+        "x": 51,
+        "y": 17,
+        "w": 47,
+        "h": 20,
+        "message": "바르구트 · 전열 선택",
+        "selectGroup": "formation",
+        "value": "바르구트 · 전열"
+      },
+      {
+        "label": "테이리스 · 후열",
+        "x": 2,
+        "y": 37,
+        "w": 47,
+        "h": 20,
+        "message": "테이리스 · 후열 선택",
+        "selectGroup": "formation",
+        "value": "테이리스 · 후열"
+      },
+      {
+        "label": "베렝가 · 후열",
+        "x": 51,
+        "y": 37,
+        "w": 47,
+        "h": 20,
+        "message": "베렝가 · 후열 선택",
+        "selectGroup": "formation",
+        "value": "베렝가 · 후열"
+      },
+      {
+        "label": "동료 정보",
+        "x": 2,
+        "y": 57.5,
+        "w": 47,
+        "h": 5.5,
+        "to": "member"
+      },
+      {
+        "label": "장비 관리",
+        "x": 51,
+        "y": 57.5,
+        "w": 47,
+        "h": 5.5,
+        "to": "equipment"
+      },
+      {
+        "label": "힐데가르트",
+        "x": 3,
+        "y": 77,
+        "w": 22,
+        "h": 11,
+        "to": "member",
+        "message": ""
+      },
+      {
+        "label": "바르구트",
+        "x": 27,
+        "y": 77,
+        "w": 22,
+        "h": 11,
+        "to": "member",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "테이리스",
+        "x": 51,
+        "y": 77,
+        "w": 22,
+        "h": 11,
+        "to": "member",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "베렝가",
+        "x": 75,
+        "y": 77,
+        "w": 22,
+        "h": 11,
+        "to": "member",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      }
+    ]
+  },
+  {
+    "id": "equipment",
+    "title": "장비 보관함",
+    "family": "companions",
+    "image": "02-equipment.png",
+    "panel": 1,
+    "nav": "bag",
+    "back": "town",
+    "hotspots": [
+      {
+        "label": "무기 슬롯",
+        "x": 47,
+        "y": 38,
+        "w": 16,
+        "h": 13,
+        "message": "무기 슬롯 선택",
+        "selectGroup": "slot",
+        "value": "무기"
+      },
+      {
+        "label": "방어구 슬롯",
+        "x": 63.5,
+        "y": 38,
+        "w": 16,
+        "h": 13,
+        "message": "방어구 슬롯 선택",
+        "selectGroup": "slot",
+        "value": "방어구"
+      },
+      {
+        "label": "장신구 슬롯",
+        "x": 80,
+        "y": 38,
+        "w": 16,
+        "h": 13,
+        "message": "장신구 슬롯 선택",
+        "selectGroup": "slot",
+        "value": "장신구"
+      },
+      {
+        "label": "전체 필터",
+        "x": 3,
+        "y": 53.5,
+        "w": 23,
+        "h": 5,
+        "message": "전체 장비 분류 선택",
+        "selectGroup": "filter",
+        "value": "전체"
+      },
+      {
+        "label": "무기 필터",
+        "x": 27,
+        "y": 53.5,
+        "w": 23,
+        "h": 5,
+        "message": "무기 장비 분류 선택",
+        "selectGroup": "filter",
+        "value": "무기"
+      },
+      {
+        "label": "방어구 필터",
+        "x": 51,
+        "y": 53.5,
+        "w": 23,
+        "h": 5,
+        "message": "방어구 장비 분류 선택",
+        "selectGroup": "filter",
+        "value": "방어구"
+      },
+      {
+        "label": "장신구 필터",
+        "x": 75,
+        "y": 53.5,
+        "w": 23,
+        "h": 5,
+        "message": "장신구 장비 분류 선택",
+        "selectGroup": "filter",
+        "value": "장신구"
+      },
+      {
+        "label": "낡은 전투도끼 장착",
+        "x": 74,
+        "y": 69.4,
+        "w": 22,
+        "h": 5.5,
+        "message": "장착 버튼 동작을 확인했습니다.",
+        "confirm": true
+      },
+      {
+        "label": "장비 판매",
+        "x": 51,
+        "y": 69.4,
+        "w": 20,
+        "h": 5.5,
+        "message": "판매 버튼 동작을 확인했습니다.",
+        "confirm": true
+      },
+      {
+        "label": "빛바랜 창 장착",
+        "x": 74,
+        "y": 84.5,
+        "w": 22,
+        "h": 5.5,
+        "message": "장착 버튼 동작을 확인했습니다.",
+        "confirm": true
+      },
+      {
+        "label": "장비 판매",
+        "x": 51,
+        "y": 84.5,
+        "w": 20,
+        "h": 5.5,
+        "message": "판매 버튼 동작을 확인했습니다.",
+        "confirm": true
+      }
+    ]
+  },
+  {
+    "id": "art",
+    "title": "연출 미리보기",
+    "family": "companions",
+    "image": "02-equipment.png",
+    "panel": 2,
+    "nav": null,
+    "back": "skills",
+    "hotspots": [
+      {
+        "label": "이전",
+        "x": 4,
+        "y": 83,
+        "w": 29,
+        "h": 4.5,
+        "message": "고유 기술 연출 미리보기",
+        "effect": true
+      },
+      {
+        "label": "다시 재생",
+        "x": 35,
+        "y": 83,
+        "w": 29,
+        "h": 4.5,
+        "message": "고유 기술 연출 미리보기",
+        "effect": true
+      },
+      {
+        "label": "다음",
+        "x": 66,
+        "y": 83,
+        "w": 29,
+        "h": 4.5,
+        "message": "고유 기술 연출 미리보기",
+        "effect": true
+      },
+      {
+        "label": "닫기",
+        "x": 4,
+        "y": 88.4,
+        "w": 91,
+        "h": 5,
+        "to": "skills"
+      }
+    ]
+  },
+  {
+    "id": "depart",
+    "title": "원정 준비",
+    "family": "preparation",
+    "image": "03-preparation.png",
+    "panel": 0,
+    "nav": "depart",
+    "back": "town",
+    "hotspots": [
+      {
+        "label": "힐데가르트",
+        "x": 3,
+        "y": 35.7,
+        "w": 22,
+        "h": 18,
+        "to": "member",
+        "message": ""
+      },
+      {
+        "label": "바르구트",
+        "x": 27,
+        "y": 35.7,
+        "w": 22,
+        "h": 18,
+        "to": "member",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "테이리스",
+        "x": 51,
+        "y": 35.7,
+        "w": 22,
+        "h": 18,
+        "to": "member",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "베렝가",
+        "x": 75,
+        "y": 35.7,
+        "w": 22,
+        "h": 18,
+        "to": "member",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "힐데가르트",
+        "x": 3,
+        "y": 58,
+        "w": 22,
+        "h": 10,
+        "to": "member",
+        "message": ""
+      },
+      {
+        "label": "바르구트",
+        "x": 27,
+        "y": 58,
+        "w": 22,
+        "h": 10,
+        "to": "member",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "테이리스",
+        "x": 51,
+        "y": 58,
+        "w": 22,
+        "h": 10,
+        "to": "member",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "베렝가",
+        "x": 75,
+        "y": 58,
+        "w": 22,
+        "h": 10,
+        "to": "member",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "학술원으로 출발",
+        "x": 4,
+        "y": 88,
+        "w": 92,
+        "h": 5.5,
+        "to": "map"
+      }
+    ]
+  },
+  {
+    "id": "bag",
+    "title": "공용 가방",
+    "family": "preparation",
+    "image": "03-preparation.png",
+    "panel": 1,
+    "nav": "bag",
+    "back": "town",
+    "hotspots": [
+      {
+        "label": "보급품",
+        "x": 3,
+        "y": 10,
+        "w": 30,
+        "h": 7,
+        "to": "bag"
+      },
+      {
+        "label": "장비",
+        "x": 35,
+        "y": 10,
+        "w": 30,
+        "h": 7,
+        "to": "equipment"
+      },
+      {
+        "label": "탐색 카드",
+        "x": 67,
+        "y": 10,
+        "w": 30,
+        "h": 7,
+        "to": "cards"
+      },
+      {
+        "label": "전체 품목",
+        "x": 4,
+        "y": 18.5,
+        "w": 23,
+        "h": 5,
+        "message": "전체 분류 선택",
+        "selectGroup": "bag-filter",
+        "value": "전체"
+      },
+      {
+        "label": "회복 품목",
+        "x": 28,
+        "y": 18.5,
+        "w": 23,
+        "h": 5,
+        "message": "회복 분류 선택",
+        "selectGroup": "bag-filter",
+        "value": "회복"
+      },
+      {
+        "label": "소모 품목",
+        "x": 52,
+        "y": 18.5,
+        "w": 23,
+        "h": 5,
+        "message": "소모 분류 선택",
+        "selectGroup": "bag-filter",
+        "value": "소모"
+      },
+      {
+        "label": "기타 품목",
+        "x": 76,
+        "y": 18.5,
+        "w": 23,
+        "h": 5,
+        "message": "기타 분류 선택",
+        "selectGroup": "bag-filter",
+        "value": "기타"
+      },
+      {
+        "label": "회복약 · 소 사용",
+        "x": 78,
+        "y": 28.7,
+        "w": 18,
+        "h": 5.6,
+        "to": "item-target",
+        "message": ""
+      },
+      {
+        "label": "마나약 · 소 사용",
+        "x": 78,
+        "y": 45.5,
+        "w": 18,
+        "h": 5.6,
+        "to": "item-target",
+        "message": "회복약 대상 선택을 보여주는 시안입니다."
+      },
+      {
+        "label": "붕대 사용",
+        "x": 78,
+        "y": 62,
+        "w": 18,
+        "h": 5.6,
+        "to": "item-target",
+        "message": "회복약 대상 선택을 보여주는 시안입니다."
+      },
+      {
+        "label": "귀환 주문서 사용",
+        "x": 78,
+        "y": 78.7,
+        "w": 18,
+        "h": 5.6,
+        "to": "return-confirm",
+        "message": "회복약 대상 선택을 보여주는 시안입니다."
+      }
+    ]
+  },
+  {
+    "id": "item-target",
+    "title": "아이템 대상 선택",
+    "family": "preparation",
+    "image": "03-preparation.png",
+    "panel": 2,
+    "nav": "bag",
+    "back": "bag",
+    "hotspots": [
+      {
+        "label": "힐데가르트 선택",
+        "x": 3,
+        "y": 23.5,
+        "w": 94,
+        "h": 11.8,
+        "message": "힐데가르트 선택",
+        "selectGroup": "item-target",
+        "value": "힐데가르트"
+      },
+      {
+        "label": "바르구트 선택",
+        "x": 3,
+        "y": 36.5,
+        "w": 94,
+        "h": 11.8,
+        "message": "바르구트 선택",
+        "selectGroup": "item-target",
+        "value": "바르구트"
+      },
+      {
+        "label": "테이리스 선택",
+        "x": 3,
+        "y": 49.5,
+        "w": 94,
+        "h": 11.8,
+        "message": "테이리스 선택",
+        "selectGroup": "item-target",
+        "value": "테이리스"
+      },
+      {
+        "label": "베렝가 선택",
+        "x": 3,
+        "y": 62.5,
+        "w": 94,
+        "h": 11.8,
+        "message": "베렝가 선택",
+        "selectGroup": "item-target",
+        "value": "베렝가"
+      },
+      {
+        "label": "회복약 사용",
+        "x": 4,
+        "y": 76.2,
+        "w": 92,
+        "h": 6.1,
+        "message": "선택한 동료에게 사용했습니다. (클릭 시안)",
+        "confirm": true,
+        "after": "bag"
+      },
+      {
+        "label": "취소",
+        "x": 4,
+        "y": 84,
+        "w": 92,
+        "h": 5,
+        "to": "bag"
+      }
+    ]
+  },
+  {
+    "id": "guild",
+    "title": "길드 의뢰",
+    "family": "facilities",
+    "image": "04-guild.png",
+    "panel": 0,
+    "nav": "town",
+    "back": "town",
+    "hotspots": [
+      {
+        "label": "의뢰",
+        "x": 3,
+        "y": 55.1,
+        "w": 31,
+        "h": 5.3,
+        "to": "guild"
+      },
+      {
+        "label": "동료 소개",
+        "x": 35,
+        "y": 55.1,
+        "w": 31,
+        "h": 5.3,
+        "to": "recruit"
+      },
+      {
+        "label": "전술 연구",
+        "x": 67,
+        "y": 55.1,
+        "w": 31,
+        "h": 5.3,
+        "to": "research"
+      },
+      {
+        "label": "의뢰 수락",
+        "x": 4,
+        "y": 83.1,
+        "w": 92,
+        "h": 5.7,
+        "message": "의뢰 수락 버튼을 확인했습니다.",
+        "confirm": true,
+        "after": "depart"
+      }
+    ]
+  },
+  {
+    "id": "recruit",
+    "title": "동료 소개",
+    "family": "facilities",
+    "image": "04-guild.png",
+    "panel": 1,
+    "nav": "town",
+    "back": "town",
+    "hotspots": [
+      {
+        "label": "동료 소개 · 금화 100",
+        "x": 35,
+        "y": 72,
+        "w": 61,
+        "h": 7,
+        "message": "동료 소개 버튼을 확인했습니다.",
+        "confirm": true,
+        "after": "roster"
+      }
+    ]
+  },
+  {
+    "id": "research",
+    "title": "전술 연구",
+    "family": "facilities",
+    "image": "04-guild.png",
+    "panel": 2,
+    "nav": "town",
+    "back": "town",
+    "hotspots": [
+      {
+        "label": "기술 몸통 · 돌파의",
+        "x": 3,
+        "y": 54.5,
+        "w": 46,
+        "h": 13,
+        "message": "기술 몸통 선택",
+        "selectGroup": "research-prefix",
+        "value": "돌파의"
+      },
+      {
+        "label": "덧효과 · 추격",
+        "x": 53,
+        "y": 54.5,
+        "w": 44,
+        "h": 13,
+        "message": "덧효과 선택",
+        "selectGroup": "research-suffix",
+        "value": "추격"
+      },
+      {
+        "label": "이 조합 장착 · 무료",
+        "x": 4,
+        "y": 81.3,
+        "w": 60,
+        "h": 7,
+        "message": "돌파의 추격 조합을 선택했습니다. (클릭 시안)",
+        "confirm": true
+      },
+      {
+        "label": "전술 해제",
+        "x": 67,
+        "y": 81.3,
+        "w": 29,
+        "h": 7,
+        "message": "전술 해제 버튼을 확인했습니다.",
+        "confirm": true
+      }
+    ]
+  },
+  {
+    "id": "shop",
+    "title": "상회 · 보급품",
+    "family": "facilities",
+    "image": "05-commerce.png",
+    "panel": 0,
+    "nav": "town",
+    "back": "town",
+    "hotspots": [
+      {
+        "label": "보급품",
+        "x": 3,
+        "y": 44.5,
+        "w": 46,
+        "h": 5.5,
+        "to": "shop"
+      },
+      {
+        "label": "직업 장비",
+        "x": 50,
+        "y": 44.5,
+        "w": 46,
+        "h": 5.5,
+        "to": "shop-gear"
+      },
+      {
+        "label": "회복약 · 소 구입",
+        "x": 74,
+        "y": 56,
+        "w": 22,
+        "h": 4.7,
+        "message": "회복약 · 소 구입 버튼을 확인했습니다.",
+        "confirm": true
+      },
+      {
+        "label": "마나약 · 소 구입",
+        "x": 74,
+        "y": 69.8,
+        "w": 22,
+        "h": 4.7,
+        "message": "마나약 · 소 구입 버튼을 확인했습니다.",
+        "confirm": true
+      },
+      {
+        "label": "붕대 구입",
+        "x": 74,
+        "y": 83.6,
+        "w": 22,
+        "h": 4.7,
+        "message": "붕대 구입 버튼을 확인했습니다.",
+        "confirm": true
+      }
+    ]
+  },
+  {
+    "id": "shop-gear",
+    "title": "상회 · 직업 장비",
+    "family": "facilities",
+    "image": "05-commerce.png",
+    "panel": 1,
+    "nav": "town",
+    "back": "shop",
+    "hotspots": [
+      {
+        "label": "힐데가르트",
+        "x": 3,
+        "y": 32.5,
+        "w": 22,
+        "h": 8.5,
+        "to": "member",
+        "message": ""
+      },
+      {
+        "label": "바르구트",
+        "x": 27,
+        "y": 32.5,
+        "w": 22,
+        "h": 8.5,
+        "to": "member",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "테이리스",
+        "x": 51,
+        "y": 32.5,
+        "w": 22,
+        "h": 8.5,
+        "to": "member",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "베렝가",
+        "x": 75,
+        "y": 32.5,
+        "w": 22,
+        "h": 8.5,
+        "to": "member",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "무기 분류",
+        "x": 3,
+        "y": 44.5,
+        "w": 31,
+        "h": 5.8,
+        "message": "무기 분류 선택",
+        "selectGroup": "gear-filter",
+        "value": "무기"
+      },
+      {
+        "label": "방어구 분류",
+        "x": 34.5,
+        "y": 44.5,
+        "w": 31,
+        "h": 5.8,
+        "message": "방어구 분류 선택",
+        "selectGroup": "gear-filter",
+        "value": "방어구"
+      },
+      {
+        "label": "장신구 분류",
+        "x": 66,
+        "y": 44.5,
+        "w": 31,
+        "h": 5.8,
+        "message": "장신구 분류 선택",
+        "selectGroup": "gear-filter",
+        "value": "장신구"
+      },
+      {
+        "label": "낡은 전투도끼 구입",
+        "x": 74,
+        "y": 67.5,
+        "w": 22,
+        "h": 5.5,
+        "message": "낡은 전투도끼 구입 버튼을 확인했습니다.",
+        "confirm": true
+      },
+      {
+        "label": "빛바랜 창 구입",
+        "x": 74,
+        "y": 82.8,
+        "w": 22,
+        "h": 5.2,
+        "message": "빛바랜 창 구입 버튼을 확인했습니다.",
+        "confirm": true
+      }
+    ]
+  },
+  {
+    "id": "smithy",
+    "title": "한나의 대장간",
+    "family": "facilities",
+    "image": "05-commerce.png",
+    "panel": 2,
+    "nav": "town",
+    "back": "town",
+    "hotspots": [
+      {
+        "label": "장비 가공 · 금화 90",
+        "x": 4,
+        "y": 46.3,
+        "w": 92,
+        "h": 11.4,
+        "message": "장비 가공 버튼을 확인했습니다.",
+        "confirm": true
+      },
+      {
+        "label": "강화",
+        "x": 4,
+        "y": 83.7,
+        "w": 65,
+        "h": 5.6,
+        "message": "강화 버튼을 확인했습니다.",
+        "confirm": true
+      }
+    ]
+  },
+  {
+    "id": "inn",
+    "title": "아랫마을 여관",
+    "family": "town",
+    "image": "06-town-life.png",
+    "panel": 0,
+    "nav": "town",
+    "back": "town",
+    "hotspots": [
+      {
+        "label": "힐데가르트 정보",
+        "x": 4,
+        "y": 54.5,
+        "w": 92,
+        "h": 15,
+        "to": "member"
+      },
+      {
+        "label": "대화하기",
+        "x": 4,
+        "y": 76.4,
+        "w": 22.5,
+        "h": 10.6,
+        "message": "대화하기 · 무료 버튼을 확인했습니다.",
+        "confirm": true
+      },
+      {
+        "label": "함께 식사",
+        "x": 27.6,
+        "y": 76.4,
+        "w": 22.5,
+        "h": 10.6,
+        "message": "함께 식사 · 금화 25 버튼을 확인했습니다.",
+        "confirm": true
+      },
+      {
+        "label": "작은 선물",
+        "x": 51.2,
+        "y": 76.4,
+        "w": 22.5,
+        "h": 10.6,
+        "message": "작은 선물 · 금화 30 버튼을 확인했습니다.",
+        "confirm": true
+      },
+      {
+        "label": "곁에서 쉬기",
+        "x": 74.80000000000001,
+        "y": 76.4,
+        "w": 22.5,
+        "h": 10.6,
+        "message": "곁에서 쉬기 · 금화 20 버튼을 확인했습니다.",
+        "confirm": true
+      }
+    ]
+  },
+  {
+    "id": "journal",
+    "title": "모험 기록",
+    "family": "town",
+    "image": "06-town-life.png",
+    "panel": 1,
+    "nav": "journal",
+    "back": "town",
+    "hotspots": []
+  },
+  {
+    "id": "summary",
+    "title": "원정 정산",
+    "family": "town",
+    "image": "06-town-life.png",
+    "panel": 2,
+    "nav": "town",
+    "back": "town",
+    "hotspots": [
+      {
+        "label": "토르바로",
+        "x": 4,
+        "y": 87,
+        "w": 92,
+        "h": 5.5,
+        "to": "town"
+      }
+    ]
+  },
+  {
+    "id": "map",
+    "title": "탐색 지도",
+    "family": "expedition",
+    "image": "07-exploration.png",
+    "panel": 0,
+    "nav": "depart",
+    "back": "town",
+    "hotspots": [
+      {
+        "label": "학술원 입구",
+        "x": 38,
+        "y": 18,
+        "w": 24,
+        "h": 9,
+        "to": "map"
+      },
+      {
+        "label": "쓰러진 서가",
+        "x": 17,
+        "y": 27,
+        "w": 30,
+        "h": 10,
+        "to": "cards"
+      },
+      {
+        "label": "인형 순찰로",
+        "x": 65,
+        "y": 28,
+        "w": 31,
+        "h": 10,
+        "to": "battle"
+      },
+      {
+        "label": "봉인된 보관함",
+        "x": 7,
+        "y": 38,
+        "w": 28,
+        "h": 10,
+        "to": "cache"
+      },
+      {
+        "label": "붕괴한 회랑",
+        "x": 40,
+        "y": 39,
+        "w": 27,
+        "h": 10,
+        "to": "rest"
+      },
+      {
+        "label": "버려진 야영지",
+        "x": 72,
+        "y": 39,
+        "w": 27,
+        "h": 10,
+        "to": "cards"
+      },
+      {
+        "label": "닫힌 휴게실",
+        "x": 37,
+        "y": 46,
+        "w": 30,
+        "h": 9,
+        "to": "rest"
+      },
+      {
+        "label": "마도 집행실",
+        "x": 35,
+        "y": 54.5,
+        "w": 38,
+        "h": 7,
+        "to": "battle"
+      },
+      {
+        "label": "탐색 카드 · 2장",
+        "x": 4,
+        "y": 77,
+        "w": 92,
+        "h": 7,
+        "to": "cards"
+      },
+      {
+        "label": "귀환 · 정산",
+        "x": 27,
+        "y": 85.2,
+        "w": 69,
+        "h": 5.8,
+        "to": "return-confirm"
+      },
+      {
+        "label": "이전 장소",
+        "x": 4,
+        "y": 85.2,
+        "w": 19,
+        "h": 5.8,
+        "to": "depart"
+      }
+    ]
+  },
+  {
+    "id": "cache",
+    "title": "봉인된 보관함",
+    "family": "expedition",
+    "image": "07-exploration.png",
+    "panel": 1,
+    "nav": "depart",
+    "back": "map",
+    "hotspots": [
+      {
+        "label": "봉인 해제 카드 사용",
+        "x": 4,
+        "y": 74.5,
+        "w": 92,
+        "h": 6.8,
+        "message": "봉인된 보관함을 탐색했습니다. (클릭 시안)",
+        "confirm": true,
+        "after": "rest"
+      },
+      {
+        "label": "열지 않고 지나가기",
+        "x": 4,
+        "y": 83.3,
+        "w": 92,
+        "h": 6.4,
+        "to": "rest"
+      }
+    ]
+  },
+  {
+    "id": "rest",
+    "title": "닫힌 휴게실",
+    "family": "expedition",
+    "image": "07-exploration.png",
+    "panel": 2,
+    "nav": "depart",
+    "back": "map",
+    "hotspots": [
+      {
+        "label": "휴식 · HP30% / MP60% 회복",
+        "x": 4,
+        "y": 74,
+        "w": 92,
+        "h": 7.4,
+        "message": "휴식 버튼을 확인했습니다.",
+        "confirm": true,
+        "after": "battle"
+      },
+      {
+        "label": "쉬지 않고 이동 준비",
+        "x": 4,
+        "y": 82.2,
+        "w": 92,
+        "h": 5.8,
+        "to": "battle"
+      },
+      {
+        "label": "마도 집행실로",
+        "x": 64,
+        "y": 88.1,
+        "w": 32,
+        "h": 4,
+        "to": "battle"
+      }
+    ]
+  },
+  {
+    "id": "cards",
+    "title": "탐색 카드",
+    "family": "expedition",
+    "image": "08-cards-states.png",
+    "panel": 0,
+    "nav": "depart",
+    "back": "map",
+    "hotspots": [
+      {
+        "label": "봉인 해제 선택",
+        "x": 4,
+        "y": 46,
+        "w": 44,
+        "h": 28,
+        "message": "봉인 해제 카드 선택",
+        "selectGroup": "card",
+        "value": "봉인 해제"
+      },
+      {
+        "label": "봉인 해제 카드 1장 사용",
+        "x": 4,
+        "y": 76.5,
+        "w": 44,
+        "h": 5.2,
+        "message": "봉인 해제 카드 사용 버튼을 확인했습니다.",
+        "confirm": true,
+        "after": "map"
+      },
+      {
+        "label": "안전한 야영 선택",
+        "x": 53,
+        "y": 46,
+        "w": 44,
+        "h": 28,
+        "message": "안전한 야영 카드 선택",
+        "selectGroup": "card",
+        "value": "안전한 야영"
+      },
+      {
+        "label": "안전한 야영 카드 1장 사용",
+        "x": 53,
+        "y": 76.5,
+        "w": 44,
+        "h": 5.2,
+        "message": "안전한 야영 카드 사용 버튼을 확인했습니다.",
+        "confirm": true,
+        "after": "map"
+      },
+      {
+        "label": "원정으로",
+        "x": 4,
+        "y": 83.5,
+        "w": 92,
+        "h": 7,
+        "to": "map"
+      }
+    ]
+  },
+  {
+    "id": "return-confirm",
+    "title": "귀환 확인",
+    "family": "expedition",
+    "image": "08-cards-states.png",
+    "panel": 1,
+    "nav": "depart",
+    "back": "map",
+    "hotspots": [
+      {
+        "label": "닫기",
+        "x": 88,
+        "y": 43,
+        "w": 10,
+        "h": 6,
+        "to": "map"
+      },
+      {
+        "label": "계속 탐색",
+        "x": 6,
+        "y": 81,
+        "w": 42,
+        "h": 8,
+        "to": "map"
+      },
+      {
+        "label": "귀환 · 정산",
+        "x": 52,
+        "y": 81,
+        "w": 42,
+        "h": 8,
+        "to": "summary"
+      }
+    ]
+  },
+  {
+    "id": "empty",
+    "title": "빈 장비 보관함",
+    "family": "expedition",
+    "image": "08-cards-states.png",
+    "panel": 2,
+    "nav": "bag",
+    "back": "town",
+    "hotspots": [
+      {
+        "label": "상회에서 장비 찾기",
+        "x": 4,
+        "y": 86,
+        "w": 92,
+        "h": 6.5,
+        "to": "shop-gear"
+      }
+    ]
+  },
+  {
+    "id": "battle",
+    "title": "전투",
+    "family": "combat",
+    "image": "09-battle-core.png",
+    "panel": 0,
+    "nav": null,
+    "back": "map",
+    "hotspots": [
+      {
+        "label": "떠도는 등불 선택",
+        "x": 8,
+        "y": 17,
+        "w": 25,
+        "h": 16,
+        "to": "target"
+      },
+      {
+        "label": "견습 인형 선택",
+        "x": 38,
+        "y": 18,
+        "w": 24,
+        "h": 17,
+        "to": "target"
+      },
+      {
+        "label": "경보 수정구 선택",
+        "x": 69,
+        "y": 17,
+        "w": 26,
+        "h": 16,
+        "to": "target"
+      },
+      {
+        "label": "마도 집행 인형 선택",
+        "x": 66,
+        "y": 32,
+        "w": 31,
+        "h": 20,
+        "to": "target"
+      },
+      {
+        "label": "일반 공격",
+        "x": 4,
+        "y": 65,
+        "w": 46,
+        "h": 7.5,
+        "to": "target"
+      },
+      {
+        "label": "도발",
+        "x": 52,
+        "y": 65,
+        "w": 44,
+        "h": 7.5,
+        "to": "signature"
+      },
+      {
+        "label": "방어",
+        "x": 4,
+        "y": 73.5,
+        "w": 46,
+        "h": 7.5,
+        "message": "방어 행동을 선택했습니다. (클릭 시안)",
+        "confirm": true
+      },
+      {
+        "label": "전방 근무 개시",
+        "x": 52,
+        "y": 73.5,
+        "w": 44,
+        "h": 7.5,
+        "to": "signature"
+      },
+      {
+        "label": "기술 선택",
+        "x": 4,
+        "y": 54,
+        "w": 61,
+        "h": 6,
+        "to": "battle-skills"
+      },
+      {
+        "label": "보급품",
+        "x": 69,
+        "y": 0.4,
+        "w": 15,
+        "h": 4.7,
+        "to": "battle-items",
+        "visible": true
+      },
+      {
+        "label": "전투 기록",
+        "x": 85,
+        "y": 0.4,
+        "w": 14,
+        "h": 4.7,
+        "to": "battle-log",
+        "visible": true
+      },
+      {
+        "label": "힐데가르트",
+        "x": 3,
+        "y": 82,
+        "w": 22,
+        "h": 15,
+        "to": "ally",
+        "message": ""
+      },
+      {
+        "label": "바르구트",
+        "x": 27,
+        "y": 82,
+        "w": 22,
+        "h": 15,
+        "to": "ally",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "테이리스",
+        "x": 51,
+        "y": 82,
+        "w": 22,
+        "h": 15,
+        "to": "ally",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "베렝가",
+        "x": 75,
+        "y": 82,
+        "w": 22,
+        "h": 15,
+        "to": "ally",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      }
+    ]
+  },
+  {
+    "id": "target",
+    "title": "공격 대상 선택",
+    "family": "combat",
+    "image": "09-battle-core.png",
+    "panel": 1,
+    "nav": null,
+    "back": "map",
+    "hotspots": [
+      {
+        "label": "떠도는 등불 공격",
+        "x": 8,
+        "y": 17,
+        "w": 25,
+        "h": 16,
+        "message": "일반 공격 실행을 확인했습니다. (클릭 시안)",
+        "after": "battle"
+      },
+      {
+        "label": "견습 인형 공격",
+        "x": 38,
+        "y": 18,
+        "w": 24,
+        "h": 17,
+        "message": "일반 공격 실행을 확인했습니다. (클릭 시안)",
+        "after": "battle"
+      },
+      {
+        "label": "경보 수정구 공격",
+        "x": 69,
+        "y": 17,
+        "w": 26,
+        "h": 16,
+        "message": "일반 공격 실행을 확인했습니다. (클릭 시안)",
+        "after": "battle"
+      },
+      {
+        "label": "마도 집행 인형 공격",
+        "x": 66,
+        "y": 32,
+        "w": 31,
+        "h": 20,
+        "message": "일반 공격 실행을 확인했습니다. (클릭 시안)",
+        "after": "battle"
+      },
+      {
+        "label": "보급품",
+        "x": 69,
+        "y": 0.4,
+        "w": 15,
+        "h": 4.7,
+        "to": "battle-items",
+        "visible": true
+      },
+      {
+        "label": "전투 기록",
+        "x": 85,
+        "y": 0.4,
+        "w": 14,
+        "h": 4.7,
+        "to": "battle-log",
+        "visible": true
+      },
+      {
+        "label": "힐데가르트",
+        "x": 3,
+        "y": 82,
+        "w": 22,
+        "h": 15,
+        "to": "ally",
+        "message": ""
+      },
+      {
+        "label": "바르구트",
+        "x": 27,
+        "y": 82,
+        "w": 22,
+        "h": 15,
+        "to": "ally",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "테이리스",
+        "x": 51,
+        "y": 82,
+        "w": 22,
+        "h": 15,
+        "to": "ally",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "베렝가",
+        "x": 75,
+        "y": 82,
+        "w": 22,
+        "h": 15,
+        "to": "ally",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "대상 선택 취소",
+        "x": 64,
+        "y": 54,
+        "w": 33,
+        "h": 5,
+        "to": "battle"
+      }
+    ]
+  },
+  {
+    "id": "ally",
+    "title": "아군 상태",
+    "family": "combat",
+    "image": "09-battle-core.png",
+    "panel": 2,
+    "nav": null,
+    "back": "map",
+    "hotspots": [
+      {
+        "label": "보급품",
+        "x": 69,
+        "y": 0.4,
+        "w": 15,
+        "h": 4.7,
+        "to": "battle-items",
+        "visible": true
+      },
+      {
+        "label": "전투 기록",
+        "x": 85,
+        "y": 0.4,
+        "w": 14,
+        "h": 4.7,
+        "to": "battle-log",
+        "visible": true
+      },
+      {
+        "label": "힐데가르트",
+        "x": 3,
+        "y": 82,
+        "w": 22,
+        "h": 15,
+        "to": "ally",
+        "message": ""
+      },
+      {
+        "label": "바르구트",
+        "x": 27,
+        "y": 82,
+        "w": 22,
+        "h": 15,
+        "to": "ally",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "테이리스",
+        "x": 51,
+        "y": 82,
+        "w": 22,
+        "h": 15,
+        "to": "ally",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "베렝가",
+        "x": 75,
+        "y": 82,
+        "w": 22,
+        "h": 15,
+        "to": "ally",
+        "message": "힐데가르트 기준 상세 시안입니다."
+      },
+      {
+        "label": "아군 상태 닫기",
+        "x": 79,
+        "y": 51.5,
+        "w": 19,
+        "h": 4.5,
+        "to": "battle"
+      }
+    ]
+  },
+  {
+    "id": "battle-skills",
+    "title": "기술 선택 · 마나 부족",
+    "family": "combat",
+    "image": "10-battle-tools.png",
+    "panel": 0,
+    "nav": null,
+    "back": "map",
+    "hotspots": [
+      {
+        "label": "마력 폭발 · 마나 16 부족",
+        "x": 5,
+        "y": 70,
+        "w": 91,
+        "h": 9,
+        "disabled": true
+      },
+      {
+        "label": "마감 전날 대폭발 · 마나 16 부족",
+        "x": 5,
+        "y": 80,
+        "w": 91,
+        "h": 9,
+        "disabled": true
+      },
+      {
+        "label": "취소",
+        "x": 5,
+        "y": 90.5,
+        "w": 91,
+        "h": 5.5,
+        "to": "battle"
+      }
+    ]
+  },
+  {
+    "id": "battle-items",
+    "title": "전투 보급품",
+    "family": "combat",
+    "image": "10-battle-tools.png",
+    "panel": 1,
+    "nav": null,
+    "back": "map",
+    "hotspots": [
+      {
+        "label": "회복약 · 소 선택",
+        "x": 4,
+        "y": 53,
+        "w": 92,
+        "h": 6.3,
+        "message": "회복약 · 소 선택",
+        "selectGroup": "battle-item",
+        "value": "회복약 · 소"
+      },
+      {
+        "label": "마나약 · 소 선택",
+        "x": 4,
+        "y": 59.8,
+        "w": 92,
+        "h": 6.3,
+        "message": "마나약 · 소 선택",
+        "selectGroup": "battle-item",
+        "value": "마나약 · 소"
+      },
+      {
+        "label": "붕대 선택",
+        "x": 4,
+        "y": 66.6,
+        "w": 92,
+        "h": 6.3,
+        "message": "붕대 선택",
+        "selectGroup": "battle-item",
+        "value": "붕대"
+      },
+      {
+        "label": "힐데가르트에게 사용",
+        "x": 4,
+        "y": 77,
+        "w": 23,
+        "h": 11,
+        "message": "힐데가르트 대상 선택",
+        "selectGroup": "battle-item-target",
+        "value": "힐데가르트"
+      },
+      {
+        "label": "바르구트에게 사용",
+        "x": 27.7,
+        "y": 77,
+        "w": 23,
+        "h": 11,
+        "message": "바르구트 대상 선택",
+        "selectGroup": "battle-item-target",
+        "value": "바르구트"
+      },
+      {
+        "label": "테이리스에게 사용",
+        "x": 51.4,
+        "y": 77,
+        "w": 23,
+        "h": 11,
+        "message": "테이리스 대상 선택",
+        "selectGroup": "battle-item-target",
+        "value": "테이리스"
+      },
+      {
+        "label": "베렝가에게 사용",
+        "x": 75.1,
+        "y": 77,
+        "w": 23,
+        "h": 11,
+        "message": "베렝가 대상 선택",
+        "selectGroup": "battle-item-target",
+        "value": "베렝가"
+      },
+      {
+        "label": "취소",
+        "x": 4,
+        "y": 90.5,
+        "w": 44,
+        "h": 5.5,
+        "to": "battle"
+      },
+      {
+        "label": "사용하기",
+        "x": 52,
+        "y": 90.5,
+        "w": 44,
+        "h": 5.5,
+        "message": "보급품 사용 버튼을 확인했습니다. (클릭 시안)",
+        "confirm": true,
+        "after": "battle"
+      }
+    ]
+  },
+  {
+    "id": "battle-log",
+    "title": "전투 기록",
+    "family": "combat",
+    "image": "10-battle-tools.png",
+    "panel": 2,
+    "nav": null,
+    "back": "map",
+    "hotspots": [
+      {
+        "label": "전투 기록 닫기",
+        "x": 82,
+        "y": 44,
+        "w": 15,
+        "h": 5,
+        "to": "battle"
+      }
+    ]
+  },
+  {
+    "id": "signature",
+    "title": "고유 기술 연출",
+    "family": "combat",
+    "image": "11-battle-results.png",
+    "panel": 0,
+    "nav": null,
+    "back": "map",
+    "hotspots": [
+      {
+        "label": "연출 건너뛰기",
+        "x": 71,
+        "y": 66,
+        "w": 26,
+        "h": 4,
+        "to": "battle"
+      }
+    ]
+  },
+  {
+    "id": "victory",
+    "title": "전투 승리",
+    "family": "combat",
+    "image": "11-battle-results.png",
+    "panel": 1,
+    "nav": null,
+    "back": "map",
+    "hotspots": [
+      {
+        "label": "원정으로",
+        "x": 5,
+        "y": 86.2,
+        "w": 91,
+        "h": 10,
+        "to": "map"
+      }
+    ]
+  },
+  {
+    "id": "defeat",
+    "title": "전투 패배",
+    "family": "combat",
+    "image": "11-battle-results.png",
+    "panel": 2,
+    "nav": null,
+    "back": "map",
+    "hotspots": [
+      {
+        "label": "정산으로",
+        "x": 5,
+        "y": 86.2,
+        "w": 91,
+        "h": 10,
+        "to": "summary"
+      }
+    ]
+  }
+]

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#211f1c">
+  <meta name="description" content="Into the Abyss B 디자인 시안의 버튼을 눌러 전체 장면을 둘러보는 모바일 클릭 프로토타입.">
+  <title>Into the Abyss · B 클릭 시안</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="toolbar">
+    <button id="history-back" class="tool icon-tool" aria-label="이전 화면">←</button>
+    <button id="open-index" class="scene-picker" aria-haspopup="dialog"><span id="scene-title">토르바</span><span aria-hidden="true">⌄</span></button>
+    <span class="prototype-label">클릭 시안</span>
+    <button id="toggle-hints" class="tool" aria-pressed="false" title="클릭 가능한 영역 표시">영역</button>
+    <a class="tool" href="boards.html" target="_blank" rel="noopener">시안집</a>
+  </header>
+  <main id="viewer" aria-label="B 디자인 클릭 시안">
+    <div id="screen" tabindex="-1" aria-label="토르바">
+      <div class="art-clip" aria-hidden="true"><img id="scene-art" alt="" fetchpriority="high"></div>
+      <div id="hotspots"></div>
+      <nav id="game-nav" aria-label="게임 메뉴"></nav>
+      <div id="image-loading" role="status">시안을 여는 중…</div>
+    </div>
+  </main>
+  <p id="toast" role="status" aria-live="polite"></p>
+  <dialog id="scene-index" aria-labelledby="index-title">
+    <header class="dialog-head"><h1 id="index-title">장면 선택</h1><button class="tool" data-close="scene-index" aria-label="장면 선택 닫기">닫기 ×</button></header>
+    <p class="dialog-intro">버튼으로 연결한 34개 화면·상태입니다. 게임 데이터는 저장하지 않습니다.</p>
+    <div id="scene-links"></div>
+    <footer><button id="restart" class="primary">처음부터 보기</button></footer>
+  </dialog>
+  <dialog id="action-dialog" aria-labelledby="action-title">
+    <header class="dialog-head"><h2 id="action-title">동작 확인</h2><button class="tool" data-close="action-dialog" aria-label="동작 확인 닫기">닫기 ×</button></header>
+    <p id="action-description"></p>
+    <p class="sample-note">화면 흐름을 확인하는 시안입니다. 실제 구매·저장·전투 계산은 실행하지 않습니다.</p>
+    <div class="dialog-actions"><button id="action-cancel" class="secondary">취소</button><button id="action-confirm" class="primary">확인</button></div>
+  </dialog>
+  <noscript><p class="no-script">화면 버튼을 사용하려면 JavaScript를 켜 주세요. <a href="boards.html">시안집 보기</a></p></noscript>
+</body>
+</html>
