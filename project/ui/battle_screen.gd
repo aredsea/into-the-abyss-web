@@ -53,6 +53,7 @@ var field_visual: Control
 var field_home = Vector2.ZERO
 var field_back: Control
 var motion_hurt_ids: Array = []
+static var enemy_pixels: Dictionary = {}
 var shown_hp: Dictionary = {}
 var presenting_source = ""
 
@@ -703,11 +704,16 @@ func _enemy_art(e: Dictionary, rect: Rect2, parent: Control, pixel=false) -> Tex
 	atlas.region=Rect2(b[0],b[1],b[2]-b[0],b[3]-b[1])
 	var art=TextureRect.new(); art.texture=atlas; art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
 	if pixel:
-		var image=atlas.get_image()
-		var ratio=minf(rect.size.x/image.get_width(),rect.size.y/image.get_height())
-		var dimensions=Vector2i(maxi(1,roundi(image.get_width()*ratio/2)),maxi(1,roundi(image.get_height()*ratio/2)))
-		image.resize(dimensions.x,dimensions.y,Image.INTERPOLATE_NEAREST)
-		art.texture=ImageTexture.create_from_image(image)
+		var source_size=atlas.region.size
+		var ratio=minf(rect.size.x/source_size.x,rect.size.y/source_size.y)
+		var dimensions=Vector2i(maxi(1,roundi(source_size.x*ratio/2)),maxi(1,roundi(source_size.y*ratio/2)))
+		# Rebuilds happen every action; resample each enemy raster once per size.
+		var key="%s|%s|%s" % [e.art,str(b),str(dimensions)]
+		if not enemy_pixels.has(key):
+			var image=atlas.get_image()
+			image.resize(dimensions.x,dimensions.y,Image.INTERPOLATE_NEAREST)
+			enemy_pixels[key]=ImageTexture.create_from_image(image)
+		art.texture=enemy_pixels[key]
 		var extent=Vector2(dimensions)*2
 		rect=Rect2((rect.position+Vector2((rect.size.x-extent.x)/2,rect.size.y-extent.y)).round(),extent)
 	art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; art.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
