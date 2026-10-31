@@ -13,6 +13,8 @@
 | openai/gpt-5.6-luna | P1 signature_sequence.gd:43 · battle_screen.gd:475 따옴표 누락(파싱 오류) | 기각 | 검수자 콘솔이 한글을 깨뜨린 착시 — 파일은 정상 UTF-8, 스크립트 로드·r18 4,592/r17 2,931 검사 통과 |
 | openai/gpt-5.6-luna | P2 360폭 작은 적 4마리 겹침 | 기각 | 전투 데이터는 늘 lantern/apprentice/orb+executor 고정(작은 적 ≤3), expansion_world 는 수치만 조정 |
 | openai/gpt-5.6-luna | P2 적 래스터를 재구성마다 다시 샘플링 | 채택·수정 | 크기별 정적 캐시(`enemy_pixels`) — R2 확인 지적 0 |
+| openai/gpt-5.6-luna | P1 5~6행동 동료의 방어(guard)가 기술 시트에서 빠져 도달 불가 | 기각 | `_skill_ids()` 는 행동이 4개 초과면 guard 를 남긴다(`id!="guard" or ids.size()>4`); r19 실제 포인터 입력 검사가 10명 전원의 비공격 행동 존재를 확인 |
+| openai/gpt-5.6-luna | P2 시트 하단 버튼이 시트(245px)보다 2px 아래로 나옴 | 기각 | 시안 DOM 대비 ≤2px 위치이고, 아래 아군 카드는 시트 시작+255px 에서 시작해 겹치는 요소 없음, 배경도 같은 종이색 |
 
 ## 회차
 
@@ -30,3 +32,10 @@
 - 구현: 로컬 Codex gpt-6.1-sol high(e30c454). 수정: Claude Opus 5.5(적 래스터 캐시).
 - 외부: openai/gpt-5.6-luna (OpenRouter, high) R1 지적 4 / 채택 1 · 기각 3 · R2 지적 0.
 - 결과: 채택 지적 잔여 0. 게이트 실패 0 (world 44 · state 54 · route 41 · expansion 3,350 · r17 입력 2,931 · r9 944 · r18 4,592 · r18 상태 3,540 · motion/asset/art/licenses PASS · export exit 0).
+
+### 2026-10-31 · r19 승인 시안 배치 일치 (d23627c..)
+- 대상 diff: project/ui, project/tests, export_presets.cfg
+- 등급: **T1** — 표시 계층(배치·시트 진입·표시용 기록·웹 배율), game/data 불변, 되돌리기 쉬움(브랜치).
+- 구현: 로컬 Codex gpt-6.1-sol high. 수정: Claude Opus 5.5(테스트 무음 오디오, 웹 1:1 배율을 휴대폰 세로·360×780 하한으로 제한, 전장 경계 잉크 프레임 클리핑).
+- 외부: openai/gpt-5.6-luna (OpenRouter, high) R1 지적 2 / 기각 2.
+- 결과: 채택 지적 잔여 0. 게이트 실패 0 (r17 입력 3,299 · r18 4,592 · r18 상태 3,540 · r19 859 · 기존 전부) · 웹 5개 크기(390×844·360×780·360 축소·390×664·1280×800) 통과.
