@@ -1,0 +1,173 @@
+{
+  "changed_baseline_files": [
+    "README.md",
+    "project/ui/battle_screen.gd",
+    "project/ui/combat_fx.gd",
+    "project/ui/combat_presentation.gd",
+    "project/ui/motion_library.gd",
+    "project/ui/signature_sequence.gd",
+    "tools/update_version.py"
+  ],
+  "new_source_files": [
+    "project/ui/battle_body_r18.gd",
+    "project/ui/battle_body_r18.gd.uid",
+    "project/ui/pixel_brush_r18.gd",
+    "project/ui/pixel_brush_r18.gd.uid",
+    "project/ui/signature_fx_r18.gd",
+    "project/ui/signature_fx_r18.gd.uid",
+    "project/tests/motion_r18_integration.gd",
+    "project/tests/motion_r18_integration.gd.uid",
+    "project/tests/ui_battle_r18_test.gd",
+    "project/tests/ui_battle_r18_test.gd.uid",
+    "tools/audit_r18.py",
+    "tools/review_r18.py",
+    "tools/verify_r18.py"
+  ],
+  "protected_game_data_files": 29,
+  "protected_game_data_preserved": 29,
+  "protected_changes": [],
+  "original_assets_checked": 96,
+  "original_asset_hash_errors": [],
+  "unexpected_shared_ui_changes": [],
+  "world_screen_unchanged": true,
+  "pck_before_bytes": 50701272,
+  "pck_after_bytes": 50708868,
+  "pck_delta_bytes": 7596,
+  "pck_delta_percent": 0.015,
+  "version": {
+    "build": "torva-art-20261027-r4b",
+    "ui_build": "battle-r18-20261031",
+    "engine": "Godot 4.7.2",
+    "pck_sha256": "1b3538f0ef1b90e87ec12fccb43da298da1f1ca80ac7cea2e9942d1d36633d40",
+    "wasm_sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0"
+  },
+  "pck_matches_version": true,
+  "wasm_matches_version": true,
+  "verification_steps": {
+    "checks": [
+      {
+        "test": "import",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": []
+      },
+      {
+        "test": "world_test",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "WORLD TESTS: 44 checks, 0 failures"
+        ]
+      },
+      {
+        "test": "state_test",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "COMBAT CHECKS: 54; FAILURES: 0"
+        ]
+      },
+      {
+        "test": "route_test",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "ROUTE TESTS: 41 checks, 0 failures"
+        ]
+      },
+      {
+        "test": "expansion_test",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "EXPANSION CHECKS 3350 FAILURES 0"
+        ]
+      },
+      {
+        "test": "balance_probe",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "BALANCE [{\"mean_turns\":6.2,\"party\":[\"hildegard\",\"bargut\",\"teiris\",\"berenga\"],\"remaining_hp\":0.748201452562796,\"seeds\":40,\"wins\":40},{\"mean_turns\":16.6,\"party\":[\"marceline\",\"gunhild\",\"naran\",\"lynette\"],\"remaining_hp\":0.896078055924337,\"seeds\":40,\"wins\":40},{\"mean_turns\":15.025,\"party\":[\"erdene\",\"bianca\",\"judith\",\"sorel\"],\"remaining_hp\":0.94296218487395,\"seeds\":40,\"wins\":40},{\"mean_turns\":14.15,\"party\":[\"saya\",\"tove\",\"gerda\",\"miko\"],\"remaining_hp\":0.760862677111657,\"seeds\":40,\"wins\":40},{\"mean_turns\":12.75,\"party\":[\"zahar\",\"tika\",\"levia\",\"urda\"],\"remaining_hp\":0.816304448632532,\"seeds\":40,\"wins\":40},{\"mean_turns\":13.775,\"party\":[\"haldric\",\"selva\",\"hedwig\",\"altan\"],\"remaining_hp\":0.961538461538461,\"seeds\":40,\"wins\":40},{\"mean_turns\":22.95,\"party\":[\"hildegard\",\"jorund\",\"colette\",\"felice\"],\"remaining_hp\":0.674105921394834,\"seeds\":40,\"wins\":40},{\"mean_turns\":11.5,\"party\":[\"bargut\",\"tove\",\"ornel\",\"adeline\"],\"remaining_hp\":0.684868217936009,\"seeds\":40,\"wins\":40}]"
+        ]
+      },
+      {
+        "test": "motion_test",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": []
+      },
+      {
+        "test": "motion_asset_test",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": []
+      },
+      {
+        "test": "art_test",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": []
+      },
+      {
+        "test": "export_licenses",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": []
+      }
+    ],
+    "input": [
+      {
+        "test": "input",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "R17 BATTLE UI 2931 CHECKS / 0 FAILURES"
+        ]
+      }
+    ],
+    "motion": [
+      {
+        "test": "motion-integration",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "R9 INTEGRATION: 944 checks / 0 failures"
+        ]
+      }
+    ],
+    "state": [
+      {
+        "test": "state-integration",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "R18 STATE INTEGRATION: 3540 checks / 0 failures"
+        ]
+      }
+    ],
+    "render": [
+      {
+        "test": "r18-render",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "R18: 4592 checks / 0 failures; 30 distinct effect hashes"
+        ]
+      }
+    ],
+    "export": [
+      {
+        "test": "export",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "[  43% ] \u001b[90m\u001b[1msavepack\u001b[22m | 파일 저장 중: res://licenses/GowunBatang-OFL.txt\u001b[39m\u001b[0m",
+          "[  44% ] \u001b[90m\u001b[1msavepack\u001b[22m | 파일 저장 중: res://licenses/GODOT_AND_THIRD_PARTY.txt\u001b[39m\u001b[0m"
+        ]
+      }
+    ]
+  },
+  "errors": [],
+  "known_environment_message": "Windows root certificate store unavailable; network behavior not tested."
+}

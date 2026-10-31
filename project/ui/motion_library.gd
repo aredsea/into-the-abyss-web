@@ -28,17 +28,24 @@ static func uses_reference(clip: Dictionary, frame: int) -> bool:
 		if int(value) == frame: return true
 	return false
 
-static func draw_frame(canvas: CanvasItem, clip: Dictionary, frame: int, rect: Rect2, step: Vector2 = Vector2.ZERO) -> void:
+static func draw_frame(canvas: CanvasItem, clip: Dictionary, frame: int, rect: Rect2, step: Vector2 = Vector2.ZERO, pixel: int = 0) -> void:
 	var cell = int(clip.get("frame_size", 256))
 	var columns = int(clip.get("columns", 5))
 	var region = Rect2((frame % columns) * cell, int(frame / columns) * cell, cell, cell)
 	var side = rect.size.y * float(cell) / float(clip.get("body_height", 204))
+	if pixel>0: side=roundf(side/cell/pixel*cell)*pixel
 	var scale_factor = side / cell
 	var origin = Vector2(rect.get_center().x - side / 2.0, rect.end.y - side * float(clip.get("foot_y", 230)) / cell) + step
+	if pixel>0: origin=origin.round()
 	if uses_reference(clip, frame):
-		canvas.draw_texture_rect(texture(clip.reference_path), Rect2(origin, Vector2.ONE * side), false)
+		var tex=normalized_texture(clip.reference_path,roundi(side/pixel),roundi(side/pixel)) if pixel>0 else texture(clip.reference_path)
+		canvas.draw_texture_rect(tex, Rect2(origin, Vector2.ONE * side), false)
 		return
 	var body = texture(clip.path)
+	if pixel>0:
+		var n=roundi(side/pixel)
+		body=normalized_texture(clip.path,columns*n,roundi(body.get_height()/float(cell))*n)
+		region=Rect2((frame%columns)*n,int(frame/columns)*n,n,n)
 	canvas.draw_texture_rect_region(body, Rect2(origin, Vector2.ONE * side), region)
 	if not clip.has("weapon"): return
 	var attachment = clip.weapon
@@ -51,4 +58,12 @@ static func draw_frame(canvas: CanvasItem, clip: Dictionary, frame: int, rect: R
 	var patch = attachment.hand_patch
 	var offset = hand + Vector2(patch[0], patch[1])
 	var patch_size = Vector2(patch[2], patch[3])
-	canvas.draw_texture_rect_region(body, Rect2(origin + offset * scale_factor, patch_size * scale_factor), Rect2(region.position + offset, patch_size))
+	canvas.draw_texture_rect_region(texture(clip.path), Rect2(origin + offset * scale_factor, patch_size * scale_factor), Rect2(Vector2((frame%columns)*cell,int(frame/columns)*cell) + offset, patch_size))
+
+static func normalized_texture(path: String,w: int,h: int) -> Texture2D:
+	var key=path+":"+str(w)+":"+str(h)
+	if not textures.has(key):
+		var image=texture(path).get_image()
+		image.resize(w,h,Image.INTERPOLATE_NEAREST)
+		textures[key]=ImageTexture.create_from_image(image)
+	return textures[key]

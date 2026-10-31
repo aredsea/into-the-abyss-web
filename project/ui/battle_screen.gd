@@ -6,7 +6,7 @@ var session_save: Callable
 
 const BattleState = preload("res://game/battle_state.gd")
 const ModernBattle=preload("res://game/battle_v3.gd")
-const CharacterSprite=preload("res://ui/character_sprite.gd")
+const CharacterSprite=preload("res://ui/battle_body_r18.gd")
 const SignatureSequence=preload("res://ui/signature_sequence.gd")
 const ForgedButton=preload("res://ui/forged_button.gd")
 const CombatFX=preload("res://ui/combat_fx.gd")
@@ -198,27 +198,39 @@ func _battlefield(rect: Rect2) -> void:
 	var small=enemies.filter(func(e): return e.id!="executor")
 	var order={"lantern":0,"apprentice":1,"orb":2}
 	small.sort_custom(func(a,b): return order.get(a.id,3)<order.get(b.id,3))
-	var big_height=minf(103,65+(rect.size.y-224)*.594)
-	# Keep small-enemy touch areas above the executor's so short fields never overlap.
-	var small_height=75.0 if small.size()==enemies.size() else minf(75.0,rect.size.y-big_height-44-12-34-1)
-	for i in range(enemies.size()):
-		var e=enemies[i]; var big=e.id=="executor"; var index=small.find(e)
-		var center=rect.size.x*.815 if big else rect.size.x*(index+.5)/maxi(1,small.size())
-		var height=big_height if big else small_height
-		var top=rect.size.y-height-44 if big else 12.0
-		var hud_w=minf(119 if big else 112,rect.size.x/maxi(1,small.size())-4)
-		var hit=_button("enemy:"+e.id,Rect2(center-hud_w/2,top,hud_w,height+34),_enemy_pressed.bind(e.id),false,field,true)
+	# Upper enemies live behind the foreground companion. Only their paper
+	# targets partition the rear lane, each at least 44px. The foreground body
+	# never obscures the paper labels; those stay above moving battle figures.
+	var lane_left=roundf(rect.size.x*.43)
+	var lane_width=rect.size.x-lane_left-3
+	var col=lane_width/maxi(1,small.size())
+	var small_h=96.0 if rect.size.y<250 else 105.0
+	for e in enemies:
+		var big=e.id=="executor"; var index=small.find(e)
+		var hud_w=112.0 if big else minf(112,col-2)
+		var center=rect.size.x*.81 if big else lane_left+col*(index+.5)
+		var height=roundf(91+(rect.size.y-224)*.76) if big else small_h
+		var hud_y=rect.size.y-36 if big else small_h+3
+		var hit_top=small_h+44 if big and not small.is_empty() else maxf(0,hud_y-height-4) if big else 0.0
+		var hit_h=rect.size.y-hit_top if big else small_h+43
+		var hit=_button("enemy:"+e.id,Rect2(roundf(center-hud_w/2),hit_top,hud_w,hit_h),_enemy_pressed.bind(e.id),false,field,true)
+		var local_hud=hud_y-hit_top
+		var art_w=160.0 if big else 112.0
+		var body_rect=Rect2((hud_w-art_w)/2,local_hud-height-3,art_w,height)
 		if not pending_action.is_empty() and state.selected_enemy==e.id:
-			_ink(Rect2(-5,height-20,hud_w+10,24),"target-"+e.id,RED,hit)
-		var art=_enemy_art(e,Rect2(0,0,hud_w,height),hit)
+			_ink(Rect2(-3,local_hud-17,hud_w+6,20),"target-"+e.id,RED,hit)
+		var art=_enemy_art(e,body_rect,hit,true)
 		enemy_visuals[e.id]={"node":art,"home":art.position}; shown_hp[e.id]=e.hp
-		var hud=_color(Rect2(0,height+5,hud_w,30),PAPER,hit)
-		_label(e.name,Rect2(2,0,hud_w-4,14),12,INK,hud,HORIZONTAL_ALIGNMENT_CENTER)
-		_meter(Rect2(3,14,hud_w-6,2),e.hp,e.mhp,true,hud)
-		_label("HP %d/%d" % [e.hp,e.mhp],Rect2(2,16,hud_w-4,14),12,INK,hud,HORIZONTAL_ALIGNMENT_CENTER)
-	actor=CharacterSprite.new(); actor.idle_enabled=true; _actor_texture(false)
-	var actor_h=minf(145,rect.size.y-128)
-	_put(actor,Rect2(rect.size.x*.07,rect.size.y-actor_h,rect.size.x*.38,actor_h),field)
+		var hud=_color(Rect2(0,local_hud,hud_w,30),PAPER,hit)
+		hud.z_as_relative=false; hud.z_index=25
+		enemy_visuals[e.id]["hud"]=hud
+		_label(e.name,Rect2(1,0,hud_w-2,14),12,INK,hud,HORIZONTAL_ALIGNMENT_CENTER)
+		_meter(Rect2(2,14,hud_w-4,2),e.hp,e.mhp,true,hud)
+		_label("%d/%d" % [e.hp,e.mhp],Rect2(1,16,hud_w-2,14),12,INK,hud,HORIZONTAL_ALIGNMENT_CENTER)
+	actor=CharacterSprite.new(); actor.battle_pixels=true; actor.idle_enabled=true; _actor_texture(false)
+	var actor_h=160.0 if rect.size.y>=250 else 150.0
+	# Foot baseline sits above the pre-existing torn-paper foreground edge.
+	_put(actor,Rect2(roundf(rect.size.x*.19-90),rect.size.y-actor_h-22,180,actor_h),field)
 	controls["field"]={"rect":[rect.position.x,rect.position.y,rect.size.x,rect.size.y]}
 
 func _actor_texture(attack: bool) -> void:
@@ -456,8 +468,11 @@ func _present_action(before: Dictionary, source: String, action_id: String) -> v
 		else: current.source_rect=current.field
 	else:
 		current.source_rect=Rect2(actor.global_position,actor.size)
-		current.tint={"ice":Color("b9e0e4"),"bolt":Color("e9d494"),"holy":Color("e9e1ba")}.get(state.ally(source).element,Color("edc69b"))
+		current.element=state.ally(source).element
+		current.tint=CombatFX.color_for(current.element)
 	motion_hurt_ids=[]
+	var source_ally=state.ally(source)
+	var target_friendly=current.enemy_action or not source_ally.get("skills",{}).get(action_id,{}).get("target","적").begins_with("적")
 	for unit in state.data.allies+state.data.enemies:
 		var old=before[unit.id]
 		var hurt=unit.hp<old.hp or unit.get("shield",0)<old.shield
@@ -466,8 +481,10 @@ func _present_action(before: Dictionary, source: String, action_id: String) -> v
 		var key=("ally:" if ally_unit else "enemy:")+unit.id
 		if not changed or not controls.has(key): continue
 		var rect=controls[key].rect
-		var target=Rect2(rect[0],rect[1],rect[2],minf(rect[3],72) if ally_unit else rect[3]-40)
-		current.targets.append(target)
+		var target=Rect2(actor.global_position,actor.size) if ally_unit else Rect2(enemy_visuals[unit.id].node.global_position,enemy_visuals[unit.id].node.size)
+		# Secondary intimidation/passive changes must not put an ally's shield
+		# on an enemy. All visible allies share the one foreground body.
+		if ally_unit==target_friendly and target not in current.targets: current.targets.append(target)
 		if hurt and ally_unit==current.enemy_action:
 			current.hurt_targets.append(target)
 			motion_hurt_ids.append(unit.id)
@@ -488,17 +505,20 @@ func _motion_impact(before: Dictionary, source: String, action_id: String) -> vo
 
 func _motion_visuals(current) -> void:
 	if is_instance_valid(actor): actor.visible=current==null or current.enemy_action
+	if is_instance_valid(actor): actor.material=current.hit_material if current!=null and current.enemy_action and current.hit_flash() else null
 	if is_instance_valid(field_back): field_back.position=current.shake_offset() if current!=null else Vector2.ZERO
 	for id in enemy_visuals:
 		var visual=enemy_visuals[id].node
 		if not is_instance_valid(visual): continue
+		enemy_visuals[id].hud.visible=current==null or not is_instance_valid(current.signature) or current.clock.elapsed>=current.clip_start or current.reduced
 		visual.visible=current==null or not (current.enemy_action and current.character_id==id)
 		visual.position=enemy_visuals[id].home
 		if current!=null: visual.position+=current.shake_offset()
 		visual.modulate=Color.WHITE
 		if current!=null and id in motion_hurt_ids and current.clock.impacted:
 			visual.position+=current.reaction_offset()
-			if current.clock.remaining_stop>0: visual.modulate=Color(1.3,1.2,1.1)
+			visual.material=current.hit_material if current.hit_flash() else null
+		else: visual.material=null
 
 func _skip_motion() -> void:
 	if is_instance_valid(motion): motion.skip()
@@ -560,7 +580,7 @@ func _publish_metrics() -> void:
 		if node is Button: controls[key].rect=[node.global_position.x,node.global_position.y,node.size.x,node.size.y]
 	if not OS.has_feature("web"):
 		return
-	var report={"ui_build":"battle-r17-20261031-pass2","items_open":items_open,"log_open":log_open,"build":state.data.build,"busy":busy,"pending_action":pending_action,"result":state.result,"current_id":state.current_id,"events":state.events,"engine":Engine.get_version_info().string,"state":state.snapshot(),"controls":controls,"text":text_metrics,"skills_open":skills_open,"ally_open":ally_open,"motion_reduced":motion_reduced,"storage_persistent":OS.is_userfs_persistent(),"storage_error":storage_error,"frame":[frame.position.x,frame.position.y,frame.size.x,frame.size.y],"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"shown_hp":shown_hp,"motion_serial":motion_serial,"actor_art":CharacterSprite.info(animation_ally if not animation_ally.is_empty() else state.last_ally).get("path",""),"enemy_hp":state.data.enemies.map(func(e):return {"id":e.id,"hp":e.hp,"mhp":e.mhp})}
+	var report={"ui_build":"battle-r18-20261031","items_open":items_open,"log_open":log_open,"build":state.data.build,"busy":busy,"pending_action":pending_action,"result":state.result,"current_id":state.current_id,"events":state.events,"engine":Engine.get_version_info().string,"state":state.snapshot(),"controls":controls,"text":text_metrics,"skills_open":skills_open,"ally_open":ally_open,"motion_reduced":motion_reduced,"storage_persistent":OS.is_userfs_persistent(),"storage_error":storage_error,"frame":[frame.position.x,frame.position.y,frame.size.x,frame.size.y],"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"shown_hp":shown_hp,"motion_serial":motion_serial,"actor_art":CharacterSprite.info(animation_ally if not animation_ally.is_empty() else state.last_ally).get("path",""),"enemy_hp":state.data.enemies.map(func(e):return {"id":e.id,"hp":e.hp,"mhp":e.mhp})}
 	JavaScriptBridge.eval("window.__abyssPreview = "+JSON.stringify(report)+";",true)
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -589,9 +609,13 @@ func _effect_feedback(before: Dictionary,source: String,action: String) -> void:
 		var key=("ally:" if u.has("base") else "enemy:")+u.id
 		if not controls.has(key): continue
 		var r=controls[key].rect; var center=Vector2(r[0]+r[2]/2,r[1]+r[3]*.4)
-		var fx=CombatFX.new(); fx.position=center; fx.element=element; fx.healing=healing; fx.reduced=motion_reduced; add_child(fx)
+		if not is_instance_valid(motion):
+			var fx=CombatFX.new(); fx.position=center; fx.element=element; fx.healing=healing; fx.reduced=motion_reduced; add_child(fx)
 		var label=_label(text_value,Rect2(center-Vector2(53,10),Vector2(106,32)),fs,Color("9bd9b0") if healing else UI.PAPER,self,HORIZONTAL_ALIGNMENT_CENTER)
-		var tween=create_tween(); tween.tween_property(label,"position:y",label.position.y-24,.48); tween.tween_property(label,"modulate:a",0,.18)
+		var tween=create_tween()
+		if not motion_reduced: tween.tween_property(label,"position:y",label.position.y-24,.48)
+		else: tween.tween_interval(.18)
+		tween.tween_property(label,"modulate:a",0,.18)
 
 func _supplies(rect: Rect2) -> void:
 	var p=_sheet(rect,"전투 보급품","supplies")
@@ -674,10 +698,18 @@ func field_text_regions() -> Array:
 	return regions
 
 
-func _enemy_art(e: Dictionary, rect: Rect2, parent: Control) -> TextureRect:
+func _enemy_art(e: Dictionary, rect: Rect2, parent: Control, pixel=false) -> TextureRect:
 	var atlas=AtlasTexture.new(); atlas.atlas=_texture(e.art); var b=e.bbox
 	atlas.region=Rect2(b[0],b[1],b[2]-b[0],b[3]-b[1])
 	var art=TextureRect.new(); art.texture=atlas; art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+	if pixel:
+		var image=atlas.get_image()
+		var ratio=minf(rect.size.x/image.get_width(),rect.size.y/image.get_height())
+		var dimensions=Vector2i(maxi(1,roundi(image.get_width()*ratio/2)),maxi(1,roundi(image.get_height()*ratio/2)))
+		image.resize(dimensions.x,dimensions.y,Image.INTERPOLATE_NEAREST)
+		art.texture=ImageTexture.create_from_image(image)
+		var extent=Vector2(dimensions)*2
+		rect=Rect2((rect.position+Vector2((rect.size.x-extent.x)/2,rect.size.y-extent.y)).round(),extent)
 	art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; art.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
 	_put(art,rect,parent); return art
 

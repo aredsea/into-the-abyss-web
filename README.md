@@ -1,3 +1,5 @@
+r18 battle FX: larger pixel bodies, 30 signature cut-ins, deterministic block effects, verified Godot captures and Web export. [UI-R18.md](UI-R18.md).
+
 r17 전투 UI 2차 수정: 본문 산세리프·잉크 겹침 제거·찢긴 경계·기록 붓 자국 반영, 두 폭 검증 및 Web 내보내기 완료. 수치·남은 차이는 [UI-R17.md의 2차 수정](UI-R17.md#2차-수정).
 
 부족한 점: r11은 밝은 UI로 교체한 버전이며 원본 초상화의 세부 해상도 한계는 남습니다. 다른 26명은 기존 초상화 표시 방식이고, 일부 시설 목록은 깁니다. 첫 다운로드 용량 최적화도 남아 있습니다.
