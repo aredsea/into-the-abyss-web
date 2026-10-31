@@ -1,7 +1,8 @@
 extends Control
 
 const RouteMap=preload("res://ui/route_map.gd")
-const World=preload("res://game/expansion_world.gd")
+const World=preload("res://game/dungeon_world_r21.gd")
+const DungeonViewR21=preload("res://game/dungeon_view_r21.gd")
 const Store=preload("res://game/world_store.gd")
 const BattleScreen=preload("res://ui/battle_screen.gd")
 const UI=preload("res://ui/fantasy_theme.gd")
@@ -112,6 +113,7 @@ func _draw_screen() -> void:
 	call_deferred("_publish")
 
 func _title() -> String:
+	if screen=="explore" and model.r21(): return model.dungeon_title()
 	if screen=="research": return "로레다나의 전술 연구"
 	return {"guild":"연합 길드 본관","smithy":"한나의 대장간","equipment":"장비 보관함","town":"토르바","party":"함께하는 동료","member":model.person(who).name,"depart":"원정 준비","explore":"학술원 폐허 상층","cards":"탐색 카드","bag":"공용 가방","shop":"마렌토 상회","inn":"아랫마을 여관","summary":"원정 정산","journal":"모험 기록"}.get(screen,"토르바")
 
@@ -230,6 +232,9 @@ func _member() -> void:
 	button("party_back","동료 목록",go.bind("party"))
 
 func _departure() -> void:
+	DungeonViewR21.departure(self)
+
+func _legacy_departure() -> void:
 	var p=box(); image("res://assets/src/academy.png",p,Vector2(0,155))
 	text("학술원 폐허 상층 · 2층",20,GOLD,p)
 	text("갈림길 탐색 → 집행실 정예 → 귀환",14,INK,p)
@@ -240,6 +245,7 @@ func _departure() -> void:
 
 func _explore() -> void:
 	if not model.active(): go("town"); return
+	if model.r21(): DungeonViewR21.explore(self); return
 	if model.mapped():
 		_route_explore(); return
 	text("이전 저장의 원정 · 이 원정 이후 새 지도가 적용됩니다.",12,MUTED)

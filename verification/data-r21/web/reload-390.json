@@ -1,0 +1,2207 @@
+{
+  "before": {
+    "actor_art": "res://assets/companions-r4/bargut.png",
+    "ally_open": "",
+    "build": "r21-a-data-20261031-1-1-false",
+    "busy": false,
+    "controls": {
+      "action:attack": {
+        "rect": [
+          12,
+          506,
+          179.5,
+          56
+        ]
+      },
+      "action:guard": {
+        "rect": [
+          12,
+          569,
+          179.5,
+          56
+        ]
+      },
+      "action:personal": {
+        "rect": [
+          198.5,
+          506,
+          179.5,
+          56
+        ]
+      },
+      "ally:bargut": {
+        "rect": [
+          105,
+          694,
+          87,
+          141
+        ]
+      },
+      "ally:berenga": {
+        "rect": [
+          291,
+          694,
+          87,
+          141
+        ]
+      },
+      "ally:hildegard": {
+        "rect": [
+          12,
+          694,
+          87,
+          141
+        ]
+      },
+      "ally:teiris": {
+        "rect": [
+          198,
+          694,
+          87,
+          141
+        ]
+      },
+      "back": {
+        "rect": [
+          0,
+          0,
+          44,
+          41
+        ]
+      },
+      "enemy:apprentice": {
+        "rect": [
+          139,
+          94,
+          112,
+          125
+        ]
+      },
+      "enemy:lantern": {
+        "rect": [
+          9,
+          94,
+          112,
+          125
+        ]
+      },
+      "enemy:orb": {
+        "rect": [
+          270,
+          94,
+          112,
+          125
+        ]
+      },
+      "field": {
+        "rect": [
+          0,
+          94,
+          390,
+          288
+        ]
+      },
+      "log": {
+        "rect": [
+          199,
+          632,
+          179,
+          44
+        ]
+      },
+      "supplies": {
+        "rect": [
+          12,
+          632,
+          179,
+          44
+        ]
+      }
+    },
+    "current_id": "bargut",
+    "enemy_hp": [
+      {
+        "hp": 0,
+        "id": "executor",
+        "mhp": 25
+      },
+      {
+        "hp": 25,
+        "id": "apprentice",
+        "mhp": 25
+      },
+      {
+        "hp": 42,
+        "id": "orb",
+        "mhp": 42
+      },
+      {
+        "hp": 34,
+        "id": "lantern",
+        "mhp": 34
+      }
+    ],
+    "engine": "4.7.2-stable (official)",
+    "events": [
+      "힐데가르트 · 일반 공격",
+      "힐데가르트 → 태엽 생쥐 떼 · 27 피해"
+    ],
+    "frame": [
+      0,
+      0,
+      390,
+      844
+    ],
+    "items_open": false,
+    "log_open": false,
+    "motion_reduced": true,
+    "motion_serial": 1,
+    "pending_action": "",
+    "result": "",
+    "shown_hp": {
+      "apprentice": 25,
+      "bargut": 93,
+      "berenga": 79,
+      "hildegard": 118,
+      "lantern": 34,
+      "orb": 42,
+      "teiris": 77
+    },
+    "skills_open": false,
+    "state": {
+      "build": "r21-a-data-20261031-1-1-false",
+      "current_id": "bargut",
+      "events": [
+        "힐데가르트 · 일반 공격",
+        "힐데가르트 → 태엽 생쥐 떼 · 27 피해"
+      ],
+      "extra_state": {
+        "apprentice": {},
+        "bargut": {},
+        "berenga": {},
+        "executor": {},
+        "hildegard": {
+          "charge_damage": 0,
+          "haste_done": false,
+          "last_target": "executor",
+          "overheal": 0,
+          "pull": 0,
+          "scar": 0
+        },
+        "lantern": {},
+        "orb": {},
+        "teiris": {}
+      },
+      "history": [
+        "힐데가르트 · 일반 공격",
+        "힐데가르트 → 태엽 생쥐 떼 · 27 피해"
+      ],
+      "inventory": {
+        "antidote": 0,
+        "bandage": 1,
+        "hp_l": 0,
+        "hp_m": 0,
+        "hp_s": 2,
+        "level_scroll": 0,
+        "mp_l": 0,
+        "mp_m": 0,
+        "mp_s": 1,
+        "return": 0,
+        "shield_l": 0,
+        "shield_m": 0,
+        "shield_s": 0
+      },
+      "last_ally": "bargut",
+      "r21_roster": [
+        {
+          "foe_id": "clockwork_mice",
+          "phase": 1
+        },
+        {
+          "foe_id": "clockwork_mice",
+          "phase": 1
+        },
+        {
+          "foe_id": "apprentice_doll",
+          "phase": 1
+        },
+        {
+          "foe_id": "shadow_archer",
+          "phase": 1
+        }
+      ],
+      "result": "",
+      "rng": 1867398185,
+      "schema_version": 3,
+      "selected_action": "attack",
+      "selected_ally": "hildegard",
+      "selected_enemy": "apprentice",
+      "turn_count": 1,
+      "units": {
+        "apprentice": {
+          "act_index": 0,
+          "broken": false,
+          "charged": false,
+          "effects": {},
+          "gauge": 15,
+          "hp": 25,
+          "redirected": false,
+          "remaining": 9101.09431995831
+        },
+        "bargut": {
+          "actions": 0,
+          "charging": false,
+          "effects": {},
+          "hp": 93,
+          "mp": 40,
+          "once": false,
+          "remaining": 0,
+          "shield": 0,
+          "ward_used": false
+        },
+        "berenga": {
+          "actions": 0,
+          "charging": false,
+          "effects": {},
+          "hp": 79,
+          "mp": 99,
+          "once": false,
+          "remaining": 2027.77488275143,
+          "shield": 0,
+          "ward_used": false
+        },
+        "executor": {
+          "act_index": 0,
+          "broken": false,
+          "charged": false,
+          "effects": {},
+          "gauge": 15,
+          "hp": 0,
+          "redirected": false,
+          "remaining": 10000
+        },
+        "hildegard": {
+          "actions": 1,
+          "charging": false,
+          "effects": {},
+          "hp": 118,
+          "mp": 33,
+          "once": false,
+          "remaining": 9327.77488275143,
+          "shield": 0,
+          "ward_used": false
+        },
+        "lantern": {
+          "act_index": 0,
+          "broken": false,
+          "charged": false,
+          "effects": {},
+          "gauge": 30,
+          "hp": 34,
+          "redirected": false,
+          "remaining": 9218.34288692027
+        },
+        "orb": {
+          "act_index": 0,
+          "broken": false,
+          "charged": false,
+          "effects": {},
+          "gauge": 30,
+          "hp": 42,
+          "redirected": false,
+          "remaining": 9179.26003126629
+        },
+        "teiris": {
+          "actions": 0,
+          "charging": false,
+          "effects": {},
+          "hp": 77,
+          "mp": 92,
+          "once": false,
+          "remaining": 1112.14174048984,
+          "shield": 0,
+          "ward_used": false
+        }
+      }
+    },
+    "storage_error": 0,
+    "storage_persistent": true,
+    "text": [
+      {
+        "available": 144,
+        "font": 16,
+        "missing_glyphs": [],
+        "needed": 144,
+        "text": "학술원 폐허 상층 · 1층"
+      },
+      {
+        "available": 15,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 12,
+        "text": "턴"
+      },
+      {
+        "available": 12.1999998092651,
+        "font": 25,
+        "missing_glyphs": [],
+        "needed": 12,
+        "text": "1"
+      },
+      {
+        "available": 9.19999980926514,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 7,
+        "text": "1"
+      },
+      {
+        "available": 8.84000015258789,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 7,
+        "text": "2"
+      },
+      {
+        "available": 8.84000015258789,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 7,
+        "text": "3"
+      },
+      {
+        "available": 8.84000015258789,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 7,
+        "text": "4"
+      },
+      {
+        "available": 8.84000015258789,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 7,
+        "text": "5"
+      },
+      {
+        "available": 8.84000015258789,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 7,
+        "text": "6"
+      },
+      {
+        "available": 8.84000015258789,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 7,
+        "text": "7"
+      },
+      {
+        "available": 8.84000015258789,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 7,
+        "text": "8"
+      },
+      {
+        "available": 106,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 62,
+        "text": "태엽 생쥐 떼"
+      },
+      {
+        "available": 106,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 54,
+        "text": "HP 25/25"
+      },
+      {
+        "available": 106,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 48,
+        "text": "견습 인형"
+      },
+      {
+        "available": 106,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 54,
+        "text": "HP 42/42"
+      },
+      {
+        "available": 106,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 59,
+        "text": "그림자 궁수"
+      },
+      {
+        "available": 106,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 54,
+        "text": "HP 34/34"
+      },
+      {
+        "available": 201,
+        "font": 38,
+        "missing_glyphs": [],
+        "needed": 197,
+        "text": "바르구트의 차례"
+      },
+      {
+        "available": 266,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 95,
+        "text": "태엽 생쥐 떼 · 무리"
+      },
+      {
+        "available": 100,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 54,
+        "text": "HP 25/25"
+      },
+      {
+        "available": 254,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 80,
+        "text": "약점 번개 · 화염"
+      },
+      {
+        "available": 112,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 58,
+        "text": "심연 15/15"
+      },
+      {
+        "available": 366,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 85,
+        "text": "갉기 → 바르구트"
+      },
+      {
+        "available": 132.5,
+        "font": 22,
+        "missing_glyphs": [],
+        "needed": 67,
+        "text": "일반 공격"
+      },
+      {
+        "available": 132.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 61,
+        "text": "MP 0 · 적 1"
+      },
+      {
+        "available": 132.5,
+        "font": 22,
+        "missing_glyphs": [],
+        "needed": 67,
+        "text": "선점 효과"
+      },
+      {
+        "available": 132.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 68,
+        "text": "MP 12 · 적 1"
+      },
+      {
+        "available": 132.5,
+        "font": 22,
+        "missing_glyphs": [],
+        "needed": 31,
+        "text": "방어"
+      },
+      {
+        "available": 132.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 62,
+        "text": "MP 0 · 자신"
+      },
+      {
+        "available": 40,
+        "font": 14,
+        "missing_glyphs": [],
+        "needed": 39,
+        "text": "보급품"
+      },
+      {
+        "available": 57,
+        "font": 14,
+        "missing_glyphs": [],
+        "needed": 56,
+        "text": "전투 기록"
+      },
+      {
+        "available": 87,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 54,
+        "text": "힐데가르트"
+      },
+      {
+        "available": 43.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 23,
+        "text": "전열"
+      },
+      {
+        "available": 43.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 0,
+        "text": ""
+      },
+      {
+        "available": 18,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 18,
+        "text": "HP"
+      },
+      {
+        "available": 69,
+        "font": 13,
+        "missing_glyphs": [],
+        "needed": 49,
+        "text": "118/118"
+      },
+      {
+        "available": 18,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 19,
+        "text": "MP"
+      },
+      {
+        "available": 69,
+        "font": 13,
+        "missing_glyphs": [],
+        "needed": 35,
+        "text": "33/33"
+      },
+      {
+        "available": 87,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 43,
+        "text": "바르구트"
+      },
+      {
+        "available": 43.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 23,
+        "text": "전열"
+      },
+      {
+        "available": 43.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 23,
+        "text": "차례"
+      },
+      {
+        "available": 18,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 18,
+        "text": "HP"
+      },
+      {
+        "available": 69,
+        "font": 13,
+        "missing_glyphs": [],
+        "needed": 35,
+        "text": "93/93"
+      },
+      {
+        "available": 18,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 19,
+        "text": "MP"
+      },
+      {
+        "available": 69,
+        "font": 13,
+        "missing_glyphs": [],
+        "needed": 35,
+        "text": "40/40"
+      },
+      {
+        "available": 87,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 43,
+        "text": "테이리스"
+      },
+      {
+        "available": 43.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 23,
+        "text": "후열"
+      },
+      {
+        "available": 43.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 0,
+        "text": ""
+      },
+      {
+        "available": 18,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 18,
+        "text": "HP"
+      },
+      {
+        "available": 69,
+        "font": 13,
+        "missing_glyphs": [],
+        "needed": 35,
+        "text": "77/77"
+      },
+      {
+        "available": 18,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 19,
+        "text": "MP"
+      },
+      {
+        "available": 69,
+        "font": 13,
+        "missing_glyphs": [],
+        "needed": 35,
+        "text": "92/92"
+      },
+      {
+        "available": 87,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 32,
+        "text": "베렝가"
+      },
+      {
+        "available": 43.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 23,
+        "text": "후열"
+      },
+      {
+        "available": 43.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 0,
+        "text": ""
+      },
+      {
+        "available": 18,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 18,
+        "text": "HP"
+      },
+      {
+        "available": 69,
+        "font": 13,
+        "missing_glyphs": [],
+        "needed": 35,
+        "text": "79/79"
+      },
+      {
+        "available": 18,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 19,
+        "text": "MP"
+      },
+      {
+        "available": 69,
+        "font": 13,
+        "missing_glyphs": [],
+        "needed": 35,
+        "text": "99/99"
+      }
+    ],
+    "ui_build": "r21-a-data-20261031",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "after": {
+    "actor_art": "res://assets/companions-r4/bargut.png",
+    "ally_open": "",
+    "build": "r21-a-data-20261031-1-1-false",
+    "busy": false,
+    "controls": {
+      "action:attack": {
+        "rect": [
+          12,
+          506,
+          179.5,
+          56
+        ]
+      },
+      "action:guard": {
+        "rect": [
+          12,
+          569,
+          179.5,
+          56
+        ]
+      },
+      "action:personal": {
+        "rect": [
+          198.5,
+          506,
+          179.5,
+          56
+        ]
+      },
+      "ally:bargut": {
+        "rect": [
+          105,
+          694,
+          87,
+          141
+        ]
+      },
+      "ally:berenga": {
+        "rect": [
+          291,
+          694,
+          87,
+          141
+        ]
+      },
+      "ally:hildegard": {
+        "rect": [
+          12,
+          694,
+          87,
+          141
+        ]
+      },
+      "ally:teiris": {
+        "rect": [
+          198,
+          694,
+          87,
+          141
+        ]
+      },
+      "back": {
+        "rect": [
+          0,
+          0,
+          44,
+          41
+        ]
+      },
+      "enemy:apprentice": {
+        "rect": [
+          139,
+          94,
+          112,
+          125
+        ]
+      },
+      "enemy:lantern": {
+        "rect": [
+          9,
+          94,
+          112,
+          125
+        ]
+      },
+      "enemy:orb": {
+        "rect": [
+          270,
+          94,
+          112,
+          125
+        ]
+      },
+      "field": {
+        "rect": [
+          0,
+          94,
+          390,
+          288
+        ]
+      },
+      "log": {
+        "rect": [
+          199,
+          632,
+          179,
+          44
+        ]
+      },
+      "supplies": {
+        "rect": [
+          12,
+          632,
+          179,
+          44
+        ]
+      }
+    },
+    "current_id": "bargut",
+    "enemy_hp": [
+      {
+        "hp": 0,
+        "id": "executor",
+        "mhp": 25
+      },
+      {
+        "hp": 25,
+        "id": "apprentice",
+        "mhp": 25
+      },
+      {
+        "hp": 42,
+        "id": "orb",
+        "mhp": 42
+      },
+      {
+        "hp": 34,
+        "id": "lantern",
+        "mhp": 34
+      }
+    ],
+    "engine": "4.7.2-stable (official)",
+    "events": [
+      "힐데가르트 · 일반 공격",
+      "힐데가르트 → 태엽 생쥐 떼 · 27 피해"
+    ],
+    "frame": [
+      0,
+      0,
+      390,
+      844
+    ],
+    "items_open": false,
+    "log_open": false,
+    "motion_reduced": true,
+    "motion_serial": 0,
+    "pending_action": "",
+    "result": "",
+    "shown_hp": {
+      "apprentice": 25,
+      "bargut": 93,
+      "berenga": 79,
+      "hildegard": 118,
+      "lantern": 34,
+      "orb": 42,
+      "teiris": 77
+    },
+    "skills_open": false,
+    "state": {
+      "build": "r21-a-data-20261031-1-1-false",
+      "current_id": "bargut",
+      "events": [
+        "힐데가르트 · 일반 공격",
+        "힐데가르트 → 태엽 생쥐 떼 · 27 피해"
+      ],
+      "extra_state": {
+        "apprentice": {},
+        "bargut": {},
+        "berenga": {},
+        "executor": {},
+        "hildegard": {
+          "charge_damage": 0,
+          "haste_done": false,
+          "last_target": "executor",
+          "overheal": 0,
+          "pull": 0,
+          "scar": 0
+        },
+        "lantern": {},
+        "orb": {},
+        "teiris": {}
+      },
+      "history": [
+        "힐데가르트 · 일반 공격",
+        "힐데가르트 → 태엽 생쥐 떼 · 27 피해"
+      ],
+      "inventory": {
+        "antidote": 0,
+        "bandage": 1,
+        "hp_l": 0,
+        "hp_m": 0,
+        "hp_s": 2,
+        "level_scroll": 0,
+        "mp_l": 0,
+        "mp_m": 0,
+        "mp_s": 1,
+        "return": 0,
+        "shield_l": 0,
+        "shield_m": 0,
+        "shield_s": 0
+      },
+      "last_ally": "bargut",
+      "r21_roster": [
+        {
+          "foe_id": "clockwork_mice",
+          "phase": 1
+        },
+        {
+          "foe_id": "clockwork_mice",
+          "phase": 1
+        },
+        {
+          "foe_id": "apprentice_doll",
+          "phase": 1
+        },
+        {
+          "foe_id": "shadow_archer",
+          "phase": 1
+        }
+      ],
+      "result": "",
+      "rng": 1867398185,
+      "schema_version": 3,
+      "selected_action": "attack",
+      "selected_ally": "hildegard",
+      "selected_enemy": "apprentice",
+      "turn_count": 1,
+      "units": {
+        "apprentice": {
+          "act_index": 0,
+          "broken": false,
+          "charged": false,
+          "effects": {},
+          "gauge": 15,
+          "hp": 25,
+          "redirected": false,
+          "remaining": 9101.09431995831
+        },
+        "bargut": {
+          "actions": 0,
+          "charging": false,
+          "effects": {},
+          "hp": 93,
+          "mp": 40,
+          "once": false,
+          "remaining": 0,
+          "shield": 0,
+          "ward_used": false
+        },
+        "berenga": {
+          "actions": 0,
+          "charging": false,
+          "effects": {},
+          "hp": 79,
+          "mp": 99,
+          "once": false,
+          "remaining": 2027.77488275143,
+          "shield": 0,
+          "ward_used": false
+        },
+        "executor": {
+          "act_index": 0,
+          "broken": false,
+          "charged": false,
+          "effects": {},
+          "gauge": 15,
+          "hp": 0,
+          "redirected": false,
+          "remaining": 10000
+        },
+        "hildegard": {
+          "actions": 1,
+          "charging": false,
+          "effects": {},
+          "hp": 118,
+          "mp": 33,
+          "once": false,
+          "remaining": 9327.77488275143,
+          "shield": 0,
+          "ward_used": false
+        },
+        "lantern": {
+          "act_index": 0,
+          "broken": false,
+          "charged": false,
+          "effects": {},
+          "gauge": 30,
+          "hp": 34,
+          "redirected": false,
+          "remaining": 9218.34288692027
+        },
+        "orb": {
+          "act_index": 0,
+          "broken": false,
+          "charged": false,
+          "effects": {},
+          "gauge": 30,
+          "hp": 42,
+          "redirected": false,
+          "remaining": 9179.26003126628
+        },
+        "teiris": {
+          "actions": 0,
+          "charging": false,
+          "effects": {},
+          "hp": 77,
+          "mp": 92,
+          "once": false,
+          "remaining": 1112.14174048984,
+          "shield": 0,
+          "ward_used": false
+        }
+      }
+    },
+    "storage_error": 0,
+    "storage_persistent": true,
+    "text": [
+      {
+        "available": 144,
+        "font": 16,
+        "missing_glyphs": [],
+        "needed": 144,
+        "text": "학술원 폐허 상층 · 1층"
+      },
+      {
+        "available": 15,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 12,
+        "text": "턴"
+      },
+      {
+        "available": 12.1999998092651,
+        "font": 25,
+        "missing_glyphs": [],
+        "needed": 12,
+        "text": "1"
+      },
+      {
+        "available": 9.19999980926514,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 7,
+        "text": "1"
+      },
+      {
+        "available": 8.84000015258789,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 7,
+        "text": "2"
+      },
+      {
+        "available": 8.84000015258789,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 7,
+        "text": "3"
+      },
+      {
+        "available": 8.84000015258789,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 7,
+        "text": "4"
+      },
+      {
+        "available": 8.84000015258789,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 7,
+        "text": "5"
+      },
+      {
+        "available": 8.84000015258789,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 7,
+        "text": "6"
+      },
+      {
+        "available": 8.84000015258789,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 7,
+        "text": "7"
+      },
+      {
+        "available": 8.84000015258789,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 7,
+        "text": "8"
+      },
+      {
+        "available": 106,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 62,
+        "text": "태엽 생쥐 떼"
+      },
+      {
+        "available": 106,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 54,
+        "text": "HP 25/25"
+      },
+      {
+        "available": 106,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 48,
+        "text": "견습 인형"
+      },
+      {
+        "available": 106,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 54,
+        "text": "HP 42/42"
+      },
+      {
+        "available": 106,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 59,
+        "text": "그림자 궁수"
+      },
+      {
+        "available": 106,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 54,
+        "text": "HP 34/34"
+      },
+      {
+        "available": 201,
+        "font": 38,
+        "missing_glyphs": [],
+        "needed": 197,
+        "text": "바르구트의 차례"
+      },
+      {
+        "available": 266,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 95,
+        "text": "태엽 생쥐 떼 · 무리"
+      },
+      {
+        "available": 100,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 54,
+        "text": "HP 25/25"
+      },
+      {
+        "available": 254,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 80,
+        "text": "약점 번개 · 화염"
+      },
+      {
+        "available": 112,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 58,
+        "text": "심연 15/15"
+      },
+      {
+        "available": 366,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 85,
+        "text": "갉기 → 바르구트"
+      },
+      {
+        "available": 132.5,
+        "font": 22,
+        "missing_glyphs": [],
+        "needed": 67,
+        "text": "일반 공격"
+      },
+      {
+        "available": 132.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 61,
+        "text": "MP 0 · 적 1"
+      },
+      {
+        "available": 132.5,
+        "font": 22,
+        "missing_glyphs": [],
+        "needed": 67,
+        "text": "선점 효과"
+      },
+      {
+        "available": 132.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 68,
+        "text": "MP 12 · 적 1"
+      },
+      {
+        "available": 132.5,
+        "font": 22,
+        "missing_glyphs": [],
+        "needed": 31,
+        "text": "방어"
+      },
+      {
+        "available": 132.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 62,
+        "text": "MP 0 · 자신"
+      },
+      {
+        "available": 40,
+        "font": 14,
+        "missing_glyphs": [],
+        "needed": 39,
+        "text": "보급품"
+      },
+      {
+        "available": 57,
+        "font": 14,
+        "missing_glyphs": [],
+        "needed": 56,
+        "text": "전투 기록"
+      },
+      {
+        "available": 87,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 54,
+        "text": "힐데가르트"
+      },
+      {
+        "available": 43.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 23,
+        "text": "전열"
+      },
+      {
+        "available": 43.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 0,
+        "text": ""
+      },
+      {
+        "available": 18,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 18,
+        "text": "HP"
+      },
+      {
+        "available": 69,
+        "font": 13,
+        "missing_glyphs": [],
+        "needed": 49,
+        "text": "118/118"
+      },
+      {
+        "available": 18,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 19,
+        "text": "MP"
+      },
+      {
+        "available": 69,
+        "font": 13,
+        "missing_glyphs": [],
+        "needed": 35,
+        "text": "33/33"
+      },
+      {
+        "available": 87,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 43,
+        "text": "바르구트"
+      },
+      {
+        "available": 43.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 23,
+        "text": "전열"
+      },
+      {
+        "available": 43.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 23,
+        "text": "차례"
+      },
+      {
+        "available": 18,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 18,
+        "text": "HP"
+      },
+      {
+        "available": 69,
+        "font": 13,
+        "missing_glyphs": [],
+        "needed": 35,
+        "text": "93/93"
+      },
+      {
+        "available": 18,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 19,
+        "text": "MP"
+      },
+      {
+        "available": 69,
+        "font": 13,
+        "missing_glyphs": [],
+        "needed": 35,
+        "text": "40/40"
+      },
+      {
+        "available": 87,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 43,
+        "text": "테이리스"
+      },
+      {
+        "available": 43.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 23,
+        "text": "후열"
+      },
+      {
+        "available": 43.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 0,
+        "text": ""
+      },
+      {
+        "available": 18,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 18,
+        "text": "HP"
+      },
+      {
+        "available": 69,
+        "font": 13,
+        "missing_glyphs": [],
+        "needed": 35,
+        "text": "77/77"
+      },
+      {
+        "available": 18,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 19,
+        "text": "MP"
+      },
+      {
+        "available": 69,
+        "font": 13,
+        "missing_glyphs": [],
+        "needed": 35,
+        "text": "92/92"
+      },
+      {
+        "available": 87,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 32,
+        "text": "베렝가"
+      },
+      {
+        "available": 43.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 23,
+        "text": "후열"
+      },
+      {
+        "available": 43.5,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 0,
+        "text": ""
+      },
+      {
+        "available": 18,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 18,
+        "text": "HP"
+      },
+      {
+        "available": 69,
+        "font": 13,
+        "missing_glyphs": [],
+        "needed": 35,
+        "text": "79/79"
+      },
+      {
+        "available": 18,
+        "font": 12,
+        "missing_glyphs": [],
+        "needed": 19,
+        "text": "MP"
+      },
+      {
+        "available": 69,
+        "font": 13,
+        "missing_glyphs": [],
+        "needed": 35,
+        "text": "99/99"
+      }
+    ],
+    "ui_build": "r21-a-data-20261031",
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "world": {
+    "art_preview": "",
+    "build": "torva-art-20261027-r4b",
+    "controls": {},
+    "restored": true,
+    "save_error": 0,
+    "screen": "battle",
+    "state": {
+      "acts": {},
+      "board": [
+        {
+          "difficulty": "하",
+          "elite": false,
+          "gold": 70,
+          "id": 1000,
+          "level": 1,
+          "name": "고립된 탐사대 구조",
+          "rift": "남서 설산 균열"
+        },
+        {
+          "difficulty": "중",
+          "elite": false,
+          "gold": 100,
+          "id": 1001,
+          "level": 1,
+          "name": "잃어버린 유품 회수",
+          "rift": "남동 숲 균열"
+        },
+        {
+          "difficulty": "상",
+          "elite": false,
+          "gold": 180,
+          "id": 1002,
+          "level": 4,
+          "name": "균열 핵 토벌",
+          "rift": "남서 설산 균열"
+        },
+        {
+          "difficulty": "정예",
+          "elite": true,
+          "gold": 450,
+          "id": 1003,
+          "level": 1,
+          "name": "균열 핵 토벌",
+          "rift": "남동 숲 균열"
+        }
+      ],
+      "day": 1,
+      "dungeon_r21": {
+        "best": 0,
+        "cleared_bosses": [],
+        "runs": 0,
+        "sel": 1
+      },
+      "equipment": {
+        "adeline": {},
+        "altan": {},
+        "bargut": {},
+        "berenga": {},
+        "bianca": {},
+        "colette": {},
+        "erdene": {},
+        "felice": {},
+        "gerda": {},
+        "gunhild": {},
+        "haldric": {},
+        "hedwig": {},
+        "hildegard": {},
+        "jorund": {},
+        "judith": {},
+        "lavinia": {},
+        "levia": {},
+        "lynette": {},
+        "marceline": {},
+        "miko": {},
+        "naran": {},
+        "ornel": {},
+        "saya": {},
+        "selva": {},
+        "sorel": {},
+        "teiris": {},
+        "tika": {},
+        "tove": {},
+        "urda": {},
+        "zahar": {}
+      },
+      "gear": [],
+      "gold": 200,
+      "hand": [],
+      "items": {
+        "antidote": 0,
+        "bandage": 1,
+        "hp_l": 0,
+        "hp_m": 0,
+        "hp_s": 2,
+        "level_scroll": 0,
+        "mp_l": 0,
+        "mp_m": 0,
+        "mp_s": 1,
+        "return": 0,
+        "shield_l": 0,
+        "shield_m": 0,
+        "shield_s": 0
+      },
+      "log": [
+        "학술원 폐허 상층 · 1층 출발"
+      ],
+      "members": {
+        "adeline": {
+          "aff": 0,
+          "hp": 79,
+          "level": 1,
+          "mp": 99,
+          "xp": 0
+        },
+        "altan": {
+          "aff": 0,
+          "hp": 82,
+          "level": 1,
+          "mp": 79,
+          "xp": 0
+        },
+        "bargut": {
+          "aff": 0,
+          "hp": 93,
+          "level": 1,
+          "mp": 40,
+          "xp": 0
+        },
+        "berenga": {
+          "aff": 0,
+          "hp": 79,
+          "level": 1,
+          "mp": 99,
+          "xp": 0
+        },
+        "bianca": {
+          "aff": 0,
+          "hp": 89,
+          "level": 1,
+          "mp": 47,
+          "xp": 0
+        },
+        "colette": {
+          "aff": 0,
+          "hp": 77,
+          "level": 1,
+          "mp": 86,
+          "xp": 0
+        },
+        "erdene": {
+          "aff": 0,
+          "hp": 114,
+          "level": 1,
+          "mp": 33,
+          "xp": 0
+        },
+        "felice": {
+          "aff": 0,
+          "hp": 82,
+          "level": 1,
+          "mp": 79,
+          "xp": 0
+        },
+        "gerda": {
+          "aff": 0,
+          "hp": 85,
+          "level": 1,
+          "mp": 53,
+          "xp": 0
+        },
+        "gunhild": {
+          "aff": 0,
+          "hp": 114,
+          "level": 1,
+          "mp": 33,
+          "xp": 0
+        },
+        "haldric": {
+          "aff": 0,
+          "hp": 125,
+          "level": 1,
+          "mp": 33,
+          "xp": 0
+        },
+        "hedwig": {
+          "aff": 0,
+          "hp": 77,
+          "level": 1,
+          "mp": 86,
+          "xp": 0
+        },
+        "hildegard": {
+          "aff": 0,
+          "hp": 118,
+          "level": 1,
+          "mp": 33,
+          "xp": 0
+        },
+        "jorund": {
+          "aff": 0,
+          "hp": 93,
+          "level": 1,
+          "mp": 40,
+          "xp": 0
+        },
+        "judith": {
+          "aff": 0,
+          "hp": 69,
+          "level": 1,
+          "mp": 85,
+          "xp": 0
+        },
+        "lavinia": {
+          "aff": 0,
+          "hp": 77,
+          "level": 1,
+          "mp": 86,
+          "xp": 0
+        },
+        "levia": {
+          "aff": 0,
+          "hp": 88,
+          "level": 1,
+          "mp": 41,
+          "xp": 0
+        },
+        "lynette": {
+          "aff": 0,
+          "hp": 79,
+          "level": 1,
+          "mp": 106,
+          "xp": 0
+        },
+        "marceline": {
+          "aff": 0,
+          "hp": 111,
+          "level": 1,
+          "mp": 53,
+          "xp": 0
+        },
+        "miko": {
+          "aff": 0,
+          "hp": 82,
+          "level": 1,
+          "mp": 79,
+          "xp": 0
+        },
+        "naran": {
+          "aff": 0,
+          "hp": 82,
+          "level": 1,
+          "mp": 60,
+          "xp": 0
+        },
+        "ornel": {
+          "aff": 0,
+          "hp": 82,
+          "level": 1,
+          "mp": 66,
+          "xp": 0
+        },
+        "saya": {
+          "aff": 0,
+          "hp": 97,
+          "level": 1,
+          "mp": 33,
+          "xp": 0
+        },
+        "selva": {
+          "aff": 0,
+          "hp": 114,
+          "level": 1,
+          "mp": 33,
+          "xp": 0
+        },
+        "sorel": {
+          "aff": 0,
+          "hp": 79,
+          "level": 1,
+          "mp": 98,
+          "xp": 0
+        },
+        "teiris": {
+          "aff": 0,
+          "hp": 77,
+          "level": 1,
+          "mp": 92,
+          "xp": 0
+        },
+        "tika": {
+          "aff": 0,
+          "hp": 107,
+          "level": 1,
+          "mp": 33,
+          "xp": 0
+        },
+        "tove": {
+          "aff": 0,
+          "hp": 114,
+          "level": 1,
+          "mp": 33,
+          "xp": 0
+        },
+        "urda": {
+          "aff": 0,
+          "hp": 90,
+          "level": 1,
+          "mp": 92,
+          "xp": 0
+        },
+        "zahar": {
+          "aff": 0,
+          "hp": 118,
+          "level": 1,
+          "mp": 33,
+          "xp": 0
+        }
+      },
+      "owned": [
+        "hildegard",
+        "bargut",
+        "teiris",
+        "berenga"
+      ],
+      "party": [
+        "hildegard",
+        "bargut",
+        "teiris",
+        "berenga"
+      ],
+      "quest": {},
+      "quest_wins": 0,
+      "recruits": 0,
+      "refreshes": 0,
+      "research": {
+        "adeline": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "altan": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "bargut": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "berenga": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "bianca": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "colette": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "erdene": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "felice": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "gerda": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "gunhild": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "haldric": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "hedwig": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "hildegard": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "jorund": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "judith": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "lavinia": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "levia": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "lynette": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "marceline": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "miko": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "naran": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "ornel": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "saya": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "selva": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "sorel": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "teiris": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "tika": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "tove": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "urda": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        },
+        "zahar": {
+          "prefix": "",
+          "prefix_lv": {},
+          "suffix": "",
+          "suffix_lv": {}
+        }
+      },
+      "rng": 914974932,
+      "run": {
+        "battle": {
+          "build": "r21-a-data-20261031-1-1-false",
+          "current_id": "bargut",
+          "events": [
+            "힐데가르트 · 일반 공격",
+            "힐데가르트 → 태엽 생쥐 떼 · 27 피해"
+          ],
+          "extra_state": {
+            "apprentice": {},
+            "bargut": {},
+            "berenga": {},
+            "executor": {},
+            "hildegard": {
+              "charge_damage": 0,
+              "haste_done": false,
+              "last_target": "executor",
+              "overheal": 0,
+              "pull": 0,
+              "scar": 0
+            },
+            "lantern": {},
+            "orb": {},
+            "teiris": {}
+          },
+          "history": [
+            "힐데가르트 · 일반 공격",
+            "힐데가르트 → 태엽 생쥐 떼 · 27 피해"
+          ],
+          "inventory": {
+            "antidote": 0,
+            "bandage": 1,
+            "hp_l": 0,
+            "hp_m": 0,
+            "hp_s": 2,
+            "level_scroll": 0,
+            "mp_l": 0,
+            "mp_m": 0,
+            "mp_s": 1,
+            "return": 0,
+            "shield_l": 0,
+            "shield_m": 0,
+            "shield_s": 0
+          },
+          "last_ally": "bargut",
+          "r21_roster": [
+            {
+              "foe_id": "clockwork_mice",
+              "phase": 1
+            },
+            {
+              "foe_id": "clockwork_mice",
+              "phase": 1
+            },
+            {
+              "foe_id": "apprentice_doll",
+              "phase": 1
+            },
+            {
+              "foe_id": "shadow_archer",
+              "phase": 1
+            }
+          ],
+          "result": "",
+          "rng": 1867398185,
+          "schema_version": 3,
+          "selected_action": "attack",
+          "selected_ally": "hildegard",
+          "selected_enemy": "apprentice",
+          "turn_count": 1,
+          "units": {
+            "apprentice": {
+              "act_index": 0,
+              "broken": false,
+              "charged": false,
+              "effects": {},
+              "gauge": 15,
+              "hp": 25,
+              "redirected": false,
+              "remaining": 9101.09431995831
+            },
+            "bargut": {
+              "actions": 0,
+              "charging": false,
+              "effects": {},
+              "hp": 93,
+              "mp": 40,
+              "once": false,
+              "remaining": 0,
+              "shield": 0,
+              "ward_used": false
+            },
+            "berenga": {
+              "actions": 0,
+              "charging": false,
+              "effects": {},
+              "hp": 79,
+              "mp": 99,
+              "once": false,
+              "remaining": 2027.77488275143,
+              "shield": 0,
+              "ward_used": false
+            },
+            "executor": {
+              "act_index": 0,
+              "broken": false,
+              "charged": false,
+              "effects": {},
+              "gauge": 15,
+              "hp": 0,
+              "redirected": false,
+              "remaining": 10000
+            },
+            "hildegard": {
+              "actions": 1,
+              "charging": false,
+              "effects": {},
+              "hp": 118,
+              "mp": 33,
+              "once": false,
+              "remaining": 9327.77488275143,
+              "shield": 0,
+              "ward_used": false
+            },
+            "lantern": {
+              "act_index": 0,
+              "broken": false,
+              "charged": false,
+              "effects": {},
+              "gauge": 30,
+              "hp": 34,
+              "redirected": false,
+              "remaining": 9218.34288692027
+            },
+            "orb": {
+              "act_index": 0,
+              "broken": false,
+              "charged": false,
+              "effects": {},
+              "gauge": 30,
+              "hp": 42,
+              "redirected": false,
+              "remaining": 9179.26003126628
+            },
+            "teiris": {
+              "actions": 0,
+              "charging": false,
+              "effects": {},
+              "hp": 77,
+              "mp": 92,
+              "once": false,
+              "remaining": 1112.14174048984,
+              "shield": 0,
+              "ward_used": false
+            }
+          }
+        },
+        "data_version": 21,
+        "elites": 0,
+        "event": "battle",
+        "final": false,
+        "floor": 1,
+        "gold": 0,
+        "id": 1,
+        "kind": "battle",
+        "last": "入場",
+        "loot_gear": [],
+        "loot_items": {},
+        "phase": "battle",
+        "resolved": false,
+        "rested": false,
+        "rift_id": "",
+        "rules_version": 3,
+        "seed": 914974932,
+        "stars": 1,
+        "step": 1,
+        "wins": 0,
+        "xp": 0
+      },
+      "runs": 1,
+      "schema": 2,
+      "serial": 0,
+      "summary": {}
+    },
+    "town_scroll_height": 0,
+    "viewport": [
+      390,
+      844
+    ]
+  },
+  "errors": []
+}

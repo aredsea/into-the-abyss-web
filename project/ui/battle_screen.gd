@@ -314,9 +314,9 @@ func _battlefield(rect: Rect2) -> void:
 		enemy_visuals[e.id]={"node":art,"home":art.position}; shown_hp[e.id]=e.hp
 		var hud=_color(Rect2(0,hud_y-hit_top,hud_w,33),PAPER,hit); _mark("enemy-hud:"+e.id,hud)
 		hud.z_as_relative=false; hud.z_index=25; enemy_visuals[e.id]["hud"]=hud
-		_strong(e.name,Rect2(3,0,hud_w-6,14),12,INK,hud,HORIZONTAL_ALIGNMENT_CENTER)
+		_enemy_name(e.name,Rect2(3,0,hud_w-6,14),hud)
 		_meter(Rect2(3,15,hud_w-6,2),e.hp,e.mhp,true,hud)
-		_strong("HP %d/%d" % [e.hp,e.mhp],Rect2(3,18,hud_w-6,14),12,INK,hud,HORIZONTAL_ALIGNMENT_CENTER)
+		_enemy_hp("HP %d/%d" % [e.hp,e.mhp],Rect2(3,18,hud_w-6,14),hud,HORIZONTAL_ALIGNMENT_CENTER)
 		if big:
 			var diamond=Polygon2D.new(); diamond.polygon=PackedVector2Array([Vector2(0,-5.66),Vector2(5.66,0),Vector2(0,5.66),Vector2(-5.66,0)])
 			diamond.color=RED if targeting else PAPER; hit.add_child(diamond); diamond.position=Vector2(317*sx-left,4*sy); diamond.z_index=26
@@ -358,8 +358,10 @@ func _detail(rect: Rect2) -> void:
 	var e=state.enemy(state.selected_enemy)
 	if e.is_empty(): return
 	_color(Rect2(rect.position,Vector2(rect.size.x,1)),LINE)
-	_strong(e.name,Rect2(rect.position+Vector2(0,6),Vector2(rect.size.x-100,17)),12)
-	_strong("HP %d/%d" % [e.hp,e.mhp],Rect2(rect.position+Vector2(rect.size.x-100,6),Vector2(100,17)),12,INK,self,HORIZONTAL_ALIGNMENT_RIGHT)
+	if state.data.has("encounter_r21"):
+		_enemy_name(e.name+" · "+e.role,Rect2(rect.position+Vector2(0,6),Vector2(rect.size.x-100,17)),self,HORIZONTAL_ALIGNMENT_LEFT)
+	else: _strong(e.name,Rect2(rect.position+Vector2(0,6),Vector2(rect.size.x-100,17)),12)
+	_enemy_hp("HP %d/%d" % [e.hp,e.mhp],Rect2(rect.position+Vector2(rect.size.x-100,6),Vector2(100,17)),self,HORIZONTAL_ALIGNMENT_RIGHT)
 	var weak=[]
 	for element in e.get("weak",[]): weak.append(state.data.elements.get(element,element))
 	if not weak.is_empty(): _label("약점 "+" · ".join(weak),Rect2(rect.position+Vector2(0,22),Vector2(rect.size.x-112,17)),12)
@@ -722,7 +724,7 @@ func _publish_metrics() -> void:
 		if node is Button: controls[key].rect=[node.global_position.x,node.global_position.y,node.size.x,node.size.y]
 	if not OS.has_feature("web"):
 		return
-	var report={"ui_build":"battle-r20b-20261031","items_open":items_open,"log_open":log_open,"build":state.data.build,"busy":busy,"pending_action":pending_action,"result":state.result,"current_id":state.current_id,"events":state.events,"engine":Engine.get_version_info().string,"state":state.snapshot(),"controls":controls,"text":text_metrics,"skills_open":skills_open,"ally_open":ally_open,"motion_reduced":motion_reduced,"storage_persistent":OS.is_userfs_persistent(),"storage_error":storage_error,"frame":[frame.position.x,frame.position.y,frame.size.x,frame.size.y],"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"shown_hp":shown_hp,"motion_serial":motion_serial,"actor_art":CharacterSprite.info(animation_ally if not animation_ally.is_empty() else state.last_ally).get("path",""),"enemy_hp":state.data.enemies.map(func(e):return {"id":e.id,"hp":e.hp,"mhp":e.mhp})}
+	var report={"ui_build":"r21-a-data-20261031" if state.data.has("encounter_r21") else "battle-r20b-20261031","items_open":items_open,"log_open":log_open,"build":state.data.build,"busy":busy,"pending_action":pending_action,"result":state.result,"current_id":state.current_id,"events":state.events,"engine":Engine.get_version_info().string,"state":state.snapshot(),"controls":controls,"text":text_metrics,"skills_open":skills_open,"ally_open":ally_open,"motion_reduced":motion_reduced,"storage_persistent":OS.is_userfs_persistent(),"storage_error":storage_error,"frame":[frame.position.x,frame.position.y,frame.size.x,frame.size.y],"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"shown_hp":shown_hp,"motion_serial":motion_serial,"actor_art":CharacterSprite.info(animation_ally if not animation_ally.is_empty() else state.last_ally).get("path",""),"enemy_hp":state.data.enemies.map(func(e):return {"id":e.id,"hp":e.hp,"mhp":e.mhp})}
 	JavaScriptBridge.eval("window.__abyssPreview = "+JSON.stringify(report)+";",true)
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -877,6 +879,28 @@ func _enemy_art(e: Dictionary, rect: Rect2, parent: Control, pixel=false) -> Tex
 		rect=Rect2((rect.position+Vector2((rect.size.x-extent.x)/2,rect.size.y-extent.y)).round(),extent)
 	art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED; art.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
 	_put(art,rect,parent); return art
+
+func _enemy_name(value: String,rect: Rect2,parent: Control,align=HORIZONTAL_ALIGNMENT_CENTER) -> Label:
+	# Preserve full canonical text in the model and tooltip. Fit the fixed r20 HUD.
+	var text=value
+	if state.data.has("encounter_r21"):
+		while text.length()>1 and W750.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,12).x>rect.size.x:
+			text=text.left(text.length()-2)+"…"
+	var label=_strong(text,rect,12,INK,parent,align)
+	label.tooltip_text=value
+	return label
+
+func _enemy_hp(value: String,rect: Rect2,parent: Control,align: int) -> Label:
+	var label=_strong(value,rect,12,INK,parent,align)
+	if state.data.has("encounter_r21"):
+		# Source encounters can have 7 live enemies or much larger deep-floor HP.
+		# Fit the exact numbers inside the unchanged r20 label rectangle.
+		var needed=float(text_metrics[-1].needed)
+		if needed>rect.size.x:
+			label.size.x=needed; label.scale.x=rect.size.x/needed
+			text_metrics[-1].needed=rect.size.x
+		label.tooltip_text=value
+	return label
 
 
 func _reason(id: String) -> String:
