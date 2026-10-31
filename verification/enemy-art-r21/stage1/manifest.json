@@ -1,0 +1,714 @@
+{
+  "stage": 1,
+  "status": "samples_ready_for_owner_review",
+  "requested_enemy_count": 100,
+  "final_sample_count": 3,
+  "remaining_not_generated": 97,
+  "generator_calls": 4,
+  "generation_mode": "built-in image_gen only; three subjects and one correction of the boss",
+  "postprocess_script": "tools/process_enemy_art_r21.py",
+  "style_spec": "verification/enemy-art-r21/style-spec.json",
+  "source_world_notes": [
+    {
+      "path": "C:/Clauede Code/dungeon-bot/world/wiki/루미엘 함몰.md",
+      "section": "public 개요/함몰",
+      "use": "old capital collapsed; no new appearance traits inferred"
+    },
+    {
+      "path": "C:/Clauede Code/dungeon-bot/world/wiki/프리엔 학술원 사건.md",
+      "section": "public 배경",
+      "use": "scholarly legacy and forbidden research context only; no props inferred"
+    },
+    {
+      "path": "C:/Clauede Code/dungeon-bot/world/COSMOLOGY.md",
+      "section": "그 밖에 채운 빈칸 / 기술 수준",
+      "use": "plate armor, long spears; no gunpowder; hidden-truth sections excluded"
+    }
+  ],
+  "samples": [
+    {
+      "id": "abyss_hound",
+      "name": "심연 사냥개",
+      "family": 14,
+      "sample_grade": "mob",
+      "source_grade": "mob",
+      "zone": "common",
+      "role": "돌격",
+      "weakness_metadata": [
+        "ice",
+        "holy"
+      ],
+      "intrinsic_element": "없음 (source has weak only)",
+      "source_description": "여러 짐승의 뼈와 털이 엉겨 붙은 검은 개",
+      "source_paths": [
+        {
+          "path": "C:/Clauede Code/dungeon-bot/design/enemies.json",
+          "selector": "enemies[id=abyss_hound]",
+          "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+        },
+        {
+          "path": "C:/Clauede Code/dungeon-bot/design/ENEMIES.md",
+          "lines": [
+            195,
+            531
+          ]
+        }
+      ],
+      "source_record": {
+        "id": "abyss_hound",
+        "name": "심연 사냥개",
+        "family": 14,
+        "zone": "common",
+        "grade": "mob",
+        "role": "돌격",
+        "row": "front",
+        "weak": [
+          "ice",
+          "holy"
+        ],
+        "acts": [
+          {
+            "name": "물어뜯기",
+            "kind": "atk",
+            "vb": "물어뜯었다",
+            "m": 1,
+            "id": "bite"
+          },
+          {
+            "name": "물어뜯기",
+            "kind": "atk",
+            "vb": "물어뜯었다",
+            "m": 1,
+            "id": "bite"
+          },
+          {
+            "name": "포효",
+            "kind": "buff",
+            "stat": "atk",
+            "amount": 0.3,
+            "turns": 3,
+            "target": "self",
+            "vb": "포효했다",
+            "id": "howl"
+          }
+        ],
+        "looks": "여러 짐승의 뼈와 털이 엉겨 붙은 검은 개",
+        "legacy": "hound"
+      },
+      "prompt": "Use case: stylized-concept. Asset type: one transparent enemy sprite for the existing dark-fantasy game. The four input images are STYLE REFERENCES ONLY, never subjects to copy. Match their chunky, stepped pixel blocks, dark warm near-black outlines, muted cream/bone, rust brown, antique brass and charcoal steel palette, and upper-left highlights. Single complete isolated creature/object, three-quarter battle view toward screen left, no environment or ground shadow. It should look drawn at roughly 112x140 logical pixels and enlarged with nearest-neighbor to about 1120x1400: hard square 10px blocks, 1–2 block outline, approximately 3–7 broad shade bands, no dithering or smooth shading. Use a small coherent palette (up to 32 colors). Fully transparent empty background, fully opaque sprite, no translucent effects or antialiased edges. No lettering, UI, border, watermark or labels. Do not add traits, props or weapons absent from the following source description. Weakness elements are metadata, not visual powers.\nSource: design/enemies.json enemy abyss_hound; family 14 심연 사냥 (Abyss hunt), common zone; mob, front-row assault. Exact appearance: 여러 짐승의 뼈와 털이 엉겨 붙은 검은 개 — a black dog with bones and fur of several beasts tangled together. Actions: bite, bite, howl. Draw ONE dog-shaped abyssal creature: low canine body on four paws, tangled coarse black fur with exposed pale animal-bone fragments embedded among fur; recognizable single canine silhouette, single head. No armor, collar, chains, rider, horns, wings, fire or invented magical glow. Menacing but no blood or gore. Modest mob size, broad low silhouette; keep full paws and tail in frame.",
+      "generation_tool": "built-in image_gen.imagegen",
+      "generated_original_file": "verification/enemy-art-r21/generated-originals/abyss_hound.png",
+      "original_tool_file": "C:/Users/asone/.codex/generated_images/01a190d4-205b-7372-89a4-327352e132e9/exec-8edca6db-73af-4274-b291-b5de0a04dd68.png",
+      "generated_original_sha256": "44af9053d11011ff368678f2a2e5f437f2f2e40e27c433d8375b6fcdd534f0df",
+      "generated_original_size": [
+        1402,
+        1122
+      ],
+      "raw_alpha_partial_pixels": 746217,
+      "output": "project/assets/enemies-r21/abyss_hound.png",
+      "postprocess": [
+        {
+          "step": "alpha threshold",
+          "cutoff": 128,
+          "transparent_rgb": 0
+        },
+        {
+          "step": "crop alpha foreground",
+          "bbox": [
+            50,
+            140,
+            1391,
+            1050
+          ]
+        },
+        {
+          "step": "fit grade bounds preserving aspect",
+          "maximum": [
+            680,
+            670
+          ],
+          "logical_size": [
+            68,
+            46
+          ]
+        },
+        {
+          "step": "nearest downsample to 10px logical grid"
+        },
+        {
+          "step": "remove tiny disconnected alpha components",
+          "minimum_logical_area": 3,
+          "removed_logical_pixels": 4
+        },
+        {
+          "step": "nearest Euclidean RGB quantization",
+          "shared_palette_colors": 32,
+          "dither": false
+        },
+        {
+          "step": "one logical pixel inner dark outline",
+          "rgb": [
+            19,
+            12,
+            19
+          ]
+        },
+        {
+          "step": "center horizontally and align lower silhouette",
+          "baseline_y": 1329
+        },
+        {
+          "step": "nearest upscale",
+          "block_px": 10,
+          "canvas": [
+            1120,
+            1400
+          ]
+        }
+      ],
+      "measurements": {
+        "size": [
+          1120,
+          1400
+        ],
+        "bytes": 14036,
+        "sha256": "ffae195aae1b9ae9e59ad481dceb6c2b4dbf4372602d9001a22bb7fba4f9d49d",
+        "opaque_bbox": [
+          220,
+          870,
+          900,
+          1330
+        ],
+        "bbox_size": [
+          680,
+          460
+        ],
+        "baseline_y": 1329,
+        "opaque_pixels": 179800,
+        "rgb_colors": 25,
+        "partial_alpha_pixels": 0,
+        "transparent_nonzero_rgb_pixels": 0,
+        "exact_grid_10px": true,
+        "palette_membership": true,
+        "logical_components": 1
+      }
+    },
+    {
+      "id": "chained_tome",
+      "name": "쇠사슬 금서",
+      "family": 4,
+      "sample_grade": "chief",
+      "source_grade": "elite",
+      "zone": "academy_library",
+      "role": "방어",
+      "weakness_metadata": [
+        "fire",
+        "holy"
+      ],
+      "intrinsic_element": "없음 (source has weak only)",
+      "source_description": "쇠사슬에 칭칭 감긴 사람 키만 한 책",
+      "source_paths": [
+        {
+          "path": "C:/Clauede Code/dungeon-bot/design/enemies.json",
+          "selector": "enemies[id=chained_tome]",
+          "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+        },
+        {
+          "path": "C:/Clauede Code/dungeon-bot/design/ENEMIES.md",
+          "lines": [
+            237,
+            245,
+            521
+          ]
+        }
+      ],
+      "source_record": {
+        "id": "chained_tome",
+        "name": "쇠사슬 금서",
+        "family": 4,
+        "zone": "academy_library",
+        "grade": "elite",
+        "role": "방어",
+        "row": "front",
+        "weak": [
+          "fire",
+          "holy"
+        ],
+        "acts": [
+          {
+            "name": "사슬 휘두르기",
+            "kind": "atk",
+            "vb": "사슬을 휘둘렀다",
+            "m": 1,
+            "id": "atk_1"
+          },
+          {
+            "name": "페이지 방벽",
+            "kind": "guard",
+            "id": "guard_2"
+          },
+          {
+            "name": "펼쳐진 장",
+            "kind": "charge",
+            "id": "charge_3"
+          },
+          {
+            "name": "책장 폭풍",
+            "kind": "big_all",
+            "vb": "책장을 휘몰아쳤다",
+            "m": 1.5,
+            "id": "big_all_4"
+          }
+        ],
+        "looks": "쇠사슬에 칭칭 감긴 사람 키만 한 책",
+        "rules": {
+          "counter_when_guard": {
+            "m": 0.6,
+            "vb": "사슬로 되받아쳤다"
+          }
+        }
+      },
+      "prompt": "Use case: stylized-concept. Asset type: one transparent enemy sprite for the existing dark-fantasy game. The four input images are STYLE REFERENCES ONLY, never subjects to copy. Match their chunky, stepped pixel blocks, dark warm near-black outlines, muted cream/bone, rust brown, antique brass and charcoal steel palette, and upper-left highlights. Single complete isolated creature/object, three-quarter battle view toward screen left, no environment or ground shadow. It should look drawn at roughly 112x140 logical pixels and enlarged with nearest-neighbor to about 1120x1400: hard square 10px blocks, 1–2 block outline, approximately 3–7 broad shade bands, no dithering or smooth shading. Use a small coherent palette (up to 32 colors). Fully transparent empty background, fully opaque sprite, no translucent effects or antialiased edges. No lettering, UI, border, watermark or labels. Do not add traits, props or weapons absent from the following source description. Weakness elements are metadata, not visual powers.\nSource: design/enemies.json enemy chained_tome; family 4 살아 있는 책 (living books), academy_library zone; base elite/front-row defense, explicitly a chief in zone academy_library.chiefs and ENEMIES.md line 245. Exact appearance: 쇠사슬에 칭칭 감긴 사람 키만 한 책 — a human-height book tightly wound in chains. Actions: swing chain, page barrier, opened pages, page storm. Draw ONE massive upright thick leather-bound closed-to-slightly-parted book, human-height, with many heavy iron chains tightly wrapped around its covers and spine and a short slack length of those same chains. Worn page block visible at the side, dark brown leather, iron-gray chains, cream page edges. It is a book monster, not a person holding a book. No face, eyes, mouth, teeth, limbs, skull ornaments, lock, gems, staff, floating text or new symbols. Grounded lower book edge, chief size between small mob and huge boss. Keep the book and all chains completely in frame.",
+      "generation_tool": "built-in image_gen.imagegen",
+      "generated_original_file": "verification/enemy-art-r21/generated-originals/chained_tome.png",
+      "original_tool_file": "C:/Users/asone/.codex/generated_images/01a190d4-205b-7372-89a4-327352e132e9/exec-d76fe485-56bd-4b8f-a644-93679b4395ad.png",
+      "generated_original_sha256": "b51685bd5a9973f7a65b209345272804aa10669c4baf833a424e293547f21a24",
+      "generated_original_size": [
+        1122,
+        1402
+      ],
+      "raw_alpha_partial_pixels": 1023173,
+      "output": "project/assets/enemies-r21/chained_tome.png",
+      "postprocess": [
+        {
+          "step": "alpha threshold",
+          "cutoff": 128,
+          "transparent_rgb": 0
+        },
+        {
+          "step": "crop alpha foreground",
+          "bbox": [
+            21,
+            68,
+            1098,
+            1351
+          ]
+        },
+        {
+          "step": "fit grade bounds preserving aspect",
+          "maximum": [
+            790,
+            980
+          ],
+          "logical_size": [
+            79,
+            94
+          ]
+        },
+        {
+          "step": "nearest downsample to 10px logical grid"
+        },
+        {
+          "step": "remove tiny disconnected alpha components",
+          "minimum_logical_area": 3,
+          "removed_logical_pixels": 0
+        },
+        {
+          "step": "nearest Euclidean RGB quantization",
+          "shared_palette_colors": 32,
+          "dither": false
+        },
+        {
+          "step": "one logical pixel inner dark outline",
+          "rgb": [
+            19,
+            12,
+            19
+          ]
+        },
+        {
+          "step": "center horizontally and align lower silhouette",
+          "baseline_y": 1329
+        },
+        {
+          "step": "nearest upscale",
+          "block_px": 10,
+          "canvas": [
+            1120,
+            1400
+          ]
+        }
+      ],
+      "measurements": {
+        "size": [
+          1120,
+          1400
+        ],
+        "bytes": 26015,
+        "sha256": "cfe898b89a91fa9e57894cad7a9b648bae888999602d3ec2e9c0e833b7af31be",
+        "opaque_bbox": [
+          160,
+          390,
+          950,
+          1330
+        ],
+        "bbox_size": [
+          790,
+          940
+        ],
+        "baseline_y": 1329,
+        "opaque_pixels": 538500,
+        "rgb_colors": 30,
+        "partial_alpha_pixels": 0,
+        "transparent_nonzero_rgb_pixels": 0,
+        "exact_grid_10px": true,
+        "palette_membership": true,
+        "logical_components": 1
+      },
+      "chief_mapping": {
+        "base_grade": "elite",
+        "used_as": "chief",
+        "source": "zones[id=academy_library].chiefs contains chained_tome; ENEMIES.md lines 43–46, 245; no gameplay data changed"
+      }
+    },
+    {
+      "id": "imperial_remnant",
+      "name": "제국 근위대의 잔해",
+      "family": 8,
+      "sample_grade": "boss",
+      "source_grade": "boss",
+      "zone": "lumiel_under",
+      "role": "방어",
+      "weakness_metadata": [
+        "holy",
+        "bolt"
+      ],
+      "intrinsic_element": "없음 (source has weak only)",
+      "source_description": "근위대 수십 명이 갑옷째 뒤엉켜, 거대한 방패 수레처럼 기어 나온다.",
+      "source_paths": [
+        {
+          "path": "C:/Clauede Code/dungeon-bot/design/enemies.json",
+          "selector": "enemies[id=imperial_remnant]",
+          "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+        },
+        {
+          "path": "C:/Clauede Code/dungeon-bot/design/ENEMIES.md",
+          "lines": [
+            248,
+            264,
+            265,
+            267,
+            525
+          ]
+        }
+      ],
+      "source_record": {
+        "id": "imperial_remnant",
+        "name": "제국 근위대의 잔해",
+        "family": 8,
+        "zone": "lumiel_under",
+        "grade": "boss",
+        "role": "방어",
+        "row": "front",
+        "weak": [
+          "holy",
+          "bolt"
+        ],
+        "acts": [
+          {
+            "name": "방패 벽",
+            "kind": "protect",
+            "guard": true,
+            "id": "protect_1"
+          },
+          {
+            "name": "창 숲",
+            "kind": "atk",
+            "vb": "창을 일제히 내밀었다",
+            "m": 0.6,
+            "target": "all",
+            "id": "atk_2"
+          },
+          {
+            "name": "근위 호출",
+            "kind": "summon",
+            "enemy": "rusted_shieldman",
+            "count": 1,
+            "id": "summon_3"
+          }
+        ],
+        "looks": "근위대 수십 명이 갑옷째 뒤엉켜, 거대한 방패 수레처럼 기어 나온다.",
+        "stat_role": "돌격",
+        "phase2": {
+          "weak": [
+            "holy",
+            "dark"
+          ],
+          "acts": [
+            {
+              "name": "마지막 돌격",
+              "kind": "charge",
+              "id": "charge_1"
+            },
+            {
+              "name": "방벽 파쇄",
+              "kind": "big_all",
+              "vb": "방패 수레로 짓밟았다",
+              "m": 1.5,
+              "id": "big_all_2"
+            },
+            {
+              "name": "창 숲",
+              "kind": "atk",
+              "vb": "창을 일제히 내밀었다",
+              "m": 0.6,
+              "target": "all",
+              "id": "atk_3"
+            }
+          ]
+        },
+        "deep": {
+          "hp": 1.16,
+          "atk": 0.993
+        }
+      },
+      "prompt": "Use case: stylized-concept. Asset type: one transparent enemy sprite for the existing dark-fantasy game. The four input images are STYLE REFERENCES ONLY, never subjects to copy. Match their chunky, stepped pixel blocks, dark warm near-black outlines, muted cream/bone, rust brown, antique brass and charcoal steel palette, and upper-left highlights. Single complete isolated creature/object, three-quarter battle view toward screen left, no environment or ground shadow. It should look drawn at roughly 112x140 logical pixels and enlarged with nearest-neighbor to about 1120x1400: hard square 10px blocks, 1–2 block outline, approximately 3–7 broad shade bands, no dithering or smooth shading. Use a small coherent palette (up to 32 colors). Fully transparent empty background, fully opaque sprite, no translucent effects or antialiased edges. No lettering, UI, border, watermark or labels. Do not add traits, props or weapons absent from the following source description. Weakness elements are metadata, not visual powers.\nSource: design/enemies.json enemy imperial_remnant; family 8 제국 근위대 (imperial guard), lumiel_under zone; boss/front-row defense. Exact appearance: 근위대 수십 명이 갑옷째 뒤엉켜, 거대한 방패 수레처럼 기어 나온다 — dozens of imperial guards entangled together in their armor, crawling out like a giant shield wagon. Actions: shield wall, forest of spears, call guard; phase2 last charge, crush with shield wagon. Draw ONE enormous broad crawling mass made from many overlapping armored guard remnants, tower shields and a forest of long spears, interlocked and tangled into a single shield-wagon-like body. Repeated battered steel helmets and plate armor buried among overlapping shields make the many fused guards readable. Dark iron/charcoal steel with restrained aged brass edging and worn leather, no modern details. The mass crawls on intermingled armored limbs at its base; this is a mass of guards resembling a wagon, not a manufactured wheeled vehicle. No actual wheels, no horse, no throne, no crown, banners, cannons or unrelated weapon. No visible living human, blood or gore. Much heavier and larger than mob or chief, large full silhouette without cropping. Keep every spear tip in frame.",
+      "generation_tool": "built-in image_gen.imagegen",
+      "generated_original_file": "verification/enemy-art-r21/generated-originals/imperial_remnant-clean.png",
+      "original_tool_file": "C:/Users/asone/.codex/generated_images/01a190d4-205b-7372-89a4-327352e132e9/exec-a074df99-665f-4d6b-91a3-6d0fe2dce902.png",
+      "generated_original_sha256": "110cbc6b5c29ff4f0ca63c7bbd72028cb9242206ce7ec6dee8beee4cbb71be54",
+      "generated_original_size": [
+        1122,
+        1402
+      ],
+      "raw_alpha_partial_pixels": 846530,
+      "output": "project/assets/enemies-r21/imperial_remnant.png",
+      "postprocess": [
+        {
+          "step": "alpha threshold",
+          "cutoff": 128,
+          "transparent_rgb": 0
+        },
+        {
+          "step": "crop alpha foreground",
+          "bbox": [
+            12,
+            61,
+            1110,
+            1312
+          ]
+        },
+        {
+          "step": "fit grade bounds preserving aspect",
+          "maximum": [
+            1040,
+            1240
+          ],
+          "logical_size": [
+            104,
+            118
+          ]
+        },
+        {
+          "step": "nearest downsample to 10px logical grid"
+        },
+        {
+          "step": "remove tiny disconnected alpha components",
+          "minimum_logical_area": 3,
+          "removed_logical_pixels": 0
+        },
+        {
+          "step": "nearest Euclidean RGB quantization",
+          "shared_palette_colors": 32,
+          "dither": false
+        },
+        {
+          "step": "one logical pixel inner dark outline",
+          "rgb": [
+            19,
+            12,
+            19
+          ]
+        },
+        {
+          "step": "center horizontally and align lower silhouette",
+          "baseline_y": 1329
+        },
+        {
+          "step": "nearest upscale",
+          "block_px": 10,
+          "canvas": [
+            1120,
+            1400
+          ]
+        }
+      ],
+      "measurements": {
+        "size": [
+          1120,
+          1400
+        ],
+        "bytes": 33966,
+        "sha256": "8f8d11e1b6cb0ec5ce2703686a5c611e08fc477511fd494bdf18ab14141012d0",
+        "opaque_bbox": [
+          40,
+          150,
+          1080,
+          1330
+        ],
+        "bbox_size": [
+          1040,
+          1180
+        ],
+        "baseline_y": 1329,
+        "opaque_pixels": 702600,
+        "rgb_colors": 30,
+        "partial_alpha_pixels": 0,
+        "transparent_nonzero_rgb_pixels": 0,
+        "exact_grid_10px": true,
+        "palette_membership": true,
+        "logical_components": 1
+      },
+      "revision": {
+        "reason": "Removed invented shield emblems absent from source.",
+        "before": "verification/enemy-art-r21/generated-originals/imperial_remnant.png",
+        "after": "verification/enemy-art-r21/generated-originals/imperial_remnant-clean.png",
+        "tool": "built-in image_gen.imagegen",
+        "prompt_file": "verification/enemy-art-r21/boss-correction-prompt.txt"
+      }
+    }
+  ],
+  "sample_sheet": {
+    "path": "verification/enemy-art-r21/sample-sheet.jpg",
+    "size": [
+      1176,
+      272
+    ],
+    "bytes": 104859,
+    "sha256": "c87195cc588aad0628ec9683e75e1432908e0e0a0c616bda70d3c9492337e3c6",
+    "resample": "NEAREST",
+    "scale": 0.14,
+    "layout": [
+      {
+        "file": "project/assets/src/executor-v2.png",
+        "scale": 0.14,
+        "position": [
+          6,
+          58
+        ],
+        "rendered_size": [
+          156,
+          169
+        ],
+        "baseline": 226
+      },
+      {
+        "file": "project/assets/src/apprentice-v2.png",
+        "scale": 0.14,
+        "position": [
+          196,
+          45
+        ],
+        "rendered_size": [
+          112,
+          182
+        ],
+        "baseline": 226
+      },
+      {
+        "file": "project/assets/src/orb-v2.png",
+        "scale": 0.14,
+        "position": [
+          366,
+          59
+        ],
+        "rendered_size": [
+          107,
+          168
+        ],
+        "baseline": 226
+      },
+      {
+        "file": "project/assets/src/lantern-v2.png",
+        "scale": 0.14,
+        "position": [
+          550,
+          60
+        ],
+        "rendered_size": [
+          75,
+          167
+        ],
+        "baseline": 226
+      },
+      {
+        "file": "project/assets/enemies-r21/abyss_hound.png",
+        "scale": 0.14,
+        "position": [
+          708,
+          163
+        ],
+        "rendered_size": [
+          95,
+          64
+        ],
+        "baseline": 226
+      },
+      {
+        "file": "project/assets/enemies-r21/chained_tome.png",
+        "scale": 0.14,
+        "position": [
+          868,
+          95
+        ],
+        "rendered_size": [
+          111,
+          132
+        ],
+        "baseline": 226
+      },
+      {
+        "file": "project/assets/enemies-r21/imperial_remnant.png",
+        "scale": 0.14,
+        "position": [
+          1019,
+          62
+        ],
+        "rendered_size": [
+          146,
+          165
+        ],
+        "baseline": 226
+      }
+    ]
+  },
+  "visual_review": {
+    "status": "inspected",
+    "method": "Opened sample-sheet.jpg and all three final PNGs directly using view_image",
+    "review_date": "2026-10-31 Asia/Seoul",
+    "observations": [
+      "All seven sprites compared at one 14% source-pixel scale and aligned lower silhouettes.",
+      "Warm bone/brass highlights, dark charcoal outlines and upper-left lighting are shared with the v2 references.",
+      "Dog, chained book and armored shield/spear mass have distinct silhouettes; mob < chief < boss size hierarchy visible.",
+      "New PNG edges are deliberately harder and coarser than soft, irregular generated v2 edges because of the required strict 10px grid, 32-color palette and binary alpha.",
+      "Hound at 14% is visibly smaller and loses fine bone details; the canine silhouette remains readable.",
+      "Boss shield symbols absent from source were removed via image_gen correction."
+    ],
+    "limitations": [
+      "This is an art review sheet; game integration belongs to branch A and was not changed.",
+      "No claim of exact native-grid/palette equivalence: the v2 originals contain 50k–71k foreground RGB colors and partial alpha.",
+      "Owner approval is pending; other 97 enemy subjects were not generated."
+    ]
+  },
+  "verification": {
+    "summary": "verification/enemy-art-r21/verification-summary.json",
+    "regression": "verification/enemy-art-r21/regression-results.json",
+    "asset_checks": "verification/enemy-art-r21/asset-checks.json",
+    "regression_passed": 15,
+    "regression_failed": 0,
+    "asset_checks_passed": 40,
+    "asset_checks_failed": 0,
+    "immutable_assets": 96,
+    "immutable_assets_changed": 0
+  }
+}

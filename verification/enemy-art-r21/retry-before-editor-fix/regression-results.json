@@ -1,0 +1,205 @@
+{
+  "completed": 15,
+  "expected": 15,
+  "passed": 13,
+  "failed": 2,
+  "results": [
+    {
+      "name": "import",
+      "command": "python tools/godot_r17.py --headless --editor --import --quit",
+      "exit_code": 0,
+      "passed": false,
+      "elapsed_seconds": 5.38,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "pass_lines": [],
+      "log": "verification/enemy-art-r21/checks/import.log",
+      "timed_out": false
+    },
+    {
+      "name": "world_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/world_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.45,
+      "error_lines": [],
+      "pass_lines": [
+        "WORLD TESTS: 44 checks, 0 failures"
+      ],
+      "log": "verification/enemy-art-r21/checks/world_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "state_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/state_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.81,
+      "error_lines": [],
+      "pass_lines": [
+        "COMBAT CHECKS: 54; FAILURES: 0"
+      ],
+      "log": "verification/enemy-art-r21/checks/state_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "route_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/route_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.45,
+      "error_lines": [],
+      "pass_lines": [
+        "ROUTE TESTS: 41 checks, 0 failures"
+      ],
+      "log": "verification/enemy-art-r21/checks/route_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "expansion_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/expansion_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 1.11,
+      "error_lines": [],
+      "pass_lines": [
+        "EXPANSION CHECKS 3350 FAILURES 0"
+      ],
+      "log": "verification/enemy-art-r21/checks/expansion_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "motion_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/motion_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.36,
+      "error_lines": [],
+      "pass_lines": [
+        "MOTION TIMELINE PASS: contact, hitstop, pause, speed, skip, large delta"
+      ],
+      "log": "verification/enemy-art-r21/checks/motion_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "motion_asset_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/motion_asset_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.44,
+      "error_lines": [],
+      "pass_lines": [
+        "MOTION ASSET PASS: 19 clips, original starts, natural recovery, timing, attachments and mappings"
+      ],
+      "log": "verification/enemy-art-r21/checks/motion_asset_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "art_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/art_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.64,
+      "error_lines": [],
+      "pass_lines": [
+        "PASS 30 characters / 60 UV frames / 30 unique cinematics / impact and completion"
+      ],
+      "log": "verification/enemy-art-r21/checks/art_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "export_licenses",
+      "command": "python tools/godot_r17.py --headless --script res://tests/export_licenses.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.34,
+      "error_lines": [],
+      "pass_lines": [
+        "Exported Godot and bundled library license notices."
+      ],
+      "log": "verification/enemy-art-r21/checks/export_licenses.log",
+      "timed_out": false
+    },
+    {
+      "name": "ui_battle_r17_test",
+      "command": "python tools/godot_r17.py --position -10000,-10000 --script res://tests/ui_battle_r17_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 46.39,
+      "error_lines": [],
+      "pass_lines": [
+        "R17 BATTLE UI 6085 CHECKS / 0 FAILURES"
+      ],
+      "log": "verification/enemy-art-r21/checks/ui_battle_r17_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "ui_battle_r18_test",
+      "command": "python tools/godot_r17.py --position -10000,-10000 --script res://tests/ui_battle_r18_test.gd",
+      "exit_code": 0,
+      "passed": false,
+      "elapsed_seconds": 36.83,
+      "error_lines": [
+        "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+      ],
+      "pass_lines": [
+        "R18: 4592 checks / 0 failures; 30 distinct effect hashes"
+      ],
+      "log": "verification/enemy-art-r21/checks/ui_battle_r18_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "ui_battle_r19_test",
+      "command": "python tools/godot_r17.py --position -10000,-10000 --script res://tests/ui_battle_r19_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 8.44,
+      "error_lines": [],
+      "pass_lines": [
+        "R19: 859 checks / 0 failures"
+      ],
+      "log": "verification/enemy-art-r21/checks/ui_battle_r19_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "ui_battle_r20_test",
+      "command": "python tools/godot_r17.py --position -10000,-10000 --script res://tests/ui_battle_r20_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 12.81,
+      "error_lines": [],
+      "pass_lines": [
+        "R20: 1659 checks / 0 failures"
+      ],
+      "log": "verification/enemy-art-r21/checks/ui_battle_r20_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "motion_r9_integration",
+      "command": "python tools/godot_r17.py --position -10000,-10000 --script res://tests/motion_r9_integration.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 6.61,
+      "error_lines": [],
+      "pass_lines": [
+        "R9 INTEGRATION: 944 checks / 0 failures"
+      ],
+      "log": "verification/enemy-art-r21/checks/motion_r9_integration.log",
+      "timed_out": false
+    },
+    {
+      "name": "motion_r18_integration",
+      "command": "python tools/godot_r17.py --position -10000,-10000 --script res://tests/motion_r18_integration.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 51.67,
+      "error_lines": [],
+      "pass_lines": [
+        "R18 STATE INTEGRATION: 3540 checks / 0 failures"
+      ],
+      "log": "verification/enemy-art-r21/checks/motion_r18_integration.log",
+      "timed_out": false
+    }
+  ]
+}

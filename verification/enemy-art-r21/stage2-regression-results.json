@@ -1,0 +1,186 @@
+{
+  "completed": 15,
+  "expected": 15,
+  "passed": 15,
+  "failed": 0,
+  "results": [
+    {
+      "name": "import",
+      "command": "python tools/godot_r17.py --headless --editor --import --quit",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 6.36,
+      "error_lines": [],
+      "pass_lines": [],
+      "log": "verification/enemy-art-r21/checks-stage2/import.log"
+    },
+    {
+      "name": "world_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/world_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.47,
+      "error_lines": [],
+      "pass_lines": [
+        "WORLD TESTS: 44 checks, 0 failures"
+      ],
+      "log": "verification/enemy-art-r21/checks-stage2/world_test.log"
+    },
+    {
+      "name": "state_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/state_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.84,
+      "error_lines": [],
+      "pass_lines": [
+        "COMBAT CHECKS: 54; FAILURES: 0"
+      ],
+      "log": "verification/enemy-art-r21/checks-stage2/state_test.log"
+    },
+    {
+      "name": "route_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/route_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.48,
+      "error_lines": [],
+      "pass_lines": [
+        "ROUTE TESTS: 41 checks, 0 failures"
+      ],
+      "log": "verification/enemy-art-r21/checks-stage2/route_test.log"
+    },
+    {
+      "name": "expansion_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/expansion_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 1.09,
+      "error_lines": [],
+      "pass_lines": [
+        "EXPANSION CHECKS 3350 FAILURES 0"
+      ],
+      "log": "verification/enemy-art-r21/checks-stage2/expansion_test.log"
+    },
+    {
+      "name": "motion_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/motion_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.36,
+      "error_lines": [],
+      "pass_lines": [
+        "MOTION TIMELINE PASS: contact, hitstop, pause, speed, skip, large delta"
+      ],
+      "log": "verification/enemy-art-r21/checks-stage2/motion_test.log"
+    },
+    {
+      "name": "motion_asset_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/motion_asset_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.44,
+      "error_lines": [],
+      "pass_lines": [
+        "MOTION ASSET PASS: 19 clips, original starts, natural recovery, timing, attachments and mappings"
+      ],
+      "log": "verification/enemy-art-r21/checks-stage2/motion_asset_test.log"
+    },
+    {
+      "name": "art_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/art_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.62,
+      "error_lines": [],
+      "pass_lines": [
+        "PASS 30 characters / 60 UV frames / 30 unique cinematics / impact and completion"
+      ],
+      "log": "verification/enemy-art-r21/checks-stage2/art_test.log"
+    },
+    {
+      "name": "export_licenses",
+      "command": "python tools/godot_r17.py --headless --script res://tests/export_licenses.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 0.36,
+      "error_lines": [],
+      "pass_lines": [
+        "Exported Godot and bundled library license notices."
+      ],
+      "log": "verification/enemy-art-r21/checks-stage2/export_licenses.log"
+    },
+    {
+      "name": "ui_battle_r17_test",
+      "command": "python tools/godot_r17.py --position -10000,-10000 --script res://tests/ui_battle_r17_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 45.97,
+      "error_lines": [],
+      "pass_lines": [
+        "R17 BATTLE UI 6085 CHECKS / 0 FAILURES"
+      ],
+      "log": "verification/enemy-art-r21/checks-stage2/ui_battle_r17_test.log"
+    },
+    {
+      "name": "ui_battle_r18_test",
+      "command": "python tools/godot_r17.py --position -10000,-10000 --script res://tests/ui_battle_r18_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 36.05,
+      "error_lines": [],
+      "pass_lines": [
+        "R18: 4592 checks / 0 failures; 30 distinct effect hashes"
+      ],
+      "log": "verification/enemy-art-r21/checks-stage2/ui_battle_r18_test.log"
+    },
+    {
+      "name": "ui_battle_r19_test",
+      "command": "python tools/godot_r17.py --position -10000,-10000 --script res://tests/ui_battle_r19_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 8.08,
+      "error_lines": [],
+      "pass_lines": [
+        "R19: 859 checks / 0 failures"
+      ],
+      "log": "verification/enemy-art-r21/checks-stage2/ui_battle_r19_test.log"
+    },
+    {
+      "name": "ui_battle_r20_test",
+      "command": "python tools/godot_r17.py --position -10000,-10000 --script res://tests/ui_battle_r20_test.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 14.36,
+      "error_lines": [],
+      "pass_lines": [
+        "R20: 1659 checks / 0 failures"
+      ],
+      "log": "verification/enemy-art-r21/checks-stage2/ui_battle_r20_test.log"
+    },
+    {
+      "name": "motion_r9_integration",
+      "command": "python tools/godot_r17.py --position -10000,-10000 --script res://tests/motion_r9_integration.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 6.95,
+      "error_lines": [],
+      "pass_lines": [
+        "R9 INTEGRATION: 944 checks / 0 failures"
+      ],
+      "log": "verification/enemy-art-r21/checks-stage2/motion_r9_integration.log"
+    },
+    {
+      "name": "motion_r18_integration",
+      "command": "python tools/godot_r17.py --position -10000,-10000 --script res://tests/motion_r18_integration.gd",
+      "exit_code": 0,
+      "passed": true,
+      "elapsed_seconds": 56.36,
+      "error_lines": [],
+      "pass_lines": [
+        "R18 STATE INTEGRATION: 3540 checks / 0 failures"
+      ],
+      "log": "verification/enemy-art-r21/checks-stage2/motion_r18_integration.log"
+    }
+  ]
+}
