@@ -1,0 +1,211 @@
+{
+  "protected_game_data_files": 29,
+  "protected_changes": [],
+  "original_assets_checked": 96,
+  "original_asset_hash_errors": [],
+  "world_screen_unchanged": true,
+  "r18_signature_sequence_unchanged": true,
+  "unexpected_ui_changes": [],
+  "changed_baseline_files": [
+    "project/ui/battle_ink_r17.gd",
+    "project/ui/battle_screen.gd",
+    "project/tests/ui_battle_r17_test.gd",
+    "tools/update_version.py",
+    "tools/web_smoke_r19.py"
+  ],
+  "pck_before_bytes": 52761864,
+  "pck_after_bytes": 53240060,
+  "version": {
+    "build": "torva-art-20261027-r4b",
+    "ui_build": "battle-r20b-20261031",
+    "engine": "Godot 4.7.2",
+    "pck_sha256": "d509777590c230789e9f8308eaca48e8c4f337553811a077e4becccbdca55143",
+    "wasm_sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0"
+  },
+  "pck_matches_version": true,
+  "wasm_matches_version": true,
+  "verification_steps": {
+    "checks": [
+      {
+        "test": "import",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": []
+      },
+      {
+        "test": "world_test",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "WORLD TESTS: 44 checks, 0 failures"
+        ]
+      },
+      {
+        "test": "state_test",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "COMBAT CHECKS: 54; FAILURES: 0"
+        ]
+      },
+      {
+        "test": "route_test",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "ROUTE TESTS: 41 checks, 0 failures"
+        ]
+      },
+      {
+        "test": "expansion_test",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "EXPANSION CHECKS 3350 FAILURES 0"
+        ]
+      },
+      {
+        "test": "balance_probe",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "BALANCE [{\"mean_turns\":6.2,\"party\":[\"hildegard\",\"bargut\",\"teiris\",\"berenga\"],\"remaining_hp\":0.748201452562796,\"seeds\":40,\"wins\":40},{\"mean_turns\":16.6,\"party\":[\"marceline\",\"gunhild\",\"naran\",\"lynette\"],\"remaining_hp\":0.896078055924337,\"seeds\":40,\"wins\":40},{\"mean_turns\":15.025,\"party\":[\"erdene\",\"bianca\",\"judith\",\"sorel\"],\"remaining_hp\":0.94296218487395,\"seeds\":40,\"wins\":40},{\"mean_turns\":14.15,\"party\":[\"saya\",\"tove\",\"gerda\",\"miko\"],\"remaining_hp\":0.760862677111657,\"seeds\":40,\"wins\":40},{\"mean_turns\":12.75,\"party\":[\"zahar\",\"tika\",\"levia\",\"urda\"],\"remaining_hp\":0.816304448632532,\"seeds\":40,\"wins\":40},{\"mean_turns\":13.775,\"party\":[\"haldric\",\"selva\",\"hedwig\",\"altan\"],\"remaining_hp\":0.961538461538461,\"seeds\":40,\"wins\":40},{\"mean_turns\":22.95,\"party\":[\"hildegard\",\"jorund\",\"colette\",\"felice\"],\"remaining_hp\":0.674105921394834,\"seeds\":40,\"wins\":40},{\"mean_turns\":11.5,\"party\":[\"bargut\",\"tove\",\"ornel\",\"adeline\"],\"remaining_hp\":0.684868217936009,\"seeds\":40,\"wins\":40}]"
+        ]
+      },
+      {
+        "test": "motion_test",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": []
+      },
+      {
+        "test": "motion_asset_test",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": []
+      },
+      {
+        "test": "art_test",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": []
+      },
+      {
+        "test": "export_licenses",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": []
+      }
+    ],
+    "input": [
+      {
+        "test": "r17-input",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "R17 BATTLE UI 6085 CHECKS / 0 FAILURES"
+        ]
+      }
+    ],
+    "motion": [
+      {
+        "test": "r9-integration",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "R9 INTEGRATION: 944 checks / 0 failures"
+        ]
+      }
+    ],
+    "state": [
+      {
+        "test": "r18-integration",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "R18 STATE INTEGRATION: 3540 checks / 0 failures"
+        ]
+      }
+    ],
+    "r18": [
+      {
+        "test": "r18-render",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "R18: 4592 checks / 0 failures; 30 distinct effect hashes"
+        ]
+      }
+    ],
+    "render": [
+      {
+        "test": "r19-render",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "R19: 859 checks / 0 failures"
+        ]
+      }
+    ],
+    "r20": [
+      {
+        "test": "r20-render",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "R20: 1659 checks / 0 failures"
+        ]
+      }
+    ],
+    "export": [
+      {
+        "test": "export",
+        "exit_code": 0,
+        "engine_errors": [],
+        "summary": [
+          "[  46% ] \u001b[90m\u001b[1msavepack\u001b[22m | 파일 저장 중: res://licenses/GowunBatang-OFL.txt\u001b[39m\u001b[0m",
+          "[  86% ] \u001b[90m\u001b[1msavepack\u001b[22m | 파일 저장 중: res://licenses/GODOT_AND_THIRD_PARTY.txt\u001b[39m\u001b[0m"
+        ]
+      }
+    ]
+  },
+  "engine_errors": [],
+  "binary_vector_bytes": 475677,
+  "raw_vector_json_bytes": 0,
+  "exported_vector_gzip_bytes": 0,
+  "pck_delta_bytes": 478196,
+  "pck_delta_percent": 0.906328859041068,
+  "pck_ink_entries": [
+    {
+      "path": ".godot/imported/target-outline.svg-47a97cdbf43826aa6e8e071705002b38.ctex",
+      "bytes": 3072,
+      "offset": 42840656,
+      "md5": "5e61786b474baf774ae29fd699148e20",
+      "flags": 0
+    },
+    {
+      "path": "assets/ui-r20/ink-paths.res",
+      "bytes": 475677,
+      "offset": 42364976,
+      "md5": "7cb04d88f8a868d09e0df8d015be9575",
+      "flags": 0
+    },
+    {
+      "path": "assets/ui-r20/target-outline.svg.import",
+      "bytes": 203,
+      "offset": 42843728,
+      "md5": "f80b2d3a639250f67535f5273fe93e13",
+      "flags": 0
+    }
+  ],
+  "pck_ink_payload_bytes": 478952,
+  "pck_ink_with_alignment_and_directory_bytes": 479224,
+  "no_legacy_vector_json_in_project": true,
+  "no_legacy_vector_json_in_pck": true,
+  "r20b_before": {
+    "pck_bytes": 67129232,
+    "json_bytes": 49308354,
+    "gzip_bytes": 14365134
+  },
+  "ink_under_half_megabyte": true
+}

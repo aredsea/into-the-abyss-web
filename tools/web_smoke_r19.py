@@ -4,7 +4,7 @@ from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 from functools import partial
 import threading,json,os,tempfile
 from playwright.sync_api import sync_playwright
-R=Path(__file__).resolve().parents[1]; O=R/'verification/ui-r19/web'; O.mkdir(exist_ok=True)
+R=Path(__file__).resolve().parents[1]; O=R/'verification/ui-r20/web'; O.mkdir(parents=True,exist_ok=True)
 runtime=O.parent/'runtime/browser';runtime.mkdir(parents=True,exist_ok=True)
 tempfile.tempdir=str(runtime)
 for key in ['TEMP','TMP','TMPDIR']:os.environ[key]=str(runtime)
@@ -38,7 +38,7 @@ try:
    tag=f'{width}'+('' if (width,height) in [(390,844),(360,780)] else f'x{height}')+('-reduced' if reduced else '')
    def capture(mode):page.screenshot(path=str(O/f'{mode}-{tag}.png'))
    capture('base'); initial=page.evaluate('window.__abyssPreview')
-   assert initial['ui_build']=='battle-r19-20261031'
+   assert initial['ui_build']=='battle-r20b-20261031'
    # Phone portrait: 1:1 CSS px, never below 360x780. Wider pages keep the town's scaled canvas.
    if width<=480 and height>width:
     k=max(1,780/height,360/width); expected=(width*k,height*k)

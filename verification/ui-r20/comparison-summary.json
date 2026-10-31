@@ -1,0 +1,49 @@
+{
+  "box_count": 247,
+  "boxes_within_2px": 247,
+  "box_max_error_px": 2.0,
+  "box_exceptions": [],
+  "baseline_count": 351,
+  "baselines_within_2px": 351,
+  "baseline_max_error_px": 2.0,
+  "baseline_exceptions": [],
+  "pixel_comparison": [
+    {
+      "state": "base",
+      "mae_0_255": 12.377829424393406,
+      "pixels_any_channel_delta_gt_16_pct": 17.194981164175477,
+      "source_panel_vs_html_mae": 4.326154453761089
+    },
+    {
+      "state": "target",
+      "mae_0_255": 11.871393851014703,
+      "pixels_any_channel_delta_gt_16_pct": 17.17219589257504,
+      "source_panel_vs_html_mae": 4.23579920605987
+    },
+    {
+      "state": "status",
+      "mae_0_255": 11.425628873496173,
+      "pixels_any_channel_delta_gt_16_pct": 18.10487301008628,
+      "source_panel_vs_html_mae": 4.003847166524892
+    },
+    {
+      "state": "skills",
+      "mae_0_255": 10.80145724470369,
+      "pixels_any_channel_delta_gt_16_pct": 16.469801920038886,
+      "source_panel_vs_html_mae": 4.205050228865395
+    },
+    {
+      "state": "supplies",
+      "mae_0_255": 12.18579009195123,
+      "pixels_any_channel_delta_gt_16_pct": 17.75063798760481,
+      "source_panel_vs_html_mae": 4.281533803216267
+    },
+    {
+      "state": "log",
+      "mae_0_255": 10.820331551018755,
+      "pixels_any_channel_delta_gt_16_pct": 16.188479766678817,
+      "source_panel_vs_html_mae": 4.2846639931947985
+    }
+  ],
+  "method": "Box edge maximum = max of four absolute edge deltas. Browser baselines measured with an inline zero-height marker in each text run; native baselines from Label font ascent and vertical alignment. Composite text runs share their actual native baseline. R20 uses alpha=0.5 traced vector contours."
+}

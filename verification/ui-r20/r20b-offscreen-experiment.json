@@ -1,0 +1,126 @@
+{
+  "browser_version": "156.0.8078.49",
+  "viewport": [
+    390,
+    844
+  ],
+  "cpu_throttle_rate": 4,
+  "cold_contexts": 5,
+  "samples": [
+    {
+      "cache_cpu_ms": 35.375,
+      "cpu_ms": 71.105,
+      "load_ms": 29.725,
+      "mesh_cache_entries": 3,
+      "mesh_ms": 6.005,
+      "static_after_bytes": 0,
+      "static_before_bytes": 0,
+      "static_delta_bytes": 0,
+      "texture_cache_entries": 3,
+      "total_ms": 420.745,
+      "trial": 1,
+      "cpu_throttle_rate": 4,
+      "errors": [
+        "WARNING: 2D MSAA is not yet supported for GLES3.",
+        "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+        "WARNING: 2D MSAA is not yet supported for GLES3.",
+        "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+        "WARNING: 2D MSAA is not yet supported for GLES3.",
+        "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)"
+      ]
+    },
+    {
+      "cache_cpu_ms": 102.685,
+      "cpu_ms": 132.4,
+      "load_ms": 24.295,
+      "mesh_cache_entries": 3,
+      "mesh_ms": 5.42,
+      "static_after_bytes": 0,
+      "static_before_bytes": 0,
+      "static_delta_bytes": 0,
+      "texture_cache_entries": 3,
+      "total_ms": 479.85,
+      "trial": 2,
+      "cpu_throttle_rate": 4,
+      "errors": [
+        "WARNING: 2D MSAA is not yet supported for GLES3.",
+        "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+        "WARNING: 2D MSAA is not yet supported for GLES3.",
+        "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+        "WARNING: 2D MSAA is not yet supported for GLES3.",
+        "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)"
+      ]
+    },
+    {
+      "cache_cpu_ms": 30.975,
+      "cpu_ms": 62.445,
+      "load_ms": 26.075,
+      "mesh_cache_entries": 3,
+      "mesh_ms": 5.395,
+      "static_after_bytes": 0,
+      "static_before_bytes": 0,
+      "static_delta_bytes": 0,
+      "texture_cache_entries": 3,
+      "total_ms": 384.485,
+      "trial": 3,
+      "cpu_throttle_rate": 4,
+      "errors": [
+        "WARNING: 2D MSAA is not yet supported for GLES3.",
+        "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+        "WARNING: 2D MSAA is not yet supported for GLES3.",
+        "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+        "WARNING: 2D MSAA is not yet supported for GLES3.",
+        "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)"
+      ]
+    },
+    {
+      "cache_cpu_ms": 80.72,
+      "cpu_ms": 111.07,
+      "load_ms": 25.28,
+      "mesh_cache_entries": 3,
+      "mesh_ms": 5.07,
+      "static_after_bytes": 0,
+      "static_before_bytes": 0,
+      "static_delta_bytes": 0,
+      "texture_cache_entries": 3,
+      "total_ms": 432.18,
+      "trial": 4,
+      "cpu_throttle_rate": 4,
+      "errors": [
+        "WARNING: 2D MSAA is not yet supported for GLES3.",
+        "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+        "WARNING: 2D MSAA is not yet supported for GLES3.",
+        "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+        "WARNING: 2D MSAA is not yet supported for GLES3.",
+        "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)"
+      ]
+    },
+    {
+      "cache_cpu_ms": 72.7,
+      "cpu_ms": 103.22,
+      "load_ms": 24.73,
+      "mesh_cache_entries": 3,
+      "mesh_ms": 5.79,
+      "static_after_bytes": 0,
+      "static_before_bytes": 0,
+      "static_delta_bytes": 0,
+      "texture_cache_entries": 3,
+      "total_ms": 422.205,
+      "trial": 5,
+      "cpu_throttle_rate": 4,
+      "errors": [
+        "WARNING: 2D MSAA is not yet supported for GLES3.",
+        "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+        "WARNING: 2D MSAA is not yet supported for GLES3.",
+        "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)",
+        "WARNING: 2D MSAA is not yet supported for GLES3.",
+        "   at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)"
+      ]
+    }
+  ],
+  "median_total_ms": 422.205,
+  "max_total_ms": 479.85,
+  "median_static_delta_bytes": 0,
+  "method": "Five fresh browser contexts, no prior battle/ink load. CDP Emulation.setCPUThrottlingRate rate=4 before navigation. Time begins immediately before first ink resource load and ends after all initial visible mesh/cache textures are created, including render wait and GPU readback. CPU stages are separately summed; total is wall clock, not just CPU. OS.get_static_memory_usage before/after covers first-ink through cache creation (including interleaved battle UI allocations), excludes WASM fixed heap reservation and GPU allocations. No network download time included: vector bytes are already in mounted PCK.",
+  "within_150ms": false
+}

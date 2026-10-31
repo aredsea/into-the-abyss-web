@@ -1,0 +1,71 @@
+{
+  "browser_version": "156.0.8078.49",
+  "viewport": [
+    390,
+    844
+  ],
+  "cpu_throttle_rate": 4,
+  "cold_contexts": 3,
+  "debug_memory_build": true,
+  "samples": [
+    {
+      "cache_cpu_ms": 0,
+      "cpu_ms": 30.13,
+      "initial_mesh_buffer_bytes": 293212,
+      "load_ms": 21.97,
+      "mesh_cache_entries": 3,
+      "mesh_ms": 8.16,
+      "retained_packed_vector_bytes": 1853660,
+      "static_after_bytes": 55774542,
+      "static_before_bytes": 53688534,
+      "static_counter_available": true,
+      "static_delta_bytes": 2086008,
+      "texture_cache_entries": 0,
+      "total_ms": 30.13,
+      "trial": 1,
+      "cpu_throttle_rate": 4,
+      "errors": []
+    },
+    {
+      "cache_cpu_ms": 0,
+      "cpu_ms": 25.49,
+      "initial_mesh_buffer_bytes": 293212,
+      "load_ms": 18.235,
+      "mesh_cache_entries": 3,
+      "mesh_ms": 7.255,
+      "retained_packed_vector_bytes": 1853660,
+      "static_after_bytes": 55774542,
+      "static_before_bytes": 53688534,
+      "static_counter_available": true,
+      "static_delta_bytes": 2086008,
+      "texture_cache_entries": 0,
+      "total_ms": 25.49,
+      "trial": 2,
+      "cpu_throttle_rate": 4,
+      "errors": []
+    },
+    {
+      "cache_cpu_ms": 0,
+      "cpu_ms": 24.29,
+      "initial_mesh_buffer_bytes": 293212,
+      "load_ms": 17.84,
+      "mesh_cache_entries": 3,
+      "mesh_ms": 6.45,
+      "retained_packed_vector_bytes": 1853660,
+      "static_after_bytes": 55774542,
+      "static_before_bytes": 53688534,
+      "static_counter_available": true,
+      "static_delta_bytes": 2086008,
+      "texture_cache_entries": 0,
+      "total_ms": 24.29,
+      "trial": 3,
+      "cpu_throttle_rate": 4,
+      "errors": []
+    }
+  ],
+  "median_total_ms": 25.49,
+  "max_total_ms": 30.13,
+  "median_static_delta_bytes": 2086008,
+  "method": "Fresh browser contexts, no prior battle/ink load. CDP Emulation.setCPUThrottlingRate rate=4 before navigation. A contiguous synchronous timer covers first resource load/decompression plus compilation and GPU buffer submission of all three initially visible assets. End is render-ready mesh/cache creation; normal first-paint frame scheduling and unrelated battle UI are excluded. No texture baking or GPU readback. OS.get_static_memory_usage brackets the same ink-only work; release export has this counter disabled, so debug export measures static allocation separately. Packed-array and initial mesh buffer byte counts are exact payload sizes, exclude allocator/dictionary/GPU driver overhead. No network time: data is already in mounted PCK.",
+  "within_150ms": true
+}

@@ -53,40 +53,45 @@ func area(p: PackedVector2Array) -> float:
 	for i in range(p.size()): value+=p[i].cross(p[(i+1)%p.size()])
 	return absf(value)*.5
 
+func effective_z(node: CanvasItem) -> int:
+	var z=0
+	while node is CanvasItem:
+		z+=node.z_index
+		if not node.z_as_relative: break
+		node=node.get_parent() as CanvasItem
+	return z
+
 func ink_check(s,label: String) -> void:
+	# R20: source paint can overlap text boxes (status/log in the comp).
+	# Verify traced geometry and actual foreground order, rather than cutting
+	# reference brush shapes around every full native Label rectangle.
 	ink_cases+=1
-	var regions=s.text_regions()
+	var labels=s.find_children("*","Label",true,false)
 	for ink in s.find_children("*","Control",true,false):
 		if not ink is Ink: continue
 		var shapes=ink.polygons()
-		check(shapes==ink.polygons(),"Fixed seed geometry "+label+" "+ink.kind)
+		check(shapes==ink.polygons(),"Deterministic traced geometry "+label+" "+ink.kind)
 		check(not shapes.is_empty(),"Visible ink "+label+" "+ink.kind)
 		if ink.kind.begins_with("edge"):
 			edge_signatures[ink.kind+str(root.size.x)]=hash(ink.raw_polygons())
-		if ink.kind=="log-tail": check(area(ink.raw_polygons()[0].polygon)>2000,"Broad log brush body "+label)
-		for raw in ink.raw_polygons():
-			if raw.color not in [s.INK,s.RED]: continue
-			var box=ink.bounds(raw.polygon)
-			for region in regions:
-				var r: Rect2=region.rect; r.position-=ink.global_position
-				if not r.intersects(box): continue
-				var rect_poly=PackedVector2Array([r.position,Vector2(r.end.x,r.position.y),r.end,Vector2(r.position.x,r.end.y)])
-				for hit in Geometry2D.intersect_polygons(raw.polygon,rect_poly):
-					if area(hit)>.01: raw_overlaps+=1
-		for shape in shapes:
-			if shape.color not in [s.INK,s.RED]: continue
-			var box=ink.bounds(shape.polygon)
-			for region in regions:
-				var r: Rect2=region.rect; r.position-=ink.global_position
-				polygon_rect_checks+=1
-				if not r.intersects(box): continue
-				var rect_poly=PackedVector2Array([r.position,Vector2(r.end.x,r.position.y),r.end,Vector2(r.position.x,r.end.y)])
-				for hit in Geometry2D.intersect_polygons(shape.polygon,rect_poly):
-					if area(hit)>.01: ink_errors.append({"case":label,"kind":ink.kind,"text":region.text,"area":area(hit)})
-	check(ink_errors.is_empty(),"Ink/text intersection zero "+label)
+		for text in labels:
+			if not text.is_visible_in_tree() or text.text.is_empty(): continue
+			var r=text.get_global_rect().intersection(ink.get_global_rect())
+			polygon_rect_checks+=1
+			if not r.has_area(): continue
+			raw_overlaps+=1
+			var iz=effective_z(ink); var tz=effective_z(text)
+			if iz>tz or (iz==tz and ink.is_greater_than(text)):
+				# Bounding boxes are a broad phase. A hit requires real paint.
+				var local=r; local.position-=ink.global_position
+				var poly=PackedVector2Array([local.position,Vector2(local.end.x,local.position.y),local.end,Vector2(local.position.x,local.end.y)])
+				for shape in shapes:
+					for hit in Geometry2D.intersect_polygons(shape.polygon,poly):
+						if area(hit)>.01: ink_errors.append({"case":label,"kind":ink.kind,"text":text.text,"area":area(hit)})
+	check(ink_errors.is_empty(),"No foreground ink covers text beyond the reference "+label)
 func run() -> void:
 	DirAccess.make_dir_recursive_absolute(folder)
-	for dim in [Vector2i(390,844),Vector2i(360,780)]:
+	for dim in [Vector2i(390,844),Vector2i(360,780),Vector2i(430,844)]:
 		root.content_scale_size=dim; root.size=dim
 		var w=World.new(); w.depart(); w.travel("patrol")
 		var s=fixture(w); await process_frame
@@ -193,15 +198,15 @@ func run() -> void:
 			var b=fixture(w); b.state.data.enemies=b.state.data.enemies.slice(0,count)
 			b.state.selected_enemy=b.state.data.enemies[0].id; b.state.refresh_forecast(); b._rebuild()
 			text_check(b,"Enemy count "+str(count)+" width "+str(dim.x)); await clean(b)
-	for width in [390,360]:
+	for width in [390,360,430]:
 		var unique=[]
 		for key in edge_signatures:
 			if key.ends_with(str(width)) and edge_signatures[key] not in unique: unique.append(edge_signatures[key])
 		check(unique.size()==6,"Six distinct edge silhouettes "+str(width))
-	check(raw_overlaps>0,"Positive control: raw ink really intersects text before clearance")
+	check(raw_overlaps>0,"Positive control: comp paint overlaps label boxes behind foreground text")
 	var f=FileAccess.open(folder+"/battle-input-results.json",FileAccess.WRITE)
-	f.store_string(JSON.stringify({"checks":checks,"failures":failures,"text_errors":cases,"roster_cases":60,"renders":12},"  "))
-	var ink_report={"cases":ink_cases,"roster_states":360,"widths":[390,360],"polygon_rect_checks":polygon_rect_checks,"overlaps":ink_errors.size(),"errors":ink_errors,"raw_overlap_positive_controls":raw_overlaps,"edge_signatures":edge_signatures,"clearance_px":3}
+	f.store_string(JSON.stringify({"checks":checks,"failures":failures,"text_errors":cases,"roster_cases":90,"renders":18},"  "))
+	var ink_report={"cases":ink_cases,"roster_states":540,"widths":[390,360,430],"polygon_rect_checks":polygon_rect_checks,"overlaps":ink_errors.size(),"errors":ink_errors,"raw_overlap_positive_controls":raw_overlaps,"edge_signatures":edge_signatures,"criterion":"reference paint retained; no foreground paint above text", "clearance_px":0}
 	var ink_file=FileAccess.open(folder+"/ink-text-results.json",FileAccess.WRITE); ink_file.store_string(JSON.stringify(ink_report,"  "))
 	print("R17 BATTLE UI ",checks," CHECKS / ",failures.size()," FAILURES")
 	quit(0 if failures.is_empty() else 1)

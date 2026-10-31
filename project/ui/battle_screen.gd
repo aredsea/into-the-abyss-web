@@ -228,14 +228,15 @@ func _rebuild() -> void:
 	_mark("turn-number",_type(str(state.turn_count),Rect2(x+w-24.2,y+2.5,12.2,36),25,INK,self,HORIZONTAL_ALIGNMENT_RIGHT,preload("res://assets/fonts/AbyssNotoBlackCondensed.ttf")))
 	_queue(Rect2(x+12,y+43,w-24,44))
 	_battlefield(Rect2(x,y+94,w,288+delta))
-	var mode="status" if not ally_open.is_empty() else "skills" if skills_open else "supplies" if items_open else "log" if log_open else "target" if not pending_action.is_empty() else "base"
+	var mode=ink_mode()
 	# Wider-than-comp pages would let the edge strokes spill past the paper frame.
 	var edge_clip=Control.new(); edge_clip.clip_contents=true; edge_clip.mouse_filter=Control.MOUSE_FILTER_IGNORE; _put(edge_clip,frame,self)
-	_ink(Rect2(0,352+delta,w,76),"edge-"+mode,PAPER,edge_clip)
-	if mode=="base": _ink(Rect2(0,351+delta,w*264.0/390,69),"base",INK,edge_clip)
+	_ink(Rect2(0,352+delta,390,76),"edge-"+mode,PAPER,edge_clip)
+	if mode=="base": _ink(Rect2(0,351+delta,264,69),"base",INK,edge_clip)
 	var a=state.ally(state.current_id)
 	var title=a.name+"의 차례" if not a.is_empty() else state.enemy(state.current_id).name+" 행동 중"
 	var heading_width=minf(w-24,DISPLAY.get_string_size(title,HORIZONTAL_ALIGNMENT_LEFT,-1,38).x+4)
+	var heading_paper=_color(Rect2(x+12,y+382.046875+delta,heading_width,46.890625),PAPER); heading_paper.z_index=3
 	var heading=_display(title,Rect2(x+12,y+382+delta,heading_width,47),38); heading.z_index=3; _mark("actor-heading",heading)
 	_color(Rect2(x+12,y+427+delta,49,3),RED)
 	if not items_open and not skills_open and not log_open and ally_open.is_empty():
@@ -280,12 +281,15 @@ func _battlefield(rect: Rect2) -> void:
 	field_visual=field; field_home=field.position
 	var back=_picture("res://assets/src/academy.png",Rect2(Vector2.ZERO,rect.size),field); field_back=back
 	var material=ShaderMaterial.new(); material.shader=preload("res://assets/ui-r17/print.gdshader"); back.material=material
+	_ink(Rect2(Vector2.ZERO,rect.size),"mask-"+ink_mode(),PAPER,field)
 	var enemies=state.data.enemies.filter(func(e): return e.hp>0)
 	var small=enemies.filter(func(e): return e.id!="executor")
 	var order={"lantern":0,"apprentice":1,"orb":2}
 	small.sort_custom(func(a,b): return order.get(a.id,3)<order.get(b.id,3))
 	var sx=rect.size.x/390.0; var sy=rect.size.y/288.0
 	var targeting=not pending_action.is_empty() and state.actions().has(pending_action) and state.actions()[pending_action].target=="적 1"
+	if targeting:
+		_ink(Rect2(240*sx,175*sy,150,71),"target-bloom",RED,field)
 	var positions={"lantern":Rect2(45,14,46,72),"apprentice":Rect2(167,13,52,75),"orb":Rect2(309,20,43,69),"executor":Rect2(270,141,98,103)}
 	for e in enemies:
 		var big=e.id=="executor"; var index=small.find(e)
@@ -301,8 +305,9 @@ func _battlefield(rect: Rect2) -> void:
 		if not big and small.size()!=3: body.position.x=(hud_w-body.size.x)/2
 		if targeting and state.selected_enemy==e.id:
 			var target_rect=Rect2(-6,141*sy-hit_top,hud_w+12,111*sy) if big else Rect2(body.position-Vector2(6,0),body.size+Vector2(12,8))
-			_ink(target_rect,"target-ring",RED,hit)
-		var art=_enemy_art(e,body,hit,false); _mark("enemy-art:"+e.id,art)
+			var outline=_picture("res://assets/ui-r20/target-outline.svg",Rect2(253*sx-left,141*sy-hit_top,126,110) if big else target_rect,hit)
+			outline.z_as_relative=false; outline.z_index=4
+		var art=_enemy_art(e,body,hit,false); art.z_as_relative=false; art.z_index=3; _mark("enemy-art:"+e.id,art)
 		enemy_visuals[e.id]={"node":art,"home":art.position}; shown_hp[e.id]=e.hp
 		var hud=_color(Rect2(0,hud_y-hit_top,hud_w,33),PAPER,hit); _mark("enemy-hud:"+e.id,hud)
 		hud.z_as_relative=false; hud.z_index=25; enemy_visuals[e.id]["hud"]=hud
@@ -714,7 +719,7 @@ func _publish_metrics() -> void:
 		if node is Button: controls[key].rect=[node.global_position.x,node.global_position.y,node.size.x,node.size.y]
 	if not OS.has_feature("web"):
 		return
-	var report={"ui_build":"battle-r19-20261031","items_open":items_open,"log_open":log_open,"build":state.data.build,"busy":busy,"pending_action":pending_action,"result":state.result,"current_id":state.current_id,"events":state.events,"engine":Engine.get_version_info().string,"state":state.snapshot(),"controls":controls,"text":text_metrics,"skills_open":skills_open,"ally_open":ally_open,"motion_reduced":motion_reduced,"storage_persistent":OS.is_userfs_persistent(),"storage_error":storage_error,"frame":[frame.position.x,frame.position.y,frame.size.x,frame.size.y],"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"shown_hp":shown_hp,"motion_serial":motion_serial,"actor_art":CharacterSprite.info(animation_ally if not animation_ally.is_empty() else state.last_ally).get("path",""),"enemy_hp":state.data.enemies.map(func(e):return {"id":e.id,"hp":e.hp,"mhp":e.mhp})}
+	var report={"ui_build":"battle-r20b-20261031","items_open":items_open,"log_open":log_open,"build":state.data.build,"busy":busy,"pending_action":pending_action,"result":state.result,"current_id":state.current_id,"events":state.events,"engine":Engine.get_version_info().string,"state":state.snapshot(),"controls":controls,"text":text_metrics,"skills_open":skills_open,"ally_open":ally_open,"motion_reduced":motion_reduced,"storage_persistent":OS.is_userfs_persistent(),"storage_error":storage_error,"frame":[frame.position.x,frame.position.y,frame.size.x,frame.size.y],"viewport":[get_viewport_rect().size.x,get_viewport_rect().size.y],"shown_hp":shown_hp,"motion_serial":motion_serial,"actor_art":CharacterSprite.info(animation_ally if not animation_ally.is_empty() else state.last_ally).get("path",""),"enemy_hp":state.data.enemies.map(func(e):return {"id":e.id,"hp":e.hp,"mhp":e.mhp})}
 	JavaScriptBridge.eval("window.__abyssPreview = "+JSON.stringify(report)+";",true)
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -817,9 +822,12 @@ func _display(text: String, rect: Rect2, fs=31, color=INK, parent: Control=self)
 	return _type(text,rect,fs,color,parent,HORIZONTAL_ALIGNMENT_LEFT,DISPLAY)
 
 
+func ink_mode() -> String:
+	return "status" if not ally_open.is_empty() else "skills" if skills_open else "supplies" if items_open else "log" if log_open else "target" if not pending_action.is_empty() else "base"
+
 func _ink(rect: Rect2, kind: String, tint: Color, parent: Control=self) -> void:
 	var ink=InkR17.new(); ink.kind=kind; ink.tint=tint; ink.text_source=self; _put(ink,rect,parent)
-	if kind.begins_with("edge") or kind=="base": ink.z_index=2
+	if kind.begins_with("edge") or kind=="base" or kind=="target-bloom": ink.z_index=2
 
 func _refresh_ink() -> void:
 	for ink in find_children("*","Control",true,false):
@@ -892,9 +900,9 @@ func _sheet(rect: Rect2, title: String, kind: String) -> Panel:
 		tween.finished.connect(_publish_metrics)
 	sheet_kind=kind
 	if kind=="status":
-		_ink(Rect2(6,11,164,31),"sheet-status",RED,p); _color(Rect2(12,50,rect.size.x-24,1),LINE,p)
+		_ink(Rect2(6,13,164,31),"sheet-status",RED,p); _color(Rect2(12,50,rect.size.x-24,1),LINE,p)
 	elif kind=="skills": _ink(Rect2(110,-20,390,26),"sheet-skills",INK,p)
-	elif kind=="supplies": _ink(Rect2(0,13,228,37),"sheet-supplies",INK,p)
+	elif kind=="supplies": _ink(Rect2(0,15,228,37),"sheet-supplies",INK,p)
 	elif kind=="log": _ink(Rect2(rect.size.x-128,65,114,164),"log-tail",RED,p)
 	var fs=33 if kind=="status" else 31
 	var title_width=minf(DISPLAY.get_string_size(title,HORIZONTAL_ALIGNMENT_LEFT,-1,fs).x+5,rect.size.x-90)

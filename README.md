@@ -1,3 +1,5 @@
+R20b: 잉크 전체 479,224 B, Chrome CPU 4배 준비 ≤25.5ms, IoU·윤곽·회귀·Web 검증 완료. [UI-R20.md](UI-R20.md).
+
 R19: 승인 전투 시안의 박스·기준선 2px 이내 매칭, 6상태 비교·원본 보존·Web 검증 완료. 남은 시각/데이터 차이는 [UI-R19.md](UI-R19.md).
 
 r18 battle FX: larger pixel bodies, 30 signature cut-ins, deterministic block effects, verified Godot captures and Web export. [UI-R18.md](UI-R18.md).
