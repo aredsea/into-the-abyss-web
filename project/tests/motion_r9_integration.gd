@@ -57,4 +57,5 @@ func run() -> void:
 	var file = FileAccess.open(folder + "/results.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(report,"  ")); file.close()
 	print("R9 INTEGRATION: ", checks, " checks / ", failures.size(), " failures")
+	await create_timer(.5).timeout # Drain fast-forwarded WAV playback before shutdown.
 	quit(0 if failures.is_empty() else 1)

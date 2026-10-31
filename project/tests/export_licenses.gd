@@ -13,6 +13,7 @@ func _init() -> void:
 	var font_license=FileAccess.get_file_as_string("res://assets/fonts/OFL-AbyssNoto.txt")
 	out.store_string("\n\nAbyss Noto Black Condensed — Noto Sans KR derived font\n"+font_license)
 	out.store_string("\n\nAbyss Noto Text 500 / 800 — static subset body fonts\n"+FileAccess.get_file_as_string("res://assets/fonts/OFL-AbyssNotoText.txt"))
+	out.store_string("\n\nAbyss Display R19 / Abyss Text R19 W750 W850 Tight — CSS weight and tracking subsets; Noto Sans KR derived fonts\n"+font_license)
 	out.flush()
 	print("Exported Godot and bundled library license notices.")
 	quit()

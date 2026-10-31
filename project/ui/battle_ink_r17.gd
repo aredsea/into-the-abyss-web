@@ -26,7 +26,7 @@ func raw_polygons() -> Array:
 		var field_text=text_source.field_text_regions() if is_instance_valid(text_source) else []
 		for i in range(66):
 			var u=i/65.0
-			var yy=clampf(9+11*u+sin(u*19+float(kind.hash()%13))*5+rng.randf_range(-6,6),3,27)
+			var yy=clampf(15+9*u+sin(u*19+float(kind.hash()%13))*6+rng.randf_range(-7,7),3,35)
 			# Even the paper transition must stay below enemy nameplates.
 			for region in field_text:
 				var r: Rect2=region.rect
@@ -41,14 +41,31 @@ func raw_polygons() -> Array:
 			var a=edge[i]; var b=edge[mini(i+3,65)]
 			# Taper toward the title before the safety subtraction, preserving
 			# a torn silhouette instead of a long cut along the text rectangle.
-			if a.x>9 and a.x<size.x-61: a.y=minf(a.y,rng.randf_range(12,17))
-			if b.x>9 and b.x<size.x-61: b.y=minf(b.y,rng.randf_range(12,17))
-			shapes.append(_shape([a+Vector2(-2,-5),b+Vector2(3,-3),b+Vector2(-2,rng.randf_range(3,7)),a+Vector2(-3,rng.randf_range(1,6))],BLACK))
+			shapes.append(_shape([a+Vector2(-5,-16),b+Vector2(9,-13),b+Vector2(-2,rng.randf_range(-2,4)),a+Vector2(-3,rng.randf_range(-1,5))],BLACK))
 			if rng.randf()<.72:
-				shapes.append(_shape([a+Vector2(-4,3),b+Vector2(8,0),b+Vector2(-3,rng.randf_range(5,9)),a+Vector2(2,9)],RED))
+				shapes.append(_shape([a+Vector2(-11,3),b+Vector2(12,0),b+Vector2(18,rng.randf_range(7,14)),a+Vector2(-7,7)],RED))
 		for i in range(48):
 			var p=edge[rng.randi_range(0,65)]+Vector2(rng.randf_range(-4,4),rng.randf_range(4,21))
 			shapes.append(_shape([p,p+Vector2(2,-1),p+Vector2(rng.randf_range(1,5),2)],RED if i%3 else BLACK))
+		# Dry-brush paper channels interrupt the lip instead of a solid band.
+		for i in range(31):
+			var p=edge[rng.randi_range(0,65)]+Vector2(-8,rng.randf_range(-3,8))
+			shapes.append(_shape([p,p+Vector2(rng.randf_range(12,28),-9),p+Vector2(9,0),p+Vector2(-8,7)],Color("f4efe3")))
+	elif kind=="target-ring":
+		var outer=[]; var inner=[]
+		for i in range(57):
+			var a=TAU*i/56.0
+			var point=Vector2(size.x*.5+cos(a)*size.x*.48,size.y*.88+sin(a)*8-cos(a)*4)
+			outer.append(point+Vector2(0,rng.randf_range(-1,1)))
+			inner.append(Vector2(size.x*.5+cos(a)*(size.x*.48-3),size.y*.88+sin(a)*5-cos(a)*4))
+		for piece in Geometry2D.clip_polygons(PackedVector2Array(outer),PackedVector2Array(inner)):
+			if not Geometry2D.is_polygon_clockwise(piece): shapes.append({"polygon":piece,"color":RED})
+		for x in [3.0,size.x-7]:
+			for y in [2.0,size.y*.7]:
+				shapes.append(_shape([Vector2(x,y),Vector2(x+3,y+1),Vector2(x+7,y+18),Vector2(x+4,y+18)],RED))
+		for i in range(25):
+			var point=Vector2(rng.randf_range(0,size.x),rng.randf_range(size.y*.67,size.y))
+			shapes.append(_shape([point,point+Vector2(9,-9),point+Vector2(3,5)],RED))
 	elif kind=="log-tail":
 		# Broad continuous brush body with a dark shoulder and split bristles.
 		for color in [BLACK,RED]:
@@ -70,13 +87,29 @@ func raw_polygons() -> Array:
 		for i in range(7):
 			var p=Vector2(size.x*(.15+i*.035),size.y*rng.randf_range(.88,.98))
 			shapes.append(_shape([p,p+Vector2(2,0),p+Vector2(rng.randf_range(6,15),-rng.randf_range(15,43))],Color("f4efe3")))
+		# Long tapered channels, irregular tips and exposed black bristles.
+		# These are freshly authored vector gaps, not a traced raster contour.
+		for i in range(19):
+			var t=i/18.0
+			var p=Vector2(size.x*(.12+.69*t),size.y*(.88-.2*t))
+			var length=rng.randf_range(25,100)
+			shapes.append(_shape([p,p+Vector2(length*.34,-length),p+Vector2(length*.34+2,-length+8),p+Vector2(rng.randf_range(1,4),4)],Color("f4efe3")))
+	elif kind.begins_with("sheet-"):
+		for i in range(27):
+			var p=Vector2(rng.randf_range(-4,size.x*.2),rng.randf_range(0,size.y*.5))
+			var end=Vector2(rng.randf_range(size.x*.55,size.x),rng.randf_range(size.y*.55,size.y))
+			shapes.append(_shape([p,end,end+Vector2(-10,rng.randf_range(1,4)),p+Vector2(3,rng.randf_range(3,8))],RED if kind=="sheet-status" or i%3==0 else BLACK))
+		for i in range(22):
+			var p=Vector2(rng.randf_range(0,size.x),rng.randf_range(0,size.y))
+			shapes.append(_shape([p,p+Vector2(3,1),p+Vector2(7,3)],tint))
 	elif kind=="base":
-		var top=[]; var bottom=[]
-		for i in range(42):
-			var t=i/41.0
-			top.append(Vector2(size.x*t,size.y*(.28-.14*t)+rng.randf_range(-4,3)))
-			bottom.append(Vector2(size.x*t,size.y*(.66-.28*t)+rng.randf_range(-4,4)))
-		bottom.reverse(); top.append_array(bottom); shapes.append(_shape(top,BLACK))
+		# Broad diagonal dry brush: individually tapered bristles leave paper
+		# channels. Geometry is authored here, never sampled from reference ink.
+		for i in range(40):
+			var x=rng.randf_range(-28,size.x*.78)
+			var y=size.y*(.45-.42*x/size.x)+rng.randf_range(-6,8)
+			var length=rng.randf_range(20,68)
+			shapes.append(_shape([Vector2(x,y),Vector2(x+length,y-12),Vector2(x+length-9,y-5),Vector2(x-5,y+8)],BLACK))
 	else:
 		for i in range(18):
 			var y=size.y*.3+rng.randf_range(-size.y*.13,size.y*.13)

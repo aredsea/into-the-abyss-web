@@ -1,0 +1,49 @@
+{
+  "box_count": 247,
+  "boxes_within_2px": 247,
+  "box_max_error_px": 2.0,
+  "box_exceptions": [],
+  "baseline_count": 351,
+  "baselines_within_2px": 351,
+  "baseline_max_error_px": 2.0,
+  "baseline_exceptions": [],
+  "pixel_comparison": [
+    {
+      "state": "base",
+      "mae_0_255": 14.214961315672216,
+      "pixels_any_channel_delta_gt_16_pct": 18.336067565925383,
+      "source_panel_vs_html_mae": 4.326154453761089
+    },
+    {
+      "state": "target",
+      "mae_0_255": 14.042245918904687,
+      "pixels_any_channel_delta_gt_16_pct": 18.926965609430063,
+      "source_panel_vs_html_mae": 4.23579920605987
+    },
+    {
+      "state": "status",
+      "mae_0_255": 13.276045084457406,
+      "pixels_any_channel_delta_gt_16_pct": 19.370822700206585,
+      "source_panel_vs_html_mae": 4.003847166524892
+    },
+    {
+      "state": "skills",
+      "mae_0_255": 13.097599951391421,
+      "pixels_any_channel_delta_gt_16_pct": 17.978794507230525,
+      "source_panel_vs_html_mae": 4.205050228865395
+    },
+    {
+      "state": "supplies",
+      "mae_0_255": 14.248140721837403,
+      "pixels_any_channel_delta_gt_16_pct": 19.11015919309758,
+      "source_panel_vs_html_mae": 4.281533803216267
+    },
+    {
+      "state": "log",
+      "mae_0_255": 15.905009721715883,
+      "pixels_any_channel_delta_gt_16_pct": 19.39512698991372,
+      "source_panel_vs_html_mae": 4.2846639931947985
+    }
+  ],
+  "method": "Box edge maximum = max of four absolute edge deltas. Browser baselines measured with an inline zero-height marker in each text run; native baselines from Label font ascent and vertical alignment. Composite text runs share their actual native baseline. No ink contours were sampled or traced."
+}

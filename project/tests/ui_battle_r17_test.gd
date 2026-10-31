@@ -158,7 +158,7 @@ func run() -> void:
 		s=fixture(w); s.busy=false; s.state.current_id="teiris"; s.state.last_ally="teiris"; s.state.ally("teiris").mp=0
 		for unit in s.state.data.allies+s.state.data.enemies: unit.remaining=0.0 if unit.id=="teiris" else unit.remaining+900
 		s.state.refresh_forecast(); s._rebuild()
-		await click(s,"skills"); check(s.skills_open,"Skills sheet opens")
+		await click(s,"action:burst"); check(s.skills_open,"Unaffordable action opens skills sheet")
 		await shot(s,"skills",dim.x); text_check(s,"Skill labels "+str(dim.x))
 		for key in s.controls:
 			if key.begins_with("skill:"):

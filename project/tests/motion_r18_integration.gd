@@ -57,8 +57,13 @@ func run() -> void:
 					check(JSON.stringify(screen.state.snapshot()) == resolved, "Visual playback never resolves again")
 					await process_frame
 					root.remove_child(screen); screen.queue_free()
+					await process_frame
 	var report = {"checks":checks,"failures":failures,"cases":180,"widths":[390,360],"rendered_contact_screens":60}
 	var file = FileAccess.open(folder + "/results.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(report,"  ")); file.close()
 	print("R18 STATE INTEGRATION: ", checks, " checks / ", failures.size(), " failures")
+	# The timeline is fast-forwarded; let the real audio mixer release its
+	# final 0.32s WAV playbacks before the engine's resource audit at shutdown.
+	await create_timer(.5).timeout
+	await process_frame
 	quit(0 if failures.is_empty() else 1)

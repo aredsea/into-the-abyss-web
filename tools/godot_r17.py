@@ -19,4 +19,6 @@ exe=local_exe
 env=os.environ.copy()
 for key,folder in [('APPDATA','runtime'),('LOCALAPPDATA','runtime-local'),('TEMP','tmp'),('TMP','tmp')]:
     p=root/'verification/ui-r17'/folder; p.mkdir(parents=True,exist_ok=True); env[key]=str(p)
-sys.exit(subprocess.call([str(exe),'--path',str(root/'project'),*sys.argv[1:]],cwd=exe.parent,env=env))
+# Tests drive real battles; never play their combat sounds on the owner's speakers.
+args=sys.argv[1:] if '--audio-driver' in sys.argv else ['--audio-driver','Dummy',*sys.argv[1:]]
+sys.exit(subprocess.call([str(exe),'--path',str(root/'project'),*args],cwd=exe.parent,env=env))
