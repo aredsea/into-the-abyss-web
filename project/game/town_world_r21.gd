@@ -1,6 +1,81 @@
 extends "res://game/dungeon_world_r21.gd"
 ## Additive town corrections. schema 1/2 and live battle snapshots stay intact.
 const TOWN_RULES = preload("res://game/town_rules_r21.gd")
+const Guild=preload("res://game/guild_rules_r21.gd")
+
+func _init():
+	super()
+	ensure_town_r21()
+
+func ensure_town_r21() -> void:
+	if not s.has("town_r21"):
+		var qn=0
+		for q in s.board:
+			if q.get("source_id","").begins_with("q"): qn=maxi(qn,int(q.id))
+		s.town_r21={"seed":int(s.rng),"counter":qn,"qn":qn}
+
+func fill_source_board() -> void:
+	while s.board.size()<4:
+		s.town_r21.counter+=1; s.town_r21.qn+=1
+		s.board.append(Guild.quest(s.town_r21.seed,s.town_r21.counter,s.town_r21.qn,highest_level(),s.board))
+
+func refill_board() -> void:
+	ensure_town_r21()
+	s.board=[]
+	if not s.quest.is_empty(): s.board.append(s.quest.duplicate(true))
+	fill_source_board()
+
+func abandon_quest() -> bool:
+	if active() or s.quest.is_empty(): return false
+	var id=s.quest.id;s.quest={};s.board=s.board.filter(func(q):return q.id!=id)
+	fill_source_board();return true
+
+func quest_contract(q: Dictionary) -> Dictionary:
+	if q.is_empty(): return {}
+	if q.get("cmp",false): return q.duplicate(true)
+	# Preserve previously accepted quests and their saved reward; do not reroll.
+	var out=q.duplicate(true)
+	out.difficulty={"하":"낮음","중":"중간","상":"높음","정예":"엘리트"}.get(q.difficulty,q.difficulty)
+	out.lv=int(q.get("level",1)); out.cmp=true; out.stars=2 if q.rift=="남동 숲 균열" else 1
+	out.kind="토벌" if "토벌" in q.name else "구조" if "구조" in q.name else "회수"
+	out.title=q.rift+", "+q.name; out.migration_from="legacy-web"; out.source_id="legacy-"+str(q.id)
+	return out
+
+func depart_accepted_quest() -> bool:
+	if active() or s.quest.is_empty(): return false
+	return depart_rift_quest(quest_contract(s.quest))
+
+func settle(result: String) -> bool:
+	var quest_run=r21() and s.run.has("source_quest")
+	var accepted=s.run.get("source_quest",{}).duplicate(true)
+	if not super(result): return false
+	if quest_run and result in ["clear","defeat"]:
+		if result=="clear":
+			s.quest_wins+=1
+			var adjusted=Guild.reward_gold(int(s.summary.gold),party_count("nation","마렌토 공화국"))
+			s.gold+=adjusted-s.summary.gold;s.summary.gold=adjusted
+			if dungeon_rules.quest_difficulty(accepted)=="엘리트":
+				var qn=int(str(accepted.get("source_id",str(accepted.id))).trim_prefix("q").trim_prefix("legacy-"))
+				for i in range(1,Guild.gear_count(s.town_r21.seed,qn)+1):
+					var drop=Guild.elite_gear(dungeon_rules,s.town_r21.seed,qn,party_classes(),i)
+					if not drop.is_empty() and gear.by_id.has(drop.id) and s.gear.size()<2000:
+						s.serial+=1;s.gear.append({"uid":s.serial,"id":drop.id,"seed":drop.seed,"forge":0,"tries":0})
+		if s.quest.get("id",-1)==accepted.get("id",-2): s.quest={}
+		# A already pays quest_gold in finish_battle. Never pay it a second time.
+		s.board=s.board.filter(func(q):return q.id!=accepted.get("id",-1))
+		s.refreshes=0;fill_source_board()
+	return true
+
+func restore(value: Variant) -> bool:
+	if not value is Dictionary: return false
+	var previous=s.duplicate(true)
+	if value.has("town_r21"):
+		var t=value.town_r21
+		if not t is Dictionary or not _shape(t,{"seed":0,"counter":0,"qn":0}) or t.seed<1 or t.seed>=2147483647 or t.seed!=int(t.seed) or t.counter<0 or t.qn<0 or t.counter!=int(t.counter) or t.qn!=int(t.qn): return false
+	s.erase("town_r21")
+	if not super(value): s=previous; return false
+	ensure_town_r21()
+	return true
 
 func need(level: int) -> int: return TOWN_RULES.need(level)
 
@@ -30,8 +105,11 @@ func inn(id: String,action: String) -> bool:
 	note(person(id).name+" · "+def.name); return true
 
 func dungeon_catalog() -> Array:
-	# Branch A can replace only this boundary when its ten destinations land.
-	return [{"id":"academy-review","name":"학술원 폐허 상층","floor":2,"image":"res://assets/src/academy.png","route":"갈림길 탐색 → 집행실 정예 → 귀환","provisional":true}]
+	var out=[]
+	for id in dungeon_rules.config.zone_order:
+		var z=dungeon_rules.zones[id]
+		out.append({"id":id,"name":z.name,"floor":int(z.floors[0]),"last_floor":int(z.floors[1]),"unlocked":z.floors[0]<=dungeon_max(),"image":"res://assets/src/academy.png","route":"탐색 5회 → 휴식 → 층 보스","provisional":false})
+	return out
 
 func item_preview(id: String,who: String) -> Dictionary:
 	var it=item_def(id)

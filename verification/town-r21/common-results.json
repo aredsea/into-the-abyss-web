@@ -2,7 +2,7 @@
   {
     "name": "import",
     "exit_code": 0,
-    "seconds": 2.89,
+    "seconds": 2.77,
     "errors": [],
     "summary": [],
     "environment_certificate_warning": true
@@ -10,7 +10,7 @@
   {
     "name": "world_test",
     "exit_code": 0,
-    "seconds": 0.45,
+    "seconds": 0.42,
     "errors": [],
     "summary": [
       "WORLD TESTS: 44 checks, 0 failures"
@@ -20,7 +20,7 @@
   {
     "name": "state_test",
     "exit_code": 0,
-    "seconds": 0.81,
+    "seconds": 0.78,
     "errors": [],
     "summary": [
       "COMBAT CHECKS: 54; FAILURES: 0"
@@ -40,7 +40,7 @@
   {
     "name": "expansion_test",
     "exit_code": 0,
-    "seconds": 1.08,
+    "seconds": 1.06,
     "errors": [],
     "summary": [
       "EXPANSION CHECKS 3350 FAILURES 0"
@@ -60,7 +60,7 @@
   {
     "name": "motion_asset_test",
     "exit_code": 0,
-    "seconds": 0.44,
+    "seconds": 0.42,
     "errors": [],
     "summary": [
       "MOTION ASSET PASS: 19 clips, original starts, natural recovery, timing, attachments and mappings"
@@ -70,7 +70,7 @@
   {
     "name": "art_test",
     "exit_code": 0,
-    "seconds": 0.62,
+    "seconds": 0.72,
     "errors": [],
     "summary": [
       "PASS 30 characters / 60 UV frames / 30 unique cinematics / impact and completion"
@@ -80,7 +80,7 @@
   {
     "name": "export_licenses",
     "exit_code": 0,
-    "seconds": 0.34,
+    "seconds": 0.33,
     "errors": [],
     "summary": [
       "Exported Godot and bundled library license notices."
@@ -90,17 +90,37 @@
   {
     "name": "town_r21_test",
     "exit_code": 0,
-    "seconds": 0.61,
+    "seconds": 1.17,
     "errors": [],
     "summary": [
-      "TOWN R21 CHECKS 410 FAILURES 0 LUA SAMPLES 390"
+      "TOWN R21 CHECKS 2675 FAILURES 0 LUA SAMPLES 2544"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "data_r21_test",
+    "exit_code": 0,
+    "seconds": 0.98,
+    "errors": [],
+    "summary": [
+      "DATA_R21 checks=7493 failures=0 composition=1028 stats=700 exploration=300"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "dungeon_r21_test",
+    "exit_code": 0,
+    "seconds": 35.28,
+    "errors": [],
+    "summary": [
+      "DUNGEON_R21 {\"art_fallbacks\":100,\"checks\":3069,\"details\":[],\"enemies\":100,\"failures\":0,\"floors\":420,\"outcomes\":{\"defeat\":420,\"natural_defeat\":52,\"natural_victory\":147,\"victory\":420}}"
     ],
     "environment_certificate_warning": true
   },
   {
     "name": "ui_battle_r17_test",
     "exit_code": 0,
-    "seconds": 44.73,
+    "seconds": 42.97,
     "errors": [],
     "summary": [
       "R17 BATTLE UI 6085 CHECKS / 0 FAILURES"
@@ -110,7 +130,7 @@
   {
     "name": "ui_battle_r18_test",
     "exit_code": 0,
-    "seconds": 36.75,
+    "seconds": 35.95,
     "errors": [],
     "summary": [
       "R18: 4592 checks / 0 failures; 30 distinct effect hashes"
@@ -120,7 +140,7 @@
   {
     "name": "ui_battle_r19_test",
     "exit_code": 0,
-    "seconds": 7.86,
+    "seconds": 8.09,
     "errors": [],
     "summary": [
       "R19: 859 checks / 0 failures"
@@ -130,7 +150,7 @@
   {
     "name": "ui_battle_r20_test",
     "exit_code": 0,
-    "seconds": 12.89,
+    "seconds": 12.67,
     "errors": [],
     "summary": [
       "R20: 1659 checks / 0 failures"
@@ -140,7 +160,7 @@
   {
     "name": "motion_r9_integration",
     "exit_code": 0,
-    "seconds": 6.05,
+    "seconds": 6.28,
     "errors": [],
     "summary": [
       "R9 INTEGRATION: 944 checks / 0 failures"
@@ -150,7 +170,7 @@
   {
     "name": "motion_r18_integration",
     "exit_code": 0,
-    "seconds": 52.86,
+    "seconds": 52.69,
     "errors": [],
     "summary": [
       "R18 STATE INTEGRATION: 3540 checks / 0 failures"
@@ -160,16 +180,31 @@
   {
     "name": "ui_town_r21_test",
     "exit_code": 0,
-    "seconds": 2.81,
+    "seconds": 4.22,
     "errors": [],
     "summary": [
-      "TOWN UI R21 CHECKS 1607 FAILURES 0 OVERFLOW 0"
+      "TOWN UI R21 CHECKS 1580 FAILURES 0 OVERFLOW 0"
     ],
-    "environment_certificate_warning": true,
-    "earlier_summary": [
-      "TOWN UI R21 CHECKS 1277 FAILURES 0 OVERFLOW 0"
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "ui_data_r21_test",
+    "exit_code": 0,
+    "seconds": 15.05,
+    "errors": [],
+    "summary": [
+      "UI_DATA_R21 checks=9608 failures=0 nameplates=3200 overflow=0"
     ],
-    "final_rerun_artifact": "ui-results.json",
-    "seconds_note": "seconds belongs to initial common run; final rerun count read from ui-results.json"
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "ui_town_r21_round2_test",
+    "exit_code": 0,
+    "seconds": 6.25,
+    "errors": [],
+    "summary": [
+      "TOWN ROUND2 UI CHECKS 3352 FAILURES 0"
+    ],
+    "environment_certificate_warning": true
   }
 ]

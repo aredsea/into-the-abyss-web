@@ -30,7 +30,7 @@ try:
    page=context.new_page(); errors=[]
    page.on('pageerror',lambda e:errors.append(str(e)))
    page.on('console',lambda m:errors.append(m.text) if m.type=='error' else None)
-   page.goto(f'http://127.0.0.1:{server.server_port}/'+('?town_r21_preview=1' if town_r21 else ''))
+   page.goto(f'http://127.0.0.1:{server.server_port}/')
    page.wait_for_function('window.__abyssWorld',timeout=90000)
    town_viewport=page.evaluate('window.__abyssWorld.viewport')
    def click(id,battle=False):
@@ -47,6 +47,14 @@ try:
     click('nav:town');page.wait_for_function('window.__abyssWorld.screen==="town"')
     page.screenshot(path=str(O/'stable-default-390.png'))
     stable_default_checked=True
+   if town_r21:
+    # Completed routes must work without the comparison flag. No save reset or
+    # JavaScript state writes: every action below is real pointer input.
+    assert not page.evaluate('window.__abyssWorld.town_r21_preview')
+    for id,expected in [('nav:bag','bag'),('item:hp_s','bag'),('item_cancel','bag'),('nav:depart','depart'),('departure_member:hildegard','formation'),('nav:journal','journal'),('nav:town','town')]:
+     click(id);page.wait_for_function('(s)=>window.__abyssWorld.screen===s',arg=expected)
+     town_screens.append('default:'+expected)
+     if expected=='bag' and id=='item:hp_s': assert page.evaluate('window.__abyssWorld.controls.use_selected.disabled')
     page.goto(f'http://127.0.0.1:{server.server_port}/?town_r21_preview=1')
     page.wait_for_function('window.__abyssWorld && window.__abyssWorld.town_r21_preview',timeout=90000)
    if town_r21:
@@ -59,12 +67,24 @@ try:
      town_text_errors=page.evaluate('window.__abyssWorld.town_text.filter(t=>t.needed>t.available+1)')
      assert not town_text_errors,(expected,town_text_errors)
      page.screenshot(path=str(O/(f'town-{expected}-{width}x{height}'+('-reduced' if reduced else '')+'.png')))
-   for id in ['depart','start_run','travel:patrol']:click(id)
+   if town_r21:
+    for id in ['depart','start_run']:click(id)
+    for step in range(7):
+     world=page.evaluate('window.__abyssWorld')
+     if world['screen']=='battle':break
+     click('final_battle' if world['state']['run']['phase']=='rest' else 'advance')
+    page.wait_for_function('window.__abyssWorld.screen==="battle"',timeout=30000)
+   else:
+    for id in ['depart','start_run']:click(id)
+    for step in range(7):
+     world=page.evaluate('window.__abyssWorld')
+     if world['screen']=='battle':break
+     click('final_battle' if world['state']['run']['phase']=='rest' else 'advance')
    page.wait_for_function('window.__abyssPreview && !window.__abyssPreview.busy',timeout=30000)
    tag=f'{width}'+('' if (width,height) in [(390,844),(360,780)] else f'x{height}')+('-reduced' if reduced else '')
    def capture(mode):page.screenshot(path=str(O/f'{mode}-{tag}.png'))
    capture('base'); initial=page.evaluate('window.__abyssPreview')
-   assert initial['ui_build']=='battle-r20b-20261031'
+   assert initial['ui_build']=='r21-a-data-20261031'
    # Phone portrait: 1:1 CSS px, never below 360x780. Wider pages keep the town's scaled canvas.
    if width<=480 and height>width:
     k=max(1,780/height,360/width); expected=(width*k,height*k)
@@ -88,7 +108,7 @@ try:
    restored=None
    if (width,height)==(390,844):
     # Complete a real battle to exercise the battle-only viewport's cleanup.
-    for turn in range(40):
+    for turn in range(80):
      report=page.evaluate('window.__abyssPreview')
      if report['result']:break
      enemies=[e for e in report['enemy_hp'] if e['hp']>0]

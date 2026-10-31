@@ -14,14 +14,14 @@ reasons={
  'logo':'동일 r19 글꼴 사용. 생성 시안의 라틴 활자 형태·기울기와 실제 폰트의 내부 메트릭 차이.',
  'location':'r19 표시 글꼴의 폭·획 높이가 생성 한글과 다름.',
  'party':'원본 얼굴·옷·비율 보존. 생성 시안의 얼굴과 크롭을 복제하지 않음.',
- 'depart':'래스터 시안 CTA 픽셀 영역을 직접 사용.',
- 'navigation':'기존 벡터 아이콘 사용. 시안의 솔리드 아이콘·활자 크기와 다름.',
+ 'depart':'시안에서 측정한 CTA 경계에 배치. 삽화와 잉크는 SVG 벡터 추적.',
+ 'navigation':'시안 솔리드 아이콘을 벡터 추적. 실제 글꼴·간격 및 하단 안전 여백 차이.',
  'navigation_rule':'래스터 검출 기준선에 고정.',
  'back_title':'44px 뒤로 터치 영역. 원본 시안의 작은 화살표와 글꼴 메트릭 차이.',
  'filter':'전체/보유 필터 실제 버튼과 원본 보유 인원 사용.',
  'name':'원본 폰트. 겹친 배경까지 포함하는 참조 ROI는 글자만의 정밀 경계로 해석하지 않음.',
  'identity':'원본 데이터·글꼴. 참조 ROI에 겹친 초상도 함께 검출됨.',
- 'tabs':'작동하는 탭 버튼과 포커스. 시안과 선택면·밑줄 높이 다름.',
+ 'tabs':'텍스트형 기술 탭과 개요 선택면·밑줄 좌표 보정. 실제 글꼴 내부 메트릭 차이.',
  'hpmp':'원본 능력치·필터. 막대 기준과 글자 간격 다름.',
  'stats':'출신 시너지 반영 원본 실제 능력치(방어17.68) 표시. 시안17로 바꾸지 않음.',
  'skill_title':'원본 기술 이름·표시 폰트 유지.',
@@ -45,6 +45,6 @@ result={'target_px':2,'elements':rows,'image_residuals':summary,'within_2px':sum
 (C/'comparison.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
 lines=['# 픽셀 대조 결과','', '상단/왼쪽은 시안, 하단/오른쪽은 실제 렌더. ROI의 색 마스크 경계 비교이며 글자 베이스라인 측정은 아니다. 겹친 초상·그림도 해당 마스크에 포함된다. **≤2px 목표를 전체 달성하지 못했다.**','', '|화면|요소|시안 x/y/w/h|렌더 x/y/w/h|최대 오차 px|≤2px|차이 이유|','|---|---|---|---|---:|---|---|']
 for r in rows:lines.append('|'+ '|'.join(str(r[k]) for k in ['screen','element','reference_xywh','render_xywh','max_abs_error_px','within_2px','reason'])+'|')
-lines+=['',f"≤2px: {result['within_2px']} / {len(rows)}. 미구현 화면 24개는 대조 완료로 계산하지 않는다."]
+lines+=['',f"≤2px: {result['within_2px']} / {len(rows)}. 이 표는 후보4만 측정하며 나머지 화면의 완료 여부는 2차 보고서/compare-round2를 따른다."]
 (C/'comparison.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
 print(json.dumps({k:v for k,v in result.items() if k!='elements'},ensure_ascii=False,indent=2))

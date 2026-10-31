@@ -23,6 +23,7 @@ var storage=Store.new()
 var screen="town"
 var who="hildegard"
 var selected_item=""
+var selected_target=""
 var catalog_all=false
 var shop_tab="items"
 var gear_filter="weapon"
@@ -82,7 +83,9 @@ func _draw_screen() -> void:
 	for c in get_children(): remove_child(c); c.queue_free()
 	battle=null; controls.clear(); art_preview_id=""
 	town_view=null
-	if town_r21_preview and screen in ["town","party","member","skills"] and confirm.is_empty():
+	var finished_town=screen in ["depart","bag","formation","journal","summary"]
+	var candidate_town=town_r21_preview and (screen in ["town","party","member","skills","cards"] or (screen=="explore" and model.r21()))
+	if (finished_town or candidate_town) and confirm.is_empty():
 		town_view=TownScreen.new(); add_child(town_view); town_view.build(self)
 		last_drawn_screen=screen; call_deferred("_publish"); return
 	var width=minf(size.x,440); var height=size.y
@@ -502,13 +505,15 @@ func _guild() -> void:
 	text("미영입 동료 중 1명 합류 · 중복 없음\n현재 보유 %d / 30명" % model.s.owned.size(),13,MUTED)
 	if not model.s.quest.is_empty():
 		var p=box(); text("수락한 의뢰 · "+model.s.quest.name,17,GOLD,p)
-		text("현재 검수판에서는 학술원 원정 완료로 의뢰를 정산합니다. 균열 전용 전장은 아직 없습니다.",13,MUTED,p)
-		button("quest_depart","원정 준비",go.bind("depart"),false,p)
+		var contract=model.quest_contract(model.s.quest)
+		text("%s · %s · Lv.%d\n보수 금화 %d"%[contract.rift,model.dungeon_rules.quest_fight(contract),contract.lv,model.dungeon_rules.quest_gold(contract,contract.lv)],13,MUTED,p)
+		button("quest_depart","수락한 균열 의뢰로 출발",func():_act(model.depart_accepted_quest,"");go("explore"),false,p)
 		button("quest_abandon","의뢰 포기",func(): _ask("현재 의뢰를 포기할까요?",model.abandon_quest),false,p)
 	else:
 		text("의뢰 게시판",20,GOLD)
 		for q in model.s.board:
-			var p=box(); text(q.name,17,GOLD,p); text("%s · %s · Lv.%d\n보수 금화 %d" % [q.rift,q.difficulty,q.level,q.gold],13,INK,p)
+			var contract=model.quest_contract(q)
+			var p=box(); text(q.name,17,GOLD,p); text("%s · %s · Lv.%d\n보수 금화 %d" % [q.rift,contract.difficulty,contract.lv,model.dungeon_rules.quest_gold(contract,contract.lv)],13,INK,p)
 			button("quest:"+str(int(q.id)),"의뢰 수락",func(): _act(model.accept_quest.bind(q.id),"의뢰를 수락했습니다."),false,p)
 	button("refresh_board","게시판 갱신 · 금화 %d" % model.refresh_fee(),func(): _act(model.refresh_board,"게시판을 갱신했습니다."))
 
