@@ -1,0 +1,14 @@
+{
+  "source": "C:/Clauede Code/dungeon-bot/bot/src/73-inn.lua,74-affection.lua,71-shop.lua,72-guild.lua,74-level.lua",
+  "inn": {
+    "talk": {"name":"대화하기","cost":0,"aff":1,"day":false},
+    "meal": {"name":"함께 식사","cost":25,"aff":1,"day":false},
+    "gift": {"name":"작은 선물","cost":30,"aff":1,"day":false},
+    "rest": {"name":"곁에서 쉬기","cost":20,"aff":1,"day":true}
+  },
+  "aff": {"min":-100,"max":200,"soft":100,"slow":0.4},
+  "shop_rounding":"max(1, floor(base * marento_multiplier + 0.5))",
+  "content_excluded":["79-sex.lua","charm_potion","rose","intimacy scenes"],
+  "web_inventory_limit":10000,
+  "web_inventory_limit_note":"existing validated save capacity; bot purchases have no limit"
+}

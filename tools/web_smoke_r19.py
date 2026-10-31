@@ -2,9 +2,12 @@
 from pathlib import Path
 from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 from functools import partial
-import threading,json,os,tempfile
+import threading,json,os,tempfile,sys
 from playwright.sync_api import sync_playwright
 R=Path(__file__).resolve().parents[1]; O=R/'verification/ui-r20/web'; O.mkdir(parents=True,exist_ok=True)
+town_r21='--town-r21' in sys.argv
+if town_r21:
+ O=R/'verification/town-r21/web';O.mkdir(parents=True,exist_ok=True)
 runtime=O.parent/'runtime/browser';runtime.mkdir(parents=True,exist_ok=True)
 tempfile.tempdir=str(runtime)
 for key in ['TEMP','TMP','TMPDIR']:os.environ[key]=str(runtime)
@@ -20,12 +23,14 @@ results=[]
 try:
  with sync_playwright() as p:
   browser=p.chromium.launch(executable_path='C:/Program Files/Google/Chrome/Application/chrome.exe',headless=True,args=['--enable-unsafe-swiftshader'])
-  for width,height,reduced in [(390,844,False),(360,780,False),(360,780,True),(390,664,False),(1280,800,False)]:
+  configurations=[(390,844,False),(360,780,False),(360,780,True),(390,664,False),(1280,800,False)]
+  if town_r21: configurations.append((430,932,False))
+  for width,height,reduced in configurations:
    context=browser.new_context(viewport={'width':width,'height':height},locale='ko-KR',device_scale_factor=1,reduced_motion='reduce' if reduced else 'no-preference')
    page=context.new_page(); errors=[]
    page.on('pageerror',lambda e:errors.append(str(e)))
    page.on('console',lambda m:errors.append(m.text) if m.type=='error' else None)
-   page.goto(f'http://127.0.0.1:{server.server_port}/')
+   page.goto(f'http://127.0.0.1:{server.server_port}/'+('?town_r21_preview=1' if town_r21 else ''))
    page.wait_for_function('window.__abyssWorld',timeout=90000)
    town_viewport=page.evaluate('window.__abyssWorld.viewport')
    def click(id,battle=False):
@@ -33,6 +38,27 @@ try:
     q=report['controls'][id]['rect']; canvas=page.locator('canvas').bounding_box()
     page.mouse.click(canvas['x']+(q[0]+q[2]/2)*canvas['width']/report['viewport'][0],canvas['y']+(q[1]+q[3]/2)*canvas['height']/report['viewport'][1])
     page.wait_for_timeout(250)
+   town_screens=[]
+   stable_default_checked=False
+   if town_r21 and (width,height)==(390,844):
+    page.goto(f'http://127.0.0.1:{server.server_port}/')
+    page.wait_for_function('window.__abyssWorld && !window.__abyssWorld.town_r21_preview',timeout=90000)
+    click('nav:party');page.wait_for_function('window.__abyssWorld.screen==="party"')
+    click('nav:town');page.wait_for_function('window.__abyssWorld.screen==="town"')
+    page.screenshot(path=str(O/'stable-default-390.png'))
+    stable_default_checked=True
+    page.goto(f'http://127.0.0.1:{server.server_port}/?town_r21_preview=1')
+    page.wait_for_function('window.__abyssWorld && window.__abyssWorld.town_r21_preview',timeout=90000)
+   if town_r21:
+    assert page.evaluate('window.__abyssWorld.ui_build')=='r21-d-town-20261031'
+    assert page.evaluate('window.__abyssWorld.town_r21_preview')
+    for id,expected in [('nav:party','party'),('member:hildegard','member'),('tab:skills','skills'),('back','party'),('nav:town','town')]:
+     click(id)
+     page.wait_for_function('(s)=>window.__abyssWorld.screen===s',arg=expected)
+     town_screens.append(expected)
+     town_text_errors=page.evaluate('window.__abyssWorld.town_text.filter(t=>t.needed>t.available+1)')
+     assert not town_text_errors,(expected,town_text_errors)
+     page.screenshot(path=str(O/(f'town-{expected}-{width}x{height}'+('-reduced' if reduced else '')+'.png')))
    for id in ['depart','start_run','travel:patrol']:click(id)
    page.wait_for_function('window.__abyssPreview && !window.__abyssPreview.busy',timeout=30000)
    tag=f'{width}'+('' if (width,height) in [(390,844),(360,780)] else f'x{height}')+('-reduced' if reduced else '')
@@ -77,10 +103,10 @@ try:
     assert restored,(town_viewport,after_viewport)
     capture('return')
    assert not errors,errors
-   results.append({'width':width,'height':height,'viewport':initial['viewport'],'reduced':reduced,'ui_build':final['ui_build'],'errors':errors,'viewport_restored_after_victory':restored,'personal_actions_before':initial['state']['units']['hildegard']['actions'],'personal_actions_after':final['state']['units']['hildegard']['actions'],'text_errors':[t for t in final['text'] if t['needed']>t['available']+1 or t['missing_glyphs']]})
+   results.append({'width':width,'height':height,'viewport':initial['viewport'],'reduced':reduced,'ui_build':final['ui_build'],'town_ui_build':'r21-d-town-20261031' if town_r21 else None,'town_screens':town_screens,'stable_default_checked':stable_default_checked,'errors':errors,'viewport_restored_after_victory':restored,'personal_actions_before':initial['state']['units']['hildegard']['actions'],'personal_actions_after':final['state']['units']['hildegard']['actions'],'text_errors':[t for t in final['text'] if t['needed']>t['available']+1 or t['missing_glyphs']]})
    context.close(); print('PASS',tag,flush=True)
   browser.close()
 finally:
  server.shutdown();server.server_close()
  (O/'results.json').write_text(json.dumps(results,ensure_ascii=False,indent=2),encoding='utf-8')
-assert len(results)==5 and all(not r['text_errors'] for r in results)
+assert len(results)==(6 if town_r21 else 5) and all(not r['text_errors'] for r in results)
