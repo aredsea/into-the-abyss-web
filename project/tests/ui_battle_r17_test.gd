@@ -85,9 +85,19 @@ func ink_check(s,label: String) -> void:
 				# Bounding boxes are a broad phase. A hit requires real paint.
 				var local=r; local.position-=ink.global_position
 				var poly=PackedVector2Array([local.position,Vector2(local.end.x,local.position.y),local.end,Vector2(local.position.x,local.end.y)])
-				for shape in shapes:
-					for hit in Geometry2D.intersect_polygons(shape.polygon,poly):
+				if ink.kind.begins_with("mask-"):
+					# Mask cover is even-odd: the frame rectangle minus the opaque field paths.
+					var covered=Geometry2D.intersect_polygons(shapes[0].polygon,poly)
+					for shape in shapes.slice(1):
+						var rest=[]
+						for piece in covered: rest.append_array(Geometry2D.clip_polygons(piece,shape.polygon))
+						covered=rest
+					for hit in covered:
 						if area(hit)>.01: ink_errors.append({"case":label,"kind":ink.kind,"text":text.text,"area":area(hit)})
+				else:
+					for shape in shapes:
+						for hit in Geometry2D.intersect_polygons(shape.polygon,poly):
+							if area(hit)>.01: ink_errors.append({"case":label,"kind":ink.kind,"text":text.text,"area":area(hit)})
 	check(ink_errors.is_empty(),"No foreground ink covers text beyond the reference "+label)
 func run() -> void:
 	DirAccess.make_dir_recursive_absolute(folder)

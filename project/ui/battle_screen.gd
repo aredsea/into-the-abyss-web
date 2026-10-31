@@ -231,8 +231,9 @@ func _rebuild() -> void:
 	var mode=ink_mode()
 	# Wider-than-comp pages would let the edge strokes spill past the paper frame.
 	var edge_clip=Control.new(); edge_clip.clip_contents=true; edge_clip.mouse_filter=Control.MOUSE_FILTER_IGNORE; _put(edge_clip,frame,self)
-	_ink(Rect2(0,352+delta,390,76),"edge-"+mode,PAPER,edge_clip)
-	if mode=="base": _ink(Rect2(0,351+delta,264,69),"base",INK,edge_clip)
+	# Comp strokes are drawn for a 390px frame; follow the real frame width.
+	_ink(Rect2(0,352+delta,w,76),"edge-"+mode,PAPER,edge_clip)
+	if mode=="base": _ink(Rect2(0,351+delta,w*264.0/390.0,69),"base",INK,edge_clip)
 	var a=state.ally(state.current_id)
 	var title=a.name+"의 차례" if not a.is_empty() else state.enemy(state.current_id).name+" 행동 중"
 	var heading_width=minf(w-24,DISPLAY.get_string_size(title,HORIZONTAL_ALIGNMENT_LEFT,-1,38).x+4)
@@ -281,7 +282,9 @@ func _battlefield(rect: Rect2) -> void:
 	field_visual=field; field_home=field.position
 	var back=_picture("res://assets/src/academy.png",Rect2(Vector2.ZERO,rect.size),field); field_back=back
 	var material=ShaderMaterial.new(); material.shader=preload("res://assets/ui-r17/print.gdshader"); back.material=material
-	_ink(Rect2(Vector2.ZERO,rect.size),"mask-"+ink_mode(),PAPER,field)
+	# Only the bottom ~23px of the 288px mask is cut; keep its height and anchor it
+	# to the field bottom so short fields do not squash the torn edge.
+	_ink(Rect2(0,rect.size.y-288,rect.size.x,288),"mask-"+ink_mode(),PAPER,field)
 	var enemies=state.data.enemies.filter(func(e): return e.hp>0)
 	var small=enemies.filter(func(e): return e.id!="executor")
 	var order={"lantern":0,"apprentice":1,"orb":2}
@@ -289,7 +292,7 @@ func _battlefield(rect: Rect2) -> void:
 	var sx=rect.size.x/390.0; var sy=rect.size.y/288.0
 	var targeting=not pending_action.is_empty() and state.actions().has(pending_action) and state.actions()[pending_action].target=="적 1"
 	if targeting:
-		_ink(Rect2(240*sx,175*sy,150,71),"target-bloom",RED,field)
+		_ink(Rect2(240*sx,175*sy,150*sx,71*sy),"target-bloom",RED,field)
 	var positions={"lantern":Rect2(45,14,46,72),"apprentice":Rect2(167,13,52,75),"orb":Rect2(309,20,43,69),"executor":Rect2(270,141,98,103)}
 	for e in enemies:
 		var big=e.id=="executor"; var index=small.find(e)
