@@ -396,3 +396,27 @@ func quest_gold(q: Dictionary,level: int) -> int:
 	var difficulty=quest_difficulty(q); var mult=config.quest_difficulty[difficulty].reward if q.get("reward_v",0)==2 else 1
 	var lv=mini(40,level+3) if q.get("reward_v",0)==2 and difficulty=="엘리트" else level
 	return int(floor(q.get("gold",0)*level_reward(lv)*mult+.5))
+
+func quest_gear(seed: int,q: Dictionary,party_cls: Array) -> Array:
+	var cfg=config.quest_elite; var digits=""
+	var pattern=RegEx.new(); pattern.compile("[0-9]+")
+	var found=pattern.search(str(q.get("id","")))
+	if found!=null: digits=found.get_string()
+	var qid=int(digits); var n=int(cfg.gear_min)+int(floor(mix(seed+qid,1,9,0)*(cfg.gear_max-cfg.gear_min+1)))
+	var rng_seed=seed+qid*7919; var classes=[]; var out=[]
+	for cls in party_cls:
+		if cls not in classes: classes.append(cls)
+	if classes.is_empty(): classes=["warrior"]
+	for i in range(1,n+1):
+		var x=mix(rng_seed,i,2,0)*100; var rarity="rare"
+		for r in ["rare","epic","legend"]:
+			x-=cfg.gear_rarities[r]
+			if x<0: rarity=r; break
+		var cls=classes[int(floor(mix(rng_seed,i,3,0)*classes.size()))]
+		var slot=["weapon","armor","acc"][int(floor(mix(rng_seed,i,4,0)*3))]
+		var pool=config.gear_items.filter(func(item):return item.cls==cls and item.slot==slot and item.rarity==rarity)
+		if pool.is_empty(): continue
+		var item=pool[int(floor(mix(rng_seed,i,5,0)*pool.size()))]
+		var roll_seed=int(floor(mix(rng_seed,i,6,0)*1099511627776))+1
+		out.append(item.id+"."+base36(roll_seed)+"."+str(int(config.gear_version)))
+	return out

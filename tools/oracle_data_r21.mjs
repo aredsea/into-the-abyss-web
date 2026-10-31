@@ -10,6 +10,8 @@ const files=['05-gen.lua','24-stats.lua','26-start.lua','27-compose.lua','31-foe
 const extra=files.map(f=>`\ndo\n${fs.readFileSync(path.join(source,'bot/src',f),'utf8')}\nend\n`).join('');
 const {L}=await mkSim({policy:false,extra});
 const constants=await L('local g=B.gear(); local items={} for _,id in ipairs(g.order) do local i=g.items[id]; items[#items+1]={id=id,cls=i.cls,slot=i.slot,rarity=i.rarity} end return {EX=B.EX,AFF=B.AFF,quest_rifts=B.QUEST_RIFTS,quest_difficulty=B.GD_DIFFICULTY, item_order=B.IT.order, zone_order=B.ZONE_ORDER, foe_order=B.FOE_ORDER,gear_items=items,gear_version=g.v,gear_drop=g.fx.drop}');
+constants.quest_elite=await L('return B.GUILD.elite');
+constants.enemy_skill_order=await L('local out={} for cls,kit in pairs(B.KIT) do local a={} for _,sk in ipairs(kit) do if sk.id~="atk" and sk.id~="df" then a[#a+1]=sk.id end end a[#a+1]="personal"; out[cls]=a end return out');
 const samples=await L(`
 local out={}
 local function sample(ctx,seed,avg,explore)
