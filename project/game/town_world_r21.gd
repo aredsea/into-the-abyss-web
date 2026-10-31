@@ -1,4 +1,4 @@
-extends "res://game/expansion_world.gd"
+extends "res://game/dungeon_world_r21.gd"
 ## Additive town corrections. schema 1/2 and live battle snapshots stay intact.
 const TOWN_RULES = preload("res://game/town_rules_r21.gd")
 

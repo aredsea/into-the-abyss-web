@@ -3,6 +3,7 @@ extends Control
 const RouteMap=preload("res://ui/route_map.gd")
 const World=preload("res://game/town_world_r21.gd")
 const TownScreen=preload("res://ui/town_screen_r21.gd")
+const DungeonViewR21=preload("res://game/dungeon_view_r21.gd")
 const Store=preload("res://game/world_store.gd")
 const BattleScreen=preload("res://ui/battle_screen.gd")
 const UI=preload("res://ui/town_theme_r21.gd")
@@ -128,6 +129,7 @@ func _draw_screen() -> void:
 	call_deferred("_publish")
 
 func _title() -> String:
+	if screen=="explore" and model.r21(): return model.dungeon_title()
 	if screen=="formation": return "편성 · 장비"
 	if screen=="member_details": return model.person(who).name+" 상세"
 	if screen=="research": return "로레다나의 전술 연구"
@@ -249,10 +251,12 @@ func _member() -> void:
 	button("party_back","동료 목록",go.bind("party"))
 
 func _departure() -> void:
-	var destination=model.dungeon_catalog()[0]
-	var p=box(); image(destination.image,p,Vector2(0,155))
-	text(destination.name+" · %d층" % destination.floor,20,GOLD,p)
-	text(destination.route,14,INK,p)
+	DungeonViewR21.departure(self)
+
+func _legacy_departure() -> void:
+	var p=box(); image("res://assets/src/academy.png",p,Vector2(0,155))
+	text("학술원 폐허 상층 · 2층",20,GOLD,p)
+	text("갈림길 탐색 → 집행실 정예 → 귀환",14,INK,p)
 	text("8개 장소 중 길을 골라 이동합니다. 전투를 피하거나 추가 보상을 노릴 수 있습니다. 마지막 집행실은 기존 정예전이며, 층 보스는 아직 없습니다.",13,MUTED,p)
 	for id in model.s.party: text(model.person(id).row+"  "+model.person(id).name+"  Lv."+str(int(model.s.members[id].level)),14)
 	text("출발 시 HP·MP가 채워집니다. 전투 사이에는 남은 수치가 이어집니다.",13,MUTED)
@@ -270,6 +274,7 @@ func _formation() -> void:
 
 func _explore() -> void:
 	if not model.active(): go("town"); return
+	if model.r21(): DungeonViewR21.explore(self); return
 	if model.mapped():
 		_route_explore(); return
 	text("이전 저장의 원정 · 이 원정 이후 새 지도가 적용됩니다.",12,MUTED)
