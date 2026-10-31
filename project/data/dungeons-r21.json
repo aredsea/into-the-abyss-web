@@ -39,9 +39,17 @@
         "sha256": "a2ab4341b949dfbebe85bf15d8f6f2263a8926d3d78d58a6eeedf24e31cb390a",
         "lines": 403
       },
+      "bot/src/30-engine.lua": {
+        "sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4",
+        "lines": 1203
+      },
       "bot/src/31-foes.lua": {
         "sha256": "2338629d499ba016d07e6f0c3d51c2ce3a27d6ebea727baf8e3257acaae258a2",
         "lines": 545
+      },
+      "bot/src/70-town.lua": {
+        "sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "lines": 221
       },
       "bot/src/72-guild.lua": {
         "sha256": "3125fd872513eff4defb1b3db3490f5b5a8fa87c683d23d3d5169681b2472e5f",
@@ -510,7 +518,7 @@
       "mp": {
         "label": "MP",
         "a": 0.03,
-        "b": 0.0
+        "b": 0
       },
       "atk": {
         "label": "힘·민첩·지능(계수)",
@@ -528,7 +536,7 @@
       },
       "crit": {
         "label": "치명%(덧셈)",
-        "add": 0.0
+        "add": 0
       }
     },
     "enemy_std": {
@@ -545,9 +553,9 @@
         "star": 1,
         "zone": "학술원 폐허 상층",
         "level": "1~10",
-        "hp": 1.0,
-        "atk": 1.0,
-        "reward": 1.0
+        "hp": 1,
+        "atk": 1,
+        "reward": 1
       },
       {
         "star": 2,
@@ -571,7 +579,7 @@
         "level": "30~40",
         "hp": 1.5,
         "atk": 1.3,
-        "reward": 4.0
+        "reward": 4
       },
       {
         "star": 5,
@@ -579,15 +587,15 @@
         "level": "30~40",
         "hp": 1.75,
         "atk": 1.4,
-        "reward": 6.0
+        "reward": 6
       },
       {
         "star": 6,
         "zone": "철기 왕국의 무덤",
         "level": "30~40",
-        "hp": 2.0,
+        "hp": 2,
         "atk": 1.5,
-        "reward": 8.0
+        "reward": 8
       },
       {
         "star": 7,
@@ -595,7 +603,7 @@
         "level": "30~40",
         "hp": 2.3,
         "atk": 1.6,
-        "reward": 10.0
+        "reward": 10
       },
       {
         "star": 8,
@@ -603,15 +611,15 @@
         "level": "30~40",
         "hp": 2.6,
         "atk": 1.7,
-        "reward": 13.0
+        "reward": 13
       },
       {
         "star": 9,
         "zone": "밑바닥",
         "level": "30~40",
-        "hp": 3.0,
+        "hp": 3,
         "atk": 1.8,
-        "reward": 16.0
+        "reward": 16
       }
     ],
     "formula": {
@@ -619,7 +627,7 @@
       "crit_dmg": 1.5,
       "crit_per_agi": 20,
       "def_std_base": 20,
-      "def_k_ratio": 2.0,
+      "def_k_ratio": 2,
       "weak_mult": 1.3,
       "break_mult": 1.5,
       "guard_reduce": 0.4,
@@ -630,30 +638,13 @@
     }
   },
   "explore": {
-    "REST_HP": 0.3,
-    "ELITE_MAX": 2,
     "LOOT_COIN": 0.5,
-    "GOLD_ELITE": 1.2,
-    "ELITE_FROM": 3,
-    "P_BATTLE": 0.7,
+    "LOOT_ITEM": 0.85,
     "ELITE_P": 0.2,
-    "GOLD_COIN": 1,
-    "ITEM_W": {
-      "antidote": 8,
-      "sh_m": 3,
-      "hp_m": 12,
-      "sh_l": 1,
-      "bandage": 15,
-      "sh_s": 6,
-      "mp_s": 12,
-      "hp_s": 40,
-      "mp_m": 5,
-      "mp_l": 2,
-      "hp_l": 4
-    },
-    "REST_MP": 0.6,
+    "REST_HP": 0.3,
+    "GOLD_BATTLE": 0.6,
     "FOE": {
-      "pow": 0.55,
+      "elite": 1,
       "pts": [
         [
           1,
@@ -688,14 +679,28 @@
           4.229
         ]
       ],
+      "ord3": 0.9,
       "zone": {
         "iron_tombs": 0.75
       },
-      "ord3": 0.9,
-      "elite": 1
+      "pow": 0.55
     },
-    "GOLD_BATTLE": 0.6,
-    "LOOT_ITEM": 0.85,
+    "STEPS": 5,
+    "ELITE_FROM": 3,
+    "ITEM_FROM": {
+      "mp_m": 8,
+      "sh_l": 18,
+      "mp_l": 18,
+      "hp_m": 8,
+      "hp_l": 18,
+      "sh_m": 8
+    },
+    "EARLY": {
+      "curve": 2,
+      "hp": 0.45,
+      "atk": 0.5,
+      "to": 7
+    },
     "NEWBIE": [
       {
         "explore": [
@@ -730,21 +735,24 @@
     ],
     "BOSS_SALT": 7,
     "DOWN_HP": 0.2,
-    "STEPS": 5,
-    "ITEM_FROM": {
-      "sh_m": 8,
-      "mp_l": 18,
-      "hp_l": 18,
-      "mp_m": 8,
-      "hp_m": 8,
-      "sh_l": 18
+    "ITEM_W": {
+      "hp_l": 4,
+      "mp_s": 12,
+      "bandage": 15,
+      "mp_l": 2,
+      "hp_s": 40,
+      "antidote": 8,
+      "sh_l": 1,
+      "sh_m": 3,
+      "hp_m": 12,
+      "sh_s": 6,
+      "mp_m": 5
     },
-    "EARLY": {
-      "to": 7,
-      "atk": 0.5,
-      "curve": 2,
-      "hp": 0.45
-    }
+    "GOLD_COIN": 1,
+    "REST_MP": 0.6,
+    "P_BATTLE": 0.7,
+    "GOLD_ELITE": 1.2,
+    "ELITE_MAX": 2
   },
   "item_order": [
     "hp_s",
@@ -761,6355 +769,6347 @@
   ],
   "progression_source": "bot/src/76-dungeon.lua:10-73; bot/src/77-explore.lua:14-76,98-120,199-525",
   "gear_drop": {
-    "chance": {
-      "boss": 0.9,
-      "elite": 0.5,
-      "chief": 0.7
-    },
     "party_pct": 80,
     "bands": [
       {
         "w": {
-          "boss": {
-            "epic": 25,
-            "fine": 5,
-            "rare": 70
+          "elite": {
+            "epic": 1,
+            "fine": 42,
+            "common": 45,
+            "rare": 12
           },
           "battle": {
             "fine": 20,
             "common": 78,
             "rare": 2
           },
-          "chief": {
-            "epic": 20,
-            "fine": 15,
-            "rare": 65
+          "boss": {
+            "fine": 5,
+            "rare": 70,
+            "epic": 25
           },
-          "elite": {
-            "fine": 42,
-            "epic": 1,
-            "common": 45,
-            "rare": 12
+          "chief": {
+            "fine": 15,
+            "rare": 65,
+            "epic": 20
           }
         },
         "from": 1
       },
       {
         "w": {
-          "boss": {
-            "epic": 39.5,
-            "legend": 0.5,
-            "rare": 60
+          "elite": {
+            "epic": 3,
+            "fine": 45,
+            "common": 30,
+            "rare": 22
           },
           "battle": {
             "fine": 30,
             "common": 65,
             "rare": 5
           },
-          "chief": {
-            "epic": 30,
-            "fine": 5,
-            "rare": 65
+          "boss": {
+            "epic": 39.5,
+            "rare": 60,
+            "legend": 0.5
           },
-          "elite": {
-            "fine": 45,
-            "epic": 3,
-            "common": 30,
-            "rare": 22
+          "chief": {
+            "fine": 5,
+            "rare": 65,
+            "epic": 30
           }
         },
         "from": 7
       },
       {
         "w": {
-          "boss": {
-            "epic": 59,
-            "legend": 1,
-            "rare": 40
+          "elite": {
+            "epic": 6,
+            "fine": 42,
+            "common": 18,
+            "rare": 34
           },
           "battle": {
-            "fine": 37,
             "epic": 1,
+            "fine": 37,
             "common": 50,
             "rare": 12
           },
+          "boss": {
+            "epic": 59,
+            "rare": 40,
+            "legend": 1
+          },
           "chief": {
             "epic": 44.8,
-            "legend": 0.2,
-            "rare": 55
-          },
-          "elite": {
-            "fine": 42,
-            "epic": 6,
-            "common": 18,
-            "rare": 34
+            "rare": 55,
+            "legend": 0.2
           }
         },
         "from": 13
       },
       {
         "w": {
-          "boss": {
-            "epic": 68.5,
-            "legend": 1.5,
-            "rare": 30
+          "elite": {
+            "epic": 12,
+            "fine": 34,
+            "common": 8,
+            "rare": 46
           },
           "battle": {
-            "fine": 42,
             "epic": 3,
+            "fine": 42,
             "common": 35,
             "rare": 20
           },
+          "boss": {
+            "epic": 68.5,
+            "rare": 30,
+            "legend": 1.5
+          },
           "chief": {
             "epic": 57.6,
-            "legend": 0.4,
-            "rare": 42
-          },
-          "elite": {
-            "fine": 34,
-            "epic": 12,
-            "common": 8,
-            "rare": 46
+            "rare": 42,
+            "legend": 0.4
           }
         },
         "from": 20
       },
       {
         "w": {
-          "boss": {
-            "epic": 78,
-            "legend": 2,
-            "rare": 20
+          "elite": {
+            "epic": 21,
+            "fine": 25,
+            "common": 4,
+            "rare": 50
           },
           "battle": {
-            "fine": 40,
             "epic": 5,
+            "fine": 40,
             "common": 25,
             "rare": 30
           },
+          "boss": {
+            "epic": 78,
+            "rare": 20,
+            "legend": 2
+          },
           "chief": {
             "epic": 64.4,
-            "legend": 0.6,
-            "rare": 35
-          },
-          "elite": {
-            "fine": 25,
-            "epic": 21,
-            "common": 4,
-            "rare": 50
+            "rare": 35,
+            "legend": 0.6
           }
         },
         "from": 27
       }
     ],
     "spread": 4,
-    "_d": "드랍 표. chance = 전투 종류별 장비가 떨어질 확률(battle 은 탐색 발견 15% 몫 안에서 이미 정해져 있어 여기선 쓰지 않는다). party_pct = 출전 파티 직업에서 뽑을 확률(%). spread = 층 추천 레벨(B.dn_rec_lv)에 더하는 ±범위. bands = 층 구간(from 층부터) × 종류 → 등급 가중치. 전설은 chief/boss 만. 고른 직업/칸/등급에 목표 레벨 ±spread 안의 아이템이 없으면 한 등급 아래로 내려간다."
+    "_d": "드랍 표. chance = 전투 종류별 장비가 떨어질 확률(battle 은 탐색 발견 15% 몫 안에서 이미 정해져 있어 여기선 쓰지 않는다). party_pct = 출전 파티 직업에서 뽑을 확률(%). spread = 층 추천 레벨(B.dn_rec_lv)에 더하는 ±범위. bands = 층 구간(from 층부터) × 종류 → 등급 가중치. 전설은 chief/boss 만. 고른 직업/칸/등급에 목표 레벨 ±spread 안의 아이템이 없으면 한 등급 아래로 내려간다.",
+    "chance": {
+      "elite": 0.5,
+      "boss": 0.9,
+      "chief": 0.7
+    }
   },
   "gear_items": [
     {
-      "cls": "warrior",
-      "id": "wa01",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa01"
     },
     {
-      "cls": "warrior",
-      "id": "wa02",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa02"
     },
     {
-      "cls": "warrior",
-      "id": "wa03",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa03"
     },
     {
-      "cls": "warrior",
-      "id": "wa04",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa04"
     },
     {
-      "cls": "warrior",
-      "id": "wa05",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa05"
     },
     {
-      "cls": "warrior",
-      "id": "wa06",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa06"
     },
     {
-      "cls": "warrior",
-      "id": "wa07",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa07"
     },
     {
-      "cls": "warrior",
-      "id": "wa08",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa08"
     },
     {
-      "cls": "warrior",
-      "id": "wa09",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa09"
     },
     {
-      "cls": "warrior",
-      "id": "wa10",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa10"
     },
     {
-      "cls": "warrior",
-      "id": "wa11",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa11"
     },
     {
-      "cls": "warrior",
-      "id": "wa12",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa12"
     },
     {
-      "cls": "warrior",
-      "id": "wa13",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa13"
     },
     {
-      "cls": "warrior",
-      "id": "wa14",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa14"
     },
     {
-      "cls": "warrior",
-      "id": "wa15",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa15"
     },
     {
-      "cls": "warrior",
-      "id": "wa16",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa16"
     },
     {
-      "cls": "warrior",
-      "id": "wa17",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa17"
     },
     {
-      "cls": "warrior",
-      "id": "wa18",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa18"
     },
     {
-      "cls": "warrior",
-      "id": "wa19",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa19"
     },
     {
-      "cls": "warrior",
-      "id": "wa20",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "warrior",
+      "id": "wa20"
     },
     {
-      "cls": "warrior",
-      "id": "wa21",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "warrior",
+      "id": "wa21"
     },
     {
-      "cls": "warrior",
-      "id": "wa22",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "warrior",
+      "id": "wa22"
     },
     {
-      "cls": "warrior",
-      "id": "wa23",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "warrior",
+      "id": "wa23"
     },
     {
-      "cls": "warrior",
-      "id": "wa24",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "warrior",
+      "id": "wa24"
     },
     {
-      "cls": "warrior",
-      "id": "wa25",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "warrior",
+      "id": "wa25"
     },
     {
-      "cls": "warrior",
-      "id": "wa26",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "warrior",
+      "id": "wa26"
     },
     {
-      "cls": "warrior",
-      "id": "wa27",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "warrior",
+      "id": "wa27"
     },
     {
-      "cls": "warrior",
-      "id": "wa28",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "warrior",
+      "id": "wa28"
     },
     {
-      "cls": "warrior",
-      "id": "wa29",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "warrior",
+      "id": "wa29"
     },
     {
-      "cls": "warrior",
-      "id": "wa30",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "warrior",
+      "id": "wa30"
     },
     {
-      "cls": "warrior",
-      "id": "wa31",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "warrior",
+      "id": "wa31"
     },
     {
-      "cls": "warrior",
-      "id": "wa32",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "warrior",
+      "id": "wa32"
     },
     {
-      "cls": "warrior",
-      "id": "wa33",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "warrior",
+      "id": "wa33"
     },
     {
-      "cls": "warrior",
-      "id": "wa34",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "warrior",
+      "id": "wa34"
     },
     {
-      "cls": "warrior",
-      "id": "wa35",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa35"
     },
     {
-      "cls": "warrior",
-      "id": "wa36",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa36"
     },
     {
-      "cls": "warrior",
-      "id": "wa37",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa37"
     },
     {
-      "cls": "warrior",
-      "id": "wa38",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa38"
     },
     {
-      "cls": "warrior",
-      "id": "wa39",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa39"
     },
     {
-      "cls": "warrior",
-      "id": "wa40",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa40"
     },
     {
-      "cls": "warrior",
-      "id": "wa41",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa41"
     },
     {
-      "cls": "warrior",
-      "id": "wa42",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa42"
     },
     {
-      "cls": "warrior",
-      "id": "wa43",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa43"
     },
     {
-      "cls": "warrior",
-      "id": "wa44",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa44"
     },
     {
-      "cls": "warrior",
-      "id": "wa45",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa45"
     },
     {
-      "cls": "warrior",
-      "id": "wa46",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa46"
     },
     {
-      "cls": "warrior",
-      "id": "wa47",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa47"
     },
     {
-      "cls": "warrior",
-      "id": "wa48",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa48"
     },
     {
-      "cls": "warrior",
-      "id": "wa49",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa49"
     },
     {
-      "cls": "warrior",
-      "id": "wa50",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa50"
     },
     {
-      "cls": "warrior",
-      "id": "wa51",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa51"
     },
     {
-      "cls": "warrior",
-      "id": "wa52",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa52"
     },
     {
-      "cls": "warrior",
-      "id": "wa53",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa53"
     },
     {
-      "cls": "warrior",
-      "id": "wa54",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "warrior",
+      "id": "wa54"
     },
     {
-      "cls": "warrior",
-      "id": "wa55",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "warrior",
+      "id": "wa55"
     },
     {
-      "cls": "warrior",
-      "id": "wa56",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "warrior",
+      "id": "wa56"
     },
     {
-      "cls": "warrior",
-      "id": "wa57",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "warrior",
+      "id": "wa57"
     },
     {
-      "cls": "warrior",
-      "id": "wa58",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "warrior",
+      "id": "wa58"
     },
     {
-      "cls": "warrior",
-      "id": "wa59",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "warrior",
+      "id": "wa59"
     },
     {
-      "cls": "warrior",
-      "id": "wa60",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "warrior",
+      "id": "wa60"
     },
     {
-      "cls": "warrior",
-      "id": "wa61",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "warrior",
+      "id": "wa61"
     },
     {
-      "cls": "warrior",
-      "id": "wa62",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "warrior",
+      "id": "wa62"
     },
     {
-      "cls": "warrior",
-      "id": "wa63",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "warrior",
+      "id": "wa63"
     },
     {
-      "cls": "warrior",
-      "id": "wa64",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "warrior",
+      "id": "wa64"
     },
     {
-      "cls": "warrior",
-      "id": "wa65",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "warrior",
+      "id": "wa65"
     },
     {
-      "cls": "warrior",
-      "id": "wa66",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "warrior",
+      "id": "wa66"
     },
     {
-      "cls": "warrior",
-      "id": "wa67",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "warrior",
+      "id": "wa67"
     },
     {
-      "cls": "warrior",
-      "id": "wa68",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa68"
     },
     {
-      "cls": "warrior",
-      "id": "wa69",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa69"
     },
     {
-      "cls": "warrior",
-      "id": "wa70",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa70"
     },
     {
-      "cls": "warrior",
-      "id": "wa71",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa71"
     },
     {
-      "cls": "warrior",
-      "id": "wa72",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa72"
     },
     {
-      "cls": "warrior",
-      "id": "wa73",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa73"
     },
     {
-      "cls": "warrior",
-      "id": "wa74",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa74"
     },
     {
-      "cls": "warrior",
-      "id": "wa75",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa75"
     },
     {
-      "cls": "warrior",
-      "id": "wa76",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa76"
     },
     {
-      "cls": "warrior",
-      "id": "wa77",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "warrior",
+      "id": "wa77"
     },
     {
-      "cls": "warrior",
-      "id": "wa78",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa78"
     },
     {
-      "cls": "warrior",
-      "id": "wa79",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa79"
     },
     {
-      "cls": "warrior",
-      "id": "wa80",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa80"
     },
     {
-      "cls": "warrior",
-      "id": "wa81",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa81"
     },
     {
-      "cls": "warrior",
-      "id": "wa82",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa82"
     },
     {
-      "cls": "warrior",
-      "id": "wa83",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa83"
     },
     {
-      "cls": "warrior",
-      "id": "wa84",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa84"
     },
     {
-      "cls": "warrior",
-      "id": "wa85",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "warrior",
+      "id": "wa85"
     },
     {
-      "cls": "warrior",
-      "id": "wa86",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "warrior",
+      "id": "wa86"
     },
     {
-      "cls": "warrior",
-      "id": "wa87",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "warrior",
+      "id": "wa87"
     },
     {
-      "cls": "warrior",
-      "id": "wa88",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "warrior",
+      "id": "wa88"
     },
     {
-      "cls": "warrior",
-      "id": "wa89",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "warrior",
+      "id": "wa89"
     },
     {
-      "cls": "warrior",
-      "id": "wa90",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "warrior",
+      "id": "wa90"
     },
     {
-      "cls": "warrior",
-      "id": "wa91",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "warrior",
+      "id": "wa91"
     },
     {
-      "cls": "warrior",
-      "id": "wa92",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "warrior",
+      "id": "wa92"
     },
     {
-      "cls": "warrior",
-      "id": "wa93",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "warrior",
+      "id": "wa93"
     },
     {
-      "cls": "warrior",
-      "id": "wa94",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "warrior",
+      "id": "wa94"
     },
     {
-      "cls": "warrior",
-      "id": "wa95",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "warrior",
+      "id": "wa95"
     },
     {
-      "cls": "warrior",
-      "id": "wa96",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "warrior",
+      "id": "wa96"
     },
     {
-      "cls": "warrior",
-      "id": "wa97",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "warrior",
+      "id": "wa97"
     },
     {
-      "cls": "warrior",
-      "id": "wa98",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "warrior",
+      "id": "wa98"
     },
     {
-      "cls": "warrior",
-      "id": "wa99",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "warrior",
+      "id": "wa99"
     },
     {
-      "cls": "warrior",
-      "id": "wa00",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "warrior",
+      "id": "wa00"
     },
     {
-      "cls": "assassin",
-      "id": "as01",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as01"
     },
     {
-      "cls": "assassin",
-      "id": "as02",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as02"
     },
     {
-      "cls": "assassin",
-      "id": "as03",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as03"
     },
     {
-      "cls": "assassin",
-      "id": "as04",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as04"
     },
     {
-      "cls": "assassin",
-      "id": "as05",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as05"
     },
     {
-      "cls": "assassin",
-      "id": "as06",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as06"
     },
     {
-      "cls": "assassin",
-      "id": "as07",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as07"
     },
     {
-      "cls": "assassin",
-      "id": "as08",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as08"
     },
     {
-      "cls": "assassin",
-      "id": "as09",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as09"
     },
     {
-      "cls": "assassin",
-      "id": "as10",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as10"
     },
     {
-      "cls": "assassin",
-      "id": "as11",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as11"
     },
     {
-      "cls": "assassin",
-      "id": "as12",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as12"
     },
     {
-      "cls": "assassin",
-      "id": "as13",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as13"
     },
     {
-      "cls": "assassin",
-      "id": "as14",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as14"
     },
     {
-      "cls": "assassin",
-      "id": "as15",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as15"
     },
     {
-      "cls": "assassin",
-      "id": "as16",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as16"
     },
     {
-      "cls": "assassin",
-      "id": "as17",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as17"
     },
     {
-      "cls": "assassin",
-      "id": "as18",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as18"
     },
     {
-      "cls": "assassin",
-      "id": "as19",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as19"
     },
     {
-      "cls": "assassin",
-      "id": "as20",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "assassin",
+      "id": "as20"
     },
     {
-      "cls": "assassin",
-      "id": "as21",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "assassin",
+      "id": "as21"
     },
     {
-      "cls": "assassin",
-      "id": "as22",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "assassin",
+      "id": "as22"
     },
     {
-      "cls": "assassin",
-      "id": "as23",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "assassin",
+      "id": "as23"
     },
     {
-      "cls": "assassin",
-      "id": "as24",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "assassin",
+      "id": "as24"
     },
     {
-      "cls": "assassin",
-      "id": "as25",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "assassin",
+      "id": "as25"
     },
     {
-      "cls": "assassin",
-      "id": "as26",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "assassin",
+      "id": "as26"
     },
     {
-      "cls": "assassin",
-      "id": "as27",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "assassin",
+      "id": "as27"
     },
     {
-      "cls": "assassin",
-      "id": "as28",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "assassin",
+      "id": "as28"
     },
     {
-      "cls": "assassin",
-      "id": "as29",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "assassin",
+      "id": "as29"
     },
     {
-      "cls": "assassin",
-      "id": "as30",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "assassin",
+      "id": "as30"
     },
     {
-      "cls": "assassin",
-      "id": "as31",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "assassin",
+      "id": "as31"
     },
     {
-      "cls": "assassin",
-      "id": "as32",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "assassin",
+      "id": "as32"
     },
     {
-      "cls": "assassin",
-      "id": "as33",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "assassin",
+      "id": "as33"
     },
     {
-      "cls": "assassin",
-      "id": "as34",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "assassin",
+      "id": "as34"
     },
     {
-      "cls": "assassin",
-      "id": "as35",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as35"
     },
     {
-      "cls": "assassin",
-      "id": "as36",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as36"
     },
     {
-      "cls": "assassin",
-      "id": "as37",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as37"
     },
     {
-      "cls": "assassin",
-      "id": "as38",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as38"
     },
     {
-      "cls": "assassin",
-      "id": "as39",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as39"
     },
     {
-      "cls": "assassin",
-      "id": "as40",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as40"
     },
     {
-      "cls": "assassin",
-      "id": "as41",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as41"
     },
     {
-      "cls": "assassin",
-      "id": "as42",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as42"
     },
     {
-      "cls": "assassin",
-      "id": "as43",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as43"
     },
     {
-      "cls": "assassin",
-      "id": "as44",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as44"
     },
     {
-      "cls": "assassin",
-      "id": "as45",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as45"
     },
     {
-      "cls": "assassin",
-      "id": "as46",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as46"
     },
     {
-      "cls": "assassin",
-      "id": "as47",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as47"
     },
     {
-      "cls": "assassin",
-      "id": "as48",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as48"
     },
     {
-      "cls": "assassin",
-      "id": "as49",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as49"
     },
     {
-      "cls": "assassin",
-      "id": "as50",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as50"
     },
     {
-      "cls": "assassin",
-      "id": "as51",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as51"
     },
     {
-      "cls": "assassin",
-      "id": "as52",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as52"
     },
     {
-      "cls": "assassin",
-      "id": "as53",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as53"
     },
     {
-      "cls": "assassin",
-      "id": "as54",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "assassin",
+      "id": "as54"
     },
     {
-      "cls": "assassin",
-      "id": "as55",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "assassin",
+      "id": "as55"
     },
     {
-      "cls": "assassin",
-      "id": "as56",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "assassin",
+      "id": "as56"
     },
     {
-      "cls": "assassin",
-      "id": "as57",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "assassin",
+      "id": "as57"
     },
     {
-      "cls": "assassin",
-      "id": "as58",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "assassin",
+      "id": "as58"
     },
     {
-      "cls": "assassin",
-      "id": "as59",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "assassin",
+      "id": "as59"
     },
     {
-      "cls": "assassin",
-      "id": "as60",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "assassin",
+      "id": "as60"
     },
     {
-      "cls": "assassin",
-      "id": "as61",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "assassin",
+      "id": "as61"
     },
     {
-      "cls": "assassin",
-      "id": "as62",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "assassin",
+      "id": "as62"
     },
     {
-      "cls": "assassin",
-      "id": "as63",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "assassin",
+      "id": "as63"
     },
     {
-      "cls": "assassin",
-      "id": "as64",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "assassin",
+      "id": "as64"
     },
     {
-      "cls": "assassin",
-      "id": "as65",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "assassin",
+      "id": "as65"
     },
     {
-      "cls": "assassin",
-      "id": "as66",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "assassin",
+      "id": "as66"
     },
     {
-      "cls": "assassin",
-      "id": "as67",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "assassin",
+      "id": "as67"
     },
     {
-      "cls": "assassin",
-      "id": "as68",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as68"
     },
     {
-      "cls": "assassin",
-      "id": "as69",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as69"
     },
     {
-      "cls": "assassin",
-      "id": "as70",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as70"
     },
     {
-      "cls": "assassin",
-      "id": "as71",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as71"
     },
     {
-      "cls": "assassin",
-      "id": "as72",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as72"
     },
     {
-      "cls": "assassin",
-      "id": "as73",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as73"
     },
     {
-      "cls": "assassin",
-      "id": "as74",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as74"
     },
     {
-      "cls": "assassin",
-      "id": "as75",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as75"
     },
     {
-      "cls": "assassin",
-      "id": "as76",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as76"
     },
     {
-      "cls": "assassin",
-      "id": "as77",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "assassin",
+      "id": "as77"
     },
     {
-      "cls": "assassin",
-      "id": "as78",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as78"
     },
     {
-      "cls": "assassin",
-      "id": "as79",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as79"
     },
     {
-      "cls": "assassin",
-      "id": "as80",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as80"
     },
     {
-      "cls": "assassin",
-      "id": "as81",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as81"
     },
     {
-      "cls": "assassin",
-      "id": "as82",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as82"
     },
     {
-      "cls": "assassin",
-      "id": "as83",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as83"
     },
     {
-      "cls": "assassin",
-      "id": "as84",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as84"
     },
     {
-      "cls": "assassin",
-      "id": "as85",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "assassin",
+      "id": "as85"
     },
     {
-      "cls": "assassin",
-      "id": "as86",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "assassin",
+      "id": "as86"
     },
     {
-      "cls": "assassin",
-      "id": "as87",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "assassin",
+      "id": "as87"
     },
     {
-      "cls": "assassin",
-      "id": "as88",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "assassin",
+      "id": "as88"
     },
     {
-      "cls": "assassin",
-      "id": "as89",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "assassin",
+      "id": "as89"
     },
     {
-      "cls": "assassin",
-      "id": "as90",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "assassin",
+      "id": "as90"
     },
     {
-      "cls": "assassin",
-      "id": "as91",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "assassin",
+      "id": "as91"
     },
     {
-      "cls": "assassin",
-      "id": "as92",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "assassin",
+      "id": "as92"
     },
     {
-      "cls": "assassin",
-      "id": "as93",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "assassin",
+      "id": "as93"
     },
     {
-      "cls": "assassin",
-      "id": "as94",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "assassin",
+      "id": "as94"
     },
     {
-      "cls": "assassin",
-      "id": "as95",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "assassin",
+      "id": "as95"
     },
     {
-      "cls": "assassin",
-      "id": "as96",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "assassin",
+      "id": "as96"
     },
     {
-      "cls": "assassin",
-      "id": "as97",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "assassin",
+      "id": "as97"
     },
     {
-      "cls": "assassin",
-      "id": "as98",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "assassin",
+      "id": "as98"
     },
     {
-      "cls": "assassin",
-      "id": "as99",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "assassin",
+      "id": "as99"
     },
     {
-      "cls": "assassin",
-      "id": "as00",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "assassin",
+      "id": "as00"
     },
     {
-      "cls": "archer",
-      "id": "ar01",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar01"
     },
     {
-      "cls": "archer",
-      "id": "ar02",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar02"
     },
     {
-      "cls": "archer",
-      "id": "ar03",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar03"
     },
     {
-      "cls": "archer",
-      "id": "ar04",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar04"
     },
     {
-      "cls": "archer",
-      "id": "ar05",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar05"
     },
     {
-      "cls": "archer",
-      "id": "ar06",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar06"
     },
     {
-      "cls": "archer",
-      "id": "ar07",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar07"
     },
     {
-      "cls": "archer",
-      "id": "ar08",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar08"
     },
     {
-      "cls": "archer",
-      "id": "ar09",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar09"
     },
     {
-      "cls": "archer",
-      "id": "ar10",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar10"
     },
     {
-      "cls": "archer",
-      "id": "ar11",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar11"
     },
     {
-      "cls": "archer",
-      "id": "ar12",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar12"
     },
     {
-      "cls": "archer",
-      "id": "ar13",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar13"
     },
     {
-      "cls": "archer",
-      "id": "ar14",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar14"
     },
     {
-      "cls": "archer",
-      "id": "ar15",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar15"
     },
     {
-      "cls": "archer",
-      "id": "ar16",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar16"
     },
     {
-      "cls": "archer",
-      "id": "ar17",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar17"
     },
     {
-      "cls": "archer",
-      "id": "ar18",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar18"
     },
     {
-      "cls": "archer",
-      "id": "ar19",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar19"
     },
     {
-      "cls": "archer",
-      "id": "ar20",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "archer",
+      "id": "ar20"
     },
     {
-      "cls": "archer",
-      "id": "ar21",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "archer",
+      "id": "ar21"
     },
     {
-      "cls": "archer",
-      "id": "ar22",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "archer",
+      "id": "ar22"
     },
     {
-      "cls": "archer",
-      "id": "ar23",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "archer",
+      "id": "ar23"
     },
     {
-      "cls": "archer",
-      "id": "ar24",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "archer",
+      "id": "ar24"
     },
     {
-      "cls": "archer",
-      "id": "ar25",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "archer",
+      "id": "ar25"
     },
     {
-      "cls": "archer",
-      "id": "ar26",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "archer",
+      "id": "ar26"
     },
     {
-      "cls": "archer",
-      "id": "ar27",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "archer",
+      "id": "ar27"
     },
     {
-      "cls": "archer",
-      "id": "ar28",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "archer",
+      "id": "ar28"
     },
     {
-      "cls": "archer",
-      "id": "ar29",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "archer",
+      "id": "ar29"
     },
     {
-      "cls": "archer",
-      "id": "ar30",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "archer",
+      "id": "ar30"
     },
     {
-      "cls": "archer",
-      "id": "ar31",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "archer",
+      "id": "ar31"
     },
     {
-      "cls": "archer",
-      "id": "ar32",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "archer",
+      "id": "ar32"
     },
     {
-      "cls": "archer",
-      "id": "ar33",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "archer",
+      "id": "ar33"
     },
     {
-      "cls": "archer",
-      "id": "ar34",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "archer",
+      "id": "ar34"
     },
     {
-      "cls": "archer",
-      "id": "ar35",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar35"
     },
     {
-      "cls": "archer",
-      "id": "ar36",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar36"
     },
     {
-      "cls": "archer",
-      "id": "ar37",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar37"
     },
     {
-      "cls": "archer",
-      "id": "ar38",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar38"
     },
     {
-      "cls": "archer",
-      "id": "ar39",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar39"
     },
     {
-      "cls": "archer",
-      "id": "ar40",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar40"
     },
     {
-      "cls": "archer",
-      "id": "ar41",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar41"
     },
     {
-      "cls": "archer",
-      "id": "ar42",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar42"
     },
     {
-      "cls": "archer",
-      "id": "ar43",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar43"
     },
     {
-      "cls": "archer",
-      "id": "ar44",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar44"
     },
     {
-      "cls": "archer",
-      "id": "ar45",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar45"
     },
     {
-      "cls": "archer",
-      "id": "ar46",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar46"
     },
     {
-      "cls": "archer",
-      "id": "ar47",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar47"
     },
     {
-      "cls": "archer",
-      "id": "ar48",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar48"
     },
     {
-      "cls": "archer",
-      "id": "ar49",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar49"
     },
     {
-      "cls": "archer",
-      "id": "ar50",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar50"
     },
     {
-      "cls": "archer",
-      "id": "ar51",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar51"
     },
     {
-      "cls": "archer",
-      "id": "ar52",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar52"
     },
     {
-      "cls": "archer",
-      "id": "ar53",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar53"
     },
     {
-      "cls": "archer",
-      "id": "ar54",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "archer",
+      "id": "ar54"
     },
     {
-      "cls": "archer",
-      "id": "ar55",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "archer",
+      "id": "ar55"
     },
     {
-      "cls": "archer",
-      "id": "ar56",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "archer",
+      "id": "ar56"
     },
     {
-      "cls": "archer",
-      "id": "ar57",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "archer",
+      "id": "ar57"
     },
     {
-      "cls": "archer",
-      "id": "ar58",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "archer",
+      "id": "ar58"
     },
     {
-      "cls": "archer",
-      "id": "ar59",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "archer",
+      "id": "ar59"
     },
     {
-      "cls": "archer",
-      "id": "ar60",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "archer",
+      "id": "ar60"
     },
     {
-      "cls": "archer",
-      "id": "ar61",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "archer",
+      "id": "ar61"
     },
     {
-      "cls": "archer",
-      "id": "ar62",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "archer",
+      "id": "ar62"
     },
     {
-      "cls": "archer",
-      "id": "ar63",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "archer",
+      "id": "ar63"
     },
     {
-      "cls": "archer",
-      "id": "ar64",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "archer",
+      "id": "ar64"
     },
     {
-      "cls": "archer",
-      "id": "ar65",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "archer",
+      "id": "ar65"
     },
     {
-      "cls": "archer",
-      "id": "ar66",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "archer",
+      "id": "ar66"
     },
     {
-      "cls": "archer",
-      "id": "ar67",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "archer",
+      "id": "ar67"
     },
     {
-      "cls": "archer",
-      "id": "ar68",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar68"
     },
     {
-      "cls": "archer",
-      "id": "ar69",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar69"
     },
     {
-      "cls": "archer",
-      "id": "ar70",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar70"
     },
     {
-      "cls": "archer",
-      "id": "ar71",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar71"
     },
     {
-      "cls": "archer",
-      "id": "ar72",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar72"
     },
     {
-      "cls": "archer",
-      "id": "ar73",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar73"
     },
     {
-      "cls": "archer",
-      "id": "ar74",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar74"
     },
     {
-      "cls": "archer",
-      "id": "ar75",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar75"
     },
     {
-      "cls": "archer",
-      "id": "ar76",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar76"
     },
     {
-      "cls": "archer",
-      "id": "ar77",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "archer",
+      "id": "ar77"
     },
     {
-      "cls": "archer",
-      "id": "ar78",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar78"
     },
     {
-      "cls": "archer",
-      "id": "ar79",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar79"
     },
     {
-      "cls": "archer",
-      "id": "ar80",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar80"
     },
     {
-      "cls": "archer",
-      "id": "ar81",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar81"
     },
     {
-      "cls": "archer",
-      "id": "ar82",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar82"
     },
     {
-      "cls": "archer",
-      "id": "ar83",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar83"
     },
     {
-      "cls": "archer",
-      "id": "ar84",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar84"
     },
     {
-      "cls": "archer",
-      "id": "ar85",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "archer",
+      "id": "ar85"
     },
     {
-      "cls": "archer",
-      "id": "ar86",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "archer",
+      "id": "ar86"
     },
     {
-      "cls": "archer",
-      "id": "ar87",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "archer",
+      "id": "ar87"
     },
     {
-      "cls": "archer",
-      "id": "ar88",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "archer",
+      "id": "ar88"
     },
     {
-      "cls": "archer",
-      "id": "ar89",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "archer",
+      "id": "ar89"
     },
     {
-      "cls": "archer",
-      "id": "ar90",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "archer",
+      "id": "ar90"
     },
     {
-      "cls": "archer",
-      "id": "ar91",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "archer",
+      "id": "ar91"
     },
     {
-      "cls": "archer",
-      "id": "ar92",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "archer",
+      "id": "ar92"
     },
     {
-      "cls": "archer",
-      "id": "ar93",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "archer",
+      "id": "ar93"
     },
     {
-      "cls": "archer",
-      "id": "ar94",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "archer",
+      "id": "ar94"
     },
     {
-      "cls": "archer",
-      "id": "ar95",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "archer",
+      "id": "ar95"
     },
     {
-      "cls": "archer",
-      "id": "ar96",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "archer",
+      "id": "ar96"
     },
     {
-      "cls": "archer",
-      "id": "ar97",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "archer",
+      "id": "ar97"
     },
     {
-      "cls": "archer",
-      "id": "ar98",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "archer",
+      "id": "ar98"
     },
     {
-      "cls": "archer",
-      "id": "ar99",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "archer",
+      "id": "ar99"
     },
     {
-      "cls": "archer",
-      "id": "ar00",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "archer",
+      "id": "ar00"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa01",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa01"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa02",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa02"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa03",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa03"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa04",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa04"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa05",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa05"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa06",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa06"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa07",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa07"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa08",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa08"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa09",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa09"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa10",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa10"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa11",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa11"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa12",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa12"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa13",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa13"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa14",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa14"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa15",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa15"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa16",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa16"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa17",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa17"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa18",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa18"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa19",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa19"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa20",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "sanctioned",
+      "id": "sa20"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa21",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "sanctioned",
+      "id": "sa21"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa22",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "sanctioned",
+      "id": "sa22"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa23",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "sanctioned",
+      "id": "sa23"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa24",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "sanctioned",
+      "id": "sa24"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa25",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "sanctioned",
+      "id": "sa25"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa26",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "sanctioned",
+      "id": "sa26"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa27",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "sanctioned",
+      "id": "sa27"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa28",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "sanctioned",
+      "id": "sa28"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa29",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "sanctioned",
+      "id": "sa29"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa30",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "sanctioned",
+      "id": "sa30"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa31",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "sanctioned",
+      "id": "sa31"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa32",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "sanctioned",
+      "id": "sa32"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa33",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "sanctioned",
+      "id": "sa33"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa34",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "sanctioned",
+      "id": "sa34"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa35",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa35"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa36",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa36"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa37",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa37"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa38",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa38"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa39",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa39"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa40",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa40"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa41",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa41"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa42",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa42"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa43",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa43"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa44",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa44"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa45",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa45"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa46",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa46"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa47",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa47"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa48",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa48"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa49",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa49"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa50",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa50"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa51",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa51"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa52",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa52"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa53",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa53"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa54",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "sanctioned",
+      "id": "sa54"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa55",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "sanctioned",
+      "id": "sa55"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa56",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "sanctioned",
+      "id": "sa56"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa57",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "sanctioned",
+      "id": "sa57"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa58",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "sanctioned",
+      "id": "sa58"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa59",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "sanctioned",
+      "id": "sa59"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa60",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "sanctioned",
+      "id": "sa60"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa61",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "sanctioned",
+      "id": "sa61"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa62",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "sanctioned",
+      "id": "sa62"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa63",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "sanctioned",
+      "id": "sa63"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa64",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "sanctioned",
+      "id": "sa64"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa65",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "sanctioned",
+      "id": "sa65"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa66",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "sanctioned",
+      "id": "sa66"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa67",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "sanctioned",
+      "id": "sa67"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa68",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa68"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa69",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa69"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa70",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa70"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa71",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa71"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa72",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa72"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa73",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa73"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa74",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa74"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa75",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa75"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa76",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa76"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa77",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "sanctioned",
+      "id": "sa77"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa78",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa78"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa79",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa79"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa80",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa80"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa81",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa81"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa82",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa82"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa83",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa83"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa84",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa84"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa85",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "sanctioned",
+      "id": "sa85"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa86",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "sanctioned",
+      "id": "sa86"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa87",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "sanctioned",
+      "id": "sa87"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa88",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "sanctioned",
+      "id": "sa88"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa89",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "sanctioned",
+      "id": "sa89"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa90",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "sanctioned",
+      "id": "sa90"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa91",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "sanctioned",
+      "id": "sa91"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa92",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "sanctioned",
+      "id": "sa92"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa93",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "sanctioned",
+      "id": "sa93"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa94",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "sanctioned",
+      "id": "sa94"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa95",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "sanctioned",
+      "id": "sa95"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa96",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "sanctioned",
+      "id": "sa96"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa97",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "sanctioned",
+      "id": "sa97"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa98",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "sanctioned",
+      "id": "sa98"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa99",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "sanctioned",
+      "id": "sa99"
     },
     {
-      "cls": "sanctioned",
-      "id": "sa00",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "sanctioned",
+      "id": "sa00"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un01",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un01"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un02",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un02"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un03",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un03"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un04",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un04"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un05",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un05"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un06",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un06"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un07",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un07"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un08",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un08"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un09",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un09"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un10",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un10"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un11",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un11"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un12",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un12"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un13",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un13"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un14",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un14"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un15",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un15"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un16",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un16"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un17",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un17"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un18",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un18"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un19",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un19"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un20",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "unsanctioned",
+      "id": "un20"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un21",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "unsanctioned",
+      "id": "un21"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un22",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "unsanctioned",
+      "id": "un22"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un23",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "unsanctioned",
+      "id": "un23"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un24",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "unsanctioned",
+      "id": "un24"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un25",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "unsanctioned",
+      "id": "un25"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un26",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "unsanctioned",
+      "id": "un26"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un27",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "unsanctioned",
+      "id": "un27"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un28",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "unsanctioned",
+      "id": "un28"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un29",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "unsanctioned",
+      "id": "un29"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un30",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "unsanctioned",
+      "id": "un30"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un31",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "unsanctioned",
+      "id": "un31"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un32",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "unsanctioned",
+      "id": "un32"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un33",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "unsanctioned",
+      "id": "un33"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un34",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "unsanctioned",
+      "id": "un34"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un35",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un35"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un36",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un36"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un37",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un37"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un38",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un38"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un39",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un39"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un40",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un40"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un41",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un41"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un42",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un42"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un43",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un43"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un44",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un44"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un45",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un45"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un46",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un46"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un47",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un47"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un48",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un48"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un49",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un49"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un50",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un50"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un51",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un51"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un52",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un52"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un53",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un53"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un54",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "unsanctioned",
+      "id": "un54"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un55",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "unsanctioned",
+      "id": "un55"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un56",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "unsanctioned",
+      "id": "un56"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un57",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "unsanctioned",
+      "id": "un57"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un58",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "unsanctioned",
+      "id": "un58"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un59",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "unsanctioned",
+      "id": "un59"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un60",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "unsanctioned",
+      "id": "un60"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un61",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "unsanctioned",
+      "id": "un61"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un62",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "unsanctioned",
+      "id": "un62"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un63",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "unsanctioned",
+      "id": "un63"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un64",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "unsanctioned",
+      "id": "un64"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un65",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "unsanctioned",
+      "id": "un65"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un66",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "unsanctioned",
+      "id": "un66"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un67",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "unsanctioned",
+      "id": "un67"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un68",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un68"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un69",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un69"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un70",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un70"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un71",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un71"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un72",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un72"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un73",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un73"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un74",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un74"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un75",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un75"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un76",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un76"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un77",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "unsanctioned",
+      "id": "un77"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un78",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un78"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un79",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un79"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un80",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un80"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un81",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un81"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un82",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un82"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un83",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un83"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un84",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un84"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un85",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "unsanctioned",
+      "id": "un85"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un86",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "unsanctioned",
+      "id": "un86"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un87",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "unsanctioned",
+      "id": "un87"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un88",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "unsanctioned",
+      "id": "un88"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un89",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "unsanctioned",
+      "id": "un89"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un90",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "unsanctioned",
+      "id": "un90"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un91",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "unsanctioned",
+      "id": "un91"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un92",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "unsanctioned",
+      "id": "un92"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un93",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "unsanctioned",
+      "id": "un93"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un94",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "unsanctioned",
+      "id": "un94"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un95",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "unsanctioned",
+      "id": "un95"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un96",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "unsanctioned",
+      "id": "un96"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un97",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "unsanctioned",
+      "id": "un97"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un98",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "unsanctioned",
+      "id": "un98"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un99",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "unsanctioned",
+      "id": "un99"
     },
     {
-      "cls": "unsanctioned",
-      "id": "un00",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "unsanctioned",
+      "id": "un00"
     },
     {
-      "cls": "paladin",
-      "id": "pa01",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa01"
     },
     {
-      "cls": "paladin",
-      "id": "pa02",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa02"
     },
     {
-      "cls": "paladin",
-      "id": "pa03",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa03"
     },
     {
-      "cls": "paladin",
-      "id": "pa04",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa04"
     },
     {
-      "cls": "paladin",
-      "id": "pa05",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa05"
     },
     {
-      "cls": "paladin",
-      "id": "pa06",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa06"
     },
     {
-      "cls": "paladin",
-      "id": "pa07",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa07"
     },
     {
-      "cls": "paladin",
-      "id": "pa08",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa08"
     },
     {
-      "cls": "paladin",
-      "id": "pa09",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa09"
     },
     {
-      "cls": "paladin",
-      "id": "pa10",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa10"
     },
     {
-      "cls": "paladin",
-      "id": "pa11",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa11"
     },
     {
-      "cls": "paladin",
-      "id": "pa12",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa12"
     },
     {
-      "cls": "paladin",
-      "id": "pa13",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa13"
     },
     {
-      "cls": "paladin",
-      "id": "pa14",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa14"
     },
     {
-      "cls": "paladin",
-      "id": "pa15",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa15"
     },
     {
-      "cls": "paladin",
-      "id": "pa16",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa16"
     },
     {
-      "cls": "paladin",
-      "id": "pa17",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa17"
     },
     {
-      "cls": "paladin",
-      "id": "pa18",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa18"
     },
     {
-      "cls": "paladin",
-      "id": "pa19",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa19"
     },
     {
-      "cls": "paladin",
-      "id": "pa20",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "paladin",
+      "id": "pa20"
     },
     {
-      "cls": "paladin",
-      "id": "pa21",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "paladin",
+      "id": "pa21"
     },
     {
-      "cls": "paladin",
-      "id": "pa22",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "paladin",
+      "id": "pa22"
     },
     {
-      "cls": "paladin",
-      "id": "pa23",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "paladin",
+      "id": "pa23"
     },
     {
-      "cls": "paladin",
-      "id": "pa24",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "paladin",
+      "id": "pa24"
     },
     {
-      "cls": "paladin",
-      "id": "pa25",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "paladin",
+      "id": "pa25"
     },
     {
-      "cls": "paladin",
-      "id": "pa26",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "paladin",
+      "id": "pa26"
     },
     {
-      "cls": "paladin",
-      "id": "pa27",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "paladin",
+      "id": "pa27"
     },
     {
-      "cls": "paladin",
-      "id": "pa28",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "paladin",
+      "id": "pa28"
     },
     {
-      "cls": "paladin",
-      "id": "pa29",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "paladin",
+      "id": "pa29"
     },
     {
-      "cls": "paladin",
-      "id": "pa30",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "paladin",
+      "id": "pa30"
     },
     {
-      "cls": "paladin",
-      "id": "pa31",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "paladin",
+      "id": "pa31"
     },
     {
-      "cls": "paladin",
-      "id": "pa32",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "paladin",
+      "id": "pa32"
     },
     {
-      "cls": "paladin",
-      "id": "pa33",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "paladin",
+      "id": "pa33"
     },
     {
-      "cls": "paladin",
-      "id": "pa34",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "paladin",
+      "id": "pa34"
     },
     {
-      "cls": "paladin",
-      "id": "pa35",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa35"
     },
     {
-      "cls": "paladin",
-      "id": "pa36",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa36"
     },
     {
-      "cls": "paladin",
-      "id": "pa37",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa37"
     },
     {
-      "cls": "paladin",
-      "id": "pa38",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa38"
     },
     {
-      "cls": "paladin",
-      "id": "pa39",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa39"
     },
     {
-      "cls": "paladin",
-      "id": "pa40",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa40"
     },
     {
-      "cls": "paladin",
-      "id": "pa41",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa41"
     },
     {
-      "cls": "paladin",
-      "id": "pa42",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa42"
     },
     {
-      "cls": "paladin",
-      "id": "pa43",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa43"
     },
     {
-      "cls": "paladin",
-      "id": "pa44",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa44"
     },
     {
-      "cls": "paladin",
-      "id": "pa45",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa45"
     },
     {
-      "cls": "paladin",
-      "id": "pa46",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa46"
     },
     {
-      "cls": "paladin",
-      "id": "pa47",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa47"
     },
     {
-      "cls": "paladin",
-      "id": "pa48",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa48"
     },
     {
-      "cls": "paladin",
-      "id": "pa49",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa49"
     },
     {
-      "cls": "paladin",
-      "id": "pa50",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa50"
     },
     {
-      "cls": "paladin",
-      "id": "pa51",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa51"
     },
     {
-      "cls": "paladin",
-      "id": "pa52",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa52"
     },
     {
-      "cls": "paladin",
-      "id": "pa53",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa53"
     },
     {
-      "cls": "paladin",
-      "id": "pa54",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "paladin",
+      "id": "pa54"
     },
     {
-      "cls": "paladin",
-      "id": "pa55",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "paladin",
+      "id": "pa55"
     },
     {
-      "cls": "paladin",
-      "id": "pa56",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "paladin",
+      "id": "pa56"
     },
     {
-      "cls": "paladin",
-      "id": "pa57",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "paladin",
+      "id": "pa57"
     },
     {
-      "cls": "paladin",
-      "id": "pa58",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "paladin",
+      "id": "pa58"
     },
     {
-      "cls": "paladin",
-      "id": "pa59",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "paladin",
+      "id": "pa59"
     },
     {
-      "cls": "paladin",
-      "id": "pa60",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "paladin",
+      "id": "pa60"
     },
     {
-      "cls": "paladin",
-      "id": "pa61",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "paladin",
+      "id": "pa61"
     },
     {
-      "cls": "paladin",
-      "id": "pa62",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "paladin",
+      "id": "pa62"
     },
     {
-      "cls": "paladin",
-      "id": "pa63",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "paladin",
+      "id": "pa63"
     },
     {
-      "cls": "paladin",
-      "id": "pa64",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "paladin",
+      "id": "pa64"
     },
     {
-      "cls": "paladin",
-      "id": "pa65",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "paladin",
+      "id": "pa65"
     },
     {
-      "cls": "paladin",
-      "id": "pa66",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "paladin",
+      "id": "pa66"
     },
     {
-      "cls": "paladin",
-      "id": "pa67",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "paladin",
+      "id": "pa67"
     },
     {
-      "cls": "paladin",
-      "id": "pa68",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa68"
     },
     {
-      "cls": "paladin",
-      "id": "pa69",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa69"
     },
     {
-      "cls": "paladin",
-      "id": "pa70",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa70"
     },
     {
-      "cls": "paladin",
-      "id": "pa71",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa71"
     },
     {
-      "cls": "paladin",
-      "id": "pa72",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa72"
     },
     {
-      "cls": "paladin",
-      "id": "pa73",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa73"
     },
     {
-      "cls": "paladin",
-      "id": "pa74",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa74"
     },
     {
-      "cls": "paladin",
-      "id": "pa75",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa75"
     },
     {
-      "cls": "paladin",
-      "id": "pa76",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa76"
     },
     {
-      "cls": "paladin",
-      "id": "pa77",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "paladin",
+      "id": "pa77"
     },
     {
-      "cls": "paladin",
-      "id": "pa78",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa78"
     },
     {
-      "cls": "paladin",
-      "id": "pa79",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa79"
     },
     {
-      "cls": "paladin",
-      "id": "pa80",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa80"
     },
     {
-      "cls": "paladin",
-      "id": "pa81",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa81"
     },
     {
-      "cls": "paladin",
-      "id": "pa82",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa82"
     },
     {
-      "cls": "paladin",
-      "id": "pa83",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa83"
     },
     {
-      "cls": "paladin",
-      "id": "pa84",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa84"
     },
     {
-      "cls": "paladin",
-      "id": "pa85",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "paladin",
+      "id": "pa85"
     },
     {
-      "cls": "paladin",
-      "id": "pa86",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "paladin",
+      "id": "pa86"
     },
     {
-      "cls": "paladin",
-      "id": "pa87",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "paladin",
+      "id": "pa87"
     },
     {
-      "cls": "paladin",
-      "id": "pa88",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "paladin",
+      "id": "pa88"
     },
     {
-      "cls": "paladin",
-      "id": "pa89",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "paladin",
+      "id": "pa89"
     },
     {
-      "cls": "paladin",
-      "id": "pa90",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "paladin",
+      "id": "pa90"
     },
     {
-      "cls": "paladin",
-      "id": "pa91",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "paladin",
+      "id": "pa91"
     },
     {
-      "cls": "paladin",
-      "id": "pa92",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "paladin",
+      "id": "pa92"
     },
     {
-      "cls": "paladin",
-      "id": "pa93",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "paladin",
+      "id": "pa93"
     },
     {
-      "cls": "paladin",
-      "id": "pa94",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "paladin",
+      "id": "pa94"
     },
     {
-      "cls": "paladin",
-      "id": "pa95",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "paladin",
+      "id": "pa95"
     },
     {
-      "cls": "paladin",
-      "id": "pa96",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "paladin",
+      "id": "pa96"
     },
     {
-      "cls": "paladin",
-      "id": "pa97",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "paladin",
+      "id": "pa97"
     },
     {
-      "cls": "paladin",
-      "id": "pa98",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "paladin",
+      "id": "pa98"
     },
     {
-      "cls": "paladin",
-      "id": "pa99",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "paladin",
+      "id": "pa99"
     },
     {
-      "cls": "paladin",
-      "id": "pa00",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "paladin",
+      "id": "pa00"
     },
     {
-      "cls": "priest",
-      "id": "pr01",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr01"
     },
     {
-      "cls": "priest",
-      "id": "pr02",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr02"
     },
     {
-      "cls": "priest",
-      "id": "pr03",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr03"
     },
     {
-      "cls": "priest",
-      "id": "pr04",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr04"
     },
     {
-      "cls": "priest",
-      "id": "pr05",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr05"
     },
     {
-      "cls": "priest",
-      "id": "pr06",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr06"
     },
     {
-      "cls": "priest",
-      "id": "pr07",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr07"
     },
     {
-      "cls": "priest",
-      "id": "pr08",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr08"
     },
     {
-      "cls": "priest",
-      "id": "pr09",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr09"
     },
     {
-      "cls": "priest",
-      "id": "pr10",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr10"
     },
     {
-      "cls": "priest",
-      "id": "pr11",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr11"
     },
     {
-      "cls": "priest",
-      "id": "pr12",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr12"
     },
     {
-      "cls": "priest",
-      "id": "pr13",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr13"
     },
     {
-      "cls": "priest",
-      "id": "pr14",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr14"
     },
     {
-      "cls": "priest",
-      "id": "pr15",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr15"
     },
     {
-      "cls": "priest",
-      "id": "pr16",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr16"
     },
     {
-      "cls": "priest",
-      "id": "pr17",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr17"
     },
     {
-      "cls": "priest",
-      "id": "pr18",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr18"
     },
     {
-      "cls": "priest",
-      "id": "pr19",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr19"
     },
     {
-      "cls": "priest",
-      "id": "pr20",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "priest",
+      "id": "pr20"
     },
     {
-      "cls": "priest",
-      "id": "pr21",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "priest",
+      "id": "pr21"
     },
     {
-      "cls": "priest",
-      "id": "pr22",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "priest",
+      "id": "pr22"
     },
     {
-      "cls": "priest",
-      "id": "pr23",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "priest",
+      "id": "pr23"
     },
     {
-      "cls": "priest",
-      "id": "pr24",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "priest",
+      "id": "pr24"
     },
     {
-      "cls": "priest",
-      "id": "pr25",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "priest",
+      "id": "pr25"
     },
     {
-      "cls": "priest",
-      "id": "pr26",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "priest",
+      "id": "pr26"
     },
     {
-      "cls": "priest",
-      "id": "pr27",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "priest",
+      "id": "pr27"
     },
     {
-      "cls": "priest",
-      "id": "pr28",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "priest",
+      "id": "pr28"
     },
     {
-      "cls": "priest",
-      "id": "pr29",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "priest",
+      "id": "pr29"
     },
     {
-      "cls": "priest",
-      "id": "pr30",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "priest",
+      "id": "pr30"
     },
     {
-      "cls": "priest",
-      "id": "pr31",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "priest",
+      "id": "pr31"
     },
     {
-      "cls": "priest",
-      "id": "pr32",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "priest",
+      "id": "pr32"
     },
     {
-      "cls": "priest",
-      "id": "pr33",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "priest",
+      "id": "pr33"
     },
     {
-      "cls": "priest",
-      "id": "pr34",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "priest",
+      "id": "pr34"
     },
     {
-      "cls": "priest",
-      "id": "pr35",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr35"
     },
     {
-      "cls": "priest",
-      "id": "pr36",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr36"
     },
     {
-      "cls": "priest",
-      "id": "pr37",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr37"
     },
     {
-      "cls": "priest",
-      "id": "pr38",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr38"
     },
     {
-      "cls": "priest",
-      "id": "pr39",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr39"
     },
     {
-      "cls": "priest",
-      "id": "pr40",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr40"
     },
     {
-      "cls": "priest",
-      "id": "pr41",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr41"
     },
     {
-      "cls": "priest",
-      "id": "pr42",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr42"
     },
     {
-      "cls": "priest",
-      "id": "pr43",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr43"
     },
     {
-      "cls": "priest",
-      "id": "pr44",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr44"
     },
     {
-      "cls": "priest",
-      "id": "pr45",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr45"
     },
     {
-      "cls": "priest",
-      "id": "pr46",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr46"
     },
     {
-      "cls": "priest",
-      "id": "pr47",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr47"
     },
     {
-      "cls": "priest",
-      "id": "pr48",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr48"
     },
     {
-      "cls": "priest",
-      "id": "pr49",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr49"
     },
     {
-      "cls": "priest",
-      "id": "pr50",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr50"
     },
     {
-      "cls": "priest",
-      "id": "pr51",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr51"
     },
     {
-      "cls": "priest",
-      "id": "pr52",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr52"
     },
     {
-      "cls": "priest",
-      "id": "pr53",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr53"
     },
     {
-      "cls": "priest",
-      "id": "pr54",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "priest",
+      "id": "pr54"
     },
     {
-      "cls": "priest",
-      "id": "pr55",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "priest",
+      "id": "pr55"
     },
     {
-      "cls": "priest",
-      "id": "pr56",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "priest",
+      "id": "pr56"
     },
     {
-      "cls": "priest",
-      "id": "pr57",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "priest",
+      "id": "pr57"
     },
     {
-      "cls": "priest",
-      "id": "pr58",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "priest",
+      "id": "pr58"
     },
     {
-      "cls": "priest",
-      "id": "pr59",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "priest",
+      "id": "pr59"
     },
     {
-      "cls": "priest",
-      "id": "pr60",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "priest",
+      "id": "pr60"
     },
     {
-      "cls": "priest",
-      "id": "pr61",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "priest",
+      "id": "pr61"
     },
     {
-      "cls": "priest",
-      "id": "pr62",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "priest",
+      "id": "pr62"
     },
     {
-      "cls": "priest",
-      "id": "pr63",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "priest",
+      "id": "pr63"
     },
     {
-      "cls": "priest",
-      "id": "pr64",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "priest",
+      "id": "pr64"
     },
     {
-      "cls": "priest",
-      "id": "pr65",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "priest",
+      "id": "pr65"
     },
     {
-      "cls": "priest",
-      "id": "pr66",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "priest",
+      "id": "pr66"
     },
     {
-      "cls": "priest",
-      "id": "pr67",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "priest",
+      "id": "pr67"
     },
     {
-      "cls": "priest",
-      "id": "pr68",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr68"
     },
     {
-      "cls": "priest",
-      "id": "pr69",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr69"
     },
     {
-      "cls": "priest",
-      "id": "pr70",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr70"
     },
     {
-      "cls": "priest",
-      "id": "pr71",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr71"
     },
     {
-      "cls": "priest",
-      "id": "pr72",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr72"
     },
     {
-      "cls": "priest",
-      "id": "pr73",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr73"
     },
     {
-      "cls": "priest",
-      "id": "pr74",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr74"
     },
     {
-      "cls": "priest",
-      "id": "pr75",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr75"
     },
     {
-      "cls": "priest",
-      "id": "pr76",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr76"
     },
     {
-      "cls": "priest",
-      "id": "pr77",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "priest",
+      "id": "pr77"
     },
     {
-      "cls": "priest",
-      "id": "pr78",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr78"
     },
     {
-      "cls": "priest",
-      "id": "pr79",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr79"
     },
     {
-      "cls": "priest",
-      "id": "pr80",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr80"
     },
     {
-      "cls": "priest",
-      "id": "pr81",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr81"
     },
     {
-      "cls": "priest",
-      "id": "pr82",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr82"
     },
     {
-      "cls": "priest",
-      "id": "pr83",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr83"
     },
     {
-      "cls": "priest",
-      "id": "pr84",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr84"
     },
     {
-      "cls": "priest",
-      "id": "pr85",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "priest",
+      "id": "pr85"
     },
     {
-      "cls": "priest",
-      "id": "pr86",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "priest",
+      "id": "pr86"
     },
     {
-      "cls": "priest",
-      "id": "pr87",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "priest",
+      "id": "pr87"
     },
     {
-      "cls": "priest",
-      "id": "pr88",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "priest",
+      "id": "pr88"
     },
     {
-      "cls": "priest",
-      "id": "pr89",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "priest",
+      "id": "pr89"
     },
     {
-      "cls": "priest",
-      "id": "pr90",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "priest",
+      "id": "pr90"
     },
     {
-      "cls": "priest",
-      "id": "pr91",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "priest",
+      "id": "pr91"
     },
     {
-      "cls": "priest",
-      "id": "pr92",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "priest",
+      "id": "pr92"
     },
     {
-      "cls": "priest",
-      "id": "pr93",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "priest",
+      "id": "pr93"
     },
     {
-      "cls": "priest",
-      "id": "pr94",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "priest",
+      "id": "pr94"
     },
     {
-      "cls": "priest",
-      "id": "pr95",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "priest",
+      "id": "pr95"
     },
     {
-      "cls": "priest",
-      "id": "pr96",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "priest",
+      "id": "pr96"
     },
     {
-      "cls": "priest",
-      "id": "pr97",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "priest",
+      "id": "pr97"
     },
     {
-      "cls": "priest",
-      "id": "pr98",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "priest",
+      "id": "pr98"
     },
     {
-      "cls": "priest",
-      "id": "pr99",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "priest",
+      "id": "pr99"
     },
     {
-      "cls": "priest",
-      "id": "pr00",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "priest",
+      "id": "pr00"
     },
     {
-      "cls": "alchemist",
-      "id": "al01",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al01"
     },
     {
-      "cls": "alchemist",
-      "id": "al02",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al02"
     },
     {
-      "cls": "alchemist",
-      "id": "al03",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al03"
     },
     {
-      "cls": "alchemist",
-      "id": "al04",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al04"
     },
     {
-      "cls": "alchemist",
-      "id": "al05",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al05"
     },
     {
-      "cls": "alchemist",
-      "id": "al06",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al06"
     },
     {
-      "cls": "alchemist",
-      "id": "al07",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al07"
     },
     {
-      "cls": "alchemist",
-      "id": "al08",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al08"
     },
     {
-      "cls": "alchemist",
-      "id": "al09",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al09"
     },
     {
-      "cls": "alchemist",
-      "id": "al10",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al10"
     },
     {
-      "cls": "alchemist",
-      "id": "al11",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al11"
     },
     {
-      "cls": "alchemist",
-      "id": "al12",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al12"
     },
     {
-      "cls": "alchemist",
-      "id": "al13",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al13"
     },
     {
-      "cls": "alchemist",
-      "id": "al14",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al14"
     },
     {
-      "cls": "alchemist",
-      "id": "al15",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al15"
     },
     {
-      "cls": "alchemist",
-      "id": "al16",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al16"
     },
     {
-      "cls": "alchemist",
-      "id": "al17",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al17"
     },
     {
-      "cls": "alchemist",
-      "id": "al18",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al18"
     },
     {
-      "cls": "alchemist",
-      "id": "al19",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al19"
     },
     {
-      "cls": "alchemist",
-      "id": "al20",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "alchemist",
+      "id": "al20"
     },
     {
-      "cls": "alchemist",
-      "id": "al21",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "alchemist",
+      "id": "al21"
     },
     {
-      "cls": "alchemist",
-      "id": "al22",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "alchemist",
+      "id": "al22"
     },
     {
-      "cls": "alchemist",
-      "id": "al23",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "alchemist",
+      "id": "al23"
     },
     {
-      "cls": "alchemist",
-      "id": "al24",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "alchemist",
+      "id": "al24"
     },
     {
-      "cls": "alchemist",
-      "id": "al25",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "alchemist",
+      "id": "al25"
     },
     {
-      "cls": "alchemist",
-      "id": "al26",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "alchemist",
+      "id": "al26"
     },
     {
-      "cls": "alchemist",
-      "id": "al27",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "alchemist",
+      "id": "al27"
     },
     {
-      "cls": "alchemist",
-      "id": "al28",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "alchemist",
+      "id": "al28"
     },
     {
-      "cls": "alchemist",
-      "id": "al29",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "alchemist",
+      "id": "al29"
     },
     {
-      "cls": "alchemist",
-      "id": "al30",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "alchemist",
+      "id": "al30"
     },
     {
-      "cls": "alchemist",
-      "id": "al31",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "alchemist",
+      "id": "al31"
     },
     {
-      "cls": "alchemist",
-      "id": "al32",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "alchemist",
+      "id": "al32"
     },
     {
-      "cls": "alchemist",
-      "id": "al33",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "alchemist",
+      "id": "al33"
     },
     {
-      "cls": "alchemist",
-      "id": "al34",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "alchemist",
+      "id": "al34"
     },
     {
-      "cls": "alchemist",
-      "id": "al35",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al35"
     },
     {
-      "cls": "alchemist",
-      "id": "al36",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al36"
     },
     {
-      "cls": "alchemist",
-      "id": "al37",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al37"
     },
     {
-      "cls": "alchemist",
-      "id": "al38",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al38"
     },
     {
-      "cls": "alchemist",
-      "id": "al39",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al39"
     },
     {
-      "cls": "alchemist",
-      "id": "al40",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al40"
     },
     {
-      "cls": "alchemist",
-      "id": "al41",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al41"
     },
     {
-      "cls": "alchemist",
-      "id": "al42",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al42"
     },
     {
-      "cls": "alchemist",
-      "id": "al43",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al43"
     },
     {
-      "cls": "alchemist",
-      "id": "al44",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al44"
     },
     {
-      "cls": "alchemist",
-      "id": "al45",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al45"
     },
     {
-      "cls": "alchemist",
-      "id": "al46",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al46"
     },
     {
-      "cls": "alchemist",
-      "id": "al47",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al47"
     },
     {
-      "cls": "alchemist",
-      "id": "al48",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al48"
     },
     {
-      "cls": "alchemist",
-      "id": "al49",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al49"
     },
     {
-      "cls": "alchemist",
-      "id": "al50",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al50"
     },
     {
-      "cls": "alchemist",
-      "id": "al51",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al51"
     },
     {
-      "cls": "alchemist",
-      "id": "al52",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al52"
     },
     {
-      "cls": "alchemist",
-      "id": "al53",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al53"
     },
     {
-      "cls": "alchemist",
-      "id": "al54",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "alchemist",
+      "id": "al54"
     },
     {
-      "cls": "alchemist",
-      "id": "al55",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "alchemist",
+      "id": "al55"
     },
     {
-      "cls": "alchemist",
-      "id": "al56",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "alchemist",
+      "id": "al56"
     },
     {
-      "cls": "alchemist",
-      "id": "al57",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "alchemist",
+      "id": "al57"
     },
     {
-      "cls": "alchemist",
-      "id": "al58",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "alchemist",
+      "id": "al58"
     },
     {
-      "cls": "alchemist",
-      "id": "al59",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "alchemist",
+      "id": "al59"
     },
     {
-      "cls": "alchemist",
-      "id": "al60",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "alchemist",
+      "id": "al60"
     },
     {
-      "cls": "alchemist",
-      "id": "al61",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "alchemist",
+      "id": "al61"
     },
     {
-      "cls": "alchemist",
-      "id": "al62",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "alchemist",
+      "id": "al62"
     },
     {
-      "cls": "alchemist",
-      "id": "al63",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "alchemist",
+      "id": "al63"
     },
     {
-      "cls": "alchemist",
-      "id": "al64",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "alchemist",
+      "id": "al64"
     },
     {
-      "cls": "alchemist",
-      "id": "al65",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "alchemist",
+      "id": "al65"
     },
     {
-      "cls": "alchemist",
-      "id": "al66",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "alchemist",
+      "id": "al66"
     },
     {
-      "cls": "alchemist",
-      "id": "al67",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "alchemist",
+      "id": "al67"
     },
     {
-      "cls": "alchemist",
-      "id": "al68",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al68"
     },
     {
-      "cls": "alchemist",
-      "id": "al69",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al69"
     },
     {
-      "cls": "alchemist",
-      "id": "al70",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al70"
     },
     {
-      "cls": "alchemist",
-      "id": "al71",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al71"
     },
     {
-      "cls": "alchemist",
-      "id": "al72",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al72"
     },
     {
-      "cls": "alchemist",
-      "id": "al73",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al73"
     },
     {
-      "cls": "alchemist",
-      "id": "al74",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al74"
     },
     {
-      "cls": "alchemist",
-      "id": "al75",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al75"
     },
     {
-      "cls": "alchemist",
-      "id": "al76",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al76"
     },
     {
-      "cls": "alchemist",
-      "id": "al77",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "alchemist",
+      "id": "al77"
     },
     {
-      "cls": "alchemist",
-      "id": "al78",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al78"
     },
     {
-      "cls": "alchemist",
-      "id": "al79",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al79"
     },
     {
-      "cls": "alchemist",
-      "id": "al80",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al80"
     },
     {
-      "cls": "alchemist",
-      "id": "al81",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al81"
     },
     {
-      "cls": "alchemist",
-      "id": "al82",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al82"
     },
     {
-      "cls": "alchemist",
-      "id": "al83",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al83"
     },
     {
-      "cls": "alchemist",
-      "id": "al84",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al84"
     },
     {
-      "cls": "alchemist",
-      "id": "al85",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "alchemist",
+      "id": "al85"
     },
     {
-      "cls": "alchemist",
-      "id": "al86",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "alchemist",
+      "id": "al86"
     },
     {
-      "cls": "alchemist",
-      "id": "al87",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "alchemist",
+      "id": "al87"
     },
     {
-      "cls": "alchemist",
-      "id": "al88",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "alchemist",
+      "id": "al88"
     },
     {
-      "cls": "alchemist",
-      "id": "al89",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "alchemist",
+      "id": "al89"
     },
     {
-      "cls": "alchemist",
-      "id": "al90",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "alchemist",
+      "id": "al90"
     },
     {
-      "cls": "alchemist",
-      "id": "al91",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "alchemist",
+      "id": "al91"
     },
     {
-      "cls": "alchemist",
-      "id": "al92",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "alchemist",
+      "id": "al92"
     },
     {
-      "cls": "alchemist",
-      "id": "al93",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "alchemist",
+      "id": "al93"
     },
     {
-      "cls": "alchemist",
-      "id": "al94",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "alchemist",
+      "id": "al94"
     },
     {
-      "cls": "alchemist",
-      "id": "al95",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "alchemist",
+      "id": "al95"
     },
     {
-      "cls": "alchemist",
-      "id": "al96",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "alchemist",
+      "id": "al96"
     },
     {
-      "cls": "alchemist",
-      "id": "al97",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "alchemist",
+      "id": "al97"
     },
     {
-      "cls": "alchemist",
-      "id": "al98",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "alchemist",
+      "id": "al98"
     },
     {
-      "cls": "alchemist",
-      "id": "al99",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "alchemist",
+      "id": "al99"
     },
     {
-      "cls": "alchemist",
-      "id": "al00",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "alchemist",
+      "id": "al00"
     },
     {
-      "cls": "gladiator",
-      "id": "gl01",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl01"
     },
     {
-      "cls": "gladiator",
-      "id": "gl02",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl02"
     },
     {
-      "cls": "gladiator",
-      "id": "gl03",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl03"
     },
     {
-      "cls": "gladiator",
-      "id": "gl04",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl04"
     },
     {
-      "cls": "gladiator",
-      "id": "gl05",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl05"
     },
     {
-      "cls": "gladiator",
-      "id": "gl06",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl06"
     },
     {
-      "cls": "gladiator",
-      "id": "gl07",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl07"
     },
     {
-      "cls": "gladiator",
-      "id": "gl08",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl08"
     },
     {
-      "cls": "gladiator",
-      "id": "gl09",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl09"
     },
     {
-      "cls": "gladiator",
-      "id": "gl10",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl10"
     },
     {
-      "cls": "gladiator",
-      "id": "gl11",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl11"
     },
     {
-      "cls": "gladiator",
-      "id": "gl12",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl12"
     },
     {
-      "cls": "gladiator",
-      "id": "gl13",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl13"
     },
     {
-      "cls": "gladiator",
-      "id": "gl14",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl14"
     },
     {
-      "cls": "gladiator",
-      "id": "gl15",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl15"
     },
     {
-      "cls": "gladiator",
-      "id": "gl16",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl16"
     },
     {
-      "cls": "gladiator",
-      "id": "gl17",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl17"
     },
     {
-      "cls": "gladiator",
-      "id": "gl18",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl18"
     },
     {
-      "cls": "gladiator",
-      "id": "gl19",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl19"
     },
     {
-      "cls": "gladiator",
-      "id": "gl20",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "gladiator",
+      "id": "gl20"
     },
     {
-      "cls": "gladiator",
-      "id": "gl21",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "gladiator",
+      "id": "gl21"
     },
     {
-      "cls": "gladiator",
-      "id": "gl22",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "gladiator",
+      "id": "gl22"
     },
     {
-      "cls": "gladiator",
-      "id": "gl23",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "gladiator",
+      "id": "gl23"
     },
     {
-      "cls": "gladiator",
-      "id": "gl24",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "gladiator",
+      "id": "gl24"
     },
     {
-      "cls": "gladiator",
-      "id": "gl25",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "gladiator",
+      "id": "gl25"
     },
     {
-      "cls": "gladiator",
-      "id": "gl26",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "gladiator",
+      "id": "gl26"
     },
     {
-      "cls": "gladiator",
-      "id": "gl27",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "gladiator",
+      "id": "gl27"
     },
     {
-      "cls": "gladiator",
-      "id": "gl28",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "gladiator",
+      "id": "gl28"
     },
     {
-      "cls": "gladiator",
-      "id": "gl29",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "gladiator",
+      "id": "gl29"
     },
     {
-      "cls": "gladiator",
-      "id": "gl30",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "gladiator",
+      "id": "gl30"
     },
     {
-      "cls": "gladiator",
-      "id": "gl31",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "gladiator",
+      "id": "gl31"
     },
     {
-      "cls": "gladiator",
-      "id": "gl32",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "gladiator",
+      "id": "gl32"
     },
     {
-      "cls": "gladiator",
-      "id": "gl33",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "gladiator",
+      "id": "gl33"
     },
     {
-      "cls": "gladiator",
-      "id": "gl34",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "gladiator",
+      "id": "gl34"
     },
     {
-      "cls": "gladiator",
-      "id": "gl35",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl35"
     },
     {
-      "cls": "gladiator",
-      "id": "gl36",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl36"
     },
     {
-      "cls": "gladiator",
-      "id": "gl37",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl37"
     },
     {
-      "cls": "gladiator",
-      "id": "gl38",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl38"
     },
     {
-      "cls": "gladiator",
-      "id": "gl39",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl39"
     },
     {
-      "cls": "gladiator",
-      "id": "gl40",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl40"
     },
     {
-      "cls": "gladiator",
-      "id": "gl41",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl41"
     },
     {
-      "cls": "gladiator",
-      "id": "gl42",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl42"
     },
     {
-      "cls": "gladiator",
-      "id": "gl43",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl43"
     },
     {
-      "cls": "gladiator",
-      "id": "gl44",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl44"
     },
     {
-      "cls": "gladiator",
-      "id": "gl45",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl45"
     },
     {
-      "cls": "gladiator",
-      "id": "gl46",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl46"
     },
     {
-      "cls": "gladiator",
-      "id": "gl47",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl47"
     },
     {
-      "cls": "gladiator",
-      "id": "gl48",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl48"
     },
     {
-      "cls": "gladiator",
-      "id": "gl49",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl49"
     },
     {
-      "cls": "gladiator",
-      "id": "gl50",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl50"
     },
     {
-      "cls": "gladiator",
-      "id": "gl51",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl51"
     },
     {
-      "cls": "gladiator",
-      "id": "gl52",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl52"
     },
     {
-      "cls": "gladiator",
-      "id": "gl53",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl53"
     },
     {
-      "cls": "gladiator",
-      "id": "gl54",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "gladiator",
+      "id": "gl54"
     },
     {
-      "cls": "gladiator",
-      "id": "gl55",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "gladiator",
+      "id": "gl55"
     },
     {
-      "cls": "gladiator",
-      "id": "gl56",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "gladiator",
+      "id": "gl56"
     },
     {
-      "cls": "gladiator",
-      "id": "gl57",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "gladiator",
+      "id": "gl57"
     },
     {
-      "cls": "gladiator",
-      "id": "gl58",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "gladiator",
+      "id": "gl58"
     },
     {
-      "cls": "gladiator",
-      "id": "gl59",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "gladiator",
+      "id": "gl59"
     },
     {
-      "cls": "gladiator",
-      "id": "gl60",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "gladiator",
+      "id": "gl60"
     },
     {
-      "cls": "gladiator",
-      "id": "gl61",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "gladiator",
+      "id": "gl61"
     },
     {
-      "cls": "gladiator",
-      "id": "gl62",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "gladiator",
+      "id": "gl62"
     },
     {
-      "cls": "gladiator",
-      "id": "gl63",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "gladiator",
+      "id": "gl63"
     },
     {
-      "cls": "gladiator",
-      "id": "gl64",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "gladiator",
+      "id": "gl64"
     },
     {
-      "cls": "gladiator",
-      "id": "gl65",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "gladiator",
+      "id": "gl65"
     },
     {
-      "cls": "gladiator",
-      "id": "gl66",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "gladiator",
+      "id": "gl66"
     },
     {
-      "cls": "gladiator",
-      "id": "gl67",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "gladiator",
+      "id": "gl67"
     },
     {
-      "cls": "gladiator",
-      "id": "gl68",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl68"
     },
     {
-      "cls": "gladiator",
-      "id": "gl69",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl69"
     },
     {
-      "cls": "gladiator",
-      "id": "gl70",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl70"
     },
     {
-      "cls": "gladiator",
-      "id": "gl71",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl71"
     },
     {
-      "cls": "gladiator",
-      "id": "gl72",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl72"
     },
     {
-      "cls": "gladiator",
-      "id": "gl73",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl73"
     },
     {
-      "cls": "gladiator",
-      "id": "gl74",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl74"
     },
     {
-      "cls": "gladiator",
-      "id": "gl75",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl75"
     },
     {
-      "cls": "gladiator",
-      "id": "gl76",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl76"
     },
     {
-      "cls": "gladiator",
-      "id": "gl77",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "gladiator",
+      "id": "gl77"
     },
     {
-      "cls": "gladiator",
-      "id": "gl78",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl78"
     },
     {
-      "cls": "gladiator",
-      "id": "gl79",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl79"
     },
     {
-      "cls": "gladiator",
-      "id": "gl80",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl80"
     },
     {
-      "cls": "gladiator",
-      "id": "gl81",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl81"
     },
     {
-      "cls": "gladiator",
-      "id": "gl82",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl82"
     },
     {
-      "cls": "gladiator",
-      "id": "gl83",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl83"
     },
     {
-      "cls": "gladiator",
-      "id": "gl84",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl84"
     },
     {
-      "cls": "gladiator",
-      "id": "gl85",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "gladiator",
+      "id": "gl85"
     },
     {
-      "cls": "gladiator",
-      "id": "gl86",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "gladiator",
+      "id": "gl86"
     },
     {
-      "cls": "gladiator",
-      "id": "gl87",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "gladiator",
+      "id": "gl87"
     },
     {
-      "cls": "gladiator",
-      "id": "gl88",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "gladiator",
+      "id": "gl88"
     },
     {
-      "cls": "gladiator",
-      "id": "gl89",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "gladiator",
+      "id": "gl89"
     },
     {
-      "cls": "gladiator",
-      "id": "gl90",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "gladiator",
+      "id": "gl90"
     },
     {
-      "cls": "gladiator",
-      "id": "gl91",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "gladiator",
+      "id": "gl91"
     },
     {
-      "cls": "gladiator",
-      "id": "gl92",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "gladiator",
+      "id": "gl92"
     },
     {
-      "cls": "gladiator",
-      "id": "gl93",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "gladiator",
+      "id": "gl93"
     },
     {
-      "cls": "gladiator",
-      "id": "gl94",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "gladiator",
+      "id": "gl94"
     },
     {
-      "cls": "gladiator",
-      "id": "gl95",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "gladiator",
+      "id": "gl95"
     },
     {
-      "cls": "gladiator",
-      "id": "gl96",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "gladiator",
+      "id": "gl96"
     },
     {
-      "cls": "gladiator",
-      "id": "gl97",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "gladiator",
+      "id": "gl97"
     },
     {
-      "cls": "gladiator",
-      "id": "gl98",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "gladiator",
+      "id": "gl98"
     },
     {
-      "cls": "gladiator",
-      "id": "gl99",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "gladiator",
+      "id": "gl99"
     },
     {
-      "cls": "gladiator",
-      "id": "gl00",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "gladiator",
+      "id": "gl00"
     },
     {
-      "cls": "chaos",
-      "id": "ch01",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch01"
     },
     {
-      "cls": "chaos",
-      "id": "ch02",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch02"
     },
     {
-      "cls": "chaos",
-      "id": "ch03",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch03"
     },
     {
-      "cls": "chaos",
-      "id": "ch04",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch04"
     },
     {
-      "cls": "chaos",
-      "id": "ch05",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch05"
     },
     {
-      "cls": "chaos",
-      "id": "ch06",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch06"
     },
     {
-      "cls": "chaos",
-      "id": "ch07",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch07"
     },
     {
-      "cls": "chaos",
-      "id": "ch08",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch08"
     },
     {
-      "cls": "chaos",
-      "id": "ch09",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch09"
     },
     {
-      "cls": "chaos",
-      "id": "ch10",
+      "rarity": "common",
       "slot": "weapon",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch10"
     },
     {
-      "cls": "chaos",
-      "id": "ch11",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch11"
     },
     {
-      "cls": "chaos",
-      "id": "ch12",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch12"
     },
     {
-      "cls": "chaos",
-      "id": "ch13",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch13"
     },
     {
-      "cls": "chaos",
-      "id": "ch14",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch14"
     },
     {
-      "cls": "chaos",
-      "id": "ch15",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch15"
     },
     {
-      "cls": "chaos",
-      "id": "ch16",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch16"
     },
     {
-      "cls": "chaos",
-      "id": "ch17",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch17"
     },
     {
-      "cls": "chaos",
-      "id": "ch18",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch18"
     },
     {
-      "cls": "chaos",
-      "id": "ch19",
+      "rarity": "fine",
       "slot": "weapon",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch19"
     },
     {
-      "cls": "chaos",
-      "id": "ch20",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "chaos",
+      "id": "ch20"
     },
     {
-      "cls": "chaos",
-      "id": "ch21",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "chaos",
+      "id": "ch21"
     },
     {
-      "cls": "chaos",
-      "id": "ch22",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "chaos",
+      "id": "ch22"
     },
     {
-      "cls": "chaos",
-      "id": "ch23",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "chaos",
+      "id": "ch23"
     },
     {
-      "cls": "chaos",
-      "id": "ch24",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "chaos",
+      "id": "ch24"
     },
     {
-      "cls": "chaos",
-      "id": "ch25",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "chaos",
+      "id": "ch25"
     },
     {
-      "cls": "chaos",
-      "id": "ch26",
+      "rarity": "rare",
       "slot": "weapon",
-      "rarity": "rare"
+      "cls": "chaos",
+      "id": "ch26"
     },
     {
-      "cls": "chaos",
-      "id": "ch27",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "chaos",
+      "id": "ch27"
     },
     {
-      "cls": "chaos",
-      "id": "ch28",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "chaos",
+      "id": "ch28"
     },
     {
-      "cls": "chaos",
-      "id": "ch29",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "chaos",
+      "id": "ch29"
     },
     {
-      "cls": "chaos",
-      "id": "ch30",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "chaos",
+      "id": "ch30"
     },
     {
-      "cls": "chaos",
-      "id": "ch31",
+      "rarity": "epic",
       "slot": "weapon",
-      "rarity": "epic"
+      "cls": "chaos",
+      "id": "ch31"
     },
     {
-      "cls": "chaos",
-      "id": "ch32",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "chaos",
+      "id": "ch32"
     },
     {
-      "cls": "chaos",
-      "id": "ch33",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "chaos",
+      "id": "ch33"
     },
     {
-      "cls": "chaos",
-      "id": "ch34",
+      "rarity": "legend",
       "slot": "weapon",
-      "rarity": "legend"
+      "cls": "chaos",
+      "id": "ch34"
     },
     {
-      "cls": "chaos",
-      "id": "ch35",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch35"
     },
     {
-      "cls": "chaos",
-      "id": "ch36",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch36"
     },
     {
-      "cls": "chaos",
-      "id": "ch37",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch37"
     },
     {
-      "cls": "chaos",
-      "id": "ch38",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch38"
     },
     {
-      "cls": "chaos",
-      "id": "ch39",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch39"
     },
     {
-      "cls": "chaos",
-      "id": "ch40",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch40"
     },
     {
-      "cls": "chaos",
-      "id": "ch41",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch41"
     },
     {
-      "cls": "chaos",
-      "id": "ch42",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch42"
     },
     {
-      "cls": "chaos",
-      "id": "ch43",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch43"
     },
     {
-      "cls": "chaos",
-      "id": "ch44",
+      "rarity": "common",
       "slot": "armor",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch44"
     },
     {
-      "cls": "chaos",
-      "id": "ch45",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch45"
     },
     {
-      "cls": "chaos",
-      "id": "ch46",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch46"
     },
     {
-      "cls": "chaos",
-      "id": "ch47",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch47"
     },
     {
-      "cls": "chaos",
-      "id": "ch48",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch48"
     },
     {
-      "cls": "chaos",
-      "id": "ch49",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch49"
     },
     {
-      "cls": "chaos",
-      "id": "ch50",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch50"
     },
     {
-      "cls": "chaos",
-      "id": "ch51",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch51"
     },
     {
-      "cls": "chaos",
-      "id": "ch52",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch52"
     },
     {
-      "cls": "chaos",
-      "id": "ch53",
+      "rarity": "fine",
       "slot": "armor",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch53"
     },
     {
-      "cls": "chaos",
-      "id": "ch54",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "chaos",
+      "id": "ch54"
     },
     {
-      "cls": "chaos",
-      "id": "ch55",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "chaos",
+      "id": "ch55"
     },
     {
-      "cls": "chaos",
-      "id": "ch56",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "chaos",
+      "id": "ch56"
     },
     {
-      "cls": "chaos",
-      "id": "ch57",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "chaos",
+      "id": "ch57"
     },
     {
-      "cls": "chaos",
-      "id": "ch58",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "chaos",
+      "id": "ch58"
     },
     {
-      "cls": "chaos",
-      "id": "ch59",
+      "rarity": "rare",
       "slot": "armor",
-      "rarity": "rare"
+      "cls": "chaos",
+      "id": "ch59"
     },
     {
-      "cls": "chaos",
-      "id": "ch60",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "chaos",
+      "id": "ch60"
     },
     {
-      "cls": "chaos",
-      "id": "ch61",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "chaos",
+      "id": "ch61"
     },
     {
-      "cls": "chaos",
-      "id": "ch62",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "chaos",
+      "id": "ch62"
     },
     {
-      "cls": "chaos",
-      "id": "ch63",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "chaos",
+      "id": "ch63"
     },
     {
-      "cls": "chaos",
-      "id": "ch64",
+      "rarity": "epic",
       "slot": "armor",
-      "rarity": "epic"
+      "cls": "chaos",
+      "id": "ch64"
     },
     {
-      "cls": "chaos",
-      "id": "ch65",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "chaos",
+      "id": "ch65"
     },
     {
-      "cls": "chaos",
-      "id": "ch66",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "chaos",
+      "id": "ch66"
     },
     {
-      "cls": "chaos",
-      "id": "ch67",
+      "rarity": "legend",
       "slot": "armor",
-      "rarity": "legend"
+      "cls": "chaos",
+      "id": "ch67"
     },
     {
-      "cls": "chaos",
-      "id": "ch68",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch68"
     },
     {
-      "cls": "chaos",
-      "id": "ch69",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch69"
     },
     {
-      "cls": "chaos",
-      "id": "ch70",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch70"
     },
     {
-      "cls": "chaos",
-      "id": "ch71",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch71"
     },
     {
-      "cls": "chaos",
-      "id": "ch72",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch72"
     },
     {
-      "cls": "chaos",
-      "id": "ch73",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch73"
     },
     {
-      "cls": "chaos",
-      "id": "ch74",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch74"
     },
     {
-      "cls": "chaos",
-      "id": "ch75",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch75"
     },
     {
-      "cls": "chaos",
-      "id": "ch76",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch76"
     },
     {
-      "cls": "chaos",
-      "id": "ch77",
+      "rarity": "common",
       "slot": "acc",
-      "rarity": "common"
+      "cls": "chaos",
+      "id": "ch77"
     },
     {
-      "cls": "chaos",
-      "id": "ch78",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch78"
     },
     {
-      "cls": "chaos",
-      "id": "ch79",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch79"
     },
     {
-      "cls": "chaos",
-      "id": "ch80",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch80"
     },
     {
-      "cls": "chaos",
-      "id": "ch81",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch81"
     },
     {
-      "cls": "chaos",
-      "id": "ch82",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch82"
     },
     {
-      "cls": "chaos",
-      "id": "ch83",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch83"
     },
     {
-      "cls": "chaos",
-      "id": "ch84",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch84"
     },
     {
-      "cls": "chaos",
-      "id": "ch85",
+      "rarity": "fine",
       "slot": "acc",
-      "rarity": "fine"
+      "cls": "chaos",
+      "id": "ch85"
     },
     {
-      "cls": "chaos",
-      "id": "ch86",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "chaos",
+      "id": "ch86"
     },
     {
-      "cls": "chaos",
-      "id": "ch87",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "chaos",
+      "id": "ch87"
     },
     {
-      "cls": "chaos",
-      "id": "ch88",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "chaos",
+      "id": "ch88"
     },
     {
-      "cls": "chaos",
-      "id": "ch89",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "chaos",
+      "id": "ch89"
     },
     {
-      "cls": "chaos",
-      "id": "ch90",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "chaos",
+      "id": "ch90"
     },
     {
-      "cls": "chaos",
-      "id": "ch91",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "chaos",
+      "id": "ch91"
     },
     {
-      "cls": "chaos",
-      "id": "ch92",
+      "rarity": "rare",
       "slot": "acc",
-      "rarity": "rare"
+      "cls": "chaos",
+      "id": "ch92"
     },
     {
-      "cls": "chaos",
-      "id": "ch93",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "chaos",
+      "id": "ch93"
     },
     {
-      "cls": "chaos",
-      "id": "ch94",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "chaos",
+      "id": "ch94"
     },
     {
-      "cls": "chaos",
-      "id": "ch95",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "chaos",
+      "id": "ch95"
     },
     {
-      "cls": "chaos",
-      "id": "ch96",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "chaos",
+      "id": "ch96"
     },
     {
-      "cls": "chaos",
-      "id": "ch97",
+      "rarity": "epic",
       "slot": "acc",
-      "rarity": "epic"
+      "cls": "chaos",
+      "id": "ch97"
     },
     {
-      "cls": "chaos",
-      "id": "ch98",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "chaos",
+      "id": "ch98"
     },
     {
-      "cls": "chaos",
-      "id": "ch99",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "chaos",
+      "id": "ch99"
     },
     {
-      "cls": "chaos",
-      "id": "ch00",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "chaos",
+      "id": "ch00"
     },
     {
-      "cls": "warrior",
-      "id": "wal2",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "warrior",
+      "id": "wal2"
     },
     {
-      "cls": "warrior",
-      "id": "wal3",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "warrior",
+      "id": "wal3"
     },
     {
-      "cls": "warrior",
-      "id": "wal4",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "warrior",
+      "id": "wal4"
     },
     {
-      "cls": "paladin",
-      "id": "pal2",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "paladin",
+      "id": "pal2"
     },
     {
-      "cls": "paladin",
-      "id": "pal3",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "paladin",
+      "id": "pal3"
     },
     {
-      "cls": "paladin",
-      "id": "pal4",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "paladin",
+      "id": "pal4"
     },
     {
-      "cls": "priest",
-      "id": "prl2",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "priest",
+      "id": "prl2"
     },
     {
-      "cls": "priest",
-      "id": "prl3",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "priest",
+      "id": "prl3"
     },
     {
-      "cls": "priest",
-      "id": "prl4",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "priest",
+      "id": "prl4"
     },
     {
-      "cls": "alchemist",
-      "id": "all2",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "alchemist",
+      "id": "all2"
     },
     {
-      "cls": "alchemist",
-      "id": "all3",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "alchemist",
+      "id": "all3"
     },
     {
-      "cls": "alchemist",
-      "id": "all4",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "alchemist",
+      "id": "all4"
     },
     {
-      "cls": "assassin",
-      "id": "asl2",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "assassin",
+      "id": "asl2"
     },
     {
-      "cls": "assassin",
-      "id": "asl3",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "assassin",
+      "id": "asl3"
     },
     {
-      "cls": "assassin",
-      "id": "asl4",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "assassin",
+      "id": "asl4"
     },
     {
-      "cls": "archer",
-      "id": "arl2",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "archer",
+      "id": "arl2"
     },
     {
-      "cls": "archer",
-      "id": "arl3",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "archer",
+      "id": "arl3"
     },
     {
-      "cls": "archer",
-      "id": "arl4",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "archer",
+      "id": "arl4"
     },
     {
-      "cls": "sanctioned",
-      "id": "sal2",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "sanctioned",
+      "id": "sal2"
     },
     {
-      "cls": "sanctioned",
-      "id": "sal3",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "sanctioned",
+      "id": "sal3"
     },
     {
-      "cls": "sanctioned",
-      "id": "sal4",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "sanctioned",
+      "id": "sal4"
     },
     {
-      "cls": "unsanctioned",
-      "id": "unl2",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "unsanctioned",
+      "id": "unl2"
     },
     {
-      "cls": "unsanctioned",
-      "id": "unl3",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "unsanctioned",
+      "id": "unl3"
     },
     {
-      "cls": "unsanctioned",
-      "id": "unl4",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "unsanctioned",
+      "id": "unl4"
     },
     {
-      "cls": "gladiator",
-      "id": "gll2",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "gladiator",
+      "id": "gll2"
     },
     {
-      "cls": "gladiator",
-      "id": "gll3",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "gladiator",
+      "id": "gll3"
     },
     {
-      "cls": "gladiator",
-      "id": "gll4",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "gladiator",
+      "id": "gll4"
     },
     {
-      "cls": "chaos",
-      "id": "chl2",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "chaos",
+      "id": "chl2"
     },
     {
-      "cls": "chaos",
-      "id": "chl3",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "chaos",
+      "id": "chl3"
     },
     {
-      "cls": "chaos",
-      "id": "chl4",
+      "rarity": "legend",
       "slot": "acc",
-      "rarity": "legend"
+      "cls": "chaos",
+      "id": "chl4"
     }
   ],
   "gear_version": 1,
   "affection": {
-    "MAX": 200,
-    "BOSS": 3,
+    "SLOW": 0.4,
     "BATTLE": 1,
-    "SOFT": 100,
-    "MIN": -100,
     "QUEST": 2,
-    "SLOW": 0.4
+    "BOSS": 3,
+    "SOFT": 100,
+    "MAX": 200,
+    "MIN": -100
   },
   "quest_rifts": [
     "남서 설산 균열",
     "남동 숲 균열"
   ],
   "quest_difficulty": {
-    "엘리트": {
-      "delta": 0,
-      "reward": 4
-    },
-    "높음": {
-      "delta": 3,
-      "reward": 1.6
-    },
     "낮음": {
       "delta": -3,
       "reward": 0.7
@@ -7117,6 +7117,74 @@
     "중간": {
       "delta": 0,
       "reward": 1
+    },
+    "엘리트": {
+      "delta": 0,
+      "reward": 4
+    },
+    "높음": {
+      "delta": 3,
+      "reward": 1.6
     }
+  },
+  "quest_elite": {
+    "strength_steps": 6,
+    "strength_step": 0.1,
+    "strength_min": 1.5,
+    "gear_rarities": {
+      "rare": 78,
+      "epic": 21,
+      "legend": 1
+    },
+    "gear_max": 2,
+    "gear_min": 1,
+    "reward": 4
+  },
+  "enemy_skill_order": {
+    "sanctioned": [
+      "burst",
+      "personal"
+    ],
+    "gladiator": [
+      "blood",
+      "personal"
+    ],
+    "chaos": [
+      "rift",
+      "wave",
+      "personal"
+    ],
+    "warrior": [
+      "taunt",
+      "guard2",
+      "personal"
+    ],
+    "assassin": [
+      "personal"
+    ],
+    "paladin": [
+      "shield",
+      "taunt",
+      "personal"
+    ],
+    "archer": [
+      "snipe",
+      "personal"
+    ],
+    "priest": [
+      "pshield",
+      "bless",
+      "personal"
+    ],
+    "alchemist": [
+      "heal",
+      "defdn",
+      "tonic",
+      "personal"
+    ],
+    "unsanctioned": [
+      "ruin",
+      "personal"
+    ]
   }
 }

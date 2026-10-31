@@ -25,6 +25,9 @@ func depart_rift_quest(q: Dictionary,seed: int=0) -> bool:
 	var level=clampi(int(q.get("lv",highest_level()+dungeon_rules.config.quest_difficulty[dungeon_rules.quest_difficulty(q)].delta)),1,40)
 	if not depart_dungeon(1,seed,rid,int(q.get("stars",1))): return false
 	s.run.source_quest=q.duplicate(true); s.run.quest_level=level
+	# The source town has an immutable seed; the web world has a saved RNG state.
+	# D may supply that source seed explicitly; otherwise retain the entry state.
+	s.run.quest_seed=int(q.get("town_seed",s.rng))
 	return true
 func dungeon_max() -> int:
 	var m=int(s.dungeon_r21.best)+1
@@ -138,7 +141,7 @@ func make_enemy(enc: Dictionary,index: int,level: int,allies: Array,foe_id: Stri
 	var h=maxi(1,int(floor(value.hp+.5))); var art=art_for(f.id)
 	var entry={"id":slot,"foe_id":"" if empty else f.id,"name":d.name,"short":d.name,"row":"전열" if d.row=="front" else "후열","role":d.role,"grade":d.grade,"weak":d.weak.duplicate(),"gauge":float(value.ay),"max":float(value.ay),
 		"hp":0 if empty else h,"mhp":h,"attack":value.atk,"defense":value.de,"speed":value.sp,"level":level,"acts":d.acts.duplicate(true),"rules":d.get("rules",{}).duplicate(true),
-		"act_index":0,"charged":false,"remaining":0.0 if d.get("rules",{}).get("first_move",false) else 10000.0,"target_id":allies[index%allies.size()].id,
+		"act_index":0,"charged":false,"remaining":0.0 if d.get("rules",{}).get("first_move",false) else 10000.0,"target_id":"",
 		"art":art.path,"bbox":art.bbox,"art_fallback":art.fallback,"phase":phase,"intent":"","target":"","kind":"","state":"","hint":"","top":"","aim":"","w":82,"h":100}
 	if phase==2 and d.has("phase2"):
 		entry.acts=d.phase2.acts.duplicate(true); entry.weak=d.phase2.weak.duplicate()
@@ -171,7 +174,9 @@ func finish_battle() -> bool:
 	s.run.gold+=gold_value; s.run.xp+=xp
 	if not s.run.final: s.run.wins+=1
 	var drop_kind=enc.kind if s.run.final else s.run.kind
-	if drop_kind in ["elite","chief","boss"]:
+	if not s.run.rift_id.is_empty() and s.run.has("source_quest") and dungeon_rules.quest_difficulty(s.run.source_quest)=="엘리트":
+		s.run.loot_gear.append_array(dungeon_rules.quest_gear(int(s.run.get("quest_seed",s.run.seed)),s.run.source_quest,party_classes()))
+	elif s.run.rift_id.is_empty() and drop_kind in ["elite","chief","boss"]:
 		var seed=RulesR21.mix(int(s.run.seed),int(s.run.floor),99 if s.run.final else int(s.run.step),22 if s.run.final else 21)
 		if RulesR21.mix(int(seed),31,0,0)<dungeon_rules.config.gear_drop.chance.get(drop_kind,0):
 			var drop=dungeon_rules.gear_drop(int(floor(RulesR21.mix(int(seed),32,0,0)*2147483646))+1,int(s.run.floor),drop_kind,party_classes())

@@ -3,7 +3,7 @@
     "test": "import",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 2.67,
+    "seconds": 2.77,
     "passed": true
   },
   {
@@ -17,21 +17,21 @@
     "test": "state_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 0.81,
+    "seconds": 0.8,
     "passed": true
   },
   {
     "test": "route_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 0.42,
+    "seconds": 0.41,
     "passed": true
   },
   {
     "test": "expansion_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 1.08,
+    "seconds": 1.06,
     "passed": true
   },
   {
@@ -73,56 +73,72 @@
     "test": "dungeon_r21_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 32.2,
+    "seconds": 34.98,
+    "passed": true
+  },
+  {
+    "test": "enemy_regression_r21_test",
+    "exit_code": 0,
+    "engine_errors": [],
+    "seconds": 0.8,
+    "passed": true
+  },
+  {
+    "test": "enemy_action_r21_test",
+    "exit_code": 0,
+    "engine_errors": [],
+    "seconds": 13.55,
     "passed": true
   },
   {
     "test": "ui_battle_r17_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 41.02,
+    "seconds": 41.47,
     "passed": true
   },
   {
     "test": "ui_battle_r18_test",
     "exit_code": 0,
-    "engine_errors": [],
-    "seconds": 34.83,
-    "passed": true
+    "engine_errors": [
+      "ERROR: 1 resources still in use at exit (run with --verbose for details)."
+    ],
+    "seconds": 35.78,
+    "passed": false
   },
   {
     "test": "ui_battle_r19_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 7.8,
+    "seconds": 7.78,
     "passed": true
   },
   {
     "test": "ui_battle_r20_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 12.17,
+    "seconds": 12.64,
     "passed": true
   },
   {
     "test": "motion_r9_integration",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 5.56,
+    "seconds": 5.86,
     "passed": true
   },
   {
     "test": "motion_r18_integration",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 48.17,
+    "seconds": 48.84,
     "passed": true
   },
   {
     "test": "ui_data_r21_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 15.78,
+    "seconds": 15.47,
     "passed": true
   }
 ]
