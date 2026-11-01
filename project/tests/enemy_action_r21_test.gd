@@ -1,4 +1,4 @@
-﻿extends SceneTree
+extends SceneTree
 const World=preload("res://game/dungeon_world_r21.gd")
 const Battle=preload("res://tests/enemy_action_fixture_r21.gd")
 var failures=[]
@@ -87,9 +87,31 @@ func differences(a,b,path="") -> Array:
 		if not (b is float or b is int) or absf(float(a)-float(b))>1e-8: out.append(path+": "+str(a)+" != "+str(b))
 	elif a!=b: out.append(path+": "+str(a)+" != "+str(b))
 	return out
+func coverage_valid(source,gear,w) -> bool:
+	check(source is Dictionary and source.get("samples") is Array and source.get("silence") is Array,"oracle arrays exist")
+	check(gear is Array,"gear oracle array exists")
+	if not failures.is_empty(): return false
+	check(source.samples.size()>=1221,"at least 1221 action samples")
+	check(source.silence.size()>=200,"at least 200 silence samples")
+	check(gear.size()>=120,"at least 120 gear samples")
+	var counts={}; var classes={}
+	for row in source.samples: counts[row.id]=counts.get(row.id,0)+1
+	for row in source.silence: classes[row["class"]]=classes.get(row["class"],0)+1
+	check(w.dungeon_rules.foes.size()==100 and counts.size()==100,"all 100 canonical enemy IDs covered")
+	for id in w.dungeon_rules.foes: check(counts.get(id,0)>=12,"at least 12 turns for canonical enemy "+id)
+	for cls in w.dungeon_rules.config.enemy_skill_order: check(classes.get(cls,0)>=20,"at least 20 silence samples for "+cls)
+	return failures.is_empty()
+func finish(result: Dictionary):
+	FileAccess.open("res://../verification/data-r21/enemy-action-results.json",FileAccess.WRITE).store_string(JSON.stringify(result,"\t"))
+	result.erase("mismatches"); result.erase("coverage"); result.erase("continuous_mismatches")
+	print("ENEMY_ACTION_R21 "+JSON.stringify(result)); quit(0 if failures.is_empty() else 1)
 func run():
 	var source=JSON.parse_string(FileAccess.get_file_as_string("res://../verification/data-r21/enemy-action-oracle.json"))
 	var w=World.new(); w.depart_dungeon(1,12345); w.s.run.phase="battle"
+	var gear=JSON.parse_string(FileAccess.get_file_as_string("res://../verification/data-r21/elite-gear-oracle.json"))
+	if not coverage_valid(source,gear,w):
+		finish({"checks":checks,"failures":failures.size(),"coverage_failures":failures,"gear_samples":gear.size() if gear is Array else 0})
+		return
 	var counts={}
 	for row in source.samples:
 		var b=setup(w,row); b.dungeon_enemy_r21.turn()
@@ -127,7 +149,7 @@ func run():
 		check(delta.is_empty(),"continuous %s/%d %s"%[row.id,row.turn,JSON.stringify(delta)])
 		if delta.is_empty(): continuous+=1
 		else: continuous_mismatches.append({"id":row.id,"turn":row.turn,"differences":delta})
-	for row in JSON.parse_string(FileAccess.get_file_as_string("res://../verification/data-r21/elite-gear-oracle.json")):
+	for row in gear:
 		check(w.dungeon_rules.quest_gear(int(row.seed),row.quest,row.classes)==row.codes,"elite gear "+str(row.seed)+row.quest.kind)
 	var aliases={"warrior":{"guard2":"guard"},"paladin":{"shield":"pshield","taunt":"ptaunt"},"priest":{"pshield":"hshield"},"alchemist":{"defdn":"acid"},"chaos":{"wave":"chaoswave"}}
 	for row in source.silence:
@@ -143,8 +165,5 @@ func run():
 		b.dungeon_enemy_r21.turn()
 		var target=slot(b,int(row.target)); var skill=aliases.get(row["class"],{}).get(row.skill,row.skill)
 		check(target.effects.has("silence") and b.x(target).get("silenced_id")==skill,"silence %s/%d"%[row["class"],row.seed])
-	var result={"checks":checks,"failures":failures.size(),"enemies":counts.size(),"samples":source.samples.size(),"matched":matched,"continuous_matched":continuous,"continuous_mismatches":continuous_mismatches,"silence_samples":source.silence.size(),"gear_samples":120,"mismatches":mismatches,"coverage":counts}
-	FileAccess.open("res://../verification/data-r21/enemy-action-results.json",FileAccess.WRITE).store_string(JSON.stringify(result,"\t"))
-	result.erase("mismatches"); result.erase("coverage"); result.erase("continuous_mismatches")
-	print("ENEMY_ACTION_R21 "+JSON.stringify(result)); quit(0 if failures.is_empty() else 1)
-
+	var result={"checks":checks,"failures":failures.size(),"enemies":counts.size(),"samples":source.samples.size(),"matched":matched,"continuous_matched":continuous,"continuous_mismatches":continuous_mismatches,"silence_samples":source.silence.size(),"gear_samples":gear.size(),"mismatches":mismatches,"coverage":counts}
+	finish(result)

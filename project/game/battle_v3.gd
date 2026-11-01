@@ -165,8 +165,8 @@ func _tick(u: Dictionary) -> void:
 		var dot_damage=0
 		for i in range(4): dot_damage+=int(u.effects.get("enemy_dot_%d"%i,{}).get("amount",0))
 		if dot_damage>0:
-			var absorbed=mini(int(u.get("shield",0)),dot_damage); u.shield-=absorbed
-			u.hp=maxi(0,u.hp-(dot_damage-absorbed)); _event(u.name+" · 지속 피해 %d"%(dot_damage-absorbed))
+			# edot_tick uses one fixed strike: skip attack/evade, retain damage hooks.
+			_incoming_strike(u,dot_damage,{}, {"name":"지속 피해"},false,true)
 	if x(u).get("reviving",false): u.hp=maxi(1,int(u.mhp*.25)); x(u).reviving=false; _event(u.name+" · 응급 소생")
 	for key in ["dot","corrosion","bleed"]:
 		if fx(u,key)>0:
@@ -530,6 +530,15 @@ func _attack_target(e: Dictionary) -> Dictionary:
 	if t.id=="hildegard" and e.redirected: t.hp=mini(t.mhp,t.hp+int(t.mhp*.04))
 	return t
 
+func _enemy_evade(e: Dictionary,a: Dictionary) -> bool:
+	# B.chain(evade): character hooks precede the global gear/nation roll.
+	if a.id=="saya" and dungeon_enemy_r21.random()<.1:
+		_event("사야 · 회피 후 반격"); _damage(a,e,1.5,0,true); return true
+	var chance=bonus(a,"evade")+(.01 if a.get("nation")=="나에린" else 0)
+	if chance>0 and dungeon_enemy_r21.random()<chance:
+		_event(a.name+" · 회피"); return true
+	return false
+
 func _enemy_hit(e: Dictionary,a: Dictionary,sk: Dictionary) -> void:
 	last_enemy_hit_target=""
 	if a.hp<=0 or e.hp<=0: return
@@ -546,6 +555,14 @@ func _enemy_hit(e: Dictionary,a: Dictionary,sk: Dictionary) -> void:
 	var defense=a.base.def*(1+fx(a,"bless")+fx(a,"defense_up")-fx(a,"defense_down")) if dungeon_enemy_r21!=null else a.base.def*(1+fx(a,"bless")+fx(a,"defense_up"))*(1-fx(a,"defense_down"))
 	var hit=e.attack*sk.get("m",1)*k/(k+defense)*(1-fx(e,"attack_down"))
 	if dungeon_enemy_r21!=null: hit*=dungeon_enemy_r21.attack_mult(e)
+	_incoming_strike(a,hit,e,sk,covered)
+
+func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,covered=false,fixed=false) -> void:
+	if a.hp<=0: return
+	if not a.has("base"):
+		var damage=maxi(1,int(floor(hit))); var absorbed=mini(int(a.get("shield",0)),damage)
+		a.shield=a.get("shield",0)-absorbed; a.hp=maxi(0,a.hp-(damage-absorbed))
+		return
 	if a.id=="hildegard": hit*=.85
 	if a.get("race")=="하프엘프": hit*=.98
 	if count_tag("race","하프엘프")>=3: hit*=.98
@@ -554,13 +571,14 @@ func _enemy_hit(e: Dictionary,a: Dictionary,sk: Dictionary) -> void:
 	if nox>=3 and a.effects.has("taunt"): hit*=.92
 	if count_tag("nation","신성 세레디아 제국")>=2 and a.row=="전열": hit*=.97
 	if a.get("nation")=="케른 연방" and a.effects.has("taunt"): hit*=.98
-	if a.id=="zahar" and not sk.get("magic",false): hit*=.62
+	if a.id=="zahar" and (fixed or not sk.get("magic",false)): hit*=.62
 	if a.id=="erdene" and a.effects.has("taunt"): x(a).prevented=x(a).get("prevented",0)+hit*.15; hit*=.85
 	if has_alive("haldric"):
 		if a.id=="haldric" or ally("haldric").effects.has("taunt"): hit*=.85
 		hit*=1-fx(a,"contract")
 	if has_alive("adeline"): hit*=1-fx(a,"adeline_guard")
-	for key in ["guard","duty"]: hit*=1-fx(a,key)
+	if not fixed:
+		for key in ["guard","duty"]: hit*=1-fx(a,key)
 	hit*=1-fx(a,"gear_guard")
 	for member in living(true): hit*=1-fx(member,"wall_party")
 	if a.shield>0 and not sig(a,"pa_wrath").is_empty(): hit*=1-sig(a,"pa_wrath")[1]/100.0
@@ -569,20 +587,24 @@ func _enemy_hit(e: Dictionary,a: Dictionary,sk: Dictionary) -> void:
 	if covered: hit*=.7
 	if a.class_id=="gladiator": hit*=1-.1*float(a.hp)/a.mhp
 	hit*=1-minf(.8,a.get("gear_fx",{}).get("dr",0)/100.0)
-	if has_alive("altan") and sk.get("m",1)>=1.5 and x(ally("altan")).get("refresh",0)<2:
+	if not fixed and has_alive("altan") and sk.get("m",1)>=1.5 and x(ally("altan")).get("refresh",0)<2:
 		_shield(a,ally("altan").base.int*2,3); x(ally("altan")).refresh=x(ally("altan")).get("refresh",0)+1
-	var damage=maxi(1,int(floor(hit))); var absorbed=mini(a.shield,damage)
+	# B.strike rounds take first, then the separate duty/psguard modifier.
+	if fixed: hit=floor(hit+.5)*(1-fx(a,"duty"))
+	var damage=maxi(1,int(floor(hit+(.5 if fixed else 0)))); var absorbed=mini(a.shield,damage)
 	a.shield-=absorbed; damage-=absorbed; a.hp=maxi(0,a.hp-damage)
-	if not sig(a,"wa_scar").is_empty():
+	if (not fixed or damage>0) and not sig(a,"wa_scar").is_empty():
 		var scar=sig(a,"wa_scar"); x(a).scar=minf(a.mhp*scar[1]/100.0,x(a).get("scar",0)+damage*scar[0]/100.0)
-	e.hp=maxi(0,e.hp-int(damage*bonus(a,"reflect")))
+	if not e.is_empty(): e.hp=maxi(0,e.hp-int(damage*bonus(a,"reflect")))
+	var echo_heal=0
 	if absorbed>0 and a.shield==0:
 		var thorns=proc(a,"thorns_shd")
-		if not thorns.is_empty(): e.hp=maxi(0,e.hp-int(absorbed*thorns.x/100.0))
+		if not e.is_empty() and not thorns.is_empty(): e.hp=maxi(0,e.hp-int(absorbed*thorns.x/100.0))
 		var echo=0.0
 		for member in living(true):
 			if not sig(member,"pa_echo").is_empty(): echo=maxf(echo,sig(member,"pa_echo")[0]/100.0)
-		a.hp=mini(a.mhp,a.hp+int(absorbed*echo))
+		if fixed: echo_heal=int(absorbed*echo)
+		else: a.hp=mini(a.mhp,a.hp+int(absorbed*echo))
 	_event("%s → %s · %d 피해" % [sk.name,a.name,damage])
 	if a.hp==0:
 		if not sig(a,"wa_last").is_empty() and not x(a).get("wall_saved",false):
@@ -601,10 +623,12 @@ func _enemy_hit(e: Dictionary,a: Dictionary,sk: Dictionary) -> void:
 			elif has_alive("felice") and not x(ally("felice")).get("revive",false):
 				x(ally("felice")).revive=true; x(a).reviving=true; _event("펠리체 · 다음 차례에 소생")
 	var stand=proc(a,"last_stand")
-	if not stand.is_empty() and a.hp>0 and a.hp<a.mhp*stand.x/100.0 and not x(a).get("stood",false):
+	if (not fixed or damage>0) and not stand.is_empty() and a.hp>0 and a.hp<a.mhp*stand.x/100.0 and not x(a).get("stood",false):
 		x(a).stood=true; _effect(a,"gear_guard",int(stand.n),.3)
-	if a.hp>0 and a.hp<=a.mhp*.25 and has_alive("sorel") and x(ally("sorel")).get("rescue",0)<2:
+	if (not fixed or damage>0) and a.hp>0 and a.hp<=a.mhp*.25 and has_alive("sorel") and x(ally("sorel")).get("rescue",0)<2:
 		x(ally("sorel")).rescue=x(ally("sorel")).get("rescue",0)+1; _heal(ally("sorel"),a,1)
+	# Canonical strike resolves lethal saves and damaged hooks before shield echo.
+	if fixed and a.hp>0: a.hp=mini(a.mhp,a.hp+echo_heal)
 
 func effects_text(a: Dictionary) -> String:
 	if a.hp<=0: return "부상 이탈"
