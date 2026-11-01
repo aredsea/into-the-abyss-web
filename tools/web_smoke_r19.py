@@ -6,8 +6,11 @@ import threading,json,os,tempfile,sys
 from playwright.sync_api import sync_playwright
 R=Path(__file__).resolve().parents[1]; O=R/'verification/ui-r20/web'; O.mkdir(parents=True,exist_ok=True)
 town_r21='--town-r21' in sys.argv
+commerce_only='--commerce-only' in sys.argv
 if town_r21:
  O=R/'verification/town-r21/web';O.mkdir(parents=True,exist_ok=True)
+if commerce_only:
+ O=R/'verification/town-r21/round3/web-commerce';O.mkdir(parents=True,exist_ok=True)
 runtime=O.parent/'runtime/browser';runtime.mkdir(parents=True,exist_ok=True)
 tempfile.tempdir=str(runtime)
 for key in ['TEMP','TMP','TMPDIR']:os.environ[key]=str(runtime)
@@ -55,11 +58,9 @@ try:
      click(id);page.wait_for_function('(s)=>window.__abyssWorld.screen===s',arg=expected)
      town_screens.append('default:'+expected)
      if expected=='bag' and id=='item:hp_s': assert page.evaluate('window.__abyssWorld.controls.use_selected.disabled')
-    page.goto(f'http://127.0.0.1:{server.server_port}/?town_r21_preview=1')
-    page.wait_for_function('window.__abyssWorld && window.__abyssWorld.town_r21_preview',timeout=90000)
    if town_r21:
-    assert page.evaluate('window.__abyssWorld.ui_build')=='r21-d-town-20261031'
-    assert page.evaluate('window.__abyssWorld.town_r21_preview')
+    assert page.evaluate('window.__abyssWorld.ui_build')=='r21-d-town-20261101'
+    assert not page.evaluate('window.__abyssWorld.town_r21_preview')
     for id,expected in [('nav:party','party'),('member:hildegard','member'),('tab:skills','skills'),('back','party'),('nav:town','town')]:
      click(id)
      page.wait_for_function('(s)=>window.__abyssWorld.screen===s',arg=expected)
@@ -67,6 +68,29 @@ try:
      town_text_errors=page.evaluate('window.__abyssWorld.town_text.filter(t=>t.needed>t.available+1)')
      assert not town_text_errors,(expected,town_text_errors)
      page.screenshot(path=str(O/(f'town-{expected}-{width}x{height}'+('-reduced' if reduced else '')+'.png')))
+    # Facilities, source shop ledger, equipment, research, and the existing
+    # signature playback all work on the default URL, by pointer only.
+    for id,expected in [('guild','guild'),('guild:recruit','recruit'),('back','guild'),('guild:research','research'),('nav:town','town'),('shop','shop'),('shop_equipment','shop'),('shop_bag','equipment'),('equipment_smithy','smithy'),('nav:town','town'),('inn','inn'),('nav:town','town')]:
+     click(id);page.wait_for_function('(s)=>window.__abyssWorld.screen===s',arg=expected)
+     town_screens.append('default:'+expected)
+    click('shop');click('shop_equipment')
+    stock=page.evaluate('window.__abyssWorld')
+    available=[k for k,v in stock['controls'].items() if k.startswith('buygear:') and not v['disabled']]
+    assert available,'source daily stock must offer a common weapon'
+    click(available[0]);sold=page.evaluate('window.__abyssWorld')
+    assert sold['controls'][available[0]]['disabled'],'purchased daily item becomes sold out'
+    click('shop_bag');inventory=page.evaluate('window.__abyssWorld')
+    equippable=[k for k,v in inventory['controls'].items() if k.startswith('equip:') and not v['disabled']]
+    assert equippable;click(equippable[0]);click('nav:town')
+    click('nav:party');click('member:hildegard');click('tab:skills');click('signature_preview')
+    page.wait_for_function('window.__abyssWorld.art_preview==="hildegard"')
+    click('art_close');click('nav:town')
+    if commerce_only:
+     final=page.evaluate('window.__abyssWorld')
+     text_errors=[t for t in final.get('town_text',[]) if t['needed']>t['available']+1]
+     assert not errors and not text_errors,(errors,text_errors)
+     results.append({'width':width,'height':height,'reduced':reduced,'ui_build':final['ui_build'],'town_screens':town_screens,'errors':errors,'text_errors':text_errors,'source_purchase':True,'sold_out':True,'source_equipped':True})
+     context.close();print('PASS source commerce',width,height,reduced,flush=True);continue
    if town_r21:
     for id in ['depart','start_run']:click(id)
     for step in range(7):
@@ -106,7 +130,7 @@ try:
    assert any(t['text']=='전방 근무 개시' for t in page.evaluate('window.__abyssPreview.text'))
    click('close',True)
    restored=None
-   if (width,height)==(390,844):
+   if town_r21 or (width,height)==(390,844):
     # Complete a real battle to exercise the battle-only viewport's cleanup.
     for turn in range(80):
      report=page.evaluate('window.__abyssPreview')
@@ -116,14 +140,17 @@ try:
      click('action:attack',True);click('enemy:'+target,True)
      page.wait_for_function('!window.__abyssPreview.busy',timeout=45000)
     assert page.evaluate('window.__abyssPreview.result')=='victory'
-    click('retry',True)
+    if town_r21:
+     page.wait_for_function('window.__abyssWorld.controls.result_continue',timeout=10000)
+     capture('victory-shell');click('result_continue')
+    else:click('retry',True)
     page.wait_for_function('window.__abyssWorld.screen!="battle"',timeout=10000)
     after_viewport=page.evaluate('window.__abyssWorld.viewport')
     restored=all(abs(a-b)<1 for a,b in zip(town_viewport,after_viewport))
     assert restored,(town_viewport,after_viewport)
     capture('return')
    assert not errors,errors
-   results.append({'width':width,'height':height,'viewport':initial['viewport'],'reduced':reduced,'ui_build':final['ui_build'],'town_ui_build':'r21-d-town-20261031' if town_r21 else None,'town_screens':town_screens,'stable_default_checked':stable_default_checked,'errors':errors,'viewport_restored_after_victory':restored,'personal_actions_before':initial['state']['units']['hildegard']['actions'],'personal_actions_after':final['state']['units']['hildegard']['actions'],'text_errors':[t for t in final['text'] if t['needed']>t['available']+1 or t['missing_glyphs']]})
+   results.append({'width':width,'height':height,'viewport':initial['viewport'],'reduced':reduced,'ui_build':final['ui_build'],'town_ui_build':'r21-d-town-20261101' if town_r21 else None,'town_screens':town_screens,'stable_default_checked':stable_default_checked,'errors':errors,'viewport_restored_after_victory':restored,'personal_actions_before':initial['state']['units']['hildegard']['actions'],'personal_actions_after':final['state']['units']['hildegard']['actions'],'text_errors':[t for t in final['text'] if t['needed']>t['available']+1 or t['missing_glyphs']]})
    context.close(); print('PASS',tag,flush=True)
   browser.close()
 finally:

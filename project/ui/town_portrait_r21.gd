@@ -11,6 +11,9 @@ const SLOTS=["cast-feature","cast-secondary","cast-lower-left","detail-overview"
 static var PLACEMENTS=JSON.parse_string(FileAccess.get_file_as_string("res://data/portrait-slots-r21.json"))
 
 static func preferred_path(id: String,slot: String) -> String:
+	# Exact C crops, deduplicated over one lossless master per person.
+	var packed="res://assets/portraits-r21-web/slots/"+id+"-"+slot+".tres"
+	if ResourceLoader.exists(packed): return packed
 	var preferred="res://assets/portraits-r21/slots/"+id+"-"+slot+".png"
 	if ResourceLoader.exists(preferred): return preferred
 	var original="res://assets/portraits-r10/"+id+("-face.png" if slot=="face" else "-cutout.png")

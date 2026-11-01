@@ -76,7 +76,7 @@ func run() -> void:
 	check(Portrait.preferred_path("hildegard","face")=="res://assets/portraits-r10/hildegard-face.png","original fallback face")
 	check(Portrait.preferred_path("hildegard","bust")=="res://assets/portraits-r10/hildegard-cutout.png","original fallback bust")
 	var stable=Screen.new();stable.storage.path="user://town-r21-stable-fixture.json";stable.size=Vector2(390,844);root.add_child(stable)
-	check(not stable.town_r21_preview and not is_instance_valid(stable.town_view),"unapproved comps disconnected from default route")
+	check(not stable.town_r21_preview and is_instance_valid(stable.town_view),"round3 measured town is the default route without URL flags")
 	for page in ["town","party","member","depart","bag","guild","shop","smithy","inn","equipment","journal"]:
 		stable.go(page);await process_frame;await process_frame
 		check(stable.controls.keys().filter(func(id):return id.begins_with("nav:")).size()==5,"stable five nav "+page)

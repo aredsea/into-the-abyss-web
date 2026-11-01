@@ -42,13 +42,13 @@ var motion_reduced=false
 var last_drawn_screen=""
 var art_preview: Control
 var art_preview_id=""
+var art_base_controls={}
 var town_view: Control
 var details_return="member"
 var town_r21_preview=false
+var result_view: Control
 
 func _ready() -> void:
-	if OS.has_feature("web"):
-		town_r21_preview=bool(JavaScriptBridge.eval("new URLSearchParams(window.location.search).get('town_r21_preview') === '1'",true))
 	motion_reduced=OS.has_feature("web") and bool(JavaScriptBridge.eval("window.matchMedia('(prefers-reduced-motion: reduce)').matches",true))
 	self.theme=UI.make_theme()
 	restored=storage.read_into(model)
@@ -81,11 +81,11 @@ func _draw_screen() -> void:
 		_publish()
 		return
 	for c in get_children(): remove_child(c); c.queue_free()
-	battle=null; controls.clear(); art_preview_id=""
+	battle=null; controls.clear(); art_preview_id="";art_preview=null;art_base_controls={}
 	town_view=null
-	var finished_town=screen in ["depart","bag","formation","journal","summary"]
-	var candidate_town=town_r21_preview and (screen in ["town","party","member","skills","cards"] or (screen=="explore" and model.r21()))
-	if (finished_town or candidate_town) and confirm.is_empty():
+	result_view=null
+	var finished_town=screen in ["town","party","member","skills","cards","depart","bag","formation","journal","summary","inn","shop","guild","recruit","equipment","smithy"] or (screen=="explore" and model.r21())
+	if finished_town and (confirm.is_empty() or (screen=="explore" and model.r21())):
 		town_view=TownScreen.new(); add_child(town_view); town_view.build(self)
 		last_drawn_screen=screen; call_deferred("_publish"); return
 	var width=minf(size.x,440); var height=size.y
@@ -474,7 +474,7 @@ func _publish() -> void:
 		if not is_instance_valid(controls[id]): continue
 		var b=controls[id]; var r=b.get_global_rect()
 		buttons[id]={"rect":[r.position.x,r.position.y,r.size.x,r.size.y],"disabled":b.disabled,"needed":FONT.get_multiline_string_size(b.text,HORIZONTAL_ALIGNMENT_LEFT,-1,b.get_theme_font_size("font_size")).x+24}
-	var report={"build":model.config.build,"ui_build":"r21-d-town-20261031","town_r21_preview":town_r21_preview,"screen":"battle" if is_instance_valid(battle) else screen,"state":model.s,"controls":buttons,"viewport":[size.x,size.y],"restored":restored,"save_error":save_error,"art_preview":art_preview_id,"town_scroll_height":content.size.y if is_instance_valid(content) else 0}
+	var report={"build":model.config.build,"ui_build":"r21-d-town-20261101","town_r21_preview":town_r21_preview,"screen":"battle" if is_instance_valid(battle) else screen,"state":model.s,"controls":buttons,"viewport":[size.x,size.y],"restored":restored,"save_error":save_error,"art_preview":art_preview_id,"town_scroll_height":content.size.y if is_instance_valid(content) else 0}
 	if is_instance_valid(town_view): report.town_text=town_view.metrics
 	JavaScriptBridge.eval("window.__abyssWorld="+JSON.stringify(report)+";",true)
 
@@ -483,6 +483,10 @@ func _process(delta: float) -> void:
 	metrics_time+=delta
 	if metrics_time<0.2: return
 	metrics_time=0
+	if is_instance_valid(battle) and battle.state!=null and not battle.state.result.is_empty() and not battle.busy:
+		if not is_instance_valid(result_view):
+			controls.clear();result_view=preload("res://ui/town_result_r21.gd").new();add_child(result_view);result_view.build_result(self,battle)
+		_publish();return
 	if (is_instance_valid(scroll) or is_instance_valid(town_view)) and not is_instance_valid(battle): _publish()
 
 func _npc(id: String,title: String,line: String) -> void:
@@ -606,8 +610,14 @@ func _research() -> void:
 
 func _show_art(id: String) -> void:
 	if is_instance_valid(art_preview): remove_child(art_preview); art_preview.queue_free()
-	for key in ["art_prev","art_next","art_replay","art_close"]: controls.erase(key)
+	for key in controls.keys():
+		if key.begins_with("art_") or key.begins_with("art_nav:"):controls.erase(key)
 	art_preview_id=id
+	if is_instance_valid(town_view):
+		if art_base_controls.is_empty():art_base_controls=controls.duplicate()
+		controls.clear();town_view.visible=false
+		art_preview=preload("res://ui/town_art_r21.gd").new();add_child(art_preview);art_preview.build_art(self,id)
+		call_deferred("_publish");return
 	art_preview=Control.new(); add_child(art_preview); art_preview.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); art_preview.mouse_filter=Control.MOUSE_FILTER_STOP
 	var shade=ColorRect.new(); art_preview.add_child(shade); shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); shade.color=Color(0,0,0,.88); shade.mouse_filter=MOUSE_FILTER_IGNORE
 	var width=minf(size.x-24,406); var height=minf(size.y-96,510)
@@ -630,6 +640,10 @@ func _show_art(id: String) -> void:
 
 func _close_art() -> void:
 	if is_instance_valid(art_preview): art_preview.queue_free()
+	art_preview=null
 	art_preview_id=""
-	for key in ["art_prev","art_next","art_replay","art_close"]: controls.erase(key)
+	for key in controls.keys():
+		if key.begins_with("art_") or key.begins_with("art_nav:"):controls.erase(key)
+	if not art_base_controls.is_empty():controls=art_base_controls;art_base_controls={}
+	if is_instance_valid(town_view):town_view.visible=true
 	_publish()

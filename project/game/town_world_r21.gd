@@ -2,12 +2,15 @@ extends "res://game/dungeon_world_r21.gd"
 ## Additive town corrections. schema 1/2 and live battle snapshots stay intact.
 const TOWN_RULES = preload("res://game/town_rules_r21.gd")
 const Guild=preload("res://game/guild_rules_r21.gd")
+const Commerce=preload("res://game/commerce_rules_r21.gd")
 
 func _init():
 	super()
+	gear=Commerce.new()
 	ensure_town_r21()
 
 func ensure_town_r21() -> void:
+	if not s.has("commerce_r21"):s.commerce_r21={"process_n":0,"sold_day":s.day,"bought":{}}
 	if not s.has("town_r21"):
 		var qn=0
 		for q in s.board:
@@ -69,13 +72,59 @@ func settle(result: String) -> bool:
 func restore(value: Variant) -> bool:
 	if not value is Dictionary: return false
 	var previous=s.duplicate(true)
+	if value.has("commerce_r21"):
+		var c=value.commerce_r21
+		if not c is Dictionary or not _shape(c,{"process_n":0,"sold_day":0,"bought":{}}):return false
+		if c.process_n<0 or c.process_n!=int(c.process_n) or c.sold_day<1 or c.sold_day!=int(c.sold_day) or c.sold_day>value.get("day",0):return false
+		for key in c.bought:
+			if not key is String or not c.bought[key] is bool:return false
+	for e in value.get("gear",[]):
+		if e is Dictionary and e.has("source_r21") and not e.source_r21 is bool:return false
 	if value.has("town_r21"):
 		var t=value.town_r21
 		if not t is Dictionary or not _shape(t,{"seed":0,"counter":0,"qn":0}) or t.seed<1 or t.seed>=2147483647 or t.seed!=int(t.seed) or t.counter<0 or t.qn<0 or t.counter!=int(t.counter) or t.qn!=int(t.qn): return false
 	s.erase("town_r21")
+	s.erase("commerce_r21")
 	if not super(value): s=previous; return false
 	ensure_town_r21()
 	return true
+
+func shop_stock(who: String,slot: String) -> Array:
+	if who not in s.owned or slot not in Gear.SLOT:return []
+	var rows=gear.stock_source(s.town_r21.seed,int(s.day),class_def(who).id,slot)
+	return rows.filter(func(e):return gear.rules.equip_lv[gear.by_id[e.id].rarity]<=highest_level())
+func stock_sold(code: String) -> bool:return s.commerce_r21.sold_day==s.day and s.commerce_r21.bought.get(code,false)
+func buy_gear(id: String,who: String) -> bool:
+	if active() or who not in s.owned or s.gear.size()>=2000:return false
+	var found={}
+	for slot in Gear.SLOT:
+		for row in shop_stock(who,slot):
+			if id in [row.id,row.code]:found=row;break
+	if found.is_empty() or stock_sold(found.code):return false
+	var amount=price({"price":found.price})
+	if s.gold<amount:return false
+	s.gold-=amount;s.serial+=1;s.gear.append({"uid":s.serial,"id":found.id,"seed":found.seed,"forge":0,"tries":0,"source_r21":true})
+	if s.commerce_r21.sold_day!=s.day:s.commerce_r21.sold_day=s.day;s.commerce_r21.bought={}
+	s.commerce_r21.bought[found.code]=true;note(gear.by_id[found.id].name+" 구입");return true
+func process_gear(_who: String) -> bool:
+	if active() or s.gear.size()>=2000:return false
+	var amount=gear.band(highest_level()).price
+	if s.gold<amount:return false
+	var classes=s.owned.map(func(id):return class_def(id).id)
+	var result=gear.process_source(s.town_r21.seed,int(s.commerce_r21.process_n)+1,classes,highest_level())
+	if result.is_empty():return false
+	s.gold-=amount;s.commerce_r21.process_n+=1;s.serial+=1
+	s.gear.append({"uid":s.serial,"id":result.id,"seed":result.seed,"forge":0,"tries":0,"source_r21":true})
+	note("한나의 가공 · "+gear.by_id[result.id].name);return true
+func forge(uid: int) -> bool:
+	var e=gear_entry(uid)
+	if active() or e.is_empty() or e.forge>=10:return false
+	var amount=gear.forge_cost(e)
+	if s.gold<amount:return false
+	var success=gear.forge_result(s.town_r21.seed,e)
+	s.gold-=amount;e.tries+=1
+	if success:e.forge+=1
+	note(gear.by_id[e.id].name+(" 강화 성공 +%d"%e.forge if success else " 강화 실패 · 장비 보존"));return true
 
 func need(level: int) -> int: return TOWN_RULES.need(level)
 

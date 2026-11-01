@@ -11,13 +11,20 @@ var metrics=[]
 var nav_top=763.0
 
 func build(owner_screen) -> void:
+	build_frame(owner_screen)
+	build_page()
+
+func build_frame(owner_screen) -> void:
 	host=owner_screen; mouse_filter=MOUSE_FILTER_IGNORE
 	theme=T.make_theme(); set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var bg=ColorRect.new(); add_child(bg); bg.color=T.PAPER; bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); bg.mouse_filter=MOUSE_FILTER_IGNORE
 	stage=Control.new(); add_child(stage); stage.size=Vector2(390,844)
 	var k=minf(host.size.x/390.0,host.size.y/844.0)
 	stage.scale=Vector2(k,k); stage.position=(host.size-stage.size*k)/2; stage.clip_contents=true
-	if host.screen=="town":
+
+func build_page() -> void:
+	if not host.confirm.is_empty() and host.screen=="explore": retreat()
+	elif host.screen=="town":
 		nav_top=788; home()
 	elif host.screen=="party": roster()
 	elif host.screen=="member": overview()
@@ -29,8 +36,14 @@ func build(owner_screen) -> void:
 	elif host.screen=="cards": cards()
 	elif host.screen=="journal": journal()
 	elif host.screen=="summary": summary()
+	elif host.screen=="inn": inn()
+	elif host.screen=="shop": shop()
+	elif host.screen=="guild": guild()
+	elif host.screen=="recruit": recruit()
+	elif host.screen=="equipment": equipment()
+	elif host.screen=="smithy": smithy()
 	navigation()
-	if not host.message.is_empty() and host.screen not in ["depart","formation","bag","journal","summary"]:
+	if not host.message.is_empty() and host.screen in ["town","party","member","skills","cards","explore"]:
 		fill("notice_bg",Rect2(14,nav_top-44,362,40),T.INK)
 		label(host.message,Rect2(22,nav_top-43,346,38),12,T.PAPER)
 	if host.save_error!=OK:
@@ -106,7 +119,8 @@ func navigation() -> void:
 	var entries=[["town","마을","home"],["party","동료","party"],["depart","원정","gate"],["bag","가방","bag"],["journal","기록","journal"]]
 	for i in range(5):
 		var e=entries[i]; var x=i*78.0; var color=T.RED if selected==e[0] else T.INK
-		hit("nav:"+e[0],Rect2(x,nav_top+2,78,844-nav_top-2),host.go.bind(e[0]))
+		var destination="explore" if e[0]=="depart" and host.model.active() else e[0]
+		hit("nav:"+e[0],Rect2(x,nav_top+2,78,844-nav_top-2),host.go.bind(destination))
 		icon("nav-"+e[2],Rect2(x+28,nav_top+11,28,27),color)
 		var l=label(e[1],Rect2(x,nav_top+39,78,18),11,color,T.BOLD); l.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 		if selected==e[0]: fill("nav_active",Rect2(x+20,837,39,2),T.RED)
@@ -168,12 +182,18 @@ func roster() -> void:
 		var y=int(i/4)*704+[0,69,331,350][i%4]
 		var rect=Rect2(x,y,[239,156,233,197][i%4],[379,297,357,350][i%4])
 		ink(Rect2(x-25,y+20,240,315))
-		picture(id,rect,["cast-feature","cast-secondary","cast-lower-left","cast-lower-left"][i%4])
+		var portrait=picture(id,rect,["cast-feature","cast-secondary","cast-lower-left","cast-lower-left"][i%4])
+		# The spread follows the reference's diagonal card edges, without changing art.
+		var mask=preload("res://ui/town_diagonal_r21.gd").new();stage.add_child(mask);mask.position=rect.position;mask.size=rect.size
+		portrait.reparent(mask);portrait.position=Vector2.ZERO
 		var pw=minf(178,rect.size.x-12)
-		var nameplate=fill("nameplate:"+id,Rect2(x+10,y+rect.size.y-97,pw,70),T.INK)
-		nameplate.rotation=-.07 if col==0 else -.12
-		display(host.model.person(id).name,Rect2(x+17,y+rect.size.y-94,pw-10,33),T.PAPER,29)
-		label(host.model.person(id)["class"],Rect2(x+19,y+rect.size.y-63,pw-12,25),15,T.PAPER,T.BOLD)
+		var previous_plate=stage
+		var group=Control.new();stage.add_child(group);group.position=Vector2(x+10,y+rect.size.y-97);group.rotation=-.07 if col==0 else -.12;group.mouse_filter=MOUSE_FILTER_IGNORE
+		stage=group
+		fill("nameplate:"+id,Rect2(0,0,pw,70),T.INK)
+		display(host.model.person(id).name,Rect2(7,3,pw-10,33),T.PAPER,29)
+		label(host.model.person(id)["class"],Rect2(9,34,pw-12,25),15,T.PAPER,T.BOLD)
+		stage=previous_plate
 		if id in host.model.s.party and (i==0 or i>=4):
 			fill("party_badge:"+id,Rect2(x+12,y+rect.size.y-30,117,26),T.RED)
 			label("파티 중",Rect2(x+23,y+rect.size.y-30,96,26),13,T.PAPER,T.BOLD)
@@ -352,6 +372,208 @@ func cards() -> void:
 			var reason=host.model.card_reason(id)
 			action("card:"+id,"카드 사용",Rect2(x,577,172,43),func():host._ask(c.name+" 카드 1장을 소모할까요?",host.model.use_card.bind(id)),true,not reason.is_empty()).tooltip_text=reason
 	action("cards_back","원정으로" if host.model.active() else "가방으로",Rect2(18,701,354,45),host.go.bind("explore" if host.model.active() else "bag"),true)
+
+func retreat() -> void:
+	header("탐색 지도","explore")
+	plate("preparation-ruins",Rect2(0,54,390,299))
+	display("토르바로 귀환할까요?",Rect2(18,389,354,49),T.INK,30)
+	paragraph("지금까지 모은 보상을 정산합니다.\n계속 탐색하려면 취소를 누르세요.",Rect2(18,445,354,51),14)
+	for i in range(2):
+		var y=515+i*67
+		icon("shop" if i==0 else "sword",Rect2(22,y+4,39,39))
+		label("금화" if i==0 else "동료별 경험치",Rect2(74,y,184,42),17,T.INK,T.BOLD)
+		display(str(int(host.model.s.run.gold if i==0 else host.model.s.run.xp)),Rect2(265,y,104,45),T.RED,35)
+		rule(y+54)
+	action("cancel","계속 탐색",Rect2(18,676,170,48),func():host.confirm={};host._draw_screen())
+	action("accept","귀환 · 정산",Rect2(200,676,172,48),host._accept,true)
+
+func npc_hero(id: String,title: String,subtitle: String,height=365.0) -> void:
+	plate("preparation-ruins",Rect2(0,45,390,height))
+	ink(Rect2(-20,180,430,149))
+	display(title,Rect2(15,54,210,130),T.INK,68)
+	picture(id,Rect2(121,39,269,height-3),"town-main")
+	if not subtitle.is_empty():
+		fill("npc_caption",Rect2(18,height-64,175,63),T.PAPER)
+		label(subtitle,Rect2(28,height-61,154,58),15,T.INK,T.BOLD).autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+		metrics[-1].available=1000
+
+func feedback(y=715.0) -> void:
+	if not host.message.is_empty(): paragraph(host.message,Rect2(18,y,354,40),12)
+
+func member_choice(r: Rect2) -> void:
+	if host.who not in host.model.s.owned:host.who=host.model.s.party[0]
+	var pick=OptionButton.new();stage.add_child(pick);pick.position=r.position;pick.size=r.size
+	pick.fit_to_longest_item=false;pick.clip_text=true
+	for id in host.model.s.owned:pick.add_item(host.model.person(id).name+" · "+host.model.person(id)["class"])
+	pick.select(host.model.s.owned.find(host.who));pick.item_selected.connect(func(i):host.who=host.model.s.owned[i];host._draw_screen())
+	host.controls.member_choice=pick
+
+func inn() -> void:
+	header("아랫마을 여관")
+	npc_hero("dorothea","여관","도로테아\n여관 주인",430)
+	label("함께하는 동료",Rect2(18,436,190,24),13,T.INK,T.BOLD)
+	member_choice(Rect2(208,437,164,36))
+	picture(host.who,Rect2(18,480,139,127),"detail-skills")
+	plate("detail-city",Rect2(157,480,215,127))
+	fill("inn_member_paper",Rect2(174,514,198,93),T.PAPER)
+	display(host.model.person(host.who).name,Rect2(183,518,180,29),T.INK,24)
+	label(host.model.person(host.who)["class"],Rect2(183,547,180,18),12)
+	var aff=host.model.s.members[host.who].aff
+	label("호감 %s / 200"%host.number(aff),Rect2(183,567,180,20),12,T.INK,T.BOLD)
+	fill("aff_track",Rect2(183,591,177,8),T.LINE);fill("aff_value",Rect2(183,591,177*maxf(0,aff)/200,8),T.RED)
+	label("함께, 더 깊은 곳으로.",Rect2(18,614,354,25),15,T.INK,T.BOLD)
+	var acts=host.model.TOWN_RULES.DATA.inn
+	for i in range(4):
+		var key=["talk","meal","gift","rest"][i];var e=acts[key];var x=18+i*91
+		var used=not e.day and host.model.s.acts.get(host.who+"_"+key,0)==host.model.s.day
+		action("inn:"+key,"",Rect2(x,645,81,91),func():host._ask(e.name+" · 금화 %d\n호감이 오릅니다."%e.cost,host.model.inn.bind(host.who,key)),i==0,used or host.model.s.gold<e.cost)
+		icon(["journal","shop","bag","inn"][i],Rect2(x+26,651,28,28),T.PAPER if i==0 else T.INK)
+		label(e.name,Rect2(x+2,684,77,20),11,T.PAPER if i==0 else T.INK,T.BOLD).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+		label("오늘 완료" if used else "무료" if e.cost==0 else "금화 %d"%e.cost,Rect2(x+2,710,77,19),11,T.PAPER if i==0 else T.RED,T.BOLD).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	paragraph("대화·식사·선물은 동료마다 하루 한 번.\n곁에서 쉬면 하루가 지납니다.",Rect2(18,738,354,22),9)
+	feedback(590)
+
+func shop() -> void:
+	header("상회")
+	npc_hero("pietro","마렌토\n상회","",365)
+	paragraph("여행자의 여정에\n필요한 모든 것.",Rect2(18,210,150,46),14)
+	label("보유 금화",Rect2(18,302,130,22),12,T.INK,T.BOLD)
+	display(str(int(host.model.s.gold)),Rect2(18,327,125,37),T.RED,31)
+	for i in range(2):
+		action(["shop_items","shop_equipment"][i],["보급품","직업 장비"][i],Rect2(18+i*177,378,177,40),func():host.shop_tab="items" if i==0 else "gear";host._draw_screen(),(host.shop_tab=="items")==bool(i==0))
+	if host.shop_tab=="gear":shop_gear();return
+	var prev=stage;stage=scroll_page(432,270,host.model.config.items.size()*107)
+	for i in range(host.model.config.items.size()):
+		var item=host.model.config.items[i];var y=i*107
+		asset("res://assets/ic_"+item.icon+".webp",Rect2(0,y,90,92))
+		label(item.name,Rect2(100,y+4,155,24),14,T.INK,T.BOLD)
+		paragraph(host._item_text(item),Rect2(100,y+30,150,52),11)
+		label("금화 %d"%host.model.price(item),Rect2(261,y+5,80,24),14,T.RED,T.BOLD)
+		action("buy:"+item.id,"구입",Rect2(261,y+43,80,39),func():host._act(host.model.buy.bind(item.id),"구입했습니다."),true,host.model.s.gold<host.model.price(item))
+		label("보유 %d"%host.model.s.items[item.id],Rect2(100,y+82,150,19),10)
+		rule(y+103,0,342)
+	stage=prev;feedback();action("shop_bag","가방과 장비 확인",Rect2(18,705,354,43),host.go.bind("equipment"))
+
+func shop_gear() -> void:
+	member_choice(Rect2(18,427,354,38))
+	for i in range(3):
+		var key=["weapon","armor","acc"][i]
+		action("shop_slot:"+key,host.model.Gear.SLOT[key],Rect2(18+i*118,471,118,38),func():host.gear_filter=key;host._draw_screen(),host.gear_filter==key)
+	var ids=host.model.shop_stock(host.who,host.gear_filter)
+	var prev=stage;stage=scroll_page(521,175,maxi(130,ids.size()*118))
+	for i in range(ids.size()):
+		var row=ids[i];var id=row.id;var item=host.model.gear.by_id[id];var y=i*118
+		icon("sword" if host.gear_filter=="weapon" else "shield",Rect2(8,y+12,56,65))
+		label(item.name,Rect2(78,y+3,260,25),15,T.INK,T.BOLD)
+		paragraph(host._gear_caption(item),Rect2(78,y+31,260,32),11)
+		var cost=host.model.price({"price":row.price});var sold=host.model.stock_sold(row.code)
+		action("buygear:"+id,"품절" if sold else "구입 · 금화 %d"%cost,Rect2(78,y+68,260,39),func():host._act(host.model.buy_gear.bind(row.code,host.who),"장비를 구입했습니다."),true,sold or host.model.s.gold<cost)
+		rule(y+115,0,342)
+	stage=prev;action("shop_bag","보유 장비 확인",Rect2(18,705,354,43),host.go.bind("equipment"))
+
+func guild_tabs(selected: int) -> void:
+	for i in range(3):
+		var key=["guild","recruit","research"][i]
+		action("guild:"+key,["의뢰판","동료 소개","전술 연구"][i],Rect2(18+i*118,447,118,40),host.go.bind(key),selected==i)
+
+func guild() -> void:
+	header("연합 길드 본관")
+	npc_hero("fenella","의뢰","페넬라\n길드 접수",430)
+	guild_tabs(0)
+	var w=host.model;var board=w.s.board if w.s.quest.is_empty() else [w.s.quest]
+	var prev=stage;stage=scroll_page(503,196,board.size()*144)
+	for i in range(board.size()):
+		var q=board[i];var c=w.quest_contract(q);var y=i*144
+		label(c.difficulty+" · Lv.%d"%c.lv,Rect2(0,y,342,20),12,T.RED,T.BOLD)
+		display(q.name,Rect2(0,y+23,342,30),T.INK,23)
+		label(q.rift,Rect2(0,y+57,342,20),12)
+		label("보수 금화 %d"%w.dungeon_rules.quest_gold(c,c.lv),Rect2(0,y+81,185,24),14,T.RED,T.BOLD)
+		if w.s.quest.is_empty():action("quest:"+str(int(q.id)),"의뢰 수락",Rect2(205,y+82,137,40),func():host._act(w.accept_quest.bind(q.id),"의뢰를 수락했습니다."),true)
+		else:
+			action("quest_depart","출발",Rect2(205,y+81,137,40),func():host._act(w.depart_accepted_quest,"");host.go("explore"),true)
+			action("quest_abandon","포기",Rect2(0,y+109,91,30),func():host._ask("현재 의뢰를 포기할까요?",w.abandon_quest))
+		rule(y+142,0,342)
+	stage=prev
+	action("refresh_board","게시판 갱신 · 금화 %d"%w.refresh_fee(),Rect2(18,709,354,40),func():host._act(w.refresh_board,"게시판을 갱신했습니다."),true,w.s.gold<w.refresh_fee())
+
+func recruit() -> void:
+	header("연합 길드 본관","guild")
+	npc_hero("fenella","동료\n소개","페넬라\n소개 창구",430)
+	guild_tabs(1)
+	var w=host.model
+	display("%d / 30명"%w.s.owned.size(),Rect2(18,503,354,49),T.INK,37)
+	fill("roster_track",Rect2(18,564,354,7),T.LINE);fill("roster_value",Rect2(18,564,354*w.s.owned.size()/30.0,7),T.RED)
+	paragraph("아직 동료가 아닌 사람 가운데 한 명을\n소개받으면 바로 동료가 됩니다.",Rect2(18,590,354,49),15)
+	label("보유 금화 %d"%w.s.gold,Rect2(18,656,354,25),16,T.INK,T.BOLD)
+	action("recruit","소개받기 · 금화 %d"%w.recruit_fee(),Rect2(18,705,354,44),func():host._act(w.recruit,"");host.message=w.s.log[-1];host._draw_screen(),true,w.s.gold<w.recruit_fee() or w.s.owned.size()==30)
+	feedback(674)
+
+func equipment() -> void:
+	header("편성 · 장비","formation")
+	plate("preparation-ruins",Rect2(0,48,390,150))
+	picture(host.who,Rect2(0,128,163,300),"detail-overview")
+	display("장비 보관함",Rect2(18,58,354,47),T.INK,34)
+	member_choice(Rect2(168,200,204,38))
+	var m=host.model.s.members[host.who];var stats=host.model.stats(host.who,m.level)
+	label("Lv.%d · %s"%[m.level,host.model.person(host.who).row],Rect2(168,247,204,23),13,T.INK,T.BOLD)
+	label("HP %d / %d"%[m.hp,stats.hp],Rect2(168,272,204,20),12)
+	fill("equipment_hp",Rect2(168,296,204*float(m.hp)/maxf(1,stats.hp),5),T.RED)
+	label("MP %d / %d"%[m.mp,stats.mp],Rect2(168,305,204,20),12)
+	fill("equipment_mp",Rect2(168,329,204*float(m.mp)/maxf(1,stats.mp),5),T.MP)
+	var w=host.model;var eq=w.s.equipment[host.who]
+	for i in range(3):
+		var slot=["weapon","armor","acc"][i];var x=168+i*68
+		icon("sword" if i==0 else "shield",Rect2(x+14,346,34,34))
+		label(w.Gear.SLOT[slot],Rect2(x,383,63,20),11,T.INK,T.BOLD).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+		if eq.has(slot):action("unequip:"+slot,"해제",Rect2(x,407,63,34),func():host._act(w.unequip.bind(host.who,slot),"해제했습니다."),false,w.active())
+		else:label("미장착",Rect2(x,407,63,26),11).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	var entries=w.s.gear.filter(func(e):return w.gear.by_id[e.id].cls==w.class_def(host.who).id)
+	var prev=stage;stage=scroll_page(461,233,maxi(120,entries.size()*196))
+	if entries.is_empty():paragraph("보유한 직업 장비가 없습니다.\n상회에서 구입하거나 대장간을 방문하세요.",Rect2(0,18,342,80),16)
+	for i in range(entries.size()):
+		var e=entries[i];var item=w.gear.by_id[e.id];var y=i*196
+		icon("sword" if item.slot=="weapon" else "shield",Rect2(0,y+8,56,68))
+		display(item.name+" +%d"%e.forge,Rect2(67,y,275,30),T.INK,22)
+		label(host._gear_caption(item),Rect2(67,y+32,275,22),11)
+		paragraph(host._gear_values(w.gear.roll(e,w.s.members[host.who].level)),Rect2(67,y+58,275,47),11)
+		var cmp=w.gear_comparison(host.who,e.uid);var change=[]
+		for key in cmp.get("delta",{}):
+			if not is_zero_approx(cmp.delta[key]):change.append(key+" %+.1f"%cmp.delta[key])
+		paragraph("장착 시 변화 · "+("동일" if change.is_empty() else " / ".join(change)),Rect2(0,y+106,342,39),11)
+		var wearer=w.wearer(e.uid)
+		action("equip:"+str(int(e.uid)),"장착",Rect2(0,y+149,165,38),func():host._act(w.equip.bind(host.who,e.uid),"장착했습니다."),true,w.active() or w.s.members[host.who].level<w.gear.rules.equip_lv[item.rarity] or wearer==host.who)
+		action("sell:"+str(int(e.uid)),"판매 · %d"%w.gear.sell_price(e),Rect2(177,y+149,165,38),func():host._ask(item.name+"을 판매할까요?",w.sell_gear.bind(e.uid)),false,w.active() or not wearer.is_empty())
+		rule(y+194,0,342)
+	stage=prev
+	action("equipment_shop","상회",Rect2(18,706,170,42),host.go.bind("shop"),false,w.active())
+	action("equipment_smithy","대장간",Rect2(200,706,172,42),host.go.bind("smithy"),false,w.active())
+
+func smithy() -> void:
+	header("대장간")
+	npc_hero("hanna","한나의\n대장간","",390)
+	paragraph("무너진 것도,\n다시 쓸 수 있으니까.",Rect2(18,212,154,52),15)
+	fill("process_paper",Rect2(18,392,354,85),T.PAPER)
+	var w=host.model;var band=w.gear.band(w.highest_level());var odds=[]
+	label("장비 가공",Rect2(26,399,150,27),19,T.INK,T.BOLD)
+	for r in w.gear.ORDER:
+		if band.w.get(r,0)>0:odds.append(w.Gear.RARITY[r]+" %s%%"%str(band.w[r]))
+	paragraph(" / ".join(odds),Rect2(26,433,338,38),11)
+	action("process_gear","가공 · 금화 %d"%band.price,Rect2(206,399,158,34),func():host._act(w.process_gear.bind(host.who),"");host.message=w.s.log[-1];host._draw_screen(),true,w.s.gold<band.price)
+	var prev=stage;stage=scroll_page(491,203,maxi(120,w.s.gear.size()*151))
+	if w.s.gear.is_empty():paragraph("제련할 장비가 없습니다.\n가공하거나 상회에서 장비를 구입하세요.",Rect2(0,15,342,65),16)
+	for i in range(w.s.gear.size()):
+		var e=w.s.gear[i];var it=w.gear.by_id[e.id];var y=i*151
+		icon("sword" if it.slot=="weapon" else "shield",Rect2(0,y+7,61,69))
+		display(it.name+" +%d"%e.forge,Rect2(72,y,270,30),T.INK,23)
+		label("강화 단계마다 수치 +4% · 최대 +10",Rect2(72,y+34,270,23),11)
+		if e.forge<10:
+			label("성공률 %d%% · 실패해도 단계 유지"%w.gear.rules.forge.success[int(e.forge)],Rect2(0,y+77,342,23),12,T.RED,T.BOLD)
+			var amount=w.gear.forge_cost(e)
+			action("forge:"+str(int(e.uid)),"강화 · 금화 %d"%amount,Rect2(0,y+106,342,38),func():host._ask(it.name+" 강화 시도?\n실패해도 비용은 소모됩니다.",w.forge.bind(e.uid)),true,w.s.gold<amount)
+		else:label("최대 강화",Rect2(0,y+107,342,28),16)
+		rule(y+149,0,342)
+	stage=prev
+	action("smith_equipment","장비 장착하기",Rect2(18,706,354,42),host.go.bind("equipment"))
 
 func journal() -> void:
 	header("모험 기록")
