@@ -3,7 +3,7 @@ from pathlib import Path
 import json, subprocess, sys, time, re
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'verification/data-r21'; OUT.mkdir(parents=True,exist_ok=True)
-HEADLESS=['world_test','state_test','route_test','expansion_test','motion_test','motion_asset_test','art_test','export_licenses','data_r21_test','dungeon_r21_test','enemy_regression_r21_test','enemy_action_r21_test']
+HEADLESS=['world_test','state_test','route_test','expansion_test','motion_test','motion_asset_test','art_test','export_licenses','data_r21_test','dungeon_r21_test','enemy_regression_r21_test','enemy_action_r21_test','enemy_review_r21_test']
 WINDOWED=['ui_battle_r17_test','ui_battle_r18_test','ui_battle_r19_test','ui_battle_r20_test','motion_r9_integration','motion_r18_integration','ui_data_r21_test']
 cases=[('import',['--headless','--editor','--import','--quit'])]+[(n,['--headless','--script',f'res://tests/{n}.gd']) for n in HEADLESS]+[(n,['--position','-10000,-10000','--script',f'res://tests/{n}.gd']) for n in WINDOWED]
 selected=sys.argv[1:]

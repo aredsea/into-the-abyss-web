@@ -29,7 +29,7 @@ func configure(e: Dictionary,id: String,phase: int,index: int):
 	e.merge(art(id),true)
 
 func roster() -> Array:
-	return b.data.enemies.map(func(e):return {"foe_id":e.foe_id,"phase":e.get("phase",1)})
+	return b.data.enemies.map(func(e):return {"foe_id":e.foe_id,"phase":e.get("phase",1),"target_id":e.target_id})
 
 func hydrate(list: Variant) -> bool:
 	if not list is Array or list.size()!=b.data.enemies.size(): return false
@@ -40,7 +40,10 @@ func hydrate(list: Variant) -> bool:
 			if a.get("kind")=="summon": possible.append(a.enemy)
 	for i in range(list.size()):
 		var v=list[i]
-		if not v is Dictionary or v.size()!=2 or not v.get("foe_id") is String: return false
+		if not v is Dictionary or v.size()!=(3 if v.has("target_id") else 2) or not v.get("foe_id") is String: return false
+		if v.has("target_id"):
+			if not v.target_id is String: return false
+			if v.target_id!="" and v.target_id!=b.data.enemies[i].id and b.ally(v.target_id).is_empty(): return false
 		if not (v.get("phase") is int or v.get("phase") is float) or v.phase!=floor(v.phase) or int(v.phase) not in [1,2]: return false
 		var id=v.foe_id
 		if i<enc.fl.size() and id!=enc.fl[i]: return false
@@ -48,6 +51,8 @@ func hydrate(list: Variant) -> bool:
 		if not id.is_empty():
 			if not rules.foes.has(id) or (v.phase==2 and not rules.foes[id].has("phase2")): return false
 			configure(b.data.enemies[i],id,int(v.phase),i)
+		# Legacy rosters retain constructor-initialized forecasts without consuming RNG.
+		if v.has("target_id"): b.data.enemies[i].target_id=v.target_id
 	return true
 
 func summon(e: Dictionary,a: Dictionary):
@@ -273,7 +278,7 @@ func turn() -> bool:
 				b._event(e.name+" · "+a.name)
 			"dot":
 				var t=target(e,a)
-				add_dot(t,e,dot_per(e,t,a.get("m",1)*a.get("tick",.3)),int(a.get("turns",3)))
+				if not b._enemy_evade(e,t): add_dot(t,e,dot_per(e,t,a.get("m",1)*a.get("tick",.3)),int(a.get("turns",3)))
 				b._event(e.name+" · "+a.name)
 			_:
 				var list=allies_alive() if a.kind=="big_all" or a.get("target")=="all" else [target(e,a)]

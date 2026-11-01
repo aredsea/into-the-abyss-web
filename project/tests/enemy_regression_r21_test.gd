@@ -6,12 +6,17 @@ var failures=[]
 func check(ok: bool,label: String):
 	checks+=1
 	if not ok: failures.append(label)
-func fixture(id: String):
+func fixture(id: String,neutral=false):
 	var w=World.new(); w.depart_dungeon(1,12345)
 	w.s.run.phase="battle"
 	var d=w.battle_data(); var enc=d.encounter_r21.enc
 	enc.fl=[id,"apprentice_doll","rusted_shieldman"]; enc.fg=["","",""]; enc.ne=5; enc.raid=false
 	d.enemies=w.make_enemies(d.encounter_r21,d.allies)
+	if neutral:
+		# Stack arithmetic is isolated from take/save hooks, tested separately.
+		for i in range(d.allies.size()):
+			var a=d.allies[i]; a.id="neutral_%d"%i; a.class_id="sanctioned"; a.race=""; a.nation=""; a.lineage=""
+			a.gear_fx={}; a.gear_special=[]; a.passive={}; a.trait={"p":{}}
 	var b=Battle.new(d)
 	for a in b.data.allies: a.hp=a.mhp; a.effects={}
 	b.current_id=b.data.enemies[0].id
@@ -76,7 +81,7 @@ func run():
 	e.rules={"weak_hit_delay":{"el":"fire","amount":.2}}; e.remaining=0
 	var a=b.data.allies[0]; a.element="fire"; b.dungeon_enemy_r21.after_hit(a,e)
 	check(is_equal_approx(e.remaining,1000),"6 boss delay reduced by B.rdm")
-	b=fixture("apprentice_doll"); e=b.data.enemies[0]
+	b=fixture("apprentice_doll",true); e=b.data.enemies[0]
 	e.acts=[{"kind":"dot","name":"dot","m":1,"turns":3,"tick":.3}]
 	for a2 in b.data.allies:
 		a2.effects.taunt={"turns":20,"amount":0}
@@ -87,7 +92,7 @@ func run():
 	check(hp-a.hp==4*per,"7 four independent dots sum and evict oldest")
 	a.effects={}; a.hp=100000; a.mhp=100000
 	for n in range(1,6): b.dungeon_enemy_r21.add_dot(a,e,n,n)
-	var dot_copy=fixture("apprentice_doll"); dot_copy.data.allies[0].mhp=100000
+	var dot_copy=fixture("apprentice_doll",true); dot_copy.data.allies[0].mhp=100000
 	# The production save limit is 100000 per effect; HP fixture stays in range.
 	check(dot_copy.restore(JSON.parse_string(JSON.stringify(b.snapshot()))),"7 stacked dots JSON roundtrip")
 	hp=a.hp; b._tick(a)
