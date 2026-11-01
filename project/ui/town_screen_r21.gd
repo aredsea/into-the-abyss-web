@@ -9,6 +9,7 @@ var stage: Control
 var boxes={}
 var metrics=[]
 var nav_top=763.0
+var background_scene=""
 
 func build(owner_screen) -> void:
 	build_frame(owner_screen)
@@ -23,6 +24,7 @@ func build_frame(owner_screen) -> void:
 	stage.scale=Vector2(k,k); stage.position=(host.size-stage.size*k)/2; stage.clip_contents=true
 
 func build_page() -> void:
+	page_background()
 	if not host.confirm.is_empty() and host.screen=="explore": retreat()
 	elif host.screen=="town":
 		nav_top=788; home()
@@ -32,7 +34,9 @@ func build_page() -> void:
 	elif host.screen=="depart": departure()
 	elif host.screen=="bag": bag()
 	elif host.screen=="formation": formation()
-	elif host.screen=="explore": exploration()
+	elif host.screen=="explore":
+		if not host.model.r21(): cache()
+		else: exploration()
 	elif host.screen=="cards": cards()
 	elif host.screen=="journal": journal()
 	elif host.screen=="summary": summary()
@@ -42,6 +46,7 @@ func build_page() -> void:
 	elif host.screen=="recruit": recruit()
 	elif host.screen=="equipment": equipment()
 	elif host.screen=="smithy": smithy()
+	elif host.screen=="research": research()
 	navigation()
 	if not host.message.is_empty() and host.screen in ["town","party","member","skills","cards","explore"]:
 		fill("notice_bg",Rect2(14,nav_top-44,362,40),T.INK)
@@ -70,13 +75,48 @@ func display(value: String,r: Rect2,color=T.INK,fs=64,stretch=false) -> Label:
 	if w>r.size.x or stretch:
 		l.size.x=w; l.scale.x=r.size.x/w
 		metrics[-1].available=w
+	if fs>=29 and color==T.INK:
+		var grain=TextureRect.new();l.add_child(grain);grain.texture=load("res://assets/ui-r21/type-drybrush.svg");grain.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;grain.stretch_mode=TextureRect.STRETCH_SCALE;grain.size=l.size;grain.mouse_filter=MOUSE_FILTER_IGNORE
 	return l
+
+func background(name: String,r: Rect2) -> void:
+	var p=TextureRect.new(); stage.add_child(p);p.position=r.position;p.size=r.size
+	p.texture=load("res://assets/ui-r21/bg-"+name+".webp");p.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;p.stretch_mode=TextureRect.STRETCH_SCALE;p.mouse_filter=MOUSE_FILTER_IGNORE
+	mark("background:"+name,p); background_scene=name
+
+func page_background() -> void:
+	var name=host.screen;var r=Rect2(0,0,390,447)
+	if name=="explore":
+		if not host.confirm.is_empty():name="retreat";r=Rect2(0,0,390,391)
+		elif not host.model.r21():name="cache";r=Rect2(0,94,390,388)
+		elif host.model.s.run.phase=="rest":name="rest";r=Rect2(0,97,390,385)
+		else:name="explore";r=Rect2(0,98,390,407)
+	elif name in ["member","skills","party"]:name="town";r=Rect2(0,0,390,484 if host.screen=="member" else 285 if host.screen=="skills" else 757)
+	elif name=="town":r=Rect2(0,0,390,530)
+	elif name=="depart":name="departure";r=Rect2(0,48,390,219)
+	elif name=="summary":r=Rect2(0,0,390,279)
+	elif name=="equipment":r=Rect2(0,0,390,190)
+	elif name=="cards":name="empty" if host.model.s.hand.is_empty() else "cards";r=Rect2(0,0,390,435 if name=="empty" else 328)
+	elif name=="journal":r=Rect2(0,0,390,267)
+	elif name=="recruit":r=Rect2(0,0,390,505)
+	elif name=="smithy":r=Rect2(0,0,390,482)
+	elif name=="inn":r=Rect2(0,0,390,430)
+	elif name=="shop":r=Rect2(0,0,390,373)
+	elif name not in ["guild","research"]:return
+	background(name,r)
+	if ResourceLoader.exists("res://assets/ui-r21/accent-"+name+".svg"):plate("accent-"+name,r)
+
+func traced_title(name: String,r: Rect2) -> void:
+	var t=TextureRect.new();stage.add_child(t);t.texture=load("res://assets/ui-r21/title-"+name+".svg")
+	t.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;t.stretch_mode=TextureRect.STRETCH_SCALE;t.position=r.position;t.size=r.size;t.mouse_filter=MOUSE_FILTER_IGNORE
+	mark("title:"+name,t)
 
 func action(id: String,value: String,r: Rect2,callback: Callable,primary=false,disabled=false) -> Button:
 	var b=Button.new(); stage.add_child(b); b.position=r.position; b.size=r.size; b.text=value; b.disabled=disabled
 	b.add_theme_font_override("font",T.BOLD); b.add_theme_font_size_override("font_size",16)
 	if primary:
-		for state in ["normal","hover","pressed"]: b.add_theme_stylebox_override(state,T.panel(T.RED,T.RED))
+		for state in ["normal","hover","pressed"]:
+			var brush=StyleBoxTexture.new();brush.texture=load("res://assets/ui-r21/button-ink.svg");b.add_theme_stylebox_override(state,brush)
 		for state in ["font_color","font_hover_color","font_pressed_color"]: b.add_theme_color_override(state,T.PAPER)
 	b.pressed.connect(callback); host.controls[id]=b; mark(id,b)
 	return b
@@ -110,6 +150,7 @@ func icon(name: String,r: Rect2,color=T.INK) -> void:
 	var material=ShaderMaterial.new();material.shader=shader;material.set_shader_parameter("tint",color);t.material=material
 
 func plate(name: String,r: Rect2) -> void:
+	if not background_scene.is_empty() and name in ["preparation-ruins","town-city-left","town-city-right","detail-city"]:return
 	var t=TextureRect.new(); t.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
 	stage.add_child(t); t.texture=load("res://assets/ui-r21/"+name+".svg"); t.position=r.position; t.size=r.size; t.mouse_filter=MOUSE_FILTER_IGNORE
 
@@ -127,9 +168,7 @@ func navigation() -> void:
 		if i<4: fill("nav_divider"+str(i),Rect2(x+78,nav_top+13,1,25),T.LINE)
 
 func home() -> void:
-	var logo=display("INTO",Rect2(9,-37,141,178),T.INK,166,true); logo.scale.y=1.10
-	logo=display("ABYSS",Rect2(155,-38,226,235),T.RED,166,true); logo.scale.y=1.38
-	logo=display("THE",Rect2(9,94,140,142),T.INK,148,true); logo.scale.y=.92
+	traced_title("home",Rect2(0,0,390,233))
 	plate("town-city-left",Rect2(0,330,103,128)); plate("town-city-right",Rect2(335,254,55,201))
 	ink(Rect2(-24,286,450,246))
 	label("현재 위치",Rect2(14,232,82,16),9,T.INK,T.BOLD)
@@ -311,11 +350,11 @@ func target_item() -> void:
 
 func formation() -> void:
 	header("편성 · 장비","member")
-	paragraph("선택한 동료의 전열·후열에 맞는 자리를 고르세요." if host.message.is_empty() else host.message,Rect2(18,57,354,37),12)
+	traced_title("formation",Rect2(18,50,209,46))
 	asset("res://assets/src/academy.png",Rect2(18,101,354,261))
 	for i in range(4):
 		var id=host.model.s.party[i]; var x=52+(i%2)*177; var y=105+int(i/2)*127
-		picture(id,Rect2(x,y,107,103),"formation-face")
+		var sprite=host.CharacterSprite.new();stage.add_child(sprite);sprite.position=Vector2(x,y);sprite.size=Vector2(107,103);sprite.configure(id,false)
 		fill("formation_caption:"+str(i),Rect2(x,y+76,107,27),T.INK)
 		label(host.model.person(id).name,Rect2(x+5,y+77,97,25),12,T.PAPER,T.BOLD)
 		action("formation:"+str(i),("전열" if i<2 else "후열")+" · 선택",Rect2(x,y+105,107,24),func():host._act(host.model.assign.bind(host.who,i),"편성을 변경했습니다."),false,host.model.active() or host.model.person(host.who).row!=("전열" if i<2 else "후열") or id==host.who).add_theme_font_size_override("font_size",11)
@@ -331,22 +370,22 @@ func formation() -> void:
 
 func exploration() -> void:
 	var w=host.model; var r=w.s.run
-	header("탐색 지도" if r.phase!="rest" else "단열 휴게실","depart")
-	display(w.dungeon_title(),Rect2(18,58,354,48),T.INK,29)
-	asset("res://assets/src/academy.png",Rect2(0,112,390,330))
-	ink(Rect2(-20,256,430,188))
-	for i in range(5):
-		var x=32+i*69
-		fill("step:"+str(i),Rect2(x,345,50,43),T.RED if i<r.step else T.INK)
-		label(str(i+1),Rect2(x,345,50,43),23,T.PAPER,T.BOLD).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-	paragraph(r.last if r.last!="入場" else "층의 입구에 도착했다.",Rect2(18,395,354,42),13,T.PAPER)
-	small_party(456)
-	label("금화 %d · 경험치 %d"%[r.gold,r.xp],Rect2(18,581,354,25),16,T.INK,T.BOLD)
 	if r.phase=="rest":
-		paragraph("파티 HP 30% · MP 60% 회복 완료",Rect2(18,613,354,31),14)
+		traced_title("rest",Rect2(18,39,216,54))
+		# Reuse the unmodified C portrait crops; never redraw the source party.
+		for i in range(4):picture(w.s.party[i],Rect2(12+i*94,273,94,171),"party-tall")
+	else:
+		traced_title("explore",Rect2(18,0,186,66))
+		var map=preload("res://ui/town_map_r21.gd").new();stage.add_child(map);map.position=Vector2(18,119);map.size=Vector2(354,338);map.configure(r,int(w.dungeon_rules.config.explore.STEPS))
+		mark("source_progress_map",map)
+	display(w.dungeon_title(),Rect2(18,8 if r.phase=="rest" else 69,354,26),T.INK,16 if r.phase=="rest" else 21)
+	fill("explore_status_paper",Rect2(12,457,366,25),T.PAPER)
+	label("파티 HP 30% · MP 60% 회복 완료" if r.phase=="rest" else r.last if r.last!="入場" else "층의 입구에 도착했다.",Rect2(18,458,354,24),12)
+	small_party(490)
+	label("금화 %d · 경험치 %d · 탐색 %d/5"%[r.gold,r.xp,r.step],Rect2(18,613,354,25),14,T.INK,T.BOLD)
+	if r.phase=="rest":
 		action("final_battle","층 보스에게 도전",Rect2(18,650,354,44),func():host._act(w.final_battle,""),true)
 	else:
-		label("탐색 %d / 5 · 정예 %d / 2"%[r.step,r.elites],Rect2(18,613,354,31),14)
 		action("advance","탐색",Rect2(18,650,354,44),func():host._act(w.advance,""),true)
 	action("dungeon_bag","보급품",Rect2(18,705,108,41),host.go.bind("bag"))
 	action("cards","카드",Rect2(136,705,108,41),host.go.bind("cards"))
@@ -354,29 +393,29 @@ func exploration() -> void:
 
 func cards() -> void:
 	header("탐색 카드","explore" if host.model.active() else "bag")
-	plate("preparation-ruins",Rect2(0,53,390,219)); picture(host.model.s.party[0],Rect2(219,78,166,200),"cast-feature")
-	display("탐색 카드",Rect2(18,293,354,51),T.INK,34)
+	picture(host.model.s.party[0],Rect2(160,53,230,275 if not host.model.s.hand.is_empty() else 382),"town-main")
 	if host.model.s.hand.is_empty():
-		display("보유 중인 카드가 없습니다",Rect2(18,405,354,45),T.INK,25)
-		paragraph("카드를 얻으면 이곳에서 확인할 수 있습니다.",Rect2(18,462,354,48),14)
+		display("보유 중인 카드가 없습니다",Rect2(18,449,354,45),T.INK,25)
+		paragraph("카드를 얻으면 이곳에서 확인할 수 있습니다.",Rect2(18,503,354,48),14)
 	else:
-		paragraph("이전에 보관한 탐색 카드",Rect2(18,356,354,40),14)
+		display("탐색 카드",Rect2(18,331,354,45),T.INK,31)
 		for i in range(2):
 			var id=["key","camp"][i]; var count=host.model.s.hand.count(id)
 			if count==0: continue
 			var c=host.model.card_def(id);var x=18+i*182
-			fill("card_panel:"+id,Rect2(x,403,172,157),T.INK)
-			display(c.name,Rect2(x+10,414,152,32),T.PAPER,23)
-			label("× %d"%count,Rect2(x+10,453,152,28),22,T.PAPER,T.BOLD)
-			paragraph(c.text,Rect2(x+10,489,152,63),12,T.PAPER)
+			fill("card_panel:"+id,Rect2(x,389,172,237),T.PALE)
+			plate("card-"+id,Rect2(x+10,391,152,139))
+			display(c.name,Rect2(x+10,533,152,32),T.INK,23)
+			label("× %d"%count,Rect2(x+10,568,152,28),22,T.INK,T.BOLD)
+			paragraph(c.text,Rect2(x+10,595,152,31),10,T.INK)
 			var reason=host.model.card_reason(id)
-			action("card:"+id,"카드 사용",Rect2(x,577,172,43),func():host._ask(c.name+" 카드 1장을 소모할까요?",host.model.use_card.bind(id)),true,not reason.is_empty()).tooltip_text=reason
+			action("card:"+id,"카드 사용",Rect2(x,640,172,43),func():host._ask(c.name+" 카드 1장을 소모할까요?",host.model.use_card.bind(id)),true,not reason.is_empty()).tooltip_text=reason
 	action("cards_back","원정으로" if host.model.active() else "가방으로",Rect2(18,701,354,45),host.go.bind("explore" if host.model.active() else "bag"),true)
 
 func retreat() -> void:
-	header("탐색 지도","explore")
-	plate("preparation-ruins",Rect2(0,54,390,299))
-	display("토르바로 귀환할까요?",Rect2(18,389,354,49),T.INK,30)
+	header("원정","explore")
+	fill("return_sheet",Rect2(0,389,390,371),T.PAPER)
+	traced_title("retreat",Rect2(18,391,298,42))
 	paragraph("지금까지 모은 보상을 정산합니다.\n계속 탐색하려면 취소를 누르세요.",Rect2(18,445,354,51),14)
 	for i in range(2):
 		var y=515+i*67
@@ -388,14 +427,67 @@ func retreat() -> void:
 	action("accept","귀환 · 정산",Rect2(200,676,172,48),host._accept,true)
 
 func npc_hero(id: String,title: String,subtitle: String,height=365.0) -> void:
-	plate("preparation-ruins",Rect2(0,45,390,height))
-	ink(Rect2(-20,180,430,149))
-	display(title,Rect2(15,54,210,130),T.INK,68)
-	picture(id,Rect2(121,39,269,height-3),"town-main")
+	var title_name=host.screen
+	var shapes={"guild":Rect2(18,53,141,119),"recruit":Rect2(18,53,140,194),"research":Rect2(18,53,129,189),"shop":Rect2(18,53,166,145),"smithy":Rect2(18,53,196,145),"inn":Rect2(14,61,167,127)}
+	picture(id,Rect2(99,43,291,height-3),"town-main")
+	if shapes.has(title_name):traced_title(title_name,shapes[title_name])
+	else:display(title,Rect2(15,54,210,130),T.INK,68)
 	if not subtitle.is_empty():
 		fill("npc_caption",Rect2(18,height-64,175,63),T.PAPER)
 		label(subtitle,Rect2(28,height-61,154,58),15,T.INK,T.BOLD).autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 		metrics[-1].available=1000
+
+func research() -> void:
+	header("전술 연구","guild")
+	npc_hero("loredana","전술\n연구","",430)
+	paragraph("더 날카롭게,\n더 멀리.",Rect2(18,250,130,43),14)
+	member_choice(Rect2(18,398,354,38))
+	var w=host.model;var r=w.s.research[host.who];var current=w.tactic(host.who)
+	guild_tabs(2)
+	for index in range(2):
+		var kind="prefixes" if index==0 else "suffixes";var parts=[]
+		for part in w.research[kind]:
+			if index==0 or w.compatible(host.research_prefix,part.id):parts.append(part)
+		var pick=OptionButton.new();stage.add_child(pick);pick.position=Vector2(18+index*182,504);pick.size=Vector2(172,56);pick.fit_to_longest_item=false;pick.clip_text=true;pick.add_theme_font_size_override("font_size",12)
+		for part in parts:pick.add_item(part.name+" · "+part.note)
+		for i in range(parts.size()):
+			if parts[i].id==(host.research_prefix if index==0 else host.research_suffix):pick.select(i)
+		pick.item_selected.connect(func(i):
+			if index==0:
+				host.research_prefix=parts[i].id
+				for suffix in w.research.suffixes:
+					if w.compatible(host.research_prefix,suffix.id):host.research_suffix=suffix.id;break
+			else:host.research_suffix=parts[i].id
+			host._draw_screen())
+		host.controls["research_part:"+kind]=pick
+	icon("skill-attack",Rect2(25,570,65,57));icon("skill-taunt",Rect2(210,570,65,57))
+	paragraph("장착 · "+current.get("name","없음 · 기본 방어 사용"),Rect2(18,632,354,34),13)
+	action("compose","이 조합 장착 · 무료",Rect2(18,681,224,44),func():host._act(w.compose.bind(host.who,host.research_prefix,host.research_suffix),"전술을 장착했습니다."),true)
+	action("research_clear","전술 해제",Rect2(252,681,120,44),func():w.s.research[host.who].prefix="";w.s.research[host.who].suffix="";host._save();host._draw_screen(),false,w.active())
+	for i in range(2):
+		var kind="prefix" if i==0 else "suffix"
+		if r[kind].is_empty():continue
+		var level=r[kind+"_lv"].get(r[kind],0);var amount=40+20*level*level
+		action("train:"+kind,("몸통" if i==0 else "덧효과")+" +%d · %d금화"%[level,amount],Rect2(18+i*182,730,172,29),func():host._ask("금화를 소모해 전술 조각을 강화할까요?",w.train.bind(host.who,kind)),false,level>=10 or w.s.gold<amount).add_theme_font_size_override("font_size",11)
+
+func cache() -> void:
+	var w=host.model;var r=w.s.run
+	header("원정","depart")
+	traced_title("cache",Rect2(18,45,252,54))
+	small_party(490)
+	label("미정산 금화 %d · 경험치 %d"%[r.gold,r.xp],Rect2(18,608,354,25),14,T.INK,T.BOLD)
+	if not r.resolved:
+		action("unlock","봉인 해제 카드 사용",Rect2(18,642,354,40),func():host._ask("카드 1장을 소모해 회복약을 얻을까요?",w.use_card.bind("key")),true,not w.card_reason("key").is_empty())
+		action("leave_cache","열지 않고 지나가기",Rect2(18,691,224,40),func():host._act(w.leave_cache,"보관함을 지나쳤습니다."))
+	elif w.mapped():
+		var choices=w.destinations()
+		for i in range(choices.size()):
+			var id=choices[i]
+			action("travel:"+id,w.Route.NODES[id].name,Rect2(18+i*177,642,170,40),func():host._act(w.travel.bind(id),""),true)
+	else:action("advance","다음 구역 탐색",Rect2(18,642,354,40),func():host._act(w.advance,""),true)
+	var cards_button=action("cards","탐색 카드",Rect2(18,735,170,23),host.go.bind("cards"));cards_button.add_theme_font_size_override("font_size",11)
+	for state in ["normal","hover","pressed"]:cards_button.add_theme_stylebox_override(state,StyleBoxEmpty.new())
+	action("retreat","귀환",Rect2(252,691,120,40),func():host._ask("모은 보상을 정산할까요?",w.settle.bind("retreat")))
 
 func feedback(y=715.0) -> void:
 	if not host.message.is_empty(): paragraph(host.message,Rect2(18,y,354,40),12)
@@ -512,7 +604,7 @@ func equipment() -> void:
 	header("편성 · 장비","formation")
 	plate("preparation-ruins",Rect2(0,48,390,150))
 	picture(host.who,Rect2(0,128,163,300),"detail-overview")
-	display("장비 보관함",Rect2(18,58,354,47),T.INK,34)
+	traced_title("equipment",Rect2(18,50,209,46))
 	member_choice(Rect2(168,200,204,38))
 	var m=host.model.s.members[host.who];var stats=host.model.stats(host.who,m.level)
 	label("Lv.%d · %s"%[m.level,host.model.person(host.who).row],Rect2(168,247,204,23),13,T.INK,T.BOLD)
@@ -577,7 +669,7 @@ func smithy() -> void:
 
 func journal() -> void:
 	header("모험 기록")
-	plate("preparation-ruins",Rect2(0,52,390,219));display("기록",Rect2(18,62,200,94),T.INK,78)
+	traced_title("journal",Rect2(14,54,152,134))
 	var prev=stage;stage=scroll_page(285,463,maxi(160,host.model.s.log.size()*89))
 	if host.model.s.log.is_empty(): paragraph("아직 모험 기록이 없습니다.",Rect2(0,30,338,48),17)
 	for i in range(host.model.s.log.size()):
@@ -590,8 +682,8 @@ func summary() -> void:
 	var r=host.model.s.summary
 	if r.is_empty(): paragraph("아직 정산한 원정이 없습니다.",Rect2(18,201,354,100),20); return
 	plate("preparation-ruins",Rect2(0,52,390,219))
-	display("토르바로",Rect2(18,63,354,70),T.INK,60)
-	display("귀환" if r.result!="defeat" else "철수",Rect2(18,132,354,70),T.RED,60)
+	if r.result!="defeat":traced_title("summary",Rect2(12,55,228,207))
+	else:display("토르바로\n철수",Rect2(18,63,354,140),T.RED,60)
 	label("전투 승리 %d회"%r.wins,Rect2(18,283,354,26),18,T.INK,T.BOLD)
 	for i in range(3):
 		var x=18+i*122
@@ -649,7 +741,7 @@ func overview() -> void:
 	hit("member_details",Rect2(18,681,354,78),host.go.bind("member_details")).tooltip_text="특성·경험치·기술 상세 보기"
 
 func skills() -> void:
-	ink(Rect2(-10,30,430,255)); plate("detail-city",Rect2(286,0,104,141)); picture(host.who,Rect2(0,27,390,257),"detail-skills")
+	ink(Rect2(-10,30,430,255)); plate("detail-city",Rect2(286,0,104,141)); picture(host.who,Rect2(83,27,307,257),"town-main")
 	header("동료 상세","party")
 	tabs(285,1)
 	var p=host.model.person(host.who); var sk=p.skill

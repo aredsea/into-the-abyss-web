@@ -1,16 +1,8 @@
 [
   {
-    "name": "import",
-    "exit_code": 0,
-    "seconds": 3.03,
-    "errors": [],
-    "summary": [],
-    "environment_certificate_warning": true
-  },
-  {
     "name": "world_test",
     "exit_code": 0,
-    "seconds": 0.44,
+    "seconds": 0.42,
     "errors": [],
     "summary": [
       "WORLD TESTS: 44 checks, 0 failures"
@@ -20,7 +12,7 @@
   {
     "name": "state_test",
     "exit_code": 0,
-    "seconds": 0.8,
+    "seconds": 0.83,
     "errors": [],
     "summary": [
       "COMBAT CHECKS: 54; FAILURES: 0"
@@ -30,7 +22,7 @@
   {
     "name": "route_test",
     "exit_code": 0,
-    "seconds": 0.44,
+    "seconds": 0.42,
     "errors": [],
     "summary": [
       "ROUTE TESTS: 41 checks, 0 failures"
@@ -40,7 +32,7 @@
   {
     "name": "expansion_test",
     "exit_code": 0,
-    "seconds": 1.09,
+    "seconds": 1.17,
     "errors": [],
     "summary": [
       "EXPANSION CHECKS 3350 FAILURES 0"
@@ -50,7 +42,7 @@
   {
     "name": "motion_test",
     "exit_code": 0,
-    "seconds": 0.34,
+    "seconds": 0.33,
     "errors": [],
     "summary": [
       "MOTION TIMELINE PASS: contact, hitstop, pause, speed, skip, large delta"
@@ -60,7 +52,7 @@
   {
     "name": "motion_asset_test",
     "exit_code": 0,
-    "seconds": 0.44,
+    "seconds": 0.42,
     "errors": [],
     "summary": [
       "MOTION ASSET PASS: 19 clips, original starts, natural recovery, timing, attachments and mappings"
@@ -70,7 +62,7 @@
   {
     "name": "art_test",
     "exit_code": 0,
-    "seconds": 0.72,
+    "seconds": 0.7,
     "errors": [],
     "summary": [
       "PASS 30 characters / 60 UV frames / 30 unique cinematics / impact and completion"
@@ -80,7 +72,7 @@
   {
     "name": "export_licenses",
     "exit_code": 0,
-    "seconds": 0.34,
+    "seconds": 0.33,
     "errors": [],
     "summary": [
       "Exported Godot and bundled library license notices."
@@ -90,7 +82,7 @@
   {
     "name": "town_r21_test",
     "exit_code": 0,
-    "seconds": 1.36,
+    "seconds": 1.27,
     "errors": [],
     "summary": [
       "TOWN R21 CHECKS 2675 FAILURES 0 LUA SAMPLES 2544"
@@ -100,7 +92,7 @@
   {
     "name": "data_r21_test",
     "exit_code": 0,
-    "seconds": 1.03,
+    "seconds": 0.89,
     "errors": [],
     "summary": [
       "DATA_R21 checks=7493 failures=0 composition=1028 stats=700 exploration=300"
@@ -110,7 +102,7 @@
   {
     "name": "dungeon_r21_test",
     "exit_code": 0,
-    "seconds": 64.92,
+    "seconds": 62.0,
     "errors": [],
     "summary": [
       "DUNGEON_R21 {\"art_fallbacks\":0,\"checks\":3016,\"details\":[],\"enemies\":100,\"failures\":0,\"floors\":420,\"outcomes\":{\"defeat\":420,\"natural_defeat\":53,\"natural_victory\":140,\"victory\":420}}"
@@ -120,7 +112,7 @@
   {
     "name": "enemy_action_r21_test",
     "exit_code": 0,
-    "seconds": 80.97,
+    "seconds": 76.98,
     "errors": [],
     "summary": [
       "ENEMY_ACTION_R21 {\"checks\":2762,\"continuous_matched\":1221,\"enemies\":100,\"failures\":0,\"gear_samples\":120,\"matched\":1221,\"samples\":1221,\"silence_samples\":200}"
@@ -140,7 +132,7 @@
   {
     "name": "town_commerce_r21_test",
     "exit_code": 0,
-    "seconds": 1.44,
+    "seconds": 1.34,
     "errors": [],
     "summary": [
       "TOWN COMMERCE R21 CHECKS 14714 FAILURES 0 LUA 8520 / 8520"
@@ -150,7 +142,7 @@
   {
     "name": "ui_battle_r17_test",
     "exit_code": 0,
-    "seconds": 41.31,
+    "seconds": 41.52,
     "errors": [],
     "summary": [
       "R17 BATTLE UI 6085 CHECKS / 0 FAILURES"
@@ -158,19 +150,9 @@
     "environment_certificate_warning": true
   },
   {
-    "name": "ui_battle_r18_test",
-    "exit_code": 0,
-    "seconds": 34.84,
-    "errors": [],
-    "summary": [
-      "R18: 4592 checks / 0 failures; 30 distinct effect hashes"
-    ],
-    "environment_certificate_warning": true
-  },
-  {
     "name": "ui_battle_r19_test",
     "exit_code": 0,
-    "seconds": 8.17,
+    "seconds": 7.8,
     "errors": [],
     "summary": [
       "R19: 859 checks / 0 failures"
@@ -180,7 +162,7 @@
   {
     "name": "ui_battle_r20_test",
     "exit_code": 0,
-    "seconds": 12.86,
+    "seconds": 12.19,
     "errors": [],
     "summary": [
       "R20: 1659 checks / 0 failures"
@@ -190,7 +172,7 @@
   {
     "name": "motion_r9_integration",
     "exit_code": 0,
-    "seconds": 6.14,
+    "seconds": 5.77,
     "errors": [],
     "summary": [
       "R9 INTEGRATION: 944 checks / 0 failures"
@@ -200,7 +182,7 @@
   {
     "name": "motion_r18_integration",
     "exit_code": 0,
-    "seconds": 51.3,
+    "seconds": 48.11,
     "errors": [],
     "summary": [
       "R18 STATE INTEGRATION: 3540 checks / 0 failures"
@@ -208,19 +190,19 @@
     "environment_certificate_warning": true
   },
   {
-    "name": "ui_town_r21_test",
+    "name": "ui_town_r21_round2_test",
     "exit_code": 0,
-    "seconds": 4.75,
+    "seconds": 7.95,
     "errors": [],
     "summary": [
-      "TOWN UI R21 CHECKS 1580 FAILURES 0 OVERFLOW 0"
+      "TOWN ROUND2 UI CHECKS 4379 FAILURES 0"
     ],
     "environment_certificate_warning": true
   },
   {
     "name": "ui_data_r21_test",
     "exit_code": 0,
-    "seconds": 15.92,
+    "seconds": 15.17,
     "errors": [],
     "summary": [
       "UI_DATA_R21 checks=9608 failures=0 nameplates=3200 overflow=0"
@@ -228,32 +210,60 @@
     "environment_certificate_warning": true
   },
   {
-    "name": "ui_town_r21_round2_test",
+    "name": "ui_battle_r18_test",
     "exit_code": 0,
-    "seconds": 6.94,
+    "seconds": 34.75,
     "errors": [],
     "summary": [
-      "TOWN ROUND2 UI CHECKS 4373 FAILURES 0"
+      "R18: 4592 checks / 0 failures; 30 distinct effect hashes"
     ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "ui_town_r21_test",
+    "exit_code": 0,
+    "seconds": 5.09,
+    "errors": [],
+    "summary": [
+      "TOWN UI R21 CHECKS 1553 FAILURES 0 OVERFLOW 0"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "import",
+    "exit_code": 0,
+    "seconds": 3.22,
+    "errors": [],
+    "summary": [],
     "environment_certificate_warning": true
   },
   {
     "name": "ui_town_r21_round3_test",
     "exit_code": 0,
-    "seconds": 12.17,
+    "seconds": 13.31,
     "errors": [],
     "summary": [
-      "TOWN ROUND3 UI CHECKS 8545 FAILURES 0 PORTRAIT SLOTS 300 ENEMY FALLBACKS 0"
+      "TOWN ROUND3 UI CHECKS 8185 FAILURES 0 PORTRAIT SLOTS 300 ENEMY FALLBACKS 0"
     ],
     "environment_certificate_warning": true
   },
   {
     "name": "ui_town_result_r21_test",
     "exit_code": 0,
-    "seconds": 5.38,
+    "seconds": 6.11,
     "errors": [],
     "summary": [
-      "TOWN RESULT R21 CHECKS 220 FAILURES 0"
+      "TOWN RESULT R21 CHECKS 190 FAILURES 0"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "ui_town_r21_round4_test",
+    "exit_code": 0,
+    "seconds": 14.98,
+    "errors": [],
+    "summary": [
+      "TOWN ROUND4 UI CHECKS 10028 FAILURES 0"
     ],
     "environment_certificate_warning": true
   }

@@ -59,7 +59,7 @@ try:
      town_screens.append('default:'+expected)
      if expected=='bag' and id=='item:hp_s': assert page.evaluate('window.__abyssWorld.controls.use_selected.disabled')
    if town_r21:
-    assert page.evaluate('window.__abyssWorld.ui_build')=='r21-d-town-20261101'
+    assert page.evaluate('window.__abyssWorld.ui_build')=='r21-d-town-20261101b'
     assert not page.evaluate('window.__abyssWorld.town_r21_preview')
     for id,expected in [('nav:party','party'),('member:hildegard','member'),('tab:skills','skills'),('back','party'),('nav:town','town')]:
      click(id)
@@ -150,7 +150,7 @@ try:
     assert restored,(town_viewport,after_viewport)
     capture('return')
    assert not errors,errors
-   results.append({'width':width,'height':height,'viewport':initial['viewport'],'reduced':reduced,'ui_build':final['ui_build'],'town_ui_build':'r21-d-town-20261101' if town_r21 else None,'town_screens':town_screens,'stable_default_checked':stable_default_checked,'errors':errors,'viewport_restored_after_victory':restored,'personal_actions_before':initial['state']['units']['hildegard']['actions'],'personal_actions_after':final['state']['units']['hildegard']['actions'],'text_errors':[t for t in final['text'] if t['needed']>t['available']+1 or t['missing_glyphs']]})
+   results.append({'width':width,'height':height,'viewport':initial['viewport'],'reduced':reduced,'ui_build':final['ui_build'],'town_ui_build':'r21-d-town-20261101b' if town_r21 else None,'town_screens':town_screens,'stable_default_checked':stable_default_checked,'errors':errors,'viewport_restored_after_victory':restored,'personal_actions_before':initial['state']['units']['hildegard']['actions'],'personal_actions_after':final['state']['units']['hildegard']['actions'],'text_errors':[t for t in final['text'] if t['needed']>t['available']+1 or t['missing_glyphs']]})
    context.close(); print('PASS',tag,flush=True)
   browser.close()
 finally:

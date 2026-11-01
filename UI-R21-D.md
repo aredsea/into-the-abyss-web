@@ -1,5 +1,116 @@
 # UI-R21-D
 
+## 4차 — 큰 제목·배경·노드 지도 적용, 시안 전패널 일치 미완료
+
+27개 마을/결과/외곽 패널에 시안형 외형을 연결하고, 금지된 전투 컷인 1패널은 유지했다. 기존 화면이던 연구와 봉인 보관함도 외형을 교체했다. 고정 제목 SVG 18종, image_gen 배경 편집 19종, 실제 원본 진행만 표시하는 노드 지도를 적용했다. **28쌍을 직접 비교했으며, 초상 포즈·크롭·패널 비율·배경 세부 형태가 여전히 다르다. 전패널 동일·시안 느낌 완성으로 보고하지 않는다.** 지시서의 “다 못 끝내면 끝낸 데까지 검사 통과 상태” 조항에 따른 부분 인계다.
+
+### 핵심 수치
+
+|항목|4차 최종|
+|---|---:|
+|외형 적용 / 기존 전투 유지|27 / 1 패널|
+|직접 연 시안-게임 비교|28쌍|
+|고정 제목 SVG / 배경 WebP|18 / 19|
+|배경 파일 합계 / 실제 PCK 기여|1,914,116 / 1,938,948 bytes|
+|배경 제한|10,000,000 bytes 이하|
+|공통·추가 검사 그룹 / 실패|27 / 0|
+|마을 UI 검사 / 실패|24,335 / 0|
+|마을 규칙 / Lua 대조|17,389 / 11,064 일치|
+|Web 구성 / 다른 크기 / 오류|6 / 5 / 0|
+|원본 SHA / 변경|96 / 0|
+|금지된 전투·A·B·C 파일 변경|0|
+|최종 PCK|63,955,744 bytes|
+|owner-sheet|900×3531 / 388,821 bytes|
+
+### 적용과 보존 경계
+
+고정 제목은 승인 패널의 검정/빨강 획을 OpenCV 윤곽으로 추적한 순수 SVG 경로다. 로고 THE의 E는 시안 인물에 가려져 있어 기하 벡터로 보완했으며 원본 보이는 픽셀과 동일하다고 세지 않았다. 가변 동료·던전·층 제목은 전투의 기존 AbyssDisplayR19를 크게 사용하고 폭을 맞췄다. 큰 검정 가변 활자 위에는 시안에서 추적한 작은 종이색 마모 SVG를 얹었다. 장식 붓 띠 7종·카드 그림·버튼도 SVG다. 생산용 래스터 제목/독립 잉크 파일은 추가하지 않았다.
+
+풍경은 해당 시안의 영역을 image_gen 내장 편집 도구에 넣고 인물·문자·UI를 지운 뒤 같은 건축을 메우도록 요청했다. 초기 편집본의 붉은 그래픽 띠/군중은 추가 편집으로 제거하고 그래픽 띠는 별도 SVG로 배치했다. 원본 인물·적 도트는 생성 도구에 다시 그리도록 요청하지 않았다. 배경의 원본 가려진 부분을 메우면서 비가림 부분의 세부 구조·종이 마모도 재해석된 곳이 있다. 따라서 “그 부분만 변경·풍경 픽셀 그대로”는 미달이다. 홈/동료 상세에는 공용 도시 배경을 사용해 시안의 성채 위치와 다르다. 원본 배경·편집본·프롬프트·SHA·크롭은 `round4/asset-provenance.json`, `imagegen-files.json`, `background-pack.json`, `accent-provenance.json`에 기록했다. 최종 배경은 `project/assets/ui-r21/bg-*.webp` 19장이다.
+
+연구는 기존 전술 선택/장착/해제/강화 핸들러와 저장 형식을 그대로 사용한다. 원본 페르소나 연구 전체 규칙으로 확장하지 않았다. 봉인 보관함은 옛 지도 저장의 봉인 해제/지나가기/이동을 새 외형에 연결했다. 새 A 원정에서 보관함 사건이나 카드 지급을 추가하지 않았다. 원본 초상 및 C 마스터/300칸, B 적 100종과 전투·A 데이터 파일은 바이트 변경 0이다. 결과의 4인·편성은 기존 CharacterSprite의 준비 도트를 재사용하고 패배 결과만 표시 셰이더로 회색화했다. 사용자 저장 경로·schema·진행 규칙을 바꾸지 않았다. UI 시험은 전용 fixture 경로만 사용한다. 성적 장면/79-sex.lua는 실행·이식하지 않았다.
+
+### 탐색 지도가 시안과 달라야 하는 이유
+
+읽기 전용으로 원본 `C:/Clauede Code/dungeon-bot/bot/src/77-explore.lua`, A의 `dungeon_world_r21.gd`·`dungeon_view_r21.gd`를 대조했다. 원본은 층마다 5회 순차 탐색→자동 휴식→층 보스이며, 시안의 서가/순찰로/보관함/회랑/야영지 갈림길을 선택하는 규칙은 없다. 새 `town_map_r21.gd`는 입구+실제 5탐색+휴식+보스의 8표지만 단일 선으로 연결한다. 완료 길과 현재 위치를 강조하고 미래 탐색은 일반 나침반으로 표시한다. 미래 전투/발견을 미리 결정하거나 새 선택 버튼을 만들지 않았다. 지도 구성은 상태·RNG를 바꾸지 않는지 0~5단계 모두 검사했다.
+
+### PCK 전후와 웹
+
+작업 시작 docs PCK 실측은 53,240,156 bytes다. 3차 보고서의 61,934,348 bytes와 일치하지 않는 오래된 export였으므로 둘을 섞지 않았다. 최종 63,955,744 bytes, 시작 실물 대비 +10,715,588, 3차 보고 수치 대비 +2,021,396 bytes다. 초기 무손실 가져오기는 71,517,648 bytes였고, 새 배경 19장만 Godot Lossy/0.85로 가져와 용량을 줄였다.
+동일 최종 코드에서 배경 19장만 제외한 측정용 PCK는 62,016,796 bytes다. 최종과의 차이 1,938,948 bytes가 실제 배경 패킹 증가분이며 10MB 이하다. `budget-no-background`는 실행용이 아닌 용량 측정용 불완전 export다. 최종 실행본은 docs이다. 필터는 측정 후 원래 바이트로 복원했다. `round4/export-sizes.json`과 export 로그에 근거를 보존했다.
+최종 `ui_build=r21-d-town-20261101b`, PCK SHA-256 `727baf6ea15b9d814b7914d8614e5067700fb67b6aa5ea74f254d30770ce61f6`. `python tools/godot_r17.py --headless --export-release Web ../docs/index.html` 후 `python tools/update_version.py`로 갱신했다. 원격 배포는 하지 않았다.
+`tools/web_smoke_r19.py --town-r21`을 390×844, 360×780, 390×664, 1280×800, 430×932 및 360×780 reduced-motion에서 실행했다. 실제 포인터로 기본 마을·시설·연구·영입 경로·원본 장비 구매/품절/장착·연출·실제 전투·결과 확인·viewport 복귀를 검사했다. 6/6 통과, 콘솔/페이지/텍스트 오류 0. 결과는 `verification/town-r21/web/results.json`이다.
+
+### 직접 실행한 검사
+
+|검사|최종 결과|
+|---|---|
+|world_test|WORLD TESTS: 44 checks, 0 failures · exit 0 / errors 0|
+|state_test|COMBAT CHECKS: 54; FAILURES: 0 · exit 0 / errors 0|
+|route_test|ROUTE TESTS: 41 checks, 0 failures · exit 0 / errors 0|
+|expansion_test|EXPANSION CHECKS 3350 FAILURES 0 · exit 0 / errors 0|
+|motion_test|MOTION TIMELINE PASS: contact, hitstop, pause, speed, skip, large delta · exit 0 / errors 0|
+|motion_asset_test|MOTION ASSET PASS: 19 clips, original starts, natural recovery, timing, attachments and mappings · exit 0 / errors 0|
+|art_test|PASS 30 characters / 60 UV frames / 30 unique cinematics / impact and completion · exit 0 / errors 0|
+|export_licenses|Exported Godot and bundled library license notices. · exit 0 / errors 0|
+|town_r21_test|TOWN R21 CHECKS 2675 FAILURES 0 LUA SAMPLES 2544 · exit 0 / errors 0|
+|data_r21_test|DATA_R21 checks=7493 failures=0 composition=1028 stats=700 exploration=300 · exit 0 / errors 0|
+|dungeon_r21_test|DUNGEON_R21 {"art_fallbacks":0,"checks":3016,"details":[],"enemies":100,"failures":0,"floors":420,"outcomes":{"defeat":420,"natural_defeat":53,"natural_victory":140,"victory":420}} · exit 0 / errors 0|
+|enemy_action_r21_test|ENEMY_ACTION_R21 {"checks":2762,"continuous_matched":1221,"enemies":100,"failures":0,"gear_samples":120,"matched":1221,"samples":1221,"silence_samples":200} · exit 0 / errors 0|
+|enemy_regression_r21_test|ENEMY_REGRESSION_R21 {"checks":30,"failures":[]} · exit 0 / errors 0|
+|town_commerce_r21_test|TOWN COMMERCE R21 CHECKS 14714 FAILURES 0 LUA 8520 / 8520 · exit 0 / errors 0|
+|ui_battle_r17_test|R17 BATTLE UI 6085 CHECKS / 0 FAILURES · exit 0 / errors 0|
+|ui_battle_r19_test|R19: 859 checks / 0 failures · exit 0 / errors 0|
+|ui_battle_r20_test|R20: 1659 checks / 0 failures · exit 0 / errors 0|
+|motion_r9_integration|R9 INTEGRATION: 944 checks / 0 failures · exit 0 / errors 0|
+|motion_r18_integration|R18 STATE INTEGRATION: 3540 checks / 0 failures · exit 0 / errors 0|
+|ui_town_r21_round2_test|TOWN ROUND2 UI CHECKS 4379 FAILURES 0 · exit 0 / errors 0|
+|ui_data_r21_test|UI_DATA_R21 checks=9608 failures=0 nameplates=3200 overflow=0 · exit 0 / errors 0|
+|ui_battle_r18_test|R18: 4592 checks / 0 failures; 30 distinct effect hashes · exit 0 / errors 0|
+|ui_town_r21_test|TOWN UI R21 CHECKS 1553 FAILURES 0 OVERFLOW 0 · exit 0 / errors 0|
+|import| · exit 0 / errors 0|
+|ui_town_r21_round3_test|TOWN ROUND3 UI CHECKS 8185 FAILURES 0 PORTRAIT SLOTS 300 ENEMY FALLBACKS 0 · exit 0 / errors 0|
+|ui_town_result_r21_test|TOWN RESULT R21 CHECKS 190 FAILURES 0 · exit 0 / errors 0|
+|ui_town_r21_round4_test|TOWN ROUND4 UI CHECKS 10028 FAILURES 0 · exit 0 / errors 0|
+
+r18 UI는 첫 실행에서 검사 4,592개 실패 0이었지만 종료 리소스 오류 1개/객체 경고 2개가 발생했다. 같은 검사 단독 재실행은 4,592개 실패 0·종료 오류 0으로 재현되지 않았다. 이를 숨기거나 오류 필터를 완화하지 않았고 `round4/r18-initial-exit-note.json`에 적었다. root certificate store 경고만 기존 격리 환경 경고로 계속 분리한다. 기존 검사 기대값은 변경하지 않았다. 공개 build 식별자 검사만 새 b 문자열로 갱신했다. Label을 SVG로 옮겨 기존 UI의 글자 검사 수가 줄었으며 시각 합격으로 해석하지 않는다.
+
+### 직접 연 비교와 남은 작업
+
+[28패널 제목·배경·구성·초상 같음/다름 표](verification/town-r21/compare-round4/comparison.md). `review-1..7.jpg`를 최종 가져오기 후 모두 직접 열었다. [전체 시트](verification/town-r21/owner-sheet.jpg)와 확대 비교 [1](verification/town-r21/owner-zoom-1.jpg) · [2](verification/town-r21/owner-zoom-2.jpg) · [3](verification/town-r21/owner-zoom-3.jpg)도 확인했다. 기계 수치로 같음을 대신하지 않았다.
+
+남은 외형은 동료 콜라주의 큰 얼굴/사선/명패, 상세·기술의 성채 배경, 편성의 투시 프레임과 하단 상세, 장비/대장간의 전용 장비 그림, 연구의 합성 카드 그림과 결과 띠, 기록의 사건별 삽화 타임라인, 정산/귀환의 4인 뒷모습, 휴게실의 앉은 포즈, 빈 상태의 하단 정물, 컷인과 결과의 정확한 인물 구도다. 배경 재해석과 제목 가림 흔적·소수 픽셀 잔흔, 버튼 질감 차이도 남는다. 원본에 없는 자세를 새로 그리거나 전투 파일을 수정해 해결하지 않았다. 정본 규칙에 따른 지도 단일 진행과 실제 이름/레벨/재고/보상 차이는 유지해야 한다. 3차의 원본 페르소나 연구/영입 RNG/카드 사건 전체/연대기 미이식도 그대로 남는다.
+
+디자인 검수는 design-taste-frontend의 직접 비교/수정 절차를 적용했으며 사용자가 정한 B 시안이 방향이므로 새 방향 추첨은 하지 않았다. Godot canvas 대상이라 DOM/CSS 검사기 대신 native 5크기와 실제 WASM 포인터 검사를 사용했다. 시각 자평은 10점 중 제목 7·배경 6·구성 5·초상 구도 4다. 이 점수는 사장님 승인이 아니다.
+
+### 변경 파일
+
+- project/ui/town_art_r21.gd
+- project/ui/town_result_r21.gd
+- project/ui/town_screen_r21.gd
+- project/ui/world_screen.gd
+- tools/town_r21_verify.py
+- tools/update_version.py
+- tools/web_smoke_r19.py
+- project/tests/ui_town_r21_round4_test.gd
+- project/ui/town_map_r21.gd
+- tools/town_r21_round4_accents.py
+- tools/town_r21_round4_audit.py
+- tools/town_r21_round4_compare.py
+- tools/town_r21_round4_export.py
+- tools/town_r21_round4_finish_assets.py
+- tools/town_r21_round4_report.py
+- project/assets/ui-r21/title-*.svg (18종), accent-*.svg (7종), card-*.svg, button-ink.svg, type-drybrush.svg
+- project/assets/ui-r21/bg-*.webp 및 .import (19종, 새 배경만 Lossy/0.85)
+- verification/town-r21/round4/**, compare-round4/**, owner-sheet.jpg, owner-zoom-1..3.jpg
+- docs/** (최종 local Web export)
+
+모든 프로젝트 쓰기는 현재 worktree 안에서 했고 git 명령·다른 갈래 쓰기·원격 배포·타인에게 메시지 송신은 하지 않았다. 내장 image_gen의 기본 저장 위치 결과는 원래 위치에 남기고 최종 프로젝트 자산은 이 worktree에 저장했다.
+
+## 이전 차수 기록
+
+# UI-R21-D
+
 ## 3차 — 검증 통과 부분 인계 · 시안 전패널 일치 미완료
 
 시안형 화면 **25 / 28패널**을 기본 동선에 연결했다(기존 기본6 + 미리보기8 활성화 + 추가11). 전투 컷인 1패널은 기존 r18~20을 유지했다. **연구·봉인 보관함 2패널은 기존 UI**이며, 원본 페르소나 연구/영입 레벨·영입 RNG·카드 사건 전체 이식은 남았다. 시안형 25개도 그림 비율·배경·질감 차이가 남아 있고 전패널 동일이나 2px 일치로 승인하지 않는다. 지시서의 부분 인계 조항에 따라 검사 실패 0인 상태로 인계한다.
@@ -431,3 +542,4 @@ python tools/town_r21_report.py
 |11-battle-results-0|기본 · 기존 전투 유지 · 기존 전투 유지|r18~20 컷인·연출·잉크 유지. 마을 작업에서 내부 연출 파일 변경 없음.|
 |11-battle-results-1|기본 · 새 외곽 · 부분 일치 · 미승인|VICTORY·유적·실제 전투 후 HP·기존 결과 확인 핸들러. 시안 파티 포즈·배경 그림 차이, 보상은 기존 원정 정산 시점.|
 |11-battle-results-2|기본 · 새 외곽 · 부분 일치 · 미승인|DEFEAT·유적·실제 전투 후 HP·정산 연결. 시안 파티 포즈·배경 그림 차이, 원본 패배 규칙은 기존 핸들러.|
+
