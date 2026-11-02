@@ -1,132 +1,71 @@
-# R23-battle 작업 보고
+# R23-battle 3차 작업 보고
 
-대상 **212행**을 행별로 검토했다. 새로 **같음 9행**, 수정 근거가 있는 행 **12행**, 남은 행 **203행**이다. 같음과 수정은 1행이 겹친다. **원본 전 기능 이식 완료는 아니다.** 남은 함수와 사유를 `verification/parity-r23/battle.json`에 모두 기록했다.
-수정했지만 전체 계약이 남은 11행도 남은 203행에 포함한다. 같음도 수정도 아닌 행은 192행이다.
+대상 212행: 이번 같음 +30, 누적 같음 65, 남음 147. 이번 수정 6행, 누적 수정 근거 27행이며 같음과 17행 중복한다. 원본 전 기능 이식 완료는 아니다.
 
-새 대조 **8,053항목 / 실패 0**, 프로젝트 검사 **88그룹 / 실패 0**. 기존 **6,320전투 · 219,785개 기록 일치 / 차이 0**을 유지했다.
+이번 묶음 4,538개 / 실패 0. 누적 신규 대조 23,418개 / 실패 0. 기존 6,320판 · 219,785기록 / 차이 0.
 
-## 재현과 수정
+프로젝트 검사 90/90그룹, 실패 0, 미실행 0, 실행 중 0. 최종 코드 검사 완료.
 
-|시험|수정 전 항목|실패|증거|
-|---|---:|---:|---|
-|기본 경계값|1,154|10|`verification/parity-r23/before.json`|
-|소환/단계|91|8|`verification/parity-r23/enemy-before.json`|
-|페르소나|2,314|24|`verification/parity-r23/persona-before.json`|
-|carry|144|48|`verification/parity-r23/state-before.json`|
-|표시 시각|280|12|`verification/parity-r23/display-before.json`|
-|되치기|2,472|8|`verification/parity-r23/counter-before.json`|
-|실제 타격 속성 지연|2,508|8|`verification/parity-r23/element-delay-before-corrected.json`|
+## 직접 대조와 수정
 
-페르소나 무효 조합 4개는 위 수치 실패와 별도로 script error도 재현했다(`persona-before.log`). 최초 fixture의 빈 Lua 표/Dictionary 표현, 아군 대상 선택, `seal` 필드, CTB round/tick 일관성은 제품 수정 전에 바로잡았다. RNG는 JSON 소수 자릿수 손실을 피하도록 정확한 Park-Miller 정수 상태를 비교했다. 원본 수치를 바꿔 맞춘 기대값 변경은 없다.
+원본 18종 oracle를 함수/then/else/do 진입 계측으로 재실행했다. 계측 전후 관측값 일치. 대상 함수 166/212 호출, 기존 미검증 진입 68/157 도달(2차 58). 진입 수만으로 승격한 행은 없다. 원본과 96개 원본 이미지의 해시를 직접 확인했다.
 
-제품 변경은 다음 6파일이다.
+원본 local closure는 로드 사본에서 실제 closure를 노출한다. 정렬 comparator도 원래 본문을 이름 붙인 closure로 바꿔 export하며, 복사한 대체 함수를 oracle로 쓰지 않는다. Boolean/빈 Lua map의 표현만 명시적으로 정규화한다. 일반 실수 오차 1e-7, 정수·RNG는 정확 비교한다.
 
-- `project/game/battle_v3.gd`
-- `project/game/combat_display_r22.gd`
-- `project/game/combat_events_r22.gd`
-- `project/game/dungeon_enemy_r21.gd`
-- `project/game/gear_battle_r22.gd`
-- `project/game/persona_combat_r22.gd`
+|새 근거|행 수|
+|---|---:|
+|옛 능력치·편성·균열·층 계획|5|
+|이름·조사·동사·기술명·비율 문구|11|
+|보스 설명·적 방어·시작/차례 시작|4|
+|개인 특성·부식·시전자 정리·방어 상수|6|
+|시너지 표시/생존 표식/경험치/DOT 정리|4|
 
-수정한 동작은 10종이다: 규칙 없는 숨은 적의 감경 제거, 명시적 low/aimed 별칭/RNG 상한의 표적 선택, 빈 소환 칸 우선, 같은 사건의 사망 칸 재사용 금지, 미완성 페르소나 기술 무동작, 쓰러진 단일 지원 대상 제외, carry 사망 대기값과 저장 보존, 마지막 일격 히트스탑의 적용 범위 제한, 되치기의 고유 피해/대상/회피 경로, 실제 타격 속성에 따른 적 지연. 옛 schema-3 mob 등급 소환 칸은 계속 재사용할 수 있다.
+행별 원본 위치·이전 상태·시험 라벨·제품 파일:줄·남은 사유는 verification/parity-r23/battle.json에 있다.
 
-## 새 증거 범위
+수정한 계약: 부식의 저장 K 우선값과 floor epsilon; 군힐트의 같은 행동/다른 표적 무보너스; 바르굿의 당김 없음·음수/0일 때 signed 게이지와 상태 보존; 빈 유닛/비문자열 표식 제외; 옛 적 수치 API의 별 인덱스 기본값. 원본 기대 수치는 변경하지 않았다.
 
-|시험|항목|실패|
-|---|---:|---:|
-|latest|2,508|0|
-|enemy-latest|91|0|
-|state-latest|261|0|
-|compose-latest|4,805|0|
-|display-latest|280|0|
-|clock-latest|108|0|
+수정 전 증거를 구분한다. 첫 1,392개 중 실패 1,186개는 API 부재 guard 1,152개와 기존 부식 수치 실패 34개다. 문자열 API 추가 전에는 177개 guard 실패를 보존했다. 별 입력 확장에서는 378개 실패 중 252개가 typed kind API guard, 126개가 새 호환 API의 실제 fallback 수치 불일치다. 생명주기 확장 전 99개 실패는 API guard 98개와 empty 표식 수치 실패 1개다.
 
-원본 Lua에 Boolean 진입 기록만 추가하여 재실행했다. 계측 전/후 oracle 결과가 모두 같은 것을 확인했다. 대상 함수 **158/212개 호출**, 기존 미검증 진입 **55/157개 도달**이다. 이 수치는 조건 조합 전수나 함수 완성도가 아니다. 원본 소스 해시, 계측 정보, 행별 미도달 목록은 `coverage.json`과 `coverage/`에 있다.
+군힐트·바르굿의 이전 인라인 절은 별도 사본에서 재구성해 90입력 중 15개 불일치를 재현했다(round3-before-inline.gd/.json). 전체 수정 전 빌드가 아니며 다른 피해/차례 훅과 상위 함수 전체의 실패 수로 합산하지 않는다. 오래된 부분 log의 fixture/parse error가 있는 시도는 통과 검사나 실제 제품 실패 수에 넣지 않았다.
 
-새 입력은 원본 `bot/src/*.lua`를 읽기 전용으로 Wasmoon/lua_sim에서 실행했다. 저장 가능한 입력과 명시된 무효/경계값의 반환·상태·RNG를 비교한다. 숫자 실수의 기존 허용 오차는 1e-7이며, 정수 피해·게이지·RNG 상태는 정확 비교한다. 편성 RNG 상태는 별도로 정수 동등성을 검사한다.
+새 legacy foes_for/enemy_stats/floor_plan은 호환용 순수 API다. 기존 native 저장 이관이나 시작 흐름 전체의 동치를 뜻하지 않는다. 원래 floor_enc의 dn.kind는 유지한다. 문구 helper를 옮긴 것만으로 상위 로그 전체가 같다고 세지 않았다. 신규 저장 형식·버전은 도입하지 않았고 사용자 저장은 열지 않았다.
 
-기존 6,320판의 원본 oracle도 새로 실행하여 기존 기준 JSON과 모든 관측값이 같음을 확인했다. 새 6종 oracle와 기존 전체 전투 8종·단위 2종, 총 16개 실행을 계측했다. 기준 파일을 덮지 않고 `coverage/retained-*-oracle.json`에 따로 보존했다.
+## 변경 파일
 
-실제 속성 지연 fixture는 양쪽 표적 약점 목록을 빈 목록으로 맞췄다. `element-delay-before-corrected.json`은 저장해 둔 수정 전 Godot 관측값을 보정한 짝 입력의 Lua 결과에 다시 비교한 것으로, 관측값은 바꾸지 않았다. raw before 파일과 두 자료의 해시도 남겼다.
+- project/game/battle_stats_r23.gd
+- project/game/battle_v3.gd
+- project/game/combat_display_r22.gd
+- project/game/dungeon_enemy_r21.gd
+- project/game/dungeon_rules_r21.gd
+- project/game/personal_rules_r22.gd
+- project/game/trait_rules_r22.gd
+
+expedition_rules_r22.gd는 기존 EXP 계산을 읽기 전용 대조했으며 수정하지 않았다. 새 시험은 battle_r23_round3_test.gd, oracle는 tools/oracle_battle_r23_round3.mjs/.lua와 생성된 loader다. 전체 재실행은 tools/verify_battle_r23_round3.py, 최종 수정 전 시작한 검사를 재실행하는 도구는 tools/finalize_battle_r23_round3.py다.
+
+## 검사·보존
+
+전체 검사 로그: verification/parity-r23/suite-round3-final/. import, 모든 *_test 및 필수 integration/export_licenses와 전체 전투 8묶음을 포함한다. 수정 전 시작한 프로세스의 검사는 시작 시각으로 골라 최종 코드에서 재실행하고 첫 로그/결과는 first-pass/에 보존한다. 판단 근거는 final-recheck-plan.json 및 final-code-lock.json이다.
+
+클라우드는 node --import ./tools/cloud_battle_r23_preload.mjs server/abyss-save/test/serve.mjs로 실제 Worker/D1 서버를 실행했다. 빈 loopback 포트와 이 worktree의 임시 디렉터리를 사용하며, 기존 다른 포트/프로세스는 종료하지 않는다. 자체 제어 파일로 이번 서버를 정상 종료한다. 서버 제품 파일 수정은 없다.
+
+docs/·project/assets/·server/는 이번 시작 manifest 기준 변경 0. Web export·버전 갱신·git 명령·커밋 없음. 결과 이미지 3개를 직접 확인했으며 경로/해시는 visual-review-round3.json에 있다. 전수 이미지·실기기·Web/WASM 시험은 하지 않았다. Windows root certificate store 메시지만 환경 진단으로 제외하고 Script error/그 밖의 ERROR는 검사 실패로 센다.
+
+초기 fixture 실행 1개가 Script error 뒤 종료되지 않아 런타임 프로세스가 남았다. 해당 프로세스에 대한 종료 명령은 OS 접근 거부로 실패했다. 이후 단독 실험에는 quit-after 제한을 사용했다. 다른 기존 런타임 프로세스는 건드리지 않았다.
 
 ## 남은 작업
 
-- 전투 상태·능력치·편성: 같음 4, 남음 43.
-- CTB·공격·종결·전투 버튼: 같음 4, 남음 31.
-- 적 방어·반격·소환·단계: 같음 0, 남음 30.
-- 30인 개인 기술·개별 특성: 같음 0, 남음 31.
-- 종족·출신·직업 시너지: 같음 0, 남음 13.
-- 페르소나 단일 연구 기술: 같음 1, 남음 14.
+- 30인 개인 기술·개별 특성: 같음 19, 남음 12.
+- CTB·공격·종결·전투 버튼: 같음 11, 남음 24.
+- 적 방어·반격·소환·단계: 같음 6, 남음 24.
 - 전투 사건 연출·HUD·대상·로그: 같음 0, 남음 41.
+- 전투 상태·능력치·편성: 같음 23, 남음 24.
+- 종족·출신·직업 시너지: 같음 5, 남음 8.
+- 페르소나 단일 연구 기술: 같음 1, 남음 14.
 
-전체 상태/반환/부수 효과를 검증하지 못한 행은 일부 또는 미확인으로 유지했다. 특히 원본 저장 버전·pend/pid 이관, 모든 사건의 필드별 시간 이력과 payload, 훅 합성/측정용 변형, 다국어 설명과 로그, HUD·버튼·대상의 의미상 출력 대조가 남는다. 여러 통합 전투가 통과했다는 이유만으로 이 함수들을 같음으로 세지 않았다. 행별 기존 판정 사유·원본 위치·baseline 미검증 분기와 이번 결과를 함께 보존했다.
+최종 재검사의 첫 클라우드 묶음은 이전 shutdown 제어 파일을 읽어 서버 시작이 실패했고, 다음 시도는 D1 스키마 준비 전에 시험을 요청했다. 시험 도구를 실행별 고유 제어 파일과 runtime 완료 대기로 고치고 해당 28개 그룹을 모두 재실행했다. 원시 실패 로그는 recheck-*-failed-*.log, 복구 결과는 cloud-group-recovery.log 및 final-verification.json에 남겼다. 서버 제품 코드 수정은 없다.
 
-## 검사와 보존
+RNG=1 약점 순환 경계는 수정 전 실제 제품에서 비교 실패 1개와 범위 초과 Script error를 재현한 뒤 clamp하여 통과시켰다. round3-cycle-before.json/.log는 fixture 오류와 구분한 실제 제품 경계 실패 근거다.
 
-`node --import ./tools/cloud_battle_r23_preload.mjs server/abyss-save/test/serve.mjs`로 원래 로컬 Worker/D1 서버를 실행했다. Miniflare 설치본은 기존 다른 worktree의 의존성을 읽기 전용으로 참조했다. 시험 전용 preload가 같은 DB에 보관 계정 fixture와 독립 quota를 준비한다. 서버 제품 파일은 수정하지 않았다.
+원본 VER2·채팅 변수·pend/pid 저장 재개, 사건의 모든 필드 시간 이력/payload, 훅 합성과 측정용 변형, 상위 기술/종결의 전체 로그, HUD·대상·버튼·카메라의 의미상 전체 출력은 계속 남는다. 전투 수치가 같다는 이유로 상위 함수를 승격하지 않았다.
 
-`docs/` 249개, `project/assets/` 1,784개, `server/` 29개에서 manifest 기준 변경 0. Web export·버전 갱신을 하지 않았다. 사용자 저장은 열거나 덮지 않았고 모든 Godot 실행은 격리 wrapper를 사용했다. schema_version은 3 그대로다. 기존 사망자의 유한 대기값은 그대로 불러오며, 새 10^9 sentinel은 HP=0 아군에만 허용한다.
-
-공통 문서 로딩과 같은 첫 도구 호출에서 `git status --short`를 한 번 시도했으나 소유권 오류로 실패했다. 이후 git 명령·설정 변경·커밋은 하지 않았다.
-
-Windows root certificate store 진단은 기존 환경 메시지로 분리했다. Script error와 기타 ERROR는 통과로 세지 않는다. 모든 결과 이미지의 육안 전수 검증·모바일 실기기·새 Web/WASM 검증은 하지 않았다. 직접 연 이미지는 `visual-review.json`에 별도로 기록한다.
-
-로컬 서버는 별도 터미널에서 다음과 같이 준비한다.
-
-```powershell
-$env:ABYSS_NODE_MODULES=(Resolve-Path '..\r21-d-town\server\abyss-save').Path
-$env:TEMP=(Join-Path (Get-Location) '.p6tmp')
-$env:TMP=$env:TEMP
-$env:TMPDIR=$env:TEMP
-node --import ./tools/cloud_battle_r23_preload.mjs server/abyss-save/test/serve.mjs
-```
-
-재실행:
-
-```powershell
-python tools/prepare_battle_r23.py
-node tools/oracle_battle_r23.mjs
-node tools/oracle_battle_r23_enemy.mjs
-node tools/oracle_battle_r23_state.mjs
-node tools/oracle_battle_r23_display.mjs
-node tools/oracle_battle_r23_compose.mjs
-node tools/oracle_battle_r23_clock.mjs
-python tools/coverage_battle_r23.py
-$env:R23_SUITE_NAME='suite-final'
-python tools/run_battle_r23.py
-python tools/report_battle_r23.py
-```
-
-## 시험·도구 파일
-
-- `project/tests/battle_r23_clock_test.gd`
-- `project/tests/battle_r23_clock_test.gd.uid`
-- `project/tests/battle_r23_compose_test.gd`
-- `project/tests/battle_r23_compose_test.gd.uid`
-- `project/tests/battle_r23_display_test.gd`
-- `project/tests/battle_r23_display_test.gd.uid`
-- `project/tests/battle_r23_enemy_test.gd`
-- `project/tests/battle_r23_enemy_test.gd.uid`
-- `project/tests/battle_r23_random_fixture.gd`
-- `project/tests/battle_r23_random_fixture.gd.uid`
-- `project/tests/battle_r23_state_fixture.gd`
-- `project/tests/battle_r23_state_fixture.gd.uid`
-- `project/tests/battle_r23_state_test.gd`
-- `project/tests/battle_r23_state_test.gd.uid`
-- `project/tests/battle_r23_test.gd`
-- `project/tests/battle_r23_test.gd.uid`
-- `tools/cloud_battle_r23_preload.mjs`
-- `tools/coverage_battle_r23.py`
-- `tools/oracle_battle_r23.lua`
-- `tools/oracle_battle_r23.mjs`
-- `tools/oracle_battle_r23_clock.mjs`
-- `tools/oracle_battle_r23_compose.mjs`
-- `tools/oracle_battle_r23_display.lua`
-- `tools/oracle_battle_r23_display.mjs`
-- `tools/oracle_battle_r23_enemy.lua`
-- `tools/oracle_battle_r23_enemy.mjs`
-- `tools/oracle_battle_r23_state.lua`
-- `tools/oracle_battle_r23_state.mjs`
-- `tools/prepare_battle_r23.py`
-- `tools/report_battle_r23.py`
-- `tools/run_battle_r23.py`
+재실행: node tools/oracle_battle_r23_round3.mjs → python tools/coverage_battle_r23.py → python tools/verify_battle_r23_round3.py → python tools/finalize_battle_r23_round3.py → python tools/report_battle_r23_round3.py. 이전 차수 보고/ledger는 R23-battle-round2.md 및 battle-round2.json으로 보존했다.

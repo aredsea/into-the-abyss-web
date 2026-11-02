@@ -10,14 +10,22 @@ var pools={"mobs":{},"elites":{},"common_mobs":[],"common_elites":[],"all_elites
 var final_cache={}
 
 class PM:
+	const Numbers=preload("res://game/battle_stats_r23.gd")
 	var s: int
-	func _init(seed: int):
-		s=posmod(seed,2147483646)+1
+	static func seed_value(seed: Variant) -> int:
+		seed=Numbers.number(seed)
+		if not is_finite(float(seed)):return 1
+		return int(floor(seed))
+	static func pick_value(rng,list: Array):
+		var roll=rng.next() # The original consumes RNG even for an empty list.
+		return null if list.is_empty() else list[mini(list.size()-1,int(floor(roll*list.size())))]
+	func _init(seed: Variant=null):
+		s=posmod(seed_value(seed),2147483646)+1
 		for i in range(4): s=(s*16807)%2147483647
 	func next() -> float:
 		s=(s*16807)%2147483647
 		return float(s)/2147483647.0
-	func pick(list: Array): return list[mini(list.size()-1,int(floor(next()*list.size())))]
+	func pick(list: Array): return pick_value(self,list)
 	func shuffle(list: Array):
 		for k in range(list.size(),1,-1):
 			var j=mini(k-1,int(floor(next()*k)))
@@ -86,6 +94,8 @@ func floor_final(f: int,kind: String) -> Array:
 			cache.append([maxf(previous[0],h),maxf(previous[1],a),h<previous[0]-1e-12 or a<previous[1]-1e-12])
 		else: cache.append([previous[0],previous[1],false])
 	return cache[f]
+
+func floor_final_reset() -> void:final_cache.clear()
 
 func foe_def(enc: Dictionary,index: int,level: int) -> Dictionary:
 	var f=foes[enc.fl[index]].duplicate(true); var gr=enc.fg[index]; var deep=enc.dk>0
@@ -181,6 +191,13 @@ func fits(f: Dictionary,cur: Array,spec: Dictionary) -> bool:
 	return not ((f.role=="지원" and sup>=1) or ((f.role=="소환" or has_summon(f)) and summ>=1) or (f.zone=="common" and common>=1) or (f.grade!="swarm" and same>=3) or (has_charge(f) and charge>=1))
 
 const FILL=[{"role":["돌격"]},{"role":["사격","주술"]},{"role":["방어","돌격"]},{"role":["무리","돌격"]}]
+func pick_value(rng,list: Array):return PM.pick_value(rng,list)
+func party_target(n: int,order: int,rng,tcount: Variant=false) -> int:
+	if tcount!=null and not (tcount is bool and not tcount):return int(tcount)
+	n=clampi(n,1,4)
+	var value=[2,2,3,4][n-1]
+	if n>=2 and order>=2 and rng.next()<.35:value+=1
+	return mini(5,value)
 func build_slots(t: Dictionary,tc: int,elite: bool) -> Array:
 	var slots=t.slots.duplicate(); var ext=0
 	while slots.size()>tc and slots.size()>1: slots.pop_back()
@@ -244,9 +261,7 @@ func compose(seed: int,ctx: Dictionary) -> Dictionary:
 				fl.append(rng.pick(cand)); fg.append("")
 		return _composition(result,fl,fg,kind,true)
 	var elite=kind=="elite"; var limit=threat_limit(order,elite); var best=[]; var bestscore=INF
-	var tc0=[2,2,3,4][n-1]
-	if n>=2 and order>=2 and rng.next()<.35: tc0+=1
-	tc0=mini(5,tc0)
+	var tc0=party_target(n,order,rng,ctx.get("tcount",false))
 	var tmpls=[]; var totw=0.0
 	for tp in catalog.templates:
 		if kind in tp.kinds and tp.get("min_order",1)<=order: tmpls.append(tp); totw+=tp.get("weight",1)
@@ -279,7 +294,7 @@ func compose(seed: int,ctx: Dictionary) -> Dictionary:
 		if not found.is_empty(): best=found
 	assert(not best.is_empty(),"compose: "+zkey)
 	var idx=range(best[0].size())
-	idx.sort_custom(func(a,b):return (a<b if (foes[best[0][a]].row=="front")== (foes[best[0][b]].row=="front") else foes[best[0][a]].row=="front"))
+	idx.sort_custom(func(a,b):return front_before(best[0],a,b))
 	var fl=[]; var fg=[]
 	for i in idx: fl.append(best[0][i]); fg.append(best[1][i])
 	var res=_composition(result,fl,fg,best[2],false)
@@ -294,6 +309,28 @@ func floor_enc(f: int,avg: float,n: int,kind: String,seed: int) -> Dictionary:
 	var info=floor_info(f); var enc=compose(seed,{"floor":f,"kind":floor_boss_kind(info) if kind=="boss" else kind,"party_n":n})
 	enc.dn={"floor":f,"kind":"boss" if kind=="boss" else "explore","party_n":n}
 	return {"enc":enc,"el":floor_level(avg,info),"star":enc.star,"info":info}
+
+func front_before(fl: Array,a: int,b: int) -> bool:
+	var fa=foes[fl[a]].row=="front";var fb=foes[fl[b]].row=="front"
+	return fa if fa!=fb else a<b
+
+func floor_plan(f: int,avg: float,n: int,stage: int,seed: int) -> Dictionary:
+	var info=floor_info(f);var kind=floor_boss_kind(info) if stage==2 else "battle"
+	var enc=compose(seed,{"floor":f,"kind":kind,"party_n":n})
+	enc.dn={"floor":f,"stage":stage}
+	return {"enc":enc,"el":floor_level(avg,info),"star":enc.star,"info":info}
+
+static func foes_for(pm: Array) -> Array:
+	var n=0
+	for m in pm:
+		if m.id!="":n+=1
+	return [1,2] if n<=2 else [1,2,3] if n==3 else [1,2,3,4]
+
+func rift_id_of(value: Variant):
+	if not value is String:return false
+	for r in config.rifts:
+		if value==r.name or value==r.quest_name:return r.id
+	return false
 
 func gold(f: int,kind: String) -> int:
 	var R=catalog.tune.reward

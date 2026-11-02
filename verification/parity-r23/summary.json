@@ -1,32 +1,41 @@
 {
   "rows_reviewed": 212,
-  "newly_equal_rows": 9,
-  "fixed_rows": 12,
-  "fixed_and_equal_overlap": 1,
-  "remaining_rows": 203,
+  "newly_equal_rows": 65,
+  "round2_newly_equal_rows": 26,
+  "fixed_rows": 27,
+  "round2_fixed_rows": 9,
+  "fixed_and_equal_overlap": 17,
+  "remaining_rows": 147,
   "statuses": {
-    "일부": 97,
-    "미확인": 106,
-    "같음": 9
+    "같음": 65,
+    "미확인": 76,
+    "일부": 71
   },
-  "called_functions": 158,
+  "called_functions": 166,
   "baseline_missing_entries": 157,
-  "newly_entered_baseline_entries": 55,
-  "new_checks": 8053,
+  "newly_entered_baseline_entries": 68,
+  "batch_checks": 10827,
+  "new_checks": 23418,
   "new_failures": 0,
-  "suite_groups": 88,
-  "expected_suite_groups": 88,
+  "suite_groups": 90,
+  "expected_suite_groups": 90,
   "suite_missing": [],
   "suite_failed_groups": 0,
+  "suite_in_progress": [],
   "parity_battles": 6320,
   "parity_records": 219785,
   "product_files_changed": [
+    "project/game/battle_stats_r23.gd",
     "project/game/battle_v3.gd",
     "project/game/combat_display_r22.gd",
     "project/game/combat_events_r22.gd",
     "project/game/dungeon_enemy_r21.gd",
+    "project/game/dungeon_rules_r21.gd",
     "project/game/gear_battle_r22.gd",
-    "project/game/persona_combat_r22.gd"
+    "project/game/persona_combat_r22.gd",
+    "project/game/personal_rules_r22.gd",
+    "project/game/trait_rules_r22.gd",
+    "project/game/world_state.gd"
   ],
   "protected": {
     "docs": {
@@ -42,8 +51,20 @@
       "changed": []
     }
   },
-  "fixed_but_not_equal_rows": 11,
-  "neither_equal_nor_fixed_rows": 192,
-  "fresh_oracle_runs": 16,
-  "suite_in_progress": []
+  "fresh_oracle_runs": 18,
+  "fixed_but_not_equal_rows": 10,
+  "neither_equal_nor_fixed_rows": 137,
+  "round3_newly_equal_rows": 30,
+  "round3_fixed_rows": 6,
+  "round3_checks": 4538,
+  "round3_product_files_changed": [
+    "project/game/battle_stats_r23.gd",
+    "project/game/battle_v3.gd",
+    "project/game/combat_display_r22.gd",
+    "project/game/dungeon_enemy_r21.gd",
+    "project/game/dungeon_rules_r21.gd",
+    "project/game/personal_rules_r22.gd",
+    "project/game/trait_rules_r22.gd"
+  ],
+  "suite_final_code_complete": true
 }

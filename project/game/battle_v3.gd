@@ -9,6 +9,7 @@ var dungeon_enemy_r21
 var last_enemy_hit_target=""
 var last_enemy_hit_result={}
 const CombatClock=preload("res://game/combat_clock_r22.gd")
+const BattleStats=preload("res://game/battle_stats_r23.gd")
 var ctb_tick=0
 var ctb_round=0
 var combat_hits=[]
@@ -144,7 +145,7 @@ func _advance_ctb() -> void:
 
 func _round_tick() -> void:
 	# MP synergy precedes living personal hooks, then the global round hook.
-	if living(true).filter(func(a):return a.line=="int").size()>=2:
+	if not TraitRules.int_synergy(self).is_empty():
 		for a in living(true):
 			if a.line=="int": a.mp=mini(a.mmp,a.mp+4)
 	for owner in data.allies:
@@ -218,6 +219,7 @@ func _init(scene_data: Dictionary={}) -> void:
 		dungeon_enemy_r21=preload("res://game/dungeon_enemy_r21.gd").new(self)
 		gear_bridge=GearBattle.new(self); gear_bridge.initialize()
 		selected_enemy=data.enemies[0].id
+		dungeon_enemy_r21.start()
 		dungeon_enemy_r21.initialize_targets()
 	for a in data.allies:
 		if a.id=="altan":
@@ -261,7 +263,11 @@ func _hg_scan() -> void:
 				e.target_id="hildegard"; e.redirected=true
 
 func x(u: Dictionary) -> Dictionary:
+	ensure_extra_state(u)
 	return extra_state[u.id]
+
+func ensure_extra_state(u: Dictionary) -> void:
+	if not extra_state.get(u.id) is Dictionary:extra_state[u.id]={}
 
 func fx(u: Dictionary, key: String) -> float:
 	return float(u.effects.get(key,{}).get("amount",0))
@@ -282,7 +288,7 @@ func bonus(u: Dictionary,key: String) -> float:
 func count_tag(key: String,value: String) -> int:
 	var n=0
 	for a in data.allies:
-		if a.hp>0 and a.get(key)==value: n+=1
+		if a.hp>0 and not a.get("empty",false) and a.get(key) is String and a.get(key)==value: n+=1
 	return n
 
 func _effect(u: Dictionary,key: String,turns: int,amount: float=0) -> void:
@@ -306,7 +312,20 @@ func living(friends: bool) -> Array:
 	return data.allies.filter(func(a):return a.hp>0 or extra_state.get(a.id,{}).get("reviving",false))
 
 func has_alive(id: String) -> bool:
-	return not ally(id).is_empty() and ally(id).hp>0
+	var index=slot_of(id)-1
+	return index>=0 and index<data.allies.size() and data.allies[index].hp>0
+
+func companion_id(slot_index: int) -> String:
+	return data.allies[slot_index-1].id if slot_index>=1 and slot_index<=data.allies.size() else ""
+
+func slot_of(cid: String) -> int:
+	for i in range(1,5):
+		if companion_id(i)==cid:return i
+	return 0
+
+func initial_enemy_count() -> int:
+	if not data.has("encounter_r21"):return 4
+	return data.encounter_r21.enc.fl.filter(func(id):return id!="").size()
 
 func cost(id: String) -> int:
 	var n=int(actions()[id].mp)
@@ -547,17 +566,8 @@ func _tick_enemy_dots(e: Dictionary) -> void:
 func _ally_down(a: Dictionary) -> void:
 	# GH.ally_down refreshes live synergies (count_tag reads HP dynamically),
 	# then dot_trim removes the oldest class stacks, never corrosion/bleed.
-	var cap=6 if count_tag("nation","모르가스 신관국")>=3 else 5
-	for e in living(false):
-		if e.effects.has("dot") and e.effects.dot.has("stacks"):
-			var stacks=e.effects.dot.stacks
-			while stacks.size()>cap:
-				stacks.pop_front()
-				for key in ["lifetimes","owners","bursts","initial_turns","orders"]:
-					if e.effects.dot.has(key): e.effects.dot[key].pop_front()
-			e.effects.dot.amount=0.0
-			for amount in stacks: e.effects.dot.amount+=amount
-			x(e).dot_stacks=stacks.size()
+	TraitRules.dot_trim(self)
+	PersonalRules.drop_caster_buffs(self,a)
 	a.effects.erase("taunt"); a.effects.erase("shield"); a.charging=false; x(a).cover=""; a.shield=0
 	# B.drop_src(false) visits every unit and every source-tagged buff.
 	for u in data.allies+data.enemies:
@@ -695,9 +705,8 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 	if a.id=="ornel" and float(e.hp)/e.mhp>=.7: mult*=1.6
 	if a.id=="tove" and a.shield>0: mult*=1.35
 	if a.id=="gunhild":
-		if x(a).get("streak_action",-1)!=turn_count+1:
-			x(a).streak_action=turn_count+1; x(a).streak=int(x(a).get("streak",0))+1 if x(a).get("target")==e.id else 0; x(a).target=e.id
-		mult*=1+minf(.5,x(a).get("streak",0)*.05)
+		var modified=PersonalRules.gunhild_deal(self,a,a,e,mult,[])
+		if modified!=null:mult=modified
 	if a.id=="bianca" and action_id=="personal" and not extra and (e.effects.has("attack_down") or e.effects.has("defense_down") or e.effects.has("dot") or e.effects.has("corrosion") or e.effects.has("bleed") or e.effects.has("foxflame")): mult*=1.4
 	if a.id=="bargut" and action_id=="personal" and not extra:
 		var fastest=true
@@ -705,13 +714,12 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 			if (u.base.spd if u.has("base") else u.speed)>a.base.spd: fastest=false
 		if fastest: mult*=1.5
 	if a.id=="jorund" and action_id=="personal" and not extra and proc_event.get("jmk",x(e).get("jm",false)): mult*=1.4
-	if a.id=="lavinia" and action_id=="personal" and not extra and (e.acts[e.act_index].get("ic","") in ["spell","weaken","summon"] or e.acts[e.act_index].kind in ["spell","weaken","summon"]): mult*=1.3
+	if a.id=="lavinia" and action_id=="personal" and not extra and PersonalRules.casting(e): mult*=1.3
 	if a.id=="bianca" and e.get("grade","") in ["boss","chief","core"]: mult*=1.3
 	if dungeon_enemy_r21!=null: mult*=PersonalRules.damage_mult(self,a)
-	var weak=proc_event.get("element",a.element) in e.weak
+	var weak=PersonalRules.isweak(e,proc_event.get("element",a.element))
 	var defense=e.defense*(1+fx(e,"defense_up")-fx(e,"defense_down")) if dungeon_enemy_r21!=null else e.defense*(1-fx(e,"defense_down"))
-	var n=e.level-1
-	var k=data.formula.def_k_ratio*data.formula.def_std_base*(1+data.def_curve.a*n+data.def_curve.b*n*n)
+	var k=BattleStats.K_of(e.level,data.formula,data.def_curve)
 	var damage=a.base[a.line]*2*power*mult*k/(k+defense)*(1+fx(e,"foxflame"))
 	if dungeon_enemy_r21!=null: damage*=dungeon_enemy_r21.defense(a,e)
 	if weak: damage*=1.3
@@ -1140,7 +1148,7 @@ func _finish_turn(interval_scale: float=1) -> void:
 		u.remaining+=10000*interval_scale
 		if u.has("base"):
 			u.actions+=1
-			if u.id=="bargut": u.remaining=maxf(0,u.remaining-10000*x(u).get("personal_pull",0)); x(u).personal_pull=0
+			if u.id=="bargut": PersonalRules.bargut_turn_end(self,u,u)
 			if u.id=="teiris" and int(u.actions)%int(u.trait.p.every)==0: u.remaining=maxf(0,u.remaining-10000)
 			PersonalRules.turn_end(self,u); TraitRules.turn_end(self,u)
 			if gear_bridge!=null: gear_bridge.invoke("turn_end",[gear_bridge.slot(u)])
@@ -1282,7 +1290,7 @@ func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,cove
 	if dungeon_enemy_r21!=null and not fixed and not e.is_empty(): _record_hit(e.id,a.id,damage,absorbed)
 	# Lua al stays true during save hooks, even after lethal HP becomes zero.
 	var save_owners=data.allies.filter(func(member): return member.hp>0)
-	if a.hp-damage+absorbed<=0 and has_alive("felice") and a.id!="felice": x(a).death_tick=ctb_tick
+	if a.hp-damage+absorbed<=0 and has_alive("felice"): PersonalRules.felice_save(self,ally("felice"),a)
 	a.shield-=absorbed; damage-=absorbed; a.hp=maxi(0,a.hp-damage)
 	if absorbed>0 and a.shield==0: a.effects.erase("shield")
 	var echo_broken=absorbed>0 and a.shield==0

@@ -1,6 +1,17 @@
 extends RefCounted
 ## 30-engine / 32-personal-a/b canonical personal-skill eligibility.
 const DOUBLE_KEYS=["attack_up","defense_up","contract","duty"]
+static func has_magic(e: Dictionary) -> bool:
+	if e.get("magic",false):return true
+	for act in e.get("acts",[]):
+		if act.get("magic",false) or act.get("ic","")=="spell":return true
+	return false
+static func casting(e: Dictionary) -> bool:
+	var acts=e.get("acts",[]);var index=int(e.get("act_index",0))
+	if index<0 or index>=acts.size():return false
+	return acts[index].get("ic","") in ["spell","weaken","summon"] or acts[index].get("kind","") in ["spell","weaken","summon"]
+static func isweak(e: Dictionary,element: Variant) -> bool:
+	return element is String and element in e.get("weak",[])
 static func best_double(u: Dictionary) -> String:
 	var key=""; var amount=-INF
 	for k in DOUBLE_KEYS:
@@ -20,14 +31,12 @@ static func can(b,a: Dictionary) -> bool:
 		"colette":
 			for e in b.living(false):
 				if b.x(e).get("seal_until",0)>b.ctb_tick: continue
-				if e.get("magic",false): return true
-				for act in e.acts:
-					if act.get("magic",false) or act.get("ic","")=="spell": return true
+				if has_magic(e):return true
 			return false
 	return true
 
 static func abyss(b,a,e,amount: float,element: String="") -> void:
-	var value=amount*(1.5 if (a.element if element.is_empty() else element) in e.weak else 1)
+	var value=amount*(1.5 if isweak(e,a.element if element.is_empty() else element) else 1)
 	if a.id=="levia": value*=levia_mult(b)
 	if b.gear_bridge!=null:
 		var modified=b.gear_bridge.invoke("abyss_mul",[b.gear_bridge.slot(a),b.gear_bridge.slot(e),value]); value=modified if modified!=null else value
@@ -40,18 +49,53 @@ static func abyss(b,a,e,amount: float,element: String="") -> void:
 			if other.id!=e.id: b._break(other,floor(value*.07+.5))
 
 static func levia_mult(b) -> float:
-	var n=b.data.encounter_r21.enc.fl.size(); var alive=b.living(false).size()
+	var n=b.initial_enemy_count(); var alive=b.living(false).size()
 	return 1.3 if alive<=1 or n<=1 else 1+.3*float(n-alive)/(n-1)
 
-static func corrode(b,a,e,add: int) -> void:
-	var stacks=mini(3,int(b.x(e).get("cor",0) if e.effects.has("corrosion") else 0)+add)
+static func cor_live(b,e) -> int:
+	var state=b.extra_state.get(e.id)
+	if not state is Dictionary:return 0
+	if e.effects.has("corrosion"):return int(state.get("cor",0))
+	state.cor=0
+	return 0
+static func defense_constant(b) -> float:
+	return b.data.get("combat_K",b.BattleStats.K_of(b.data.encounter_r21.get("el",40),b.data.formula,b.data.def_curve))
+static func corrode(b,a,e,add: int=1) -> Array:
+	var stacks=mini(3,cor_live(b,e)+add)
 	b.x(e).cor=stacks
-	var n=int(b.data.encounter_r21.el)-1
-	var k=40*(1+b.data.def_curve.a*n+b.data.def_curve.b*n*n)
+	var k=defense_constant(b)
 	var dc=k/(k+e.defense*(1-b.fx(e,"defense_down")))
-	b._effect(e,"corrosion",2,maxf(1,floor(a.base[a.line]*2*1.5*(1-(1-dc)/2)))*stacks)
+	var per=maxf(1,floor(a.base[a.line]*2*1.5*(1-(1-dc)/2)+1e-9))
+	b._effect(e,"corrosion",2,per*stacks)
 	e.effects.corrosion.by=a.id
 	e.effects.corrosion.order=b._next_dot_order()
+	return [stacks,per]
+
+static func gunhild_deal(b,owner,a,e,m: float,tags: Array):
+	if a.id!=owner.id:return null
+	var x=b.x(owner)
+	if x.get("streak_action",-1)!=b.turn_count+1:
+		x.streak_action=b.turn_count+1;x.streak=x.get("streak",0)+1 if x.get("target")==e.id else 0;x.target=e.id
+	if x.get("target")!=e.id:return null
+	var bonus=minf(.5,.05*x.get("streak",0))
+	if bonus<=0:return null
+	tags.append("선택과 집중 +%d%%"%b.CombatDisplay.percent(bonus))
+	return m*(1+bonus)
+
+static func bargut_turn_end(b,owner,a) -> void:
+	if owner.id!=a.id:return
+	var p=b.x(owner).get("personal_pull",0)
+	if p<=0:return
+	b.x(owner).personal_pull=0;owner.remaining=maxf(0,owner.remaining-10000*p)
+
+static func felice_save(b,owner,target):
+	if owner.id!=target.id:b.x(target).death_tick=b.ctb_tick
+	return null
+
+static func drop_caster_buffs(b,caster) -> void:
+	for u in b.data.allies:
+		for key in ["contract","adeline_guard"]:
+			if u.effects.get(key,{}).get("source","")==caster.id:u.effects.erase(key)
 
 static func run(b,a,e,t,sk) -> void:
 	match a.id:
@@ -101,8 +145,7 @@ static func run(b,a,e,t,sk) -> void:
 			for u in b.living(true): atk=atk or u.effects.has("attack_up"); defense=defense or u.effects.has("defense_up")
 			for u in b.living(true): b._effect(u,"defense_up" if atk and not defense else "attack_up",2,.15)
 		"colette":
-			var magic=e.get("magic",false)
-			for act in e.acts: magic=magic or act.get("magic",false) or act.get("ic","")=="spell"
+			var magic=has_magic(e)
 			abyss(b,a,e,15)
 			if magic and (e.grade!="boss" or b._roll(.5)): b.x(e).seal_until=b.ctb_tick+200
 			weaken_all(b)

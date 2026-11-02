@@ -15,10 +15,11 @@ for name in tests:
  if selected and name not in selected:continue
  if name.startswith('cloud_') or name in ['ui_cloud_r22_test','town_combat_r21_round14_test','town_r21_round11_test']:
   request={'id':str(uuid.uuid4()),'archive':name=='cloud_archive_r22_test'}
-  (O.parent/'cloud-control.json').write_text(json.dumps(request),encoding='utf-8')
+  control=os.environ.get('R23_CLOUD_CONTROL','cloud-control')
+  (O.parent/(control+'.json')).write_text(json.dumps(request),encoding='utf-8')
   ready=False
   for _ in range(100):
-   result_file=O.parent/'cloud-control-result.json'
+   result_file=O.parent/(control+'-result.json')
    try:response=json.loads(result_file.read_text(encoding='utf-8'))
    except (FileNotFoundError,json.JSONDecodeError):response={}
    if response.get('id')==request['id']:

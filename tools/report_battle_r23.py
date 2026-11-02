@@ -7,6 +7,10 @@ from pathlib import Path
 from collections import Counter
 import json,hashlib,re,sys
 R=Path(__file__).resolve().parents[1];O=R/'verification/parity-r23'
+if (O/'batch-latest.json').exists():
+ import runpy
+ runpy.run_path(str(R/'tools/report_battle_r23_batch.py'),run_name='__main__')
+ sys.exit(0)
 read=lambda n:json.loads((O/n).read_text(encoding='utf-8'))
 baseline=read('battle-baseline.json');coverage=read('coverage.json');cov={r['id']:r for r in coverage['rows']}
 equal={
