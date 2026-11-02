@@ -17,6 +17,7 @@ func begin(b,id: String,a: Dictionary,e: Dictionary,t: Dictionary) -> void:
 		T+=1.9 if a.id in ["levia","marceline","naran","teiris"] else 1.4
 func body_spec() -> Array:
 	var id=context.id; var owner=context.owner
+	if id=="defend": return ["def",-1,1.0,"none"]
 	if id=="personal":
 		if owner=="haldric" and context.row.is_empty(): return ["def",-1,1.4,"none"]
 		return {

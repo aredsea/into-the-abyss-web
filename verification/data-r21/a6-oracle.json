@@ -18,2292 +18,272 @@
     "40-fx.lua",
     "50-render.lua"
   ],
+  "mp": [
+    {
+      "mp": 5,
+      "hp": 0,
+      "n": 0,
+      "cur": 2
+    }
+  ],
   "walls": [
     {
       "hp": 930
     }
   ],
-  "events": [
-    {
-      "input": {
-        "kind": "enemy",
-        "act": {
-          "enemy": "apprentice_doll",
-          "count": 1,
-          "turns": 2,
-          "name": "test",
-          "stat": "atk",
-          "amount": 0.2,
-          "kind": "guard",
-          "m": 1,
-          "tick": 0.3
-        },
-        "id": "guard",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "edef",
-          "targets": [],
-          "a": 5,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.35
-    },
-    {
-      "input": {
-        "kind": "enemy",
-        "act": {
-          "enemy": "apprentice_doll",
-          "count": 1,
-          "turns": 2,
-          "name": "test",
-          "stat": "atk",
-          "amount": 0.2,
-          "kind": "buff",
-          "m": 1,
-          "tick": 0.3
-        },
-        "id": "buff",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "ebuff",
-          "targets": [
-            5
-          ],
-          "a": 5,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.35
-    },
-    {
-      "input": {
-        "kind": "enemy",
-        "act": {
-          "enemy": "apprentice_doll",
-          "count": 1,
-          "turns": 2,
-          "name": "test",
-          "stat": "atk",
-          "amount": 0.2,
-          "kind": "debuff",
-          "m": 1,
-          "tick": 0.3
-        },
-        "id": "debuff",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "edeb",
-          "targets": [
-            1
-          ],
-          "a": 5,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.45
-    },
-    {
-      "input": {
-        "kind": "enemy",
-        "act": {
-          "enemy": "apprentice_doll",
-          "count": 1,
-          "turns": 2,
-          "name": "test",
-          "stat": "atk",
-          "amount": 0.2,
-          "kind": "heal",
-          "m": 1,
-          "tick": 0.3
-        },
-        "id": "heal",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "eheal",
-          "targets": [
-            6
-          ],
-          "a": 5,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.45
-    },
-    {
-      "input": {
-        "kind": "enemy",
-        "act": {
-          "enemy": "apprentice_doll",
-          "count": 1,
-          "turns": 2,
-          "name": "test",
-          "stat": "atk",
-          "amount": 0.2,
-          "kind": "heal",
-          "m": 1,
-          "tick": 0.3
-        },
-        "id": "heal_full",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "edef",
-          "targets": [],
-          "a": 5,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.15
-    },
-    {
-      "input": {
-        "kind": "enemy",
-        "act": {
-          "enemy": "apprentice_doll",
-          "count": 1,
-          "turns": 2,
-          "name": "test",
-          "stat": "atk",
-          "amount": 0.2,
-          "kind": "protect",
-          "m": 1,
-          "tick": 0.3
-        },
-        "id": "protect",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "edef",
-          "targets": [],
-          "a": 5,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.35
-    },
-    {
-      "input": {
-        "kind": "enemy",
-        "act": {
-          "enemy": "apprentice_doll",
-          "count": 1,
-          "turns": 2,
-          "name": "test",
-          "stat": "atk",
-          "amount": 0.2,
-          "kind": "charge",
-          "m": 1,
-          "tick": 0.3
-        },
-        "id": "charge",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "echg",
-          "targets": [],
-          "a": 5,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.55
-    },
-    {
-      "input": {
-        "kind": "enemy",
-        "act": {
-          "enemy": "apprentice_doll",
-          "count": 1,
-          "turns": 2,
-          "name": "test",
-          "stat": "atk",
-          "amount": 0.2,
-          "kind": "dot",
-          "m": 1,
-          "tick": 0.3
-        },
-        "id": "dot",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "edeb",
-          "targets": [
-            1
-          ],
-          "a": 5,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.45
-    },
-    {
-      "input": {
-        "kind": "enemy",
-        "act": {
-          "enemy": "apprentice_doll",
-          "count": 1,
-          "turns": 2,
-          "name": "test",
-          "stat": "atk",
-          "amount": 0.2,
-          "kind": "special",
-          "m": 1,
-          "tick": 0.3
-        },
-        "id": "special",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "edef",
-          "targets": [],
-          "a": 5,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.15
-    },
-    {
-      "input": {
-        "kind": "enemy",
-        "act": {
-          "enemy": "apprentice_doll",
-          "count": 1,
-          "turns": 2,
-          "name": "test",
-          "stat": "atk",
-          "amount": 0.2,
-          "kind": "atk",
-          "m": 1,
-          "tick": 0.3
-        },
-        "id": "atk",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "eatk",
-          "targets": [
-            1
-          ],
-          "a": 5,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.55
-    },
-    {
-      "input": {
-        "kind": "enemy",
-        "act": {
-          "enemy": "apprentice_doll",
-          "count": 1,
-          "turns": 2,
-          "name": "test",
-          "stat": "atk",
-          "amount": 0.2,
-          "kind": "atk",
-          "all": true,
-          "m": 1,
-          "tick": 0.3
-        },
-        "id": "all",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "eall",
-          "targets": [
-            1,
-            2,
-            3,
-            4
-          ],
-          "a": 5,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 2.05
-    },
-    {
-      "input": {
-        "kind": "enemy",
-        "act": {
-          "enemy": "apprentice_doll",
-          "count": 1,
-          "turns": 2,
-          "name": "test",
-          "stat": "atk",
-          "amount": 0.2,
-          "kind": "summon",
-          "m": 1,
-          "tick": 0.3
-        },
-        "id": "summon",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "esum",
-          "targets": [],
-          "a": 5,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.65
-    },
-    {
-      "input": {
-        "kind": "class",
-        "id": "atk",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "atk",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": 0.6,
-          "t": 0.15
-        }
-      ],
-      "T": 1.45
-    },
-    {
-      "input": {
-        "kind": "class",
-        "id": "df",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "def",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.15
-    },
-    {
-      "input": {
-        "kind": "class",
-        "id": "guard2",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "def",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.15
-    },
-    {
-      "input": {
-        "kind": "class",
-        "id": "taunt",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "taunt",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 2.05
-    },
-    {
-      "input": {
-        "kind": "class",
-        "id": "shield",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "shield",
-          "targets": [
-            1,
-            2,
-            3,
-            4
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 2.95
-    },
-    {
-      "input": {
-        "kind": "class",
-        "id": "pshield",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "shield",
-          "targets": [
-            1,
-            2,
-            3,
-            4
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 2.95
-    },
-    {
-      "input": {
-        "kind": "class",
-        "id": "snipe",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "snipe",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": 1.15,
-          "t": 0.15
-        }
-      ],
-      "T": 2.05
-    },
-    {
-      "input": {
-        "kind": "class",
-        "id": "burst",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "chg",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 2.15
-    },
-    {
-      "input": {
-        "kind": "class",
-        "id": "ruin",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "wave",
-          "targets": [
-            5,
-            6
-          ],
-          "a": 1,
-          "ht": 0.75,
-          "t": 0.15
-        }
-      ],
-      "T": 2.15
-    },
-    {
-      "input": {
-        "kind": "class",
-        "id": "bless",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "shield",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.75
-    },
-    {
-      "input": {
-        "kind": "class",
-        "id": "heal",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "shield",
-          "targets": [
-            1,
-            2,
-            3,
-            4
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.95
-    },
-    {
-      "input": {
-        "kind": "class",
-        "id": "defdn",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "mark",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.65
-    },
-    {
-      "input": {
-        "kind": "class",
-        "id": "tonic",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "def",
-          "targets": [],
-          "a": 2,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.45
-    },
-    {
-      "input": {
-        "kind": "class",
-        "id": "blood",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "rev",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.35
-    },
-    {
-      "input": {
-        "kind": "class",
-        "id": "rift",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "atk",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": 0.65,
-          "t": 0.15
-        }
-      ],
-      "T": 1.75
-    },
-    {
-      "input": {
-        "kind": "class",
-        "id": "wave",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "wave",
-          "targets": [
-            5,
-            6
-          ],
-          "a": 1,
-          "ht": 0.75,
-          "t": 0.15
-        }
-      ],
-      "T": 2.15
-    },
-    {
-      "input": {
-        "kind": "class",
-        "id": "release",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "burst",
-          "targets": [
-            5,
-            6
-          ],
-          "a": 1,
-          "ht": 2.6,
-          "t": 0.15
-        }
-      ],
-      "T": 4.05
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "levia",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "rev",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 2.05
-        }
-      ],
-      "T": 3.25
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "marceline",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "oath",
-          "targets": [
-            2
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 2.05
-        }
-      ],
-      "T": 3.65
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "naran",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "mark",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 2.05
-        }
-      ],
-      "T": 3.75
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "teiris",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "burst",
-          "targets": [
-            5,
-            6
-          ],
-          "a": 1,
-          "ht": 4.5,
-          "t": 2.05
-        }
-      ],
-      "T": 5.95
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "haldric",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "oath",
-          "targets": [
-            3
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 1.55
-        }
-      ],
-      "T": 2.95
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "erdene",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "taunt",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 1.55
-        }
-      ],
-      "T": 3.45
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "bianca",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "atk",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": 2.05,
-          "t": 1.55
-        }
-      ],
-      "T": 3.05
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "saya",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "mark",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 1.55
-        }
-      ],
-      "T": 3.25
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "gerda",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "atk",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": 2.35,
-          "t": 1.55
-        },
-        {
-          "k": "atk",
-          "targets": [
-            6
-          ],
-          "a": 1,
-          "ht": 3.55,
-          "t": 3.05
-        }
-      ],
-      "T": 4.55
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "judith",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "mark",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 1.55
-        }
-      ],
-      "T": 3.25
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "urda",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "oath",
-          "targets": [
-            2
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 1.55
-        }
-      ],
-      "T": 3.15
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "lynette",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "shield",
-          "targets": [
-            1,
-            2,
-            3,
-            4
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 1.55
-        }
-      ],
-      "T": 4.35
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "sorel",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "shield",
-          "targets": [
-            1,
-            2,
-            3,
-            4
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 1.55
-        }
-      ],
-      "T": 3.95
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "tika",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "rev",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 1.55
-        }
-      ],
-      "T": 2.75
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "hedwig",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "atk",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": 2.35,
-          "t": 1.55
-        }
-      ],
-      "T": 3.25
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "hildegard",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "taunt",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 1.55
-        }
-      ],
-      "T": 3.45
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "felice",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "shield",
-          "targets": [
-            2
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 1.55
-        }
-      ],
-      "T": 3.35
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "selva",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "atk",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": 2,
-          "t": 1.55
-        },
-        {
-          "k": "trait",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 2.3
-        }
-      ],
-      "T": 2.95
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "gunhild",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "atk",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": 2.05,
-          "t": 1.55
-        }
-      ],
-      "T": 3.05
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "jorund",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "atk",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": 2,
-          "t": 1.55
-        },
-        {
-          "k": "trait",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 2.3
-        }
-      ],
-      "T": 2.95
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "bargut",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "atk",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": 2,
-          "t": 1.55
-        }
-      ],
-      "T": 2.95
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "berenga",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "shield",
-          "targets": [
-            2
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 1.55
-        }
-      ],
-      "T": 3.35
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "altan",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "shield",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 1.55
-        }
-      ],
-      "T": 3.15
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "colette",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "trait",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 2.45
-        },
-        {
-          "k": "mark",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 1.55
-        }
-      ],
-      "T": 3.25
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "ornel",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "atk",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": 2.15,
-          "t": 1.55
-        }
-      ],
-      "T": 3.05
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "zahar",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "wave",
-          "targets": [
-            5,
-            6
-          ],
-          "a": 1,
-          "ht": 2.15,
-          "t": 1.55
-        }
-      ],
-      "T": 3.55
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "tove",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "taunt",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 1.55
-        }
-      ],
-      "T": 3.45
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "miko",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "shield",
-          "targets": [
-            2
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 1.55
-        }
-      ],
-      "T": 3.35
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "adeline",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "shield",
-          "targets": [
-            1,
-            2,
-            3,
-            4
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 1.55
-        }
-      ],
-      "T": 3.35
-    },
-    {
-      "input": {
-        "kind": "personal",
-        "id": "lavinia",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "cut",
-          "targets": [],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "atk",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": 2.05,
-          "t": 1.55
-        }
-      ],
-      "T": 3.05
-    },
-    {
-      "input": {
-        "kind": "item",
-        "id": "hp_s",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "item",
-          "targets": [
-            2
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.55
-    },
-    {
-      "input": {
-        "kind": "item",
-        "id": "mp_s",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "item",
-          "targets": [
-            2
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.55
-    },
-    {
-      "input": {
-        "kind": "item",
-        "id": "sh_s",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "item",
-          "targets": [
-            2
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.55
-    },
-    {
-      "input": {
-        "kind": "item",
-        "id": "antidote",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "item",
-          "targets": [
-            2
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.55
-    },
-    {
-      "input": {
-        "kind": "item",
-        "id": "bandage",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "item",
-          "targets": [
-            2
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.55
-    },
-    {
-      "input": {
-        "kind": "boundary",
-        "id": "deplete",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "deplete",
-          "targets": [],
-          "a": 5,
-          "ht": -1,
-          "t": 0.35
-        }
-      ],
-      "T": 0.15
-    },
-    {
-      "input": {
-        "kind": "boundary",
-        "id": "recover",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "recover",
-          "targets": [],
-          "a": 5,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.35
-    },
-    {
-      "input": {
-        "kind": "boundary",
-        "id": "cancel",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "recover",
-          "targets": [],
-          "a": 5,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "ecut",
-          "targets": [],
-          "a": 5,
-          "ht": -1,
-          "t": 1.35
-        }
-      ],
-      "T": 1.35
-    },
-    {
-      "input": {
-        "kind": "boundary",
-        "id": "adot",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "adot",
-          "targets": [
-            1
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.05
-    },
-    {
-      "input": {
-        "kind": "boundary",
-        "id": "end",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "end",
-          "targets": [],
-          "a": 0,
-          "ht": -1,
-          "t": 0.45
-        }
-      ],
-      "T": 0.15
-    },
-    {
-      "input": {
-        "kind": "boundary",
-        "id": "phase",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "후열"
-        ]
-      },
-      "events": [
-        {
-          "k": "phase",
-          "targets": [],
-          "a": 5,
-          "ht": -1,
-          "t": 0.15
-        }
-      ],
-      "T": 1.35
-    },
-    {
-      "input": {
-        "kind": "batch",
-        "id": "charge_enemy_release_recover",
-        "rows": [
-          "후열",
-          "전열",
-          "후열",
-          "후열",
-          "전열",
-          "전열"
-        ]
-      },
-      "events": [
-        {
-          "k": "chg",
-          "targets": [
-            5
-          ],
-          "a": 1,
-          "ht": -1,
-          "t": 0.15
-        },
-        {
-          "k": "echg",
-          "targets": [],
-          "a": 5,
-          "ht": -1,
-          "t": 2.15
-        },
-        {
-          "k": "burst",
-          "targets": [
-            5,
-            6
-          ],
-          "a": 1,
-          "ht": 6,
-          "t": 3.55
-        },
-        {
-          "k": "recover",
-          "targets": [],
-          "a": 5,
-          "ht": -1,
-          "t": 7.45
-        }
-      ],
-      "T": 8.65
-    }
-  ],
-  "ruin": [
-    {
-      "hp": 9880,
-      "chain": false,
-      "count": 1,
-      "step": 1,
-      "amount": 100
-    },
-    {
-      "hp": 9760,
-      "chain": false,
-      "count": 2,
-      "step": 2,
-      "amount": 200
-    },
-    {
-      "hp": 9640,
-      "chain": false,
-      "count": 3,
-      "step": 3,
-      "amount": 300
-    },
-    {
-      "hp": 9880,
-      "chain": true,
-      "count": 1,
-      "step": 1,
-      "amount": 100
-    },
-    {
-      "hp": 9760,
-      "chain": true,
-      "count": 2,
-      "step": 2,
-      "amount": 200
-    },
-    {
-      "hp": 8560,
-      "chain": true,
-      "count": 0,
-      "step": 3,
-      "amount": 0
+  "supplies": [
+    {
+      "mp": 0,
+      "seed": 20268926,
+      "humans": 0,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 0,
+      "hp": 751,
+      "shield": 0,
+      "id": "hp_s"
+    },
+    {
+      "mp": 0,
+      "seed": 20268926,
+      "humans": 0,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 2,
+      "hp": 776,
+      "shield": 0,
+      "id": "hp_s"
+    },
+    {
+      "mp": 0,
+      "seed": 20268926,
+      "humans": 3,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 0,
+      "hp": 776,
+      "shield": 0,
+      "id": "hp_s"
+    },
+    {
+      "mp": 0,
+      "seed": 20268926,
+      "humans": 3,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 2,
+      "hp": 804,
+      "shield": 0,
+      "id": "hp_s"
+    },
+    {
+      "mp": 15,
+      "seed": 20268926,
+      "humans": 0,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 0,
+      "hp": 500,
+      "shield": 0,
+      "id": "mp_s"
+    },
+    {
+      "mp": 17,
+      "seed": 20268926,
+      "humans": 0,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 2,
+      "hp": 500,
+      "shield": 0,
+      "id": "mp_s"
+    },
+    {
+      "mp": 15,
+      "seed": 20268926,
+      "humans": 3,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 0,
+      "hp": 500,
+      "shield": 0,
+      "id": "mp_s"
+    },
+    {
+      "mp": 17,
+      "seed": 20268926,
+      "humans": 3,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 2,
+      "hp": 500,
+      "shield": 0,
+      "id": "mp_s"
+    },
+    {
+      "mp": 0,
+      "seed": 20268926,
+      "humans": 0,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 0,
+      "hp": 500,
+      "shield": 180,
+      "id": "sh_s"
+    },
+    {
+      "mp": 0,
+      "seed": 20268926,
+      "humans": 0,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 2,
+      "hp": 500,
+      "shield": 198,
+      "id": "sh_s"
+    },
+    {
+      "mp": 0,
+      "seed": 20268926,
+      "humans": 3,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 0,
+      "hp": 500,
+      "shield": 180,
+      "id": "sh_s"
+    },
+    {
+      "mp": 0,
+      "seed": 20268926,
+      "humans": 3,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 2,
+      "hp": 500,
+      "shield": 198,
+      "id": "sh_s"
+    },
+    {
+      "mp": 0,
+      "seed": 20268926,
+      "humans": 0,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 0,
+      "hp": 250,
+      "shield": 0,
+      "id": "bandage"
+    },
+    {
+      "mp": 0,
+      "seed": 20268926,
+      "humans": 0,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 2,
+      "hp": 250,
+      "shield": 0,
+      "id": "bandage"
+    },
+    {
+      "mp": 0,
+      "seed": 20268926,
+      "humans": 3,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 0,
+      "hp": 250,
+      "shield": 0,
+      "id": "bandage"
+    },
+    {
+      "mp": 0,
+      "seed": 20268926,
+      "humans": 3,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 2,
+      "hp": 250,
+      "shield": 0,
+      "id": "bandage"
+    },
+    {
+      "mp": 0,
+      "seed": 20268926,
+      "humans": 0,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 0,
+      "hp": 500,
+      "shield": 0,
+      "id": "antidote"
+    },
+    {
+      "mp": 0,
+      "seed": 20268926,
+      "humans": 0,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 2,
+      "hp": 500,
+      "shield": 0,
+      "id": "antidote"
+    },
+    {
+      "mp": 0,
+      "seed": 20268926,
+      "humans": 3,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 0,
+      "hp": 500,
+      "shield": 0,
+      "id": "antidote"
+    },
+    {
+      "mp": 0,
+      "seed": 20268926,
+      "humans": 3,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 2,
+      "hp": 500,
+      "shield": 0,
+      "id": "antidote"
+    },
+    {
+      "mp": 0,
+      "solen": true,
+      "seed": 20268926,
+      "humans": 0,
+      "g": 10000,
+      "rng": 628337697,
+      "clean": true,
+      "marento": 0,
+      "hp": 500,
+      "shield": 185,
+      "id": "sh_s"
     }
   ],
   "effects": [
@@ -2348,732 +328,21 @@
       "left": 0
     }
   ],
-  "dots": [
+  "scar": [
     {
-      "hp": 9970,
-      "burst": false,
-      "count": 2,
-      "n": 1,
-      "amount": 30
+      "scar": 50,
+      "fixed": false,
+      "hp": 0
     },
     {
-      "hp": 9940,
-      "burst": false,
-      "count": 1,
-      "n": 2,
-      "amount": 20
-    },
-    {
-      "hp": 9920,
-      "burst": false,
-      "count": 0,
-      "n": 3,
-      "amount": 0
-    },
-    {
-      "hp": 9920,
-      "burst": false,
-      "count": 0,
-      "n": 4,
-      "amount": 0
-    },
-    {
-      "hp": 9970,
-      "burst": true,
-      "count": 2,
-      "n": 1,
-      "amount": 30
-    },
-    {
-      "hp": 9930,
-      "burst": true,
-      "count": 1,
-      "n": 2,
-      "amount": 20
-    },
-    {
-      "hp": 9910,
-      "burst": true,
-      "count": 0,
-      "n": 3,
-      "amount": 0
-    },
-    {
-      "hp": 9910,
-      "burst": true,
-      "count": 0,
-      "n": 4,
-      "amount": 0
-    },
-    {
-      "morgas": true,
-      "amount": 30,
-      "count": 1,
-      "hp": 9967
+      "scar": 50,
+      "fixed": true,
+      "hp": 0
     }
   ],
   "ruin_kill": [
     {
       "count": 0
-    }
-  ],
-  "scar": [
-    {
-      "hp": 0,
-      "scar": 50,
-      "fixed": false
-    },
-    {
-      "hp": 0,
-      "scar": 50,
-      "fixed": true
-    }
-  ],
-  "regen": [
-    {
-      "hp": 180,
-      "n": 1,
-      "left": [
-        2
-      ]
-    },
-    {
-      "hp": 196,
-      "n": 2,
-      "left": [
-        1
-      ]
-    },
-    {
-      "hp": 292,
-      "n": 3,
-      "left": [
-        2
-      ]
-    },
-    {
-      "hp": 308,
-      "n": 4,
-      "left": [
-        1
-      ]
-    },
-    {
-      "hp": 324,
-      "n": 5,
-      "left": []
-    },
-    {
-      "hp": 324,
-      "n": 6,
-      "left": []
-    }
-  ],
-  "round": [
-    {
-      "speed": 98.9,
-      "rd": 0,
-      "kind": "judith",
-      "slow": true,
-      "sp": 86,
-      "repeat_cast": false
-    },
-    {
-      "speed": 98.9,
-      "rd": 1,
-      "kind": "judith",
-      "slow": true,
-      "sp": 86,
-      "repeat_cast": false
-    },
-    {
-      "speed": 98.9,
-      "rd": 2,
-      "kind": "judith",
-      "slow": true,
-      "sp": 86,
-      "repeat_cast": false
-    },
-    {
-      "speed": 116.15,
-      "rd": 3,
-      "kind": "judith",
-      "slow": false,
-      "sp": 101,
-      "repeat_cast": false
-    },
-    {
-      "speed": 116.15,
-      "rd": 4,
-      "kind": "judith",
-      "slow": false,
-      "sp": 101,
-      "repeat_cast": false
-    },
-    {
-      "speed": 116.15,
-      "rd": 5,
-      "kind": "judith",
-      "slow": false,
-      "sp": 101,
-      "repeat_cast": false
-    },
-    {
-      "speed": 98.9,
-      "rd": 0,
-      "kind": "judith",
-      "slow": true,
-      "sp": 86,
-      "repeat_cast": true
-    },
-    {
-      "speed": 98.9,
-      "rd": 1,
-      "kind": "judith",
-      "slow": true,
-      "sp": 86,
-      "repeat_cast": true
-    },
-    {
-      "speed": 98.9,
-      "rd": 2,
-      "kind": "judith",
-      "slow": true,
-      "sp": 86,
-      "repeat_cast": true
-    },
-    {
-      "speed": 98.9,
-      "rd": 3,
-      "kind": "judith",
-      "slow": true,
-      "sp": 86,
-      "repeat_cast": true
-    },
-    {
-      "speed": 116.15,
-      "rd": 4,
-      "kind": "judith",
-      "slow": false,
-      "sp": 101,
-      "repeat_cast": true
-    },
-    {
-      "speed": 116.15,
-      "rd": 5,
-      "kind": "judith",
-      "slow": false,
-      "sp": 101,
-      "repeat_cast": true
-    },
-    {
-      "dead_owner": false,
-      "left": 1,
-      "kind": "persona",
-      "n": 1,
-      "hp": 531
-    },
-    {
-      "dead_owner": false,
-      "left": 0,
-      "kind": "persona",
-      "n": 2,
-      "hp": 562
-    },
-    {
-      "dead_owner": false,
-      "left": 0,
-      "kind": "persona",
-      "n": 3,
-      "hp": 562
-    },
-    {
-      "dead_owner": true,
-      "left": 2,
-      "kind": "persona",
-      "n": 1,
-      "hp": 500
-    },
-    {
-      "dead_owner": true,
-      "left": 2,
-      "kind": "persona",
-      "n": 2,
-      "hp": 500
-    },
-    {
-      "dead_owner": true,
-      "left": 2,
-      "kind": "persona",
-      "n": 3,
-      "hp": 500
-    },
-    {
-      "hp": 250,
-      "elapsed": 0,
-      "kind": "felice",
-      "used": 1,
-      "gauge": 0,
-      "g": -1
-    },
-    {
-      "hp": 250,
-      "elapsed": 1,
-      "kind": "felice",
-      "used": 1,
-      "gauge": 0,
-      "g": -1
-    },
-    {
-      "hp": 250,
-      "elapsed": 2,
-      "kind": "felice",
-      "used": 1,
-      "gauge": 0,
-      "g": -1
-    },
-    {
-      "hp": 250,
-      "elapsed": 90,
-      "kind": "felice",
-      "used": 1,
-      "gauge": 0,
-      "g": -1
-    },
-    {
-      "hp": 250,
-      "elapsed": 0,
-      "kind": "felice",
-      "used": 1,
-      "gauge": 0,
-      "g": 0
-    },
-    {
-      "hp": 250,
-      "elapsed": 1,
-      "kind": "felice",
-      "used": 1,
-      "gauge": 0,
-      "g": 0
-    },
-    {
-      "hp": 250,
-      "elapsed": 2,
-      "kind": "felice",
-      "used": 1,
-      "gauge": 0,
-      "g": 0
-    },
-    {
-      "hp": 250,
-      "elapsed": 90,
-      "kind": "felice",
-      "used": 1,
-      "gauge": 0,
-      "g": 0
-    },
-    {
-      "hp": 0,
-      "elapsed": 0,
-      "kind": "felice",
-      "used": 0,
-      "gauge": 1,
-      "g": 1
-    },
-    {
-      "hp": 250,
-      "elapsed": 1,
-      "kind": "felice",
-      "used": 1,
-      "gauge": 0,
-      "g": 1
-    },
-    {
-      "hp": 250,
-      "elapsed": 2,
-      "kind": "felice",
-      "used": 1,
-      "gauge": 0,
-      "g": 1
-    },
-    {
-      "hp": 250,
-      "elapsed": 90,
-      "kind": "felice",
-      "used": 1,
-      "gauge": 0,
-      "g": 1
-    },
-    {
-      "hp": 0,
-      "elapsed": 0,
-      "kind": "felice",
-      "used": 0,
-      "gauge": 100,
-      "g": 100
-    },
-    {
-      "hp": 250,
-      "elapsed": 1,
-      "kind": "felice",
-      "used": 1,
-      "gauge": 0,
-      "g": 100
-    },
-    {
-      "hp": 250,
-      "elapsed": 2,
-      "kind": "felice",
-      "used": 1,
-      "gauge": 0,
-      "g": 100
-    },
-    {
-      "hp": 250,
-      "elapsed": 90,
-      "kind": "felice",
-      "used": 1,
-      "gauge": 0,
-      "g": 100
-    },
-    {
-      "hp": 0,
-      "elapsed": 0,
-      "kind": "felice",
-      "used": 0,
-      "gauge": 101,
-      "g": 101
-    },
-    {
-      "hp": 0,
-      "elapsed": 1,
-      "kind": "felice",
-      "used": 0,
-      "gauge": 101,
-      "g": 101
-    },
-    {
-      "hp": 250,
-      "elapsed": 2,
-      "kind": "felice",
-      "used": 1,
-      "gauge": 0,
-      "g": 101
-    },
-    {
-      "hp": 250,
-      "elapsed": 90,
-      "kind": "felice",
-      "used": 1,
-      "gauge": 0,
-      "g": 101
-    },
-    {
-      "hp": 0,
-      "elapsed": 0,
-      "kind": "felice",
-      "used": 0,
-      "gauge": 9000,
-      "g": 9000
-    },
-    {
-      "hp": 0,
-      "elapsed": 1,
-      "kind": "felice",
-      "used": 0,
-      "gauge": 9000,
-      "g": 9000
-    },
-    {
-      "hp": 0,
-      "elapsed": 2,
-      "kind": "felice",
-      "used": 0,
-      "gauge": 9000,
-      "g": 9000
-    },
-    {
-      "hp": 250,
-      "elapsed": 90,
-      "kind": "felice",
-      "used": 1,
-      "gauge": 0,
-      "g": 9000
-    },
-    {
-      "kind": "wall",
-      "n": 0,
-      "left": 2
-    },
-    {
-      "kind": "wall",
-      "n": 1,
-      "left": 1
-    },
-    {
-      "kind": "wall",
-      "n": 2,
-      "left": 0
-    },
-    {
-      "kind": "wall",
-      "n": 3,
-      "left": 0
-    }
-  ],
-  "supplies": [
-    {
-      "id": "hp_s",
-      "g": 10000,
-      "shield": 0,
-      "hp": 751,
-      "humans": 0,
-      "rng": 628337697,
-      "marento": 0,
-      "mp": 0,
-      "clean": true,
-      "seed": 20268926
-    },
-    {
-      "id": "hp_s",
-      "g": 10000,
-      "shield": 0,
-      "hp": 776,
-      "humans": 0,
-      "rng": 628337697,
-      "marento": 2,
-      "mp": 0,
-      "clean": true,
-      "seed": 20268926
-    },
-    {
-      "id": "hp_s",
-      "g": 10000,
-      "shield": 0,
-      "hp": 776,
-      "humans": 3,
-      "rng": 628337697,
-      "marento": 0,
-      "mp": 0,
-      "clean": true,
-      "seed": 20268926
-    },
-    {
-      "id": "hp_s",
-      "g": 10000,
-      "shield": 0,
-      "hp": 804,
-      "humans": 3,
-      "rng": 628337697,
-      "marento": 2,
-      "mp": 0,
-      "clean": true,
-      "seed": 20268926
-    },
-    {
-      "id": "mp_s",
-      "g": 10000,
-      "shield": 0,
-      "hp": 500,
-      "humans": 0,
-      "rng": 628337697,
-      "marento": 0,
-      "mp": 15,
-      "clean": true,
-      "seed": 20268926
-    },
-    {
-      "id": "mp_s",
-      "g": 10000,
-      "shield": 0,
-      "hp": 500,
-      "humans": 0,
-      "rng": 628337697,
-      "marento": 2,
-      "mp": 17,
-      "clean": true,
-      "seed": 20268926
-    },
-    {
-      "id": "mp_s",
-      "g": 10000,
-      "shield": 0,
-      "hp": 500,
-      "humans": 3,
-      "rng": 628337697,
-      "marento": 0,
-      "mp": 15,
-      "clean": true,
-      "seed": 20268926
-    },
-    {
-      "id": "mp_s",
-      "g": 10000,
-      "shield": 0,
-      "hp": 500,
-      "humans": 3,
-      "rng": 628337697,
-      "marento": 2,
-      "mp": 17,
-      "clean": true,
-      "seed": 20268926
-    },
-    {
-      "id": "sh_s",
-      "g": 10000,
-      "shield": 180,
-      "hp": 500,
-      "humans": 0,
-      "rng": 628337697,
-      "marento": 0,
-      "mp": 0,
-      "clean": true,
-      "seed": 20268926
-    },
-    {
-      "id": "sh_s",
-      "g": 10000,
-      "shield": 198,
-      "hp": 500,
-      "humans": 0,
-      "rng": 628337697,
-      "marento": 2,
-      "mp": 0,
-      "clean": true,
-      "seed": 20268926
-    },
-    {
-      "id": "sh_s",
-      "g": 10000,
-      "shield": 180,
-      "hp": 500,
-      "humans": 3,
-      "rng": 628337697,
-      "marento": 0,
-      "mp": 0,
-      "clean": true,
-      "seed": 20268926
-    },
-    {
-      "id": "sh_s",
-      "g": 10000,
-      "shield": 198,
-      "hp": 500,
-      "humans": 3,
-      "rng": 628337697,
-      "marento": 2,
-      "mp": 0,
-      "clean": true,
-      "seed": 20268926
-    },
-    {
-      "id": "bandage",
-      "g": 10000,
-      "shield": 0,
-      "hp": 250,
-      "humans": 0,
-      "rng": 628337697,
-      "marento": 0,
-      "mp": 0,
-      "clean": true,
-      "seed": 20268926
-    },
-    {
-      "id": "bandage",
-      "g": 10000,
-      "shield": 0,
-      "hp": 250,
-      "humans": 0,
-      "rng": 628337697,
-      "marento": 2,
-      "mp": 0,
-      "clean": true,
-      "seed": 20268926
-    },
-    {
-      "id": "bandage",
-      "g": 10000,
-      "shield": 0,
-      "hp": 250,
-      "humans": 3,
-      "rng": 628337697,
-      "marento": 0,
-      "mp": 0,
-      "clean": true,
-      "seed": 20268926
-    },
-    {
-      "id": "bandage",
-      "g": 10000,
-      "shield": 0,
-      "hp": 250,
-      "humans": 3,
-      "rng": 628337697,
-      "marento": 2,
-      "mp": 0,
-      "clean": true,
-      "seed": 20268926
-    },
-    {
-      "id": "antidote",
-      "g": 10000,
-      "shield": 0,
-      "hp": 500,
-      "humans": 0,
-      "rng": 628337697,
-      "marento": 0,
-      "mp": 0,
-      "clean": true,
-      "seed": 20268926
-    },
-    {
-      "id": "antidote",
-      "g": 10000,
-      "shield": 0,
-      "hp": 500,
-      "humans": 0,
-      "rng": 628337697,
-      "marento": 2,
-      "mp": 0,
-      "clean": true,
-      "seed": 20268926
-    },
-    {
-      "id": "antidote",
-      "g": 10000,
-      "shield": 0,
-      "hp": 500,
-      "humans": 3,
-      "rng": 628337697,
-      "marento": 0,
-      "mp": 0,
-      "clean": true,
-      "seed": 20268926
-    },
-    {
-      "id": "antidote",
-      "g": 10000,
-      "shield": 0,
-      "hp": 500,
-      "humans": 3,
-      "rng": 628337697,
-      "marento": 2,
-      "mp": 0,
-      "clean": true,
-      "seed": 20268926
-    },
-    {
-      "id": "sh_s",
-      "g": 10000,
-      "shield": 185,
-      "hp": 500,
-      "rng": 628337697,
-      "humans": 0,
-      "clean": true,
-      "marento": 0,
-      "mp": 0,
-      "seed": 20268926,
-      "solen": true
     }
   ],
   "display": [
@@ -3093,36 +362,36 @@
         }
       ],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
-        "t": 0.15,
-        "k": "atk",
-        "win": 1,
-        "ht": 0.6,
         "el": "fire",
-        "d": 10
+        "a": 1,
+        "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
+        "k": "atk",
+        "d": 10,
+        "win": 1
       }
     },
     {
@@ -3141,36 +410,36 @@
         }
       ],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
-        "t": 0.15,
-        "k": "snipe",
-        "win": 1,
-        "ht": 0.6,
         "el": "fire",
-        "d": 10
+        "a": 1,
+        "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
+        "k": "snipe",
+        "d": 10,
+        "win": 1
       }
     },
     {
@@ -3197,36 +466,36 @@
         }
       ],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
-        "t": 0.15,
-        "k": "wave",
-        "win": 1,
-        "ht": 0.6,
         "el": "fire",
-        "d": 10
+        "a": 1,
+        "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
+        "k": "wave",
+        "d": 10,
+        "win": 1
       }
     },
     {
@@ -3253,36 +522,36 @@
         }
       ],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
-        "t": 0.15,
-        "k": "burst",
-        "win": 1,
-        "ht": 0.6,
         "el": "fire",
-        "d": 10
+        "a": 1,
+        "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
+        "k": "burst",
+        "d": 10,
+        "win": 1
       }
     },
     {
@@ -3297,36 +566,36 @@
         }
       ],
       "event": {
-        "nm": "test",
-        "a": 5,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 1,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 2,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 2,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
-        "t": 0.15,
-        "k": "eatk",
-        "win": 1,
-        "ht": 0.6,
         "el": "fire",
-        "d": 10
+        "a": 5,
+        "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
+        "k": "eatk",
+        "d": 10,
+        "win": 1
       }
     },
     {
@@ -3345,36 +614,36 @@
         }
       ],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
-        "t": 0.15,
-        "k": "shield",
-        "win": 1,
-        "ht": 0.6,
         "el": "fire",
-        "d": 10
+        "a": 1,
+        "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
+        "k": "shield",
+        "d": 10,
+        "win": 1
       }
     },
     {
@@ -3385,36 +654,36 @@
         }
       ],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
-        "t": 0.15,
-        "k": "taunt",
-        "win": 1,
-        "ht": 0.6,
         "el": "fire",
-        "d": 10
+        "a": 1,
+        "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
+        "k": "taunt",
+        "d": 10,
+        "win": 1
       }
     },
     {
@@ -3425,36 +694,36 @@
         }
       ],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
+        "el": "fire",
+        "a": 1,
         "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
         "k": "def",
-        "win": 1,
-        "ht": 0.6,
-        "el": "fire",
-        "d": 10
+        "d": 10,
+        "win": 1
       }
     },
     {
@@ -3465,36 +734,36 @@
         }
       ],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
+        "el": "fire",
+        "a": 1,
         "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
         "k": "oath",
-        "win": 1,
-        "ht": 0.6,
-        "el": "fire",
-        "d": 10
+        "d": 10,
+        "win": 1
       }
     },
     {
@@ -3505,36 +774,36 @@
         }
       ],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
-        "t": 0.15,
-        "k": "mark",
-        "win": 1,
-        "ht": 0.6,
         "el": "fire",
-        "d": 10
+        "a": 1,
+        "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
+        "k": "mark",
+        "d": 10,
+        "win": 1
       }
     },
     {
@@ -3549,36 +818,36 @@
         }
       ],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
-        "t": 0.15,
-        "k": "rev",
-        "win": 1,
-        "ht": 0.6,
         "el": "fire",
-        "d": 10
+        "a": 1,
+        "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
+        "k": "rev",
+        "d": 10,
+        "win": 1
       }
     },
     {
@@ -3593,36 +862,36 @@
         }
       ],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
-        "t": 0.15,
-        "k": "chg",
-        "win": 1,
-        "ht": 0.6,
         "el": "fire",
-        "d": 10
+        "a": 1,
+        "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
+        "k": "chg",
+        "d": 10,
+        "win": 1
       }
     },
     {
@@ -3633,106 +902,106 @@
         }
       ],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
+        "el": "fire",
+        "a": 1,
         "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
         "k": "cut",
-        "win": 1,
-        "ht": 0.6,
-        "el": "fire",
-        "d": 10
+        "d": 10,
+        "win": 1
       }
     },
     {
       "observed": [],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
+        "el": "fire",
+        "a": 1,
         "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
         "k": "trait",
-        "win": 1,
-        "ht": 0.6,
-        "el": "fire",
-        "d": 10
+        "d": 10,
+        "win": 1
       }
     },
     {
       "observed": [],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
-        "t": 0.15,
-        "k": "deplete",
-        "win": 1,
-        "ht": 0.6,
         "el": "fire",
-        "d": 10
+        "a": 1,
+        "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
+        "k": "deplete",
+        "d": 10,
+        "win": 1
       }
     },
     {
@@ -3743,106 +1012,106 @@
         }
       ],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
+        "el": "fire",
+        "a": 1,
         "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
         "k": "recover",
-        "win": 1,
-        "ht": 0.6,
-        "el": "fire",
-        "d": 10
+        "d": 10,
+        "win": 1
       }
     },
     {
       "observed": [],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
+        "el": "fire",
+        "a": 1,
         "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
         "k": "edef",
-        "win": 1,
-        "ht": 0.6,
-        "el": "fire",
-        "d": 10
+        "d": 10,
+        "win": 1
       }
     },
     {
       "observed": [],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
-        "t": 0.15,
-        "k": "ebuff",
-        "win": 1,
-        "ht": 0.6,
         "el": "fire",
-        "d": 10
+        "a": 1,
+        "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
+        "k": "ebuff",
+        "d": 10,
+        "win": 1
       }
     },
     {
@@ -3865,36 +1134,36 @@
         }
       ],
       "event": {
-        "nm": "test",
-        "a": 5,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 1,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 2,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
+        "el": "fire",
+        "a": 5,
         "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
         "k": "eall",
-        "win": 1,
-        "ht": 0.6,
-        "el": "fire",
-        "d": 10
+        "d": 10,
+        "win": 1
       }
     },
     {
@@ -3909,36 +1178,36 @@
         }
       ],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
+        "el": "fire",
+        "a": 1,
         "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
         "k": "edeb",
-        "win": 1,
-        "ht": 0.6,
-        "el": "fire",
-        "d": 10
+        "d": 10,
+        "win": 1
       }
     },
     {
@@ -3953,36 +1222,36 @@
         }
       ],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
-        "t": 0.15,
-        "k": "eheal",
-        "win": 1,
-        "ht": 0.6,
         "el": "fire",
-        "d": 10
+        "a": 1,
+        "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
+        "k": "eheal",
+        "d": 10,
+        "win": 1
       }
     },
     {
@@ -4001,106 +1270,106 @@
         }
       ],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
+        "el": "fire",
+        "a": 1,
         "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
         "k": "item",
-        "win": 1,
-        "ht": 0.6,
-        "el": "fire",
-        "d": 10
+        "d": 10,
+        "win": 1
       }
     },
     {
       "observed": [],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
+        "el": "fire",
+        "a": 1,
         "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
         "k": "esum",
-        "win": 1,
-        "ht": 0.6,
-        "el": "fire",
-        "d": 10
+        "d": 10,
+        "win": 1
       }
     },
     {
       "observed": [],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
-        "t": 0.15,
-        "k": "echg",
-        "win": 1,
-        "ht": 0.6,
         "el": "fire",
-        "d": 10
+        "a": 1,
+        "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
+        "k": "echg",
+        "d": 10,
+        "win": 1
       }
     },
     {
@@ -4111,71 +1380,71 @@
         }
       ],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
-        "t": 0.15,
-        "k": "ecut",
-        "win": 1,
-        "ht": 0.6,
         "el": "fire",
-        "d": 10
+        "a": 1,
+        "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
+        "k": "ecut",
+        "d": 10,
+        "win": 1
       }
     },
     {
       "observed": [],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
-        "t": 0.15,
-        "k": "phase",
-        "win": 1,
-        "ht": 0.6,
         "el": "fire",
-        "d": 10
+        "a": 1,
+        "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
+        "k": "phase",
+        "d": 10,
+        "win": 1
       }
     },
     {
@@ -4190,86 +1459,2455 @@
         }
       ],
       "event": {
-        "nm": "test",
-        "a": 5,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 1,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 2,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 2,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
-        "t": 0.15,
-        "k": "adot",
-        "win": 1,
-        "ht": 0.6,
         "el": "fire",
-        "d": 10
+        "a": 5,
+        "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
+        "k": "adot",
+        "d": 10,
+        "win": 1
       }
     },
     {
       "observed": [],
       "event": {
-        "nm": "test",
-        "a": 1,
         "tg": [
           {
-            "c": 0,
             "sh": 0,
+            "f": "hp",
+            "tags": [],
             "i": 5,
             "ab": 0,
-            "kill": 0,
-            "f": "hp",
-            "tags": [],
-            "d": 10
+            "c": 0,
+            "d": 10,
+            "kill": 0
           },
           {
-            "c": 0,
             "sh": 0,
-            "i": 6,
-            "ab": 0,
-            "kill": 0,
             "f": "hp",
             "tags": [],
-            "d": 10
+            "i": 6,
+            "ab": 0,
+            "c": 0,
+            "d": 10,
+            "kill": 0
           }
         ],
-        "t": 0.15,
-        "k": "end",
-        "win": 1,
-        "ht": 0.6,
         "el": "fire",
-        "d": 10
+        "a": 1,
+        "t": 0.15,
+        "ht": 0.6,
+        "nm": "test",
+        "k": "end",
+        "d": 10,
+        "win": 1
       }
     }
   ],
-  "order": [
+  "events": [
     {
-      "hp": 350,
-      "rescue": 0,
-      "stood": false,
-      "fixed": false
+      "input": {
+        "kind": "enemy",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "act": {
+          "name": "test",
+          "enemy": "apprentice_doll",
+          "kind": "guard",
+          "stat": "atk",
+          "amount": 0.2,
+          "count": 1,
+          "tick": 0.3,
+          "turns": 2,
+          "m": 1
+        },
+        "id": "guard"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 5,
+          "k": "edef",
+          "t": 0.15,
+          "targets": []
+        }
+      ],
+      "T": 1.35
     },
     {
-      "hp": 350,
-      "rescue": 0,
-      "stood": false,
-      "fixed": true
+      "input": {
+        "kind": "enemy",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "act": {
+          "name": "test",
+          "enemy": "apprentice_doll",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.2,
+          "count": 1,
+          "tick": 0.3,
+          "turns": 2,
+          "m": 1
+        },
+        "id": "buff"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 5,
+          "k": "ebuff",
+          "t": 0.15,
+          "targets": [
+            5
+          ]
+        }
+      ],
+      "T": 1.35
+    },
+    {
+      "input": {
+        "kind": "enemy",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "act": {
+          "name": "test",
+          "enemy": "apprentice_doll",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.2,
+          "count": 1,
+          "tick": 0.3,
+          "turns": 2,
+          "m": 1
+        },
+        "id": "debuff"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 5,
+          "k": "edeb",
+          "t": 0.15,
+          "targets": [
+            1
+          ]
+        }
+      ],
+      "T": 1.45
+    },
+    {
+      "input": {
+        "kind": "enemy",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "act": {
+          "name": "test",
+          "enemy": "apprentice_doll",
+          "kind": "heal",
+          "stat": "atk",
+          "amount": 0.2,
+          "count": 1,
+          "tick": 0.3,
+          "turns": 2,
+          "m": 1
+        },
+        "id": "heal"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 5,
+          "k": "eheal",
+          "t": 0.15,
+          "targets": [
+            6
+          ]
+        }
+      ],
+      "T": 1.45
+    },
+    {
+      "input": {
+        "kind": "enemy",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "act": {
+          "name": "test",
+          "enemy": "apprentice_doll",
+          "kind": "heal",
+          "stat": "atk",
+          "amount": 0.2,
+          "count": 1,
+          "tick": 0.3,
+          "turns": 2,
+          "m": 1
+        },
+        "id": "heal_full"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 5,
+          "k": "edef",
+          "t": 0.15,
+          "targets": []
+        }
+      ],
+      "T": 1.15
+    },
+    {
+      "input": {
+        "kind": "enemy",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "act": {
+          "name": "test",
+          "enemy": "apprentice_doll",
+          "kind": "protect",
+          "stat": "atk",
+          "amount": 0.2,
+          "count": 1,
+          "tick": 0.3,
+          "turns": 2,
+          "m": 1
+        },
+        "id": "protect"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 5,
+          "k": "edef",
+          "t": 0.15,
+          "targets": []
+        }
+      ],
+      "T": 1.35
+    },
+    {
+      "input": {
+        "kind": "enemy",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "act": {
+          "name": "test",
+          "enemy": "apprentice_doll",
+          "kind": "charge",
+          "stat": "atk",
+          "amount": 0.2,
+          "count": 1,
+          "tick": 0.3,
+          "turns": 2,
+          "m": 1
+        },
+        "id": "charge"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 5,
+          "k": "echg",
+          "t": 0.15,
+          "targets": []
+        }
+      ],
+      "T": 1.55
+    },
+    {
+      "input": {
+        "kind": "enemy",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "act": {
+          "name": "test",
+          "enemy": "apprentice_doll",
+          "kind": "dot",
+          "stat": "atk",
+          "amount": 0.2,
+          "count": 1,
+          "tick": 0.3,
+          "turns": 2,
+          "m": 1
+        },
+        "id": "dot"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 5,
+          "k": "edeb",
+          "t": 0.15,
+          "targets": [
+            1
+          ]
+        }
+      ],
+      "T": 1.45
+    },
+    {
+      "input": {
+        "kind": "enemy",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "act": {
+          "name": "test",
+          "enemy": "apprentice_doll",
+          "kind": "special",
+          "stat": "atk",
+          "amount": 0.2,
+          "count": 1,
+          "tick": 0.3,
+          "turns": 2,
+          "m": 1
+        },
+        "id": "special"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 5,
+          "k": "edef",
+          "t": 0.15,
+          "targets": []
+        }
+      ],
+      "T": 1.15
+    },
+    {
+      "input": {
+        "kind": "enemy",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "act": {
+          "name": "test",
+          "enemy": "apprentice_doll",
+          "kind": "atk",
+          "stat": "atk",
+          "amount": 0.2,
+          "count": 1,
+          "tick": 0.3,
+          "turns": 2,
+          "m": 1
+        },
+        "id": "atk"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 5,
+          "k": "eatk",
+          "t": 0.15,
+          "targets": [
+            1
+          ]
+        }
+      ],
+      "T": 1.55
+    },
+    {
+      "input": {
+        "kind": "enemy",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "act": {
+          "name": "test",
+          "enemy": "apprentice_doll",
+          "kind": "atk",
+          "all": true,
+          "stat": "atk",
+          "amount": 0.2,
+          "count": 1,
+          "tick": 0.3,
+          "turns": 2,
+          "m": 1
+        },
+        "id": "all"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 5,
+          "k": "eall",
+          "t": 0.15,
+          "targets": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "T": 2.05
+    },
+    {
+      "input": {
+        "kind": "enemy",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "act": {
+          "name": "test",
+          "enemy": "apprentice_doll",
+          "kind": "summon",
+          "stat": "atk",
+          "amount": 0.2,
+          "count": 1,
+          "tick": 0.3,
+          "turns": 2,
+          "m": 1
+        },
+        "id": "summon"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 5,
+          "k": "esum",
+          "t": 0.15,
+          "targets": []
+        }
+      ],
+      "T": 1.65
+    },
+    {
+      "input": {
+        "kind": "class",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "atk"
+      },
+      "events": [
+        {
+          "ht": 0.6,
+          "a": 1,
+          "k": "atk",
+          "t": 0.15,
+          "targets": [
+            5
+          ]
+        }
+      ],
+      "T": 1.45
+    },
+    {
+      "input": {
+        "kind": "class",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "df"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "def",
+          "t": 0.15,
+          "targets": []
+        }
+      ],
+      "T": 1.15
+    },
+    {
+      "input": {
+        "kind": "class",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "guard2"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "def",
+          "t": 0.15,
+          "targets": []
+        }
+      ],
+      "T": 1.15
+    },
+    {
+      "input": {
+        "kind": "class",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "taunt"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "taunt",
+          "t": 0.15,
+          "targets": [
+            5
+          ]
+        }
+      ],
+      "T": 2.05
+    },
+    {
+      "input": {
+        "kind": "class",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "shield"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "shield",
+          "t": 0.15,
+          "targets": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "T": 2.95
+    },
+    {
+      "input": {
+        "kind": "class",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "pshield"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "shield",
+          "t": 0.15,
+          "targets": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "T": 2.95
+    },
+    {
+      "input": {
+        "kind": "class",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "snipe"
+      },
+      "events": [
+        {
+          "ht": 1.15,
+          "a": 1,
+          "k": "snipe",
+          "t": 0.15,
+          "targets": [
+            5
+          ]
+        }
+      ],
+      "T": 2.05
+    },
+    {
+      "input": {
+        "kind": "class",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "burst"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "chg",
+          "t": 0.15,
+          "targets": [
+            5
+          ]
+        }
+      ],
+      "T": 2.15
+    },
+    {
+      "input": {
+        "kind": "class",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "ruin"
+      },
+      "events": [
+        {
+          "ht": 0.75,
+          "a": 1,
+          "k": "wave",
+          "t": 0.15,
+          "targets": [
+            5,
+            6
+          ]
+        }
+      ],
+      "T": 2.15
+    },
+    {
+      "input": {
+        "kind": "class",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "bless"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "shield",
+          "t": 0.15,
+          "targets": []
+        }
+      ],
+      "T": 1.75
+    },
+    {
+      "input": {
+        "kind": "class",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "heal"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "shield",
+          "t": 0.15,
+          "targets": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "T": 1.95
+    },
+    {
+      "input": {
+        "kind": "class",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "defdn"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "mark",
+          "t": 0.15,
+          "targets": [
+            5
+          ]
+        }
+      ],
+      "T": 1.65
+    },
+    {
+      "input": {
+        "kind": "class",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "tonic"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 2,
+          "k": "def",
+          "t": 0.15,
+          "targets": []
+        }
+      ],
+      "T": 1.45
+    },
+    {
+      "input": {
+        "kind": "class",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "blood"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "rev",
+          "t": 0.15,
+          "targets": []
+        }
+      ],
+      "T": 1.35
+    },
+    {
+      "input": {
+        "kind": "class",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "rift"
+      },
+      "events": [
+        {
+          "ht": 0.65,
+          "a": 1,
+          "k": "atk",
+          "t": 0.15,
+          "targets": [
+            5
+          ]
+        }
+      ],
+      "T": 1.75
+    },
+    {
+      "input": {
+        "kind": "class",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "wave"
+      },
+      "events": [
+        {
+          "ht": 0.75,
+          "a": 1,
+          "k": "wave",
+          "t": 0.15,
+          "targets": [
+            5,
+            6
+          ]
+        }
+      ],
+      "T": 2.15
+    },
+    {
+      "input": {
+        "kind": "class",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "release"
+      },
+      "events": [
+        {
+          "ht": 2.6,
+          "a": 1,
+          "k": "burst",
+          "t": 0.15,
+          "targets": [
+            5,
+            6
+          ]
+        }
+      ],
+      "T": 4.05
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "levia"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "rev",
+          "t": 2.05,
+          "targets": []
+        }
+      ],
+      "T": 3.25
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "marceline"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "oath",
+          "t": 2.05,
+          "targets": [
+            2
+          ]
+        }
+      ],
+      "T": 3.65
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "naran"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "mark",
+          "t": 2.05,
+          "targets": [
+            5
+          ]
+        }
+      ],
+      "T": 3.75
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "teiris"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": 4.5,
+          "a": 1,
+          "k": "burst",
+          "t": 2.05,
+          "targets": [
+            5,
+            6
+          ]
+        }
+      ],
+      "T": 5.95
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "haldric"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "oath",
+          "t": 1.55,
+          "targets": [
+            3
+          ]
+        }
+      ],
+      "T": 2.95
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "erdene"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "taunt",
+          "t": 1.55,
+          "targets": [
+            5
+          ]
+        }
+      ],
+      "T": 3.45
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "bianca"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": 2.05,
+          "a": 1,
+          "k": "atk",
+          "t": 1.55,
+          "targets": [
+            5
+          ]
+        }
+      ],
+      "T": 3.05
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "saya"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "mark",
+          "t": 1.55,
+          "targets": [
+            5
+          ]
+        }
+      ],
+      "T": 3.25
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "gerda"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": 2.35,
+          "a": 1,
+          "k": "atk",
+          "t": 1.55,
+          "targets": [
+            5
+          ]
+        },
+        {
+          "ht": 3.55,
+          "a": 1,
+          "k": "atk",
+          "t": 3.05,
+          "targets": [
+            6
+          ]
+        }
+      ],
+      "T": 4.55
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "judith"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "mark",
+          "t": 1.55,
+          "targets": [
+            5
+          ]
+        }
+      ],
+      "T": 3.25
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "urda"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "oath",
+          "t": 1.55,
+          "targets": [
+            2
+          ]
+        }
+      ],
+      "T": 3.15
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "lynette"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "shield",
+          "t": 1.55,
+          "targets": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "T": 4.35
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "sorel"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "shield",
+          "t": 1.55,
+          "targets": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "T": 3.95
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "tika"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "rev",
+          "t": 1.55,
+          "targets": []
+        }
+      ],
+      "T": 2.75
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "hedwig"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": 2.35,
+          "a": 1,
+          "k": "atk",
+          "t": 1.55,
+          "targets": [
+            5
+          ]
+        }
+      ],
+      "T": 3.25
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "hildegard"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "taunt",
+          "t": 1.55,
+          "targets": [
+            5
+          ]
+        }
+      ],
+      "T": 3.45
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "felice"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "shield",
+          "t": 1.55,
+          "targets": [
+            2
+          ]
+        }
+      ],
+      "T": 3.35
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "selva"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": 2,
+          "a": 1,
+          "k": "atk",
+          "t": 1.55,
+          "targets": [
+            5
+          ]
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "trait",
+          "t": 2.3,
+          "targets": []
+        }
+      ],
+      "T": 2.95
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "gunhild"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": 2.05,
+          "a": 1,
+          "k": "atk",
+          "t": 1.55,
+          "targets": [
+            5
+          ]
+        }
+      ],
+      "T": 3.05
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "jorund"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": 2,
+          "a": 1,
+          "k": "atk",
+          "t": 1.55,
+          "targets": [
+            5
+          ]
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "trait",
+          "t": 2.3,
+          "targets": []
+        }
+      ],
+      "T": 2.95
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "bargut"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": 2,
+          "a": 1,
+          "k": "atk",
+          "t": 1.55,
+          "targets": [
+            5
+          ]
+        }
+      ],
+      "T": 2.95
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "berenga"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "shield",
+          "t": 1.55,
+          "targets": [
+            2
+          ]
+        }
+      ],
+      "T": 3.35
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "altan"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "shield",
+          "t": 1.55,
+          "targets": []
+        }
+      ],
+      "T": 3.15
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "colette"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "trait",
+          "t": 2.45,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "mark",
+          "t": 1.55,
+          "targets": [
+            5
+          ]
+        }
+      ],
+      "T": 3.25
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "ornel"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": 2.15,
+          "a": 1,
+          "k": "atk",
+          "t": 1.55,
+          "targets": [
+            5
+          ]
+        }
+      ],
+      "T": 3.05
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "zahar"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": 2.15,
+          "a": 1,
+          "k": "wave",
+          "t": 1.55,
+          "targets": [
+            5,
+            6
+          ]
+        }
+      ],
+      "T": 3.55
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "tove"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "taunt",
+          "t": 1.55,
+          "targets": [
+            5
+          ]
+        }
+      ],
+      "T": 3.45
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "miko"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "shield",
+          "t": 1.55,
+          "targets": [
+            2
+          ]
+        }
+      ],
+      "T": 3.35
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "adeline"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "shield",
+          "t": 1.55,
+          "targets": [
+            1,
+            2,
+            3,
+            4
+          ]
+        }
+      ],
+      "T": 3.35
+    },
+    {
+      "input": {
+        "kind": "personal",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "start_rng": 768653046,
+        "id": "lavinia"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "cut",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": 2.05,
+          "a": 1,
+          "k": "atk",
+          "t": 1.55,
+          "targets": [
+            5
+          ]
+        }
+      ],
+      "T": 3.05
+    },
+    {
+      "input": {
+        "kind": "item",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "hp_s"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "item",
+          "t": 0.15,
+          "targets": [
+            2
+          ]
+        }
+      ],
+      "T": 1.55
+    },
+    {
+      "input": {
+        "kind": "item",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "mp_s"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "item",
+          "t": 0.15,
+          "targets": [
+            2
+          ]
+        }
+      ],
+      "T": 1.55
+    },
+    {
+      "input": {
+        "kind": "item",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "sh_s"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "item",
+          "t": 0.15,
+          "targets": [
+            2
+          ]
+        }
+      ],
+      "T": 1.55
+    },
+    {
+      "input": {
+        "kind": "item",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "antidote"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "item",
+          "t": 0.15,
+          "targets": [
+            2
+          ]
+        }
+      ],
+      "T": 1.55
+    },
+    {
+      "input": {
+        "kind": "item",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "bandage"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "item",
+          "t": 0.15,
+          "targets": [
+            2
+          ]
+        }
+      ],
+      "T": 1.55
+    },
+    {
+      "input": {
+        "kind": "boundary",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "deplete"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 5,
+          "k": "deplete",
+          "t": 0.35,
+          "targets": []
+        }
+      ],
+      "T": 0.15
+    },
+    {
+      "input": {
+        "kind": "boundary",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "recover"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 5,
+          "k": "recover",
+          "t": 0.15,
+          "targets": []
+        }
+      ],
+      "T": 1.35
+    },
+    {
+      "input": {
+        "kind": "boundary",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "cancel"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 5,
+          "k": "recover",
+          "t": 0.15,
+          "targets": []
+        },
+        {
+          "ht": -1,
+          "a": 5,
+          "k": "ecut",
+          "t": 1.35,
+          "targets": []
+        }
+      ],
+      "T": 1.35
+    },
+    {
+      "input": {
+        "kind": "boundary",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "adot"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "adot",
+          "t": 0.15,
+          "targets": [
+            1
+          ]
+        }
+      ],
+      "T": 1.05
+    },
+    {
+      "input": {
+        "kind": "boundary",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "end"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 0,
+          "k": "end",
+          "t": 0.45,
+          "targets": []
+        }
+      ],
+      "T": 0.15
+    },
+    {
+      "input": {
+        "kind": "boundary",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "후열"
+        ],
+        "id": "phase"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 5,
+          "k": "phase",
+          "t": 0.15,
+          "targets": []
+        }
+      ],
+      "T": 1.35
+    },
+    {
+      "input": {
+        "kind": "batch",
+        "rows": [
+          "후열",
+          "전열",
+          "후열",
+          "후열",
+          "전열",
+          "전열"
+        ],
+        "id": "charge_enemy_release_recover"
+      },
+      "events": [
+        {
+          "ht": -1,
+          "a": 1,
+          "k": "chg",
+          "t": 0.15,
+          "targets": [
+            5
+          ]
+        },
+        {
+          "ht": -1,
+          "a": 5,
+          "k": "echg",
+          "t": 2.15,
+          "targets": []
+        },
+        {
+          "ht": 6,
+          "a": 1,
+          "k": "burst",
+          "t": 3.55,
+          "targets": [
+            5,
+            6
+          ]
+        },
+        {
+          "ht": -1,
+          "a": 5,
+          "k": "recover",
+          "t": 7.45,
+          "targets": []
+        }
+      ],
+      "T": 8.65
+    }
+  ],
+  "migration": [
+    {
+      "count": 5,
+      "amount": 120
+    }
+  ],
+  "dots": [
+    {
+      "n": 1,
+      "amount": 30,
+      "burst": false,
+      "count": 2,
+      "hp": 9970
+    },
+    {
+      "n": 2,
+      "amount": 20,
+      "burst": false,
+      "count": 1,
+      "hp": 9940
+    },
+    {
+      "n": 3,
+      "amount": 0,
+      "burst": false,
+      "count": 0,
+      "hp": 9920
+    },
+    {
+      "n": 4,
+      "amount": 0,
+      "burst": false,
+      "count": 0,
+      "hp": 9920
+    },
+    {
+      "n": 1,
+      "amount": 30,
+      "burst": true,
+      "count": 2,
+      "hp": 9970
+    },
+    {
+      "n": 2,
+      "amount": 20,
+      "burst": true,
+      "count": 1,
+      "hp": 9930
+    },
+    {
+      "n": 3,
+      "amount": 0,
+      "burst": true,
+      "count": 0,
+      "hp": 9910
+    },
+    {
+      "n": 4,
+      "amount": 0,
+      "burst": true,
+      "count": 0,
+      "hp": 9910
+    },
+    {
+      "count": 1,
+      "hp": 9967,
+      "morgas": true,
+      "amount": 30
+    }
+  ],
+  "ruin": [
+    {
+      "step": 1,
+      "amount": 100,
+      "chain": false,
+      "count": 1,
+      "hp": 9880
+    },
+    {
+      "step": 2,
+      "amount": 200,
+      "chain": false,
+      "count": 2,
+      "hp": 9760
+    },
+    {
+      "step": 3,
+      "amount": 300,
+      "chain": false,
+      "count": 3,
+      "hp": 9640
+    },
+    {
+      "step": 1,
+      "amount": 100,
+      "chain": true,
+      "count": 1,
+      "hp": 9880
+    },
+    {
+      "step": 2,
+      "amount": 200,
+      "chain": true,
+      "count": 2,
+      "hp": 9760
+    },
+    {
+      "step": 3,
+      "amount": 0,
+      "chain": true,
+      "count": 0,
+      "hp": 8560
     }
   ],
   "chips": [
@@ -4542,20 +4180,6 @@
       ]
     }
   ],
-  "mp": [
-    {
-      "hp": 0,
-      "mp": 5,
-      "n": 0,
-      "cur": 2
-    }
-  ],
-  "migration": [
-    {
-      "count": 5,
-      "amount": 120
-    }
-  ],
   "delays": [
     {
       "boss": false,
@@ -4564,6 +4188,412 @@
     {
       "boss": true,
       "g": 11250
+    }
+  ],
+  "regen": [
+    {
+      "n": 1,
+      "hp": 180,
+      "left": [
+        2
+      ]
+    },
+    {
+      "n": 2,
+      "hp": 196,
+      "left": [
+        1
+      ]
+    },
+    {
+      "n": 3,
+      "hp": 292,
+      "left": [
+        2
+      ]
+    },
+    {
+      "n": 4,
+      "hp": 308,
+      "left": [
+        1
+      ]
+    },
+    {
+      "n": 5,
+      "hp": 324,
+      "left": []
+    },
+    {
+      "n": 6,
+      "hp": 324,
+      "left": []
+    }
+  ],
+  "order": [
+    {
+      "rescue": 0,
+      "fixed": false,
+      "hp": 350,
+      "stood": false
+    },
+    {
+      "rescue": 0,
+      "fixed": true,
+      "hp": 350,
+      "stood": false
+    }
+  ],
+  "round": [
+    {
+      "slow": true,
+      "speed": 98.9,
+      "kind": "judith",
+      "sp": 86,
+      "repeat_cast": false,
+      "rd": 0
+    },
+    {
+      "slow": true,
+      "speed": 98.9,
+      "kind": "judith",
+      "sp": 86,
+      "repeat_cast": false,
+      "rd": 1
+    },
+    {
+      "slow": true,
+      "speed": 98.9,
+      "kind": "judith",
+      "sp": 86,
+      "repeat_cast": false,
+      "rd": 2
+    },
+    {
+      "slow": false,
+      "speed": 116.15,
+      "kind": "judith",
+      "sp": 101,
+      "repeat_cast": false,
+      "rd": 3
+    },
+    {
+      "slow": false,
+      "speed": 116.15,
+      "kind": "judith",
+      "sp": 101,
+      "repeat_cast": false,
+      "rd": 4
+    },
+    {
+      "slow": false,
+      "speed": 116.15,
+      "kind": "judith",
+      "sp": 101,
+      "repeat_cast": false,
+      "rd": 5
+    },
+    {
+      "slow": true,
+      "speed": 98.9,
+      "kind": "judith",
+      "sp": 86,
+      "repeat_cast": true,
+      "rd": 0
+    },
+    {
+      "slow": true,
+      "speed": 98.9,
+      "kind": "judith",
+      "sp": 86,
+      "repeat_cast": true,
+      "rd": 1
+    },
+    {
+      "slow": true,
+      "speed": 98.9,
+      "kind": "judith",
+      "sp": 86,
+      "repeat_cast": true,
+      "rd": 2
+    },
+    {
+      "slow": true,
+      "speed": 98.9,
+      "kind": "judith",
+      "sp": 86,
+      "repeat_cast": true,
+      "rd": 3
+    },
+    {
+      "slow": false,
+      "speed": 116.15,
+      "kind": "judith",
+      "sp": 101,
+      "repeat_cast": true,
+      "rd": 4
+    },
+    {
+      "slow": false,
+      "speed": 116.15,
+      "kind": "judith",
+      "sp": 101,
+      "repeat_cast": true,
+      "rd": 5
+    },
+    {
+      "n": 1,
+      "kind": "persona",
+      "hp": 531,
+      "left": 1,
+      "dead_owner": false
+    },
+    {
+      "n": 2,
+      "kind": "persona",
+      "hp": 562,
+      "left": 0,
+      "dead_owner": false
+    },
+    {
+      "n": 3,
+      "kind": "persona",
+      "hp": 562,
+      "left": 0,
+      "dead_owner": false
+    },
+    {
+      "n": 1,
+      "kind": "persona",
+      "hp": 500,
+      "left": 2,
+      "dead_owner": true
+    },
+    {
+      "n": 2,
+      "kind": "persona",
+      "hp": 500,
+      "left": 2,
+      "dead_owner": true
+    },
+    {
+      "n": 3,
+      "kind": "persona",
+      "hp": 500,
+      "left": 2,
+      "dead_owner": true
+    },
+    {
+      "g": -1,
+      "used": 1,
+      "kind": "felice",
+      "hp": 250,
+      "gauge": 0,
+      "elapsed": 0
+    },
+    {
+      "g": -1,
+      "used": 1,
+      "kind": "felice",
+      "hp": 250,
+      "gauge": 0,
+      "elapsed": 1
+    },
+    {
+      "g": -1,
+      "used": 1,
+      "kind": "felice",
+      "hp": 250,
+      "gauge": 0,
+      "elapsed": 2
+    },
+    {
+      "g": -1,
+      "used": 1,
+      "kind": "felice",
+      "hp": 250,
+      "gauge": 0,
+      "elapsed": 90
+    },
+    {
+      "g": 0,
+      "used": 1,
+      "kind": "felice",
+      "hp": 250,
+      "gauge": 0,
+      "elapsed": 0
+    },
+    {
+      "g": 0,
+      "used": 1,
+      "kind": "felice",
+      "hp": 250,
+      "gauge": 0,
+      "elapsed": 1
+    },
+    {
+      "g": 0,
+      "used": 1,
+      "kind": "felice",
+      "hp": 250,
+      "gauge": 0,
+      "elapsed": 2
+    },
+    {
+      "g": 0,
+      "used": 1,
+      "kind": "felice",
+      "hp": 250,
+      "gauge": 0,
+      "elapsed": 90
+    },
+    {
+      "g": 1,
+      "used": 0,
+      "kind": "felice",
+      "hp": 0,
+      "gauge": 1,
+      "elapsed": 0
+    },
+    {
+      "g": 1,
+      "used": 1,
+      "kind": "felice",
+      "hp": 250,
+      "gauge": 0,
+      "elapsed": 1
+    },
+    {
+      "g": 1,
+      "used": 1,
+      "kind": "felice",
+      "hp": 250,
+      "gauge": 0,
+      "elapsed": 2
+    },
+    {
+      "g": 1,
+      "used": 1,
+      "kind": "felice",
+      "hp": 250,
+      "gauge": 0,
+      "elapsed": 90
+    },
+    {
+      "g": 100,
+      "used": 0,
+      "kind": "felice",
+      "hp": 0,
+      "gauge": 100,
+      "elapsed": 0
+    },
+    {
+      "g": 100,
+      "used": 1,
+      "kind": "felice",
+      "hp": 250,
+      "gauge": 0,
+      "elapsed": 1
+    },
+    {
+      "g": 100,
+      "used": 1,
+      "kind": "felice",
+      "hp": 250,
+      "gauge": 0,
+      "elapsed": 2
+    },
+    {
+      "g": 100,
+      "used": 1,
+      "kind": "felice",
+      "hp": 250,
+      "gauge": 0,
+      "elapsed": 90
+    },
+    {
+      "g": 101,
+      "used": 0,
+      "kind": "felice",
+      "hp": 0,
+      "gauge": 101,
+      "elapsed": 0
+    },
+    {
+      "g": 101,
+      "used": 0,
+      "kind": "felice",
+      "hp": 0,
+      "gauge": 101,
+      "elapsed": 1
+    },
+    {
+      "g": 101,
+      "used": 1,
+      "kind": "felice",
+      "hp": 250,
+      "gauge": 0,
+      "elapsed": 2
+    },
+    {
+      "g": 101,
+      "used": 1,
+      "kind": "felice",
+      "hp": 250,
+      "gauge": 0,
+      "elapsed": 90
+    },
+    {
+      "g": 9000,
+      "used": 0,
+      "kind": "felice",
+      "hp": 0,
+      "gauge": 9000,
+      "elapsed": 0
+    },
+    {
+      "g": 9000,
+      "used": 0,
+      "kind": "felice",
+      "hp": 0,
+      "gauge": 9000,
+      "elapsed": 1
+    },
+    {
+      "g": 9000,
+      "used": 0,
+      "kind": "felice",
+      "hp": 0,
+      "gauge": 9000,
+      "elapsed": 2
+    },
+    {
+      "g": 9000,
+      "used": 1,
+      "kind": "felice",
+      "hp": 250,
+      "gauge": 0,
+      "elapsed": 90
+    },
+    {
+      "kind": "wall",
+      "left": 2,
+      "n": 0
+    },
+    {
+      "kind": "wall",
+      "left": 1,
+      "n": 1
+    },
+    {
+      "kind": "wall",
+      "left": 0,
+      "n": 2
+    },
+    {
+      "kind": "wall",
+      "left": 0,
+      "n": 3
     }
   ]
 }

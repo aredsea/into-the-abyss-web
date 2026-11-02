@@ -102,12 +102,12 @@ for _,id in ipairs({"atk","df","guard2","taunt","shield","pshield","snipe","burs
  events(st,{kind="class",id=id})
 end
 for _,cid in ipairs({"levia","marceline","naran","teiris","haldric","erdene","bianca","saya","gerda","judith","urda","lynette","sorel","tika","hedwig","hildegard","felice","selva","gunhild","jorund","bargut","berenga","altan","colette","ornel","zahar","tove","miko","adeline","lavinia"}) do
- local st=fresh(); B.DEF[1].cid=cid
+ local st=fresh(); B.DEF[1].cid=cid; local event_rng=st.rs
  for i=1,4 do st.u[i].hp=500 end
  for i=5,6 do st.u[i].mhp=10000; st.u[i].hp=10000; st.u[i].ay=10000; B.DEF[i].wk={} end
  local sk={id=B.PSK[cid].id,name="test"}
  B.cutin(st,1,sk.id,sk.name); B.PRUN[cid](st,1,B.CAST[cid].skill_tgt=="ally" and 2 or 5,sk)
- events(st,{kind="personal",id=cid})
+ events(st,{kind="personal",id=cid,start_rng=event_rng})
 end
 for _,id in ipairs({"hp_s","mp_s","sh_s","antidote","bandage"}) do
  local st=fresh(); st.u[2].hp=500; st.u[2].mp=0

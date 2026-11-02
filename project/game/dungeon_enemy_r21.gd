@@ -186,7 +186,8 @@ func drop_auras():
 
 func end_effects(u: Dictionary):
 	for key in u.effects.keys():
-		if key.begins_with("enemy_dot_") or key in ["taunt","sorel_regen","persona_regen","dot","corrosion","bleed","regen"]: continue
+		if key=="guard" and u.has("base"): continue # df is reset at begin_turn, separately from bf.g2.
+		if key.begins_with("enemy_dot_") or key in ["taunt","mark","sorel_regen","persona_regen","dot","corrosion","bleed","regen"]: continue
 		var eff=u.effects[key]
 		if eff.get("fresh",false): eff.erase("fresh"); continue
 		eff.turns-=1
@@ -328,6 +329,7 @@ func turn() -> bool:
 					if b.last_enemy_hit_target.is_empty(): continue
 					t=b.ally(b.last_enemy_hit_target)
 					if t.hp>0:
+						b.TraitRules.attacked(b,t,e)
 						if a.has("drain"): e.hp=mini(e.mhp,e.hp+int(floor((before[t.id]-t.hp)*a.drain)))
 						if a.has("push"): t.remaining+=10000*a.push
 						if a.has("dot"): add_dot(t,e,dot_per(e,t,a.dot.m),int(a.dot.get("turns",3)))

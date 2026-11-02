@@ -318,10 +318,11 @@ func fifth(o: Dictionary):
 		restored._incoming_strike(restored.data.allies[0],1000,{}, {"name":"probe"},false,true)
 		check(not b.data.allies[1].effects.has(key) and (cid!="adeline" or not b.data.allies[1].effects.has("regen")),"5.2 real caster death removes guard and Adeline regen "+cid)
 		check(JSON.parse_string(JSON.stringify(b.snapshot()))==JSON.parse_string(JSON.stringify(restored.snapshot())),"5.2 restored caster death continues identically "+cid)
-	var b=fixture(); var caster=b.data.allies[1]; caster.class_id="unsanctioned"; var e=b.data.enemies[0]; b.action_id="attack"
+	var b=fixture(); var caster=b.data.allies[1]; caster.class_id="unsanctioned"; caster.line="int"; var e=b.data.enemies[0]; b.action_id="attack"
 	for i in range(3): b.data.allies[i].nation="모르가스 신관국"
 	for i in range(1,7):
-		caster.base.int=i*100; b._damage(caster,e,.01,0,true)
+		caster.base.int=i*100; b._damage(caster,e,0,0) # Minimum damage keeps canonical enemy HP valid for JSON hydration.
+	observations.class_stack_probe={"stacks":b.x(e).get("dot_stacks",0),"amount":b.fx(e,"dot"),"effect":e.effects.get("dot",{}).duplicate(true),"hp":e.hp}
 	check(b.x(e).dot_stacks==6 and b.fx(e,"dot")==504,"5.2 real attacks create six distinguishable class stacks")
 	var saved=JSON.parse_string(JSON.stringify(b.snapshot())); var restored=load("res://game/battle_v3.gd").new(b.data)
 	check(restored.restore(saved),"5.2 class stack metadata JSON restores")

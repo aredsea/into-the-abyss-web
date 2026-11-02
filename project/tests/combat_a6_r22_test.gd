@@ -133,7 +133,9 @@ func run():
 		if kind=="personal":
 			b.extra_state[id]=b.x(a); a.id=id; b.current_id=id
 			a.skills.personal={"name":"test","mp":0,"target":"아군 1" if id in ["marceline","urda","felice","berenga","miko"] else "적 1","brk":15}
-			b.act("personal")
+			# This oracle invokes PRUN directly, bypassing can_use/player/reseed.
+			b.x(e).source_rng=int(row.input.start_rng); b.action_id="personal"
+			b._begin_combat_events("personal",a,e,b.data.allies[1]); b._personal(a,e,b.data.allies[1],a.skills.personal); b.combat_events.finish(b)
 		elif kind=="batch":
 			a.skills.burst={"name":"test","mp":0,"power":1.9,"brk":0,"target":"적 1"}
 			b.act("burst"); e.acts=[{"kind":"charge","name":"test"}]; e.act_index=0; b.current_id=e.id

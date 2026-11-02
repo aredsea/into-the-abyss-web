@@ -1,5 +1,5 @@
 extends "res://tests/combat_p2_r22_trace.gd"
-## Diagnostic audit: unresolved P3/P4 parity gaps are data, not passing assertions.
+## Original mixed policy, including each engine's own skill eligibility decisions.
 func run():
 	var oracle=JSON.parse_string(FileAccess.get_file_as_string("res://../verification/data-r21/a6-mixed-oracle.json"))
 	var reports=[]; var equal_battles=0; var equal_actions=0; var source_actions=0; var actual_actions=0; var inputs={}
@@ -29,7 +29,8 @@ func run():
 				if b.unavailable("personal").is_empty(): id="personal"
 			elif step%3==0:
 				for key in b.dungeon_enemy_r21.rules.config.enemy_skill_order.get(a.class_id,[]):
-					var native={"guard2":"guard","shield":"pshield","pshield":"hshield","defdn":"acid","wave":"chaoswave"}.get(key,key)
+					if key=="personal": continue # Lua policy excludes sk.pv in the class-skill branch.
+					var native={"warrior":{"guard2":"guard"},"paladin":{"shield":"pshield","taunt":"ptaunt"},"priest":{"pshield":"hshield"},"alchemist":{"defdn":"acid"},"chaos":{"wave":"chaoswave"}}.get(a.class_id,{}).get(key,key)
 					if b.actions().has(native) and b.actions()[native].mp>0 and b.unavailable(native).is_empty(): id=native; break
 			else:
 				for iid in ["mp_s","hp_s"]:
@@ -51,7 +52,7 @@ func run():
 			var fields=[]
 			if i>=b.trace.size() or i>=row.trace.size(): fields=["length"]
 			else:
-				for key in ["actor","hp","mp","sh","rng","tk","rd","g","targets","hits","abyss","broken"]:
+				for key in ["n","actor","hp","mp","sh","rng","tk","rd","g","targets","hits","abyss","broken"]:
 					if not same(b.trace[i][key],row.trace[i][key]): fields.append(key)
 			if fields.is_empty(): matched+=1
 			elif first.is_empty():
@@ -59,10 +60,12 @@ func run():
 				for input in row.decisions:
 					if input.n<=i+1: decision=input
 				first={"step":i+1,"fields":fields,"input":decision,"source":row.trace[i] if i<row.trace.size() else {},"actual":b.trace[i] if i<b.trace.size() else {}}
+		if {"win":"victory","lose":"defeat"}.get(row.result,"")!=b.result or b.result.is_empty():
+			if first.is_empty(): first={"fields":["final_result"],"source":row.result,"actual":b.result}
 		if first.is_empty(): equal_battles+=1
 		equal_actions+=matched; source_actions+=row.trace.size(); actual_actions+=b.trace.size()
 		reports.append({"party":row.party,"foe":row.foe,"bn":row.bn,"source_result":row.result,"actual_result":b.result,"source_actions":row.trace.size(),"actual_actions":b.trace.size(),"matched_actions":matched,"first_difference":first,"source_inputs":row.decisions,"actual_inputs":used})
-	var report={"purpose":"Diagnostic active-skill and consumable battle parity audit; gaps are not zero-failure parity claims","battles":reports.size(),"equal_battles":equal_battles,"source_actions":source_actions,"actual_actions":actual_actions,"matched_actions":equal_actions,"actual_inputs":inputs,"reports":reports}
+	var report={"purpose":"Strict active-skill and consumable full-battle parity","battles":reports.size(),"equal_battles":equal_battles,"source_actions":source_actions,"actual_actions":actual_actions,"matched_actions":equal_actions,"actual_inputs":inputs,"reports":reports}
 	var f=FileAccess.open("res://../verification/data-r21/a6-mixed-audit.json",FileAccess.WRITE); f.store_string(JSON.stringify(report,"\t")); f.close()
-	print("A6 mixed diagnostic ",reports.size()," battles / source ",source_actions," / actual ",actual_actions," / equal battles ",equal_battles," / matched actions ",equal_actions)
-	quit(0 if reports.size()==48 else 1)
+	print("A6 mixed parity ",reports.size()," battles / source ",source_actions," / actual ",actual_actions," / equal battles ",equal_battles," / matched actions ",equal_actions)
+	quit(0 if reports.size()==48 and equal_battles==reports.size() else 1)
