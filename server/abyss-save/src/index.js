@@ -15,7 +15,7 @@ const hex=x=>Array.from(new Uint8Array(x),n=>n.toString(16).padStart(2,'0')).joi
 async function hash(pin,salt,iterations){const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(pin),'PBKDF2',false,['deriveBits']);return hex(await crypto.subtle.deriveBits({name:'PBKDF2',hash:'SHA-256',salt:new TextEncoder().encode(salt),iterations},key,256));}
 async function authenticate(db,code,pin,iterations){
  if(typeof pin!=='string'||!/^[0-9A-HJKMNP-TV-Z]{10}$/.test(pin))reject(403,'invalid_pin');
- const row=await db.prepare('SELECT * FROM accounts WHERE code=?').bind(code).first();
+ const row=await db.prepare('SELECT *,0 AS is_archived FROM accounts WHERE code=?').bind(code).first()??await db.prepare('SELECT *,1 AS is_archived FROM inactive_archives WHERE code=? AND expires>?').bind(code,Math.floor(Date.now()/1000)).first();
  const digest=await hash(pin,row?.salt??'absent-account-padding',row?.pin_iterations??iterations);
  let different=row?0:1;const expected=row?.pin_hash??'0'.repeat(64);for(let i=0;i<64;i++)different|=digest.charCodeAt(i)^expected.charCodeAt(i);
  if(different)reject(403,'invalid_pin');return row;
@@ -40,14 +40,14 @@ function ipNetwork(raw){
  if(words.slice(0,5).every(x=>x===0)&&words[5]===65535)return [words[6]>>8,words[6]&255,words[7]>>8,words[7]&255].join('.');
  return words.slice(0,4).map(x=>x.toString(16).padStart(4,'0')).join(':')+'::/64';
 }
-async function privateIP(ip,env,now){
+async function privateIP(ip,env,now,period=60){
  const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(env.IP_HASH_PEPPER),{name:'HMAC',hash:'SHA-256'},false,['sign']);
- return hex(await crypto.subtle.sign('HMAC',key,new TextEncoder().encode(Math.floor(now/60)+':'+ipNetwork(ip))));
+ return hex(await crypto.subtle.sign('HMAC',key,new TextEncoder().encode(Math.floor(now/period)+':'+ipNetwork(ip))));
 }
 // Check every bucket before inserting any row. The admission is one D1 statement,
 // so a concurrent caller cannot overdraw, and rejected requests change no counters.
 async function rates(db,buckets,now,checkOnly=false){
- const minute=Math.floor(now/60),values=buckets.flatMap(([key,cap,n=1])=>[key,minute,n,cap]);
+ const values=buckets.flatMap(([key,cap,n=1,period=60])=>[key,Math.floor(now/period)*(period/60),n,cap]);
  const proposed='WITH proposed(bucket,minute,n,cap) AS (VALUES '+buckets.map(()=>'(?,?,?,?)').join(',')+') ';
  const over='SELECT 1 FROM proposed p LEFT JOIN counters c ON c.bucket=p.bucket AND c.minute=p.minute WHERE COALESCE(c.n,0)+p.n>p.cap';
  if(checkOnly){if(await db.prepare(proposed+over+' LIMIT 1').bind(...values).first())reject(429,'rate_limited',{retry_after:60-now%60});return;}
@@ -94,25 +94,40 @@ async function rankSnapshot(db,now){
 }
 async function route(request,env){
  const db=env.DB, u=new URL(request.url), now=Math.floor(Date.now()/1000), method=request.method,path=u.pathname;
- const ipHash=await privateIP(request.headers.get('CF-Connecting-IP')??'local',env,now);
- const base=[['global:requests',setting(env,'GLOBAL_REQUESTS_PER_MINUTE',1200)],['ip:'+ipHash,60]];
+ const rawIP=request.headers.get('CF-Connecting-IP')??'local';
+ const ipHash=await privateIP(rawIP,env,now),dailyIP=await privateIP(rawIP,env,now,86400);
+ const network=ipNetwork(rawIP),v6=network.endsWith('/64');
+ const subnet=v6?network.split(':').slice(0,3).join(':')+':0::':null;
+ const subnetHash=v6?await privateIP(subnet,env,now):null;
+ const dailySubnet=v6?await privateIP(subnet,env,now,86400):null;
+ // No global request bucket: a few networks must not spend everyone else's budget.
+ const base=[['ip:'+ipHash,60],...(v6?[['net48:'+subnetHash,setting(env,'IPV6_48_REQUESTS_PER_MINUTE',240)]]:[])];
  let admitted=false;
  const admit=async(extra=[])=>{await rates(db,[...base,...extra],now);admitted=true;};
- const auth=async(code,pin,extra=[])=>{
+ const auth=async(code,pin,extra=[],allowArchive=false)=>{
   const failure=['authfail:'+code+':'+ipHash,20];
-  await rates(db,[...base,failure],now,true);
-  let row;
-  try{row=await authenticate(db,code,pin,setting(env,'PIN_PBKDF2_ITERATIONS',5000,1000,100000));}
-  catch(e){if(e instanceof HttpError&&e.status===403)await admit([failure]);throw e;}
+  // Reserve CPU admission atomically before PBKDF2, including successful attempts.
+  await admit([failure]);
+  const row=await authenticate(db,code,pin,setting(env,'PIN_PBKDF2_ITERATIONS',5000,1000,100000));
   // Failed PINs never consume the owner's account bucket.
-  await admit([['account:'+code,20],...extra]);return row;
+  await rates(db,[['account:'+code,setting(env,'ACCOUNT_REQUESTS_PER_MINUTE',20)],...extra],now);
+  if(row.is_archived&&!allowArchive)reject(410,'archived');
+  return row;
  };
  await rates(db,base,now,true);
  try{
  if(path==='/v1/account'&&method==='POST'){
-  const b=await body(request);fields(b,['save','turnstile'],['save']);await turnstile(request,env,b.turnstile);
+  const b=await body(request);fields(b,['save','turnstile'],['save']);
   const save=validate(b.save), payload=JSON.stringify(save), sum=summary(save);if(new TextEncoder().encode(payload).length>MAX)reject(413,'payload_too_large');
-  await admit([['new:'+ipHash,5],['global:new',setting(env,'GLOBAL_NEW_PER_MINUTE',60)],['global:bytes',setting(env,'GLOBAL_WRITE_BYTES_PER_MINUTE',2097152),new TextEncoder().encode(payload).length]]);
+  if(env.TURNSTILE_ENABLED==='true'&&(typeof b.turnstile!=='string'||!b.turnstile||b.turnstile.length>2048))reject(403,'turnstile_failed');
+  const bytes=new TextEncoder().encode(payload).length;
+  await admit([['new:'+ipHash,5],['daily:new:'+dailyIP,setting(env,'NEW_PER_IP_PER_DAY',20),1,86400],
+   ...(v6?[['new48:'+subnetHash,20],['daily:new48:'+dailySubnet,200,1,86400]]:[]),
+   ['global:new',setting(env,'GLOBAL_NEW_PER_MINUTE',6000)],
+   ['newbytes:'+ipHash,setting(env,'IP_NEW_BYTES_PER_MINUTE',262144),bytes],
+   ['global:newbytes',setting(env,'GLOBAL_NEW_BYTES_PER_MINUTE',67108864),bytes]]);
+  // Syntax, save validation and all admission decisions precede one-use verification.
+  await turnstile(request,env,b.turnstile);
   const iterations=setting(env,'PIN_PBKDF2_ITERATIONS',5000,1000,100000);
   const code=codeOf(random(12)),pin=random(10),salt=random(26),digest=await hash(pin,salt,iterations);
   await db.batch([
@@ -126,11 +141,20 @@ async function route(request,env){
   const account=await auth(code,b.pin);const saved=await current(db,code);
   return json({code,rev:saved.rev,summary:saved.summary,at:saved.at});
  }
+ if(path==='/v1/save/read'&&method==='POST'){
+  const b=await body(request);fields(b,['code','pin','rev','history'],['code','pin']);const code=codeOf(b.code);
+  if('rev'in b&&(!Number.isSafeInteger(b.rev)||b.rev<1))reject(400,'invalid_rev');
+  if('history'in b&&typeof b.history!=='boolean')reject(400,'invalid_history');
+  await auth(code,b.pin);
+  if(b.history){const rows=(await db.prepare('SELECT rev,summary,created AS at FROM saves WHERE code=? ORDER BY rev DESC LIMIT 10').bind(code).all()).results;return json({code,revs:rows.map(r=>({...r,summary:JSON.parse(r.summary)}))});}
+  return json(await current(db,code,b.rev??null));
+ }
  if(path==='/v1/save'&&method==='PUT'){
   const b=await body(request);fields(b,['code','pin','rev','save'],['code','pin','rev','save']);const code=codeOf(b.code);
   if(!Number.isSafeInteger(b.rev)||b.rev<1)reject(400,'invalid_rev');
   const save=validate(b.save),payload=JSON.stringify(save),sum=summary(save);if(new TextEncoder().encode(payload).length>MAX)reject(413,'payload_too_large');
-  await auth(code,b.pin,[['global:bytes',setting(env,'GLOBAL_WRITE_BYTES_PER_MINUTE',2097152),new TextEncoder().encode(payload).length]]);
+  const bytes=new TextEncoder().encode(payload).length;
+  await auth(code,b.pin,[['bytes:'+ipHash,setting(env,'IP_WRITE_BYTES_PER_MINUTE',262144),bytes],['accountbytes:'+code,setting(env,'ACCOUNT_WRITE_BYTES_PER_MINUTE',262144),bytes],['global:bytes',setting(env,'GLOBAL_WRITE_BYTES_PER_MINUTE',134217728),bytes]]);
   // An atomic CAS plus history insert. changes() refers to the immediately preceding UPDATE.
   const result=await db.batch([
    db.prepare('UPDATE accounts SET rev=rev+1,updated=? WHERE code=? AND rev=?').bind(now,code,b.rev),
@@ -142,7 +166,8 @@ async function route(request,env){
   return json({code,rev:b.rev+1,summary:sum});
  }
  if(path==='/v1/account'&&method==='DELETE'){
-  const b=await body(request);fields(b,['code','pin'],['code','pin']);const code=codeOf(b.code);const account=await auth(code,b.pin);
+  const b=await body(request);fields(b,['code','pin'],['code','pin']);const code=codeOf(b.code);const account=await auth(code,b.pin,[],true);
+  if(account.is_archived){await db.prepare('DELETE FROM inactive_archives WHERE code=?').bind(code).run();reject(410,'archived',{deleted:true});}
   await db.batch([db.prepare('DELETE FROM accounts WHERE code=?').bind(code),db.prepare('DELETE FROM counters WHERE bucket=?').bind('account:'+code)]);
   return json({deleted:true});
  }
@@ -166,7 +191,7 @@ async function route(request,env){
  if(path==='/v1/rank'&&method==='GET'){
   let best=null;
   const code=u.searchParams.has('code')?codeOf(u.searchParams.get('code')):null;
-  await admit(code?[['read:'+code,60]]:[]);
+  await admit(code?[['read:'+code+':'+ipHash,60]]:[]);
   const snapshot=await rankSnapshot(db,now);
   if(u.searchParams.has('code')){const row=await db.prepare('SELECT best FROM ranks WHERE code=?').bind(code).first();best=row?.best??0;}
   const ahead=best===null?0:snapshot.histogram.filter(x=>x.best>best).reduce((n,x)=>n+x.n,0);
@@ -175,7 +200,7 @@ async function route(request,env){
  const match=path.match(/^\/v1\/save\/([^/]+)(\/revs)?$/);
  if(match&&method==='GET'){
   let decoded;try{decoded=decodeURIComponent(match[1]);}catch{reject(400,'invalid_encoding');}
-  const code=codeOf(decoded);await admit([['read:'+code,60]]);
+  const code=codeOf(decoded);await admit([['read:'+code+':'+ipHash,60]]);
   if(match[2]){const exists=await db.prepare('SELECT code FROM accounts WHERE code=?').bind(code).first();if(!exists)reject(404,'save_not_found');const rows=(await db.prepare('SELECT rev,summary,created AS at FROM saves WHERE code=? ORDER BY rev DESC LIMIT 10').bind(code).all()).results;return json({code,revs:rows.map(r=>({...r,summary:JSON.parse(r.summary)}))});}
   let rev=null;if(u.searchParams.has('rev')){const raw=u.searchParams.get('rev');if(!/^[1-9][0-9]*$/.test(raw))reject(400,'invalid_rev');rev=Number(raw);if(!Number.isSafeInteger(rev)||rev<1)reject(400,'invalid_rev');}
   return json(await current(db,code,rev));
@@ -206,7 +231,7 @@ export default {
   const expires=now+setting(env,'ARCHIVE_DAYS',30,1,36500)*86400;
   // Archive and cascade are a single transaction; a failed archive rolls back deletion.
   await db.batch([
-   db.prepare('DELETE FROM counters WHERE minute<?').bind(Math.floor(now/60)-2),
+   db.prepare("DELETE FROM counters WHERE (bucket NOT LIKE 'daily:%' AND minute<?) OR (bucket LIKE 'daily:%' AND minute<?)").bind(Math.floor(now/60)-2,Math.floor(now/86400)*1440),
    db.prepare('DELETE FROM inactive_archives WHERE expires<=?').bind(now),
    db.prepare('INSERT OR IGNORE INTO inactive_archives(code,salt,pin_hash,pin_iterations,rev,payload,summary,saved,archived,expires) SELECT a.code,a.salt,a.pin_hash,a.pin_iterations,a.rev,s.payload,s.summary,s.created,?,? FROM accounts a JOIN saves s ON s.code=a.code AND s.rev=a.rev WHERE a.updated<? ORDER BY a.updated LIMIT 100').bind(now,expires,cutoff),
    db.prepare('DELETE FROM accounts WHERE updated<? AND code IN (SELECT code FROM inactive_archives WHERE archived=? AND expires=?)').bind(cutoff,now,expires)

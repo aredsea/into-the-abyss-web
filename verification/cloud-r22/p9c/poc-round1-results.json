@@ -1,0 +1,228 @@
+{
+  "checks": 4,
+  "failures": 0,
+  "results": [
+    {
+      "script": "poc.mjs",
+      "exit": 0,
+      "blocked": true,
+      "result": {
+        "legitRank": 422,
+        "freshCreate": 201,
+        "freshRank": {
+          "error": "rank_ineligible",
+          "reasons": [
+            "최고 층 급증",
+            "레벨 급증",
+            "계정 나이"
+          ]
+        },
+        "existingPut": 200,
+        "existingRank": {
+          "error": "rank_ineligible",
+          "reasons": [
+            "최고 층 급증",
+            "레벨 급증",
+            "계정 나이"
+          ]
+        },
+        "legitView": {
+          "metric": "deepest_floor",
+          "best": 0,
+          "pct": null,
+          "n": 0,
+          "top": 0,
+          "at": 1793631682,
+          "expires": 1793631982,
+          "cache_seconds": 300
+        },
+        "victimPutAfterLockout": {
+          "status": 200,
+          "value": {
+            "code": "SX6E-HW3E-13R2",
+            "rev": 2,
+            "summary": {
+              "day": 1,
+              "gold": 300,
+              "level": 1,
+              "best": 0,
+              "runs": 0,
+              "companions": 1
+            }
+          }
+        },
+        "protoGear": {
+          "status": 422,
+          "value": {
+            "error": "invalid_save",
+            "field": "gear.id"
+          }
+        },
+        "blob": {
+          "status": 422,
+          "value": {
+            "error": "invalid_save",
+            "field": "lv"
+          }
+        },
+        "floodSaveBytes": 65240,
+        "floodErr": {
+          "error": "invalid_save",
+          "field": "seen.key"
+        },
+        "flood": {
+          "statuses": {
+            "create422": 5
+          },
+          "bytesAdded": 0,
+          "rowsAdded": 0,
+          "accounts": 0
+        },
+        "counterRows": [
+          {
+            "n": 6631,
+            "bucket": "newbytes:97e"
+          },
+          {
+            "n": 79671,
+            "bucket": "global:newby"
+          },
+          {
+            "n": 6642,
+            "bucket": "newbytes:0fe"
+          },
+          {
+            "n": 6631,
+            "bucket": "newbytes:3db"
+          },
+          {
+            "n": 6642,
+            "bucket": "bytes:3db563"
+          },
+          {
+            "n": 6642,
+            "bucket": "accountbytes"
+          },
+          {
+            "n": 13273,
+            "bucket": "global:bytes"
+          },
+          {
+            "n": 26568,
+            "bucket": "newbytes:5d8"
+          },
+          {
+            "n": 26568,
+            "bucket": "newbytes:653"
+          },
+          {
+            "n": 6631,
+            "bucket": "newbytes:5e7"
+          },
+          {
+            "n": 6631,
+            "bucket": "bytes:5e7783"
+          },
+          {
+            "n": 6631,
+            "bucket": "accountbytes"
+          }
+        ],
+        "badPercent": 400,
+        "hexRev": 400,
+        "nullOrigin": 403,
+        "noOrigin": 200,
+        "rankInvalidation": {
+          "rev": 12,
+          "rankPost": 422,
+          "rankBody": {
+            "error": "rank_ineligible",
+            "reasons": [
+              "최고 층 급증",
+              "레벨 급증",
+              "계정 나이"
+            ]
+          },
+          "before": 0,
+          "after": 0
+        }
+      },
+      "note": ""
+    },
+    {
+      "script": "poc2.mjs",
+      "exit": 1,
+      "blocked": true,
+      "result": null,
+      "note": "original stops at rejected arbitrary seen key"
+    },
+    {
+      "script": "poc3.mjs",
+      "exit": 0,
+      "blocked": true,
+      "result": {
+        "deep": [
+          422,
+          "{\"error\":\"invalid_save\",\"field\":\"save.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0\"}"
+        ],
+        "deepObj": [
+          422,
+          "{\"error\":\"invalid_save\",\"field\":\"save.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a\"}"
+        ],
+        "inf": [
+          422,
+          "{\"error\":\"invalid_save\",\"field\":\"save.gold\"}"
+        ],
+        "protoKey": [
+          422,
+          "{\"error\":\"invalid_save\",\"field\":\"save\"}"
+        ],
+        "protoNested": [
+          201,
+          "{\"code\":\"230W-PB9Y-GY4J\",\"pin\":\"ZWVNWKEBEX\",\"rev\":1,\"summary\":{\"day\":1,\"gold\":300,\"level\":1,\"best\":0,\"runs\":0,\"companion"
+        ],
+        "loneSurrogate": [
+          201,
+          "{\"code\":\"KY5Q-C5QC-HJ97\",\"pin\":\"ZA66WBZF9R\",\"rev\":1,\"summary\":{\"day\":1,\"gold\":300,\"level\":1,\"best\":0,\"runs\":0,\"companion"
+        ],
+        "badUtf8": [
+          400,
+          "{\"error\":\"invalid_json\"}"
+        ],
+        "textPlain": [
+          415,
+          "{\"error\":\"json_required\"}"
+        ],
+        "pinLower": 201,
+        "ipBuckets": 9
+      },
+      "note": ""
+    },
+    {
+      "script": "poc4.mjs",
+      "exit": 0,
+      "blocked": true,
+      "result": {
+        "put2": 200,
+        "rankAfterOne": {
+          "error": "rank_ineligible",
+          "reasons": [
+            "최고 층 급증",
+            "레벨 급증",
+            "계정 나이"
+          ]
+        },
+        "put3": 200,
+        "rankAfterTwo": {
+          "error": "rank_ineligible",
+          "reasons": [
+            "최고 층 급증",
+            "레벨 급증",
+            "계정 나이"
+          ]
+        }
+      },
+      "note": ""
+    }
+  ]
+}

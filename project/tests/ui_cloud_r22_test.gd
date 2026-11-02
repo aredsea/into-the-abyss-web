@@ -33,7 +33,10 @@ func run():
 		await capture(s,"linked",dim);s.cloud.account.synced=true;s.cloud.notice="클라우드 기록을 확인할 수 있습니다."
 		s.cloud.first_credentials=false;s.cloud.conflict={"rev":2,"summary":{"day":2,"level":2,"best":1,"gold":275,"companions":1}};s._draw_screen();await capture(s,"conflict",dim)
 		s.cloud.conflict={};s.cloud.rank={"n":3,"pct":34,"best":1,"top":2,"at":1793577600};s.go("rank");await capture(s,"rank",dim)
-		s.go("cloud");s.town_view.ask("클라우드의 계정과 모든 기록을 삭제할까요? 이 작업은 되돌릴 수 없습니다. 이 기기 저장은 남습니다.",func():pass);await capture(s,"confirm",dim)
+		s.go("cloud");s.town_view.ask("클라우드의 계정과 모든 기록(비활성 보관본 포함)을 삭제할까요? 이 작업은 되돌릴 수 없습니다. 이 기기 저장은 남습니다.",func():pass);await capture(s,"confirm",dim)
+		s.cloud_confirmation={};s.cloud.archived=true;s.cloud.account.synced=false;s.cloud.notice="장기 미사용으로 보관된 계정입니다. 서버 저장은 종료되었으며 PIN으로 보관본을 삭제할 수 있습니다. 이 기기 저장은 유지됩니다.";s._draw_screen()
+		check(s.controls.cloud_save.disabled and not s.controls.cloud_delete.disabled,"archived account disables upload and permits erasure")
+		await capture(s,"archived",dim)
 		root.remove_child(s);s.queue_free();await process_frame
 	FileAccess.open("res://../verification/cloud-r22/native-ui-results.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failures":failures,"captures":captures},"\t"))
 	print("CLOUD UI R22 CHECKS ",checks," FAILURES ",failures.size()," CAPTURES ",captures.size());quit(0 if failures.is_empty() else 1)

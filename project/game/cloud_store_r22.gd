@@ -10,6 +10,7 @@ var conflict: Dictionary={}
 var revisions: Array=[]
 var remote: Dictionary={}
 var first_credentials=false
+var archived=false
 var rank: Dictionary={}
 var rank_attempt=0
 var applying=false
@@ -42,7 +43,7 @@ func persist() -> void:
 
 func enabled() -> bool:return not str(config.get("server_url","")).is_empty()
 func connected() -> bool:return not account.code.is_empty()
-func can_upload() -> bool:return connected() and not account.pin.is_empty() and account.get("synced",false)
+func can_upload() -> bool:return not archived and connected() and not account.pin.is_empty() and account.get("synced",false)
 func _request(method: HTTPClient.Method,path: String,payload=null) -> Dictionary:
 	if busy:return {"status":0,"error":"busy"}
 	if not enabled():
@@ -65,6 +66,9 @@ func _request(method: HTTPClient.Method,path: String,payload=null) -> Dictionary
 	elif out.status==422:notice="저장 형식을 확인하지 못했습니다. 이 기기 저장은 유지됩니다."
 	elif out.status==400:notice="계정 코드의 형식을 확인해 주세요."
 	elif out.status==404:notice="서버에서 이 기록을 찾지 못했습니다. 계정 코드를 확인해 주세요."
+	elif out.status==410:
+		archived=true;account.synced=false;auto_pending=false;persist()
+		notice="장기 미사용으로 보관된 계정입니다. 서버 저장은 종료되었으며 PIN으로 보관본을 삭제할 수 있습니다. 이 기기 저장은 유지됩니다."
 	elif out.status==413:notice="클라우드 저장 한도인 64KB를 넘었습니다. 이 기기 저장은 유지됩니다."
 	elif out.status>=500:notice="서버가 응답하지 않습니다. 이 기기 저장은 유지됩니다."
 	return out
@@ -91,7 +95,7 @@ func create_account() -> void:
 		payload.turnstile=token
 	var r=await _request(HTTPClient.METHOD_POST,"/v1/account",payload)
 	if r.status==201:
-		account.code=r.code;account.pin=r.pin;account.rev=int(r.rev);account.synced=true;persist();first_credentials=true;notice="계정 코드와 쓰기 PIN을 적어 두세요."
+		archived=false;account.code=r.code;account.pin=r.pin;account.rev=int(r.rev);account.synced=true;persist();first_credentials=true;notice="계정 코드와 쓰기 PIN을 적어 두세요."
 	changed.emit()
 
 func connect_account(code: String,pin: String) -> void:
@@ -100,7 +104,9 @@ func connect_account(code: String,pin: String) -> void:
 	pin=pin.strip_edges().to_upper().replace(" ","").replace("-","")
 	var r=await _request(HTTPClient.METHOD_GET,"/v1/save/"+code.uri_encode()) if pin.is_empty() else await _request(HTTPClient.METHOD_POST,"/v1/account/connect",{"code":code,"pin":pin})
 	if r.status==200:
-		account.code=r.code;account.pin=pin;account.rev=int(r.rev);account.synced=false;auto_pending=false;last_auto="";persist();remote=r;conflict={};revisions=[];rank={};rank_attempt=0;first_credentials=false;notice="읽기 전용으로 연결했습니다. 서버 기록을 불러올 수 있습니다." if pin.is_empty() else "연결했습니다. 서버 최신 기록을 불러오면 저장할 수 있습니다."
+		archived=false;account.code=r.code;account.pin=pin;account.rev=int(r.rev);account.synced=false;auto_pending=false;last_auto="";persist();remote=r;conflict={};revisions=[];rank={};rank_attempt=0;first_credentials=false;notice="읽기 전용으로 연결했습니다. 서버 기록을 불러올 수 있습니다." if pin.is_empty() else "연결했습니다. 서버 최신 기록을 불러오면 저장할 수 있습니다."
+	elif r.status==410 and not pin.is_empty():
+		account.code=code;account.pin=pin;account.rev=0;account.synced=false;auto_pending=false;last_auto="";remote={};conflict={};revisions=[];rank={};first_credentials=false;persist()
 	changed.emit()
 
 func upload() -> void:
@@ -115,7 +121,9 @@ func upload() -> void:
 func download(revision=0) -> void:
 	if busy or not connected():return
 	var suffix="?rev="+str(revision) if revision>0 else ""
-	var r=await _request(HTTPClient.METHOD_GET,"/v1/save/"+account.code+suffix)
+	var payload={"code":account.code,"pin":account.pin}
+	if revision>0:payload.rev=revision
+	var r=await _request(HTTPClient.METHOD_GET,"/v1/save/"+account.code+suffix) if account.pin.is_empty() else await _request(HTTPClient.METHOD_POST,"/v1/save/read",payload)
 	if r.status==200:
 		# Validate on a disposable model and preserve local save before changing memory.
 		var probe=preload("res://game/persona_world.gd").new()
@@ -139,15 +147,15 @@ func choose_local() -> void:
 
 func history() -> void:
 	if busy or not connected():return
-	var r=await _request(HTTPClient.METHOD_GET,"/v1/save/"+account.code+"/revs")
+	var r=await _request(HTTPClient.METHOD_GET,"/v1/save/"+account.code+"/revs") if account.pin.is_empty() else await _request(HTTPClient.METHOD_POST,"/v1/save/read",{"code":account.code,"pin":account.pin,"history":true})
 	if r.status==200:revisions=r.revs;notice="최근 기록은 최대 10개까지 보관합니다."
 	changed.emit()
 
 func delete_account() -> void:
 	if busy or not connected() or account.pin.is_empty():return
 	var r=await _request(HTTPClient.METHOD_DELETE,"/v1/account",{"code":account.code,"pin":account.pin})
-	if r.status==200:
-		account={"code":"","pin":"","rev":0,"auto":false,"synced":false};auto_pending=false;last_auto="";persist();remote={};conflict={};revisions=[];rank={};rank_attempt=0;first_credentials=false;notice="클라우드 계정과 기록을 삭제했습니다. 이 기기 저장은 남아 있습니다."
+	if r.status==200 or (r.status==410 and r.get("deleted",false)):
+		archived=false;account={"code":"","pin":"","rev":0,"auto":false,"synced":false};auto_pending=false;last_auto="";persist();remote={};conflict={};revisions=[];rank={};rank_attempt=0;first_credentials=false;notice="클라우드 계정과 기록을 삭제했습니다. 이 기기 저장은 남아 있습니다."
 	changed.emit()
 
 func toggle_auto(value: bool) -> void:

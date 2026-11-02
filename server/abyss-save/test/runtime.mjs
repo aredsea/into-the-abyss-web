@@ -9,10 +9,13 @@ if(process.env.ABYSS_NODE_MODULES)require=createRequire(path.join(process.env.AB
 export const {Miniflare}=require('miniflare');
 export async function runtime(port,bindings={},extra={}){
  // The runtime receives the actual two source modules; no mock DB or alternate handler.
- const script=bundle();
+ const {testNow,...runtimeExtra}=extra;
+ // Optional deterministic wall clock for fixed-window assertions only. Production
+ // bundle and the supplied PoCs still use the real clock; D1 and handler are real.
+ const script=(testNow===undefined?'':`Date.now=()=>${testNow*1000};\n`)+bundle();
  const worker={name:'abyss-web-save',modules:true,script,compatibilityDate:'2025-07-18',d1Databases:['DB'],bindings:{TURNSTILE_ENABLED:'false',ALLOW_LOCALHOST:'true',IP_HASH_PEPPER:'local-integration-only-not-a-production-secret',...bindings}};
  const v5=Number(require('miniflare/package.json').version.split('.')[0])>=5;
- const options={...worker,host:'127.0.0.1',...(port?{port}:{}),cf:false,...extra};
+ const options={...worker,host:'127.0.0.1',...(port?{port}:{}),cf:false,...runtimeExtra};
  const mf=new Miniflare(v5?require('miniflare').convertV4MiniflareOptions(options):options);
  try{
  const db=await mf.getD1Database('DB');

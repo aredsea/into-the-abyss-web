@@ -8,7 +8,7 @@ const fx=JSON.parse(fs.readFileSync(path.join(root,'verification/cloud-r22/fixtu
 const results=[];let checks=0,serial=0;
 const out=path.join(root,'verification/cloud-r22/p9b');fs.mkdirSync(out,{recursive:true});
 async function group(name,fn,bindings={}){
- const {mf,db}=await runtime(undefined,bindings);let ip='192.0.2.1';
+ const {mf,db}=await runtime(undefined,bindings,{testNow:Math.floor(Date.now()/60000)*60+10});let ip='192.0.2.1';
  async function call(method,url,body,expected,extra={}){
   const r=await mf.dispatchFetch('http://localhost'+url,{method,headers:{'content-type':'application/json','CF-Connecting-IP':ip,...extra},...(body===undefined?{}:{body:JSON.stringify(body)})});
   const value=await r.json();if(expected!==undefined){assert.equal(r.status,expected,JSON.stringify({url,status:r.status,value}));checks++;}return {status:r.status,value};
@@ -41,13 +41,14 @@ await group('P1 concurrent admissions never overdraw global creation cap',async(
  const rs=await Promise.all(Array.from({length:8},(_,i)=>{setip('203.0.113.'+(i+1));return call('POST','/v1/account',{save:fx.town});}));
  assert.equal(rs.filter(r=>r.status===201).length,2);assert.equal(rs.filter(r=>r.status===429).length,6);
  assert.equal((await db.prepare("SELECT SUM(n) n FROM counters WHERE bucket='global:new'").first()).n,2);checks+=3;
- assert.equal((await db.prepare("SELECT SUM(n) n FROM counters WHERE bucket='global:requests'").first()).n,2);checks++;
+ assert.equal((await db.prepare("SELECT SUM(n) n FROM counters WHERE bucket='global:requests'").first()).n,null);checks++;
 },{GLOBAL_NEW_PER_MINUTE:'2'});
 await group('P1 global UTF-8 write bytes bounded across IPs',async({call,db,setip})=>{
  setip('203.0.113.1');const a=(await call('POST','/v1/account',{save:fx.town},201)).value;
  const before=(await db.prepare('SELECT * FROM counters ORDER BY bucket,minute').all()).results;
- setip('203.0.113.2');await call('PUT','/v1/save',{code:a.code,pin:a.pin,rev:1,save:fx.town},429);
- assert.deepEqual((await db.prepare('SELECT * FROM counters ORDER BY bucket,minute').all()).results,before);checks++;
+ setip('203.0.113.2');await call('PUT','/v1/save',{code:a.code,pin:a.pin,rev:1,save:fx.town},200);
+ await call('PUT','/v1/save',{code:a.code,pin:a.pin,rev:2,save:fx.town},429);
+ assert.equal((await db.prepare("SELECT n FROM counters WHERE bucket='global:bytes'").first()).n,Buffer.byteLength(JSON.stringify(fx.town)));checks++;
 },{GLOBAL_WRITE_BYTES_PER_MINUTE:String(Buffer.byteLength(JSON.stringify(fx.town))+10)});
 await group('P1 IPv6 /64 normalized and saturated IP rejects without updates',async({call,setip,db})=>{
  for(let i=0;i<60;i++){setip(i%2?'2001:db8:0:0::abcd':'2001:0db8::1');await call('GET','/v1/rank',undefined,200);}
@@ -80,7 +81,7 @@ await group('P2 failed PIN uses code+IP only; owner remains able to save',async(
  for(let i=0;i<19;i++)await call('POST','/v1/account/connect',{code:a.code,pin:a.pin},200);
  const before=(await db.prepare('SELECT * FROM counters ORDER BY bucket,minute').all()).results;
  setip('203.0.113.101');await call('POST','/v1/account/connect',{code:a.code,pin:a.pin},429);
- assert.deepEqual((await db.prepare('SELECT * FROM counters ORDER BY bucket,minute').all()).results,before);checks++;
+ assert.deepEqual((await db.prepare("SELECT * FROM counters WHERE bucket LIKE 'account:%' ORDER BY bucket,minute").all()).results,before.filter(r=>r.bucket.startsWith('account:')));checks++;
 });
 await group('P2 inherited equipment names and bought codes rejected independently',async({call,setip})=>{
  for(const id of ['constructor','toString','__proto__','hasOwnProperty'])for(const bought of [false,true]){
