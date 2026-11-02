@@ -1,4 +1,5 @@
 extends SceneTree
+const TownView=preload("res://ui/town_screen_r21.gd")
 const Screen=preload("res://ui/world_screen.gd")
 const World=preload("res://game/town_world_r21.gd")
 var checks=0
@@ -21,8 +22,9 @@ func capture(s,name,width):
 	check(root.get_texture().get_image().save_png(folder+"/render/"+name+"-"+str(width)+".png")==OK,"capture "+name)
 	if not is_instance_valid(s.town_view):return
 	var view=s.town_view;var boxes={}
-	for key in view.boxes:
-		var r=view.boxes[key].get_global_rect();boxes[key]=[r.position.x,r.position.y,r.size.x,r.size.y]
+	var measured_boxes=view.boxes if view is TownView else {}
+	for key in measured_boxes:
+		var r=measured_boxes[key].get_global_rect();boxes[key]=[r.position.x,r.position.y,r.size.x,r.size.y]
 	for l in view.find_children("*","Label",true,false):
 		var font=l.get_theme_font("font");var fs=l.get_theme_font_size("font_size")
 		var need=font.get_multiline_string_size(l.text,l.horizontal_alignment,l.size.x if l.autowrap_mode!=TextServer.AUTOWRAP_OFF else -1,fs)

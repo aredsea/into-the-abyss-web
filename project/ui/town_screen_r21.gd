@@ -174,6 +174,8 @@ func navigation() -> void:
 
 func home() -> void:
 	traced_title("home",Rect2(0,0,390,233))
+	action("panels","도감 · 상태",Rect2(255,16,120,44),host.go.bind("codex"))
+	action("town_places","마을 장소",Rect2(14,183,110,44),host.go.bind("places"))
 	plate("town-city-left",Rect2(0,330,103,128)); plate("town-city-right",Rect2(335,254,55,201))
 	ink(Rect2(-24,286,450,246))
 	label("현재 위치",Rect2(14,232,82,16),9,T.INK,T.BOLD)
@@ -212,7 +214,7 @@ func home() -> void:
 func roster() -> void:
 	header("동료")
 	label("보유 %d명 / 전체 30명" % host.model.s.owned.size(),Rect2(194,20,140,24),11,T.INK,T.BOLD)
-	action("roster_all","전체" if not host.catalog_all else "보유",Rect2(337,13,44,38),func():host.catalog_all=not host.catalog_all;host._draw_screen())
+	action("roster_all","도감",Rect2(337,13,44,38),host.go.bind("codex"))
 	var ids=host.model.IDS.duplicate()
 	if host.model.s.has("persona"):ids=host.model.s.owned.duplicate()
 	for p in host.model.config.companions:
@@ -319,7 +321,7 @@ func bag() -> void:
 	header("가방")
 	for i in range(3):
 		var key=["bag","equipment","cards"][i]
-		action("bag_tab:"+key,["보급품","장비","탐색 카드"][i],Rect2(18+i*118,65,118,38),host.go.bind(key),i==0)
+		action("bag_tab:"+key,["보급품","장비","탐색 카드"][i],Rect2(18+i*118,65,118,38),host.go.bind("inventory" if key=="equipment" else key),i==0)
 	var prev=stage; stage=scroll_page(117,636,host.model.config.items.size()*116)
 	for i in range(host.model.config.items.size()):
 		var it=host.model.config.items[i]; var y=i*116
@@ -562,7 +564,7 @@ func inn() -> void:
 	display(host.model.person(host.who).name,Rect2(183,518,180,29),T.INK,24)
 	label(host.model.person(host.who)["class"],Rect2(183,547,180,18),12)
 	var aff=host.model.s.members[host.who].aff
-	label("%s · 호감 %s"%[host.model.TOWN_RULES.aff_stage(aff),host.number(aff)],Rect2(183,567,180,20),12,T.INK,T.BOLD)
+	label("%s · 호감 %s / 200"%[preload("res://game/affection_r22.gd").stage(aff),host.number(aff)],Rect2(183,567,180,20),12,T.INK,T.BOLD)
 	fill("aff_track",Rect2(183,591,177,8),T.LINE);fill("aff_value",Rect2(183,591,177*maxf(0,aff)/200,8),T.RED)
 	label("함께, 더 깊은 곳으로.",Rect2(18,614,354,25),15,T.INK,T.BOLD)
 	var acts=host.model.TOWN_RULES.DATA.inn

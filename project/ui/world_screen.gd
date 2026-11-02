@@ -1,12 +1,12 @@
 extends Control
 
 const RouteMap=preload("res://ui/route_map.gd")
-const World=preload("res://game/persona_world.gd")
+const World=preload("res://game/chronicle_world_r22.gd")
 const CreateScreen=preload("res://ui/create_screen.gd")
 const PersonaSortieScreen=preload("res://ui/persona_sortie_screen.gd")
 const TownScreen=preload("res://ui/town_screen_r21.gd")
 const DungeonViewR21=preload("res://game/dungeon_view_r21.gd")
-const Store=preload("res://game/world_store.gd")
+const Store=preload("res://game/chronicle_save_r22.gd")
 const BattleScreen=preload("res://ui/battle_screen.gd")
 const UI=preload("res://ui/town_theme_r21.gd")
 const FONT=UI.BODY
@@ -50,6 +50,8 @@ var town_view: Control
 var details_return="member"
 var town_r21_preview=false
 var result_view: Control
+var panels_r22
+var journal_r22={"place":"town","person":"","legacy":false}
 
 func _ready() -> void:
 	motion_reduced=OS.has_feature("web") and bool(JavaScriptBridge.eval("window.matchMedia('(prefers-reduced-motion: reduce)').matches",true))
@@ -65,8 +67,10 @@ func _save() -> void:
 	if save_error!=OK: message="저장 실패: 창을 닫기 전에 다시 시도하세요."
 
 func go(page: String) -> void:
+	if page=="town" and screen=="summary" and model.has_method("chronicle_home"):model.chronicle_home();_save()
 	if page=="member_details" and screen in ["member","skills"]: details_return=screen
 	if model.active() and page in ["town","shop","inn","depart","guild","smithy"]: page="explore"
+	if page in ["guild","shop","inn","smithy"] or (page=="town" and screen in ["guild","shop","inn","smithy"]):model.s.place=""
 	screen=page; confirm={}; selected_item=""; message=""; _draw_screen()
 
 func _draw_screen() -> void:
@@ -94,6 +98,11 @@ func _draw_screen() -> void:
 	result_view=null
 	if model.s.has("persona") and not model.s.creation_r22.complete:
 		town_view=CreateScreen.new();add_child(town_view);town_view.build(self);return
+	if screen in ["codex","status","inventory"]:
+		if panels_r22==null or panels_r22.model!=model:panels_r22=preload("res://game/panels_state_r22.gd").new(model)
+		town_view=load("res://ui/"+{"codex":"codex","status":"status","inventory":"inventory"}[screen]+"_screen_r22.gd").new();add_child(town_view);town_view.build(self);return
+	if screen in ["journal","places","people"]:
+		town_view=preload("res://ui/journal_screen_r22.gd").new();add_child(town_view);town_view.build(self);return
 	if model.s.has("persona") and screen in ["formation","depart"]:
 		town_view=PersonaSortieScreen.new();add_child(town_view);town_view.build(self);return
 	var finished_town=screen in ["town","party","member","skills","cards","depart","bag","formation","journal","summary","inn","shop","guild","recruit","equipment","smithy","research"] or (screen=="explore" and (model.r21() or model.s.run.get("event","")=="sealed"))

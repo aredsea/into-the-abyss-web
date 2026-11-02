@@ -1,0 +1,12 @@
+{
+  "initial_disposition": "fix",
+  "initial_scope": "Five native contact sheets covering 75 captures, plus sampled full-size screenshots and UI/state code; no engine rerun by reviewer.",
+  "finding": "At 360px the final character of the companion full name was clipped at the right edge.",
+  "fix": "Split the full name at its first space, preserve the brush font, wrap within the copy column. Add horizontal glyph and scroll-edge assertions and a 30-companion sweep.",
+  "final_disposition": "ship",
+  "final_scope": "Verdict pass on the one reported full-name finding, not a new full bot parity audit.",
+  "final_evidence": ["detail-360x780.png", "detail-390x844.png", "detail-390x664.png", "detail-430x932.png", "detail-1280x800.png"],
+  "score": "resolved",
+  "reviewer": "/root/impeccable_finish_reviewer",
+  "limitations": "Contact sheets cover every capture, but full-size views were sampled. No real-device gestures, screen reader, exports, or battle integration audit. Existing design-document drift remains outside scope."
+}
