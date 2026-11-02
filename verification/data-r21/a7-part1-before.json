@@ -1,0 +1,79 @@
+{
+	"checks": 7,
+	"failures": [
+		"P1-b chain respects phase guard",
+		"P2-d shield blocks damaged false",
+		"Nit-e aggregate migration current cap",
+		"P2-c legacy floor without epsilon"
+	],
+	"rows": [
+		{
+			"got": 3,
+			"label": "P1-a active path DOT life",
+			"ok": true,
+			"want": 3.0
+		},
+		{
+			"got": [
+				24,
+				24,
+				24,
+				0
+			],
+			"label": "P1-a DOT ticks",
+			"ok": true,
+			"want": [
+				24.0,
+				24.0,
+				24.0,
+				0.0
+			]
+		},
+		{
+			"got": 0,
+			"label": "P1-b chain respects phase guard",
+			"ok": false,
+			"want": 719
+		},
+		{
+			"got": [
+				300,
+				1,
+				false
+			],
+			"label": "P2-d shield blocks damaged false",
+			"ok": false,
+			"want": [
+				100.0,
+				0.0,
+				false
+			]
+		},
+		{
+			"got": [
+				100,
+				0,
+				false
+			],
+			"label": "P2-d shield blocks damaged true",
+			"ok": true,
+			"want": [
+				100.0,
+				0.0,
+				false
+			]
+		},
+		{
+			"got": 6,
+			"label": "Nit-e aggregate migration current cap",
+			"ok": false,
+			"want": 5
+		},
+		{
+			"got": 200,
+			"label": "P2-c legacy floor without epsilon",
+			"ok": false,
+			"want": 199
+		}
+	]
+}

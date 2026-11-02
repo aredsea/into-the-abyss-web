@@ -4,9 +4,7 @@ static func hit_after(b,h: Dictionary) -> void:
 	var a=h.a; var e=h.e
 	var shared=b.x(b.data.allies[0]); shared.last_target=e.id; shared.last_attacker=a.id
 	if a.class_id=="sanctioned" and e.hp>0 and ((b.action_id=="attack" and not h.extra) or (h.volley and b.action_id!="personal")):
-		var warp=b.sig(a,"sa_warp"); var delay=(800 if warp.is_empty() else 100*warp[0])*(.5 if e.grade=="boss" else 1)
-		e.remaining+=delay
-		if not warp.is_empty(): a.remaining=maxf(0,a.remaining-delay*warp[2]/100.0)
+		b.gear_bridge.invoke("warp",[b.gear_bridge.slot(a),b.gear_bridge.slot(e),false,.5 if e.grade=="boss" else 1,800])
 	if a.class_id=="unsanctioned" and b.action_id=="attack" and not h.extra and e.hp>0:
 		b._push_class_dot(e,maxf(1,floor(a.base[a.line]*.24)),3,a.id)
 	if h.killed: kill_credit(b,a)

@@ -19,6 +19,8 @@ const CombatDisplay=preload("res://game/combat_display_r22.gd")
 var combat_events=CombatEvents.new()
 const PersonalRules=preload("res://game/personal_rules_r22.gd")
 const TraitRules=preload("res://game/trait_rules_r22.gd")
+const GearBattle=preload("res://game/gear_battle_r22.gd")
+var gear_bridge
 
 func _volley(a: Dictionary,power: float,brk: float) -> void:
 	volley_active=true; pending_hit_hooks=[]
@@ -36,18 +38,20 @@ func _trait_event(a: Dictionary,label: String,duration: float=0) -> void:
 
 func _personal_enemy_down(e: Dictionary) -> void:
 	PersonalRules.enemy_down(self,e); TraitRules.enemy_down(self,e)
+	if gear_bridge!=null: gear_bridge.invoke("enemy_dead",[gear_bridge.slot(e)])
 
-func _flat_enemy(e: Dictionary,amount: float,a: Dictionary={},fixed=true,record_hit=true) -> void:
+func _flat_enemy(e: Dictionary,amount: float,a: Dictionary={},fixed=true,record_hit=true,credit=true) -> void:
 	if e.hp<=0: return
 	var damage=maxi(1,int(floor(amount)))
 	if not fixed and e.effects.has("guard"): damage=maxi(1,int(floor(damage*.6)))
 	var before=e.hp; var shield=mini(damage,int(fx(e,"shield")))
 	if shield>0: e.effects.shield.amount-=shield
 	e.hp=maxi(0,e.hp-damage+shield); dungeon_enemy_r21.phase_guard(e,before)
+	e.effects.erase("mark")
 	if not a.is_empty() and record_hit: _record_hit(a.id,e.id,damage,shield)
 	if e.hp<=0:
 		_personal_enemy_down(e)
-		if not a.is_empty(): TraitRules.kill_credit(self,a)
+		if not a.is_empty() and credit: TraitRules.kill_credit(self,a)
 
 func _personal_hit_after(h: Dictionary) -> void:
 	# B.attack/volley emits its body and advances T before firing hit_after.
@@ -60,10 +64,15 @@ func _personal_hit_after(h: Dictionary) -> void:
 	# Source volley does not run foe_hit_after or GH.extra_hit.
 	if h.volley: return
 	dungeon_enemy_r21.after_hit(a,e)
-	if a.hp>0 and a.class_id=="assassin" and (not h.extra or h.get("allow_extra",false)) and e.hp>0 and _roll(sig(a,"as_shadow")[0]/100.0 if not sig(a,"as_shadow").is_empty() else .2):
+	var extra_chance=sig(a,"as_shadow")[0]/100.0 if not sig(a,"as_shadow").is_empty() else .2
+	if gear_bridge!=null:
+		gear_bridge.pack(); extra_chance=gear_bridge.hooks.assassin_extra(gear_bridge.st.u[gear_bridge.slot(a)-1],.2)
+	if a.hp>0 and a.class_id=="assassin" and (not h.extra or h.get("allow_extra",false)) and e.hp>0 and _roll(extra_chance):
 		_damage(a,e,a.skills.attack.power,0,true,-1,{"hit":.25,"duration":.8})
 
 func _gear_hit_after(h: Dictionary) -> void:
+	if gear_bridge!=null:
+		gear_bridge.invoke("hit_after",[gear_bridge.slot(h.a),gear_bridge.slot(h.e),{"d":h.dealt,"kill":1 if h.killed else 0},{},combat_events.T]); return
 	var a=h.a
 	var frenzy=proc(a,"frenzy")
 	if not frenzy.is_empty() and x(a).get("frenzy_action",-1)!=turn_count+1:
@@ -73,6 +82,8 @@ func _gear_hit_after(h: Dictionary) -> void:
 	if not hunger.is_empty() and a.hp>0: _receive_heal(a,h.dealt*hunger[2]/100.0)
 
 func _gear_kill(a: Dictionary) -> void:
+	if gear_bridge!=null:
+		gear_bridge.invoke("gear_kill",[gear_bridge.slot(a),combat_events.T]); return
 	a.mp=mini(a.mmp,a.mp+int(a.get("gear_fx",{}).get("killmp",0)))
 	var chain=proc(a,"chain")
 	if not chain.is_empty(): _effect(a,"next_power",4,chain.x/100.0)
@@ -142,7 +153,7 @@ func _round_tick() -> void:
 					for key in ["attack_down","defense_down"]:
 						if target.effects.has(key): target.effects.erase(key); break
 			"tove":
-				owner.shield=mini(int(floor(owner.mhp*.3)),owner.shield+int(floor(owner.mhp*.06+.5)))
+				owner.shield=maxi(owner.shield,mini(int(floor(owner.mhp*.3)),owner.shield+int(floor(owner.mhp*.06+.5))))
 				_effect(owner,"shield",4)
 			"sorel":
 				for a in living(true):
@@ -168,10 +179,11 @@ func _round_tick() -> void:
 				if a.effects.has(key): a.effects.erase(key); break
 
 	# Gear's global round hook also runs while the wall wearer is down.
-	for a in data.allies:
+	for a in (data.allies if gear_bridge==null else []):
 		if a.hp<=0 and a.effects.has("wall_party"):
 			a.effects.wall_party.turns-=1
 			if a.effects.wall_party.turns<=0: a.effects.erase("wall_party")
+	if gear_bridge!=null: gear_bridge.invoke("round_end")
 
 func _begin_effect_action(actor: String) -> void:
 	r21_action_actor=actor
@@ -200,11 +212,12 @@ func _init(scene_data: Dictionary={}) -> void:
 	for u in data.allies+data.enemies: extra_state[u.id]={}
 	if data.has("encounter_r21"):
 		dungeon_enemy_r21=preload("res://game/dungeon_enemy_r21.gd").new(self)
+		gear_bridge=GearBattle.new(self); gear_bridge.initialize()
 		selected_enemy=data.enemies[0].id
 		dungeon_enemy_r21.initialize_targets()
 	for a in data.allies:
 		if a.id=="altan":
-			for m in living(true): _shield(m,a.base.int*2,3)
+			for m in living(true): _shield(m,a.base.int*2,3,dungeon_enemy_r21==null)
 	if dungeon_enemy_r21!=null: _start_ctb()
 	refresh_forecast()
 
@@ -266,6 +279,8 @@ func count_tag(key: String,value: String) -> int:
 	return n
 
 func _effect(u: Dictionary,key: String,turns: int,amount: float=0) -> void:
+	if gear_bridge!=null and key in ["attack_up","defense_up","haste"] and amount>0:
+		gear_bridge.pack(); amount=gear_bridge.hooks.gear_buff(amount)
 	if dungeon_enemy_r21!=null and not u.has("base") and u.get("grade")=="boss":
 		if key in ["attack_down","defense_down","slow","foxflame"]: amount*=.5
 		if key in ["mark","silence"] and not _roll(.5): return
@@ -289,7 +304,9 @@ func has_alive(id: String) -> bool:
 func cost(id: String) -> int:
 	var n=int(actions()[id].mp)
 	var a=ally(current_id); var wind=sig(a,"ar_wind")
-	if id=="snipe" and not wind.is_empty(): n=int(round(n*(1-wind[0]/100.0)))
+	if gear_bridge!=null:
+		gear_bridge.pack(); n=int(gear_bridge.hooks.gear_mpc(gear_bridge.st.u[gear_bridge.slot(a)-1],{"id":gear_bridge.skill_id(id),"mp":n}))
+	elif id=="snipe" and not wind.is_empty(): n=int(round(n*(1-wind[0]/100.0)))
 	return maxi(1,int(floor(n*.85+.5+1e-9))) if n>0 and has_alive("lynette") else n
 
 func actions() -> Dictionary:
@@ -317,7 +334,9 @@ func unavailable(id: String) -> String:
 func hp_cost(a: Dictionary,id: String) -> int:
 	var result=int(floor(a.mhp*(.15 if id=="blood" else .1))); var boil=sig(a,"gl_boil")
 	if a.get("nation")=="모르가스 신관국": result=maxi(1,int(floor(result*.7)))
-	if id=="blood" and not boil.is_empty(): result=int(round(result*(1-boil[0]/100.0)))
+	if id=="blood" and gear_bridge!=null:
+		gear_bridge.pack(); result=int(gear_bridge.hooks.hp_cost(gear_bridge.st.u[gear_bridge.slot(a)-1],result))
+	elif id=="blood" and not boil.is_empty(): result=int(round(result*(1-boil[0]/100.0)))
 	return result
 
 func choose_ally(id: String) -> bool:
@@ -357,7 +376,9 @@ func speed(u: Dictionary) -> float:
 
 func _shield(a: Dictionary, amount: float, turns: int, skill_bonus=true) -> void:
 	var source=ally(current_id)
-	if skill_bonus and not source.is_empty():
+	if gear_bridge!=null and skill_bonus and not source.is_empty():
+		var modified=gear_bridge.invoke("shield",[gear_bridge.slot(source),amount]); amount=modified if modified!=null else amount
+	elif skill_bonus and not source.is_empty():
 		amount*=1+bonus(source,"shield")
 		var guardian=proc(source,"guardian")
 		if not guardian.is_empty() and _roll(guardian.p/100.0): amount*=1+guardian.x/100.0
@@ -367,8 +388,6 @@ func _heal(a: Dictionary,t: Dictionary,power: float,use_class_line=false) -> voi
 	var amount=a.base[a.line if use_class_line else "int"]*2*power
 	if a.id=="berenga": amount*=1+.6*(1-float(t.hp)/t.mhp)
 	if dungeon_enemy_r21!=null:
-		var brew_r21=sig(a,"al_brew")
-		if action_id=="heal" and not brew_r21.is_empty(): amount*=1+brew_r21[0]/100.0
 		var healed_r21=_receive_heal(t,amount,a)
 		_event("%s → %s · HP +%d" % [a.name,t.name,healed_r21])
 		return
@@ -392,6 +411,13 @@ func _receive_heal(t: Dictionary,amount: float,skill_source: Dictionary={}) -> i
 	# B.heal + GH.heal: raw heals have no skill caster bonus or skill procs.
 	if t.hp<=0: return 0
 	if count_tag("race","인간")>=3: amount*=1.1
+	if gear_bridge!=null:
+		var old_act=gear_bridge.hooks.act; var old_skill=gear_bridge.hooks.skill
+		if not skill_source.is_empty(): gear_bridge.hooks.act=gear_bridge.slot(skill_source); gear_bridge.hooks.skill=old_skill if old_skill!=null else true
+		var modified=gear_bridge.invoke("heal_amount",[gear_bridge.slot(t),amount]); amount=modified if modified!=null else amount
+		gear_bridge.hooks.act=old_act; gear_bridge.hooks.skill=old_skill
+		var healed=mini(t.mhp-t.hp,maxi(0,int(floor(amount+.5+1e-9)))); t.hp+=healed
+		return healed
 	if not skill_source.is_empty():
 		amount*=1+bonus(skill_source,"heal")
 		var haste=proc(skill_source,"heal_haste")
@@ -419,7 +445,8 @@ func _dot_metadata(e: Dictionary) -> Dictionary:
 	var effect=e.effects.get("dot",{}).duplicate(true)
 	var stacks=effect.get("stacks",[])
 	if stacks.is_empty() and effect.get("amount",0)>0:
-		var count=clampi(int(x(e).get("dot_stacks",1)),1,6)
+		var cap=6 if count_tag("nation","모르가스 신관국")>=3 else 5
+		var count=clampi(int(x(e).get("dot_stacks",1)),1,cap)
 		for i in range(count): stacks.append(float(effect.amount)/count)
 	effect.stacks=stacks
 	for key in ["lifetimes","owners","bursts","initial_turns","orders"]:
@@ -445,13 +472,17 @@ func _push_class_dot(e: Dictionary,amount: float,turns: int,owner: String) -> vo
 	var cap=6 if count_tag("nation","모르가스 신관국")>=3 else 5
 	while effect.stacks.size()>=cap:
 		for key in ["stacks","lifetimes","owners","bursts","initial_turns","orders"]: effect[key].pop_front()
-	if not caster.is_empty() and bonus(caster,"dot")!=0: amount=floor(amount*(1+bonus(caster,"dot"))+.5)
+	var gear_dot=[]
+	if gear_bridge!=null and not caster.is_empty(): gear_dot=gear_bridge.invoke("gear_dot",[gear_bridge.slot(caster),amount]); amount=gear_dot[0]
+	elif not caster.is_empty() and bonus(caster,"dot")!=0: amount=floor(amount*(1+bonus(caster,"dot"))+.5)
 	var burst=proc(caster,"dot_burst") if not caster.is_empty() else {}
 	effect.stacks.append(amount); effect.lifetimes.append(turns); effect.owners.append(owner)
-	effect.bursts.append(burst.get("x",0)); effect.initial_turns.append(turns)
+	effect.bursts.append((gear_dot[1] if gear_dot[1]!=null else 0) if not gear_dot.is_empty() else burst.get("x",0)); effect.initial_turns.append(turns)
 	effect.orders.append(_next_dot_order())
 	_store_class_dot(e,effect); x(e).dot_owner=owner
 	if caster.is_empty(): return
+	if gear_bridge!=null:
+		gear_bridge.invoke("gear_dotchain",[gear_bridge.slot(e),gear_bridge.slot(caster)]); return
 	var chain=sig(caster,"un_chain")
 	if not chain.is_empty() and e.hp>0 and effect.stacks.size()>=chain[0]:
 		var pending=0.0
@@ -460,7 +491,9 @@ func _push_class_dot(e: Dictionary,amount: float,turns: int,owner: String) -> vo
 		var damage=int(floor(pending*(1+chain[1]/100.0)))
 		for key in ["dot","corrosion","bleed"]: e.effects.erase(key)
 		x(e).dot_stacks=0
+		var before=e.hp
 		_incoming_strike(e,damage,{}, {"name":"연쇄 폭발"})
+		dungeon_enemy_r21.phase_guard(e,before)
 		if e.hp<=0: TraitRules.kill_credit(self,caster)
 
 func _tick_enemy_dots(e: Dictionary) -> void:
@@ -471,7 +504,7 @@ func _tick_enemy_dots(e: Dictionary) -> void:
 			if effect.orders[i]>latest: latest=int(effect.orders[i]); kill_owner=effect.owners[i]
 			sum+=effect.stacks[i]; owners.append(effect.owners[i]); effect.lifetimes[i]-=1
 			if effect.lifetimes[i]<=0:
-				sum+=floor(effect.stacks[i]*effect.initial_turns[i]*effect.bursts[i]/100.0)
+				sum+=gear_bridge.hooks.dot_expiry({"d":effect.stacks[i],"n0":effect.initial_turns[i],"bu":effect.bursts[i],"n":0}) if gear_bridge!=null else floor(effect.stacks[i]*effect.initial_turns[i]*effect.bursts[i]/100.0)
 				for key in ["stacks","lifetimes","owners","bursts","initial_turns","orders"]: effect[key].remove_at(i)
 		_store_class_dot(e,effect)
 	for key in ["corrosion","bleed"]:
@@ -488,7 +521,13 @@ func _tick_enemy_dots(e: Dictionary) -> void:
 	_incoming_strike(e,sum,{}, {"name":"지속 피해"})
 	combat_events.push("dot",combat_events.slot(self,e),combat_events.T,[combat_events.slot(self,e)]); combat_events.T+=.9
 	dungeon_enemy_r21.phase_guard(e,before)
+	if gear_bridge!=null:
+		var wb=[]
+		for id in owners:
+			if not ally(id).is_empty(): wb.append(gear_bridge.slot(ally(id)))
+		gear_bridge.invoke("gear_dottick",[wb,combat_events.T-.9])
 	if e.hp<=0 and not kill_owner.is_empty(): TraitRules.kill_credit(self,ally(kill_owner))
+	if gear_bridge!=null: return
 	var seen=[]
 	for id in owners:
 		if id in seen: continue
@@ -549,9 +588,8 @@ func _tick(u: Dictionary) -> void:
 			if u.effects.has("taunt"):
 				u.effects.taunt.turns-=1
 				if u.effects.taunt.turns<=0: u.effects.erase("taunt")
-			u.mp=mini(u.mmp,u.mp+int(data.formula.mp_regen)+int(floor(u.get("gear_fx",{}).get("mpreg",0)+.5)))
-			var begin_heal=proc(u,"taunt_heal")
-			if not begin_heal.is_empty() and u.effects.has("taunt"): _receive_heal(u,u.mhp*begin_heal.x/100.0)
+			u.mp=mini(u.mmp,u.mp+int(data.formula.mp_regen))
+			if gear_bridge!=null: gear_bridge.invoke("gear_begin",[gear_bridge.slot(u)])
 		if not u.has("base") and u.effects.get("guard",{}).get("r21",false): u.effects.erase("guard")
 		var dot_damage=0
 		for i in range(4):
@@ -597,13 +635,17 @@ func _tick(u: Dictionary) -> void:
 func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,source_crit_roll: float=-1,proc_event: Dictionary={}) -> void:
 	if e.hp<=0: return
 	if dungeon_enemy_r21!=null and not volley_active: e=dungeon_enemy_r21.protector(e)
-	var gear=a.get("gear_fx",{})
-	var chance=(a.base.crit+a.base.agi/20.0+a.passive.get("crit",0)+a.trait.p.get("crit",0)+gear.get("crit",0))/100.0
+	var gear=a.get("gear_fx",{}) if gear_bridge==null else {}
+	var chance=(a.base.crit+a.get("combat_ag",a.base.agi)/20.0+a.passive.get("crit",0)+a.trait.p.get("crit",0)+gear.get("crit",0))/100.0
 	if dungeon_enemy_r21!=null and a.class_id=="gladiator": chance-=a.passive.get("crit",0)/100.0
 	if a.class_id=="gladiator": chance+=.08*float(a.hp)/a.mhp
-	if action_id=="snipe" and not extra: chance=sig(a,"ar_wind")[1]/100.0 if not sig(a,"ar_wind").is_empty() else .7
+	if action_id=="snipe" and not extra:
+		if gear_bridge!=null:
+			gear_bridge.pack(); chance=gear_bridge.hooks.snipe_crit(gear_bridge.st.u[gear_bridge.slot(a)-1])/100
+		else: chance=sig(a,"ar_wind")[1]/100.0 if not sig(a,"ar_wind").is_empty() else .7
 	if a.effects.has("blood"): chance+=.3
 	chance+=fx(a,"crit_up")
+	if gear_bridge!=null: chance+=gear_bridge.invoke("crit",[gear_bridge.slot(a),gear_bridge.slot(e),{},0])/100
 	if a.get("lineage") in ["고양이","표범","고양이과"]:
 		if not x(a).has("first_attack_action"): x(a).first_attack_action=turn_count+1
 		if x(a).first_attack_action==turn_count+1: chance+=.15
@@ -623,19 +665,21 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 	var shared=x(data.allies[0])
 	if a.get("lineage") in ["개","여우","늑대","개과"] and shared.get("last_target")==e.id and shared.get("last_attacker")!=a.id: mult*=1.08
 	if dungeon_enemy_r21==null: shared.last_target=e.id
-	for member in living(true):
+	for member in (living(true) if gear_bridge==null else []):
 		var pd=proc(member,"party_dmg")
 		if not pd.is_empty(): mult*=1+pd.x/100.0
-	if (dungeon_enemy_r21==null and e.id=="executor") or e.get("grade","") in ["elite","boss","chief","core"]: mult*=1+bonus(a,"elite")
-	if a.hp<=a.mhp*.3: mult*=1+bonus(a,"lowhp")
-	if a.shield>0: mult*=1+bonus(a,"shdmg")
-	if a.actions==0: mult*=1+bonus(a,"first")
+	if gear_bridge==null:
+		if (dungeon_enemy_r21==null and e.id=="executor") or e.get("grade","") in ["elite","boss","chief","core"]: mult*=1+bonus(a,"elite")
+		if a.hp<=a.mhp*.3: mult*=1+bonus(a,"lowhp")
+		if a.shield>0: mult*=1+bonus(a,"shdmg")
+		if a.actions==0: mult*=1+bonus(a,"first")
 	var wrath=sig(a,"pa_wrath"); var high=sig(a,"ar_high"); var hunger=sig(a,"gl_hunger"); var comp=sig(a,"sa_comp")
-	if not wrath.is_empty() and a.shield>0: mult*=1+wrath[0]/100.0
-	if not high.is_empty() and a.row=="후열": mult*=1+high[0]/100.0
-	if not hunger.is_empty() and a.hp<=a.mhp*hunger[0]/100.0: mult*=1+hunger[1]/100.0
-	if not comp.is_empty() and (action_id=="burst" or (action_id=="personal" and a.id=="teiris")): mult*=1+comp[0]/100.0
-	if e.broken:
+	if gear_bridge==null:
+		if not wrath.is_empty() and a.shield>0: mult*=1+wrath[0]/100.0
+		if not high.is_empty() and a.row=="후열": mult*=1+high[0]/100.0
+		if not hunger.is_empty() and a.hp<=a.mhp*hunger[0]/100.0: mult*=1+hunger[1]/100.0
+		if not comp.is_empty() and (action_id=="burst" or (action_id=="personal" and a.id=="teiris")): mult*=1+comp[0]/100.0
+	if e.broken and gear_bridge==null:
 		var resonance=proc(a,"abyss_res"); var rift=sig(a,"ch_rift"); var full=sig(a,"ch_full")
 		if not resonance.is_empty(): mult*=1+resonance.x/100.0
 		if not rift.is_empty(): mult*=1+rift[1]/100.0
@@ -666,15 +710,21 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 	if weak: damage*=1.3
 	if e.broken: damage*=2.5 if a.class_id=="chaos" else 1.5
 	if e.broken and a.id=="levia": damage*=PersonalRules.levia_mult(self) if dungeon_enemy_r21!=null else 1+.3*(data.enemies.size()-living(false).size())/maxf(1,data.enemies.size()-1)
+	if gear_bridge!=null:
+		var old_skill=gear_bridge.hooks.skill; gear_bridge.hooks.skill=null
+		damage=gear_bridge.invoke("deal",[gear_bridge.slot(a),gear_bridge.slot(e),damage,[],{"k":"burst" if volley_active and (action_id=="burst" or (action_id=="personal" and a.id=="teiris")) else "atk","name":"혼돈 파동" if action_id=="chaoswave" else ""}])
+		gear_bridge.hooks.skill=old_skill
 	if critical:
 		var crit_bonus=gear.get("critdmg",0)/100.0
-		if not sig(a,"as_vital").is_empty(): crit_bonus+=sig(a,"as_vital")[0]/100.0
+		if gear_bridge!=null:
+			gear_bridge.pack(); crit_bonus=gear_bridge.hooks.crit_damage(gear_bridge.st.u[gear_bridge.slot(a)-1],0)
+		elif not sig(a,"as_vital").is_empty(): crit_bonus+=sig(a,"as_vital")[0]/100.0
 		damage*=(2.0 if action_id=="snipe" and not extra else 1.5)+(.5 if a.effects.has("blood") else 0)+crit_bonus
-	if not extra: damage+=x(a).get("scar",0)+x(a).get("charge_damage",0); x(a).scar=0; x(a).charge_damage=0
+	if not extra and gear_bridge==null: damage+=x(a).get("scar",0)+x(a).get("charge_damage",0); x(a).scar=0; x(a).charge_damage=0
 	if not extra:
 		if dungeon_enemy_r21==null: damage+=x(a).get("overheal",0); x(a).overheal=0
 		a.effects.erase("next_power")
-	var before=int(e.hp); var shield_before=fx(e,"shield"); var dealt=maxi(1,int(floor(damage+1e-9)))
+	var before=int(e.hp); var shield_before=fx(e,"shield"); var dealt=maxi(1,int(floor(damage+(1e-9 if dungeon_enemy_r21!=null else 0))))
 	if dungeon_enemy_r21!=null and e.effects.has("guard"): dealt=maxi(1,int(floor(dealt*.6+1e-9)))
 	e.hp=maxi(0,e.hp-dealt)
 	if dungeon_enemy_r21!=null:
@@ -684,11 +734,15 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 		dungeon_enemy_r21.phase_guard(e,before)
 	_event("%s → %s · %d 피해%s" % [a.name,e.short,dealt," · 치명" if critical else ""])
 	var abyss=brk*(1.5 if weak else 1.0)*(1+gear.get("abyss",0)/100.0)
-	if not sig(a,"ch_rift").is_empty(): abyss*=1+sig(a,"ch_rift")[0]/100.0
+	if gear_bridge==null and not sig(a,"ch_rift").is_empty(): abyss*=1+sig(a,"ch_rift")[0]/100.0
 	var was_broken=e.broken
 	if a.id=="levia": abyss*=PersonalRules.levia_mult(self) if dungeon_enemy_r21!=null else 1+.3*(data.enemies.size()-living(false).size())/maxf(1,data.enemies.size()-1)
+	if gear_bridge!=null:
+		var modified=gear_bridge.invoke("abyss_mul",[gear_bridge.slot(a),gear_bridge.slot(e),abyss]); abyss=modified if modified!=null else abyss
 	_break(e,abyss)
-	if not was_broken and e.broken and not sig(a,"ch_void").is_empty():
+	if gear_bridge!=null and not was_broken and e.hp>0 and brk>0:
+		gear_bridge.invoke("abyss_after",[gear_bridge.slot(a),gear_bridge.slot(e),abyss,combat_events.T,[]])
+	if gear_bridge==null and not was_broken and e.broken and not sig(a,"ch_void").is_empty():
 		var v=sig(a,"ch_void"); a.mp=mini(a.mmp,a.mp+int(a.mmp*v[0]/100.0)); x(a).pull=maxf(x(a).get("pull",0),v[1]/100.0)
 	if a.id=="levia" and brk>0 and e.hp>0 and not was_broken:
 		for other in living(false):
@@ -711,7 +765,7 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 		var dot=(maxf(1,floor(a.base.int*.24)) if dungeon_enemy_r21!=null else a.base.int*.24)*(1+bonus(a,"dot") if dungeon_enemy_r21==null else 1)
 		if dungeon_enemy_r21==null and not sig(a,"un_seep").is_empty(): dot*=1+sig(a,"un_seep")[0]/100.0
 		if dungeon_enemy_r21!=null:
-			_push_class_dot(e,dot,4,a.id)
+			_push_class_dot(e,dot,3,a.id)
 		else:
 			_effect(e,"dot",4,minf(fx(e,"dot")+dot,dot*5)); x(e).dot_stacks=int(x(e).get("dot_stacks",0))+1
 		x(e).dot_owner=a.id
@@ -788,14 +842,21 @@ func act(id: String) -> bool:
 	if sk.target=="아군 1" and (t.is_empty() or t.hp<=0): return false
 	if dungeon_enemy_r21!=null and id=="personal" and a.id=="marceline" and t.id==a.id: return false
 	if sk.target.begins_with("적") and living(false).is_empty(): return false
-	events=[]; critical_this_action=false; a.mp-=cost(id); action_id=id; selected_action=id
+	events=[]; critical_this_action=false; action_id=id; selected_action=id
 	if dungeon_enemy_r21!=null: _begin_effect_action(a.id)
 	combat_hits=[]
 	if dungeon_enemy_r21!=null: dungeon_enemy_r21.begin_random(turn_count+1)
 	x(a).haste_done=false
 	if dungeon_enemy_r21!=null: _begin_combat_events(id,a,e,t)
-	var echo=proc(a,"echo")
-	if sk.mp>0 and not echo.is_empty() and _roll(echo.p/100.0): a.mp=mini(a.mmp,a.mp+int(cost(id)*echo.x/100.0))
+	var paid=cost(id)
+	if gear_bridge!=null: gear_bridge.invoke("first_action",[gear_bridge.slot(a)])
+	a.mp-=paid
+	if gear_bridge!=null:
+		if paid>0: gear_bridge.invoke("gear_echo",[gear_bridge.slot(a),paid])
+		gear_bridge.hooks.act=gear_bridge.slot(a); gear_bridge.hooks.skill=gear_bridge.skill_id(id)
+	else:
+		var echo=proc(a,"echo")
+		if sk.mp>0 and not echo.is_empty() and _roll(echo.p/100.0): a.mp=mini(a.mmp,a.mp+int(paid*echo.x/100.0))
 	_event(a.name+" · "+sk.name)
 	match id:
 		"tactic": _tactic(a,e,t,sk)
@@ -815,22 +876,32 @@ func act(id: String) -> bool:
 		"taunt","ptaunt": _effect(a,"taunt",2); PersonalRules.abyss(self,a,e,sk.brk)
 		"burst":
 			a.charging=true
-			var warp=sig(a,"sa_warp")
-			var delay=2500.0 if warp.is_empty() else warp[1]*100.0
-			e.remaining+=delay*(.5 if dungeon_enemy_r21!=null and e.grade=="boss" else 1)
-			if not warp.is_empty(): x(a).pull=maxf(x(a).get("pull",0),delay*warp[2]/1000000.0)
+			if gear_bridge!=null: gear_bridge.invoke("warp",[gear_bridge.slot(a),gear_bridge.slot(e),true,.5 if e.grade=="boss" else 1,2500])
+			else:
+				var warp=sig(a,"sa_warp"); var delay=2500.0 if warp.is_empty() else warp[1]*100.0
+				e.remaining+=delay
+				if not warp.is_empty(): x(a).pull=maxf(x(a).get("pull",0),delay*warp[2]/1000000.0)
 		"pshield","hshield":
+			var amount=floor(a.base[a.line]*(2 if dungeon_enemy_r21!=null else 1)*sk.power)*(1.03 if count_tag("nation","솔렌 성왕국")>=2 else 1)
+			if gear_bridge!=null:
+				var modified=gear_bridge.invoke("shield",[gear_bridge.slot(a),amount]); amount=floor(modified if modified!=null else amount)
+			else: amount*=1+sig(a,"pa_layer")[0]/100.0 if not sig(a,"pa_layer").is_empty() else 1
 			for member in living(true):
-				_shield(member,floor(a.base[a.line]*(2 if dungeon_enemy_r21!=null else 1)*sk.power)*(1.03 if count_tag("nation","솔렌 성왕국")>=2 else 1)*(1+sig(a,"pa_layer")[0]/100.0 if not sig(a,"pa_layer").is_empty() else 1),3 if dungeon_enemy_r21!=null else 2)
-				if not sig(a,"pr_swift").is_empty(): member.remaining=maxf(0,member.remaining-100*sig(a,"pr_swift")[0])
+				_shield(member,amount,3 if dungeon_enemy_r21!=null else 2,gear_bridge==null)
+				if gear_bridge==null and not sig(a,"pr_swift").is_empty(): member.remaining=maxf(0,member.remaining-100*sig(a,"pr_swift")[0])
 		"bless":
 			for member in living(true):
-				for key in ["attack_up","defense_up"]: _effect(member,key,3,.15*(1+sig(a,"pr_bless")[0]/100.0 if not sig(a,"pr_bless").is_empty() else 1)*(1+bonus(a,"buff")))
+				for key in ["attack_up","defense_up"]: _effect(member,key,3,.15 if gear_bridge!=null else .15*(1+sig(a,"pr_bless")[0]/100.0 if not sig(a,"pr_bless").is_empty() else 1)*(1+bonus(a,"buff")))
 		"heal":
 			for member in living(true): _heal(a,member,(1.4*(1.1 if count_tag("nation","마렌토 공화국")>=2 else 1)) if dungeon_enemy_r21!=null else .7)
 		"acid":
-			_effect(e,"defense_down",3,.2); PersonalRules.abyss(self,a,e,12)
-			if not sig(a,"al_splash").is_empty():
+			var value=.2
+			if gear_bridge!=null:
+				gear_bridge.pack(); value=gear_bridge.hooks.splash_value(gear_bridge.st.u[gear_bridge.slot(a)-1])
+			_effect(e,"defense_down",3,value)
+			if gear_bridge!=null: gear_bridge.invoke("gear_splash",[gear_bridge.slot(a),gear_bridge.slot(e),value])
+			PersonalRules.abyss(self,a,e,12)
+			if gear_bridge==null and not sig(a,"al_splash").is_empty():
 				var index=data.enemies.find(e)
 				for other in living(false):
 					if absi(data.enemies.find(other)-index)==1: _effect(other,"defense_down",3,sig(a,"al_splash")[0]/100.0)
@@ -843,7 +914,9 @@ func act(id: String) -> bool:
 			a.hp-=hp_cost(a,id)
 			if dungeon_enemy_r21!=null: _sorel_aid(a)
 			_effect(a,"blood",2,1)
-	if a.effects.has("taunt") and not sig(a,"wa_wall").is_empty(): _effect(a,"gear_guard",int(sig(a,"wa_wall")[1]),sig(a,"wa_wall")[0]/100.0)
+	if gear_bridge!=null:
+		gear_bridge.hooks.skill=null; gear_bridge.invoke("gear_skill",[gear_bridge.slot(a),gear_bridge.skill_id(id)])
+	elif a.effects.has("taunt") and not sig(a,"wa_wall").is_empty(): _effect(a,"gear_guard",int(sig(a,"wa_wall")[1]),sig(a,"wa_wall")[0]/100.0)
 	if dungeon_enemy_r21!=null: combat_events.finish(self)
 	_finish_turn(2.0 if id=="burst" else 1.0); return true
 
@@ -1059,6 +1132,8 @@ func _finish_turn(interval_scale: float=1) -> void:
 			if u.id=="bargut": u.remaining=maxf(0,u.remaining-10000*x(u).get("personal_pull",0)); x(u).personal_pull=0
 			if u.id=="teiris" and int(u.actions)%int(u.trait.p.every)==0: u.remaining=maxf(0,u.remaining-10000)
 			PersonalRules.turn_end(self,u); TraitRules.turn_end(self,u)
+			if gear_bridge!=null: gear_bridge.invoke("turn_end",[gear_bridge.slot(u)])
+		if gear_bridge!=null: gear_bridge.hooks.act=0; gear_bridge.hooks.skill=null
 		critical_this_action=false; turn_count+=1
 		if not _check_end(): _advance_ctb()
 		refresh_forecast()
@@ -1133,6 +1208,8 @@ func _enemy_evade(e: Dictionary,a: Dictionary) -> bool:
 			evaded=true
 	if evaded: return true
 	var chance=bonus(a,"evade")+(.01 if a.get("nation")=="나에린" else 0)
+	if gear_bridge!=null:
+		return gear_bridge.invoke("evade_roll",[gear_bridge.slot(a),.01 if a.get("nation")=="나에린" else 0,false])==true
 	if chance>0 and dungeon_enemy_r21.random()<chance:
 		_event(a.name+" · 회피"); return true
 	return false
@@ -1156,7 +1233,7 @@ func _enemy_hit(e: Dictionary,a: Dictionary,sk: Dictionary) -> void:
 	var k=40*(1+data.def_curve.a*n+data.def_curve.b*n*n)
 	var defense=a.base.def*(1+fx(a,"bless")+fx(a,"defense_up")-fx(a,"defense_down")) if dungeon_enemy_r21!=null else a.base.def*(1+fx(a,"bless")+fx(a,"defense_up"))*(1-fx(a,"defense_down"))
 	var hit=e.attack*sk.get("m",1)*k/(k+defense)*(1-fx(e,"attack_down"))
-	if dungeon_enemy_r21!=null: hit=maxi(1,int(floor(hit*dungeon_enemy_r21.attack_mult(e))))
+	if dungeon_enemy_r21!=null: hit=maxi(1,int(floor(hit*dungeon_enemy_r21.attack_mult(e)+1e-9)))
 	_incoming_strike(a,hit,e,sk,covered)
 
 func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,covered=false,fixed=false) -> void:
@@ -1165,8 +1242,8 @@ func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,cove
 	if not a.has("base"):
 		_flat_enemy(a,hit,{},false,false); return
 	# B.strike: stance and cover precede take; tactical psguard follows it.
-	if not fixed and a.effects.has("guard"): hit=floor(hit*(1-fx(a,"guard")))
-	if covered: hit=floor(hit*.7)
+	if not fixed and a.effects.has("guard"): hit=floor(hit*(1-fx(a,"guard"))+1e-9)
+	if covered: hit=floor(hit*.7+1e-9)
 	hit=PersonalRules.take(self,a,hit,e if not fixed else {})
 	if a.get("race")=="하프엘프": hit*=.98
 	if count_tag("race","하프엘프")>=3: hit*=.98
@@ -1175,13 +1252,11 @@ func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,cove
 	if nox>=3 and a.effects.has("taunt"): hit*=.92
 	if count_tag("nation","신성 세레디아 제국")>=2 and a.row=="전열": hit*=.97
 	if a.get("nation")=="케른 연방" and a.effects.has("taunt"): hit*=.98
-	hit*=1-fx(a,"gear_guard")
-	for member in data.allies: hit*=1-fx(member,"wall_party")
-	if a.shield>0 and not sig(a,"pa_wrath").is_empty(): hit*=1-sig(a,"pa_wrath")[1]/100.0
-	if a.charging and not sig(a,"sa_ward").is_empty():
-		var ward=sig(a,"sa_ward"); x(a).charge_damage=x(a).get("charge_damage",0)+hit*ward[0]*ward[1]/10000.0; hit*=1-ward[0]/100.0
 	if a.class_id=="gladiator": hit*=1-.1*float(a.hp)/a.mhp
-	hit*=1-minf(.8,a.get("gear_fx",{}).get("dr",0)/100.0)
+	if gear_bridge!=null:
+		var old_skill=gear_bridge.hooks.skill; gear_bridge.hooks.skill=null
+		var modified=gear_bridge.invoke("take",[gear_bridge.slot(a),hit,gear_bridge.slot(e) if not e.is_empty() else "fixed",hit]); hit=modified if modified!=null else hit
+		gear_bridge.hooks.skill=old_skill
 	# red25 (duty) belongs inside take; psguard is rounded separately.
 	hit=floor(hit+.5)
 	if fx(a,"psguard")>0: hit=floor(hit*(1-fx(a,"psguard"))+.5)
@@ -1192,47 +1267,34 @@ func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,cove
 	if a.hp-damage+absorbed<=0 and has_alive("felice") and a.id!="felice": x(a).death_tick=ctb_tick
 	a.shield-=absorbed; damage-=absorbed; a.hp=maxi(0,a.hp-damage)
 	if absorbed>0 and a.shield==0: a.effects.erase("shield")
-	if not e.is_empty(): e.hp=maxi(0,e.hp-int(damage*bonus(a,"reflect")))
 	var echo_broken=absorbed>0 and a.shield==0
-	if absorbed>0 and a.shield==0:
-		var thorns=proc(a,"thorns_shd")
-		if not e.is_empty() and not thorns.is_empty(): e.hp=maxi(0,e.hp-int(absorbed*thorns.x/100.0))
+	if echo_broken and gear_bridge!=null: gear_bridge.invoke("gear_shbreak",[gear_bridge.slot(a),absorbed,gear_bridge.slot(e) if not e.is_empty() else "fixed"])
 	_event("%s → %s · %d 피해" % [sk.name,a.name,damage])
 	if a.hp==0:
 		# Personal save hooks run in party order, then gear, then priest.
 		if a.id=="marceline" and not x(a).get("saved",false):
 			x(a).saved=true; a.hp=mini(a.mhp,1+int(a.mhp*.25)); _shield(a,a.mhp*.15,3,false)
-		elif not sig(a,"wa_last").is_empty() and not x(a).get("wall_saved",false):
-			for member in data.allies: member.effects.erase("wall_party")
-			var wall=sig(a,"wa_last"); x(a).wall_saved=true; a.hp=maxi(1,int(floor(a.mhp*wall[0]/100.0+.5))); _effect(a,"wall_party",int(wall[1])+(1 if current_id==a.id else 0),wall[2]/100.0)
+		elif gear_bridge!=null and gear_bridge.invoke("gear_save",[gear_bridge.slot(a),combat_events.T])==1: pass
 		else:
 			if not a.ward_used:
 				for member in save_owners:
 					if member.class_id!="priest": continue
-					var miracle=sig(member,"pr_miracle")
-					var fraction=.5 if miracle.is_empty() else miracle[0]/100.0
+					gear_bridge.pack(); var miracle=gear_bridge.hooks.miracle(gear_bridge.st.u[gear_bridge.slot(member)-1],.5)
+					var fraction=miracle.hp
 					a.ward_used=true; a.hp=int(floor(a.mhp*fraction+.5))
-					if not miracle.is_empty(): _shield(a,a.mhp*miracle[1]/100.0,3,false)
+					if miracle.shield>0: _shield(a,a.mhp*miracle.shield,3,false)
 					break
 			if a.hp==0 and a.id!="felice" and has_alive("felice") and not x(ally("felice")).get("revive",false):
 				x(a).reviving=true; _event("펠리체 · 다음 차례에 소생")
 		if a.hp<=0 and dungeon_enemy_r21!=null: _ally_down(a)
 	a.effects.erase("mark")
-	if (not fixed or damage>0) and not sig(a,"wa_scar").is_empty():
-		var scar=sig(a,"wa_scar"); x(a).scar=minf(a.mhp*scar[1]/100.0,x(a).get("scar",0)+damage*scar[0]/100.0)
-	if (not fixed or damage>0) and a.hp>0 and a.hp<=a.mhp*.25 and has_alive("sorel") and x(ally("sorel")).get("rescue",0)<2:
+	if damage>0 and a.hp>0 and a.hp<=a.mhp*.25 and has_alive("sorel") and x(ally("sorel")).get("rescue",0)<2:
 		x(ally("sorel")).rescue=x(ally("sorel")).get("rescue",0)+1
 		if dungeon_enemy_r21!=null: _receive_heal(a,ally("sorel").base.int*2)
 		else: _heal(ally("sorel"),a,1)
-	var stand=proc(a,"last_stand")
-	if (not fixed or damage>0) and not stand.is_empty() and a.hp>0 and a.hp<a.mhp*stand.x/100.0 and not x(a).get("stood",false):
-		x(a).stood=true; _effect(a,"gear_guard",int(stand.n),.3)
+	if damage>0 and gear_bridge!=null: gear_bridge.invoke("damaged",[gear_bridge.slot(a),damage,gear_bridge.slot(e) if not e.is_empty() else "fixed",combat_events.T])
 	# Both fixed and ordinary strikes run pecho after saves, death and damaged.
-	if echo_broken and a.hp>0:
-		var echo=0.0
-		for member in living(true):
-			if member.hp>0 and not sig(member,"pa_echo").is_empty(): echo=maxf(echo,sig(member,"pa_echo")[0]/100.0)
-		_receive_heal(a,absorbed*echo)
+	if gear_bridge!=null: gear_bridge.invoke("gear_pecho",[gear_bridge.slot(a),combat_events.T])
 
 # Frozen legacy damage path from 72bf1b2; ongoing pre-r21 expeditions keep their rules.
 func _legacy_incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,covered=false,fixed=false) -> void:
@@ -1401,6 +1463,9 @@ func _restore_v3(value: Variant) -> bool:
 						elif metadata in ["lifetimes","initial_turns"] and (cell<1 or cell>100 or cell!=floor(cell)): return false
 		for key in value.extra_state[u.id]:
 			var cell=value.extra_state[u.id][key]
+			if key in ["gear_gw","gear_gk","gear_gb","gear_gt"]:
+				if u.id!=data.allies[0].id or not cell is Dictionary or not _gear_global_valid(key,cell): return false
+				continue
 			if key=="judith_sp0" and (not _number(cell) or cell<=0 or cell>10000000): return false
 			if key in ["judith_until","death_tick"] and (not _number(cell) or cell<0 or cell!=floor(cell)): return false
 			if key=="source_rng" and (not _number(cell) or cell<1 or cell>=2147483647 or cell!=floor(cell)): return false
@@ -1425,3 +1490,19 @@ func _restore_v3(value: Variant) -> bool:
 	inventory=value.inventory.duplicate(true)
 	ctb_tick=int(value.get("ctb",{}).get("tick",0)); ctb_round=int(value.get("ctb",{}).get("round",0))
 	refresh_forecast(); return true
+
+func _gear_global_valid(key: String,cell: Dictionary) -> bool:
+	if key=="gear_gk":
+		if cell.size()>64: return false
+		for k in cell:
+			if not k is String or k.length()>40 or not cell[k] is bool: return false
+		return true
+	var fields={"gear_gw":["n","p","who"],"gear_gb":["t","d"],"gear_gt":["t","e","d","x","n"]}[key]
+	if cell.size()!=fields.size(): return false
+	for k in fields:
+		if not _number(cell.get(k)) or cell[k]<0 or cell[k]>10000000: return false
+	for k in ["who","t","e"]:
+		if cell.has(k) and (cell[k]<1 or cell[k]>4+data.enemies.size() or cell[k]!=floor(cell[k])): return false
+		if cell.has(k) and cell[k]<=4 and cell[k]>data.allies.size(): return false
+	if key=="gear_gw" and (cell.n<1 or cell.n>100 or cell.n!=floor(cell.n) or cell.p>100 or cell.who>data.allies.size()): return false
+	return true

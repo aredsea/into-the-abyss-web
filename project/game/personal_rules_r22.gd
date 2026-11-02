@@ -29,9 +29,12 @@ static func can(b,a: Dictionary) -> bool:
 static func abyss(b,a,e,amount: float) -> void:
 	var value=amount*(1.5 if a.element in e.weak else 1)
 	if a.id=="levia": value*=levia_mult(b)
+	if b.gear_bridge!=null:
+		var modified=b.gear_bridge.invoke("abyss_mul",[b.gear_bridge.slot(a),b.gear_bridge.slot(e),value]); value=modified if modified!=null else value
 	value=floor(value+.5)
 	var eligible=e.hp>0 and not e.broken
 	b._break(e,value)
+	if eligible and b.gear_bridge!=null: b.gear_bridge.invoke("abyss_after",[b.gear_bridge.slot(a),b.gear_bridge.slot(e),value,b.combat_events.T,[]])
 	if eligible and a.id=="levia":
 		for other in b.living(false):
 			if other.id!=e.id: b._break(other,floor(value*.07+.5))
@@ -80,7 +83,7 @@ static func run(b,a,e,t,sk) -> void:
 				t.effects[key].amount=minf(.7,t.effects[key].amount*2) if key in ["contract","duty"] else t.effects[key].amount*2
 				t.effects[key].doubled=true
 		"lynette":
-			for u in b.living(true): b._receive_heal(u,floor(a.base[a.line]),a); b._shield(u,floor(a.base[a.line]),3)
+			for u in b.living(true): b._receive_heal(u,floor(a.base[a.line]),a); b._shield(u,floor(a.base[a.line]),3,false)
 		"felice","berenga": b._heal(a,t,.4 if a.id=="felice" else 1,true); cleanse(t)
 		"sorel":
 			for u in b.living(true): b._heal(a,u,1,true); b._effect(u,"sorel_regen",2,floor(a.base[a.line]*.6))
@@ -152,7 +155,7 @@ static func hit_after(b,h: Dictionary) -> void:
 				var carry=int(floor(b.x(a).get("overheal",0)))
 				if carry>0:
 					b.x(a).overheal=0
-					if not h.killed and e.hp>0: b._flat_enemy(e,carry,a)
+					if not h.killed and e.hp>0: b._flat_enemy(e,carry,a,true,true,false)
 				var leech=.3*minf(h.dealt,h.before+h.get("shield_before",0)); var got=minf(leech,a.mhp-a.hp)
 				if got>0: b._receive_heal(a,got)
 				b.x(a).overheal=b.x(a).get("overheal",0)+maxf(0,leech-got)

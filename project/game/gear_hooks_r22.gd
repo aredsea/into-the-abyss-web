@@ -5,13 +5,20 @@ extends RefCounted
 const Rules=preload("res://game/gear_rules_r22.gd")
 const J=preload("res://game/josa_r22.gd")
 const SIGQ={"pa_layer":"shield","as_vital":"critdmg","al_brew":"heal","un_seep":"dot","ch_rift":"abyss"}
-var rules=Rules.new()
-var bridge: Object
+var rules
+var bridge_ref: WeakRef
+var bridge_owner: Object
+var bridge: Object:
+	get: return bridge_owner if bridge_owner!=null else bridge_ref.get_ref() if bridge_ref!=null else null
+	set(value): bridge_owner=value; bridge_ref=null
 var act=0
 var skill: Variant=null
 var defs=[]
 
-func _init(engine: Object=null):bridge=engine
+func _init(engine: Object=null,shared_rules=null,weak_bridge=false):
+	if weak_bridge: bridge_ref=weakref(engine) if engine!=null else null
+	else: bridge_owner=engine
+	rules=shared_rules if shared_rules!=null else Rules.new()
 func u(st: Dictionary,i: int) -> Dictionary:return st.u[i-1]
 func uq(w: Dictionary,key: String) -> Dictionary:
 	for e in w.get("gu",[]):
@@ -30,7 +37,7 @@ func part(s: String,p: String) -> String:return J.p(s,p)
 func r1(v: float) -> float:return floor(v*10+.5)/10
 func num(v: float) -> String:return str(int(v)) if v==bf(v) else str(v)
 func bf(v: float) -> float:return floor(v+1e-9)
-func pct(v: float) -> float:return 1+v/100
+func pct(v: float) -> float:return 1+v/100.0
 func T(st: Dictionary) -> float:return st.ev.T
 func idx_of(st: Dictionary,w: Dictionary) -> int:
 	for i in range(1,5):
@@ -114,7 +121,7 @@ func deal(st: Dictionary,a: int,t: int,m: float,tags: Array,opt: Dictionary={}) 
 		if not e.is_empty() and x.get("blc",0)>0 and x.get("blk")!=st.n:x.blk=st.n;x.blu=x.blc;x.blc=0
 		if not e.is_empty() and x.get("blk")==st.n and x.get("blu",0)>0:sum+=e.v[1]*x.blu
 		e=uq(w,"gl_hunger")
-		if not e.is_empty() and w.hp<=w.mhp*e.v[0]/100:sum+=e.v[1]
+		if not e.is_empty() and w.hp<=w.mhp*e.v[0]/100.0:sum+=e.v[1]
 		e=uq(w,"ch_rift")
 		if not e.is_empty() and u(st,t).dr==1:sum+=e.v[1]
 		e=uq(w,"as_hunt")
@@ -153,13 +160,13 @@ func gear_kill(st: Dictionary,a: int,at: float):
 		x.huc=x.get("huc",0)+1;x.hbk=st.n;x.erase("hbu");gear_adv(st,a,10000);line(st,a,"사냥꾼의 흐름: 바로 한 번 더 행동한다",at+.3)
 	e=uq(w,"ar_chain")
 	if not e.is_empty() and skill is String and skill=="snipe" and act==a:
-		var back=bf(x.get("lmc",0)*e.v[1]/100+.5)
+		var back=bf(x.get("lmc",0)*e.v[1]/100.0+.5)
 		if back>0 and w.mp<w.mmp:setf(st,a,"mp",minf(w.mmp,w.mp+back),at+.3)
 		gear_adv(st,a,e.v[0]*100);line(st,a,"연쇄 사격: MP "+part(str(int(back)),"을를")+" 돌려받고 다음 차례가 "+num(e.v[0])+"% 빨라진다",at+.3)
 	e=uq(w,"gl_king")
 	if not e.is_empty():
 		var sk=skill;skill=null
-		var h=heal(st,a,w.mhp*e.v[0]/100,at+.3);skill=sk
+		var h=heal(st,a,w.mhp*e.v[0]/100.0,at+.3);skill=sk
 		if h>0:line(st,a,"투기장의 왕: 처치로 HP +"+str(int(h)),at+.3)
 
 func gear_skill(st: Dictionary,i: int,id: String):
@@ -177,12 +184,12 @@ func gear_skill(st: Dictionary,i: int,id: String):
 
 func gear_mpc(w: Dictionary,sk: Dictionary) -> float:
 	var mp=sk.get("mp",0);var e=uq(w,"ar_wind") if sk.id=="snipe" else {}
-	return bf(mp*(1-e.v[0]/100)+.5) if not e.is_empty() and mp>0 else mp
+	return bf(mp*(1-e.v[0]/100.0)+.5) if not e.is_empty() and mp>0 else mp
 
 func gear_save(st: Dictionary,t: int,at: float) -> int:
 	var w=u(st,t);var e=uq(w,"wa_last")
 	if e.is_empty() or w.x.has("wlu"):return 0
-	w.x.wlu=1;setf(st,t,"hp",maxf(1,bf(w.mhp*e.v[0]/100+.5)),at)
+	w.x.wlu=1;setf(st,t,"hp",maxf(1,bf(w.mhp*e.v[0]/100.0+.5)),at)
 	st.gw={"n":e.v[1]+(1 if st.cur==t else 0),"p":e.v[2],"who":t}
 	line(st,t,"마지막 성벽: HP "+num(e.v[0])+"%로 버티고 자신의 "+num(e.v[1])+"턴 동안 파티가 받는 피해 −"+num(e.v[2])+"%",at)
 	call_engine(st,"say",["<b>"+nm(t)+"</b>의 <b>마지막 성벽</b> 덕에 쓰러질 일격을 버텨 냈다",at+.2]);return 1
@@ -221,13 +228,13 @@ func gear_begin(st: Dictionary,i: int):
 	if n>0 and w.mp<w.mmp:setf(st,i,"mp",minf(w.mmp,w.mp+n),T(st))
 	var e=uq(w,"taunt_heal")
 	if not e.is_empty() and w.tau>0:
-		var h=heal(st,i,w.mhp*e.x/100,T(st)+.2)
+		var h=heal(st,i,w.mhp*e.x/100.0,T(st)+.2)
 		if h>0:line(st,i,"버티는 자: HP +"+str(int(h)),T(st)+.2)
 
 func gear_echo(st: Dictionary,i: int,cost: float):
 	var w=u(st,i);w.x.lmc=cost;var e=uq(w,"echo")
 	if e.is_empty() or rnd(st)*100>=e.p:return
-	var back=bf(cost*e.x/100+.5)
+	var back=bf(cost*e.x/100.0+.5)
 	if back<=0 or w.mp>=w.mmp:return
 	setf(st,i,"mp",minf(w.mmp,w.mp+back),T(st));line(st,i,"메아리: MP "+str(int(back))+" 되돌려 받는다",T(st))
 
@@ -251,7 +258,7 @@ func gear_pecho(st: Dictionary,t: int,at: float):
 		var w=u(st,i);var e=uq(w,"pa_echo")
 		if w.al==1 and not e.is_empty() and (be.is_empty() or e.v[0]>be.v[0]):bw=i;be=e
 	if not be.is_empty():
-		var h=heal(st,t,gb.d*be.v[0]/100,at+.3)
+		var h=heal(st,t,gb.d*be.v[0]/100.0,at+.3)
 		if h>0:line(st,bw,"은총의 반향: "+nm(t)+" HP +"+str(int(h)),at+.3)
 
 func gear_buff(v: float) -> float:
@@ -272,18 +279,18 @@ func crit(st: Dictionary,a: int,_t: int,_opt: Dictionary={},previous: float=0) -
 
 func take(st: Dictionary,t: int,dmg: float,_src: Variant=null,previous: Variant=null) -> Variant:
 	var w=u(st,t);var f=1.0
-	if w.get("gq",{}).has("dr"):f*=1-q(w,"dr")/100
+	if w.get("gq",{}).has("dr"):f*=1-q(w,"dr")/100.0
 	if w.x.get("lsn",0)>0:f*=.7
 	var e=uq(w,"wa_wall")
-	if not e.is_empty() and w.x.get("wwn",0)>0:f*=1-e.v[0]/100
+	if not e.is_empty() and w.x.get("wwn",0)>0:f*=1-e.v[0]/100.0
 	e=uq(w,"pa_wrath")
-	if not e.is_empty() and w.sh>0:f*=1-e.v[1]/100
+	if not e.is_empty() and w.sh>0:f*=1-e.v[1]/100.0
 	e=uq(w,"sa_ward")
 	if not e.is_empty() and w.chg==1:
-		f*=1-e.v[0]/100
-		var kept=(previous if previous!=null else dmg)*e.v[0]/100*e.v[1]/100
+		f*=1-e.v[0]/100.0
+		var kept=(previous if previous!=null else dmg)*e.v[0]/100.0*e.v[1]/100.0
 		w.x.sws=minf(w.mhp,w.x.get("sws",0)+kept)
-	if st.has("gw"):f*=1-st.gw.p/100
+	if st.has("gw"):f*=1-st.gw.p/100.0
 	return (previous if previous!=null else dmg)*f if f<1 else previous
 
 func heal_amount(st: Dictionary,t: int,amt: float,previous: Variant=null) -> Variant:
@@ -298,14 +305,14 @@ func heal_amount(st: Dictionary,t: int,amt: float,previous: Variant=null) -> Var
 			if rnd(st)*100<hh.p:
 				for i in range(1,5):
 					var pw=u(st,i)
-					if pw.al==1:pw.g=maxf(0,pw.g-10000*hh.x/100)
+					if pw.al==1:pw.g=maxf(0,pw.g-10000*hh.x/100.0)
 				line(st,idx_of(st,c),"축복의 바람: 파티의 다음 차례가 "+num(hh.x)+"% 빨라진다",T(st))
 	var w=u(st,t)
 	if w.get("gq",{}).has("healrecv"):amt*=pct(q(w,"healrecv"));changed=amt
 	var e=uq(c,"al_surge") if not c.is_empty() and skill!=null else {}
 	if not e.is_empty():
 		var over=w.hp+bf(amt+.5)-w.mhp
-		var s=bf(over*e.v[0]/100) if over>0 else 0.0
+		var s=bf(over*e.v[0]/100.0) if over>0 else 0.0
 		s=minf(s,maxf(0,bf(w.mhp*.5)-w.sh))
 		if s>0 and w.al==1:setf(st,t,"sh",w.sh+s,T(st)+.3);w.shT=maxf(w.shT,e.v[1]);c.x.sgs=c.x.get("sgs",0)+s
 	return changed
@@ -328,28 +335,28 @@ func hit_after(st: Dictionary,a: int,_t: int,res: Dictionary,_opt: Dictionary,at
 		if rnd(st)*100<e.p:w.x.fzx=e.x;w.x.fzn=e.get("n",1)+1;line(st,a,"광기: "+num(e.get("n",1))+"턴 동안 치명타 확률 +"+num(e.x)+"%p",at+.3)
 	e=uq(w,"gl_hunger")
 	if not e.is_empty() and w.al==1 and res.get("d",0)>0:
-		var h=heal(st,a,res.d*e.v[2]/100,at+.3)
+		var h=heal(st,a,res.d*e.v[2]/100.0,at+.3)
 		if h>0:line(st,a,"굶주린 칼: HP +"+str(int(h)),at+.3)
 
 func damaged(st: Dictionary,t: int,dmg: float,_src: Variant,at: float):
 	var w=u(st,t);var e=uq(w,"wa_scar")
-	if not e.is_empty():w.x.scr=minf(w.mhp*e.v[1]/100,w.x.get("scr",0)+dmg*e.v[0]/100)
+	if not e.is_empty():w.x.scr=minf(w.mhp*e.v[1]/100.0,w.x.get("scr",0)+dmg*e.v[0]/100.0)
 	if w.al==1 and not w.x.has("lsd"):
 		e=uq(w,"last_stand")
-		if not e.is_empty() and w.hp<w.mhp*e.x/100:w.x.lsd=1;w.x.lsn=e.get("n",1);line(st,t,"최후의 저항: "+num(e.get("n",1))+"턴 동안 받는 피해 −30%",at+.2)
+		if not e.is_empty() and w.hp<w.mhp*e.x/100.0:w.x.lsd=1;w.x.lsn=e.get("n",1);line(st,t,"최후의 저항: "+num(e.get("n",1))+"턴 동안 받는 피해 −30%",at+.2)
 
 func attacked(st: Dictionary,t: int,enemy: int,res: Dictionary,at: float):
 	if enemy<5:return
 	var w=u(st,t)
 	if w.get("gq",{}).has("reflect") and u(st,enemy).al==1:
-		var d=bf(res.get("d",0)*q(w,"reflect")/100)
+		var d=bf(res.get("d",0)*q(w,"reflect")/100.0)
 		if d>=1:
 			var rr=call_engine(st,"strike",[enemy,d,at+.2,null,"fixed"])
 			call_engine(st,"say",["<b>"+nm(t)+"</b>의 장비가 충격을 되돌렸다. "+part(nm(enemy),"에게")+" <em>"+str(int(rr.d))+"</em> 반사 피해를 입혔다"+(". 쓰러졌다" if rr.kill==1 else ""),at+.4])
 			if rr.kill==1:call_engine(st,"kill_credit",[t,at+.2])
 	var gt=st.get("gt",{});st.erase("gt")
 	if not gt.is_empty() and gt.t==t and gt.n==st.n and u(st,int(gt.e)).al==1:
-		var d=bf(gt.d*gt.x/100)
+		var d=bf(gt.d*gt.x/100.0)
 		if d>=1:
 			var rr=call_engine(st,"strike",[gt.e,d,at+.3,null,"fixed"])
 			call_engine(st,"say",["<b>"+nm(t)+"</b>의 보호막이 깨지며 가시가 튀었다. "+part(nm(int(gt.e)),"에게")+" <em>"+str(int(rr.d))+"</em> 피해를 입혔다"+(". 쓰러졌다" if rr.kill==1 else ""),at+.5])
@@ -381,7 +388,7 @@ func round_end(st: Dictionary):
 func abyss_after(st: Dictionary,a: int,t: int,_amt: float,at: float,_list: Array):
 	var w=u(st,a);var e=uq(w,"ch_void")
 	if not e.is_empty() and u(st,t).dr==1:
-		var n=bf(w.mmp*e.v[0]/100+.5)
+		var n=bf(w.mmp*e.v[0]/100.0+.5)
 		if w.mp<w.mmp:setf(st,a,"mp",minf(w.mmp,w.mp+n),at+.4)
 		gear_adv(st,a,e.v[1]*100);line(st,a,"공허 흡수: MP +"+str(int(n))+", 다음 차례가 "+num(e.v[1])+"% 빨라진다",at+.4)
 
@@ -389,27 +396,27 @@ func abyss_after(st: Dictionary,a: int,t: int,_amt: float,at: float,_list: Array
 func first_action(st: Dictionary,i: int):
 	var w=u(st,i)
 	if w.get("gq",{}).has("first") and not w.x.has("f1"):w.x.f1=st.n
-func crit_damage(w: Dictionary,base: float) -> float:return base+q(w,"critdmg")/100
-func evade_chance(w: Dictionary,base: float) -> float:return base+q(w,"evade")/100
+func crit_damage(w: Dictionary,base: float) -> float:return base+q(w,"critdmg")/100.0
+func evade_chance(w: Dictionary,base: float) -> float:return base+q(w,"evade")/100.0
 func evade_roll(st: Dictionary,t: int,base: float=0,already: bool=false) -> Variant:
 	if already:return null
 	var p=evade_chance(u(st,t),base)
 	if p<=0:return null
 	return true if rnd(st)<p else null
 func dot_expiry(dot: Dictionary) -> float:
-	return bf(dot.d*dot.n0*dot.bu/100) if dot.has("bu") and dot.n<=0 else 0.0
+	return bf(dot.d*dot.n0*dot.bu/100.0) if dot.has("bu") and dot.n<=0 else 0.0
 func snipe_crit(w: Dictionary) -> float:
 	var e=uq(w,"ar_wind");return e.v[1] if not e.is_empty() else 70.0
 func assassin_extra(w: Dictionary,base: float) -> float:
-	var e=uq(w,"as_shadow");return e.v[0]/100 if not e.is_empty() else base
+	var e=uq(w,"as_shadow");return e.v[0]/100.0 if not e.is_empty() else base
 func hp_cost(w: Dictionary,base: float) -> float:
-	var e=uq(w,"gl_boil");return bf(base*(1-e.v[0]/100)+.5) if not e.is_empty() else base
+	var e=uq(w,"gl_boil");return bf(base*(1-e.v[0]/100.0)+.5) if not e.is_empty() else base
 func splash_value(w: Dictionary,item_mult: float=1) -> float:
-	var e=uq(w,"al_splash");return (e.v[0]/100 if not e.is_empty() else .20)*item_mult
+	var e=uq(w,"al_splash");return (e.v[0]/100.0 if not e.is_empty() else .20)*item_mult
 func miracle(w: Dictionary,base_heal: float) -> Dictionary:
-	var e=uq(w,"pr_miracle");return {"hp":e.v[0]/100,"shield":e.v[1]/100} if not e.is_empty() else {"hp":base_heal,"shield":0}
+	var e=uq(w,"pr_miracle");return {"hp":e.v[0]/100.0,"shield":e.v[1]/100.0} if not e.is_empty() else {"hp":base_heal,"shield":0}
 func warp(st: Dictionary,i: int,t: int,charging: bool,raid_mult: float,base_delay: float) -> float:
 	var e=uq(u(st,i),"sa_warp");var d=(e.v[1]*100 if charging else e.v[0]*100) if not e.is_empty() else base_delay
 	d*=raid_mult;u(st,t).g+=d
-	if not e.is_empty():gear_adv(st,i,d*e.v[2]/100)
+	if not e.is_empty():gear_adv(st,i,d*e.v[2]/100.0)
 	return d

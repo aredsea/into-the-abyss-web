@@ -1,0 +1,301 @@
+{
+	"actual_actions": 15,
+	"actual_inputs": {
+		"burst": 1,
+		"item:mp_s": 3,
+		"personal": 3,
+		"rift": 2
+	},
+	"battles": 1,
+	"equal_battles": 0,
+	"matched_actions": 8,
+	"purpose": "Strict active-skill and consumable full-battle parity",
+	"reports": [
+		{
+			"actual_actions": 15,
+			"actual_inputs": [
+				{
+					"actor": 2,
+					"id": "personal",
+					"n": 1
+				},
+				{
+					"actor": 3,
+					"id": "item:mp_s",
+					"n": 2
+				},
+				{
+					"actor": 4,
+					"id": "burst",
+					"n": 5
+				},
+				{
+					"actor": 1,
+					"id": "personal",
+					"n": 6
+				},
+				{
+					"actor": 2,
+					"id": "item:mp_s",
+					"n": 7
+				},
+				{
+					"actor": 3,
+					"id": "rift",
+					"n": 8
+				},
+				{
+					"actor": 1,
+					"id": "personal",
+					"n": 11
+				},
+				{
+					"actor": 2,
+					"id": "item:mp_s",
+					"n": 13
+				},
+				{
+					"actor": 3,
+					"id": "rift",
+					"n": 14
+				}
+			],
+			"actual_result": "victory",
+			"bn": 1.0,
+			"first_difference": {
+				"actual": {
+					"abyss": [
+						0,
+						0,
+						0,
+						0,
+						0.0,
+						27.0
+					],
+					"actor": 3,
+					"broken": [
+						false,
+						false,
+						false,
+						false,
+						true,
+						false
+					],
+					"g": [
+						2423.0,
+						9002.1,
+						9966.0,
+						11289.0,
+						2655.0,
+						155.0
+					],
+					"hits": [
+						{
+							"actor": 3,
+							"critical": true,
+							"damage": 133,
+							"shield": 0,
+							"target": 5
+						}
+					],
+					"hp": [
+						739,
+						431,
+						460,
+						433,
+						173,
+						308
+					],
+					"mp": [
+						115,
+						130,
+						66,
+						157,
+						0,
+						0
+					],
+					"n": 8,
+					"rd": 1,
+					"rng": 1409524253,
+					"sh": [
+						0,
+						0,
+						0,
+						0,
+						0.0,
+						0.0
+					],
+					"targets": [
+						0,
+						0,
+						0,
+						0,
+						5,
+						6
+					],
+					"tk": 189
+				},
+				"fields": [
+					"hp",
+					"hits"
+				],
+				"input": {
+					"actor": 3.0,
+					"cid": "",
+					"id": "rift",
+					"n": 8.0,
+					"target": 5.0
+				},
+				"source": {
+					"abyss": [
+						0.0,
+						0.0,
+						0.0,
+						0.0,
+						0.0,
+						27.0
+					],
+					"actor": 3.0,
+					"broken": [
+						false,
+						false,
+						false,
+						false,
+						true,
+						false
+					],
+					"g": [
+						2423.0,
+						9002.1,
+						9966.0,
+						11289.0,
+						2655.0,
+						155.0
+					],
+					"hits": [
+						{
+							"actor": 3.0,
+							"critical": false,
+							"damage": 89.0,
+							"shield": 0.0,
+							"target": 5.0
+						}
+					],
+					"hp": [
+						739.0,
+						431.0,
+						460.0,
+						433.0,
+						217.0,
+						308.0
+					],
+					"mp": [
+						115.0,
+						130.0,
+						66.0,
+						157.0,
+						0.0,
+						0.0
+					],
+					"n": 8.0,
+					"rd": 1.0,
+					"rng": 1409524253.0,
+					"sh": [
+						0.0,
+						0.0,
+						0.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"targets": [
+						0.0,
+						0.0,
+						0.0,
+						0.0,
+						5.0,
+						6.0
+					],
+					"tk": 189.0
+				},
+				"step": 8
+			},
+			"foe": "apprentice_doll",
+			"matched_actions": 8,
+			"party": [
+				"marceline",
+				"naran",
+				"levia",
+				"teiris"
+			],
+			"source_actions": 15,
+			"source_inputs": [
+				{
+					"actor": 2.0,
+					"cid": "naran",
+					"id": "mark",
+					"n": 1.0,
+					"target": 5.0
+				},
+				{
+					"actor": 3.0,
+					"cid": "",
+					"id": "item:mp_s",
+					"n": 2.0,
+					"target": 2.0
+				},
+				{
+					"actor": 4.0,
+					"cid": "",
+					"id": "burst",
+					"n": 5.0,
+					"target": 5.0
+				},
+				{
+					"actor": 1.0,
+					"cid": "marceline",
+					"id": "oath",
+					"n": 6.0,
+					"target": 2.0
+				},
+				{
+					"actor": 2.0,
+					"cid": "",
+					"id": "item:mp_s",
+					"n": 7.0,
+					"target": 1.0
+				},
+				{
+					"actor": 3.0,
+					"cid": "",
+					"id": "rift",
+					"n": 8.0,
+					"target": 5.0
+				},
+				{
+					"actor": 1.0,
+					"cid": "marceline",
+					"id": "oath",
+					"n": 11.0,
+					"target": 2.0
+				},
+				{
+					"actor": 2.0,
+					"cid": "",
+					"id": "item:mp_s",
+					"n": 13.0,
+					"target": 1.0
+				},
+				{
+					"actor": 3.0,
+					"cid": "",
+					"id": "rift",
+					"n": 14.0,
+					"target": 5.0
+				}
+			],
+			"source_result": "win"
+		}
+	],
+	"source_actions": 15
+}

@@ -5,6 +5,10 @@ var dungeon_rules=RulesR21.new()
 var selected_floor=1
 var selected_rift=""
 var selected_stars=1
+const CombatGear=preload("res://game/gear_rules_r22.gd")
+const CombatGearSave=preload("res://game/gear_save_r22.gd")
+static var combat_gear_rules=CombatGear.new()
+static var combat_gear_adapter=CombatGearSave.new()
 
 func _init():
 	super()
@@ -40,6 +44,7 @@ func depart_dungeon(f: int,seed: int=0,rift_id: String="",stars: int=1) -> bool:
 	if not rift_id.is_empty():
 		var r=dungeon_rules.rifts[rift_id]
 		if stars<r.star_min or stars>r.star_max: return false
+	gear=combat_gear_rules
 	s.runs+=1; s.summary={}
 	var rng_seed=seed if seed>0 else int(floor(next_random()*2147483646))+1
 	s.run={"phase":"explore","step":0,"gold":0,"xp":0,"wins":0,"event":"","resolved":true,"final":false,"battle":{},"rested":false,"id":s.runs,"rules_version":3,"data_version":21,
@@ -110,8 +115,20 @@ func final_battle() -> bool:
 	return true
 
 func battle_data() -> Dictionary:
+	if r21(): gear=combat_gear_rules
 	var d=super()
 	if not r21(): return d
+	# P4 initializes from pre-equipment stats once. The displayed/world stats
+	# already include equipment, so preserve current vitals separately.
+	var worn=s.equipment; s.equipment={}
+	for a in d.allies:
+		var raw=stats(a.id,int(a.level))
+		a.base=raw; a.mhp=raw.hp; a.mmp=raw.mp
+		a.gear_fx={}; a.gear_special=[]
+		a.gear_member=combat_gear_adapter.battle_member({"equipment":worn,"gear":s.gear},a.id,a.class_id,int(a.level))
+		if not a.gear_member.native_eq.is_empty():
+			a.gear_vitals={"hp":a.hp,"mp":a.mp}; a.hp=raw.hp; a.mp=raw.mp
+	s.equipment=worn
 	var plan=encounter_plan(); d.encounter_r21=plan; d.floor=s.run.floor if s.run.rift_id.is_empty() else 0
 	d.location=dungeon_rules.zones[plan.enc.zone].name if s.run.rift_id.is_empty() else dungeon_rules.rifts[s.run.rift_id].quest_name
 	d.build="r21-a-data-20261031-%d-%d-%s"%[s.run.id,s.run.step,str(s.run.final)]
@@ -195,10 +212,24 @@ func settle(result: String) -> bool:
 		for id in r.loot_items:
 			var key=web_item_id(id); s.items[key]=s.items.get(key,0)+r.loot_items[id]
 		for code in r.loot_gear:
-			if s.gear.size()>=2000: break
-			var parts=code.split("."); var n=0
-			for ch in parts[1]: n=n*36+"0123456789abcdefghijklmnopqrstuvwxyz".find(ch)
-			if gear.by_id.has(parts[0]): s.serial+=1; s.gear.append({"uid":s.serial,"id":parts[0],"seed":n,"forge":0,"tries":0})
+			var entry=combat_gear_adapter.source_drop({"code":code},int(s.serial)+1)
+			# In-flight r21 saves may still contain the old two-part loot token.
+			# Keep its legacy option RNG; only new versioned codes are source_r21.
+			if entry.is_empty():
+				var parts=code.split(".")
+				if parts.size()==2 and gear.by_id.has(parts[0]) and not parts[1].is_empty():
+					var n=0; var valid=true
+					for ch in parts[1]:
+						var digit="0123456789abcdefghijklmnopqrstuvwxyz".find(ch)
+						if digit<0: valid=false; break
+						n=n*36+digit
+					if valid: entry={"uid":int(s.serial)+1,"id":parts[0],"seed":n,"forge":0,"tries":0}
+			if entry.is_empty(): continue
+			if s.gear.size()>=2000:
+				if not s.has("gear_r22"): s.gear_r22={}
+				if not s.gear_r22.has("overflow"): s.gear_r22.overflow=[]
+				s.gear_r22.overflow.append({"code":code,"forge":{"lv":0,"tries":0}})
+			else: s.serial+=1; s.gear.append(entry)
 	s.gold+=amount
 	for id in s.party:
 		var m=s.members[id]; var before=m.level; m.xp+=xp

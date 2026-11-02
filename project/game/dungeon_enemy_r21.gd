@@ -320,9 +320,11 @@ func turn() -> bool:
 				event_targets=[t]
 				b._event(e.name+" · "+a.name)
 			_:
-				var list=allies_alive() if a.kind=="big_all" or a.get("target")=="all" else [target(e,a)]
-				event_targets=list
+				var list=b.data.allies if a.kind=="big_all" or a.get("target")=="all" else [target(e,a)]
+				event_targets=[]
 				for t in list:
+					if t.hp<=0: continue
+					event_targets.append(t)
 					var before={}
 					for ally in b.data.allies: before[ally.id]=int(ally.hp)
 					b._enemy_hit(e,t,a)
@@ -330,6 +332,9 @@ func turn() -> bool:
 					t=b.ally(b.last_enemy_hit_target)
 					if t.hp>0:
 						b.TraitRules.attacked(b,t,e)
+						if b.gear_bridge!=null:
+							var hit=b.combat_hits[-1] if not b.combat_hits.is_empty() else {"damage":0,"shield":0}
+							b.gear_bridge.invoke("attacked",[b.gear_bridge.slot(t),b.gear_bridge.slot(e),{"d":hit.damage,"sh":hit.shield},b.combat_events.T])
 						if a.has("drain"): e.hp=mini(e.mhp,e.hp+int(floor((before[t.id]-t.hp)*a.drain)))
 						if a.has("push"): t.remaining+=10000*a.push
 						if a.has("dot"): add_dot(t,e,dot_per(e,t,a.dot.m),int(a.dot.get("turns",3)))
