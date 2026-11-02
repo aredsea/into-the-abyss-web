@@ -9,6 +9,8 @@ const bool=(v,p)=>{if(typeof v!=='boolean')fail(p);};
 const list=(v,p,max=100)=>{if(!Array.isArray(v)||v.length>max)fail(p);return v;};
 const ids=K.world.companions.map(c=>c.id), owners=[...ids,'persona'];
 const items=K.world.items.map(c=>c.id), gear=new Map(K.gear.items.map(e=>[e.id,e]));
+// expansion_world builds action keys from active class skills, plus the signature skill.
+const battleSkills=new Set(['personal',...K.world.classes.flatMap(c=>c.skills.filter(s=>['기본','능동'].includes(s.kind)).map(s=>s.id==='atk'?'attack':s.id))]);
 const stats=['hp','mp','str','agi','int','def','spd'];
 export const need=l=>Math.floor((60*l+10*l*l)*(l<10?.4:l<30?.6+.4*(l-10)/20:1)+.5);
 function xp(p,l,e){num(l,1,40,p+'.level');num(e,0,l===40?0:need(l)-1,p+'.xp');}
@@ -70,7 +72,8 @@ function quest(v,p){
 function gearCode(v,p){
  text(v,p,80);const m=v.match(/^([a-z0-9_]+)\.([a-z0-9]+)\.(\d+)$/);
  if(!m||!gear.has(m[1])||Number(m[3])!==K.gear.version)fail(p);
- num(parseInt(m[2],36),1,1099511627776,p+'.seed');
+ const seed=parseInt(m[2],36);num(seed,1,1099511627776,p+'.seed');
+ if(v!==gear.get(m[1]).id+'.'+seed.toString(36)+'.'+K.gear.version)fail(p);
 }
 function boundedTree(v,p,depth=0){
  if(depth>24)fail(p);if(v===null)return;
@@ -103,6 +106,7 @@ function battle(v,p,party=[]){
     for(const key of Object.keys(x))if(!K.battleEffects.includes(key)&&!/^enemy_dot_[0-3]$/.test(key))fail(p+'.effect.id');
     for(const [effect,e] of Object.entries(x)){
      keys(e,['turns','amount','r21','source','by','fresh','doubled','order','heals','stacks','lifetimes','owners','bursts','initial_turns','orders'],p+'.effect',['turns','amount']);num(e.turns,1,100,p+'.turns');num(e.amount,/^enemy_dot_/.test(effect)?-1e12:-100000,/^enemy_dot_/.test(effect)?1e12:100000,p+'.amount',false);
+     if(v.schema_version!==3)for(const k of ['stacks','heals','lifetimes','owners','bursts','initial_turns','orders','fresh','order'])if(Object.hasOwn(e,k))fail(p+'.effect.'+k);
      for(const k of ['r21','fresh','doubled'])if(k in e)bool(e[k],p+'.'+k);
      for(const k of ['source','by'])if(k in e)savedUnit(e[k],p+'.effect.'+k);
      if('order'in e)num(e.order,0,1e7,p+'.effect.order');
@@ -134,7 +138,7 @@ function battle(v,p,party=[]){
     const fields={gear_gw:['n','p','who'],gear_gb:['t','d'],gear_gt:['t','e','d','x','n']}[k];keys(n,fields,p+'.'+k,fields);for(const z of Object.values(n))num(z,0,1e7,p+'.'+k,false);
     for(const f of ['who','t','e'])if(f in n)slot(n[f],p+'.'+k+'.'+f,f==='who');
     if(k==='gear_gw'){num(n.n,1,100,p+'.gear_gw.n');num(n.p,0,100,p+'.gear_gw.p',false);}
-   }else if(booleanKeys.includes(k))bool(n,p+'.extra.'+k);else if(stringKeys.includes(k)){text(n,p+'.extra.'+k,80);if(k!=='silenced_id')savedUnit(n,p+'.extra.'+k,true);}else num(n,k==='source_rng'||k==='judith_sp0'?1:0,k==='source_rng'?2147483646:1e7,p+'.extra.'+k,['source_rng','judith_until','death_tick'].includes(k));
+   }else if(booleanKeys.includes(k))bool(n,p+'.extra.'+k);else if(stringKeys.includes(k)){text(n,p+'.extra.'+k,80);if(k==='silenced_id'){if(!/^[a-z_]{1,40}$/.test(n)||!battleSkills.has(n))fail(p+'.extra.'+k);}else savedUnit(n,p+'.extra.'+k,true);}else num(n,k==='source_rng'||k==='judith_sp0'?1:0,k==='source_rng'?2147483646:1e7,p+'.extra.'+k,['source_rng','judith_until','death_tick'].includes(k));
   }
  }
  if('r21_roster'in v)list(v.r21_roster,p+'.roster',28).forEach(e=>{keys(e,['foe_id','phase','target_id'],p+'.roster',['foe_id','phase','target_id']);if(e.foe_id!==''&&!K.battleIds.includes(e.foe_id))fail(p+'.foe_id');num(e.phase,1,2,p+'.phase');unitText(e.target_id,p+'.target',true);});
@@ -246,8 +250,9 @@ function validateUnchecked(input){
  keys(s.items,items,'items',items);for(const[k,n]of Object.entries(s.items))num(n,0,Number.MAX_SAFE_INTEGER,'items.'+k);
  const uids=new Map();for(const e of list(s.gear,'gear',2124)){
   keys(e,['id','uid','seed','forge','tries','source_r21','code'],'gear',['id','uid','seed','forge','tries']);if(!gear.has(e.id)||uids.has(e.uid))fail('gear.id');
-  if('code'in e){gearCode(e.code,'gear.code');const parts=e.code.split('.');if(e.source_r21!==true||parts[0]!==e.id||parseInt(parts[1],36)!==e.seed)fail('gear.code.identity');}
-  num(e.uid,1,s.serial,'gear.uid');num(e.seed,0,1099511627776,'gear.seed');num(e.forge,0,10,'gear.forge');num(e.tries,e.forge,1e6,'gear.tries');if('source_r21'in e)bool(e.source_r21,'gear.source');uids.set(e.uid,e);
+  num(e.seed,0,1099511627776,'gear.seed');
+  if('code'in e){gearCode(e.code,'gear.code');if(e.source_r21!==true||e.code!==e.id+'.'+e.seed.toString(36)+'.'+K.gear.version)fail('gear.code.identity');}
+  num(e.uid,1,s.serial,'gear.uid');num(e.forge,0,10,'gear.forge');num(e.tries,e.forge,1e6,'gear.tries');if('source_r21'in e)bool(e.source_r21,'gear.source');uids.set(e.uid,e);
  }
  const used=new Set();for(const[id,v]of Object.entries(s.equipment)){
   if(Object.keys(v).length&&id!=='persona'&&!s.owned.includes(id))fail('equipment.owner');

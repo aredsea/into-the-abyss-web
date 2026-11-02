@@ -1,0 +1,676 @@
+{
+  "checks": 1131,
+  "failures": 93,
+  "normal_samples": 393,
+  "cases": 49,
+  "rows": [
+    {
+      "name": "silenced_known_attack",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_known_guard",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_known_personal",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_known_pshield",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_known_hshield",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_known_acid",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_known_chaoswave",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_free80",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_unknown",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_unit",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_empty",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_long",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_digit",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_uppercase",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_object",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "v2_plain",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "v3_dot_meta",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "v3_regen_heals400",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "v2_dot_meta",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "v2_regen_heals400",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "v2_dot_stacks",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "v2_dot_lifetimes",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "v2_dot_owners",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "v2_dot_bursts",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "v2_dot_initial_turns",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "v2_dot_orders",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "v2_dot_fresh",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "v2_dot_order",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_canonical_gear",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_leading_zero_gear",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_version_zero_pad_gear",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_canonical_loot",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_leading_zero_loot",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_version_zero_pad_loot",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_canonical_settlement",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_leading_zero_settlement",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_version_zero_pad_settlement",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_canonical_bought",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_leading_zero_bought",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_version_zero_pad_bought",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_canonical_forge",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_leading_zero_forge",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_version_zero_pad_forge",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_canonical_selection",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_leading_zero_selection",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_version_zero_pad_selection",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_canonical_confirmation",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_leading_zero_confirmation",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_version_zero_pad_confirmation",
+      "accepted": false,
+      "post": 201,
+      "put": 200
+    }
+  ],
+  "errors": [
+    {
+      "name": "silenced_free80 validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "silenced_free80 POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "silenced_free80 PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "silenced_unknown validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "silenced_unknown POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "silenced_unknown PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "silenced_unit validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "silenced_unit POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "silenced_unit PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "silenced_empty validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "silenced_empty POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "silenced_empty PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "silenced_long validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "silenced_long POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "silenced_long PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "silenced_digit validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "silenced_digit POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "silenced_digit PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "silenced_uppercase validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "silenced_uppercase POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "silenced_uppercase PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "v2_dot_meta validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "v2_dot_meta POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "v2_dot_meta PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "v2_regen_heals400 validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "v2_regen_heals400 POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "v2_regen_heals400 PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "v2_dot_stacks validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "v2_dot_stacks POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "v2_dot_stacks PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "v2_dot_lifetimes validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "v2_dot_lifetimes POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "v2_dot_lifetimes PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "v2_dot_owners validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "v2_dot_owners POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "v2_dot_owners PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "v2_dot_bursts validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "v2_dot_bursts POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "v2_dot_bursts PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "v2_dot_initial_turns validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "v2_dot_initial_turns POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "v2_dot_initial_turns PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "v2_dot_orders validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "v2_dot_orders POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "v2_dot_orders PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "v2_dot_fresh validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "v2_dot_fresh POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "v2_dot_fresh PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "v2_dot_order validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "v2_dot_order POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "v2_dot_order PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "code_leading_zero_gear validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "code_leading_zero_gear POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "code_leading_zero_gear PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "code_version_zero_pad_gear validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "code_version_zero_pad_gear POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "code_version_zero_pad_gear PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "code_leading_zero_loot validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "code_leading_zero_loot POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "code_leading_zero_loot PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "code_version_zero_pad_loot validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "code_version_zero_pad_loot POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "code_version_zero_pad_loot PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "code_leading_zero_settlement validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "code_leading_zero_settlement POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "code_leading_zero_settlement PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "code_version_zero_pad_settlement validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "code_version_zero_pad_settlement POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "code_version_zero_pad_settlement PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "code_leading_zero_bought validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "code_leading_zero_bought POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "code_leading_zero_bought PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "code_version_zero_pad_bought validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "code_version_zero_pad_bought POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "code_version_zero_pad_bought PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "code_leading_zero_forge validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "code_leading_zero_forge POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "code_leading_zero_forge PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "code_version_zero_pad_forge validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "code_version_zero_pad_forge POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "code_version_zero_pad_forge PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "code_leading_zero_selection validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "code_leading_zero_selection POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "code_leading_zero_selection PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "code_version_zero_pad_selection validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "code_version_zero_pad_selection POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "code_version_zero_pad_selection PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "code_leading_zero_confirmation validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "code_leading_zero_confirmation POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "code_leading_zero_confirmation PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    },
+    {
+      "name": "code_version_zero_pad_confirmation validator",
+      "error": "Missing expected exception."
+    },
+    {
+      "name": "code_version_zero_pad_confirmation POST",
+      "error": "Expected values to be strictly equal:\n\n201 !== 422\n"
+    },
+    {
+      "name": "code_version_zero_pad_confirmation PUT",
+      "error": "Expected values to be strictly equal:\n\n200 !== 422\n"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "p2_fixes": 3,
+  "before_failures": 93,
+  "new_checks": 1131,
+  "new_failures": 0,
+  "new_cases": 49,
+  "normal_controls": 17,
+  "rejected_controls": 32,
+  "normal_samples": 393,
+  "npm_checks": 12673,
+  "npm_suite_checks": [
+    6739,
+    423,
+    7,
+    119,
+    670,
+    22,
+    3562,
+    1131
+  ],
+  "npm_exit_code": 0,
+  "npm_failures": 0,
+  "godot_groups": 15,
+  "godot_failed_groups": 0,
+  "assets": 96,
+  "assets_changed": [],
+  "baseline_files": 2791,
+  "changed_existing_files": [
+    "server/abyss-save/src/validate.js",
+    "server/abyss-save/package.json",
+    "server/abyss-save/dist/worker.mjs"
+  ],
+  "new_code_files": [
+    "server/abyss-save/test/p2-r15.mjs",
+    "tools/town_r21_round15_verify.py"
+  ],
+  "game_changed": 0,
+  "docs_changed": 0,
+  "worker_matches_source": true,
+  "visual_review": [
+    {
+      "path": "verification/ui-r17/skills-430.png",
+      "sha256": "ed3e4ec56baf47b6298564c2de30246bd6165eb73971faede608c81e80bc1ab8",
+      "viewed": true
+    },
+    {
+      "path": "verification/ui-r20/approved-base-390.png",
+      "sha256": "07a88a13d5758c8b63ed921b5c51f80a3352dcf5a9eb4493c27a4824eb3a8c7d",
+      "viewed": true
+    }
+  ],
+  "not_performed": [
+    "deployment",
+    "token_use",
+    "web_export"
+  ],
+  "git_status_attempt": "Initial read-only status attempt failed due to dubious ownership; no subsequent git commands."
+}

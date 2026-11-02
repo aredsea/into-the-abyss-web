@@ -1,5 +1,28 @@
 # UI-R21-D
 
+## 15차 — 서버 P2 3건 정리
+
+`validate.js`의 세 항목을 수정했다. `silenced_id`는 `/^[a-z_]{1,40}$/`와 실제 기술 키 목록을 함께 대조한다. 목록은 `expansion_world.gd`와 동일하게 정본 직업 데이터의 기본·능동 기술에서 `atk→attack`을 적용하고 고유 기술 `personal`을 포함한다. DOT 스택·수명·소유자·발동량·초기 수명·순서, 재생 heals, fresh·order는 전투 `schema_version === 3`에서만 수용한다. 장비 코드는 모든 사용 위치에서 `id+'.'+seed.toString(36)+'.'+version`과 정확히 일치해야 하며, 장비 항목의 id·seed·source 대조도 유지했다.
+
+|항목|결과|
+|---|---:|
+|수정 전 새 통합 시험 실패 → 수정 후|93 → 0|
+|기존 정상 저장 표본 수용 / 입력 변경|393 / 0|
+|새 시험 / 정상·거부 대조군|1,131 / 17·32|
+|전체 npm test / 실패|12,673 / 0|
+|공통 Godot 검사(import 포함) / 실패 그룹|15 / 0|
+|원본 에셋 / 변경|96 / 0|
+
+새 시험을 먼저 추가해 검증기·실제 Worker/D1의 POST·PUT에서 31개 허용 오류(93실패)를 확인한 뒤 수정했다. 지정된 `v2_dot_meta`, `v2_regen_heals400`, `code_leading_zero`, `code_version_zero_pad`는 모두 검증기에서 거절되고 POST·PUT은 422다. 정상 schema 2 전투, schema 3 DOT·400개 재생, 정상 기술과 정규형 코드는 유지된다. 장비·전리품·정산·상점 구매·제련·UI 선택/확인의 7곳을 검사했다. PUT 거부 후 저장 내용과 rev가 유지됨도 확인했다. 기존 기대값은 바꾸지 않았다.
+
+변경 파일: `server/abyss-save/src/validate.js`, `server/abyss-save/dist/worker.mjs`, `server/abyss-save/package.json`, 새 `server/abyss-save/test/p2-r15.mjs`, 새 `tools/town_r21_round15_verify.py`, 이 보고서. Worker 번들과 소스의 일치를 확인했다. 결과·원시 로그는 `verification/town-r21/round15/summary.json`, `p2-before.json`, `p2-results.json`, `npm-test.log`, `regression.json`에 있다.
+
+공통 규칙의 import·world/state/route/expansion/motion/motion_asset/art/export_licenses·전투 UI r17~r20·motion r9/r18을 직접 실행했다. 새로 생성된 `verification/ui-r17/skills-430.png`와 `verification/ui-r20/approved-base-390.png`를 직접 열어 확인했다. 모든 캡처를 개별 육안 검수하지는 않았다. Windows root certificate store 진단은 이전 실행과 동일하며 기능 실패와 구분해 로그에 남겼다.
+
+게임·정본 데이터·초상·픽셀 그림·docs는 바꾸지 않았다. 배포·토큰 사용·Web export는 하지 않았다. 원본 게임 규칙과 달라진 내용이나 미완료 수정은 없다. 초기 확인 중 금지된 `git status --short` 조회를 한 번 시도했으나 소유권 오류로 실패했으며, 이후 git 명령은 사용하지 않았다.
+
+재현: `node server/abyss-save/test/p2-r15.mjs`, `cd server/abyss-save`에서 `npm test`, 루트에서 `python tools/town_r21_round15_verify.py`.
+
 ## 14차 — 전투 갈래 병합 · CTB 저장·서버 검증 · Web c
 
 두 충돌 파일을 내용으로 합쳤다. 마을의 `장비 가공`과 A8 전투 영어를 모두 보존했고 같은 키의 서로 다른 영문 값은 0개였다. 합친 배송 사전은 UI 181키·문구 2,789키다. 파일의 충돌 표시는 **0**이다. git 명령은 실행하지 않았으며 병합 인덱스와 커밋은 Claude가 처리한다. 결과는 `verification/town-r21/round14/summary.json`이다.

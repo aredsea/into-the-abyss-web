@@ -1,0 +1,303 @@
+{
+  "checks": 1131,
+  "failures": 0,
+  "normal_samples": 393,
+  "cases": 49,
+  "rows": [
+    {
+      "name": "silenced_known_attack",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_known_guard",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_known_personal",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_known_pshield",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_known_hshield",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_known_acid",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_known_chaoswave",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "silenced_free80",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "silenced_unknown",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "silenced_unit",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "silenced_empty",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "silenced_long",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "silenced_digit",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "silenced_uppercase",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "silenced_object",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "v2_plain",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "v3_dot_meta",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "v3_regen_heals400",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "v2_dot_meta",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "v2_regen_heals400",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "v2_dot_stacks",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "v2_dot_lifetimes",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "v2_dot_owners",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "v2_dot_bursts",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "v2_dot_initial_turns",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "v2_dot_orders",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "v2_dot_fresh",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "v2_dot_order",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "code_canonical_gear",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_leading_zero_gear",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "code_version_zero_pad_gear",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "code_canonical_loot",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_leading_zero_loot",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "code_version_zero_pad_loot",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "code_canonical_settlement",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_leading_zero_settlement",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "code_version_zero_pad_settlement",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "code_canonical_bought",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_leading_zero_bought",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "code_version_zero_pad_bought",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "code_canonical_forge",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_leading_zero_forge",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "code_version_zero_pad_forge",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "code_canonical_selection",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_leading_zero_selection",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "code_version_zero_pad_selection",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "code_canonical_confirmation",
+      "accepted": true,
+      "post": 201,
+      "put": 200
+    },
+    {
+      "name": "code_leading_zero_confirmation",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    },
+    {
+      "name": "code_version_zero_pad_confirmation",
+      "accepted": false,
+      "post": 422,
+      "put": 422
+    }
+  ],
+  "errors": []
+}
