@@ -13,6 +13,12 @@ const known={world:data.world,gear:data.gear,gearRules:data.gear_effects,persona
 // Battle snapshot field vocabulary is extracted from the shipped engine, never from a request.
 const engine=['battle_state','battle_v3','dungeon_enemy_r21','dungeon_rules_r21'].map(n=>fs.readFileSync(path.join(root,'project/game',n+'.gd'),'utf8')).join('\n');
 known.battleKeys=[...new Set([...engine.matchAll(/\.([A-Za-z_]\w*)|["']([A-Za-z_]\w*)["']\s*:/g)].map(m=>m[1]||m[2]))].sort();
+known.battleEffects=[...new Set(['windup',...[...engine.matchAll(/(?:_effect|effect|fx)\([^,\n]+,["']([a-z_]+)["']|effects\.(?:has|get|erase)\(["']([a-z_]+)["']/g)].map(m=>m[1]||m[2])])].sort();
+const dialogue=fs.readdirSync(path.join(root,'project/data/dialogue-r21')).filter(n=>n.endsWith('.json')).map(n=>JSON.parse(fs.readFileSync(path.join(root,'project/data/dialogue-r21',n),'utf8'))).filter(d=>d.character_id);
+known.dialogueScenes=Object.fromEntries(dialogue.flatMap(d=>d.inn.map(s=>[s.id,{who:d.character_id,choices:s.choices.map(c=>c.id)}])));
+known.dialogueEvents=[...new Set(dialogue.flatMap(d=>d.dungeon.map(s=>s.event)))];
+known.dialogueStages=[...new Set(dialogue.flatMap(d=>d.stage_order))];
+known.dialogueTransitions=Object.fromEntries(dialogue.flatMap(d=>d.transitions.map(t=>[t.id,{who:d.character_id,from:t.from,to:t.to,direction:t.direction}])));
 known.npcs=[...new Set([...fs.readFileSync(path.join(root,'project/game/town_world_r21.gd'),'utf8').matchAll(/npc_like\("([a-z]+)"\)/g)].map(m=>m[1]))];
 known.battleIds=[...JSON.parse(fs.readFileSync(path.join(root,'project/data/battle_scene.json'),'utf8')).enemies.map(e=>e.id),...JSON.parse(fs.readFileSync(path.join(root,'project/data/enemies-r21.json'),'utf8')).enemies.map(e=>e.id)];
 fs.mkdirSync(path.join(here,'src'),{recursive:true});

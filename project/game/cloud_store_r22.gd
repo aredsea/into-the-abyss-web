@@ -3,7 +3,7 @@ extends Node
 signal changed
 const PREFS="user://cloud_r22.json"
 var config: Dictionary={}
-var account={"code":"","pin":"","rev":0,"auto":false}
+var account={"code":"","pin":"","rev":0,"auto":false,"synced":false}
 var busy=false
 var notice="클라우드에 연결하면 다른 기기에서도 이어할 수 있습니다."
 var conflict: Dictionary={}
@@ -30,6 +30,7 @@ func _ready() -> void:
 			if saved.has(key) and typeof(saved[key])==typeof(account[key]):account[key]=saved[key]
 		# JSON numbers decode as float; convert only an exact nonnegative revision.
 		if saved.get("rev") is float and saved.rev>=0 and saved.rev==floor(saved.rev):account.rev=int(saved.rev)
+	if connected() and not account.get("synced",false):notice="서버 최신 기록을 불러오면 이 계정에 저장할 수 있습니다."
 
 func persist() -> void:
 	var value=JSON.stringify(account)
@@ -41,6 +42,7 @@ func persist() -> void:
 
 func enabled() -> bool:return not str(config.get("server_url","")).is_empty()
 func connected() -> bool:return not account.code.is_empty()
+func can_upload() -> bool:return connected() and not account.pin.is_empty() and account.get("synced",false)
 func _request(method: HTTPClient.Method,path: String,payload=null) -> Dictionary:
 	if busy:return {"status":0,"error":"busy"}
 	if not enabled():
@@ -58,7 +60,7 @@ func _request(method: HTTPClient.Method,path: String,payload=null) -> Dictionary
 	request.queue_free();busy=false
 	if auto_pending:call_deferred("_flush_auto")
 	if out.status==0:notice="연결할 수 없어 이 기기에만 저장했습니다. 나중에 다시 시도하세요."
-	elif out.status==403:notice="계정 코드와 쓰기 PIN을 확인해 주세요."
+	elif out.status==403:notice="계정 만들기 인증이 만료되었거나 실패했습니다. 다시 시도해 주세요." if out.get("error","")=="turnstile_failed" else "계정 코드와 쓰기 PIN을 확인해 주세요."
 	elif out.status==429:notice="요청이 많습니다. 잠시 뒤 다시 시도하세요."
 	elif out.status==422:notice="저장 형식을 확인하지 못했습니다. 이 기기 저장은 유지됩니다."
 	elif out.status==400:notice="계정 코드의 형식을 확인해 주세요."
@@ -69,9 +71,27 @@ func _request(method: HTTPClient.Method,path: String,payload=null) -> Dictionary
 
 func create_account() -> void:
 	if busy or connected():return
-	var r=await _request(HTTPClient.METHOD_POST,"/v1/account",{"save":model.s})
+	var payload={"save":model.s}
+	var site_key=str(config.get("turnstile_site_key",""))
+	if not site_key.is_empty():
+		if not OS.has_feature("web"):
+			notice="계정 만들기 인증은 웹 브라우저에서 진행해 주세요.";changed.emit();return
+		busy=true;notice="브라우저에서 계정 만들기 인증을 완료해 주세요.";changed.emit()
+		JavaScriptBridge.eval("window.abyssTurnstile?.begin("+JSON.stringify(site_key)+")",true)
+		var started=Time.get_ticks_msec();var token=""
+		while Time.get_ticks_msec()-started<90000:
+			var result=JSON.parse_string(str(JavaScriptBridge.eval("window.abyssTurnstile?.poll() || '{}'",true)))
+			if result is Dictionary:
+				if result.get("status","")=="success":token=str(result.get("token",""));break
+				if result.get("status","") in ["error","cancelled"]:break
+			await get_tree().process_frame
+		JavaScriptBridge.eval("window.abyssTurnstile?.finish()",true);busy=false
+		if token.is_empty():
+			notice="계정 만들기 인증을 마치지 못했습니다. 다시 시도해 주세요. 이 기기 저장은 유지됩니다.";changed.emit();return
+		payload.turnstile=token
+	var r=await _request(HTTPClient.METHOD_POST,"/v1/account",payload)
 	if r.status==201:
-		account.code=r.code;account.pin=r.pin;account.rev=int(r.rev);persist();first_credentials=true;notice="계정 코드와 쓰기 PIN을 적어 두세요."
+		account.code=r.code;account.pin=r.pin;account.rev=int(r.rev);account.synced=true;persist();first_credentials=true;notice="계정 코드와 쓰기 PIN을 적어 두세요."
 	changed.emit()
 
 func connect_account(code: String,pin: String) -> void:
@@ -80,11 +100,11 @@ func connect_account(code: String,pin: String) -> void:
 	pin=pin.strip_edges().to_upper().replace(" ","").replace("-","")
 	var r=await _request(HTTPClient.METHOD_GET,"/v1/save/"+code.uri_encode()) if pin.is_empty() else await _request(HTTPClient.METHOD_POST,"/v1/account/connect",{"code":code,"pin":pin})
 	if r.status==200:
-		account.code=r.code;account.pin=pin;account.rev=int(r.rev);persist();remote=r;conflict={};revisions=[];rank={};rank_attempt=0;first_credentials=false;notice="읽기 전용으로 연결했습니다. 서버 기록을 불러올 수 있습니다." if pin.is_empty() else "연결했습니다. 서버 기록을 확인하고 불러오세요."
+		account.code=r.code;account.pin=pin;account.rev=int(r.rev);account.synced=false;auto_pending=false;last_auto="";persist();remote=r;conflict={};revisions=[];rank={};rank_attempt=0;first_credentials=false;notice="읽기 전용으로 연결했습니다. 서버 기록을 불러올 수 있습니다." if pin.is_empty() else "연결했습니다. 서버 최신 기록을 불러오면 저장할 수 있습니다."
 	changed.emit()
 
 func upload() -> void:
-	if busy or not connected() or account.pin.is_empty():return
+	if busy or not can_upload():return
 	var r=await _request(HTTPClient.METHOD_PUT,"/v1/save",{"code":account.code,"pin":account.pin,"rev":account.rev,"save":model.s})
 	if r.status==200:
 		account.rev=int(r.rev);persist();conflict={};remote=r;notice="클라우드에 저장했습니다. · 기록 %d"%account.rev
@@ -105,7 +125,7 @@ func download(revision=0) -> void:
 			if error==OK:
 				model.s=probe.s;model.ensure_dungeon();remote=r;conflict={}
 				# Restoring history never moves the optimistic-lock cursor backwards.
-				if revision==0:account.rev=int(r.rev)
+				if revision==0:account.rev=int(r.rev);account.synced=true
 				persist();notice="기록 %d을 이 기기에 불러왔습니다. 이전 저장은 백업에 남습니다."%int(r.rev)
 			else:notice="이 기기 저장에 실패해 불러오기를 취소했습니다."
 			applying=false
@@ -127,21 +147,21 @@ func delete_account() -> void:
 	if busy or not connected() or account.pin.is_empty():return
 	var r=await _request(HTTPClient.METHOD_DELETE,"/v1/account",{"code":account.code,"pin":account.pin})
 	if r.status==200:
-		account={"code":"","pin":"","rev":0,"auto":false};persist();remote={};conflict={};revisions=[];rank={};rank_attempt=0;first_credentials=false;notice="클라우드 계정과 기록을 삭제했습니다. 이 기기 저장은 남아 있습니다."
+		account={"code":"","pin":"","rev":0,"auto":false,"synced":false};auto_pending=false;last_auto="";persist();remote={};conflict={};revisions=[];rank={};rank_attempt=0;first_credentials=false;notice="클라우드 계정과 기록을 삭제했습니다. 이 기기 저장은 남아 있습니다."
 	changed.emit()
 
 func toggle_auto(value: bool) -> void:
 	account.auto=value;persist();changed.emit()
 
 func local_saved(snapshot: Dictionary) -> void:
-	if applying or not account.auto or not connected() or account.pin.is_empty():return
+	if applying or not account.auto or not can_upload():return
 	if snapshot.get("summary",{}).is_empty() or snapshot.get("run",{}).get("phase","")!="done":return
 	var key=str(snapshot.runs)+":"+str(snapshot.day)
 	if key==last_auto:return
 	auto_pending=true;call_deferred("_flush_auto")
 
 func _flush_auto() -> void:
-	if not auto_pending or busy or not account.auto or not connected() or not conflict.is_empty():return
+	if not auto_pending or busy or not account.auto or not can_upload() or not conflict.is_empty():return
 	auto_pending=false;last_auto=str(model.s.runs)+":"+str(model.s.day);await upload()
 
 func fetch_rank() -> void:

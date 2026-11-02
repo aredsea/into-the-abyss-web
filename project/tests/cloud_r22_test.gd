@@ -16,9 +16,29 @@ func run():
 	store.saved.connect(c.local_saved)
 	await c.create_account();check(c.account.rev==1 and c.account.pin.length()==10,"first save issues account/PIN")
 	var b=Cloud.new();b.model=World.new();b.storage=Store.new("user://cloud-test-r22-b.json");root.add_child(b);b.config.server_url=c.config.server_url
+	b.account={"code":"","pin":"","rev":0,"auto":false,"synced":false};b.model.restore(fixture.town);b.model.s.gold=123
+	await b.create_account();check(b.connected() and b.account.code!=c.account.code,"second device starts with a different account and local adventure")
 	await b.connect_account(c.account.code,"0000000000");check(b.notice.contains("확인"),"invalid PIN explains failure")
 	await b.connect_account(c.account.code,c.account.pin);check(b.account.rev==1,"second device links")
+	var restarted=Cloud.new();root.add_child(restarted)
+	check(not restarted.can_upload(),"unsynced link remains blocked after preference reload");restarted.queue_free()
+	# Linking credentials must never authorize the unrelated local adventure to upload.
+	b.model.restore(fixture.town);b.model.s.gold=123
+	b.toggle_auto(true)
+	b.model.s.run={"phase":"done","step":0,"gold":0,"xp":0,"wins":0,"event":"","resolved":true,"final":false,"battle":{},"rested":false,"id":0}
+	b.model.s.summary={"result":"retreat","gold":0,"xp":0,"wins":0,"lost":0,"gains":[]}
+	b.local_saved(b.model.s);await process_frame
+	while b.busy:await process_frame
+	await b.upload()
+	var linked=await b._request(HTTPClient.METHOD_GET,"/v1/save/"+c.account.code)
+	check(linked.status==200 and linked.rev==1 and linked.save==model.s,"connect then settlement/manual upload preserves server revision and content")
+	b.toggle_auto(false)
+	await b.download(1);check(not b.can_upload(),"historical download cannot unlock an unsynced link")
+	var original_path=b.storage.path;var original_state=b.model.s.duplicate(true)
+	b.storage.path="user://cloud-r22-missing-dir/no.json";await b.download()
+	check(not b.can_upload() and b.model.s==original_state,"failed local write cannot unlock link or replace memory");b.storage.path=original_path
 	await b.download();check(b.model.s==model.s,"second device restores same save")
+	check(b.can_upload(),"latest successful restore enables upload")
 	model.s.gold=275;await c.upload();check(c.account.rev==2,"first device revision 2")
 	b.model.s.gold=250;await b.upload();check(not b.conflict.is_empty() and b.conflict.rev==2,"stale device receives conflict")
 	await b.choose_local();check(b.account.rev==3 and b.conflict.is_empty(),"choose local retries reviewed revision")

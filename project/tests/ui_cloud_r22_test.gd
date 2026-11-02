@@ -27,7 +27,10 @@ func run():
 		root.content_scale_size=dim;root.size=dim
 		var s=Screen.new();s.size=dim;s.storage.path="user://ui-cloud-%d.json"%dim.x;root.add_child(s);s.model.restore(data.town);s.cloud.model=s.model;s.cloud.config.server_url="http://127.0.0.1:8787"
 		s.cloud.account={"code":"","pin":"","rev":0,"auto":false};s.go("cloud");await capture(s,"connect",dim)
-		s.cloud.account={"code":"ABCD-EFGH-JKMP","pin":"23456789AB","rev":1,"auto":false};s.cloud.first_credentials=true;s._draw_screen();await capture(s,"credentials",dim)
+		s.cloud.account={"code":"ABCD-EFGH-JKMP","pin":"23456789AB","rev":1,"auto":false,"synced":true};s.cloud.first_credentials=true;s._draw_screen();await capture(s,"credentials",dim)
+		s.cloud.first_credentials=false;s.cloud.account.synced=false;s.cloud.notice="연결했습니다. 서버 최신 기록을 불러오면 저장할 수 있습니다.";s._draw_screen()
+		check(s.controls.cloud_save.disabled and s.controls.cloud_auto.disabled,"unsynced link disables manual and automatic upload")
+		await capture(s,"linked",dim);s.cloud.account.synced=true;s.cloud.notice="클라우드 기록을 확인할 수 있습니다."
 		s.cloud.first_credentials=false;s.cloud.conflict={"rev":2,"summary":{"day":2,"level":2,"best":1,"gold":275,"companions":1}};s._draw_screen();await capture(s,"conflict",dim)
 		s.cloud.conflict={};s.cloud.rank={"n":3,"pct":34,"best":1,"top":2,"at":1793577600};s.go("rank");await capture(s,"rank",dim)
 		s.go("cloud");s.town_view.ask("클라우드의 계정과 모든 기록을 삭제할까요? 이 작업은 되돌릴 수 없습니다. 이 기기 저장은 남습니다.",func():pass);await capture(s,"confirm",dim)

@@ -1,0 +1,33 @@
+{
+  "checks": 6,
+  "failures": 0,
+  "commands": [
+    {
+      "name": "01-legacy-schema",
+      "exit": 0
+    },
+    {
+      "name": "02-seed-legacy",
+      "exit": 0
+    },
+    {
+      "name": "03-production-migrations",
+      "exit": 0
+    },
+    {
+      "name": "04-foreign-keys-and-preservation",
+      "exit": 0
+    },
+    {
+      "name": "05-cascade",
+      "exit": 0
+    },
+    {
+      "name": "06-idempotent",
+      "exit": 0
+    }
+  ],
+  "foreign_keys": 1,
+  "old_pin_iterations": 100000,
+  "legacy_payload_unchanged": true
+}

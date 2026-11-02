@@ -77,7 +77,10 @@ try{
  });
  await test('server derived rank + source percentile ties + 300 second cache',async()=>{
   const accounts=[];
-  for(const best of [1,1,2]){ip++;const s=structuredClone(fixtures.town);s.dungeon_r21.best=best;s.dungeon_r21.runs=best;s.runs=best;const b=(await request('POST','/v1/account',{save:s},201)).value;accounts.push(b);await request('POST','/v1/rank',{code:b.code,pin:b.pin});}
+  for(const best of [1,1,2]){ip++;const s=structuredClone(fixtures.town);s.dungeon_r21.best=best;s.dungeon_r21.runs=best;s.runs=best;const b=(await request('POST','/v1/account',{save:s},201)).value;accounts.push(b);
+   // Production now requires an aged account. Advance only this D1 fixture clock.
+   await db.prepare('UPDATE accounts SET created=created-600,rank_at=rank_at-600 WHERE code=?').bind(b.code).run();
+   await request('POST','/v1/rank',{code:b.code,pin:b.pin});}
   const r=(await request('GET','/v1/rank?code='+accounts[0].code)).value;assert.equal(r.best,1);assert.equal(r.pct,34);assert.equal(r.n,3);assert.equal(r.expires-r.at,300);assert.ok(!JSON.stringify(r).includes('name'));checks+=5;
   await db.prepare('UPDATE rank_cache SET expires=0').run();
   const top=(await request('GET','/v1/rank?code='+accounts[2].code)).value;assert.equal(top.pct,1);checks++;

@@ -45,9 +45,9 @@ func build(owner_screen) -> void:
 			button("cloud_keep_server","서버 최신 기록 불러오기",func():ask("서버 기록을 불러올까요? 이 기기 기록은 백업에 남습니다.",service.download))
 		else:
 			if not service.remote.is_empty():label("서버 · "+describe(service.remote.summary),14)
-			button("cloud_save","지금 저장",service.upload,service.account.pin.is_empty())
+			button("cloud_save","지금 저장",service.upload,not service.can_upload())
 			button("cloud_load","서버 최신 불러오기",func():ask("서버 기록을 불러올까요? 이 기기 기록은 백업에 남습니다.",service.download))
-		var auto=CheckButton.new();body.add_child(auto);auto.text="귀환·정산 후 자동 저장";auto.button_pressed=service.account.auto;auto.custom_minimum_size.y=48;auto.disabled=service.busy or service.account.pin.is_empty();auto.toggled.connect(service.toggle_auto);host.controls.cloud_auto=auto
+		var auto=CheckButton.new();body.add_child(auto);auto.text="귀환·정산 후 자동 저장";auto.button_pressed=service.account.auto;auto.custom_minimum_size.y=48;auto.disabled=service.busy or not service.can_upload();auto.toggled.connect(service.toggle_auto);host.controls.cloud_auto=auto
 		button("cloud_rank","대던전 순위",host.go.bind("rank"))
 		button("cloud_history","최근 기록 확인",service.history)
 		for row in service.revisions:

@@ -2,9 +2,9 @@
 from pathlib import Path
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from functools import partial
-import json, threading, os, tempfile
+import json, threading, os, tempfile,sys
 from playwright.sync_api import sync_playwright
-R=Path(__file__).resolve().parents[1];O=R/'verification/cloud-r22';W=O/'web'
+R=Path(__file__).resolve().parents[1];O=R/'verification/cloud-r22';challenge='--turnstile-test' in sys.argv;W=O/('web-turnstile' if challenge else 'web')
 runtime=O/'browser';runtime.mkdir(exist_ok=True);tempfile.tempdir=str(runtime)
 for k in ['TEMP','TMP','TMPDIR']:os.environ[k]=str(runtime)
 class Handler(SimpleHTTPRequestHandler):
@@ -43,17 +43,30 @@ try:
  with sync_playwright() as pw:
   browser=pw.chromium.launch(executable_path='C:/Program Files/Google/Chrome/Application/chrome.exe',headless=True,args=['--enable-unsafe-swiftshader'])
   contexts=[browser.new_context(viewport={'width':390,'height':844},locale='ko-KR') for _ in range(2)]
+  if challenge:
+   for context in contexts:context.add_init_script("window.turnstile={render(el,options){window.widgetOptions=options;window.widgetRenderCount=(window.widgetRenderCount||0)+1;el.textContent='테스트 인증 위젯';return 'local-widget'},remove(){},reset(){}}")
   pages=[c.new_page() for c in contexts];a,b=pages;errors=[]
   for index,p in enumerate(pages):
    p.on('pageerror',lambda e:errors.append(str(e)))
    p.on('console',lambda m:errors.append(m.text) if m.type=='error' and not m.text.startswith('Failed to load resource:') else None)
    p.on('response',lambda r:errors.append(f'HTTP {r.status} {r.url}') if r.status>=400 and not (r.status==409 and '/v1/save' in r.url) else None)
    create(p,existing=index==1)
-  with a.expect_response(lambda r:r.url.endswith('/v1/account') and r.request.method=='POST') as response:click(a,'cloud_create')
+  if challenge:
+   click(a,'cloud_create');a.wait_for_function('window.widgetRenderCount===1');a.keyboard.press('Escape');idle(a)
+   assert not state(a)['cloud']['code'];checks.append('Godot-challenge-cancel-keeps-local-adventure')
+  with a.expect_response(lambda r:r.url.endswith('/v1/account') and r.request.method=='POST') as response:
+   click(a,'cloud_create')
+   if challenge:
+    a.wait_for_function('window.widgetRenderCount===2 && window.widgetOptions?.action==="account"');assert a.locator('#cloud-challenge').is_visible()
+    a.screenshot(path=str(O/'p9b/web-turnstile.png'))
+    a.evaluate("widgetOptions.callback('synthetic-local-web-token')")
   issued=response.value.json();assert response.value.status==201,issued;idle(a);checks.append('first-save-account-PIN')
+  if challenge:
+   assert response.value.request.post_data_json['turnstile']=='synthetic-local-web-token';checks.append('Godot-HTML-token-in-account-POST')
   a.screenshot(path=str(O/'web-credentials.png'))
   field(b,'code',issued['code']);field(b,'pin',issued['pin']);click(b,'cloud_connect');idle(b)
   assert state(b)['cloud']['rev']==1;checks.append('second-browser-connect')
+  assert state(b)['controls']['cloud_save']['disabled'] and state(b)['controls']['cloud_auto']['disabled'];checks.append('linked-until-download-upload-disabled')
   click(b,'cloud_load');click(b,'cloud_confirm');idle(b)
   assert state(a)['state']==state(b)['state'];checks.append('second-browser-load')
   click(a,'cloud_noted');click(a,'cloud_save');idle(a);assert state(a)['cloud']['rev']==2
@@ -66,6 +79,6 @@ try:
   click(a,'cloud_rank');click(a,'rank_refresh');idle(a);a.screenshot(path=str(O/'web-rank.png'));checks.append('rank-query')
   click(a,'rank_back');click(a,'cloud_delete');click(a,'cloud_confirm');idle(a);assert not state(a)['cloud']['code'];assert state(a)['state']['gold']==300;checks.append('delete-retains-local')
   assert not errors,errors
-  (O/'web-results.json').write_text(json.dumps({'checks':checks,'failures':0,'contexts':2,'errors':errors},ensure_ascii=False,indent=2),encoding='utf-8')
+  (O/('p9b/web-turnstile-results.json' if challenge else 'web-results.json')).write_text(json.dumps({'checks':checks,'failures':0,'contexts':2,'errors':errors,'provider':'local test double' if challenge else 'disabled / empty site key'},ensure_ascii=False,indent=2),encoding='utf-8')
   print('WEB CHECKS',len(checks),'FAILURES 0',flush=True);browser.close()
 finally:server.shutdown()

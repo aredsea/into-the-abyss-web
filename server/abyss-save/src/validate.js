@@ -8,7 +8,7 @@ const text=(v,p,max=300)=>{if(typeof v!=='string'||v.length>max)fail(p);};
 const bool=(v,p)=>{if(typeof v!=='boolean')fail(p);};
 const list=(v,p,max=100)=>{if(!Array.isArray(v)||v.length>max)fail(p);return v;};
 const ids=K.world.companions.map(c=>c.id), owners=[...ids,'persona'];
-const items=K.world.items.map(c=>c.id), gear=Object.fromEntries(K.gear.items.map(e=>[e.id,e]));
+const items=K.world.items.map(c=>c.id), gear=new Map(K.gear.items.map(e=>[e.id,e]));
 const stats=['hp','mp','str','agi','int','def','spd'];
 export const need=l=>Math.floor((60*l+10*l*l)*(l<10?.4:l<30?.6+.4*(l-10)/20:1)+.5);
 function xp(p,l,e){num(l,1,40,p+'.level');num(e,0,l===40?0:need(l)-1,p+'.xp');}
@@ -69,7 +69,7 @@ function quest(v,p){
 }
 function gearCode(v,p){
  text(v,p,80);const m=v.match(/^([a-z0-9_]+)\.([a-z0-9]+)\.(\d+)$/);
- if(!m||!gear[m[1]]||Number(m[3])!==K.gear.version)fail(p);
+ if(!m||!gear.has(m[1])||Number(m[3])!==K.gear.version)fail(p);
  num(parseInt(m[2],36),1,1099511627776,p+'.seed');
 }
 function boundedTree(v,p,depth=0){
@@ -81,23 +81,57 @@ function boundedTree(v,p,depth=0){
  obj(v,p);for(const[k,x]of Object.entries(v)){if(k.length>160||['__proto__','constructor','prototype'].includes(k))fail(p);boundedTree(x,p+'.'+k,depth+1);}
 }
 function battle(v,p){
- const known=new Set([...K.battleKeys,...K.battleIds,...owners,...items,'units','order','log','events','round','turn','rng','result','schema','version','next','current','acted']);
- function walk(x,path,depth=0){
-  if(depth>24)fail(path);
-  if(Array.isArray(x)){x.forEach((y,i)=>walk(y,path+'.'+i,depth+1));return;}
-  if(x&&typeof x==='object')for(const[k,y]of Object.entries(x)){
-   if(!known.has(k)&&!/^enemy_\d+$/.test(k)&&!/^\d+$/.test(k))fail(path+'.'+k);
-   if(['hp','mp','mhp','mmp'].includes(k))num(y,0,1e6,path+'.'+k,false);
-   walk(y,path+'.'+k,depth+1);
+ const base=['schema_version','build','units','current_id','last_ally','selected_enemy','selected_action','result','rng','turn_count','history','events'];
+ keys(v,[...base,'extra_state','selected_ally','inventory','r21_roster'],p);if(!Object.keys(v).length)return;
+ keys(v,[...base,'extra_state','selected_ally','inventory','r21_roster'],p,base);
+ if(![2,3].includes(v.schema_version))fail(p+'.schema_version');text(v.build,p+'.build',100);
+ const unitId=id=>owners.includes(id)||K.battleIds.includes(id)||/^enemy_[0-9]{1,2}$/.test(id);
+ const unitText=(id,path,empty=false)=>{if(!(empty&&id==='')&&!unitId(id))fail(path);};
+ for(const k of ['current_id','last_ally','selected_enemy'])unitText(v[k],p+'.'+k);
+ text(v.selected_action,p+'.selected_action',80);if(!/^([a-z_]+|item:[a-z_]+)$/.test(v.selected_action))fail(p+'.selected_action');
+ if(!['','victory','defeat'].includes(v.result))fail(p+'.result');num(v.rng,1,2147483646,p+'.rng');num(v.turn_count,0,1e6,p+'.turn_count');
+ for(const k of ['history','events'])lines(v[k],p+'.'+k,32,300);
+ obj(v.units,p+'.units');if(Object.keys(v.units).length>32)fail(p+'.units');
+ const flags=['ward_used','once','charging','broken','charged','redirected'];
+ for(const[id,u]of Object.entries(v.units)){
+  unitText(id,p+'.unit');keys(u,['hp','remaining','effects','mp','shield','actions','gauge','act_index',...flags],p+'.unit',['hp','remaining','effects']);
+  for(const[k,x]of Object.entries(u)){
+   if(k==='effects'){
+    for(const key of Object.keys(x))if(!K.battleEffects.includes(key)&&!/^enemy_dot_[0-3]$/.test(key))fail(p+'.effect.id');
+    for(const e of Object.values(x)){keys(e,['turns','amount','r21','source','by'],p+'.effect',['turns','amount']);num(e.turns,1,100,p+'.turns');num(e.amount,-100000,100000,p+'.amount',false);if('r21'in e)bool(e.r21,p+'.r21');for(const k of ['source','by'])if(k in e)unitText(e[k],p+'.effect.'+k);}
+   }else if(flags.includes(k))bool(x,p+'.'+k);else num(x,0,1e6,p+'.'+k,!['remaining','gauge'].includes(k));
   }
  }
- obj(v,p);walk(v,p);
+ if(v.schema_version===3){
+  for(const k of ['extra_state','selected_ally','inventory'])if(!Object.hasOwn(v,k))fail(p+'.'+k);
+  unitText(v.selected_ally,p+'.selected_ally');keys(v.inventory,items,p+'.inventory');for(const n of Object.values(v.inventory))num(n,0,10000,p+'.inventory');
+  obj(v.extra_state,p+'.extra_state');if(Object.keys(v.extra_state).length>32)fail(p+'.extra_state');
+  const booleanKeys=['reviving','haste_done','wall_saved','saved','revive','stood','counter_busy','hidden'];
+  const stringKeys=['dot_owner','target','last_target','cover','protect','silenced_id'];
+  const numberKeys=['prevented','streak','scar','charge_damage','overheal','pull','dot_stacks','bleed_stacks','hunts','king','free','refresh','rescue','foe_turns','cycle_a','cycle_b','source_rng'];
+  for(const[id,x]of Object.entries(v.extra_state)){
+   unitText(id,p+'.extra.id');keys(x,[...booleanKeys,...stringKeys,...numberKeys],p+'.extra');
+   for(const[k,n]of Object.entries(x))if(booleanKeys.includes(k))bool(n,p+'.extra.'+k);else if(stringKeys.includes(k)){text(n,p+'.extra.'+k,80);if(k!=='silenced_id')unitText(n,p+'.extra.'+k,true);}else num(n,0,k==='source_rng'?2147483646:1e8,p+'.extra.'+k,false);
+  }
+ }
+ if('r21_roster'in v)list(v.r21_roster,p+'.roster',28).forEach(e=>{keys(e,['foe_id','phase','target_id'],p+'.roster',['foe_id','phase','target_id']);if(e.foe_id!==''&&!K.battleIds.includes(e.foe_id))fail(p+'.foe_id');num(e.phase,1,2,p+'.phase');unitText(e.target_id,p+'.target',true);});
+}
+function lines(v,p,max=32,width=1000){list(v,p,max).forEach(x=>text(x,p+'.line',width));}
+function archiveXP(v,p){list(v,p,31).forEach(e=>{keys(e,['id','level','xp'],p,['id','level','xp']);if(!owners.includes(e.id))fail(p+'.id');num(e.level,1,40,p+'.level');num(e.xp,0,1000000,p+'.xp');});}
+function transition(v,p,owned){
+ keys(v,['from','to','situation','lines','who','kind','id','direction'],p);if(!Object.keys(v).length)return;
+ for(const k of ['from','to'])if(!K.dialogueStages.includes(v[k]))fail(p+'.'+k);
+ text(v.situation,p+'.situation',300);lines(v.lines,p+'.lines');
+ if('who'in v&&!owned.includes(v.who))fail(p+'.who');if('kind'in v&&v.kind!=='transition')fail(p+'.kind');
+ if('direction'in v&&!['up','down'].includes(v.direction))fail(p+'.direction');
+ if('id'in v){if(typeof v.id!=='string'||!Object.hasOwn(K.dialogueTransitions,v.id))fail(p+'.id');const t=K.dialogueTransitions[v.id];if(t.from!==v.from||t.to!==v.to||t.direction!==v.direction||('who'in v&&t.who!==v.who))fail(p+'.transition');}
 }
 export function validate(input){try{return validateUnchecked(input);}catch(e){if(e instanceof Invalid)throw e;throw new Invalid('save.shape');}}
 function validateUnchecked(input){
  boundedTree(input,'save');const s=migrate(input);
- const top=[...Object.keys(K.defaults),'persona','creation_r22','scene','ui','scenario','xp_r22','lv'];
+ const top=[...Object.keys(K.defaults).filter(k=>k!=='lv'),'persona','creation_r22','scene','ui','scenario','xp_r22'];
  for(const k of Object.keys(s))if(!top.includes(k)&&!/^experience_before_r22_*$/.test(k))fail(k);
+ for(const[k,v]of Object.entries(s))if(/^experience_before_r22_*$/.test(k))archiveXP(v,k);
  for(const k of ['day','gold','runs','schema','serial','recruits','refreshes','quest_wins','rng'])num(s[k],['day','rng'].includes(k)?1:0,k==='rng'?2147483646:k==='gold'?1e8:1e6,k);
  for(const k of ['owned','party']){list(s[k],k,k==='owned'?30:4);if(new Set(s[k]).size!==s[k].length||s[k].some(id=>!ids.includes(id)))fail(k);}
  if(s.party.some(id=>!s.owned.includes(id)))fail('party.owned');
@@ -128,13 +162,13 @@ function validateUnchecked(input){
  if(s.members.persona.level!==p.lv||s.members.persona.xp!==p.exp)fail('persona.member');
  keys(s.items,items,'items',items);for(const[k,n]of Object.entries(s.items))num(n,0,10000,'items.'+k);
  const uids=new Map();for(const e of list(s.gear,'gear',2000)){
-  keys(e,['id','uid','seed','forge','tries','source_r21'],'gear',['id','uid','seed','forge','tries']);if(!gear[e.id]||uids.has(e.uid))fail('gear.id');
+  keys(e,['id','uid','seed','forge','tries','source_r21'],'gear',['id','uid','seed','forge','tries']);if(!gear.has(e.id)||uids.has(e.uid))fail('gear.id');
   num(e.uid,1,s.serial,'gear.uid');num(e.seed,0,1099511627776,'gear.seed');num(e.forge,0,10,'gear.forge');num(e.tries,e.forge,1e6,'gear.tries');if('source_r21'in e)bool(e.source_r21,'gear.source');uids.set(e.uid,e);
  }
  const used=new Set();for(const[id,v]of Object.entries(s.equipment)){
   if(Object.keys(v).length&&id!=='persona'&&!s.owned.includes(id))fail('equipment.owner');
   keys(v,['weapon','armor','acc'],'equipment.'+id);for(const[slot,uid]of Object.entries(v)){
-   const entry=uids.get(uid),g=entry&&gear[entry.id];if(!g||g.slot!==slot||used.has(uid))fail('equipment.uid');used.add(uid);
+   const entry=uids.get(uid),g=entry&&gear.get(entry.id);if(!g||g.slot!==slot||used.has(uid))fail('equipment.uid');used.add(uid);
    const c=id==='persona'?K.world.classes.find(c=>c.name===p.cls):K.world.classes.find(c=>c.name===K.world.companions.find(x=>x.id===id)?.class);
    if(g.cls&&g.cls!=='all'&&g.cls!==c?.id)fail('equipment.class');
    if(s.members[id].level<K.gearRules.equip_lv[g.rarity])fail('equipment.level');
@@ -155,7 +189,7 @@ function validateUnchecked(input){
     if(k==='hp')maximum=Math.floor(maximum*1.07+.5);
     let bonus=0;
     for(const uid of Object.values(s.equipment[id]??{})){
-     const e=uids.get(uid),it=gear[e.id],pool=K.gear.pools[it.cls][it.slot];
+     const e=uids.get(uid),it=gear.get(e.id),pool=K.gear.pools[it.cls][it.slot];
      const raw=(it.base[k]??0)+(pool.includes(k)&&K.gearRules.rarity[it.rarity].affix>0?K.gear.affix_range[k][1]:0);
      bonus+=raw*(.4+.6*m.level/40)/(.4+.6*it.lv/40)*(1+e.forge*K.gearRules.forge.bonus_per_level)+.1;
     }
@@ -183,18 +217,32 @@ function validateUnchecked(input){
   if('rift_id'in r&&r.rift_id!==''&&!K.rifts.some(x=>x.id===r.rift_id))fail('run.rift_id');
   if('stars'in r)num(r.stars,1,10,'run.stars');
   if('loot_gear'in r)list(r.loot_gear,'loot_gear',2000).forEach(c=>gearCode(c,'loot_gear.code'));
+  for(const k of ['event','last','node'])if(k in r)text(r[k],'run.'+k,300);
+  for(const k of ['rules_version','data_version','route_version','route_seed'])if(k in r)num(r[k],1,2147483646,'run.'+k);
+  if('path'in r)lines(r.path,'run.path',32,80);
   if('persona_xp_paid'in r)num(r.persona_xp_paid,0,r.xp,'persona_xp_paid');
   if('quest_level'in r)num(r.quest_level,1,40,'quest_level');
   if('quest_seed'in r)num(r.quest_seed,1,2147483646,'quest_seed');
   if('dialogue_marks'in r){obj(r.dialogue_marks,'dialogue_marks');for(const[k,v]of Object.entries(r.dialogue_marks)){if(!/^\d+:(true|false):[a-z_]+:(down|low)$/.test(k))fail('dialogue_marks.key');bool(v,'dialogue_marks.value');}}
-  if('persona_party'in r){list(r.persona_party,'persona_party',4);if(new Set(r.persona_party).size!==r.persona_party.length||r.persona_party.some(id=>!['persona',...s.owned].includes(id)))fail('persona_party');list(r.persona_pm,'persona_pm',4);for(const e of r.persona_pm){keys(e,['id','cls','L','race','lin','nat','ps','skill'],'pm',['id','cls','L']);if(!['',...owners].includes(e.id)||!['',...K.world.classes.map(c=>c.id)].includes(e.cls))fail('pm.id');num(e.L,1,40,'pm.L');if(e.skill)research(e.skill,'pm.skill');}}
-  if(r.loot_items){keys(r.loot_items,[...items,'sh_s','sh_m','sh_l'],'loot_items');for(const n of Object.values(r.loot_items))num(n,0,10000,'loot.item');}
+  if('persona_party'in r){list(r.persona_party,'persona_party',4);if(new Set(r.persona_party).size!==r.persona_party.length||r.persona_party.some(id=>!['persona',...s.owned].includes(id)))fail('persona_party');}
+  if('persona_pm'in r){list(r.persona_pm,'persona_pm',4);for(const e of r.persona_pm){keys(e,['id','cls','L','race','lin','nat','ps','skill'],'pm',['id','cls','L']);if(!['',...owners].includes(e.id)||!['',...K.world.classes.map(c=>c.id)].includes(e.cls))fail('pm.id');num(e.L,1,40,'pm.L');for(const k of ['race','lin','nat'])if(k in e)text(e[k],'pm.'+k,100);if('ps'in e){keys(e.ps,stats,'pm.ps');for(const n of Object.values(e.ps))num(n,0,1000,'pm.ps',false);}if('skill'in e)research(e.skill,'pm.skill');}}
+  if('loot_items'in r){keys(r.loot_items,[...items,'sh_s','sh_m','sh_l'],'loot_items');for(const n of Object.values(r.loot_items))num(n,0,10000,'loot.item');}
  }
- keys(s.summary,['result','gold','xp','wins','lost','gains','floor','title','items','gear','loot_items','loot_gear','persona_gains','penalty'],'summary');
+ keys(s.summary,['result','gold','xp','wins','lost','gains','floor','penalty'],'summary');
  if(Object.keys(s.summary).length){if(!['clear','retreat','defeat'].includes(s.summary.result))fail('summary.result');for(const k of ['gold','xp','wins','lost'])num(s.summary[k],0,1e8,'summary.'+k);list(s.summary.gains,'gains',30).forEach(g=>{keys(g,['id','before','level','xp'],'gain',['id','before','level','xp']);if(!owners.includes(g.id))fail('gain.id');num(g.before,1,40,'gain.before');xp('gain',g.level,g.xp);});}
- const dialog=s.dialogue_r21;keys(dialog,['seen','pending','response','queue','bark_counts'],'dialogue',['seen','pending','response','queue','bark_counts']);countMap(dialog.seen,'seen');countMap(dialog.bark_counts,'bark_counts');
- for(const part of ['pending','response']){const v=dialog[part];keys(v,part==='pending'?['who','scene','day']:['who','scene','choice','text','lines','gained','before','after','transition'],'dialogue.'+part);if(Object.keys(v).length&&(!s.owned.includes(v.who)||typeof v.scene!=='string'))fail('dialogue.owner');}
- list(dialog.queue,'dialogue.queue',32).forEach(v=>{keys(v,['who','kind','lines','from','to','situation','event'],'queue');if(!s.owned.includes(v.who)||!['bark','transition'].includes(v.kind))fail('queue.owner');list(v.lines,'lines',32).forEach(x=>text(x,'line',1000));});
+ if('floor'in s.summary)num(s.summary.floor,1,9999,'summary.floor');if('penalty'in s.summary)num(s.summary.penalty,0,1e8,'summary.penalty');
+ const dialog=s.dialogue_r21;keys(dialog,['seen','pending','response','queue','bark_counts'],'dialogue',['seen','pending','response','queue','bark_counts']);countMap(dialog.seen,'seen',1e6,k=>Object.hasOwn(K.dialogueScenes,k));countMap(dialog.bark_counts,'bark_counts',1e6,k=>K.dialogueEvents.includes(k));
+ for(const part of ['pending','response']){
+  const v=dialog[part],fields=part==='pending'?['who','scene','day']:['who','scene','choice','text','lines','gained','before','after','transition'];keys(v,fields,'dialogue.'+part);
+  if(!Object.keys(v).length)continue;keys(v,fields,'dialogue.'+part,fields);
+  if(!s.owned.includes(v.who)||K.dialogueScenes[v.scene]?.who!==v.who)fail('dialogue.owner');
+  if(part==='pending')num(v.day,s.day,s.day,'dialogue.day');else{
+   if(!K.dialogueScenes[v.scene].choices.includes(v.choice))fail('dialogue.choice');text(v.text,'dialogue.text',1000);lines(v.lines,'dialogue.lines');
+   for(const k of ['gained','before','after'])num(v[k],k==='gained'?-300:-100,k==='gained'?300:200,'dialogue.'+k,false);
+   transition(v.transition,'dialogue.transition',s.owned);
+  }
+ }
+ list(dialog.queue,'dialogue.queue',32).forEach(v=>{keys(v,['who','kind','lines','from','to','situation','event','id','direction'],'queue',['who','kind','lines']);if(!s.owned.includes(v.who)||!['bark','transition'].includes(v.kind))fail('queue.owner');lines(v.lines,'queue.lines');if(v.kind==='bark'){keys(v,['who','kind','lines','event'],'queue',['event']);if(!K.dialogueEvents.includes(v.event))fail('queue.event');}else transition(v,'queue',s.owned);});
  return s;
 }
 export function summary(s){return {day:s.day,gold:s.gold,level:s.persona.lv,best:s.dungeon_r21.best,runs:s.runs,companions:s.owned.length};}

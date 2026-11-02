@@ -1,0 +1,27 @@
+{
+  "samples": [
+    {
+      "iterations": 0,
+      "n": 100,
+      "wall_mean_ms": 0.8642879999999945,
+      "wall_p95_ms": 0.998299999999972,
+      "workerd_cpu_mean_ms": 0.46875
+    },
+    {
+      "iterations": 5000,
+      "n": 100,
+      "wall_mean_ms": 2.7525160000000053,
+      "wall_p95_ms": 3.67470000000003,
+      "workerd_cpu_mean_ms": 2.34375
+    },
+    {
+      "iterations": 100000,
+      "n": 100,
+      "wall_mean_ms": 37.77167700000004,
+      "wall_p95_ms": 44.97770000000037,
+      "workerd_cpu_mean_ms": 36.25
+    }
+  ],
+  "measurement": "Windows workerd process user+system CPU / 100 requests; dedicated Worker running the shipped hash function; local CPU, not Cloudflare production CPU",
+  "default_iterations": 5000
+}

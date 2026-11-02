@@ -17,6 +17,18 @@ migrations_dir = "migrations"
 
 [vars]
 TURNSTILE_ENABLED = "false"
+ALLOW_LOCALHOST = "false"
+CORS_ORIGINS = "https://aredsea.github.io"
+TURNSTILE_HOSTNAMES = "aredsea.github.io"
+GLOBAL_NEW_PER_MINUTE = "60"
+GLOBAL_WRITE_BYTES_PER_MINUTE = "2097152"
+GLOBAL_REQUESTS_PER_MINUTE = "1200"
+INACTIVE_DAYS = "180"
+ARCHIVE_DAYS = "30"
+PIN_PBKDF2_ITERATIONS = "5000"
+RANK_MIN_AGE_SECONDS = "600"
+# Required secret: wrangler secret put IP_HASH_PEPPER (random >=32 bytes).
+# When enabled: wrangler secret put TURNSTILE_SECRET. No secrets in this file.
 
 [triggers]
 crons = ["17 * * * *"]
