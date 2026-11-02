@@ -1,0 +1,40 @@
+name: 버그 신고
+description: 게임에서 이상한 점을 알려 주세요
+title: "[버그] "
+labels: ["bug", "접수"]
+body:
+  - type: markdown
+    attributes:
+      value: "알려 주셔서 고맙습니다. 아래 칸을 아는 만큼만 채워 주세요."
+  - type: dropdown
+    id: where
+    attributes:
+      label: 어디서 생겼나요
+      options: [전투, 마을·시설, 탐색·던전, 동료·대화, 저장·불러오기, 화면 표시, 기타]
+    validations: {required: true}
+  - type: textarea
+    id: what
+    attributes:
+      label: 무슨 일이 있었나요
+      placeholder: "예) 여관에서 대화하기를 누르면 화면이 멈춰요"
+    validations: {required: true}
+  - type: textarea
+    id: steps
+    attributes:
+      label: 어떻게 하면 다시 생기나요
+      placeholder: "1. 마을 → 여관\n2. 대화하기\n3. ..."
+  - type: input
+    id: build
+    attributes:
+      label: 게임 판 번호
+      description: 현황판의 버그 신고 칸에서 열면 자동으로 채워져요
+  - type: input
+    id: device
+    attributes:
+      label: 기기와 브라우저
+      placeholder: "예) 갤럭시 S24, 삼성 인터넷"
+  - type: textarea
+    id: shot
+    attributes:
+      label: 스크린샷
+      description: 이미지를 여기에 끌어다 놓으면 첨부돼요
