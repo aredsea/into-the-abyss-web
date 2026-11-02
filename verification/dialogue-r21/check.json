@@ -1,0 +1,139 @@
+{
+  "errors": [],
+  "error_count": 0,
+  "characters": {
+    "hildegard": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 406,
+      "companion_lines": 280,
+      "max_line_chars": 32,
+      "max_dungeon_chars": 31,
+      "ending_sentences": 342,
+      "ending_deviations": [],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [
+        "inn/6/lines/0"
+      ],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.0,
+      "proper_nouns": [
+        "고립의 해",
+        "변경령",
+        "힐데가"
+      ]
+    },
+    "marceline": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 406,
+      "companion_lines": 280,
+      "max_line_chars": 34,
+      "max_dungeon_chars": 31,
+      "ending_sentences": 330,
+      "ending_deviations": [],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [
+        "inn/14/lines/0",
+        "inn/19/lines/0"
+      ],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.0,
+      "proper_nouns": [
+        "마르셀린"
+      ]
+    },
+    "teiris": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 406,
+      "companion_lines": 280,
+      "max_line_chars": 36,
+      "max_dungeon_chars": 28,
+      "ending_sentences": 343,
+      "ending_deviations": [],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.0,
+      "proper_nouns": [
+        "나에린",
+        "마르셀린",
+        "테이리스"
+      ]
+    }
+  },
+  "cross_character_duplicates": [],
+  "game_canon_name_differences": [
+    {
+      "id": "hildegard",
+      "game": "힐데가르트",
+      "canon": "힐데가"
+    }
+  ],
+  "terms_stats_absent_but_canonical_wiki_present": [
+    "고립의 해"
+  ],
+  "input_sha256": {
+    "hildegard.json": "d9a04b663d347f3ad671968296106d4bbafec77418e324dacd4451ab75202d84",
+    "marceline.json": "ac3455ae756dfd8820cb3cf1fb7d03aa0b519c1f880668d3c0839eb0de130382",
+    "teiris.json": "e31fc216bf13fe8ce2e1ec8855e12176851bdc1dcc468550d123660652d11a43"
+  },
+  "limits": {
+    "dungeon_chars": 40,
+    "other_line_chars": 64
+  },
+  "limitations": [
+    "고유명사 검사는 검수한 명시 목록·정본 사전·명명 문형 후보 검사다. 임의의 한국어 신조 고유명사를 모두 찾지는 못한다.",
+    "화계 검사는 문장 끝 어미에 대한 보조 검사다. 발화 의도·위계·자연스러움은 편집 검수와 표본 판정이 필요하다.",
+    "40자 제한은 글자 수 검사다. 이번 작업에는 대사 UI 연결이 없어 실제 360 화면 줄바꿈은 확인하지 않았다."
+  ]
+}

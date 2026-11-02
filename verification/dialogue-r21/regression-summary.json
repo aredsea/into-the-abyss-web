@@ -1,0 +1,333 @@
+{
+  "runs": 15,
+  "nonzero_exits": 0,
+  "counted_assertions": 21168,
+  "assertion_failures": 0,
+  "environment_error_occurrences": 15,
+  "unclassified_errors": 0,
+  "protected_changes": [],
+  "results": [
+    {
+      "name": "import",
+      "command": [
+        "C:\\Users\\asone\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "tools/godot_r17.py",
+        "--headless",
+        "--editor",
+        "--import",
+        "--quit"
+      ],
+      "exit_code": 0,
+      "seconds": 2.88,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "environment_errors": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "unclassified_errors": [],
+      "checks": null,
+      "assertion_failures": 0
+    },
+    {
+      "name": "world_test",
+      "command": [
+        "C:\\Users\\asone\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "tools/godot_r17.py",
+        "--headless",
+        "--script",
+        "res://tests/world_test.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 0.56,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "environment_errors": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "unclassified_errors": [],
+      "checks": 44,
+      "assertion_failures": 0
+    },
+    {
+      "name": "state_test",
+      "command": [
+        "C:\\Users\\asone\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "tools/godot_r17.py",
+        "--headless",
+        "--script",
+        "res://tests/state_test.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 0.81,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "environment_errors": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "unclassified_errors": [],
+      "checks": 54,
+      "assertion_failures": 0
+    },
+    {
+      "name": "route_test",
+      "command": [
+        "C:\\Users\\asone\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "tools/godot_r17.py",
+        "--headless",
+        "--script",
+        "res://tests/route_test.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 0.44,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "environment_errors": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "unclassified_errors": [],
+      "checks": 41,
+      "assertion_failures": 0
+    },
+    {
+      "name": "expansion_test",
+      "command": [
+        "C:\\Users\\asone\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "tools/godot_r17.py",
+        "--headless",
+        "--script",
+        "res://tests/expansion_test.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 1.06,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "environment_errors": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "unclassified_errors": [],
+      "checks": 3350,
+      "assertion_failures": 0
+    },
+    {
+      "name": "motion_test",
+      "command": [
+        "C:\\Users\\asone\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "tools/godot_r17.py",
+        "--headless",
+        "--script",
+        "res://tests/motion_test.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 0.33,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "environment_errors": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "unclassified_errors": [],
+      "checks": null,
+      "assertion_failures": 0
+    },
+    {
+      "name": "motion_asset_test",
+      "command": [
+        "C:\\Users\\asone\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "tools/godot_r17.py",
+        "--headless",
+        "--script",
+        "res://tests/motion_asset_test.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 0.44,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "environment_errors": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "unclassified_errors": [],
+      "checks": null,
+      "assertion_failures": 0
+    },
+    {
+      "name": "art_test",
+      "command": [
+        "C:\\Users\\asone\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "tools/godot_r17.py",
+        "--headless",
+        "--script",
+        "res://tests/art_test.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 0.62,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "environment_errors": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "unclassified_errors": [],
+      "checks": null,
+      "assertion_failures": 0
+    },
+    {
+      "name": "export_licenses",
+      "command": [
+        "C:\\Users\\asone\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "tools/godot_r17.py",
+        "--headless",
+        "--script",
+        "res://tests/export_licenses.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 0.33,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "environment_errors": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "unclassified_errors": [],
+      "checks": null,
+      "assertion_failures": 0
+    },
+    {
+      "name": "ui_battle_r17_test",
+      "command": [
+        "C:\\Users\\asone\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "tools/godot_r17.py",
+        "--position",
+        "-10000,-10000",
+        "--script",
+        "res://tests/ui_battle_r17_test.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 43.77,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "environment_errors": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "unclassified_errors": [],
+      "checks": 6085,
+      "assertion_failures": 0
+    },
+    {
+      "name": "ui_battle_r18_test",
+      "command": [
+        "C:\\Users\\asone\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "tools/godot_r17.py",
+        "--position",
+        "-10000,-10000",
+        "--script",
+        "res://tests/ui_battle_r18_test.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 35.52,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "environment_errors": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "unclassified_errors": [],
+      "checks": 4592,
+      "assertion_failures": 0
+    },
+    {
+      "name": "ui_battle_r19_test",
+      "command": [
+        "C:\\Users\\asone\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "tools/godot_r17.py",
+        "--position",
+        "-10000,-10000",
+        "--script",
+        "res://tests/ui_battle_r19_test.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 8.16,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "environment_errors": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "unclassified_errors": [],
+      "checks": 859,
+      "assertion_failures": 0
+    },
+    {
+      "name": "ui_battle_r20_test",
+      "command": [
+        "C:\\Users\\asone\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "tools/godot_r17.py",
+        "--position",
+        "-10000,-10000",
+        "--script",
+        "res://tests/ui_battle_r20_test.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 12.53,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "environment_errors": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "unclassified_errors": [],
+      "checks": 1659,
+      "assertion_failures": 0
+    },
+    {
+      "name": "motion_r9_integration",
+      "command": [
+        "C:\\Users\\asone\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "tools/godot_r17.py",
+        "--position",
+        "-10000,-10000",
+        "--script",
+        "res://tests/motion_r9_integration.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 5.88,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "environment_errors": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "unclassified_errors": [],
+      "checks": 944,
+      "assertion_failures": 0
+    },
+    {
+      "name": "motion_r18_integration",
+      "command": [
+        "C:\\Users\\asone\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+        "tools/godot_r17.py",
+        "--position",
+        "-10000,-10000",
+        "--script",
+        "res://tests/motion_r18_integration.gd"
+      ],
+      "exit_code": 0,
+      "seconds": 49.72,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "environment_errors": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "unclassified_errors": [],
+      "checks": 3540,
+      "assertion_failures": 0
+    }
+  ]
+}
