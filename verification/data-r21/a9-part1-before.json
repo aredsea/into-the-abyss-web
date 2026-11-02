@@ -1,0 +1,129 @@
+{
+	"checks": 16,
+	"failures": [
+		"drain/reflect HP 1000.0",
+		"drain/reflect HP 5.0",
+		"drain hit HP / no false kill MP 5.0",
+		"drain/reflect HP 500.0",
+		"demon kill raw heal heal",
+		"demon kill gauge haste",
+		"demon kill RNG haste",
+		"Kern counter and original-hit reflection HP"
+	],
+	"rows": [
+		{
+			"got": 1000,
+			"label": "drain/reflect HP 1000.0",
+			"ok": false,
+			"want": 990.0
+		},
+		{
+			"got": [
+				900,
+				0
+			],
+			"label": "drain hit HP / no false kill MP 1000.0",
+			"ok": true,
+			"want": [
+				900.0,
+				0.0
+			]
+		},
+		{
+			"got": 35,
+			"label": "drain/reflect HP 5.0",
+			"ok": false,
+			"want": 45.0
+		},
+		{
+			"got": [
+				930,
+				2
+			],
+			"label": "drain hit HP / no false kill MP 5.0",
+			"ok": false,
+			"want": [
+				900.0,
+				0.0
+			]
+		},
+		{
+			"got": 520,
+			"label": "drain/reflect HP 500.0",
+			"ok": false,
+			"want": 550.0
+		},
+		{
+			"got": [
+				960,
+				0
+			],
+			"label": "drain hit HP / no false kill MP 500.0",
+			"ok": true,
+			"want": [
+				960.0,
+				0.0
+			]
+		},
+		{
+			"got": 560,
+			"label": "demon kill raw heal heal",
+			"ok": false,
+			"want": 530.0
+		},
+		{
+			"got": 10000,
+			"label": "demon kill gauge heal",
+			"ok": true,
+			"want": 10000.0
+		},
+		{
+			"got": 2137222869,
+			"label": "demon kill RNG heal",
+			"ok": true,
+			"want": 2137222869.0
+		},
+		{
+			"got": null,
+			"label": "restore skill context heal",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": 530,
+			"label": "demon kill raw heal haste",
+			"ok": true,
+			"want": 530.0
+		},
+		{
+			"got": 5000.0,
+			"label": "demon kill gauge haste",
+			"ok": false,
+			"want": 10000.0
+		},
+		{
+			"got": 1493279561,
+			"label": "demon kill RNG haste",
+			"ok": false,
+			"want": 2137222869.0
+		},
+		{
+			"got": null,
+			"label": "restore skill context haste",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": 831,
+			"label": "Kern counter and original-hit reflection HP",
+			"ok": false,
+			"want": 836.0
+		},
+		{
+			"got": 2,
+			"label": "enemy hit plus Kern counter",
+			"ok": true,
+			"want": 2
+		}
+	]
+}

@@ -325,22 +325,22 @@ func turn() -> bool:
 				for t in list:
 					if t.hp<=0: continue
 					event_targets.append(t)
-					var before={}
-					for ally in b.data.allies: before[ally.id]=int(ally.hp)
 					b._enemy_hit(e,t,a)
+					var hit=b.last_enemy_hit_result
 					if b.last_enemy_hit_target.is_empty(): continue
 					t=b.ally(b.last_enemy_hit_target)
 					if t.hp>0:
-						b.TraitRules.attacked(b,t,e)
-						if b.gear_bridge!=null:
-							var hit=b.combat_hits[-1] if not b.combat_hits.is_empty() else {"damage":0,"shield":0}
-							b.gear_bridge.invoke("attacked",[b.gear_bridge.slot(t),b.gear_bridge.slot(e),{"d":hit.damage,"sh":hit.shield},b.combat_events.T])
-						if a.has("drain"): e.hp=mini(e.mhp,e.hp+int(floor((before[t.id]-t.hp)*a.drain)))
+						# 30-engine e_after_hit precedes personal/global attacked hooks.
 						if a.has("push"): t.remaining+=10000*a.push
+						if a.has("drain") and e.hp>0 and e.hp<e.mhp: e.hp=mini(e.mhp,e.hp+int(floor(hit.get("d",0)*a.drain+1e-9)))
 						if a.has("dot"): add_dot(t,e,dot_per(e,t,a.dot.m),int(a.dot.get("turns",3)))
 						if a.get("strip",false):
-							for key in ["attack_up","defense_up","bless","guard","haste","shield"]:
+							# 31-foes STRIP_ORDER: atk, def, bs, bl, g2, red, red20, red25.
+							for key in ["attack_up","defense_up","backstep","blood","fortified_guard","adeline_guard","contract","duty"]:
 								if t.effects.has(key): t.effects.erase(key); break
+						b.TraitRules.attacked(b,t,e)
+						if b.gear_bridge!=null:
+							b.gear_bridge.invoke("attacked",[b.gear_bridge.slot(t),b.gear_bridge.slot(e),hit,b.combat_events.T])
 				if a.kind in ["big_one","big_all"]: e.charged=false
 		b.combat_events.enemy(b,e,a,event_targets)
 		e.act_index=(int(e.act_index)+1)%e.acts.size()

@@ -112,9 +112,14 @@ static func run(b,a,e,t,sk) -> void:
 		"adeline":
 			for u in b.living(true):
 				b._heal(a,u,.4,true); b._source_effect(u,"adeline_guard",2,.1,a.id); b._add_adeline_regen(u,a.base[a.line]*.16,2,a.id)
+		"jorund":
+			# PRUN reads the selected target's contract before B.attack redirects.
+			var marked=b.x(e).get("jm",false)
+			var options={"jmk":marked,"capture_result":true}
+			b._damage(a,e,1.2,15,false,-1,options)
+			if not marked and not options.get("primary_kill",true): b.x(e).jm=true
 		_:
 			b._damage(a,e,1.2,15)
-			if a.id=="jorund" and e.hp>0: b.x(e).jm=true
 			if a.id=="ornel" and e.hp>0: weaken(b,e,.2)
 
 static func cleanse(t) -> void:

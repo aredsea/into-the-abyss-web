@@ -1,0 +1,128 @@
+{
+  "suite_groups": 58,
+  "suite_failures": 0,
+  "before_checks": 16,
+  "before_failures": 8,
+  "target_checks": 31,
+  "target_failures": 0,
+  "parity": [
+    {
+      "name": "A7",
+      "battles": 176,
+      "equal_battles": 176,
+      "source_actions": 2932,
+      "actual_actions": 2932,
+      "matched_actions": 2932
+    },
+    {
+      "name": "A7 balanced",
+      "battles": 176,
+      "equal_battles": 176,
+      "source_actions": 6279,
+      "actual_actions": 6279,
+      "matched_actions": 6279
+    },
+    {
+      "name": "A9 native10",
+      "battles": 312,
+      "equal_battles": 312,
+      "source_actions": 4806,
+      "actual_actions": 4806,
+      "matched_actions": 4806
+    },
+    {
+      "name": "A9 native40",
+      "battles": 312,
+      "equal_battles": 312,
+      "source_actions": 10127,
+      "actual_actions": 10127,
+      "matched_actions": 10127
+    }
+  ],
+  "gear_battles": 976,
+  "gear_records": 24144,
+  "native_coverage": {
+    "drain_reflect_hits": 244,
+    "counters": 3,
+    "skill_kill_heal_gear": 3
+  },
+  "native_rarity_equipped": {
+    "legend": 2074,
+    "common": 1354,
+    "rare": 1356,
+    "epic": 1348,
+    "fine": 1356
+  },
+  "native_equipped_slots": 7488,
+  "native_initialization_units": 2496,
+  "native_gaps": 0,
+  "changed_manifest_files": [
+    "project/game/battle_v3.gd",
+    "project/game/dungeon_enemy_r21.gd",
+    "project/game/personal_rules_r22.gd",
+    "project/game/trait_rules_r22.gd",
+    "project/tests/combat_a9_r22_test.gd",
+    "project/tests/combat_p2_r22_trace_fixture.gd",
+    "tools/oracle_combat_a9_r22.lua",
+    "tools/prepare_combat_a9_r22.py"
+  ],
+  "protected": {
+    "docs": {
+      "files": 249,
+      "current_files": 249,
+      "changed": []
+    },
+    "project/assets": {
+      "files": 1772,
+      "current_files": 1772,
+      "changed": []
+    }
+  },
+  "source_audit": {
+    "enemies": 100,
+    "families": 30,
+    "zones": 10,
+    "playable_zones": 9,
+    "rifts": 6,
+    "field_mismatches": [],
+    "original_assets": 96,
+    "changed_assets": [],
+    "changed_source": [],
+    "failures": 0
+  },
+  "retained_parity": [
+    {
+      "name": "A6",
+      "battles": 48,
+      "equal_battles": 48,
+      "source_actions": 2537,
+      "actual_actions": 2537,
+      "matched_actions": 2537
+    },
+    {
+      "name": "P3",
+      "battles": 128,
+      "equal_battles": 128,
+      "source_actions": 4929,
+      "actual_actions": 4929,
+      "matched_actions": 4929
+    },
+    {
+      "name": "A8",
+      "battles": 5120,
+      "equal_battles": 5120,
+      "source_actions": 186707,
+      "actual_actions": 186707,
+      "matched_actions": 186707
+    }
+  ],
+  "all_battles": 6320,
+  "all_records": 219785,
+  "ui_a8": {
+    "checks": 38929,
+    "failures": 0,
+    "overflow": 0,
+    "captures": 261
+  },
+  "directly_viewed_images": 2
+}

@@ -7,6 +7,7 @@ var hit_serial=0
 var inventory={}
 var dungeon_enemy_r21
 var last_enemy_hit_target=""
+var last_enemy_hit_result={}
 const CombatClock=preload("res://game/combat_clock_r22.gd")
 var ctb_tick=0
 var ctb_round=0
@@ -698,7 +699,7 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 		for u in living(true)+living(false):
 			if (u.base.spd if u.has("base") else u.speed)>a.base.spd: fastest=false
 		if fastest: mult*=1.5
-	if a.id=="jorund" and action_id=="personal" and not extra and x(e).get("jm",false): mult*=1.4
+	if a.id=="jorund" and action_id=="personal" and not extra and proc_event.get("jmk",x(e).get("jm",false)): mult*=1.4
 	if a.id=="lavinia" and action_id=="personal" and not extra and (e.acts[e.act_index].get("ic","") in ["spell","weaken","summon"] or e.acts[e.act_index].kind in ["spell","weaken","summon"]): mult*=1.3
 	if a.id=="bianca" and e.get("grade","") in ["boss","chief","core"]: mult*=1.3
 	if dungeon_enemy_r21!=null: mult*=PersonalRules.damage_mult(self,a)
@@ -1221,6 +1222,7 @@ func _enemy_evade(e: Dictionary,a: Dictionary) -> bool:
 
 func _enemy_hit(e: Dictionary,a: Dictionary,sk: Dictionary) -> void:
 	last_enemy_hit_target=""
+	last_enemy_hit_result={}
 	if a.hp<=0 or e.hp<=0: return
 	var covered=false
 	if has_alive("marceline") and a.id!="marceline" and x(ally("marceline")).get("cover")==a.id and (dungeon_enemy_r21==null or (sk.kind!="big_all" and sk.get("target","")!="all")):
@@ -1300,6 +1302,9 @@ func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,cove
 	if damage>0 and gear_bridge!=null: gear_bridge.invoke("damaged",[gear_bridge.slot(a),damage,gear_bridge.slot(e) if not e.is_empty() else "fixed",combat_events.T])
 	# Both fixed and ordinary strikes run pecho after saves, death and damaged.
 	if gear_bridge!=null: gear_bridge.invoke("gear_pecho",[gear_bridge.slot(a),combat_events.T])
+	# B.strike res.d includes shield absorption. Keep this hit independent of
+	# subsequent counters and gear re-entry, which append their own hit records.
+	last_enemy_hit_result={"d":damage+absorbed,"sh":absorbed}
 
 # Frozen legacy damage path from 72bf1b2; ongoing pre-r21 expeditions keep their rules.
 func _legacy_incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,covered=false,fixed=false) -> void:

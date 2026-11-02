@@ -12,9 +12,13 @@ static func hit_after(b,h: Dictionary) -> void:
 static func kill_credit(b,a) -> void:
 	if a.is_empty() or a.hp<=0: return
 	b._gear_kill(a)
+	# 34-traits kill_credit clears SKON only after the gear kill hook.
+	var old_skill=b.gear_bridge.hooks.skill if b.gear_bridge!=null else null
+	if b.gear_bridge!=null: b.gear_bridge.hooks.skill=null
 	if b.count_tag("race","악마")>=2: b._receive_heal(a,a.mhp*.03)
 	if b.count_tag("race","악마")>=3:
 		for u in b.living(true): u.mp=mini(u.mmp,u.mp+2)
+	if b.gear_bridge!=null: b.gear_bridge.hooks.skill=old_skill
 
 static func enemy_down(b,e) -> void:
 	if b.count_tag("nation","대카라쉰")>=3:
