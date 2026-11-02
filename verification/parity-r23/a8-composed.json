@@ -1,0 +1,41 @@
+{
+  "battles": 5120,
+  "equal_battles": 5120,
+  "source_actions": 186707,
+  "actual_actions": 186707,
+  "matched_actions": 186707,
+  "prefix": {
+    "range": [
+      0,
+      4864
+    ],
+    "battles": 4864,
+    "matched_actions": 177158,
+    "proof": "Strict zero-gap checkpoint after per-battle trace-field, length and outcome checks; no fabricated prefix vectors. Progress N has compared N+1 rows, but only N are counted.",
+    "log": "verification/parity-r23/a8-prefix.log",
+    "log_sha256": "03f2efa046becdcd4f9a2e6cf2a4435ad732ebed714fce469bcd875c8f550320"
+  },
+  "suffix": {
+    "range": [
+      4864,
+      5120
+    ],
+    "battles": 256,
+    "matched_actions": 9549,
+    "native_report": "verification/parity-r23/a8-tail.json",
+    "log": "verification/parity-r23/a8-tail.log",
+    "exit": 0,
+    "seconds": 46.51
+  },
+  "fixture_sha256": "edf84a6d976c354543054391fe15e20e2b7cc3ea1c681b5ac50ec5f429987553",
+  "comparison_script_sha256": "bd4af6ecff1cb76a6bff47ea515748dec653a6da1fffefbd82b48b94e0af4941",
+  "tail_script_sha256": "962afa82f73eedf9c3ee141506fc833a1443361fd273c29e0c276c58bcf4bab2",
+  "changes_to_comparison": "Only row slice, output report path and final print label; same comparison code and fixtures.",
+  "full_native_report_after_timeout": {
+    "file": "verification/data-r21/a8-audit.json",
+    "sha256": "3c174f75e24c70265167a0aa3b8910c08271b0079a23f210490d39a22fcdcde9",
+    "battles": 5120,
+    "matched_actions": 186707,
+    "note": "The native child continued after launcher timeout and also completed its full per-battle report. Original timeout remains recorded; prefix plus separately executed tail is independently sufficient."
+  }
+}

@@ -1,0 +1,3181 @@
+{
+  "task": "r23-expe",
+  "basis": "r21-expe-brief.md / r21-common.md; 109 items from audit-r22b.json remaining_work[7]",
+  "summary": {
+    "reviewed_rows": 109,
+    "promoted_same": 18,
+    "fixed_rows": 18,
+    "fixed_still_remaining": 10,
+    "remaining_rows": 91,
+    "oracle_checks": 16265,
+    "core_oracle_checks": 2310,
+    "supply_oracle_checks": 7384,
+    "level_oracle_checks": 6571,
+    "oracle_failures": 0,
+    "regression_groups": 85,
+    "failed_groups": [],
+    "protected_snapshot_files": 1007,
+    "changed_existing_files": [
+      "project/game/dungeon_world_r21.gd",
+      "project/game/expedition_supply_r22.gd",
+      "project/game/expedition_world_r22.gd",
+      "project/ui/persona_sortie_screen.gd",
+      "project/tests/ui_expedition_r22_test.gd"
+    ],
+    "outside_allowed_changed": [],
+    "assets_checked": 96,
+    "asset_changes": [],
+    "trace_battles": 6320,
+    "trace_equal_battles": 6320,
+    "trace_records": 219785
+  },
+  "rows": [
+    {
+      "id": "P2746",
+      "feature": "마을 이동 — 함수 B.tw_T",
+      "source_symbol": "B.tw_T",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 13,
+        "end": 23,
+        "symbol": "B.tw_T"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+    },
+    {
+      "id": "P2749",
+      "feature": "마을 이동 — 함수 B.tw_name",
+      "source_symbol": "B.tw_name",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 25,
+        "end": 28,
+        "symbol": "B.tw_name"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+    },
+    {
+      "id": "P2750",
+      "feature": "마을 이동 — 함수 B.tw_party",
+      "source_symbol": "B.tw_party",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 31,
+        "end": 36,
+        "symbol": "B.tw_party"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+    },
+    {
+      "id": "P2751",
+      "feature": "마을 이동 — 함수 B.tw_tags",
+      "source_symbol": "B.tw_tags",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 38,
+        "end": 42,
+        "symbol": "B.tw_tags"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+    },
+    {
+      "id": "P2752",
+      "feature": "마을 이동 — 함수 B.tw_face",
+      "source_symbol": "B.tw_face",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 45,
+        "end": 53,
+        "symbol": "B.tw_face"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+    },
+    {
+      "id": "P2753",
+      "feature": "마을 이동 — 함수 B.tw_hd",
+      "source_symbol": "B.tw_hd",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 56,
+        "end": 56,
+        "symbol": "B.tw_hd"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+    },
+    {
+      "id": "P2754",
+      "feature": "마을 이동 — 함수 B.tw_pbtn",
+      "source_symbol": "B.tw_pbtn",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 59,
+        "end": 62,
+        "symbol": "B.tw_pbtn"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+    },
+    {
+      "id": "P2755",
+      "feature": "마을 이동 — 함수 B.tw_stars",
+      "source_symbol": "B.tw_stars",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 64,
+        "end": 64,
+        "symbol": "B.tw_stars"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+    },
+    {
+      "id": "P2756",
+      "feature": "마을 이동 — 함수 B.tw_hint",
+      "source_symbol": "B.tw_hint",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 67,
+        "end": 67,
+        "symbol": "B.tw_hint"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+    },
+    {
+      "id": "P2757",
+      "feature": "town 화면/패널 표시",
+      "source_symbol": "B.SCREENS.town",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 69,
+        "end": 94,
+        "symbol": "B.SCREENS.town"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+    },
+    {
+      "id": "P2758",
+      "feature": "B.H.tw 버튼 접두 처리",
+      "source_symbol": "B.H.tw",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 96,
+        "end": 127,
+        "symbol": "B.H.tw"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+    },
+    {
+      "id": "P2784",
+      "feature": "마을 이동 — 함수 B.tw_settle",
+      "source_symbol": "B.tw_settle",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 130,
+        "end": 194,
+        "symbol": "B.tw_settle"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "원본 Lua에 함수/then·else·do 진입 Boolean 기록만 추가해 실제 입력을 재실행. 함수 호출 미관측, 명시적 분기 진입 0/0. 전체 계약은 같음으로 세지 않음. 단락 평가·조건의 모든 값 조합까지 전수 검증한 수치는 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+    },
+    {
+      "id": "P2792",
+      "feature": "마을 이동 — 함수 B.HUD_EXTRA[#B.HUD_EXTRA + 1]",
+      "source_symbol": "B.HUD_EXTRA[#B.HUD_EXTRA + 1]",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 197,
+        "end": 209,
+        "symbol": "B.HUD_EXTRA[#B.HUD_EXTRA + 1]"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+    },
+    {
+      "id": "P2794",
+      "feature": "마을 이동 — 함수 B.CTX[\"20-town\"]",
+      "source_symbol": "B.CTX[\"20-town\"]",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 211,
+        "end": 221,
+        "symbol": "B.CTX[\"20-town\"]"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+    },
+    {
+      "id": "P2991",
+      "feature": "경험치 — 함수 B.lv_of",
+      "source_symbol": "B.lv_of",
+      "source": {
+        "file": "bot/src/74-level.lua",
+        "start": 33,
+        "end": 41,
+        "symbol": "B.lv_of"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "같음",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": true,
+      "tests": [
+        "expe_level_r23_test::levels"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:20"
+      ],
+      "remaining_reason": "",
+      "scope": "유효 native 저장 상태/원본 입력의 대응 투영. ID/슬롯 및 sh_↔shield_ 표기를 명시적으로 변환하며, HTML/호스트/손상 저장 전체를 포함하지 않는 순수 함수 계약."
+    },
+    {
+      "id": "P2992",
+      "feature": "경험치 — 함수 B.exp_of",
+      "source_symbol": "B.exp_of",
+      "source": {
+        "file": "bot/src/74-level.lua",
+        "start": 44,
+        "end": 47,
+        "symbol": "B.exp_of"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "같음",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": true,
+      "tests": [
+        "expe_level_r23_test::levels"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:30"
+      ],
+      "remaining_reason": "",
+      "scope": "유효 native 저장 상태/원본 입력의 대응 투영. ID/슬롯 및 sh_↔shield_ 표기를 명시적으로 변환하며, HTML/호스트/손상 저장 전체를 포함하지 않는 순수 함수 계약."
+    },
+    {
+      "id": "P2998",
+      "feature": "경험치 — 함수 who",
+      "source_symbol": "who",
+      "source": {
+        "file": "bot/src/74-level.lua",
+        "start": 57,
+        "end": 64,
+        "symbol": "who"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다."
+    },
+    {
+      "id": "P3003",
+      "feature": "경험치 — 함수 B.award_exp",
+      "source_symbol": "B.award_exp",
+      "source": {
+        "file": "bot/src/74-level.lua",
+        "start": 89,
+        "end": 128,
+        "symbol": "B.award_exp"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "원본 Lua에 함수/then·else·do 진입 Boolean 기록만 추가해 실제 입력을 재실행. 함수 호출 미관측, 명시적 분기 진입 0/0. 전체 계약은 같음으로 세지 않음. 단락 평가·조건의 모든 값 조합까지 전수 검증한 수치는 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다."
+    },
+    {
+      "id": "P3004",
+      "feature": "경험치 — 함수 add",
+      "source_symbol": "add",
+      "source": {
+        "file": "bot/src/74-level.lua",
+        "start": 102,
+        "end": 104,
+        "symbol": "add"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다."
+    },
+    {
+      "id": "P3013",
+      "feature": "균열/던전 출정 — 함수 SO.pname",
+      "source_symbol": "SO.pname",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 29,
+        "end": 32,
+        "symbol": "SO.pname"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+    },
+    {
+      "id": "P3014",
+      "feature": "균열/던전 출정 — 함수 SO.prow",
+      "source_symbol": "SO.prow",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 33,
+        "end": 36,
+        "symbol": "SO.prow"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+    },
+    {
+      "id": "P3015",
+      "feature": "균열/던전 출정 — 함수 SO.members",
+      "source_symbol": "SO.members",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 39,
+        "end": 50,
+        "symbol": "SO.members"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+    },
+    {
+      "id": "P3016",
+      "feature": "균열/던전 출정 — 함수 face",
+      "source_symbol": "face",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 52,
+        "end": 55,
+        "symbol": "face"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+    },
+    {
+      "id": "P3017",
+      "feature": "균열/던전 출정 — 함수 quest_card",
+      "source_symbol": "quest_card",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 58,
+        "end": 65,
+        "symbol": "quest_card"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+    },
+    {
+      "id": "P3018",
+      "feature": "균열/던전 출정 — 함수 slots",
+      "source_symbol": "slots",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 68,
+        "end": 81,
+        "symbol": "slots"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+    },
+    {
+      "id": "P3020",
+      "feature": "균열/던전 출정 — 함수 fight_row",
+      "source_symbol": "fight_row",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 84,
+        "end": 89,
+        "symbol": "fight_row"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+    },
+    {
+      "id": "P3023",
+      "feature": "균열/던전 출정 — 함수 filt",
+      "source_symbol": "filt",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 92,
+        "end": 95,
+        "symbol": "filt"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "같음",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": true,
+      "tests": [
+        "expe_r23_test::sortie_filter"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:38"
+      ],
+      "remaining_reason": "",
+      "scope": "유효 native 저장 상태/원본 입력의 대응 투영. ID/슬롯 및 sh_↔shield_ 표기를 명시적으로 변환하며, HTML/호스트/손상 저장 전체를 포함하지 않는 순수 함수 계약."
+    },
+    {
+      "id": "P3024",
+      "feature": "균열/던전 출정 — 함수 ordered",
+      "source_symbol": "ordered",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 96,
+        "end": 115,
+        "symbol": "ordered"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": true,
+      "tests": [
+        "expe_r23_test::sortie_order"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:35"
+      ],
+      "remaining_reason": "후보 ID 순서·유효/무효 필터는 대조했다. 원본 반환의 cid/on/lv/i 레코드 전체와 native UI 카드 계약을 같음으로 확대하지 않는다."
+    },
+    {
+      "id": "P3025",
+      "feature": "균열/던전 출정 — 함수 ordered::익명 함수@109",
+      "source_symbol": "ordered::익명 함수@109",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 109,
+        "end": 113,
+        "symbol": "ordered::익명 함수@109"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "같음",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [
+        "expe_r23_test::sortie_order"
+      ],
+      "implementation": [
+        "project/game/persona_world.gd:111"
+      ],
+      "remaining_reason": "",
+      "scope": "유효 native 저장 상태/원본 입력의 대응 투영. ID/슬롯 및 sh_↔shield_ 표기를 명시적으로 변환하며, HTML/호스트/손상 저장 전체를 포함하지 않는 순수 함수 계약."
+    },
+    {
+      "id": "P3026",
+      "feature": "균열/던전 출정 — 함수 cards",
+      "source_symbol": "cards",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 117,
+        "end": 142,
+        "symbol": "cards"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+    },
+    {
+      "id": "P3028",
+      "feature": "균열/던전 출정 — 함수 ft",
+      "source_symbol": "ft",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 120,
+        "end": 120,
+        "symbol": "ft"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+    },
+    {
+      "id": "P3030",
+      "feature": "균열/던전 출정 — 함수 SO.summary",
+      "source_symbol": "SO.summary",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 145,
+        "end": 156,
+        "symbol": "SO.summary"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": true,
+      "tests": [
+        "expe_r23_test::sortie_summary"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:41"
+      ],
+      "remaining_reason": "이미 해석된 적 레벨을 입력한 n/avg/elv/front/warns는 일치한다. 원본 q 전체와 gd_qlv 의 의뢰별 해석까지 이 함수의 native 출정 흐름에서 대조한 것은 아니다."
+    },
+    {
+      "id": "P3031",
+      "feature": "균열/던전 출정 — 함수 summary_card",
+      "source_symbol": "summary_card",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 158,
+        "end": 165,
+        "symbol": "summary_card"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": true,
+      "tests": [
+        "expe_r23_test::sortie_summary",
+        "ui_expedition_r22_test::source-warning-and-paged-selection"
+      ],
+      "implementation": [
+        "project/ui/persona_sortie_screen.gd:3"
+      ],
+      "remaining_reason": "경고를 출정 화면에 연결했다. 원본 summary_card HTML 전체 반환은 native 캔버스와 다르다."
+    },
+    {
+      "id": "P3032",
+      "feature": "sortie 화면/패널 표시",
+      "source_symbol": "B.SCREENS.sortie",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 167,
+        "end": 183,
+        "symbol": "B.SCREENS.sortie"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+    },
+    {
+      "id": "P3037",
+      "feature": "균열/던전 출정 — 함수 legacy_start",
+      "source_symbol": "legacy_start",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 186,
+        "end": 194,
+        "symbol": "legacy_start"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+    },
+    {
+      "id": "P3041",
+      "feature": "B.H.so 버튼 접두 처리",
+      "source_symbol": "B.H.so",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 196,
+        "end": 254,
+        "symbol": "B.H.so"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+    },
+    {
+      "id": "P3061",
+      "feature": "던전 층 해금 — 함수 B.dn_G",
+      "source_symbol": "B.dn_G",
+      "source": {
+        "file": "bot/src/76-dungeon.lua",
+        "start": 10,
+        "end": 21,
+        "symbol": "B.dn_G"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 dn_G는 손상/누락 필드를 제자리 정규화한다. native는 자체 저장 스키마를 검증/거부하므로 손상 G 전체 계약이 다르다."
+    },
+    {
+      "id": "P3070",
+      "feature": "던전 층 해금 — 함수 B.dn_max",
+      "source_symbol": "B.dn_max",
+      "source": {
+        "file": "bot/src/76-dungeon.lua",
+        "start": 24,
+        "end": 31,
+        "symbol": "B.dn_max"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "같음",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [
+        "expe_r23_test::floor_access"
+      ],
+      "implementation": [
+        "project/game/dungeon_world_r21.gd:36"
+      ],
+      "remaining_reason": "",
+      "scope": "유효 native 저장 상태/원본 입력의 대응 투영. ID/슬롯 및 sh_↔shield_ 표기를 명시적으로 변환하며, HTML/호스트/손상 저장 전체를 포함하지 않는 순수 함수 계약."
+    },
+    {
+      "id": "P3072",
+      "feature": "던전 층 해금 — 함수 B.dn_allowed",
+      "source_symbol": "B.dn_allowed",
+      "source": {
+        "file": "bot/src/76-dungeon.lua",
+        "start": 32,
+        "end": 32,
+        "symbol": "B.dn_allowed"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "같음",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [
+        "expe_r23_test::floor_access"
+      ],
+      "implementation": [
+        "project/game/dungeon_world_r21.gd:42"
+      ],
+      "remaining_reason": "",
+      "scope": "유효 native 저장 상태/원본 입력의 대응 투영. ID/슬롯 및 sh_↔shield_ 표기를 명시적으로 변환하며, HTML/호스트/손상 저장 전체를 포함하지 않는 순수 함수 계약."
+    },
+    {
+      "id": "P3073",
+      "feature": "던전 층 해금 — 함수 B.dn_party",
+      "source_symbol": "B.dn_party",
+      "source": {
+        "file": "bot/src/76-dungeon.lua",
+        "start": 35,
+        "end": 40,
+        "symbol": "B.dn_party"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [
+        "expe_r23_test::initial_vitals"
+      ],
+      "implementation": [
+        "project/game/persona_world.gd:132"
+      ],
+      "remaining_reason": "1~4인·세 레벨 편성은 실행했다. pm 전체(장비·스킬 스냅샷), 빈/손상된 원본 G의 전체 dn_party 반환 계약은 별도 대조가 남았다."
+    },
+    {
+      "id": "P3074",
+      "feature": "던전 층 해금 — 함수 B.dn_floor_view",
+      "source_symbol": "B.dn_floor_view",
+      "source": {
+        "file": "bot/src/76-dungeon.lua",
+        "start": 43,
+        "end": 50,
+        "symbol": "B.dn_floor_view"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "같음",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [
+        "expe_r23_test::floor_view"
+      ],
+      "implementation": [
+        "project/game/dungeon_world_r21.gd:45"
+      ],
+      "remaining_reason": "",
+      "scope": "유효 native 저장 상태/원본 입력의 대응 투영. ID/슬롯 및 sh_↔shield_ 표기를 명시적으로 변환하며, HTML/호스트/손상 저장 전체를 포함하지 않는 순수 함수 계약."
+    },
+    {
+      "id": "P3076",
+      "feature": "던전 층 해금 — 함수 zone_title",
+      "source_symbol": "zone_title",
+      "source": {
+        "file": "bot/src/76-dungeon.lua",
+        "start": 59,
+        "end": 62,
+        "symbol": "zone_title"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "zone_title은 번역/HTML 탈출 전 표시 문자열이다. native는 zone.name과 별도 캔버스 라벨을 쓰며 심층 제목 원문 전체의 직접 반환 비교가 없다."
+    },
+    {
+      "id": "P3079",
+      "feature": "던전 층 해금 — 함수 B.dn_card",
+      "source_symbol": "B.dn_card",
+      "source": {
+        "file": "bot/src/76-dungeon.lua",
+        "start": 75,
+        "end": 117,
+        "symbol": "B.dn_card"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": true,
+      "tests": [
+        "expe_r23_test::floor_view",
+        "ui_expedition_r22_test::source-warning-and-paged-selection"
+      ],
+      "implementation": [
+        "project/ui/persona_sortie_screen.gd:3"
+      ],
+      "remaining_reason": "층 정보 77건과 실제 페이지/경고 화면을 확인했다. dn_card HTML 전체·페이지 초과값의 정규화까지 동일하다고 세지 않는다."
+    },
+    {
+      "id": "P3119",
+      "feature": "한 층 탐색 — 함수 wt",
+      "source_symbol": "wt",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 63,
+        "end": 63,
+        "symbol": "wt"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "기존 ex_roll 표본은 유지했다. 내부 wt의 모든 item_from/item_w 누락·경계 입력에 대한 독립 직접 반환 fixture는 없다."
+    },
+    {
+      "id": "P3120",
+      "feature": "한 층 탐색 — 함수 B.ex_run",
+      "source_symbol": "B.ex_run",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 79,
+        "end": 82,
+        "symbol": "B.ex_run"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 ex_run은 dn_G를 호출하면서 원본 dungeon 구조도 정규화한다. native run 접근과 손상 상태의 부작용까지 같은 계약이 아니다."
+    },
+    {
+      "id": "P3121",
+      "feature": "한 층 탐색 — 함수 B.C1_gear_label",
+      "source_symbol": "B.C1_gear_label",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 83,
+        "end": 88,
+        "symbol": "B.C1_gear_label"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 번역/희귀도/Lv/알 수 없는 장비 문자열 전체와 native 코드↔UID 표시를 직접 비교하지 않았다. 장비 규칙 파일은 수정 금지다."
+    },
+    {
+      "id": "P3122",
+      "feature": "한 층 탐색 — 함수 B.C1_en_gear_label",
+      "source_symbol": "B.C1_en_gear_label",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 89,
+        "end": 94,
+        "symbol": "B.C1_en_gear_label"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "영문 장비명/희귀도 번역 C1_en 전체 반환은 native 표시와 아직 대조되지 않았다. 장비/번역 범위를 임의로 확대하지 않았다."
+    },
+    {
+      "id": "P3123",
+      "feature": "한 층 탐색 — 함수 zero4",
+      "source_symbol": "zero4",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 96,
+        "end": 96,
+        "symbol": "zero4"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "zero4는 원본 고정 4슬롯 배열이며 native는 인물 ID 딕셔너리다. 입장 자원 투영의 일치를 이 내부 반환 배열 함수로 전파하지 않는다."
+    },
+    {
+      "id": "P3124",
+      "feature": "한 층 탐색 — 함수 B.ex_new",
+      "source_symbol": "B.ex_new",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 99,
+        "end": 121,
+        "symbol": "B.ex_new"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": true,
+      "tests": [
+        "expe_r23_test::initial_vitals"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:57"
+      ],
+      "remaining_reason": "입장 자원 24건을 고쳤다. 원본 G_rnd의 소비 상태·sid·boss_name·pm 전체·빈 슬롯 전체를 포함한 ex_new 반환 전부는 같은 저장 ABI가 아니다."
+    },
+    {
+      "id": "P3129",
+      "feature": "한 층 탐색 — 함수 pname",
+      "source_symbol": "pname",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 124,
+        "end": 127,
+        "symbol": "pname"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "빈 이름/일반 이름 및 {{user}} 표시에 native의 별도 자리표시자 규칙이 있다. 함수 전체 문자열을 직접 대조하지 않았다."
+    },
+    {
+      "id": "P3130",
+      "feature": "한 층 탐색 — 함수 member_name",
+      "source_symbol": "member_name",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 128,
+        "end": 131,
+        "symbol": "member_name"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본은 알 수 없는 cid를 cid 그대로 돌려준다. native person 조회의 유효 인물 제약/이름 fallback 전체 직접 대조가 남는다."
+    },
+    {
+      "id": "P3131",
+      "feature": "한 층 탐색 — 함수 members",
+      "source_symbol": "members",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 132,
+        "end": 139,
+        "symbol": "members"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 members는 빈 자리 포함 pm에서 {slot,m} 배열을 만든다. native expedition_ids의 ID 배열만으로 레코드/누락 슬롯 전체 같음을 세지 않는다."
+    },
+    {
+      "id": "P3132",
+      "feature": "한 층 탐색 — 함수 push_log",
+      "source_symbol": "push_log",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 140,
+        "end": 143,
+        "symbol": "push_log"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "같음",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [
+        "expe_r23_test::log"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:80"
+      ],
+      "remaining_reason": "",
+      "scope": "유효 native 저장 상태/원본 입력의 대응 투영. ID/슬롯 및 sh_↔shield_ 표기를 명시적으로 변환하며, HTML/호스트/손상 저장 전체를 포함하지 않는 순수 함수 계약."
+    },
+    {
+      "id": "P3134",
+      "feature": "한 층 탐색 — 함수 itname",
+      "source_symbol": "itname",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 144,
+        "end": 148,
+        "symbol": "itname"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 itname은 장비 코드와 소모품 및 알 수 없는 ID를 모두 처리한다. native 이름/UID/코드 fallback 전체 직접 대조가 없다."
+    },
+    {
+      "id": "P3135",
+      "feature": "한 층 탐색 — 함수 rar_of",
+      "source_symbol": "rar_of",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 149,
+        "end": 153,
+        "symbol": "rar_of"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 rar_of의 장비 코드/일반 품목/누락 ID 반환 전체는 장비 표시 규칙 영역에 걸리며 독립 fixture가 없다."
+    },
+    {
+      "id": "P3138",
+      "feature": "한 층 탐색 — 함수 floor_label",
+      "source_symbol": "floor_label",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 168,
+        "end": 171,
+        "symbol": "floor_label"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "floor_label은 영문 AI 장면 지시용 문구다. native 제목은 별도 캔버스 문자열이며 원문을 임의로 같음/제외로 승격하지 않는다."
+    },
+    {
+      "id": "P3140",
+      "feature": "한 층 탐색 — 함수 B.dn_start",
+      "source_symbol": "B.dn_start",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 182,
+        "end": 197,
+        "symbol": "B.dn_start"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [
+        "expe_r23_test::initial_vitals"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:57"
+      ],
+      "remaining_reason": "출발 상태는 대조했으나 이전 층 prev 목록·RisuAI pend_hard·메시지/장면 계약은 남는다."
+    },
+    {
+      "id": "P3145",
+      "feature": "한 층 탐색 — 함수 B.ex_battle",
+      "source_symbol": "B.ex_battle",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 201,
+        "end": 234,
+        "symbol": "B.ex_battle"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": true,
+      "tests": [
+        "expe_r23_test::first_battle"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:123"
+      ],
+      "remaining_reason": "첫 전투 전 자원 24건을 대조했다(B.run을 잠시 막아 전투 시작 뒤 적 행동과 분리). 전투 저장 매체·st 전부·원본 호스트 장면 전환의 동등성 증거는 아니다."
+    },
+    {
+      "id": "P3159",
+      "feature": "한 층 탐색 — 함수 enter_rest",
+      "source_symbol": "enter_rest",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 237,
+        "end": 263,
+        "symbol": "enter_rest"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [
+        "expedition_r22_test::rest"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:103"
+      ],
+      "remaining_reason": "기존 원본 휴식 120건과 native 반복 입력 검사를 유지했다. native는 rested로 중복 회복을 차단하며 원본 enter_rest 직접 재호출·sx0/장면 지시/전체 로그는 다르다."
+    },
+    {
+      "id": "P3168",
+      "feature": "한 층 탐색 — 함수 do_explore",
+      "source_symbol": "do_explore",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 268,
+        "end": 306,
+        "symbol": "do_explore"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [
+        "expe_r23_test::discovery"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:84"
+      ],
+      "remaining_reason": "실제 탐색 이벤트 9건과 기존 2100 roll/440 발견 보정 표본을 대조했다. R.last·로그 원문·pend 및 전투 진입 전체 저장 계약은 아직 일부다."
+    },
+    {
+      "id": "P3176",
+      "feature": "한 층 탐색 — 함수 snapshot_party",
+      "source_symbol": "snapshot_party",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 309,
+        "end": 320,
+        "symbol": "snapshot_party"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": true,
+      "tests": [
+        "expe_r23_test::snapshot"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:184"
+      ],
+      "remaining_reason": "생존/사망·소수 HP/MP·최대치 내림을 대조했다. 원본 al/empty/real 배열 ABI와 native HP 기반 생사·wins 기반 이월 전체의 동일성을 주장하지 않는다."
+    },
+    {
+      "id": "P3182",
+      "feature": "한 층 탐색 — 함수 do_cont",
+      "source_symbol": "do_cont",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 322,
+        "end": 346,
+        "symbol": "do_cont"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "do_cont의 sid/bn/over/dn 무효 입력·적 이름 중복 제거·정예 로그/호스트 전환 전체를 native 스냅샷 continuation과 직접 비교하지 못했다."
+    },
+    {
+      "id": "P3189",
+      "feature": "한 층 탐색 — 함수 do_boss",
+      "source_symbol": "do_boss",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 349,
+        "end": 354,
+        "symbol": "do_boss"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": true,
+      "tests": [
+        "expe_r23_test::boss_guard"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:116"
+      ],
+      "remaining_reason": "퇴각 확인 중에도 보스를 시작하고 ask를 지우도록 수정했다. B.ex_battle의 호스트 저장·메시지 전체가 native 버튼 경계와 같지는 않다."
+    },
+    {
+      "id": "P3191",
+      "feature": "한 층 탐색 — 함수 B.ex_gear_add",
+      "source_symbol": "B.ex_gear_add",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 358,
+        "end": 361,
+        "symbol": "B.ex_gear_add"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "같음",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [
+        "expe_r23_test::gear_add"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:204"
+      ],
+      "remaining_reason": "",
+      "scope": "유효 native 저장 상태/원본 입력의 대응 투영. ID/슬롯 및 sh_↔shield_ 표기를 명시적으로 변환하며, HTML/호스트/손상 저장 전체를 포함하지 않는 순수 함수 계약."
+    },
+    {
+      "id": "P3194",
+      "feature": "한 층 탐색 — 함수 B.ex_gear_roll",
+      "source_symbol": "B.ex_gear_roll",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 363,
+        "end": 368,
+        "symbol": "B.ex_gear_roll"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "같음",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [
+        "expe_r23_test::gear_roll"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:192"
+      ],
+      "remaining_reason": "",
+      "scope": "유효 native 저장 상태/원본 입력의 대응 투영. ID/슬롯 및 sh_↔shield_ 표기를 명시적으로 변환하며, HTML/호스트/손상 저장 전체를 포함하지 않는 순수 함수 계약."
+    },
+    {
+      "id": "P3195",
+      "feature": "한 층 탐색 — 함수 B.ex_gear_bank",
+      "source_symbol": "B.ex_gear_bank",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 370,
+        "end": 376,
+        "symbol": "B.ex_gear_bank"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "가방 포화 시 원본은 버린다. native는 사용자 저장 보존을 위해 overflow에 코드를 남긴다. 장비 가방 규칙은 이번 수정 금지다."
+    },
+    {
+      "id": "P3196",
+      "feature": "한 층 탐색 — 함수 bank_items",
+      "source_symbol": "bank_items",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 379,
+        "end": 386,
+        "symbol": "bank_items"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "같음",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [
+        "expe_r23_test::bank_items"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:211"
+      ],
+      "remaining_reason": "",
+      "scope": "유효 native 저장 상태/원본 입력의 대응 투영. ID/슬롯 및 sh_↔shield_ 표기를 명시적으로 변환하며, HTML/호스트/손상 저장 전체를 포함하지 않는 순수 함수 계약."
+    },
+    {
+      "id": "P3199",
+      "feature": "한 층 탐색 — 함수 exp_note",
+      "source_symbol": "exp_note",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 388,
+        "end": 397,
+        "symbol": "exp_note"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "exp_note의 award_exp 부재/예외/비표 반환에 대한 pcall fallback 및 전체 sum.lv 문자열 대조가 남는다. 레벨 모듈은 허용 파일 밖이다."
+    },
+    {
+      "id": "P3201",
+      "feature": "한 층 탐색 — 함수 B.ex_aff_note",
+      "source_symbol": "B.ex_aff_note",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 400,
+        "end": 411,
+        "symbol": "B.ex_aff_note"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본은 인물 이름+호감 문자열 배열, native는 ID별 증가량 딕셔너리를 저장한다. 유효 정산 숫자만으로 전체 반환을 같음으로 세지 않는다."
+    },
+    {
+      "id": "P3202",
+      "feature": "한 층 탐색 — 함수 finish_run",
+      "source_symbol": "finish_run",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 414,
+        "end": 540,
+        "symbol": "finish_run"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [
+        "expedition_r22_test::settlements"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:235"
+      ],
+      "remaining_reason": "클리어/퇴각/패배 기존 9 Lua 정산과 native 45씨앗을 재검사했다. defeat 뒤 원본 run 제거/거점 이동과 native 완료 run 보관, 요약 필드·문구·호스트 계약 차이가 남는다."
+    },
+    {
+      "id": "P3223",
+      "feature": "한 층 탐색 — 함수 B.dn_settle",
+      "source_symbol": "B.dn_settle",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 543,
+        "end": 556,
+        "symbol": "B.dn_settle"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [
+        "expedition_r22_test::settlements"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:158"
+      ],
+      "remaining_reason": "native는 스냅샷 build/상태 검증을 사용한다. 원본 sid/bn 불일치 시 거점 복귀·메시지·legacy 분기 전체에 대한 함수 단위 일치는 미확정이다."
+    },
+    {
+      "id": "P3225",
+      "feature": "한 층 탐색 — 함수 B.dn_settle_legacy",
+      "source_symbol": "B.dn_settle_legacy",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 559,
+        "end": 583,
+        "symbol": "B.dn_settle_legacy"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "실제 옛 native 저장 11개를 보존해 불러오지만, 원본 st.dn.stage 1/2 저장을 직접 읽어 정산하는 전체 legacy ABI는 별개로 남는다."
+    },
+    {
+      "id": "P3233",
+      "feature": "한 층 탐색 — 함수 do_retreat",
+      "source_symbol": "do_retreat",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 586,
+        "end": 595,
+        "symbol": "do_retreat"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본은 R.ask가 있는 retreat_yes만 정산한다. native 확인은 상속 화면의 confirm 객체에 있어 저장된 ask/취소/낡은 버튼 전체 상태 계약이 다르다."
+    },
+    {
+      "id": "P3241",
+      "feature": "한 층 탐색 — 함수 out_mul",
+      "source_symbol": "out_mul",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 598,
+        "end": 608,
+        "symbol": "out_mul"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "같음",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [
+        "expe_r23_test::outside_multiplier"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:208"
+      ],
+      "remaining_reason": "",
+      "scope": "유효 native 저장 상태/원본 입력의 대응 투영. ID/슬롯 및 sh_↔shield_ 표기를 명시적으로 변환하며, HTML/호스트/손상 저장 전체를 포함하지 않는 순수 함수 계약."
+    },
+    {
+      "id": "P3242",
+      "feature": "한 층 탐색 — 함수 do_use",
+      "source_symbol": "do_use",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 610,
+        "end": 640,
+        "symbol": "do_use"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [
+        "expe_r23_test::outside_use"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:313"
+      ],
+      "remaining_reason": "레벨 1/14/15/29/30/40·11품목·6상태·출신 2종 792건의 HP/MP/거점/주머니는 일치한다. R.last 원문·로그/호스트 장면 필드까지 같은 함수는 아니다."
+    },
+    {
+      "id": "P3248",
+      "feature": "한 층 탐색 — 함수 equip_key",
+      "source_symbol": "equip_key",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 643,
+        "end": 646,
+        "symbol": "equip_key"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 equip_key는 pm 슬롯의 id 또는 nil을 반환한다. native는 인물 ID/UID 기반이며 빈/손상 pm 슬롯의 독립 반환 비교가 없다."
+    },
+    {
+      "id": "P3249",
+      "feature": "한 층 탐색 — 함수 do_equip",
+      "source_symbol": "do_equip",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 648,
+        "end": 662,
+        "symbol": "do_equip"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "휴식 정비의 유효 동작은 기존 검사로 보존했다. 원본 장비 코드 버튼 인코딩·잘못된 슬롯·why 문자열·다른 소유자 장비 전체 분기는 장비 규칙 담당 범위다."
+    },
+    {
+      "id": "P3251",
+      "feature": "B.H.ex 버튼 접두 처리",
+      "source_symbol": "B.H.ex",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 665,
+        "end": 708,
+        "symbol": "B.H.ex"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "개별 탐색/아이템/보스 분기는 보강했다. H.ex 전체는 cont/next/home/선택 슬롯/장비 버튼·장면 지시를 포함하며 일부 host/UI 저장 계약이 남는다."
+    },
+    {
+      "id": "P3273",
+      "feature": "한 층 탐색 — 함수 bar",
+      "source_symbol": "bar",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 711,
+        "end": 711,
+        "symbol": "bar"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+    },
+    {
+      "id": "P3274",
+      "feature": "한 층 탐색 — 함수 pips",
+      "source_symbol": "pips",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 713,
+        "end": 723,
+        "symbol": "pips"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+    },
+    {
+      "id": "P3275",
+      "feature": "한 층 탐색 — 함수 head_card",
+      "source_symbol": "head_card",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 725,
+        "end": 736,
+        "symbol": "head_card"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+    },
+    {
+      "id": "P3277",
+      "feature": "한 층 탐색 — 함수 last_card",
+      "source_symbol": "last_card",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 738,
+        "end": 741,
+        "symbol": "last_card"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+    },
+    {
+      "id": "P3278",
+      "feature": "한 층 탐색 — 함수 use_btn",
+      "source_symbol": "use_btn",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 744,
+        "end": 749,
+        "symbol": "use_btn"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+    },
+    {
+      "id": "P3280",
+      "feature": "한 층 탐색 — 함수 use_row",
+      "source_symbol": "use_row",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 751,
+        "end": 764,
+        "symbol": "use_row"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+    },
+    {
+      "id": "P3281",
+      "feature": "한 층 탐색 — 함수 party_card",
+      "source_symbol": "party_card",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 766,
+        "end": 782,
+        "symbol": "party_card"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+    },
+    {
+      "id": "P3282",
+      "feature": "한 층 탐색 — 함수 retreat_card",
+      "source_symbol": "retreat_card",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 784,
+        "end": 790,
+        "symbol": "retreat_card"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+    },
+    {
+      "id": "P3287",
+      "feature": "한 층 탐색 — 함수 explore_screen",
+      "source_symbol": "explore_screen",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 792,
+        "end": 797,
+        "symbol": "explore_screen"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+    },
+    {
+      "id": "P3290",
+      "feature": "한 층 탐색 — 함수 slot_row",
+      "source_symbol": "slot_row",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 799,
+        "end": 816,
+        "symbol": "slot_row"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+    },
+    {
+      "id": "P3293",
+      "feature": "한 층 탐색 — 함수 gear_card",
+      "source_symbol": "gear_card",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 818,
+        "end": 827,
+        "symbol": "gear_card"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+    },
+    {
+      "id": "P3296",
+      "feature": "한 층 탐색 — 함수 rest_screen",
+      "source_symbol": "rest_screen",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 829,
+        "end": 833,
+        "symbol": "rest_screen"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+    },
+    {
+      "id": "P3299",
+      "feature": "한 층 탐색 — 함수 done_act",
+      "source_symbol": "done_act",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 837,
+        "end": 845,
+        "symbol": "done_act"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+    },
+    {
+      "id": "P3303",
+      "feature": "한 층 탐색 — 함수 done_screen",
+      "source_symbol": "done_screen",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 846,
+        "end": 880,
+        "symbol": "done_screen"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+    },
+    {
+      "id": "P3304",
+      "feature": "한 층 탐색 — 함수 row",
+      "source_symbol": "row",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 849,
+        "end": 849,
+        "symbol": "row"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+    },
+    {
+      "id": "P3305",
+      "feature": "dungeon 화면/패널 표시",
+      "source_symbol": "B.SCREENS.dungeon",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 882,
+        "end": 891,
+        "symbol": "B.SCREENS.dungeon"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+    },
+    {
+      "id": "P3307",
+      "feature": "한 층 탐색 — 함수 B.ex_label",
+      "source_symbol": "B.ex_label",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 894,
+        "end": 897,
+        "symbol": "B.ex_label"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "ex_label의 run 없음/잘못된 값 및 번역 언어별 전체 반환과 native 제목 문자열의 직접 비교가 없다."
+    },
+    {
+      "id": "P3309",
+      "feature": "한 층 탐색 — 함수 move_old",
+      "source_symbol": "move_old",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 907,
+        "end": 915,
+        "symbol": "move_old"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "일부",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": true,
+      "tests": [
+        "expe_r23_test::migration"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:380"
+      ],
+      "remaining_reason": "거점/주머니의 potion/mana 합산·숫자 문자열·반복/JSON·입력 불변을 고쳤다. 음수/소수 등 원본이 산술적으로 받아들이는 값은 기존 native 저장 검증에서 원자적으로 거부한다."
+    },
+    {
+      "id": "P3311",
+      "feature": "한 층 탐색 — 함수 B.G_migrate",
+      "source_symbol": "B.G_migrate",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 917,
+        "end": 923,
+        "symbol": "B.G_migrate"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "일부",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": true,
+      "tests": [
+        "expe_r23_test::migration"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:348"
+      ],
+      "remaining_reason": "별칭 이관은 보강했다. prev_migrate 전체 원본 저장 스키마 및 canonical G를 native 저장으로 직접 읽는 범용 이관은 미구현이며, 기존 native 저장 이관을 보존했다."
+    },
+    {
+      "id": "P3319",
+      "feature": "전투 보급품 — 함수 B.it_need",
+      "source_symbol": "B.it_need",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 13,
+        "end": 13,
+        "symbol": "B.it_need"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "같음",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": true,
+      "tests": [
+        "expe_supply_r23_test::needs"
+      ],
+      "implementation": [
+        "project/game/expedition_supply_r22.gd:5"
+      ],
+      "remaining_reason": "",
+      "scope": "유효 native 저장 상태/원본 입력의 대응 투영. ID/슬롯 및 sh_↔shield_ 표기를 명시적으로 변환하며, HTML/호스트/손상 저장 전체를 포함하지 않는 순수 함수 계약."
+    },
+    {
+      "id": "P3325",
+      "feature": "전투 보급품 — 함수 B.ex_bag",
+      "source_symbol": "B.ex_bag",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 49,
+        "end": 53,
+        "symbol": "B.ex_bag"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "같음",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [
+        "expe_r23_test::bag"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:9"
+      ],
+      "remaining_reason": "",
+      "scope": "유효 native 저장 상태/원본 입력의 대응 투영. ID/슬롯 및 sh_↔shield_ 표기를 명시적으로 변환하며, HTML/호스트/손상 저장 전체를 포함하지 않는 순수 함수 계약."
+    },
+    {
+      "id": "P3326",
+      "feature": "전투 보급품 — 함수 has_dot",
+      "source_symbol": "has_dot",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 56,
+        "end": 58,
+        "symbol": "has_dot"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "같음",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": true,
+      "tests": [
+        "expe_supply_r23_test::combat_targets"
+      ],
+      "implementation": [
+        "project/game/expedition_supply_r22.gd:7"
+      ],
+      "remaining_reason": "",
+      "scope": "유효 native 저장 상태/원본 입력의 대응 투영. ID/슬롯 및 sh_↔shield_ 표기를 명시적으로 변환하며, HTML/호스트/손상 저장 전체를 포함하지 않는 순수 함수 계약."
+    },
+    {
+      "id": "P3328",
+      "feature": "전투 보급품 — 함수 B.it_ok",
+      "source_symbol": "B.it_ok",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 71,
+        "end": 74,
+        "symbol": "B.it_ok"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "같음",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": true,
+      "tests": [
+        "expe_supply_r23_test::combat_targets"
+      ],
+      "implementation": [
+        "project/game/expedition_supply_r22.gd:21"
+      ],
+      "remaining_reason": "",
+      "scope": "유효 native 저장 상태/원본 입력의 대응 투영. ID/슬롯 및 sh_↔shield_ 표기를 명시적으로 변환하며, HTML/호스트/손상 저장 전체를 포함하지 않는 순수 함수 계약."
+    },
+    {
+      "id": "P3329",
+      "feature": "전투 보급품 — 함수 B.it_any",
+      "source_symbol": "B.it_any",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 75,
+        "end": 78,
+        "symbol": "B.it_any"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "같음",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": true,
+      "tests": [
+        "expe_supply_r23_test::combat_parties"
+      ],
+      "implementation": [
+        "project/game/expedition_supply_r22.gd:23"
+      ],
+      "remaining_reason": "",
+      "scope": "유효 native 저장 상태/원본 입력의 대응 투영. ID/슬롯 및 sh_↔shield_ 표기를 명시적으로 변환하며, HTML/호스트/손상 저장 전체를 포함하지 않는 순수 함수 계약."
+    },
+    {
+      "id": "P3330",
+      "feature": "전투 보급품 — 함수 B.it_blocked",
+      "source_symbol": "B.it_blocked",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 81,
+        "end": 84,
+        "symbol": "B.it_blocked"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "같음",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": true,
+      "tests": [
+        "expe_supply_r23_test::combat_parties"
+      ],
+      "implementation": [
+        "project/game/expedition_supply_r22.gd:27"
+      ],
+      "remaining_reason": "",
+      "scope": "유효 native 저장 상태/원본 입력의 대응 투영. ID/슬롯 및 sh_↔shield_ 표기를 명시적으로 변환하며, HTML/호스트/손상 저장 전체를 포함하지 않는 순수 함수 계약."
+    },
+    {
+      "id": "P3331",
+      "feature": "전투 보급품 — 함수 cur_i",
+      "source_symbol": "cur_i",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 88,
+        "end": 88,
+        "symbol": "cur_i"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+    },
+    {
+      "id": "P3332",
+      "feature": "전투 보급품 — 함수 B.it_apply",
+      "source_symbol": "B.it_apply",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 89,
+        "end": 132,
+        "symbol": "B.it_apply"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+    },
+    {
+      "id": "P3337",
+      "feature": "전투 보급품 — 함수 itname",
+      "source_symbol": "itname",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 135,
+        "end": 135,
+        "symbol": "itname"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+    },
+    {
+      "id": "P3338",
+      "feature": "전투 보급품 — 함수 B.it_button",
+      "source_symbol": "B.it_button",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 138,
+        "end": 150,
+        "symbol": "B.it_button"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+    },
+    {
+      "id": "P3340",
+      "feature": "전투 보급품 — 함수 B.r_items",
+      "source_symbol": "B.r_items",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 153,
+        "end": 179,
+        "symbol": "B.r_items"
+      },
+      "unverified_branches": [],
+      "prior_status": "미확인",
+      "status": "미확인",
+      "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+    },
+    {
+      "id": "P3344",
+      "feature": "B.H.it 버튼 접두 처리",
+      "source_symbol": "B.H.it",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 182,
+        "end": 225,
+        "symbol": "B.H.it"
+      },
+      "unverified_branches": [],
+      "prior_status": "일부",
+      "status": "일부",
+      "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+      "fixed": false,
+      "tests": [],
+      "implementation": [],
+      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+    }
+  ],
+  "checks": [
+    {
+      "test": "import",
+      "exit": 0,
+      "errors": [],
+      "summary": [],
+      "seconds": 4.44,
+      "passed": true
+    },
+    {
+      "test": "affection_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "AFFECTION R21 CHECKS 400 FAILURES 0 LUA SAMPLES 200"
+      ],
+      "seconds": 0.41,
+      "passed": true
+    },
+    {
+      "test": "art_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [],
+      "seconds": 1.34,
+      "passed": true
+    },
+    {
+      "test": "chronicle_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "CHRONICLE R22 CHECKS 7911 FAILURES 0"
+      ],
+      "seconds": 3.52,
+      "passed": true
+    },
+    {
+      "test": "cloud_archive_r22_test",
+      "exit": 0,
+      "errors": [],
+      "passed": true,
+      "summary": [
+        "CLOUD ARCHIVE R22 CHECKS 5 FAILURES 0"
+      ],
+      "harness": "node server/abyss-save/test/godot-r14.mjs cloud_r22_test cloud_archive_r22_test",
+      "log": "verification/town-r21/round14/cloud_archive_r22_test.log"
+    },
+    {
+      "test": "cloud_r22_test",
+      "exit": 0,
+      "errors": [],
+      "passed": true,
+      "summary": [
+        "CLOUD R22 CHECKS 27 FAILURES 0"
+      ],
+      "harness": "node server/abyss-save/test/godot-r14.mjs cloud_r22_test cloud_archive_r22_test",
+      "log": "verification/town-r21/round14/cloud_r22_test.log"
+    },
+    {
+      "test": "combat_a6_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "A6 251 checks / failures 0 []"
+      ],
+      "seconds": 16.8,
+      "passed": true
+    },
+    {
+      "test": "combat_a7_flow_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "A7 flow 15 / failures 0 []"
+      ],
+      "seconds": 1.22,
+      "passed": true
+    },
+    {
+      "test": "combat_a7_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "A7 part 1 9 checks / failures 0"
+      ],
+      "seconds": 1.92,
+      "passed": true
+    },
+    {
+      "test": "combat_a9_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "A9 targeted 31 checks / failures 0"
+      ],
+      "seconds": 1.92,
+      "passed": true
+    },
+    {
+      "test": "combat_p2_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "P2 789 checks / failures 0"
+      ],
+      "seconds": 34.36,
+      "passed": true
+    },
+    {
+      "test": "combat_p3_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "P3 84736 checks / failures 0 []"
+      ],
+      "seconds": 69.42,
+      "passed": true
+    },
+    {
+      "test": "data_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "DATA_R21 checks=7493 failures=0 composition=1028 stats=700 exploration=300"
+      ],
+      "seconds": 1.38,
+      "passed": true
+    },
+    {
+      "test": "dialogue_player_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "DIALOGUE PLAYER R21 CHECKS 34229 FAILURES 0"
+      ],
+      "seconds": 263.28,
+      "passed": true
+    },
+    {
+      "test": "dialogue_roster_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "DIALOGUE ROSTER CHECKS 17670 FAILURES 0"
+      ],
+      "seconds": 16.23,
+      "passed": true
+    },
+    {
+      "test": "dungeon_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "DUNGEON_R21 {\"art_fallbacks\":0,\"checks\":3008,\"details\":[],\"enemies\":100,\"failures\":0,\"floors\":420,\"outcomes\":{\"defeat\":420,\"natural_defeat\":53,\"natural_victory\":136,\"victory\":420}}"
+      ],
+      "seconds": 139.25,
+      "passed": true
+    },
+    {
+      "test": "enemy_action_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "ENEMY_ACTION_R21 {\"checks\":2878,\"continuous_matched\":1221,\"enemies\":100,\"failures\":0,\"gear_samples\":120,\"matched\":1221,\"samples\":1221,\"silence_samples\":200}"
+      ],
+      "seconds": 130.98,
+      "passed": true
+    },
+    {
+      "test": "enemy_regression_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "ENEMY_REGRESSION_R21 {\"checks\":30,\"failures\":[]}"
+      ],
+      "seconds": 2.22,
+      "passed": true
+    },
+    {
+      "test": "enemy_review_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "ENEMY_REVIEW_R21 {\"checks\":497,\"evidence\":{\"fifth\":{\"class_stack_probe\":{\"amount\":504.0,\"effect\":{\"amount\":504.0,\"bursts\":[0,0,0,0,0,0],\"initial_turns\":[3,3,3,3,3,3],\"lifetimes\":[3,3,3,3,3,3],\"orders\":[1,2,3,4,5,6],\"owners\":[\"neutral_1\",\"neutral_1\",\"neutral_1\",\"neutral_1\",\"neutral_1\",\"neutral_1\"],\"stacks\":[24.0,48.0,72.0,96.0,120.0,144.0],\"turns\":3},\"hp\":19,\"stacks\":6},\"death\":[{\"actual\":{\"charging\":0,\"cover\":0,\"hp\":0,\"kept\":5,\"removed\":5,\"taunt\":0},\"input\":{\"charging\":0.0,\"cid\":\"neutral\",\"cover\":0.0,\"fixed\":true,\"hp\":0.0,\"kept\":5.0,\"removed\":5.0,\"taunt\":0.0}},{\"actual\":{\"charging\":0,\"cover\":0,\"hp\":0,\"kept\":5,\"removed\":5,\"taunt\":0},\"input\":{\"charging\":0.0,\"cid\":\"haldric\",\"cover\":0.0,\"fixed\":true,\"hp\":0.0,\"kept\":5.0,\"removed\":5.0,\"taunt\":0.0}},{\"actual\":{\"charging\":0,\"cover\":0,\"hp\":0,\"kept\""
+      ],
+      "seconds": 26.31,
+      "passed": true
+    },
+    {
+      "test": "expansion_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "EXPANSION CHECKS 3350 FAILURES 0"
+      ],
+      "seconds": 2.05,
+      "passed": true
+    },
+    {
+      "test": "expe_r23_test",
+      "exit": 0,
+      "errors": [],
+      "passed": true,
+      "summary": [
+        "EXPE R23 CHECKS 2310 FAILURES 0 GROUPS { \"sortie_order\": { \"checks\": 90, \"failures\": 0 }, \"sortie_filter\": { \"checks\": 90, \"failures\": 0 }, \"sortie_summary\": { \"checks\": 450, \"failures\": 0 }, \"floor_access\": { \"checks\": 420, \"failures\": 0 }, \"floor_view\": { \"checks\": 77, \"failures\": 0 }, \"initial_vitals\": { \"checks\": 24, \"failures\": 0 }, \"first_battle\": { \"checks\": 24, \"failures\": 0 }, \"outside_use\": { \"checks\": 792, \"failures\": 0 }, \"boss_guard\": { \"checks\": 8, \"failures\": 0 }, \"log\": { \"checks\": 13, \"failures\": 0 }, \"snapshot\": { \"checks\": 9, \"failures\": 0 }, \"bank_items\": { \"checks\": 3, \"failures\": 0 }, \"gear_roll\": { \"checks\": 240, \"failures\": 0 }, \"outside_multiplier\": { \"checks\": 15, \"failures\": 0 }, \"gear_add\": { \"checks\": 2, \"failures\": 0 }, \"bag\": { \"checks\": 4, \"failures\": 0 }, \"discovery\": { \"checks\": 9, \"failures\": 0 }, \"migration\": { \"checks\": 35, \"failures\": 0 }, \"invalid\": { \"checks\": 5, \"failures\": 0 } }"
+      ],
+      "log": "verification/parity-r23/expe-final.log"
+    },
+    {
+      "test": "expedition_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "EXPEDITION R22 CHECKS 4786 FAILURES 0"
+      ],
+      "seconds": 36.86,
+      "passed": true
+    },
+    {
+      "test": "export_licenses",
+      "exit": 0,
+      "errors": [],
+      "summary": [],
+      "seconds": 0.5,
+      "passed": true
+    },
+    {
+      "test": "facilities_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "FACILITIES R22 CHECKS 4406 FAILURES 0 LUA 4093"
+      ],
+      "seconds": 21.75,
+      "passed": true
+    },
+    {
+      "test": "gear_boundary_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "GEAR BOUNDARY R22 CHECKS 27894 FAILURES 0"
+      ],
+      "seconds": 5.92,
+      "passed": true
+    },
+    {
+      "test": "gear_hooks_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "GEAR HOOKS R22 CHECKS 21267 FAILURES 0"
+      ],
+      "seconds": 9.55,
+      "passed": true
+    },
+    {
+      "test": "gear_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "GEAR R22 CHECKS 122798 FAILURES 0"
+      ],
+      "seconds": 9.56,
+      "passed": true
+    },
+    {
+      "test": "motion_asset_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [],
+      "seconds": 0.97,
+      "passed": true
+    },
+    {
+      "test": "motion_r18_integration",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "R18 STATE INTEGRATION: 3540 checks / 0 failures"
+      ],
+      "seconds": 73.44,
+      "passed": true
+    },
+    {
+      "test": "motion_r9_integration",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "R9 INTEGRATION: 944 checks / 0 failures"
+      ],
+      "seconds": 8.8,
+      "passed": true
+    },
+    {
+      "test": "motion_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [],
+      "seconds": 0.48,
+      "passed": true
+    },
+    {
+      "test": "panels_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "PANELS R22 CHECKS 7345 FAILURES 0"
+      ],
+      "seconds": 2.78,
+      "passed": true
+    },
+    {
+      "test": "persona_combat_a8_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "PERSONA COMBAT A8 CHECKS 34800 FAILURES 0"
+      ],
+      "seconds": 168.41,
+      "passed": true
+    },
+    {
+      "test": "persona_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "PERSONA R22 CHECKS 4005 FAILURES 0"
+      ],
+      "seconds": 8.75,
+      "passed": true
+    },
+    {
+      "test": "persona_research_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "PERSONA RESEARCH R21 CHECKS 13889 FAILURES 0 LUA 13843 / 13843"
+      ],
+      "seconds": 5.14,
+      "passed": true
+    },
+    {
+      "test": "persona_save_a8_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "PERSONA SAVE A8 CHECKS 385 FAILURES 0"
+      ],
+      "seconds": 5.3,
+      "passed": true
+    },
+    {
+      "test": "persona_town_r21_round8_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "PERSONA TOWN ROUND8 CHECKS 1037 FAILURES 0"
+      ],
+      "seconds": 40.73,
+      "passed": true
+    },
+    {
+      "test": "recruit_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "RECRUIT R21 CHECKS 14991 FAILURES 0 LUA 2496"
+      ],
+      "seconds": 1.72,
+      "passed": true
+    },
+    {
+      "test": "route_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "ROUTE TESTS: 41 checks, 0 failures"
+      ],
+      "seconds": 0.56,
+      "passed": true
+    },
+    {
+      "test": "settings_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "SETTINGS R22 CHECKS 205243 FAILURES 0"
+      ],
+      "seconds": 6.5,
+      "passed": true
+    },
+    {
+      "test": "state_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "COMBAT CHECKS: 54; FAILURES: 0"
+      ],
+      "seconds": 1.52,
+      "passed": true
+    },
+    {
+      "test": "town_combat_r21_round14_test",
+      "exit": 0,
+      "errors": [],
+      "passed": true,
+      "summary": [
+        "TOWN COMBAT ROUND14 CHECKS 576 FAILURES 0"
+      ],
+      "harness": "node server/abyss-save/test/godot-r14.mjs town_combat_r21_round14_test",
+      "log": "verification/town-r21/round14/town_combat_r21_round14_test.log"
+    },
+    {
+      "test": "town_commerce_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN COMMERCE R21 CHECKS 14714 FAILURES 0 LUA 8520 / 8520"
+      ],
+      "seconds": 2.7,
+      "passed": true
+    },
+    {
+      "test": "town_r21_round10_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN ROUND10 CHECKS 218 FAILURES 0 LEGACY 11"
+      ],
+      "seconds": 7.16,
+      "passed": true
+    },
+    {
+      "test": "town_r21_round11_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN ROUND11 CHECKS 148 FAILURES 0 LEGACY 11 SAMPLES 23"
+      ],
+      "seconds": 9.02,
+      "passed": true
+    },
+    {
+      "test": "town_r21_round9_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN ROUND9 CHECKS 1573 FAILURES 0 DIALOGUE 153 LEGACY 11"
+      ],
+      "seconds": 46.98,
+      "passed": true
+    },
+    {
+      "test": "town_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN R21 CHECKS 2675 FAILURES 0 LUA SAMPLES 2544"
+      ],
+      "seconds": 2.95,
+      "passed": true
+    },
+    {
+      "test": "ui_battle_r17_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "R17 BATTLE UI 6085 CHECKS / 0 FAILURES"
+      ],
+      "seconds": 64.62,
+      "passed": true
+    },
+    {
+      "test": "ui_battle_r18_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "R18: 4592 checks / 0 failures; 30 distinct effect hashes"
+      ],
+      "seconds": 52.58,
+      "passed": true
+    },
+    {
+      "test": "ui_battle_r19_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "R19: 859 checks / 0 failures"
+      ],
+      "seconds": 11.66,
+      "passed": true
+    },
+    {
+      "test": "ui_battle_r20_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "R20: 1659 checks / 0 failures"
+      ],
+      "seconds": 18.48,
+      "passed": true
+    },
+    {
+      "test": "ui_chronicle_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "CHRONICLE UI R22 CHECKS 3628 FAILURES 0 CAPTURES 75"
+      ],
+      "seconds": 10.14,
+      "passed": true
+    },
+    {
+      "test": "ui_cloud_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "CLOUD UI R22 CHECKS 700 FAILURES 0 CAPTURES 35"
+      ],
+      "seconds": 4.92,
+      "passed": true
+    },
+    {
+      "test": "ui_combat_a8_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "COMBAT A8 UI CHECKS 38929 FAILURES 0 OVERFLOW 0 CAPTURES 261"
+      ],
+      "seconds": 57.94,
+      "passed": true
+    },
+    {
+      "test": "ui_data_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "UI_DATA_R21 checks=9608 failures=0 nameplates=3200 overflow=0"
+      ],
+      "seconds": 29.81,
+      "passed": true
+    },
+    {
+      "test": "ui_dialogue_journey_roster_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "DIALOGUE JOURNEY UI CHECKS 92404 FAILURES 0 OVERFLOW 0"
+      ],
+      "seconds": 70.45,
+      "passed": true
+    },
+    {
+      "test": "ui_dialogue_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "DIALOGUE UI R21 CHECKS 9078 FAILURES 0"
+      ],
+      "seconds": 32.58,
+      "passed": true
+    },
+    {
+      "test": "ui_dialogue_roster_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "DIALOGUE ROSTER UI CHECKS 519964 FAILURES 0 OVERFLOW 0"
+      ],
+      "seconds": 146.27,
+      "passed": true
+    },
+    {
+      "test": "ui_expedition_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "EXPEDITION UI R22 CHECKS 1920 FAILURES 0 CAPTURES 70"
+      ],
+      "seconds": 23.2,
+      "passed": true
+    },
+    {
+      "test": "ui_facilities_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "FACILITIES UI R22 CHECKS 1940 FAILURES 0 CAPTURES 65"
+      ],
+      "seconds": 18.08,
+      "passed": true
+    },
+    {
+      "test": "ui_panels_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "PANELS UI R22 CHECKS 12959 FAILURES 0 CAPTURES 75"
+      ],
+      "seconds": 24.44,
+      "passed": true
+    },
+    {
+      "test": "ui_persona_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "PERSONA UI R22 CHECKS 1463 FAILURES 0 CAPTURES 60"
+      ],
+      "seconds": 11.75,
+      "passed": true
+    },
+    {
+      "test": "ui_persona_town_round8_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "PERSONA TOWN UI ROUND8 CHECKS 5660 FAILURES 0 CAPTURES 45"
+      ],
+      "seconds": 16.59,
+      "passed": true
+    },
+    {
+      "test": "ui_settings_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "SETTINGS UI R22 CHECKS 3645 FAILURES 0 CAPTURES 95"
+      ],
+      "seconds": 12.75,
+      "passed": true
+    },
+    {
+      "test": "ui_town_r21_round10_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN UI ROUND10 CHECKS 4165 FAILURES 0 CAPTURES 150"
+      ],
+      "seconds": 23.03,
+      "passed": true
+    },
+    {
+      "test": "ui_town_r21_round11_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN UI ROUND11 CHECKS 5380 FAILURES 0 CAPTURES 170"
+      ],
+      "seconds": 25.7,
+      "passed": true
+    },
+    {
+      "test": "ui_town_r21_round2_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN ROUND2 UI CHECKS 4458 FAILURES 0"
+      ],
+      "seconds": 13.28,
+      "passed": true
+    },
+    {
+      "test": "ui_town_r21_round3_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN ROUND3 UI CHECKS 8445 FAILURES 0 PORTRAIT SLOTS 300 ENEMY FALLBACKS 0"
+      ],
+      "seconds": 23.52,
+      "passed": true
+    },
+    {
+      "test": "ui_town_r21_round4_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN ROUND4 UI CHECKS 10558 FAILURES 0"
+      ],
+      "seconds": 24.73,
+      "passed": true
+    },
+    {
+      "test": "ui_town_r21_round5_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN ROUND5 UI CHECKS 2270 FAILURES 0"
+      ],
+      "seconds": 8.2,
+      "passed": true
+    },
+    {
+      "test": "ui_town_r21_round9_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN UI ROUND9 CHECKS 7305 FAILURES 0 CAPTURES 55"
+      ],
+      "seconds": 16.38,
+      "passed": true
+    },
+    {
+      "test": "ui_town_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN UI R21 CHECKS 1697 FAILURES 0 OVERFLOW 0"
+      ],
+      "seconds": 9.44,
+      "passed": true
+    },
+    {
+      "test": "ui_town_result_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN RESULT R21 CHECKS 235 FAILURES 0"
+      ],
+      "seconds": 12.11,
+      "passed": true
+    },
+    {
+      "test": "world_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "WORLD TESTS: 44 checks, 0 failures"
+      ],
+      "seconds": 0.77,
+      "passed": true
+    },
+    {
+      "test": "combat_p2_r22_trace",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "P2 full battles 48 / actions 1468 / matched 1468 / differences {  }"
+      ],
+      "seconds": 10.3,
+      "passed": true
+    },
+    {
+      "test": "combat_a6_mixed_audit",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "A6 mixed parity 48 battles / source 2537 / actual 2537 / equal battles 48 / matched actions 2537"
+      ],
+      "seconds": 12.84,
+      "passed": true
+    },
+    {
+      "test": "combat_p3_mixed_audit",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "P3 mixed parity 128 battles / source 4929 / actual 4929 / equal battles 128 / matched actions 4929"
+      ],
+      "seconds": 24.83,
+      "passed": true
+    },
+    {
+      "test": "combat_a7_gear_audit",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "A7 gear parity 176 battles / source 2932 / actual 2932 / equal battles 176 / matched actions 2932"
+      ],
+      "seconds": 25.91,
+      "passed": true
+    },
+    {
+      "test": "combat_a7_gear_balanced",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "A7 gear parity 176 battles / source 6279 / actual 6279 / equal battles 176 / matched actions 6279"
+      ],
+      "seconds": 33.55,
+      "passed": true
+    },
+    {
+      "test": "combat_a8_audit",
+      "exit": 0,
+      "errors": [],
+      "passed": true,
+      "summary": [
+        "A8 exact prefix+suffix: 5120/5120 battles, 186707 records"
+      ],
+      "log": "verification/parity-r23/combat_a8_audit.log",
+      "evidence": "verification/parity-r23/a8-composed.json",
+      "continuation": "Original strict audit zero-gap prefix + identical comparison code on remaining row slice. Timed-out full-run log retained."
+    },
+    {
+      "test": "combat_a9_native_10_audit",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "A9 native 10 parity 312 battles / source 4806 / actual 4806 / equal battles 312 / matched actions 4806"
+      ],
+      "seconds": 42.84,
+      "passed": true
+    },
+    {
+      "test": "combat_a9_native_40_audit",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "A9 native 40 parity 312 battles / source 10127 / actual 10127 / equal battles 312 / matched actions 10127"
+      ],
+      "seconds": 57.59,
+      "passed": true
+    },
+    {
+      "test": "balance_probe",
+      "exit": 0,
+      "errors": [],
+      "summary": [],
+      "seconds": 10.67,
+      "passed": true
+    },
+    {
+      "test": "expe_supply_r23_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "EXPE SUPPLY R23 CHECKS 7384 FAILURES 0"
+      ],
+      "seconds": 1.84,
+      "passed": true
+    },
+    {
+      "test": "expe_level_r23_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "EXPE LEVEL R23 CHECKS 6571 FAILURES 0"
+      ],
+      "seconds": 1.97,
+      "passed": true
+    }
+  ],
+  "trace_reports": [
+    {
+      "file": "verification/data-r21/p2-full-battles.json",
+      "fresh_test": "combat_p2_r22_trace",
+      "fresh_passed": true,
+      "battles": 48,
+      "equal": 48,
+      "records": 1468
+    },
+    {
+      "file": "verification/data-r21/a6-mixed-audit.json",
+      "fresh_test": "combat_a6_mixed_audit",
+      "fresh_passed": true,
+      "battles": 48,
+      "equal": 48,
+      "records": 2537
+    },
+    {
+      "file": "verification/data-r21/p3-mixed-audit.json",
+      "fresh_test": "combat_p3_mixed_audit",
+      "fresh_passed": true,
+      "battles": 128,
+      "equal": 128,
+      "records": 4929
+    },
+    {
+      "file": "verification/data-r21/a7-gear-audit.json",
+      "fresh_test": "combat_a7_gear_audit",
+      "fresh_passed": true,
+      "battles": 176,
+      "equal": 176,
+      "records": 2932
+    },
+    {
+      "file": "verification/data-r21/a7-gear-balanced-audit.json",
+      "fresh_test": "combat_a7_gear_balanced",
+      "fresh_passed": true,
+      "battles": 176,
+      "equal": 176,
+      "records": 6279
+    },
+    {
+      "file": "verification/parity-r23/a8-composed.json",
+      "fresh_test": "combat_a8_audit",
+      "fresh_passed": true,
+      "battles": 5120,
+      "equal": 5120,
+      "records": 186707
+    },
+    {
+      "file": "verification/data-r21/a9-native-10-audit.json",
+      "fresh_test": "combat_a9_native_10_audit",
+      "fresh_passed": true,
+      "battles": 312,
+      "equal": 312,
+      "records": 4806
+    },
+    {
+      "file": "verification/data-r21/a9-native-40-audit.json",
+      "fresh_test": "combat_a9_native_40_audit",
+      "fresh_passed": true,
+      "battles": 312,
+      "equal": 312,
+      "records": 10127
+    }
+  ],
+  "limits": [
+    "Some pure native functions use a normalized ID/slot ABI; claims are limited to the stated valid state projection.",
+    "First-battle initialization oracle suppresses B.run only to observe setup before automatic enemy actions.",
+    "No source bot, protected combat files, gear/facility rules, server, docs or Web export writes. Only the explicitly allowed supply adapter changed. No commits."
+  ]
+}

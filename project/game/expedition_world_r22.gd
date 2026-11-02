@@ -10,6 +10,44 @@ func supplies(id: String) -> int:
 	return int(s.items.get(id,0))+int(s.run.get("loot_items",{}).get(source_item_id(id),0)) if expedition() and active() else int(s.items.get(id,0))
 func source_item_id(id: String) -> String:return {"shield_s":"sh_s","shield_m":"sh_m","shield_l":"sh_l"}.get(id,id)
 
+func expedition_numeric(value: Variant) -> Variant:
+	if _num(value):return float(value)
+	if value is String and value.strip_edges().is_valid_float():
+		var number=float(value.strip_edges())
+		if is_finite(number):return number
+	return null
+
+func expedition_level(who: String) -> int:
+	var p=s.get("persona");var raw=p.get("lv") if p is Dictionary else null
+	if raw==null or (raw is bool and not raw):raw=s.get("lv")
+	var pl=expedition_numeric(raw);var level=int(clampf(floor(pl if pl!=null else 1),1,40))
+	if who=="persona":return level
+	if who not in s.get("owned",[]):return 1
+	var member=s.get("members",{}).get(who,{})
+	var own=expedition_numeric(member.get("level")) if member is Dictionary else null
+	return int(clampf(floor(own),1,40)) if own!=null else level
+
+func expedition_experience(who: String) -> int:
+	var source=s.get("persona") if who=="persona" else s.get("members",{}).get(who,{})
+	var value=expedition_numeric(source.get("exp" if who=="persona" else "xp")) if source is Dictionary else null
+	return maxi(0,int(floor(value))) if value!=null else 0
+
+func sortie_candidates(filter="") -> Array:
+	return super(sortie_filter(filter))
+
+func sortie_filter(filter: String) -> String:
+	return filter if filter in ["front","back"] else ""
+
+func sortie_summary(enemy_level: int=0) -> Dictionary:
+	var ids=sortie_ids();var total=0;var front=0;var warns=[]
+	for id in ids:
+		total+=int(s.members[id].level)
+		if person(id).row=="전열":front+=1
+	var avg=int(floor(float(total)/ids.size())) if not ids.is_empty() else 0
+	if not ids.is_empty() and front==0:warns.append("앞에서 막을 사람이 없습니다. 전열이 한 명도 없으면 후열이 바로 맞습니다.")
+	if not ids.is_empty() and enemy_level-avg>=5:warns.append("위험합니다. 적이 파티 평균보다 %d레벨 높습니다."%(enemy_level-avg))
+	return {"n":ids.size(),"avg":avg,"elv":enemy_level,"front":front,"warns":warns}
+
 func price(item: Dictionary) -> int:
 	var count=0
 	for id in sortie_ids():
@@ -21,13 +59,27 @@ func depart_dungeon(f: int,seed: int=0,rift_id: String="",stars: int=1) -> bool:
 	if rift_id.is_empty():
 		s.run.merge({"expedition_version":22,"log":[],"fell":false,"ask":false,"next_available":false,"maxima":{}})
 		for id in expedition_ids():
-			var b=stats(id,s.members[id].level);s.run.maxima[id]={"hp":b.hp,"mp":b.mp}
+			# ex_new uses party_stats before race, persona allocation, equipment,
+			# and party synergies; the first battle builds its full stats afresh.
+			var b=initial_expedition_vitals(id,int(s.members[id].level))
+			s.run.maxima[id]=b;s.members[id].hp=b.hp;s.members[id].mp=b.mp
 	return true
 
+func initial_expedition_vitals(id: String,level: int) -> Dictionary:
+	var c=class_def(id);var mod={} if id=="persona" else person(id).mod
+	var out={};var x=clampi(level,1,40)-1
+	for key in ["hp","mp"]:
+		var curve=config.curves[key]
+		out[key]=int(floor(c.base[key]*(1+mod.get(key,0)/100.0)*(1+c.grow.get(key,1)*(curve.a*x+curve.b*x*x))+.5))
+	return out
+
 func log_expedition(line: String) -> void:
-	s.run.last=line;s.run.log.append(line)
-	while s.run.log.size()>8:s.run.log.pop_front()
+	s.run.last=line;append_expedition_log(line)
 	note(line)
+
+func append_expedition_log(line: String) -> void:
+	s.run.log.append(line)
+	while s.run.log.size()>8:s.run.log.pop_front()
 
 func advance() -> bool:
 	if not expedition():return super()
@@ -44,7 +96,7 @@ func advance() -> bool:
 	elif out.kind=="item":
 		r.loot_items[out.item]=r.loot_items.get(out.item,0)+out.count
 		log_expedition("탐색 %d: %s ×%d 발견"%[r.step,item_def(web_item_id(out.item)).name,out.count])
-	else:r.loot_gear.append(out.code);log_expedition("탐색 %d: 장비 발견 · %s"%[r.step,gear.by_id[out.code.split(".")[0]].name])
+	else:append_expedition_gear(out.code);log_expedition("탐색 %d: 장비 발견 · %s"%[r.step,gear.by_id[out.code.split(".")[0]].name])
 	if r.step>=5:enter_dungeon_rest()
 	return true
 
@@ -62,14 +114,22 @@ func enter_dungeon_rest():
 	log_expedition("휴식: "+" / ".join(gains))
 
 func final_battle() -> bool:
-	if expedition() and s.run.ask:return false
-	return super()
+	if not expedition():return super()
+	if not active() or s.run.phase!="rest":return false
+	# 77-explore.do_boss cancels the retreat prompt when starting the boss.
+	s.run.ask=false;s.run.phase="battle";s.run.final=true;s.run.kind="boss";s.run.battle={}
+	return true
 
 func battle_data() -> Dictionary:
 	var d=super()
 	if not expedition():return d
 	# Rest swaps change maxima at the next encounter; source carry clamps there.
-	for a in d.allies:a.hp=mini(a.hp,a.mhp);a.mp=mini(a.mp,a.mmp)
+	for a in d.allies:
+		if s.run.wins==0:
+			# R.real is false until snapshot_party after the first exploration
+			# victory. The initial display values are never used as carry.
+			a.hp=a.mhp;a.mp=a.mmp;a.erase("gear_vitals")
+		else:a.hp=mini(a.hp,a.mhp);a.mp=mini(a.mp,a.mmp)
 	for it in config.items:d.inventory[it.id]=supplies(it.id)
 	return d
 
@@ -101,10 +161,7 @@ func finish_battle() -> bool:
 	if not active() or r.phase!="battle" or r.battle.is_empty():return false
 	var b=ModernBattle.new(battle_data())
 	if not b.restore(r.battle) or b.result.is_empty():return false
-	for id in expedition_ids():
-		var a=b.ally(id);var m=s.members[id]
-		r.maxima[id]={"hp":a.mhp,"mp":a.mmp};m.hp=int(a.hp) if a.hp>0 else maxi(1,int(floor(a.mhp*dungeon_rules.config.explore.DOWN_HP)));m.mp=maxi(0,int(a.mp))
-		if a.hp<=0:r.fell=true
+	snapshot_expedition_party(b)
 	if b.result=="defeat":return settle("defeat")
 	var plan=b.data.encounter_r21;var mods=expedition_mods()
 	var gold=dungeon_rules.gold(int(r.floor),plan.enc.kind if r.final else "battle")
@@ -114,20 +171,51 @@ func finish_battle() -> bool:
 	r.gold+=gold;r.xp+=xp
 	var kind=plan.enc.kind if r.final else r.kind
 	if kind in ["elite","chief","boss"]:
-		# Source ex_gear_roll passes its fractional mix through mix once more.
 		var salt=22 if r.final else 21
 		var sample=RulesR21.mix(int(r.seed),int(r.floor),99 if r.final else int(r.step),salt)
-		# Lua mix floors its input, so fractional ex_gear_roll seeds intentionally become 0.
-		var drop_seed=int(floor(sample))
-		if RulesR21.mix(drop_seed,31,0,0)<dungeon_rules.config.gear_drop.chance.get(kind,0):
-			var drop=dungeon_rules.gear_drop(int(floor(RulesR21.mix(drop_seed,32,0,0)*2147483646))+1,int(r.floor),kind,party_classes())
-			if not drop.is_empty():r.loot_gear.append(drop.code)
+		roll_expedition_gear(kind,sample)
 	if r.final:return settle("clear")
 	r.wins+=1;r.phase="explore";r.battle={};r.resolved=true
 	log_expedition("탐색 %d: 전투 승리 · 금화 %d · 경험치 %d"%[r.step,gold,xp])
 	emit_bark("victory")
 	if r.step>=5:enter_dungeon_rest()
 	return true
+
+func snapshot_expedition_party(b) -> void:
+	for id in expedition_ids():
+		var a=b.ally(id);var m=s.members[id]
+		s.run.maxima[id]={"hp":int(floor(a.mhp)),"mp":int(floor(a.mmp))}
+		m.hp=maxi(1,int(floor(a.hp))) if a.hp>0 else (maxi(1,int(floor(a.mhp*dungeon_rules.config.explore.DOWN_HP))) if dungeon_rules.config.explore.DOWN_HP>0 else 0)
+		m.mp=maxi(0,int(floor(a.mp)))
+		if a.hp<=0:s.run.fell=true
+
+func roll_expedition_gear(kind: String,seed: float) -> String:
+	# ex_gear_roll passes its input through mix, which floors fractional seeds.
+	var sample=int(floor(seed))
+	if RulesR21.mix(sample,31,0,0)>=dungeon_rules.config.gear_drop.chance.get(kind,0):return ""
+	var classes=[]
+	for m in s.run.persona_pm:
+		if m.get("id","")!="":classes.append(m.cls)
+	var drop=dungeon_rules.gear_drop(int(floor(RulesR21.mix(sample,32,0,0)*2147483646))+1,int(s.run.floor),kind,classes)
+	if drop.is_empty():return ""
+	append_expedition_gear(drop.code)
+	return drop.code
+
+func append_expedition_gear(code: String) -> void:
+	if not s.run.has("loot_gear"):s.run.loot_gear=[]
+	s.run.loot_gear.append(code)
+
+func outside_item_multiplier() -> float:
+	return float(expedition_mods().item)
+
+func bank_expedition_items(items: Dictionary) -> Array:
+	var ids=[]
+	for id in items:
+		if items[id]>0:ids.append(id)
+	ids.sort()
+	for id in ids:
+		var key=web_item_id(id);s.items[key]=s.items.get(key,0)+items[id]
+	return ids
 
 func bank_expedition_gear(codes: Array) -> Dictionary:
 	var out=[];var lost=0
@@ -159,21 +247,22 @@ func settle(result: String) -> bool:
 	if result=="defeat":penalty=int(floor(mini(s.gold,100*clampi(int(encounter_plan().star),1,4))/2.0*mods.loss))
 	var items={};var lost_items={}
 	for id in r.loot_items:
-		var n=int(floor(r.loot_items[id]*keep));var key=web_item_id(id)
-		if n>0:s.items[key]=s.items.get(key,0)+n;items[id]=n
+		var n=int(floor(r.loot_items[id]*keep))
+		if n>0:items[id]=n
 		if n<r.loot_items[id]:lost_items[id]=r.loot_items[id]-n
+	bank_expedition_items(items)
 	var kept=r.loot_gear.slice(0,int(floor(r.loot_gear.size()*keep)))
 	var bank=bank_expedition_gear(kept)
 	s.gold+=amount-penalty
 	var before={};var gains=[];var affection={}
-	for id in expedition_ids():before[id]=s.members[id].level
+	for id in expedition_ids():before[id]=expedition_level(id)
 	if xp>0:
 		# P5 source pays on settlement. Never replay XP already paid by a pre-P5 run.
 		award_persona_exp({"exp":xp,"sid":int(r.id)*32+31,"pm":r.persona_pm})
 	var aff=(r.wins*dungeon_rules.config.affection.BATTLE+(dungeon_rules.config.affection.BOSS if result=="clear" else 0))*mods.aff
 	for id in expedition_ids():
 		var m=s.members[id]
-		gains.append({"id":id,"before":before[id],"level":m.level,"xp":m.xp})
+		gains.append({"id":id,"before":before[id],"level":expedition_level(id),"xp":expedition_experience(id)})
 		if id!="persona" and result!="defeat" and aff>0:
 			var old=m.aff;m.aff=TOWN_RULES.aff_next(m.aff,aff);affection[id]=snappedf(m.aff-old,.01)
 	var first=false
@@ -210,10 +299,10 @@ func item_preview(id: String,who: String) -> Dictionary:
 	out.before=m.hp;out.after=m.hp;out.maximum=b.hp
 	if s.run.phase not in ["explore","rest"]:out.reason="전투의 보급품 메뉴에서 사용하세요.";return out
 	if supplies(id)<=0:out.reason="보유한 보급품이 없습니다.";return out
-	if m.level<it.level:out.reason="Lv.%d부터 사용합니다."%it.level;return out
+	if expedition_level(who)<it.level:out.reason="Lv.%d부터 사용합니다."%it.level;return out
 	if it.kind in ["hp","mp"]:
 		var k=it.kind;out.resource=k.to_upper();out.before=m[k];out.maximum=b[k]
-		out.after=mini(b[k],m[k]+int(floor(b[k]*it.fraction*expedition_mods().item+.5)))
+		out.after=mini(b[k],m[k]+int(floor(b[k]*it.fraction*outside_item_multiplier()+.5)))
 		out.usable=m.hp>0 and m[k]<b[k];out.reason="쓰러진 동료에게는 붕대를 사용하세요." if m.hp<=0 else "이미 가득 찼습니다."
 	elif it.kind=="revive":out.after=maxi(1,int(floor(b.hp*it.fraction)));out.usable=m.hp<=0;out.reason="쓰러진 동료에게 사용합니다."
 	elif it.kind=="return":out.usable=true;out.reason="모은 보상을 정산하고 돌아갑니다."
@@ -253,11 +342,18 @@ func floor_page(pg: int) -> bool:
 	if active() or pg<1 or pg>pages:return false
 	s.dungeon_r21.pg=pg;return true
 func select_dungeon_floor(f: int) -> bool:
-	if active() or f<1 or f>dungeon_max():return false
+	if active() or not dungeon_allowed(f):return false
 	selected_floor=f;s.dungeon_r21.sel=f;return true
 
 func restore(value: Variant) -> bool:
 	if not value is Dictionary or not value.get("run",{}) is Dictionary:return false
+	# 77-explore.move_old: merge both old potion aliases before the inherited
+	# inventory validators. Work on a copy so a rejected save remains untouched.
+	value=value.duplicate(true)
+	if value.get("items") is Dictionary:
+		if not migrate_expedition_items(value.items):return false
+	if value.run.get("loot_items") is Dictionary:
+		if not migrate_expedition_items(value.run.loot_items):return false
 	if value.has("equipment_vitals_before_r14"):
 		var archive=value.equipment_vitals_before_r14
 		if not archive is Dictionary or archive.is_empty():return false
@@ -280,6 +376,17 @@ func restore(value: Variant) -> bool:
 				if n<(1 if key=="hp" else 0) or n>1000000 or n!=floor(n):return false
 		if r.next_available and (r.phase!="done" or not value.get("summary") is Dictionary or value.summary.get("result")!="clear"):return false
 	return super(value)
+
+func migrate_expedition_items(items: Dictionary) -> bool:
+	for old in ["potion","mana"]:
+		if not items.has(old):continue
+		var key="hp_s" if old=="potion" else "mp_s"
+		var amount=items[old];var present=items.get(key,0)
+		if amount is String and amount.is_valid_float():amount=float(amount)
+		if present is String and present.is_valid_float():present=float(present)
+		if not _num(amount) or not _num(present) or amount<0 or present<0 or amount!=floor(amount) or present!=floor(present):return false
+		items[key]=int(present)+int(amount);items.erase(old)
+	return true
 
 func migrate_equipment_vitals_r14(maximum: Dictionary,saved_run: Dictionary) -> bool:
 	# The public P5 facade multiplied persona equipment twice. Keep exact excess

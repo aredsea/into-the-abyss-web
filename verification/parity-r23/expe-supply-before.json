@@ -1,0 +1,24 @@
+[
+  {
+    "test": "expe_supply_r23_test",
+    "exit": 1,
+    "errors": [
+      "ERROR: source predicate API supply_need",
+      "ERROR: source predicate API has_supply_dot",
+      "ERROR: source predicate API supply_target_ok",
+      "ERROR: source predicate API any_supply_target",
+      "ERROR: source predicate API supply_level_blocked",
+      "ERROR: stock and eligibility [\"antidote\", 1.0, 1.0, \"zerofox\"]",
+      "ERROR: stock and eligibility [\"antidote\", 14.0, 1.0, \"zerofox\"]",
+      "ERROR: stock and eligibility [\"antidote\", 15.0, 1.0, \"zerofox\"]",
+      "ERROR: stock and eligibility [\"antidote\", 29.0, 1.0, \"zerofox\"]",
+      "ERROR: stock and eligibility [\"antidote\", 30.0, 1.0, \"zerofox\"]",
+      "ERROR: stock and eligibility [\"antidote\", 40.0, 1.0, \"zerofox\"]"
+    ],
+    "summary": [
+      "EXPE SUPPLY R23 CHECKS 1325 FAILURES 11"
+    ],
+    "seconds": 1.52,
+    "passed": false
+  }
+]
