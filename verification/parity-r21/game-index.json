@@ -1,0 +1,4060 @@
+[
+  {
+    "path": "project/game/battle_state.gd",
+    "lines": 366,
+    "sha256": "345d44217c6102ed3a0bb1afd62d79e309929b7613971e89324641459f30a8d8",
+    "functions": [
+      {
+        "name": "_init",
+        "line": 16,
+        "end": 26
+      },
+      {
+        "name": "enemy",
+        "line": 27,
+        "end": 31
+      },
+      {
+        "name": "ally",
+        "line": 32,
+        "end": 36
+      },
+      {
+        "name": "unit",
+        "line": 37,
+        "end": 39
+      },
+      {
+        "name": "living",
+        "line": 40,
+        "end": 42
+      },
+      {
+        "name": "player_turn",
+        "line": 43,
+        "end": 45
+      },
+      {
+        "name": "actions",
+        "line": 46,
+        "end": 48
+      },
+      {
+        "name": "choose_enemy",
+        "line": 49,
+        "end": 53
+      },
+      {
+        "name": "choose_action",
+        "line": 54,
+        "end": 58
+      },
+      {
+        "name": "unavailable",
+        "line": 59,
+        "end": 66
+      },
+      {
+        "name": "_event",
+        "line": 67,
+        "end": 70
+      },
+      {
+        "name": "_roll",
+        "line": 71,
+        "end": 74
+      },
+      {
+        "name": "speed",
+        "line": 75,
+        "end": 81
+      },
+      {
+        "name": "refresh_forecast",
+        "line": 82,
+        "end": 92
+      },
+      {
+        "name": "_tick",
+        "line": 93,
+        "end": 99
+      },
+      {
+        "name": "_effect",
+        "line": 100,
+        "end": 102
+      },
+      {
+        "name": "_finish_turn",
+        "line": 103,
+        "end": 130
+      },
+      {
+        "name": "_break",
+        "line": 131,
+        "end": 140
+      },
+      {
+        "name": "_damage",
+        "line": 141,
+        "end": 158
+      },
+      {
+        "name": "intimidation_target",
+        "line": 159,
+        "end": 165
+      },
+      {
+        "name": "act",
+        "line": 166,
+        "end": 195
+      },
+      {
+        "name": "automatic_turn",
+        "line": 196,
+        "end": 229
+      },
+      {
+        "name": "_heal_target",
+        "line": 230,
+        "end": 235
+      },
+      {
+        "name": "_peek_target",
+        "line": 236,
+        "end": 243
+      },
+      {
+        "name": "_plan_redirect",
+        "line": 244,
+        "end": 252
+      },
+      {
+        "name": "_attack_target",
+        "line": 253,
+        "end": 263
+      },
+      {
+        "name": "_enemy_hit",
+        "line": 264,
+        "end": 276
+      },
+      {
+        "name": "intent",
+        "line": 277,
+        "end": 289
+      },
+      {
+        "name": "effects_text",
+        "line": 290,
+        "end": 297
+      },
+      {
+        "name": "snapshot",
+        "line": 298,
+        "end": 307
+      },
+      {
+        "name": "restore",
+        "line": 308,
+        "end": 348
+      },
+      {
+        "name": "_number",
+        "line": 349,
+        "end": 351
+      },
+      {
+        "name": "_shape_valid",
+        "line": 352,
+        "end": 366
+      }
+    ]
+  },
+  {
+    "path": "project/game/battle_v3.gd",
+    "lines": 699,
+    "sha256": "a886eaa817da98cc5381495c9ac1113f1b615e0450f16643522fb7024ddc9b95",
+    "functions": [
+      {
+        "name": "_init",
+        "line": 11,
+        "end": 25
+      },
+      {
+        "name": "x",
+        "line": 26,
+        "end": 28
+      },
+      {
+        "name": "fx",
+        "line": 29,
+        "end": 31
+      },
+      {
+        "name": "sig",
+        "line": 32,
+        "end": 36
+      },
+      {
+        "name": "proc",
+        "line": 37,
+        "end": 41
+      },
+      {
+        "name": "bonus",
+        "line": 42,
+        "end": 44
+      },
+      {
+        "name": "count_tag",
+        "line": 45,
+        "end": 50
+      },
+      {
+        "name": "_effect",
+        "line": 51,
+        "end": 61
+      },
+      {
+        "name": "living",
+        "line": 62,
+        "end": 65
+      },
+      {
+        "name": "has_alive",
+        "line": 66,
+        "end": 68
+      },
+      {
+        "name": "cost",
+        "line": 69,
+        "end": 74
+      },
+      {
+        "name": "actions",
+        "line": 75,
+        "end": 82
+      },
+      {
+        "name": "unavailable",
+        "line": 83,
+        "end": 92
+      },
+      {
+        "name": "hp_cost",
+        "line": 93,
+        "end": 98
+      },
+      {
+        "name": "choose_ally",
+        "line": 99,
+        "end": 103
+      },
+      {
+        "name": "speed",
+        "line": 104,
+        "end": 116
+      },
+      {
+        "name": "_shield",
+        "line": 117,
+        "end": 124
+      },
+      {
+        "name": "_heal",
+        "line": 125,
+        "end": 143
+      },
+      {
+        "name": "_cleanse",
+        "line": 144,
+        "end": 147
+      },
+      {
+        "name": "_lowest",
+        "line": 148,
+        "end": 153
+      },
+      {
+        "name": "_behind",
+        "line": 154,
+        "end": 160
+      },
+      {
+        "name": "_tick",
+        "line": 161,
+        "end": 198
+      },
+      {
+        "name": "_damage",
+        "line": 199,
+        "end": 346
+      },
+      {
+        "name": "_break",
+        "line": 347,
+        "end": 354
+      },
+      {
+        "name": "act",
+        "line": 355,
+        "end": 406
+      },
+      {
+        "name": "_tactic",
+        "line": 407,
+        "end": 423
+      },
+      {
+        "name": "_use_supply",
+        "line": 424,
+        "end": 446
+      },
+      {
+        "name": "_personal",
+        "line": 447,
+        "end": 496
+      },
+      {
+        "name": "_finish_turn",
+        "line": 497,
+        "end": 508
+      },
+      {
+        "name": "automatic_turn",
+        "line": 509,
+        "end": 517
+      },
+      {
+        "name": "_plan_redirect",
+        "line": 518,
+        "end": 520
+      },
+      {
+        "name": "_peek_target",
+        "line": 521,
+        "end": 527
+      },
+      {
+        "name": "_attack_target",
+        "line": 528,
+        "end": 532
+      },
+      {
+        "name": "_enemy_evade",
+        "line": 533,
+        "end": 541
+      },
+      {
+        "name": "_enemy_hit",
+        "line": 542,
+        "end": 559
+      },
+      {
+        "name": "_incoming_strike",
+        "line": 560,
+        "end": 632
+      },
+      {
+        "name": "effects_text",
+        "line": 633,
+        "end": 641
+      },
+      {
+        "name": "snapshot",
+        "line": 642,
+        "end": 647
+      },
+      {
+        "name": "restore",
+        "line": 648,
+        "end": 655
+      },
+      {
+        "name": "intent",
+        "line": 656,
+        "end": 658
+      },
+      {
+        "name": "_restore_v3",
+        "line": 659,
+        "end": 699
+      }
+    ]
+  },
+  {
+    "path": "project/game/commerce_rules_r21.gd",
+    "lines": 63,
+    "sha256": "d912d273a8230174f497c9dd8d6a77405aaab970c781e7deed5362ed989f6d52",
+    "functions": [
+      {
+        "name": "code",
+        "line": 5,
+        "end": 5
+      },
+      {
+        "name": "stock_source",
+        "line": 6,
+        "end": 16
+      },
+      {
+        "name": "process_source",
+        "line": 17,
+        "end": 40
+      },
+      {
+        "name": "forge_result",
+        "line": 41,
+        "end": 44
+      },
+      {
+        "name": "roll",
+        "line": 45,
+        "end": 63
+      }
+    ]
+  },
+  {
+    "path": "project/game/dungeon_enemy_r21.gd",
+    "lines": 302,
+    "sha256": "32392aced727e4a0861bddf9f86a1d1be155ef0e52d70900685a7a1f9cf6714c",
+    "functions": [
+      {
+        "name": "_init",
+        "line": 9,
+        "end": 10
+      },
+      {
+        "name": "art",
+        "line": 11,
+        "end": 18
+      },
+      {
+        "name": "configure",
+        "line": 19,
+        "end": 30
+      },
+      {
+        "name": "roster",
+        "line": 31,
+        "end": 33
+      },
+      {
+        "name": "hydrate",
+        "line": 34,
+        "end": 57
+      },
+      {
+        "name": "summon",
+        "line": 58,
+        "end": 70
+      },
+      {
+        "name": "phase_check",
+        "line": 71,
+        "end": 81
+      },
+      {
+        "name": "phase_guard",
+        "line": 82,
+        "end": 85
+      },
+      {
+        "name": "protector",
+        "line": 86,
+        "end": 90
+      },
+      {
+        "name": "defense",
+        "line": 91,
+        "end": 99
+      },
+      {
+        "name": "after_hit",
+        "line": 100,
+        "end": 107
+      },
+      {
+        "name": "attack_mult",
+        "line": 108,
+        "end": 117
+      },
+      {
+        "name": "cycle",
+        "line": 118,
+        "end": 123
+      },
+      {
+        "name": "restore_cycles",
+        "line": 124,
+        "end": 128
+      },
+      {
+        "name": "random",
+        "line": 129,
+        "end": 133
+      },
+      {
+        "name": "begin_random",
+        "line": 134,
+        "end": 136
+      },
+      {
+        "name": "initialize_targets",
+        "line": 137,
+        "end": 141
+      },
+      {
+        "name": "pick_target",
+        "line": 142,
+        "end": 149
+      },
+      {
+        "name": "allies_alive",
+        "line": 150,
+        "end": 152
+      },
+      {
+        "name": "lowest",
+        "line": 153,
+        "end": 159
+      },
+      {
+        "name": "effect",
+        "line": 160,
+        "end": 164
+      },
+      {
+        "name": "drop_auras",
+        "line": 165,
+        "end": 172
+      },
+      {
+        "name": "end_effects",
+        "line": 173,
+        "end": 180
+      },
+      {
+        "name": "add_dot",
+        "line": 181,
+        "end": 191
+      },
+      {
+        "name": "dot_per",
+        "line": 192,
+        "end": 196
+      },
+      {
+        "name": "silence_choices",
+        "line": 197,
+        "end": 206
+      },
+      {
+        "name": "intent",
+        "line": 207,
+        "end": 215
+      },
+      {
+        "name": "target",
+        "line": 216,
+        "end": 224
+      },
+      {
+        "name": "turn",
+        "line": 225,
+        "end": 302
+      }
+    ]
+  },
+  {
+    "path": "project/game/dungeon_rules_r21.gd",
+    "lines": 422,
+    "sha256": "1912d3756856bcb7def13e4b346fc0a33c152223366c100b9b2411ac8a281559",
+    "functions": [
+      {
+        "name": "_init",
+        "line": 26,
+        "end": 43
+      },
+      {
+        "name": "floor_info",
+        "line": 44,
+        "end": 49
+      },
+      {
+        "name": "floor_star",
+        "line": 50,
+        "end": 50
+      },
+      {
+        "name": "floor_boss_kind",
+        "line": 51,
+        "end": 51
+      },
+      {
+        "name": "floor_level",
+        "line": 52,
+        "end": 54
+      },
+      {
+        "name": "star_mult",
+        "line": 55,
+        "end": 61
+      },
+      {
+        "name": "floor_mult",
+        "line": 62,
+        "end": 68
+      },
+      {
+        "name": "curve_hp",
+        "line": 69,
+        "end": 78
+      },
+      {
+        "name": "floor_final",
+        "line": 79,
+        "end": 89
+      },
+      {
+        "name": "foe_def",
+        "line": 90,
+        "end": 97
+      },
+      {
+        "name": "fc",
+        "line": 98,
+        "end": 101
+      },
+      {
+        "name": "foe_stats",
+        "line": 102,
+        "end": 135
+      },
+      {
+        "name": "has_summon",
+        "line": 136,
+        "end": 139
+      },
+      {
+        "name": "has_charge",
+        "line": 140,
+        "end": 141
+      },
+      {
+        "name": "threat_limit",
+        "line": 142,
+        "end": 145
+      },
+      {
+        "name": "check_comp",
+        "line": 146,
+        "end": 168
+      },
+      {
+        "name": "fits",
+        "line": 169,
+        "end": 183
+      },
+      {
+        "name": "build_slots",
+        "line": 184,
+        "end": 190
+      },
+      {
+        "name": "dfs",
+        "line": 191,
+        "end": 204
+      },
+      {
+        "name": "compose",
+        "line": 205,
+        "end": 288
+      },
+      {
+        "name": "_composition",
+        "line": 289,
+        "end": 292
+      },
+      {
+        "name": "floor_enc",
+        "line": 293,
+        "end": 297
+      },
+      {
+        "name": "gold",
+        "line": 298,
+        "end": 301
+      },
+      {
+        "name": "exp_reward",
+        "line": 302,
+        "end": 310
+      },
+      {
+        "name": "ushr",
+        "line": 311,
+        "end": 311
+      },
+      {
+        "name": "mix",
+        "line": 312,
+        "end": 319
+      },
+      {
+        "name": "battle_seed",
+        "line": 320,
+        "end": 322
+      },
+      {
+        "name": "ex_roll",
+        "line": 323,
+        "end": 341
+      },
+      {
+        "name": "gear_drop",
+        "line": 342,
+        "end": 377
+      },
+      {
+        "name": "base36",
+        "line": 378,
+        "end": 383
+      },
+      {
+        "name": "level_reward",
+        "line": 384,
+        "end": 390
+      },
+      {
+        "name": "quest_difficulty",
+        "line": 391,
+        "end": 392
+      },
+      {
+        "name": "quest_fight",
+        "line": 393,
+        "end": 394
+      },
+      {
+        "name": "quest_gold",
+        "line": 395,
+        "end": 399
+      },
+      {
+        "name": "quest_gear",
+        "line": 400,
+        "end": 422
+      }
+    ]
+  },
+  {
+    "path": "project/game/dungeon_view_r21.gd",
+    "lines": 32,
+    "sha256": "0b21771c93a982cc986a4918876cabaa52948fd7316b89c24764a7c94da5cf52",
+    "functions": [
+      {
+        "name": "departure",
+        "line": 3,
+        "end": 17
+      },
+      {
+        "name": "explore",
+        "line": 18,
+        "end": 32
+      }
+    ]
+  },
+  {
+    "path": "project/game/dungeon_world_r21.gd",
+    "lines": 254,
+    "sha256": "3dfaf05361fb1765b8fc6d15c478b8500ba85bc48b3181be4fd659927648ad22",
+    "functions": [
+      {
+        "name": "_init",
+        "line": 9,
+        "end": 12
+      },
+      {
+        "name": "ensure_dungeon",
+        "line": 13,
+        "end": 16
+      },
+      {
+        "name": "r21",
+        "line": 17,
+        "end": 18
+      },
+      {
+        "name": "depart_rift_quest",
+        "line": 19,
+        "end": 31
+      },
+      {
+        "name": "dungeon_max",
+        "line": 32,
+        "end": 37
+      },
+      {
+        "name": "depart_dungeon",
+        "line": 38,
+        "end": 53
+      },
+      {
+        "name": "dungeon_title",
+        "line": 54,
+        "end": 58
+      },
+      {
+        "name": "party_classes",
+        "line": 59,
+        "end": 59
+      },
+      {
+        "name": "average_level",
+        "line": 60,
+        "end": 64
+      },
+      {
+        "name": "encounter_plan",
+        "line": 65,
+        "end": 72
+      },
+      {
+        "name": "advance",
+        "line": 73,
+        "end": 90
+      },
+      {
+        "name": "enter_dungeon_rest",
+        "line": 91,
+        "end": 101
+      },
+      {
+        "name": "rest",
+        "line": 102,
+        "end": 105
+      },
+      {
+        "name": "final_battle",
+        "line": 106,
+        "end": 111
+      },
+      {
+        "name": "battle_data",
+        "line": 112,
+        "end": 123
+      },
+      {
+        "name": "make_enemies",
+        "line": 124,
+        "end": 130
+      },
+      {
+        "name": "make_enemy",
+        "line": 131,
+        "end": 149
+      },
+      {
+        "name": "art_for",
+        "line": 150,
+        "end": 158
+      },
+      {
+        "name": "finish_battle",
+        "line": 159,
+        "end": 188
+      },
+      {
+        "name": "settle",
+        "line": 189,
+        "end": 220
+      },
+      {
+        "name": "web_item_id",
+        "line": 221,
+        "end": 223
+      },
+      {
+        "name": "restore",
+        "line": 224,
+        "end": 254
+      }
+    ]
+  },
+  {
+    "path": "project/game/expansion_world.gd",
+    "lines": 384,
+    "sha256": "cd1c10a4643cc8dd28d4147f601eea47c77e231b80d644a35a52ed00a89d8f88",
+    "functions": [
+      {
+        "name": "_init",
+        "line": 7,
+        "end": 10
+      },
+      {
+        "name": "_upgrade",
+        "line": 11,
+        "end": 22
+      },
+      {
+        "name": "next_random",
+        "line": 23,
+        "end": 26
+      },
+      {
+        "name": "class_def",
+        "line": 27,
+        "end": 31
+      },
+      {
+        "name": "stats",
+        "line": 32,
+        "end": 47
+      },
+      {
+        "name": "party_count",
+        "line": 48,
+        "end": 53
+      },
+      {
+        "name": "gear_bonus",
+        "line": 54,
+        "end": 62
+      },
+      {
+        "name": "gear_special",
+        "line": 63,
+        "end": 72
+      },
+      {
+        "name": "recruit",
+        "line": 73,
+        "end": 83
+      },
+      {
+        "name": "assign",
+        "line": 84,
+        "end": 90
+      },
+      {
+        "name": "price",
+        "line": 91,
+        "end": 96
+      },
+      {
+        "name": "buy",
+        "line": 97,
+        "end": 101
+      },
+      {
+        "name": "use_item",
+        "line": 102,
+        "end": 122
+      },
+      {
+        "name": "inn",
+        "line": 123,
+        "end": 132
+      },
+      {
+        "name": "gear_entry",
+        "line": 133,
+        "end": 137
+      },
+      {
+        "name": "add_gear",
+        "line": 138,
+        "end": 141
+      },
+      {
+        "name": "buy_gear",
+        "line": 142,
+        "end": 147
+      },
+      {
+        "name": "wearer",
+        "line": 148,
+        "end": 152
+      },
+      {
+        "name": "equip",
+        "line": 153,
+        "end": 161
+      },
+      {
+        "name": "unequip",
+        "line": 162,
+        "end": 165
+      },
+      {
+        "name": "_clamp_members",
+        "line": 166,
+        "end": 169
+      },
+      {
+        "name": "sell_gear",
+        "line": 170,
+        "end": 174
+      },
+      {
+        "name": "forge",
+        "line": 175,
+        "end": 184
+      },
+      {
+        "name": "highest_level",
+        "line": 185,
+        "end": 189
+      },
+      {
+        "name": "process_gear",
+        "line": 190,
+        "end": 201
+      },
+      {
+        "name": "refill_board",
+        "line": 202,
+        "end": 207
+      },
+      {
+        "name": "reward_mult",
+        "line": 208,
+        "end": 217
+      },
+      {
+        "name": "research_parts",
+        "line": 218,
+        "end": 222
+      },
+      {
+        "name": "compatible",
+        "line": 223,
+        "end": 226
+      },
+      {
+        "name": "compose",
+        "line": 227,
+        "end": 230
+      },
+      {
+        "name": "train",
+        "line": 231,
+        "end": 238
+      },
+      {
+        "name": "tactic",
+        "line": 239,
+        "end": 245
+      },
+      {
+        "name": "refresh_board",
+        "line": 246,
+        "end": 250
+      },
+      {
+        "name": "accept_quest",
+        "line": 251,
+        "end": 256
+      },
+      {
+        "name": "abandon_quest",
+        "line": 257,
+        "end": 260
+      },
+      {
+        "name": "depart",
+        "line": 261,
+        "end": 270
+      },
+      {
+        "name": "battle_data",
+        "line": 271,
+        "end": 302
+      },
+      {
+        "name": "record_battle",
+        "line": 303,
+        "end": 306
+      },
+      {
+        "name": "finish_battle",
+        "line": 307,
+        "end": 321
+      },
+      {
+        "name": "settle",
+        "line": 322,
+        "end": 336
+      },
+      {
+        "name": "restore",
+        "line": 337,
+        "end": 384
+      }
+    ]
+  },
+  {
+    "path": "project/game/gear_rules.gd",
+    "lines": 56,
+    "sha256": "93e515d95552549a5e3350b165e633b4bfa678b130ea90694018f5f71ccac45c",
+    "functions": [
+      {
+        "name": "_init",
+        "line": 9,
+        "end": 11
+      },
+      {
+        "name": "roll",
+        "line": 12,
+        "end": 33
+      },
+      {
+        "name": "sell_price",
+        "line": 34,
+        "end": 37
+      },
+      {
+        "name": "stock",
+        "line": 38,
+        "end": 45
+      },
+      {
+        "name": "price",
+        "line": 46,
+        "end": 49
+      },
+      {
+        "name": "forge_cost",
+        "line": 50,
+        "end": 52
+      },
+      {
+        "name": "band",
+        "line": 53,
+        "end": 56
+      }
+    ]
+  },
+  {
+    "path": "project/game/guild_rules_r21.gd",
+    "lines": 60,
+    "sha256": "ec3a0c18af76bfdda1b048672ce70b159308bbd139f318c9b4365383c5191edc",
+    "functions": [
+      {
+        "name": "unsigned_shift",
+        "line": 10,
+        "end": 10
+      },
+      {
+        "name": "random",
+        "line": 11,
+        "end": 17
+      },
+      {
+        "name": "quest",
+        "line": 18,
+        "end": 37
+      },
+      {
+        "name": "reward_gold",
+        "line": 38,
+        "end": 39
+      },
+      {
+        "name": "gear_count",
+        "line": 40,
+        "end": 42
+      },
+      {
+        "name": "elite_gear",
+        "line": 43,
+        "end": 60
+      }
+    ]
+  },
+  {
+    "path": "project/game/route_v1.gd",
+    "lines": 32,
+    "sha256": "77a406fb1d344c8060cea1649ebceb007a59452fb04ec5e8d583886976549fe6",
+    "functions": [
+      {
+        "name": "valid",
+        "line": 16,
+        "end": 32
+      }
+    ]
+  },
+  {
+    "path": "project/game/save_store.gd",
+    "lines": 21,
+    "sha256": "06e17a50b02b3d439090c16f4698376221b5ca69783567e5a36067083493766d",
+    "functions": [
+      {
+        "name": "read_snapshot",
+        "line": 5,
+        "end": 14
+      },
+      {
+        "name": "write_snapshot",
+        "line": 15,
+        "end": 21
+      }
+    ]
+  },
+  {
+    "path": "project/game/town_rules_r21.gd",
+    "lines": 19,
+    "sha256": "9bc4169ea6004fbc0781de9ffa8b3f00be9c361dab916ac567e609d417df36ec",
+    "functions": [
+      {
+        "name": "shop_price",
+        "line": 4,
+        "end": 6
+      },
+      {
+        "name": "aff_next",
+        "line": 7,
+        "end": 12
+      },
+      {
+        "name": "recruit_cost",
+        "line": 13,
+        "end": 13
+      },
+      {
+        "name": "refresh_cost",
+        "line": 14,
+        "end": 15
+      },
+      {
+        "name": "need",
+        "line": 16,
+        "end": 19
+      }
+    ]
+  },
+  {
+    "path": "project/game/town_world_r21.gd",
+    "lines": 199,
+    "sha256": "11888a77a323d47bcb94c40b1e4c6d6ab57c92fa1ecee74869348f5b6fd362eb",
+    "functions": [
+      {
+        "name": "_init",
+        "line": 7,
+        "end": 11
+      },
+      {
+        "name": "ensure_town_r21",
+        "line": 12,
+        "end": 19
+      },
+      {
+        "name": "fill_source_board",
+        "line": 20,
+        "end": 24
+      },
+      {
+        "name": "refill_board",
+        "line": 25,
+        "end": 30
+      },
+      {
+        "name": "abandon_quest",
+        "line": 31,
+        "end": 35
+      },
+      {
+        "name": "quest_contract",
+        "line": 36,
+        "end": 46
+      },
+      {
+        "name": "depart_accepted_quest",
+        "line": 47,
+        "end": 50
+      },
+      {
+        "name": "settle",
+        "line": 51,
+        "end": 71
+      },
+      {
+        "name": "restore",
+        "line": 72,
+        "end": 91
+      },
+      {
+        "name": "shop_stock",
+        "line": 92,
+        "end": 95
+      },
+      {
+        "name": "stock_sold",
+        "line": 96,
+        "end": 96
+      },
+      {
+        "name": "buy_gear",
+        "line": 97,
+        "end": 108
+      },
+      {
+        "name": "process_gear",
+        "line": 109,
+        "end": 118
+      },
+      {
+        "name": "forge",
+        "line": 119,
+        "end": 128
+      },
+      {
+        "name": "need",
+        "line": 129,
+        "end": 130
+      },
+      {
+        "name": "recruit_fee",
+        "line": 131,
+        "end": 131
+      },
+      {
+        "name": "refresh_fee",
+        "line": 132,
+        "end": 133
+      },
+      {
+        "name": "price",
+        "line": 134,
+        "end": 139
+      },
+      {
+        "name": "buy",
+        "line": 140,
+        "end": 144
+      },
+      {
+        "name": "inn",
+        "line": 145,
+        "end": 155
+      },
+      {
+        "name": "dungeon_catalog",
+        "line": 156,
+        "end": 162
+      },
+      {
+        "name": "item_preview",
+        "line": 163,
+        "end": 188
+      },
+      {
+        "name": "gear_comparison",
+        "line": 189,
+        "end": 199
+      }
+    ]
+  },
+  {
+    "path": "project/game/world_state.gd",
+    "lines": 321,
+    "sha256": "66a469734d53c1518cdc14d973e01f5703ca81e9856ae11ef59f202e70eb5436",
+    "functions": [
+      {
+        "name": "_init",
+        "line": 10,
+        "end": 17
+      },
+      {
+        "name": "person",
+        "line": 18,
+        "end": 22
+      },
+      {
+        "name": "stats",
+        "line": 23,
+        "end": 36
+      },
+      {
+        "name": "need",
+        "line": 37,
+        "end": 40
+      },
+      {
+        "name": "note",
+        "line": 41,
+        "end": 44
+      },
+      {
+        "name": "active",
+        "line": 45,
+        "end": 47
+      },
+      {
+        "name": "buy",
+        "line": 48,
+        "end": 55
+      },
+      {
+        "name": "item_def",
+        "line": 56,
+        "end": 60
+      },
+      {
+        "name": "use_item",
+        "line": 61,
+        "end": 76
+      },
+      {
+        "name": "inn",
+        "line": 77,
+        "end": 89
+      },
+      {
+        "name": "swap",
+        "line": 90,
+        "end": 96
+      },
+      {
+        "name": "depart",
+        "line": 97,
+        "end": 110
+      },
+      {
+        "name": "mapped",
+        "line": 111,
+        "end": 113
+      },
+      {
+        "name": "destinations",
+        "line": 114,
+        "end": 117
+      },
+      {
+        "name": "travel",
+        "line": 118,
+        "end": 132
+      },
+      {
+        "name": "skip_rest",
+        "line": 133,
+        "end": 137
+      },
+      {
+        "name": "advance",
+        "line": 138,
+        "end": 159
+      },
+      {
+        "name": "card_def",
+        "line": 160,
+        "end": 164
+      },
+      {
+        "name": "card_reason",
+        "line": 165,
+        "end": 175
+      },
+      {
+        "name": "use_card",
+        "line": 176,
+        "end": 186
+      },
+      {
+        "name": "leave_cache",
+        "line": 187,
+        "end": 191
+      },
+      {
+        "name": "rest",
+        "line": 192,
+        "end": 206
+      },
+      {
+        "name": "final_battle",
+        "line": 207,
+        "end": 212
+      },
+      {
+        "name": "battle_data",
+        "line": 213,
+        "end": 228
+      },
+      {
+        "name": "record_battle",
+        "line": 229,
+        "end": 231
+      },
+      {
+        "name": "finish_battle",
+        "line": 232,
+        "end": 248
+      },
+      {
+        "name": "settle",
+        "line": 249,
+        "end": 266
+      },
+      {
+        "name": "restore",
+        "line": 267,
+        "end": 309
+      },
+      {
+        "name": "_num",
+        "line": 310,
+        "end": 312
+      },
+      {
+        "name": "_shape",
+        "line": 313,
+        "end": 321
+      }
+    ]
+  },
+  {
+    "path": "project/game/world_store.gd",
+    "lines": 24,
+    "sha256": "72563608b89b633a3c05b808d00a71914085a9bf6d40766663f61a2d1748c093",
+    "functions": [
+      {
+        "name": "_init",
+        "line": 4,
+        "end": 6
+      },
+      {
+        "name": "read_into",
+        "line": 7,
+        "end": 16
+      },
+      {
+        "name": "write",
+        "line": 17,
+        "end": 24
+      }
+    ]
+  },
+  {
+    "path": "project/tests/art_test.gd",
+    "lines": 26,
+    "sha256": "5bcc079b604a9f776d1c5f3c6d21c18b3b9d9aa522f45f2145260d3a68529580",
+    "functions": [
+      {
+        "name": "_initialize",
+        "line": 7,
+        "end": 9
+      },
+      {
+        "name": "run",
+        "line": 10,
+        "end": 26
+      }
+    ]
+  },
+  {
+    "path": "project/tests/balance_probe.gd",
+    "lines": 32,
+    "sha256": "1d3582f26db5787613cee0c3deeced98862972475b6f5f92342550132e103d03",
+    "functions": [
+      {
+        "name": "_init",
+        "line": 4,
+        "end": 32
+      }
+    ]
+  },
+  {
+    "path": "project/tests/build_ink_r20b.gd",
+    "lines": 46,
+    "sha256": "8c02f0c70d721e5325c670d2c019c7dabce458496799096503e2de3b70596eea",
+    "functions": [
+      {
+        "name": "_initialize",
+        "line": 2,
+        "end": 46
+      }
+    ]
+  },
+  {
+    "path": "project/tests/data_r21_test.gd",
+    "lines": 50,
+    "sha256": "5c943fc0e9e626535696afdf92636471f2e9f26277cc301c59c9297fd7929ac7",
+    "functions": [
+      {
+        "name": "check",
+        "line": 5,
+        "end": 9
+      },
+      {
+        "name": "same",
+        "line": 10,
+        "end": 22
+      },
+      {
+        "name": "_init",
+        "line": 23,
+        "end": 23
+      },
+      {
+        "name": "run",
+        "line": 24,
+        "end": 50
+      }
+    ]
+  },
+  {
+    "path": "project/tests/dungeon_r21_test.gd",
+    "lines": 130,
+    "sha256": "1dfd61ac77e70bf5f186d5662adeaf385859465098b7e0fac3fed06506355ec3",
+    "functions": [
+      {
+        "name": "check",
+        "line": 8,
+        "end": 12
+      },
+      {
+        "name": "_init",
+        "line": 13,
+        "end": 13
+      },
+      {
+        "name": "same_state",
+        "line": 14,
+        "end": 29
+      },
+      {
+        "name": "auto",
+        "line": 30,
+        "end": 37
+      },
+      {
+        "name": "run",
+        "line": 38,
+        "end": 130
+      }
+    ]
+  },
+  {
+    "path": "project/tests/enemy_action_fixture_r21.gd",
+    "lines": 6,
+    "sha256": "828d35e67a1108094af38699fcc9b8d60d9f3f7ac918ff37c949944f9e81366a",
+    "functions": [
+      {
+        "name": "_finish_turn",
+        "line": 3,
+        "end": 6
+      }
+    ]
+  },
+  {
+    "path": "project/tests/enemy_action_r21_test.gd",
+    "lines": 169,
+    "sha256": "45aba7d683e3032b025a4a5191852eb0415d50b7fa6e864be7f758a164c74ece",
+    "functions": [
+      {
+        "name": "check",
+        "line": 8,
+        "end": 12
+      },
+      {
+        "name": "_init",
+        "line": 13,
+        "end": 13
+      },
+      {
+        "name": "slot",
+        "line": 14,
+        "end": 15
+      },
+      {
+        "name": "index",
+        "line": 16,
+        "end": 19
+      },
+      {
+        "name": "setup",
+        "line": 20,
+        "end": 55
+      },
+      {
+        "name": "dump",
+        "line": 56,
+        "end": 72
+      },
+      {
+        "name": "differences",
+        "line": 73,
+        "end": 89
+      },
+      {
+        "name": "coverage_valid",
+        "line": 90,
+        "end": 103
+      },
+      {
+        "name": "finish",
+        "line": 104,
+        "end": 107
+      },
+      {
+        "name": "run",
+        "line": 108,
+        "end": 169
+      }
+    ]
+  },
+  {
+    "path": "project/tests/enemy_regression_r21_test.gd",
+    "lines": 122,
+    "sha256": "3f18262f1a8a25abd1c302efa5433de9be2c19e3cc7eb490dc71442f32b8ee3a",
+    "functions": [
+      {
+        "name": "check",
+        "line": 6,
+        "end": 8
+      },
+      {
+        "name": "fixture",
+        "line": 9,
+        "end": 23
+      },
+      {
+        "name": "_init",
+        "line": 24,
+        "end": 24
+      },
+      {
+        "name": "run",
+        "line": 25,
+        "end": 122
+      }
+    ]
+  },
+  {
+    "path": "project/tests/enemy_review_r21_test.gd",
+    "lines": 98,
+    "sha256": "c6f553d07f3806816393914fbe5b959b32e113f6ea927ffa59ec0199283d8b93",
+    "functions": [
+      {
+        "name": "check",
+        "line": 7,
+        "end": 9
+      },
+      {
+        "name": "fixture",
+        "line": 10,
+        "end": 17
+      },
+      {
+        "name": "next_rng",
+        "line": 18,
+        "end": 18
+      },
+      {
+        "name": "_init",
+        "line": 19,
+        "end": 19
+      },
+      {
+        "name": "run",
+        "line": 20,
+        "end": 98
+      }
+    ]
+  },
+  {
+    "path": "project/tests/expansion_test.gd",
+    "lines": 82,
+    "sha256": "ecfd5370c1acd2d28e4196c11a0434602e14dc5f86a63abd50e78e1b6928111f",
+    "functions": [
+      {
+        "name": "check",
+        "line": 6,
+        "end": 9
+      },
+      {
+        "name": "_init",
+        "line": 10,
+        "end": 82
+      }
+    ]
+  },
+  {
+    "path": "project/tests/export_licenses.gd",
+    "lines": 19,
+    "sha256": "061763b85f774d762b247241c1b38eb6e705eb64f85b29764c6d3a4759be143a",
+    "functions": [
+      {
+        "name": "_init",
+        "line": 3,
+        "end": 19
+      }
+    ]
+  },
+  {
+    "path": "project/tests/motion_asset_test.gd",
+    "lines": 44,
+    "sha256": "5b7eaad9c932488585ad96901239416b5456ae4aeac694a69a04b848104d270e",
+    "functions": [
+      {
+        "name": "_initialize",
+        "line": 3,
+        "end": 44
+      }
+    ]
+  },
+  {
+    "path": "project/tests/motion_r18_integration.gd",
+    "lines": 69,
+    "sha256": "073f778b8992c128e5252a2e698108f97090ec01fa3a190326a5ae7c5bb4a517",
+    "functions": [
+      {
+        "name": "check",
+        "line": 6,
+        "end": 8
+      },
+      {
+        "name": "_initialize",
+        "line": 9,
+        "end": 9
+      },
+      {
+        "name": "run",
+        "line": 10,
+        "end": 69
+      }
+    ]
+  },
+  {
+    "path": "project/tests/motion_r9_integration.gd",
+    "lines": 61,
+    "sha256": "323313ef979e2d7cef87f549b271c55bf94e67d1be676647512b418547c57f72",
+    "functions": [
+      {
+        "name": "check",
+        "line": 6,
+        "end": 8
+      },
+      {
+        "name": "_initialize",
+        "line": 9,
+        "end": 9
+      },
+      {
+        "name": "run",
+        "line": 10,
+        "end": 61
+      }
+    ]
+  },
+  {
+    "path": "project/tests/motion_test.gd",
+    "lines": 36,
+    "sha256": "7610657dd3a9c09939ed075d917f6c8dcbf27cd285e6a96c9dba7370bbfcb5a2",
+    "functions": [
+      {
+        "name": "check",
+        "line": 5,
+        "end": 7
+      },
+      {
+        "name": "_initialize",
+        "line": 8,
+        "end": 36
+      }
+    ]
+  },
+  {
+    "path": "project/tests/route_test.gd",
+    "lines": 76,
+    "sha256": "79a3c4d9134d5e014f8ca54cac4d166cf513c1ed8e983cfbc85be564f1242df8",
+    "functions": [
+      {
+        "name": "expect",
+        "line": 6,
+        "end": 8
+      },
+      {
+        "name": "_init",
+        "line": 9,
+        "end": 10
+      },
+      {
+        "name": "roundtrip",
+        "line": 11,
+        "end": 18
+      },
+      {
+        "name": "win",
+        "line": 19,
+        "end": 30
+      },
+      {
+        "name": "run_tests",
+        "line": 31,
+        "end": 76
+      }
+    ]
+  },
+  {
+    "path": "project/tests/state_test.gd",
+    "lines": 100,
+    "sha256": "158569fb5ddd5e7cea4ea17ec0fa2413b47d4a580be5973d18a584ed5ee077bf",
+    "functions": [
+      {
+        "name": "expect",
+        "line": 5,
+        "end": 7
+      },
+      {
+        "name": "_init",
+        "line": 8,
+        "end": 9
+      },
+      {
+        "name": "run_tests",
+        "line": 10,
+        "end": 100
+      }
+    ]
+  },
+  {
+    "path": "project/tests/town_commerce_r21_test.gd",
+    "lines": 62,
+    "sha256": "4090da8d40c700c9722d297b779cbfb359e88a1cb331fbc5162a51d95a99f361",
+    "functions": [
+      {
+        "name": "check",
+        "line": 8,
+        "end": 12
+      },
+      {
+        "name": "_initialize",
+        "line": 13,
+        "end": 13
+      },
+      {
+        "name": "run",
+        "line": 14,
+        "end": 62
+      }
+    ]
+  },
+  {
+    "path": "project/tests/town_r21_test.gd",
+    "lines": 117,
+    "sha256": "64ed459b9f8e5f7232f7d66e3af9595d8408d0dab1e82fb43dfb3e720fcb54ca",
+    "functions": [
+      {
+        "name": "check",
+        "line": 10,
+        "end": 12
+      },
+      {
+        "name": "_init",
+        "line": 13,
+        "end": 113
+      },
+      {
+        "name": "compare",
+        "line": 114,
+        "end": 117
+      }
+    ]
+  },
+  {
+    "path": "project/tests/ui_battle_r17_test.gd",
+    "lines": 222,
+    "sha256": "fc6bfb7ec538c02419516b1c91a544bfd57119981473a7fd347f009641f15116",
+    "functions": [
+      {
+        "name": "_initialize",
+        "line": 15,
+        "end": 15
+      },
+      {
+        "name": "check",
+        "line": 16,
+        "end": 18
+      },
+      {
+        "name": "click",
+        "line": 19,
+        "end": 27
+      },
+      {
+        "name": "fixture",
+        "line": 28,
+        "end": 30
+      },
+      {
+        "name": "clean",
+        "line": 31,
+        "end": 32
+      },
+      {
+        "name": "shot",
+        "line": 33,
+        "end": 37
+      },
+      {
+        "name": "text_check",
+        "line": 38,
+        "end": 50
+      },
+      {
+        "name": "area",
+        "line": 51,
+        "end": 55
+      },
+      {
+        "name": "effective_z",
+        "line": 56,
+        "end": 63
+      },
+      {
+        "name": "ink_check",
+        "line": 64,
+        "end": 101
+      },
+      {
+        "name": "run",
+        "line": 102,
+        "end": 222
+      }
+    ]
+  },
+  {
+    "path": "project/tests/ui_battle_r18_test.gd",
+    "lines": 226,
+    "sha256": "57d96cb1703c197dc48ac9a5bb88e8aab88cfa81b26b8b029be5621b393b0f52",
+    "functions": [
+      {
+        "name": "_initialize",
+        "line": 21,
+        "end": 21
+      },
+      {
+        "name": "check",
+        "line": 22,
+        "end": 24
+      },
+      {
+        "name": "capture",
+        "line": 25,
+        "end": 29
+      },
+      {
+        "name": "clear",
+        "line": 30,
+        "end": 31
+      },
+      {
+        "name": "fixture",
+        "line": 32,
+        "end": 34
+      },
+      {
+        "name": "alpha_bounds",
+        "line": 35,
+        "end": 40
+      },
+      {
+        "name": "measure_body",
+        "line": 41,
+        "end": 54
+      },
+      {
+        "name": "label_checks",
+        "line": 55,
+        "end": 79
+      },
+      {
+        "name": "run",
+        "line": 80,
+        "end": 226
+      }
+    ]
+  },
+  {
+    "path": "project/tests/ui_battle_r19_test.gd",
+    "lines": 113,
+    "sha256": "5ce81792ac455ef12ab1fce061d4678a8d6be8a60b5f707416b94fec0b9f0a9f",
+    "functions": [
+      {
+        "name": "click",
+        "line": 10,
+        "end": 17
+      },
+      {
+        "name": "_initialize",
+        "line": 18,
+        "end": 18
+      },
+      {
+        "name": "check",
+        "line": 19,
+        "end": 21
+      },
+      {
+        "name": "fixture",
+        "line": 22,
+        "end": 40
+      },
+      {
+        "name": "run",
+        "line": 41,
+        "end": 113
+      }
+    ]
+  },
+  {
+    "path": "project/tests/ui_battle_r20_test.gd",
+    "lines": 159,
+    "sha256": "74006423044077ae2a1d8a6271b7754fbc97c2d9b4a88d952aaca6a8ac127c8e",
+    "functions": [
+      {
+        "name": "click",
+        "line": 11,
+        "end": 18
+      },
+      {
+        "name": "_initialize",
+        "line": 19,
+        "end": 19
+      },
+      {
+        "name": "check",
+        "line": 20,
+        "end": 22
+      },
+      {
+        "name": "fixture",
+        "line": 23,
+        "end": 41
+      },
+      {
+        "name": "run",
+        "line": 42,
+        "end": 141
+      },
+      {
+        "name": "capture_layers",
+        "line": 142,
+        "end": 159
+      }
+    ]
+  },
+  {
+    "path": "project/tests/ui_data_r21_test.gd",
+    "lines": 62,
+    "sha256": "6871466ca79228741536dcfaa8bce89fd6fb3da6a0193ef8b388cf3805a95821",
+    "functions": [
+      {
+        "name": "check",
+        "line": 10,
+        "end": 14
+      },
+      {
+        "name": "_initialize",
+        "line": 15,
+        "end": 15
+      },
+      {
+        "name": "run",
+        "line": 16,
+        "end": 62
+      }
+    ]
+  },
+  {
+    "path": "project/tests/ui_town_r21_round2_test.gd",
+    "lines": 102,
+    "sha256": "ed063c97f6c3966d05ea7140641c951edf89efc71ddc7cfbe8692e563489bdfd",
+    "functions": [
+      {
+        "name": "check",
+        "line": 8,
+        "end": 10
+      },
+      {
+        "name": "_initialize",
+        "line": 11,
+        "end": 11
+      },
+      {
+        "name": "click",
+        "line": 12,
+        "end": 18
+      },
+      {
+        "name": "capture",
+        "line": 19,
+        "end": 43
+      },
+      {
+        "name": "run",
+        "line": 44,
+        "end": 102
+      }
+    ]
+  },
+  {
+    "path": "project/tests/ui_town_r21_round3_test.gd",
+    "lines": 85,
+    "sha256": "3ddd246c1e13fcdb746565ea1ccd0e08509892498546b996ac265578b0bfd6b5",
+    "functions": [
+      {
+        "name": "check",
+        "line": 9,
+        "end": 13
+      },
+      {
+        "name": "_initialize",
+        "line": 14,
+        "end": 14
+      },
+      {
+        "name": "click",
+        "line": 15,
+        "end": 21
+      },
+      {
+        "name": "capture",
+        "line": 22,
+        "end": 46
+      },
+      {
+        "name": "run",
+        "line": 47,
+        "end": 85
+      }
+    ]
+  },
+  {
+    "path": "project/tests/ui_town_r21_round4_test.gd",
+    "lines": 77,
+    "sha256": "e63c67361eda598256f7e830932d8af1228f643050d3f50564915345f007d87c",
+    "functions": [
+      {
+        "name": "check",
+        "line": 9,
+        "end": 11
+      },
+      {
+        "name": "_initialize",
+        "line": 12,
+        "end": 12
+      },
+      {
+        "name": "click",
+        "line": 13,
+        "end": 19
+      },
+      {
+        "name": "capture",
+        "line": 20,
+        "end": 40
+      },
+      {
+        "name": "run",
+        "line": 41,
+        "end": 77
+      }
+    ]
+  },
+  {
+    "path": "project/tests/ui_town_r21_test.gd",
+    "lines": 87,
+    "sha256": "ecafd5befcff1b88f9731f147127ae483625500f5e0c42449e03803fbbf38464",
+    "functions": [
+      {
+        "name": "check",
+        "line": 9,
+        "end": 11
+      },
+      {
+        "name": "_initialize",
+        "line": 12,
+        "end": 12
+      },
+      {
+        "name": "click",
+        "line": 13,
+        "end": 17
+      },
+      {
+        "name": "fixture",
+        "line": 18,
+        "end": 21
+      },
+      {
+        "name": "run",
+        "line": 22,
+        "end": 86
+      },
+      {
+        "name": "rect",
+        "line": 87,
+        "end": 87
+      }
+    ]
+  },
+  {
+    "path": "project/tests/ui_town_result_r21_test.gd",
+    "lines": 45,
+    "sha256": "c0ed6fb51c6a43cab387467c474d1d1a8dd009c6b4e5e8493247a888ea544d27",
+    "functions": [
+      {
+        "name": "check",
+        "line": 7,
+        "end": 9
+      },
+      {
+        "name": "_initialize",
+        "line": 10,
+        "end": 10
+      },
+      {
+        "name": "run",
+        "line": 11,
+        "end": 45
+      }
+    ]
+  },
+  {
+    "path": "project/tests/world_test.gd",
+    "lines": 103,
+    "sha256": "b8809b9f085ff8d3aec82ee979626b0f928c8b66487ca916cb491ae9b32f9182",
+    "functions": [
+      {
+        "name": "expect",
+        "line": 7,
+        "end": 9
+      },
+      {
+        "name": "_init",
+        "line": 10,
+        "end": 11
+      },
+      {
+        "name": "run_tests",
+        "line": 12,
+        "end": 98
+      },
+      {
+        "name": "legacy_depart",
+        "line": 99,
+        "end": 103
+      }
+    ]
+  },
+  {
+    "path": "project/tools/build_menu_portraits.gd",
+    "lines": 19,
+    "sha256": "e1b6c83394cff1015408837585cab2306495f7728187777a7e07312591b40d04",
+    "functions": [
+      {
+        "name": "_initialize",
+        "line": 3,
+        "end": 19
+      }
+    ]
+  },
+  {
+    "path": "project/tools/check_ui_input.gd",
+    "lines": 19,
+    "sha256": "7b0447804e3b9348d41cf5d076af8d43a08fe45ced11f59e7b95bdefd70a3623",
+    "functions": [
+      {
+        "name": "_initialize",
+        "line": 5,
+        "end": 5
+      },
+      {
+        "name": "run",
+        "line": 6,
+        "end": 19
+      }
+    ]
+  },
+  {
+    "path": "project/tools/export_face_portraits.gd",
+    "lines": 87,
+    "sha256": "1d64871e9a9202f487ec4cbb9088923140983774e7d08ec60c4c1c10f6eb6683",
+    "functions": [
+      {
+        "name": "_initialize",
+        "line": 11,
+        "end": 11
+      },
+      {
+        "name": "clean_geometry",
+        "line": 12,
+        "end": 52
+      },
+      {
+        "name": "render",
+        "line": 53,
+        "end": 66
+      },
+      {
+        "name": "bake",
+        "line": 67,
+        "end": 87
+      }
+    ]
+  },
+  {
+    "path": "project/tools/review_faces.gd",
+    "lines": 26,
+    "sha256": "c0fe6efd64732d97350070c78b42103c829267a698ae782e58c49591692dc0e9",
+    "functions": [
+      {
+        "name": "_initialize",
+        "line": 5,
+        "end": 5
+      },
+      {
+        "name": "review",
+        "line": 6,
+        "end": 26
+      }
+    ]
+  },
+  {
+    "path": "project/tools/review_faces_r17.gd",
+    "lines": 17,
+    "sha256": "4ad3cf2b3ae86b0d35d10ff2fcf8ffd8d91dc9113202baecc8d5d3f5d6e6fb8d",
+    "functions": [
+      {
+        "name": "_initialize",
+        "line": 4,
+        "end": 4
+      },
+      {
+        "name": "run",
+        "line": 5,
+        "end": 17
+      }
+    ]
+  },
+  {
+    "path": "project/tools/review_portraits.gd",
+    "lines": 22,
+    "sha256": "ef09ff4cfc5d414eb95ac1210c112e31d4e50dd7ab9e67d7f6ad61272a1e0811",
+    "functions": [
+      {
+        "name": "_initialize",
+        "line": 3,
+        "end": 4
+      },
+      {
+        "name": "render_review",
+        "line": 5,
+        "end": 22
+      }
+    ]
+  },
+  {
+    "path": "project/tools/review_ui.gd",
+    "lines": 34,
+    "sha256": "4910909f7fb69460ab9cbc34744480f03ee06949733f471f048946fac746c667",
+    "functions": [
+      {
+        "name": "_initialize",
+        "line": 5,
+        "end": 5
+      },
+      {
+        "name": "shot",
+        "line": 6,
+        "end": 8
+      },
+      {
+        "name": "review",
+        "line": 9,
+        "end": 34
+      }
+    ]
+  },
+  {
+    "path": "project/tools/review_ui_r17.gd",
+    "lines": 3,
+    "sha256": "5e45fd7eaa02527f5860924726e661444bbaafd52ff13a83969cc884213d97fc",
+    "functions": []
+  },
+  {
+    "path": "project/ui/battle_body_r18.gd",
+    "lines": 27,
+    "sha256": "4cfba25fc9ffc4ca30e40d4f076fec142e2830e5ae3ac341fb32438f10ee964e",
+    "functions": [
+      {
+        "name": "_draw",
+        "line": 6,
+        "end": 27
+      }
+    ]
+  },
+  {
+    "path": "project/ui/battle_face_r17.gd",
+    "lines": 21,
+    "sha256": "88204e725a6071ed23e654af7bf1e90ae5a386d7cd4ec24a27dee139a37c74c4",
+    "functions": [
+      {
+        "name": "configure",
+        "line": 6,
+        "end": 9
+      },
+      {
+        "name": "_ready",
+        "line": 10,
+        "end": 12
+      },
+      {
+        "name": "_draw",
+        "line": 13,
+        "end": 21
+      }
+    ]
+  },
+  {
+    "path": "project/ui/battle_image_r19.gd",
+    "lines": 11,
+    "sha256": "be2d327508c55d23c3032494a7eed4802349f6e952d4a32180db0445d86d7da5",
+    "functions": [
+      {
+        "name": "_ready",
+        "line": 5,
+        "end": 6
+      },
+      {
+        "name": "_draw",
+        "line": 7,
+        "end": 11
+      }
+    ]
+  },
+  {
+    "path": "project/ui/battle_ink_r17.gd",
+    "lines": 118,
+    "sha256": "f96c921a996171560769af582145e3e5f7c230b52af4a4d16307c9120358ec87",
+    "functions": [
+      {
+        "name": "load_paths",
+        "line": 13,
+        "end": 15
+      },
+      {
+        "name": "compile_meshes",
+        "line": 16,
+        "end": 29
+      },
+      {
+        "name": "prepare_initial",
+        "line": 30,
+        "end": 67
+      },
+      {
+        "name": "_ready",
+        "line": 68,
+        "end": 72
+      },
+      {
+        "name": "asset_name",
+        "line": 73,
+        "end": 77
+      },
+      {
+        "name": "asset",
+        "line": 78,
+        "end": 81
+      },
+      {
+        "name": "layers",
+        "line": 82,
+        "end": 86
+      },
+      {
+        "name": "_bake",
+        "line": 87,
+        "end": 100
+      },
+      {
+        "name": "bounds",
+        "line": 101,
+        "end": 105
+      },
+      {
+        "name": "raw_polygons",
+        "line": 106,
+        "end": 114
+      },
+      {
+        "name": "polygons",
+        "line": 115,
+        "end": 118
+      }
+    ]
+  },
+  {
+    "path": "project/ui/battle_screen.gd",
+    "lines": 957,
+    "sha256": "d42e94b809b9427d659a61c3159384ea660222fe63d77a678cedeec577fd0beb",
+    "functions": [
+      {
+        "name": "_sync_battle_viewport",
+        "line": 73,
+        "end": 85
+      },
+      {
+        "name": "_exit_tree",
+        "line": 86,
+        "end": 93
+      },
+      {
+        "name": "_mark",
+        "line": 94,
+        "end": 97
+      },
+      {
+        "name": "_outline",
+        "line": 98,
+        "end": 100
+      },
+      {
+        "name": "_location",
+        "line": 101,
+        "end": 108
+      },
+      {
+        "name": "_journal",
+        "line": 109,
+        "end": 119
+      },
+      {
+        "name": "_ready",
+        "line": 120,
+        "end": 142
+      },
+      {
+        "name": "_texture",
+        "line": 143,
+        "end": 147
+      },
+      {
+        "name": "_put",
+        "line": 148,
+        "end": 155
+      },
+      {
+        "name": "_color",
+        "line": 156,
+        "end": 160
+      },
+      {
+        "name": "_picture",
+        "line": 161,
+        "end": 168
+      },
+      {
+        "name": "_companion_picture",
+        "line": 169,
+        "end": 172
+      },
+      {
+        "name": "_label",
+        "line": 173,
+        "end": 175
+      },
+      {
+        "name": "_strong",
+        "line": 176,
+        "end": 178
+      },
+      {
+        "name": "_style",
+        "line": 179,
+        "end": 185
+      },
+      {
+        "name": "_button",
+        "line": 186,
+        "end": 198
+      },
+      {
+        "name": "_panel",
+        "line": 199,
+        "end": 202
+      },
+      {
+        "name": "_meter",
+        "line": 203,
+        "end": 207
+      },
+      {
+        "name": "_rebuild",
+        "line": 208,
+        "end": 257
+      },
+      {
+        "name": "_queue",
+        "line": 258,
+        "end": 279
+      },
+      {
+        "name": "_battlefield",
+        "line": 280,
+        "end": 332
+      },
+      {
+        "name": "_actor_texture",
+        "line": 333,
+        "end": 337
+      },
+      {
+        "name": "_party",
+        "line": 338,
+        "end": 356
+      },
+      {
+        "name": "_detail",
+        "line": 357,
+        "end": 371
+      },
+      {
+        "name": "_commands",
+        "line": 372,
+        "end": 422
+      },
+      {
+        "name": "_skill_ids",
+        "line": 423,
+        "end": 426
+      },
+      {
+        "name": "_skills",
+        "line": 427,
+        "end": 444
+      },
+      {
+        "name": "_summary",
+        "line": 445,
+        "end": 448
+      },
+      {
+        "name": "_wrap",
+        "line": 449,
+        "end": 457
+      },
+      {
+        "name": "_confirm_sheet",
+        "line": 458,
+        "end": 473
+      },
+      {
+        "name": "_toggle_log",
+        "line": 474,
+        "end": 477
+      },
+      {
+        "name": "_log_sheet",
+        "line": 478,
+        "end": 502
+      },
+      {
+        "name": "_result_sheet",
+        "line": 503,
+        "end": 511
+      },
+      {
+        "name": "_close_button",
+        "line": 512,
+        "end": 516
+      },
+      {
+        "name": "_ally_sheet",
+        "line": 517,
+        "end": 534
+      },
+      {
+        "name": "_enemy_pressed",
+        "line": 535,
+        "end": 540
+      },
+      {
+        "name": "_ally_pressed",
+        "line": 541,
+        "end": 550
+      },
+      {
+        "name": "_action_pressed",
+        "line": 551,
+        "end": 559
+      },
+      {
+        "name": "_close_sheets",
+        "line": 560,
+        "end": 563
+      },
+      {
+        "name": "_capture_visual_before",
+        "line": 564,
+        "end": 569
+      },
+      {
+        "name": "_commit",
+        "line": 570,
+        "end": 586
+      },
+      {
+        "name": "_present_action",
+        "line": 587,
+        "end": 637
+      },
+      {
+        "name": "_motion_impact",
+        "line": 638,
+        "end": 642
+      },
+      {
+        "name": "_motion_visuals",
+        "line": 643,
+        "end": 659
+      },
+      {
+        "name": "_skip_motion",
+        "line": 660,
+        "end": 662
+      },
+      {
+        "name": "_resume_automatic",
+        "line": 663,
+        "end": 684
+      },
+      {
+        "name": "_retry",
+        "line": 685,
+        "end": 693
+      },
+      {
+        "name": "_preview",
+        "line": 694,
+        "end": 716
+      },
+      {
+        "name": "_persist",
+        "line": 717,
+        "end": 719
+      },
+      {
+        "name": "_publish_metrics",
+        "line": 720,
+        "end": 729
+      },
+      {
+        "name": "_unhandled_key_input",
+        "line": 730,
+        "end": 733
+      },
+      {
+        "name": "_effect_feedback",
+        "line": 734,
+        "end": 763
+      },
+      {
+        "name": "_supplies",
+        "line": 764,
+        "end": 801
+      },
+      {
+        "name": "_type",
+        "line": 802,
+        "end": 825
+      },
+      {
+        "name": "_display",
+        "line": 826,
+        "end": 829
+      },
+      {
+        "name": "ink_mode",
+        "line": 830,
+        "end": 832
+      },
+      {
+        "name": "_ink",
+        "line": 833,
+        "end": 836
+      },
+      {
+        "name": "_refresh_ink",
+        "line": 837,
+        "end": 840
+      },
+      {
+        "name": "text_regions",
+        "line": 841,
+        "end": 854
+      },
+      {
+        "name": "field_text_regions",
+        "line": 855,
+        "end": 862
+      },
+      {
+        "name": "_enemy_art",
+        "line": 863,
+        "end": 882
+      },
+      {
+        "name": "_enemy_name",
+        "line": 883,
+        "end": 892
+      },
+      {
+        "name": "_enemy_hp",
+        "line": 893,
+        "end": 905
+      },
+      {
+        "name": "_reason",
+        "line": 906,
+        "end": 911
+      },
+      {
+        "name": "_toggle_skills",
+        "line": 912,
+        "end": 915
+      },
+      {
+        "name": "_toggle_supplies",
+        "line": 916,
+        "end": 920
+      },
+      {
+        "name": "_sheet",
+        "line": 921,
+        "end": 941
+      },
+      {
+        "name": "_select_supply",
+        "line": 942,
+        "end": 946
+      },
+      {
+        "name": "_supply_reason",
+        "line": 947,
+        "end": 957
+      }
+    ]
+  },
+  {
+    "path": "project/ui/character_portrait.gd",
+    "lines": 136,
+    "sha256": "508a52e4dcfea42804b94f81c8e2308ee76789a9fdcb261e3211d69c528519fa",
+    "functions": [
+      {
+        "name": "prepare",
+        "line": 23,
+        "end": 109
+      },
+      {
+        "name": "configure",
+        "line": 110,
+        "end": 115
+      },
+      {
+        "name": "_ready",
+        "line": 116,
+        "end": 121
+      },
+      {
+        "name": "_draw",
+        "line": 122,
+        "end": 136
+      }
+    ]
+  },
+  {
+    "path": "project/ui/character_sprite.gd",
+    "lines": 60,
+    "sha256": "b9b7d568d3fe9b73cf4edc6e99e99ff97da6077a4bf1c4b6265aa219a65d9ab4",
+    "functions": [
+      {
+        "name": "info",
+        "line": 17,
+        "end": 20
+      },
+      {
+        "name": "configure",
+        "line": 21,
+        "end": 28
+      },
+      {
+        "name": "_ready",
+        "line": 29,
+        "end": 35
+      },
+      {
+        "name": "_process",
+        "line": 36,
+        "end": 43
+      },
+      {
+        "name": "_draw",
+        "line": 44,
+        "end": 60
+      }
+    ]
+  },
+  {
+    "path": "project/ui/combat_fx.gd",
+    "lines": 62,
+    "sha256": "102a34a80c94f401d0fc6111410f1ee333f295fa36d04fd8b3402754cf882ab0",
+    "functions": [
+      {
+        "name": "color_for",
+        "line": 9,
+        "end": 10
+      },
+      {
+        "name": "_process",
+        "line": 11,
+        "end": 13
+      },
+      {
+        "name": "_draw",
+        "line": 14,
+        "end": 15
+      },
+      {
+        "name": "paint",
+        "line": 16,
+        "end": 62
+      }
+    ]
+  },
+  {
+    "path": "project/ui/combat_presentation.gd",
+    "lines": 183,
+    "sha256": "b14d773b49d2a9f61cee07a6a74181501ea5c1523ea3dec9ab4f0acc4a529fec",
+    "functions": [
+      {
+        "name": "_ready",
+        "line": 39,
+        "end": 89
+      },
+      {
+        "name": "_process",
+        "line": 90,
+        "end": 109
+      },
+      {
+        "name": "_step",
+        "line": 110,
+        "end": 129
+      },
+      {
+        "name": "_draw",
+        "line": 130,
+        "end": 140
+      },
+      {
+        "name": "hit_flash",
+        "line": 141,
+        "end": 144
+      },
+      {
+        "name": "reaction_offset",
+        "line": 145,
+        "end": 149
+      },
+      {
+        "name": "shake_offset",
+        "line": 150,
+        "end": 155
+      },
+      {
+        "name": "skip",
+        "line": 156,
+        "end": 163
+      },
+      {
+        "name": "_cleanup",
+        "line": 164,
+        "end": 166
+      },
+      {
+        "name": "_exit_tree",
+        "line": 167,
+        "end": 169
+      },
+      {
+        "name": "_play_sound",
+        "line": 170,
+        "end": 180
+      },
+      {
+        "name": "_publish",
+        "line": 181,
+        "end": 183
+      }
+    ]
+  },
+  {
+    "path": "project/ui/combat_timeline.gd",
+    "lines": 51,
+    "sha256": "a1747df9fe53e6c037df15053fe8db452a4cb33868446ba48dc4896784317aaf",
+    "functions": [
+      {
+        "name": "configure",
+        "line": 13,
+        "end": 17
+      },
+      {
+        "name": "advance",
+        "line": 18,
+        "end": 40
+      },
+      {
+        "name": "skip",
+        "line": 41,
+        "end": 51
+      }
+    ]
+  },
+  {
+    "path": "project/ui/facility_button.gd",
+    "lines": 11,
+    "sha256": "088ad533d5f4ddb4aaaa88a1b12532d2e68b807548d17a6385dc4d69e90eef72",
+    "functions": [
+      {
+        "name": "configure",
+        "line": 5,
+        "end": 6
+      },
+      {
+        "name": "_draw",
+        "line": 7,
+        "end": 11
+      }
+    ]
+  },
+  {
+    "path": "project/ui/fantasy_theme.gd",
+    "lines": 34,
+    "sha256": "ea6f3b777ce41ef4ab76870fe4c19111660caee7ba872c165a39328e2b9234c8",
+    "functions": [
+      {
+        "name": "panel",
+        "line": 14,
+        "end": 17
+      },
+      {
+        "name": "make_theme",
+        "line": 18,
+        "end": 34
+      }
+    ]
+  },
+  {
+    "path": "project/ui/forged_button.gd",
+    "lines": 46,
+    "sha256": "1558dcd196f24b802d606ad12e128903419c406c734aa0da429875cb61bbfb74",
+    "functions": [
+      {
+        "name": "_ready",
+        "line": 15,
+        "end": 26
+      },
+      {
+        "name": "_process",
+        "line": 27,
+        "end": 30
+      },
+      {
+        "name": "_draw",
+        "line": 31,
+        "end": 32
+      },
+      {
+        "name": "_draw_surface",
+        "line": 33,
+        "end": 46
+      }
+    ]
+  },
+  {
+    "path": "project/ui/motion_library.gd",
+    "lines": 69,
+    "sha256": "43a4ce3b1ce19bb0ceb169f7bed6846f932454faeb66551538170c6dbbbe1162",
+    "functions": [
+      {
+        "name": "get_clip",
+        "line": 6,
+        "end": 12
+      },
+      {
+        "name": "texture",
+        "line": 13,
+        "end": 16
+      },
+      {
+        "name": "frame_at",
+        "line": 17,
+        "end": 25
+      },
+      {
+        "name": "uses_reference",
+        "line": 26,
+        "end": 30
+      },
+      {
+        "name": "draw_frame",
+        "line": 31,
+        "end": 62
+      },
+      {
+        "name": "normalized_texture",
+        "line": 63,
+        "end": 69
+      }
+    ]
+  },
+  {
+    "path": "project/ui/navigation_button.gd",
+    "lines": 12,
+    "sha256": "1acb7b6906562e39d81d85b2e977933b9d18255083d75c9985ac3ee7c2d2b699",
+    "functions": [
+      {
+        "name": "configure",
+        "line": 4,
+        "end": 7
+      },
+      {
+        "name": "_draw",
+        "line": 8,
+        "end": 12
+      }
+    ]
+  },
+  {
+    "path": "project/ui/pixel_brush_r18.gd",
+    "lines": 37,
+    "sha256": "0a8346d7b14bc4ccb5801ec88963706a3bd831147355ec16ca9aa845cab66458",
+    "functions": [
+      {
+        "name": "_init",
+        "line": 6,
+        "end": 6
+      },
+      {
+        "name": "snap",
+        "line": 7,
+        "end": 7
+      },
+      {
+        "name": "block",
+        "line": 8,
+        "end": 10
+      },
+      {
+        "name": "draw_line",
+        "line": 11,
+        "end": 14
+      },
+      {
+        "name": "draw_polyline",
+        "line": 15,
+        "end": 16
+      },
+      {
+        "name": "draw_arc",
+        "line": 17,
+        "end": 20
+      },
+      {
+        "name": "draw_rect",
+        "line": 21,
+        "end": 25
+      },
+      {
+        "name": "draw_circle",
+        "line": 26,
+        "end": 30
+      },
+      {
+        "name": "draw_colored_polygon",
+        "line": 31,
+        "end": 37
+      }
+    ]
+  },
+  {
+    "path": "project/ui/portrait_card.gd",
+    "lines": 38,
+    "sha256": "da44e36b83fc3e74d2121558cf99d881798897c86860e46d0472d1674b73379d",
+    "functions": [
+      {
+        "name": "configure",
+        "line": 11,
+        "end": 13
+      },
+      {
+        "name": "_ready",
+        "line": 14,
+        "end": 21
+      },
+      {
+        "name": "_layout",
+        "line": 22,
+        "end": 25
+      },
+      {
+        "name": "_draw",
+        "line": 26,
+        "end": 38
+      }
+    ]
+  },
+  {
+    "path": "project/ui/route_map.gd",
+    "lines": 32,
+    "sha256": "42335b6a68064a5bda1e9d3fccfe585c4e171bf8e3d849f37605932ec84c0e43",
+    "functions": [
+      {
+        "name": "_ready",
+        "line": 9,
+        "end": 12
+      },
+      {
+        "name": "point",
+        "line": 13,
+        "end": 16
+      },
+      {
+        "name": "_draw",
+        "line": 17,
+        "end": 32
+      }
+    ]
+  },
+  {
+    "path": "project/ui/signature_fx_r18.gd",
+    "lines": 146,
+    "sha256": "bc34af8445f5f7e653a9e6e0c7744cc9a6fcb17c800d39820cea0ab802750039",
+    "functions": [
+      {
+        "name": "render",
+        "line": 3,
+        "end": 95
+      },
+      {
+        "name": "_cross",
+        "line": 96,
+        "end": 98
+      },
+      {
+        "name": "_shield",
+        "line": 99,
+        "end": 102
+      },
+      {
+        "name": "_seal",
+        "line": 103,
+        "end": 107
+      },
+      {
+        "name": "_crystal",
+        "line": 108,
+        "end": 112
+      },
+      {
+        "name": "_slash",
+        "line": 113,
+        "end": 116
+      },
+      {
+        "name": "_arrow",
+        "line": 117,
+        "end": 119
+      },
+      {
+        "name": "_rays",
+        "line": 120,
+        "end": 123
+      },
+      {
+        "name": "_shards",
+        "line": 124,
+        "end": 127
+      },
+      {
+        "name": "_embers",
+        "line": 128,
+        "end": 132
+      },
+      {
+        "name": "_dome",
+        "line": 133,
+        "end": 135
+      },
+      {
+        "name": "_vial",
+        "line": 136,
+        "end": 138
+      },
+      {
+        "name": "_bubbles",
+        "line": 139,
+        "end": 141
+      },
+      {
+        "name": "_bolt",
+        "line": 142,
+        "end": 144
+      },
+      {
+        "name": "_chevron",
+        "line": 145,
+        "end": 146
+      }
+    ]
+  },
+  {
+    "path": "project/ui/signature_sequence.gd",
+    "lines": 107,
+    "sha256": "12f410fc2bfda5a1cb7be332a61dadca97cc9abb7e20e024f2bffa837a1b572f",
+    "functions": [
+      {
+        "name": "_ready",
+        "line": 32,
+        "end": 46
+      },
+      {
+        "name": "_layout",
+        "line": 47,
+        "end": 65
+      },
+      {
+        "name": "_process",
+        "line": 66,
+        "end": 70
+      },
+      {
+        "name": "refresh",
+        "line": 71,
+        "end": 81
+      },
+      {
+        "name": "_draw",
+        "line": 82,
+        "end": 96
+      },
+      {
+        "name": "band_polygons",
+        "line": 97,
+        "end": 105
+      },
+      {
+        "name": "_publish",
+        "line": 106,
+        "end": 107
+      }
+    ]
+  },
+  {
+    "path": "project/ui/town_art_r21.gd",
+    "lines": 26,
+    "sha256": "fcd67f4f6e3ca334f2562d4550ea1dc8e7231f5efbe04c2a4b88d3124016336d",
+    "functions": [
+      {
+        "name": "build_art",
+        "line": 3,
+        "end": 26
+      }
+    ]
+  },
+  {
+    "path": "project/ui/town_diagonal_r21.gd",
+    "lines": 7,
+    "sha256": "66b9e140ac9e4927f8e00a32bca3f42982b22e42bf6f0d0eb1fa28140ea9d775",
+    "functions": [
+      {
+        "name": "_ready",
+        "line": 3,
+        "end": 5
+      },
+      {
+        "name": "_draw",
+        "line": 6,
+        "end": 7
+      }
+    ]
+  },
+  {
+    "path": "project/ui/town_map_r21.gd",
+    "lines": 41,
+    "sha256": "303235776b1f5b2af2aba6e094f3edd697bd2c0354add590e961fed0e8af4530",
+    "functions": [
+      {
+        "name": "configure",
+        "line": 8,
+        "end": 11
+      },
+      {
+        "name": "_draw",
+        "line": 12,
+        "end": 41
+      }
+    ]
+  },
+  {
+    "path": "project/ui/town_portrait_r21.gd",
+    "lines": 50,
+    "sha256": "8adcb12f76b8c9d5b16bd79bc6fe02eb278586677f482508af90a31f0616da80",
+    "functions": [
+      {
+        "name": "preferred_path",
+        "line": 13,
+        "end": 21
+      },
+      {
+        "name": "configure",
+        "line": 22,
+        "end": 44
+      },
+      {
+        "name": "_draw",
+        "line": 45,
+        "end": 50
+      }
+    ]
+  },
+  {
+    "path": "project/ui/town_result_r21.gd",
+    "lines": 26,
+    "sha256": "4cae5332958aae31618e1910e25b54e9a5d5079a5ebce2a67d2a996dc2598e07",
+    "functions": [
+      {
+        "name": "build_result",
+        "line": 3,
+        "end": 26
+      }
+    ]
+  },
+  {
+    "path": "project/ui/town_screen_r21.gd",
+    "lines": 777,
+    "sha256": "a20224062c347694a0ebfb87e7255c0cac389fd0717d9296c6d1fd826eed2220",
+    "functions": [
+      {
+        "name": "build",
+        "line": 14,
+        "end": 17
+      },
+      {
+        "name": "build_frame",
+        "line": 18,
+        "end": 25
+      },
+      {
+        "name": "build_page",
+        "line": 26,
+        "end": 56
+      },
+      {
+        "name": "mark",
+        "line": 57,
+        "end": 59
+      },
+      {
+        "name": "fill",
+        "line": 60,
+        "end": 63
+      },
+      {
+        "name": "label",
+        "line": 64,
+        "end": 71
+      },
+      {
+        "name": "display",
+        "line": 72,
+        "end": 81
+      },
+      {
+        "name": "background",
+        "line": 82,
+        "end": 86
+      },
+      {
+        "name": "page_background",
+        "line": 87,
+        "end": 108
+      },
+      {
+        "name": "traced_title",
+        "line": 109,
+        "end": 113
+      },
+      {
+        "name": "action",
+        "line": 114,
+        "end": 123
+      },
+      {
+        "name": "hit",
+        "line": 124,
+        "end": 128
+      },
+      {
+        "name": "picture",
+        "line": 129,
+        "end": 132
+      },
+      {
+        "name": "ink",
+        "line": 133,
+        "end": 137
+      },
+      {
+        "name": "header",
+        "line": 138,
+        "end": 142
+      },
+      {
+        "name": "icon",
+        "line": 143,
+        "end": 151
+      },
+      {
+        "name": "plate",
+        "line": 152,
+        "end": 156
+      },
+      {
+        "name": "navigation",
+        "line": 157,
+        "end": 169
+      },
+      {
+        "name": "home",
+        "line": 170,
+        "end": 205
+      },
+      {
+        "name": "roster",
+        "line": 206,
+        "end": 241
+      },
+      {
+        "name": "paragraph",
+        "line": 242,
+        "end": 246
+      },
+      {
+        "name": "rule",
+        "line": 247,
+        "end": 248
+      },
+      {
+        "name": "asset",
+        "line": 249,
+        "end": 252
+      },
+      {
+        "name": "scroll_page",
+        "line": 253,
+        "end": 258
+      },
+      {
+        "name": "small_party",
+        "line": 259,
+        "end": 272
+      },
+      {
+        "name": "departure",
+        "line": 273,
+        "end": 309
+      },
+      {
+        "name": "bag",
+        "line": 310,
+        "end": 326
+      },
+      {
+        "name": "target_item",
+        "line": 327,
+        "end": 350
+      },
+      {
+        "name": "formation",
+        "line": 351,
+        "end": 370
+      },
+      {
+        "name": "exploration",
+        "line": 371,
+        "end": 393
+      },
+      {
+        "name": "cards",
+        "line": 394,
+        "end": 414
+      },
+      {
+        "name": "retreat",
+        "line": 415,
+        "end": 428
+      },
+      {
+        "name": "npc_hero",
+        "line": 429,
+        "end": 439
+      },
+      {
+        "name": "research",
+        "line": 440,
+        "end": 472
+      },
+      {
+        "name": "cache",
+        "line": 473,
+        "end": 491
+      },
+      {
+        "name": "feedback",
+        "line": 492,
+        "end": 494
+      },
+      {
+        "name": "member_choice",
+        "line": 495,
+        "end": 502
+      },
+      {
+        "name": "inn",
+        "line": 503,
+        "end": 527
+      },
+      {
+        "name": "shop",
+        "line": 528,
+        "end": 548
+      },
+      {
+        "name": "shop_gear",
+        "line": 549,
+        "end": 565
+      },
+      {
+        "name": "guild_tabs",
+        "line": 566,
+        "end": 570
+      },
+      {
+        "name": "guild",
+        "line": 571,
+        "end": 590
+      },
+      {
+        "name": "recruit",
+        "line": 591,
+        "end": 602
+      },
+      {
+        "name": "equipment",
+        "line": 603,
+        "end": 642
+      },
+      {
+        "name": "smithy",
+        "line": 643,
+        "end": 669
+      },
+      {
+        "name": "journal",
+        "line": 670,
+        "end": 679
+      },
+      {
+        "name": "summary",
+        "line": 680,
+        "end": 701
+      },
+      {
+        "name": "tabs",
+        "line": 702,
+        "end": 713
+      },
+      {
+        "name": "overview",
+        "line": 714,
+        "end": 742
+      },
+      {
+        "name": "skills",
+        "line": 743,
+        "end": 777
+      }
+    ]
+  },
+  {
+    "path": "project/ui/town_theme_r21.gd",
+    "lines": 38,
+    "sha256": "d26b9b4a3e0d22c9044b60eb57cc03bc5b020206f328d5f9e4c4b7600a158283",
+    "functions": [
+      {
+        "name": "panel",
+        "line": 18,
+        "end": 21
+      },
+      {
+        "name": "make_theme",
+        "line": 22,
+        "end": 38
+      }
+    ]
+  },
+  {
+    "path": "project/ui/world_screen.gd",
+    "lines": 649,
+    "sha256": "1cef2e55bf93a40f845d59d0801eeb0782bba50c5de1a27104a4e7a4105784e9",
+    "functions": [
+      {
+        "name": "_ready",
+        "line": 51,
+        "end": 59
+      },
+      {
+        "name": "_save",
+        "line": 60,
+        "end": 63
+      },
+      {
+        "name": "go",
+        "line": 64,
+        "end": 68
+      },
+      {
+        "name": "_draw_screen",
+        "line": 69,
+        "end": 133
+      },
+      {
+        "name": "_title",
+        "line": 134,
+        "end": 140
+      },
+      {
+        "name": "number",
+        "line": 141,
+        "end": 143
+      },
+      {
+        "name": "text",
+        "line": 144,
+        "end": 151
+      },
+      {
+        "name": "box",
+        "line": 152,
+        "end": 160
+      },
+      {
+        "name": "button",
+        "line": 161,
+        "end": 167
+      },
+      {
+        "name": "image",
+        "line": 168,
+        "end": 174
+      },
+      {
+        "name": "bar",
+        "line": 175,
+        "end": 181
+      },
+      {
+        "name": "companion_image",
+        "line": 182,
+        "end": 186
+      },
+      {
+        "name": "_portrait",
+        "line": 187,
+        "end": 194
+      },
+      {
+        "name": "_town",
+        "line": 195,
+        "end": 214
+      },
+      {
+        "name": "_party",
+        "line": 215,
+        "end": 229
+      },
+      {
+        "name": "_member",
+        "line": 230,
+        "end": 255
+      },
+      {
+        "name": "_departure",
+        "line": 256,
+        "end": 258
+      },
+      {
+        "name": "_legacy_departure",
+        "line": 259,
+        "end": 267
+      },
+      {
+        "name": "_formation",
+        "line": 268,
+        "end": 277
+      },
+      {
+        "name": "_explore",
+        "line": 278,
+        "end": 314
+      },
+      {
+        "name": "_route_explore",
+        "line": 315,
+        "end": 342
+      },
+      {
+        "name": "_cards",
+        "line": 343,
+        "end": 356
+      },
+      {
+        "name": "_bag",
+        "line": 357,
+        "end": 377
+      },
+      {
+        "name": "_item_text",
+        "line": 378,
+        "end": 381
+      },
+      {
+        "name": "_shop",
+        "line": 382,
+        "end": 406
+      },
+      {
+        "name": "_inn",
+        "line": 407,
+        "end": 420
+      },
+      {
+        "name": "_summary",
+        "line": 421,
+        "end": 433
+      },
+      {
+        "name": "_journal",
+        "line": 434,
+        "end": 439
+      },
+      {
+        "name": "_ask",
+        "line": 440,
+        "end": 442
+      },
+      {
+        "name": "_confirmation",
+        "line": 443,
+        "end": 447
+      },
+      {
+        "name": "_accept",
+        "line": 448,
+        "end": 452
+      },
+      {
+        "name": "_act",
+        "line": 453,
+        "end": 460
+      },
+      {
+        "name": "_save_battle",
+        "line": 461,
+        "end": 463
+      },
+      {
+        "name": "_leave_battle",
+        "line": 464,
+        "end": 469
+      },
+      {
+        "name": "_publish",
+        "line": 470,
+        "end": 480
+      },
+      {
+        "name": "_process",
+        "line": 481,
+        "end": 491
+      },
+      {
+        "name": "_npc",
+        "line": 492,
+        "end": 497
+      },
+      {
+        "name": "_member_picker",
+        "line": 498,
+        "end": 504
+      },
+      {
+        "name": "_guild",
+        "line": 505,
+        "end": 523
+      },
+      {
+        "name": "_gear_caption",
+        "line": 524,
+        "end": 526
+      },
+      {
+        "name": "_gear_values",
+        "line": 527,
+        "end": 533
+      },
+      {
+        "name": "_equipment",
+        "line": 534,
+        "end": 561
+      },
+      {
+        "name": "_smithy",
+        "line": 562,
+        "end": 577
+      },
+      {
+        "name": "_research",
+        "line": 578,
+        "end": 610
+      },
+      {
+        "name": "_show_art",
+        "line": 611,
+        "end": 640
+      },
+      {
+        "name": "_close_art",
+        "line": 641,
+        "end": 649
+      }
+    ]
+  }
+]
