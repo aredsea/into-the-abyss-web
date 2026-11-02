@@ -50,6 +50,7 @@ var town_view: Control
 var details_return="member"
 var town_r21_preview=false
 var result_view: Control
+var panels_r22
 
 func _ready() -> void:
 	motion_reduced=OS.has_feature("web") and bool(JavaScriptBridge.eval("window.matchMedia('(prefers-reduced-motion: reduce)').matches",true))
@@ -90,6 +91,9 @@ func _draw_screen() -> void:
 	result_view=null
 	if model.s.has("persona") and not model.s.creation_r22.complete:
 		town_view=CreateScreen.new();add_child(town_view);town_view.build(self);return
+	if screen in ["codex","status","inventory"]:
+		if panels_r22==null or panels_r22.model!=model:panels_r22=preload("res://game/panels_state_r22.gd").new(model)
+		town_view=load("res://ui/"+{"codex":"codex","status":"status","inventory":"inventory"}[screen]+"_screen_r22.gd").new();add_child(town_view);town_view.build(self);return
 	if model.s.has("persona") and screen in ["formation","depart"]:
 		town_view=PersonaSortieScreen.new();add_child(town_view);town_view.build(self);return
 	var finished_town=screen in ["town","party","member","skills","cards","depart","bag","formation","journal","summary","inn","shop","guild","recruit","equipment","smithy","research"] or (screen=="explore" and (model.r21() or model.s.run.get("event","")=="sealed"))
