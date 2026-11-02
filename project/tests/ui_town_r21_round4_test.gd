@@ -50,7 +50,7 @@ func run():
 	check(JSON.stringify(w.s)==original,"presentation never rolls source RNG")
 	for dim in [Vector2i(390,844),Vector2i(360,780),Vector2i(390,664),Vector2i(1280,800),Vector2i(430,932)]:
 		root.content_scale_size=dim;root.size=dim
-		var s=Screen.new();s.size=dim;s.storage.path="user://round4-ui-fixture.json";root.add_child(s);s.model=World.new();s.motion_reduced=true
+		var s=Screen.new();s.model=preload("res://game/town_world_r21.gd").new();s.size=dim;s.storage.path="user://round4-ui-fixture.json";root.add_child(s);s.model=World.new();s.motion_reduced=true
 		s.go("research");await capture(s,"research",dim)
 		check(s.town_view.boxes.has("title:research") and s.town_view.boxes.has("background:research"),"research title and scene")
 		await click(s,"compose");check(not s.model.s.research[s.who].prefix.is_empty(),"existing compose handler")

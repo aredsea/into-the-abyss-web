@@ -1,7 +1,9 @@
 extends Control
 
 const RouteMap=preload("res://ui/route_map.gd")
-const World=preload("res://game/town_world_r21.gd")
+const World=preload("res://game/persona_world.gd")
+const CreateScreen=preload("res://ui/create_screen.gd")
+const PersonaSortieScreen=preload("res://ui/persona_sortie_screen.gd")
 const TownScreen=preload("res://ui/town_screen_r21.gd")
 const DungeonViewR21=preload("res://game/dungeon_view_r21.gd")
 const Store=preload("res://game/world_store.gd")
@@ -73,6 +75,7 @@ func _draw_screen() -> void:
 		if is_instance_valid(battle): return
 		for c in get_children(): remove_child(c); c.queue_free()
 		battle=BattleScreen.new()
+		if model.s.has("persona"):preload("res://ui/persona_visual_adapter.gd").prepare()
 		battle.session_data=model.battle_data()
 		battle.session_snapshot=model.s.run.battle
 		battle.session_save=_save_battle
@@ -85,6 +88,10 @@ func _draw_screen() -> void:
 	battle=null; controls.clear(); art_preview_id="";art_preview=null;art_base_controls={}
 	town_view=null
 	result_view=null
+	if model.s.has("persona") and not model.s.creation_r22.complete:
+		town_view=CreateScreen.new();add_child(town_view);town_view.build(self);return
+	if model.s.has("persona") and screen in ["formation","depart"]:
+		town_view=PersonaSortieScreen.new();add_child(town_view);town_view.build(self);return
 	var finished_town=screen in ["town","party","member","skills","cards","depart","bag","formation","journal","summary","inn","shop","guild","recruit","equipment","smithy","research"] or (screen=="explore" and (model.r21() or model.s.run.get("event","")=="sealed"))
 	if finished_town and (confirm.is_empty() or (screen=="explore" and model.r21())):
 		town_view=TownScreen.new(); add_child(town_view); town_view.build(self)

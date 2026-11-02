@@ -16,7 +16,7 @@ func click(s,id: String) -> void:
 		var ev=InputEventMouseButton.new(); ev.position=point; ev.button_index=MOUSE_BUTTON_LEFT; ev.pressed=pressed; root.push_input(ev)
 	await process_frame; await process_frame
 func fixture(dim):
-	var s=Screen.new(); s.size=dim; s.storage.path="user://town-r21-fixture.json";s.town_r21_preview=true
+	var s=Screen.new();s.model=preload("res://game/town_world_r21.gd").new(); s.size=dim; s.storage.path="user://town-r21-fixture.json";s.town_r21_preview=true
 	root.add_child(s); s.motion_reduced=true
 	return s
 func run() -> void:
@@ -75,7 +75,7 @@ func run() -> void:
 		root.remove_child(s);s.queue_free();await process_frame
 	check(Portrait.preferred_path("hildegard","face")=="res://assets/portraits-r10/hildegard-face.png","original fallback face")
 	check(Portrait.preferred_path("hildegard","bust")=="res://assets/portraits-r10/hildegard-cutout.png","original fallback bust")
-	var stable=Screen.new();stable.storage.path="user://town-r21-stable-fixture.json";stable.size=Vector2(390,844);root.add_child(stable)
+	var stable=Screen.new();stable.model=preload("res://game/town_world_r21.gd").new();stable.storage.path="user://town-r21-stable-fixture.json";stable.size=Vector2(390,844);root.add_child(stable)
 	check(not stable.town_r21_preview and is_instance_valid(stable.town_view),"round3 measured town is the default route without URL flags")
 	for page in ["town","party","member","depart","bag","guild","shop","smithy","inn","equipment","journal"]:
 		stable.go(page);await process_frame;await process_frame
