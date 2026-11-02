@@ -170,6 +170,7 @@ func navigation() -> void:
 func home() -> void:
 	traced_title("home",Rect2(0,0,390,233))
 	action("panels","도감 · 상태",Rect2(255,16,120,44),host.go.bind("codex"))
+	action("town_places","마을 장소",Rect2(14,183,110,44),host.go.bind("places"))
 	plate("town-city-left",Rect2(0,330,103,128)); plate("town-city-right",Rect2(335,254,55,201))
 	ink(Rect2(-24,286,450,246))
 	label("현재 위치",Rect2(14,232,82,16),9,T.INK,T.BOLD)
