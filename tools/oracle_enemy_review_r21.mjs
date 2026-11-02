@@ -21,9 +21,10 @@ local function fresh()
  return st
 end
 local out={dots={},evades={}}
-for _,kind in ipairs({"duty","wall_scar","last_stand","priest","echo_saved","echo_dead"}) do
+for _,kind in ipairs({"duty","psguard","wall_scar","last_stand","priest","echo_saved","echo_dead"}) do
  local st=fresh(); local u=st.u[1]
- if kind=="duty" then u.df=1; B.badd(u,"psguard",.5,3); u.sh=20 end
+ if kind=="duty" then B.DEF[1].cid="hildegard"; B.badd(u,"red25",.25,3) end
+  if kind=="psguard" then u.df=1; B.badd(u,"psguard",.1,3) end
  if kind=="wall_scar" then u.hp=50; u.gu={{key="wa_last",v={20,2,30}},{key="wa_scar",v={50,50}}} end
  if kind=="last_stand" then u.hp=250; u.gu={{key="last_stand",x=20,n=2}} end
  if kind=="priest" then u.hp=50; B.DEF[2].clsid="priest" end
@@ -31,8 +32,8 @@ for _,kind in ipairs({"duty","wall_scar","last_stand","priest","echo_saved","ech
   u.hp=50; u.sh=20; st.u[2].gu={{key="pa_echo",v={50}}}; st.gk={pa_echo=1}
   if kind=="echo_saved" then u.gu={{key="wa_last",v={20,2,30}}} end
  end
- B.edot_add(st,1,5,kind=="duty" and 40 or 100,3)
- if kind~="last_stand" then B.edot_add(st,1,5,kind=="duty" and 60 or 100,3) end
+ B.edot_add(st,1,5,kind=="duty" and 10 or 100,3)
+ if kind~="last_stand" and kind~="duty" and kind~="psguard" then B.edot_add(st,1,5,kind=="duty" and 60 or 100,3) end
  B.edot_tick(st,1)
  out.dots[#out.dots+1]={kind=kind,hp=u.hp,shield=u.sh,scar=u.x.scr or 0,saved=u.x.wlu==1,stood=u.x.lsd==1}
 end
@@ -44,6 +45,7 @@ for _,evade in ipairs({0,15,100}) do for _,nation in ipairs({"","naerin"}) do fo
 end end end
 return out
 `);
+result.fourth=await L(fs.readFileSync('tools/oracle_enemy_review_fourth_r21.lua','utf8'));
 fs.writeFileSync('verification/data-r21/enemy-review-oracle.json',JSON.stringify({files,...result},null,2)+'\n');
-console.log(JSON.stringify({dots:result.dots.length,evades:result.evades.length}));
+console.log(JSON.stringify({dots:result.dots.length,evades:result.evades.length,fourth:Object.fromEntries(Object.entries(result.fourth).map(([k,v])=>[k,Array.isArray(v)?v.length:v]))}));
 process.exit(0);
