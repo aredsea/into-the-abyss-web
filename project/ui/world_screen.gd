@@ -541,7 +541,7 @@ func _publish() -> void:
 			if parent is ScrollContainer:clip=clip.intersection(parent.get_global_rect())
 			parent=parent.get_parent()
 		buttons[id].clip=[clip.position.x,clip.position.y,clip.size.x,clip.size.y]
-	var report={"build":model.config.build,"ui_build":"r21-d-town-20261103b","town_r21_preview":town_r21_preview,"screen":"battle" if is_instance_valid(battle) else screen,"state":model.s,"controls":buttons,"viewport":[size.x,size.y],"restored":restored,"save_error":save_error,"art_preview":art_preview_id,"town_scroll_height":content.size.y if is_instance_valid(content) else 0}
+	var report={"build":model.config.build,"ui_build":"r21-d-town-20261103c","town_r21_preview":town_r21_preview,"screen":"battle" if is_instance_valid(battle) else screen,"state":model.s,"controls":buttons,"viewport":[size.x,size.y],"restored":restored,"save_error":save_error,"art_preview":art_preview_id,"town_scroll_height":content.size.y if is_instance_valid(content) else 0}
 	if is_instance_valid(town_view): report.town_text=town_view.metrics
 	if screen in ["cloud","rank"] and is_instance_valid(town_view):
 		report.cloud={"busy":cloud.busy,"code":cloud.account.code,"rev":cloud.account.rev,"notice":cloud.notice,"conflict":not cloud.conflict.is_empty(),"inputs":town_view.input_rects()}

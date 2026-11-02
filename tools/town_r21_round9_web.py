@@ -6,7 +6,14 @@ import json,threading,os,tempfile,time,sys
 from playwright.sync_api import sync_playwright
 R=Path(__file__).resolve().parents[1]
 O=R/'verification/town-r21/web'
-BUILD='r21-d-town-20261103b'
+BUILD='r21-d-town-20261103c'
+
+def same_snapshot(a,b):
+ if isinstance(a,dict) and isinstance(b,dict):return a.keys()==b.keys() and all(same_snapshot(a[k],b[k]) for k in a)
+ if isinstance(a,list) and isinstance(b,list):return len(a)==len(b) and all(same_snapshot(x,y) for x,y in zip(a,b))
+ if isinstance(a,(int,float)) and isinstance(b,(int,float)) and not isinstance(a,bool) and not isinstance(b,bool):
+  return a==b if float(a).is_integer() and float(b).is_integer() else abs(a-b)<=1e-7
+ return a==b
 
 def idb_files(page):
  return page.evaluate('''async()=>{
@@ -42,12 +49,14 @@ def run():
  threading.Thread(target=server.serve_forever,daemon=True).start()
  url=f'http://127.0.0.1:{server.server_port}/';results=[];migration=[]
  idb_only='--idb-only' in sys.argv
- if idb_only:results=json.loads((O/'results.json').read_text(encoding='utf-8'))
+ persona_only='--persona-only' in sys.argv
+ if idb_only or persona_only:results=json.loads((O/'results.json').read_text(encoding='utf-8'))
  try:
   with sync_playwright() as p:
    browser=p.chromium.launch(executable_path='C:/Program Files/Google/Chrome/Application/chrome.exe',headless=True,args=['--enable-unsafe-swiftshader'])
    template=None
-   for width,height,reduced,lang in ([] if idb_only else [(360,780,False,'en'),(390,844,False,'ko'),(360,780,False,'ko'),(360,780,True,'ko'),(390,664,False,'ko'),(1280,800,False,'ko'),(430,932,False,'ko')]):
+   for width,height,reduced,lang in ([] if idb_only else [(360,780,False,'en'),(390,844,False,'ko'),(360,780,False,'ko'),(360,780,True,'ko'),(390,664,False,'ko'),(1280,800,False,'ko'),(430,932,False,'ko'),(430,932,False,'en')]):
+    if persona_only and (width,height,reduced,lang)!=(430,932,False,'en'):continue
     context=browser.new_context(viewport={'width':width,'height':height},locale='ko-KR',device_scale_factor=1,reduced_motion='reduce' if reduced else 'no-preference')
     page=context.new_page();errors=[];tag=f'{width}x{height}'+('-reduced' if reduced else '')+('-en' if lang=='en' else '')
     page.on('pageerror',lambda e:errors.append(str(e)))
@@ -140,7 +149,7 @@ def run():
     click('so_tg_teiris');click('so_tg_'+recruited)
     assert len(world()['state']['party'])==2
     click('start_run')
-    battles=0;actions=0;restored_viewport=True;battle_text_errors=[]
+    battles=0;actions=0;restored_viewport=True;battle_text_errors=[];persona_skills=0;midfight_reload=False
     # Actual source encounters and unmodified stats: continue until a level-up.
     for step in range(40):
      report=world()
@@ -156,8 +165,26 @@ def run():
         click('ally:persona',True);capture('persona-status');click('close',True)
         click('action:attack',True);assert page.evaluate('window.__abyssPreview.pending_action')=='attack';click('cancel-action',True)
        enemies=[e for e in b['enemy_hp'] if e['hp']>0];target=min(enemies,key=lambda e:e['hp'])['id']
-       click('action:attack',True);click('enemy:'+target,True);actions+=1
+       use_persona=lang=='en' and width==430 and b['current_id']=='persona' and persona_skills==0
+       if use_persona:
+        assert not b['state']['result']
+        for _ in range(60):
+         before_reload=json.loads(wait_idb(page,'world_v3.json')['text'])['run']['battle']
+         if same_snapshot(before_reload,b['state']):break
+         page.wait_for_timeout(100)
+        else:raise AssertionError('latest active battle not persisted')
+        assert not before_reload['result']
+        page.reload()
+        page.wait_for_function('window.__abyssWorld?.restored && window.__abyssPreview && !window.__abyssPreview.busy',timeout=90000)
+        after=page.evaluate('window.__abyssPreview.state');assert same_snapshot(after,before_reload) and not after['result']
+        assert json.loads(wait_idb(page,'world_v3.json')['text'])['run']['battle']==before_reload
+        midfight_reload=True;capture('persona-midfight-reloaded')
+       click('action:attack',True);click('enemy:'+target,True)
+       if use_persona:persona_skills+=1 # One explicitly observed persona attack in the added configuration.
+       actions+=1
        page.wait_for_function('!window.__abyssPreview.busy',timeout=45000)
+       if use_persona:
+        capture('persona-attack-used')
       b=page.evaluate('window.__abyssPreview');assert b['result']=='victory',b['result']
       battle_text_errors.extend([t for t in b['text'] if t['needed']>t['available']+1 or t['missing_glyphs']])
       page.wait_for_function('window.__abyssWorld.controls.result_continue',timeout=10000)
@@ -187,7 +214,9 @@ def run():
     assert world()['state']['chronicle_r22']==final['state']['chronicle_r22']
     text_errors=[t for t in final.get('town_text',[]) if t['needed']>t['available']+1]+battle_text_errors
     assert not errors and not text_errors,(errors,text_errors)
-    results.append({'width':width,'height':height,'reduced':reduced,'lang':lang,'capture_checks':capture_checks,'ui_build':BUILD,'pck_sha256':artifact['pck_sha256'],'new_start':True,'first_affection':0,'recruited':recruited,'battles':battles,'actions':actions,'persona_level':paid['lv'],'persona_xp':paid['exp'],'indexeddb_reload':True,'viewport_restored_after_victory':restored_viewport,'errors':errors,'text_errors':text_errors})
+    if lang=='en' and width==430:assert persona_skills==1 and midfight_reload
+    results=[r for r in results if (r['width'],r['height'],r['reduced'],r['lang'])!=(width,height,reduced,lang)]
+    results.append({'width':width,'height':height,'reduced':reduced,'lang':lang,'persona_attacks':persona_skills,'midfight_reload':midfight_reload,'midfight_nonterminal':midfight_reload,'capture_checks':capture_checks,'ui_build':BUILD,'pck_sha256':artifact['pck_sha256'],'new_start':True,'first_affection':0,'recruited':recruited,'battles':battles,'actions':actions,'persona_level':paid['lv'],'persona_xp':paid['exp'],'indexeddb_reload':True,'viewport_restored_after_victory':restored_viewport,'errors':errors,'text_errors':text_errors})
     context.close();print('PASS first-run',tag,battles,'battles, persona level',paid['lv'],flush=True)
    # A separate temporary browser context imports two legacy files by IDBFS.
    if template is None:
@@ -238,4 +267,4 @@ def run():
   server.shutdown();server.server_close()
   (O/'results.json').write_text(json.dumps(results,ensure_ascii=False,indent=2),encoding='utf-8')
   (R/'verification/town-r21/round10/indexeddb-results.json').write_text(json.dumps(migration,ensure_ascii=False,indent=2),encoding='utf-8')
- assert len(results)==7 and migration
+ assert len(results)==8 and migration

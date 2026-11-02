@@ -1,0 +1,398 @@
+{
+	"checks": 31,
+	"failures": [
+		"strip canonical priority 3",
+		"strip canonical priority 4",
+		"strip canonical priority 5",
+		"strip canonical priority 6",
+		"strip canonical priority 7",
+		"strip canonical priority 8",
+		"strip canonical priority 9"
+	],
+	"rows": [
+		{
+			"got": 990,
+			"label": "drain/reflect HP 1000.0",
+			"ok": true,
+			"want": 990.0
+		},
+		{
+			"got": [
+				900,
+				0
+			],
+			"label": "drain hit HP / no false kill MP 1000.0",
+			"ok": true,
+			"want": [
+				900.0,
+				0.0
+			]
+		},
+		{
+			"got": 45,
+			"label": "drain/reflect HP 5.0",
+			"ok": true,
+			"want": 45.0
+		},
+		{
+			"got": [
+				900,
+				0
+			],
+			"label": "drain hit HP / no false kill MP 5.0",
+			"ok": true,
+			"want": [
+				900.0,
+				0.0
+			]
+		},
+		{
+			"got": 550,
+			"label": "drain/reflect HP 500.0",
+			"ok": true,
+			"want": 550.0
+		},
+		{
+			"got": [
+				960,
+				0
+			],
+			"label": "drain hit HP / no false kill MP 500.0",
+			"ok": true,
+			"want": [
+				960.0,
+				0.0
+			]
+		},
+		{
+			"got": 530,
+			"label": "demon kill raw heal heal",
+			"ok": true,
+			"want": 530.0
+		},
+		{
+			"got": 10000,
+			"label": "demon kill gauge heal",
+			"ok": true,
+			"want": 10000.0
+		},
+		{
+			"got": 2137222869,
+			"label": "demon kill RNG heal",
+			"ok": true,
+			"want": 2137222869.0
+		},
+		{
+			"got": null,
+			"label": "restore skill context heal",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": 530,
+			"label": "demon kill raw heal haste",
+			"ok": true,
+			"want": 530.0
+		},
+		{
+			"got": 10000,
+			"label": "demon kill gauge haste",
+			"ok": true,
+			"want": 10000.0
+		},
+		{
+			"got": 2137222869,
+			"label": "demon kill RNG haste",
+			"ok": true,
+			"want": 2137222869.0
+		},
+		{
+			"got": null,
+			"label": "restore skill context haste",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": 836,
+			"label": "Kern counter and original-hit reflection HP",
+			"ok": true,
+			"want": 836.0
+		},
+		{
+			"got": 2,
+			"label": "enemy hit plus Kern counter",
+			"ok": true,
+			"want": 2
+		},
+		{
+			"got": 10,
+			"label": "reflect uses original 100 damage",
+			"ok": true,
+			"want": 10.0
+		},
+		{
+			"got": 386,
+			"label": "drain and strip before counter / reflect",
+			"ok": true,
+			"want": 386.0
+		},
+		{
+			"got": 12000.0,
+			"label": "push before attacked",
+			"ok": true,
+			"want": 12000.0
+		},
+		{
+			"got": 0.0,
+			"label": "strip attack buff",
+			"ok": true,
+			"want": 0.0
+		},
+		{
+			"got": 30.0,
+			"label": "after-hit DOT amount",
+			"ok": true,
+			"want": 30.0
+		},
+		{
+			"got": 3,
+			"label": "after-hit DOT life",
+			"ok": true,
+			"want": 3.0
+		},
+		{
+			"got": [
+				false,
+				true,
+				true,
+				true,
+				true,
+				true,
+				true,
+				true,
+				true
+			],
+			"label": "strip canonical priority 1",
+			"ok": true,
+			"want": [
+				false,
+				true,
+				true,
+				true,
+				true,
+				true,
+				true,
+				true,
+				true
+			]
+		},
+		{
+			"got": [
+				false,
+				false,
+				true,
+				true,
+				true,
+				true,
+				true,
+				true,
+				true
+			],
+			"label": "strip canonical priority 2",
+			"ok": true,
+			"want": [
+				false,
+				false,
+				true,
+				true,
+				true,
+				true,
+				true,
+				true,
+				true
+			]
+		},
+		{
+			"got": [
+				false,
+				false,
+				true,
+				true,
+				true,
+				true,
+				true,
+				true,
+				false
+			],
+			"label": "strip canonical priority 3",
+			"ok": false,
+			"want": [
+				false,
+				false,
+				false,
+				true,
+				true,
+				true,
+				true,
+				true,
+				true
+			]
+		},
+		{
+			"got": [
+				false,
+				false,
+				true,
+				true,
+				true,
+				true,
+				true,
+				true,
+				false
+			],
+			"label": "strip canonical priority 4",
+			"ok": false,
+			"want": [
+				false,
+				false,
+				false,
+				false,
+				true,
+				true,
+				true,
+				true,
+				true
+			]
+		},
+		{
+			"got": [
+				false,
+				false,
+				true,
+				true,
+				true,
+				true,
+				true,
+				true,
+				false
+			],
+			"label": "strip canonical priority 5",
+			"ok": false,
+			"want": [
+				false,
+				false,
+				false,
+				false,
+				false,
+				true,
+				true,
+				true,
+				true
+			]
+		},
+		{
+			"got": [
+				false,
+				false,
+				true,
+				true,
+				true,
+				true,
+				true,
+				true,
+				false
+			],
+			"label": "strip canonical priority 6",
+			"ok": false,
+			"want": [
+				false,
+				false,
+				false,
+				false,
+				false,
+				false,
+				true,
+				true,
+				true
+			]
+		},
+		{
+			"got": [
+				false,
+				false,
+				true,
+				true,
+				true,
+				true,
+				true,
+				true,
+				false
+			],
+			"label": "strip canonical priority 7",
+			"ok": false,
+			"want": [
+				false,
+				false,
+				false,
+				false,
+				false,
+				false,
+				false,
+				true,
+				true
+			]
+		},
+		{
+			"got": [
+				false,
+				false,
+				true,
+				true,
+				true,
+				true,
+				true,
+				true,
+				false
+			],
+			"label": "strip canonical priority 8",
+			"ok": false,
+			"want": [
+				false,
+				false,
+				false,
+				false,
+				false,
+				false,
+				false,
+				false,
+				true
+			]
+		},
+		{
+			"got": [
+				false,
+				false,
+				true,
+				true,
+				true,
+				true,
+				true,
+				true,
+				false
+			],
+			"label": "strip canonical priority 9",
+			"ok": false,
+			"want": [
+				false,
+				false,
+				false,
+				false,
+				false,
+				false,
+				false,
+				false,
+				true
+			]
+		}
+	]
+}

@@ -1,0 +1,60 @@
+{
+  "files_scanned": 45,
+  "hits": [
+    {
+      "file": "30-engine.lua",
+      "line": 73,
+      "code": "--   ally_down(st, o, t)                      아군 t 가 부상으로 이탈했다(시너지 다시 셈)"
+    },
+    {
+      "file": "30-engine.lua",
+      "line": 393,
+      "code": "B.fire(st, \"ally_down\", t)"
+    },
+    {
+      "file": "30-engine.lua",
+      "line": 397,
+      "code": "B.drop_src(st, t, false)"
+    },
+    {
+      "file": "30-engine.lua",
+      "line": 399,
+      "code": "B.drop_src(st, t, true)   -- 쓰러진 적이 건 깃발·오라도 함께 사라진다"
+    },
+    {
+      "file": "30-engine.lua",
+      "line": 411,
+      "code": "function B.drop_src(st, t, aura_only)"
+    },
+    {
+      "file": "30-engine.lua",
+      "line": 427,
+      "code": "if t >= 5 then B.drop_src(st, t, true) end   -- 근위 기수의 깃발은 고갈되면 걷힌다"
+    },
+    {
+      "file": "32-personal-b.lua",
+      "line": 581,
+      "code": "local function drop_caster_buffs(st, c)   -- 건 사람(src)이 c 인 받는 피해 감소 버프(할드리크 red20 · 아델린 red)를 모두 지운다"
+    },
+    {
+      "file": "32-personal-b.lua",
+      "line": 598,
+      "code": "drop_caster_buffs(st, t)"
+    },
+    {
+      "file": "32-personal-b.lua",
+      "line": 602,
+      "code": "if type(x) == \"table\" then x.areg = nil end"
+    },
+    {
+      "file": "34-traits.lua",
+      "line": 373,
+      "code": "function G.ally_down(st, t) refresh(st); B.dot_trim(st) end"
+    }
+  ],
+  "direct_hook_implementations": [
+    "34-traits.lua:373"
+  ],
+  "damage_cleanup_wrapper": "32-personal-b.lua:591-606",
+  "engine": "30-engine.lua:389-418"
+}

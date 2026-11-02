@@ -13,6 +13,7 @@ const CombatFX=preload("res://ui/combat_fx.gd")
 const CombatPresentation=preload("res://ui/combat_presentation.gd")
 const SaveStore = preload("res://game/save_store.gd")
 const UI=preload("res://ui/fantasy_theme.gd")
+const L=preload("res://game/localization_r22.gd")
 const INK = Color("111715")
 const GOLD = Color("d83219")
 const LINE = Color("b8b8ab")
@@ -69,6 +70,18 @@ var session_context: Dictionary={}
 var layout_boxes: Dictionary={}
 var battle_window: Window
 var previous_content_size=Vector2i.ZERO
+
+func _language() -> String:
+	return state.data.get("language_r22","ko") if state!=null else session_data.get("language_r22","ko")
+
+func _tr(value: String) -> String:
+	if _language()!="en":return value
+	for a in state.data.allies:
+		var signature=a.skills.get("personal",{})
+		if a.id=="persona" and signature.has("persona_skill"):
+			if value==signature.name:return ModernBattle.PersonaCombat.Research.skill_name(signature.persona_skill,true)
+			if value==signature.note:return ModernBattle.PersonaCombat.Research.description(signature.persona_skill,true)
+	return L.render(value,_language())
 
 func _sync_battle_viewport() -> void:
 	if not is_instance_valid(battle_window): return
@@ -219,12 +232,12 @@ func _rebuild() -> void:
 	var back=_button("back",Rect2(x,y,44,41),func(): pass,false,self,true)
 	back.disabled=true; back.add_theme_stylebox_override("disabled",StyleBoxEmpty.new())
 	var arrow=_picture("res://assets/ui-r17/back.svg",Rect2(12,8.5,24,24),back); arrow.modulate=Color(1,1,1,.45); _mark("back",arrow)
-	back.tooltip_text="전투 중에는 귀환할 수 없습니다"
-	var place=_strong(_location(),Rect2(x+44,y+8.5,minf(w-120,TIGHT.get_string_size(_location(),HORIZONTAL_ALIGNMENT_LEFT,-1,16).x),24),16,INK,self,HORIZONTAL_ALIGNMENT_LEFT,TIGHT)
+	back.tooltip_text=_tr("전투 중에는 귀환할 수 없습니다")
+	var place=_strong(_location(),Rect2(x+44,y+8.5,w-120 if _language()=="en" else minf(w-120,TIGHT.get_string_size(_location(),HORIZONTAL_ALIGNMENT_LEFT,-1,16).x),24),16,INK,self,HORIZONTAL_ALIGNMENT_LEFT,TIGHT)
 	# Same font's measured 16px advance: Chromium 114.15625 / Godot 111.
 	# Compensate the native shaper horizontally, including the visible glyphs.
-	place.scale.x=114.15625/111.0; _mark("place",place)
-	_label("턴",Rect2(x+w-40,y+18,15,18),12)
+	place.scale.x=1.0 if _language()=="en" else 114.15625/111.0; _mark("place",place)
+	_label("턴",Rect2(x+w-73,y+18,46,18) if _language()=="en" else Rect2(x+w-40,y+18,15,18),12)
 	_mark("turn-number",_type(str(state.turn_count),Rect2(x+w-24.2,y+2.5,12.2,36),25,INK,self,HORIZONTAL_ALIGNMENT_RIGHT,preload("res://assets/fonts/AbyssNotoBlackCondensed.ttf")))
 	_queue(Rect2(x+12,y+43,w-24,44))
 	_battlefield(Rect2(x,y+94,w,288+delta))
@@ -388,7 +401,7 @@ func _commands(rect: Rect2) -> void:
 		b.disabled=(not reason.is_empty() and reason.begins_with("마나")==false) or (not pending_action.is_empty() and pending_action!=id)
 		if not reason.is_empty() and not b.disabled: b.add_theme_stylebox_override("normal",_style(Color("e1e0d8"),Color("bfc0b7")))
 		var color=Color.WHITE if active else Color("686d65") if b.disabled or not reason.is_empty() else INK
-		var title=sk.name.split("(")[0].strip_edges()
+		var title=_tr(sk.name.split("(")[0].strip_edges())
 		if overflow: title="기술 선택"
 		var icon="sword" if id=="attack" else "shield" if id in ["taunt","guard"] else "snow" if state.ally(state.current_id).element=="ice" else "element-"+state.ally(state.current_id).element
 		var pic=_picture("res://assets/ui-r17/"+icon+".svg",Rect2(9,15,22,25),b); pic.modulate=color
@@ -398,7 +411,7 @@ func _commands(rect: Rect2) -> void:
 		var cost_text="MP %d" % mp; var a=state.ally(state.current_id)
 		if state is ModernBattle and (id=="blood" or (id=="personal" and a.id in ["tika","levia"])): cost_text="HP %d" % state.hp_cost(a,id)
 		_label("기술 %d개"%_skill_ids().size() if overflow else cost_text+" · "+sk.target,Rect2(41,31 if fs==22 else 29.5,col-47,19),12,color,b)
-		b.tooltip_text=reason if not reason.is_empty() else sk.note
+		b.tooltip_text=_tr(reason if not reason.is_empty() else sk.note)
 	if busy:
 		var skip=_button("skip-motion",Rect2(rect.position,Vector2(rect.size.x,56)),_skip_motion)
 		_label("연출 건너뛰기",Rect2(10,0,rect.size.x-20,56),14,INK,skip,HORIZONTAL_ALIGNMENT_CENTER)
@@ -415,7 +428,7 @@ func _commands(rect: Rect2) -> void:
 			var id="supplies" if i==0 else "log"
 			var b=_button(id,Rect2(pos+Vector2(i*(utility_col+8),0),Vector2(utility_col,44)),_toggle_supplies if i==0 else _toggle_log); _outline(b); _mark(id,b)
 			b.disabled=not ready or (i==0 and not state is ModernBattle)
-			var text="보급품" if i==0 else "전투 기록"; var tw=BODY_BOLD.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,14).x
+			var text=_tr("보급품" if i==0 else "전투 기록"); var tw=BODY_BOLD.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,14).x
 			var left=(utility_col-tw-29)/2
 			_picture("res://assets/ui-r17/"+("bag" if i==0 else "log")+".svg",Rect2(left,11,19,22),b)
 			_strong(text,Rect2(left+29,0,tw+1,44),14,INK,b,HORIZONTAL_ALIGNMENT_LEFT,BODY_BOLD)
@@ -447,6 +460,7 @@ func _summary(id: String) -> String:
 	return summaries.get(id,"")
 
 func _wrap(message: String,width: float,fs: int) -> String:
+	message=_tr(message)
 	var lines=[]; var line=""
 	for word in message.split(" "):
 		if font.get_string_size(line+" "+word,HORIZONTAL_ALIGNMENT_LEFT,-1,fs).x>width and not line.is_empty():
@@ -494,8 +508,8 @@ func _log_sheet(rect: Rect2) -> void:
 		if not state.ally(entry.actor).is_empty():
 			var face=preload("res://ui/battle_image_r19.gd").new(); face.picture=_texture("res://assets/portraits-r10/"+entry.actor+"-face.png") if entry.actor in ["hildegard","bargut","teiris","berenga"] else _texture("res://assets/"+entry.actor+".webp"); face.alignment=Vector2(.5,.7); _put(face,Rect2(44,8,39,45),row)
 		elif not state.enemy(entry.actor).is_empty(): _enemy_art(state.enemy(entry.actor),Rect2(44,8,39,45),row)
-		_strong(entry.name,Rect2(94,10,minf(width-100,W850.get_string_size(entry.name,HORIZONTAL_ALIGNMENT_LEFT,-1,12).x),18),12,INK,row,HORIZONTAL_ALIGNMENT_LEFT,W850)
-		_label(entry.action,Rect2(94,28,minf(width-100,BODY.get_string_size(entry.action,HORIZONTAL_ALIGNMENT_LEFT,-1,14).x),22),14,INK,row)
+		_strong(_tr(entry.name),Rect2(94,10,width-100,18),12,INK,row,HORIZONTAL_ALIGNMENT_LEFT,W850)
+		_label(_tr(entry.action),Rect2(94,28,width-100,22),14,INK,row)
 		_color(Rect2(0,60,width,1),LINE,row)
 	if history_origin==0 and display_history.is_empty(): _label("아직 실행한 행동이 없습니다.",Rect2(12,51,width,44),12,INK,p)
 	scroll.get_v_scroll_bar().value_changed.connect(func(_value): _refresh_ink())
@@ -591,6 +605,9 @@ func _present_action(before: Dictionary, source: String, action_id: String) -> v
 	current.sequence_id=motion_serial
 	current.character_id=source
 	current.action=action_id
+	current.language_r22=_language()
+	if source=="persona":
+		current.signature_art={"name":state.ally(source).name,"skill":_tr(state.ally(source).skills.get(action_id,{}).get("name","")),"element":"none"}
 	current.reduced=OS.has_feature("web") and bool(JavaScriptBridge.eval("window.matchMedia('(prefers-reduced-motion: reduce)').matches",true))
 	motion_reduced=current.reduced
 	current.enemy_action=state.ally(source).is_empty()
@@ -800,8 +817,9 @@ func _supplies(rect: Rect2) -> void:
 	_strong("사용하기" if not use.disabled else _supply_reason(),Rect2(0,0,col,44),12 if use.disabled else 14,Color.WHITE if not use.disabled else INK,use,HORIZONTAL_ALIGNMENT_CENTER,BODY_BOLD)
 
 func _type(text: String, rect: Rect2, fs: int, color: Color, parent: Control, align: int, face: Font) -> Label:
+	text=_tr(text)
 	text=text.replace("−","-")
-	while fs>12 and face.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,fs).x>rect.size.x: fs-=1
+	while fs>(8 if _language()=="en" else 12) and face.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,fs).x>rect.size.x: fs-=1
 	# CSS line-height may be smaller than the font's natural line box. Match
 	# it explicitly, rather than letting Label enlarge the requested bounds.
 	if not text.contains("\n") and face.get_height(fs)>rect.size.y:
@@ -882,12 +900,12 @@ func _enemy_art(e: Dictionary, rect: Rect2, parent: Control, pixel=false) -> Tex
 
 func _enemy_name(value: String,rect: Rect2,parent: Control,align=HORIZONTAL_ALIGNMENT_CENTER) -> Label:
 	# Preserve full canonical text in the model and tooltip. Fit the fixed r20 HUD.
-	var text=value
+	var text=_tr(value)
 	if state.data.has("encounter_r21"):
 		while text.length()>1 and W750.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,12).x>rect.size.x:
 			text=text.left(text.length()-2)+"…"
 	var label=_strong(text,rect,12,INK,parent,align)
-	label.tooltip_text=value
+	label.tooltip_text=_tr(value)
 	return label
 
 func _enemy_hp(value: String,rect: Rect2,parent: Control,align: int) -> Label:

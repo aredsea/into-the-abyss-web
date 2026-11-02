@@ -1,0 +1,30 @@
+{
+  "checks": 670,
+  "failures": 0,
+  "groups": [
+    {
+      "name": "legacy_00 and legacy dungeon last reject expedition-only fields independently",
+      "passed": true
+    },
+    {
+      "name": "all 154 legitimate samples retain accepted HTTP migration and immutable input",
+      "passed": true
+    },
+    {
+      "name": "global daily signup cap survives rotating IP and minute buckets, rejection is atomic",
+      "passed": true
+    },
+    {
+      "name": "global daily new-save byte cap exact boundary and rotating IP",
+      "passed": true
+    },
+    {
+      "name": "global daily concurrent rotating networks cannot overdraw",
+      "passed": true
+    },
+    {
+      "name": "global daily denial precedes one-use Turnstile verification",
+      "passed": true
+    }
+  ]
+}

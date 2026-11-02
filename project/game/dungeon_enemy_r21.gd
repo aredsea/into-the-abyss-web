@@ -16,9 +16,10 @@ func art(id: String) -> Dictionary:
 	var t=templates.enemies.filter(func(e):return e.id==key)[0]
 	return {"art":t.art,"bbox":t.bbox.duplicate(),"art_fallback":true}
 
-func configure(e: Dictionary,id: String,phase: int,index: int):
+func configure(e: Dictionary,id: String,phase: int,index: int,grade_override: String=""):
 	var enc=b.data.encounter_r21.enc.duplicate(true)
 	while enc.fl.size()<=index: enc.fl.append(""); enc.fg.append("minion")
+	if not grade_override.is_empty(): enc.fg[index]=grade_override
 	enc.fl[index]=id
 	var d=rules.foe_def(enc,index,int(b.data.encounter_r21.el)); var st=rules.foe_stats(enc,d,int(d.lvn))
 	st.hp*=b.data.get("enemy_power_r21",1); st.atk*=b.data.get("enemy_power_r21",1)
@@ -29,7 +30,13 @@ func configure(e: Dictionary,id: String,phase: int,index: int):
 	e.merge(art(id),true)
 
 func roster() -> Array:
-	return b.data.enemies.map(func(e):return {"foe_id":e.foe_id,"phase":e.get("phase",1),"target_id":e.target_id})
+	var out=[]
+	for i in range(b.data.enemies.size()):
+		var e=b.data.enemies[i]
+		var value={"foe_id":e.foe_id,"phase":e.get("phase",1),"target_id":e.target_id}
+		if i>=b.data.encounter_r21.enc.fl.size() and not e.foe_id.is_empty(): value.summon_grade=e.grade
+		out.append(value)
+	return out
 
 func hydrate(list: Variant) -> bool:
 	if not list is Array or list.size()!=b.data.enemies.size(): return false
@@ -40,7 +47,8 @@ func hydrate(list: Variant) -> bool:
 			if a.get("kind")=="summon": possible.append(a.enemy)
 	for i in range(list.size()):
 		var v=list[i]
-		if not v is Dictionary or v.size()!=(3 if v.has("target_id") else 2) or not v.get("foe_id") is String: return false
+		if not v is Dictionary or v.size()!=2+int(v.has("target_id"))+int(v.has("summon_grade")) or not v.get("foe_id") is String: return false
+		if v.has("summon_grade") and (i<enc.fl.size() or v.summon_grade not in ["mob","minion"]): return false
 		if v.has("target_id"):
 			if not v.target_id is String: return false
 			if v.target_id!="" and v.target_id!=b.data.enemies[i].id and b.ally(v.target_id).is_empty(): return false
@@ -50,23 +58,28 @@ func hydrate(list: Variant) -> bool:
 		if i>=enc.fl.size() and not id.is_empty() and id not in possible: return false
 		if not id.is_empty():
 			if not rules.foes.has(id) or (v.phase==2 and not rules.foes[id].has("phase2")): return false
-			configure(b.data.enemies[i],id,int(v.phase),i)
+			# Old schema-3 summons were serialized with mob statistics. Keep those
+			# statistics until this fight ends; new summons record the source grade.
+			configure(b.data.enemies[i],id,int(v.phase),i,v.get("summon_grade","") if i>=enc.fl.size() else "")
 		# Legacy rosters retain constructor-initialized forecasts without consuming RNG.
 		if v.has("target_id"): b.data.enemies[i].target_id=v.target_id
 	return true
 
-func summon(e: Dictionary,a: Dictionary):
-	var adds=0
+func summon(e: Dictionary,a: Dictionary,emit_event=true):
+	var adds=0; var made=[]
 	for u in b.data.enemies:
 		if u.grade=="minion" and u.hp>0: adds+=1
 	for n in range(int(a.get("count",1))):
-		if adds>=int(rules.catalog.tune.boss.summon_cap): return
+		if adds>=int(rules.catalog.tune.boss.summon_cap): break
 		for i in range(b.data.encounter_r21.enc.fl.size(),b.data.enemies.size()):
 			var slot=b.data.enemies[i]
 			if slot.hp<=0:
-				configure(slot,a.enemy,1,i); slot.hp=slot.mhp; slot.gauge=float(slot.max); slot.act_index=0; slot.effects={}; slot.broken=false; slot.charged=false; slot.remaining=10000.0
+				configure(slot,a.enemy,1,i,"minion"); slot.hp=slot.mhp; slot.gauge=float(slot.max); slot.act_index=0; slot.effects={}; slot.broken=false; slot.charged=false; slot.remaining=10000.0
 				b.extra_state[slot.id]={}; slot.target_id=pick_target(slot).id
-				adds+=1; b._event(e.name+" · "+a.name+" → "+slot.name); break
+				adds+=1; made.append(slot); b._event(e.name+" · "+a.name+" → "+slot.name); break
+	if emit_event:
+		var action=a.duplicate(true); action.kind="summon"
+		b.combat_events.enemy(b,e,action,made)
 
 func phase_check():
 	for e in b.data.enemies:
@@ -75,13 +88,15 @@ func phase_check():
 		if f.has("phase2") and e.hp<=e.mhp*rules.catalog.tune.boss.phase_hp:
 			e.phase=2; e.acts=f.phase2.acts.duplicate(true); e.weak=f.phase2.weak.duplicate(); e.gauge=float(e.max); e.broken=false; e.act_index=0; e.charged=false; e.remaining=10000.0
 			b._event(e.name+" · 2단계")
+			b.combat_events.push("phase",b.combat_events.slot(b,e),b.combat_events.T); b.combat_events.T+=1.2
 			if f.phase2.get("weak_cycle",false): cycle(e)
 			if f.phase2.has("entry"): summon(e,f.phase2.entry)
 			e.target_id=pick_target(e).id
 
-func phase_guard(e: Dictionary):
-	if not e.foe_id.is_empty() and e.get("phase",1)==1 and rules.foes[e.foe_id].has("phase2") and e.hp<=e.mhp*rules.catalog.tune.boss.phase_hp:
-		e.hp=maxi(e.hp,maxi(1,int(floor(e.mhp*rules.catalog.tune.boss.phase_hp))-1))
+func phase_guard(e: Dictionary,before: int=-1):
+	if not e.foe_id.is_empty() and e.get("phase",1)==1 and rules.foes[e.foe_id].has("phase2") and e.hp<=0:
+		var cap=maxi(1,int(floor(e.mhp*rules.catalog.tune.boss.phase_hp))-1)
+		e.hp=cap if before>cap or before<0 else maxi(1,before)
 
 func protector(e: Dictionary) -> Dictionary:
 	for u in b.living(false):
@@ -95,7 +110,7 @@ func defense(a: Dictionary,e: Dictionary) -> float:
 			if u.id!=e.id and u.foe_id==R.dr_while_ally.enemy: m*=R.dr_while_ally.mult; break
 	if a.line=="str" and R.has("melee_dr"): m*=1-R.melee_dr
 	if a.line!="str" and b.x(e).get("hidden",false): m*=1-R.get("ranged_dr",.5)
-	return m*(1-b.fx(e,"guard"))
+	return m # Defensive stance is floored after the raw hit, in B.strike.
 
 func after_hit(a: Dictionary,e: Dictionary):
 	if e.hp<=0: return
@@ -109,9 +124,8 @@ func attack_mult(e: Dictionary) -> float:
 	var m=(1+b.fx(e,"enemy_attack_self"))*(1+b.fx(e,"attack_up")); var R=e.rules; var T=rules.catalog.tune.boss
 	if R.has("hp_atk") and e.hp<=e.mhp*R.hp_atk.thr: m*=1+R.hp_atk.amount
 	if e.grade=="chief" and e.hp<=e.mhp*T.rage_hp: m*=1+T.rage_atk
-	# Round count follows one round per party-size actions in the existing CTB engine.
 	if b.data.encounter_r21.enc.raid and e.grade in ["chief","boss","core"]:
-		var round_no=int(b.x(e).get("foe_turns",0))
+		var round_no=b.ctb_round
 		if round_no>T.enrage_round: m*=1+minf(T.enrage_max,T.enrage_step*(round_no-T.enrage_round))
 	return m
 
@@ -167,15 +181,19 @@ func drop_auras():
 		for key in u.effects.keys():
 			var source=u.effects[key].get("source","")
 			if not source.is_empty():
-				var owner=b.enemy(source)
-				if owner.is_empty() or owner.hp<=0 or owner.broken: u.effects.erase(key)
+				var owner=b.unit(source)
+				if owner.is_empty() or owner.hp<=0 or (not owner.has("base") and owner.broken): u.effects.erase(key)
 
 func end_effects(u: Dictionary):
 	for key in u.effects.keys():
+		if key=="guard" and u.has("base"): continue # df is reset at begin_turn, separately from bf.g2.
+		if key.begins_with("enemy_dot_") or key in ["taunt","mark","sorel_regen","persona_regen","dot","corrosion","bleed","regen"]: continue
 		var eff=u.effects[key]
-		if eff.get("r21",false):
-			eff.turns-=1
-			if eff.turns<=0: u.effects.erase(key)
+		if eff.get("fresh",false): eff.erase("fresh"); continue
+		eff.turns-=1
+		if eff.turns<=0:
+			u.effects.erase(key)
+			if key=="shield" and u.has("base"): u.shield=0
 	drop_auras()
 
 func add_dot(u: Dictionary,e: Dictionary,per: int,turns: int):
@@ -204,9 +222,18 @@ func silence_choices() -> Array:
 			if u.skills.has(id): out.append([u,id])
 	return out
 
+func raid_charge_info(e: Dictionary) -> Dictionary:
+	var a=e.acts[e.act_index]
+	if e.charged: return {"turns":1,"name":a.name}
+	if a.kind=="charge": return {"turns":2,"name":e.acts[(int(e.act_index)+1)%e.acts.size()].name}
+	return {"turns":0,"name":""}
+
 func intent(e: Dictionary) -> String:
 	if e.hp<=0: return "쓰러짐"
 	if e.broken: return "고갈 · 다음 행동 취소"
+	if b.data.encounter_r21.enc.raid:
+		var charge=raid_charge_info(e)
+		if charge.turns>0: return "%d차례 뒤 %s · 심연 0으로 중단"%[charge.turns,charge.name]
 	var a=e.acts[e.act_index]
 	if a.kind=="charge": return a.name+" · 다음 큰 기술 준비"
 	if a.kind in ["guard","buff","heal","summon","protect","special"]: return a.name
@@ -227,12 +254,15 @@ func turn() -> bool:
 	if e.is_empty() or b.living(true).is_empty(): return false
 	if allies_alive().is_empty(): b._finish_turn(); return true
 	b.events=[]
+	b.combat_hits=[]
 	begin_random(b.turn_count+1)
 	var turns=int(b.x(e).get("foe_turns",0))
 	var f=rules.foes.get(e.foe_id,{})
 	if e.broken:
 		e.broken=false; e.gauge=float(e.max); b._event(e.name+" · 차례 상실 · 심연 회복")
+		b.combat_events.push("recover",b.combat_events.slot(b,e),b.combat_events.T); b.combat_events.T+=1.2
 		if e.charged:
+			b.combat_events.push("ecut",b.combat_events.slot(b,e),b.combat_events.T)
 			e.charged=false; e.act_index=(int(e.act_index)+1)%e.acts.size()
 			e.hp=maxi(0,e.hp-int(floor(e.mhp*e.rules.get("break_self",0))))
 	else:
@@ -240,6 +270,7 @@ func turn() -> bool:
 		turns+=1; b.x(e).foe_turns=turns
 		if e.phase==2 and f.get("phase2",{}).get("weak_cycle",false): cycle(e)
 		var a=e.acts[e.act_index]; var targets=b.living(false) if a.get("target")=="allies" else [e]
+		var event_targets=[]
 		match a.kind:
 			"charge": e.charged=true; b._event(e.name+" · "+a.name)
 			"guard": effect(e,"guard",2,.4); b._event(e.name+" · "+a.name)
@@ -253,6 +284,7 @@ func turn() -> bool:
 				if not pool.is_empty():
 					var t=lowest(pool); var h=mini(t.mhp-t.hp,int(floor(t.mhp*a.get("amount",.2))))
 					t.hp+=h; b._event(a.name+" → "+t.name+" · HP +%d"%h)
+					event_targets=[t]
 			"buff":
 				if a.get("target")=="ally":
 					var other=b.living(false).filter(func(u):return u.id!=e.id); targets=[lowest(other)] if not other.is_empty() else [e]
@@ -263,40 +295,55 @@ func turn() -> bool:
 						var key="enemy_attack_self" if a.stat=="atk" and a.get("target","self")=="self" and not a.get("until_down",false) else {"atk":"attack_up","def":"defense_up","spd":"haste"}.get(a.stat,"attack_up")
 						effect(t,key,99 if a.get("until_down",false) else int(a.get("turns",3))+1,a.get("amount",0),e.id if a.get("until_down",false) else "")
 				b._event(e.name+" · "+a.name)
+				event_targets=targets
 			"debuff":
 				var list=allies_alive() if a.get("target")=="all" else [target(e,a)]
 				for t in list:
 					if a.stat=="delay": t.remaining+=10000*a.get("amount",.2)
 					else: effect(t,{"atk":"attack_down","def":"defense_down","spd":"slow"}.get(a.stat,"attack_down"),int(a.get("turns",2)),a.get("amount",.2))
 				b._event(e.name+" · "+a.name)
-			"summon": summon(e,a)
+				event_targets=list
+			"summon":
+				var before=b.living(false).duplicate()
+				summon(e,a,false)
+				event_targets=b.living(false).filter(func(u):return u not in before)
 			"special":
 				if a.get("fx")=="silence":
 					var choices=silence_choices()
 					if not choices.is_empty():
 						var choice=choices[int(floor(random()*choices.size()))]; b.x(choice[0]).silenced_id=str(choice[1]); effect(choice[0],"silence",1)
+						event_targets=[choice[0]]
 				b._event(e.name+" · "+a.name)
 			"dot":
 				var t=target(e,a)
 				if not b._enemy_evade(e,t): add_dot(t,e,dot_per(e,t,a.get("m",1)*a.get("tick",.3)),int(a.get("turns",3)))
+				event_targets=[t]
 				b._event(e.name+" · "+a.name)
 			_:
-				var list=allies_alive() if a.kind=="big_all" or a.get("target")=="all" else [target(e,a)]
+				var list=b.data.allies if a.kind=="big_all" or a.get("target")=="all" else [target(e,a)]
+				event_targets=[]
 				for t in list:
-					var before={}
-					for ally in b.data.allies: before[ally.id]=int(ally.hp)
+					if t.hp<=0: continue
+					event_targets.append(t)
 					b._enemy_hit(e,t,a)
+					var hit=b.last_enemy_hit_result
 					if b.last_enemy_hit_target.is_empty(): continue
 					t=b.ally(b.last_enemy_hit_target)
 					if t.hp>0:
-						if a.has("drain"): e.hp=mini(e.mhp,e.hp+int(floor((before[t.id]-t.hp)*a.drain)))
+						# 30-engine e_after_hit precedes personal/global attacked hooks.
 						if a.has("push"): t.remaining+=10000*a.push
+						if a.has("drain") and e.hp>0 and e.hp<e.mhp: e.hp=mini(e.mhp,e.hp+int(floor(hit.get("d",0)*a.drain+1e-9)))
 						if a.has("dot"): add_dot(t,e,dot_per(e,t,a.dot.m),int(a.dot.get("turns",3)))
 						if a.get("strip",false):
-							for key in ["attack_up","defense_up","bless","guard","haste","shield"]:
+							# 31-foes STRIP_ORDER: atk, def, bs, bl, g2, red, red20, red25.
+							for key in ["attack_up","defense_up","backstep","blood","fortified_guard","adeline_guard","contract","duty"]:
 								if t.effects.has(key): t.effects.erase(key); break
+						b.TraitRules.attacked(b,t,e)
+						if b.gear_bridge!=null:
+							b.gear_bridge.invoke("attacked",[b.gear_bridge.slot(t),b.gear_bridge.slot(e),hit,b.combat_events.T])
 				if a.kind in ["big_one","big_all"]: e.charged=false
+		b.combat_events.enemy(b,e,a,event_targets)
 		e.act_index=(int(e.act_index)+1)%e.acts.size()
 		if e.rules.has("hide_every") and turns%int(e.rules.hide_every)==0: b.x(e).hidden=true
 	e.target_id=pick_target(e).id
-	phase_check(); b._finish_turn(); return true
+	b._finish_turn(); return true

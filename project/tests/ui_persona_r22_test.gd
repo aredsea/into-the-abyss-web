@@ -40,7 +40,7 @@ func run():
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
 	for dim in [Vector2i(360,780),Vector2i(390,844),Vector2i(390,664),Vector2i(430,932),Vector2i(1280,800)]:
 		root.content_scale_size=dim;root.size=dim
-		var s=Screen.new();s.size=dim;s.storage.path="user://persona-ui-%d.json"%dim.x;root.add_child(s);s.model=World.new();s._draw_screen();s.motion_reduced=true
+		var s=Screen.new();s.size=dim;s.storage.path="user://persona-ui-a7-%dx%d-%d-%d.json"%[dim.x,dim.y,OS.get_process_id(),Time.get_ticks_msec()];root.add_child(s);s.model=World.new();s._draw_screen();s.motion_reduced=true
 		await capture(s,"race",dim)
 		await click(s,"cr_race_beast");await click(s,"cr_lin_cat");await click(s,"cr_next");await capture(s,"nation",dim)
 		await click(s,"cr_nat_naerin");check(s.model.s.persona.nation=="" and s.model.s.ui.msg!="","blocked origin explains reason")

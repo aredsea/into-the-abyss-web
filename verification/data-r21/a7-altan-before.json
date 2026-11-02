@@ -1,0 +1,88 @@
+{
+	"checks": 9,
+	"failures": [
+		"Altan start raw shield ignores first ally gear GH"
+	],
+	"rows": [
+		{
+			"got": 600,
+			"label": "Altan start raw shield ignores first ally gear GH",
+			"ok": false,
+			"want": 200.0
+		},
+		{
+			"got": 110.0,
+			"label": "gear party damage uses living maximum once",
+			"ok": true,
+			"want": 110.0
+		},
+		{
+			"got": 3,
+			"label": "P1-a active path DOT life",
+			"ok": true,
+			"want": 3.0
+		},
+		{
+			"got": [
+				24,
+				24,
+				24,
+				0
+			],
+			"label": "P1-a DOT ticks",
+			"ok": true,
+			"want": [
+				24.0,
+				24.0,
+				24.0,
+				0.0
+			]
+		},
+		{
+			"got": 719,
+			"label": "P1-b chain respects phase guard",
+			"ok": true,
+			"want": 719.0
+		},
+		{
+			"got": [
+				100,
+				0,
+				false
+			],
+			"label": "P2-d shield blocks damaged false",
+			"ok": true,
+			"want": [
+				100.0,
+				0.0,
+				false
+			]
+		},
+		{
+			"got": [
+				100,
+				0,
+				false
+			],
+			"label": "P2-d shield blocks damaged true",
+			"ok": true,
+			"want": [
+				100.0,
+				0.0,
+				false
+			]
+		},
+		{
+			"got": 5,
+			"label": "Nit-e aggregate migration current cap",
+			"ok": true,
+			"want": 5
+		},
+		{
+			"got": 199,
+			"label": "P2-c legacy floor without epsilon",
+			"ok": true,
+			"want": 199
+		}
+	]
+}

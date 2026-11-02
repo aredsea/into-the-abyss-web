@@ -130,7 +130,11 @@ func run():
 	# A real combat action consumes the combined bag, persists pouch first, then
 	# resumes without double consumption. Invalid increases are rejected atomically.
 	w=ready_world();w.depart_dungeon(1,9);w.s.run.phase="battle";w.s.items.hp_s=1;w.s.run.loot_items.hp_s=2
-	var battle=Supply.new(w.battle_data());battle.ally("persona").hp=1;check(battle.act("item:hp_s"),"actual combat supply action")
+	var battle=Supply.new(w.battle_data())
+	# The source CTB may give the opening turn to an enemy or another ally.
+	while not battle.player_turn() and battle.result.is_empty():battle.automatic_turn()
+	battle.ally("persona").hp=1;battle.selected_ally="persona"
+	check(battle.act("item:hp_s"),"actual combat supply action")
 	w.record_battle(battle.snapshot());check(w.s.items.hp_s==1 and w.s.run.loot_items.hp_s==1,"combat consumes pouch before bank")
 	var once=w.s.duplicate(true);w.record_battle(battle.snapshot());check(same(once,w.s),"duplicate snapshot no double consume")
 	var resumed=World.new();check(resumed.restore(JSON.parse_string(JSON.stringify(w.s))),"combat supply world restore")
@@ -139,7 +143,8 @@ func run():
 	# Bag capacity and deterministic retained gear prefix.
 	w=ready_world();w.depart_dungeon(1,1);var code=w.dungeon_rules.gear_drop(117,1,"battle",w.party_classes()).code
 	for i in range(2000):w.s.serial+=1;w.s.gear.append({"id":code.split(".")[0],"uid":w.s.serial,"seed":1,"forge":0,"tries":0,"source_r21":true})
-	w.s.run.loot_gear=[code,code];check(w.settle("retreat") and w.s.summary.gear_lost==2 and w.s.gear.size()==2000,"full bag discards and reports both gear")
+	w.s.run.loot_gear=[code,code];check(w.settle("retreat") and w.s.summary.gear_lost==2 and w.s.gear.size()==2000,"full bag reports both pending gear")
+	check(w.s.gear_r22.overflow.size()==2,"full bag retains both original codes in overflow")
 	w=ready_world();w.depart_dungeon(1,1);w.s.run.phase="battle";w.s.run.final=true;force_result(w,"victory");check(w.finish_battle(),"clear before home")
 	var rewarded=w.s.gold;check(w.expedition_home() and not w.next_dungeon_floor() and w.s.gold==rewarded,"home closes continuation without repeat payment")
 	# Reproducible P9 handoff specimens; the server/ and cloud_* files are protected.

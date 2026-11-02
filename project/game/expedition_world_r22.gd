@@ -3,18 +3,6 @@ extends "res://game/persona_world.gd"
 const ExpeditionRules=preload("res://game/expedition_rules_r22.gd")
 var expedition_rules=ExpeditionRules.new()
 
-func stats(id: String,level: int) -> Dictionary:
-	var b=super(id,level)
-	if id!="persona" or not s or not s.has("equipment"):return b
-	var bonus=gear_bonus(id,level);var cls=class_def(id)
-	if cls.is_empty():return b
-	var line={"힘":"str","민첩":"agi","지능":"int"}[cls.line]
-	for key in ["hp","mp","str","agi","int","def"]:
-		b[key]*=1+bonus.get(key,0)/100.0+(bonus.get("stat",0)/100.0 if key==line else 0)
-		if key in ["hp","mp"]:b[key]=int(floor(b[key]+.5))
-	b.spd*=1+bonus.get("spd",0)/100.0
-	return b
-
 func expedition() -> bool:return r21() and s.run.get("expedition_version",0)==22
 func expedition_ids() -> Array:return s.run.get("persona_party",s.party).duplicate() if active() else sortie_ids()
 func expedition_mods() -> Dictionary:return expedition_rules.modifiers(s.run.get("persona_pm",source_pm()),config.companions)
@@ -144,10 +132,16 @@ func finish_battle() -> bool:
 func bank_expedition_gear(codes: Array) -> Dictionary:
 	var out=[];var lost=0
 	for code in codes:
-		if s.gear.size()>=2000:lost+=1;continue
-		var parts=code.split(".");var n=0
-		for ch in parts[1]:n=n*36+"0123456789abcdefghijklmnopqrstuvwxyz".find(ch)
-		s.serial+=1;s.gear.append({"uid":s.serial,"id":parts[0],"seed":n,"forge":0,"tries":0,"source_r21":true});out.append(code)
+		var entry=combat_gear_adapter.source_drop({"code":code},int(s.serial)+1)
+		if entry.is_empty():continue
+		var worn=[]
+		for eq in s.equipment.values():worn.append_array(eq.values())
+		if s.gear.filter(func(e):return e.uid not in worn).size()>=2000:
+			if not s.has("gear_r22"):s.gear_r22={}
+			if not s.gear_r22.has("overflow"):s.gear_r22.overflow=[]
+			s.gear_r22.overflow.append({"code":code,"forge":{"lv":0,"tries":0}})
+			lost+=1;continue
+		s.serial+=1;s.gear.append(entry);out.append(code)
 	return {"gear":out,"lost":lost}
 
 func settle(result: String) -> bool:
@@ -264,6 +258,11 @@ func select_dungeon_floor(f: int) -> bool:
 
 func restore(value: Variant) -> bool:
 	if not value is Dictionary or not value.get("run",{}) is Dictionary:return false
+	if value.has("equipment_vitals_before_r14"):
+		var archive=value.equipment_vitals_before_r14
+		if not archive is Dictionary or archive.is_empty():return false
+		for key in archive:
+			if key not in ["hp","mp","battle_hp","battle_mp","maxima_hp","maxima_mp"] or not _num(archive[key]) or archive[key]<0 or archive[key]>1000000 or archive[key]!=floor(archive[key]):return false
 	if value.get("run",{}).get("expedition_version",0)==22:
 		var r=value.run
 		if not _shape(r,{"log":[],"fell":false,"ask":false,"next_available":false,"maxima":{}}):return false
@@ -281,6 +280,37 @@ func restore(value: Variant) -> bool:
 				if n<(1 if key=="hp" else 0) or n>1000000 or n!=floor(n):return false
 		if r.next_available and (r.phase!="done" or not value.get("summary") is Dictionary or value.summary.get("result")!="clear"):return false
 	return super(value)
+
+func migrate_equipment_vitals_r14(maximum: Dictionary,saved_run: Dictionary) -> bool:
+	# The public P5 facade multiplied persona equipment twice. Keep exact excess
+	# vitals in a bounded archive before moving that old save to the corrected cap.
+	if s.run.get("expedition_version",0)!=22 or s.equipment.get("persona",{}).is_empty():return true
+	var bonus=gear_bonus("persona",int(s.persona.lv));var old={}
+	for key in ["hp","mp"]:old[key]=int(floor(maximum[key]*(1+bonus.get(key,0)/100.0)+.5))
+	var changes={};var member=s.members.persona
+	for key in ["hp","mp"]:
+		var limit=maximum[key] if key=="mp" or (active() and "persona" in s.run.get("persona_party",[])) else stored_hp_limit(maximum[key])
+		if member[key]>limit:
+			if member[key]>old[key]:return false
+			changes[key]=member[key]
+	var snapshot=saved_run.get("battle",{})
+	if not snapshot.get("units",{}) is Dictionary:return false
+	var battle=snapshot.get("units",{}).get("persona",{})
+	if not battle is Dictionary:return false
+	for key in ["hp","mp"]:
+		if battle.has(key) and not _num(battle[key]):return false
+		if battle.get(key,0)>maximum[key]:
+			if battle[key]>old[key]:return false
+			changes["battle_"+key]=battle[key]
+	if changes.is_empty():return true
+	if s.has("equipment_vitals_before_r14"):return false
+	s.equipment_vitals_before_r14=changes
+	for key in ["hp","mp"]:
+		member[key]=mini(member[key],maximum[key])
+		if not battle.is_empty():battle[key]=mini(battle[key],maximum[key]);s.run.battle.units.persona[key]=battle[key]
+		if s.run.get("maxima",{}).has("persona") and s.run.maxima.persona[key]>maximum[key]:
+			changes["maxima_"+key]=s.run.maxima.persona[key];s.run.maxima.persona[key]=maximum[key]
+	return true
 
 func valid_gear_code(code: String) -> bool:
 	var p=code.split(".")

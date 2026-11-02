@@ -1,0 +1,7743 @@
+{
+  "diagnostic_only": true,
+  "battles": 48,
+  "equal_battles": 3,
+  "different_battles": 45,
+  "categories": {
+    "P3: Bargut personal power / use conditions and resulting input divergence": 16,
+    "P3: Naran personal abyss weakness multiplier / later cast state": 9,
+    "P3: class party shield scale (base stat vs 2 * base stat)": 18,
+    "P3: Marceline cover applied to each all-target hit": 2
+  },
+  "notes": [
+    "Classification identifies first observed divergences, not all downstream causes.",
+    "Equipment generation and all-equipment combinations belong to P4 and are not exercised by the equal-initial-stat battle fixture.",
+    "Both policies exclude invalid ally/self targets; skill availability is evaluated by each actual engine."
+  ],
+  "gaps": [
+    {
+      "party": [
+        "hildegard",
+        "bargut",
+        "teiris",
+        "berenga"
+      ],
+      "foe": "apprentice_doll",
+      "seed_number": 1.0,
+      "category": "P3: Bargut personal power / use conditions and resulting input divergence",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            30.0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "g": [
+            9672.0,
+            6936.04,
+            9210.0,
+            9672.0,
+            8245.0,
+            4905.0
+          ],
+          "hits": [
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 98,
+              "shield": 0,
+              "target": 5
+            },
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 122,
+              "shield": 0,
+              "target": 5
+            }
+          ],
+          "hp": [
+            230,
+            78,
+            34,
+            147,
+            0,
+            308
+          ],
+          "mp": [
+            38,
+            39,
+            79,
+            123,
+            0,
+            0
+          ],
+          "n": 13,
+          "rd": 2,
+          "rng": 1515624331,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            3
+          ],
+          "tk": 231
+        },
+        "fields": [
+          "mp",
+          "hits",
+          "abyss",
+          "broken"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "atk",
+          "n": 13.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            10.0,
+            30.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9672.0,
+            6936.04,
+            9210.0,
+            9672.0,
+            8245.0,
+            4905.0
+          ],
+          "hits": [
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 81.0,
+              "shield": 0.0,
+              "target": 5.0
+            },
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 81.0,
+              "shield": 0.0,
+              "target": 5.0
+            }
+          ],
+          "hp": [
+            230.0,
+            78.0,
+            34.0,
+            147.0,
+            0.0,
+            308.0
+          ],
+          "mp": [
+            38.0,
+            51.0,
+            79.0,
+            123.0,
+            0.0,
+            0.0
+          ],
+          "n": 13.0,
+          "rd": 2.0,
+          "rng": 1515624331.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            3.0
+          ],
+          "tk": 231.0
+        },
+        "step": 13
+      }
+    },
+    {
+      "party": [
+        "hildegard",
+        "bargut",
+        "teiris",
+        "berenga"
+      ],
+      "foe": "rusted_shieldman",
+      "seed_number": 1.0,
+      "category": "P3: Bargut personal power / use conditions and resulting input divergence",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            25.0,
+            17.0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9672.0,
+            6936.04,
+            9210.0,
+            9672.0,
+            2865.0,
+            365.0
+          ],
+          "hits": [
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 126,
+              "shield": 0,
+              "target": 6
+            }
+          ],
+          "hp": [
+            230,
+            173,
+            137,
+            147,
+            305,
+            305
+          ],
+          "mp": [
+            38,
+            39,
+            79,
+            123,
+            0,
+            0
+          ],
+          "n": 11,
+          "rd": 2,
+          "rng": 2135760838,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            3
+          ],
+          "tk": 231
+        },
+        "fields": [
+          "hp",
+          "mp",
+          "hits",
+          "abyss"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "atk",
+          "n": 11.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            25.0,
+            35.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9672.0,
+            6936.04,
+            9210.0,
+            9672.0,
+            2865.0,
+            365.0
+          ],
+          "hits": [
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 70.0,
+              "shield": 0.0,
+              "target": 6.0
+            }
+          ],
+          "hp": [
+            230.0,
+            173.0,
+            137.0,
+            147.0,
+            305.0,
+            361.0
+          ],
+          "mp": [
+            38.0,
+            51.0,
+            79.0,
+            123.0,
+            0.0,
+            0.0
+          ],
+          "n": 11.0,
+          "rd": 2.0,
+          "rng": 2135760838.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            3.0
+          ],
+          "tk": 231.0
+        },
+        "step": 11
+      }
+    },
+    {
+      "party": [
+        "hildegard",
+        "bargut",
+        "teiris",
+        "berenga"
+      ],
+      "foe": "apprentice_doll",
+      "seed_number": 2.0,
+      "category": "P3: Bargut personal power / use conditions and resulting input divergence",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            30.0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "g": [
+            9672.0,
+            6936.04,
+            9210.0,
+            9672.0,
+            8245.0,
+            4905.0
+          ],
+          "hits": [
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 98,
+              "shield": 0,
+              "target": 5
+            },
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 122,
+              "shield": 0,
+              "target": 5
+            }
+          ],
+          "hp": [
+            230,
+            173,
+            34,
+            147,
+            0,
+            308
+          ],
+          "mp": [
+            38,
+            39,
+            79,
+            123,
+            0,
+            0
+          ],
+          "n": 13,
+          "rd": 2,
+          "rng": 1075262057,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            3
+          ],
+          "tk": 231
+        },
+        "fields": [
+          "mp",
+          "hits",
+          "abyss",
+          "broken"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "atk",
+          "n": 13.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            10.0,
+            30.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9672.0,
+            6936.04,
+            9210.0,
+            9672.0,
+            8245.0,
+            4905.0
+          ],
+          "hits": [
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 81.0,
+              "shield": 0.0,
+              "target": 5.0
+            },
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 81.0,
+              "shield": 0.0,
+              "target": 5.0
+            }
+          ],
+          "hp": [
+            230.0,
+            173.0,
+            34.0,
+            147.0,
+            0.0,
+            308.0
+          ],
+          "mp": [
+            38.0,
+            51.0,
+            79.0,
+            123.0,
+            0.0,
+            0.0
+          ],
+          "n": 13.0,
+          "rd": 2.0,
+          "rng": 1075262057.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            3.0
+          ],
+          "tk": 231.0
+        },
+        "step": 13
+      }
+    },
+    {
+      "party": [
+        "hildegard",
+        "bargut",
+        "teiris",
+        "berenga"
+      ],
+      "foe": "rusted_shieldman",
+      "seed_number": 2.0,
+      "category": "P3: Bargut personal power / use conditions and resulting input divergence",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            25.0,
+            17.0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9672.0,
+            6936.04,
+            9210.0,
+            9672.0,
+            2865.0,
+            365.0
+          ],
+          "hits": [
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 126,
+              "shield": 0,
+              "target": 6
+            },
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 105,
+              "shield": 0,
+              "target": 6
+            }
+          ],
+          "hp": [
+            230,
+            173,
+            137,
+            147,
+            305,
+            200
+          ],
+          "mp": [
+            38,
+            39,
+            79,
+            123,
+            0,
+            0
+          ],
+          "n": 11,
+          "rd": 2,
+          "rng": 102882387,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            3
+          ],
+          "tk": 231
+        },
+        "fields": [
+          "hp",
+          "mp",
+          "hits",
+          "abyss"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "atk",
+          "n": 11.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            25.0,
+            35.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9672.0,
+            6936.04,
+            9210.0,
+            9672.0,
+            2865.0,
+            365.0
+          ],
+          "hits": [
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 70.0,
+              "shield": 0.0,
+              "target": 6.0
+            },
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 70.0,
+              "shield": 0.0,
+              "target": 6.0
+            }
+          ],
+          "hp": [
+            230.0,
+            173.0,
+            137.0,
+            147.0,
+            305.0,
+            291.0
+          ],
+          "mp": [
+            38.0,
+            51.0,
+            79.0,
+            123.0,
+            0.0,
+            0.0
+          ],
+          "n": 11.0,
+          "rd": 2.0,
+          "rng": 102882387.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            3.0
+          ],
+          "tk": 231.0
+        },
+        "step": 11
+      }
+    },
+    {
+      "party": [
+        "hildegard",
+        "bargut",
+        "teiris",
+        "berenga"
+      ],
+      "foe": "apprentice_doll",
+      "seed_number": 3.0,
+      "category": "P3: Bargut personal power / use conditions and resulting input divergence",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            7.0,
+            30.0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            2432.0,
+            6924.24,
+            2260.0,
+            2432.0,
+            970.0,
+            970.0
+          ],
+          "hits": [
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 147,
+              "shield": 0,
+              "target": 5
+            },
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 122,
+              "shield": 0,
+              "target": 5
+            }
+          ],
+          "hp": [
+            230,
+            173,
+            137,
+            147,
+            39,
+            308
+          ],
+          "mp": [
+            42,
+            39,
+            115,
+            126,
+            0,
+            0
+          ],
+          "n": 1,
+          "rd": 0,
+          "rng": 1243072704,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            3
+          ],
+          "tk": 86
+        },
+        "fields": [
+          "hp",
+          "hits"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "bargut",
+          "id": "mtn_ambush",
+          "n": 1.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            7.0,
+            30.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            2432.0,
+            6924.24,
+            2260.0,
+            2432.0,
+            970.0,
+            970.0
+          ],
+          "hits": [
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 147.0,
+              "shield": 0.0,
+              "target": 5.0
+            },
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 81.0,
+              "shield": 0.0,
+              "target": 5.0
+            }
+          ],
+          "hp": [
+            230.0,
+            173.0,
+            137.0,
+            147.0,
+            80.0,
+            308.0
+          ],
+          "mp": [
+            42.0,
+            39.0,
+            115.0,
+            126.0,
+            0.0,
+            0.0
+          ],
+          "n": 1.0,
+          "rd": 0.0,
+          "rng": 1243072704.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            2.0,
+            3.0
+          ],
+          "tk": 86.0
+        },
+        "step": 1
+      }
+    },
+    {
+      "party": [
+        "hildegard",
+        "bargut",
+        "teiris",
+        "berenga"
+      ],
+      "foe": "rusted_shieldman",
+      "seed_number": 3.0,
+      "category": "P3: Bargut personal power / use conditions and resulting input divergence",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            17.0,
+            40.0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            2432.0,
+            6924.24,
+            2260.0,
+            2432.0,
+            2690.0,
+            2690.0
+          ],
+          "hits": [
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 126,
+              "shield": 0,
+              "target": 5
+            },
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 105,
+              "shield": 0,
+              "target": 5
+            }
+          ],
+          "hp": [
+            230,
+            173,
+            137,
+            147,
+            200,
+            431
+          ],
+          "mp": [
+            42,
+            39,
+            115,
+            126,
+            0,
+            0
+          ],
+          "n": 1,
+          "rd": 0,
+          "rng": 1243072704,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            6
+          ],
+          "tk": 86
+        },
+        "fields": [
+          "hp",
+          "hits"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "bargut",
+          "id": "mtn_ambush",
+          "n": 1.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            17.0,
+            40.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            2432.0,
+            6924.24,
+            2260.0,
+            2432.0,
+            2690.0,
+            2690.0
+          ],
+          "hits": [
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 126.0,
+              "shield": 0.0,
+              "target": 5.0
+            },
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 70.0,
+              "shield": 0.0,
+              "target": 5.0
+            }
+          ],
+          "hp": [
+            230.0,
+            173.0,
+            137.0,
+            147.0,
+            235.0,
+            431.0
+          ],
+          "mp": [
+            42.0,
+            39.0,
+            115.0,
+            126.0,
+            0.0,
+            0.0
+          ],
+          "n": 1.0,
+          "rd": 0.0,
+          "rng": 1243072704.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            6.0
+          ],
+          "tk": 86.0
+        },
+        "step": 1
+      }
+    },
+    {
+      "party": [
+        "hildegard",
+        "bargut",
+        "teiris",
+        "berenga"
+      ],
+      "foe": "apprentice_doll",
+      "seed_number": 4.0,
+      "category": "P3: Bargut personal power / use conditions and resulting input divergence",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            7.0,
+            30.0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            2432.0,
+            6924.24,
+            2260.0,
+            2432.0,
+            970.0,
+            970.0
+          ],
+          "hits": [
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 147,
+              "shield": 0,
+              "target": 5
+            },
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 122,
+              "shield": 0,
+              "target": 5
+            }
+          ],
+          "hp": [
+            230,
+            173,
+            137,
+            147,
+            39,
+            308
+          ],
+          "mp": [
+            42,
+            39,
+            115,
+            126,
+            0,
+            0
+          ],
+          "n": 1,
+          "rd": 0,
+          "rng": 802710430,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "tk": 86
+        },
+        "fields": [
+          "hp",
+          "hits"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "bargut",
+          "id": "mtn_ambush",
+          "n": 1.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            7.0,
+            30.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            2432.0,
+            6924.24,
+            2260.0,
+            2432.0,
+            970.0,
+            970.0
+          ],
+          "hits": [
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 147.0,
+              "shield": 0.0,
+              "target": 5.0
+            },
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 81.0,
+              "shield": 0.0,
+              "target": 5.0
+            }
+          ],
+          "hp": [
+            230.0,
+            173.0,
+            137.0,
+            147.0,
+            80.0,
+            308.0
+          ],
+          "mp": [
+            42.0,
+            39.0,
+            115.0,
+            126.0,
+            0.0,
+            0.0
+          ],
+          "n": 1.0,
+          "rd": 0.0,
+          "rng": 802710430.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            1.0
+          ],
+          "tk": 86.0
+        },
+        "step": 1
+      }
+    },
+    {
+      "party": [
+        "hildegard",
+        "bargut",
+        "teiris",
+        "berenga"
+      ],
+      "foe": "rusted_shieldman",
+      "seed_number": 4.0,
+      "category": "P3: Bargut personal power / use conditions and resulting input divergence",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            17.0,
+            40.0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            2432.0,
+            6924.24,
+            2260.0,
+            2432.0,
+            2690.0,
+            2690.0
+          ],
+          "hits": [
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 126,
+              "shield": 0,
+              "target": 5
+            },
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 105,
+              "shield": 0,
+              "target": 5
+            }
+          ],
+          "hp": [
+            230,
+            173,
+            137,
+            147,
+            200,
+            431
+          ],
+          "mp": [
+            42,
+            39,
+            115,
+            126,
+            0,
+            0
+          ],
+          "n": 1,
+          "rd": 0,
+          "rng": 802710430,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            6
+          ],
+          "tk": 86
+        },
+        "fields": [
+          "hp",
+          "hits"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "bargut",
+          "id": "mtn_ambush",
+          "n": 1.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            17.0,
+            40.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            2432.0,
+            6924.24,
+            2260.0,
+            2432.0,
+            2690.0,
+            2690.0
+          ],
+          "hits": [
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 126.0,
+              "shield": 0.0,
+              "target": 5.0
+            },
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 70.0,
+              "shield": 0.0,
+              "target": 5.0
+            }
+          ],
+          "hp": [
+            230.0,
+            173.0,
+            137.0,
+            147.0,
+            235.0,
+            431.0
+          ],
+          "mp": [
+            42.0,
+            39.0,
+            115.0,
+            126.0,
+            0.0,
+            0.0
+          ],
+          "n": 1.0,
+          "rd": 0.0,
+          "rng": 802710430.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            6.0
+          ],
+          "tk": 86.0
+        },
+        "step": 1
+      }
+    },
+    {
+      "party": [
+        "marceline",
+        "naran",
+        "levia",
+        "teiris"
+      ],
+      "foe": "apprentice_doll",
+      "seed_number": 1.0,
+      "category": "P3: Naran personal abyss weakness multiplier / later cast state",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            27.0,
+            30.0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            1768.0,
+            9904.04,
+            396.0,
+            1180.0,
+            9710.0,
+            9710.0
+          ],
+          "hits": [],
+          "hp": [
+            216,
+            53,
+            59,
+            137,
+            308,
+            308
+          ],
+          "mp": [
+            67,
+            64,
+            53,
+            115,
+            0,
+            0
+          ],
+          "n": 3,
+          "rd": 0,
+          "rng": 628339651,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            6
+          ],
+          "tk": 98
+        },
+        "fields": [
+          "abyss"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "naran",
+          "id": "mark",
+          "n": 3.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            25.0,
+            30.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            1768.0,
+            9904.04,
+            396.0,
+            1180.0,
+            9710.0,
+            9710.0
+          ],
+          "hits": [],
+          "hp": [
+            216.0,
+            53.0,
+            59.0,
+            137.0,
+            308.0,
+            308.0
+          ],
+          "mp": [
+            67.0,
+            64.0,
+            53.0,
+            115.0,
+            0.0,
+            0.0
+          ],
+          "n": 3.0,
+          "rd": 0.0,
+          "rng": 628339651.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            6.0
+          ],
+          "tk": 98.0
+        },
+        "step": 3
+      }
+    },
+    {
+      "party": [
+        "marceline",
+        "naran",
+        "levia",
+        "teiris"
+      ],
+      "foe": "rusted_shieldman",
+      "seed_number": 1.0,
+      "category": "P3: Naran personal abyss weakness multiplier / later cast state",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            35.0
+          ],
+          "actor": 3,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "g": [
+            5988.0,
+            3758.14,
+            9986.0,
+            2270.0,
+            1145.0,
+            6145.0
+          ],
+          "hits": [
+            {
+              "actor": 3,
+              "critical": false,
+              "damage": 56,
+              "shield": 0,
+              "target": 5
+            }
+          ],
+          "hp": [
+            216,
+            153,
+            96,
+            137,
+            90,
+            73
+          ],
+          "mp": [
+            57,
+            50,
+            17,
+            47,
+            0,
+            0
+          ],
+          "n": 31,
+          "rd": 6,
+          "rng": 1787194350,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            4,
+            6
+          ],
+          "tk": 643
+        },
+        "fields": [
+          "abyss"
+        ],
+        "input": {
+          "actor": 3.0,
+          "cid": "",
+          "id": "atk",
+          "n": 31.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            36.0
+          ],
+          "actor": 3.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "g": [
+            5988.0,
+            3758.14,
+            9986.0,
+            2270.0,
+            1145.0,
+            6145.0
+          ],
+          "hits": [
+            {
+              "actor": 3.0,
+              "critical": false,
+              "damage": 56.0,
+              "shield": 0.0,
+              "target": 5.0
+            }
+          ],
+          "hp": [
+            216.0,
+            153.0,
+            96.0,
+            137.0,
+            90.0,
+            73.0
+          ],
+          "mp": [
+            57.0,
+            50.0,
+            17.0,
+            47.0,
+            0.0,
+            0.0
+          ],
+          "n": 31.0,
+          "rd": 6.0,
+          "rng": 1787194350.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            4.0,
+            6.0
+          ],
+          "tk": 643.0
+        },
+        "step": 31
+      }
+    },
+    {
+      "party": [
+        "marceline",
+        "naran",
+        "levia",
+        "teiris"
+      ],
+      "foe": "apprentice_doll",
+      "seed_number": 2.0,
+      "category": "P3: Naran personal abyss weakness multiplier / later cast state",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            27.0,
+            30.0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            1768.0,
+            9904.04,
+            396.0,
+            1180.0,
+            9710.0,
+            9710.0
+          ],
+          "hits": [],
+          "hp": [
+            216,
+            53,
+            59,
+            137,
+            308,
+            308
+          ],
+          "mp": [
+            67,
+            64,
+            53,
+            115,
+            0,
+            0
+          ],
+          "n": 3,
+          "rd": 0,
+          "rng": 628585140,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            6
+          ],
+          "tk": 98
+        },
+        "fields": [
+          "abyss"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "naran",
+          "id": "mark",
+          "n": 3.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            25.0,
+            30.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            1768.0,
+            9904.04,
+            396.0,
+            1180.0,
+            9710.0,
+            9710.0
+          ],
+          "hits": [],
+          "hp": [
+            216.0,
+            53.0,
+            59.0,
+            137.0,
+            308.0,
+            308.0
+          ],
+          "mp": [
+            67.0,
+            64.0,
+            53.0,
+            115.0,
+            0.0,
+            0.0
+          ],
+          "n": 3.0,
+          "rd": 0.0,
+          "rng": 628585140.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            6.0
+          ],
+          "tk": 98.0
+        },
+        "step": 3
+      }
+    },
+    {
+      "party": [
+        "marceline",
+        "naran",
+        "levia",
+        "teiris"
+      ],
+      "foe": "apprentice_doll",
+      "seed_number": 3.0,
+      "category": "P3: Naran personal abyss weakness multiplier / later cast state",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            27.0,
+            30.0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            1768.0,
+            9904.04,
+            396.0,
+            1180.0,
+            9710.0,
+            9710.0
+          ],
+          "hits": [],
+          "hp": [
+            216,
+            53,
+            59,
+            137,
+            308,
+            308
+          ],
+          "mp": [
+            67,
+            64,
+            53,
+            115,
+            0,
+            0
+          ],
+          "n": 3,
+          "rd": 0,
+          "rng": 628830629,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            6
+          ],
+          "tk": 98
+        },
+        "fields": [
+          "abyss"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "naran",
+          "id": "mark",
+          "n": 3.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            25.0,
+            30.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            1768.0,
+            9904.04,
+            396.0,
+            1180.0,
+            9710.0,
+            9710.0
+          ],
+          "hits": [],
+          "hp": [
+            216.0,
+            53.0,
+            59.0,
+            137.0,
+            308.0,
+            308.0
+          ],
+          "mp": [
+            67.0,
+            64.0,
+            53.0,
+            115.0,
+            0.0,
+            0.0
+          ],
+          "n": 3.0,
+          "rd": 0.0,
+          "rng": 628830629.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            6.0
+          ],
+          "tk": 98.0
+        },
+        "step": 3
+      }
+    },
+    {
+      "party": [
+        "marceline",
+        "naran",
+        "levia",
+        "teiris"
+      ],
+      "foe": "rusted_shieldman",
+      "seed_number": 3.0,
+      "category": "P3: class party shield scale (base stat vs 2 * base stat)",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            11.0,
+            40.0
+          ],
+          "actor": 1,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9924.0,
+            6745.72,
+            9828.0,
+            4880.0,
+            3610.0,
+            7735.0
+          ],
+          "hits": [],
+          "hp": [
+            216,
+            153,
+            164,
+            137,
+            163,
+            0
+          ],
+          "mp": [
+            37,
+            38,
+            17,
+            47,
+            0,
+            0
+          ],
+          "n": 29,
+          "rd": 6,
+          "rng": 628856031,
+          "sh": [
+            33,
+            33,
+            33,
+            33,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            3
+          ],
+          "tk": 614
+        },
+        "fields": [
+          "sh"
+        ],
+        "input": {
+          "actor": 1.0,
+          "cid": "",
+          "id": "shield",
+          "n": 29.0,
+          "target": 0.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            11.0,
+            40.0
+          ],
+          "actor": 1.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9924.0,
+            6745.72,
+            9828.0,
+            4880.0,
+            3610.0,
+            7735.0
+          ],
+          "hits": [],
+          "hp": [
+            216.0,
+            153.0,
+            164.0,
+            137.0,
+            163.0,
+            0.0
+          ],
+          "mp": [
+            37.0,
+            38.0,
+            17.0,
+            47.0,
+            0.0,
+            0.0
+          ],
+          "n": 29.0,
+          "rd": 6.0,
+          "rng": 628856031.0,
+          "sh": [
+            67.0,
+            67.0,
+            67.0,
+            67.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            3.0
+          ],
+          "tk": 614.0
+        },
+        "step": 29
+      }
+    },
+    {
+      "party": [
+        "marceline",
+        "naran",
+        "levia",
+        "teiris"
+      ],
+      "foe": "apprentice_doll",
+      "seed_number": 4.0,
+      "category": "P3: Naran personal abyss weakness multiplier / later cast state",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            27.0,
+            30.0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            1768.0,
+            9904.04,
+            396.0,
+            1180.0,
+            9710.0,
+            9710.0
+          ],
+          "hits": [],
+          "hp": [
+            216,
+            53,
+            59,
+            137,
+            308,
+            308
+          ],
+          "mp": [
+            67,
+            64,
+            53,
+            115,
+            0,
+            0
+          ],
+          "n": 3,
+          "rd": 0,
+          "rng": 629076118,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            6
+          ],
+          "tk": 98
+        },
+        "fields": [
+          "abyss"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "naran",
+          "id": "mark",
+          "n": 3.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            25.0,
+            30.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            1768.0,
+            9904.04,
+            396.0,
+            1180.0,
+            9710.0,
+            9710.0
+          ],
+          "hits": [],
+          "hp": [
+            216.0,
+            53.0,
+            59.0,
+            137.0,
+            308.0,
+            308.0
+          ],
+          "mp": [
+            67.0,
+            64.0,
+            53.0,
+            115.0,
+            0.0,
+            0.0
+          ],
+          "n": 3.0,
+          "rd": 0.0,
+          "rng": 629076118.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            6.0
+          ],
+          "tk": 98.0
+        },
+        "step": 3
+      }
+    },
+    {
+      "party": [
+        "marceline",
+        "naran",
+        "levia",
+        "teiris"
+      ],
+      "foe": "rusted_shieldman",
+      "seed_number": 4.0,
+      "category": "P3: class party shield scale (base stat vs 2 * base stat)",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            11.0,
+            40.0
+          ],
+          "actor": 1,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9924.0,
+            6745.72,
+            9828.0,
+            4880.0,
+            3610.0,
+            7735.0
+          ],
+          "hits": [],
+          "hp": [
+            216,
+            153,
+            164,
+            137,
+            163,
+            0
+          ],
+          "mp": [
+            37,
+            38,
+            17,
+            47,
+            0,
+            0
+          ],
+          "n": 29,
+          "rd": 6,
+          "rng": 629101520,
+          "sh": [
+            33,
+            33,
+            33,
+            33,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            2
+          ],
+          "tk": 614
+        },
+        "fields": [
+          "sh"
+        ],
+        "input": {
+          "actor": 1.0,
+          "cid": "",
+          "id": "shield",
+          "n": 29.0,
+          "target": 0.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            11.0,
+            40.0
+          ],
+          "actor": 1.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9924.0,
+            6745.72,
+            9828.0,
+            4880.0,
+            3610.0,
+            7735.0
+          ],
+          "hits": [],
+          "hp": [
+            216.0,
+            153.0,
+            164.0,
+            137.0,
+            163.0,
+            0.0
+          ],
+          "mp": [
+            37.0,
+            38.0,
+            17.0,
+            47.0,
+            0.0,
+            0.0
+          ],
+          "n": 29.0,
+          "rd": 6.0,
+          "rng": 629101520.0,
+          "sh": [
+            67.0,
+            67.0,
+            67.0,
+            67.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            2.0
+          ],
+          "tk": 614.0
+        },
+        "step": 29
+      }
+    },
+    {
+      "party": [
+        "sorel",
+        "adeline",
+        "tove",
+        "urda"
+      ],
+      "foe": "apprentice_doll",
+      "seed_number": 1.0,
+      "category": "P3: class party shield scale (base stat vs 2 * base stat)",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            30.0,
+            30.0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8404.49,
+            154.720000000001,
+            8660.0,
+            8660.0
+          ],
+          "hits": [],
+          "hp": [
+            147,
+            147,
+            173,
+            168,
+            308,
+            308
+          ],
+          "mp": [
+            123,
+            96,
+            38,
+            117,
+            0,
+            0
+          ],
+          "n": 5,
+          "rd": 1,
+          "rng": 628341605,
+          "sh": [
+            31,
+            31,
+            31,
+            31,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            3,
+            6
+          ],
+          "tk": 108
+        },
+        "fields": [
+          "sh"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "pshield",
+          "n": 5.0,
+          "target": 0.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            30.0,
+            30.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8404.49,
+            154.72,
+            8660.0,
+            8660.0
+          ],
+          "hits": [],
+          "hp": [
+            147.0,
+            147.0,
+            173.0,
+            168.0,
+            308.0,
+            308.0
+          ],
+          "mp": [
+            123.0,
+            96.0,
+            38.0,
+            117.0,
+            0.0,
+            0.0
+          ],
+          "n": 5.0,
+          "rd": 1.0,
+          "rng": 628341605.0,
+          "sh": [
+            62.0,
+            62.0,
+            62.0,
+            62.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            3.0,
+            6.0
+          ],
+          "tk": 108.0
+        },
+        "step": 5
+      }
+    },
+    {
+      "party": [
+        "sorel",
+        "adeline",
+        "tove",
+        "urda"
+      ],
+      "foe": "rusted_shieldman",
+      "seed_number": 1.0,
+      "category": "P3: class party shield scale (base stat vs 2 * base stat)",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            40.0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8378.12,
+            154.720000000001,
+            820.0,
+            820.0
+          ],
+          "hits": [],
+          "hp": [
+            147,
+            147,
+            222,
+            168,
+            431,
+            431
+          ],
+          "mp": [
+            123,
+            96,
+            38,
+            117,
+            0,
+            0
+          ],
+          "n": 3,
+          "rd": 1,
+          "rng": 628339651,
+          "sh": [
+            31,
+            31,
+            31,
+            31,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            6
+          ],
+          "tk": 108
+        },
+        "fields": [
+          "sh"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "pshield",
+          "n": 3.0,
+          "target": 0.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            40.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8378.12,
+            154.72,
+            820.0,
+            820.0
+          ],
+          "hits": [],
+          "hp": [
+            147.0,
+            147.0,
+            222.0,
+            168.0,
+            431.0,
+            431.0
+          ],
+          "mp": [
+            123.0,
+            96.0,
+            38.0,
+            117.0,
+            0.0,
+            0.0
+          ],
+          "n": 3.0,
+          "rd": 1.0,
+          "rng": 628339651.0,
+          "sh": [
+            62.0,
+            62.0,
+            62.0,
+            62.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            6.0
+          ],
+          "tk": 108.0
+        },
+        "step": 3
+      }
+    },
+    {
+      "party": [
+        "sorel",
+        "adeline",
+        "tove",
+        "urda"
+      ],
+      "foe": "apprentice_doll",
+      "seed_number": 2.0,
+      "category": "P3: class party shield scale (base stat vs 2 * base stat)",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            30.0,
+            30.0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8404.49,
+            154.720000000001,
+            8660.0,
+            8660.0
+          ],
+          "hits": [],
+          "hp": [
+            147,
+            147,
+            173,
+            168,
+            308,
+            308
+          ],
+          "mp": [
+            123,
+            96,
+            38,
+            117,
+            0,
+            0
+          ],
+          "n": 5,
+          "rd": 1,
+          "rng": 628587094,
+          "sh": [
+            31,
+            31,
+            31,
+            31,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            3,
+            6
+          ],
+          "tk": 108
+        },
+        "fields": [
+          "sh"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "pshield",
+          "n": 5.0,
+          "target": 0.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            30.0,
+            30.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8404.49,
+            154.72,
+            8660.0,
+            8660.0
+          ],
+          "hits": [],
+          "hp": [
+            147.0,
+            147.0,
+            173.0,
+            168.0,
+            308.0,
+            308.0
+          ],
+          "mp": [
+            123.0,
+            96.0,
+            38.0,
+            117.0,
+            0.0,
+            0.0
+          ],
+          "n": 5.0,
+          "rd": 1.0,
+          "rng": 628587094.0,
+          "sh": [
+            62.0,
+            62.0,
+            62.0,
+            62.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            3.0,
+            6.0
+          ],
+          "tk": 108.0
+        },
+        "step": 5
+      }
+    },
+    {
+      "party": [
+        "sorel",
+        "adeline",
+        "tove",
+        "urda"
+      ],
+      "foe": "rusted_shieldman",
+      "seed_number": 2.0,
+      "category": "P3: class party shield scale (base stat vs 2 * base stat)",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            40.0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8378.12,
+            154.720000000001,
+            820.0,
+            820.0
+          ],
+          "hits": [],
+          "hp": [
+            147,
+            147,
+            222,
+            168,
+            431,
+            431
+          ],
+          "mp": [
+            123,
+            96,
+            38,
+            117,
+            0,
+            0
+          ],
+          "n": 3,
+          "rd": 1,
+          "rng": 628585140,
+          "sh": [
+            31,
+            31,
+            31,
+            31,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            6
+          ],
+          "tk": 108
+        },
+        "fields": [
+          "sh"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "pshield",
+          "n": 3.0,
+          "target": 0.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            40.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8378.12,
+            154.72,
+            820.0,
+            820.0
+          ],
+          "hits": [],
+          "hp": [
+            147.0,
+            147.0,
+            222.0,
+            168.0,
+            431.0,
+            431.0
+          ],
+          "mp": [
+            123.0,
+            96.0,
+            38.0,
+            117.0,
+            0.0,
+            0.0
+          ],
+          "n": 3.0,
+          "rd": 1.0,
+          "rng": 628585140.0,
+          "sh": [
+            62.0,
+            62.0,
+            62.0,
+            62.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            6.0
+          ],
+          "tk": 108.0
+        },
+        "step": 3
+      }
+    },
+    {
+      "party": [
+        "sorel",
+        "adeline",
+        "tove",
+        "urda"
+      ],
+      "foe": "apprentice_doll",
+      "seed_number": 3.0,
+      "category": "P3: class party shield scale (base stat vs 2 * base stat)",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            30.0,
+            30.0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8404.49,
+            154.720000000001,
+            8660.0,
+            8660.0
+          ],
+          "hits": [],
+          "hp": [
+            147,
+            147,
+            173,
+            168,
+            308,
+            308
+          ],
+          "mp": [
+            123,
+            96,
+            38,
+            117,
+            0,
+            0
+          ],
+          "n": 5,
+          "rd": 1,
+          "rng": 628832583,
+          "sh": [
+            31,
+            31,
+            31,
+            31,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            6
+          ],
+          "tk": 108
+        },
+        "fields": [
+          "sh"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "pshield",
+          "n": 5.0,
+          "target": 0.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            30.0,
+            30.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8404.49,
+            154.72,
+            8660.0,
+            8660.0
+          ],
+          "hits": [],
+          "hp": [
+            147.0,
+            147.0,
+            173.0,
+            168.0,
+            308.0,
+            308.0
+          ],
+          "mp": [
+            123.0,
+            96.0,
+            38.0,
+            117.0,
+            0.0,
+            0.0
+          ],
+          "n": 5.0,
+          "rd": 1.0,
+          "rng": 628832583.0,
+          "sh": [
+            62.0,
+            62.0,
+            62.0,
+            62.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            2.0,
+            6.0
+          ],
+          "tk": 108.0
+        },
+        "step": 5
+      }
+    },
+    {
+      "party": [
+        "sorel",
+        "adeline",
+        "tove",
+        "urda"
+      ],
+      "foe": "rusted_shieldman",
+      "seed_number": 3.0,
+      "category": "P3: class party shield scale (base stat vs 2 * base stat)",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            40.0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8378.12,
+            154.720000000001,
+            820.0,
+            820.0
+          ],
+          "hits": [],
+          "hp": [
+            147,
+            147,
+            222,
+            168,
+            431,
+            431
+          ],
+          "mp": [
+            123,
+            96,
+            38,
+            117,
+            0,
+            0
+          ],
+          "n": 3,
+          "rd": 1,
+          "rng": 628830629,
+          "sh": [
+            31,
+            31,
+            31,
+            31,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            6
+          ],
+          "tk": 108
+        },
+        "fields": [
+          "sh"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "pshield",
+          "n": 3.0,
+          "target": 0.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            40.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8378.12,
+            154.72,
+            820.0,
+            820.0
+          ],
+          "hits": [],
+          "hp": [
+            147.0,
+            147.0,
+            222.0,
+            168.0,
+            431.0,
+            431.0
+          ],
+          "mp": [
+            123.0,
+            96.0,
+            38.0,
+            117.0,
+            0.0,
+            0.0
+          ],
+          "n": 3.0,
+          "rd": 1.0,
+          "rng": 628830629.0,
+          "sh": [
+            62.0,
+            62.0,
+            62.0,
+            62.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            6.0
+          ],
+          "tk": 108.0
+        },
+        "step": 3
+      }
+    },
+    {
+      "party": [
+        "sorel",
+        "adeline",
+        "tove",
+        "urda"
+      ],
+      "foe": "apprentice_doll",
+      "seed_number": 4.0,
+      "category": "P3: class party shield scale (base stat vs 2 * base stat)",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            30.0,
+            30.0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8404.49,
+            154.720000000001,
+            8660.0,
+            8660.0
+          ],
+          "hits": [],
+          "hp": [
+            147,
+            147,
+            173,
+            168,
+            308,
+            308
+          ],
+          "mp": [
+            123,
+            96,
+            38,
+            117,
+            0,
+            0
+          ],
+          "n": 5,
+          "rd": 1,
+          "rng": 629078072,
+          "sh": [
+            31,
+            31,
+            31,
+            31,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            6
+          ],
+          "tk": 108
+        },
+        "fields": [
+          "sh"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "pshield",
+          "n": 5.0,
+          "target": 0.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            30.0,
+            30.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8404.49,
+            154.72,
+            8660.0,
+            8660.0
+          ],
+          "hits": [],
+          "hp": [
+            147.0,
+            147.0,
+            173.0,
+            168.0,
+            308.0,
+            308.0
+          ],
+          "mp": [
+            123.0,
+            96.0,
+            38.0,
+            117.0,
+            0.0,
+            0.0
+          ],
+          "n": 5.0,
+          "rd": 1.0,
+          "rng": 629078072.0,
+          "sh": [
+            62.0,
+            62.0,
+            62.0,
+            62.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            2.0,
+            6.0
+          ],
+          "tk": 108.0
+        },
+        "step": 5
+      }
+    },
+    {
+      "party": [
+        "sorel",
+        "adeline",
+        "tove",
+        "urda"
+      ],
+      "foe": "rusted_shieldman",
+      "seed_number": 4.0,
+      "category": "P3: class party shield scale (base stat vs 2 * base stat)",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            40.0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8378.12,
+            154.720000000001,
+            820.0,
+            820.0
+          ],
+          "hits": [],
+          "hp": [
+            147,
+            147,
+            222,
+            168,
+            431,
+            431
+          ],
+          "mp": [
+            123,
+            96,
+            38,
+            117,
+            0,
+            0
+          ],
+          "n": 3,
+          "rd": 1,
+          "rng": 629076118,
+          "sh": [
+            31,
+            31,
+            31,
+            31,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            6
+          ],
+          "tk": 108
+        },
+        "fields": [
+          "sh"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "pshield",
+          "n": 3.0,
+          "target": 0.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            40.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            true,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8378.12,
+            154.72,
+            820.0,
+            820.0
+          ],
+          "hits": [],
+          "hp": [
+            147.0,
+            147.0,
+            222.0,
+            168.0,
+            431.0,
+            431.0
+          ],
+          "mp": [
+            123.0,
+            96.0,
+            38.0,
+            117.0,
+            0.0,
+            0.0
+          ],
+          "n": 3.0,
+          "rd": 1.0,
+          "rng": 629076118.0,
+          "sh": [
+            62.0,
+            62.0,
+            62.0,
+            62.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            6.0
+          ],
+          "tk": 108.0
+        },
+        "step": 3
+      }
+    },
+    {
+      "party": [
+        "hildegard",
+        "bargut",
+        "teiris",
+        "berenga"
+      ],
+      "foe": "raging_lecturer",
+      "seed_number": 1.0,
+      "category": "P3: Bargut personal power / use conditions and resulting input divergence",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            69.0,
+            0,
+            0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9672.0,
+            6936.04,
+            9210.0,
+            9672.0,
+            6995.0,
+            0,
+            0
+          ],
+          "hits": [
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 147,
+              "shield": 0,
+              "target": 5
+            }
+          ],
+          "hp": [
+            230,
+            101,
+            59,
+            75,
+            1879,
+            0,
+            0
+          ],
+          "mp": [
+            38,
+            39,
+            79,
+            123,
+            0,
+            0,
+            0
+          ],
+          "n": 11,
+          "rd": 2,
+          "rng": 2135760838,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          "tk": 231
+        },
+        "fields": [
+          "hp",
+          "mp",
+          "hits",
+          "abyss"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "atk",
+          "n": 11.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            87.0,
+            0.0,
+            0.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9672.0,
+            6936.04,
+            9210.0,
+            9672.0,
+            6995.0,
+            0.0,
+            0.0
+          ],
+          "hits": [
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 81.0,
+              "shield": 0.0,
+              "target": 5.0
+            }
+          ],
+          "hp": [
+            230.0,
+            101.0,
+            59.0,
+            75.0,
+            1945.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            38.0,
+            51.0,
+            79.0,
+            123.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 11.0,
+          "rd": 2.0,
+          "rng": 2135760838.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            3.0,
+            0.0,
+            0.0
+          ],
+          "tk": 231.0
+        },
+        "step": 11
+      }
+    },
+    {
+      "party": [
+        "hildegard",
+        "bargut",
+        "teiris",
+        "berenga"
+      ],
+      "foe": "frost_contractor",
+      "seed_number": 1.0,
+      "category": "P3: Bargut personal power / use conditions and resulting input divergence",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            55.0,
+            0,
+            0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9672.0,
+            6936.04,
+            9210.0,
+            9672.0,
+            8245.0,
+            0,
+            0
+          ],
+          "hits": [
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 84,
+              "shield": 0,
+              "target": 5
+            }
+          ],
+          "hp": [
+            129,
+            173,
+            137,
+            147,
+            1433,
+            0,
+            0
+          ],
+          "mp": [
+            38,
+            39,
+            79,
+            123,
+            0,
+            0,
+            0
+          ],
+          "n": 11,
+          "rd": 2,
+          "rng": 2135760838,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          "tk": 231
+        },
+        "fields": [
+          "hp",
+          "mp",
+          "hits",
+          "abyss"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "atk",
+          "n": 11.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            67.0,
+            0.0,
+            0.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9672.0,
+            6936.04,
+            9210.0,
+            9672.0,
+            8245.0,
+            0.0,
+            0.0
+          ],
+          "hits": [
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 47.0,
+              "shield": 0.0,
+              "target": 5.0
+            }
+          ],
+          "hp": [
+            129.0,
+            173.0,
+            137.0,
+            147.0,
+            1470.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            38.0,
+            51.0,
+            79.0,
+            123.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 11.0,
+          "rd": 2.0,
+          "rng": 2135760838.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            0.0,
+            0.0
+          ],
+          "tk": 231.0
+        },
+        "step": 11
+      }
+    },
+    {
+      "party": [
+        "hildegard",
+        "bargut",
+        "teiris",
+        "berenga"
+      ],
+      "foe": "raging_lecturer",
+      "seed_number": 2.0,
+      "category": "P3: Bargut personal power / use conditions and resulting input divergence",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            69.0,
+            0,
+            0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9672.0,
+            6936.04,
+            9210.0,
+            9672.0,
+            6995.0,
+            0,
+            0
+          ],
+          "hits": [
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 147,
+              "shield": 0,
+              "target": 5
+            },
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 122,
+              "shield": 0,
+              "target": 5
+            }
+          ],
+          "hp": [
+            230,
+            101,
+            59,
+            75,
+            1757,
+            0,
+            0
+          ],
+          "mp": [
+            38,
+            39,
+            79,
+            123,
+            0,
+            0,
+            0
+          ],
+          "n": 11,
+          "rd": 2,
+          "rng": 102882387,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          "tk": 231
+        },
+        "fields": [
+          "hp",
+          "mp",
+          "hits",
+          "abyss"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "atk",
+          "n": 11.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            87.0,
+            0.0,
+            0.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9672.0,
+            6936.04,
+            9210.0,
+            9672.0,
+            6995.0,
+            0.0,
+            0.0
+          ],
+          "hits": [
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 81.0,
+              "shield": 0.0,
+              "target": 5.0
+            },
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 81.0,
+              "shield": 0.0,
+              "target": 5.0
+            }
+          ],
+          "hp": [
+            230.0,
+            101.0,
+            59.0,
+            75.0,
+            1864.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            38.0,
+            51.0,
+            79.0,
+            123.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 11.0,
+          "rd": 2.0,
+          "rng": 102882387.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            3.0,
+            0.0,
+            0.0
+          ],
+          "tk": 231.0
+        },
+        "step": 11
+      }
+    },
+    {
+      "party": [
+        "hildegard",
+        "bargut",
+        "teiris",
+        "berenga"
+      ],
+      "foe": "frost_contractor",
+      "seed_number": 2.0,
+      "category": "P3: Bargut personal power / use conditions and resulting input divergence",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            55.0,
+            0,
+            0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9672.0,
+            6936.04,
+            9210.0,
+            9672.0,
+            8245.0,
+            0,
+            0
+          ],
+          "hits": [
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 84,
+              "shield": 0,
+              "target": 5
+            },
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 70,
+              "shield": 0,
+              "target": 5
+            }
+          ],
+          "hp": [
+            129,
+            173,
+            137,
+            147,
+            1363,
+            0,
+            0
+          ],
+          "mp": [
+            38,
+            39,
+            79,
+            123,
+            0,
+            0,
+            0
+          ],
+          "n": 11,
+          "rd": 2,
+          "rng": 102882387,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          "tk": 231
+        },
+        "fields": [
+          "hp",
+          "mp",
+          "hits",
+          "abyss"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "atk",
+          "n": 11.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            67.0,
+            0.0,
+            0.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9672.0,
+            6936.04,
+            9210.0,
+            9672.0,
+            8245.0,
+            0.0,
+            0.0
+          ],
+          "hits": [
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 47.0,
+              "shield": 0.0,
+              "target": 5.0
+            },
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 47.0,
+              "shield": 0.0,
+              "target": 5.0
+            }
+          ],
+          "hp": [
+            129.0,
+            173.0,
+            137.0,
+            147.0,
+            1423.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            38.0,
+            51.0,
+            79.0,
+            123.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 11.0,
+          "rd": 2.0,
+          "rng": 102882387.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            0.0,
+            0.0
+          ],
+          "tk": 231.0
+        },
+        "step": 11
+      }
+    },
+    {
+      "party": [
+        "hildegard",
+        "bargut",
+        "teiris",
+        "berenga"
+      ],
+      "foe": "raging_lecturer",
+      "seed_number": 3.0,
+      "category": "P3: Bargut personal power / use conditions and resulting input divergence",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            127.0,
+            0,
+            0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            2432.0,
+            6924.24,
+            2260.0,
+            2432.0,
+            970.0,
+            0,
+            0
+          ],
+          "hits": [
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 147,
+              "shield": 0,
+              "target": 5
+            },
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 122,
+              "shield": 0,
+              "target": 5
+            }
+          ],
+          "hp": [
+            230,
+            173,
+            137,
+            147,
+            1904,
+            0,
+            0
+          ],
+          "mp": [
+            42,
+            39,
+            115,
+            126,
+            0,
+            0,
+            0
+          ],
+          "n": 1,
+          "rd": 0,
+          "rng": 1243072704,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          "tk": 86
+        },
+        "fields": [
+          "hp",
+          "hits"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "bargut",
+          "id": "mtn_ambush",
+          "n": 1.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            127.0,
+            0.0,
+            0.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            2432.0,
+            6924.24,
+            2260.0,
+            2432.0,
+            970.0,
+            0.0,
+            0.0
+          ],
+          "hits": [
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 147.0,
+              "shield": 0.0,
+              "target": 5.0
+            },
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 81.0,
+              "shield": 0.0,
+              "target": 5.0
+            }
+          ],
+          "hp": [
+            230.0,
+            173.0,
+            137.0,
+            147.0,
+            1945.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            42.0,
+            39.0,
+            115.0,
+            126.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 1.0,
+          "rd": 0.0,
+          "rng": 1243072704.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            2.0,
+            0.0,
+            0.0
+          ],
+          "tk": 86.0
+        },
+        "step": 1
+      }
+    },
+    {
+      "party": [
+        "hildegard",
+        "bargut",
+        "teiris",
+        "berenga"
+      ],
+      "foe": "frost_contractor",
+      "seed_number": 3.0,
+      "category": "P3: Bargut personal power / use conditions and resulting input divergence",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            105.0,
+            0,
+            0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            2432.0,
+            6924.24,
+            2260.0,
+            2432.0,
+            970.0,
+            0,
+            0
+          ],
+          "hits": [
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 113,
+              "shield": 0,
+              "target": 5
+            },
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 94,
+              "shield": 0,
+              "target": 5
+            }
+          ],
+          "hp": [
+            230,
+            173,
+            137,
+            147,
+            1423,
+            0,
+            0
+          ],
+          "mp": [
+            42,
+            39,
+            115,
+            126,
+            0,
+            0,
+            0
+          ],
+          "n": 1,
+          "rd": 0,
+          "rng": 1243072704,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          "tk": 86
+        },
+        "fields": [
+          "hp",
+          "hits"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "bargut",
+          "id": "mtn_ambush",
+          "n": 1.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            105.0,
+            0.0,
+            0.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            2432.0,
+            6924.24,
+            2260.0,
+            2432.0,
+            970.0,
+            0.0,
+            0.0
+          ],
+          "hits": [
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 113.0,
+              "shield": 0.0,
+              "target": 5.0
+            },
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 62.0,
+              "shield": 0.0,
+              "target": 5.0
+            }
+          ],
+          "hp": [
+            230.0,
+            173.0,
+            137.0,
+            147.0,
+            1455.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            42.0,
+            39.0,
+            115.0,
+            126.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 1.0,
+          "rd": 0.0,
+          "rng": 1243072704.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            2.0,
+            0.0,
+            0.0
+          ],
+          "tk": 86.0
+        },
+        "step": 1
+      }
+    },
+    {
+      "party": [
+        "hildegard",
+        "bargut",
+        "teiris",
+        "berenga"
+      ],
+      "foe": "raging_lecturer",
+      "seed_number": 4.0,
+      "category": "P3: Bargut personal power / use conditions and resulting input divergence",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            127.0,
+            0,
+            0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            2432.0,
+            6924.24,
+            2260.0,
+            2432.0,
+            970.0,
+            0,
+            0
+          ],
+          "hits": [
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 147,
+              "shield": 0,
+              "target": 5
+            },
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 122,
+              "shield": 0,
+              "target": 5
+            }
+          ],
+          "hp": [
+            230,
+            173,
+            137,
+            147,
+            1904,
+            0,
+            0
+          ],
+          "mp": [
+            42,
+            39,
+            115,
+            126,
+            0,
+            0,
+            0
+          ],
+          "n": 1,
+          "rd": 0,
+          "rng": 802710430,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          "tk": 86
+        },
+        "fields": [
+          "hp",
+          "hits"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "bargut",
+          "id": "mtn_ambush",
+          "n": 1.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            127.0,
+            0.0,
+            0.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            2432.0,
+            6924.24,
+            2260.0,
+            2432.0,
+            970.0,
+            0.0,
+            0.0
+          ],
+          "hits": [
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 147.0,
+              "shield": 0.0,
+              "target": 5.0
+            },
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 81.0,
+              "shield": 0.0,
+              "target": 5.0
+            }
+          ],
+          "hp": [
+            230.0,
+            173.0,
+            137.0,
+            147.0,
+            1945.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            42.0,
+            39.0,
+            115.0,
+            126.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 1.0,
+          "rd": 0.0,
+          "rng": 802710430.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            2.0,
+            0.0,
+            0.0
+          ],
+          "tk": 86.0
+        },
+        "step": 1
+      }
+    },
+    {
+      "party": [
+        "hildegard",
+        "bargut",
+        "teiris",
+        "berenga"
+      ],
+      "foe": "frost_contractor",
+      "seed_number": 4.0,
+      "category": "P3: Bargut personal power / use conditions and resulting input divergence",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            105.0,
+            0,
+            0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            2432.0,
+            6924.24,
+            2260.0,
+            2432.0,
+            970.0,
+            0,
+            0
+          ],
+          "hits": [
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 113,
+              "shield": 0,
+              "target": 5
+            },
+            {
+              "actor": 2,
+              "critical": true,
+              "damage": 94,
+              "shield": 0,
+              "target": 5
+            }
+          ],
+          "hp": [
+            230,
+            173,
+            137,
+            147,
+            1423,
+            0,
+            0
+          ],
+          "mp": [
+            42,
+            39,
+            115,
+            126,
+            0,
+            0,
+            0
+          ],
+          "n": 1,
+          "rd": 0,
+          "rng": 802710430,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          "tk": 86
+        },
+        "fields": [
+          "hp",
+          "hits"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "bargut",
+          "id": "mtn_ambush",
+          "n": 1.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            105.0,
+            0.0,
+            0.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            2432.0,
+            6924.24,
+            2260.0,
+            2432.0,
+            970.0,
+            0.0,
+            0.0
+          ],
+          "hits": [
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 113.0,
+              "shield": 0.0,
+              "target": 5.0
+            },
+            {
+              "actor": 2.0,
+              "critical": true,
+              "damage": 62.0,
+              "shield": 0.0,
+              "target": 5.0
+            }
+          ],
+          "hp": [
+            230.0,
+            173.0,
+            137.0,
+            147.0,
+            1455.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            42.0,
+            39.0,
+            115.0,
+            126.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 1.0,
+          "rd": 0.0,
+          "rng": 802710430.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            2.0,
+            0.0,
+            0.0
+          ],
+          "tk": 86.0
+        },
+        "step": 1
+      }
+    },
+    {
+      "party": [
+        "marceline",
+        "naran",
+        "levia",
+        "teiris"
+      ],
+      "foe": "raging_lecturer",
+      "seed_number": 1.0,
+      "category": "P3: Marceline cover applied to each all-target hit",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            95.0,
+            0,
+            0
+          ],
+          "actor": 5,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            5644.0,
+            7864.82,
+            796.0,
+            13250.0,
+            9955.0,
+            0,
+            0
+          ],
+          "hits": [
+            {
+              "actor": 5,
+              "critical": false,
+              "damage": 74,
+              "shield": 0,
+              "target": 1
+            },
+            {
+              "actor": 5,
+              "critical": false,
+              "damage": 51,
+              "shield": 0,
+              "target": 1
+            },
+            {
+              "actor": 5,
+              "critical": false,
+              "damage": 93,
+              "shield": 0,
+              "target": 4
+            }
+          ],
+          "hp": [
+            72,
+            78,
+            0,
+            0,
+            2060,
+            0,
+            0
+          ],
+          "mp": [
+            52,
+            76,
+            29,
+            57,
+            0,
+            0,
+            0
+          ],
+          "n": 16,
+          "rd": 4,
+          "rng": 1540887765,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          "tk": 409
+        },
+        "fields": [
+          "hp",
+          "hits"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "item:hp_s",
+          "n": 15.0,
+          "target": 1.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            95.0,
+            0.0,
+            0.0
+          ],
+          "actor": 5.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            5644.0,
+            7864.82,
+            796.0,
+            13250.0,
+            9955.0,
+            0.0,
+            0.0
+          ],
+          "hits": [
+            {
+              "actor": 5.0,
+              "critical": false,
+              "damage": 74.0,
+              "shield": 0.0,
+              "target": 1.0
+            },
+            {
+              "actor": 5.0,
+              "critical": false,
+              "damage": 91.0,
+              "shield": 0.0,
+              "target": 2.0
+            },
+            {
+              "actor": 5.0,
+              "critical": false,
+              "damage": 93.0,
+              "shield": 0.0,
+              "target": 4.0
+            }
+          ],
+          "hp": [
+            123.0,
+            0.0,
+            0.0,
+            0.0,
+            2060.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            52.0,
+            76.0,
+            29.0,
+            57.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 16.0,
+          "rd": 4.0,
+          "rng": 1540887765.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            0.0,
+            0.0
+          ],
+          "tk": 409.0
+        },
+        "step": 16
+      }
+    },
+    {
+      "party": [
+        "marceline",
+        "naran",
+        "levia",
+        "teiris"
+      ],
+      "foe": "frost_contractor",
+      "seed_number": 1.0,
+      "category": "P3: Naran personal abyss weakness multiplier / later cast state",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            117.0,
+            0,
+            0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            1768.0,
+            9904.04,
+            396.0,
+            1180.0,
+            9710.0,
+            0,
+            0
+          ],
+          "hits": [],
+          "hp": [
+            216,
+            153,
+            164,
+            137,
+            1630,
+            0,
+            0
+          ],
+          "mp": [
+            67,
+            64,
+            53,
+            115,
+            0,
+            0,
+            0
+          ],
+          "n": 2,
+          "rd": 0,
+          "rng": 628338674,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          "tk": 98
+        },
+        "fields": [
+          "abyss"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "naran",
+          "id": "mark",
+          "n": 2.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            115.0,
+            0.0,
+            0.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            1768.0,
+            9904.04,
+            396.0,
+            1180.0,
+            9710.0,
+            0.0,
+            0.0
+          ],
+          "hits": [],
+          "hp": [
+            216.0,
+            153.0,
+            164.0,
+            137.0,
+            1630.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            67.0,
+            64.0,
+            53.0,
+            115.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 2.0,
+          "rd": 0.0,
+          "rng": 628338674.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            3.0,
+            0.0,
+            0.0
+          ],
+          "tk": 98.0
+        },
+        "step": 2
+      }
+    },
+    {
+      "party": [
+        "marceline",
+        "naran",
+        "levia",
+        "teiris"
+      ],
+      "foe": "raging_lecturer",
+      "seed_number": 2.0,
+      "category": "P3: Marceline cover applied to each all-target hit",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            95.0,
+            0,
+            0
+          ],
+          "actor": 5,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            5644.0,
+            7864.82,
+            796.0,
+            13250.0,
+            9955.0,
+            0,
+            0
+          ],
+          "hits": [
+            {
+              "actor": 5,
+              "critical": false,
+              "damage": 74,
+              "shield": 0,
+              "target": 1
+            },
+            {
+              "actor": 5,
+              "critical": false,
+              "damage": 51,
+              "shield": 0,
+              "target": 1
+            },
+            {
+              "actor": 5,
+              "critical": false,
+              "damage": 93,
+              "shield": 0,
+              "target": 4
+            }
+          ],
+          "hp": [
+            72,
+            78,
+            0,
+            0,
+            2060,
+            0,
+            0
+          ],
+          "mp": [
+            52,
+            76,
+            29,
+            57,
+            0,
+            0,
+            0
+          ],
+          "n": 16,
+          "rd": 4,
+          "rng": 1371854094,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          "tk": 409
+        },
+        "fields": [
+          "hp",
+          "hits"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "item:hp_s",
+          "n": 15.0,
+          "target": 1.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            95.0,
+            0.0,
+            0.0
+          ],
+          "actor": 5.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            5644.0,
+            7864.82,
+            796.0,
+            13250.0,
+            9955.0,
+            0.0,
+            0.0
+          ],
+          "hits": [
+            {
+              "actor": 5.0,
+              "critical": false,
+              "damage": 74.0,
+              "shield": 0.0,
+              "target": 1.0
+            },
+            {
+              "actor": 5.0,
+              "critical": false,
+              "damage": 91.0,
+              "shield": 0.0,
+              "target": 2.0
+            },
+            {
+              "actor": 5.0,
+              "critical": false,
+              "damage": 93.0,
+              "shield": 0.0,
+              "target": 4.0
+            }
+          ],
+          "hp": [
+            123.0,
+            0.0,
+            0.0,
+            0.0,
+            2060.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            52.0,
+            76.0,
+            29.0,
+            57.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 16.0,
+          "rd": 4.0,
+          "rng": 1371854094.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            0.0,
+            0.0
+          ],
+          "tk": 409.0
+        },
+        "step": 16
+      }
+    },
+    {
+      "party": [
+        "marceline",
+        "naran",
+        "levia",
+        "teiris"
+      ],
+      "foe": "frost_contractor",
+      "seed_number": 2.0,
+      "category": "P3: Naran personal abyss weakness multiplier / later cast state",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            117.0,
+            0,
+            0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            1768.0,
+            9904.04,
+            396.0,
+            1180.0,
+            9710.0,
+            0,
+            0
+          ],
+          "hits": [],
+          "hp": [
+            216,
+            153,
+            164,
+            137,
+            1630,
+            0,
+            0
+          ],
+          "mp": [
+            67,
+            64,
+            53,
+            115,
+            0,
+            0,
+            0
+          ],
+          "n": 2,
+          "rd": 0,
+          "rng": 628584163,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          "tk": 98
+        },
+        "fields": [
+          "abyss"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "naran",
+          "id": "mark",
+          "n": 2.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            115.0,
+            0.0,
+            0.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            1768.0,
+            9904.04,
+            396.0,
+            1180.0,
+            9710.0,
+            0.0,
+            0.0
+          ],
+          "hits": [],
+          "hp": [
+            216.0,
+            153.0,
+            164.0,
+            137.0,
+            1630.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            67.0,
+            64.0,
+            53.0,
+            115.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 2.0,
+          "rd": 0.0,
+          "rng": 628584163.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            3.0,
+            0.0,
+            0.0
+          ],
+          "tk": 98.0
+        },
+        "step": 2
+      }
+    },
+    {
+      "party": [
+        "marceline",
+        "naran",
+        "levia",
+        "teiris"
+      ],
+      "foe": "frost_contractor",
+      "seed_number": 3.0,
+      "category": "P3: Naran personal abyss weakness multiplier / later cast state",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            117.0,
+            0,
+            0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            1768.0,
+            9904.04,
+            396.0,
+            1180.0,
+            9710.0,
+            0,
+            0
+          ],
+          "hits": [],
+          "hp": [
+            216,
+            153,
+            164,
+            137,
+            1630,
+            0,
+            0
+          ],
+          "mp": [
+            67,
+            64,
+            53,
+            115,
+            0,
+            0,
+            0
+          ],
+          "n": 2,
+          "rd": 0,
+          "rng": 628829652,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          "tk": 98
+        },
+        "fields": [
+          "abyss"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "naran",
+          "id": "mark",
+          "n": 2.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            115.0,
+            0.0,
+            0.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            1768.0,
+            9904.04,
+            396.0,
+            1180.0,
+            9710.0,
+            0.0,
+            0.0
+          ],
+          "hits": [],
+          "hp": [
+            216.0,
+            153.0,
+            164.0,
+            137.0,
+            1630.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            67.0,
+            64.0,
+            53.0,
+            115.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 2.0,
+          "rd": 0.0,
+          "rng": 628829652.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            2.0,
+            0.0,
+            0.0
+          ],
+          "tk": 98.0
+        },
+        "step": 2
+      }
+    },
+    {
+      "party": [
+        "marceline",
+        "naran",
+        "levia",
+        "teiris"
+      ],
+      "foe": "frost_contractor",
+      "seed_number": 4.0,
+      "category": "P3: Naran personal abyss weakness multiplier / later cast state",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            117.0,
+            0,
+            0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            1768.0,
+            9904.04,
+            396.0,
+            1180.0,
+            9710.0,
+            0,
+            0
+          ],
+          "hits": [],
+          "hp": [
+            216,
+            153,
+            164,
+            137,
+            1630,
+            0,
+            0
+          ],
+          "mp": [
+            67,
+            64,
+            53,
+            115,
+            0,
+            0,
+            0
+          ],
+          "n": 2,
+          "rd": 0,
+          "rng": 629075141,
+          "sh": [
+            0,
+            0,
+            0,
+            0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          "tk": 98
+        },
+        "fields": [
+          "abyss"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "naran",
+          "id": "mark",
+          "n": 2.0,
+          "target": 5.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            115.0,
+            0.0,
+            0.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            1768.0,
+            9904.04,
+            396.0,
+            1180.0,
+            9710.0,
+            0.0,
+            0.0
+          ],
+          "hits": [],
+          "hp": [
+            216.0,
+            153.0,
+            164.0,
+            137.0,
+            1630.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            67.0,
+            64.0,
+            53.0,
+            115.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 2.0,
+          "rd": 0.0,
+          "rng": 629075141.0,
+          "sh": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            2.0,
+            0.0,
+            0.0
+          ],
+          "tk": 98.0
+        },
+        "step": 2
+      }
+    },
+    {
+      "party": [
+        "sorel",
+        "adeline",
+        "tove",
+        "urda"
+      ],
+      "foe": "raging_lecturer",
+      "seed_number": 1.0,
+      "category": "P3: class party shield scale (base stat vs 2 * base stat)",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            110.0,
+            0,
+            0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8399.24,
+            154.720000000001,
+            8660.0,
+            0,
+            0
+          ],
+          "hits": [],
+          "hp": [
+            93,
+            73,
+            173,
+            97,
+            2173,
+            0,
+            0
+          ],
+          "mp": [
+            123,
+            96,
+            38,
+            117,
+            0,
+            0,
+            0
+          ],
+          "n": 4,
+          "rd": 1,
+          "rng": 628340628,
+          "sh": [
+            31,
+            31,
+            31,
+            31,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          "tk": 108
+        },
+        "fields": [
+          "sh"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "pshield",
+          "n": 4.0,
+          "target": 0.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            110.0,
+            0.0,
+            0.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8399.24,
+            154.72,
+            8660.0,
+            0.0,
+            0.0
+          ],
+          "hits": [],
+          "hp": [
+            93.0,
+            73.0,
+            173.0,
+            97.0,
+            2173.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            123.0,
+            96.0,
+            38.0,
+            117.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 4.0,
+          "rd": 1.0,
+          "rng": 628340628.0,
+          "sh": [
+            62.0,
+            62.0,
+            62.0,
+            62.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            0.0,
+            0.0
+          ],
+          "tk": 108.0
+        },
+        "step": 4
+      }
+    },
+    {
+      "party": [
+        "sorel",
+        "adeline",
+        "tove",
+        "urda"
+      ],
+      "foe": "frost_contractor",
+      "seed_number": 1.0,
+      "category": "P3: class party shield scale (base stat vs 2 * base stat)",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            80.0,
+            0,
+            0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8378.12,
+            154.720000000001,
+            8660.0,
+            0,
+            0
+          ],
+          "hits": [],
+          "hp": [
+            147,
+            147,
+            222,
+            168,
+            1630,
+            0,
+            0
+          ],
+          "mp": [
+            123,
+            96,
+            38,
+            117,
+            0,
+            0,
+            0
+          ],
+          "n": 4,
+          "rd": 1,
+          "rng": 628340628,
+          "sh": [
+            31,
+            31,
+            31,
+            31,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          "tk": 108
+        },
+        "fields": [
+          "sh"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "pshield",
+          "n": 4.0,
+          "target": 0.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            80.0,
+            0.0,
+            0.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8378.12,
+            154.72,
+            8660.0,
+            0.0,
+            0.0
+          ],
+          "hits": [],
+          "hp": [
+            147.0,
+            147.0,
+            222.0,
+            168.0,
+            1630.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            123.0,
+            96.0,
+            38.0,
+            117.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 4.0,
+          "rd": 1.0,
+          "rng": 628340628.0,
+          "sh": [
+            62.0,
+            62.0,
+            62.0,
+            62.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            3.0,
+            0.0,
+            0.0
+          ],
+          "tk": 108.0
+        },
+        "step": 4
+      }
+    },
+    {
+      "party": [
+        "sorel",
+        "adeline",
+        "tove",
+        "urda"
+      ],
+      "foe": "raging_lecturer",
+      "seed_number": 2.0,
+      "category": "P3: class party shield scale (base stat vs 2 * base stat)",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            110.0,
+            0,
+            0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8399.24,
+            154.720000000001,
+            8660.0,
+            0,
+            0
+          ],
+          "hits": [],
+          "hp": [
+            93,
+            73,
+            173,
+            97,
+            2173,
+            0,
+            0
+          ],
+          "mp": [
+            123,
+            96,
+            38,
+            117,
+            0,
+            0,
+            0
+          ],
+          "n": 4,
+          "rd": 1,
+          "rng": 628586117,
+          "sh": [
+            31,
+            31,
+            31,
+            31,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          "tk": 108
+        },
+        "fields": [
+          "sh"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "pshield",
+          "n": 4.0,
+          "target": 0.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            110.0,
+            0.0,
+            0.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8399.24,
+            154.72,
+            8660.0,
+            0.0,
+            0.0
+          ],
+          "hits": [],
+          "hp": [
+            93.0,
+            73.0,
+            173.0,
+            97.0,
+            2173.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            123.0,
+            96.0,
+            38.0,
+            117.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 4.0,
+          "rd": 1.0,
+          "rng": 628586117.0,
+          "sh": [
+            62.0,
+            62.0,
+            62.0,
+            62.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            0.0,
+            0.0
+          ],
+          "tk": 108.0
+        },
+        "step": 4
+      }
+    },
+    {
+      "party": [
+        "sorel",
+        "adeline",
+        "tove",
+        "urda"
+      ],
+      "foe": "frost_contractor",
+      "seed_number": 2.0,
+      "category": "P3: class party shield scale (base stat vs 2 * base stat)",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            80.0,
+            0,
+            0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8378.12,
+            154.720000000001,
+            8660.0,
+            0,
+            0
+          ],
+          "hits": [],
+          "hp": [
+            147,
+            147,
+            222,
+            168,
+            1630,
+            0,
+            0
+          ],
+          "mp": [
+            123,
+            96,
+            38,
+            117,
+            0,
+            0,
+            0
+          ],
+          "n": 4,
+          "rd": 1,
+          "rng": 628586117,
+          "sh": [
+            31,
+            31,
+            31,
+            31,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          "tk": 108
+        },
+        "fields": [
+          "sh"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "pshield",
+          "n": 4.0,
+          "target": 0.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            80.0,
+            0.0,
+            0.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8378.12,
+            154.72,
+            8660.0,
+            0.0,
+            0.0
+          ],
+          "hits": [],
+          "hp": [
+            147.0,
+            147.0,
+            222.0,
+            168.0,
+            1630.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            123.0,
+            96.0,
+            38.0,
+            117.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 4.0,
+          "rd": 1.0,
+          "rng": 628586117.0,
+          "sh": [
+            62.0,
+            62.0,
+            62.0,
+            62.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            3.0,
+            0.0,
+            0.0
+          ],
+          "tk": 108.0
+        },
+        "step": 4
+      }
+    },
+    {
+      "party": [
+        "sorel",
+        "adeline",
+        "tove",
+        "urda"
+      ],
+      "foe": "raging_lecturer",
+      "seed_number": 3.0,
+      "category": "P3: class party shield scale (base stat vs 2 * base stat)",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            110.0,
+            0,
+            0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8399.24,
+            154.720000000001,
+            8660.0,
+            0,
+            0
+          ],
+          "hits": [],
+          "hp": [
+            93,
+            73,
+            173,
+            97,
+            2173,
+            0,
+            0
+          ],
+          "mp": [
+            123,
+            96,
+            38,
+            117,
+            0,
+            0,
+            0
+          ],
+          "n": 4,
+          "rd": 1,
+          "rng": 628831606,
+          "sh": [
+            31,
+            31,
+            31,
+            31,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          "tk": 108
+        },
+        "fields": [
+          "sh"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "pshield",
+          "n": 4.0,
+          "target": 0.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            110.0,
+            0.0,
+            0.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8399.24,
+            154.72,
+            8660.0,
+            0.0,
+            0.0
+          ],
+          "hits": [],
+          "hp": [
+            93.0,
+            73.0,
+            173.0,
+            97.0,
+            2173.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            123.0,
+            96.0,
+            38.0,
+            117.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 4.0,
+          "rd": 1.0,
+          "rng": 628831606.0,
+          "sh": [
+            62.0,
+            62.0,
+            62.0,
+            62.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            0.0,
+            0.0
+          ],
+          "tk": 108.0
+        },
+        "step": 4
+      }
+    },
+    {
+      "party": [
+        "sorel",
+        "adeline",
+        "tove",
+        "urda"
+      ],
+      "foe": "frost_contractor",
+      "seed_number": 3.0,
+      "category": "P3: class party shield scale (base stat vs 2 * base stat)",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            80.0,
+            0,
+            0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8378.12,
+            154.720000000001,
+            8660.0,
+            0,
+            0
+          ],
+          "hits": [],
+          "hp": [
+            147,
+            147,
+            222,
+            168,
+            1630,
+            0,
+            0
+          ],
+          "mp": [
+            123,
+            96,
+            38,
+            117,
+            0,
+            0,
+            0
+          ],
+          "n": 4,
+          "rd": 1,
+          "rng": 628831606,
+          "sh": [
+            31,
+            31,
+            31,
+            31,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          "tk": 108
+        },
+        "fields": [
+          "sh"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "pshield",
+          "n": 4.0,
+          "target": 0.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            80.0,
+            0.0,
+            0.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8378.12,
+            154.72,
+            8660.0,
+            0.0,
+            0.0
+          ],
+          "hits": [],
+          "hp": [
+            147.0,
+            147.0,
+            222.0,
+            168.0,
+            1630.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            123.0,
+            96.0,
+            38.0,
+            117.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 4.0,
+          "rd": 1.0,
+          "rng": 628831606.0,
+          "sh": [
+            62.0,
+            62.0,
+            62.0,
+            62.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            2.0,
+            0.0,
+            0.0
+          ],
+          "tk": 108.0
+        },
+        "step": 4
+      }
+    },
+    {
+      "party": [
+        "sorel",
+        "adeline",
+        "tove",
+        "urda"
+      ],
+      "foe": "raging_lecturer",
+      "seed_number": 4.0,
+      "category": "P3: class party shield scale (base stat vs 2 * base stat)",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            110.0,
+            0,
+            0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8399.24,
+            154.720000000001,
+            8660.0,
+            0,
+            0
+          ],
+          "hits": [],
+          "hp": [
+            93,
+            73,
+            173,
+            97,
+            2173,
+            0,
+            0
+          ],
+          "mp": [
+            123,
+            96,
+            38,
+            117,
+            0,
+            0,
+            0
+          ],
+          "n": 4,
+          "rd": 1,
+          "rng": 629077095,
+          "sh": [
+            31,
+            31,
+            31,
+            31,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            5,
+            0,
+            0
+          ],
+          "tk": 108
+        },
+        "fields": [
+          "sh"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "pshield",
+          "n": 4.0,
+          "target": 0.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            110.0,
+            0.0,
+            0.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8399.24,
+            154.72,
+            8660.0,
+            0.0,
+            0.0
+          ],
+          "hits": [],
+          "hp": [
+            93.0,
+            73.0,
+            173.0,
+            97.0,
+            2173.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            123.0,
+            96.0,
+            38.0,
+            117.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 4.0,
+          "rd": 1.0,
+          "rng": 629077095.0,
+          "sh": [
+            62.0,
+            62.0,
+            62.0,
+            62.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            5.0,
+            0.0,
+            0.0
+          ],
+          "tk": 108.0
+        },
+        "step": 4
+      }
+    },
+    {
+      "party": [
+        "sorel",
+        "adeline",
+        "tove",
+        "urda"
+      ],
+      "foe": "frost_contractor",
+      "seed_number": 4.0,
+      "category": "P3: class party shield scale (base stat vs 2 * base stat)",
+      "first_difference": {
+        "actual": {
+          "abyss": [
+            0,
+            0,
+            0,
+            0,
+            80.0,
+            0,
+            0
+          ],
+          "actor": 2,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8378.12,
+            154.720000000001,
+            8660.0,
+            0,
+            0
+          ],
+          "hits": [],
+          "hp": [
+            147,
+            147,
+            222,
+            168,
+            1630,
+            0,
+            0
+          ],
+          "mp": [
+            123,
+            96,
+            38,
+            117,
+            0,
+            0,
+            0
+          ],
+          "n": 4,
+          "rd": 1,
+          "rng": 629077095,
+          "sh": [
+            31,
+            31,
+            31,
+            31,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ],
+          "tk": 108
+        },
+        "fields": [
+          "sh"
+        ],
+        "input": {
+          "actor": 2.0,
+          "cid": "",
+          "id": "pshield",
+          "n": 4.0,
+          "target": 0.0
+        },
+        "source": {
+          "abyss": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            80.0,
+            0.0,
+            0.0
+          ],
+          "actor": 2.0,
+          "broken": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "g": [
+            9416.0,
+            9925.76,
+            8378.12,
+            154.72,
+            8660.0,
+            0.0,
+            0.0
+          ],
+          "hits": [],
+          "hp": [
+            147.0,
+            147.0,
+            222.0,
+            168.0,
+            1630.0,
+            0.0,
+            0.0
+          ],
+          "mp": [
+            123.0,
+            96.0,
+            38.0,
+            117.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "n": 4.0,
+          "rd": 1.0,
+          "rng": 629077095.0,
+          "sh": [
+            62.0,
+            62.0,
+            62.0,
+            62.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "targets": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            2.0,
+            0.0,
+            0.0
+          ],
+          "tk": 108.0
+        },
+        "step": 4
+      }
+    }
+  ]
+}

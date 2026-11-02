@@ -1,0 +1,114 @@
+{
+	"checks": 15,
+	"failures": [],
+	"rows": [
+		{
+			"got": null,
+			"label": "P5 actual exploration transaction",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				"as90.9ab4nebr.1"
+			],
+			"label": "P5 actual equipment reward generated",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": {
+				"code": "as90.9ab4nebr.1"
+			},
+			"label": "source P5 drop code",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "P5 settlement",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": {
+				"code": "as90.9ab4nebr.1",
+				"forge": 0,
+				"id": "as90",
+				"seed": 727718238279,
+				"source_r21": true,
+				"tries": 0,
+				"uid": 1
+			},
+			"label": "P5 keeps exact source code",
+			"ok": true,
+			"want": {
+				"code": "as90.9ab4nebr.1"
+			}
+		},
+		{
+			"got": null,
+			"label": "P7 equip source UID",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": {
+				"critdmg": 4.2,
+				"killmp": 0.6,
+				"stat": 11.7
+			},
+			"label": "P7 source equipment enters combat",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": 11.7,
+			"label": "source roll stat",
+			"ok": true,
+			"want": 11.7
+		},
+		{
+			"got": 0.6,
+			"label": "source roll killmp",
+			"ok": true,
+			"want": 0.6
+		},
+		{
+			"got": 4.2,
+			"label": "source roll critdmg",
+			"ok": true,
+			"want": 4.2
+		},
+		{
+			"got": null,
+			"label": "actual gear battle snapshot JSON round trip",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "source code gear and active battle world JSON restore",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "gear wall and scar JSON restore",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": 930,
+			"label": "restored wall continues at 30%",
+			"ok": true,
+			"want": 930
+		},
+		{
+			"got": null,
+			"label": "reject invalid gear owner",
+			"ok": true,
+			"want": null
+		}
+	]
+}

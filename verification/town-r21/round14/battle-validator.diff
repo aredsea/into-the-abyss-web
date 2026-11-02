@@ -1,0 +1,11 @@
+--- read-only A9 battle_v3.gd
++++ merged battle_v3.gd
+@@ -1430,7 +1430,7 @@
+ 	if not value.current_id in value.units or ally(value.last_ally).is_empty() or enemy(value.selected_enemy).is_empty() or ally(value.selected_ally).is_empty(): return false
+ 	if value.result not in ["","victory","defeat"] or value.rng<1 or value.rng>=2147483647: return false
+ 	for key in value.inventory:
+-		if not _number(value.inventory[key]) or value.inventory[key]<0 or value.inventory[key]>10000: return false
++		if not _number(value.inventory[key]) or value.inventory[key]<0 or value.inventory[key]>9007199254740991 or value.inventory[key]!=floor(value.inventory[key]): return false
+ 	for key in ["history","events"]:
+ 		if value[key].size()>32: return false
+ 		for line in value[key]:

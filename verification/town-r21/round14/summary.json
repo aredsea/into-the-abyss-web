@@ -1,0 +1,149 @@
+{
+  "regression_groups": 82,
+  "failed_groups": 0,
+  "parity": [
+    {
+      "name": "P2",
+      "battles": 48,
+      "records": 1468
+    },
+    {
+      "name": "A6",
+      "battles": 48,
+      "records": 2537
+    },
+    {
+      "name": "P3",
+      "battles": 128,
+      "records": 4929
+    },
+    {
+      "name": "A7",
+      "battles": 176,
+      "records": 2932
+    },
+    {
+      "name": "A7 Lv40",
+      "battles": 176,
+      "records": 6279
+    },
+    {
+      "name": "A8",
+      "battles": 5120,
+      "records": 186707
+    },
+    {
+      "name": "A9 Lv10",
+      "battles": 312,
+      "records": 4806
+    },
+    {
+      "name": "A9 Lv40",
+      "battles": 312,
+      "records": 10127
+    }
+  ],
+  "battles": 6320,
+  "records": 219785,
+  "native_checks": 576,
+  "native_samples": 119,
+  "server": [
+    {
+      "name": "integration",
+      "checks": 6739,
+      "failures": 0
+    },
+    {
+      "name": "security-r1",
+      "checks": 423,
+      "failures": 0
+    },
+    {
+      "name": "siteverify",
+      "checks": 7,
+      "failures": 0
+    },
+    {
+      "name": "security-r2",
+      "checks": 119,
+      "failures": 0
+    },
+    {
+      "name": "security-r3",
+      "checks": 670,
+      "failures": 0
+    },
+    {
+      "name": "deployment",
+      "checks": 22,
+      "failures": 0
+    },
+    {
+      "name": "combat",
+      "checks": 3562,
+      "failures": 0
+    }
+  ],
+  "server_checks": 11542,
+  "server_failures": 0,
+  "web_configurations": 8,
+  "web_battles": 39,
+  "web_errors": 0,
+  "ui_build": "r21-d-town-20261103c",
+  "pck_bytes": 67268376,
+  "pck_sha256": "d5009ca3c600506108a6c94fa7ec490389c1d2e158720a6e1a0e2cfd64f3ab9f",
+  "protected_files": 1948,
+  "protected_changed": [],
+  "assets": 96,
+  "assets_changed": [],
+  "conflict_markers": [],
+  "worker_matches_source": true,
+  "changed_files": [
+    "project/data/localization-r22.json",
+    "project/game/battle_v3.gd",
+    "project/game/dungeon_world_r21.gd",
+    "project/game/expedition_world_r22.gd",
+    "project/game/facilities_world_r22.gd",
+    "project/game/localization_r22.gd",
+    "project/game/persona_world.gd",
+    "project/tests/expedition_r22_test.gd",
+    "project/tests/ui_expedition_r22_test.gd",
+    "project/ui/world_screen.gd",
+    "server/abyss-save/src/known.json",
+    "server/abyss-save/src/validate.js",
+    "tools/town_r21_round9_web.py",
+    "tools/update_version.py",
+    "docs/index.html",
+    "docs/index.pck",
+    "docs/version.json"
+  ],
+  "new_files": [
+    "project/tests/town_combat_r21_round14_test.gd",
+    "project/tests/town_combat_r21_round14_test.gd.uid",
+    "server/abyss-save/test/combat-r14.mjs",
+    "server/abyss-save/test/godot-r14.mjs",
+    "tools/town_r21_round14_report.py"
+  ],
+  "visual_review": [
+    {
+      "path": "verification/data-r21/a8-ui/alchemist-360x780-skills.png",
+      "sha256": "25415ddcb38b82c119f847bbd6ceb08c0a61452092dca5de080a9e0605620780",
+      "viewed": true
+    },
+    {
+      "path": "verification/town-r21/web/persona-midfight-reloaded-430x932-en.png",
+      "sha256": "2a240a5049c92a5fd717f84e12addc99f22fa379f7af7dcb625a011bdef2a25f",
+      "viewed": true
+    },
+    {
+      "path": "verification/town-r21/web/settled-430x932-en.png",
+      "sha256": "7c4aff3125c4fdaee18f340cfa3f31576058d4ad521d24a330a812fd267bbdcb",
+      "viewed": true
+    },
+    {
+      "path": "verification/town-r21/web/battle-360x780-en.png",
+      "sha256": "d2be138407c7c78950ac788014a6e72243f9aecaafa21ed7452b7018563badff",
+      "viewed": true
+    }
+  ]
+}

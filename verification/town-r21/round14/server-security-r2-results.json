@@ -1,0 +1,46 @@
+{
+  "checks": 119,
+  "failures": 0,
+  "groups": [
+    {
+      "name": "1 IP/account byte budgets isolate victim and creation",
+      "passed": true
+    },
+    {
+      "name": "2 no shared request ceiling; IPv6 /48 auxiliary limit",
+      "passed": true
+    },
+    {
+      "name": "2 daily signup persists across minute windows",
+      "passed": true
+    },
+    {
+      "name": "3 atomic pre-PBKDF2 admission rejects concurrent correct PIN last",
+      "passed": true
+    },
+    {
+      "name": "4 public read code+IP and authenticated download account isolation",
+      "passed": true
+    },
+    {
+      "name": "5 v2 battle rejects v3-only keys independently and effects must be object",
+      "passed": true
+    },
+    {
+      "name": "6 rank elapsed capped at 24h for aged and migrated baselines",
+      "passed": true
+    },
+    {
+      "name": "7 archived PIN verification, 410 response and owner erasure",
+      "passed": true
+    },
+    {
+      "name": "Nit acts keys restrict syntax without changing field allowlists",
+      "passed": true
+    },
+    {
+      "name": "Nit 422/429 do not consume Turnstile and enabled requires challenge",
+      "passed": true
+    }
+  ]
+}

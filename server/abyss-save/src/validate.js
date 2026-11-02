@@ -80,13 +80,15 @@ function boundedTree(v,p,depth=0){
  if(Array.isArray(v)){list(v,p,4096).forEach((x,i)=>boundedTree(x,p+'.'+i,depth+1));return;}
  obj(v,p);for(const[k,x]of Object.entries(v)){if(k.length>160||['__proto__','constructor','prototype'].includes(k))fail(p);boundedTree(x,p+'.'+k,depth+1);}
 }
-function battle(v,p){
+function battle(v,p,party=[]){
  const base=['schema_version','build','units','current_id','last_ally','selected_enemy','selected_action','result','rng','turn_count','history','events'];
- keys(v,[...base,'extra_state','selected_ally','inventory','r21_roster'],p);if(!Object.keys(v).length)return;
- keys(v,[...base,'extra_state','selected_ally','inventory','r21_roster'],p,base);
+ keys(v,[...base,'extra_state','selected_ally','inventory','r21_roster','ctb'],p);if(!Object.keys(v).length)return;
+ keys(v,[...base,'extra_state','selected_ally','inventory','r21_roster','ctb'],p,base);
  if(![2,3].includes(v.schema_version))fail(p+'.schema_version');if(v.schema_version!==3)for(const k of ['extra_state','inventory','selected_ally'])if(Object.hasOwn(v,k))fail(p+'.'+k);text(v.build,p+'.build',100);
  const unitId=id=>owners.includes(id)||K.battleIds.includes(id)||/^enemy_[0-9]{1,2}$/.test(id);
  const unitText=(id,path,empty=false)=>{if(!(empty&&id==='')&&!unitId(id))fail(path);};
+ const savedUnit=(id,path,empty=false)=>{unitText(id,path,empty);if(!(empty&&id==='')&&!Object.hasOwn(v.units,id))fail(path);};
+ if('ctb'in v){if(v.schema_version!==3||!('r21_roster'in v))fail(p+'.ctb');keys(v.ctb,['tick','round'],p+'.ctb',['tick','round']);num(v.ctb.tick,0,1e8,p+'.ctb.tick');num(v.ctb.round,0,1e6,p+'.ctb.round');if(v.ctb.round!==Math.floor(v.ctb.tick/100))fail(p+'.ctb.round');}
  for(const k of ['current_id','last_ally','selected_enemy'])unitText(v[k],p+'.'+k);
  text(v.selected_action,p+'.selected_action',80);if(!/^([a-z_]+|item:[a-z_]+)$/.test(v.selected_action))fail(p+'.selected_action');
  if(!['','victory','defeat'].includes(v.result))fail(p+'.result');num(v.rng,1,2147483646,p+'.rng');num(v.turn_count,0,1e6,p+'.turn_count');
@@ -99,20 +101,40 @@ function battle(v,p){
    if(k==='effects'){
     obj(x,p+'.effects');
     for(const key of Object.keys(x))if(!K.battleEffects.includes(key)&&!/^enemy_dot_[0-3]$/.test(key))fail(p+'.effect.id');
-    for(const e of Object.values(x)){keys(e,['turns','amount','r21','source','by'],p+'.effect',['turns','amount']);num(e.turns,1,100,p+'.turns');num(e.amount,-100000,100000,p+'.amount',false);if('r21'in e)bool(e.r21,p+'.r21');for(const k of ['source','by'])if(k in e)unitText(e[k],p+'.effect.'+k);}
-   }else if(flags.includes(k))bool(x,p+'.'+k);else num(x,0,1e6,p+'.'+k,!['remaining','gauge'].includes(k));
+    for(const [effect,e] of Object.entries(x)){
+     keys(e,['turns','amount','r21','source','by','fresh','doubled','order','heals','stacks','lifetimes','owners','bursts','initial_turns','orders'],p+'.effect',['turns','amount']);num(e.turns,1,100,p+'.turns');num(e.amount,/^enemy_dot_/.test(effect)?-1e12:-100000,/^enemy_dot_/.test(effect)?1e12:100000,p+'.amount',false);
+     for(const k of ['r21','fresh','doubled'])if(k in e)bool(e[k],p+'.'+k);
+     for(const k of ['source','by'])if(k in e)savedUnit(e[k],p+'.effect.'+k);
+     if('order'in e)num(e.order,0,1e7,p+'.effect.order');
+     if('heals'in e){if(effect!=='regen'||!list(e.heals,p+'.heals',400).length)fail(p+'.heals');for(const h of e.heals){keys(h,['amount','turns','action'],p+'.heal',['amount','turns','action']);num(h.amount,0,1e5,p+'.heal.amount',false);num(h.turns,1,100,p+'.heal.turns');num(h.action,1,400,p+'.heal.action');}}
+     const metadata=['lifetimes','owners','bursts','initial_turns','orders'];
+     if(metadata.some(k=>k in e)&&!('stacks'in e))fail(p+'.stacks');
+     if('stacks'in e){if(effect!=='dot'||!list(e.stacks,p+'.stacks',6).length)fail(p+'.stacks');for(const n of e.stacks)num(n,0,1e5,p+'.stack',false);if(Math.abs(e.stacks.reduce((a,b)=>a+b,0)-e.amount)>1e-7*Math.max(1,Math.abs(e.amount)))fail(p+'.stack.sum');
+      for(const k of metadata)if(k in e){list(e[k],p+'.'+k,6);if(e[k].length!==e.stacks.length)fail(p+'.'+k);for(const n of e[k])if(k==='owners')savedUnit(n,p+'.owner',true);else num(n,['lifetimes','initial_turns'].includes(k)?1:0,k==='orders'?1e7:['lifetimes','initial_turns'].includes(k)?100:1e4,p+'.'+k,k!=='bursts');}
+     }
+    }
+   }else if(flags.includes(k))bool(x,p+'.'+k);else num(x,k==='remaining'&&'ctb'in v?-1e6:0,1e6,p+'.'+k,!['remaining','gauge'].includes(k));
   }
  }
  if(v.schema_version===3){
   for(const k of ['extra_state','selected_ally','inventory'])if(!Object.hasOwn(v,k))fail(p+'.'+k);
   unitText(v.selected_ally,p+'.selected_ally');keys(v.inventory,items,p+'.inventory');for(const n of Object.values(v.inventory))num(n,0,Number.MAX_SAFE_INTEGER,p+'.inventory');
   obj(v.extra_state,p+'.extra_state');if(Object.keys(v.extra_state).length>32)fail(p+'.extra_state');
-  const booleanKeys=['reviving','haste_done','wall_saved','saved','revive','stood','counter_busy','hidden'];
-  const stringKeys=['dot_owner','target','last_target','cover','protect','silenced_id'];
-  const numberKeys=['prevented','streak','scar','charge_damage','overheal','pull','dot_stacks','bleed_stacks','hunts','king','free','refresh','rescue','foe_turns','cycle_a','cycle_b','source_rng'];
+  const booleanKeys=['reviving','haste_done','wall_saved','saved','revive','stood','counter_busy','hidden','echo','echoing','penetrating','decl','inch','jm','double_turn'];
+  const stringKeys=['dot_owner','target','last_target','last_attacker','cover','protect','silenced_id'];
+  const numberKeys=['prevented','streak','scar','charge_damage','overheal','pull','dot_stacks','bleed_stacks','hunts','king','free','refresh','rescue','foe_turns','cycle_a','cycle_b','source_rng','judith_sp0','judith_until','death_tick','first_attack_action','streak_action','frenzy_action','echo_action','personal_pull','enc','dset','mamp','cover_turns','seal_until','jd','cor','hg_index','karashin_kills','dot_order','scr','sws','lsd','lsn','wlu','wwn','blc','blk','blu','hh','sgs','fzx','fzn','fzr','kg','adv','lmc','f1','ch','chk','chu','huc','hbk','hbu'];
+  const globals=['gear_gw','gear_gk','gear_gb','gear_gt'];
+  const allies=party.length?party.filter(id=>Object.hasOwn(v.units,id)):Object.keys(v.units).filter(id=>owners.includes(id));const enemies=Object.keys(v.units).filter(id=>!owners.includes(id));
+  const slot=(n,path,ally=false)=>{num(n,1,4+enemies.length,path);if(n<=4?n>allies.length:ally)fail(path);};
   for(const[id,x]of Object.entries(v.extra_state)){
-   unitText(id,p+'.extra.id');keys(x,[...booleanKeys,...stringKeys,...numberKeys],p+'.extra');
-   for(const[k,n]of Object.entries(x))if(booleanKeys.includes(k))bool(n,p+'.extra.'+k);else if(stringKeys.includes(k)){text(n,p+'.extra.'+k,80);if(k!=='silenced_id')unitText(n,p+'.extra.'+k,true);}else num(n,0,k==='source_rng'?2147483646:1e8,p+'.extra.'+k,false);
+   savedUnit(id,p+'.extra.id');keys(x,[...booleanKeys,...stringKeys,...numberKeys,...globals],p+'.extra');
+   for(const[k,n]of Object.entries(x))if(globals.includes(k)){
+    if(id!==allies[0])fail(p+'.gear.owner');
+    if(k==='gear_gk'){keys(n,['pa_echo','gl_king'],p+'.gear_gk');for(const b of Object.values(n))bool(b,p+'.gear_gk');continue;}
+    const fields={gear_gw:['n','p','who'],gear_gb:['t','d'],gear_gt:['t','e','d','x','n']}[k];keys(n,fields,p+'.'+k,fields);for(const z of Object.values(n))num(z,0,1e7,p+'.'+k,false);
+    for(const f of ['who','t','e'])if(f in n)slot(n[f],p+'.'+k+'.'+f,f==='who');
+    if(k==='gear_gw'){num(n.n,1,100,p+'.gear_gw.n');num(n.p,0,100,p+'.gear_gw.p',false);}
+   }else if(booleanKeys.includes(k))bool(n,p+'.extra.'+k);else if(stringKeys.includes(k)){text(n,p+'.extra.'+k,80);if(k!=='silenced_id')savedUnit(n,p+'.extra.'+k,true);}else num(n,k==='source_rng'||k==='judith_sp0'?1:0,k==='source_rng'?2147483646:1e7,p+'.extra.'+k,['source_rng','judith_until','death_tick'].includes(k));
   }
  }
  if('r21_roster'in v)list(v.r21_roster,p+'.roster',28).forEach(e=>{keys(e,['foe_id','phase','target_id'],p+'.roster',['foe_id','phase','target_id']);if(e.foe_id!==''&&!K.battleIds.includes(e.foe_id))fail(p+'.foe_id');num(e.phase,1,2,p+'.phase');unitText(e.target_id,p+'.target',true);});
@@ -138,6 +160,7 @@ function archivedPersona(v,p){
  }
 }
 function extensions(s){
+ if('equipment_vitals_before_r14'in s){const a=s.equipment_vitals_before_r14;keys(a,['hp','mp','battle_hp','battle_mp','maxima_hp','maxima_mp'],'equipment_vitals_before_r14');if(!Object.keys(a).length)fail('equipment_vitals_before_r14');for(const n of Object.values(a))num(n,0,1e6,'equipment_vitals_before_r14.value');}
  for(const[k,a]of Object.entries(s))if(/^persona_migration_r21_*$/.test(k)){
   keys(a,['schema','progress','persona','authority'],k,['schema','progress','persona','authority']);num(a.schema,1,3,k+'.schema');progress(a.progress,k+'.progress');archivedPersona(a.persona,k+'.persona');
   if(a.authority!==(a.schema<3?'r21-progress':'p1-persona'))fail(k+'.authority');
@@ -188,7 +211,7 @@ function expedition(s){
 export function validate(input){try{return validateUnchecked(input);}catch(e){if(e instanceof Invalid)throw e;throw new Invalid('save.shape');}}
 function validateUnchecked(input){
  boundedTree(input,'save');const s=migrate(input);
- const top=[...Object.keys(K.defaults).filter(k=>k!=='lv'),'persona','creation_r22','scene','ui','scenario','xp_r22','settings','favs','panels_r22','chronicle_r22','place'];
+ const top=[...Object.keys(K.defaults).filter(k=>k!=='lv'),'persona','persona_research_r22','equipment_vitals_before_r14','creation_r22','scene','ui','scenario','xp_r22','settings','favs','panels_r22','chronicle_r22','place'];
  for(const k of Object.keys(s))if(!top.includes(k)&&!/^experience_before_r22_*$/.test(k)&&!/^persona_migration_r21_*$/.test(k))fail(k);
  for(const[k,v]of Object.entries(s))if(/^experience_before_r22_*$/.test(k))archiveXP(v,k);
  extensions(s);
@@ -222,7 +245,8 @@ function validateUnchecked(input){
  if(s.members.persona.level!==p.lv||s.members.persona.xp!==p.exp)fail('persona.member');
  keys(s.items,items,'items',items);for(const[k,n]of Object.entries(s.items))num(n,0,Number.MAX_SAFE_INTEGER,'items.'+k);
  const uids=new Map();for(const e of list(s.gear,'gear',2124)){
-  keys(e,['id','uid','seed','forge','tries','source_r21'],'gear',['id','uid','seed','forge','tries']);if(!gear.has(e.id)||uids.has(e.uid))fail('gear.id');
+  keys(e,['id','uid','seed','forge','tries','source_r21','code'],'gear',['id','uid','seed','forge','tries']);if(!gear.has(e.id)||uids.has(e.uid))fail('gear.id');
+  if('code'in e){gearCode(e.code,'gear.code');const parts=e.code.split('.');if(e.source_r21!==true||parts[0]!==e.id||parseInt(parts[1],36)!==e.seed)fail('gear.code.identity');}
   num(e.uid,1,s.serial,'gear.uid');num(e.seed,0,1099511627776,'gear.seed');num(e.forge,0,10,'gear.forge');num(e.tries,e.forge,1e6,'gear.tries');if('source_r21'in e)bool(e.source_r21,'gear.source');uids.set(e.uid,e);
  }
  const used=new Set();for(const[id,v]of Object.entries(s.equipment)){
@@ -246,8 +270,8 @@ function validateUnchecked(input){
    const curve=K.world.curves[k];let maximum=Math.floor(cls.base[k]*(1+(companion?.mod?.[k]??0)/100)*(1+(cls.grow[k]??1)*(curve.a*level+curve.b*level*level))+.5);
    if(id==='persona')maximum=Math.floor(maximum*(p.stats[k]??cls.base[k])/cls.base[k]+.5);
    {
-    if(id!=='persona'&&k==='mp'&&companion.race==='엘프')maximum+=6;
-    if(id!=='persona'&&k==='hp')maximum=Math.floor(maximum*1.07+.5);
+    if(k==='mp'&&(id==='persona'?p.race:companion.race)==='엘프')maximum+=6;
+    if(k==='hp')maximum=Math.floor(maximum*1.07+.5);
     let bonus=0;
     for(const uid of Object.values(s.equipment[id]??{})){
      const e=uids.get(uid),it=gear.get(e.id),pool=K.gear.pools[it.cls][it.slot];
@@ -260,6 +284,7 @@ function validateUnchecked(input){
   }
  }
  keys(s.research_editor_r21,ids,'research_editor');for(const[id,e]of Object.entries(s.research_editor_r21)){if(!s.owned.includes(id))fail('editor.owner');keys(e,['draft','spent'],'editor',['draft','spent']);research(e.draft,'draft');num(e.spent,0,1e8,'spent');}
+ if('persona_research_r22'in s){const e=s.persona_research_r22;keys(e,['draft','spent'],'persona_research');if(Object.keys(e).length){keys(e,['draft','spent'],'persona_research',['draft','spent']);research(e.draft,'persona_research.draft');num(e.spent,0,1e8,'persona_research.spent');}}
  for(const k of ['quest','board'])if(k==='quest')quest(s[k],k);else list(s.board,k,4).forEach((q,i)=>quest(q,'board.'+i));
  const d=s.dungeon_r21;keys(d,['best','cleared_bosses','runs','sel','pg','last'],'dungeon',['best','cleared_bosses','runs','sel']);num(d.best,0,9999,'best');num(d.runs,0,1e6,'dungeon.runs');num(d.sel,1,Math.max(d.best+1,1,...d.cleared_bosses.map(z=>3*(K.zones.indexOf(z)+1)+1)),'dungeon.sel');
  if('pg'in d)num(d.pg,1,Math.ceil((Math.max(d.best+1,1,...d.cleared_bosses.map(z=>3*(K.zones.indexOf(z)+1)+1))+1)/6),'dungeon.pg');if('last'in d)settlement(d.last,'dungeon.last',s);
@@ -275,7 +300,7 @@ function validateUnchecked(input){
  keys(s.xp_r22,['xp_bn'],'xp_r22');if('xp_bn'in s.xp_r22)num(s.xp_r22.xp_bn,0,1e8,'xp_bn');
  const r=s.run;keys(r,['phase','step','gold','xp','wins','event','resolved','final','battle','rested','id','rules_version','data_version','floor','seed','rift_id','stars','elites','kind','loot_items','loot_gear','last','persona_party','persona_pm','persona_xp_paid','source_quest','quest_level','quest_seed','dialogue_marks','route_version','route_seed','node','path','expedition_version','log','fell','ask','next_available','maxima','settings_battle_r22','chronicle_choice'],'run');
  if(Object.keys(r).length){
-  if(!['explore','battle','rest','done'].includes(r.phase)||r.id!==s.runs)fail('run.phase');num(r.step,0,5,'run.step');num(r.gold,0,1e6,'run.gold');num(r.xp,0,1e6,'run.xp');num(r.wins,0,6,'run.wins');for(const k of ['resolved','final','rested'])bool(r[k],'run.'+k);battle(r.battle,'run.battle');
+  if(!['explore','battle','rest','done'].includes(r.phase)||r.id!==s.runs)fail('run.phase');num(r.step,0,5,'run.step');num(r.gold,0,1e6,'run.gold');num(r.xp,0,1e6,'run.xp');num(r.wins,0,6,'run.wins');for(const k of ['resolved','final','rested'])bool(r[k],'run.'+k);battle(r.battle,'run.battle',r.persona_party??s.party);
   if('floor'in r)num(r.floor,1,10000,'run.floor');if('seed'in r)num(r.seed,1,2147483646,'run.seed');if('elites'in r)num(r.elites,0,2,'run.elites');if('kind'in r&&!['battle','elite','boss'].includes(r.kind))fail('run.kind');
   if('source_quest'in r)quest(r.source_quest,'run.quest');
   if('rift_id'in r&&r.rift_id!==''&&!K.rifts.some(x=>x.id===r.rift_id))fail('run.rift_id');

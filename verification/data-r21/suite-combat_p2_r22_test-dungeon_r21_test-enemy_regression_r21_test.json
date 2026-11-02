@@ -1,0 +1,34 @@
+[
+  {
+    "test": "dungeon_r21_test",
+    "exit_code": 1,
+    "engine_errors": [
+      "ERROR: terminal 65/victory",
+      "ERROR: terminal 361/victory",
+      "ERROR: terminal 389/victory",
+      "ERROR: settle 391",
+      "ERROR: settle 392",
+      "ERROR: settle 397",
+      "ERROR: settle 398",
+      "ERROR: settle 409",
+      "ERROR: settle 410",
+      "ERROR: terminal 415/victory"
+    ],
+    "seconds": 40.92,
+    "passed": false
+  },
+  {
+    "test": "enemy_regression_r21_test",
+    "exit_code": 0,
+    "engine_errors": [],
+    "seconds": 1.03,
+    "passed": true
+  },
+  {
+    "test": "combat_p2_r22_test",
+    "exit_code": 0,
+    "engine_errors": [],
+    "seconds": 5.45,
+    "passed": true
+  }
+]

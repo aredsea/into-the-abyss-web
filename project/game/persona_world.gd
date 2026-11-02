@@ -19,6 +19,27 @@ func ensure_persona_member() -> void:
 	if not s.members.has("persona"):s.members.persona={"level":s.persona.lv,"xp":s.persona.exp,"aff":0.0,"hp":1,"mp":0}
 	if not s.equipment.has("persona"):s.equipment.persona={}
 	if not s.research.has("persona"):s.research.persona=s.persona.skill.duplicate(true)
+	if not s.has("persona_research_r22"):s.persona_research_r22={}
+
+func research_work(who: String) -> Dictionary:
+	if who!="persona":return super(who)
+	return PersonaResearch.clean(s.persona_research_r22.get("draft",s.persona.skill))
+
+func research_dirty(who: String) -> bool:
+	if who!="persona":return super(who)
+	return not s.persona_research_r22.is_empty() and research_work(who)!=PersonaResearch.clean(s.persona.skill)
+
+func research_action(who: String,arg: String) -> bool:
+	if who!="persona":return super(who,arg)
+	if active():return false
+	var e=s.persona_research_r22
+	var out=PersonaResearch.transition(s.persona.skill,e.get("draft",{}),int(e.get("spent",0)),int(s.gold),arg)
+	research_message=out.message
+	var changed=out.saved!=s.persona.skill or out.draft!=e.get("draft",{}) or out.gold!=s.gold
+	if not changed:return false
+	s.persona.skill=out.saved;s.gold=out.gold
+	s.persona_research_r22={} if out.draft.is_empty() else {"draft":out.draft,"spent":out.spent}
+	return true
 
 func create_action(arg: String,kind="cr") -> bool:
 	if s.creation_r22.complete:return false
@@ -52,7 +73,25 @@ func stats(id: String,level: int) -> Dictionary:
 		base*=float(made.get(key,c.base[key]))/float(c.base[key]) if c.base[key]>0 else 1.0
 		out[key]=int(floor(base+.5)) if key in ["hp","mp"] else base
 	out.spd=made.get("spd",c.base.spd)+config.curves.spd.add*x;out.crit=c.base.crit
+	if p.race=="엘프":out.mp+=6
+	if p.nation=="신성 세레디아 제국":out.def*=1.04
+	var humans=party_count("race","인간")
+	if humans>=2:out.hp=int(floor(out.hp*(1.07 if humans>=3 else 1.04)+.5))
+	var equipped=gear_bonus(id,level)
+	var main={"힘":"str","민첩":"agi","지능":"int"}[c.line]
+	for key in ["hp","mp","str","agi","int","def"]:
+		out[key]*=1+equipped.get(key,0)/100.0+(equipped.get("stat",0)/100.0 if key==main else 0)
+		if key in ["hp","mp"]:out[key]=int(floor(out[key]+.5))
+	out.spd*=1+equipped.get("spd",0)/100.0
 	return out
+
+func party_count(key: String,value: String) -> int:
+	var ids=(s.run.persona_party if active() and s.run.has("persona_party") else sortie_ids()) if s.has("persona") else s.party
+	var seen=[];var count=0
+	for id in ids:
+		if id not in seen and person(id).get(key)==value:count+=1
+		seen.append(id)
+	return count
 
 func sortie_ids() -> Array:
 	var ids=s.party.duplicate()
@@ -103,7 +142,11 @@ func battle_data() -> Dictionary:
 	var party=s.party;s.party=s.run.persona_party.duplicate()
 	var d=super();s.party=party
 	for ally in d.allies:
-		if ally.id=="persona":ally.skills.erase("personal");ally.skills.erase("tactic");ally.trait={"p":{}}
+		if ally.id=="persona":
+			ally.skills.erase("personal");ally.skills.erase("tactic");ally.trait={"p":{}}
+			if not ally.skills.has("guard"):ally.skills.guard={"name":"방어","mp":0,"target":"자신","power":.4,"turns":1,"brk":0,"note":"다음 자기 차례까지 받는 피해 −40%"}
+			var signature=preload("res://game/persona_combat_r22.gd").action(s.run.persona_pm[0].get("skill",{}))
+			if not signature.is_empty():ally.skills.personal=signature
 	d.persona_pm=s.run.persona_pm.duplicate(true)
 	return d
 
@@ -157,6 +200,13 @@ func settle(result: String) -> bool:
 func restore(value: Variant) -> bool:
 	var candidate=Adapter.migrate(value)
 	if candidate.is_empty() or not Adapter.validate(candidate,config.companions.map(func(c):return c.id),persona_rules):return false
+	if not PersonaResearch.valid_saved(candidate.persona.skill):return false
+	if candidate.has("persona_research_r22"):
+		var editor=candidate.persona_research_r22
+		if not editor is Dictionary:return false
+		if not editor.is_empty():
+			if editor.size()!=2 or not _shape(editor,{"draft":{},"spent":0}) or not PersonaResearch.valid_saved(editor.draft):return false
+			if editor.spent<0 or editor.spent>100000000 or editor.spent!=floor(editor.spent):return false
 	# Reuse all existing gear/items/world validators on a disposable legacy view.
 	# Padding exists only in this view; the actual party/ownership is never changed.
 	var probe=candidate.duplicate(true);probe.schema=2;probe.party=IDS.duplicate()
@@ -174,20 +224,53 @@ func restore(value: Variant) -> bool:
 				if not _shape(entry,{"id":"","cls":"","L":1}):return false
 				if entry.id=="":continue
 				if entry.id in ids or (entry.id!="persona" and entry.id not in candidate.owned) or entry.L<1 or entry.L>40 or entry.L!=floor(entry.L) or persona_rules.by(persona_rules.data.classes,"id",entry.cls).is_empty():return false
+				if entry.id=="persona":
+					if entry.has("skill") and (not entry.skill is Dictionary or not PersonaResearch.valid_saved(entry.skill)):return false
+					for key in ["race","lin","nat"]:
+						if entry.has(key) and (not entry[key] is String or entry[key].length()>200):return false
+					if entry.has("ps"):
+						if not entry.ps is Dictionary:return false
+						for key in entry.ps:
+							if key not in ["hp","mp","str","agi","int","def","spd"] or not Adapter.numeric(entry.ps[key]) or entry.ps[key]<0 or entry.ps[key]>1000:return false
 				ids.append(entry.id)
 			if ids!=saved_run.persona_party:return false
 		# The r21 parent checks the complete source run independently of its battle.
 		probe.run=saved_run.duplicate(true);probe.run.battle={}
 		probe.run.erase("persona_party");probe.run.erase("persona_pm")
 	var legacy=LegacyWorld.new()
+	# The legacy four-person probe cannot count a participating human persona.
+	# Validate vitals with the real composition first; its disposable legacy view
+	# then checks the remaining schema/equipment/run contracts with empty vitals.
+	var validation_state=s;s=candidate
+	for id in probe.members:
+		var member=probe.members[id]
+		if not member is Dictionary or not _shape(member,{"level":1,"xp":0,"aff":0.0,"hp":0,"mp":0}) or member.level<1 or member.level>40 or member.level!=floor(member.level):s=validation_state;return false
+		var limit=stats(id,int(member.level))
+		var hp_limit=limit.hp
+		if not active() or id not in candidate.run.get("persona_party",candidate.party):hp_limit=stored_hp_limit(hp_limit)
+		if member.hp<0 or member.mp<0 or member.hp>hp_limit or member.mp>limit.mp:s=validation_state;return false
+		probe.members[id].hp=0;probe.members[id].mp=0
+	s=validation_state
 	if not legacy.restore(probe):return false
 	var previous=s;s=candidate
 	ensure_dungeon();ensure_town_r21();ensure_persona_member()
 	var pm=s.members.persona
 	if not _shape(pm,{"level":1,"xp":0,"aff":0.0,"hp":1,"mp":0}) or pm.level!=s.persona.lv or pm.xp!=s.persona.exp or pm.hp<0 or pm.mp<0:s=previous;return false
 	var maximum=stats("persona",int(s.persona.lv))
-	if pm.hp>maximum.hp or pm.mp>maximum.mp:s=previous;return false
+	if not migrate_equipment_vitals_r14(maximum,saved_run):s=previous;return false
+	if pm.hp>(maximum.hp if active() and "persona" in s.run.get("persona_party",[]) else stored_hp_limit(maximum.hp)) or pm.mp>maximum.mp:s=previous;return false
 	if not saved_run.is_empty() and saved_run.get("phase")=="battle" and not saved_run.get("battle",{}).is_empty():
 		var b=ModernBattle.new(battle_data())
 		if not b.restore(saved_run.battle):s=previous;return false
 	return true
+
+func migrate_equipment_vitals_r14(_maximum: Dictionary,_saved_run: Dictionary) -> bool:
+	return true # Only the P5 facade had the duplicate equipment multiplier.
+
+func stored_hp_limit(current: int) -> int:
+	# Inactive/benched native vitals may still carry an earlier human synergy.
+	# Departure refreshes these vitals. Preserve them without admitting an active
+	# combat unit above its actual maximum (battle.restore checks that separately).
+	var humans=party_count("race","인간")
+	var factor=1.07 if humans>=3 else 1.04 if humans>=2 else 1.0
+	return maxi(current,int(ceil((current+.5)/factor*1.07)))

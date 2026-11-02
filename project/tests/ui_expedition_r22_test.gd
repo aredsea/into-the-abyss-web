@@ -61,7 +61,7 @@ func run():
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
 	for dim in [Vector2i(360,780),Vector2i(390,844),Vector2i(390,664),Vector2i(430,932),Vector2i(1280,800)]:
 		root.content_scale_size=dim;root.size=dim
-		var s=Screen.new();s.size=dim;s.storage.path="user://p5-ui-%dx%d.json"%[dim.x,dim.y];root.add_child(s);s.model=ready_world();s.motion_reduced=true
+		var s=Screen.new();s.size=dim;s.storage.path="user://p5-ui-%dx%d-%d.json"%[dim.x,dim.y,OS.get_process_id()];root.add_child(s);s.model=ready_world();s.motion_reduced=true
 		s.model.s.dungeon_r21.best=8
 		await show(s,"depart");await capture(s,"floors",dim)
 		await click(s,"floor_next");await capture(s,"floor-page",dim);await click(s,"dungeon_floor")
@@ -84,9 +84,13 @@ func run():
 		s.confirm={};s.model.s.run.gold=151;s.model.s.run.xp=120;force_clear(s.model)
 		await show(s,"summary");await capture(s,"settlement",dim);await click(s,"summary_next");check(s.model.s.run.floor==2 and s.model.active(),"pointer continuous descent")
 		await show(s,"explore");await capture(s,"next-floor",dim)
-		s.model.s.run.phase="battle";s.model.s.run.loot_items.hp_s=2;s.model.s.members.persona.hp=1
+		s.model.s.run.phase="battle";s.model.s.run.loot_items.hp_s=2
 		await show(s,"explore");check(s.battle.state is Supply,"P5 native supply adapter connected")
-		s.battle.motion_reduced=true;s.battle._toggle_supplies();await process_frame;await RenderingServer.frame_post_draw
+		s.battle.motion_reduced=true
+		# Source CTB may open with enemies; select supplies on a real ready ally turn.
+		while s.battle.busy or not s.battle.state.player_turn():await process_frame
+		s.battle.state.ally("persona").hp=1
+		s.battle._toggle_supplies();await process_frame;await RenderingServer.frame_post_draw
 		check(root.get_texture().get_image().save_png(folder+"/combat-supplies-%dx%d.png"%[dim.x,dim.y])==OK,"native supply sheet capture");captures.append("combat-supplies-%dx%d.png"%[dim.x,dim.y])
 		await battle_click(s.battle,"item:hp_s");await battle_click(s.battle,"ally:persona")
 		check(s.battle._supply_reason().is_empty(),"native persona supply target selected")

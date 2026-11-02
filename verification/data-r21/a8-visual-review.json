@@ -1,0 +1,31 @@
+{
+  "method": "Opened native PNGs and five contact sheets directly with view_image. Detector returned [] for changed Godot UI files; this is not a DOM/CSS audit.",
+  "opened_originals": [
+    "a8-ui/warrior-360x780-base.png",
+    "a8-ui/archer-360x780-cut.png",
+    "a8-ui/alchemist-360x780-skills.png",
+    "a8-ui/priest-360x780-status.png",
+    "a8-ui/research-360x780.png",
+    "a8-ui/chaos-1280x800-base.png"
+  ],
+  "opened_contacts": [
+    "a8-ui/contact-360x780.jpg",
+    "a8-ui/contact-390x844.jpg",
+    "a8-ui/contact-390x664.jpg",
+    "a8-ui/contact-430x932.jpg",
+    "a8-ui/contact-1280x800.jpg"
+  ],
+  "findings": [
+    "Existing paper/ink/red treatment, enemy art, party cards and command hierarchy remain.",
+    "Canonical English action names and the persona cut-in title are visible. Unsupported native Korean and the existing user-name placeholder remain.",
+    "At 390x664 the battlefield contracts as in the existing layout; sheets and party cards remain separated.",
+    "Long English enemy names use the existing ellipsis treatment; full source-backed names are in tooltips.",
+    "Persona has no approved source portrait or combat sprite. The existing neutral memory placeholder remains; no portrait or sprite was invented."
+  ],
+  "limits": [
+    "No Web export or docs writes. No fresh WASM, physical-device, screen-reader or 200% text-scale test.",
+    "Not every one of the 261 PNGs was opened individually.",
+    "Small secondary HUD labels retain the compact incumbent layout; the English fit floor is 8 px.",
+    "Existing DESIGN.md/.impeccable/design.json drift was reported by context and left unchanged; document is the separate refresh command."
+  ]
+}

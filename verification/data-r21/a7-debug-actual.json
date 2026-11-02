@@ -1,0 +1,631 @@
+{
+	"actual_actions": 51,
+	"actual_inputs": {
+		"attack": 7,
+		"burst": 1,
+		"item:hp_s": 3,
+		"item:mp_s": 3,
+		"personal": 11,
+		"pshield": 3,
+		"snipe": 2,
+		"taunt": 5
+	},
+	"battles": 1,
+	"equal_battles": 0,
+	"matched_actions": 46,
+	"purpose": "Strict active-skill and consumable full-battle parity",
+	"reports": [
+		{
+			"actual_actions": 51,
+			"actual_inputs": [
+				{
+					"actor": 2,
+					"id": "personal",
+					"n": 1
+				},
+				{
+					"actor": 3,
+					"id": "item:mp_s",
+					"n": 3
+				},
+				{
+					"actor": 4,
+					"id": "taunt",
+					"n": 4
+				},
+				{
+					"actor": 1,
+					"id": "personal",
+					"n": 5
+				},
+				{
+					"actor": 2,
+					"id": "item:mp_s",
+					"n": 6
+				},
+				{
+					"actor": 3,
+					"id": "burst",
+					"n": 8
+				},
+				{
+					"actor": 4,
+					"id": "personal",
+					"n": 9
+				},
+				{
+					"actor": 1,
+					"id": "item:mp_s",
+					"n": 10
+				},
+				{
+					"actor": 2,
+					"id": "snipe",
+					"n": 11
+				},
+				{
+					"actor": 4,
+					"id": "personal",
+					"n": 14
+				},
+				{
+					"actor": 1,
+					"id": "item:hp_s",
+					"n": 15
+				},
+				{
+					"actor": 2,
+					"id": "snipe",
+					"n": 16
+				},
+				{
+					"actor": 3,
+					"id": "personal",
+					"n": 17
+				},
+				{
+					"actor": 3,
+					"id": "item:hp_s",
+					"n": 18
+				},
+				{
+					"actor": 4,
+					"id": "taunt",
+					"n": 20
+				},
+				{
+					"actor": 1,
+					"id": "personal",
+					"n": 21
+				},
+				{
+					"actor": 4,
+					"id": "item:hp_s",
+					"n": 23
+				},
+				{
+					"actor": 1,
+					"id": "pshield",
+					"n": 24
+				},
+				{
+					"actor": 4,
+					"id": "personal",
+					"n": 26
+				},
+				{
+					"actor": 1,
+					"id": "attack",
+					"n": 27
+				},
+				{
+					"actor": 4,
+					"id": "taunt",
+					"n": 29
+				},
+				{
+					"actor": 1,
+					"id": "personal",
+					"n": 30
+				},
+				{
+					"actor": 4,
+					"id": "attack",
+					"n": 32
+				},
+				{
+					"actor": 1,
+					"id": "pshield",
+					"n": 33
+				},
+				{
+					"actor": 4,
+					"id": "personal",
+					"n": 35
+				},
+				{
+					"actor": 1,
+					"id": "attack",
+					"n": 36
+				},
+				{
+					"actor": 4,
+					"id": "taunt",
+					"n": 38
+				},
+				{
+					"actor": 1,
+					"id": "personal",
+					"n": 40
+				},
+				{
+					"actor": 4,
+					"id": "attack",
+					"n": 42
+				},
+				{
+					"actor": 1,
+					"id": "pshield",
+					"n": 43
+				},
+				{
+					"actor": 4,
+					"id": "attack",
+					"n": 45
+				},
+				{
+					"actor": 1,
+					"id": "attack",
+					"n": 46
+				},
+				{
+					"actor": 4,
+					"id": "taunt",
+					"n": 48
+				},
+				{
+					"actor": 1,
+					"id": "personal",
+					"n": 49
+				},
+				{
+					"actor": 4,
+					"id": "attack",
+					"n": 51
+				}
+			],
+			"actual_result": "victory",
+			"bn": 1.0,
+			"first_difference": {
+				"actual": {
+					"abyss": [
+						0,
+						0,
+						0,
+						0,
+						108.0,
+						0,
+						0
+					],
+					"actor": 5,
+					"broken": [
+						false,
+						false,
+						false,
+						false,
+						false,
+						false,
+						false
+					],
+					"g": [
+						3160.0,
+						4115.7,
+						9208.0,
+						1890.0,
+						9950.0,
+						0,
+						0
+					],
+					"hits": [
+						{
+							"actor": 5,
+							"critical": false,
+							"damage": 151,
+							"shield": 151,
+							"target": 1
+						}
+					],
+					"hp": [
+						238,
+						0,
+						0,
+						512,
+						397,
+						0,
+						0
+					],
+					"mp": [
+						16,
+						91,
+						162,
+						12,
+						0,
+						0,
+						0
+					],
+					"n": 44,
+					"rd": 12,
+					"rng": 628379708,
+					"sh": [
+						91,
+						0,
+						0,
+						242,
+						0.0,
+						0.0,
+						0.0
+					],
+					"targets": [
+						0,
+						0,
+						0,
+						0,
+						5,
+						0,
+						0
+					],
+					"tk": 1270
+				},
+				"fields": [
+					"sh",
+					"hits"
+				],
+				"input": {
+					"actor": 1.0,
+					"cid": "",
+					"id": "shield",
+					"n": 43.0,
+					"target": 0.0
+				},
+				"source": {
+					"abyss": [
+						0.0,
+						0.0,
+						0.0,
+						0.0,
+						108.0,
+						0.0,
+						0.0
+					],
+					"actor": 5.0,
+					"broken": [
+						false,
+						false,
+						false,
+						false,
+						false,
+						false,
+						false
+					],
+					"g": [
+						3160.0,
+						4115.7,
+						9208.0,
+						1890.0,
+						9950.0,
+						0.0,
+						0.0
+					],
+					"hits": [
+						{
+							"actor": 5.0,
+							"critical": false,
+							"damage": 152.0,
+							"shield": 152.0,
+							"target": 1.0
+						}
+					],
+					"hp": [
+						238.0,
+						0.0,
+						0.0,
+						512.0,
+						397.0,
+						0.0,
+						0.0
+					],
+					"mp": [
+						16.0,
+						91.0,
+						162.0,
+						12.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"n": 44.0,
+					"rd": 12.0,
+					"rng": 628379708.0,
+					"sh": [
+						90.0,
+						0.0,
+						0.0,
+						242.0,
+						0.0,
+						0.0,
+						0.0
+					],
+					"targets": [
+						0.0,
+						0.0,
+						0.0,
+						0.0,
+						5.0,
+						0.0,
+						0.0
+					],
+					"tk": 1270.0
+				},
+				"step": 44
+			},
+			"foe": "frost_contractor",
+			"matched_actions": 46,
+			"party": [
+				"marceline",
+				"naran",
+				"teiris",
+				"haldric"
+			],
+			"source_actions": 51,
+			"source_inputs": [
+				{
+					"actor": 2.0,
+					"cid": "naran",
+					"id": "mark",
+					"n": 1.0,
+					"target": 5.0
+				},
+				{
+					"actor": 3.0,
+					"cid": "",
+					"id": "item:mp_s",
+					"n": 3.0,
+					"target": 2.0
+				},
+				{
+					"actor": 4.0,
+					"cid": "",
+					"id": "taunt",
+					"n": 4.0,
+					"target": 5.0
+				},
+				{
+					"actor": 1.0,
+					"cid": "marceline",
+					"id": "oath",
+					"n": 5.0,
+					"target": 2.0
+				},
+				{
+					"actor": 2.0,
+					"cid": "",
+					"id": "item:mp_s",
+					"n": 6.0,
+					"target": 1.0
+				},
+				{
+					"actor": 3.0,
+					"cid": "",
+					"id": "burst",
+					"n": 8.0,
+					"target": 5.0
+				},
+				{
+					"actor": 4.0,
+					"cid": "haldric",
+					"id": "contract3",
+					"n": 9.0,
+					"target": 0.0
+				},
+				{
+					"actor": 1.0,
+					"cid": "",
+					"id": "item:mp_s",
+					"n": 10.0,
+					"target": 3.0
+				},
+				{
+					"actor": 2.0,
+					"cid": "",
+					"id": "snipe",
+					"n": 11.0,
+					"target": 5.0
+				},
+				{
+					"actor": 4.0,
+					"cid": "haldric",
+					"id": "contract3",
+					"n": 14.0,
+					"target": 0.0
+				},
+				{
+					"actor": 1.0,
+					"cid": "",
+					"id": "item:hp_s",
+					"n": 15.0,
+					"target": 4.0
+				},
+				{
+					"actor": 2.0,
+					"cid": "",
+					"id": "snipe",
+					"n": 16.0,
+					"target": 5.0
+				},
+				{
+					"actor": 3.0,
+					"cid": "teiris",
+					"id": "note",
+					"n": 17.0,
+					"target": 0.0
+				},
+				{
+					"actor": 3.0,
+					"cid": "",
+					"id": "item:hp_s",
+					"n": 18.0,
+					"target": 4.0
+				},
+				{
+					"actor": 4.0,
+					"cid": "",
+					"id": "taunt",
+					"n": 20.0,
+					"target": 5.0
+				},
+				{
+					"actor": 1.0,
+					"cid": "marceline",
+					"id": "oath",
+					"n": 21.0,
+					"target": 4.0
+				},
+				{
+					"actor": 4.0,
+					"cid": "",
+					"id": "item:hp_s",
+					"n": 23.0,
+					"target": 1.0
+				},
+				{
+					"actor": 1.0,
+					"cid": "",
+					"id": "shield",
+					"n": 24.0,
+					"target": 0.0
+				},
+				{
+					"actor": 4.0,
+					"cid": "haldric",
+					"id": "contract3",
+					"n": 26.0,
+					"target": 0.0
+				},
+				{
+					"actor": 1.0,
+					"cid": "",
+					"id": "atk",
+					"n": 27.0,
+					"target": 5.0
+				},
+				{
+					"actor": 4.0,
+					"cid": "",
+					"id": "taunt",
+					"n": 29.0,
+					"target": 5.0
+				},
+				{
+					"actor": 1.0,
+					"cid": "marceline",
+					"id": "oath",
+					"n": 30.0,
+					"target": 4.0
+				},
+				{
+					"actor": 4.0,
+					"cid": "",
+					"id": "atk",
+					"n": 32.0,
+					"target": 5.0
+				},
+				{
+					"actor": 1.0,
+					"cid": "",
+					"id": "shield",
+					"n": 33.0,
+					"target": 0.0
+				},
+				{
+					"actor": 4.0,
+					"cid": "haldric",
+					"id": "contract3",
+					"n": 35.0,
+					"target": 0.0
+				},
+				{
+					"actor": 1.0,
+					"cid": "",
+					"id": "atk",
+					"n": 36.0,
+					"target": 5.0
+				},
+				{
+					"actor": 4.0,
+					"cid": "",
+					"id": "taunt",
+					"n": 38.0,
+					"target": 5.0
+				},
+				{
+					"actor": 1.0,
+					"cid": "marceline",
+					"id": "oath",
+					"n": 40.0,
+					"target": 4.0
+				},
+				{
+					"actor": 4.0,
+					"cid": "",
+					"id": "atk",
+					"n": 42.0,
+					"target": 5.0
+				},
+				{
+					"actor": 1.0,
+					"cid": "",
+					"id": "shield",
+					"n": 43.0,
+					"target": 0.0
+				},
+				{
+					"actor": 4.0,
+					"cid": "",
+					"id": "atk",
+					"n": 45.0,
+					"target": 5.0
+				},
+				{
+					"actor": 1.0,
+					"cid": "",
+					"id": "atk",
+					"n": 46.0,
+					"target": 5.0
+				},
+				{
+					"actor": 4.0,
+					"cid": "",
+					"id": "taunt",
+					"n": 48.0,
+					"target": 5.0
+				},
+				{
+					"actor": 1.0,
+					"cid": "marceline",
+					"id": "oath",
+					"n": 49.0,
+					"target": 4.0
+				},
+				{
+					"actor": 4.0,
+					"cid": "",
+					"id": "atk",
+					"n": 51.0,
+					"target": 5.0
+				}
+			],
+			"source_result": "win"
+		}
+	],
+	"source_actions": 51
+}

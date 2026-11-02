@@ -1,0 +1,848 @@
+{
+	"checks": 74,
+	"failures": [
+		"round Judith { \"slow\": true, \"repeat_cast\": false, \"kind\": \"judith\", \"sp\": 86.0, \"rd\": 0.0 }",
+		"round Judith { \"slow\": true, \"repeat_cast\": false, \"kind\": \"judith\", \"sp\": 86.0, \"rd\": 1.0 }",
+		"round Judith { \"slow\": true, \"repeat_cast\": false, \"kind\": \"judith\", \"sp\": 86.0, \"rd\": 2.0 }",
+		"round Judith { \"slow\": false, \"repeat_cast\": false, \"kind\": \"judith\", \"sp\": 101.0, \"rd\": 3.0 }",
+		"round Judith { \"slow\": false, \"repeat_cast\": false, \"kind\": \"judith\", \"sp\": 101.0, \"rd\": 4.0 }",
+		"round Judith { \"slow\": false, \"repeat_cast\": false, \"kind\": \"judith\", \"sp\": 101.0, \"rd\": 5.0 }",
+		"round Judith { \"slow\": true, \"repeat_cast\": true, \"kind\": \"judith\", \"sp\": 86.0, \"rd\": 0.0 }",
+		"round Judith { \"slow\": true, \"repeat_cast\": true, \"kind\": \"judith\", \"sp\": 86.0, \"rd\": 1.0 }",
+		"round Judith { \"slow\": true, \"repeat_cast\": true, \"kind\": \"judith\", \"sp\": 86.0, \"rd\": 2.0 }",
+		"round Judith { \"slow\": true, \"repeat_cast\": true, \"kind\": \"judith\", \"sp\": 86.0, \"rd\": 3.0 }",
+		"round Judith { \"slow\": false, \"repeat_cast\": true, \"kind\": \"judith\", \"sp\": 101.0, \"rd\": 4.0 }",
+		"round Judith { \"slow\": false, \"repeat_cast\": true, \"kind\": \"judith\", \"sp\": 101.0, \"rd\": 5.0 }",
+		"round persona { \"left\": 1.0, \"dead_owner\": false, \"kind\": \"persona\", \"n\": 1.0, \"hp\": 531.0 }",
+		"round persona { \"left\": 0.0, \"dead_owner\": false, \"kind\": \"persona\", \"n\": 2.0, \"hp\": 562.0 }",
+		"round persona { \"left\": 0.0, \"dead_owner\": false, \"kind\": \"persona\", \"n\": 3.0, \"hp\": 562.0 }",
+		"round persona { \"left\": 2.0, \"dead_owner\": true, \"kind\": \"persona\", \"n\": 1.0, \"hp\": 500.0 }",
+		"round persona { \"left\": 2.0, \"dead_owner\": true, \"kind\": \"persona\", \"n\": 2.0, \"hp\": 500.0 }",
+		"round persona { \"left\": 2.0, \"dead_owner\": true, \"kind\": \"persona\", \"n\": 3.0, \"hp\": 500.0 }",
+		"round Felice wait { \"g\": 1.0, \"gauge\": 1.0, \"kind\": \"felice\", \"used\": 0.0, \"hp\": 0.0, \"elapsed\": 0.0 }",
+		"round Felice wait { \"g\": 100.0, \"gauge\": 100.0, \"kind\": \"felice\", \"used\": 0.0, \"hp\": 0.0, \"elapsed\": 0.0 }",
+		"round Felice wait { \"g\": 101.0, \"gauge\": 101.0, \"kind\": \"felice\", \"used\": 0.0, \"hp\": 0.0, \"elapsed\": 0.0 }",
+		"round Felice wait { \"g\": 101.0, \"gauge\": 101.0, \"kind\": \"felice\", \"used\": 0.0, \"hp\": 0.0, \"elapsed\": 1.0 }",
+		"round Felice wait { \"g\": 9000.0, \"gauge\": 9000.0, \"kind\": \"felice\", \"used\": 0.0, \"hp\": 0.0, \"elapsed\": 0.0 }",
+		"round Felice wait { \"g\": 9000.0, \"gauge\": 9000.0, \"kind\": \"felice\", \"used\": 0.0, \"hp\": 0.0, \"elapsed\": 1.0 }",
+		"round Felice wait { \"g\": 9000.0, \"gauge\": 9000.0, \"kind\": \"felice\", \"used\": 0.0, \"hp\": 0.0, \"elapsed\": 2.0 }",
+		"round dead wall { \"kind\": \"wall\", \"left\": 1.0, \"n\": 1.0 }",
+		"round dead wall { \"kind\": \"wall\", \"left\": 0.0, \"n\": 2.0 }",
+		"round dead wall { \"kind\": \"wall\", \"left\": 0.0, \"n\": 3.0 }",
+		"effect end own false step 1",
+		"effect end own false step 2",
+		"effect end own false step 3",
+		"effect end own true step 2",
+		"effect end own true step 3"
+	],
+	"rows": [
+		{
+			"got": 5,
+			"label": "1 actual finish / DOT death MP",
+			"ok": true,
+			"want": 5.0
+		},
+		{
+			"got": null,
+			"label": "1 skips DOT corpse without another action",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				412,
+				0,
+				{},
+				{
+					"psguard": {
+						"amount": 0.1,
+						"turns": 3
+					}
+				}
+			],
+			"label": "2 pinned 72bf1b2 legacy rounding",
+			"ok": true,
+			"want": [
+				412,
+				0,
+				{},
+				{
+					"psguard": {
+						"amount": 0.1,
+						"turns": 3
+					}
+				}
+			]
+		},
+		{
+			"got": [
+				10,
+				0,
+				{},
+				{}
+			],
+			"label": "2 pinned 72bf1b2 legacy echo",
+			"ok": true,
+			"want": [
+				10,
+				0,
+				{},
+				{}
+			]
+		},
+		{
+			"got": [
+				200,
+				0,
+				{
+					"wall_saved": true
+				},
+				{
+					"wall_party": {
+						"amount": 0.3,
+						"turns": 2
+					}
+				}
+			],
+			"label": "2 pinned 72bf1b2 legacy priority",
+			"ok": true,
+			"want": [
+				200,
+				0,
+				{
+					"wall_saved": true
+				},
+				{
+					"wall_party": {
+						"amount": 0.3,
+						"turns": 2
+					}
+				}
+			]
+		},
+		{
+			"got": [
+				0,
+				0,
+				{},
+				{}
+			],
+			"label": "2 pinned 72bf1b2 legacy priest",
+			"ok": true,
+			"want": [
+				0,
+				0,
+				{},
+				{}
+			]
+		},
+		{
+			"got": [
+				0,
+				0,
+				{
+					"scar": 50.0
+				},
+				{}
+			],
+			"label": "2 pinned 72bf1b2 legacy scar",
+			"ok": true,
+			"want": [
+				0,
+				0,
+				{
+					"scar": 50.0
+				},
+				{}
+			]
+		},
+		{
+			"got": [
+				350,
+				0,
+				{
+					"stood": true
+				},
+				{
+					"gear_guard": {
+						"amount": 0.3,
+						"turns": 2
+					}
+				}
+			],
+			"label": "2 pinned 72bf1b2 legacy sorel",
+			"ok": true,
+			"want": [
+				350,
+				0,
+				{
+					"stood": true
+				},
+				{
+					"gear_guard": {
+						"amount": 0.3,
+						"turns": 2
+					}
+				}
+			]
+		},
+		{
+			"got": {
+				"amount": 100.0,
+				"count": 1,
+				"hp": 9880
+			},
+			"label": "3 ruin false x1",
+			"ok": true,
+			"want": {
+				"amount": 100.0,
+				"chain": false,
+				"count": 1.0,
+				"hp": 9880.0,
+				"step": 1.0
+			}
+		},
+		{
+			"got": {
+				"amount": 200.0,
+				"count": 2,
+				"hp": 9760
+			},
+			"label": "3 ruin false x2",
+			"ok": true,
+			"want": {
+				"amount": 200.0,
+				"chain": false,
+				"count": 2.0,
+				"hp": 9760.0,
+				"step": 2.0
+			}
+		},
+		{
+			"got": {
+				"amount": 300.0,
+				"count": 3,
+				"hp": 9640
+			},
+			"label": "3 ruin false x3",
+			"ok": true,
+			"want": {
+				"amount": 300.0,
+				"chain": false,
+				"count": 3.0,
+				"hp": 9640.0,
+				"step": 3.0
+			}
+		},
+		{
+			"got": {
+				"amount": 100.0,
+				"count": 1,
+				"hp": 9880
+			},
+			"label": "3 ruin true x1",
+			"ok": true,
+			"want": {
+				"amount": 100.0,
+				"chain": true,
+				"count": 1.0,
+				"hp": 9880.0,
+				"step": 1.0
+			}
+		},
+		{
+			"got": {
+				"amount": 200.0,
+				"count": 2,
+				"hp": 9760
+			},
+			"label": "3 ruin true x2",
+			"ok": true,
+			"want": {
+				"amount": 200.0,
+				"chain": true,
+				"count": 2.0,
+				"hp": 9760.0,
+				"step": 2.0
+			}
+		},
+		{
+			"got": {
+				"amount": 0.0,
+				"count": 0,
+				"hp": 8560
+			},
+			"label": "3 ruin true x3",
+			"ok": true,
+			"want": {
+				"amount": 0.0,
+				"chain": true,
+				"count": 0.0,
+				"hp": 8560.0,
+				"step": 3.0
+			}
+		},
+		{
+			"got": 50.0,
+			"label": "4 dead scar false",
+			"ok": true,
+			"want": 50.0
+		},
+		{
+			"got": 50.0,
+			"label": "4 dead scar true",
+			"ok": true,
+			"want": 50.0
+		},
+		{
+			"got": {
+				"hp": 350,
+				"stood": false
+			},
+			"label": "6 personal damaged before gear false",
+			"ok": true,
+			"want": {
+				"fixed": false,
+				"hp": 350.0,
+				"rescue": 0.0,
+				"stood": false
+			}
+		},
+		{
+			"got": {
+				"hp": 350,
+				"stood": false
+			},
+			"label": "6 personal damaged before gear true",
+			"ok": true,
+			"want": {
+				"fixed": true,
+				"hp": 350.0,
+				"rescue": 0.0,
+				"stood": false
+			}
+		},
+		{
+			"got": {
+				"n": 5,
+				"sum": 120.0
+			},
+			"label": "5 old aggregate retains stack count",
+			"ok": true,
+			"want": {
+				"n": 5,
+				"sum": 120
+			}
+		},
+		{
+			"got": null,
+			"label": "5 migrated aggregate JSON restores",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": 85.85,
+			"label": "round Judith { \"slow\": true, \"repeat_cast\": false, \"kind\": \"judith\", \"sp\": 86.0, \"rd\": 0.0 }",
+			"ok": false,
+			"want": 86.0
+		},
+		{
+			"got": 85.85,
+			"label": "round Judith { \"slow\": true, \"repeat_cast\": false, \"kind\": \"judith\", \"sp\": 86.0, \"rd\": 1.0 }",
+			"ok": false,
+			"want": 86.0
+		},
+		{
+			"got": 85.85,
+			"label": "round Judith { \"slow\": true, \"repeat_cast\": false, \"kind\": \"judith\", \"sp\": 86.0, \"rd\": 2.0 }",
+			"ok": false,
+			"want": 86.0
+		},
+		{
+			"got": 85.85,
+			"label": "round Judith { \"slow\": false, \"repeat_cast\": false, \"kind\": \"judith\", \"sp\": 101.0, \"rd\": 3.0 }",
+			"ok": false,
+			"want": 101.0
+		},
+		{
+			"got": 85.85,
+			"label": "round Judith { \"slow\": false, \"repeat_cast\": false, \"kind\": \"judith\", \"sp\": 101.0, \"rd\": 4.0 }",
+			"ok": false,
+			"want": 101.0
+		},
+		{
+			"got": 85.85,
+			"label": "round Judith { \"slow\": false, \"repeat_cast\": false, \"kind\": \"judith\", \"sp\": 101.0, \"rd\": 5.0 }",
+			"ok": false,
+			"want": 101.0
+		},
+		{
+			"got": 85.85,
+			"label": "round Judith { \"slow\": true, \"repeat_cast\": true, \"kind\": \"judith\", \"sp\": 86.0, \"rd\": 0.0 }",
+			"ok": false,
+			"want": 86.0
+		},
+		{
+			"got": 85.85,
+			"label": "round Judith { \"slow\": true, \"repeat_cast\": true, \"kind\": \"judith\", \"sp\": 86.0, \"rd\": 1.0 }",
+			"ok": false,
+			"want": 86.0
+		},
+		{
+			"got": 85.85,
+			"label": "round Judith { \"slow\": true, \"repeat_cast\": true, \"kind\": \"judith\", \"sp\": 86.0, \"rd\": 2.0 }",
+			"ok": false,
+			"want": 86.0
+		},
+		{
+			"got": 85.85,
+			"label": "round Judith { \"slow\": true, \"repeat_cast\": true, \"kind\": \"judith\", \"sp\": 86.0, \"rd\": 3.0 }",
+			"ok": false,
+			"want": 86.0
+		},
+		{
+			"got": 85.85,
+			"label": "round Judith { \"slow\": false, \"repeat_cast\": true, \"kind\": \"judith\", \"sp\": 101.0, \"rd\": 4.0 }",
+			"ok": false,
+			"want": 101.0
+		},
+		{
+			"got": 85.85,
+			"label": "round Judith { \"slow\": false, \"repeat_cast\": true, \"kind\": \"judith\", \"sp\": 101.0, \"rd\": 5.0 }",
+			"ok": false,
+			"want": 101.0
+		},
+		{
+			"got": [
+				500,
+				2
+			],
+			"label": "round persona { \"left\": 1.0, \"dead_owner\": false, \"kind\": \"persona\", \"n\": 1.0, \"hp\": 531.0 }",
+			"ok": false,
+			"want": [
+				531.0,
+				1.0
+			]
+		},
+		{
+			"got": [
+				500,
+				2
+			],
+			"label": "round persona { \"left\": 0.0, \"dead_owner\": false, \"kind\": \"persona\", \"n\": 2.0, \"hp\": 562.0 }",
+			"ok": false,
+			"want": [
+				562.0,
+				0.0
+			]
+		},
+		{
+			"got": [
+				500,
+				2
+			],
+			"label": "round persona { \"left\": 0.0, \"dead_owner\": false, \"kind\": \"persona\", \"n\": 3.0, \"hp\": 562.0 }",
+			"ok": false,
+			"want": [
+				562.0,
+				0.0
+			]
+		},
+		{
+			"got": [
+				500,
+				2
+			],
+			"label": "round persona { \"left\": 2.0, \"dead_owner\": true, \"kind\": \"persona\", \"n\": 1.0, \"hp\": 500.0 }",
+			"ok": false,
+			"want": [
+				500.0,
+				2.0
+			]
+		},
+		{
+			"got": [
+				500,
+				2
+			],
+			"label": "round persona { \"left\": 2.0, \"dead_owner\": true, \"kind\": \"persona\", \"n\": 2.0, \"hp\": 500.0 }",
+			"ok": false,
+			"want": [
+				500.0,
+				2.0
+			]
+		},
+		{
+			"got": [
+				500,
+				2
+			],
+			"label": "round persona { \"left\": 2.0, \"dead_owner\": true, \"kind\": \"persona\", \"n\": 3.0, \"hp\": 500.0 }",
+			"ok": false,
+			"want": [
+				500.0,
+				2.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": -1.0, \"gauge\": 0.0, \"kind\": \"felice\", \"used\": 1.0, \"hp\": 250.0, \"elapsed\": 0.0 }",
+			"ok": true,
+			"want": [
+				250.0,
+				0.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": -1.0, \"gauge\": 0.0, \"kind\": \"felice\", \"used\": 1.0, \"hp\": 250.0, \"elapsed\": 1.0 }",
+			"ok": true,
+			"want": [
+				250.0,
+				0.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": -1.0, \"gauge\": 0.0, \"kind\": \"felice\", \"used\": 1.0, \"hp\": 250.0, \"elapsed\": 2.0 }",
+			"ok": true,
+			"want": [
+				250.0,
+				0.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": -1.0, \"gauge\": 0.0, \"kind\": \"felice\", \"used\": 1.0, \"hp\": 250.0, \"elapsed\": 90.0 }",
+			"ok": true,
+			"want": [
+				250.0,
+				0.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": 0.0, \"gauge\": 0.0, \"kind\": \"felice\", \"used\": 1.0, \"hp\": 250.0, \"elapsed\": 0.0 }",
+			"ok": true,
+			"want": [
+				250.0,
+				0.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": 0.0, \"gauge\": 0.0, \"kind\": \"felice\", \"used\": 1.0, \"hp\": 250.0, \"elapsed\": 1.0 }",
+			"ok": true,
+			"want": [
+				250.0,
+				0.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": 0.0, \"gauge\": 0.0, \"kind\": \"felice\", \"used\": 1.0, \"hp\": 250.0, \"elapsed\": 2.0 }",
+			"ok": true,
+			"want": [
+				250.0,
+				0.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": 0.0, \"gauge\": 0.0, \"kind\": \"felice\", \"used\": 1.0, \"hp\": 250.0, \"elapsed\": 90.0 }",
+			"ok": true,
+			"want": [
+				250.0,
+				0.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": 1.0, \"gauge\": 1.0, \"kind\": \"felice\", \"used\": 0.0, \"hp\": 0.0, \"elapsed\": 0.0 }",
+			"ok": false,
+			"want": [
+				0.0,
+				1.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": 1.0, \"gauge\": 0.0, \"kind\": \"felice\", \"used\": 1.0, \"hp\": 250.0, \"elapsed\": 1.0 }",
+			"ok": true,
+			"want": [
+				250.0,
+				0.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": 1.0, \"gauge\": 0.0, \"kind\": \"felice\", \"used\": 1.0, \"hp\": 250.0, \"elapsed\": 2.0 }",
+			"ok": true,
+			"want": [
+				250.0,
+				0.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": 1.0, \"gauge\": 0.0, \"kind\": \"felice\", \"used\": 1.0, \"hp\": 250.0, \"elapsed\": 90.0 }",
+			"ok": true,
+			"want": [
+				250.0,
+				0.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": 100.0, \"gauge\": 100.0, \"kind\": \"felice\", \"used\": 0.0, \"hp\": 0.0, \"elapsed\": 0.0 }",
+			"ok": false,
+			"want": [
+				0.0,
+				100.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": 100.0, \"gauge\": 0.0, \"kind\": \"felice\", \"used\": 1.0, \"hp\": 250.0, \"elapsed\": 1.0 }",
+			"ok": true,
+			"want": [
+				250.0,
+				0.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": 100.0, \"gauge\": 0.0, \"kind\": \"felice\", \"used\": 1.0, \"hp\": 250.0, \"elapsed\": 2.0 }",
+			"ok": true,
+			"want": [
+				250.0,
+				0.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": 100.0, \"gauge\": 0.0, \"kind\": \"felice\", \"used\": 1.0, \"hp\": 250.0, \"elapsed\": 90.0 }",
+			"ok": true,
+			"want": [
+				250.0,
+				0.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": 101.0, \"gauge\": 101.0, \"kind\": \"felice\", \"used\": 0.0, \"hp\": 0.0, \"elapsed\": 0.0 }",
+			"ok": false,
+			"want": [
+				0.0,
+				101.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": 101.0, \"gauge\": 101.0, \"kind\": \"felice\", \"used\": 0.0, \"hp\": 0.0, \"elapsed\": 1.0 }",
+			"ok": false,
+			"want": [
+				0.0,
+				101.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": 101.0, \"gauge\": 0.0, \"kind\": \"felice\", \"used\": 1.0, \"hp\": 250.0, \"elapsed\": 2.0 }",
+			"ok": true,
+			"want": [
+				250.0,
+				0.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": 101.0, \"gauge\": 0.0, \"kind\": \"felice\", \"used\": 1.0, \"hp\": 250.0, \"elapsed\": 90.0 }",
+			"ok": true,
+			"want": [
+				250.0,
+				0.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": 9000.0, \"gauge\": 9000.0, \"kind\": \"felice\", \"used\": 0.0, \"hp\": 0.0, \"elapsed\": 0.0 }",
+			"ok": false,
+			"want": [
+				0.0,
+				9000.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": 9000.0, \"gauge\": 9000.0, \"kind\": \"felice\", \"used\": 0.0, \"hp\": 0.0, \"elapsed\": 1.0 }",
+			"ok": false,
+			"want": [
+				0.0,
+				9000.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": 9000.0, \"gauge\": 9000.0, \"kind\": \"felice\", \"used\": 0.0, \"hp\": 0.0, \"elapsed\": 2.0 }",
+			"ok": false,
+			"want": [
+				0.0,
+				9000.0
+			]
+		},
+		{
+			"got": [
+				250,
+				0.0
+			],
+			"label": "round Felice wait { \"g\": 9000.0, \"gauge\": 0.0, \"kind\": \"felice\", \"used\": 1.0, \"hp\": 250.0, \"elapsed\": 90.0 }",
+			"ok": true,
+			"want": [
+				250.0,
+				0.0
+			]
+		},
+		{
+			"got": 2,
+			"label": "round dead wall { \"kind\": \"wall\", \"left\": 2.0, \"n\": 0.0 }",
+			"ok": true,
+			"want": 2.0
+		},
+		{
+			"got": 2,
+			"label": "round dead wall { \"kind\": \"wall\", \"left\": 1.0, \"n\": 1.0 }",
+			"ok": false,
+			"want": 1.0
+		},
+		{
+			"got": 2,
+			"label": "round dead wall { \"kind\": \"wall\", \"left\": 0.0, \"n\": 2.0 }",
+			"ok": false,
+			"want": 0.0
+		},
+		{
+			"got": 2,
+			"label": "round dead wall { \"kind\": \"wall\", \"left\": 0.0, \"n\": 3.0 }",
+			"ok": false,
+			"want": 0.0
+		},
+		{
+			"got": 2,
+			"label": "effect end own false step 0",
+			"ok": true,
+			"want": 2.0
+		},
+		{
+			"got": 2,
+			"label": "effect end own false step 1",
+			"ok": false,
+			"want": 1.0
+		},
+		{
+			"got": 2,
+			"label": "effect end own false step 2",
+			"ok": false,
+			"want": 0.0
+		},
+		{
+			"got": 2,
+			"label": "effect end own false step 3",
+			"ok": false,
+			"want": 0.0
+		},
+		{
+			"got": 2,
+			"label": "effect end own true step 0",
+			"ok": true,
+			"want": 2.0
+		},
+		{
+			"got": 2,
+			"label": "effect end own true step 1",
+			"ok": true,
+			"want": 2.0
+		},
+		{
+			"got": 2,
+			"label": "effect end own true step 2",
+			"ok": false,
+			"want": 1.0
+		},
+		{
+			"got": 2,
+			"label": "effect end own true step 3",
+			"ok": false,
+			"want": 0.0
+		}
+	]
+}
