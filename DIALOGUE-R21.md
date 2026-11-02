@@ -1,3 +1,28 @@
+# 6차
+
+재검수 우선 **20건 모두 교정**, 기각 **0건**. 연관 **7필드**를 함께 고쳐 **15명·27필드** 수정했다. 나머지 15명 JSON은 바이트 불변이다.
+장면·선택 ID·순서·aff·화계·고유 소재·메타데이터 불변: **여관 840 / 선택지 2520 / 던전 2520 / 단계 변화 420**.
+
+- [review-6.md](verification/dialogue-r21/review-6.md): 27건의 정확한 전→후·이유, 반복 후보 20개 대조와 보존 근거. 단순 회전 설명으로 바꾸자는 제안은 숟가락 농담을 살리는 문구로 변형했다.
+- [edits6-applied.json](verification/dialogue-r21/edits6-applied.json): 경로별 교정. `draft6/` 30개는 수정 전 동결본이다. 재빌드가 최종 30개 JSON과 바이트 일치하는지 검사한다.
+- 대화 검사 **오류 0**. 납품 검사 **179항목 / 실패 0**(경로별 교정·구조·재빌드·보존 해시 대조). 기존 변이·화계 자가시험 **184항목 / 실패 0**. 검사기·기대값·허용 화계 변경 0.
+- 공통 Godot **15종 / 21,168항목 / 종료·판정 실패 0 / 미분류 오류 0**. 재시도 없음. 인증서 저장소 환경 오류 **15회**는 별도 기록. 원시 로그·요약은 `regression6/`에 있다.
+- `regression-contact6.png`의 대표 6장을 직접 열어 전투 배치·초상·버튼·바르굿/나란 연출을 확인했다. 새 대화 UI는 미연결이므로 실제 대화 줄바꿈은 확인하지 못했다.
+- 보호 대상 **1,982개**·정본 **16개**·이전 검수 산출 **434개** 변경 0. `kreview-5.*`와 이전 보고서 원문을 보존했다.
+
+바뀐 파일: `project/data/dialogue-r21/{adeline,altan,bargut,berenga,bianca,colette,erdene,felice,gunhild,haldric,marceline,miko,naran,sorel,teiris}.json`; 빌드 진입점 `tools/dialogue_r21_build.py`; 새 `tools/dialogue_r21_{edit6,round6,verify6,delivery_check6}.py`; 이 보고서와 `verification/dialogue-r21/`의 6차 교정·검증 산출물.
+정본 사실·게임 규칙·저장 형식·실행 훅·에셋 변경 없음. 앞 차수의 콘텐츠 계약과 정본 공백, 대화 UI 미연결 범위는 유지한다. 성적·친밀 장면 추가 없음. **git 명령·커밋·Web export 실행 없음**.
+
+```powershell
+python -X utf8 tools/dialogue_r21_build.py
+python -X utf8 tools/dialogue_r21_check.py --report verification/dialogue-r21/check6.json
+python -X utf8 tools/dialogue_r21_delivery_check6.py
+# 공통 회귀 전체 재실행
+python -X utf8 tools/dialogue_r21_verify6.py
+```
+
+---
+
 # 5차
 
 30명 전체 국소 교정. 독립 검수 **66건(고침 19·권함 47) 모두 반영**, 실제 발화 **1032필드** 수정.

@@ -122,6 +122,10 @@ def replace_at(data, path, value):
 
 
 def main():
+    if (OUT / 'edits6-applied.json').exists():
+        from dialogue_r21_round6 import build
+        build()
+        return
     if (OUT / 'edits5-applied.json').exists():
         from dialogue_r21_round5 import build
         build()
