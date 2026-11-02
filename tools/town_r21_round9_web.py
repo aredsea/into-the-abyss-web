@@ -6,7 +6,7 @@ import json,threading,os,tempfile,time,sys
 from playwright.sync_api import sync_playwright
 R=Path(__file__).resolve().parents[1]
 O=R/'verification/town-r21/web'
-BUILD='r21-d-town-20261103a'
+BUILD='r21-d-town-20261103b'
 
 def idb_files(page):
  return page.evaluate('''async()=>{

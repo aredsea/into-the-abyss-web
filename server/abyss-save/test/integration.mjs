@@ -103,7 +103,7 @@ try{
   for(const table of ['accounts','saves','ranks'])assert.equal((await db.prepare(`SELECT COUNT(*) n FROM ${table} WHERE code=?`).bind(a.code).first()).n,0);checks+=3;
  });
  await test('merged P5/P6/P7/P8/P10/D save specimens roundtrip through actual D1 and CAS',async()=>{
-  const sets=['verification/expedition-r22/save-specimens.json','verification/facilities-r22/save-specimens.json','verification/town-r21/round11/save-specimens.json'];
+  const sets=['verification/expedition-r22/save-specimens.json','verification/facilities-r22/save-specimens.json','verification/town-r21/round11/save-specimens.json','verification/town-r21/round13/save-specimens.json'];
   // Begin a fresh fixture quota window after the dedicated rate-limit tests.
   await db.prepare('DELETE FROM counters').run();
   for(const file of sets)for(const[name,save]of Object.entries(JSON.parse(fs.readFileSync(path.join(root,file),'utf8')))){

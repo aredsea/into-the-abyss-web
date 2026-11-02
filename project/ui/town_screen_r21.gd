@@ -86,9 +86,9 @@ func fill(id: String,r: Rect2,color: Color) -> ColorRect:
 	var c=ColorRect.new(); stage.add_child(c); c.position=r.position; c.size=r.size; c.color=color; c.mouse_filter=MOUSE_FILTER_IGNORE
 	mark(id,c); return c
 
-func label(value: String,r: Rect2,fs=14,color=T.INK,font: Font=T.BODY) -> Label:
+func label(value: String,r: Rect2,fs=14,color=T.INK,font: Font=T.BODY,translate=true) -> Label:
 	var l=Label.new(); stage.add_child(l); l.position=r.position; l.size=r.size
-	l.text=localized(value); l.add_theme_font_override("font",font); l.add_theme_font_size_override("font_size",fs); l.add_theme_color_override("font_color",color)
+	l.text=localized(value) if translate else value; l.add_theme_font_override("font",font); l.add_theme_font_size_override("font_size",fs); l.add_theme_color_override("font_color",color)
 	l.vertical_alignment=VERTICAL_ALIGNMENT_CENTER; l.mouse_filter=MOUSE_FILTER_IGNORE
 	l.clip_text=true
 	metrics.append({"text":value,"needed":font.get_multiline_string_size(value,HORIZONTAL_ALIGNMENT_LEFT,-1,fs).x,"available":r.size.x,"font_size":fs})
@@ -139,8 +139,11 @@ func traced_title(name: String,r: Rect2) -> void:
 	t.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;t.stretch_mode=TextureRect.STRETCH_SCALE;t.position=r.position;t.size=r.size;t.mouse_filter=MOUSE_FILTER_IGNORE
 	mark("title:"+name,t)
 
-func action(id: String,value: String,r: Rect2,callback: Callable,primary=false,disabled=false) -> Button:
-	var b=Button.new(); stage.add_child(b); b.position=r.position; b.size=r.size; b.text=localized(value); b.disabled=disabled
+func action(id: String,value: String,r: Rect2,callback: Callable,primary=false,disabled=false,translate=true) -> Button:
+	# Reuse the bot's exact English action terms; authored choice text stays Korean.
+	if translate and L.language(host.model.s)=="en" and id.begins_with("dialogue_"):
+		value={"계속":"Continue","여관으로":"Lower Town Inn","나중에 이야기하기":"Cancel"}.get(value,value)
+	var b=Button.new(); stage.add_child(b); b.position=r.position; b.size=r.size; b.text=localized(value) if translate else value; b.disabled=disabled
 	b.add_theme_font_override("font",T.BOLD); b.add_theme_font_size_override("font_size",16)
 	if primary:
 		for state in ["normal","hover","pressed"]:
@@ -271,8 +274,8 @@ func roster() -> void:
 		hit("member:"+id,rect,func():host.who=id;host.go("member"))
 	stage=previous
 
-func paragraph(value: String,r: Rect2,fs=13,color=T.INK) -> Label:
-	var l=label(value,r,fs,color); l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+func paragraph(value: String,r: Rect2,fs=13,color=T.INK,translate=true) -> Label:
+	var l=label(value,r,fs,color,T.BODY,translate); l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	metrics[-1].available=10000
 	return l
 
@@ -644,24 +647,24 @@ func inn_dialogue() -> void:
 		paragraph("이 대화의 기록을 찾을 수 없습니다.",Rect2(18,350,354,70),16)
 		action("dialogue_cancel","여관으로",Rect2(18,746,354,54),func():state.pending={};host._save();host.go("inn"),true);return
 	if responding:
-		paragraph(p.text,Rect2(18,336,354,54),14)
-		paragraph("\n".join(p.lines),Rect2(18,405,354,92),18,T.INK)
+		paragraph(p.text,Rect2(18,336,354,54),14,T.INK,false)
+		paragraph("\n".join(p.lines),Rect2(18,405,354,92),18,T.INK,false)
 		label("호감 %s → %s (%s%s)"%[host.number(p.before),host.number(p.after),"+" if p.gained>=0 else "",host.number(p.gained)],Rect2(18,504,354,28),14,T.RED,T.BOLD)
 		var t=p.transition
 		if not t.is_empty():
 			label(t.from+" → "+t.to,Rect2(18,550,354,28),16,T.RED,T.BOLD)
-			paragraph(t.situation+"\n"+"\n".join(t.lines),Rect2(18,584,354,136),15)
+			paragraph(t.situation+"\n"+"\n".join(t.lines),Rect2(18,584,354,136),15,T.INK,false)
 		action("dialogue_done","여관으로",Rect2(18,754,354,56),func():host.model.close_dialogue();host._save();host.go("inn"),true)
 	else:
-		paragraph(row.situation,Rect2(18,335,354,60),14)
+		paragraph(row.situation,Rect2(18,335,354,60),14,T.INK,false)
 		var lines=[row.seen] if state.seen.get(row.id,0)>0 else row.lines
-		paragraph("\n".join(lines),Rect2(18,404,354,100),18)
-		label("어떻게 답할까",Rect2(18,521,354,26),14,T.INK,T.BOLD)
+		paragraph("\n".join(lines),Rect2(18,397,354,132),18,T.INK,false)
+		label("어떻게 답할까",Rect2(18,535,354,26),14,T.INK,T.BOLD)
 		for i in range(row.choices.size()):
 			var c=row.choices[i]
-			var b=action("dialogue_choice:"+c.id,c.text,Rect2(18,561+i*68,354,58),func():host._act(host.model.choose_dialogue.bind(c.id),""))
+			var b=action("dialogue_choice:"+c.id,c.text,Rect2(18,573+i*68,354,58),func():host._act(host.model.choose_dialogue.bind(c.id),""),false,false,false)
 			b.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;b.add_theme_font_size_override("font_size",15)
-		action("dialogue_cancel","나중에 이야기하기",Rect2(18,779,354,46),func():state.pending={};host._save();host.go("inn"))
+		action("dialogue_cancel","나중에 이야기하기",Rect2(18,777,354,48),func():state.pending={};host._save();host.go("inn"))
 
 func journey_dialogue() -> void:
 	var rows=host.model.s.dialogue_r21.queue
@@ -674,7 +677,7 @@ func journey_dialogue() -> void:
 		label(host.model.person(row.who).name,Rect2(93,y,248,26),18,T.INK,T.BOLD)
 		var text="\n".join(row.lines)
 		if row.kind=="transition":text=row.from+" → "+row.to+"\n"+row.situation+"\n"+text
-		paragraph(text,Rect2(93,y+32,248,133),15)
+		paragraph(text,Rect2(93,y+32,248,133),15,T.INK,false)
 	stage=previous
 	action("dialogue_continue","계속",Rect2(18,748,354,58),func():host.model.dismiss_dialogue_queue();host._save();host._draw_screen(),true)
 

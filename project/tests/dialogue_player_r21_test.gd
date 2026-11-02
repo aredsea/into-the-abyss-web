@@ -26,7 +26,7 @@ func run():
 	for row in oracle.npc:
 		w.s.npc_aff_r21.dorothea=row.a;w.npc_like("dorothea")
 		check(w.s.npc_aff_r21.dorothea==row.after,"Lua NPC cap")
-	for id in ["hildegard","marceline","teiris"]:
+	for id in ["marceline", "naran", "teiris", "haldric", "erdene", "bianca", "saya", "gerda", "judith", "levia", "urda", "lynette", "felice", "sorel", "tika", "hedwig", "hildegard", "berenga", "gunhild", "bargut", "altan", "colette", "selva", "ornel", "zahar", "jorund", "lavinia", "tove", "miko", "adeline"]:
 		w.s=base.duplicate(true)
 		if id not in w.s.owned:w.s.owned.append(id)
 		var d=w.dialogue.data(id)
@@ -76,7 +76,10 @@ func run():
 	check(w.s.schema==2 and w.s.hand==["key","camp"] and w.s.acts.hildegard_talk==7 and w.s.dialogue_r21.pending.is_empty(),"schema one preserves hands/day/actions")
 	var malformed=w.s.duplicate(true);malformed.dialogue_r21.pending={"who":"hildegard","scene":"x","day":0}
 	var previous=w.s.duplicate(true);check(not w.restore(malformed) and w.s==previous,"malformed state atomic rejection")
+	var bargut_content=w.dialogue.data("bargut")
+	w.dialogue.cache["bargut"]={}
 	check(w.begin_dialogue("bargut") and w.s.members.bargut.aff==1 and w.s.dialogue_r21.pending.is_empty(),"missing content original fallback")
+	w.dialogue.cache["bargut"]=bargut_content
 	w.s=base.duplicate(true)
 	for row in w.dialogue.data("hildegard").inn:w.s.dialogue_r21.seen[row.id]=1
 	check(w.begin_dialogue("hildegard"),"all scenes seen still playable")

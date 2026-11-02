@@ -1,0 +1,66 @@
+{
+  "checks": 6739,
+  "failures": 0,
+  "groups": [
+    {
+      "name": "original bot rank oracle: percentiles and eligibility",
+      "passed": true
+    },
+    {
+      "name": "all 11 actual legacy saves equal native migration",
+      "passed": true
+    },
+    {
+      "name": "create + salted PIN only + read without PIN",
+      "passed": true
+    },
+    {
+      "name": "bad PIN, score injection, unknown fields, malformed JSON",
+      "passed": true
+    },
+    {
+      "name": "strict schema mutations rejected",
+      "passed": true
+    },
+    {
+      "name": "64 KiB streaming limit and UTF-8 size",
+      "passed": true
+    },
+    {
+      "name": "real concurrent CAS gives one winner, one 409 + summary",
+      "passed": true
+    },
+    {
+      "name": "history ten, restore creates a new revision",
+      "passed": true
+    },
+    {
+      "name": "schema 1/2 migrate to 3, input unchanged",
+      "passed": true
+    },
+    {
+      "name": "server derived rank + source percentile ties + 300 second cache",
+      "passed": true
+    },
+    {
+      "name": "CORS allowlist and preflight",
+      "passed": true
+    },
+    {
+      "name": "account and IP per-minute limits",
+      "passed": true
+    },
+    {
+      "name": "authenticated deletion cascades revisions and ranks",
+      "passed": true
+    },
+    {
+      "name": "merged P5/P6/P7/P8/P10/D save specimens roundtrip through actual D1 and CAS",
+      "passed": true
+    },
+    {
+      "name": "merged extension mutations rejected without broadening opaque fields",
+      "passed": true
+    }
+  ]
+}

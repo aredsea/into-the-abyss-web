@@ -1,0 +1,34 @@
+{
+  "mode": "Experience / existing game UI",
+  "reference": "Existing UI-R21-D and shipped town artwork; layout preserved",
+  "native_owner_contact": {
+    "path": "verification/town-r21/owner-zoom-13.jpg",
+    "bytes": 204132,
+    "opened_directly": true,
+    "characters": [
+      "hildegard",
+      "berenga",
+      "bargut",
+      "urda"
+    ]
+  },
+  "opened_additional": [
+    "round13/render/journey-berenga-en-360.png",
+    "web/dialogue-choices-360x780-en.png",
+    "web/dialogue-response-360x780-en.png",
+    "web/dialogue-choices-360x780.png"
+  ],
+  "observations": [
+    "Korean source dialogue and choices remain legible in both language settings.",
+    "Names, Continue, Cancel and Lower Town Inn use source English.",
+    "Long introduction has six rendered lines without overlap; choices and cancel remain in viewport."
+  ],
+  "impeccable_findings": [],
+  "dom_inspector": "Godot canvas content is measured by native node/font bounds, not DOM text boxes.",
+  "limitations": [
+    "Physical phone not tested.",
+    "Screen reader not tested.",
+    "Individual manual review of all 30240 states not claimed."
+  ],
+  "design_metadata_drift": "Existing DESIGN.md / .impeccable/design.json drift retained; separate document command can sync it."
+}
