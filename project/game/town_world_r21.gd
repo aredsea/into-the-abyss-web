@@ -322,9 +322,12 @@ func aff_add(id: String,amount: float) -> float:
 		note(person(id).name+" · "+TOWN_RULES.aff_stage(before)+" → "+TOWN_RULES.aff_stage(after))
 	return floor((after-before)*100+.5)/100
 
-func aff_party(amount: float) -> void:
+func aff_party(amount: float) -> Dictionary:
 	var multiplier=1.2 if party_count("nation","솔렌 성왕국")>=3 else 1.0
-	for id in s.party:aff_add(id,amount*multiplier)
+	var gained={}
+	for id in s.party:
+		if id!="persona" and id!="" and id in s.owned and not gained.has(id):gained[id]=aff_add(id,amount*multiplier)
+	return gained
 
 func begin_dialogue(id: String) -> bool:
 	if active() or id not in s.owned:return false

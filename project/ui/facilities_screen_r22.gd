@@ -92,7 +92,7 @@ func guild() -> void:
 			action("quest_depart","출발",Rect2(0,y+170,166,42),func():host._act(w.depart_accepted_quest,"");host.go("explore"),true)
 			action("quest_abandon","포기",Rect2(178,y+170,164,42),func():host._ask("현재 의뢰를 포기할까요?",w.abandon_quest))
 		else:
-			action("quest:"+str(int(q.id)),"수락",Rect2(0,y+170,166,42),func():host._act(w.accept_quest.bind(q.id),"의뢰를 수락했습니다."),true,not w.s.quest.is_empty())
+			action("quest:"+str(int(q.id)),"수락",Rect2(0,y+170,166,42),func():host._act(w.accept_quest.bind(q.id),"의뢰를 수락했습니다."),true,not w.s.quest.is_empty()).tooltip_text=w.GuildR22.title_en(c) if w.s.get("settings",{}).get("lang","")=="en" else w.GuildR22.title(c)
 			action("quest_reject:"+str(int(q.id)),"거절",Rect2(178,y+170,164,42),func():host._act(w.reject_quest.bind(q.id),"의뢰 하나를 거절했다. 판에 새 의뢰가 걸렸다."))
 		rule(y+225,0,342)
 	stage=previous

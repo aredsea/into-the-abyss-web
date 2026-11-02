@@ -68,14 +68,27 @@ func buy_gear(id: String,who: String) -> bool:
 	s.gold-=amount;bank_expedition_gear([found.code])
 	if s.commerce_r21.sold_day!=s.day:s.commerce_r21.sold_day=s.day;s.commerce_r21.bought={}
 	s.commerce_r21.bought[found.code]=true;shop_got[found.code]=shop_got.get(found.code,0)+1
-	npc_like("pietro");note("장비를 샀습니다: "+gear.by_id[found.id].name);return true
+	s.ui.msg="장비를 샀습니다: "+gear.by_id[found.id].name;note(s.ui.msg);shop_after_buy();return true
 
 func buy(id: String) -> bool:
 	var item=item_def(id)
-	if active() or item.is_empty() or s.gold<price(item):return false
-	s.gold-=price(item);s.items[id]+=1;npc_like("pietro");note(item.name+" 하나를 샀습니다. (보유 %d, 남은 금화 %d)"%[s.items[id],s.gold])
+	if active() or item.is_empty() or item.get("nosale",false) or item.has("slot") or s.gold<price(item):return false
+	s.gold-=price(item);s.items[id]=s.items.get(id,0)+1;s.ui.msg=item.name+" 하나를 샀습니다. (보유 %d, 남은 금화 %d)"%[s.items[id],s.gold];note(s.ui.msg)
 	shop_got[id]=shop_got.get(id,0)+1
+	shop_after_buy()
 	return true
+
+func shop_after_buy() -> void:
+	# 71-shop: use affection BEFORE this purchase and a persistent buy counter.
+	var before=float(s.npc_aff_r21.get("pietro",0))
+	var buys=int(s.commerce_r21.get("pietro_buys",0))+1
+	s.commerce_r21.pietro_buys=buys;npc_like("pietro")
+	if before>=50 and dungeon_rules.mix(int(s.town_r21.seed),9157,buys,3)<.30:
+		if not s.get("items") is Dictionary:s.items={}
+		if s.items.get("charm_potion",0)<99:
+			s.items.charm_potion=s.items.get("charm_potion",0)+1
+			var message="피에트로가 덤으로 「매혹의 비약」 하나를 슬쩍 얹어 주었다. (보유 %d)"%s.items.charm_potion
+			s.ui.msg=s.ui.get("msg","")+" "+message;note(message)
 
 func process_classes() -> Array:
 	return gear.classes(class_def("persona").get("id",""),s.owned.map(func(id):return class_def(id).id))
@@ -162,8 +175,8 @@ func item_preview(id: String,who: String) -> Dictionary:
 
 func reject_quest(id: int) -> bool:
 	if active() or s.quest.get("id",-1)==id:return false
-	if not s.board.any(func(q):return q.id==id):return false
-	s.board=s.board.filter(func(q):return q.id!=id);fill_source_board();return true
+	if GuildR22.find_quest(s.board,id)==null:return false
+	GuildR22.remove_quest(s.board,id);fill_source_board();return true
 
 func settle(result: String) -> bool:
 	if not r21() or not s.run.has("source_quest"):return super(result)
@@ -191,7 +204,7 @@ func settle(result: String) -> bool:
 	s.quest={};s.board=s.board.filter(func(row):return row.id!=q.id);s.refreshes=0;s.day+=1
 	r.phase="done";r.battle={};r.loot_items={};r.loot_gear=[]
 	fill_source_board();npc_like("fenella")
-	note("의뢰 「%s」 %s. 금화 %d."%[q.title,"완료" if won else "실패",amount if won else -penalty]);return true
+	note("의뢰 「%s」 %s. 금화 %d."%[GuildR22.title(q),"완료" if won else "실패",amount if won else -penalty]);return true
 
 func facility_route(page: String) -> bool:
 	# Native receipts replace the bot's host-generated AI scene, without network/chat.
@@ -207,6 +220,7 @@ func facility_route(page: String) -> bool:
 			if research_dirty(id):facility_message="먼저 저장하세요. 로레다나의 스킬 조합에 저장하지 않은 변경이 있습니다.";return false
 	if facility=="shop" and not shop_got.is_empty():
 		receipt={"kind":"shop","items":shop_got.duplicate(true),"gold":s.gold};shop_got={}
+	if facility=="smithy":smithy_fx={};smithy_tab="forge"
 	facility=next;facility_message=""
 	return true
 
@@ -222,6 +236,10 @@ func restore(value: Variant) -> bool:
 	if not value is Dictionary or not value.get("items") is Dictionary:return false
 	if not _num(value.get("gold")) or value.gold<0 or value.gold!=floor(value.gold) or value.gold>9007199254740991:return false
 	var probe=value.duplicate(true)
+	var commerce=value.get("commerce_r21",{})
+	if commerce is Dictionary and commerce.has("pietro_buys"):
+		var buys=commerce.pietro_buys
+		if not _num(buys) or buys<0 or buys!=floor(buys) or buys>9007199254740991:return false
 	var old_progress=value.get("persona_progress_r21",{})
 	# A schema-3 P6 mirror is not a second migration transaction on every reload.
 	# Legacy D progress still reaches the adapter, which archives its original persona.

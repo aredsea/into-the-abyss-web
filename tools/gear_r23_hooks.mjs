@@ -1,0 +1,14 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import {pathToFileURL} from 'node:url';
+const root=path.resolve(import.meta.dirname,'..'),src='C:/Clauede Code/dungeon-bot/bot';
+const names=['05-gen.lua','10-data.lua','24-stats.lua','81-gear.lua','82-smithy.lua'];
+const raws=names.map(n=>fs.readFileSync(src+'/src/'+n,'utf8'));
+const {mkSim}=await import(pathToFileURL(src+'/lua_sim.mjs'));
+const {sim,L}=await mkSim({policy:false,extra:raws.slice(0,3).join('\n')+'\nB.GH={}\n'+raws.slice(3).join('\n')});
+const base=fs.readFileSync(root+'/tools/gear_r22_hook_oracle.lua','utf8').replace(/return true\s*$/,'');
+const fixtures=await L(base+'\n'+fs.readFileSync(root+'/tools/gear_r23_hook_cases.lua','utf8'));
+fs.writeFileSync(root+'/verification/parity-r23/hooks.json',JSON.stringify(fixtures)+'\n');
+fs.writeFileSync(root+'/verification/parity-r23/hooks-provenance.json',JSON.stringify({sources:names.map((name,i)=>({name,sha256:crypto.createHash('sha256').update(raws[i]).digest('hex')})),fixtures:fixtures.length,primitives:'tools/gear_r22_hook_oracle.lua',prior_callbacks:'isolated empty GH (composed owner behavior remains covered by retained combat traces)'},null,2));
+console.log('R23 hook fixtures',fixtures.length);sim.close();

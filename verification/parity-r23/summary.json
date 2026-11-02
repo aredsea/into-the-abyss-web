@@ -1,0 +1,120 @@
+{
+  "assigned": 77,
+  "promoted_same": 31,
+  "fixed_rows": 16,
+  "fixed_same": 11,
+  "fixed_remaining": 5,
+  "remaining": 46,
+  "suite_groups": 86,
+  "suite_failed": 1,
+  "new_checks": 3325,
+  "new_failures": 0,
+  "battle_count": 6320,
+  "equal_battles": 6320,
+  "matched_actions": 219785,
+  "parity": [
+    {
+      "name": "P2",
+      "battles": 48,
+      "same_battles": 48,
+      "source_actions": 1468,
+      "actual_actions": 1468,
+      "matched_actions": 1468
+    },
+    {
+      "name": "A6",
+      "battles": 48,
+      "same_battles": 48,
+      "source_actions": 2537,
+      "actual_actions": 2537,
+      "matched_actions": 2537
+    },
+    {
+      "name": "P3",
+      "battles": 128,
+      "same_battles": 128,
+      "source_actions": 4929,
+      "actual_actions": 4929,
+      "matched_actions": 4929
+    },
+    {
+      "name": "A7",
+      "battles": 176,
+      "same_battles": 176,
+      "source_actions": 2932,
+      "actual_actions": 2932,
+      "matched_actions": 2932
+    },
+    {
+      "name": "A7 balanced",
+      "battles": 176,
+      "same_battles": 176,
+      "source_actions": 6279,
+      "actual_actions": 6279,
+      "matched_actions": 6279
+    },
+    {
+      "name": "A8",
+      "battles": 5120,
+      "same_battles": 5120,
+      "source_actions": 186707,
+      "actual_actions": 186707,
+      "matched_actions": 186707
+    },
+    {
+      "name": "A9 native10",
+      "battles": 312,
+      "same_battles": 312,
+      "source_actions": 4806,
+      "actual_actions": 4806,
+      "matched_actions": 4806
+    },
+    {
+      "name": "A9 native40",
+      "battles": 312,
+      "same_battles": 312,
+      "source_actions": 10127,
+      "actual_actions": 10127,
+      "matched_actions": 10127
+    }
+  ],
+  "changed_existing_files": [
+    "project/game/facilities_world_r22.gd",
+    "project/game/gear_rules_r22.gd",
+    "project/game/guild_rules_r22.gd",
+    "project/game/town_rules_r21.gd",
+    "project/game/town_world_r21.gd",
+    "project/ui/facilities_screen_r22.gd",
+    "project/ui/town_screen_r21.gd"
+  ],
+  "protected_changes": [],
+  "cloud_boundary": {
+    "server_modified": false,
+    "user_save_modified": false,
+    "rows": [
+      {
+        "name": "shop_bonus",
+        "accepted": false,
+        "path": "items.charm_potion",
+        "message": "invalid_save"
+      },
+      {
+        "name": "bonus_removed_diagnostic_only",
+        "accepted": false,
+        "path": "commerce.pietro_buys",
+        "message": "invalid_save"
+      },
+      {
+        "name": "counter_removed_diagnostic_only",
+        "accepted": false,
+        "path": "items.charm_potion",
+        "message": "invalid_save"
+      },
+      {
+        "name": "both_removed_diagnostic_only",
+        "accepted": true
+      }
+    ]
+  },
+  "suite_failed_assertions": 3
+}

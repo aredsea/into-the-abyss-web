@@ -16,28 +16,10 @@
         "lv": 1.0,
         "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
-        "rift": "남동 숲 균열",
-        "source_id": "q1",
-        "stars": 2.0,
-        "title": "남동 숲 균열, 잃어버린 유품 회수"
-      },
-      {
-        "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
-        "difficulty": "엘리트",
-        "elite": true,
-        "gold": 100.0,
-        "id": 2.0,
-        "kind": "구조",
-        "level": 1.0,
-        "lv": 1.0,
-        "name": "고립된 탐사대 구조",
-        "reward_v": 2.0,
         "rift": "남서 설산 균열",
-        "source_id": "q2",
-        "stars": 2.0,
-        "strength": 1.6,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
+        "source_id": "q1",
+        "stars": 1.0,
+        "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
@@ -45,14 +27,14 @@
         "difficulty": "중간",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 2.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
-        "source_id": "q3",
+        "source_id": "q2",
         "stars": 2.0,
         "title": "남동 숲 균열, 고립된 탐사대 구조"
       },
@@ -62,15 +44,33 @@
         "difficulty": "높음",
         "elite": false,
         "gold": 100.0,
-        "id": 4.0,
+        "id": 3.0,
         "kind": "토벌",
         "level": 4.0,
         "lv": 4.0,
         "name": "균열 핵 토벌",
         "reward_v": 2.0,
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
+        "stars": 2.0,
+        "title": "남동 숲 균열, 균열 핵 토벌"
+      },
+      {
+        "cmp": true,
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
+        "difficulty": "엘리트",
+        "elite": true,
+        "gold": 100.0,
+        "id": 4.0,
+        "kind": "토벌",
+        "level": 1.0,
+        "lv": 1.0,
+        "name": "균열 핵 토벌",
+        "reward_v": 2.0,
         "rift": "남서 설산 균열",
         "source_id": "q4",
         "stars": 2.0,
+        "strength": 1.5,
         "title": "남서 설산 균열, 균열 핵 토벌"
       }
     ],
@@ -78,7 +78,7 @@
       "list": [],
       "queue": [
         "Day 1: First met Teiris, who joined as a companion.",
-        "Day 1: Lavinia joined as a companion through a guild introduction."
+        "Day 1: Altan joined as a companion through a guild introduction."
       ]
     },
     "commerce_r21": {
@@ -165,7 +165,7 @@
     },
     "log": [
       "테이리스 · 대화하기",
-      "페넬라의 소개 · 라비니아 합류",
+      "페넬라의 소개 · 알탄 합류",
       "학술원 폐허 상층 · 1층 출발"
     ],
     "members": {
@@ -392,7 +392,7 @@
     },
     "owned": [
       "teiris",
-      "lavinia"
+      "altan"
     ],
     "panels_r22": {
       "bg": {
@@ -642,7 +642,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 2037826800.0,
+    "rng": 908791154.0,
     "run": {
       "ask": false,
       "battle": {
@@ -846,9 +846,9 @@
     "summary": {},
     "town_r21": {
       "counter": 5.0,
-      "meet": "lavinia",
+      "meet": "altan",
       "qn": 4.0,
-      "seed": 2037826800.0
+      "seed": 908791154.0
     },
     "ui": {
       "msg": "",
@@ -874,28 +874,10 @@
         "lv": 1.0,
         "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
-        "rift": "남동 숲 균열",
-        "source_id": "q1",
-        "stars": 2.0,
-        "title": "남동 숲 균열, 잃어버린 유품 회수"
-      },
-      {
-        "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
-        "difficulty": "엘리트",
-        "elite": true,
-        "gold": 100.0,
-        "id": 2.0,
-        "kind": "구조",
-        "level": 1.0,
-        "lv": 1.0,
-        "name": "고립된 탐사대 구조",
-        "reward_v": 2.0,
         "rift": "남서 설산 균열",
-        "source_id": "q2",
-        "stars": 2.0,
-        "strength": 1.6,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
+        "source_id": "q1",
+        "stars": 1.0,
+        "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
@@ -903,14 +885,14 @@
         "difficulty": "중간",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 2.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
-        "source_id": "q3",
+        "source_id": "q2",
         "stars": 2.0,
         "title": "남동 숲 균열, 고립된 탐사대 구조"
       },
@@ -920,15 +902,33 @@
         "difficulty": "높음",
         "elite": false,
         "gold": 100.0,
-        "id": 4.0,
+        "id": 3.0,
         "kind": "토벌",
         "level": 4.0,
         "lv": 4.0,
         "name": "균열 핵 토벌",
         "reward_v": 2.0,
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
+        "stars": 2.0,
+        "title": "남동 숲 균열, 균열 핵 토벌"
+      },
+      {
+        "cmp": true,
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
+        "difficulty": "엘리트",
+        "elite": true,
+        "gold": 100.0,
+        "id": 4.0,
+        "kind": "토벌",
+        "level": 1.0,
+        "lv": 1.0,
+        "name": "균열 핵 토벌",
+        "reward_v": 2.0,
         "rift": "남서 설산 균열",
         "source_id": "q4",
         "stars": 2.0,
+        "strength": 1.5,
         "title": "남서 설산 균열, 균열 핵 토벌"
       }
     ],
@@ -936,7 +936,7 @@
       "list": [],
       "queue": [
         "Day 1: First met Teiris, who joined as a companion.",
-        "Day 1: Lavinia joined as a companion through a guild introduction."
+        "Day 1: Altan joined as a companion through a guild introduction."
       ]
     },
     "commerce_r21": {
@@ -1024,7 +1024,7 @@
     },
     "log": [
       "테이리스 · 대화하기",
-      "페넬라의 소개 · 라비니아 합류",
+      "페넬라의 소개 · 알탄 합류",
       "학술원 폐허 상층 · 1층 출발",
       "탐색 1: 전투 승리 · 금화 24 · 경험치 26"
     ],
@@ -1252,7 +1252,7 @@
     },
     "owned": [
       "teiris",
-      "lavinia"
+      "altan"
     ],
     "panels_r22": {
       "bg": {
@@ -1502,7 +1502,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 2037826800.0,
+    "rng": 908791154.0,
     "run": {
       "ask": false,
       "battle": {
@@ -1708,9 +1708,9 @@
     "summary": {},
     "town_r21": {
       "counter": 5.0,
-      "meet": "lavinia",
+      "meet": "altan",
       "qn": 4.0,
-      "seed": 2037826800.0
+      "seed": 908791154.0
     },
     "ui": {
       "msg": "",
@@ -1736,28 +1736,10 @@
         "lv": 1.0,
         "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
-        "rift": "남동 숲 균열",
-        "source_id": "q1",
-        "stars": 2.0,
-        "title": "남동 숲 균열, 잃어버린 유품 회수"
-      },
-      {
-        "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
-        "difficulty": "엘리트",
-        "elite": true,
-        "gold": 100.0,
-        "id": 2.0,
-        "kind": "구조",
-        "level": 1.0,
-        "lv": 1.0,
-        "name": "고립된 탐사대 구조",
-        "reward_v": 2.0,
         "rift": "남서 설산 균열",
-        "source_id": "q2",
-        "stars": 2.0,
-        "strength": 1.6,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
+        "source_id": "q1",
+        "stars": 1.0,
+        "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
@@ -1765,14 +1747,14 @@
         "difficulty": "중간",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 2.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
-        "source_id": "q3",
+        "source_id": "q2",
         "stars": 2.0,
         "title": "남동 숲 균열, 고립된 탐사대 구조"
       },
@@ -1782,15 +1764,33 @@
         "difficulty": "높음",
         "elite": false,
         "gold": 100.0,
-        "id": 4.0,
+        "id": 3.0,
         "kind": "토벌",
         "level": 4.0,
         "lv": 4.0,
         "name": "균열 핵 토벌",
         "reward_v": 2.0,
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
+        "stars": 2.0,
+        "title": "남동 숲 균열, 균열 핵 토벌"
+      },
+      {
+        "cmp": true,
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
+        "difficulty": "엘리트",
+        "elite": true,
+        "gold": 100.0,
+        "id": 4.0,
+        "kind": "토벌",
+        "level": 1.0,
+        "lv": 1.0,
+        "name": "균열 핵 토벌",
+        "reward_v": 2.0,
         "rift": "남서 설산 균열",
         "source_id": "q4",
         "stars": 2.0,
+        "strength": 1.5,
         "title": "남서 설산 균열, 균열 핵 토벌"
       }
     ],
@@ -1798,7 +1798,7 @@
       "list": [],
       "queue": [
         "Day 1: First met Teiris, who joined as a companion.",
-        "Day 1: Lavinia joined as a companion through a guild introduction."
+        "Day 1: Altan joined as a companion through a guild introduction."
       ]
     },
     "commerce_r21": {
@@ -1886,7 +1886,7 @@
     },
     "log": [
       "테이리스 · 대화하기",
-      "페넬라의 소개 · 라비니아 합류",
+      "페넬라의 소개 · 알탄 합류",
       "학술원 폐허 상층 · 1층 출발",
       "탐색 1: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 2: 전투 승리 · 금화 24 · 경험치 26"
@@ -2115,7 +2115,7 @@
     },
     "owned": [
       "teiris",
-      "lavinia"
+      "altan"
     ],
     "panels_r22": {
       "bg": {
@@ -2365,7 +2365,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 2037826800.0,
+    "rng": 908791154.0,
     "run": {
       "ask": false,
       "battle": {
@@ -2572,9 +2572,9 @@
     "summary": {},
     "town_r21": {
       "counter": 5.0,
-      "meet": "lavinia",
+      "meet": "altan",
       "qn": 4.0,
-      "seed": 2037826800.0
+      "seed": 908791154.0
     },
     "ui": {
       "msg": "",
@@ -2600,28 +2600,10 @@
         "lv": 1.0,
         "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
-        "rift": "남동 숲 균열",
-        "source_id": "q1",
-        "stars": 2.0,
-        "title": "남동 숲 균열, 잃어버린 유품 회수"
-      },
-      {
-        "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
-        "difficulty": "엘리트",
-        "elite": true,
-        "gold": 100.0,
-        "id": 2.0,
-        "kind": "구조",
-        "level": 1.0,
-        "lv": 1.0,
-        "name": "고립된 탐사대 구조",
-        "reward_v": 2.0,
         "rift": "남서 설산 균열",
-        "source_id": "q2",
-        "stars": 2.0,
-        "strength": 1.6,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
+        "source_id": "q1",
+        "stars": 1.0,
+        "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
@@ -2629,14 +2611,14 @@
         "difficulty": "중간",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 2.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
-        "source_id": "q3",
+        "source_id": "q2",
         "stars": 2.0,
         "title": "남동 숲 균열, 고립된 탐사대 구조"
       },
@@ -2646,15 +2628,33 @@
         "difficulty": "높음",
         "elite": false,
         "gold": 100.0,
-        "id": 4.0,
+        "id": 3.0,
         "kind": "토벌",
         "level": 4.0,
         "lv": 4.0,
         "name": "균열 핵 토벌",
         "reward_v": 2.0,
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
+        "stars": 2.0,
+        "title": "남동 숲 균열, 균열 핵 토벌"
+      },
+      {
+        "cmp": true,
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
+        "difficulty": "엘리트",
+        "elite": true,
+        "gold": 100.0,
+        "id": 4.0,
+        "kind": "토벌",
+        "level": 1.0,
+        "lv": 1.0,
+        "name": "균열 핵 토벌",
+        "reward_v": 2.0,
         "rift": "남서 설산 균열",
         "source_id": "q4",
         "stars": 2.0,
+        "strength": 1.5,
         "title": "남서 설산 균열, 균열 핵 토벌"
       }
     ],
@@ -2662,7 +2662,7 @@
       "list": [],
       "queue": [
         "Day 1: First met Teiris, who joined as a companion.",
-        "Day 1: Lavinia joined as a companion through a guild introduction."
+        "Day 1: Altan joined as a companion through a guild introduction."
       ]
     },
     "commerce_r21": {
@@ -2750,7 +2750,7 @@
     },
     "log": [
       "테이리스 · 대화하기",
-      "페넬라의 소개 · 라비니아 합류",
+      "페넬라의 소개 · 알탄 합류",
       "학술원 폐허 상층 · 1층 출발",
       "탐색 1: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 2: 전투 승리 · 금화 24 · 경험치 26",
@@ -2980,7 +2980,7 @@
     },
     "owned": [
       "teiris",
-      "lavinia"
+      "altan"
     ],
     "panels_r22": {
       "bg": {
@@ -3230,7 +3230,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 2037826800.0,
+    "rng": 908791154.0,
     "run": {
       "ask": false,
       "battle": {
@@ -3438,9 +3438,9 @@
     "summary": {},
     "town_r21": {
       "counter": 5.0,
-      "meet": "lavinia",
+      "meet": "altan",
       "qn": 4.0,
-      "seed": 2037826800.0
+      "seed": 908791154.0
     },
     "ui": {
       "msg": "",
@@ -3466,28 +3466,10 @@
         "lv": 1.0,
         "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
-        "rift": "남동 숲 균열",
-        "source_id": "q1",
-        "stars": 2.0,
-        "title": "남동 숲 균열, 잃어버린 유품 회수"
-      },
-      {
-        "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
-        "difficulty": "엘리트",
-        "elite": true,
-        "gold": 100.0,
-        "id": 2.0,
-        "kind": "구조",
-        "level": 1.0,
-        "lv": 1.0,
-        "name": "고립된 탐사대 구조",
-        "reward_v": 2.0,
         "rift": "남서 설산 균열",
-        "source_id": "q2",
-        "stars": 2.0,
-        "strength": 1.6,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
+        "source_id": "q1",
+        "stars": 1.0,
+        "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
@@ -3495,14 +3477,14 @@
         "difficulty": "중간",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 2.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
-        "source_id": "q3",
+        "source_id": "q2",
         "stars": 2.0,
         "title": "남동 숲 균열, 고립된 탐사대 구조"
       },
@@ -3512,15 +3494,33 @@
         "difficulty": "높음",
         "elite": false,
         "gold": 100.0,
-        "id": 4.0,
+        "id": 3.0,
         "kind": "토벌",
         "level": 4.0,
         "lv": 4.0,
         "name": "균열 핵 토벌",
         "reward_v": 2.0,
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
+        "stars": 2.0,
+        "title": "남동 숲 균열, 균열 핵 토벌"
+      },
+      {
+        "cmp": true,
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
+        "difficulty": "엘리트",
+        "elite": true,
+        "gold": 100.0,
+        "id": 4.0,
+        "kind": "토벌",
+        "level": 1.0,
+        "lv": 1.0,
+        "name": "균열 핵 토벌",
+        "reward_v": 2.0,
         "rift": "남서 설산 균열",
         "source_id": "q4",
         "stars": 2.0,
+        "strength": 1.5,
         "title": "남서 설산 균열, 균열 핵 토벌"
       }
     ],
@@ -3528,7 +3528,7 @@
       "list": [],
       "queue": [
         "Day 1: First met Teiris, who joined as a companion.",
-        "Day 1: Lavinia joined as a companion through a guild introduction.",
+        "Day 1: Altan joined as a companion through a guild introduction.",
         "Day 1: Cleared Great Dungeon floor 1; boss: Head Tutor's Remains",
         "Day 1: Leveled up: {{user}} Lv 1 → 3, Teiris Lv 1 → 3"
       ]
@@ -3658,7 +3658,7 @@
     },
     "log": [
       "테이리스 · 대화하기",
-      "페넬라의 소개 · 라비니아 합류",
+      "페넬라의 소개 · 알탄 합류",
       "학술원 폐허 상층 · 1층 출발",
       "탐색 1: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 2: 전투 승리 · 금화 24 · 경험치 26",
@@ -3892,7 +3892,7 @@
     },
     "owned": [
       "teiris",
-      "lavinia"
+      "altan"
     ],
     "panels_r22": {
       "bg": {
@@ -4142,7 +4142,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 2037826800.0,
+    "rng": 908791154.0,
     "run": {
       "ask": false,
       "battle": {},
@@ -4286,9 +4286,9 @@
     },
     "town_r21": {
       "counter": 5.0,
-      "meet": "lavinia",
+      "meet": "altan",
       "qn": 4.0,
-      "seed": 2037826800.0
+      "seed": 908791154.0
     },
     "ui": {
       "msg": "",
@@ -4316,28 +4316,10 @@
         "lv": 1.0,
         "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
-        "rift": "남동 숲 균열",
-        "source_id": "q1",
-        "stars": 2.0,
-        "title": "남동 숲 균열, 잃어버린 유품 회수"
-      },
-      {
-        "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
-        "difficulty": "엘리트",
-        "elite": true,
-        "gold": 100.0,
-        "id": 2.0,
-        "kind": "구조",
-        "level": 1.0,
-        "lv": 1.0,
-        "name": "고립된 탐사대 구조",
-        "reward_v": 2.0,
         "rift": "남서 설산 균열",
-        "source_id": "q2",
-        "stars": 2.0,
-        "strength": 1.6,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
+        "source_id": "q1",
+        "stars": 1.0,
+        "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
@@ -4345,14 +4327,14 @@
         "difficulty": "중간",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 2.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
-        "source_id": "q3",
+        "source_id": "q2",
         "stars": 2.0,
         "title": "남동 숲 균열, 고립된 탐사대 구조"
       },
@@ -4362,15 +4344,33 @@
         "difficulty": "높음",
         "elite": false,
         "gold": 100.0,
-        "id": 4.0,
+        "id": 3.0,
         "kind": "토벌",
         "level": 4.0,
         "lv": 4.0,
         "name": "균열 핵 토벌",
         "reward_v": 2.0,
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
+        "stars": 2.0,
+        "title": "남동 숲 균열, 균열 핵 토벌"
+      },
+      {
+        "cmp": true,
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
+        "difficulty": "엘리트",
+        "elite": true,
+        "gold": 100.0,
+        "id": 4.0,
+        "kind": "토벌",
+        "level": 1.0,
+        "lv": 1.0,
+        "name": "균열 핵 토벌",
+        "reward_v": 2.0,
         "rift": "남서 설산 균열",
         "source_id": "q4",
         "stars": 2.0,
+        "strength": 1.5,
         "title": "남서 설산 균열, 균열 핵 토벌"
       }
     ],
@@ -4926,7 +4926,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 2037826800.0,
+    "rng": 908791154.0,
     "run": {},
     "runs": 0.0,
     "scenario": "teiris",
@@ -4942,7 +4942,7 @@
     "town_r21": {
       "counter": 4.0,
       "qn": 4.0,
-      "seed": 2037826800.0
+      "seed": 908791154.0
     },
     "ui": {
       "msg": "",
@@ -4968,28 +4968,10 @@
         "lv": 1.0,
         "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
-        "rift": "남동 숲 균열",
-        "source_id": "q1",
-        "stars": 2.0,
-        "title": "남동 숲 균열, 잃어버린 유품 회수"
-      },
-      {
-        "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
-        "difficulty": "엘리트",
-        "elite": true,
-        "gold": 100.0,
-        "id": 2.0,
-        "kind": "구조",
-        "level": 1.0,
-        "lv": 1.0,
-        "name": "고립된 탐사대 구조",
-        "reward_v": 2.0,
         "rift": "남서 설산 균열",
-        "source_id": "q2",
-        "stars": 2.0,
-        "strength": 1.6,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
+        "source_id": "q1",
+        "stars": 1.0,
+        "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
@@ -4997,14 +4979,14 @@
         "difficulty": "중간",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 2.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
-        "source_id": "q3",
+        "source_id": "q2",
         "stars": 2.0,
         "title": "남동 숲 균열, 고립된 탐사대 구조"
       },
@@ -5014,15 +4996,33 @@
         "difficulty": "높음",
         "elite": false,
         "gold": 100.0,
-        "id": 4.0,
+        "id": 3.0,
         "kind": "토벌",
         "level": 4.0,
         "lv": 4.0,
         "name": "균열 핵 토벌",
         "reward_v": 2.0,
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
+        "stars": 2.0,
+        "title": "남동 숲 균열, 균열 핵 토벌"
+      },
+      {
+        "cmp": true,
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
+        "difficulty": "엘리트",
+        "elite": true,
+        "gold": 100.0,
+        "id": 4.0,
+        "kind": "토벌",
+        "level": 1.0,
+        "lv": 1.0,
+        "name": "균열 핵 토벌",
+        "reward_v": 2.0,
         "rift": "남서 설산 균열",
         "source_id": "q4",
         "stars": 2.0,
+        "strength": 1.5,
         "title": "남서 설산 균열, 균열 핵 토벌"
       }
     ],
@@ -5030,7 +5030,7 @@
       "list": [],
       "queue": [
         "Day 1: First met Teiris, who joined as a companion.",
-        "Day 1: Lavinia joined as a companion through a guild introduction."
+        "Day 1: Altan joined as a companion through a guild introduction."
       ]
     },
     "commerce_r21": {
@@ -5134,7 +5134,7 @@
     },
     "log": [
       "테이리스 · 대화하기",
-      "페넬라의 소개 · 라비니아 합류",
+      "페넬라의 소개 · 알탄 합류",
       "학술원 폐허 상층 · 1층 출발"
     ],
     "members": {
@@ -5361,7 +5361,7 @@
     },
     "owned": [
       "teiris",
-      "lavinia"
+      "altan"
     ],
     "panels_r22": {
       "bg": {
@@ -5611,7 +5611,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 2037826800.0,
+    "rng": 908791154.0,
     "run": {
       "ask": false,
       "battle": {},
@@ -5708,9 +5708,9 @@
     "summary": {},
     "town_r21": {
       "counter": 5.0,
-      "meet": "lavinia",
+      "meet": "altan",
       "qn": 4.0,
-      "seed": 2037826800.0
+      "seed": 908791154.0
     },
     "ui": {
       "msg": "",
@@ -5736,28 +5736,10 @@
         "lv": 1.0,
         "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
-        "rift": "남동 숲 균열",
-        "source_id": "q1",
-        "stars": 2.0,
-        "title": "남동 숲 균열, 잃어버린 유품 회수"
-      },
-      {
-        "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
-        "difficulty": "엘리트",
-        "elite": true,
-        "gold": 100.0,
-        "id": 2.0,
-        "kind": "구조",
-        "level": 1.0,
-        "lv": 1.0,
-        "name": "고립된 탐사대 구조",
-        "reward_v": 2.0,
         "rift": "남서 설산 균열",
-        "source_id": "q2",
-        "stars": 2.0,
-        "strength": 1.6,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
+        "source_id": "q1",
+        "stars": 1.0,
+        "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
@@ -5765,14 +5747,14 @@
         "difficulty": "중간",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 2.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
-        "source_id": "q3",
+        "source_id": "q2",
         "stars": 2.0,
         "title": "남동 숲 균열, 고립된 탐사대 구조"
       },
@@ -5782,15 +5764,33 @@
         "difficulty": "높음",
         "elite": false,
         "gold": 100.0,
-        "id": 4.0,
+        "id": 3.0,
         "kind": "토벌",
         "level": 4.0,
         "lv": 4.0,
         "name": "균열 핵 토벌",
         "reward_v": 2.0,
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
+        "stars": 2.0,
+        "title": "남동 숲 균열, 균열 핵 토벌"
+      },
+      {
+        "cmp": true,
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
+        "difficulty": "엘리트",
+        "elite": true,
+        "gold": 100.0,
+        "id": 4.0,
+        "kind": "토벌",
+        "level": 1.0,
+        "lv": 1.0,
+        "name": "균열 핵 토벌",
+        "reward_v": 2.0,
         "rift": "남서 설산 균열",
         "source_id": "q4",
         "stars": 2.0,
+        "strength": 1.5,
         "title": "남서 설산 균열, 균열 핵 토벌"
       }
     ],
@@ -5798,7 +5798,7 @@
       "list": [],
       "queue": [
         "Day 1: First met Teiris, who joined as a companion.",
-        "Day 1: Lavinia joined as a companion through a guild introduction.",
+        "Day 1: Altan joined as a companion through a guild introduction.",
         "Day 1: Cleared Great Dungeon floor 1; boss: Head Tutor's Remains",
         "Day 1: Leveled up: {{user}} Lv 1 → 3, Teiris Lv 1 → 3",
         "Day 2: After clearing floor 1, descended directly to floor 2",
@@ -5808,11 +5808,12 @@
     "commerce_r21": {
       "bought": {},
       "forge_codes_r22": {
-        "sa07.7h2xyy5h.1": {
+        "wa71.dqqy7pl.1": {
           "forge": 1.0,
           "tries": 1.0
         }
       },
+      "pietro_buys": 1.0,
       "process_n": 1.0,
       "sold_day": 1.0
     },
@@ -5916,10 +5917,10 @@
     ],
     "gear": [
       {
-        "code": "sa07.7h2xyy5h.1",
+        "code": "wa71.dqqy7pl.1",
         "forge": 1.0,
-        "id": "sa07",
-        "seed": 585732438629.0,
+        "id": "wa71",
+        "seed": 29915557257.0,
         "source_r21": true,
         "tries": 1.0,
         "uid": 1.0
@@ -5944,7 +5945,7 @@
     },
     "log": [
       "테이리스 · 대화하기",
-      "페넬라의 소개 · 라비니아 합류",
+      "페넬라의 소개 · 알탄 합류",
       "학술원 폐허 상층 · 1층 출발",
       "탐색 1: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 2: 전투 승리 · 금화 24 · 경험치 26",
@@ -5956,8 +5957,8 @@
       "학술원 폐허 상층 · 2층 출발",
       "2층 퇴각 · 금화 0 · 경험치 0",
       "회복약 · 소 하나를 샀습니다. (보유 1, 남은 금화 10104)",
-      "한나의 가공 · 누런 마도서",
-      "누런 마도서 제련 성공 +1",
+      "한나의 가공 · 흐린 별무늬 반지",
+      "흐린 별무늬 반지 제련 성공 +1",
       "레벨이 올랐습니다. Lv 4."
     ],
     "members": {
@@ -6186,7 +6187,7 @@
     },
     "owned": [
       "teiris",
-      "lavinia"
+      "altan"
     ],
     "panels_r22": {
       "bg": {
@@ -6436,7 +6437,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 301528318.0,
+    "rng": 1609337465.0,
     "run": {
       "ask": false,
       "battle": {},
@@ -6516,7 +6517,7 @@
       "rested": false,
       "rift_id": "",
       "rules_version": 3.0,
-      "seed": 301528318.0,
+      "seed": 1609337465.0,
       "stars": 1.0,
       "step": 0.0,
       "wins": 0.0,
@@ -6568,12 +6569,12 @@
     },
     "town_r21": {
       "counter": 5.0,
-      "meet": "lavinia",
+      "meet": "altan",
       "qn": 4.0,
-      "seed": 2037826800.0
+      "seed": 908791154.0
     },
     "ui": {
-      "msg": "",
+      "msg": "회복약 · 소 하나를 샀습니다. (보유 1, 남은 금화 10104)",
       "page": 1.0,
       "sel": ""
     },
@@ -15685,28 +15686,10 @@
         "lv": 1.0,
         "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
-        "rift": "남동 숲 균열",
-        "source_id": "q1",
-        "stars": 2.0,
-        "title": "남동 숲 균열, 잃어버린 유품 회수"
-      },
-      {
-        "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
-        "difficulty": "엘리트",
-        "elite": true,
-        "gold": 100.0,
-        "id": 2.0,
-        "kind": "구조",
-        "level": 1.0,
-        "lv": 1.0,
-        "name": "고립된 탐사대 구조",
-        "reward_v": 2.0,
         "rift": "남서 설산 균열",
-        "source_id": "q2",
-        "stars": 2.0,
-        "strength": 1.6,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
+        "source_id": "q1",
+        "stars": 1.0,
+        "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
@@ -15714,14 +15697,14 @@
         "difficulty": "중간",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 2.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
-        "source_id": "q3",
+        "source_id": "q2",
         "stars": 2.0,
         "title": "남동 숲 균열, 고립된 탐사대 구조"
       },
@@ -15731,15 +15714,33 @@
         "difficulty": "높음",
         "elite": false,
         "gold": 100.0,
-        "id": 4.0,
+        "id": 3.0,
         "kind": "토벌",
         "level": 4.0,
         "lv": 4.0,
         "name": "균열 핵 토벌",
         "reward_v": 2.0,
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
+        "stars": 2.0,
+        "title": "남동 숲 균열, 균열 핵 토벌"
+      },
+      {
+        "cmp": true,
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
+        "difficulty": "엘리트",
+        "elite": true,
+        "gold": 100.0,
+        "id": 4.0,
+        "kind": "토벌",
+        "level": 1.0,
+        "lv": 1.0,
+        "name": "균열 핵 토벌",
+        "reward_v": 2.0,
         "rift": "남서 설산 균열",
         "source_id": "q4",
         "stars": 2.0,
+        "strength": 1.5,
         "title": "남서 설산 균열, 균열 핵 토벌"
       }
     ],
@@ -15747,7 +15748,7 @@
       "list": [],
       "queue": [
         "Day 1: First met Teiris, who joined as a companion.",
-        "Day 1: Lavinia joined as a companion through a guild introduction.",
+        "Day 1: Altan joined as a companion through a guild introduction.",
         "Day 1: Cleared Great Dungeon floor 1; boss: Head Tutor's Remains",
         "Day 1: Leveled up: {{user}} Lv 1 → 3, Teiris Lv 1 → 3",
         "Day 2: After clearing floor 1, descended directly to floor 2"
@@ -15895,7 +15896,7 @@
     },
     "log": [
       "테이리스 · 대화하기",
-      "페넬라의 소개 · 라비니아 합류",
+      "페넬라의 소개 · 알탄 합류",
       "학술원 폐허 상층 · 1층 출발",
       "탐색 1: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 2: 전투 승리 · 금화 24 · 경험치 26",
@@ -16130,7 +16131,7 @@
     },
     "owned": [
       "teiris",
-      "lavinia"
+      "altan"
     ],
     "panels_r22": {
       "bg": {
@@ -16380,7 +16381,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 301528318.0,
+    "rng": 1609337465.0,
     "run": {
       "ask": false,
       "battle": {},
@@ -16458,7 +16459,7 @@
       "rested": false,
       "rift_id": "",
       "rules_version": 3.0,
-      "seed": 301528318.0,
+      "seed": 1609337465.0,
       "stars": 1.0,
       "step": 0.0,
       "wins": 0.0,
@@ -16477,9 +16478,9 @@
     "summary": {},
     "town_r21": {
       "counter": 5.0,
-      "meet": "lavinia",
+      "meet": "altan",
       "qn": 4.0,
-      "seed": 2037826800.0
+      "seed": 908791154.0
     },
     "ui": {
       "msg": "",
@@ -16507,28 +16508,10 @@
         "lv": 1.0,
         "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
-        "rift": "남동 숲 균열",
-        "source_id": "q1",
-        "stars": 2.0,
-        "title": "남동 숲 균열, 잃어버린 유품 회수"
-      },
-      {
-        "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
-        "difficulty": "엘리트",
-        "elite": true,
-        "gold": 100.0,
-        "id": 2.0,
-        "kind": "구조",
-        "level": 1.0,
-        "lv": 1.0,
-        "name": "고립된 탐사대 구조",
-        "reward_v": 2.0,
         "rift": "남서 설산 균열",
-        "source_id": "q2",
-        "stars": 2.0,
-        "strength": 1.6,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
+        "source_id": "q1",
+        "stars": 1.0,
+        "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
@@ -16536,14 +16519,14 @@
         "difficulty": "중간",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 2.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
-        "source_id": "q3",
+        "source_id": "q2",
         "stars": 2.0,
         "title": "남동 숲 균열, 고립된 탐사대 구조"
       },
@@ -16553,15 +16536,33 @@
         "difficulty": "높음",
         "elite": false,
         "gold": 100.0,
-        "id": 4.0,
+        "id": 3.0,
         "kind": "토벌",
         "level": 4.0,
         "lv": 4.0,
         "name": "균열 핵 토벌",
         "reward_v": 2.0,
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
+        "stars": 2.0,
+        "title": "남동 숲 균열, 균열 핵 토벌"
+      },
+      {
+        "cmp": true,
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
+        "difficulty": "엘리트",
+        "elite": true,
+        "gold": 100.0,
+        "id": 4.0,
+        "kind": "토벌",
+        "level": 1.0,
+        "lv": 1.0,
+        "name": "균열 핵 토벌",
+        "reward_v": 2.0,
         "rift": "남서 설산 균열",
         "source_id": "q4",
         "stars": 2.0,
+        "strength": 1.5,
         "title": "남서 설산 균열, 균열 핵 토벌"
       }
     ],
@@ -16569,7 +16570,7 @@
       "list": [],
       "queue": [
         "Day 1: First met Teiris, who joined as a companion.",
-        "Day 1: Lavinia joined as a companion through a guild introduction."
+        "Day 1: Altan joined as a companion through a guild introduction."
       ]
     },
     "commerce_r21": {
@@ -16657,7 +16658,7 @@
     },
     "log": [
       "테이리스 · 대화하기",
-      "페넬라의 소개 · 라비니아 합류",
+      "페넬라의 소개 · 알탄 합류",
       "학술원 폐허 상층 · 1층 출발",
       "탐색 1: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 2: 전투 승리 · 금화 24 · 경험치 26",
@@ -16890,7 +16891,7 @@
     },
     "owned": [
       "teiris",
-      "lavinia"
+      "altan"
     ],
     "panels_r22": {
       "bg": {
@@ -17140,7 +17141,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 2037826800.0,
+    "rng": 908791154.0,
     "run": {
       "ask": false,
       "battle": {},
@@ -17248,9 +17249,9 @@
     "summary": {},
     "town_r21": {
       "counter": 5.0,
-      "meet": "lavinia",
+      "meet": "altan",
       "qn": 4.0,
-      "seed": 2037826800.0
+      "seed": 908791154.0
     },
     "ui": {
       "msg": "",

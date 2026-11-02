@@ -25,7 +25,7 @@ func gear_code(id: String,seed: Variant) -> String:
 
 func gear_parse(value: Variant) -> Dictionary:
 	if not value is String:return {}
-	var re=RegEx.new();re.compile("^([a-z0-9]+)\\.([0-9a-z]{1,12})\\.([0-9]+)$")
+	var re=RegEx.new();re.compile("\\A([a-z0-9]+)\\.([0-9a-z]{1,12})\\.([0-9]+)\\z")
 	var m=re.search(value)
 	if m==null or int(m.get_string(3))!=int(source.v):return {}
 	var seed=0
@@ -57,7 +57,7 @@ func gear_roll(value: Variant,wearer_lv: Variant=null,forge_lv: float=0) -> Dict
 	for a in affix:
 		a[1]=floor(a[1]*scale*10)/10 if trim else r1(a[1])
 		out[a[0]]=out.get(a[0],0)+a[1];score+=a[1]*fx.affix[a[0]].eff
-	if wearer_lv!=null:
+	if wearer_lv!=null and not (wearer_lv is bool and wearer_lv==false):
 		var lv=clampi(int(floor(float(wearer_lv))),1,40)
 		var mult=(.4+.6*lv/40.0)/(.4+.6*it.lv/40.0)*(1+clampf(forge_lv,0,10)*fx.forge.bonus_per_level)
 		for k in out:out[k]=r1(out[k]*mult)
@@ -75,8 +75,8 @@ func gear_price(value: Variant) -> Variant:
 	var it=source.items[p.id];var s=source.fx.sell[it.rarity]
 	return s[0]+s[1]*it.lv
 
-func gear_icon(item: Dictionary) -> String:
-	return "gl-"+item.id if source.gl.has(item.id) else source.shape_css[item.shape]
+func gear_icon(item: Dictionary) -> Variant:
+	return "gl-"+item.id if source.gl.has(item.get("id")) else source.shape_css.get(item.get("shape"))
 
 func gear_btn(value: String) -> String:return value.replace(".","_")
 func gear_unbtn(value: String) -> Variant:
@@ -123,7 +123,7 @@ func forge_state(g: Dictionary,value: String) -> Dictionary:
 	if not g.forge.get(value) is Dictionary:g.forge[value]={"lv":0,"tries":0}
 	return g.forge[value]
 
-func forge_code_cost(value: String,next_lv: int) -> Variant:
+func forge_code_cost(value: String,next_lv: float) -> Variant:
 	var p=gear_parse(value)
 	if p.is_empty() or not source.items.has(p.id) or next_lv<1 or next_lv>10:return null
 	return source.fx.forge.cost_base[source.items[p.id].rarity]*next_lv*next_lv
@@ -282,11 +282,14 @@ func gear_migrate(g: Dictionary) -> bool:
 	return hit
 
 func gear_eq_of(g: Dictionary,cid: String) -> Variant:
-	var out={};var eq=g.get("equip",{}).get(cid,{})
+	var out={};var eq=gear_equipment_table(g).get(cid,{})
 	if eq is Dictionary:
 		for s in SLOTS:
 			if eq.get(s) is String and eq[s]!="":out[s]=eq[s]
 	return out if not out.is_empty() else null
+
+func gear_equipment_table(g: Dictionary) -> Dictionary:
+	return g.equip if g.get("equip") is Dictionary else {}
 
 func gear_pm_refresh(g: Dictionary,pm: Array) -> void:
 	for m in pm:
