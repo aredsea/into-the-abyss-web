@@ -14,7 +14,14 @@ func build_result(owner_screen,combat) -> void:
 			var material=ShaderMaterial.new();material.shader=shader;sprite.material=material
 	var enemies=combat.state.data.enemies
 	var title=enemies[0].name+(" 외 %d"%(enemies.size()-1) if enemies.size()>1 else "")
-	label("전투 승리 · "+title if win else "부상으로 전투에서 이탈했습니다.",Rect2(18,279 if win else 306,354,29),13,T.INK,T.BOLD)
+	# The traced source title and the ruins used to contain/cover parts of this line.
+	# Keep a clear paper lane above the actors, and render all copy as actual text.
+	fill("result_caption_paper",Rect2(18,265 if win else 306,354,73 if win else 33),T.PAPER)
+	var subtitle=label("적을 모두 쓰러뜨렸습니다." if win else "부상으로 전투에서 이탈했습니다.",Rect2(18,278 if win else 308,354,26),15,T.INK,T.BOLD)
+	subtitle.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;mark("result_subtitle",subtitle)
+	if win:
+		var detail=label("전투 승리 · "+title,Rect2(18,307,354,24),12,T.INK,T.BOLD)
+		mark("result_detail",detail)
 	for i in range(host.model.s.party.size()):
 		var id=host.model.s.party[i];var a=combat.state.ally(id);var x=18+i*91
 		picture(id,Rect2(x,597,86,43),"town-party-face")

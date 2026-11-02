@@ -438,9 +438,11 @@ func npc_hero(id: String,title: String,subtitle: String,height=365.0) -> void:
 		metrics[-1].available=1000
 
 func research() -> void:
+	if host.research_edit:research_editor();return
 	header("전술 연구","guild")
 	npc_hero("loredana","전술\n연구","",430)
 	paragraph("더 날카롭게,\n더 멀리.",Rect2(18,250,130,43),14)
+	action("research_editor","조각 조합 · 편집 후 저장",Rect2(18,309,225,44),func():host.research_edit=true;host._draw_screen())
 	member_choice(Rect2(18,398,354,38))
 	var w=host.model;var r=w.s.research[host.who];var current=w.tactic(host.who)
 	guild_tabs(2)
@@ -467,8 +469,50 @@ func research() -> void:
 	for i in range(2):
 		var kind="prefix" if i==0 else "suffix"
 		if r[kind].is_empty():continue
-		var level=r[kind+"_lv"].get(r[kind],0);var amount=40+20*level*level
+		var level=r[kind+"_lv"].get(r[kind],0);var amount=w.PersonaResearch.cost(level+1)
 		action("train:"+kind,("몸통" if i==0 else "덧효과")+" +%d · %d금화"%[level,amount],Rect2(18+i*182,730,172,29),func():host._ask("금화를 소모해 전술 조각을 강화할까요?",w.train.bind(host.who,kind)),false,level>=10 or w.s.gold<amount).add_theme_font_size_override("font_size",11)
+
+func research_editor() -> void:
+	nav_top=790
+	header("전술 연구","guild")
+	npc_hero("loredana","전술\n연구","",430)
+	fill("research_instructions",Rect2(18,244,237,63),T.PAPER)
+	paragraph("몸통과 덧효과를 고른 뒤 저장하세요.\n바꾸기는 무료, 강화는 조각에 남습니다.",Rect2(18,250,225,54),13)
+	action("research_legacy","동료 전술 관리",Rect2(18,316,188,44),func():host.research_edit=false;host._draw_screen())
+	member_choice(Rect2(18,398,354,38));guild_tabs(2)
+	var w=host.model;var rules=w.PersonaResearch;var v=w.research_work(host.who)
+	for index in range(2):
+		var kind="prefixes" if index==0 else "suffixes";var parts=[]
+		for x in rules.data[kind]:
+			if index==0 or rules.compatible(rules.part("prefixes",v.prefix),x):parts.append(x)
+		var pick=OptionButton.new();stage.add_child(pick);pick.position=Vector2(18+index*182,502);pick.size=Vector2(172,44)
+		pick.fit_to_longest_item=false;pick.clip_text=true;pick.add_theme_font_size_override("font_size",13)
+		pick.add_item("몸통을 고르세요" if index==0 else "덧효과를 고르세요")
+		for i in range(parts.size()):
+			var x=parts[i];var key="prefix" if index==0 else "suffix"
+			pick.add_item(x.name+" +%d"%rules.level(v[key+"_lv"],x.id))
+			if x.id==v[key]:pick.select(i+1)
+		pick.set_item_disabled(0,true)
+		pick.disabled=w.active() or (index==1 and v.prefix.is_empty())
+		pick.item_selected.connect(func(i):
+			if i>0:_research_action("ps_"+("pre_" if index==0 else "suf_")+parts[i-1].id))
+		host.controls["ps_part:"+kind]=pick;mark("ps_part:"+kind,pick)
+	var dirty=w.research_dirty(host.who)
+	label(("편집 중 · " if dirty else "현재 스킬 · ")+rules.skill_name(v),Rect2(18,553,354,26),15,T.INK,T.BOLD)
+	paragraph(rules.description(v),Rect2(18,584,354,65),12)
+	for i in range(2):
+		var key="prefix" if i==0 else "suffix";var id=v[key];var n=rules.level(v[key+"_lv"],id)
+		var amount=rules.cost(n+1)
+		var caption=("몸통" if i==0 else "덧효과")+(" · 최대 +10" if n>=10 else " +%d · %d금화"%[n,amount])
+		action("ps_up:"+key,caption,Rect2(18+i*182,655,172,44),_research_action.bind("ps_up_"+("pre" if i==0 else "suf")),false,w.active() or id.is_empty() or n>=10 or w.s.gold<amount).add_theme_font_size_override("font_size",12)
+	label("금화 %d · 강화 비용은 즉시 소모됩니다."%w.s.gold,Rect2(18,700,354,22),11)
+	action("ps_save","저장 · 조합 확정",Rect2(18,727,354,44),_research_action.bind("ps_save"),true,w.active() or not dirty or not rules.ready(v))
+
+func _research_action(arg: String) -> void:
+	var changed=host.model.research_action(host.who,arg)
+	if changed:host._save()
+	host.message="조합을 저장했습니다." if changed and arg=="ps_save" else ""
+	host._draw_screen()
 
 func cache() -> void:
 	var w=host.model;var r=w.s.run

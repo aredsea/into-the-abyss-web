@@ -29,6 +29,7 @@ var shop_tab="items"
 var gear_filter="weapon"
 var research_prefix="strike"
 var research_suffix="bane"
+var research_edit=false
 var message=""
 var confirm: Dictionary={}
 var content: VBoxContainer
@@ -474,7 +475,7 @@ func _publish() -> void:
 		if not is_instance_valid(controls[id]): continue
 		var b=controls[id]; var r=b.get_global_rect()
 		buttons[id]={"rect":[r.position.x,r.position.y,r.size.x,r.size.y],"disabled":b.disabled,"needed":FONT.get_multiline_string_size(b.text,HORIZONTAL_ALIGNMENT_LEFT,-1,b.get_theme_font_size("font_size")).x+24}
-	var report={"build":model.config.build,"ui_build":"r21-d-town-20261101b","town_r21_preview":town_r21_preview,"screen":"battle" if is_instance_valid(battle) else screen,"state":model.s,"controls":buttons,"viewport":[size.x,size.y],"restored":restored,"save_error":save_error,"art_preview":art_preview_id,"town_scroll_height":content.size.y if is_instance_valid(content) else 0}
+	var report={"build":model.config.build,"ui_build":"r21-d-town-20261102","town_r21_preview":town_r21_preview,"screen":"battle" if is_instance_valid(battle) else screen,"state":model.s,"controls":buttons,"viewport":[size.x,size.y],"restored":restored,"save_error":save_error,"art_preview":art_preview_id,"town_scroll_height":content.size.y if is_instance_valid(content) else 0}
 	if is_instance_valid(town_view): report.town_text=town_view.metrics
 	JavaScriptBridge.eval("window.__abyssWorld="+JSON.stringify(report)+";",true)
 

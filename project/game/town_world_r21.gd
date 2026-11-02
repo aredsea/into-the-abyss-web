@@ -3,6 +3,8 @@ extends "res://game/dungeon_world_r21.gd"
 const TOWN_RULES = preload("res://game/town_rules_r21.gd")
 const Guild=preload("res://game/guild_rules_r21.gd")
 const Commerce=preload("res://game/commerce_rules_r21.gd")
+const PersonaResearch=preload("res://game/persona_research_r21.gd")
+var research_message=""
 
 func _init():
 	super()
@@ -10,6 +12,7 @@ func _init():
 	ensure_town_r21()
 
 func ensure_town_r21() -> void:
+	if not s.has("research_editor_r21"):s.research_editor_r21={}
 	if not s.has("commerce_r21"):s.commerce_r21={"process_n":0,"sold_day":s.day,"bought":{}}
 	if not s.has("town_r21"):
 		var qn=0
@@ -72,6 +75,15 @@ func settle(result: String) -> bool:
 func restore(value: Variant) -> bool:
 	if not value is Dictionary: return false
 	var previous=s.duplicate(true)
+	if value.has("research_editor_r21"):
+		var editors=value.research_editor_r21
+		if not editors is Dictionary:return false
+		for who in editors:
+			if who not in value.get("owned",[]):return false
+			var e=editors[who]
+			if not e is Dictionary or not _shape(e,{"draft":{},"spent":0}):return false
+			if e.spent<0 or e.spent!=int(e.spent) or e.spent>100000000:return false
+			if not PersonaResearch.valid_saved(e.draft):return false
 	if value.has("commerce_r21"):
 		var c=value.commerce_r21
 		if not c is Dictionary or not _shape(c,{"process_n":0,"sold_day":0,"bought":{}}):return false
@@ -85,9 +97,38 @@ func restore(value: Variant) -> bool:
 		if not t is Dictionary or not _shape(t,{"seed":0,"counter":0,"qn":0}) or t.seed<1 or t.seed>=2147483647 or t.seed!=int(t.seed) or t.counter<0 or t.qn<0 or t.counter!=int(t.counter) or t.qn!=int(t.qn): return false
 	s.erase("town_r21")
 	s.erase("commerce_r21")
+	s.erase("research_editor_r21")
 	if not super(value): s=previous; return false
 	ensure_town_r21()
 	return true
+
+func research_work(who: String) -> Dictionary:
+	var e=s.research_editor_r21.get(who,{})
+	return PersonaResearch.clean(e.get("draft",s.research.get(who,{})))
+
+func research_dirty(who: String) -> bool:
+	return s.research_editor_r21.has(who) and research_work(who)!=PersonaResearch.clean(s.research[who])
+
+func research_action(who: String,arg: String) -> bool:
+	if active() or who not in s.owned:return false
+	var e=s.research_editor_r21.get(who,{"draft":{},"spent":0})
+	var out=PersonaResearch.transition(s.research[who],e.draft,int(e.spent),int(s.gold),arg)
+	research_message=out.message
+	var changed=out.saved!=s.research[who] or out.draft!=e.draft or out.gold!=s.gold
+	if not changed:return false
+	s.research[who]=out.saved;s.gold=out.gold
+	if out.draft.is_empty():s.research_editor_r21.erase(who)
+	else:s.research_editor_r21[who]={"draft":out.draft,"spent":out.spent}
+	return true
+
+func train(who: String,kind: String) -> bool:
+	# Compatibility shortcut still upgrades the equipped piece, using source cost.
+	if active() or who not in s.owned or kind not in ["prefix","suffix"]:return false
+	var r=s.research[who];var id=r[kind]
+	if id.is_empty():return false
+	var lv=PersonaResearch.level(r[kind+"_lv"],id);var amount=PersonaResearch.cost(lv+1)
+	if lv>=10 or s.gold<amount:return false
+	s.gold-=amount;r[kind+"_lv"][id]=lv+1;note("전술 조각 강화 +"+str(lv+1));return true
 
 func shop_stock(who: String,slot: String) -> Array:
 	if who not in s.owned or slot not in Gear.SLOT:return []

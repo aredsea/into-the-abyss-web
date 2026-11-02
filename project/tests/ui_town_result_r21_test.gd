@@ -25,6 +25,13 @@ func run():
 			check(is_instance_valid(s.result_view),"town result shell "+outcome)
 			if not is_instance_valid(s.result_view):quit(1);return
 			check(is_instance_valid(s.battle) and not s.model.s.run.battle.is_empty(),"terminal battle kept until confirmation")
+			var boxes=s.result_view.boxes;var paper=boxes.result_caption_paper;var subtitle=boxes.result_subtitle
+			check(subtitle.text==("적을 모두 쓰러뜨렸습니다." if outcome=="victory" else "부상으로 전투에서 이탈했습니다."),"complete result subtitle")
+			check(paper.get_rect().encloses(subtitle.get_rect()) and subtitle.get_index()>paper.get_index(),"subtitle stays above clear paper lane")
+			check(paper.get_index()>boxes["title:"+outcome].get_index(),"paper removes traced subtitle remnants")
+			if outcome=="victory":
+				check(paper.get_rect().encloses(boxes.result_detail.get_rect()),"victory detail within paper lane")
+				check(not subtitle.get_rect().intersects(boxes.result_detail.get_rect()),"victory subtitle and detail do not overlap")
 			var gold=w.s.gold;var run_gold=w.s.run.gold
 			for l in s.result_view.find_children("*","Label",true,false):
 				var f=l.get_theme_font("font");var fs=l.get_theme_font_size("font_size");var n=f.get_multiline_string_size(l.text,l.horizontal_alignment,l.size.x if l.autowrap_mode!=TextServer.AUTOWRAP_OFF else -1,fs)
