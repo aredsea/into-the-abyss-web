@@ -1,0 +1,33 @@
+{
+  "server_files_unchanged": true,
+  "native_downloader": "project/game/cloud_store_r22.gd:101 currently instantiates persona_world.gd; the P9 owner must use the P6-aware validator before accepting these states.",
+  "requirements": [
+    {
+      "path": "commerce_r21.forge_codes_r22",
+      "type": "dictionary keyed by original valid gear code",
+      "value": {
+        "forge": "integer 0..10",
+        "tries": "nonnegative integer"
+      },
+      "purpose": "Original refinement state belongs to code, including duplicate copies and reacquisition."
+    },
+    {
+      "path": "commerce_r21.legacy_persona_progress_r22",
+      "type": "optional archived former {level,xp}",
+      "purpose": "Preserve stale prior growth view while P6 uses actual persona level."
+    },
+    {
+      "path": "items.<known item>",
+      "type": "nonnegative safe JSON integer",
+      "purpose": "Original shop has no 10000 consumable cap."
+    },
+    {
+      "path": "gold",
+      "type": "nonnegative safe JSON integer",
+      "purpose": "Original town runtime has no 100000000 gold cap."
+    }
+  ],
+  "existing_p5_requirements": "verification/expedition-r22/p9-required-fields.json",
+  "receipt_state": "Not serialized, like original shop_got and sm_work; no server allowlist entry needed.",
+  "do_not_claim": "Server schema update, deployment, new P6 upload/download/conflict roundtrip, or full source-bot parity."
+}

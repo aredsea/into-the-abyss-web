@@ -1,10 +1,11 @@
 extends Control
 
 const RouteMap=preload("res://ui/route_map.gd")
-const World=preload("res://game/persona_world.gd")
+const World=preload("res://game/facilities_world_r22.gd")
+const ExpeditionScreen=preload("res://ui/expedition_screen_r22.gd")
 const CreateScreen=preload("res://ui/create_screen.gd")
 const PersonaSortieScreen=preload("res://ui/persona_sortie_screen.gd")
-const TownScreen=preload("res://ui/town_screen_r21.gd")
+const TownScreen=preload("res://ui/facilities_screen_r22.gd")
 const DungeonViewR21=preload("res://game/dungeon_view_r21.gd")
 const Store=preload("res://game/world_store.gd")
 const BattleScreen=preload("res://ui/battle_screen.gd")
@@ -75,6 +76,7 @@ func go(page: String) -> void:
 	cloud_confirmation={}
 	if page=="member_details" and screen in ["member","skills"]: details_return=screen
 	if model.active() and page in ["town","shop","inn","depart","guild","smithy"]: page="explore"
+	if model.has_method("facility_route") and not model.facility_route(page): message=model.facility_message;_draw_screen();return
 	screen=page; confirm={}; selected_item=""; message=""; _draw_screen()
 
 func _draw_screen() -> void:
@@ -88,7 +90,7 @@ func _draw_screen() -> void:
 		for c in get_children():
 			if c==cloud:continue
 			remove_child(c); c.queue_free()
-		battle=BattleScreen.new()
+		battle=preload("res://ui/expedition_supply_screen_r22.gd").new() if model.has_method("expedition") and model.expedition() else BattleScreen.new()
 		if model.s.has("persona"):preload("res://ui/persona_visual_adapter.gd").prepare()
 		battle.session_data=model.battle_data()
 		battle.session_snapshot=model.s.run.battle
@@ -104,15 +106,18 @@ func _draw_screen() -> void:
 	battle=null; controls.clear(); art_preview_id="";art_preview=null;art_base_controls={}
 	town_view=null
 	result_view=null
+	if model.has_method("acknowledge_receipt") and not model.receipt.is_empty():
+		town_view=TownScreen.new();add_child(town_view);town_view.build(self);return
 	if screen in ["cloud","rank"]:
 		town_view=preload("res://ui/cloud_screen_r22.gd").new();add_child(town_view);town_view.build(self);call_deferred("_publish");return
 	if model.s.has("persona") and not model.s.creation_r22.complete:
 		town_view=CreateScreen.new();add_child(town_view);town_view.build(self);return
 	if model.s.has("persona") and screen in ["formation","depart"]:
 		town_view=PersonaSortieScreen.new();add_child(town_view);town_view.build(self);return
-	var finished_town=screen in ["town","party","member","skills","cards","depart","bag","formation","journal","summary","inn","shop","guild","recruit","equipment","smithy","research"] or (screen=="explore" and (model.r21() or model.s.run.get("event","")=="sealed"))
+	var finished_town=screen in ["town","party","member","skills","cards","depart","bag","formation","journal","summary","inn","shop","guild","recruit","equipment","smithy","research","expedition_log","facility_scroll"] or (screen=="explore" and (model.r21() or model.s.run.get("event","")=="sealed"))
 	if (finished_town or dialogue_open or journey_open) and (confirm.is_empty() or (screen=="explore" and model.r21())):
-		town_view=TownScreen.new(); add_child(town_view); town_view.build(self)
+		var p5=model.has_method("expedition") and model.expedition() and screen in ["explore","expedition_log","summary","bag","equipment"]
+		town_view=ExpeditionScreen.new() if p5 else TownScreen.new(); add_child(town_view); town_view.build(self)
 		last_drawn_screen=screen; call_deferred("_publish"); return
 	var width=minf(size.x,440); var height=size.y
 	var base=Control.new(); add_child(base); base.position=Vector2((size.x-width)/2,0); base.size=Vector2(width,height)

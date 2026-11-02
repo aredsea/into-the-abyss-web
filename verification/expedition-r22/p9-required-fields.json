@@ -1,0 +1,30 @@
+{
+  "status": "handoff-only; protected P9 implementation not edited",
+  "save_schema": 3,
+  "run": {
+    "expedition_version": "integer, exactly 22; rift_id must be empty",
+    "log": "array of at most 8 strings",
+    "fell": "boolean",
+    "ask": "boolean",
+    "next_available": "boolean; true only for phase=done and summary.result=clear",
+    "maxima": "map of deployed IDs to {hp: integer 1..1000000, mp: integer 0..1000000}; previous encounter maxima, retained across rest swaps"
+  },
+  "dungeon_r21": {
+    "pg": "optional integer 1..ceil((unlocked_floor+1)/6)",
+    "last": "optional copy of the P5 settlement summary"
+  },
+  "summary_additions": {
+    "expedition_version": "integer, exactly 22",
+    "steps": "integer 0..5",
+    "kept_gold": "nonnegative integer",
+    "lost_items": "source consumable ID to nonnegative integer count",
+    "gear_lost": "nonnegative integer, bag-capacity discards",
+    "lost_gear": "nonnegative integer, defeat losses including unavailable bank space",
+    "first": "boolean, first zone-boss clear",
+    "aff": "owned companion ID to nonnegative numeric gain",
+    "fell": "boolean"
+  },
+  "native_download_probe": "P9 currently constructs persona_world.gd. A P5-aware disposable model must validate run metadata, retained maxima, and persona equipment-adjusted HP/MP before applying the downloaded save.",
+  "fixtures": "save-specimens.json: entry, battle, rest, clear, next_floor; native P5 restore passes for all 5; p9-boundary.json records the protected server's current rejection.",
+  "legacy_contract": "Do not drop unknown P5 fields, normalize the pouch into bank inventory, replay persona_xp_paid, or rewrite old world_v1 files. Old runs without expedition_version retain P1 payment rules. The existing cloud account/PIN/revision HTTP contract and security checks must stay intact."
+}
