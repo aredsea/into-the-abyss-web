@@ -48,7 +48,7 @@ func run():
 			s._rebuild(); await process_frame; await process_frame; await RenderingServer.frame_post_draw
 			check(root.get_texture().get_image().save_png(folder+"/battle-%d-%d.png"%[width,count])==OK,"screenshot")
 			root.remove_child(s); s.queue_free(); await process_frame
-		var town=Town.new(); town.size=Vector2(width,844); town.storage.path="user://data-r21-ui-test.json"; root.add_child(town)
+		var town=Town.new();town.model=preload("res://game/town_world_r21.gd").new(); town.size=Vector2(width,844); town.storage.path="user://data-r21-ui-test.json"; root.add_child(town)
 		await process_frame; town.model=World.new(); town.go("depart")
 		await process_frame; await process_frame; await RenderingServer.frame_post_draw
 		check(town.controls.has("dungeon_floor") and town.controls.has("start_run"),"dungeon selector entry")

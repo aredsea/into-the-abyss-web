@@ -1,0 +1,315 @@
+{
+  "schema_version": 1,
+  "coordinate_system": "source raster pixels; origin top-left; rect=[x,y,width,height]; polygons clockwise",
+  "measurement_method": "direct visual boundary measurement on source PNG, bounding boxes include slanted image masks; approximately +/-4 px; directional comps are not exact production layout",
+  "screens": [
+    {
+      "file": "outputs/r13-b-all/01-companions.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "panels": [
+        [
+          0,
+          0,
+          480,
+          1086
+        ],
+        [
+          486,
+          0,
+          477,
+          1086
+        ],
+        [
+          970,
+          0,
+          478,
+          1086
+        ]
+      ],
+      "slots": [
+        {
+          "id": "cast-feature",
+          "rect": [
+            0,
+            60,
+            294,
+            487
+          ],
+          "polygon": [
+            [
+              0,
+              60
+            ],
+            [
+              293,
+              60
+            ],
+            [
+              292,
+              476
+            ],
+            [
+              0,
+              547
+            ]
+          ],
+          "kind": "upperbody",
+          "head_top_y": 62,
+          "cut_line": "lower chest; nameplate overlays torso",
+          "headroom_px": 2
+        },
+        {
+          "id": "cast-secondary",
+          "rect": [
+            290,
+            157,
+            188,
+            382
+          ],
+          "kind": "upperbody",
+          "headroom_px": 4,
+          "cut_line": "lower chest diagonal"
+        },
+        {
+          "id": "cast-lower-left",
+          "rect": [
+            0,
+            494,
+            287,
+            460
+          ],
+          "polygon": [
+            [
+              0,
+              547
+            ],
+            [
+              287,
+              477
+            ],
+            [
+              207,
+              915
+            ],
+            [
+              0,
+              954
+            ]
+          ],
+          "kind": "upperbody",
+          "headroom_px": 8,
+          "cut_line": "waist / diagonal"
+        },
+        {
+          "id": "detail-overview",
+          "rect": [
+            486,
+            157,
+            477,
+            465
+          ],
+          "kind": "upperbody",
+          "headroom_px": 3,
+          "cut_line": "lower chest at tabs y=622"
+        },
+        {
+          "id": "detail-skills",
+          "rect": [
+            970,
+            35,
+            478,
+            332
+          ],
+          "kind": "face-wide",
+          "headroom_px": 1,
+          "cut_line": "collar / shoulders at y=367"
+        }
+      ]
+    },
+    {
+      "file": "outputs/r13-b-all/03-preparation.png",
+      "size": [
+        1448,
+        1086
+      ],
+      "slots": [
+        {
+          "id": "party-tall",
+          "rect": [
+            21,
+            390,
+            105,
+            235
+          ],
+          "repeat_x": [
+            21,
+            133,
+            246,
+            359
+          ],
+          "kind": "party-tall",
+          "headroom_px": 0,
+          "cut_line": "mid torso with bottom name/Lv overlay"
+        },
+        {
+          "id": "formation-face",
+          "rect": [
+            31,
+            669,
+            90,
+            87
+          ],
+          "repeat_x": [
+            31,
+            130,
+            262,
+            361
+          ],
+          "kind": "face-square",
+          "headroom_px": 0,
+          "cut_line": "neck/collar"
+        },
+        {
+          "id": "target-face",
+          "rect": [
+            1030,
+            262,
+            106,
+            113
+          ],
+          "repeat_y": [
+            262,
+            400,
+            540,
+            679
+          ],
+          "kind": "face-square",
+          "headroom_px": 0,
+          "cut_line": "neck"
+        }
+      ]
+    },
+    {
+      "file": "outputs/r13-b-all/00-town-approved-direction.png",
+      "size": [
+        853,
+        1844
+      ],
+      "slots": [
+        {
+          "id": "town-main",
+          "rect": [
+            110,
+            225,
+            743,
+            933
+          ],
+          "kind": "upperbody",
+          "headroom_px": 0,
+          "cut_line": "waist at y=1158; side shoulders can clip outside viewport"
+        },
+        {
+          "id": "town-party-face",
+          "rect": [
+            31,
+            1196,
+            192,
+            133
+          ],
+          "repeat_x": [
+            31,
+            234,
+            435,
+            636
+          ],
+          "kind": "face-wide",
+          "headroom_px": 0,
+          "cut_line": "neck/collar"
+        }
+      ]
+    }
+  ],
+  "asset_types": [
+    {
+      "id": "upperbody",
+      "canvas": [
+        576,
+        768
+      ],
+      "ratio": "3:4",
+      "background": "transparent",
+      "alignment": "1:1 original 525x768 RGB at x=25,y=0; alpha-only matte; consumers use recorded native inward crops.",
+      "consumed_by": [
+        "cast-feature",
+        "cast-secondary",
+        "cast-lower-left",
+        "detail-overview",
+        "town-main",
+        "party-tall"
+      ],
+      "phase_1_note": "1단계의 요청/생성 치수는 attempt-1b-before/verification/slots.json에 보존."
+    },
+    {
+      "id": "face",
+      "derivation": "Native RGB crop from same source-frame matte; no face generation; per-slot crop recorded in preview-placement.json.",
+      "consumed_by": [
+        "detail-skills",
+        "formation-face",
+        "target-face",
+        "town-party-face"
+      ]
+    }
+  ],
+  "full_body_required": false,
+  "full_body_reason": "No measured target shows legs/feet; inventing unseen full-body outfit is unnecessary",
+  "sample_ids": [
+    "hildegard",
+    "marceline",
+    "naran"
+  ],
+  "source_count_note": {
+    "brief": 30,
+    "actual_menu_json": 35,
+    "playable_catalog": 30,
+    "playable_remaining_untouched": 27,
+    "all_menu_files_remaining_untouched": 32
+  },
+  "phase_1b": {
+    "measured_rectangles_unchanged": true,
+    "master_canvas": [
+      576,
+      768
+    ],
+    "original_frame_xywh": [
+      25,
+      0,
+      525,
+      768
+    ],
+    "placement_file": "verification/portraits-r21/preview-placement.json",
+    "generation_calls": 0,
+    "inward_slot_cases": 30,
+    "outpaint_slot_cases": 0
+  },
+  "phase_1c": {
+    "characters": 30,
+    "slot_character_cases": 300,
+    "inward_cases": 300,
+    "outpaint_cases": 0,
+    "master_canvas": [
+      576,
+      768
+    ],
+    "source_frame_xywh": [
+      25,
+      0,
+      525,
+      768
+    ],
+    "placement_file": "verification/portraits-r21/preview-placement.json",
+    "resize_rule": "premultiply alpha before resampling; previews supplied"
+  }
+}

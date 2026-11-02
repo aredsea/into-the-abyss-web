@@ -1,11 +1,14 @@
 extends Control
 
 const RouteMap=preload("res://ui/route_map.gd")
-const World=preload("res://game/dungeon_world_r21.gd")
+const World=preload("res://game/settings_world_r22.gd")
+const CreateScreen=preload("res://ui/create_screen.gd")
+const PersonaSortieScreen=preload("res://ui/persona_sortie_screen.gd")
+const TownScreen=preload("res://ui/town_screen_r21.gd")
 const DungeonViewR21=preload("res://game/dungeon_view_r21.gd")
-const Store=preload("res://game/world_store.gd")
+const Store=preload("res://game/settings_save_r22.gd")
 const BattleScreen=preload("res://ui/battle_screen.gd")
-const UI=preload("res://ui/fantasy_theme.gd")
+const UI=preload("res://ui/town_theme_r21.gd")
 const FONT=UI.BODY
 const PortraitCard=preload("res://ui/portrait_card.gd")
 const NavigationButton=preload("res://ui/navigation_button.gd")
@@ -22,11 +25,13 @@ var storage=Store.new()
 var screen="town"
 var who="hildegard"
 var selected_item=""
+var selected_target=""
 var catalog_all=false
 var shop_tab="items"
 var gear_filter="weapon"
 var research_prefix="strike"
 var research_suffix="bane"
+var research_edit=false
 var message=""
 var confirm: Dictionary={}
 var content: VBoxContainer
@@ -40,6 +45,19 @@ var motion_reduced=false
 var last_drawn_screen=""
 var art_preview: Control
 var art_preview_id=""
+var art_base_controls={}
+var town_view: Control
+var details_return="member"
+var town_r21_preview=false
+var result_view: Control
+var reset_r22=false
+var settings_return_r22="town"
+var settings_saved_r22=false
+var panels_r22
+var journal_r22={"place":"town","person":"","legacy":false}
+
+func open_settings_r22() -> void:
+	settings_return_r22=screen;reset_r22=false;screen="settings";_draw_screen()
 
 func _ready() -> void:
 	motion_reduced=OS.has_feature("web") and bool(JavaScriptBridge.eval("window.matchMedia('(prefers-reduced-motion: reduce)').matches",true))
@@ -55,7 +73,10 @@ func _save() -> void:
 	if save_error!=OK: message="저장 실패: 창을 닫기 전에 다시 시도하세요."
 
 func go(page: String) -> void:
+	if page=="town" and screen=="summary" and model.has_method("chronicle_home"):model.chronicle_home();_save()
+	if page=="member_details" and screen in ["member","skills"]: details_return=screen
 	if model.active() and page in ["town","shop","inn","depart","guild","smithy"]: page="explore"
+	if page in ["guild","shop","inn","smithy"] or (page=="town" and screen in ["guild","shop","inn","smithy"]):model.s.place=""
 	screen=page; confirm={}; selected_item=""; message=""; _draw_screen()
 
 func _draw_screen() -> void:
@@ -64,6 +85,7 @@ func _draw_screen() -> void:
 		if is_instance_valid(battle): return
 		for c in get_children(): remove_child(c); c.queue_free()
 		battle=BattleScreen.new()
+		if model.s.has("persona"):preload("res://ui/persona_visual_adapter.gd").prepare()
 		battle.session_data=model.battle_data()
 		battle.session_snapshot=model.s.run.battle
 		battle.session_save=_save_battle
@@ -73,12 +95,29 @@ func _draw_screen() -> void:
 		_publish()
 		return
 	for c in get_children(): remove_child(c); c.queue_free()
-	battle=null; controls.clear(); art_preview_id=""
+	battle=null; controls.clear(); art_preview_id="";art_preview=null;art_base_controls={}
+	town_view=null
+	result_view=null
+	if screen=="settings":
+		town_view=preload("res://ui/settings_screen_r22.gd").new();add_child(town_view);town_view.build(self);return
+	if model.s.has("persona") and not model.s.creation_r22.complete:
+		town_view=CreateScreen.new();add_child(town_view);town_view.build(self);return
+	if screen in ["codex","status","inventory"]:
+		if panels_r22==null or panels_r22.model!=model:panels_r22=preload("res://game/panels_state_r22.gd").new(model)
+		town_view=load("res://ui/"+{"codex":"codex","status":"status","inventory":"inventory"}[screen]+"_screen_r22.gd").new();add_child(town_view);town_view.build(self);return
+	if screen in ["journal","places","people"]:
+		town_view=preload("res://ui/journal_screen_r22.gd").new();add_child(town_view);town_view.build(self);return
+	if model.s.has("persona") and screen in ["formation","depart"]:
+		town_view=PersonaSortieScreen.new();add_child(town_view);town_view.build(self);return
+	var finished_town=screen in ["town","party","member","skills","cards","depart","bag","formation","journal","summary","inn","shop","guild","recruit","equipment","smithy","research"] or (screen=="explore" and (model.r21() or model.s.run.get("event","")=="sealed"))
+	if finished_town and (confirm.is_empty() or (screen=="explore" and model.r21())):
+		town_view=TownScreen.new(); add_child(town_view); town_view.build(self)
+		last_drawn_screen=screen; call_deferred("_publish"); return
 	var width=minf(size.x,440); var height=size.y
 	var base=Control.new(); add_child(base); base.position=Vector2((size.x-width)/2,0); base.size=Vector2(width,height)
 	var back=ColorRect.new(); base.add_child(back); back.size=base.size; back.color=UI.GROUND; back.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	var header=Panel.new(); base.add_child(header); header.size=Vector2(width,68); header.add_theme_stylebox_override("panel",UI.panel(UI.PAPER,UI.LINE,0)); header.mouse_filter=MOUSE_FILTER_IGNORE
-	var heading=Label.new(); base.add_child(heading); heading.position=Vector2(16,10); heading.size=Vector2(width-32,26); heading.text=_title(); heading.add_theme_font_size_override("font_size",22); heading.add_theme_font_override("font",UI.TITLE); heading.add_theme_color_override("font_color",UI.INK)
+	var heading=Label.new(); base.add_child(heading); heading.position=Vector2(16,10); heading.size=Vector2(width-90,26); heading.text=_title(); heading.add_theme_font_size_override("font_size",20); heading.add_theme_font_override("font",UI.TITLE); heading.add_theme_color_override("font_color",UI.INK); heading.clip_text=true
 	var status=Label.new(); base.add_child(status); status.position=Vector2(16,40); status.text="%d일째     금화 %d" % [model.s.day,model.s.gold]; status.add_theme_font_size_override("font_size",12)
 	scroll=ScrollContainer.new(); base.add_child(scroll); scroll.position=Vector2(12,76); scroll.size=Vector2(width-24,height-152)
 	scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
@@ -91,6 +130,8 @@ func _draw_screen() -> void:
 			"town": _town()
 			"party": _party()
 			"member": _member()
+			"member_details": _member()
+			"formation": _formation()
 			"depart": _departure()
 			"explore": _explore()
 			"cards": _cards()
@@ -104,9 +145,12 @@ func _draw_screen() -> void:
 			"equipment": _equipment()
 			"research": _research()
 	var nav=HBoxContainer.new(); base.add_child(nav); nav.position=Vector2(12,height-66); nav.size=Vector2(width-24,54); nav.add_theme_constant_override("separation",6)
-	for item in [["explore" if model.active() else "town","원정" if model.active() else "거점"],["party","동료"],["bag","가방"],["journal","기록"]]:
-		var b=NavigationButton.new(); b.configure(item[1],{"town":"home","explore":"gate"}.get(item[0],item[0])); b.active=screen==item[0]; nav.add_child(b); b.custom_minimum_size=Vector2(0,52); b.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	for item in [["town","마을"],["party","동료"],["explore" if model.active() else "depart","원정"],["bag","가방"],["journal","기록"]]:
+		var b=Button.new(); b.text=item[1]; nav.add_child(b); b.custom_minimum_size=Vector2(0,52); b.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+		b.add_theme_font_size_override("font_size",12)
 		b.pressed.connect(go.bind(item[0])); controls["nav:"+item[0]]=b
+	var back_button=Button.new(); base.add_child(back_button); back_button.position=Vector2(width-66,12); back_button.size=Vector2(54,44); back_button.text="뒤로"
+	back_button.pressed.connect(go.bind(details_return if screen=="member_details" else "member" if screen=="formation" else "formation" if screen=="equipment" else "town")); controls["back"]=back_button
 	if last_drawn_screen!=screen and not motion_reduced:
 		content.modulate.a=0; create_tween().tween_property(content,"modulate:a",1,.18)
 	last_drawn_screen=screen
@@ -114,6 +158,8 @@ func _draw_screen() -> void:
 
 func _title() -> String:
 	if screen=="explore" and model.r21(): return model.dungeon_title()
+	if screen=="formation": return "편성 · 장비"
+	if screen=="member_details": return model.person(who).name+" 상세"
 	if screen=="research": return "로레다나의 전술 연구"
 	return {"guild":"연합 길드 본관","smithy":"한나의 대장간","equipment":"장비 보관함","town":"토르바","party":"함께하는 동료","member":model.person(who).name,"depart":"원정 준비","explore":"학술원 폐허 상층","cards":"탐색 카드","bag":"공용 가방","shop":"마렌토 상회","inn":"아랫마을 여관","summary":"원정 정산","journal":"모험 기록"}.get(screen,"토르바")
 
@@ -138,7 +184,7 @@ func box() -> VBoxContainer:
 	return body
 
 func button(id: String, value: String, callback: Callable, disabled=false, parent: Node=null) -> Button:
-	var b=ForgedButton.new(); (parent if parent else content).add_child(b)
+	var b=Button.new(); (parent if parent else content).add_child(b)
 	b.text=value; b.custom_minimum_size.y=54; b.size_flags_horizontal=Control.SIZE_EXPAND_FILL; b.disabled=disabled
 	b.mouse_filter=Control.MOUSE_FILTER_PASS
 	b.pressed.connect(callback); controls[id]=b
@@ -159,7 +205,7 @@ func bar(label: String, value: float, maximum: float, parent: Node, hp=true) -> 
 	var fill=StyleBoxFlat.new(); fill.bg_color=UI.HP if hp else UI.MP; p.add_theme_stylebox_override("fill",fill)
 
 func companion_image(id: String, target: Node, dims: Vector2) -> Control:
-	var pic=CharacterPortrait.new(); pic.custom_minimum_size=dims
+	var pic=preload("res://ui/town_portrait_r21.gd").new(); pic.custom_minimum_size=dims
 	target.add_child(pic); pic.configure(id); pic.size_flags_horizontal=SIZE_EXPAND_FILL
 	return pic
 
@@ -182,7 +228,8 @@ func _town() -> void:
 		var card=PortraitCard.new(); card.configure(id,model.person(id).name,model.person(id)["class"])
 		card.custom_minimum_size=Vector2(0,164); card.size_flags_horizontal=SIZE_EXPAND_FILL; party.add_child(card)
 		card.pressed.connect(func(): who=id; go("member")); controls["town_member:"+id]=card
-	var depart=button("depart","원정 준비",go.bind("depart")); depart.emphasis=true; depart.custom_minimum_size.y=54; depart.add_theme_font_size_override("font_size",18)
+	var depart=button("depart","원정 준비",go.bind("depart")); depart.custom_minimum_size.y=54; depart.add_theme_font_size_override("font_size",18)
+	depart.add_theme_stylebox_override("normal",UI.panel(UI.RED,UI.RED)); depart.add_theme_color_override("font_color",UI.PAPER)
 	text("마을 시설",16,INK)
 	var grid=GridContainer.new(); content.add_child(grid); grid.columns=2; grid.add_theme_constant_override("h_separation",8); grid.add_theme_constant_override("v_separation",8)
 	for facility in [["guild","연합 길드","의뢰 · 영입"],["shop","마렌토 상회","보급 · 장비"],["inn","아랫마을 여관","교류 · 휴식"],["smithy","한나의 대장간","강화 · 가공"]]:
@@ -242,6 +289,16 @@ func _legacy_departure() -> void:
 	for id in model.s.party: text(model.person(id).row+"  "+model.person(id).name+"  Lv."+str(int(model.s.members[id].level)),14)
 	text("출발 시 HP·MP가 채워집니다. 전투 사이에는 남은 수치가 이어집니다.",13,MUTED)
 	button("start_run","원정 출발",func(): _act(model.depart,"원정을 시작했습니다."); go("explore"))
+
+func _formation() -> void:
+	_member_picker()
+	text("출전 위치를 선택하세요",20,INK)
+	text("선택한 동료 · "+model.person(who).name+" / "+model.person(who).row,14,MUTED)
+	for i in range(4):
+		var id=model.s.party[i]
+		var row="전열" if i<2 else "후열"
+		button("formation:"+str(i),row+" · "+model.person(id).name,func():_act(model.assign.bind(who,i),"편성을 변경했습니다."),model.active() or id==who or model.person(who).row!=row)
+	button("gear_for_member","장비 관리",go.bind("equipment"),model.active())
 
 func _explore() -> void:
 	if not model.active(): go("town"); return
@@ -329,7 +386,11 @@ func _bag() -> void:
 		text(model.item_def(selected_item).name+" · 사용할 동료",19,GOLD)
 		for id in model.s.party:
 			var p=box(); _portrait(id,p)
-			button("use:"+id,"이 동료에게 사용",func(): _act(model.use_item.bind(selected_item,id),"보급품을 사용했습니다."),false,p)
+			var preview=model.item_preview(selected_item,id)
+			text("%s %s → %s" % [preview.get("resource",""),number(preview.get("before",0)),number(preview.get("after",0))],14,GOLD,p)
+			if not preview.usable: text(preview.reason,12,MUTED,p)
+			button("use:"+id,"이 동료에게 사용",func(): _act(model.use_item.bind(selected_item,id),"보급품을 사용했습니다."),not preview.usable,p)
+		button("item_cancel","취소",func():selected_item="";_draw_screen())
 		return
 	for item in model.config.items:
 		var p=box(); var row=HBoxContainer.new(); p.add_child(row)
@@ -438,7 +499,8 @@ func _publish() -> void:
 		if not is_instance_valid(controls[id]): continue
 		var b=controls[id]; var r=b.get_global_rect()
 		buttons[id]={"rect":[r.position.x,r.position.y,r.size.x,r.size.y],"disabled":b.disabled,"needed":FONT.get_multiline_string_size(b.text,HORIZONTAL_ALIGNMENT_LEFT,-1,b.get_theme_font_size("font_size")).x+24}
-	var report={"build":model.config.build,"screen":"battle" if is_instance_valid(battle) else screen,"state":model.s,"controls":buttons,"viewport":[size.x,size.y],"restored":restored,"save_error":save_error,"art_preview":art_preview_id,"town_scroll_height":content.size.y if is_instance_valid(content) else 0}
+	var report={"build":model.config.build,"ui_build":"r21-d-town-20261102","town_r21_preview":town_r21_preview,"screen":"battle" if is_instance_valid(battle) else screen,"state":model.s,"controls":buttons,"viewport":[size.x,size.y],"restored":restored,"save_error":save_error,"art_preview":art_preview_id,"town_scroll_height":content.size.y if is_instance_valid(content) else 0}
+	if is_instance_valid(town_view): report.town_text=town_view.metrics
 	JavaScriptBridge.eval("window.__abyssWorld="+JSON.stringify(report)+";",true)
 
 func _process(delta: float) -> void:
@@ -446,7 +508,11 @@ func _process(delta: float) -> void:
 	metrics_time+=delta
 	if metrics_time<0.2: return
 	metrics_time=0
-	if is_instance_valid(scroll) and not is_instance_valid(battle): _publish()
+	if is_instance_valid(battle) and battle.state!=null and not battle.state.result.is_empty() and not battle.busy:
+		if not is_instance_valid(result_view):
+			controls.clear();result_view=preload("res://ui/town_result_r21.gd").new();add_child(result_view);result_view.build_result(self,battle)
+		_publish();return
+	if (is_instance_valid(scroll) or is_instance_valid(town_view)) and not is_instance_valid(battle): _publish()
 
 func _npc(id: String,title: String,line: String) -> void:
 	var p=box(); var row=HBoxContainer.new(); p.add_child(row); row.add_theme_constant_override("separation",14)
@@ -464,19 +530,21 @@ func _member_picker() -> void:
 func _guild() -> void:
 	_npc("fenella","페넬라 · 길드 접수","의뢰와 동료 소개를 맡고 있어요.")
 	button("research","로레다나 · 전술 연구",go.bind("research"))
-	button("recruit","동료 소개 · 금화 %d" % (100+20*model.s.recruits),func(): _act(model.recruit,""); message=model.s.log[-1]; _draw_screen(),model.s.gold<100+20*model.s.recruits or model.s.owned.size()==30)
+	button("recruit","동료 소개 · 금화 %d" % model.recruit_fee(),func(): _act(model.recruit,""); message=model.s.log[-1]; _draw_screen(),model.s.gold<model.recruit_fee() or model.s.owned.size()==30)
 	text("미영입 동료 중 1명 합류 · 중복 없음\n현재 보유 %d / 30명" % model.s.owned.size(),13,MUTED)
 	if not model.s.quest.is_empty():
 		var p=box(); text("수락한 의뢰 · "+model.s.quest.name,17,GOLD,p)
-		text("현재 검수판에서는 학술원 원정 완료로 의뢰를 정산합니다. 균열 전용 전장은 아직 없습니다.",13,MUTED,p)
-		button("quest_depart","원정 준비",go.bind("depart"),false,p)
+		var contract=model.quest_contract(model.s.quest)
+		text("%s · %s · Lv.%d\n보수 금화 %d"%[contract.rift,model.dungeon_rules.quest_fight(contract),contract.lv,model.dungeon_rules.quest_gold(contract,contract.lv)],13,MUTED,p)
+		button("quest_depart","수락한 균열 의뢰로 출발",func():_act(model.depart_accepted_quest,"");go("explore"),false,p)
 		button("quest_abandon","의뢰 포기",func(): _ask("현재 의뢰를 포기할까요?",model.abandon_quest),false,p)
 	else:
 		text("의뢰 게시판",20,GOLD)
 		for q in model.s.board:
-			var p=box(); text(q.name,17,GOLD,p); text("%s · %s · Lv.%d\n보수 금화 %d" % [q.rift,q.difficulty,q.level,q.gold],13,INK,p)
+			var contract=model.quest_contract(q)
+			var p=box(); text(q.name,17,GOLD,p); text("%s · %s · Lv.%d\n보수 금화 %d" % [q.rift,contract.difficulty,contract.lv,model.dungeon_rules.quest_gold(contract,contract.lv)],13,INK,p)
 			button("quest:"+str(int(q.id)),"의뢰 수락",func(): _act(model.accept_quest.bind(q.id),"의뢰를 수락했습니다."),false,p)
-	button("refresh_board","게시판 갱신 · 금화 %d" % (10*int(pow(2,mini(model.s.refreshes,4)))),func(): _act(model.refresh_board,"게시판을 갱신했습니다."))
+	button("refresh_board","게시판 갱신 · 금화 %d" % model.refresh_fee(),func(): _act(model.refresh_board,"게시판을 갱신했습니다."))
 
 func _gear_caption(item: Dictionary) -> String:
 	return "%s · %s · 착용 Lv.%d" % [World.Gear.RARITY[item.rarity],World.Gear.SLOT[item.slot],model.gear.rules.equip_lv[item.rarity]]
@@ -503,6 +571,12 @@ func _equipment() -> void:
 		if item.cls!=model.class_def(who).id: continue
 		var p=box(); text(item.name+" +"+str(int(entry.forge)),17,GOLD,p); text(_gear_caption(item),13,MUTED,p)
 		text(_gear_values(model.gear.roll(entry,model.s.members[who].level)),13,INK,p)
+		var comparison=model.gear_comparison(who,entry.uid)
+		if not comparison.is_empty():
+			var delta=[]
+			for key in comparison.delta:
+				if not is_zero_approx(comparison.delta[key]): delta.append(key+" %+.1f%%" % comparison.delta[key])
+			text("장착 시 변화 · "+("동일" if delta.is_empty() else " / ".join(delta)),12,MUTED,p)
 		if item.has("unique"): text(item.unique.name+" · "+item.unique.text,13,GOLD,p)
 		if item.has("sig"): text(item.sig.name+" · "+item.sig.text,13,GOLD,p)
 		var wearer=model.wearer(entry.uid)
@@ -561,8 +635,14 @@ func _research() -> void:
 
 func _show_art(id: String) -> void:
 	if is_instance_valid(art_preview): remove_child(art_preview); art_preview.queue_free()
-	for key in ["art_prev","art_next","art_replay","art_close"]: controls.erase(key)
+	for key in controls.keys():
+		if key.begins_with("art_") or key.begins_with("art_nav:"):controls.erase(key)
 	art_preview_id=id
+	if is_instance_valid(town_view):
+		if art_base_controls.is_empty():art_base_controls=controls.duplicate()
+		controls.clear();town_view.visible=false
+		art_preview=preload("res://ui/town_art_r21.gd").new();add_child(art_preview);art_preview.build_art(self,id)
+		call_deferred("_publish");return
 	art_preview=Control.new(); add_child(art_preview); art_preview.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); art_preview.mouse_filter=Control.MOUSE_FILTER_STOP
 	var shade=ColorRect.new(); art_preview.add_child(shade); shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT); shade.color=Color(0,0,0,.88); shade.mouse_filter=MOUSE_FILTER_IGNORE
 	var width=minf(size.x-24,406); var height=minf(size.y-96,510)
@@ -585,6 +665,10 @@ func _show_art(id: String) -> void:
 
 func _close_art() -> void:
 	if is_instance_valid(art_preview): art_preview.queue_free()
+	art_preview=null
 	art_preview_id=""
-	for key in ["art_prev","art_next","art_replay","art_close"]: controls.erase(key)
+	for key in controls.keys():
+		if key.begins_with("art_") or key.begins_with("art_nav:"):controls.erase(key)
+	if not art_base_controls.is_empty():controls=art_base_controls;art_base_controls={}
+	if is_instance_valid(town_view):town_view.visible=true
 	_publish()

@@ -1,0 +1,23 @@
+{
+  "issue": "Godot failed to read the managed Windows root certificate store during startup.",
+  "production_changes": [],
+  "validation_only_changes": [
+    {
+      "file": "verification/enemy-art-r21/validation-worktree/project/override.cfg",
+      "setting": "network/tls/certificate_bundle_override",
+      "value": "C:/Users/asone/AppData/Local/Programs/Python/Python310/lib/site-packages/certifi/cacert.pem"
+    },
+    {
+      "file": "verification/enemy-art-r21/validation-worktree/verification/ui-r17/runtime/engine/editor_data/editor_settings-4.7.tres",
+      "setting": "network/tls/editor_tls_certificates",
+      "value": "C:/Users/asone/AppData/Local/Programs/Python/Python310/lib/site-packages/certifi/cacert.pem"
+    }
+  ],
+  "references": [
+    "https://docs.godotengine.org/en/stable/classes/class_projectsettings.html#class-projectsettings-property-network-tls-certificate-bundle-override",
+    "https://docs.godotengine.org/en/stable/classes/class_editorsettings.html#class-editorsettings-property-network-tls-editor-tls-certificates"
+  ],
+  "test_expectation_changes": [],
+  "diagnostic_archive": "verification/enemy-art-r21/initial-certificate-diagnostic",
+  "note": "Initial launcher also only recognized literal PASS. Corrected aggregation accepts existing zero-failure summary formats without changing any GDScript assertion or expected value."
+}

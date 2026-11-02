@@ -1,0 +1,711 @@
+{
+  "observed_count": 72,
+  "observed": [
+    "뒤로",
+    "어떤 종족으로 살아왔나요?",
+    "남은 점수 5 / 5",
+    "한 능력치 최대 3점 · 속도는 1점에 +2",
+    "체력 118 · 마력 33",
+    "직접 정하기",
+    "On a spring morning, there was scarcely room to stand in the Abyssal Expedition Guild Hall. Kern mercenaries jingled their iron tokens before the job board. At the registration desk, a freckled clerk kept calling, \"Three copies of the contract!\"\n\n당신 stopped before a notice by the door. *Adventurers and heroes sought for a campaign into the great dungeon.* That was all. No pay, no deadline, no word of who would command it.\n\nSomeone had arrived first. She wore silver plate, a crimson cloak, and a large gold cross over her breast. A single long braid of light brown hair fell straight down her back. She traced each line of the notice with one finger. At the last line, she paused and started over.\n\n\"...No terms at all.\"\n\nShe turned toward 당신, emerald eyes briefly taking in their gear.\n\n\"Forgive me. Are you here to enlist? I am Marceline, a paladin of Solen. This is my first visit as well... though I do know something of the procedure. Register at that desk, bring three copies of your contract and a pair of iron tokens. The tokens must be taken from a weapon, so it would be wise to have your blade ready.\"\n\nAs she bowed, something slipped from her shoulder bag and fell to the floor: a slim book with a pink cover. In Marento script, its title read *Three Moons over the Canal, Volume Three*.\n\nMarceline picked it up without changing expression and pushed it deep into her bag.\n\n\"...A book of doctrine.\"\n\nThe tips of her ears slowly reddened. At the desk, the clerk called for the next applicant.",
+    "만들기로",
+    "출전 편성",
+    "직접 참전하면 동료 3명, 지휘하면 동료 4명과 출발합니다.",
+    "출전 인원 4 / 4",
+    "당신 · Warrior · Lv.1",
+    "함께할 동료",
+    "탐사 지역",
+    "출발 시 HP·MP를 모두 회복합니다.",
+    "마을로",
+    "자기 참전",
+    "지휘",
+    "선택한 층으로 출발",
+    "마을",
+    "장비 가방",
+    "원정",
+    "보급품",
+    "기록",
+    "당신",
+    "경험치 0 / 28",
+    "2명 · 최대 HP +4%",
+    "3명 · 최대 HP +7%, 받는 회복 +10%",
+    "경험치 +10%(출전한 경계도시 사람마다).",
+    "2명 · 탐색에서 주운 물건이 30% 확률로 하나 더",
+    "3명 · 탐색에서 주운 물건이 60% 확률로 하나 더",
+    "즐겨찾기 동료 · 최대 3명",
+    "도감에서 동료를 즐겨찾기하면 여기에 모아 볼 수 있습니다.",
+    "모든 직업",
+    "모든 부위",
+    "모든 등급",
+    "토르바 산책",
+    "원정대 출발 광장과 시내",
+    "이곳의 인물",
+    "상주 인물 없음",
+    "다른 장소",
+    "연대기",
+    "마을 장소",
+    "인물 소개",
+    "현재 있는 곳",
+    "토르바 인물",
+    "토르바의 사람들과 각국 지도자",
+    "토르바 상주 아님",
+    "고정 위치 없음",
+    "막시밀리안",
+    "모험 기록",
+    "엔진이 확정한 사건을 날짜순으로 보관합니다.",
+    "아직 기록이 없습니다",
+    "첫 만남과 원정에서 확정된 사건이 여기에 남습니다.",
+    "기록 켜짐 · Off",
+    "기존 활동",
+    "신뢰까지 20",
+    "개인 스킬 · 액티브",
+    "개인 특성 · 패시브",
+    "아군이 직전에 친 적을 이어 치면 피해 +8%.",
+    "전투에서 처음 하는 공격의 치명 확률 +15%p.",
+    "2명 · 속도 +1%",
+    "3명 · 속도 +1%, 모든 아군의 2회 행동 확률 +4%",
+    "속도 +1%.",
+    "2명 · 첫 라운드 공격 +3%",
+    "3명 · 처치마다 속도 +1%, 탐색에서 주운 금화 +40%",
+    "Relationships: She records 당신's descent and softens as it deepens. She asks no questions of demon companions, merely pours another cup of tea.",
+    "인물 목록",
+    "현재 모험은 보관 사본으로 남습니다.",
+    "저장하지 못했습니다. 다시 시도해 주세요.",
+    "저장하지 못했습니다.",
+    "저장 다시 시도"
+  ],
+  "static_candidates": [
+    {
+      "file": "create_screen.gd",
+      "line": 26,
+      "text": "당신",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "create_screen.gd",
+      "line": 46,
+      "text": "시너지 2명 · ",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "create_screen.gd",
+      "line": 62,
+      "text": "어떤 종족으로 살아왔나요?",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "create_screen.gd",
+      "line": 71,
+      "text": "어느 땅에서 왔나요?",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "create_screen.gd",
+      "line": 74,
+      "text": " · 선택 불가",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "create_screen.gd",
+      "line": 78,
+      "text": "어떤 방식으로 싸우나요?",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "create_screen.gd",
+      "line": 83,
+      "text": "체력 %d · 마력 %d\\n힘 %d · 민첩 %d · 지능 %d · 방어 %d · 속도 %d",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "create_screen.gd",
+      "line": 87,
+      "text": "이 모험가로 시작할까요?",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "create_screen.gd",
+      "line": 90,
+      "text": "체력 %d · 마력 %d\\n힘 %d · 민첩 %d · 지능 %d\\n방어 %d · 속도 %d",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "create_screen.gd",
+      "line": 91,
+      "text": "직접 싸울지는 던전에 나설 때마다 고릅니다.",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "create_screen.gd",
+      "line": 92,
+      "text": "뒤로",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "create_screen.gd",
+      "line": 94,
+      "text": "저장하지 못했습니다. 다시 시도해 주세요.",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "create_screen.gd",
+      "line": 94,
+      "text": "저장 다시 시도",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "create_screen.gd",
+      "line": 99,
+      "text": "직접 정하기",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "create_screen.gd",
+      "line": 103,
+      "text": "남은 점수 %d / %d",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "create_screen.gd",
+      "line": 104,
+      "text": "한 능력치 최대 %d점 · 속도는 1점에 +2",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "create_screen.gd",
+      "line": 111,
+      "text": "체력 %d · 마력 %d",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "create_screen.gd",
+      "line": 122,
+      "text": "만들기로",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "persona_sortie_screen.gd",
+      "line": 4,
+      "text": "출전 편성",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "persona_sortie_screen.gd",
+      "line": 6,
+      "text": "마을로",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "persona_sortie_screen.gd",
+      "line": 7,
+      "text": "직접 참전하면 동료 3명, 지휘하면 동료 4명과 출발합니다.",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "persona_sortie_screen.gd",
+      "line": 9,
+      "text": "자기 참전",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "persona_sortie_screen.gd",
+      "line": 10,
+      "text": "지휘",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "persona_sortie_screen.gd",
+      "line": 11,
+      "text": "출전 인원 %d / 4",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "persona_sortie_screen.gd",
+      "line": 14,
+      "text": "함께할 동료",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "persona_sortie_screen.gd",
+      "line": 24,
+      "text": "탐사 지역",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "persona_sortie_screen.gd",
+      "line": 29,
+      "text": "출발 시 HP·MP를 모두 회복합니다.",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "persona_sortie_screen.gd",
+      "line": 30,
+      "text": "선택한 층으로 출발",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "persona_sortie_screen.gd",
+      "line": 31,
+      "text": "수락한 균열 의뢰로 출발",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "panel_screen_r22.gd",
+      "line": 20,
+      "text": "마을",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "panel_screen_r22.gd",
+      "line": 22,
+      "text": "장비 가방",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "panel_screen_r22.gd",
+      "line": 26,
+      "text": "마을",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "panel_screen_r22.gd",
+      "line": 26,
+      "text": "원정",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "panel_screen_r22.gd",
+      "line": 26,
+      "text": "보급품",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "panel_screen_r22.gd",
+      "line": 26,
+      "text": "기록",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "panel_screen_r22.gd",
+      "line": 30,
+      "text": "저장하지 못했습니다. 다시 시도해 주세요.",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "panel_screen_r22.gd",
+      "line": 30,
+      "text": "저장 다시 시도",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "panel_screen_r22.gd",
+      "line": 32,
+      "text": "당신",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "panel_screen_r22.gd",
+      "line": 66,
+      "text": "능력치 · Lv %d",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "panel_screen_r22.gd",
+      "line": 67,
+      "text": "경험치 %d / %d",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "panel_screen_r22.gd",
+      "line": 76,
+      "text": "최고 단계",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "panel_screen_r22.gd",
+      "line": 76,
+      "text": "%s까지 %s",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "panel_screen_r22.gd",
+      "line": 94,
+      "text": "%d명 · %s%s",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "panel_screen_r22.gd",
+      "line": 94,
+      "text": " · 준비 중",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "codex_screen_r22.gd",
+      "line": 7,
+      "text": "영입 %d / %d",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "codex_screen_r22.gd",
+      "line": 13,
+      "text": "모든 속성",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "codex_screen_r22.gd",
+      "line": 17,
+      "text": "모든 직업",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "codex_screen_r22.gd",
+      "line": 29,
+      "text": " · 즐겨찾기",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "codex_screen_r22.gd",
+      "line": 40,
+      "text": "개인 스킬 · 액티브",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "codex_screen_r22.gd",
+      "line": 40,
+      "text": "개인 특성 · 패시브",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "codex_screen_r22.gd",
+      "line": 48,
+      "text": " · 장착",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "status_screen_r22.gd",
+      "line": 3,
+      "text": "즐겨찾기 동료 · 최대 3명",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "status_screen_r22.gd",
+      "line": 4,
+      "text": "도감에서 동료를 즐겨찾기하면 여기에 모아 볼 수 있습니다.",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "status_screen_r22.gd",
+      "line": 7,
+      "text": " · 출전",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "inventory_screen_r22.gd",
+      "line": 3,
+      "text": "장비 가방",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "inventory_screen_r22.gd",
+      "line": 5,
+      "text": "%d / 2000 · 금화 %d",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "inventory_screen_r22.gd",
+      "line": 6,
+      "text": "모든 직업",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "inventory_screen_r22.gd",
+      "line": 9,
+      "text": "모든 부위",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "inventory_screen_r22.gd",
+      "line": 9,
+      "text": "모든 등급",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "inventory_screen_r22.gd",
+      "line": 21,
+      "text": "일반 %d개 일괄 판매 · 금화 %d",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "inventory_screen_r22.gd",
+      "line": 32,
+      "text": "낀 장비 · ",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "inventory_screen_r22.gd",
+      "line": 38,
+      "text": "고유 효과 · 낀 것: %s / 이 장비: %s",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "inventory_screen_r22.gd",
+      "line": 43,
+      "text": "에게 장착",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "inventory_screen_r22.gd",
+      "line": 46,
+      "text": "%s 등급 장비입니다. 정말 팔까요?",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "inventory_screen_r22.gd",
+      "line": 47,
+      "text": "정말 판매",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "inventory_screen_r22.gd",
+      "line": 47,
+      "text": " · 금화 %d",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 16,
+      "text": "모험 기록",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 16,
+      "text": "토르바 산책",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 16,
+      "text": "토르바 인물",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 17,
+      "text": "마을",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 19,
+      "text": "연대기",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 19,
+      "text": "마을 장소",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 19,
+      "text": "인물 소개",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 23,
+      "text": "마을",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 23,
+      "text": "원정",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 23,
+      "text": "보급품",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 23,
+      "text": "기록",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 25,
+      "text": "저장하지 못했습니다.",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 25,
+      "text": "저장 다시 시도",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 33,
+      "text": "엔진이 확정한 사건을 날짜순으로 보관합니다.",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 34,
+      "text": "기록 켜짐 · 끄기",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 34,
+      "text": "기록 꺼짐 · 켜기",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 37,
+      "text": "연대기",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 37,
+      "text": "기존 활동",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 40,
+      "text": "아직 기록이 없습니다",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 41,
+      "text": "첫 만남과 원정에서 확정된 사건이 여기에 남습니다.",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 41,
+      "text": "이전에 남긴 활동이 없습니다.",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 42,
+      "text": "최근 %d개 · 최신순",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 45,
+      "text": "일째",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 56,
+      "text": "이곳으로 이동",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 56,
+      "text": "현재 있는 곳",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 57,
+      "text": "시설 이용",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 58,
+      "text": "이곳의 인물",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 60,
+      "text": "상주 인물 없음",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 62,
+      "text": "다른 장소",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 77,
+      "text": "인물 목록",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 83,
+      "text": "토르바의 사람들과 각국 지도자",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 89,
+      "text": "고정 위치 없음",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "journal_screen_r22.gd",
+      "line": 89,
+      "text": "토르바 상주 아님",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "settings_screen_r22.gd",
+      "line": 10,
+      "text": "뒤로",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "settings_screen_r22.gd",
+      "line": 14,
+      "text": "저장하지 못했습니다. 다시 시도해 주세요.",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "settings_screen_r22.gd",
+      "line": 14,
+      "text": "저장 다시 시도",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "settings_screen_r22.gd",
+      "line": 18,
+      "text": "현재 모험은 보관 사본으로 남습니다.",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "settings_screen_r22.gd",
+      "line": 37,
+      "text": "저장하지 못했습니다.",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    },
+    {
+      "file": "settings_screen_r22.gd",
+      "line": 37,
+      "text": "로컬 자동 저장",
+      "status": "No exact whole-literal key. Joined fields/source template matching may translate part of this string."
+    }
+  ],
+  "scope": "Only P1/P7/P10/settings; source-only fallback, not an invented English backlog. Observed list is 19 states, not every possible data/gear view.",
+  "placeholder": "Existing native {{user}} -> Korean fallback is retained even in English source prose; no host persona name is available."
+}

@@ -1,0 +1,43 @@
+"""Deterministic r21 enemy post-processing; generation uses built-in image_gen only."""
+from pathlib import Path
+from PIL import Image,ImageDraw,ImageFont
+import numpy as np,json,hashlib
+ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'verification/enemy-art-r21';ASSETS=ROOT/'project/assets/enemies-r21'
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+def components(mask):
+ h,w=mask.shape;seen=np.zeros_like(mask);groups=[]
+ for y,x in zip(*np.where(mask)):
+  if seen[y,x]:continue
+  stack=[(y,x)];seen[y,x]=True;group=[]
+  while stack:
+   yy,xx=stack.pop();group.append((yy,xx))
+   for dy,dx in [(1,0),(-1,0),(0,1),(0,-1)]:
+    ny,nx=yy+dy,xx+dx
+    if 0<=ny<h and 0<=nx<w and mask[ny,nx] and not seen[ny,nx]:seen[ny,nx]=True;stack.append((ny,nx))
+  groups.append(group)
+ return groups
+spec=json.loads((OUT/'style-spec.json').read_text(encoding='utf-8'));req=json.loads((OUT/'generation-requests.json').read_text(encoding='utf-8'));origpaths=json.loads((OUT/'generated-paths.json').read_text(encoding='utf-8'));pal=np.array(spec['target']['palette_rgb'],dtype=np.int32);B=spec['target']['block_px'];W,H=spec['target']['canvas'];BASE=spec['target']['baseline_y'];ASSETS.mkdir(parents=True,exist_ok=True)
+entries=[]
+for sample in req['samples']:
+ id=sample['id'];rawname=id+('-clean' if id=='imperial_remnant' else '')+'.png';raw=OUT/'generated-originals'/rawname;im=Image.open(raw).convert('RGBA');a=np.array(im);a[:,:,3]=np.where(a[:,:,3]>=128,255,0);a[a[:,:,3]==0,:3]=0;clean=Image.fromarray(a);bbox=clean.getbbox();crop=clean.crop(bbox);maxw,maxh=spec['target']['grade_bbox_targets'][sample['grade']];scale=min(maxw/crop.width,maxh/crop.height);lw=max(1,round(crop.width*scale/B));lh=max(1,round(crop.height*scale/B));low=crop.resize((lw,lh),Image.Resampling.NEAREST);a=np.array(low);m=a[:,:,3]>=128;removed=0
+ for group in components(m):
+  if len(group)<3:
+   for y,x in group:m[y,x]=False
+   removed+=len(group)
+ rgb=a[:,:,:3].astype(np.int32);dist=((rgb[:,:,None,:]-pal[None,None,:,:])**2).sum(3);indices=dist.argmin(2);rgba=np.zeros((lh,lw,4),dtype=np.uint8);rgba[:,:,:3]=pal[indices].astype(np.uint8);rgba[:,:,3]=m.astype(np.uint8)*255
+ # One logical pixel dark inner outline, including holes; no dilation or new props.
+ padded=np.pad(m,1);inside=padded[1:-1,1:-1]&padded[:-2,1:-1]&padded[2:,1:-1]&padded[1:-1,:-2]&padded[1:-1,2:];edge=m&~inside;rgba[edge,:3]=pal[0];rgba[~m,:3]=0
+ low=Image.fromarray(rgba); low=low.crop(low.getbbox());x=(W//B-low.width)//2;y=(BASE+1)//B-low.height;canvas=Image.new('RGBA',(W//B,H//B));canvas.paste(low,(x,y));final=canvas.resize((W,H),Image.Resampling.NEAREST);dest=ASSETS/f'{id}.png';final.save(dest,optimize=True);a=np.array(final);mask=a[:,:,3]==255;bb=final.getbbox();colors=np.unique(a[:,:,:3][mask],axis=0);grid=np.array_equal(a,np.repeat(np.repeat(a[::B,::B],B,0),B,1));measure={'size':[W,H],'bytes':dest.stat().st_size,'sha256':sha(dest),'opaque_bbox':list(bb),'bbox_size':[bb[2]-bb[0],bb[3]-bb[1]],'baseline_y':bb[3]-1,'opaque_pixels':int(mask.sum()),'rgb_colors':len(colors),'partial_alpha_pixels':int(((a[:,:,3]>0)&(a[:,:,3]<255)).sum()),'transparent_nonzero_rgb_pixels':int(((a[:,:,3]==0)&(a[:,:,:3].max(2)>0)).sum()),'exact_grid_10px':grid,'palette_membership':all(tuple(c) in set(map(tuple,pal)) for c in colors),'logical_components':len(components(np.array(canvas)[:,:,3]>0))}
+ e={'id':id,'name':sample['source']['name'],'family':sample['source']['family'],'sample_grade':sample['grade'],'source_grade':sample['source']['grade'],'zone':sample['source']['zone'],'role':sample['source']['role'],'weakness_metadata':sample['source']['weak'],'intrinsic_element':'없음 (source has weak only)','source_description':sample['source']['looks'],'source_paths':[{'path':'C:/Clauede Code/dungeon-bot/design/enemies.json','selector':f'enemies[id={id}]','sha256':sha(Path('C:/Clauede Code/dungeon-bot/design/enemies.json'))},{'path':'C:/Clauede Code/dungeon-bot/design/ENEMIES.md','lines':{'abyss_hound':[195,531],'chained_tome':[237,245,521],'imperial_remnant':[248,264,265,267,525]}[id]}],'source_record':sample['source'],'prompt':sample['prompt'],'generation_tool':'built-in image_gen.imagegen','generated_original_file':str(raw.relative_to(ROOT)).replace('\\','/'),'original_tool_file':origpaths.get(id+'_clean',origpaths[id]),'generated_original_sha256':sha(raw),'generated_original_size':list(im.size),'raw_alpha_partial_pixels':int(((np.array(im)[:,:,3]>0)&(np.array(im)[:,:,3]<255)).sum()),'output':str(dest.relative_to(ROOT)).replace('\\','/'),'postprocess':[{'step':'alpha threshold','cutoff':128,'transparent_rgb':0},{'step':'crop alpha foreground','bbox':list(bbox)},{'step':'fit grade bounds preserving aspect','maximum':[maxw,maxh],'logical_size':[lw,lh]},{'step':'nearest downsample to 10px logical grid'},{'step':'remove tiny disconnected alpha components','minimum_logical_area':3,'removed_logical_pixels':removed},{'step':'nearest Euclidean RGB quantization','shared_palette_colors':32,'dither':False},{'step':'one logical pixel inner dark outline','rgb':pal[0].tolist()},{'step':'center horizontally and align lower silhouette','baseline_y':BASE},{'step':'nearest upscale','block_px':B,'canvas':[W,H]}],'measurements':measure}
+ if id=='chained_tome':e['chief_mapping']={'base_grade':'elite','used_as':'chief','source':'zones[id=academy_library].chiefs contains chained_tome; ENEMIES.md lines 43–46, 245; no gameplay data changed'}
+ if id=='imperial_remnant':e['revision']={'reason':'Removed invented shield emblems absent from source.','before':'verification/enemy-art-r21/generated-originals/imperial_remnant.png','after':e['generated_original_file'],'tool':'built-in image_gen.imagegen','prompt_file':'verification/enemy-art-r21/boss-correction-prompt.txt'}
+ entries.append(e)
+# One row, same physical source-pixel scale for all seven assets. No per-item normalization.
+S=.14;PANEL=168;SH=272;sheet=Image.new('RGB',(PANEL*7,SH),(40,37,42));draw=ImageDraw.Draw(sheet);fontpath='C:/Windows/Fonts/malgun.ttf';font=ImageFont.truetype(fontpath,11);small=ImageFont.truetype(fontpath,10);basey=227;layout=[]
+items=[(ROOT/f'project/assets/src/{n}-v2.png','기존 '+n,'v2 / 원본') for n in ['executor','apprentice','orb','lantern']]+[(ROOT/e['output'],'신규 '+e['name'],e['sample_grade']+' / 계열 '+str(e['family'])) for e in entries]
+for i,(p,label,detail) in enumerate(items):
+ im=Image.open(p).convert('RGBA');a=np.array(im);bb=Image.fromarray(np.where(a[:,:,3]>=128,255,0).astype('uint8')).getbbox();crop=im.crop(bb);thumb=crop.resize((round(crop.width*S),round(crop.height*S)),Image.Resampling.NEAREST);x=i*PANEL+(PANEL-thumb.width)//2;y=basey-thumb.height;sheet.paste(thumb,(x,y),thumb);draw.line((i*PANEL+3,basey,i*PANEL+PANEL-3,basey),fill=(89,78,67));draw.text((i*PANEL+6,8),label,font=font,fill=(241,224,191));draw.text((i*PANEL+6,27),detail,font=small,fill=(181,171,160));layout.append({'file':str(p.relative_to(ROOT)).replace('\\','/'),'scale':S,'position':[x,y],'rendered_size':list(thumb.size),'baseline':basey-1})
+draw.text((8,249),'동일 배율 14% · 바닥 기준선 정렬 · 원본 4종 / 샘플 3종',font=small,fill=(218,202,174));sheet.save(OUT/'sample-sheet.jpg',quality=91,optimize=True,subsampling=0)
+manifest={'stage':1,'status':'samples_ready_for_owner_review','requested_enemy_count':100,'final_sample_count':3,'remaining_not_generated':97,'generator_calls':4,'generation_mode':'built-in image_gen only; three subjects and one correction of the boss','postprocess_script':'tools/process_enemy_art_r21.py','style_spec':'verification/enemy-art-r21/style-spec.json','source_world_notes':[{'path':'C:/Clauede Code/dungeon-bot/world/wiki/루미엘 함몰.md','section':'public 개요/함몰','use':'old capital collapsed; no new appearance traits inferred'},{'path':'C:/Clauede Code/dungeon-bot/world/wiki/프리엔 학술원 사건.md','section':'public 배경','use':'scholarly legacy and forbidden research context only; no props inferred'},{'path':'C:/Clauede Code/dungeon-bot/world/COSMOLOGY.md','section':'그 밖에 채운 빈칸 / 기술 수준','use':'plate armor, long spears; no gunpowder; hidden-truth sections excluded'}],'samples':entries,'sample_sheet':{'path':'verification/enemy-art-r21/sample-sheet.jpg','size':list(sheet.size),'bytes':(OUT/'sample-sheet.jpg').stat().st_size,'sha256':sha(OUT/'sample-sheet.jpg'),'resample':'NEAREST','scale':S,'layout':layout},'visual_review':{'status':'pending'}}
+(OUT/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
+print(json.dumps({'samples':[{k:e['measurements'][k] for k in ['size','bytes','rgb_colors','partial_alpha_pixels','baseline_y','exact_grid_10px','bbox_size']}|{'id':e['id']} for e in entries],'sheet':manifest['sample_sheet']['size'],'sheet_bytes':manifest['sample_sheet']['bytes']},ensure_ascii=False,indent=2))

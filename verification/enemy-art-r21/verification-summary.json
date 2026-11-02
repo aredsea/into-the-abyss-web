@@ -1,0 +1,83 @@
+{
+  "stage": 2,
+  "status": "complete",
+  "new_enemy_pngs": 97,
+  "preserved_approved_pngs": 3,
+  "final_enemy_pngs": 100,
+  "regression": {
+    "total": 15,
+    "passed": 15,
+    "failed": 0,
+    "numeric_game_checks": 21168
+  },
+  "final_all_100_import": {
+    "passed": 1,
+    "failed": 0
+  },
+  "asset_checks": {
+    "total": 1711,
+    "passed": 1711,
+    "failed": 0
+  },
+  "canvas": [
+    1120,
+    1400
+  ],
+  "block_px": 10,
+  "shared_palette_size": 32,
+  "partial_alpha_pixels": 0,
+  "transparent_nonzero_rgb_pixels": 0,
+  "baseline_y": 1329,
+  "area_ranges": {
+    "mob": {
+      "count": 62,
+      "min": 110800,
+      "max": 179800
+    },
+    "chief": {
+      "count": 23,
+      "min": 191700,
+      "max": 538500
+    },
+    "boss": {
+      "count": 15,
+      "min": 587900,
+      "max": 702600
+    }
+  },
+  "perceptual_hash": {
+    "bits": 63,
+    "pairs": 4950,
+    "minimum_canvas_hamming_distance": 4,
+    "minimum_normalized_foreground_hamming_distance": 12
+  },
+  "all_100_sheet": {
+    "path": "verification/enemy-art-r21/all-100.jpg",
+    "size": [
+      1200,
+      1660
+    ],
+    "bytes": 491208,
+    "sha256": "b1f0b2985eaa29b6c3db6038825d094d84bd9ea71526bdfdd4aeb0f6de07cddb",
+    "scale": "per-foreground fit to 108x139 for identification; native PNGs retain tier areas",
+    "quality": 70
+  },
+  "family_sheets_directly_opened": 30,
+  "nearest_pairs_directly_reviewed": 16,
+  "immutable_assets": 96,
+  "changed_immutable_assets": 0,
+  "production_sources_compared": 121,
+  "production_sources_changed": 0,
+  "source_json_sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1",
+  "documented_stage2_attempts": 116,
+  "returned_stage2_original_pngs": 115,
+  "blocked_attempts": 1,
+  "regenerated_enemy_count": 17,
+  "regenerations": 19,
+  "maximum_regenerations_per_enemy": 3,
+  "remaining_issues": [],
+  "report": "UI-R21-B.md",
+  "asset_checks_file": "verification/enemy-art-r21/stage2-asset-checks.json",
+  "regression_file": "verification/enemy-art-r21/stage2-regression-results.json",
+  "visual_review_file": "verification/enemy-art-r21/stage2-visual-review.json"
+}

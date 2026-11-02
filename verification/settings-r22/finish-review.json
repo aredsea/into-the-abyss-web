@@ -1,0 +1,12 @@
+{
+  "reviewer": "/root/impeccable_finish_reviewer",
+  "initial_disposition": "fix",
+  "findings": [
+    {"issue": "Scenario title overlapped Settings at 360/390px", "resolution": "resolved", "fix": "Constrain Label minimum width before fitting the title; widen Settings control"},
+    {"issue": "Small P1/P7 selected text contrast 4.17:1", "resolution": "resolved", "fix": "Local #c62b15 selected surfaces and red text; 4.87:1 on parchment"}
+  ],
+  "verdict": "ship",
+  "scope": "Two reviewed fixes only. Independent reviewer reopened 360/390 native scenario/create/codex captures and relevant contact sheets. Not whole-bot parity or user visual approval.",
+  "fallback": "Source-only Korean fallbacks and existing 당신 persona substitution remain explicitly reported.",
+  "native_detector": "HTML/CSS detector has no verdict on Godot GDScript; native screenshot review used."
+}

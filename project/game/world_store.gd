@@ -1,11 +1,13 @@
 extends RefCounted
-var path="user://world_v1.json"
+var path="user://world_v3.json"
 
-func _init(save_path="user://world_v1.json") -> void:
+func _init(save_path="user://world_v3.json") -> void:
 	path=save_path
 
 func read_into(model) -> bool:
-	for candidate in [path,path+".bak"]:
+	var candidates=[path,path+".bak"]
+	if path=="user://world_v3.json":candidates.append_array(["user://world_v1.json","user://world_v1.json.bak"])
+	for candidate in candidates:
 		if not FileAccess.file_exists(candidate): continue
 		var f=FileAccess.open(candidate,FileAccess.READ)
 		if f==null or f.get_length()>524288: continue

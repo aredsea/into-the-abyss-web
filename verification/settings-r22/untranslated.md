@@ -1,0 +1,76 @@
+# P8 English fallback inventory
+
+Source-only English. These rendered strings still contain Korean; some are partially translated compositions. The existing native persona placeholder uses Korean fallback. The observation covers the 19 captured states, not all possible data.
+
+- 뒤로
+- 어떤 종족으로 살아왔나요?
+- 남은 점수 5 / 5
+- 한 능력치 최대 3점 · 속도는 1점에 +2
+- 체력 118 · 마력 33
+- 직접 정하기
+- On a spring morning, there was scarcely room to stand in the Abyssal Expedition Guild Hall. Kern mercenaries jingled their iron tokens before the job board. At the registration desk, a freckled clerk kept calling, "Three copies of the contract!" /  / 당신 stopped before a notice by the door. *Adventurers and heroes sought for a campaign into the great dungeon.* That was all. No pay, no deadline, no word of who would command it. /  / Someone had arrived first. She wore silver plate, a crimson cloak, and a large gold cross over her breast. A single long braid of light brown hair fell straight down her back. She traced each line of the notice with one finger. At the last line, she paused and started over. /  / "...No terms at all." /  / She turned toward 당신, emerald eyes briefly taking in their gear. /  / "Forgive me. Are you here to enlist? I am Marceline, a paladin of Solen. This is my first visit as well... though I do know something of the procedure. Register at that desk, bring three copies of your contract and a pair of iron tokens. The tokens must be taken from a weapon, so it would be wise to have your blade ready." /  / As she bowed, something slipped from her shoulder bag and fell to the floor: a slim book with a pink cover. In Marento script, its title read *Three Moons over the Canal, Volume Three*. /  / Marceline picked it up without changing expression and pushed it deep into her bag. /  / "...A book of doctrine." /  / The tips of her ears slowly reddened. At the desk, the clerk called for the next applicant.
+- 만들기로
+- 출전 편성
+- 직접 참전하면 동료 3명, 지휘하면 동료 4명과 출발합니다.
+- 출전 인원 4 / 4
+- 당신 · Warrior · Lv.1
+- 함께할 동료
+- 탐사 지역
+- 출발 시 HP·MP를 모두 회복합니다.
+- 마을로
+- 자기 참전
+- 지휘
+- 선택한 층으로 출발
+- 마을
+- 장비 가방
+- 원정
+- 보급품
+- 기록
+- 당신
+- 경험치 0 / 28
+- 2명 · 최대 HP +4%
+- 3명 · 최대 HP +7%, 받는 회복 +10%
+- 경험치 +10%(출전한 경계도시 사람마다).
+- 2명 · 탐색에서 주운 물건이 30% 확률로 하나 더
+- 3명 · 탐색에서 주운 물건이 60% 확률로 하나 더
+- 즐겨찾기 동료 · 최대 3명
+- 도감에서 동료를 즐겨찾기하면 여기에 모아 볼 수 있습니다.
+- 모든 직업
+- 모든 부위
+- 모든 등급
+- 토르바 산책
+- 원정대 출발 광장과 시내
+- 이곳의 인물
+- 상주 인물 없음
+- 다른 장소
+- 연대기
+- 마을 장소
+- 인물 소개
+- 현재 있는 곳
+- 토르바 인물
+- 토르바의 사람들과 각국 지도자
+- 토르바 상주 아님
+- 고정 위치 없음
+- 막시밀리안
+- 모험 기록
+- 엔진이 확정한 사건을 날짜순으로 보관합니다.
+- 아직 기록이 없습니다
+- 첫 만남과 원정에서 확정된 사건이 여기에 남습니다.
+- 기록 켜짐 · Off
+- 기존 활동
+- 신뢰까지 20
+- 개인 스킬 · 액티브
+- 개인 특성 · 패시브
+- 아군이 직전에 친 적을 이어 치면 피해 +8%.
+- 전투에서 처음 하는 공격의 치명 확률 +15%p.
+- 2명 · 속도 +1%
+- 3명 · 속도 +1%, 모든 아군의 2회 행동 확률 +4%
+- 속도 +1%.
+- 2명 · 첫 라운드 공격 +3%
+- 3명 · 처치마다 속도 +1%, 탐색에서 주운 금화 +40%
+- Relationships: She records 당신's descent and softens as it deepens. She asks no questions of demon companions, merely pours another cup of tea.
+- 인물 목록
+- 현재 모험은 보관 사본으로 남습니다.
+- 저장하지 못했습니다. 다시 시도해 주세요.
+- 저장하지 못했습니다.
+- 저장 다시 시도

@@ -1,0 +1,627 @@
+[
+  {
+    "file": "20-state.lua",
+    "line": 218,
+    "text": "    if m.eq and B.gear_init then B.gear_init(st, u, m) end   -- 장비: 능력치 곱 · u.gq/u.gu 합산 — 전투 시작 때 한 번(81-gear)"
+  },
+  {
+    "file": "20-state.lua",
+    "line": 305,
+    "text": "  B.fire(st, \"start\")"
+  },
+  {
+    "file": "26-start.lua",
+    "line": 13,
+    "text": "      eq = B.gear_eq_of and B.gear_eq_of(G, \"persona\") or nil, forge = G.forge }   -- 낀 장비 코드와 제련 단계"
+  },
+  {
+    "file": "26-start.lua",
+    "line": 20,
+    "text": "      pm[#pm + 1] = { id = cid, cls = c.id, L = (B.lv_of and B.lv_of(G, cid)) or 1, eq = B.gear_eq_of and B.gear_eq_of(G, cid) or nil, forge = G.forge }"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 32,
+    "text": "  if B.ACT and B.ACT.gq and (k == \"atk\" or k == \"def\" or k == \"spd\") then v = B.gear_buff(v) end   -- 장비 「버프 효과」: 시전자가 거는 이로운 버프만(81-gear)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 77,
+    "text": "function B.fire(st, ev, ...)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 86,
+    "text": "function B.chain(st, ev, v, ...)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 106,
+    "text": "function B.chain_at(st, ev, pos, args)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 185,
+    "text": "  if st.ev then B.fire(st, \"round\") end"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 258,
+    "text": "    if u.gq or u.gu then B.gear_begin(st, i) end   -- 장비: 차례마다 MP 회복 · 도발 중 HP 회복(81-gear)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 279,
+    "text": "  if i <= 4 then B.fire(st, \"turn_end\", i) else B.fire(st, \"enemy_end\", i) end"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 312,
+    "text": "  m = B.chain_at(st, \"deal\", 3, { a, t, m, tags, o })"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 319,
+    "text": "  local cm = (o.cm or 1.5) + (B.bhas(u, \"bl\") and 0.5 or 0) + (u.gq and u.gq.critdmg and u.gq.critdmg / 100 or 0)   -- 장비 치명타 피해(81-gear)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 335,
+    "text": "  if t <= 4 then dmg = B.floor(B.chain_at(st, \"take\", 2, { t, dmg, src }) + 0.5) end"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 343,
+    "text": "    if u.sh == 0 and t <= 4 and (u.gu or st.gk) then B.gear_shbreak(st, t, ab, src) end   -- 장비 가시 방벽 · 은총의 반향: 깨진 양을 적어 둔다(81-gear)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 362,
+    "text": "    if ls == 0 and u.gu then ls = B.gear_save(st, t, at) end   -- 장비 「마지막 성벽」: 전투당 한 번 버틴다(81-gear)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 369,
+    "text": "          local mr = st.u[o].gu and B.gear_uq(st.u[o], \"pr_miracle\")   -- 장비 「두 번째 기적」: 더 높은 HP · 보호막(81-gear)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 393,
+    "text": "      B.fire(st, \"ally_down\", t)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 404,
+    "text": "  if kill and t >= 5 then B.fire(st, \"enemy_dead\", t) end"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 405,
+    "text": "  if t <= 4 and (dmg - ab) > 0 then B.fire(st, \"damaged\", t, dmg - ab, src, at) end"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 406,
+    "text": "  if st.gb then B.gear_pecho(st, t, at) end   -- 장비 「은총의 반향」: 깨진 보호막 회복(81-gear)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 438,
+    "text": "  amt = B.chain_at(st, \"abyss_mul\", 3, { a, t, amt })"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 446,
+    "text": "  B.fire(st, \"abyss_after\", a, t, amt, at, list)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 514,
+    "text": "  B.fire(st, \"hit_after\", a, t, res, o, hitT)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 554,
+    "text": "  for _, r in ipairs(tgs) do B.fire(st, \"hit_after\", a, r.i, r, o, T + (o.hit or 0.5)) end"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 634,
+    "text": "  local aw = st.u[i].gu and B.gear_uq(st.u[i], \"ar_wind\")   -- 장비 「바람 읽기」: 치명 확률(81-gear)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 641,
+    "text": "  local sw = u.gu and B.gear_uq(u, \"sa_warp\")   -- 장비 「시간 왜곡」: 지정한 적의 지연(81-gear)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 644,
+    "text": "  if sw then B.gear_adv(st, i, dl * sw.v[3] / 100) end   -- 늦춘 시간의 일부를 자신의 다음 차례로(81-gear)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 654,
+    "text": "  if by and st.u[by] and (st.u[by].gq or st.u[by].gu) then d, bu = B.gear_dot(st, by, d) end   -- 장비 지속 피해 % · 독 폭발(81-gear)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 665,
+    "text": "  if by and st.u[by] and st.u[by].gu then B.gear_dotchain(st, v, by) end   -- 장비 「연쇄 폭발」(81-gear)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 701,
+    "text": "  local sp = st.u[i].gu and B.gear_uq(st.u[i], \"al_splash\")   -- 장비 「번지는 약병」: 방어 약화가 깊어지고 양옆으로 번진다(81-gear)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 704,
+    "text": "  if sp then B.gear_splash(st, i, tgt, dv) end"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 723,
+    "text": "  local bo = u.gu and B.gear_uq(u, \"gl_boil\")   -- 장비 「끓는 피」: HP 소모가 줄어든다(81-gear)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 732,
+    "text": "    B.fire(st, \"hp_cost\", i, c, T + 0.3)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 755,
+    "text": "  if u.gu then return B.gear_mpc(u, sk) end"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 792,
+    "text": "    if u.gu then B.gear_echo(st, i, mpc) end   -- 장비 메아리(81-gear)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 805,
+    "text": "  if u.gu then B.gear_skill(st, i, sk.id) end   -- 장비: 도발 뒤 피해 감소 · 파티 보호막 뒤 가속(81-gear)"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 844,
+    "text": "  if B.chain(st, \"evade\", nil, t, i) then"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 864,
+    "text": "    if st.u[t].al == 1 then B.fire(st, \"attacked\", t, i, res, hitT) end"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 882,
+    "text": "      if B.chain(st, \"evade\", nil, t, i) then"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 894,
+    "text": "        if st.u[t].al == 1 then B.fire(st, \"attacked\", t, i, res, hitT) end"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 954,
+    "text": "  if wb then B.gear_dottick(st, wb, T + 0.3) end"
+  },
+  {
+    "file": "30-engine.lua",
+    "line": 1097,
+    "text": "  B.fire(st, \"hp_cost\", i, c, T + 0.3)"
+  },
+  {
+    "file": "34-traits.lua",
+    "line": 294,
+    "text": "  local sw = st.u[a].gu and B.gear_uq(st.u[a], \"as_shadow\")   -- 장비 「그림자 연타」: 추가 공격 확률(81-gear)"
+  },
+  {
+    "file": "34-traits.lua",
+    "line": 327,
+    "text": "  if u.gq and u.gq.evade then p = p + u.gq.evade / 100 end   -- 장비 회피(%p) — 같은 판정에 더한다(81-gear)"
+  },
+  {
+    "file": "34-traits.lua",
+    "line": 402,
+    "text": "    local sw = u.gu and B.gear_uq(u, \"sa_warp\")   -- 장비 「시간 왜곡」: 상대 차례 지연(81-gear)"
+  },
+  {
+    "file": "34-traits.lua",
+    "line": 405,
+    "text": "    if sw then B.gear_adv(st, a, dl * sw.v[3] / 100) end   -- 늦춘 시간의 일부를 자신의 다음 차례로(81-gear)"
+  },
+  {
+    "file": "34-traits.lua",
+    "line": 419,
+    "text": "  if u.gq or u.gu then B.gear_kill(st, a, at) end   -- 장비: 처치 시 MP · 연쇄(81-gear)"
+  },
+  {
+    "file": "77-explore.lua",
+    "line": 72,
+    "text": "  -- 장비: 새 장비 코드(81-gear B.gear_drop) — 층 추천 레벨 ±3 · 출전 직업 80%. party_cls = 출전 파티 직업 id 목록(없으면 전 직업)"
+  },
+  {
+    "file": "77-explore.lua",
+    "line": 73,
+    "text": "  local code, item = B.gear_drop(math.floor(mix(seed, floor, step, 4) * 2147483646) + 1, floor, \"battle\", party_cls)"
+  },
+  {
+    "file": "77-explore.lua",
+    "line": 84,
+    "text": "  local r = B.gear_roll and B.gear_roll(code)"
+  },
+  {
+    "file": "77-explore.lua",
+    "line": 90,
+    "text": "  local r = B.gear_roll and B.gear_roll(code)"
+  },
+  {
+    "file": "77-explore.lua",
+    "line": 145,
+    "text": "  local r = B.gear_roll and B.gear_roll(iid)"
+  },
+  {
+    "file": "77-explore.lua",
+    "line": 150,
+    "text": "  local r = B.gear_roll and B.gear_roll(iid)"
+  },
+  {
+    "file": "77-explore.lua",
+    "line": 209,
+    "text": "  if B.gear_pm_refresh then B.gear_pm_refresh(G, R.pm) end   -- 휴식 중 갈아 끼운 장비를 이번 전투에 반영(81-gear)"
+  },
+  {
+    "file": "77-explore.lua",
+    "line": 272,
+    "text": "  local o = B.ex_roll(R.seed, R.floor, step, R.elites, B.gear_party_cls(R.pm))"
+  },
+  {
+    "file": "77-explore.lua",
+    "line": 364,
+    "text": "  if B.ex_mix(seed, 31, 0, 0) >= B.gear_drop_p(kind) then return nil end"
+  },
+  {
+    "file": "77-explore.lua",
+    "line": 365,
+    "text": "  local code = B.gear_drop(math.floor(B.ex_mix(seed, 32, 0, 0) * 2147483646) + 1, R.floor, kind, B.gear_party_cls(R.pm))"
+  },
+  {
+    "file": "77-explore.lua",
+    "line": 655,
+    "text": "    ok, why = B.gear_unequip(G, id, key, slot)"
+  },
+  {
+    "file": "77-explore.lua",
+    "line": 657,
+    "text": "    local r = iid and B.gear_roll(iid)"
+  },
+  {
+    "file": "77-explore.lua",
+    "line": 659,
+    "text": "    ok, why = B.gear_equip(G, id, key, iid)"
+  },
+  {
+    "file": "77-explore.lua",
+    "line": 704,
+    "text": "    if sl then return do_equip(G, id, \"eq\", sl, B.gear_unbtn(iid2)) end"
+  },
+  {
+    "file": "77-explore.lua",
+    "line": 810,
+    "text": "      o[#o + 1] = B.btn(\"ex_eq_\" .. s[1] .. \"_\" .. B.gear_btn(iid), '<span class=\"ex-r-' .. (rar_of(iid) or \"common\") .. '\">' .. B.esc(B.T(itname(iid))) .. '</span>', \"sm\", B.U(\"장착\"))"
+  },
+  {
+    "file": "77-explore.lua",
+    "line": 861,
+    "text": "      local gr = B.gear_roll(c)"
+  },
+  {
+    "file": "77-explore.lua",
+    "line": 870,
+    "text": "      local gr = B.gear_roll(c)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 61,
+    "text": "  function B.gear_icon(item)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 86,
+    "text": "  function B.gear_code(id, seed)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 92,
+    "text": "  function B.gear_parse(code)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 109,
+    "text": "  function B.gear_roll(code, wearer_lv, forge_lv)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 110,
+    "text": "    local id, seed, v = B.gear_parse(code)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 167,
+    "text": "  function B.gear_price(code)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 168,
+    "text": "    local id = B.gear_parse(code)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 189,
+    "text": "        local gid = B.gear_parse(c)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 201,
+    "text": "  function B.gear_btn(code) return (code:gsub(\"%.\", \"_\")) end"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 202,
+    "text": "  function B.gear_unbtn(s)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 209,
+    "text": "    if #list >= B.BAG_MAX or not B.gear_parse(code) then return false end"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 236,
+    "text": "  function B.gear_can_equip(G, cid, code)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 237,
+    "text": "    local r = B.gear_roll(code)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 247,
+    "text": "  function B.gear_restrict(G, id)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 254,
+    "text": "          if type(code) == \"string\" and code ~= \"\" and not B.gear_can_equip(G, cid, code) then"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 271,
+    "text": "    local id = B.gear_parse(code)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 288,
+    "text": "    if not in_bag or not B.gear_roll(code) then return nil, \"장비를 찾을 수 없습니다.\" end"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 304,
+    "text": "  function B.gear_equip(G, id, cid, code)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 305,
+    "text": "    local ok, why = B.gear_can_equip(G, cid, code)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 307,
+    "text": "    local slot = B.gear_roll(code).slot"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 318,
+    "text": "  function B.gear_unequip(G, id, cid, slot)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 327,
+    "text": "  function B.gear_sell(G, id, code)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 328,
+    "text": "    local p = B.gear_price(code)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 336,
+    "text": "  function B.gear_sell_common(G, id)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 340,
+    "text": "      local gid = B.gear_parse(c)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 344,
+    "text": "        gold = gold + B.gear_price(c)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 357,
+    "text": "  function B.gear_migrate(G)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 383,
+    "text": "-- 전투를 만들 때(20-state blank_u → B.gear_init) 낀 장비 셋의 효과를 딱 한 번 합쳐 u.gq = { [효과 키] = 합 } 으로 둔다."
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 395,
+    "text": "  function B.gear_eq_of(G, cid)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 407,
+    "text": "  function B.gear_pm_refresh(G, pm)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 409,
+    "text": "      if m.id ~= \"\" then m.eq = B.gear_eq_of(G, m.id); m.forge = G.forge end"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 423,
+    "text": "  B.gear_uq = uq"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 425,
+    "text": "  function B.gear_init(st, u, m)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 433,
+    "text": "        local r = B.gear_roll(code, m.L, m.forge and m.forge[code] and m.forge[code].lv or 0)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 566,
+    "text": "  function B.gear_kill(st, a, at)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 588,
+    "text": "        B.gear_adv(st, a, 10000)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 595,
+    "text": "        B.gear_adv(st, a, e.v[1] * 100)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 610,
+    "text": "  function B.gear_adv(st, i, amt)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 617,
+    "text": "  function B.gear_skill(st, i, id)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 631,
+    "text": "          if st.u[a].al == 1 then B.gear_adv(st, a, e.v[1] * 100) end"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 642,
+    "text": "  function B.gear_mpc(u, sk)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 650,
+    "text": "  function B.gear_save(st, t, at)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 663,
+    "text": "  function B.gear_splash(st, i, tgt, val)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 672,
+    "text": "  function B.gear_dottick(st, wb, at)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 689,
+    "text": "  function B.gear_dotchain(st, v, by)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 716,
+    "text": "  function B.gear_begin(st, i)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 731,
+    "text": "  function B.gear_echo(st, i, cost)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 743,
+    "text": "  function B.gear_dot(st, by, d)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 753,
+    "text": "  function B.gear_shbreak(st, t, ab, src)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 761,
+    "text": "  function B.gear_pecho(st, t, at)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 778,
+    "text": "  function B.gear_buff(v)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 1017,
+    "text": "        B.gear_adv(st, a, e.v[2] * 100)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 1045,
+    "text": "  function B.gear_party_cls(pm)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 1057,
+    "text": "  function B.gear_drop_p(kind)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 1074,
+    "text": "  function B.gear_drop(seed, floor, kind, party_cls)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 1110,
+    "text": "      if id then return B.gear_code(id, math.floor(mix(seed, 7, 0, 0) * 1099511627776) + 1), g.items[id], B.gear().fx.equip_lv[ORDER[k]] end"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 1166,
+    "text": "      if id then return B.gear_code(id, math.floor(mix(seed, n, 4, 61) * 1099511627776) + 1), g.items[id], ORDER[k] end"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 1173,
+    "text": "function B.gear_label(code)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 1174,
+    "text": "  local r = B.gear_roll(code)"
+  },
+  {
+    "file": "81-gear.lua",
+    "line": 1193,
+    "text": "        local gid = type(eq[slot]) == \"string\" and B.gear_parse(eq[slot])"
+  }
+]

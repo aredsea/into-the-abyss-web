@@ -1,0 +1,209 @@
+{
+  "completed": 15,
+  "expected": 15,
+  "passed": 0,
+  "failed": 15,
+  "results": [
+    {
+      "name": "import",
+      "command": "python tools/godot_r17.py --headless --editor --import --quit",
+      "exit_code": 0,
+      "passed": false,
+      "elapsed_seconds": 5.88,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "pass_lines": [],
+      "log": "verification/enemy-art-r21/checks/import.log",
+      "timed_out": false
+    },
+    {
+      "name": "world_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/world_test.gd",
+      "exit_code": 0,
+      "passed": false,
+      "elapsed_seconds": 0.45,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "pass_lines": [],
+      "log": "verification/enemy-art-r21/checks/world_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "state_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/state_test.gd",
+      "exit_code": 0,
+      "passed": false,
+      "elapsed_seconds": 0.72,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "pass_lines": [],
+      "log": "verification/enemy-art-r21/checks/state_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "route_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/route_test.gd",
+      "exit_code": 0,
+      "passed": false,
+      "elapsed_seconds": 0.44,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "pass_lines": [],
+      "log": "verification/enemy-art-r21/checks/route_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "expansion_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/expansion_test.gd",
+      "exit_code": 0,
+      "passed": false,
+      "elapsed_seconds": 1.0,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "pass_lines": [],
+      "log": "verification/enemy-art-r21/checks/expansion_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "motion_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/motion_test.gd",
+      "exit_code": 0,
+      "passed": false,
+      "elapsed_seconds": 0.36,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "pass_lines": [
+        "MOTION TIMELINE PASS: contact, hitstop, pause, speed, skip, large delta"
+      ],
+      "log": "verification/enemy-art-r21/checks/motion_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "motion_asset_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/motion_asset_test.gd",
+      "exit_code": 0,
+      "passed": false,
+      "elapsed_seconds": 0.44,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "pass_lines": [
+        "MOTION ASSET PASS: 19 clips, original starts, natural recovery, timing, attachments and mappings"
+      ],
+      "log": "verification/enemy-art-r21/checks/motion_asset_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "art_test",
+      "command": "python tools/godot_r17.py --headless --script res://tests/art_test.gd",
+      "exit_code": 0,
+      "passed": false,
+      "elapsed_seconds": 0.62,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "pass_lines": [
+        "PASS 30 characters / 60 UV frames / 30 unique cinematics / impact and completion"
+      ],
+      "log": "verification/enemy-art-r21/checks/art_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "export_licenses",
+      "command": "python tools/godot_r17.py --headless --script res://tests/export_licenses.gd",
+      "exit_code": 0,
+      "passed": false,
+      "elapsed_seconds": 0.34,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "pass_lines": [],
+      "log": "verification/enemy-art-r21/checks/export_licenses.log",
+      "timed_out": false
+    },
+    {
+      "name": "ui_battle_r17_test",
+      "command": "python tools/godot_r17.py --position -10000,-10000 --script res://tests/ui_battle_r17_test.gd",
+      "exit_code": 0,
+      "passed": false,
+      "elapsed_seconds": 43.94,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "pass_lines": [],
+      "log": "verification/enemy-art-r21/checks/ui_battle_r17_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "ui_battle_r18_test",
+      "command": "python tools/godot_r17.py --position -10000,-10000 --script res://tests/ui_battle_r18_test.gd",
+      "exit_code": 0,
+      "passed": false,
+      "elapsed_seconds": 36.62,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "pass_lines": [],
+      "log": "verification/enemy-art-r21/checks/ui_battle_r18_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "ui_battle_r19_test",
+      "command": "python tools/godot_r17.py --position -10000,-10000 --script res://tests/ui_battle_r19_test.gd",
+      "exit_code": 0,
+      "passed": false,
+      "elapsed_seconds": 8.23,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "pass_lines": [],
+      "log": "verification/enemy-art-r21/checks/ui_battle_r19_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "ui_battle_r20_test",
+      "command": "python tools/godot_r17.py --position -10000,-10000 --script res://tests/ui_battle_r20_test.gd",
+      "exit_code": 0,
+      "passed": false,
+      "elapsed_seconds": 12.84,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "pass_lines": [],
+      "log": "verification/enemy-art-r21/checks/ui_battle_r20_test.log",
+      "timed_out": false
+    },
+    {
+      "name": "motion_r9_integration",
+      "command": "python tools/godot_r17.py --position -10000,-10000 --script res://tests/motion_r9_integration.gd",
+      "exit_code": 0,
+      "passed": false,
+      "elapsed_seconds": 6.38,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "pass_lines": [],
+      "log": "verification/enemy-art-r21/checks/motion_r9_integration.log",
+      "timed_out": false
+    },
+    {
+      "name": "motion_r18_integration",
+      "command": "python tools/godot_r17.py --position -10000,-10000 --script res://tests/motion_r18_integration.gd",
+      "exit_code": 0,
+      "passed": false,
+      "elapsed_seconds": 51.75,
+      "error_lines": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "pass_lines": [],
+      "log": "verification/enemy-art-r21/checks/motion_r18_integration.log",
+      "timed_out": false
+    }
+  ]
+}
