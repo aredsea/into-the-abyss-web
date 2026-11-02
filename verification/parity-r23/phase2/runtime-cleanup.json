@@ -1,0 +1,24 @@
+{
+  "initial_full_shutdown": "Windows taskkill tree did not stop the local Node parent within 20 seconds; it respawned its workerd child.",
+  "validated_cwd": "C:\\Users\\asone\\Documents\\Codex\\2026-10-30\\into-the-abyss-handoff\\work\\r21-d-town",
+  "validated_script": "server/abyss-save/test/serve.mjs",
+  "owned_processes_stopped": [
+    47524,
+    16364,
+    42304,
+    13548
+  ],
+  "remaining_owned_processes": [],
+  "new_shutdown": "Existing SIGINT disposal handler invoked over private stdin; readiness must come from the new child.",
+  "final_lifecycle": {
+    "pid": 27332,
+    "ready": true,
+    "exit": 130,
+    "forced_shutdown": false,
+    "stop_requested": true,
+    "clean_shutdown": true,
+    "main": "server/abyss-save/test/serve.mjs",
+    "shutdown": "private stdin to existing SIGINT disposal handler; 130 is the requested SIGINT exit"
+  },
+  "port_released": true
+}

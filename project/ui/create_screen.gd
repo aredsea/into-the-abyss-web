@@ -47,7 +47,7 @@ func traits(entry: Dictionary) -> void:
 	text(entry.name,23)
 	if entry.has("d"):text(entry.d)
 	if not entry.get("tr","").is_empty():text(entry.tr+" · "+entry.get("te",""))
-	if entry.has("syn"):text("시너지 2명 · "+entry.syn,14,T.MUTED)
+	if entry.has("syn"):text(L.u("시너지 2명이면 {effect}",{"effect":rules.syn_text(entry,L.language(host.model.s))},L.language(host.model.s)),14,T.MUTED)
 
 func build(owner_screen) -> void:
 	var s=owner_screen.model.s;var page=int(s.ui.page)

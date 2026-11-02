@@ -7,6 +7,20 @@ const BAG_PAGE=20
 const MAXFAV=3
 const RK={"common":1,"fine":2,"rare":3,"epic":4,"legend":5}
 const Value=preload("res://game/ui_value_r23.gd")
+const Locale=preload("res://game/localization_r22.gd")
+static func hud_action(g: Dictionary,arg: String) -> void:
+	if arg=="close":g.ui.panel="";return
+	g.ui.panel="" if g.ui.panel==arg else arg;g.ui.tab="";g.ui.sel=""
+static func status_action(g: Dictionary,arg: String) -> void:
+	if arg=="t_battle":g.ui.tab=""
+	elif arg=="t_me":g.ui.tab="me"
+	elif arg=="t_bag" and g.get("scene")!="battle":g.ui.tab="bag"
+static func member_name(g: Dictionary,id: String,lang="ko",html=true) -> String:
+	var name=g.get("persona",{}).get("name","") if id=="persona" else DATA.cast.get(id,{}).get("name",id)
+	var result=Locale.u("나",{},lang) if id=="persona" and name=="" else Locale.t(name,lang)
+	return escape(result) if html else result
+static func escape(value) -> String:
+	return Value.text(value).replace("&","&amp;").replace("<","&lt;").replace(">","&gt;").replace('"',"&quot;")
 static func num(value) -> String:return str(int(floor(Value.number(value)+.5)))
 static func fnum(value) -> String:
 	var n=Value.number(value);var bits=PackedFloat64Array([absf(n)]).to_byte_array().decode_u64(0)
@@ -98,7 +112,7 @@ static func shown_aff(value: Variant) -> int:return int(floor(clampf(Value.numbe
 static func page(items: Array,pg: int,count=PAGE) -> Dictionary:
 	var pages=maxi(1,int(ceil(float(items.size())/count)));pg=clampi(pg,1,pages)
 	return {"page":pg,"pages":pages,"total":items.size(),"items":items.slice((pg-1)*count,pg*count)}
-static func cx_action(g: Dictionary,arg: String) -> void:
+static func cx_action(g: Dictionary,arg: String,lang="ko") -> void:
 	var u=g.ui;var sel=u.get("sel","")
 	if arg.begins_with("f_"):u.tab=arg.substr(2) if arg!="f_all" else "";u.page=1;u.sel=""
 	elif arg.begins_with("pg_"):u.page=maxi(1,Value.integer(arg.substr(3),1))
@@ -114,11 +128,11 @@ static func cx_action(g: Dictionary,arg: String) -> void:
 		if not g.get("favs") is Array:g.favs=[]
 		if sel in g.favs:
 			while sel in g.favs:g.favs.erase(sel)
-			u.msg="즐겨찾기에서 뺐습니다."
-		elif g.favs.size()>=MAXFAV:u.msg="즐겨찾기는 3명까지입니다. 다른 동료를 먼저 빼 주세요."
-		else:g.favs.append(sel);u.msg="즐겨찾기에 넣었습니다."
+			u.msg=Locale.u("즐겨찾기에서 뺐습니다.",{},lang)
+		elif g.favs.size()>=MAXFAV:u.msg=Locale.u("즐겨찾기는 {max}명까지입니다. 다른 동료를 먼저 빼 주세요.",{"max":MAXFAV},lang)
+		else:g.favs.append(sel);u.msg=Locale.u("즐겨찾기에 넣었습니다.",{},lang)
 	elif arg=="bag":
-		if g.get("scene")=="battle":u.msg="전투 중에는 가방을 열 수 없습니다.";return
+		if g.get("scene")=="battle":u.msg=Locale.u("전투 중에는 가방을 열 수 없습니다.",{},lang);return
 		var c=cls(DATA.cast[sel].cls) if recruited(g,sel) else {}
 		u.panel="status";u.tab="bag";u.bg={"pg":1,"cls":c.get("id",""),"slot":"","rar":"","sel":"","cmp":sel,"conf":""}
 

@@ -15,16 +15,19 @@ server=None
 try:
     if any('cloud' in n for n in names):
         server_log=(OUT/'local-server.log').open('wb')
-        server=subprocess.Popen(['node','server/abyss-save/test/serve.mjs'],cwd=ROOT,env=env,stdout=server_log,stderr=subprocess.STDOUT,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
+        server=subprocess.Popen(['node','--import','./tools/ui_r23_server_shutdown.mjs','server/abyss-save/test/serve.mjs'],cwd=ROOT,env=env,stdin=subprocess.PIPE,stdout=server_log,stderr=subprocess.STDOUT,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
         ready=False
         for _ in range(300):
             if server.poll() is not None:break
-            try:
-                with socket.create_connection(('127.0.0.1',8787),timeout=.2):ready=True;break
-            except OSError:time.sleep(.1)
+            # Wait for this child's ready marker, never an unrelated existing listener.
+            if b'Local D1 worker' in (OUT/'local-server.log').read_bytes():
+                try:
+                    with socket.create_connection(('127.0.0.1',8787),timeout=.2):ready=True;break
+                except OSError:pass
+            time.sleep(.1)
         if not ready:raise RuntimeError('Local server did not become ready; see local-server.log')
     for name in names:
-        args=['--headless','--editor','--import','--quit'] if name=='import' else [*(['--position','-10000,-10000'] if name.startswith('ui_') and name not in ['ui_rules_r23_test'] or name.endswith('_integration') else ['--headless']),'--script',f'res://tests/{name}.gd']
+        args=['--headless','--editor','--import','--quit'] if name=='import' else [*(['--position','-10000,-10000'] if name.startswith('ui_') and name not in ['ui_rules_r23_test','ui_remaining_r23_test'] or name.endswith('_integration') else ['--headless']),'--script',f'res://tests/{name}.gd']
         start=time.monotonic()
         # This existing integration wrapper provisions an expired account and
         # runs the same test against its own real Worker/D1. serve.mjs remains
@@ -48,5 +51,15 @@ try:
         print(json.dumps({**row,'errors':errors[:5],'summary':[s[:250] for s in summary]},ensure_ascii=True),flush=True)
 finally:
     if server is not None:
-        subprocess.run(['taskkill','/PID',str(server.pid),'/T','/F'],capture_output=True);server.wait(timeout=20);server_log.close()
+        forced=False;stop_sent=False
+        try:
+            server.stdin.write(b'ABYSS_R23_STOP\n');server.stdin.flush();stop_sent=True;server.stdin.close()
+        except (BrokenPipeError,OSError):pass
+        try:server.wait(timeout=10)
+        except subprocess.TimeoutExpired:
+            forced=True;server.kill();server.wait(timeout=5)
+        server_log.close()
+        clean=not forced and (server.returncode==0 or (stop_sent and server.returncode==130))
+        (OUT/'server-lifecycle.json').write_text(json.dumps({'pid':server.pid,'ready':ready,'exit':server.returncode,'forced_shutdown':forced,'stop_requested':stop_sent,'clean_shutdown':clean,'main':'server/abyss-save/test/serve.mjs','shutdown':'private stdin to existing SIGINT disposal handler; 130 is the requested SIGINT exit'},indent=2)+'\n',encoding='utf-8')
+        if not clean:raise RuntimeError('Local server did not dispose cleanly; see server-lifecycle.json')
 sys.exit(0 if all(r['passed'] for r in results) else 1)

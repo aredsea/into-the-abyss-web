@@ -15,13 +15,20 @@ func _init(world=null):
 		if saved.get("bg") is Dictionary:
 			bg=R.normalize_bg(saved.bg)
 func persist() -> void:
-	model.s.panels_r22=ui.duplicate(true);model.s.panels_r22.bg=bg.duplicate(true)
+	var saved=model.s.get("panels_r22",{})
+	saved=saved.duplicate(true) if saved is Dictionary else {}
+	saved.merge(ui.duplicate(true),true);saved.bg=bg.duplicate(true)
+	model.s.panels_r22=saved
+func hd(arg: String) -> void:
+	R.hud_action({"ui":ui},arg);persist()
+func st(arg: String) -> void:
+	R.status_action({"ui":ui,"scene":"battle" if in_battle() else "town"},arg);persist()
 func favs() -> Array:
 	var raw=model.s.get("favs",[])
 	return raw.filter(func(id):return id in model.s.owned) if raw is Array else []
 func cx(arg: String) -> void:
 	var g={"ui":ui,"roster":model.s.owned,"party":model.s.party,"favs":favs(),"scene":"battle" if in_battle() else "town"}
-	R.cx_action(g,arg);ui=g.ui
+	R.cx_action(g,arg,L.language(model.s));ui=g.ui
 	if arg=="fav":model.s.favs=g.favs
 	if ui.has("bg"):bg=ui.bg;ui.erase("bg")
 	persist()
@@ -60,8 +67,7 @@ func can_equip(id: String,e: Dictionary) -> String:
 	if model.s.members[id].level<lv:return "Lv %d부터 낄 수 있습니다."%lv
 	return ""
 func member_name(id: String) -> String:
-	if id=="persona":return model.s.persona.get("name","") if model.s.persona.get("name","")!="" else L.u("나",{},L.language(model.s))
-	return R.DATA.cast.get(id,{}).get("name",id)
+	return R.member_name(model.s,id,L.language(model.s),false)
 func equip(id: String,e: Dictionary) -> bool:
 	ui.msg=can_equip(id,e)
 	if ui.msg!="":return false

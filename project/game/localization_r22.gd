@@ -2,15 +2,29 @@ extends RefCounted
 ## One source-backed dictionary for P1/P7/P10/settings. Never translate save values.
 const DATA=preload("res://data/localization-r22.json").data
 const Josa=preload("res://game/josa_r22.gd")
+const Pack=preload("res://game/locale_pack_r23.gd")
+const Value=preload("res://game/ui_value_r23.gd")
+static var packs=Pack.new({"en":JSON.stringify(DATA.ui)},JSON.stringify(DATA.words))
 static var patterns=[]
 static var cache={}
+static func configure_packs(raw: Variant=null,words: Variant=null) -> void:
+	packs=Pack.new({"en":JSON.stringify(DATA.ui)} if raw==null else raw,JSON.stringify(DATA.words) if words==null else words)
+	patterns=[];cache={}
+static func change_raw_pack(lang: String,raw: String,words: String) -> void:
+	packs.raw[lang]=raw;packs.words_raw=words
+static func ui_pack(lang: String) -> Variant:return packs.pack(lang)
+static func en_dict() -> Variant:return packs.dictionary()
+static func _lookup(table: Variant,key: String,fallback: Variant) -> Variant:
+	var v=table.get(key) if table is Dictionary else null
+	return v if Value.truth(v) else fallback
 static func canonical_names(value: String) -> String:
 	# Presentation only: historical save/log bytes remain untouched.
 	return value.replace("힐데가르트","힐데가").replace("베렝가","베렌가").replace("바르구트","바르굿")
 static func language(s: Dictionary) -> String:return "en" if s.get("settings",{}).get("lang","")=="en" else "ko"
-static func t(value: String,lang="ko") -> String:return DATA.words.get(value,value) if lang=="en" else value
-static func u(src: String,vars: Dictionary={},lang="ko") -> String:
-	var tpl=DATA.ui.get(src,src) if lang=="en" else src
+static func t(value: Variant,lang="ko") -> Variant:return _lookup(en_dict(),value,value) if lang=="en" and value is String else value
+static func u(src: String,vars: Variant=null,lang="ko") -> String:
+	var tpl=_lookup(ui_pack(lang),src,src) if lang!="ko" else src
+	if vars==null or not tpl.contains("{"):return tpl
 	var re=RegEx.new();re.compile("\\{([A-Za-z0-9_]+):?([^{}]*)\\}")
 	var out="";var pos=0
 	for m in re.search_all(tpl):

@@ -1,0 +1,1642 @@
+[
+  {
+    "id": "P2701",
+    "source": {
+      "file": "bot/src/68-cloud.lua",
+      "start": 11,
+      "end": 11,
+      "symbol": "ror"
+    },
+    "previous_status": "없음",
+    "status": "없음",
+    "new_evidence": [],
+    "remaining_reason": "native SHA-256 결과는 원본과 일치하나 내부 ror는 엔진 해시 구현에 위임한다. 별도 원본 ror 함수 경계가 같은 것으로 승격하지 않았다."
+  },
+  {
+    "id": "P2711",
+    "source": {
+      "file": "bot/src/68-cloud.lua",
+      "start": 71,
+      "end": 71,
+      "symbol": "copy"
+    },
+    "previous_status": "없음",
+    "status": "없음",
+    "new_evidence": [],
+    "remaining_reason": "native는 사용자 저장의 알 수 없는 필드를 보존하는 복사를 사용한다. Lua JSON 재인코딩 copy의 모든 타입/정밀도 손실까지 같게 만들지 않았다."
+  },
+  {
+    "id": "P2712",
+    "source": {
+      "file": "bot/src/68-cloud.lua",
+      "start": 72,
+      "end": 87,
+      "symbol": "B.cloud_payload"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "원본 v1 필드/가방 문자열·초안 금화 환불·호스트 이름 제거와 native schema 3 전체 저장의 프로토콜이 다르다."
+  },
+  {
+    "id": "P2713",
+    "source": {
+      "file": "bot/src/68-cloud.lua",
+      "start": 88,
+      "end": 93,
+      "symbol": "B.cloud_link"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "원본이 만든 실제 payload 바이트의 HMAC/URL 조립은 일치. native 저장→원본 payload 변환 및 /s 배포 수신 흐름은 연결하지 않았다."
+  },
+  {
+    "id": "P2716",
+    "source": {
+      "file": "bot/src/68-cloud.lua",
+      "start": 104,
+      "end": 245,
+      "symbol": "B.cloud_apply"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "원본 v1 복원 정규화와 native schema 3 복원은 서로 다른 저장 계약이다. 사용자 저장·장비·완료 원정 보존 규칙을 강제 변경하지 않았다."
+  },
+  {
+    "id": "P2717",
+    "source": {
+      "file": "bot/src/68-cloud.lua",
+      "start": 144,
+      "end": 148,
+      "symbol": "gear_ok"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "원본 cloud_apply 안의 코드/장착 칸 검증은 native UID 복원과 일대일 대응을 확정하지 못했다. 장비 규칙 파일은 수정하지 않았다."
+  },
+  {
+    "id": "P2718",
+    "source": {
+      "file": "bot/src/68-cloud.lua",
+      "start": 246,
+      "end": 249,
+      "symbol": "message"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "호스트 alertInput/async/request·6자리 PIN·원본 /l 응답/메시지/AI 장면과 native /v1 계정·10자리 PIN·CAS가 다르다. 로컬 계정/복원 검사는 통과하나 원본 전체 반환 계약·운영 배포는 미확정."
+  },
+  {
+    "id": "P2721",
+    "source": {
+      "file": "bot/src/68-cloud.lua",
+      "start": 252,
+      "end": 286,
+      "symbol": "B.cloud_recap"
+    },
+    "previous_status": "없음",
+    "status": "같음",
+    "new_evidence": [
+      {
+        "test": "project/tests/ui_remaining_r23_test.gd",
+        "group": "P2721.P2722.P2723.recap",
+        "checks": 225,
+        "implementation": "project/game/cloud_recap_r23.gd:22",
+        "result": "verification/parity-r23/phase2/results.json",
+        "comparison_passed": true,
+        "scope": "원본 여관 회상 지시문 생성·저장 복원 후 native 사실 투영"
+      },
+      {
+        "test": "project/tests/cloud_journey_r23_test.gd",
+        "result": "verification/parity-r23/phase2/cloud-results.json",
+        "checks": 8,
+        "scope": "정상/옛 버전 복원·파일 재개, 쓰기 실패/무효 원격값 보존. AI 호출과 pending 잠금 흐름은 P2724 잔여."
+      }
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P2722",
+    "source": {
+      "file": "bot/src/68-cloud.lua",
+      "start": 256,
+      "end": 256,
+      "symbol": "score"
+    },
+    "previous_status": "없음",
+    "status": "같음",
+    "new_evidence": [
+      {
+        "test": "project/tests/ui_remaining_r23_test.gd",
+        "group": "P2721.P2722.P2723.recap",
+        "checks": 225,
+        "implementation": "project/game/cloud_recap_r23.gd:12",
+        "result": "verification/parity-r23/phase2/results.json",
+        "comparison_passed": true,
+        "scope": "레벨·출전·경험치 가중 합, 동점과 경험치 역전 경계"
+      },
+      {
+        "test": "project/tests/cloud_journey_r23_test.gd",
+        "result": "verification/parity-r23/phase2/cloud-results.json",
+        "checks": 8,
+        "scope": "정상/옛 버전 복원·파일 재개, 쓰기 실패/무효 원격값 보존. AI 호출과 pending 잠금 흐름은 P2724 잔여."
+      }
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P2723",
+    "source": {
+      "file": "bot/src/68-cloud.lua",
+      "start": 263,
+      "end": 263,
+      "symbol": "nm"
+    },
+    "previous_status": "없음",
+    "status": "같음",
+    "new_evidence": [
+      {
+        "test": "project/tests/ui_remaining_r23_test.gd",
+        "group": "P2721.P2722.P2723.recap",
+        "checks": 225,
+        "implementation": "project/game/cloud_recap_r23.gd:10",
+        "result": "verification/parity-r23/phase2/results.json",
+        "comparison_passed": true,
+        "scope": "전 동료 이름과 알 수 없는/비문자 id의 원본 AI 이름 변환"
+      },
+      {
+        "test": "project/tests/cloud_journey_r23_test.gd",
+        "result": "verification/parity-r23/phase2/cloud-results.json",
+        "checks": 8,
+        "scope": "정상/옛 버전 복원·파일 재개, 쓰기 실패/무효 원격값 보존. AI 호출과 pending 잠금 흐름은 P2724 잔여."
+      }
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P2724",
+    "source": {
+      "file": "bot/src/68-cloud.lua",
+      "start": 288,
+      "end": 347,
+      "symbol": "B.cloud_button"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "호스트 alertInput/async/request·6자리 PIN·원본 /l 응답/메시지/AI 장면과 native /v1 계정·10자리 PIN·CAS가 다르다. 로컬 계정/복원 검사는 통과하나 원본 전체 반환 계약·운영 배포는 미확정."
+  },
+  {
+    "id": "P2725",
+    "source": {
+      "file": "bot/src/68-cloud.lua",
+      "start": 289,
+      "end": 344,
+      "symbol": "task"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "호스트 alertInput/async/request·6자리 PIN·원본 /l 응답/메시지/AI 장면과 native /v1 계정·10자리 PIN·CAS가 다르다. 로컬 계정/복원 검사는 통과하나 원본 전체 반환 계약·운영 배포는 미확정."
+  },
+  {
+    "id": "P2728",
+    "source": {
+      "file": "bot/src/68-cloud.lua",
+      "start": 302,
+      "end": 302,
+      "symbol": "task::익명 함수@302"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "호스트 alertInput/async/request·6자리 PIN·원본 /l 응답/메시지/AI 장면과 native /v1 계정·10자리 PIN·CAS가 다르다. 로컬 계정/복원 검사는 통과하나 원본 전체 반환 계약·운영 배포는 미확정."
+  },
+  {
+    "id": "P2730",
+    "source": {
+      "file": "bot/src/68-cloud.lua",
+      "start": 322,
+      "end": 322,
+      "symbol": "task::익명 함수@322"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "호스트 alertInput/async/request·6자리 PIN·원본 /l 응답/메시지/AI 장면과 native /v1 계정·10자리 PIN·CAS가 다르다. 로컬 계정/복원 검사는 통과하나 원본 전체 반환 계약·운영 배포는 미확정."
+  },
+  {
+    "id": "P2731",
+    "source": {
+      "file": "bot/src/68-cloud.lua",
+      "start": 346,
+      "end": 346,
+      "symbol": "B.cloud_button::익명 함수@346"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "호스트 alertInput/async/request·6자리 PIN·원본 /l 응답/메시지/AI 장면과 native /v1 계정·10자리 PIN·CAS가 다르다. 로컬 계정/복원 검사는 통과하나 원본 전체 반환 계약·운영 배포는 미확정."
+  },
+  {
+    "id": "P2735",
+    "source": {
+      "file": "bot/src/69-rank.lua",
+      "start": 4,
+      "end": 8,
+      "symbol": "cached"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "원본 dk_rank/공개 /r/best/호스트 callback과 native 계정별 /v1/rank는 다르다. 캐시 재개·42개 시간 경계·21개 층/백분위 입력은 별도 통과. 운영 순위 계약 전체는 일부 유지."
+  },
+  {
+    "id": "P2736",
+    "source": {
+      "file": "bot/src/69-rank.lua",
+      "start": 6,
+      "end": 6,
+      "symbol": "cached::익명 함수@6"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "원본 dk_rank/공개 /r/best/호스트 callback과 native 계정별 /v1/rank는 다르다. 캐시 재개·42개 시간 경계·21개 층/백분위 입력은 별도 통과. 운영 순위 계약 전체는 일부 유지."
+  },
+  {
+    "id": "P2737",
+    "source": {
+      "file": "bot/src/69-rank.lua",
+      "start": 10,
+      "end": 19,
+      "symbol": "B.rank_head"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "원본 dk_rank/공개 /r/best/호스트 callback과 native 계정별 /v1/rank는 다르다. 캐시 재개·42개 시간 경계·21개 층/백분위 입력은 별도 통과. 운영 순위 계약 전체는 일부 유지."
+  },
+  {
+    "id": "P2739",
+    "source": {
+      "file": "bot/src/69-rank.lua",
+      "start": 23,
+      "end": 26,
+      "symbol": "B.rank_refresh"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "원본 dk_rank/공개 /r/best/호스트 callback과 native 계정별 /v1/rank는 다르다. 캐시 재개·42개 시간 경계·21개 층/백분위 입력은 별도 통과. 운영 순위 계약 전체는 일부 유지."
+  },
+  {
+    "id": "P2740",
+    "source": {
+      "file": "bot/src/69-rank.lua",
+      "start": 27,
+      "end": 48,
+      "symbol": "B.H.rk"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "원본 dk_rank/공개 /r/best/호스트 callback과 native 계정별 /v1/rank는 다르다. 캐시 재개·42개 시간 경계·21개 층/백분위 입력은 별도 통과. 운영 순위 계약 전체는 일부 유지."
+  },
+  {
+    "id": "P2742",
+    "source": {
+      "file": "bot/src/69-rank.lua",
+      "start": 38,
+      "end": 47,
+      "symbol": "B.H.rk::익명 함수@38"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "원본 dk_rank/공개 /r/best/호스트 callback과 native 계정별 /v1/rank는 다르다. 캐시 재개·42개 시간 경계·21개 층/백분위 입력은 별도 통과. 운영 순위 계약 전체는 일부 유지."
+  },
+  {
+    "id": "P2743",
+    "source": {
+      "file": "bot/src/69-rank.lua",
+      "start": 39,
+      "end": 39,
+      "symbol": "B.H.rk::익명 함수@38::익명 함수@39"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "원본 dk_rank/공개 /r/best/호스트 callback과 native 계정별 /v1/rank는 다르다. 캐시 재개·42개 시간 경계·21개 층/백분위 입력은 별도 통과. 운영 순위 계약 전체는 일부 유지."
+  },
+  {
+    "id": "P0017",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 13,
+      "end": 42,
+      "symbol": "B.G_new"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "native schema 3의 새 게임은 원본 v1 전체 객체와 다르다. 제외된 성적 칸·호스트 상태를 새로 실행하지 않으며 기존 저장 보존 계약을 유지한다."
+  },
+  {
+    "id": "P0084",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 44,
+      "end": 56,
+      "symbol": "B.G_migrate"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "옛 native 저장의 fight=0·4인 편성·추가 필드 보존 이관은 원본 G_migrate의 fight=1 기본값과 다르다. 기존 이관을 바꾸지 않았다."
+  },
+  {
+    "id": "P0085",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 58,
+      "end": 69,
+      "symbol": "B.G_load"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "RisuAI getChatVar 및 exp_settle/gear_restrict 후 재저장과 native 파일/백업 복원의 전체 계약이 다르다."
+  },
+  {
+    "id": "P0089",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 78,
+      "end": 85,
+      "symbol": "B.ui_pack"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [
+      {
+        "test": "project/tests/ui_remaining_r23_test.gd",
+        "group": "P0089.ui_pack",
+        "checks": 8,
+        "implementation": "project/game/localization_r22.gd:15",
+        "result": "verification/parity-r23/phase2/results.json",
+        "comparison_passed": false,
+        "scope": "오류 JSON·원시값·배열·미지정 언어·원문 교체 후 캐시 유지"
+      }
+    ],
+    "remaining_reason": "원본 함수의 JSON 파싱·타입·캐시·치환 알고리즘 분기는 새 fixture와 일치한다. 제품은 승인된 공개 화면용 사전과 native 확장만 싣는다. 제외된 성적/호스트 전용 항목을 포함한 원본 전체 사전 반환·모든 키의 번역을 같음으로 승격하지 않는다."
+  },
+  {
+    "id": "P0090",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 86,
+      "end": 97,
+      "symbol": "B.U"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [
+      {
+        "test": "project/tests/ui_remaining_r23_test.gd",
+        "group": "P0090.P0091.u",
+        "checks": 198,
+        "implementation": "project/game/localization_r22.gd:15",
+        "result": "verification/parity-r23/phase2/results.json",
+        "comparison_passed": false,
+        "scope": "null 인수, 알 수 없는 언어, false/빈 번역·치환·조사 경계"
+      }
+    ],
+    "remaining_reason": "원본 함수의 JSON 파싱·타입·캐시·치환 알고리즘 분기는 새 fixture와 일치한다. 제품은 승인된 공개 화면용 사전과 native 확장만 싣는다. 제외된 성적/호스트 전용 항목을 포함한 원본 전체 사전 반환·모든 키의 번역을 같음으로 승격하지 않는다."
+  },
+  {
+    "id": "P0091",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 90,
+      "end": 96,
+      "symbol": "B.U::익명 함수@90"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [
+      {
+        "test": "project/tests/ui_remaining_r23_test.gd",
+        "group": "P0090.P0091.u",
+        "checks": 198,
+        "implementation": "project/game/localization_r22.gd:30",
+        "result": "verification/parity-r23/phase2/results.json",
+        "comparison_passed": false,
+        "scope": "반복·중첩·미지정·숫자 이름 토큰과 조사 callback"
+      }
+    ],
+    "remaining_reason": "원본 함수의 JSON 파싱·타입·캐시·치환 알고리즘 분기는 새 fixture와 일치한다. 제품은 승인된 공개 화면용 사전과 native 확장만 싣는다. 제외된 성적/호스트 전용 항목을 포함한 원본 전체 사전 반환·모든 키의 번역을 같음으로 승격하지 않는다."
+  },
+  {
+    "id": "P0092",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 98,
+      "end": 104,
+      "symbol": "B.en_dict"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [
+      {
+        "test": "project/tests/ui_remaining_r23_test.gd",
+        "group": "P0092.en_dict",
+        "checks": 8,
+        "implementation": "project/game/localization_r22.gd:16",
+        "result": "verification/parity-r23/phase2/results.json",
+        "comparison_passed": false,
+        "scope": "사전 JSON 오류·스칼라 fallback 및 재호출 캐시"
+      }
+    ],
+    "remaining_reason": "원본 함수의 JSON 파싱·타입·캐시·치환 알고리즘 분기는 새 fixture와 일치한다. 제품은 승인된 공개 화면용 사전과 native 확장만 싣는다. 제외된 성적/호스트 전용 항목을 포함한 원본 전체 사전 반환·모든 키의 번역을 같음으로 승격하지 않는다."
+  },
+  {
+    "id": "P0095",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 122,
+      "end": 125,
+      "symbol": "B.T"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [
+      {
+        "test": "project/tests/ui_remaining_r23_test.gd",
+        "group": "P0095.t",
+        "checks": 24,
+        "implementation": "project/game/localization_r22.gd:24",
+        "result": "verification/parity-r23/phase2/results.json",
+        "comparison_passed": false,
+        "scope": "문자열만 번역하고 숫자·논리값은 타입 유지"
+      }
+    ],
+    "remaining_reason": "원본 함수의 JSON 파싱·타입·캐시·치환 알고리즘 분기는 새 fixture와 일치한다. 제품은 승인된 공개 화면용 사전과 native 확장만 싣는다. 제외된 성적/호스트 전용 항목을 포함한 원본 전체 사전 반환·모든 키의 번역을 같음으로 승격하지 않는다."
+  },
+  {
+    "id": "P0097",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 131,
+      "end": 136,
+      "symbol": "B.G_save"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "dk_game/dk_chron 두 채팅 변수 저장과 native 원자적 파일·큐 저장의 매체/반환 계약이 다르다."
+  },
+  {
+    "id": "P0101",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 152,
+      "end": 157,
+      "symbol": "B.new_seed"
+    },
+    "previous_status": "미확인",
+    "status": "미확인",
+    "new_evidence": [],
+    "remaining_reason": "os.time/os.clock/math.random 조합 씨앗은 native 로컬 RNG 씨앗과 다르다. 진행 중 저장의 난수열은 변경하지 않았다."
+  },
+  {
+    "id": "P0102",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 160,
+      "end": 163,
+      "symbol": "B.esc"
+    },
+    "previous_status": "일부",
+    "status": "같음",
+    "new_evidence": [
+      {
+        "test": "project/tests/ui_remaining_r23_test.gd",
+        "group": "P0102.esc",
+        "checks": 11,
+        "implementation": "project/game/panels_rules_r22.gd:22",
+        "result": "verification/parity-r23/phase2/results.json",
+        "comparison_passed": true,
+        "scope": "nil/false와 숫자·유니코드·HTML 특수 문자 escaping"
+      }
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P0104",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 165,
+      "end": 169,
+      "symbol": "B.btn"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "native Control/파일/화면 전환과 RisuAI HTML/CBS·채팅/페르소나 이미지·잠금 callback의 전체 반환 계약이 다르다. 원본 렌더 및 native 경로 증거와 함수 전체 동일 판정을 구분했다."
+  },
+  {
+    "id": "P0105",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 172,
+      "end": 183,
+      "symbol": "B.hud"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "native Control/파일/화면 전환과 RisuAI HTML/CBS·채팅/페르소나 이미지·잠금 callback의 전체 반환 계약이 다르다. 원본 렌더 및 native 경로 증거와 함수 전체 동일 판정을 구분했다."
+  },
+  {
+    "id": "P0110",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 185,
+      "end": 189,
+      "symbol": "B.H.hd"
+    },
+    "previous_status": "일부",
+    "status": "같음",
+    "new_evidence": [
+      {
+        "test": "project/tests/ui_remaining_r23_test.gd",
+        "group": "P0110.hd",
+        "checks": 168,
+        "implementation": "project/game/panels_rules_r22.gd:11",
+        "result": "verification/parity-r23/phase2/results.json",
+        "comparison_passed": true,
+        "scope": "close/동일 패널 토글/알 수 없는 패널과 선택 보존·초기화"
+      },
+      {
+        "test": "project/tests/ui_remaining_native_r23_test.gd",
+        "result": "verification/parity-r23/phase2/native-results.json",
+        "checks": 777,
+        "scope": "3개 휴대폰 크기 × 한글/영어. 실제 포인터·저장 재개; 전체 HTML/CBS 반환 비교라는 뜻은 아니다."
+      }
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P0123",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 225,
+      "end": 229,
+      "symbol": "B.pend_hard::익명 함수@225"
+    },
+    "previous_status": "미확인",
+    "status": "미확인",
+    "new_evidence": [],
+    "remaining_reason": "native Control/파일/화면 전환과 RisuAI HTML/CBS·채팅/페르소나 이미지·잠금 callback의 전체 반환 계약이 다르다. 원본 렌더 및 native 경로 증거와 함수 전체 동일 판정을 구분했다."
+  },
+  {
+    "id": "P0128",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 267,
+      "end": 273,
+      "symbol": "B.pimg_kick::익명 함수@267"
+    },
+    "previous_status": "미확인",
+    "status": "미확인",
+    "new_evidence": [],
+    "remaining_reason": "native Control/파일/화면 전환과 RisuAI HTML/CBS·채팅/페르소나 이미지·잠금 callback의 전체 반환 계약이 다르다. 원본 렌더 및 native 경로 증거와 함수 전체 동일 판정을 구분했다."
+  },
+  {
+    "id": "P0129",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 268,
+      "end": 272,
+      "symbol": "B.pimg_kick::익명 함수@267::익명 함수@268"
+    },
+    "previous_status": "미확인",
+    "status": "미확인",
+    "new_evidence": [],
+    "remaining_reason": "native Control/파일/화면 전환과 RisuAI HTML/CBS·채팅/페르소나 이미지·잠금 callback의 전체 반환 계약이 다르다. 원본 렌더 및 native 경로 증거와 함수 전체 동일 판정을 구분했다."
+  },
+  {
+    "id": "P0130",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 279,
+      "end": 289,
+      "symbol": "B.pimg"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "native Control/파일/화면 전환과 RisuAI HTML/CBS·채팅/페르소나 이미지·잠금 callback의 전체 반환 계약이 다르다. 원본 렌더 및 native 경로 증거와 함수 전체 동일 판정을 구분했다."
+  },
+  {
+    "id": "P0131",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 291,
+      "end": 324,
+      "symbol": "B.view"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "native Control/파일/화면 전환과 RisuAI HTML/CBS·채팅/페르소나 이미지·잠금 callback의 전체 반환 계약이 다르다. 원본 렌더 및 native 경로 증거와 함수 전체 동일 판정을 구분했다."
+  },
+  {
+    "id": "P0133",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 327,
+      "end": 357,
+      "symbol": "B.route"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "native Control/파일/화면 전환과 RisuAI HTML/CBS·채팅/페르소나 이미지·잠금 callback의 전체 반환 계약이 다르다. 원본 렌더 및 native 경로 증거와 함수 전체 동일 판정을 구분했다."
+  },
+  {
+    "id": "P2370",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 6,
+      "end": 6,
+      "symbol": "B.C1_en"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 생성·시나리오 fixture 및 native 생성 경로는 통과. HTML/CSS 반환·호스트 이름/이미지·첫 만남 AI/pending 문맥까지 같은 계약은 미확정."
+  },
+  {
+    "id": "P2415",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 264,
+      "end": 267,
+      "symbol": "B.CR.syn_text"
+    },
+    "previous_status": "일부",
+    "status": "같음",
+    "new_evidence": [
+      {
+        "test": "project/tests/ui_remaining_r23_test.gd",
+        "group": "P2415.syn_text",
+        "checks": 38,
+        "implementation": "project/game/persona_rules.gd:22",
+        "result": "verification/parity-r23/phase2/results.json",
+        "comparison_passed": true,
+        "scope": "종족·계통·국가 시너지 raw 수치 치환·언어·누락 fallback"
+      },
+      {
+        "test": "project/tests/ui_remaining_native_r23_test.gd",
+        "result": "verification/parity-r23/phase2/native-results.json",
+        "checks": 777,
+        "scope": "3개 휴대폰 크기 × 한글/영어. 실제 포인터·저장 재개; 전체 HTML/CBS 반환 비교라는 뜻은 아니다."
+      }
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P2416",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 268,
+      "end": 275,
+      "symbol": "B.CR.trait_row"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 생성·시나리오 fixture 및 native 생성 경로는 통과. HTML/CSS 반환·호스트 이름/이미지·첫 만남 AI/pending 문맥까지 같은 계약은 미확정."
+  },
+  {
+    "id": "P2417",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 276,
+      "end": 280,
+      "symbol": "B.CR.opt"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 생성·시나리오 fixture 및 native 생성 경로는 통과. HTML/CSS 반환·호스트 이름/이미지·첫 만남 AI/pending 문맥까지 같은 계약은 미확정."
+  },
+  {
+    "id": "P2418",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 281,
+      "end": 283,
+      "symbol": "B.CR.head"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 생성·시나리오 fixture 및 native 생성 경로는 통과. HTML/CSS 반환·호스트 이름/이미지·첫 만남 AI/pending 문맥까지 같은 계약은 미확정."
+  },
+  {
+    "id": "P2419",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 284,
+      "end": 291,
+      "symbol": "B.CR.steps"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 생성·시나리오 fixture 및 native 생성 경로는 통과. HTML/CSS 반환·호스트 이름/이미지·첫 만남 AI/pending 문맥까지 같은 계약은 미확정."
+  },
+  {
+    "id": "P2421",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 292,
+      "end": 302,
+      "symbol": "B.CR.nav"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 생성·시나리오 fixture 및 native 생성 경로는 통과. HTML/CSS 반환·호스트 이름/이미지·첫 만남 AI/pending 문맥까지 같은 계약은 미확정."
+  },
+  {
+    "id": "P2425",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 305,
+      "end": 328,
+      "symbol": "B.CR.pg_race"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 생성·시나리오 fixture 및 native 생성 경로는 통과. HTML/CSS 반환·호스트 이름/이미지·첫 만남 AI/pending 문맥까지 같은 계약은 미확정."
+  },
+  {
+    "id": "P2426",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 330,
+      "end": 346,
+      "symbol": "B.CR.pg_nation"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 생성·시나리오 fixture 및 native 생성 경로는 통과. HTML/CSS 반환·호스트 이름/이미지·첫 만남 AI/pending 문맥까지 같은 계약은 미확정."
+  },
+  {
+    "id": "P2427",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 348,
+      "end": 369,
+      "symbol": "B.CR.pg_cls"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 생성·시나리오 fixture 및 native 생성 경로는 통과. HTML/CSS 반환·호스트 이름/이미지·첫 만남 AI/pending 문맥까지 같은 계약은 미확정."
+  },
+  {
+    "id": "P2428",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 372,
+      "end": 389,
+      "symbol": "B.CR.tot_ui"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 생성·시나리오 fixture 및 native 생성 경로는 통과. HTML/CSS 반환·호스트 이름/이미지·첫 만남 AI/pending 문맥까지 같은 계약은 미확정."
+  },
+  {
+    "id": "P2434",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 391,
+      "end": 414,
+      "symbol": "B.CR.pg_stats"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 생성·시나리오 fixture 및 native 생성 경로는 통과. HTML/CSS 반환·호스트 이름/이미지·첫 만남 AI/pending 문맥까지 같은 계약은 미확정."
+  },
+  {
+    "id": "P2439",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 417,
+      "end": 444,
+      "symbol": "B.CR.pg_confirm"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 생성·시나리오 fixture 및 native 생성 경로는 통과. HTML/CSS 반환·호스트 이름/이미지·첫 만남 AI/pending 문맥까지 같은 계약은 미확정."
+  },
+  {
+    "id": "P2441",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 450,
+      "end": 450,
+      "symbol": "B.CR.SUB.익명 함수@450"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 생성·시나리오 fixture 및 native 생성 경로는 통과. HTML/CSS 반환·호스트 이름/이미지·첫 만남 AI/pending 문맥까지 같은 계약은 미확정."
+  },
+  {
+    "id": "P2442",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 454,
+      "end": 465,
+      "symbol": "B.SCREENS.create"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 생성·시나리오 fixture 및 native 생성 경로는 통과. HTML/CSS 반환·호스트 이름/이미지·첫 만남 AI/pending 문맥까지 같은 계약은 미확정."
+  },
+  {
+    "id": "P2446",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 468,
+      "end": 552,
+      "symbol": "B.H.cr"
+    },
+    "previous_status": "일부",
+    "status": "같음",
+    "new_evidence": [
+      {
+        "test": "project/tests/ui_remaining_r23_test.gd",
+        "group": "P2446.create",
+        "checks": 1536,
+        "implementation": "project/game/persona_rules.gd:104",
+        "result": "verification/parity-r23/phase2/results.json",
+        "comparison_passed": true,
+        "scope": "지수·소수 프리셋/이동, 소수 페이지 보존, 영어 원문 알림"
+      },
+      {
+        "test": "project/tests/ui_remaining_native_r23_test.gd",
+        "result": "verification/parity-r23/phase2/native-results.json",
+        "checks": 777,
+        "scope": "3개 휴대폰 크기 × 한글/영어. 실제 포인터·저장 재개; 전체 HTML/CBS 반환 비교라는 뜻은 아니다."
+      },
+      {
+        "test": "project/tests/persona_r22_test.gd",
+        "result": "verification/parity-r23/regression.json",
+        "checks": 4005,
+        "comparison_passed": true,
+        "baseline": "verification/parity-r23/phase2/persona-numeric-baseline.log",
+        "scope": "전체 검사에서 잡힌 정수/실수 match 회귀 59건 수정 후 기존 원본 fixture 재통과; 기대값 유지."
+      }
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P2462",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 555,
+      "end": 565,
+      "symbol": "B.CR.face"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 생성·시나리오 fixture 및 native 생성 경로는 통과. HTML/CSS 반환·호스트 이름/이미지·첫 만남 AI/pending 문맥까지 같은 계약은 미확정."
+  },
+  {
+    "id": "P2463",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 567,
+      "end": 591,
+      "symbol": "B.SCREENS.scenario"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 생성·시나리오 fixture 및 native 생성 경로는 통과. HTML/CSS 반환·호스트 이름/이미지·첫 만남 AI/pending 문맥까지 같은 계약은 미확정."
+  },
+  {
+    "id": "P2467",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 593,
+      "end": 626,
+      "symbol": "B.H.sc"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 생성·시나리오 fixture 및 native 생성 경로는 통과. HTML/CSS 반환·호스트 이름/이미지·첫 만남 AI/pending 문맥까지 같은 계약은 미확정."
+  },
+  {
+    "id": "P2480",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 5,
+      "end": 8,
+      "symbol": "B.C1_chip"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2492",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 79,
+      "end": 84,
+      "symbol": "PX.expbar"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2494",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 87,
+      "end": 92,
+      "symbol": "PX.bar"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2496",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 99,
+      "end": 109,
+      "symbol": "PX.face"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2497",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 110,
+      "end": 114,
+      "symbol": "PX.eltag"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2498",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 115,
+      "end": 115,
+      "symbol": "PX.btn"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2499",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 116,
+      "end": 122,
+      "symbol": "PX.stat_grid"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2500",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 123,
+      "end": 126,
+      "symbol": "PX.notice"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2501",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 130,
+      "end": 135,
+      "symbol": "PX.item_name"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2511",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 176,
+      "end": 178,
+      "symbol": "fxline"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2512",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 180,
+      "end": 198,
+      "symbol": "PX.gear_fx"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2513",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 200,
+      "end": 200,
+      "symbol": "PX.gear_icon"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2514",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 202,
+      "end": 207,
+      "symbol": "PX.gear_tile"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2515",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 209,
+      "end": 214,
+      "symbol": "PX.gear_card"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2518",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 256,
+      "end": 271,
+      "symbol": "PX.cx_tabs"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2520",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 259,
+      "end": 259,
+      "symbol": "t"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2521",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 273,
+      "end": 285,
+      "symbol": "PX.cx_tile"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2523",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 287,
+      "end": 308,
+      "symbol": "PX.cx_listview"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2528",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 313,
+      "end": 344,
+      "symbol": "PX.cx_equip"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2531",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 348,
+      "end": 368,
+      "symbol": "PX.pass_block"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2532",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 351,
+      "end": 353,
+      "symbol": "one"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2533",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 369,
+      "end": 383,
+      "symbol": "PX.passives"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2534",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 385,
+      "end": 406,
+      "symbol": "PX.cx_detail"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2537",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 408,
+      "end": 413,
+      "symbol": "B.PANELS.codex"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2539",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 415,
+      "end": 466,
+      "symbol": "B.H.cx"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [
+      {
+        "test": "project/tests/ui_remaining_r23_test.gd",
+        "group": "P2539.cx",
+        "checks": 312,
+        "implementation": "project/game/panels_rules_r22.gd:115",
+        "result": "verification/parity-r23/phase2/results.json",
+        "comparison_passed": false,
+        "scope": "즐겨찾기 중복·상한과 언어별 알림; 기존 un/eq 규칙 보존"
+      }
+    ],
+    "remaining_reason": "원본 312입력의 선택/필터/페이지/즐겨찾기/언어별 알림은 일치한다. 코드형 un_/eq_ 요청 전체와 native UID 장착/해제의 전체 G 반환 계약은 아직 다르다."
+  },
+  {
+    "id": "P2563",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 38,
+      "end": 46,
+      "symbol": "PX.st_fav"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2565",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 48,
+      "end": 61,
+      "symbol": "PX.st_me"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2567",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 64,
+      "end": 79,
+      "symbol": "PX.st_unit"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2568",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 81,
+      "end": 92,
+      "symbol": "PX.st_battle"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2572",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 111,
+      "end": 118,
+      "symbol": "mname"
+    },
+    "previous_status": "미확인",
+    "status": "같음",
+    "new_evidence": [
+      {
+        "test": "project/tests/ui_remaining_r23_test.gd",
+        "group": "P2572.mname",
+        "checks": 320,
+        "implementation": "project/game/panels_rules_r22.gd:18",
+        "result": "verification/parity-r23/phase2/results.json",
+        "comparison_passed": true,
+        "scope": "전 동료·미지정 이름·호스트 토큰·특수 문자 이름과 언어"
+      },
+      {
+        "test": "project/tests/ui_remaining_native_r23_test.gd",
+        "result": "verification/parity-r23/phase2/native-results.json",
+        "checks": 777,
+        "scope": "3개 휴대폰 크기 × 한글/영어. 실제 포인터·저장 재개; 전체 HTML/CBS 반환 비교라는 뜻은 아니다."
+      }
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P2576",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 151,
+      "end": 153,
+      "symbol": "chip"
+    },
+    "previous_status": "미확인",
+    "status": "미확인",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2578",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 155,
+      "end": 185,
+      "symbol": "PX.bg_listview"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2586",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 230,
+      "end": 305,
+      "symbol": "PX.bg_detail"
+    },
+    "previous_status": "미확인",
+    "status": "일부",
+    "new_evidence": [
+      {
+        "test": "project/tests/ui_remaining_native_r23_test.gd",
+        "result": "verification/parity-r23/phase2/native-results.json",
+        "checks": 777,
+        "scope": "3개 휴대폰 크기 × 한글/영어. 실제 포인터·저장 재개; 전체 HTML/CBS 반환 비교라는 뜻은 아니다."
+      }
+    ],
+    "remaining_reason": "native 가방 상세의 실제 대상 선택·직접 장착·이름 표시·다시 불러오기를 원본 이름/문구 fixture와 연결해 일부로 확인했다. 전체 HTML/고유 효과/모든 장비 코드·보존용 overflow 경계의 동일성은 미확정."
+  },
+  {
+    "id": "P2592",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 307,
+      "end": 315,
+      "symbol": "PX.bg_view"
+    },
+    "previous_status": "미확인",
+    "status": "미확인",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2593",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 317,
+      "end": 368,
+      "symbol": "B.H.bg"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "한글·영어 메시지/선택 경계 70개와 기존 거래 fixture는 통과. 코드↔UID·보존용 overflow/옛 장비·전투 중 거부·HTML 이스케이프 전체 계약은 동일 판정하지 않았다."
+  },
+  {
+    "id": "P2606",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 370,
+      "end": 382,
+      "symbol": "B.PANELS.status"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2611",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 384,
+      "end": 386,
+      "symbol": "B.H.st"
+    },
+    "previous_status": "일부",
+    "status": "같음",
+    "new_evidence": [
+      {
+        "test": "project/tests/ui_remaining_r23_test.gd",
+        "group": "P2611.st",
+        "checks": 120,
+        "implementation": "project/game/panels_rules_r22.gd:14",
+        "result": "verification/parity-r23/phase2/results.json",
+        "comparison_passed": true,
+        "scope": "전투 중 가방 거부, 상태 탭과 무효 버튼"
+      },
+      {
+        "test": "project/tests/ui_remaining_native_r23_test.gd",
+        "result": "verification/parity-r23/phase2/native-results.json",
+        "checks": 777,
+        "scope": "3개 휴대폰 크기 × 한글/영어. 실제 포인터·저장 재개; 전체 HTML/CBS 반환 비교라는 뜻은 아니다."
+      }
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P2617",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 389,
+      "end": 399,
+      "symbol": "B.HUD_EXTRA[#B.HUD_EXTRA + 1]"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "현재 Lua의 필터/수치/거래 및 native 화면·포인터 검사는 통과. 원본 전체 HTML/CSS/버튼 값과 native Control/UID, 또는 전투 인원 패널/호스트 얼굴의 전체 반환은 일치 확정하지 않았다."
+  },
+  {
+    "id": "P2622",
+    "source": {
+      "file": "bot/src/67-settings.lua",
+      "start": 16,
+      "end": 28,
+      "symbol": "B.cloud_card"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "언어/난이도/기록/초기화 보존 검사는 통과. 원본 HTML 폼·호스트 그림·AI 장 요약/프롬프트 다이어트·제외 설정 및 원본 공유 링크와 전체 동일한 설정 화면은 아니다."
+  },
+  {
+    "id": "P2628",
+    "source": {
+      "file": "bot/src/67-settings.lua",
+      "start": 34,
+      "end": 36,
+      "symbol": "B.PANELS.save"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "언어/난이도/기록/초기화 보존 검사는 통과. 원본 HTML 폼·호스트 그림·AI 장 요약/프롬프트 다이어트·제외 설정 및 원본 공유 링크와 전체 동일한 설정 화면은 아니다."
+  },
+  {
+    "id": "P2629",
+    "source": {
+      "file": "bot/src/67-settings.lua",
+      "start": 38,
+      "end": 107,
+      "symbol": "B.PANELS.settings"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "언어/난이도/기록/초기화 보존 검사는 통과. 원본 HTML 폼·호스트 그림·AI 장 요약/프롬프트 다이어트·제외 설정 및 원본 공유 링크와 전체 동일한 설정 화면은 아니다."
+  },
+  {
+    "id": "P2630",
+    "source": {
+      "file": "bot/src/67-settings.lua",
+      "start": 48,
+      "end": 54,
+      "symbol": "opt"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "언어/난이도/기록/초기화 보존 검사는 통과. 원본 HTML 폼·호스트 그림·AI 장 요약/프롬프트 다이어트·제외 설정 및 원본 공유 링크와 전체 동일한 설정 화면은 아니다."
+  },
+  {
+    "id": "P2631",
+    "source": {
+      "file": "bot/src/67-settings.lua",
+      "start": 80,
+      "end": 85,
+      "symbol": "tog"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "언어/난이도/기록/초기화 보존 검사는 통과. 원본 HTML 폼·호스트 그림·AI 장 요약/프롬프트 다이어트·제외 설정 및 원본 공유 링크와 전체 동일한 설정 화면은 아니다."
+  },
+  {
+    "id": "P2637",
+    "source": {
+      "file": "bot/src/67-settings.lua",
+      "start": 109,
+      "end": 150,
+      "symbol": "B.H.op"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "언어/난이도/기록/초기화 보존 검사는 통과. 원본 HTML 폼·호스트 그림·AI 장 요약/프롬프트 다이어트·제외 설정 및 원본 공유 링크와 전체 동일한 설정 화면은 아니다."
+  },
+  {
+    "id": "P3721",
+    "source": {
+      "file": "bot/src/85-portrait.lua",
+      "start": 42,
+      "end": 46,
+      "symbol": "B.portrait"
+    },
+    "previous_status": "일부",
+    "status": "일부",
+    "new_evidence": [],
+    "remaining_reason": "이름표 선택은 별도 행에서 대조했다. 이 함수의 RisuAI asset 토큰 HTML 반환과 native 승인된 로컬 그림/실루엣은 같은 반환 형식이 아니다."
+  },
+  {
+    "id": "P3731",
+    "source": {
+      "file": "bot/src/88-lore.lua",
+      "start": 56,
+      "end": 62,
+      "symbol": "B.place_label"
+    },
+    "previous_status": "일부",
+    "status": "같음",
+    "new_evidence": [
+      {
+        "test": "project/tests/ui_remaining_r23_test.gd",
+        "group": "P3731.place_label",
+        "checks": 252,
+        "implementation": "project/game/town_places_r22.gd:11",
+        "result": "verification/parity-r23/phase2/results.json",
+        "comparison_passed": true,
+        "scope": "원정 표시 위임 유무·층 0/음수/문자/빈 값; 원정 규칙 미수정"
+      }
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P3816",
+    "source": {
+      "file": "bot/src/89-memory.lua",
+      "start": 40,
+      "end": 44,
+      "symbol": "B.mem_jget"
+    },
+    "previous_status": "미확인",
+    "status": "미확인",
+    "new_evidence": [],
+    "remaining_reason": "연대기 저장 재개는 시험했으나 getChatVar 예외를 pcall로 삼키는 호스트 JSON getter는 native 파일 복원과 동일 경계가 아니다."
+  },
+  {
+    "id": "P3817",
+    "source": {
+      "file": "bot/src/89-memory.lua",
+      "start": 41,
+      "end": 41,
+      "symbol": "B.mem_jget::익명 함수@41"
+    },
+    "previous_status": "미확인",
+    "status": "미확인",
+    "new_evidence": [],
+    "remaining_reason": "getChatVar를 호출하는 원본 익명 callback의 호스트 예외 계약을 native 함수 동등성으로 확정하지 않았다."
+  }
+]

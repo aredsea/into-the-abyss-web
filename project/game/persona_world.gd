@@ -44,7 +44,7 @@ func research_action(who: String,arg: String) -> bool:
 func create_action(arg: String,kind="cr") -> bool:
 	if s.creation_r22.complete:return false
 	var g={"persona":s.persona,"scene":s.scene,"ui":s.ui,"scenario":s.scenario,"roster":s.owned,"party":s.party,"gold":s.gold}
-	s.ui.msg="";persona_rules.create_action(g,arg,kind)
+	s.ui.msg="";persona_rules.create_action(g,arg,kind,preload("res://game/localization_r22.gd").language(s))
 	s.scene=g.scene;s.scenario=g.scenario;s.owned=g.roster;s.party=g.party;s.gold=g.gold
 	if s.scene=="town":
 		s.creation_r22.complete=true

@@ -8,7 +8,12 @@ static func place_id(g: Dictionary) -> String:
 	if scene!="town":return ""
 	var p=g.get("place","")
 	return p if p is String and p!="smithy" and DATA.places.has(p) else "town"
-static func label(g: Dictionary,lang="ko") -> String:
+static func label(g: Dictionary,lang="ko",exploration=true) -> String:
+	if g.get("scene")=="dungeon" and exploration:
+		var l=preload("res://game/localization_r22.gd");var v=preload("res://game/ui_value_r23.gd")
+		var d=g.get("dungeon",{});var r=d.get("run") if d is Dictionary else null
+		var floor=r.get("floor") if r is Dictionary else null
+		return l.u("대던전{floor}",{"floor":l.u(" {n}층",{"n":floor},lang) if v.truth(floor) else ""},lang)
 	var p=place_id(g)
 	if g.get("scene")=="smithy" or (g.get("scene")=="town" and p!="town" and p!=""):
 		var l=preload("res://game/localization_r22.gd");var name=DATA.places[p].name

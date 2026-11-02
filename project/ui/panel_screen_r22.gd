@@ -19,7 +19,7 @@ func setup(owner_screen,heading: String) -> void:
 	var title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-112,58);title.text=L.render(heading,L.language(host.model.s));title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",38);title.clip_text=true;title.size.x=frame.size.x-112;L.fit_title(title,38)
 	var back=button("p7_back","뒤로",host.go.bind(host.panels_return,false),false,false,frame);back.position=Vector2(frame.size.x-88,20);back.size=Vector2(70,44);back.size_flags_horizontal=0
 	var tabs=HBoxContainer.new();frame.add_child(tabs);tabs.position=Vector2(18,82);tabs.size=Vector2(frame.size.x-36,48);tabs.add_theme_constant_override("separation",6)
-	for e in [["codex","도감"],["status","상태"],["inventory","장비 가방"]]:button("p7_tab_"+e[0],e[1],host.go.bind(e[0]),host.screen==e[0],false,tabs)
+	for e in [["codex","도감"],["status","상태"],["inventory","장비 가방"]]:button("p7_tab_"+e[0],e[1],switch_panel.bind(e[0]),host.screen==e[0],false,tabs)
 	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,148);scroll.size=Vector2(frame.size.x-36,frame.size.y-226);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
 	body=VBoxContainer.new();scroll.add_child(body);body.size_flags_horizontal=SIZE_EXPAND_FILL;body.add_theme_constant_override("separation",12)
 	var nav=HBoxContainer.new();frame.add_child(nav);nav.position=Vector2(12,frame.size.y-62);nav.size=Vector2(frame.size.x-24,50);nav.add_theme_constant_override("separation",4)
@@ -53,6 +53,15 @@ func cx(arg: String) -> void:
 	state.ui.msg="";state.cx(arg)
 	if arg=="bag" and state.ui.tab=="bag":host.screen="inventory"
 	host._save();host._draw_screen()
+func switch_panel(page: String) -> void:
+	# The bag is a status tab; switching HUD panels clears the old selection.
+	if page=="inventory":
+		if state.ui.panel!="status":state.hd("status")
+		state.st("t_bag")
+	else:
+		if state.ui.panel!=page:state.hd(page)
+		if page=="status":state.st("t_me")
+	host._save();host.go(page)
 func bg(arg: String) -> void:
 	state.ui.msg="";state.bg_action(arg);host._save();host._draw_screen()
 	if arg=="sell" and state.bg.conf!="":host.town_view.scroll.call_deferred("ensure_control_visible",host.controls.p7_bg_sell)

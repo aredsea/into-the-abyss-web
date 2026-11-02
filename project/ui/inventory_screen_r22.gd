@@ -40,11 +40,10 @@ func detail(e: Dictionary) -> void:
 	var members=state.members(it.cls)
 	if members.is_empty():text("장착할 수 있는 사람이 없습니다.",15,T.MUTED)
 	for m in members:
-		var why=state.can_equip(m.id,e);button("p7_bg_eq_"+m.id,member_name(m.id)+"에게 장착",bg.bind("eq_"+m.id),why=="",why!="")
+		var why=state.can_equip(m.id,e);button("p7_bg_eq_"+m.id,L.u("{name}에게 장착",{"name":member_name(m.id)},L.language(host.model.s)),bg.bind("eq_"+m.id),why=="",why!="")
 		if why!="":text(why,13,T.MUTED)
 	section("판매")
 	if state.bg.conf==e.code:text("%s 등급 장비입니다. 정말 팔까요?"%host.model.Gear.RARITY[it.rarity],16,T.RED)
 	button("p7_bg_sell",("정말 판매" if state.bg.conf==e.code else "판매")+" · 금화 %d"%host.model.gear.sell_price(e),bg.bind("sell"),false,state.in_battle())
 func member_name(id: String) -> String:
-	if id=="persona":return host.model.person(id).name
-	return R.DATA.cast[id].name
+	return state.member_name(id)

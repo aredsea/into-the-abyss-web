@@ -10,6 +10,8 @@ var notice="클라우드에 연결하면 다른 기기에서도 이어할 수 �
 var conflict: Dictionary={}
 var revisions: Array=[]
 var remote: Dictionary={}
+## Available to a narrative host after a validated restore; never sent automatically.
+var recap_context=""
 var first_credentials=false
 var archived=false
 var rank: Dictionary={}
@@ -149,6 +151,7 @@ func download(revision=0) -> void:
 			var error=storage.write(probe.s)
 			if error==OK:
 				model.s=probe.s;model.ensure_dungeon();remote=r;conflict={}
+				recap_context=preload("res://game/cloud_recap_r23.gd").recap(preload("res://game/cloud_recap_r23.gd").from_native(model.s))
 				# Restoring history never moves the optimistic-lock cursor backwards.
 				if revision==0:account.rev=int(r.rev);account.synced=true
 				persist();notice="기록 %d을 이 기기에 불러왔습니다. 이전 저장은 백업에 남습니다."%int(r.rev)

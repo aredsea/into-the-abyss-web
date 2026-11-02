@@ -2,7 +2,26 @@ extends RefCounted
 ## P1 pure source contracts: 60-create / 74-level / 75-sortie / 26-start.
 const KEYS=["str","agi","int","def","spd"]
 const Value=preload("res://game/ui_value_r23.gd")
+const Locale=preload("res://game/localization_r22.gd")
+const TextValues=preload("res://data/persona-text-r23.json").data
 var data=JSON.parse_string(FileAccess.get_file_as_string("res://data/persona-r22.json"))
+func parameter_text(value: Variant) -> String:
+	var s="nil" if value==null else str(value);var re=RegEx.new();re.compile("\\{([A-Za-z0-9_]+)\\.([A-Za-z0-9_]+)(%?)\\}")
+	var out="";var pos=0
+	for m in re.search_all(s):
+		out+=s.substr(pos,m.get_start()-pos)
+		var a=m.get_string(1);var b=m.get_string(2)
+		var table=TextValues.get("VAR",{}) if a=="var" else TextValues.get("X",{}).get(a,TextValues.get("P",{}).get(a,{}))
+		var v=table.get(b)
+		if v is int or v is float:
+			if m.get_string(3)=="%":v=floor(v*100+.5)
+			out+=Value.text(v)
+		else:out+=m.get_string()
+		pos=m.get_end()
+	return out+s.substr(pos)
+func syn_text(entry: Dictionary,lang="ko") -> Variant:
+	if lang=="ko" or not Value.truth(entry.get("syn2_raw")):return entry.get("syn")
+	return Locale.u("{two}, 3명이면 {three}",{"two":parameter_text(Locale.t(entry.syn2_raw,lang)),"three":parameter_text(Locale.t(entry.get("syn3_raw"),lang))},lang)
 
 func by(list: Array,key: String,value: Variant) -> Dictionary:
 	for entry in list:
@@ -64,15 +83,15 @@ func set_total(p: Dictionary,n: int,custom: bool) -> int:
 		if top.is_empty():break
 		p.bonus[top]=v-1
 	return before-spent(p)
-func ok(p: Dictionary,page: int) -> bool:
-	match page:
-		1:return p.race!="" and (p.race!="수인" or p.lineage!="")
-		2:return p.nation!="" and blocked(p.race,nation_id(p.nation)).is_empty()
-		3:return not cls(p.cls).is_empty()
-		4:return left(p)==0
+func ok(p: Dictionary,page) -> bool:
+	# Lua numeric equality treats 1 and 1.0 equally; GDScript match is typed.
+	if page==1:return p.race!="" and (p.race!="수인" or p.lineage!="")
+	if page==2:return p.nation!="" and blocked(p.race,nation_id(p.nation)).is_empty()
+	if page==3:return not cls(p.cls).is_empty()
+	if page==4:return left(p)==0
 	return true
-func reach(p: Dictionary,page: int) -> bool:
-	for n in range(1,page):
+func reach(p: Dictionary,page) -> bool:
+	for n in range(1,int(floor(page-1))+1):
 		if not ok(p,n):return false
 	return true
 func calc(p: Dictionary) -> Dictionary:
@@ -82,7 +101,8 @@ func calc(p: Dictionary) -> Dictionary:
 	for key in KEYS:out[key]=c[key]+p.get("bonus",{}).get(key,0)*(2 if key=="spd" else 1)
 	return out
 
-func create_action(g: Dictionary,arg: String,kind="cr") -> void:
+func create_action(g: Dictionary,arg: String,kind="cr",language: Variant=null) -> void:
+	var lang=Locale.language(g) if language==null else language
 	if kind=="sc":
 		if g.scene!="scenario" or g.scenario!="":return
 		if arg.begins_with("pick_"):
@@ -90,12 +110,14 @@ func create_action(g: Dictionary,arg: String,kind="cr") -> void:
 		elif arg=="back":g.scene="create";g.ui.page=5;g.ui.sel=""
 		elif arg=="go":
 			var sc=by(data.scenarios,"id",g.ui.sel)
-			if sc.is_empty():g.ui.msg="먼저 만남을 골라 주세요.";return
+			if sc.is_empty():g.ui.msg=Locale.u("먼저 만남을 골라 주세요.",{},lang);return
 			g.scenario=sc.id;g.roster=[sc.companion];g.party=[sc.companion];g.gold=300;g.scene="town";g.ui.page=1;g.ui.sel=""
 		return
 	if g.scene!="create":return
 	var p=g.persona;prepare(p)
-	var parts=arg.split("_",true,1);var cmd=parts[0];var rest=parts[1] if parts.size()>1 else ""
+	var re=RegEx.new();re.compile("^([a-z]+)_?(.*)$");var m=re.search(arg)
+	if m==null:return
+	var cmd=m.get_string(1);var rest=m.get_string(2)
 	match cmd:
 		"race":
 			var r=by(data.races,"id",rest)
@@ -103,7 +125,7 @@ func create_action(g: Dictionary,arg: String,kind="cr") -> void:
 			p.race=r.name
 			if r.id!="beast":p.lineage=""
 			var bl=blocked(p.race,nation_id(p.nation))
-			if not bl.is_empty():g.ui.msg="「%s」 출신은 이 종족과 맞지 않아 비웠습니다. %s 출신을 다시 골라 주세요."%[p.nation,bl.m];p.nation=""
+			if not bl.is_empty():g.ui.msg=Locale.u("「{nation}」 출신은 이 종족과 맞지 않아 비웠습니다. {reason} 출신을 다시 골라 주세요.",{"nation":p.nation,"reason":bl.m},lang);p.nation=""
 		"lin":
 			var l=by(data.lineages,"id",rest)
 			if not l.is_empty() and p.race=="수인":p.lineage=l.name
@@ -111,7 +133,7 @@ func create_action(g: Dictionary,arg: String,kind="cr") -> void:
 			var n=by(data.nations,"id",rest)
 			if n.is_empty():return
 			var bl=blocked(p.race,n.id)
-			if not bl.is_empty():g.ui.msg=bl.m;return
+			if not bl.is_empty():g.ui.msg=Locale.t(bl.m,lang);return
 			p.nation=n.name
 		"cls":
 			var c=by(data.classes,"id",rest)
@@ -120,8 +142,8 @@ func create_action(g: Dictionary,arg: String,kind="cr") -> void:
 			if rest not in KEYS:return
 			var cur=p.bonus.get(rest,0)
 			if cmd=="up":
-				if left(p)<=0:g.ui.msg="남은 점수가 없습니다.";return
-				if cur>=cap(total(p)):g.ui.msg="한 능력치에는 최대 %d점까지만 줄 수 있습니다."%cap(total(p));return
+				if left(p)<=0:g.ui.msg=Locale.u("남은 점수가 없습니다.",{},lang);return
+				if cur>=cap(total(p)):g.ui.msg=Locale.u("한 능력치에는 최대 {cap}점까지만 줄 수 있습니다.",{"cap":cap(total(p))},lang);return
 				p.bonus[rest]=cur+1
 			elif cur>0:p.bonus[rest]=cur-1
 		"clear":p.bonus={"str":0,"agi":0,"int":0,"def":0,"spd":0}
@@ -137,19 +159,22 @@ func create_action(g: Dictionary,arg: String,kind="cr") -> void:
 			if rest=="free":p.bonus_custom=1;return
 			var n=0;var custom=rest in ["m5","m1","p1","p5"]
 			if custom:n=total(p)+int(rest.substr(1))*(-1 if rest.begins_with("m") else 1)
-			elif rest in ["5","10","20"]:n=int(rest)
-			else:return
+			else:
+				var value=Value.number(rest,NAN)
+				if value!=5 and value!=10 and value!=20:return
+				n=int(value)
 			var cut=set_total(p,n,custom)
-			if cut>0:g.ui.msg="총량이 %d점으로 바뀌어 나눠 둔 점수 %d점을 줄였습니다. 남은 점수를 다시 나눠 주세요."%[total(p),cut]
+			if cut>0:g.ui.msg=Locale.u("총량이 {n}점으로 바뀌어 나눠 둔 점수 {cut}점을 줄였습니다. 남은 점수를 다시 나눠 주세요.",{"n":n,"cut":cut},lang)
 		"next":
-			if not ok(p,int(g.ui.page)):g.ui.msg="이 단계부터 채워 주세요.";return
-			g.ui.page=mini(5,int(g.ui.page)+1)
-		"back":g.ui.page=maxi(1,int(g.ui.page)-1)
+			var page=Value.number(g.ui.page,1)
+			if not ok(p,page):g.ui.msg=Locale.u("이 단계부터 채워 주세요.",{},lang);return
+			g.ui.page=min(5,page+1)
+		"back":g.ui.page=max(1,Value.number(g.ui.page,1)-1)
 		"go":
-			var n=int(rest)
+			var n=Value.number(rest,NAN)
 			if n>=1 and n<=5 and reach(p,n):g.ui.page=n
 		"done":
-			if not reach(p,5):g.ui.msg="아직 비어 있는 단계가 있습니다.";return
+			if not reach(p,5):g.ui.msg=Locale.u("아직 비어 있는 단계가 있습니다.",{},lang);return
 			p.stats=calc(p);p.name="{{user}}";g.scene="scenario";g.ui.page=1;g.ui.sel=""
 
 func clean(party: Array,roster: Array,fight: int,valid: Array) -> Array:
