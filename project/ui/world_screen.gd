@@ -51,6 +51,8 @@ var details_return="member"
 var town_r21_preview=false
 var result_view: Control
 var panels_r22
+var panels_return="town"
+var journal_return="town"
 var journal_r22={"place":"town","person":"","legacy":false}
 
 func _ready() -> void:
@@ -66,7 +68,9 @@ func _save() -> void:
 	save_error=storage.write(model.s)
 	if save_error!=OK: message="저장 실패: 창을 닫기 전에 다시 시도하세요."
 
-func go(page: String) -> void:
+func go(page: String,remember_entry=true) -> void:
+	if remember_entry and page in ["codex","status","inventory"] and screen not in ["codex","status","inventory"]:panels_return=screen
+	if remember_entry and page in ["journal","places","people"] and screen not in ["journal","places","people"]:journal_return=screen
 	if page=="town" and screen=="summary" and model.has_method("chronicle_home"):model.chronicle_home();_save()
 	if page=="member_details" and screen in ["member","skills"]: details_return=screen
 	if model.active() and page in ["town","shop","inn","depart","guild","smithy"]: page="explore"
@@ -500,7 +504,7 @@ func _publish() -> void:
 			if parent is ScrollContainer:clip=clip.intersection(parent.get_global_rect())
 			parent=parent.get_parent()
 		buttons[id].clip=[clip.position.x,clip.position.y,clip.size.x,clip.size.y]
-	var report={"build":model.config.build,"ui_build":"r21-d-town-20261102d","town_r21_preview":town_r21_preview,"screen":"battle" if is_instance_valid(battle) else screen,"state":model.s,"controls":buttons,"viewport":[size.x,size.y],"restored":restored,"save_error":save_error,"art_preview":art_preview_id,"town_scroll_height":content.size.y if is_instance_valid(content) else 0}
+	var report={"build":model.config.build,"ui_build":"r21-d-town-20261102e","town_r21_preview":town_r21_preview,"screen":"battle" if is_instance_valid(battle) else screen,"state":model.s,"controls":buttons,"viewport":[size.x,size.y],"restored":restored,"save_error":save_error,"art_preview":art_preview_id,"town_scroll_height":content.size.y if is_instance_valid(content) else 0}
 	if is_instance_valid(town_view): report.town_text=town_view.metrics
 	JavaScriptBridge.eval("window.__abyssWorld="+JSON.stringify(report)+";",true)
 

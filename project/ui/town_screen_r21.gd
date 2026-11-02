@@ -167,9 +167,9 @@ func navigation() -> void:
 		var e=entries[i]; var x=i*78.0; var color=T.RED if selected==e[0] else T.INK
 		var destination="explore" if e[0]=="depart" and host.model.active() else e[0]
 		hit("nav:"+e[0],Rect2(x,nav_top+2,78,844-nav_top-2),host.go.bind(destination))
-		icon("nav-"+e[2],Rect2(x+28,nav_top+11,28,27),color)
-		var l=label(e[1],Rect2(x,nav_top+39,78,18),11,color,T.BOLD); l.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-		if selected==e[0]: fill("nav_active",Rect2(x+20,837,39,2),T.RED)
+		icon("nav-"+e[2],Rect2(x+28,minf(nav_top+11,795),28,24),color)
+		var l=label(e[1],Rect2(x,minf(nav_top+39,822),78,18),11,color,T.BOLD); l.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+		if selected==e[0]: fill("nav_active",Rect2(x+20,842,39,2),T.RED)
 		if i<4: fill("nav_divider"+str(i),Rect2(x+78,nav_top+13,1,25),T.LINE)
 
 func home() -> void:
@@ -191,8 +191,8 @@ func home() -> void:
 	picture(lead,Rect2(50,103,340,428),"town-main")
 	fill("hero_caption",Rect2(14,460,277,71),Color(0.067,.09,.08,.85))
 	label("주요 동료",Rect2(22,460,160,17),9,T.PAPER)
-	display(host.model.person(lead).name,Rect2(22,473,225,40),T.PAPER,37)
-	label(host.model.person(lead)["class"],Rect2(255,493,42,23),13,T.PAPER,T.BOLD)
+	display(host.model.person(lead).name,Rect2(22,473,255,36),T.PAPER,37)
+	label(host.model.person(lead)["class"],Rect2(22,509,255,22),12,T.PAPER,T.BOLD)
 	label("출전 파티",Rect2(14,532,150,16),9,T.INK,T.BOLD)
 	for i in range(host.model.s.party.size()):
 		var id=host.model.s.party[i]; var x=14+i*92

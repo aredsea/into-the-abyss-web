@@ -5,8 +5,8 @@ R=Path(__file__).resolve().parents[1];O=R/'verification/town-r21';O.mkdir(exist_
 headless=['world_test','state_test','route_test','expansion_test','motion_test','motion_asset_test','art_test','export_licenses','town_r21_test','data_r21_test','dungeon_r21_test','enemy_action_r21_test','enemy_regression_r21_test','enemy_review_r21_test','town_commerce_r21_test','persona_research_r21_test','affection_r21_test','dialogue_player_r21_test','recruit_r21_test']
 render=['ui_battle_r17_test','ui_battle_r18_test','ui_battle_r19_test','ui_battle_r20_test','motion_r9_integration','motion_r18_integration','ui_town_r21_test','ui_town_r21_round2_test','ui_data_r21_test','ui_town_r21_round3_test','ui_town_result_r21_test','ui_town_r21_round4_test','ui_town_r21_round5_test','ui_dialogue_r21_test']
 selected=set(sys.argv[1:])
-headless+=['persona_r22_test','persona_town_r21_round8_test']
-render+=['ui_persona_r22_test','ui_persona_town_round8_test']
+headless+=['persona_r22_test','persona_town_r21_round8_test','panels_r22_test','chronicle_r22_test','town_r21_round9_test']
+render+=['ui_persona_r22_test','ui_persona_town_round8_test','ui_panels_r22_test','ui_chronicle_r22_test','ui_town_r21_round9_test']
 results=json.loads((O/'common-results.json').read_text(encoding='utf-8')) if selected and (O/'common-results.json').exists() else []
 commands=[('import',['--headless','--editor','--import','--quit'])]+[(name,['--headless' if name in headless else '--position']+([] if name in headless else ['-10000,-10000'])+['--script',f'res://tests/{name}.gd']) for name in headless+render]
 if selected:commands=[c for c in commands if c[0] in selected]

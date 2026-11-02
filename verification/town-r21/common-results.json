@@ -1,8 +1,16 @@
 [
   {
+    "name": "import",
+    "exit_code": 0,
+    "seconds": 3.66,
+    "errors": [],
+    "summary": [],
+    "environment_certificate_warning": true
+  },
+  {
     "name": "world_test",
     "exit_code": 0,
-    "seconds": 0.66,
+    "seconds": 0.5,
     "errors": [],
     "summary": [
       "WORLD TESTS: 44 checks, 0 failures"
@@ -12,7 +20,7 @@
   {
     "name": "state_test",
     "exit_code": 0,
-    "seconds": 1.11,
+    "seconds": 0.92,
     "errors": [],
     "summary": [
       "COMBAT CHECKS: 54; FAILURES: 0"
@@ -22,7 +30,7 @@
   {
     "name": "route_test",
     "exit_code": 0,
-    "seconds": 0.53,
+    "seconds": 0.47,
     "errors": [],
     "summary": [
       "ROUTE TESTS: 41 checks, 0 failures"
@@ -32,7 +40,7 @@
   {
     "name": "expansion_test",
     "exit_code": 0,
-    "seconds": 1.55,
+    "seconds": 1.28,
     "errors": [],
     "summary": [
       "EXPANSION CHECKS 3350 FAILURES 0"
@@ -42,7 +50,7 @@
   {
     "name": "motion_test",
     "exit_code": 0,
-    "seconds": 0.42,
+    "seconds": 0.34,
     "errors": [],
     "summary": [
       "MOTION TIMELINE PASS: contact, hitstop, pause, speed, skip, large delta"
@@ -52,7 +60,7 @@
   {
     "name": "motion_asset_test",
     "exit_code": 0,
-    "seconds": 0.48,
+    "seconds": 0.44,
     "errors": [],
     "summary": [
       "MOTION ASSET PASS: 19 clips, original starts, natural recovery, timing, attachments and mappings"
@@ -62,7 +70,7 @@
   {
     "name": "art_test",
     "exit_code": 0,
-    "seconds": 0.88,
+    "seconds": 0.72,
     "errors": [],
     "summary": [
       "PASS 30 characters / 60 UV frames / 30 unique cinematics / impact and completion"
@@ -72,7 +80,7 @@
   {
     "name": "export_licenses",
     "exit_code": 0,
-    "seconds": 0.41,
+    "seconds": 0.34,
     "errors": [],
     "summary": [
       "Exported Godot and bundled library license notices."
@@ -82,7 +90,7 @@
   {
     "name": "town_r21_test",
     "exit_code": 0,
-    "seconds": 1.78,
+    "seconds": 1.56,
     "errors": [],
     "summary": [
       "TOWN R21 CHECKS 2675 FAILURES 0 LUA SAMPLES 2544"
@@ -92,7 +100,7 @@
   {
     "name": "data_r21_test",
     "exit_code": 0,
-    "seconds": 1.14,
+    "seconds": 1.12,
     "errors": [],
     "summary": [
       "DATA_R21 checks=7493 failures=0 composition=1028 stats=700 exploration=300"
@@ -102,7 +110,7 @@
   {
     "name": "dungeon_r21_test",
     "exit_code": 0,
-    "seconds": 77.98,
+    "seconds": 71.28,
     "errors": [],
     "summary": [
       "DUNGEON_R21 {\"art_fallbacks\":0,\"checks\":3018,\"details\":[],\"enemies\":100,\"failures\":0,\"floors\":420,\"outcomes\":{\"defeat\":420,\"natural_defeat\":53,\"natural_victory\":141,\"victory\":420}}"
@@ -112,7 +120,7 @@
   {
     "name": "enemy_action_r21_test",
     "exit_code": 0,
-    "seconds": 110.44,
+    "seconds": 86.41,
     "errors": [],
     "summary": [
       "ENEMY_ACTION_R21 {\"checks\":2878,\"continuous_matched\":1221,\"enemies\":100,\"failures\":0,\"gear_samples\":120,\"matched\":1221,\"samples\":1221,\"silence_samples\":200}"
@@ -122,7 +130,7 @@
   {
     "name": "enemy_regression_r21_test",
     "exit_code": 0,
-    "seconds": 1.62,
+    "seconds": 1.39,
     "errors": [],
     "summary": [
       "ENEMY_REGRESSION_R21 {\"checks\":30,\"failures\":[]}"
@@ -132,7 +140,7 @@
   {
     "name": "enemy_review_r21_test",
     "exit_code": 0,
-    "seconds": 14.11,
+    "seconds": 11.84,
     "errors": [],
     "summary": [
       "ENEMY_REVIEW_R21 {\"checks\":354,\"evidence\":{\"fourth\":{\"saves\":[{\"hp\":200,\"input\":{\"hp\":200.0,\"kind\":\"wall_own\",\"rng_unchanged\":true,\"shield\":0.0,\"wall\":3.0},\"rng_unchanged\":true,\"shield\":0,\"wall_after_tick\":2},{\"hp\":200,\"input\":{\"hp\":200.0,\"kind\":\"wall_other\",\"rng_unchanged\":true,\"shield\":0.0,\"wall\":2.0},\"rng_unchanged\":true,\"shield\":0,\"wall_after_tick\":1},{\"hp\":251,\"input\":{\"hp\":251.0,\"kind\":\"marceline\",\"rng_unchanged\":true,\"shield\":150.0,\"wall\":0.0},\"rng_unchanged\":true,\"shield\":150,\"wall_after_tick\":0},{\"hp\":600,\"input\":{\"hp\":600.0,\"kind\":\"priest\",\"rng_unchanged\":true,\"shield\":150.0,\"wall\":0.0},\"rng_unchanged\":true,\"shield\":150,\"wall_after_tick\":0}],\"saya\":[{\"actual\":{\"next\":1,\"rng\":490999122,\"stack\":false},\"input\":{\"next\":1.0,\"rng\":490999122.0,\"seed\":1.0,\"stack\":false}},{\"actual\":{\"next\":3,\"rng\":1401027504,\"stack\":false},\"input\":{\"next\":3.0,\"rng\":1401027504.0,\"seed\":2.0,\"stack\":false}},{\"actual\":{\"next\":1,\"rng\":163572239,\"stack\":false},\"input\":{\"next\":1.0,\"rng\":163572239.0,\"seed\":3.0,\"stack\":false}},{\"actual\":{\"next\":2,\"rng\":1073600621,\"stack\":false},\"input\":{\"next\":2.0,\"rng\":1073600621.0,\"seed\":4.0,\"stack\":false}},{\"actual\":{\"next\":4,\"rng\":1983629003,\"stack\":false},\"input\":{\"next\":4.0,\"rng\":1983629003.0,\"seed\":5.0,\"stack\":false}},{\"actual\":{\"next\":2,\"rng\":746173738,\"stack\":false},\"input\":{\"next\":2.0,\"rng\":746173738.0,\"seed\":6.0,\"stack\":false}},{\"actual\":{\"next\":4,\"rng\":1656202120,\"stack\":false},\"input\":{\"next\":4.0,\"rng\":1656202120.0,\"seed\":7.0,\"stack\":false}},{\"actual\":{\"next\":1,\"rng\":418746855,\"stack\":false},\"input\":{\"next\":1.0,\"rng\":418746855.0,\"seed\":8.0,\"stack\":false}},{\"actual\":{\"next\":3,\"rng\":1328775237,\"stack\":false},\"input\":{\"next\":3.0,\"rng\":1328775237.0,\"seed\":9.0,\"stack\":false}},{\"actual\":{\"next\":1,\"rng\":91319972,\"stack\":false},\"input\":{\"next\":1.0,\"rng\":91319972.0,\"seed\":10.0,\"stack\":false}},{\"actual\":{\"next\":2,\"rng\":1001348354,\"stack\":false},\"input\":{\"next\":2.0,\"rng\":1001348354.0,\"seed\":11.0,\"stack\":false}},{\"actual\":{\"next\":4,\"rng\":1911376736,\"stack\":false},\"input\":{\"next\":4.0,\"rng\":1911376736.0,\"seed\":12.0,\"stack\":false}},{\"actual\":{\"next\":2,\"rng\":673921471,\"stack\":false},\"input\":{\"next\":2.0,\"rng\":673921471.0,\"seed\":13.0,\"stack\":false}},{\"actual\":{\"next\":3,\"rng\":1583949853,\"stack\":false},\"input\":{\"next\":3.0,\"rng\":1583949853.0,\"seed\":14.0,\"stack\":false}},{\"actual\":{\"next\":1,\"rng\":346494588,\"stack\":false},\"input\":{\"next\":1.0,\"rng\":346494588.0,\"seed\":15.0,\"stack\":false}},{\"actual\":{\"next\":3,\"rng\":1256522970,\"stack\":false},\"input\":{\"next\":3.0,\"rng\":1256522970.0,\"seed\":16.0,\"stack\":false}},{\"actual\":{\"next\":1,\"rng\":19067705,\"stack\":false},\"input\":{\"next\":1.0,\"rng\":19067705.0,\"seed\":17.0,\"stack\":false}},{\"actual\":{\"next\":2,\"rng\":929096087,\"stack\":false},\"input\":{\"next\":2.0,\"rng\":929096087.0,\"seed\":18.0,\"stack\":false}},{\"actual\":{\"next\":4,\"rng\":1839124469,\"stack\":false},\"input\":{\"next\":4.0,\"rng\":1839124469.0,\"seed\":19.0,\"stack\":false}},{\"actual\":{\"next\":2,\"rng\":601669204,\"stack\":false},\"input\":{\"next\":2.0,\"rng\":601669204.0,\"seed\":20.0,\"stack\":false}}],\"seals\":[{\"actual\":{\"next\":1,\"rng\":490999122,\"stack\":false},\"input\":{\"colette\":1.0,\"magic\":true,\"next\":1.0,\"rng\":490999122.0,\"saya\":true,\"sealed\":true,\"stack\":false,\"target\":2.0}},{\"actual\":{\"next\":1,\"rng\":17176754,\"stack\":false},\"input\":{\"colette\":1.0,\"magic\":true,\"next\":1.0,\"rng\":17176754.0,\"saya\":false,\"sealed\":true,\"stack\":false,\"target\":2.0}},{\"actual\":{\"next\":1,\"rng\":490999122,\"stack\":false},\"input\":{\"colette\":1.0,\"magic\":false,\"next\":1.0,\"rng\":490999122.0,\"saya\":true,\"sealed\":true,\"stack\":false,\"target\":2.0}},{\"actual\":{\"next\":2,\"rng\":926895780,\"stack\":false},\"input\":{\"colette\":1.0,\"magic\":false,\"next\":2.0,\"rng\":926895780.0,\"saya\":false,\"sealed\":true,\"stack\":false,\"target\":2.0}},{\"actual\":{\"next\":1,\"rng\":490999122,\"stack\":false},\"input\":{\"colette\":1.0,\"magic\":true,\"next\":1.0,\"rng\":490999122.0,\"saya\":true,\"sealed\":false,\"stack\":false,\"target\":2.0}},{\"actual\":{\"next\":2,\"rng\":926895780,\"stack\":false},\"input\":{\"colette\":1.0,\"magic\":true,\"next\":2.0,\"rng\":926895780.0,\"saya\":false,\"sealed\":false,\"stack\":false,\"target\":2.0}},{\"actual\":{\"next\":1,\"rng\":490999122,\"stack\":false},\"input\":{\"colette\":1.0,\"magic\":false,\"next\":1.0,\"rng\":490999122.0,\"saya\":true,\"sealed\":false,\"stack\":false,\"target\":2.0}},{\"actual\":{\"next\":2,\"rng\":926895780,\"stack\":false},\"input\":{\"colette\":1.0,\"magic\":false,\"next\":2.0,\"rng\":926895780.0,\"saya\":false,\"sealed\":false,\"stack\":false,\"target\":2.0}},{\"actual\":{\"next\":1,\"rng\":490999122,\"stack\":false},\"input\":{\"colette\":2.0,\"magic\":true,\"next\":1.0,\"rng\":490999122.0,\"saya\":true,\"sealed\":true,\"stack\":false,\"target\":1.0}},{\"actual\":{\"next\":1,\"rng\":17176754,\"stack\":false},\"input\":{\"colette\":2.0,\"magic\":true,\"next\":1.0,\"rng\":17176754.0,\"saya\":false,\"sealed\":true,\"stack\":false,\"target\":1.0}},{\"actual\":{\"next\":1,\"rng\":490999122,\"stack\":false},\"input\":{\"colette\":2.0,\"magic\":false,\"next\":1.0,\"rng\":490999122.0,\"saya\":true,\"sealed\":true,\"stack\":false,\"target\":1.0}},{\"actual\":{\"next\":2,\"rng\":926895780,\"stack\":false},\"input\":{\"colette\":2.0,\"magic\":false,\"next\":2.0,\"rng\":926895780.0,\"saya\":false,\"sealed\":true,\"stack\":false,\"target\":1.0}},{\"actual\":{\"next\":1,\"rng\":490999122,\"stack\":false},\"input\":{\"colette\":2.0,\"magic\":true,\"next\":1.0,\"rng\":490999122.0,\"saya\":true,\"sealed\":false,\"stack\":false,\"target\":1.0}},{\"actual\":{\"next\":2,\"rng\":926895780,\"stack\":false},\"input\":{\"colette\":2.0,\"magic\":true,\"next\":2.0,\"rng\":926895780.0,\"saya\":false,\"sealed\":false,\"stack\":false,\"target\":1.0}},{\"actual\":{\"next\":1,\"rng\":490999122,\"stack\":false},\"input\":{\"colette\":2.0,\"magic\":false,\"next\":1.0,\"rng\":490999122.0,\"saya\":true,\"sealed\":false,\"stack\":false,\"target\":1.0}},{\"actual\":{\"next\":2,\"rng\":926895780,\"stack\":false},\"input\":{\"colette\":2.0,\"magic\":false,\"next\":2.0,\"rng\":926895780.0,\"saya\":false,\"sealed\":false,\"stack\":false,\"target\":1.0}},{\"actual\":{\"next\":1,\"rng\":490999122,\"stack\":false},\"input\":{\"colette\":4.0,\"magic\":true,\"next\":1.0,\"rng\":490999122.0,\"saya\":true,\"sealed\":true,\"stack\":false,\"target\":1.0}},{\"actual\":{\"next\":1,\"rng\":17176754,\"stack\":false},\"input\":{\"colette\":4.0,\"magic\":true,\"next\":1.0,\"rng\":17176754.0,\"saya\":false,\"sealed\":true,\"stack\":false,\"target\":1.0}},{\"actual\":{\"next\":1,\"rng\":490999122,\"stack\":false},\"input\":{\"colette\":4.0,\"magic\":false,\"next\":1.0,\"rng\":490999122.0,\"saya\":true,\"sealed\":true,\"stack\":false,\"target\":1.0}},{\"actual\":{\"next\":2,\"rng\":926895780,\"stack\":false},\"input\":{\"colette\":4.0,\"magic\":false,\"next\":2.0,\"rng\":926895780.0,\"saya\":false,\"sealed\":true,\"stack\":false,\"target\":1.0}},{\"actual\":{\"next\":1,\"rng\":490999122,\"stack\":false},\"input\":{\"colette\":4.0,\"magic\":true,\"next\":1.0,\"rng\":490999122.0,\"saya\":true,\"sealed\":false,\"stack\":false,\"target\":1.0}},{\"actual\":{\"next\":2,\"rng\":926895780,\"stack\":false},\"input\":{\"colette\":4.0,\"magic\":true,\"next\":2.0,\"rng\":926895780.0,\"saya\":false,\"sealed\":false,\"stack\":false,\"target\":1.0}},{\"actual\":{\"next\":1,\"rng\":490999122,\"stack\":false},\"input\":{\"colette\":4.0,\"magic\":false,\"next\":1.0,\"rng\":490999122.0,\"saya\":true,\"sealed\":false,\"stack\":false,\"target\":1.0}},{\"actual\":{\"next\":2,\"rng\":926895780,\"stack\":false},\"input\":{\"colette\":4.0,\"magic\":false,\"next\":2.0,\"rng\":926895780.0,\"saya\":false,\"sealed\":false,\"stack\":false,\"target\":1.0}}],\"strikes\":[{\"actual_loss\":1,\"input\":{\"cid\":\"neutral\",\"fixed\":true,\"loss\":1.0,\"raw\":1.0,\"stance\":0.0}},{\"actual_loss\":1,\"input\":{\"cid\":\"neutral\",\"fixed\":true,\"loss\":1.0,\"raw\":1.0,\"stance\":1.0}},{\"actual_loss\":6,\"input\":{\"cid\":\"neutral\",\"fixed\":true,\"loss\":6.0,\"raw\":7.0,\"stance\":0.0}},{\"actual_loss\":6,\"input\":{\"cid\":\"neutral\",\"fixed\":true,\"loss\":6.0,\"raw\":7.0,\"stance\":1.0}},{\"actual_loss\":9,\"input\":{\"cid\":\"neutral\",\"fixed\":true,\"loss\":9.0,\"raw\":10.0,\"stance\":0.0}},{\"actual_loss\":9,\"input\":{\"cid\":\"neutral\",\"fixed\":true,\"loss\":9.0,\"raw\":10.0,\"stance\":1.0}},{\"actual_loss\":10,\"input\":{\"cid\":\"neutral\",\"fixed\":true,\"loss\":10.0,\"raw\":11.0,\"stance\":0.0}},{\"actual_loss\":10,\"input\":{\"cid\":\"neutral\",\"fixed\":true,\"loss\":10.0,\"raw\":11.0,\"stance\":1.0}},{\"actual_loss\":89,\"input\":{\"cid\":\"neutral\",\"fixed\":true,\"loss\":89.0,\"raw\":99.0,\"stance\":0.0}},{\"actual_loss\":89,\"input\":{\"cid\":\"neutral\",\"fixed\":true,\"loss\":89.0,\"raw\":99.0,\"stance\":1.0}},{\"actual_loss\":90,\"input\":{\"cid\":\"neutral\",\"fixed\":true,\"loss\":90.0,\"raw\":100.0,\"stance\":0.0}},{\"actual_loss\":90,\"input\":{\"cid\":\"neutral\",\"fixed\":true,\"loss\":90.0,\"raw\":100.0,\"stance\":1.0}},{\"actual_loss\":91,\"input\":{\"cid\":\"neutral\",\"fixed\":true,\"loss\":91.0,\"raw\":101.0,\"stance\":0.0}},{\"actual_loss\":91,\"input\":{\"cid\":\"neutral\",\"fixed\":true,\"loss\":91.0,\"raw\":101.0,\"stance\":1.0}},{\"actual_loss\":1,\"input\":{\"cid\":\"hildegard\",\"fixed\":true,\"loss\":1.0,\"raw\":1.0,\"stance\":0.0}},{\"actual_loss\":1,\"input\":{\"cid\":\"hildegard\",\"fixed\":true,\"loss\":1.0,\"raw\":1.0,\"stance\":1.0}},{\"actual_loss\":4,\"input\":{\"cid\":\"hildegard\",\"fixed\":true,\"loss\":4.0,\"raw\":7.0,\"stance\":0.0}},{\"actual_loss\":4,\"input\":{\"cid\":\"hildegard\",\"fixed\":true,\"loss\":4.0,\"raw\":7.0,\"stance\":1.0}},{\"actual_loss\":5,\"input\":{\"cid\":\"hildegard\",\"fixed\":true,\"loss\":5.0,\"raw\":10.0,\"stance\":0.0}},{\"actual_loss\":5,\"input\":{\"cid\":\"hildegard\",\"fixed\":true,\"loss\":5.0,\"raw\":10.0,\"stance\":1.0}},{\"actual_loss\":6,\"input\":{\"cid\":\"hildegard\",\"fixed\":true,\"loss\":6.0,\"raw\":11.0,\"stance\":0.0}},{\"actual_loss\":6,\"input\":{\"cid\":\"hildegard\",\"fixed\":true,\"loss\":6.0,\"raw\":11.0,\"stance\":1.0}},{\"actual_loss\":57,\"input\":{\"cid\":\"hildegard\",\"fixed\":true,\"loss\":57.0,\"raw\":99.0,\"stance\":0.0}},{\"actual_loss\":57,\"input\":{\"cid\":\"hildegard\",\"fixed\":true,\"loss\":57.0,\"raw\":99.0,\"stance\":1.0}},{\"actual_loss\":58,\"input\":{\"cid\":\"hildegard\",\"fixed\":true,\"loss\":58.0,\"raw\":100.0,\"stance\":0.0}},{\"actual_loss\":58,\"input\":{\"cid\":\"hildegard\",\"fixed\":true,\"loss\":58.0,\"raw\":100.0,\"stance\":1.0}},{\"actual_loss\":58,\"input\":{\"cid\":\"hildegard\",\"fixed\":true,\"loss\":58.0,\"raw\":101.0,\"stance\":0.0}},{\"actual_loss\":58,\"input\":{\"cid\":\"hildegard\",\"fixed\":true,\"loss\":58.0,\"raw\":101.0,\"stance\":1.0}},{\"actual_loss\":1,\"input\":{\"cid\":\"neutral\",\"fixed\":false,\"loss\":1.0,\"raw\":1.0,\"stance\":0.0}},{\"actual_loss\":1,\"input\":{\"cid\":\"neutral\",\"fixed\":false,\"loss\":1.0,\"raw\":1.0,\"stance\":1.0}},{\"actual_loss\":6,\"input\":{\"cid\":\"neutral\",\"fixed\":false,\"loss\":6.0,\"raw\":7.0,\"stance\":0.0}},{\"actual_loss\":4,\"input\":{\"cid\":\"neutral\",\"fixed\":false,\"loss\":4.0,\"raw\":7.0,\"stance\":1.0}},{\"actual_loss\":9,\"input\":{\"cid\":\"neutral\",\"fixed\":false,\"loss\":9.0,\"raw\":10.0,\"stance\":0.0}},{\"actual_loss\":5,\"input\":{\"cid\":\"neutral\",\"fixed\":false,\"loss\":5.0,\"raw\":10.0,\"stance\":1.0}},{\"actual_loss\":10,\"input\":{\"cid\":\"neutral\",\"fixed\":false,\"loss\":10.0,\"raw\":11.0,\"stance\":0.0}},{\"actual_loss\":5,\"input\":{\"cid\":\"neutral\",\"fixed\":false,\"loss\":5.0,\"raw\":11.0,\"stance\":1.0}},{\"actual_loss\":89,\"input\":{\"cid\":\"neutral\",\"fixed\":false,\"loss\":89.0,\"raw\":99.0,\"stance\":0.0}},{\"actual_loss\":53,\"input\":{\"cid\":\"neutral\",\"fixed\":false,\"loss\":53.0,\"raw\":99.0,\"stance\":1.0}},{\"actual_loss\":90,\"input\":{\"cid\":\"neutral\",\"fixed\":false,\"loss\":90.0,\"raw\":100.0,\"stance\":0.0}},{\"actual_loss\":54,\"input\":{\"cid\":\"neutral\",\"fixed\":false,\"loss\":54.0,\"raw\":100.0,\"stance\":1.0}},{\"actual_loss\":91,\"input\":{\"cid\":\"neutral\",\"fixed\":false,\"loss\":91.0,\"raw\":101.0,\"stance\":0.0}},{\"actual_loss\":54,\"input\":{\"cid\":\"neutral\",\"fixed\":false,\"loss\":54.0,\"raw\":101.0,\"stance\":1.0}},{\"actual_loss\":1,\"input\":{\"cid\":\"hildegard\",\"fixed\":false,\"loss\":1.0,\"raw\":1.0,\"stance\":0.0}},{\"actual_loss\":1,\"input\":{\"cid\":\"hildegard\",\"fixed\":false,\"loss\":1.0,\"raw\":1.0,\"stance\":1.0}},{\"actual_loss\":4,\"input\":{\"cid\":\"hildegard\",\"fixed\":false,\"loss\":4.0,\"raw\":7.0,\"stance\":0.0}},{\"actual_loss\":3,\"input\":{\"cid\":\"hildegard\",\"fixed\":false,\"loss\":3.0,\"raw\":7.0,\"stance\":1.0}},{\"actual_loss\":5,\"input\":{\"cid\":\"hildegard\",\"fixed\":false,\"loss\":5.0,\"raw\":10.0,\"stance\":0.0}},{\"actual_loss\":4,\"input\":{\"cid\":\"hildegard\",\"fixed\":false,\"loss\":4.0,\"raw\":10.0,\"stance\":1.0}},{\"actual_loss\":6,\"input\":{\"cid\":\"hildegard\",\"fixed\":false,\"loss\":6.0,\"raw\":11.0,\"stance\":0.0}},{\"actual_loss\":4,\"input\":{\"cid\":\"hildegard\",\"fixed\":false,\"loss\":4.0,\"raw\":11.0,\"stance\":1.0}},{\"actual_loss\":57,\"input\":{\"cid\":\"hildegard\",\"fixed\":false,\"loss\":57.0,\"raw\":99.0,\"stance\":0.0}},{\"actual_loss\":34,\"input\":{\"cid\":\"hildegard\",\"fixed\":false,\"loss\":34.0,\"raw\":99.0,\"stance\":1.0}},{\"actual_loss\":58,\"input\":{\"cid\":\"hildegard\",\"fixed\":false,\"loss\":58.0,\"raw\":100.0,\"stance\":0.0}},{\"actual_loss\":34,\"input\":{\"cid\":\"hildegard\",\"fixed\":false,\"loss\":34.0,\"raw\":100.0,\"stance\":1.0}},{\"actual_loss\":58,\"input\":{\"cid\":\"hildegard\",\"fixed\":false,\"loss\":58.0,\"raw\":101.0,\"stance\":0.0}},{\"actual_loss\":34,\"input\":{\"cid\":\"hildegard\",\"fixed\":false,\"loss\":34.0,\"raw\":101.0,\"stance\":1.0}}],\"zahar\":[{\"input\":{\"defense\":31.350784,\"fixed\":true,\"k\":40.0,\"loss\":62.0,\"zdn\":0.0},\"loss\":62},{\"input\":{\"defense\":40.0,\"fixed\":true,\"k\":40.0,\"loss\":62.0,\"zdn\":0.0},\"loss\":62},{\"input\":{\"defense\":31.350784,\"fixed\":true,\"k\":40.0,\"loss\":68.0,\"zdn\":0.2},\"loss\":68},{\"input\":{\"defense\":40.0,\"fixed\":true,\"k\":40.0,\"loss\":69.0,\"zdn\":0.2},\"loss\":69},{\"input\":{\"defense\":31.350784,\"fixed\":false,\"k\":40.0,\"loss\":62.0,\"zdn\":0.0},\"loss\":62},{\"input\":{\"defense\":40.0,\"fixed\":false,\"k\":40.0,\"loss\":62.0,\"zdn\":0.0},\"loss\":62},{\"input\":{\"defense\":31.350784,\"fixed\":false,\"k\":40.0,\"loss\":68.0,\"zdn\":0.2},\"loss\":68},{\"input\":{\"defense\":40.0,\"fixed\":false,\"k\":40.0,\"loss\":69.0,\"zdn\":0.2},\"loss\":69}]},\"initial_target\":\"neutral_0\",\"loaded_target\":\"neutral_1\",\"saved_target\":\"neutral_1\",\"turn_count\":3},\"failures\":[]}"
@@ -152,7 +160,7 @@
   {
     "name": "persona_research_r21_test",
     "exit_code": 0,
-    "seconds": 3.44,
+    "seconds": 3.23,
     "errors": [],
     "summary": [
       "PERSONA RESEARCH R21 CHECKS 13889 FAILURES 0 LUA 13843 / 13843"
@@ -162,7 +170,7 @@
   {
     "name": "affection_r21_test",
     "exit_code": 0,
-    "seconds": 0.39,
+    "seconds": 0.38,
     "errors": [],
     "summary": [
       "AFFECTION R21 CHECKS 400 FAILURES 0 LUA SAMPLES 200"
@@ -172,7 +180,7 @@
   {
     "name": "dialogue_player_r21_test",
     "exit_code": 0,
-    "seconds": 19.52,
+    "seconds": 18.03,
     "errors": [],
     "summary": [
       "DIALOGUE PLAYER R21 CHECKS 5771 FAILURES 0"
@@ -182,7 +190,7 @@
   {
     "name": "recruit_r21_test",
     "exit_code": 0,
-    "seconds": 1.02,
+    "seconds": 0.92,
     "errors": [],
     "summary": [
       "RECRUIT R21 CHECKS 14991 FAILURES 0 LUA 2496"
@@ -190,149 +198,9 @@
     "environment_certificate_warning": true
   },
   {
-    "name": "ui_battle_r17_test",
-    "exit_code": 0,
-    "seconds": 48.34,
-    "errors": [],
-    "summary": [
-      "R17 BATTLE UI 6085 CHECKS / 0 FAILURES"
-    ],
-    "environment_certificate_warning": true
-  },
-  {
-    "name": "ui_battle_r18_test",
-    "exit_code": 0,
-    "seconds": 39.28,
-    "errors": [],
-    "summary": [
-      "R18: 4592 checks / 0 failures; 30 distinct effect hashes"
-    ],
-    "environment_certificate_warning": true
-  },
-  {
-    "name": "ui_battle_r19_test",
-    "exit_code": 0,
-    "seconds": 8.8,
-    "errors": [],
-    "summary": [
-      "R19: 859 checks / 0 failures"
-    ],
-    "environment_certificate_warning": true
-  },
-  {
-    "name": "ui_battle_r20_test",
-    "exit_code": 0,
-    "seconds": 13.34,
-    "errors": [],
-    "summary": [
-      "R20: 1659 checks / 0 failures"
-    ],
-    "environment_certificate_warning": true
-  },
-  {
-    "name": "motion_r9_integration",
-    "exit_code": 0,
-    "seconds": 7.06,
-    "errors": [],
-    "summary": [
-      "R9 INTEGRATION: 944 checks / 0 failures"
-    ],
-    "environment_certificate_warning": true
-  },
-  {
-    "name": "motion_r18_integration",
-    "exit_code": 0,
-    "seconds": 54.0,
-    "errors": [],
-    "summary": [
-      "R18 STATE INTEGRATION: 3540 checks / 0 failures"
-    ],
-    "environment_certificate_warning": true
-  },
-  {
-    "name": "ui_town_r21_test",
-    "exit_code": 0,
-    "seconds": 5.69,
-    "errors": [],
-    "summary": [
-      "TOWN UI R21 CHECKS 1553 FAILURES 0 OVERFLOW 0"
-    ],
-    "environment_certificate_warning": true
-  },
-  {
-    "name": "ui_town_r21_round2_test",
-    "exit_code": 0,
-    "seconds": 9.0,
-    "errors": [],
-    "summary": [
-      "TOWN ROUND2 UI CHECKS 4404 FAILURES 0"
-    ],
-    "environment_certificate_warning": true
-  },
-  {
-    "name": "ui_data_r21_test",
-    "exit_code": 0,
-    "seconds": 19.44,
-    "errors": [],
-    "summary": [
-      "UI_DATA_R21 checks=9608 failures=0 nameplates=3200 overflow=0"
-    ],
-    "environment_certificate_warning": true
-  },
-  {
-    "name": "ui_town_r21_round3_test",
-    "exit_code": 0,
-    "seconds": 15.69,
-    "errors": [],
-    "summary": [
-      "TOWN ROUND3 UI CHECKS 8205 FAILURES 0 PORTRAIT SLOTS 300 ENEMY FALLBACKS 0"
-    ],
-    "environment_certificate_warning": true
-  },
-  {
-    "name": "ui_town_result_r21_test",
-    "exit_code": 0,
-    "seconds": 6.98,
-    "errors": [],
-    "summary": [
-      "TOWN RESULT R21 CHECKS 235 FAILURES 0"
-    ],
-    "environment_certificate_warning": true
-  },
-  {
-    "name": "ui_town_r21_round4_test",
-    "exit_code": 0,
-    "seconds": 17.7,
-    "errors": [],
-    "summary": [
-      "TOWN ROUND4 UI CHECKS 10213 FAILURES 0"
-    ],
-    "environment_certificate_warning": true
-  },
-  {
-    "name": "ui_town_r21_round5_test",
-    "exit_code": 0,
-    "seconds": 5.23,
-    "errors": [],
-    "summary": [
-      "TOWN ROUND5 UI CHECKS 2270 FAILURES 0"
-    ],
-    "environment_certificate_warning": true
-  },
-  {
-    "name": "ui_dialogue_r21_test",
-    "exit_code": 0,
-    "seconds": 25.83,
-    "errors": [],
-    "summary": [
-      "DIALOGUE UI R21 CHECKS 9078 FAILURES 0"
-    ],
-    "environment_certificate_warning": true
-  },
-  {
     "name": "persona_r22_test",
     "exit_code": 0,
-    "seconds": 5.16,
+    "seconds": 4.95,
     "errors": [],
     "summary": [
       "PERSONA R22 CHECKS 4005 FAILURES 0"
@@ -342,7 +210,7 @@
   {
     "name": "persona_town_r21_round8_test",
     "exit_code": 0,
-    "seconds": 22.66,
+    "seconds": 24.19,
     "errors": [],
     "summary": [
       "PERSONA TOWN ROUND8 CHECKS 1037 FAILURES 0"
@@ -350,9 +218,179 @@
     "environment_certificate_warning": true
   },
   {
+    "name": "panels_r22_test",
+    "exit_code": 0,
+    "seconds": 1.67,
+    "errors": [],
+    "summary": [
+      "PANELS R22 CHECKS 7345 FAILURES 0"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "chronicle_r22_test",
+    "exit_code": 0,
+    "seconds": 2.3,
+    "errors": [],
+    "summary": [
+      "CHRONICLE R22 CHECKS 7911 FAILURES 0"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "town_r21_round9_test",
+    "exit_code": 0,
+    "seconds": 29.84,
+    "errors": [],
+    "summary": [
+      "TOWN ROUND9 CHECKS 1573 FAILURES 0 DIALOGUE 153 LEGACY 11"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "ui_battle_r17_test",
+    "exit_code": 0,
+    "seconds": 45.61,
+    "errors": [],
+    "summary": [
+      "R17 BATTLE UI 6085 CHECKS / 0 FAILURES"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "ui_battle_r18_test",
+    "exit_code": 0,
+    "seconds": 38.86,
+    "errors": [],
+    "summary": [
+      "R18: 4592 checks / 0 failures; 30 distinct effect hashes"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "ui_battle_r19_test",
+    "exit_code": 0,
+    "seconds": 9.0,
+    "errors": [],
+    "summary": [
+      "R19: 859 checks / 0 failures"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "ui_battle_r20_test",
+    "exit_code": 0,
+    "seconds": 13.66,
+    "errors": [],
+    "summary": [
+      "R20: 1659 checks / 0 failures"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "motion_r9_integration",
+    "exit_code": 0,
+    "seconds": 6.92,
+    "errors": [],
+    "summary": [
+      "R9 INTEGRATION: 944 checks / 0 failures"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "motion_r18_integration",
+    "exit_code": 0,
+    "seconds": 62.98,
+    "errors": [],
+    "summary": [
+      "R18 STATE INTEGRATION: 3540 checks / 0 failures"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "ui_town_r21_test",
+    "exit_code": 0,
+    "seconds": 6.98,
+    "errors": [],
+    "summary": [
+      "TOWN UI R21 CHECKS 1646 FAILURES 0 OVERFLOW 0"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "ui_town_r21_round2_test",
+    "exit_code": 0,
+    "seconds": 9.77,
+    "errors": [],
+    "summary": [
+      "TOWN ROUND2 UI CHECKS 4458 FAILURES 0"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "ui_data_r21_test",
+    "exit_code": 0,
+    "seconds": 24.03,
+    "errors": [],
+    "summary": [
+      "UI_DATA_R21 checks=9608 failures=0 nameplates=3200 overflow=0"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "ui_town_r21_round3_test",
+    "exit_code": 0,
+    "seconds": 17.86,
+    "errors": [],
+    "summary": [
+      "TOWN ROUND3 UI CHECKS 8360 FAILURES 0 PORTRAIT SLOTS 300 ENEMY FALLBACKS 0"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "ui_town_result_r21_test",
+    "exit_code": 0,
+    "seconds": 7.7,
+    "errors": [],
+    "summary": [
+      "TOWN RESULT R21 CHECKS 235 FAILURES 0"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "ui_town_r21_round4_test",
+    "exit_code": 0,
+    "seconds": 17.97,
+    "errors": [],
+    "summary": [
+      "TOWN ROUND4 UI CHECKS 10473 FAILURES 0"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "ui_town_r21_round5_test",
+    "exit_code": 0,
+    "seconds": 5.56,
+    "errors": [],
+    "summary": [
+      "TOWN ROUND5 UI CHECKS 2270 FAILURES 0"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "ui_dialogue_r21_test",
+    "exit_code": 0,
+    "seconds": 25.91,
+    "errors": [],
+    "summary": [
+      "DIALOGUE UI R21 CHECKS 9078 FAILURES 0"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
     "name": "ui_persona_r22_test",
     "exit_code": 0,
-    "seconds": 6.8,
+    "seconds": 8.09,
     "errors": [],
     "summary": [
       "PERSONA UI R22 CHECKS 1383 FAILURES 0 CAPTURES 60"
@@ -362,19 +400,41 @@
   {
     "name": "ui_persona_town_round8_test",
     "exit_code": 0,
-    "seconds": 9.05,
+    "seconds": 11.2,
     "errors": [],
     "summary": [
-      "PERSONA TOWN UI ROUND8 CHECKS 7065 FAILURES 0 CAPTURES 45"
+      "PERSONA TOWN UI ROUND8 CHECKS 5595 FAILURES 0 CAPTURES 45"
     ],
     "environment_certificate_warning": true
   },
   {
-    "name": "import",
+    "name": "ui_panels_r22_test",
     "exit_code": 0,
-    "seconds": 3.67,
+    "seconds": 16.75,
     "errors": [],
-    "summary": [],
+    "summary": [
+      "PANELS UI R22 CHECKS 12959 FAILURES 0 CAPTURES 75"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "ui_chronicle_r22_test",
+    "exit_code": 0,
+    "seconds": 7.64,
+    "errors": [],
+    "summary": [
+      "CHRONICLE UI R22 CHECKS 3603 FAILURES 0 CAPTURES 75"
+    ],
+    "environment_certificate_warning": true
+  },
+  {
+    "name": "ui_town_r21_round9_test",
+    "exit_code": 0,
+    "seconds": 11.72,
+    "errors": [],
+    "summary": [
+      "TOWN UI ROUND9 CHECKS 7225 FAILURES 0 CAPTURES 55"
+    ],
     "environment_certificate_warning": true
   }
 ]

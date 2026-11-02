@@ -15,14 +15,15 @@ func setup(owner_screen,heading: String) -> void:
 	var paper=ColorRect.new();add_child(paper);paper.color=T.PAPER;paper.mouse_filter=MOUSE_FILTER_IGNORE;paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	frame=Control.new();add_child(frame);frame.size=Vector2(minf(430,host.size.x),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
 	var title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-112,58);title.text=heading;title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",38)
-	var back=button("p7_back","마을",host.go.bind("town"),false,false,frame);back.position=Vector2(frame.size.x-88,20);back.size=Vector2(70,44);back.size_flags_horizontal=0
+	var back=button("p7_back","뒤로",host.go.bind(host.panels_return,false),false,false,frame);back.position=Vector2(frame.size.x-88,20);back.size=Vector2(70,44);back.size_flags_horizontal=0
 	var tabs=HBoxContainer.new();frame.add_child(tabs);tabs.position=Vector2(18,82);tabs.size=Vector2(frame.size.x-36,48);tabs.add_theme_constant_override("separation",6)
 	for e in [["codex","도감"],["status","상태"],["inventory","장비 가방"]]:button("p7_tab_"+e[0],e[1],host.go.bind(e[0]),host.screen==e[0],false,tabs)
 	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,148);scroll.size=Vector2(frame.size.x-36,frame.size.y-226);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
 	body=VBoxContainer.new();scroll.add_child(body);body.size_flags_horizontal=SIZE_EXPAND_FILL;body.add_theme_constant_override("separation",12)
 	var nav=HBoxContainer.new();frame.add_child(nav);nav.position=Vector2(12,frame.size.y-62);nav.size=Vector2(frame.size.x-24,50);nav.add_theme_constant_override("separation",4)
-	for e in [["town","마을"],["party","동료"],["depart","원정"],["bag","보급품"],["journal","기록"]]:
-		var b=button("nav:"+e[0],e[1],host.go.bind("explore" if e[0]=="depart" and host.model.active() else e[0]),false,false,nav);b.add_theme_font_size_override("font_size",13)
+	for e in [["town","마을"],["party","동료"],["depart","원정"],["bag","가방"],["journal","기록"]]:
+		var selected="bag" if host.screen=="inventory" else "party"
+		var b=button("nav:"+e[0],e[1],host.go.bind("explore" if e[0]=="depart" and host.model.active() else e[0]),selected==e[0],false,nav);b.add_theme_font_size_override("font_size",13)
 	if state.ui.msg!="":text(state.ui.msg,14,T.RED)
 	if host.save_error!=OK:
 		text("저장하지 못했습니다. 다시 시도해 주세요.",14,T.RED);button("save_retry","저장 다시 시도",func():host._save();host._draw_screen())

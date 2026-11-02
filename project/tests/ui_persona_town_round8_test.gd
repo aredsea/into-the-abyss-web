@@ -67,7 +67,7 @@ func run():
 		await capture(s,"command-four",dim);await click(s,"so_fight_1");await capture(s,"participate-four",dim)
 		check(s.model.s.party.size()==3 and s.model.sortie_ids().size()==4,"three companion rule")
 		s.model.s.ui.tab="front";s._draw_screen();await capture(s,"front",dim)
-		check(not s.controls.has("so_tg_teiris"),"front filter removes back row")
+		check(s.controls.has("so_tg_teiris") and s.controls.so_tg_teiris.text=="","selected back-row portrait stays removable while standby filter changes")
 		s.model.s.ui.tab="";check(s.model.accept_quest(s.model.s.board[0].id),"accepted source quest fixture")
 		s._draw_screen();await capture(s,"accepted-quest",dim)
 		check(s.controls.has("accepted_quest"),"quest and selected floor are separate departures")

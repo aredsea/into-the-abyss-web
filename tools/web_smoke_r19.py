@@ -5,7 +5,7 @@ from functools import partial
 import threading,json,os,tempfile,sys
 from playwright.sync_api import sync_playwright
 if '--town-r21' in sys.argv:
- from town_r21_round8_web import run
+ from town_r21_round9_web import run
  run()
  raise SystemExit(0)
 R=Path(__file__).resolve().parents[1]; O=R/'verification/ui-r20/web'; O.mkdir(parents=True,exist_ok=True)
@@ -63,7 +63,7 @@ try:
      town_screens.append('default:'+expected)
      if expected=='bag' and id=='item:hp_s': assert page.evaluate('window.__abyssWorld.controls.use_selected.disabled')
    if town_r21:
-    assert page.evaluate('window.__abyssWorld.ui_build')=='r21-d-town-20261102d'
+    assert page.evaluate('window.__abyssWorld.ui_build')=='r21-d-town-20261102e'
     assert not page.evaluate('window.__abyssWorld.town_r21_preview')
     for id,expected in [('nav:party','party'),('member:hildegard','member'),('tab:skills','skills'),('back','party'),('nav:town','town')]:
      click(id)
@@ -195,7 +195,7 @@ try:
     assert restored,(town_viewport,after_viewport)
     capture('return')
    assert not errors,errors
-   results.append({'width':width,'height':height,'viewport':initial['viewport'],'reduced':reduced,'ui_build':final['ui_build'],'town_ui_build':'r21-d-town-20261102d' if town_r21 else None,'town_screens':town_screens,'stable_default_checked':stable_default_checked,'errors':errors,'viewport_restored_after_victory':restored,'personal_actions_before':initial['state']['units']['hildegard']['actions'],'personal_actions_after':final['state']['units']['hildegard']['actions'],'text_errors':[t for t in final['text'] if t['needed']>t['available']+1 or t['missing_glyphs']]})
+   results.append({'width':width,'height':height,'viewport':initial['viewport'],'reduced':reduced,'ui_build':final['ui_build'],'town_ui_build':'r21-d-town-20261102e' if town_r21 else None,'town_screens':town_screens,'stable_default_checked':stable_default_checked,'errors':errors,'viewport_restored_after_victory':restored,'personal_actions_before':initial['state']['units']['hildegard']['actions'],'personal_actions_after':final['state']['units']['hildegard']['actions'],'text_errors':[t for t in final['text'] if t['needed']>t['available']+1 or t['missing_glyphs']]})
    context.close(); print('PASS',tag,flush=True)
   browser.close()
 finally:

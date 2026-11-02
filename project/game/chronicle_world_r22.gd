@@ -31,6 +31,12 @@ func recruit() -> bool:
 	_begin();var ok=super();_end(ok,"guild");return ok
 func inn(id: String,action: String) -> bool:
 	_begin();var ok=super(id,action);_end(ok);return ok
+func choose_dialogue(choice_id: String) -> bool:
+	var cid=s.dialogue_r21.pending.get("who","")
+	var before=float(s.members.get(cid,{}).get("aff",0))
+	if not super(choice_id):return false
+	Chronicle.affection_changed(s,cid,before,float(s.members[cid].aff))
+	return true
 func award_persona_exp(st: Dictionary) -> Dictionary:
 	_begin();var gains=super(st);_end(true);return gains
 func finish_battle() -> bool:

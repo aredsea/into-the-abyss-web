@@ -1,5 +1,5 @@
 extends "res://ui/town_screen_r21.gd"
-## P1 formation lives inside the approved 03-preparation-0 composition.
+## One portrait per companion; formation rows and the illustrated source route.
 func build(owner_screen) -> void:
 	build_frame(owner_screen)
 	nav_top=792
@@ -12,7 +12,7 @@ func build(owner_screen) -> void:
 	label("탐사 지역",Rect2(18,54,180,20),11,T.INK,T.BOLD)
 	display(zone.name,Rect2(18,74,215,48),T.INK,36)
 	display("%d층"%w.selected_floor,Rect2(18,121,150,36),T.RED,29)
-	paragraph("탐색 5회 → 휴식 → 층 보스\n출발 시 HP·MP 회복",Rect2(18,165,198,52),12)
+	paragraph("출발 시 HP·MP 회복",Rect2(18,171,198,28),12)
 	var pick=OptionButton.new();stage.add_child(pick);pick.position=Vector2(18,212);pick.size=Vector2(190,56);pick.add_theme_font_size_override("font_size",12)
 	for f in range(1,w.dungeon_max()+1):
 		var z=w.dungeon_rules.floor_info(f);pick.add_item("%d층 · %s"%[f,w.dungeon_rules.zones[z.zone].name])
@@ -23,47 +23,60 @@ func build(owner_screen) -> void:
 	if not w.can_persona_fight():self_button.tooltip_text="모험가 생성 정보가 없는 옛 저장입니다. 기존 동료 편성을 유지하고 지휘로 출발합니다."
 	action("so_fight_0","지휘 · 동료 4명",Rect2(198,277,174,56),func():w.set_fight(0);host._save();host._draw_screen(),s.persona.fight==0,w.active()).add_theme_font_size_override("font_size",13)
 	var ids=w.sortie_ids()
-	for i in range(4):
-		var x=18+i*91
-		if i>=ids.size():
-			fill("empty_slot:"+str(i),Rect2(x,337,86,156),T.PALE)
-			label("대기",Rect2(x+8,398,70,24),14,T.MUTED)
-			continue
-		var id=ids[i]
-		if id=="persona":
-			fill("persona_slot",Rect2(x,337,86,156),T.INK)
-			ink(Rect2(x,341,86,75))
-			label("페르소나",Rect2(x+5,354,76,24),13,T.PAPER,T.BOLD)
-			paragraph(w.person(id)["class"],Rect2(x+5,390,76,40),14,T.PAPER)
-		else:
-			var card=Control.new();stage.add_child(card);card.position=Vector2(x,337);card.size=Vector2(86,156);card.clip_contents=true;card.mouse_filter=MOUSE_FILTER_IGNORE
-			var portrait=picture(id,Rect2(0,0,125,226),"party-tall");portrait.reparent(card);portrait.position=Vector2(-19,-6)
-		fill("party_caption:"+id,Rect2(x,451,86,42),T.INK)
-		label(w.person(id).name,Rect2(x+4,451,78,22),12,T.PAPER,T.BOLD)
-		label("Lv.%d · %s"%[s.members[id].level,w.person(id).row],Rect2(x+4,473,78,18),10,T.PAPER)
-		if id!="persona":hit("departure_member:"+id,Rect2(x,337,86,156),host.go.bind("formation"))
-	label("함께할 동료",Rect2(18,500,250,24),15,T.INK,T.BOLD)
-	label("%d / 4"%ids.size(),Rect2(326,500,50,24),13)
+	for i in range(2):
+		var row="전열" if i==0 else "후열"
+		var group=ids.filter(func(id):return w.person(id).row==row)
+		label(row+" · %d명"%group.size(),Rect2(18+i*180,335,174,24),13,T.INK,T.BOLD)
+		formation_row(group,18+i*180)
+	label("대기 동료",Rect2(18,485,140,44),14,T.INK,T.BOLD)
 	for i in range(3):
 		var entry=[["","전체"],["front","전열"],["back","후열"]][i]
-		action("so_f_"+("all" if entry[0]=="" else entry[0]),entry[1],Rect2(18+i*120,529,114,56),func():s.ui.tab=entry[0];host._save();host._draw_screen(),s.ui.get("tab","")==entry[0])
-	var candidates=w.sortie_candidates(s.ui.get("tab",""));var previous=stage
-	stage=scroll_page(589,58 if not s.quest.is_empty() else 76,maxf(76,ceil(candidates.size()/2.0)*76))
+		action("so_f_"+("all" if entry[0]=="" else entry[0]),entry[1],Rect2(162+i*71,485,68,56),func():s.ui.tab=entry[0];host._save();host._draw_screen(),s.ui.get("tab","")==entry[0]).add_theme_font_size_override("font_size",12)
+	var candidates=w.sortie_candidates(s.ui.get("tab","")).filter(func(id):return id not in s.party)
+	var previous=stage
+	stage=scroll_page(545,66,maxf(66,ceil(candidates.size()/2.0)*70))
 	for i in range(candidates.size()):
-		var id=candidates[i];var x=(i%2)*172;var y=int(i/2)*76
-		picture(id,Rect2(x,y,48,68),"formation-face")
-		var full=id not in s.party and s.party.size()>=(3 if s.persona.fight==1 else 4)
-		var b=action("so_tg_"+id,("출전 · " if id in s.party else "대기 · ")+w.person(id).name,Rect2(x+50,y,116,68),func():w.toggle_companion(id);host._save();host._draw_screen(),id in s.party,w.active() or full)
+		var id=candidates[i];var x=(i%2)*172;var y=int(i/2)*70
+		picture(id,Rect2(x,y,48,66),"formation-face")
+		var full=s.party.size()>=(3 if s.persona.fight==1 else 4)
+		var b=action("so_tg_"+id,"추가 · "+w.person(id).name,Rect2(x+50,y,116,66),func():w.toggle_companion(id);host._save();host._draw_screen(),false,w.active() or full)
 		b.add_theme_font_size_override("font_size",11)
-	if candidates.is_empty():label("이 열에는 동료가 없습니다.",Rect2(0,0,340,48),14,T.MUTED)
+	if candidates.is_empty():label("이 열의 대기 동료가 없습니다.",Rect2(0,0,340,48),14,T.MUTED)
 	stage=previous
 	var fronts=ids.filter(func(id):return w.person(id).row=="전열").size()
-	label("모험가 정보가 없는 옛 저장은 지휘로 출발합니다." if not w.can_persona_fight() else "출전할 사람을 골라 주세요." if ids.is_empty() else "전열이 없어 후열이 바로 공격받습니다." if fronts==0 else "출발 시 모든 출전자의 HP·MP를 회복합니다.",Rect2(18,650 if not s.quest.is_empty() else 669,354,24),12,T.RED if fronts==0 else T.INK)
-	if s.quest.is_empty():
+	label("옛 저장은 지휘로 출발 · 초상을 눌러 편성 해제" if not w.can_persona_fight() else "출전할 사람을 골라 주세요." if ids.is_empty() else "전열 없음 · 초상을 눌러 편성 해제" if fronts==0 else "출전 %d / 4 · 초상을 눌러 편성 해제"%ids.size(),Rect2(18,613,354,24),12,T.RED if fronts==0 else T.INK)
+	label("원정 경로",Rect2(18,637,354,22),13,T.INK,T.BOLD)
+	if s.quest.is_empty() and host.save_error==OK:
 		for i in range(3):
-			fill("route_bg"+str(i),Rect2(18+i*120,700,114,30),T.INK)
-			label(["탐색 5회","휴식","층 보스"][i],Rect2(24+i*120,700,102,30),12,T.PAPER,T.BOLD)
-	else:action("accepted_quest","수락한 균열 의뢰로 출발",Rect2(18,680,354,56),func():host._act(w.depart_accepted_quest,"");host.go("explore"),true,ids.is_empty() or w.active())
+			var x=18+i*120
+			background(["explore","rest","departure"][i],Rect2(x,661,114,45))
+			mark("route_picture:"+str(i),boxes["background:"+["explore","rest","departure"][i]])
+			label(["탐색 5회","휴식","층 보스"][i],Rect2(x,706,114,24),12,T.INK,T.BOLD).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+	elif not s.quest.is_empty() and host.save_error==OK:
+		action("accepted_quest","수락한 균열 의뢰로 출발",Rect2(18,667,354,56),func():host._act(w.depart_accepted_quest,"");host.go("explore"),true,ids.is_empty() or w.active())
 	action("start_run","선택한 층으로 출발 →",Rect2(18,736,354,56),func():host._act(w.depart_dungeon.bind(w.selected_floor),"");host.go("explore"),true,ids.is_empty() or w.active())
 	navigation()
-	if host.save_error!=OK:action("save_retry","저장 다시 시도",Rect2(18,691,354,48),func():host._save();host._draw_screen(),true)
+	if host.save_error!=OK:action("save_retry","저장 다시 시도",Rect2(18,667,354,56),func():host._save();host._draw_screen(),true)
+
+func formation_row(ids: Array,x: float) -> void:
+	var sc=ScrollContainer.new();stage.add_child(sc);sc.position=Vector2(x,359);sc.size=Vector2(174,122)
+	sc.vertical_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+	var page=Control.new();sc.add_child(page);page.custom_minimum_size=Vector2(maxi(174,ids.size()*88-5),112)
+	var previous=stage;stage=page
+	if ids.is_empty():
+		fill("empty_row:"+str(x),Rect2(0,0,174,112),T.PALE);label("편성 없음",Rect2(8,0,158,112),14,T.MUTED)
+	for i in range(ids.size()):
+		var id=ids[i];var px=i*88
+		if id=="persona":
+			fill("persona_slot",Rect2(px,0,83,112),T.INK)
+			label("페르소나",Rect2(px+4,8,75,24),12,T.PAPER,T.BOLD)
+			paragraph(host.model.person(id)["class"],Rect2(px+4,34,75,40),13,T.PAPER)
+		else:
+			picture(id,Rect2(px,0,83,78),"formation-face")
+		fill("party_caption:"+id,Rect2(px,78,83,34),T.INK)
+		label(host.model.person(id).name,Rect2(px+3,78,77,18),11,T.PAPER,T.BOLD)
+		label("Lv.%d"%host.model.s.members[id].level,Rect2(px+3,96,77,16),10,T.PAPER)
+		if id!="persona":
+			var b=hit("so_tg_"+id,Rect2(px,0,83,112),func():host.model.toggle_companion(id);host._save();host._draw_screen())
+			b.disabled=host.model.active();b.tooltip_text=host.model.person(id).name+" 편성 해제"
+	stage=previous
