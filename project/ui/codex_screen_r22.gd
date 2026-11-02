@@ -6,7 +6,9 @@ func build(owner_screen) -> void:
 	if id in host.model.s.owned and R.DATA.cast.has(id):detail(id);return
 	text("영입 %d / %d"%[host.model.s.owned.size(),R.DATA.order.size()],14,T.MUTED)
 	var tabs=row()
-	for e in [["all","전체"],["rec","영입"],["el","속성"],["cls","직업"]]:button("p7_filter_"+e[0],e[1],cx.bind("f_"+e[0]),state.ui.tab==e[0] or (e[0]=="all" and state.ui.tab==""),false,tabs)
+	for e in [["all","전체"],["rec","영입"],["el","속성"],["cls","직업"]]:
+		var filter_button=button("p7_filter_"+e[0],e[1],cx.bind("f_"+e[0]),state.ui.tab==e[0] or (e[0]=="all" and state.ui.tab==""),false,tabs)
+		if L.language(host.model.s)=="en":filter_button.add_theme_font_size_override("font_size",12)
 	if state.ui.tab.begins_with("el"):
 		var values=[["el","모든 속성"]]
 		for e in R.DATA.el_order:values.append(["el_"+e,R.DATA.els[e]])
@@ -30,7 +32,7 @@ func detail(id: String) -> void:
 	var c=R.DATA.cast[id];var m=host.model.s.members[id];var h=row()
 	button("p7_cx_back","목록으로",cx.bind("back"),false,false,h);button("p7_fav","즐겨찾기 해제" if id in state.favs() else "즐겨찾기 추가",cx.bind("fav"),id in state.favs(),false,h)
 	h=row();portrait(id,h,Vector2(130,190));var copy=VBoxContainer.new();h.add_child(copy);copy.size_flags_horizontal=SIZE_EXPAND_FILL
-	var full=c.full;var split=full.find(" ")
+	var full=L.t(c.full,L.language(host.model.s));var split=full.find(" ")
 	if split>=0:full=full.left(split)+"\n"+full.substr(split+1)
 	var heading=text(full,27,T.INK,copy);heading.autowrap_mode=TextServer.AUTOWRAP_ARBITRARY
 	text(c.race+(" · "+c.lineage if c.lineage!="" else "")+"\n"+c.nation+"\n"+c.cls+" · "+c.row+"\n"+R.DATA.els.get(c.el,"무"),14,T.MUTED,copy)

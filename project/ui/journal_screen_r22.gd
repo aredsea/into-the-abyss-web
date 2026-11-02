@@ -13,7 +13,7 @@ func build(owner_screen) -> void:
 	host=owner_screen;view=host.journal_r22;theme=T.make_theme();set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var paper=ColorRect.new();add_child(paper);paper.color=T.PAPER;paper.mouse_filter=MOUSE_FILTER_IGNORE;paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	frame=Control.new();add_child(frame);frame.size=Vector2(minf(430,host.size.x),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
-	var title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-112,58);title.text={"journal":"모험 기록","places":"토르바 산책","people":"토르바 인물"}[host.screen];title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",34)
+	var title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-112,58);title.text=L.render({"journal":"모험 기록","places":"토르바 산책","people":"토르바 인물"}[host.screen],L.language(host.model.s));title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",34)
 	var back=button("p10_back","마을",host.go.bind("town"),false,false,frame);back.position=Vector2(frame.size.x-88,20);back.size=Vector2(70,44)
 	var tabs=HBoxContainer.new();frame.add_child(tabs);tabs.position=Vector2(18,82);tabs.size=Vector2(frame.size.x-36,48);tabs.add_theme_constant_override("separation",6)
 	for e in [["journal","연대기"],["places","마을 장소"],["people","인물 소개"]]:button("p10_tab_"+e[0],e[1],host.go.bind(e[0]),host.screen==e[0],false,tabs)
@@ -73,7 +73,7 @@ func visit(pid: String) -> void:
 func open_person(id: String) -> void:view.person=id;host.go("people")
 func people() -> void:
 	if view.person!="" and Places.DATA.profiles.has(view.person):
-		var p=Places.profile(view.person);text(p.name,28)
+		var p=L.profile(view.person,Places.profile(view.person),L.language(host.model.s));text(p.name,28)
 		button("p10_people_back","인물 목록",func():view.person="";redraw())
 		for raw in p.lines:
 			var line=str(raw)

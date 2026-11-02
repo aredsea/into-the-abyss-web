@@ -1,12 +1,12 @@
 extends Control
 
 const RouteMap=preload("res://ui/route_map.gd")
-const World=preload("res://game/chronicle_world_r22.gd")
+const World=preload("res://game/settings_world_r22.gd")
 const CreateScreen=preload("res://ui/create_screen.gd")
 const PersonaSortieScreen=preload("res://ui/persona_sortie_screen.gd")
 const TownScreen=preload("res://ui/town_screen_r21.gd")
 const DungeonViewR21=preload("res://game/dungeon_view_r21.gd")
-const Store=preload("res://game/chronicle_save_r22.gd")
+const Store=preload("res://game/settings_save_r22.gd")
 const BattleScreen=preload("res://ui/battle_screen.gd")
 const UI=preload("res://ui/town_theme_r21.gd")
 const FONT=UI.BODY
@@ -50,8 +50,14 @@ var town_view: Control
 var details_return="member"
 var town_r21_preview=false
 var result_view: Control
+var reset_r22=false
+var settings_return_r22="town"
+var settings_saved_r22=false
 var panels_r22
 var journal_r22={"place":"town","person":"","legacy":false}
+
+func open_settings_r22() -> void:
+	settings_return_r22=screen;reset_r22=false;screen="settings";_draw_screen()
 
 func _ready() -> void:
 	motion_reduced=OS.has_feature("web") and bool(JavaScriptBridge.eval("window.matchMedia('(prefers-reduced-motion: reduce)').matches",true))
@@ -92,6 +98,8 @@ func _draw_screen() -> void:
 	battle=null; controls.clear(); art_preview_id="";art_preview=null;art_base_controls={}
 	town_view=null
 	result_view=null
+	if screen=="settings":
+		town_view=preload("res://ui/settings_screen_r22.gd").new();add_child(town_view);town_view.build(self);return
 	if model.s.has("persona") and not model.s.creation_r22.complete:
 		town_view=CreateScreen.new();add_child(town_view);town_view.build(self);return
 	if screen in ["codex","status","inventory"]:

@@ -47,6 +47,7 @@ func build_page() -> void:
 	elif host.screen=="equipment": equipment()
 	elif host.screen=="smithy": smithy()
 	elif host.screen=="research": research()
+	if host.screen=="town":action("town_settings","설정",Rect2(300,68,70,44),host.open_settings_r22)
 	navigation()
 	if not host.message.is_empty() and host.screen in ["town","party","member","skills","cards","explore"]:
 		fill("notice_bg",Rect2(14,nav_top-44,362,40),T.INK)

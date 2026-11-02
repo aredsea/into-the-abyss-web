@@ -1,6 +1,8 @@
 extends Control
 ## Shared fluid shell: paper, brush titles, red actions; fixed navigation.
+const L=preload("res://game/localization_r22.gd")
 const T=preload("res://ui/town_theme_r21.gd")
+const READABLE_RED=Color("#c62b15")
 const R=preload("res://game/panels_rules_r22.gd")
 const Portrait=preload("res://ui/portrait_rules_r22.gd")
 const Research=preload("res://game/persona_research_r21.gd")
@@ -14,7 +16,7 @@ func setup(owner_screen,heading: String) -> void:
 	host=owner_screen;state=host.panels_r22;theme=T.make_theme();set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var paper=ColorRect.new();add_child(paper);paper.color=T.PAPER;paper.mouse_filter=MOUSE_FILTER_IGNORE;paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	frame=Control.new();add_child(frame);frame.size=Vector2(minf(430,host.size.x),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
-	var title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-112,58);title.text=heading;title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",38)
+	var title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-112,58);title.text=L.render(heading,L.language(host.model.s));title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",38);title.clip_text=true;title.size.x=frame.size.x-112;L.fit_title(title,38)
 	var back=button("p7_back","마을",host.go.bind("town"),false,false,frame);back.position=Vector2(frame.size.x-88,20);back.size=Vector2(70,44);back.size_flags_horizontal=0
 	var tabs=HBoxContainer.new();frame.add_child(tabs);tabs.position=Vector2(18,82);tabs.size=Vector2(frame.size.x-36,48);tabs.add_theme_constant_override("separation",6)
 	for e in [["codex","도감"],["status","상태"],["inventory","장비 가방"]]:button("p7_tab_"+e[0],e[1],host.go.bind(e[0]),host.screen==e[0],false,tabs)
@@ -27,13 +29,13 @@ func setup(owner_screen,heading: String) -> void:
 	if host.save_error!=OK:
 		text("저장하지 못했습니다. 다시 시도해 주세요.",14,T.RED);button("save_retry","저장 다시 시도",func():host._save();host._draw_screen())
 func text(value: String,fs=15,color=T.INK,parent: Node=null) -> Label:
-	var l=Label.new();(parent if parent else body).add_child(l);l.text=value.replace("{{user}}","당신");l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;l.size_flags_horizontal=SIZE_EXPAND_FILL;l.add_theme_font_size_override("font_size",fs);l.add_theme_color_override("font_color",color)
+	var l=Label.new();(parent if parent else body).add_child(l);l.text=L.render(value,L.language(host.model.s)).replace("{{user}}","당신");l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;l.size_flags_horizontal=SIZE_EXPAND_FILL;l.add_theme_font_size_override("font_size",fs);l.add_theme_color_override("font_color",READABLE_RED if color==T.RED else color)
 	if fs>=21:l.add_theme_font_override("font",T.DISPLAY)
 	l.mouse_filter=MOUSE_FILTER_IGNORE;return l
 func button(id: String,value: String,fn: Callable,selected=false,disabled=false,parent: Node=null) -> Button:
-	var b=Button.new();(parent if parent else body).add_child(b);b.text=value;b.custom_minimum_size=Vector2(44,48);b.size_flags_horizontal=SIZE_EXPAND_FILL;b.disabled=disabled;b.add_theme_font_size_override("font_size",14)
+	var b=Button.new();(parent if parent else body).add_child(b);b.text=L.render(value,L.language(host.model.s));b.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;b.custom_minimum_size=Vector2(44,48);b.size_flags_horizontal=SIZE_EXPAND_FILL;b.disabled=disabled;b.add_theme_font_size_override("font_size",14)
 	if selected:
-		for s in ["normal","hover","pressed"]:b.add_theme_stylebox_override(s,T.panel(T.RED,T.RED))
+		for s in ["normal","hover","pressed"]:b.add_theme_stylebox_override(s,T.panel(READABLE_RED,READABLE_RED))
 		for s in ["font_color","font_hover_color","font_pressed_color"]:b.add_theme_color_override(s,T.PAPER)
 	b.pressed.connect(fn);host.controls[id]=b;return b
 func row(parent: Node=null) -> HBoxContainer:
@@ -44,7 +46,7 @@ func section(name: String,parent: Node=null) -> void:
 	var line=HSeparator.new();(parent if parent else body).add_child(line)
 func choose(id: String,values: Array,current: String,fn: Callable,parent: Node=null) -> OptionButton:
 	var o=OptionButton.new();(parent if parent else body).add_child(o);o.custom_minimum_size.y=48;o.size_flags_horizontal=SIZE_EXPAND_FILL;o.fit_to_longest_item=false
-	for i in range(values.size()):o.add_item(values[i][1]);o.set_item_metadata(i,values[i][0]);o.select(i if values[i][0]==current else o.selected)
+	for i in range(values.size()):o.add_item(L.render(values[i][1],L.language(host.model.s)));o.set_item_metadata(i,values[i][0]);o.select(i if values[i][0]==current else o.selected)
 	o.item_selected.connect(func(i):fn.call(o.get_item_metadata(i)));host.controls[id]=o;return o
 func cx(arg: String) -> void:
 	state.ui.msg="";state.cx(arg)
@@ -70,7 +72,7 @@ func stats(values: Dictionary,level: int,xp: int) -> void:
 func affection(value: float) -> void:
 	var a=R.shown_aff(value);var p=R.AFF.progress(a)
 	var h=row();text(p.stage,21,T.RED,h);text("%d / 200"%a,15,T.MUTED,h).horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT
-	var bar=ProgressBar.new();body.add_child(bar);bar.custom_minimum_size.y=8;bar.show_percentage=false;bar.max_value=200;bar.value=maxi(0,a);bar.add_theme_stylebox_override("background",T.panel(T.PALE,T.PALE));bar.add_theme_stylebox_override("fill",T.panel(T.RED,T.RED))
+	var bar=ProgressBar.new();body.add_child(bar);bar.custom_minimum_size.y=8;bar.show_percentage=false;bar.max_value=200;bar.value=maxi(0,a);bar.add_theme_stylebox_override("background",T.panel(T.PALE,T.PALE));bar.add_theme_stylebox_override("fill",T.panel(READABLE_RED,READABLE_RED))
 	text("최고 단계" if p.next=="" else "%s까지 %s"%[p.next,Research.num(p.remaining)],13,T.MUTED)
 func passives(key: String,race: String,lineage: String,nation: String) -> void:
 	var c=R.cls(key);var p=R.DATA.passives

@@ -1,6 +1,8 @@
 extends Control
 ## Native, mobile-first P1 form. Inherits the r21 paper / brush / vermilion system.
+const L=preload("res://game/localization_r22.gd")
 const T=preload("res://ui/town_theme_r21.gd")
+const READABLE_RED=Color("#c62b15")
 var host
 var rules
 var body: VBoxContainer
@@ -15,19 +17,19 @@ func setup(owner_screen,heading: String) -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var bg=ColorRect.new();add_child(bg);bg.color=T.PAPER;bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);bg.mouse_filter=MOUSE_FILTER_IGNORE
 	frame=Control.new();add_child(frame);frame.size=Vector2(minf(host.size.x,430),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
-	title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-36,58);title.text=heading;title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",38)
+	title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-36,58);title.text=L.render(heading,L.language(host.model.s));title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",38)
 	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,132);scroll.size=Vector2(frame.size.x-36,frame.size.y-216);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
 	body=VBoxContainer.new();scroll.add_child(body);body.size_flags_horizontal=SIZE_EXPAND_FILL;body.add_theme_constant_override("separation",12)
 	footer=HBoxContainer.new();frame.add_child(footer);footer.position=Vector2(18,frame.size.y-68);footer.size=Vector2(frame.size.x-36,50);footer.add_theme_constant_override("separation",12)
 
 func text(value: String,fs=15,color=T.INK,parent: Node=null) -> Label:
-	var l=Label.new();(parent if parent else body).add_child(l);l.text=value.replace("{{user}}","당신");l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;l.size_flags_horizontal=SIZE_EXPAND_FILL;l.add_theme_font_size_override("font_size",fs);l.add_theme_color_override("font_color",color)
+	var l=Label.new();(parent if parent else body).add_child(l);l.text=L.render(value,L.language(host.model.s)).replace("{{user}}","당신");l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;l.size_flags_horizontal=SIZE_EXPAND_FILL;l.add_theme_font_size_override("font_size",fs);l.add_theme_color_override("font_color",READABLE_RED if color==T.RED else color)
 	return l
 func button(id: String,value: String,fn: Callable,selected=false,disabled=false,parent: Node=null) -> Button:
-	var b=Button.new();(parent if parent else body).add_child(b);b.text=value;b.custom_minimum_size=Vector2(44,48);b.size_flags_horizontal=SIZE_EXPAND_FILL;b.disabled=disabled;b.add_theme_font_size_override("font_size",15)
+	var b=Button.new();(parent if parent else body).add_child(b);b.text=L.render(value,L.language(host.model.s));b.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;b.custom_minimum_size=Vector2(44,48);b.size_flags_horizontal=SIZE_EXPAND_FILL;b.disabled=disabled;b.add_theme_font_size_override("font_size",15)
 	if selected:
 		for state in ["normal","hover","pressed"]:
-			var p=T.panel(T.RED,T.RED);p.content_margin_left=12;p.content_margin_right=12;p.content_margin_top=10;p.content_margin_bottom=10;b.add_theme_stylebox_override(state,p)
+			var p=T.panel(READABLE_RED,READABLE_RED);p.content_margin_left=12;p.content_margin_right=12;p.content_margin_top=10;p.content_margin_bottom=10;b.add_theme_stylebox_override(state,p)
 		for state in ["font_color","font_hover_color","font_pressed_color"]:b.add_theme_color_override(state,T.PAPER)
 	b.pressed.connect(fn);host.controls[id]=b;return b
 func row() -> HBoxContainer:
@@ -46,9 +48,14 @@ func traits(entry: Dictionary) -> void:
 func build(owner_screen) -> void:
 	var s=owner_screen.model.s;var p=s.persona;var page=int(s.ui.page)
 	setup(owner_screen,"만남 고르기" if s.scene=="scenario" else "새 모험가")
+	var options=button("p8_open","설정",func():host.open_settings_r22(),false,false,frame);options.position=Vector2(frame.size.x-102,20);options.size=Vector2(84,44)
+	title.clip_text=true;title.size.x=frame.size.x-126;L.fit_title(title,30)
 	if s.scene=="scenario":scenario();return
 	var steps=HBoxContainer.new();frame.add_child(steps);steps.position=Vector2(18,77);steps.size=Vector2(frame.size.x-36,44);steps.add_theme_constant_override("separation",4)
-	for n in range(1,6):button("cr_go_"+str(n),rules.data.steps[n-1],act.bind("go_"+str(n)),n==page,not rules.reach(p,n),steps).add_theme_font_size_override("font_size",13)
+	for n in range(1,6):
+		var step=button("cr_go_"+str(n),rules.data.steps[n-1],act.bind("go_"+str(n)),n==page,not rules.reach(p,n),steps);step.add_theme_font_size_override("font_size",13)
+		for state in ["normal","hover","pressed","disabled","focus"]:
+			var style=step.get_theme_stylebox(state).duplicate();style.content_margin_left=4;style.content_margin_right=4;step.add_theme_stylebox_override(state,style)
 	if not s.ui.msg.is_empty():text(s.ui.msg,14,T.RED)
 	match page:
 		1:
@@ -88,7 +95,7 @@ func build(owner_screen) -> void:
 
 func points(p: Dictionary) -> void:
 	text("보너스 총량",21);var h=row()
-	for n in [5,10,20]:button("cr_tot_"+str(n),str(n)+"점",act.bind("tot_"+str(n)),p.bonus_custom!=1 and rules.total(p)==n,false,h)
+	for n in [5,10,20]:button("cr_tot_"+str(n),L.u("{n}점",{"n":n},L.language(host.model.s)),act.bind("tot_"+str(n)),p.bonus_custom!=1 and rules.total(p)==n,false,h)
 	button("cr_tot_free","직접 정하기",act.bind("tot_free"),p.bonus_custom==1)
 	if p.bonus_custom==1:
 		h=row()
@@ -97,7 +104,7 @@ func points(p: Dictionary) -> void:
 	text("한 능력치 최대 %d점 · 속도는 1점에 +2"%rules.cap(rules.total(p)),14,T.MUTED)
 	var c=rules.cls(p.cls)
 	for stat in rules.data.stats:
-		h=row();var k=stat[0];var b=int(p.bonus.get(k,0));var l=text("%s  %d  (+%d)"%[stat[1],c[k]+b*stat[2],b*stat[2]],17,T.INK,h);l.size_flags_horizontal=SIZE_EXPAND_FILL
+		h=row();var k=stat[0];var b=int(p.bonus.get(k,0));var l=text("%s  %d  (+%d)"%[L.render(stat[1],L.language(host.model.s)),c[k]+b*stat[2],b*stat[2]],17,T.INK,h);l.size_flags_horizontal=SIZE_EXPAND_FILL
 		button("cr_dn_"+k,"−",act.bind("dn_"+k),false,b==0,h).size_flags_horizontal=0
 		button("cr_up_"+k,"+",act.bind("up_"+k),false,rules.left(p)<=0 or b>=rules.cap(rules.total(p)),h).size_flags_horizontal=0
 	h=row();button("cr_auto","직업 추천대로",act.bind("auto"),false,false,h);button("cr_clear","점수 비우기",act.bind("clear"),false,false,h)

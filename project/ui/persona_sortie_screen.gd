@@ -24,7 +24,7 @@ func build(owner_screen) -> void:
 	text("탐사 지역",21)
 	var pick=OptionButton.new();body.add_child(pick);pick.custom_minimum_size.y=48
 	for f in range(1,w.dungeon_max()+1):
-		var info=w.dungeon_rules.floor_info(f);pick.add_item("%d층 · %s"%[f,w.dungeon_rules.zones[info.zone].name])
+		var info=w.dungeon_rules.floor_info(f);pick.add_item(L.u("{floor}층 {zone}",{"floor":f,"zone":w.dungeon_rules.zones[info.zone].name},L.language(w.s)))
 	pick.select(w.selected_floor-1);pick.item_selected.connect(func(i):w.selected_floor=i+1;s.dungeon_r21.sel=i+1;host._save());host.controls.dungeon_floor=pick
 	text("출발 시 HP·MP를 모두 회복합니다.",14,T.MUTED)
 	button("start_run","선택한 층으로 출발",func():host._act(w.depart_dungeon.bind(w.selected_floor),"");host.go("explore"),true,w.sortie_ids().is_empty() or w.active(),footer)
