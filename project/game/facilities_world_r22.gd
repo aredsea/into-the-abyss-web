@@ -1,5 +1,5 @@
 extends "res://game/expedition_world_r22.gd"
-## P6 facade: no changes to battle, cloud, or D's town screen implementation.
+## Town/gear facade; combat algorithms and the inherited town composition stay upstream.
 const GuildR22=preload("res://game/guild_rules_r22.gd")
 const SmithyR22=preload("res://game/smithy_rules_r22.gd")
 var facility="town"
@@ -35,7 +35,18 @@ func shop_classes() -> Array:
 func bag_count() -> int:
 	return s.gear.filter(func(e):return wearer(int(e.uid)).is_empty()).size()
 
+func wearer(uid: int) -> String:
+	# JSON reloads numeric UIDs as floats. Array.has uses strict Variant types;
+	# numeric equality keeps worn entries out of the bag after a real save/resume.
+	for cid in s.equipment:
+		for worn in s.equipment[cid].values():
+			if worn==uid:return cid
+	return ""
+
 func equip(who: String,uid: int) -> bool:
+	# 81-gear only equips bag-owned entries. A duplicate code in another slot
+	# never authorizes transferring that other copy's UID.
+	if not wearer(uid).is_empty():return false
 	if who!="persona" or active():return super(who,uid)
 	var e=gear_entry(uid)
 	if e.is_empty():return false
@@ -89,6 +100,18 @@ func shop_after_buy() -> void:
 			s.items.charm_potion=s.items.get("charm_potion",0)+1
 			var message="피에트로가 덤으로 「매혹의 비약」 하나를 슬쩍 얹어 주었다. (보유 %d)"%s.items.charm_potion
 			s.ui.msg=s.ui.get("msg","")+" "+message;note(message)
+
+func battle_data() -> Dictionary:
+	var data=super()
+	# The shop gift is an account-only noncombat item. The battle schema retains
+	# its existing item references; no second server allowlist needs broadening.
+	if data.get("inventory") is Dictionary:data.inventory.erase("charm_potion")
+	return data
+
+func record_battle(snapshot: Dictionary) -> void:
+	var has_bonus=s.items.has("charm_potion");var bonus=s.items.get("charm_potion",0)
+	super(snapshot)
+	if has_bonus:s.items.charm_potion=bonus
 
 func process_classes() -> Array:
 	return gear.classes(class_def("persona").get("id",""),s.owned.map(func(id):return class_def(id).id))
@@ -226,7 +249,12 @@ func facility_route(page: String) -> bool:
 
 func complete_smithy() -> bool:
 	if facility!="smithy" or smithy_work.is_empty() or not receipt.is_empty():return false
-	receipt={"kind":"smithy","work":smithy_work.duplicate(true),"gold":s.gold};smithy_work=[];smithy_fx={};facility_message="";return true
+	var ledger={"forge":[],"proc":[]}
+	for row in smithy_work:
+		if row.kind=="forge":ledger.forge.append({"code":row.code,"ok":row.success,"lv":row.level})
+		else:ledger.proc.append(row.code)
+	var work=gear.work_of(ledger)
+	receipt={"kind":"smithy","work":smithy_work.duplicate(true),"gold":s.gold,"source_note":gear.work_note(work)};smithy_work=[];smithy_fx={};facility_message="";return true
 
 func acknowledge_receipt() -> bool:
 	if receipt.is_empty():return false

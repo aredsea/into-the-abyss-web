@@ -1,14 +1,23 @@
 {
   "assigned": 77,
-  "promoted_same": 31,
-  "fixed_rows": 16,
-  "fixed_same": 11,
-  "fixed_remaining": 5,
-  "remaining": 46,
-  "suite_groups": 86,
-  "suite_failed": 1,
-  "new_checks": 3325,
+  "round2_reviewed": 46,
+  "round2_promoted_same": 6,
+  "round2_fixed_rows": 11,
+  "round2_new_fixed_rows": 9,
+  "promoted_same": 37,
+  "fixed_rows": 25,
+  "fixed_same": 17,
+  "fixed_remaining": 8,
+  "remaining": 40,
+  "suite_groups": 89,
+  "suite_failed": 0,
+  "suite_failed_assertions": 0,
+  "new_checks": 11010,
   "new_failures": 0,
+  "round2_checks": 7685,
+  "npm_checks": 12932,
+  "npm_failures": 0,
+  "server_added_checks": 259,
   "battle_count": 6320,
   "equal_battles": 6320,
   "matched_actions": 219785,
@@ -82,39 +91,39 @@
     "project/game/facilities_world_r22.gd",
     "project/game/gear_rules_r22.gd",
     "project/game/guild_rules_r22.gd",
+    "project/game/smithy_rules_r22.gd",
     "project/game/town_rules_r21.gd",
     "project/game/town_world_r21.gd",
     "project/ui/facilities_screen_r22.gd",
-    "project/ui/town_screen_r21.gd"
+    "project/ui/town_screen_r21.gd",
+    "server/abyss-save/package.json",
+    "server/abyss-save/src/validate.js"
   ],
   "protected_changes": [],
   "cloud_boundary": {
-    "server_modified": false,
+    "server_modified": true,
+    "allowed_fields": [
+      "items.charm_potion",
+      "commerce_r21.pietro_buys"
+    ],
     "user_save_modified": false,
     "rows": [
       {
         "name": "shop_bonus",
-        "accepted": false,
-        "path": "items.charm_potion",
-        "message": "invalid_save"
+        "accepted": true
       },
       {
         "name": "bonus_removed_diagnostic_only",
-        "accepted": false,
-        "path": "commerce.pietro_buys",
-        "message": "invalid_save"
+        "accepted": true
       },
       {
         "name": "counter_removed_diagnostic_only",
-        "accepted": false,
-        "path": "items.charm_potion",
-        "message": "invalid_save"
+        "accepted": true
       },
       {
         "name": "both_removed_diagnostic_only",
         "accepted": true
       }
     ]
-  },
-  "suite_failed_assertions": 3
+  }
 }

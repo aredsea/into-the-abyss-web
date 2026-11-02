@@ -247,7 +247,8 @@ function validateUnchecked(input){
   keys(m,['level','xp','aff','hp','mp'],'members.'+id,['level','xp','aff','hp','mp']);xp(id,m.level,m.xp);num(m.aff,-100,200,id+'.aff',false);num(m.hp,0,1e6,id+'.hp');num(m.mp,0,1e6,id+'.mp');
  }
  if(s.members.persona.level!==p.lv||s.members.persona.xp!==p.exp)fail('persona.member');
- keys(s.items,items,'items',items);for(const[k,n]of Object.entries(s.items))num(n,0,Number.MAX_SAFE_INTEGER,'items.'+k);
+ // 71-shop's fixed, non-sale bonus is optional in older saves (cap 99).
+ keys(s.items,[...items,'charm_potion'],'items',items);for(const[k,n]of Object.entries(s.items))num(n,0,k==='charm_potion'?99:Number.MAX_SAFE_INTEGER,'items.'+k);
  const uids=new Map();for(const e of list(s.gear,'gear',2124)){
   keys(e,['id','uid','seed','forge','tries','source_r21','code'],'gear',['id','uid','seed','forge','tries']);if(!gear.has(e.id)||uids.has(e.uid))fail('gear.id');
   num(e.seed,0,1099511627776,'gear.seed');
@@ -298,7 +299,8 @@ function validateUnchecked(input){
  for(const card of list(s.hand,'hand',10000))if(!K.world.cards.some(c=>c.id===card))fail('hand.id');
  list(s.log,'log',40).forEach(x=>text(x,'log.line',300));
  keys(s.town_r21,['seed','counter','qn','meet'],'town',['seed','counter','qn']);num(s.town_r21.seed,1,2147483646,'town.seed');for(const k of ['counter','qn'])num(s.town_r21[k],0,1e6,'town.'+k);if('meet'in s.town_r21&&!ids.includes(s.town_r21.meet))fail('town.meet');
- keys(s.commerce_r21,['bought','process_n','sold_day','forge_codes_r22','legacy_persona_progress_r22'],'commerce',['bought','process_n','sold_day']);num(s.commerce_r21.process_n,0,1e6,'process_n');num(s.commerce_r21.sold_day,1,s.day,'sold_day');obj(s.commerce_r21.bought,'bought');for(const[k,v]of Object.entries(s.commerce_r21.bought)){gearCode(k,'bought.code');bool(v,'bought');}
+ keys(s.commerce_r21,['bought','process_n','sold_day','forge_codes_r22','legacy_persona_progress_r22','pietro_buys'],'commerce',['bought','process_n','sold_day']);num(s.commerce_r21.process_n,0,1e6,'process_n');num(s.commerce_r21.sold_day,1,s.day,'sold_day');obj(s.commerce_r21.bought,'bought');for(const[k,v]of Object.entries(s.commerce_r21.bought)){gearCode(k,'bought.code');bool(v,'bought');}
+ if('pietro_buys'in s.commerce_r21)num(s.commerce_r21.pietro_buys,0,Number.MAX_SAFE_INTEGER,'commerce.pietro_buys');
  if(s.commerce_r21.forge_codes_r22!==undefined){obj(s.commerce_r21.forge_codes_r22,'forge_codes');for(const[code,f]of Object.entries(s.commerce_r21.forge_codes_r22)){gearCode(code,'forge_code');keys(f,['forge','tries'],'forge',['forge','tries']);num(f.forge,0,10,'forge');num(f.tries,f.forge,Number.MAX_SAFE_INTEGER,'tries');}}
  if('legacy_persona_progress_r22'in s.commerce_r21)progress(s.commerce_r21.legacy_persona_progress_r22,'legacy_progress');
  if('persona_progress_r21'in s)keys(s.persona_progress_r21,['level','xp'],'persona_progress',['level','xp']);if('persona_progress_r21'in s)xp('persona_progress',s.persona_progress_r21.level,s.persona_progress_r21.xp);

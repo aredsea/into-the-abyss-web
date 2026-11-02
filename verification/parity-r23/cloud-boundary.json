@@ -1,24 +1,22 @@
 {
-  "server_modified": false,
+  "server_modified": true,
+  "allowed_fields": [
+    "items.charm_potion",
+    "commerce_r21.pietro_buys"
+  ],
   "user_save_modified": false,
   "rows": [
     {
       "name": "shop_bonus",
-      "accepted": false,
-      "path": "items.charm_potion",
-      "message": "invalid_save"
+      "accepted": true
     },
     {
       "name": "bonus_removed_diagnostic_only",
-      "accepted": false,
-      "path": "commerce.pietro_buys",
-      "message": "invalid_save"
+      "accepted": true
     },
     {
       "name": "counter_removed_diagnostic_only",
-      "accepted": false,
-      "path": "items.charm_potion",
-      "message": "invalid_save"
+      "accepted": true
     },
     {
       "name": "both_removed_diagnostic_only",
