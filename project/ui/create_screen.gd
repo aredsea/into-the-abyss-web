@@ -50,6 +50,7 @@ func build(owner_screen) -> void:
 	var steps=HBoxContainer.new();frame.add_child(steps);steps.position=Vector2(18,77);steps.size=Vector2(frame.size.x-36,44);steps.add_theme_constant_override("separation",4)
 	for n in range(1,6):button("cr_go_"+str(n),rules.data.steps[n-1],act.bind("go_"+str(n)),n==page,not rules.reach(p,n),steps).add_theme_font_size_override("font_size",13)
 	if not s.ui.msg.is_empty():text(s.ui.msg,14,T.RED)
+	if page==1:button("cloud_open","기존 모험 불러오기",host.go.bind("cloud"))
 	match page:
 		1:
 			text("어떤 종족으로 살아왔나요?",21)

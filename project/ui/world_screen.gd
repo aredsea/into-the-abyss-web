@@ -50,11 +50,18 @@ var town_view: Control
 var details_return="member"
 var town_r21_preview=false
 var result_view: Control
+var cloud
+var cloud_connecting=false
+var cloud_confirmation: Dictionary={}
 
 func _ready() -> void:
 	motion_reduced=OS.has_feature("web") and bool(JavaScriptBridge.eval("window.matchMedia('(prefers-reduced-motion: reduce)').matches",true))
 	self.theme=UI.make_theme()
 	restored=storage.read_into(model)
+	cloud=preload("res://game/cloud_store_r22.gd").new();cloud.model=model;cloud.storage=storage;add_child(cloud)
+	storage.saved.connect(cloud.local_saved)
+	cloud.changed.connect(func():
+		if screen in ["cloud","rank"]:_draw_screen())
 	if model.active(): screen="explore"
 	elif not model.s.summary.is_empty(): screen="summary"
 	resized.connect(_draw_screen)
@@ -65,6 +72,7 @@ func _save() -> void:
 	if save_error!=OK: message="저장 실패: 창을 닫기 전에 다시 시도하세요."
 
 func go(page: String) -> void:
+	cloud_confirmation={}
 	if page=="member_details" and screen in ["member","skills"]: details_return=screen
 	if model.active() and page in ["town","shop","inn","depart","guild","smithy"]: page="explore"
 	screen=page; confirm={}; selected_item=""; message=""; _draw_screen()
@@ -77,7 +85,9 @@ func _draw_screen() -> void:
 	if model.active() and model.s.run.phase=="battle" and not model.s.run.battle.is_empty():journey_open=false
 	if model.active() and model.s.run.phase=="battle" and not journey_open:
 		if is_instance_valid(battle): return
-		for c in get_children(): remove_child(c); c.queue_free()
+		for c in get_children():
+			if c==cloud:continue
+			remove_child(c); c.queue_free()
 		battle=BattleScreen.new()
 		if model.s.has("persona"):preload("res://ui/persona_visual_adapter.gd").prepare()
 		battle.session_data=model.battle_data()
@@ -88,10 +98,14 @@ func _draw_screen() -> void:
 		add_child(battle)
 		_publish()
 		return
-	for c in get_children(): remove_child(c); c.queue_free()
+	for c in get_children():
+		if c==cloud:continue
+		remove_child(c); c.queue_free()
 	battle=null; controls.clear(); art_preview_id="";art_preview=null;art_base_controls={}
 	town_view=null
 	result_view=null
+	if screen in ["cloud","rank"]:
+		town_view=preload("res://ui/cloud_screen_r22.gd").new();add_child(town_view);town_view.build(self);call_deferred("_publish");return
 	if model.s.has("persona") and not model.s.creation_r22.complete:
 		town_view=CreateScreen.new();add_child(town_view);town_view.build(self);return
 	if model.s.has("persona") and screen in ["formation","depart"]:
@@ -444,7 +458,7 @@ func _summary() -> void:
 	button("summary_home","토르바로",go.bind("town"))
 
 func _journal() -> void:
-	text("브라우저에 자동 저장됩니다. 기기 간 저장 공유는 아직 지원하지 않습니다.",13,MUTED)
+	button("cloud_open","클라우드 저장",go.bind("cloud"))
 	text("원정 %d회 · 보유 카드 %d장" % [model.s.runs,model.s.hand.size()],17,GOLD)
 	if model.s.log.is_empty(): text("아직 모험 기록이 없습니다.")
 	for i in range(model.s.log.size()-1,-1,-1): text(model.s.log[i],14)
@@ -488,6 +502,8 @@ func _publish() -> void:
 		buttons[id]={"rect":[r.position.x,r.position.y,r.size.x,r.size.y],"disabled":b.disabled,"needed":FONT.get_multiline_string_size(b.text,HORIZONTAL_ALIGNMENT_LEFT,-1,b.get_theme_font_size("font_size")).x+24}
 	var report={"build":model.config.build,"ui_build":"r21-d-town-20261102c","town_r21_preview":town_r21_preview,"screen":"battle" if is_instance_valid(battle) else screen,"state":model.s,"controls":buttons,"viewport":[size.x,size.y],"restored":restored,"save_error":save_error,"art_preview":art_preview_id,"town_scroll_height":content.size.y if is_instance_valid(content) else 0}
 	if is_instance_valid(town_view): report.town_text=town_view.metrics
+	if screen in ["cloud","rank"] and is_instance_valid(town_view):
+		report.cloud={"busy":cloud.busy,"code":cloud.account.code,"rev":cloud.account.rev,"notice":cloud.notice,"conflict":not cloud.conflict.is_empty(),"inputs":town_view.input_rects()}
 	JavaScriptBridge.eval("window.__abyssWorld="+JSON.stringify(report)+";",true)
 
 func _process(delta: float) -> void:

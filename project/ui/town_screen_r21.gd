@@ -778,6 +778,7 @@ func smithy() -> void:
 func journal() -> void:
 	header("모험 기록")
 	traced_title("journal",Rect2(14,54,152,134))
+	action("cloud_open","클라우드 저장",Rect2(18,220,354,48),host.go.bind("cloud"))
 	var prev=stage;stage=scroll_page(285,463,maxi(160,host.model.s.log.size()*89))
 	if host.model.s.log.is_empty(): paragraph("아직 모험 기록이 없습니다.",Rect2(0,30,338,48),17)
 	for i in range(host.model.s.log.size()):

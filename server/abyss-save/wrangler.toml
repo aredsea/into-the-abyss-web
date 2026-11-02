@@ -1,0 +1,22 @@
+name = "abyss-web-save"
+main = "dist/worker.mjs"
+no_bundle = true
+tsconfig = "tsconfig.json"
+compatibility_date = "2025-07-18"
+workers_dev = true
+
+[build]
+command = "node build.mjs"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "abyss-web-save"
+# Replace only after the owner creates the separate database. Never reuse the bot DB.
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
+
+[vars]
+TURNSTILE_ENABLED = "false"
+
+[triggers]
+crons = ["17 * * * *"]

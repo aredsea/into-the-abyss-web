@@ -1,11 +1,24 @@
 # PARITY-R21 — 원본 봇 기능 전수 대조표
 
-45개 Lua **18,795줄 전체**를 UTF-8로 읽고 기능 행 **3,860개**를 색인했다. **같음 1,278 / 일부 397 / 없음 242 / 제외 320 / 미확인 1,623.** 미확인을 같음이나 없음으로 바꾸어 세지 않았다. 개행(LF)은 지시서와 같은 18,794개다. `05-gen.lua`의 마지막 줄에 개행이 없어 마지막 줄까지 센 논리 행은 18,795개이며 원본에 추가 행이 생긴 것이 아니다. 파일별 SHA-256/줄 수를 JSON에 고정했다.
+45개 Lua **18,795줄 전체**를 UTF-8로 읽고 기능 행 **3,860개**를 색인했다. **같음 1,278 / 일부 397 / 없음 252 / 제외 320 / 미확인 1,613.** 미확인을 같음이나 없음으로 바꾸어 세지 않았다. 개행(LF)은 지시서와 같은 18,794개다. `05-gen.lua`의 마지막 줄에 개행이 없어 마지막 줄까지 센 논리 행은 18,795개이며 원본에 추가 행이 생긴 것이 아니다. 파일별 SHA-256/줄 수를 JSON에 고정했다.
 
 - JSON: [verification/parity-r21/parity.json](verification/parity-r21/parity.json)
-- 함수/라우트/표/필드와 개별 데이터 항목은 서로 겹칠 수 있다. 데이터 항목을 제외한 수: 같음 67, 일부 349, 없음 242, 제외 319, 미확인 1,599. **행 비율은 게임 완성률/공수 비율이 아니다.**
+- 함수/라우트/표/필드와 개별 데이터 항목은 서로 겹칠 수 있다. 데이터 항목을 제외한 수: 같음 67, 일부 349, 없음 252, 제외 319, 미확인 1,589. **행 비율은 게임 완성률/공수 비율이 아니다.**
 - 기본 근거: 실제 원본 Lua 재적재 oracle, 직접 코드 줄 대조, 데이터 구조/값 대조. 기존 보고서 문장만으로 같음 처리한 행은 없다.
 - 의미 대조가 끝나지 않은 내부 함수/콜백/숫자표는 미확인이다. 이 보고서는 전수 목록이며 모든 기능의 동등성 검증 완료 보고서는 아니다.
+
+## Q1 confirmation
+
+Direct comparison confirmed 10 rows as absent. 774 other target rows remain unverified because direct evidence was not sufficient. Unverified counts changed from 79 to 72 in 65-codex.lua and from 62 to 59 in 66-status.lua; the other 18 target files had no status changes.
+
+|Bundle|Newly confirmed absent feature|Rows|
+|---|---|---|
+|P7|Codex affection-stage marker|P2488|
+|P7|Codex screen and favorite controls, routes, and persistence|P2536-P2537, P2548-P2551|
+|P7|Status persona/favorite filters and codex entry button|P2560, P2563, P2566|
+
+Evidence compares original `65-codex.lua:46,393,408-413,435,437,444` and `66-status.lua:7-20,38-55,57` against the complete game screen dispatch and routes in `project/ui/town_screen_r21.gd:30-49`, `project/ui/world_screen.gd:65-68,88-120`, and state schema `project/game/world_state.gd:1-46`. Full-tree keyword results are in `verification/parity-r21/search-evidence.json`; changed rows and reasons are in [confirm-q1.json](verification/parity-r21/confirm-q1.json).
+
 
 ## 남은 작업: 10개 묶음과 의존 순서
 
@@ -49,8 +62,8 @@
 |50-render.lua|516 / 1–400, 401–516|0|0|0|0|38|0/38 (0.0%)|
 |51-raid.lua|99 / 1–99|0|0|0|0|6|0/6 (0.0%)|
 |60-create.lua|640 / 1–400, 401–640|0|0|109|1|0|0/109 (0.0%)|
-|65-codex.lua|467 / 1–400, 401–467|0|0|0|0|79|0/79 (0.0%)|
-|66-status.lua|400 / 1–400|0|0|0|0|62|0/62 (0.0%)|
+|65-codex.lua|467 / 1–400, 401–467|0|0|7|0|72|0/79 (0.0%)|
+|66-status.lua|400 / 1–400|0|0|3|0|59|0/62 (0.0%)|
 |67-settings.lua|151 / 1–151|0|1|45|31|0|0/46 (0.0%)|
 |68-cloud.lua|348 / 1–348|0|0|36|0|0|0/36 (0.0%)|
 |69-rank.lua|48 / 1–48|0|0|11|0|0|0/11 (0.0%)|
@@ -2818,7 +2831,7 @@ Godot 전투 연출 설정/로컬 저장은 있으나 원본 일반 난이도·�
 |P2485|65-codex.lua:34–37|도감 — 함수 PX.cls|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
 |P2486|65-codex.lua:38–38|도감 — 함수 PX.rec|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
 |P2487|65-codex.lua:39–44|도감 — 함수 PX.aff|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
-|P2488|65-codex.lua:46–46|도감 — 함수 PX.stage|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
+|P2488|65-codex.lua:46–46|도감 — 함수 PX.stage|없음|없음|PX.stage affection-stage mapping has no equivalent in the game state or screens.|harness_panels.mjs (관련)|
 |P2489|65-codex.lua:48–61|도감 — 함수 PX.stats|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
 |P2490|65-codex.lua:64–72|도감 — 함수 PX.pstats|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
 |P2491|65-codex.lua:73–77|도감 — 함수 PX.cstats|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
@@ -2866,8 +2879,8 @@ Godot 전투 연출 설정/로컬 저장은 있으나 원본 일반 난이도·�
 |P2533|65-codex.lua:369–383|도감 — 함수 PX.passives|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
 |P2534|65-codex.lua:385–406|도감 — 함수 PX.cx_detail|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
 |P2535|65-codex.lua:393–393|도감 — 화면 버튼/동적 버튼 틀 cx_back|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
-|P2536|65-codex.lua:393–393|도감 — 화면 버튼/동적 버튼 틀 cx_fav|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
-|P2537|65-codex.lua:408–413|codex 화면/패널 표시|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_i18n.mjs:80, harness_persona_skill.mjs:192|
+|P2536|65-codex.lua:393–393|도감 — 화면 버튼/동적 버튼 틀 cx_fav|없음|없음|No codex favorite control exists in the game screen registry, UI, or state.|harness_panels.mjs (관련)|
+|P2537|65-codex.lua:408–413|codex 화면/패널 표시|없음|없음|No codex page/panel exists in the town screen dispatch or world screen routes.|harness_i18n.mjs:80, harness_persona_skill.mjs:192|
 |P2538|65-codex.lua:410–410|도감 — 화면 버튼/동적 버튼 틀 cx_back|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
 |P2539|65-codex.lua:415–466|B.H.cx 버튼 접두 처리|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
 |P2540|65-codex.lua:418–418|도감 — 버튼 라우트/인자 분기 if arg:sub(1, 2) == "f_"|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
@@ -2878,10 +2891,10 @@ Godot 전투 연출 설정/로컬 저장은 있으나 원본 일반 난이도·�
 |P2545|65-codex.lua:429–429|도감 — 버튼 라우트/인자 분기 elseif arg == "back"|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
 |P2546|65-codex.lua:429–429|도감 — 개별 버튼 인자 값 arg == "back"|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
 |P2547|65-codex.lua:431–431|도감 — 버튼 라우트/인자 분기 elseif arg:sub(1, 5) == "open_"|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
-|P2548|65-codex.lua:435–435|도감 — 버튼 라우트/인자 분기 elseif arg == "fav"|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
-|P2549|65-codex.lua:435–435|도감 — 개별 버튼 인자 값 arg == "fav"|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
-|P2550|65-codex.lua:437–437|도감 — 저장 상태 쓰기/기본 필드 G.favs|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
-|P2551|65-codex.lua:444–444|도감 — 저장 상태 쓰기/기본 필드 G.favs[#G.favs + 1]|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
+|P2548|65-codex.lua:435–435|도감 — 버튼 라우트/인자 분기 elseif arg == "fav"|없음|없음|No codex favorite action route exists in the game screen routes.|harness_panels.mjs (관련)|
+|P2549|65-codex.lua:435–435|도감 — 개별 버튼 인자 값 arg == "fav"|없음|없음|No codex favorite action value exists in the game screen routes.|harness_panels.mjs (관련)|
+|P2550|65-codex.lua:437–437|도감 — 저장 상태 쓰기/기본 필드 G.favs|없음|없음|No persistent favorite collection exists in the world state schema or game UI.|harness_panels.mjs (관련)|
+|P2551|65-codex.lua:444–444|도감 — 저장 상태 쓰기/기본 필드 G.favs[#G.favs + 1]|없음|없음|No persistent favorite append/write path exists in the world state schema or game UI.|harness_panels.mjs (관련)|
 |P2552|65-codex.lua:447–447|도감 — 버튼 라우트/인자 분기 elseif arg == "bag"|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
 |P2553|65-codex.lua:447–447|도감 — 개별 버튼 인자 값 arg == "bag"|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
 |P2554|65-codex.lua:452–452|도감 — 버튼 라우트/인자 분기 elseif arg:sub(1, 3) == "un_"|project/ui/town_screen_r21.gd:714–742 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료 상세·장비는 존재; 미영입 도감·즐겨찾기·전체 필터 미완|harness_panels.mjs (관련)|
@@ -2897,13 +2910,13 @@ Godot 전투 연출 설정/로컬 저장은 있으나 원본 일반 난이도·�
 |---|---|---|---|---|---|---|
 |P2558|66-status.lua:4–5|페르소나/참전 상태 — 모듈 초기화·연결 규칙 모듈 초기화·등록·상수/규칙|project/ui/town_screen_r21.gd:603–642 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료/가방은 존재; 페르소나 상태·즐겨찾기·판매/정렬 일부 차이|harness_panels.mjs (관련), harness_gear.mjs (관련)|
 |P2559|66-status.lua:5–5|페르소나/참전 상태 — 상수·모듈 등록 PX|project/ui/town_screen_r21.gd:603–642 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료/가방은 존재; 페르소나 상태·즐겨찾기·판매/정렬 일부 차이|harness_panels.mjs (관련), harness_gear.mjs (관련)|
-|P2560|66-status.lua:7–36|페르소나/참전 상태 — 함수 PX.st_persona|project/ui/town_screen_r21.gd:603–642 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료/가방은 존재; 페르소나 상태·즐겨찾기·판매/정렬 일부 차이|harness_panels.mjs (관련), harness_gear.mjs (관련)|
+|P2560|66-status.lua:7–36|페르소나/참전 상태 — 함수 PX.st_persona|없음|없음|The status screen persona filter has no game counterpart; state and screen routes use fixed companions with no persona filter.|harness_panels.mjs (관련), harness_gear.mjs (관련)|
 |P2561|66-status.lua:19–19|페르소나/참전 상태 — 저장 상태 쓰기/기본 필드 st[k]|project/ui/town_screen_r21.gd:603–642 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료/가방은 존재; 페르소나 상태·즐겨찾기·판매/정렬 일부 차이|harness_panels.mjs (관련), harness_gear.mjs (관련)|
 |P2562|66-status.lua:21–21|페르소나/참전 상태 — 저장 상태 쓰기/기본 필드 st.spd|project/ui/town_screen_r21.gd:603–642 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료/가방은 존재; 페르소나 상태·즐겨찾기·판매/정렬 일부 차이|harness_panels.mjs (관련), harness_gear.mjs (관련)|
-|P2563|66-status.lua:38–46|페르소나/참전 상태 — 함수 PX.st_fav|project/ui/town_screen_r21.gd:603–642 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료/가방은 존재; 페르소나 상태·즐겨찾기·판매/정렬 일부 차이|harness_panels.mjs (관련), harness_gear.mjs (관련)|
+|P2563|66-status.lua:38–46|페르소나/참전 상태 — 함수 PX.st_fav|없음|없음|The status screen favorite filter has no game counterpart; no favorite collection/control exists in game UI or state.|harness_panels.mjs (관련), harness_gear.mjs (관련)|
 |P2564|66-status.lua:45–45|페르소나/참전 상태 — 화면 버튼/동적 버튼 틀 cx_open_…|project/ui/town_screen_r21.gd:603–642 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료/가방은 존재; 페르소나 상태·즐겨찾기·판매/정렬 일부 차이|harness_panels.mjs (관련), harness_gear.mjs (관련)|
 |P2565|66-status.lua:48–61|페르소나/참전 상태 — 함수 PX.st_me|project/ui/town_screen_r21.gd:603–642 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료/가방은 존재; 페르소나 상태·즐겨찾기·판매/정렬 일부 차이|harness_panels.mjs (관련), harness_gear.mjs (관련)|
-|P2566|66-status.lua:57–57|페르소나/참전 상태 — 화면 버튼/동적 버튼 틀 hd_codex|project/ui/town_screen_r21.gd:603–642 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료/가방은 존재; 페르소나 상태·즐겨찾기·판매/정렬 일부 차이|harness_panels.mjs (관련), harness_gear.mjs (관련)|
+|P2566|66-status.lua:57–57|페르소나/참전 상태 — 화면 버튼/동적 버튼 틀 hd_codex|없음|없음|The status screen codex navigation button has no corresponding game screen or route.|harness_panels.mjs (관련), harness_gear.mjs (관련)|
 |P2567|66-status.lua:64–79|페르소나/참전 상태 — 함수 PX.st_unit|project/ui/town_screen_r21.gd:603–642 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료/가방은 존재; 페르소나 상태·즐겨찾기·판매/정렬 일부 차이|harness_panels.mjs (관련), harness_gear.mjs (관련)|
 |P2568|66-status.lua:81–92|페르소나/참전 상태 — 함수 PX.st_battle|project/ui/town_screen_r21.gd:603–642 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료/가방은 존재; 페르소나 상태·즐겨찾기·판매/정렬 일부 차이|harness_panels.mjs (관련), harness_gear.mjs (관련)|
 |P2569|66-status.lua:97–97|페르소나/참전 상태 — 모듈 초기화·연결 규칙 모듈 초기화·등록·상수/규칙|project/ui/town_screen_r21.gd:603–642 (후보)|미확인|대응 후보만 찾음; 이 함수/표/필드의 규칙·수치·전체 분기는 직접 확정하지 않음. 동료/가방은 존재; 페르소나 상태·즐겨찾기·판매/정렬 일부 차이|harness_panels.mjs (관련), harness_gear.mjs (관련)|
