@@ -20,7 +20,8 @@ ROOT_KEYS = {'speech', 'schema_version', 'character_id', 'name', 'stage_order', 
              'integration', 'sources', 'proper_nouns', 'inn', 'dungeon', 'transitions'}
 MBTI = {''.join(v) for v in itertools.product('IE', 'NS', 'TF', 'JP')}
 ALIGNMENTS = ['질서 선', '질서 중립', '질서 악', '중립 선', '중립', '중립 악', '혼돈 선', '혼돈 중립', '혼돈 악']
-FORMAL = re.compile(r'(?:니다|[습입합됩십닙]니까|시오|십시오|시다)$')
+BIEUP_FINAL = ''.join(chr(c) for c in range(0xAC00, 0xD7A4) if (c - 0xAC00) % 28 == 17)
+FORMAL = re.compile(r'(?:(?<!아)니다|[' + BIEUP_FINAL + r']니까|시오|십시오|시다)$')
 POLITE = re.compile(r'(?:요|죠)$')
 HAO = re.compile(r'(?:오|소|구려|구료|시다|리다|군|(?:것|자리|그대로|여기|수고|먼저|조)요)$')
 INFORMAL = re.compile(r'(?:아|어|해|돼|봐|줘|둬|와|가|자|지|네|야|냐|니|나|래|게|걸|마|거든|다|까|데|고|라|군|구나|걸로|겠지|러|서|여|워|도|면|려|져|뭐|만|시|놔|겨|쪽)$')
@@ -213,7 +214,10 @@ def validate(data, expected_id=None, dictionary=None):
                     continue
                 metrics['ending_sentences'] += 1
                 allowed = REGISTERS.get(cid, [])
-                okay = any(bool(pattern.search(s)) and (label != '해체' or not (FORMAL.search(s) or POLITE.search(s) or HAO.search(s)))
+                # 군 is shared by 하오체 and 해체 (e.g. 군힐트's 그렇군).
+                # Other 하오 endings must still be rejected by 해체 declarations.
+                informal_hao_conflict = HAO.search(s) and not s.endswith('군')
+                okay = any(bool(pattern.search(s)) and (label != '해체' or not (FORMAL.search(s) or POLITE.search(s) or informal_hao_conflict))
                            for label, pattern in [('하십시오체', FORMAL), ('해요체', POLITE), ('하오체', HAO), ('해체', INFORMAL)] if label in allowed)
                 if not okay:
                     metrics['ending_deviations'].append({'path': path, 'sentence': s})
@@ -254,7 +258,7 @@ def run(data_dir):
     dictionary = lexicon()
     files = sorted(data_dir.glob('*.json'))
     if {p.stem for p in files} != set(IDS):
-        errors.append({'path': str(data_dir), 'message': 'expected exactly twelve second-pass files'})
+        errors.append({'path': str(data_dir), 'message': f'expected exactly {len(IDS)} registered character files'})
     cross_lines = defaultdict(list)
     cross_sentences = defaultdict(list)
     game_people = {p['id']: p for p in json.loads((ROOT / 'project/data/world.json').read_text(encoding='utf-8'))['companions']}

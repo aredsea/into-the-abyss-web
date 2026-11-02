@@ -11,6 +11,8 @@ TITLES = {'hildegard': '힐데가 경', 'marceline': '마르셀린 씨', 'teiris
           'naran': '나란 씨', 'haldric': '할드리크 부대장', 'erdene': '에르데네 씨',
           'bianca': '비앙카 씨', 'saya': '사야 씨', 'gerda': '게르다 씨',
           'judith': '유디트 씨', 'levia': '레비아 씨', 'urda': '우르다 사제님'}
+TITLES.update({'lynette':'리네트 씨', 'felice':'펠리스 씨', 'sorel':'소렐 씨', 'tika':'티카 씨',
+               'hedwig':'헤드비히 씨', 'berenga':'베렌가 씨', 'gunhild':'군힐트 씨', 'bargut':'바르굿 씨', 'altan':'알탄 씨'})
 VOICE = {
  'hildegard': '반듯한 하십시오체. 명령을 입에 올렸다가 부탁으로 고친다. 가까워지면 맡기고 쉬는 법을 배운다.',
  'marceline': '낮은 존댓말. 남부터 챙기다가 사적인 안부에도 소설에서 읽은 절차를 찾는다. 교리서라는 변명은 가까워질수록 서툴러진다.',
@@ -74,7 +76,7 @@ def build():
     dictionary = lexicon()
     base = read_json(OUT / 'round1/hildegard.json')
     edits = []
-    for cid in IDS:
+    for cid in VOICE:
         pilot = cid in ['hildegard', 'marceline', 'teiris']
         data = read_json(OUT / f'round1/{cid}.json') if pilot else deepcopy(base)
         data['character_id'], data['name'] = cid, IDS[cid]

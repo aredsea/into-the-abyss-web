@@ -7,6 +7,9 @@ from dialogue_r21_build import ROOT, OUT, IDS, read_json, write_json
 from dialogue_r21_report2 import SAMPLES
 
 def main():
+    if (OUT/'delivery-manifest3.json').exists():
+        from dialogue_r21_delivery_check3 import main as current
+        return current()
     checks=[]
     def check(name, result):
         checks.append({'name':name,'passed':bool(result)})

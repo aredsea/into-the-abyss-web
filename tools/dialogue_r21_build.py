@@ -16,11 +16,15 @@ EVENTS = dict(zip(['departure', 'floor_entry', 'discovery', 'battle_start', 'vic
 IDS = {'hildegard': '힐데가', 'marceline': '마르셀린', 'teiris': '테이리스',
        'naran': '나란', 'haldric': '할드리크', 'erdene': '에르데네', 'bianca': '비앙카',
        'saya': '사야', 'gerda': '게르다', 'judith': '유디트', 'levia': '레비아', 'urda': '우르다'}
+IDS.update({'lynette':'리네트', 'felice':'펠리스', 'sorel':'소렐', 'tika':'티카',
+            'hedwig':'헤드비히', 'berenga':'베렌가', 'gunhild':'군힐트', 'bargut':'바르굿', 'altan':'알탄'})
 REGISTERS = {cid: (['하십시오체'] if cid == 'hildegard' else
                   ['하십시오체', '해요체'] if cid == 'marceline' else
                   ['하오체'] if cid == 'haldric' else
                   ['하오체', '해요체'] if cid == 'urda' else
                   ['해체', '해요체'] if cid in ['erdene', 'gerda'] else ['해요체']) for cid in IDS}
+REGISTERS.update({cid:['하십시오체'] for cid in ['hedwig','altan']})
+REGISTERS.update({cid:['해체'] for cid in ['gunhild','bargut']})
 ENDING_FRAGMENTS = {
     'hildegard': [{'text': '출발 전에 한 잔씩 마시도록…….', 'reason': '명령조를 내다가 고쳐 말하는 중단. 한국어 지침 5.3 및 인물 정본.'}],
     'marceline': [{'text': '이럴 때는 옆에 앉아도 되는 순서라고…….', 'reason': '책에서 익힌 순서를 말하려다 스스로 멈춤. 한국어 지침 5.3.'},
@@ -112,7 +116,7 @@ def replace_at(data, path, value):
 
 
 def main():
-    from dialogue_r21_round2 import build
+    from dialogue_r21_round3 import build
     build()
 
 

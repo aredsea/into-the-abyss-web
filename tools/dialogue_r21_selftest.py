@@ -2,6 +2,7 @@
 from copy import deepcopy
 import json
 from pathlib import Path
+import argparse
 from dialogue_r21_build import ROOT, IDS, read_json, write_json, lexicon
 from dialogue_r21_check import validate, run, MBTI, ALIGNMENTS
 
@@ -84,8 +85,34 @@ def main():
     d['inn'][0]['choices'][0]['text'] = '힐데가 경가 먼저 정해 주세요.'
     errors, _ = validate(d, 'hildegard', dictionary)
     checks.append({'name':'consonant-title-wrong-particle','passed':any('address particle mismatch' in e['message'] for e in errors)})
+    for cid in ['gunhild', 'bargut']:
+        for line in ['그 말은 내 뜻이 아니다.', '여기서 다시 만나는군.']:
+            d = read_json(ROOT/f'project/data/dialogue-r21/{cid}.json')
+            d['inn'][0]['lines'][0] = line
+            errors, _ = validate(d, cid, dictionary)
+            checks.append({'name':cid+'-accept-shared-ending-'+line, 'passed':not errors})
+        for line in ['지금 함께 가겠습니다.', '같이 가겠소.']:
+            d = read_json(ROOT/f'project/data/dialogue-r21/{cid}.json')
+            d['inn'][0]['lines'][0] = line
+            errors, _ = validate(d, cid, dictionary)
+            checks.append({'name':cid+'-reject-formal-or-hao-'+line,
+                           'passed':any('speech endings violated' in e['message'] for e in errors)})
+    for cid in ['hedwig', 'altan']:
+        for line in ['이 말이 정확히 들립니까?', '그 비용도 직접 냅니까?']:
+            d = read_json(ROOT/f'project/data/dialogue-r21/{cid}.json')
+            d['inn'][0]['lines'][0] = line
+            errors, _ = validate(d, cid, dictionary)
+            checks.append({'name':cid+'-accept-bieup-formal-question-'+line, 'passed':not errors})
+        d = read_json(ROOT/f'project/data/dialogue-r21/{cid}.json')
+        d['inn'][0]['lines'][0] = '그것은 내 뜻이 아니다.'
+        errors, _ = validate(d, cid, dictionary)
+        checks.append({'name':cid+'-reject-anida-as-formal',
+                       'passed':any('speech endings violated' in e['message'] for e in errors)})
     result = {'checks': len(checks), 'failures': sum(not c['passed'] for c in checks), 'results': checks}
-    write_json(ROOT / 'verification/dialogue-r21/selftest.json', result)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--report', type=Path, default=ROOT / 'verification/dialogue-r21/selftest.json')
+    args = parser.parse_args()
+    write_json(args.report, result)
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return int(bool(result['failures']))
 
