@@ -46,6 +46,7 @@ end end end
 return out
 `);
 result.fourth=await L(fs.readFileSync('tools/oracle_enemy_review_fourth_r21.lua','utf8'));
+result.fifth=await L(fs.readFileSync('tools/oracle_enemy_review_fifth_r21.lua','utf8'));
 fs.writeFileSync('verification/data-r21/enemy-review-oracle.json',JSON.stringify({files,...result},null,2)+'\n');
-console.log(JSON.stringify({dots:result.dots.length,evades:result.evades.length,fourth:Object.fromEntries(Object.entries(result.fourth).map(([k,v])=>[k,Array.isArray(v)?v.length:v]))}));
+console.log(JSON.stringify({dots:result.dots.length,evades:result.evades.length,fourth:Object.fromEntries(Object.entries(result.fourth).map(([k,v])=>[k,Array.isArray(v)?v.length:v])),fifth:Object.fromEntries(Object.entries(result.fifth).map(([k,v])=>[k,v.length]))}));
 process.exit(0);

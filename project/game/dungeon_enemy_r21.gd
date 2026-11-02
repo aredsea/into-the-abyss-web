@@ -167,13 +167,13 @@ func drop_auras():
 		for key in u.effects.keys():
 			var source=u.effects[key].get("source","")
 			if not source.is_empty():
-				var owner=b.enemy(source)
-				if owner.is_empty() or owner.hp<=0 or owner.broken: u.effects.erase(key)
+				var owner=b.unit(source)
+				if owner.is_empty() or owner.hp<=0 or (not owner.has("base") and owner.broken): u.effects.erase(key)
 
 func end_effects(u: Dictionary):
 	for key in u.effects.keys():
 		var eff=u.effects[key]
-		if eff.get("r21",false):
+		if eff.get("r21",false) and not key.begins_with("enemy_dot_"):
 			eff.turns-=1
 			if eff.turns<=0: u.effects.erase(key)
 	drop_auras()

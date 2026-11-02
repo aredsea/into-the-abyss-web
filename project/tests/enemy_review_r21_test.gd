@@ -97,12 +97,18 @@ func run():
 		b.dungeon_enemy_r21.turn()
 		check(a.effects.has("enemy_dot_0")==row.stack and int(b.x(e).source_rng)==int(row.rng) and e.target_id==b.data.allies[int(row.target)-1].id,"2 actual Lua evade/stack/RNG/forecast %d/%d/%s"%[row.seed,row.evade,row.nation])
 	fourth(oracle.fourth)
+	fifth(oracle.fifth)
 	var out={"checks":checks,"failures":failures,"evidence":evidence}
 	FileAccess.open("res://../verification/data-r21/enemy-review-latest.json",FileAccess.WRITE).store_string(JSON.stringify(out,"\t"))
 	print("ENEMY_REVIEW_R21 "+JSON.stringify(out)); quit(0 if failures.is_empty() else 1)
 
 func rename_ally(b,index: int,id: String):
-	var a=b.data.allies[index]; b.extra_state[id]=b.extra_state[a.id]; a.id=id
+	var a=b.data.allies[index]; var previous=a.id
+	b.extra_state[id]=b.extra_state[previous]; b.extra_state.erase(previous); a.id=id
+	for key in ["current_id","last_ally","selected_ally"]:
+		if b.get(key)==previous: b.set(key,id)
+	for e in b.data.enemies:
+		if e.get("target_id","")==previous: e.target_id=id
 	return a
 func fourth(o: Dictionary):
 	var observations={"strikes":[],"seals":[],"saves":[],"saya":[],"zahar":[]}
@@ -201,3 +207,137 @@ func fourth(o: Dictionary):
 		observations.zahar.append({"input":row,"loss":1000-a.hp})
 		check(1000-a.hp==row.loss,"4.8 Zahar zdn take correction "+str(row))
 	evidence.fourth=observations
+
+func fifth(o: Dictionary):
+	var observations={"echo":[],"death":[],"priority":[],"wall":[],"priest":[],"ticks":[],"trim":[],"heals":[],"echo_order":[],"synergy":[]}
+	for row in o.echo:
+		var b=fixture(); var a=b.data.allies[0]; a.hp=int(row.initial); a.shield=21; a.gear_fx={"healrecv":row.recv,"heal":99}
+		b.data.allies[1].gear_special=[{"key":"pa_echo","v":[50]}]; b.data.allies[1].gear_fx={"heal":row.heal}
+		for i in range(int(row.humans)): b.data.allies[i].race="인간"
+		b._incoming_strike(a,row.raw,{}, {"name":"probe"},false,row.fixed)
+		observations.echo.append({"input":row,"hp":a.hp,"shield":a.shield})
+		check(a.hp==row.hp and a.shield==row.shield,"5.1 canonical echo B.heal bonuses/rounding/dead gate "+str(row))
+	for row in o.death:
+		var b=fixture(); var a=b.data.allies[0]
+		if row.cid!="neutral": a=rename_ally(b,0,row.cid)
+		rename_ally(b,1,"marceline"); a.hp=1; a.charging=true; b.x(a).cover=b.data.allies[1].id; b._effect(a,"taunt",3)
+		for u in b.data.allies+[b.data.enemies[0]]:
+			u.effects.probe={"turns":3,"amount":.2,"source":a.id}; u.effects.keep={"turns":3,"amount":.3,"source":b.data.allies[1].id}
+		b._incoming_strike(a,100,{}, {"name":"probe"},false,row.fixed)
+		var removed=0; var kept=0
+		for u in b.data.allies+[b.data.enemies[0]]:
+			if not u.effects.has("probe"): removed+=1
+			if u.effects.has("keep"): kept+=1
+		var actual={"hp":a.hp,"removed":removed,"kept":kept,"taunt":int(a.effects.has("taunt")),"charging":int(a.charging),"cover":int(not str(b.x(a).get("cover","")).is_empty())}
+		observations.death.append({"input":row,"actual":actual})
+		check(actual.hp==row.hp and removed==row.removed and kept==row.kept and actual.taunt==row.taunt and actual.charging==row.charging and actual.cover==row.cover,"5.2 canonical ally_down/drop_src and death cleanup "+str(row))
+	for row in o.priority:
+		var b=fixture(); var a=rename_ally(b,0,"marceline"); a.hp=50; a.gear_special=[{"key":"wa_last","v":[20,2,30]}]
+		b._incoming_strike(a,100,{}, {"name":"probe"},false,row.fixed)
+		var actual={"hp":a.hp,"shield":a.shield,"wall":b.x(a).get("wall_saved",false)}
+		check(a.hp==row.hp and a.shield==row.shield and actual.wall==row.wall,"5.3 personal save precedes last wall "+str(row))
+		b._incoming_strike(a,1000,{}, {"name":"probe"},false,row.fixed)
+		actual.second_hp=a.hp; actual.second_wall=b.x(a).get("wall_saved",false)
+		check(a.hp==row.second_hp and actual.second_wall==row.second_wall,"5.3 second lethal strike consumes wall "+str(row))
+		observations.priority.append({"input":row,"actual":actual})
+	for row in o.wall:
+		var b=fixture(); var a=b.data.allies[0]; a.mhp=int(row.mhp); a.hp=mini(50,a.mhp); a.gear_special=[{"key":"wa_last","v":[20,2,30]}]
+		b._incoming_strike(a,1000,{}, {"name":"probe"},false,row.fixed)
+		observations.wall.append({"input":row,"hp":a.hp})
+		check(a.hp==row.hp,"5.4 wall nearest integer and minimum one "+str(row))
+	for row in o.priest:
+		var b=fixture(); var a=b.data.allies[0]; a.hp=50; a.mhp=1003
+		if row.kind in ["self","alone"]:
+			a.class_id="priest"
+			if row.kind=="alone":
+				for i in range(1,4): b.data.allies[i].hp=0
+		else:
+			b.data.allies[1].class_id="priest"; b.data.allies[2].class_id="priest"
+			b.data.allies[1 if row.kind=="first_miracle" else 2].gear_special=[{"key":"pr_miracle","v":[60,15]}]
+		b._incoming_strike(a,100,{}, {"name":"probe"},false,row.fixed)
+		observations.priest.append({"input":row,"hp":a.hp,"shield":a.shield,"used":a.ward_used})
+		check(a.hp==row.hp and a.shield==row.shield and a.ward_used==row.used,"5.5 priest includes lethal target and uses first living priest "+str(row))
+	for row in o.ticks:
+		var b=fixture(); var a=b.data.allies[0]; var e=b.data.enemies[0]
+		if row.cid!="neutral": a=rename_ally(b,0,row.cid)
+		a.hp=50; a.mp=0; a.mmp=100; a.gear_fx={"mpreg":7}; a.gear_special=[{"key":"taunt_heal","p":100,"x":10}]
+		b._effect(a,"taunt",int(row.tau)); b.x(a).prevented=80; b.data.allies[1].hp=500
+		if row.down: b._effect(a,"regen",3,60)
+		b.current_id=a.id; b.dungeon_enemy_r21.add_dot(a,e,int(row.raw),3); b._tick(a)
+		var actual={"hp":a.hp,"mp":a.mp,"shield":a.shield,"other":b.data.allies[1].hp,"blocked":b.x(a).get("prevented",0),"dot_n":a.effects.get("enemy_dot_0",{}).get("turns",0)}
+		observations.ticks.append({"input":row,"actual":actual})
+		check(a.hp==row.hp and a.mp==row.mp and a.shield==row.shield and actual.other==row.other and is_equal_approx(actual.blocked,row.blocked) and actual.dot_n==row.dot_n,"5.6 begin heal precedes DOT; death skips remaining tick heals "+str(row))
+	for row in o.trim:
+		var b=fixture(); var a=b.data.allies[0]; var e=b.data.enemies[0]; a.hp=1
+		for i in range(3): b.data.allies[i].nation="모르가스 신관국"
+		# Match B.dot_push inputs; distinct amounts prove oldest-first trim.
+		e.effects.dot={"amount":210.0,"turns":4,"stacks":[10.0,20.0,30.0,40.0,50.0,60.0]}; b.x(e).dot_stacks=6
+		b._effect(e,"corrosion",3,77)
+		b._incoming_strike(a,100,{}, {"name":"probe"},false,row.fixed)
+		var actual={"amount":b.fx(e,"dot"),"count":b.x(e).get("dot_stacks",0),"corrosion":b.fx(e,"corrosion")}
+		observations.trim.append({"input":row,"actual":actual})
+		check(actual.amount==row.amount and actual.count==row.count and actual.corrosion==row.corrosion,"5.2 ally_down trims class DOT only after Morgas 3 to 2 "+str(row))
+	for row in o.heals:
+		var b=fixture(); var a=b.data.allies[0]; a.hp=980; a.gear_fx={"healrecv":row.recv}
+		var caster=b.data.allies[2]; caster.gear_fx={"heal":40}; caster.gear_special=[{"key":"al_surge","v":[50,3]}]
+		for i in range(int(row.humans)): b.data.allies[i].race="인간"
+		b._receive_heal(a,21.5,caster if row.skill else {})
+		observations.heals.append({"input":row,"hp":a.hp,"shield":a.shield})
+		check(a.hp==row.hp and a.shield==row.shield,"5.1 shared B.heal raw/skill context and surplus "+str(row))
+	for row in o.echo_order:
+		var b=fixture(); var a=b.data.allies[0]; a.hp=250 if row.kind in ["sorel","dead_owner"] else 50
+		a.shield=21; a.gear_fx={"healrecv":25}; b.data.allies[1].gear_special=[{"key":"pa_echo","v":[50]}]
+		if row.kind=="wall": a.gear_special=[{"key":"wa_last","v":[20,2,30]}]
+		if row.kind=="priest": b.data.allies[1].class_id="priest"
+		if row.kind=="sorel":
+			var sorel=rename_ally(b,1,"sorel"); sorel.base.int=100; sorel.gear_fx={"heal":99}
+		if row.kind=="dead_owner": b.data.allies[1].hp=0
+		b._incoming_strike(a,100,{}, {"name":"probe"},false,row.fixed)
+		observations.echo_order.append({"input":row,"hp":a.hp,"shield":a.shield})
+		check(a.hp==row.hp and a.shield==row.shield,"5.1/3 echo follows save/damaged and ignores dead wearers "+str(row))
+	# Exercise actual cast/application paths and snapshot compatibility.
+	for cid in ["haldric","adeline"]:
+		var b=fixture(); var caster=rename_ally(b,0,cid); b.current_id=caster.id
+		for u in b.data.allies: u.hp=500; u.row=caster.row
+		b._personal(caster,b.data.enemies[0],b.data.allies[1],{})
+		var key="contract" if cid=="haldric" else "adeline_guard"
+		check(b.data.allies[1].effects[key].get("source","")==caster.id,"5.2 real cast records source "+cid)
+		b.dungeon_enemy_r21.drop_auras()
+		check(b.data.allies[1].effects.has(key),"5.2 living ally source survives aura cleanup "+cid)
+		var saved=JSON.parse_string(JSON.stringify(b.snapshot())); var restored=load("res://game/battle_v3.gd").new(b.data)
+		check(restored.restore(saved),"5.2 source metadata snapshot restores "+cid)
+		caster.hp=1; restored.data.allies[0].hp=1
+		b._incoming_strike(caster,1000,{}, {"name":"probe"},false,true)
+		restored._incoming_strike(restored.data.allies[0],1000,{}, {"name":"probe"},false,true)
+		check(not b.data.allies[1].effects.has(key) and (cid!="adeline" or not b.data.allies[1].effects.has("regen")),"5.2 real caster death removes guard and Adeline regen "+cid)
+		check(JSON.parse_string(JSON.stringify(b.snapshot()))==JSON.parse_string(JSON.stringify(restored.snapshot())),"5.2 restored caster death continues identically "+cid)
+	var b=fixture(); var caster=b.data.allies[1]; caster.class_id="unsanctioned"; var e=b.data.enemies[0]
+	for i in range(3): b.data.allies[i].nation="모르가스 신관국"
+	for i in range(1,7):
+		caster.base.int=i*100; b._damage(caster,e,.01,0,true)
+	check(b.x(e).dot_stacks==6 and b.fx(e,"dot")==504,"5.2 real attacks create six distinguishable class stacks")
+	var saved=JSON.parse_string(JSON.stringify(b.snapshot())); var restored=load("res://game/battle_v3.gd").new(b.data)
+	check(restored.restore(saved),"5.2 class stack metadata JSON restores")
+	for battle in [b,restored]:
+		battle.data.allies[0].hp=1; battle._incoming_strike(battle.data.allies[0],1000,{}, {"name":"probe"},false,true)
+	check(b.fx(e,"dot")==480 and restored.fx(restored.data.enemies[0],"dot")==480,"5.2 real class stacks trim oldest identically after restore")
+	for bad_stacks in [["bad"],[-1],[1,2,3,4,5,6,7],[1]]:
+		var bad=saved.duplicate(true); bad.units[e.id].effects.dot.stacks=bad_stacks
+		check(not restored.restore(bad),"5.2 malformed class stacks rejected "+str(bad_stacks))
+	var bad=saved.duplicate(true); bad.units[e.id].effects.dot.source="missing"
+	check(not restored.restore(bad),"5.2 unknown buff source rejected")
+	var old=saved.duplicate(true); old.units[e.id].effects.dot.erase("stacks")
+	check(restored.restore(old) and restored.fx(restored.data.enemies[0],"dot")==504,"5.2 old aggregate DOT save retains exact amount")
+	for row in o.synergy:
+		b=fixture(); caster=rename_ally(b,2,row.cid); b.data.allies[0].hp=1
+		for i in range(2): b.data.allies[i].race="하프엘프"
+		for u in b.data.allies: u.row="전열"
+		b._personal(caster,b.data.enemies[0],b.data.allies[1],{})
+		var key="contract" if row.cid=="haldric" else "adeline_guard"
+		var before=b.data.allies[1].effects[key].turns
+		b._incoming_strike(b.data.allies[0],1000,{}, {"name":"probe"},false,true)
+		b._personal(caster,b.data.enemies[0],b.data.allies[1],{})
+		var after=b.data.allies[1].effects[key].turns
+		observations.synergy.append({"input":row,"before":before,"after":after})
+		check(before==row.before and after==row.after,"5.2 ally_down refreshes halfelf buff extension "+str(row))
+	evidence.fifth=observations
