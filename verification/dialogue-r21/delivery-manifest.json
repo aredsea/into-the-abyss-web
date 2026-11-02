@@ -1,0 +1,36 @@
+{
+  "counts": {
+    "inn_scenes": 84,
+    "choices": 252,
+    "dungeon_variants": 252,
+    "transition_scenes": 42,
+    "display_lines": 1218,
+    "companion_lines": 840,
+    "ending_sentences": 1015
+  },
+  "editorial_edits": 54,
+  "content_and_tool_files": [
+    "project/data/dialogue-r21/hildegard.json",
+    "project/data/dialogue-r21/marceline.json",
+    "project/data/dialogue-r21/teiris.json",
+    "tools/dialogue_r21_build.py",
+    "tools/dialogue_r21_check.py",
+    "tools/dialogue_r21_dungeon.txt",
+    "tools/dialogue_r21_hildegard.txt",
+    "tools/dialogue_r21_marceline.txt",
+    "tools/dialogue_r21_report.py",
+    "tools/dialogue_r21_revisions.json",
+    "tools/dialogue_r21_selftest.py",
+    "tools/dialogue_r21_teiris.txt",
+    "tools/dialogue_r21_transitions.txt",
+    "tools/dialogue_r21_verify.py"
+  ],
+  "protected_files_checked": 1982,
+  "source_changes": [],
+  "final_sha256": {
+    "hildegard.json": "d9a04b663d347f3ad671968296106d4bbafec77418e324dacd4451ab75202d84",
+    "marceline.json": "ac3455ae756dfd8820cb3cf1fb7d03aa0b519c1f880668d3c0839eb0de130382",
+    "teiris.json": "e31fc216bf13fe8ce2e1ec8855e12176851bdc1dcc468550d123660652d11a43"
+  },
+  "review_status": "자기 편집 완료·Claude 표본 판정 대기"
+}
