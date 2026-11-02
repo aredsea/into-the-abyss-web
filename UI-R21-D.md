@@ -1,5 +1,30 @@
 # UI-R21-D
 
+## 6차 — 호감 단계 판정 부분 인계
+
+**미완료.** 원본 `74-affection.lua`의 8단계 경계를 `town_rules_r21.gd`에 추가하고 여관 동료 카드에 단계와 호감 수치를 표시했다. 기존 호감 증감 함수는 변경하지 않았다. 원본 Wasmoon 하네스에서 수정 없는 Lua 함수를 실행해 200개 입력의 단계·증감 400항목을 대조했고 실패 0이다. 입력에는 음수 경계, 100 감속 경계, 200 상한과 소수 반올림이 포함된다. 원본 SHA 및 표본은 `verification/town-r21/round6/affection-{provenance,oracle}.json`에 있다.
+
+기존 여관 행동의 비용·날짜·호감 계산은 5차 이전에 구현된 범위다. 이번 변경은 저장 형식을 바꾸지 않는다. 360×780과 430×932 기본 호감 0의 실제 여관 렌더를 직접 열어 단계 표시를 확인했다. 다른 단계 및 새 대화 화면의 실제 렌더는 확인하지 않았다. Godot 캔버스라 HTML 요소 검사기로 내부 텍스트를 측정하지 못한다.
+
+### 남은 일
+
+- 카드 사건의 지급·사용·보유·정산과 원본 RNG 전체.
+- 영입 주선 원본 난수 순서와 페르소나 기준 합류 레벨.
+- 여관 NPC 호감 및 전투·보스·의뢰의 원본 호감 훅 대조와 연결.
+- 대화 JSON 재생, 3개 선택지·반응·기록·단계 변화, 던전 짧은 말과 대화 없는 동료의 대체 동작.
+- 요청한 세 동료의 실제 대화 화면 4장과 `owner-zoom-6.jpg`: 대화 재생이 없어 생성하지 않았다.
+
+### 변경 파일 및 검증
+
+- `project/game/town_rules_r21.gd`, `project/ui/town_screen_r21.gd`: 단계 판정·표시.
+- `tools/town_r21_affection_oracle.mjs`, `project/tests/affection_r21_test.gd`: 원본 대조와 검사.
+- `project/ui/world_screen.gd`, `tools/update_version.py`, `tools/web_smoke_r19.py`: 요청한 빌드 식별자.
+- `verification/town-r21/round6/**`, Web export `docs/**`, 이 보고서.
+
+새 검사 `AFFECTION R21 CHECKS 400 FAILURES 0 LUA SAMPLES 200`. `dialogue_r21_check.py` 오류 0, `dialogue_r21_selftest.py` 58검사 실패 0. Web 로컬 export 식별자 `r21-d-town-20261102b`, PCK SHA-256 `b67ccc519f695f4b0c6b09805199cd09f29ceba6ba835d1d917deb3aebfe091f`. 원격 배포는 하지 않았다. 실행 중 Windows root certificate store 경고가 발생했다.
+
+공통·기존 r21 검사는 import 포함 30그룹 모두 종료 코드 0·검출 실패 0이다. 여기에는 `persona_research_r21_test` 13,886검사와 `ui_town_r21_round5_test` 2,270검사가 포함된다. 결과·로그는 `verification/town-r21/common-results.json`과 같은 디렉터리의 검사별 로그에 있다. 기존 기대값은 변경하지 않았다. `tools/web_smoke_r19.py --town-r21`은 390×844, 360×780, 360×780 reduced-motion, 390×664, 1280×800, 430×932에서 6/6 통과했다. 기록은 `verification/town-r21/web/results.json`이다. 이 통과는 미구현 대화·카드 기능의 검증을 뜻하지 않는다.
+
 ## 5차 — 결과 문구 복구·원본 연구 편집 규칙 부분 이식
 
 **부분 인계다.** 패배 문구 잘림과 승리 부제 중복/가림을 고쳤고, 원본 연구의 마을 편집·강화·저장 규칙을 기존 동료별 전술 슬롯에 연결했다. 원본의 독립 페르소나 전투 주체와 전투 실행 전체를 이식한 것은 아니다. 카드 사건 전체, 영입 원본 난수 순서, NPC 호감 훅은 이번 차수에서 구현하지 않았다. 지시서의 “범위가 너무 크면 위 순서대로 하고, 끝낸 데까지 검사 통과 상태로 멈추고 남은 것을 적어라”에 따라 이 범위에서 검사 실패 0인 상태로 인계한다.

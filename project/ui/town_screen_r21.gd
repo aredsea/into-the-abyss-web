@@ -555,7 +555,7 @@ func inn() -> void:
 	display(host.model.person(host.who).name,Rect2(183,518,180,29),T.INK,24)
 	label(host.model.person(host.who)["class"],Rect2(183,547,180,18),12)
 	var aff=host.model.s.members[host.who].aff
-	label("호감 %s / 200"%host.number(aff),Rect2(183,567,180,20),12,T.INK,T.BOLD)
+	label("%s · 호감 %s"%[host.model.TOWN_RULES.aff_stage(aff),host.number(aff)],Rect2(183,567,180,20),12,T.INK,T.BOLD)
 	fill("aff_track",Rect2(183,591,177,8),T.LINE);fill("aff_value",Rect2(183,591,177*maxf(0,aff)/200,8),T.RED)
 	label("함께, 더 깊은 곳으로.",Rect2(18,614,354,25),15,T.INK,T.BOLD)
 	var acts=host.model.TOWN_RULES.DATA.inn
