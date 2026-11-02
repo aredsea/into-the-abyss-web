@@ -1,0 +1,100 @@
+{
+  "groups": 57,
+  "failed_groups": 0,
+  "integration_checks": 148,
+  "integration_failures": 0,
+  "legacy_specimens": 11,
+  "merged_specimens": 23,
+  "ui_checks": 5380,
+  "ui_failures": 0,
+  "native_captures": 170,
+  "server_checks": 5659,
+  "server_failures": 0,
+  "security": {
+    "checks": 422,
+    "failures": 0,
+    "groups": [
+      {
+        "name": "P1 rank: fresh 9999 and repeated identical PUT never establish progress",
+        "passed": true
+      },
+      {
+        "name": "P1 global account cap, denial has no counter writes even with rotating IP",
+        "passed": true
+      },
+      {
+        "name": "P1 concurrent admissions never overdraw global creation cap",
+        "passed": true
+      },
+      {
+        "name": "P1 global UTF-8 write bytes bounded across IPs",
+        "passed": true
+      },
+      {
+        "name": "P1 IPv6 /64 normalized and saturated IP rejects without updates",
+        "passed": true
+      },
+      {
+        "name": "P1 inactive cron preserves last save before account cascade; archives expire separately",
+        "passed": true
+      },
+      {
+        "name": "P1 inactive and archive retention settings are applied",
+        "passed": true
+      },
+      {
+        "name": "P2 failed PIN uses code+IP only; owner remains able to save",
+        "passed": true
+      },
+      {
+        "name": "P2 inherited equipment names and bought codes rejected independently",
+        "passed": true
+      },
+      {
+        "name": "P2 all reported opaque fields reject arbitrary objects",
+        "passed": true
+      },
+      {
+        "name": "P2 missing pepper prevents Worker startup",
+        "passed": true
+      },
+      {
+        "name": "P2 PBKDF2 configurable, recorded per account and old hashes remain usable",
+        "passed": true
+      },
+      {
+        "name": "P2 stored IP key is peppered HMAC; IPv4 mapped variants share one key",
+        "passed": true
+      },
+      {
+        "name": "P2 deletion preserves cache and concurrent expiry has one generation",
+        "passed": true
+      },
+      {
+        "name": "P2 malformed URL encoding, hex revision, production localhost denied",
+        "passed": true
+      },
+      {
+        "name": "P2 configured HTTPS domain is exact and production localhost cannot be opted in accidentally",
+        "passed": true
+      },
+      {
+        "name": "P2 legitimate native dialogues, transitions, battle snapshots and settlements remain valid",
+        "passed": true
+      }
+    ]
+  },
+  "turnstile": {
+    "checks": 7,
+    "failures": 0,
+    "provider": "local outbound test double, no live service or tokens"
+  },
+  "web_configurations": 7,
+  "web_languages": [
+    "en",
+    "ko"
+  ],
+  "web_battles": 30,
+  "web_errors": 0,
+  "web_artifact_matches": true
+}

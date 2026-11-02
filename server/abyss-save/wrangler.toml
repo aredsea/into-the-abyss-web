@@ -1,0 +1,34 @@
+name = "abyss-web-save"
+main = "dist/worker.mjs"
+no_bundle = true
+tsconfig = "tsconfig.json"
+compatibility_date = "2025-07-18"
+workers_dev = true
+
+[build]
+command = "node build.mjs"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "abyss-web-save"
+# Replace only after the owner creates the separate database. Never reuse the bot DB.
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
+
+[vars]
+TURNSTILE_ENABLED = "false"
+ALLOW_LOCALHOST = "false"
+CORS_ORIGINS = "https://aredsea.github.io"
+TURNSTILE_HOSTNAMES = "aredsea.github.io"
+GLOBAL_NEW_PER_MINUTE = "60"
+GLOBAL_WRITE_BYTES_PER_MINUTE = "2097152"
+GLOBAL_REQUESTS_PER_MINUTE = "1200"
+INACTIVE_DAYS = "180"
+ARCHIVE_DAYS = "30"
+PIN_PBKDF2_ITERATIONS = "5000"
+RANK_MIN_AGE_SECONDS = "600"
+# Required secret: wrangler secret put IP_HASH_PEPPER (random >=32 bytes).
+# When enabled: wrangler secret put TURNSTILE_SECRET. No secrets in this file.
+
+[triggers]
+crons = ["17 * * * *"]

@@ -2,9 +2,10 @@ extends Control
 
 const RouteMap=preload("res://ui/route_map.gd")
 const World=preload("res://game/settings_world_r22.gd")
+const ExpeditionScreen=preload("res://ui/expedition_screen_r22.gd")
 const CreateScreen=preload("res://ui/create_screen.gd")
 const PersonaSortieScreen=preload("res://ui/persona_sortie_screen.gd")
-const TownScreen=preload("res://ui/town_screen_r21.gd")
+const TownScreen=preload("res://ui/facilities_screen_r22.gd")
 const DungeonViewR21=preload("res://game/dungeon_view_r21.gd")
 const Store=preload("res://game/settings_save_r22.gd")
 const BattleScreen=preload("res://ui/battle_screen.gd")
@@ -50,6 +51,10 @@ var town_view: Control
 var details_return="member"
 var town_r21_preview=false
 var result_view: Control
+var cloud
+var cloud_connecting=false
+var cloud_confirmation: Dictionary={}
+
 var reset_r22=false
 var settings_return_r22="town"
 var settings_saved_r22=false
@@ -65,34 +70,44 @@ func _ready() -> void:
 	motion_reduced=OS.has_feature("web") and bool(JavaScriptBridge.eval("window.matchMedia('(prefers-reduced-motion: reduce)').matches",true))
 	self.theme=UI.make_theme()
 	restored=storage.read_into(model)
+	cloud=preload("res://game/cloud_store_r22.gd").new();cloud.model=model;cloud.storage=storage;add_child(cloud)
+	storage.saved.connect(cloud.local_saved)
+	cloud.changed.connect(func():
+		if screen in ["cloud","rank"]:_draw_screen())
 	if model.active(): screen="explore"
 	elif not model.s.summary.is_empty(): screen="summary"
 	resized.connect(_draw_screen)
 	_draw_screen()
 
 func _save() -> void:
+	if is_instance_valid(cloud):cloud.model=model
 	save_error=storage.write(model.s)
 	if save_error!=OK: message="저장 실패: 창을 닫기 전에 다시 시도하세요."
 
 func go(page: String,remember_entry=true) -> void:
+	cloud_confirmation={}
 	if remember_entry and page in ["codex","status","inventory"] and screen not in ["codex","status","inventory"]:panels_return=screen
 	if remember_entry and page in ["journal","places","people"] and screen not in ["journal","places","people"]:journal_return=screen
 	if page=="town" and screen=="summary" and model.has_method("chronicle_home"):model.chronicle_home();_save()
 	if page=="member_details" and screen in ["member","skills"]: details_return=screen
 	if model.active() and page in ["town","shop","inn","depart","guild","smithy"]: page="explore"
 	if page in ["guild","shop","inn","smithy"] or (page=="town" and screen in ["guild","shop","inn","smithy"]):model.s.place=""
+	if model.has_method("facility_route") and not model.facility_route(page): message=model.facility_message;_draw_screen();return
 	screen=page; confirm={}; selected_item=""; message=""; _draw_screen()
 
 func _draw_screen() -> void:
 	if not is_inside_tree(): return
+	if is_instance_valid(cloud):cloud.model=model
 	var dialogue_state=model.s.get("dialogue_r21",{"pending":{},"response":{},"queue":[]})
 	var dialogue_open=not dialogue_state.pending.is_empty() or not dialogue_state.response.is_empty()
 	var journey_open=not dialogue_state.queue.is_empty() and screen in ["explore","summary","inn"] and not is_instance_valid(battle)
 	if model.active() and model.s.run.phase=="battle" and not model.s.run.battle.is_empty():journey_open=false
 	if model.active() and model.s.run.phase=="battle" and not journey_open:
 		if is_instance_valid(battle): return
-		for c in get_children(): remove_child(c); c.queue_free()
-		battle=BattleScreen.new()
+		for c in get_children():
+			if c==cloud:continue
+			remove_child(c); c.queue_free()
+		battle=preload("res://ui/expedition_supply_screen_r22.gd").new() if model.has_method("expedition") and model.expedition() else BattleScreen.new()
 		if model.s.has("persona"):preload("res://ui/persona_visual_adapter.gd").prepare()
 		battle.session_data=model.battle_data()
 		battle.session_snapshot=model.s.run.battle
@@ -102,10 +117,16 @@ func _draw_screen() -> void:
 		add_child(battle)
 		_publish()
 		return
-	for c in get_children(): remove_child(c); c.queue_free()
+	for c in get_children():
+		if c==cloud:continue
+		remove_child(c); c.queue_free()
 	battle=null; controls.clear(); art_preview_id="";art_preview=null;art_base_controls={}
 	town_view=null
 	result_view=null
+	if model.has_method("acknowledge_receipt") and not model.receipt.is_empty():
+		town_view=TownScreen.new();add_child(town_view);town_view.build(self);return
+	if screen in ["cloud","rank"]:
+		town_view=preload("res://ui/cloud_screen_r22.gd").new();add_child(town_view);town_view.build(self);call_deferred("_publish");return
 	if screen=="settings":
 		town_view=preload("res://ui/settings_screen_r22.gd").new();add_child(town_view);town_view.build(self);return
 	if model.s.has("persona") and not model.s.creation_r22.complete:
@@ -117,9 +138,10 @@ func _draw_screen() -> void:
 		town_view=preload("res://ui/journal_screen_r22.gd").new();add_child(town_view);town_view.build(self);return
 	if model.s.has("persona") and screen in ["formation","depart"]:
 		town_view=PersonaSortieScreen.new();add_child(town_view);town_view.build(self);return
-	var finished_town=screen in ["town","party","member","skills","cards","depart","bag","formation","journal","summary","inn","shop","guild","recruit","equipment","smithy","research"] or (screen=="explore" and (model.r21() or model.s.run.get("event","")=="sealed"))
+	var finished_town=screen in ["town","party","member","skills","cards","depart","bag","formation","journal","summary","inn","shop","guild","recruit","equipment","smithy","research","expedition_log","facility_scroll"] or (screen=="explore" and (model.r21() or model.s.run.get("event","")=="sealed"))
 	if (finished_town or dialogue_open or journey_open) and (confirm.is_empty() or (screen=="explore" and model.r21())):
-		town_view=TownScreen.new(); add_child(town_view); town_view.build(self)
+		var p5=model.has_method("expedition") and model.expedition() and screen in ["explore","expedition_log","summary","bag","equipment"]
+		town_view=ExpeditionScreen.new() if p5 else TownScreen.new(); add_child(town_view); town_view.build(self)
 		last_drawn_screen=screen; call_deferred("_publish"); return
 	var width=minf(size.x,440); var height=size.y
 	var base=Control.new(); add_child(base); base.position=Vector2((size.x-width)/2,0); base.size=Vector2(width,height)
@@ -465,7 +487,7 @@ func _summary() -> void:
 	button("summary_home","토르바로",go.bind("town"))
 
 func _journal() -> void:
-	text("브라우저에 자동 저장됩니다. 기기 간 저장 공유는 아직 지원하지 않습니다.",13,MUTED)
+	button("cloud_open","클라우드 저장",go.bind("cloud"))
 	text("원정 %d회 · 보유 카드 %d장" % [model.s.runs,model.s.hand.size()],17,GOLD)
 	if model.s.log.is_empty(): text("아직 모험 기록이 없습니다.")
 	for i in range(model.s.log.size()-1,-1,-1): text(model.s.log[i],14)
@@ -507,13 +529,22 @@ func _publish() -> void:
 		if not is_instance_valid(controls[id]): continue
 		var b=controls[id]; var r=b.get_global_rect()
 		buttons[id]={"rect":[r.position.x,r.position.y,r.size.x,r.size.y],"disabled":b.disabled,"needed":FONT.get_multiline_string_size(b.text,HORIZONTAL_ALIGNMENT_LEFT,-1,b.get_theme_font_size("font_size")).x+24}
+		if b is OptionButton:
+			buttons[id].selected=b.selected;buttons[id].options=range(b.item_count).map(func(i):return b.get_item_text(i))
+			var popup=b.get_popup()
+			if popup.visible:
+				var top=popup.get_theme_stylebox("panel").get_content_margin(SIDE_TOP)
+				var row_height=popup.get_theme_font("font").get_height(popup.get_theme_font_size("font_size"))+popup.get_theme_constant("v_separation")
+				buttons[id].popup_first=[popup.position.x+popup.size.x/2.0,popup.position.y+top+row_height/2.0]
 		var parent=b.get_parent();var clip=Rect2(Vector2.ZERO,size)
 		while parent!=null and parent!=self:
 			if parent is ScrollContainer:clip=clip.intersection(parent.get_global_rect())
 			parent=parent.get_parent()
 		buttons[id].clip=[clip.position.x,clip.position.y,clip.size.x,clip.size.y]
-	var report={"build":model.config.build,"ui_build":"r21-d-town-20261102f","town_r21_preview":town_r21_preview,"screen":"battle" if is_instance_valid(battle) else screen,"state":model.s,"controls":buttons,"viewport":[size.x,size.y],"restored":restored,"save_error":save_error,"art_preview":art_preview_id,"town_scroll_height":content.size.y if is_instance_valid(content) else 0}
+	var report={"build":model.config.build,"ui_build":"r21-d-town-20261103a","town_r21_preview":town_r21_preview,"screen":"battle" if is_instance_valid(battle) else screen,"state":model.s,"controls":buttons,"viewport":[size.x,size.y],"restored":restored,"save_error":save_error,"art_preview":art_preview_id,"town_scroll_height":content.size.y if is_instance_valid(content) else 0}
 	if is_instance_valid(town_view): report.town_text=town_view.metrics
+	if screen in ["cloud","rank"] and is_instance_valid(town_view):
+		report.cloud={"busy":cloud.busy,"code":cloud.account.code,"rev":cloud.account.rev,"notice":cloud.notice,"conflict":not cloud.conflict.is_empty(),"inputs":town_view.input_rects()}
 	JavaScriptBridge.eval("window.__abyssWorld="+JSON.stringify(report)+";",true)
 
 func _process(delta: float) -> void:

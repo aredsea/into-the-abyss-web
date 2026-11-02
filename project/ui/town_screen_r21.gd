@@ -133,7 +133,9 @@ func page_background() -> void:
 	if ResourceLoader.exists("res://assets/ui-r21/accent-"+name+".svg"):plate("accent-"+name,r)
 
 func traced_title(name: String,r: Rect2) -> void:
-	var t=TextureRect.new();stage.add_child(t);t.texture=load("res://assets/ui-r21/title-"+name+".svg")
+	var path="res://assets/ui-r21/title-"+name+".svg"
+	if L.language(host.model.s)=="en" and ResourceLoader.exists("res://assets/ui-r21/title-"+name+"-en.svg"):path="res://assets/ui-r21/title-"+name+"-en.svg"
+	var t=TextureRect.new();stage.add_child(t);t.texture=load(path)
 	t.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;t.stretch_mode=TextureRect.STRETCH_SCALE;t.position=r.position;t.size=r.size;t.mouse_filter=MOUSE_FILTER_IGNORE
 	mark("title:"+name,t)
 
@@ -801,6 +803,7 @@ func smithy() -> void:
 func journal() -> void:
 	header("모험 기록")
 	traced_title("journal",Rect2(14,54,152,134))
+	action("cloud_open","클라우드 저장",Rect2(18,220,354,48),host.go.bind("cloud"))
 	var prev=stage;stage=scroll_page(285,463,maxi(160,host.model.s.log.size()*89))
 	if host.model.s.log.is_empty(): paragraph("아직 모험 기록이 없습니다.",Rect2(0,30,338,48),17)
 	for i in range(host.model.s.log.size()):
@@ -859,7 +862,7 @@ func overview() -> void:
 	for i in range(5):
 		var key=["str","agi","int","def","spd"][i]; var x=28+i*70
 		var l=label(["힘","민첩","지능","방어","속도"][i],Rect2(x,610,60,19),10); l.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-		l=label(host.number(s[key]),Rect2(x,630,60,26),20,T.INK,T.BOLD); l.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+		l=label(str(int(floor(float(s[key])+.5))),Rect2(x,630,60,26),20,T.INK,T.BOLD); l.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	fill("trait_rule",Rect2(18,675,354,1),T.LINE)
 	var p=host.model.person(host.who)
 	label("특성",Rect2(20,675,42,20),10,T.INK,T.BOLD)

@@ -1,0 +1,49 @@
+{
+  "regression_groups": 40,
+  "failed_groups": [],
+  "rules_checks": 4785,
+  "rules_failures": 0,
+  "ui_checks": 1515,
+  "ui_failures": 0,
+  "native_captures": 65,
+  "oracle_rows": 2968,
+  "protected": {
+    "count": 309,
+    "changed": []
+  },
+  "assets": {
+    "count": 96,
+    "changed": []
+  },
+  "p9_boundary": {
+    "protectedServerUnmodified": true,
+    "rows": [
+      {
+        "name": "battle",
+        "accepted": false,
+        "reason": "invalid_save"
+      },
+      {
+        "name": "clear",
+        "accepted": false,
+        "reason": "invalid_save"
+      },
+      {
+        "name": "entry",
+        "accepted": false,
+        "reason": "invalid_save"
+      },
+      {
+        "name": "next_floor",
+        "accepted": false,
+        "reason": "invalid_save"
+      },
+      {
+        "name": "rest",
+        "accepted": false,
+        "reason": "invalid_save"
+      }
+    ],
+    "requiresP9SchemaUpdate": true
+  }
+}

@@ -1,0 +1,924 @@
+{
+  "art_preview": "",
+  "build": "torva-art-20261027-r4b",
+  "controls": {
+    "back": {
+      "clip": [
+        0,
+        0,
+        360,
+        780
+      ],
+      "disabled": false,
+      "needed": 24,
+      "rect": [
+        9.23076915740967,
+        9.69231700897217,
+        40.6153831481934,
+        40.6153831481934
+      ]
+    },
+    "equipment_shop": {
+      "clip": [
+        0,
+        0,
+        360,
+        780
+      ],
+      "disabled": false,
+      "needed": 54,
+      "rect": [
+        16.615385055542,
+        652.153869628906,
+        156.923080444336,
+        38.769229888916
+      ]
+    },
+    "equipment_smithy": {
+      "clip": [
+        0,
+        0,
+        360,
+        780
+      ],
+      "disabled": false,
+      "needed": 69,
+      "rect": [
+        184.615386962891,
+        652.153869628906,
+        158.769226074219,
+        38.769229888916
+      ]
+    },
+    "member_choice": {
+      "clip": [
+        0,
+        0,
+        360,
+        780
+      ],
+      "disabled": false,
+      "needed": 127,
+      "options": [
+        "당신 · Warrior",
+        "Teiris · Licensed Mage",
+        "Saya · Assassin"
+      ],
+      "rect": [
+        155.076919555664,
+        185.076934814453,
+        188.307693481445,
+        35.0769233703613
+      ],
+      "selected": 2
+    },
+    "nav:bag": {
+      "clip": [
+        0,
+        0,
+        360,
+        780
+      ],
+      "disabled": false,
+      "needed": 24,
+      "rect": [
+        216,
+        706.615417480469,
+        72,
+        72.9230804443359
+      ]
+    },
+    "nav:depart": {
+      "clip": [
+        0,
+        0,
+        360,
+        780
+      ],
+      "disabled": false,
+      "needed": 24,
+      "rect": [
+        144,
+        706.615417480469,
+        72,
+        72.9230804443359
+      ]
+    },
+    "nav:journal": {
+      "clip": [
+        0,
+        0,
+        360,
+        780
+      ],
+      "disabled": false,
+      "needed": 24,
+      "rect": [
+        288,
+        706.615417480469,
+        72,
+        72.9230804443359
+      ]
+    },
+    "nav:party": {
+      "clip": [
+        0,
+        0,
+        360,
+        780
+      ],
+      "disabled": false,
+      "needed": 24,
+      "rect": [
+        72,
+        706.615417480469,
+        72,
+        72.9230804443359
+      ]
+    },
+    "nav:town": {
+      "clip": [
+        0,
+        0,
+        360,
+        780
+      ],
+      "disabled": false,
+      "needed": 24,
+      "rect": [
+        0,
+        706.615417480469,
+        72,
+        72.9230804443359
+      ]
+    }
+  },
+  "restored": true,
+  "save_error": 0,
+  "screen": "equipment",
+  "state": {
+    "acts": {
+      "teiris_talk": 1
+    },
+    "board": [
+      {
+        "cmp": true,
+        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "difficulty": "낮음",
+        "elite": false,
+        "gold": 100,
+        "id": 1,
+        "kind": "구조",
+        "level": 1,
+        "lv": 1,
+        "name": "고립된 탐사대 구조",
+        "reward_v": 2,
+        "rift": "남동 숲 균열",
+        "source_id": "q1",
+        "stars": 2,
+        "title": "남동 숲 균열, 고립된 탐사대 구조"
+      },
+      {
+        "cmp": true,
+        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
+        "difficulty": "엘리트",
+        "elite": true,
+        "gold": 100,
+        "id": 2,
+        "kind": "회수",
+        "level": 1,
+        "lv": 1,
+        "name": "잃어버린 유품 회수",
+        "reward_v": 2,
+        "rift": "남동 숲 균열",
+        "source_id": "q2",
+        "stars": 2,
+        "strength": 1.9,
+        "title": "남동 숲 균열, 잃어버린 유품 회수"
+      },
+      {
+        "cmp": true,
+        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "difficulty": "높음",
+        "elite": false,
+        "gold": 100,
+        "id": 3,
+        "kind": "구조",
+        "level": 4,
+        "lv": 4,
+        "name": "고립된 탐사대 구조",
+        "reward_v": 2,
+        "rift": "남서 설산 균열",
+        "source_id": "q3",
+        "stars": 2,
+        "title": "남서 설산 균열, 고립된 탐사대 구조"
+      },
+      {
+        "cmp": true,
+        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
+        "difficulty": "중간",
+        "elite": false,
+        "gold": 100,
+        "id": 4,
+        "kind": "회수",
+        "level": 1,
+        "lv": 1,
+        "name": "잃어버린 유품 회수",
+        "reward_v": 2,
+        "rift": "남서 설산 균열",
+        "source_id": "q4",
+        "stars": 2,
+        "title": "남서 설산 균열, 잃어버린 유품 회수"
+      }
+    ],
+    "chronicle_r22": {
+      "list": [
+        "Day 1: First met Teiris, who joined as a companion.",
+        "Day 1: Saya joined as a companion through a guild introduction."
+      ],
+      "queue": []
+    },
+    "commerce_r21": {
+      "bought": {
+        "wa03.b7skzz1y.1": true
+      },
+      "process_n": 0,
+      "sold_day": 1
+    },
+    "creation_r22": {
+      "complete": true,
+      "legacy": false
+    },
+    "day": 1,
+    "dialogue_r21": {
+      "bark_counts": {},
+      "pending": {},
+      "queue": [],
+      "response": {},
+      "seen": {
+        "teiris-inn-02-01": 1
+      }
+    },
+    "dungeon_r21": {
+      "best": 0,
+      "cleared_bosses": [],
+      "runs": 0,
+      "sel": 1
+    },
+    "equipment": {
+      "adeline": {},
+      "altan": {},
+      "bargut": {},
+      "berenga": {},
+      "bianca": {},
+      "colette": {},
+      "erdene": {},
+      "felice": {},
+      "gerda": {},
+      "gunhild": {},
+      "haldric": {},
+      "hedwig": {},
+      "hildegard": {},
+      "jorund": {},
+      "judith": {},
+      "lavinia": {},
+      "levia": {},
+      "lynette": {},
+      "marceline": {},
+      "miko": {},
+      "naran": {},
+      "ornel": {},
+      "persona": {},
+      "saya": {},
+      "selva": {},
+      "sorel": {},
+      "teiris": {},
+      "tika": {},
+      "tove": {},
+      "urda": {},
+      "zahar": {}
+    },
+    "gear": [
+      {
+        "forge": 0,
+        "id": "wa03",
+        "seed": 878971605046,
+        "source_r21": true,
+        "tries": 0,
+        "uid": 1
+      }
+    ],
+    "gold": 92,
+    "hand": [],
+    "items": {
+      "antidote": 0,
+      "bandage": 0,
+      "hp_l": 0,
+      "hp_m": 0,
+      "hp_s": 0,
+      "level_scroll": 0,
+      "mp_l": 0,
+      "mp_m": 0,
+      "mp_s": 0,
+      "return": 0,
+      "shield_l": 0,
+      "shield_m": 0,
+      "shield_s": 0
+    },
+    "log": [
+      "테이리스 · 대화하기",
+      "페넬라의 소개 · 사야 합류",
+      "장비를 샀습니다: 매끈한 대검"
+    ],
+    "members": {
+      "adeline": {
+        "aff": 0,
+        "hp": 79,
+        "level": 1,
+        "mp": 99,
+        "xp": 0
+      },
+      "altan": {
+        "aff": 0,
+        "hp": 82,
+        "level": 1,
+        "mp": 79,
+        "xp": 0
+      },
+      "bargut": {
+        "aff": 0,
+        "hp": 93,
+        "level": 1,
+        "mp": 40,
+        "xp": 0
+      },
+      "berenga": {
+        "aff": 0,
+        "hp": 79,
+        "level": 1,
+        "mp": 99,
+        "xp": 0
+      },
+      "bianca": {
+        "aff": 0,
+        "hp": 89,
+        "level": 1,
+        "mp": 47,
+        "xp": 0
+      },
+      "colette": {
+        "aff": 0,
+        "hp": 77,
+        "level": 1,
+        "mp": 86,
+        "xp": 0
+      },
+      "erdene": {
+        "aff": 0,
+        "hp": 114,
+        "level": 1,
+        "mp": 33,
+        "xp": 0
+      },
+      "felice": {
+        "aff": 0,
+        "hp": 82,
+        "level": 1,
+        "mp": 79,
+        "xp": 0
+      },
+      "gerda": {
+        "aff": 0,
+        "hp": 85,
+        "level": 1,
+        "mp": 53,
+        "xp": 0
+      },
+      "gunhild": {
+        "aff": 0,
+        "hp": 114,
+        "level": 1,
+        "mp": 33,
+        "xp": 0
+      },
+      "haldric": {
+        "aff": 0,
+        "hp": 125,
+        "level": 1,
+        "mp": 33,
+        "xp": 0
+      },
+      "hedwig": {
+        "aff": 0,
+        "hp": 77,
+        "level": 1,
+        "mp": 86,
+        "xp": 0
+      },
+      "hildegard": {
+        "aff": 0,
+        "hp": 118,
+        "level": 1,
+        "mp": 33,
+        "xp": 0
+      },
+      "jorund": {
+        "aff": 0,
+        "hp": 93,
+        "level": 1,
+        "mp": 40,
+        "xp": 0
+      },
+      "judith": {
+        "aff": 0,
+        "hp": 69,
+        "level": 1,
+        "mp": 85,
+        "xp": 0
+      },
+      "lavinia": {
+        "aff": 0,
+        "hp": 77,
+        "level": 1,
+        "mp": 86,
+        "xp": 0
+      },
+      "levia": {
+        "aff": 0,
+        "hp": 88,
+        "level": 1,
+        "mp": 41,
+        "xp": 0
+      },
+      "lynette": {
+        "aff": 0,
+        "hp": 79,
+        "level": 1,
+        "mp": 106,
+        "xp": 0
+      },
+      "marceline": {
+        "aff": 0,
+        "hp": 111,
+        "level": 1,
+        "mp": 53,
+        "xp": 0
+      },
+      "miko": {
+        "aff": 0,
+        "hp": 82,
+        "level": 1,
+        "mp": 79,
+        "xp": 0
+      },
+      "naran": {
+        "aff": 0,
+        "hp": 82,
+        "level": 1,
+        "mp": 60,
+        "xp": 0
+      },
+      "ornel": {
+        "aff": 0,
+        "hp": 82,
+        "level": 1,
+        "mp": 66,
+        "xp": 0
+      },
+      "persona": {
+        "aff": 0,
+        "hp": 118,
+        "level": 1,
+        "mp": 33,
+        "xp": 0
+      },
+      "saya": {
+        "aff": 0,
+        "hp": 97,
+        "level": 1,
+        "mp": 33,
+        "xp": 0
+      },
+      "selva": {
+        "aff": 0,
+        "hp": 114,
+        "level": 1,
+        "mp": 33,
+        "xp": 0
+      },
+      "sorel": {
+        "aff": 0,
+        "hp": 79,
+        "level": 1,
+        "mp": 98,
+        "xp": 0
+      },
+      "teiris": {
+        "aff": 2,
+        "hp": 77,
+        "level": 1,
+        "mp": 92,
+        "xp": 0
+      },
+      "tika": {
+        "aff": 0,
+        "hp": 107,
+        "level": 1,
+        "mp": 33,
+        "xp": 0
+      },
+      "tove": {
+        "aff": 0,
+        "hp": 114,
+        "level": 1,
+        "mp": 33,
+        "xp": 0
+      },
+      "urda": {
+        "aff": 0,
+        "hp": 90,
+        "level": 1,
+        "mp": 92,
+        "xp": 0
+      },
+      "zahar": {
+        "aff": 0,
+        "hp": 118,
+        "level": 1,
+        "mp": 33,
+        "xp": 0
+      }
+    },
+    "npc_aff_r21": {
+      "fenella": 1,
+      "pietro": 1
+    },
+    "owned": [
+      "teiris",
+      "saya"
+    ],
+    "party": [
+      "teiris"
+    ],
+    "persona": {
+      "bonus": {
+        "agi": 0,
+        "def": 8,
+        "int": 0,
+        "spd": 0,
+        "str": 12
+      },
+      "bonus_custom": 0,
+      "bonus_total": 20,
+      "cls": "전사",
+      "exp": 0,
+      "fight": 1,
+      "lineage": "",
+      "lv": 1,
+      "name": "{{user}}",
+      "nation": "경계도시",
+      "race": "인간",
+      "skill": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "stats": {
+        "agi": 6,
+        "def": 25,
+        "hp": 118,
+        "int": 3,
+        "mp": 33,
+        "spd": 86,
+        "str": 30
+      }
+    },
+    "place": "",
+    "quest": {},
+    "quest_wins": 0,
+    "recruits": 1,
+    "refreshes": 0,
+    "research": {
+      "adeline": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "altan": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "bargut": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "berenga": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "bianca": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "colette": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "erdene": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "felice": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "gerda": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "gunhild": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "haldric": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "hedwig": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "hildegard": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "jorund": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "judith": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "lavinia": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "levia": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "lynette": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "marceline": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "miko": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "naran": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "ornel": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "persona": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "saya": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "selva": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "sorel": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "teiris": {
+        "prefix": "strike",
+        "prefix_lv": {
+          "strike": 1
+        },
+        "suffix": "bane",
+        "suffix_lv": {}
+      },
+      "tika": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "tove": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "urda": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      },
+      "zahar": {
+        "prefix": "",
+        "prefix_lv": {},
+        "suffix": "",
+        "suffix_lv": {}
+      }
+    },
+    "research_editor_r21": {},
+    "rng": 100878201,
+    "run": {},
+    "runs": 0,
+    "scenario": "teiris",
+    "scene": "town",
+    "schema": 3,
+    "serial": 1,
+    "settings": {
+      "chron": 1,
+      "diff": 2,
+      "lang": "en"
+    },
+    "summary": {},
+    "town_r21": {
+      "counter": 5,
+      "meet": "saya",
+      "qn": 4,
+      "seed": 100878201
+    },
+    "ui": {
+      "msg": "",
+      "page": 1,
+      "sel": ""
+    },
+    "xp_r22": {}
+  },
+  "town_r21_preview": false,
+  "town_scroll_height": 0,
+  "town_text": [
+    {
+      "available": 225,
+      "font_size": 20,
+      "needed": 166,
+      "text": "편성 · Equipment"
+    },
+    {
+      "available": 204,
+      "font_size": 13,
+      "needed": 104,
+      "text": "Lv.1 · Front row"
+    },
+    {
+      "available": 204,
+      "font_size": 12,
+      "needed": 57,
+      "text": "HP 97 / 97"
+    },
+    {
+      "available": 204,
+      "font_size": 12,
+      "needed": 58,
+      "text": "MP 33 / 33"
+    },
+    {
+      "available": 63,
+      "font_size": 11,
+      "needed": 45,
+      "text": "Weapon"
+    },
+    {
+      "available": 63,
+      "font_size": 11,
+      "needed": 31,
+      "text": "미장착"
+    },
+    {
+      "available": 63,
+      "font_size": 11,
+      "needed": 36,
+      "text": "Armor"
+    },
+    {
+      "available": 63,
+      "font_size": 11,
+      "needed": 31,
+      "text": "미장착"
+    },
+    {
+      "available": 63,
+      "font_size": 11,
+      "needed": 55,
+      "text": "Accessory"
+    },
+    {
+      "available": 63,
+      "font_size": 11,
+      "needed": 31,
+      "text": "미장착"
+    },
+    {
+      "available": 10000,
+      "font_size": 16,
+      "needed": 284,
+      "text": "보유한 직업 장비가 없습니다.\n상회에서 구입하거나 대장간을 방문하세요."
+    },
+    {
+      "available": 78,
+      "font_size": 11,
+      "needed": 21,
+      "text": "마을"
+    },
+    {
+      "available": 78,
+      "font_size": 11,
+      "needed": 21,
+      "text": "Ally"
+    },
+    {
+      "available": 78,
+      "font_size": 11,
+      "needed": 21,
+      "text": "원정"
+    },
+    {
+      "available": 78,
+      "font_size": 11,
+      "needed": 21,
+      "text": "Bag"
+    },
+    {
+      "available": 78,
+      "font_size": 11,
+      "needed": 21,
+      "text": "기록"
+    }
+  ],
+  "ui_build": "r21-d-town-20261103a",
+  "viewport": [
+    360,
+    780
+  ]
+}

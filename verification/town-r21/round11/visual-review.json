@@ -1,0 +1,40 @@
+{
+  "native_contacts_opened": [
+    "contact-360x780.jpg",
+    "contact-390x844.jpg",
+    "contact-390x664.jpg",
+    "contact-430x932.jpg",
+    "contact-1280x800.jpg"
+  ],
+  "native_360_opened": [
+    "status-en",
+    "status-ko",
+    "codex-en",
+    "member-en",
+    "shop-en",
+    "recruit-en",
+    "smithy-en",
+    "cloud-en",
+    "depart-en"
+  ],
+  "web_360_opened": [
+    "p7-status",
+    "participate",
+    "settled"
+  ],
+  "fixes": [
+    "Source integer rounding in ko/en status and member stats.",
+    "Recruited filter remains one line at 360 width.",
+    "Source-backed SVG titles: three.",
+    "Paged floor selector retained in illustrated preparation, with readable floor details.",
+    "Web missing star glyph replaced with SVG geometry.",
+    "Persona equipment is selectable from town facilities."
+  ],
+  "native_popup_test": "Native P5 picker opens by synthesized pointer; selection uses public OptionButton signal, matching the existing P6 test convention. Web equipment picker uses actual pointer input.",
+  "limits": [
+    "Partial English remains where no exact canonical phrase exists.",
+    "No approved persona portrait; neutral placeholder retained.",
+    "No physical phone or screen-reader validation."
+  ],
+  "design_context": "Impeccable detector: zero findings. Existing DESIGN.md sidecar is stale; not changed. The document command can refresh it separately."
+}

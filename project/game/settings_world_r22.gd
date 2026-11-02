@@ -1,4 +1,4 @@
-extends "res://game/chronicle_world_r22.gd"
+extends "res://game/town_chronicle_world_r22.gd"
 ## Difficulty belongs to a battle, including its summoned/second-phase enemies.
 const Settings=preload("res://game/settings_rules_r22.gd")
 func _init() -> void:
@@ -30,4 +30,13 @@ func restore(value: Variant) -> bool:
 	var r=value.get("run",{}).get("settings_battle_r22",{}) if value.get("run",{}) is Dictionary else {}
 	if not r is Dictionary:return false
 	if not r.is_empty() and (not r.get("key") is String or r.get("multiplier") not in [0.8,1.0,1.25]):return false
-	return super(value)
+	var ok=super(value)
+	if ok:s.erase("persona_progress_r21")
+	return ok
+
+func award_persona_exp(st: Dictionary) -> Dictionary:
+	var gains=super(st);s.erase("persona_progress_r21");return gains
+func recruit() -> bool:
+	var ok=super();s.erase("persona_progress_r21");return ok
+func use_item(id: String,who: String) -> bool:
+	var ok=super(id,who);s.erase("persona_progress_r21");s.erase("lv");return ok

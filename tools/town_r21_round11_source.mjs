@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+import {pathToFileURL} from 'node:url';
+const src='C:/Clauede Code/dungeon-bot';
+const {mkSim}=await import(pathToFileURL(src+'/bot/lua_sim.mjs'));
+const {sim,L}=await mkSim({policy:false,extra:['01-game.lua','05-gen.lua','10-data.lua'].map(f=>fs.readFileSync(src+'/bot/src/'+f,'utf8')).join('\n')});
+const raw=await L('B.EN=nil;B.UI={};return {words=B.en_dict(),ui=B.ui_pack("en")}');
+for(const dir of ['en'])for(const f of fs.readdirSync(src+'/design/i18n/'+dir))if(f!=='intimacy.json')Object.assign(raw.words,JSON.parse(fs.readFileSync(src+'/design/i18n/'+dir+'/'+f,'utf8')));
+const titles={home:'INTO THE ABYSS',formation:'장비 보관함',equipment:'장비 보관함',art:'연출 미리보기',guild:'의뢰',recruit:'동료 소개',research:'전술 연구',shop:'마렌토 상회',smithy:'한나의 대장간',inn:'여관',journal:'모험 기록',summary:'토르바로 귀환',explore:'탐색 지도',cache:'봉인된 보관함',rest:'닫힌 휴게실',retreat:'토르바로 귀환할까요?'};
+const rows=Object.entries(titles).map(([id,ko])=>({id,ko,en:raw.ui[ko]??raw.words[ko]??null}));
+const nav={};for(const term of ['마을','원정','마을로','출발','대던전','동료','가방','기록'])nav[term]=raw.ui[term]??raw.words[term]??null;
+fs.writeFileSync('verification/town-r21/round11/source-titles.json',JSON.stringify({rows,nav},null,2));
+console.log(JSON.stringify({rows,nav}));sim.close?.();

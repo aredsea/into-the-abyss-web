@@ -1,0 +1,55 @@
+{
+  "method": "Original Lua reloaded into Wasmoon. Bag/chat/pending and completed battle snapshot are host fixtures. No adult handlers invoked.",
+  "sources": [
+    {
+      "path": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\01-game.lua",
+      "sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c"
+    },
+    {
+      "path": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\70-town.lua",
+      "sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2"
+    },
+    {
+      "path": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\71-shop.lua",
+      "sha256": "49d6d1a5959da53ad29e6787fef84b94a778d9eb147a0dacf440903af43cac2d"
+    },
+    {
+      "path": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\72-guild.lua",
+      "sha256": "3125fd872513eff4defb1b3db3490f5b5a8fa87c683d23d3d5169681b2472e5f"
+    },
+    {
+      "path": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\73-inn.lua",
+      "sha256": "c4a7c97be4184a09ad54346b7c41cb7dc8b8d4cd2d5722ed13eab368444b8477"
+    },
+    {
+      "path": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\74-level.lua",
+      "sha256": "59b18059453c5f17c8ac94bdd5222e3099ccf33a0a04c116d579cd2a9f78b9d3"
+    },
+    {
+      "path": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\74-affection.lua",
+      "sha256": "a8142bb5cf5c00ba451847797bf6a446b46ec619d14dc4e741a21e0226d117ca"
+    },
+    {
+      "path": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\81-gear.lua",
+      "sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8"
+    },
+    {
+      "path": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\82-smithy.lua",
+      "sha256": "4298d9d7b9cc5cdd6f1a832871c6eaff6a74385a8a4ae7952d99df3d9beafe72"
+    }
+  ],
+  "harnesses": [
+    {
+      "path": "C:/Clauede Code/dungeon-bot/bot/harness_town.mjs",
+      "sha256": "d5af132d6ee311e327f7b83230cb11886df51edfe1055e33217262c51eba2384"
+    },
+    {
+      "path": "C:/Clauede Code/dungeon-bot/bot/harness_economy.mjs",
+      "sha256": "50138ab441e5ef864b849a2b603a02bd6e0104d7dcbf5b1ab0ab8d7e267cdf00"
+    },
+    {
+      "path": "C:/Clauede Code/dungeon-bot/bot/harness_smithy.mjs",
+      "sha256": "188b90da7925f25b254d03b667363ad1fae32a4536221c1d533281206a0ea158"
+    }
+  ]
+}

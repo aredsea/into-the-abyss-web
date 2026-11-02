@@ -1,0 +1,66 @@
+{
+  "checks": 93,
+  "failures": 12,
+  "groups": [
+    {
+      "name": "P1 rank: fresh 9999 and repeated identical PUT never establish progress",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"url\":\"/v1/rank\",\"status\":200,\"value\":{\"submitted\":true,\"best\":9999,\"cache_seconds\":300}}\n\n200 !== 422\n\n    at call (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:12:62)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:21:33\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:15:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:20:1"
+    },
+    {
+      "name": "P1 global account cap, denial has no counter writes even with rotating IP",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"url\":\"/v1/account\",\"status\":201,\"value\":{\"code\":\"4CPE-70WB-ZF8W\",\"pin\":\"XFJ5JBRFW1\",\"rev\":1,\"summary\":{\"day\":1,\"gold\":300,\"level\":1,\"best\":0,\"runs\":0,\"companions\":1}}}\n\n201 !== 429\n\n    at call (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:12:62)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async group.GLOBAL_NEW_PER_MINUTE (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:35:46)\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:15:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:32:1"
+    },
+    {
+      "name": "P1 global UTF-8 write bytes bounded across IPs",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"url\":\"/v1/save\",\"status\":200,\"value\":{\"code\":\"MKFT-TB73-8S6F\",\"rev\":2,\"summary\":{\"day\":1,\"gold\":300,\"level\":1,\"best\":0,\"runs\":0,\"companions\":1}}}\n\n200 !== 429\n\n    at call (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:12:62)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:41:23\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:15:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:38:1"
+    },
+    {
+      "name": "P1 IPv6 /64 normalized and saturated IP rejects without updates",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"url\":\"/v1/rank\",\"status\":200,\"value\":{\"metric\":\"deepest_floor\",\"best\":null,\"pct\":null,\"n\":0,\"top\":0,\"at\":1793625405,\"expires\":1793625705,\"cache_seconds\":300}}\n\n200 !== 429\n\n    at call (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:12:62)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:47:26\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:15:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:44:1"
+    },
+    {
+      "name": "P1 inactive cron preserves last save before account cascade; archives expire separately",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ {\n+   code: '9513-TDM9-FR9K'\n+ }\n- null\n\n    at file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:55:9\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:15:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:51:1"
+    },
+    {
+      "name": "P2 failed PIN uses code+IP only; owner remains able to save",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n+ actual - expected\n\n+ {\n+   n: 21\n+ }\n- null\n\n    at file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:64:9\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:15:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:60:1"
+    },
+    {
+      "name": "P2 inherited equipment names and bought codes rejected independently",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"url\":\"/v1/account\",\"status\":201,\"value\":{\"code\":\"7AXX-68J1-T98D\",\"pin\":\"CSEX323Y3E\",\"rev\":1,\"summary\":{\"day\":1,\"gold\":300,\"level\":1,\"best\":0,\"runs\":0,\"companions\":1}}}\n\n201 !== 422\n\n    at call (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:12:62)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:70:40\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:15:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:67:1"
+    },
+    {
+      "name": "P2 all reported opaque fields reject arbitrary objects",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"url\":\"/v1/account\",\"status\":201,\"value\":{\"code\":\"N1CK-V106-FJKT\",\"pin\":\"69GGXF404X\",\"rev\":1,\"summary\":{\"day\":1,\"gold\":300,\"level\":1,\"best\":0,\"runs\":0,\"companions\":1}}}\n\n201 !== 422\n\n    at call (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:12:62)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:75:113\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:15:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:73:1"
+    },
+    {
+      "name": "P2 pepper required before serving requests",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"url\":\"/v1/rank\",\"status\":200,\"value\":{\"metric\":\"deepest_floor\",\"best\":null,\"pct\":null,\"n\":0,\"top\":0,\"at\":1793625408,\"expires\":1793625708,\"cache_seconds\":300}}\n\n200 !== 503\n\n    at call (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:12:62)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async group.IP_HASH_PEPPER (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:77:74)\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:15:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:77:1"
+    },
+    {
+      "name": "P2 PBKDF2 configurable, recorded per account and old hashes remain usable",
+      "passed": false,
+      "error": "Error: D1_ERROR: no such column: pin_iterations at offset 7: SQLITE_ERROR\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async group.PIN_PBKDF2_ITERATIONS (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:79:35)\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:15:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:78:1"
+    },
+    {
+      "name": "P2 deletion preserves cache and concurrent expiry has one generation",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ null\n- {\n-   expires: 1793625709,\n-   id: 1,\n-   payload: '{\"at\":1793625409,\"expires\":1793625709,\"n\":0,\"top\":0,\"histogram\":[]}'\n- }\n\n    at file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:84:72\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:15:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:82:1"
+    },
+    {
+      "name": "P2 malformed URL encoding, hex revision, production localhost denied",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"url\":\"/v1/save/%E0%A4%A\",\"status\":503,\"value\":{\"error\":\"service_unavailable\"}}\n\n503 !== 400\n\n    at call (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:12:62)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async group.ALLOW_LOCALHOST (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:90:25)\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:15:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:89:1"
+    }
+  ]
+}

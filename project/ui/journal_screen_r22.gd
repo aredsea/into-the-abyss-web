@@ -29,6 +29,7 @@ func build(owner_screen) -> void:
 		"people":people()
 func redraw() -> void:host._draw_screen()
 func journal() -> void:
+	button("cloud_open","클라우드 저장",host.go.bind("cloud"))
 	var enabled=host.model.s.get("settings",{}).get("chron",1)!=0
 	text("엔진이 확정한 사건을 날짜순으로 보관합니다.",15,T.MUTED)
 	button("p10_toggle","기록 켜짐 · 끄기" if enabled else "기록 꺼짐 · 켜기",func():

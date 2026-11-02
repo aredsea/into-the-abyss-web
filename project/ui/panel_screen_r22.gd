@@ -69,7 +69,7 @@ func stats(values: Dictionary,level: int,xp: int) -> void:
 	var grid=GridContainer.new();body.add_child(grid);grid.columns=3;grid.add_theme_constant_override("h_separation",16);grid.add_theme_constant_override("v_separation",10)
 	for s in [["hp","HP"],["mp","MP"],["str","힘"],["agi","민첩"],["int","지능"],["def","방어"],["spd","속도"]]:
 		var v=VBoxContainer.new();grid.add_child(v);v.size_flags_horizontal=SIZE_EXPAND_FILL
-		text(s[1],13,T.MUTED,v);text(str(values.get(s[0],"—")),22,T.INK,v)
+		text(s[1],13,T.MUTED,v);text(str(int(floor(float(values[s[0]])+.5))) if values.has(s[0]) else "—",22,T.INK,v)
 func affection(value: float) -> void:
 	var a=R.shown_aff(value);var p=R.AFF.progress(a)
 	var h=row();text(p.stage,21,T.RED,h);text("%d / 200"%a,15,T.MUTED,h).horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT

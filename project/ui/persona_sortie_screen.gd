@@ -19,6 +19,24 @@ func build(owner_screen) -> void:
 	pick.select(w.selected_floor-1)
 	pick.item_selected.connect(func(i):w.selected_floor=i+1;s.dungeon_r21.sel=i+1;host._save();host._draw_screen())
 	host.controls.dungeon_floor=pick
+	if w.has_method("floor_page"):
+		pick.clear();pick.fit_to_longest_item=false;pick.clip_text=true
+		var mx=w.dungeon_max();var pg=clampi(int(s.dungeon_r21.get("pg",1)),1,int(ceil((mx+1)/6.0)))
+		for f in range((pg-1)*6+1,mini(pg*6,mx+1)+1):
+			var z=w.dungeon_rules.floor_info(f);var status="잠김" if f>mx else "완료" if f<=s.dungeon_r21.best else "도전 가능"
+			pick.add_item(L.u("{floor}층 {zone}",{"floor":f,"zone":w.dungeon_rules.zones[z.zone].name},L.language(s))+" · "+localized(status),f)
+			pick.get_popup().set_item_disabled(pick.item_count-1,f>mx)
+			if f==w.selected_floor:pick.select(pick.item_count-1)
+		for connection in pick.item_selected.get_connections():pick.item_selected.disconnect(connection.callable)
+		pick.item_selected.connect(func(i):w.select_dungeon_floor(pick.get_item_id(i));host._save();host._draw_screen())
+		action("floor_prev","이전",Rect2(218,212,72,56),func():w.floor_page(pg-1);host._save();host._draw_screen(),false,pg<=1).add_theme_font_size_override("font_size",11)
+		action("floor_next","다음",Rect2(298,212,72,56),func():w.floor_page(pg+1);host._save();host._draw_screen(),false,pg>=int(ceil((mx+1)/6.0))).add_theme_font_size_override("font_size",11)
+		var rec=w.expedition_rules.recommended(w.average_level(),mx)
+		fill("floor_details_paper",Rect2(238,54,134,98),Color(T.PAPER,0.94))
+		label("추천 %d층"%rec,Rect2(244,59,88,25),11)
+		icon("floor-star",Rect2(339,66,10,10))
+		label(str(int(w.dungeon_rules.floor_star(info))),Rect2(351,59,15,25),11)
+		label("권장 Lv.%d · 적 Lv.%d"%[w.expedition_rules.rec_level(w.selected_floor),w.dungeon_rules.floor_level(w.average_level(),info)],Rect2(244,87,122,52),11).autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	var self_button=action("so_fight_1","자기 참전 · 동료 3명",Rect2(18,277,174,56),func():w.set_fight(1);host._save();host._draw_screen(),s.persona.fight==1,w.active() or not w.can_persona_fight());self_button.add_theme_font_size_override("font_size",13)
 	if not w.can_persona_fight():self_button.tooltip_text="모험가 생성 정보가 없는 옛 저장입니다. 기존 동료 편성을 유지하고 지휘로 출발합니다."
 	action("so_fight_0","지휘 · 동료 4명",Rect2(198,277,174,56),func():w.set_fight(0);host._save();host._draw_screen(),s.persona.fight==0,w.active()).add_theme_font_size_override("font_size",13)
@@ -81,3 +99,4 @@ func formation_row(ids: Array,x: float) -> void:
 			var b=hit("so_tg_"+id,Rect2(px,0,83,112),func():host.model.toggle_companion(id);host._save();host._draw_screen())
 			b.disabled=host.model.active();b.tooltip_text=host.model.person(id).name+" 편성 해제"
 	stage=previous
+

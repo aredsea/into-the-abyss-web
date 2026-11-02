@@ -62,6 +62,7 @@ func build(owner_screen) -> void:
 		for state in ["normal","hover","pressed","disabled","focus"]:
 			var style=step.get_theme_stylebox(state).duplicate();style.content_margin_left=4;style.content_margin_right=4;step.add_theme_stylebox_override(state,style)
 	if not s.ui.msg.is_empty():text(s.ui.msg,14,T.RED)
+	if page==1:button("cloud_open","기존 모험 불러오기",host.go.bind("cloud"))
 	match page:
 		1:
 			text("어떤 종족으로 살아왔나요?",21)

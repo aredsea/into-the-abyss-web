@@ -1,4 +1,5 @@
 extends RefCounted
+signal saved(snapshot: Dictionary)
 var path="user://world_v3.json"
 
 func _init(save_path="user://world_v3.json") -> void:
@@ -23,4 +24,6 @@ func write(snapshot: Dictionary) -> Error:
 	if FileAccess.file_exists(path):
 		var err=DirAccess.copy_absolute(path,path+".bak")
 		if err!=OK: return err
-	return DirAccess.rename_absolute(path+".tmp",path)
+	var result=DirAccess.rename_absolute(path+".tmp",path)
+	if result==OK:saved.emit(snapshot)
+	return result

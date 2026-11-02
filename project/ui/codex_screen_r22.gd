@@ -9,6 +9,8 @@ func build(owner_screen) -> void:
 	for e in [["all","전체"],["rec","영입"],["el","속성"],["cls","직업"]]:
 		var filter_button=button("p7_filter_"+e[0],e[1],cx.bind("f_"+e[0]),state.ui.tab==e[0] or (e[0]=="all" and state.ui.tab==""),false,tabs)
 		if L.language(host.model.s)=="en":filter_button.add_theme_font_size_override("font_size",12)
+		filter_button.autowrap_mode=TextServer.AUTOWRAP_OFF
+		filter_button.size_flags_horizontal=SIZE_EXPAND_FILL
 	if state.ui.tab.begins_with("el"):
 		var values=[["el","모든 속성"]]
 		for e in R.DATA.el_order:values.append(["el_"+e,R.DATA.els[e]])

@@ -6,7 +6,7 @@ import json,threading,os,tempfile,time,sys
 from playwright.sync_api import sync_playwright
 R=Path(__file__).resolve().parents[1]
 O=R/'verification/town-r21/web'
-BUILD='r21-d-town-20261102f'
+BUILD='r21-d-town-20261103a'
 
 def idb_files(page):
  return page.evaluate('''async()=>{
@@ -73,7 +73,10 @@ def run():
        if y<top or y>bottom:
         distance=abs(y-bottom if y>bottom else y-top)/sy
         page.mouse.move(canvas['x']+(clip[0]+clip[2]/2)*sx,(top+bottom)/2);page.mouse.wheel(0,min(90,max(20,distance))*(1 if y>bottom else -1));page.wait_for_timeout(250);report=world();continue
-      page.mouse.click(x,y);page.wait_for_timeout(300);return
+      page.mouse.click(x,y);page.wait_for_timeout(300)
+      if not battle and key!='receipt_done' and 'receipt_done' in world()['controls']:
+       capture('facility-receipt');click('receipt_done')
+      return
      raise AssertionError('cannot scroll to '+key)
     assert world()['state']['scene']=='create' and not world()['restored']
     assert world()['ui_build']==BUILD
@@ -110,7 +113,15 @@ def run():
     affordable=[k for k,v in world()['controls'].items() if k.startswith('buygear:') and not v['disabled']]
     if affordable:
      click(affordable[0]);assert world()['controls'][affordable[0]]['disabled']
-     click('shop_bag');gear=[k for k,v in world()['controls'].items() if k.startswith('equip:') and not v['disabled']]
+     click('shop_bag')
+     if world()['controls']['member_choice']['selected']!=0:
+      click('member_choice')
+      report=world();q=report['controls']['member_choice']['popup_first'];canvas=page.locator('canvas').bounding_box()
+      page.mouse.click(canvas['x']+q[0]*canvas['width']/report['viewport'][0],canvas['y']+q[1]*canvas['height']/report['viewport'][1]);page.wait_for_timeout(400)
+     assert world()['controls']['member_choice']['selected']==0
+     gear=[k for k,v in world()['controls'].items() if k.startswith('equip:') and not v['disabled']]
+     if not gear:
+      capture('equipment-failure');(O/'equipment-failure.json').write_text(json.dumps(world(),ensure_ascii=False,indent=2),encoding='utf-8')
      assert gear;click(gear[0])
     click('nav:town');click('panels');click('p7_select_teiris');click('p7_fav')
     assert world()['state']['favs']==['teiris']

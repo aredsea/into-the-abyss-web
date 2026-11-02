@@ -34,7 +34,7 @@ static func _patterns() -> void:
 		for m in matches:
 			for ch in src.substr(pos,m.get_start()-pos):expression+=("\\" if ch in "\\.^$|?*+()[]{}" else "")+ch
 			# Runtime formatted counts must not capture an entire Korean sentence.
-			expression+="([+-]?[0-9]+(?:\\.[0-9]+)?)" if m.get_string(1) in ["n","exp","gold"] else "(.+?)";keys.append(m.get_string(1));pos=m.get_end()
+			expression+="([+-]?[0-9]+(?:\\.[0-9]+)?)" if m.get_string(1) in ["n","exp","gold","floor"] else "(.+?)";keys.append(m.get_string(1));pos=m.get_end()
 		for ch in src.substr(pos):expression+=("\\" if ch in "\\.^$|?*+()[]{}" else "")+ch
 		var re=RegEx.new();re.compile(expression+"$");patterns.append({"re":re,"src":src,"keys":keys})
 static func render(value: String,lang="ko") -> String:
