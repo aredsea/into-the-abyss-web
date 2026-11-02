@@ -1,0 +1,476 @@
+[청크 컨텍스트] 이 텍스트는 한 문서를 나눈 청크 63/99이다.
+- 문서 전체가 아니므로 서두·결말·전환 문구를 새로 만들지 말 것. 경계가 잘린 듯 보여도 그대로 둔다.
+[진단]
+# 진단 — 게임 동료 대화 30명
+
+장르: 게임 대사. 화계는 인물별 speech.allowed_endings와 정본 말투를 보존한다. 글 전체 화계를 통일하지 않는다.
+
+1. D-14 생성 은유: 자리·몫·이름·줄·문·빈칸이 인물 고유 소재에서 벗어나 감정을 대신하는 곳. 정본 사건과 실제 물건은 보존하고 감정 대목만 일상 발화로 교정한다.
+2. C-8 대칭 대구: 정량 antithesis_count 12. A/B가 다르다·따로다 같은 명제 요약은 구체 대화로 바꾼다. 필요한 거절·경계와 반문은 남긴다.
+3. I-3/H-3 의미 해설: 행동 뒤 그 뜻은 아니다 등으로 감정을 재진술한다. 실제 오해를 풀어야 하는 곳과 중복 설명을 구분한다.
+4. F-7/A-15 사적 공문체: 간격 확보·대화 기록 등 사적 장면의 추상 행정어. 인물 고유 업무·계약·기록 장면은 보존한다.
+5. E-3/C-4 문형 반복: 먼저·오늘은·같이의 밀집, 상대를 진단하는 선택지 및 경계를 그대로 복창하는 반응. 시간 순서와 aff 기능은 유지하고 장면마다 발화 기능을 재검토한다.
+
+정량 앵커: 원문 689517자(경로 식별자 포함), relative_clause_nesting 14, double_particle_count 2, have_make_literal_count 1. risk_band low이나 긴 입력의 구조 지표로 heavy를 추천한다. 산문 기준 z-score를 화계가 섞인 게임 자료의 품질 등급으로 바로 적용하지 않는다.
+
+보존: 장면·선택지 수, 선택지 ID·순서·aff, 인물명·정본 사건·소재·화계. 도입 3줄, 전이 2줄. 수정은 finding이 있는 발화 필드에 한정한다. 지적별 제안은 고침 취지 반영 여부를 기록하며 감점 대사를 호의적 대사로 뒤집는 제안은 대안으로 반영한다.
+[진단 끝]
+
+[정량 사전 점수 v2.0 — v1.6 8지표(KatFish baseline) + v2.0 카운트형]
+risk_band: low  (score 0)
+genre: essay
+char_count: 6972
+
+[v1.6 지표]
+- comma_inclusion_rate: 0.01  (z=-1.45 vs essay 인간 baseline)
+- comma_usage_rate: 0.01  (z=-1.57 vs essay 인간 baseline)
+- ending_comma_rate: 0.00  (z=-0.52 vs essay 인간 baseline)
+- comma_segment_length: 2.99  (z=-0.65 vs essay 인간 baseline)
+- conclusion_pivot_count: 0
+- safe_balance_count: 0
+- hanja_nominalizer_density: 0.000  (z=-2.00 vs essay 인간 baseline)
+- lexical_diversity: 0.76  (z=+2.19 vs essay 인간 baseline)
+
+[v2.0 카운트형 지표 — 원값 / baseline calibration 전 z-score 해석 보류]
+- double_passive_count (이중 피동, 본진 A-8): 0
+- by_passive_count (~에 의해 피동, 본진 A-9): 0
+- pronoun_density (인칭 대명사 밀도, 본진 A-16): 0.001
+- have_make_literal_count (have/make 직역, 본진 A-7): 0
+- double_particle_count (이중 조사 결합, 본진 A-19): 0
+- relative_clause_nesting (관형절 3중+ 중첩 문장 수, 본진 A-18): 0
+- deul_overuse_rate ('-들' 남용률, 본진 A-17 hold): 0.000
+- 카운트 > 0 지표는 해당 본진 ID 처방(quick-rules.md·taxonomy)과 교차 확인 후 윤문할 것.
+
+[근거 사용 가이드]
+- 위 점수는 *근거 보조*다. 단독 판정 금지(보고서 명시).
+- z>1.0 지표는 quick-rules.md S1·S2 패턴과 교차 확인 후 윤문할 것.
+- ending_comma_rate가 ★ S1 트리거인 경우 C-11(연결어미 뒤 쉼표) 우선 손질.
+- conclusion_pivot 매치 토큰은 D-1·H-1 처방 적용 대상.
+
+[원문 시작]
+gunhild/inn/7/choices/0/response/0
+몇 해를 거기서 싸웠다.
+
+gunhild/inn/7/choices/1/text
+투기장 출신은 다 힘들었겠네요.
+
+gunhild/inn/7/choices/1/response/0
+힘들었다는 말로 전부 묶지는 마라.
+
+gunhild/inn/7/choices/1/response/1
+같은 나라에 있었다고 형편까지 같진 않았다.
+
+gunhild/inn/7/choices/2/text
+두 분 사정은 따로 기억할게요.
+
+gunhild/inn/7/choices/2/response/0
+같은 무대라고 같은 삶은 아니지.
+
+gunhild/inn/7/seen
+같은 무대였다는 것만 먼저 알아 둬라.
+
+gunhild/inn/8/situation
+역할을 말하려다 상대에게 종이를 민다.
+
+gunhild/inn/8/lines/0
+이번엔 네 생각부터 듣겠다.
+
+gunhild/inn/8/lines/1
+내가 정한 뒤에 묻는 건 아니다.
+
+gunhild/inn/8/lines/2
+말이 다르면 다시 맞추면 돼.
+
+gunhild/inn/8/choices/0/text
+군힐트 씨 명령이면 그대로 할게요.
+
+gunhild/inn/8/choices/0/response/0
+내가 의견을 물은 이유가 없어지잖나?
+
+gunhild/inn/8/choices/0/response/1
+믿는다면 네가 본 걸 말해 줘야지.
+
+gunhild/inn/8/choices/1/text
+다른 생각도 말해 볼게요.
+
+gunhild/inn/8/choices/1/response/0
+중간에 호령부터 하면 멈추라고 해라.
+
+gunhild/inn/8/choices/1/response/1
+다르다고 바로 내 쪽으로 바꾸진 마라.
+
+gunhild/inn/8/choices/2/text
+이 줄부터 보면 돼요?
+
+gunhild/inn/8/choices/2/response/0
+아직 비었으니 어디부터 써도 된다.
+
+gunhild/inn/8/seen
+이번엔 내 말보다 네 생각을 먼저 듣는다.
+
+gunhild/inn/9/situation
+공을 인정하는 말에 잔을 만지작거린다.
+
+gunhild/inn/9/lines/0
+운이 좋아서만은 아니었다.
+
+gunhild/inn/9/lines/1
+보고 칭찬했다면 받겠다.
+
+gunhild/inn/9/lines/2
+잘 들었으니 두 번까지 할 필요는 없다.
+
+gunhild/inn/9/choices/0/text
+한 번 했으니 잔이나 들어요.
+
+gunhild/inn/9/choices/0/response/0
+네 잔도 같이 가져와라.
+
+gunhild/inn/9/choices/1/text
+차가 조금 식었어요.
+
+gunhild/inn/9/choices/1/response/0
+마시기엔 오히려 편하겠군.
+
+gunhild/inn/9/choices/2/text
+좋아하시니 크게 한 번 더 말할게요.
+
+gunhild/inn/9/choices/2/response/0
+크게 말할 필요 없다고 했잖나?
+
+gunhild/inn/9/choices/2/response/1
+두 번 고맙다고 말하라고 시키는 것 같잖나?
+
+gunhild/inn/9/seen
+봤다는 말로 한 번 칭찬했으면 됐다.
+
+gunhild/inn/10/situation
+머리 근처로 온 손을 보고 몸을 굳힌다.
+
+gunhild/inn/10/lines/0
+잠깐, 먼저 물어라.
+
+gunhild/inn/10/lines/1
+내가 피하지 않는다고 다 된 건 아니다.
+
+gunhild/inn/10/lines/2
+대답은 듣고 움직여도 늦지 않아.
+
+gunhild/inn/10/choices/0/text
+손은 이쪽에 둘게요.
+
+gunhild/inn/10/choices/0/response/0
+그러면 내가 계속 쳐다볼 일도 없겠군.
+
+gunhild/inn/10/choices/1/text
+좋아하시는 건 이미 다 보이는데요.
+
+gunhild/inn/10/choices/1/response/0
+보인다고 허락을 받은 건 아니다.
+
+gunhild/inn/10/choices/1/response/1
+내 대답을 기다리는 게 그렇게 어렵나?
+
+gunhild/inn/10/choices/2/text
+만져도 괜찮은지 먼저 물을게요.
+
+gunhild/inn/10/choices/2/response/0
+지금은 말로만 얘기하자.
+
+gunhild/inn/10/seen
+손을 내밀기 전에는 먼저 물어라.
+
+gunhild/inn/11/situation
+잘못 내린 호령을 고치고 다시 말한다.
+
+gunhild/inn/11/lines/0
+내가 너무 빨리 정했군.
+
+gunhild/inn/11/lines/1
+아까 지시는 잊어라.
+
+gunhild/inn/11/lines/2
+네가 하던 설명부터 마저 들어야겠다.
+
+gunhild/inn/11/choices/0/text
+괜찮아요, 그냥 원래 명령대로 하죠.
+
+gunhild/inn/11/choices/0/response/0
+잘못 정한 걸 그대로 할 이유는 없다.
+
+gunhild/inn/11/choices/0/response/1
+내가 거둔 지시는 다시 따르지 않아도 된다.
+
+gunhild/inn/11/choices/1/text
+아까 멈춘 데부터 말할게요.
+
+gunhild/inn/11/choices/1/response/0
+끝까지 듣고 나서 다시 정하지.
+
+gunhild/inn/11/choices/2/text
+종이는 아직 여기 있어요.
+
+gunhild/inn/11/choices/2/response/0
+찢지 않아서 다행이군.
+
+gunhild/inn/11/seen
+아까 호령은 거두고 설명부터 듣는다.
+
+gunhild/inn/12/situation
+가문의 땅 얘기에 손을 꽉 쥔다.
+
+gunhild/inn/12/lines/0
+고립의 해에 모두 변경령으로 갔다.
+
+gunhild/inn/12/lines/1
+그동안 농지는 비었고.
+
+gunhild/inn/12/lines/2
+돌아온 뒤에도 땅은 돌려받지 못했지.
+
+gunhild/inn/12/choices/0/text
+그 뒤 어떻게 지내셨는지 들어요.
+
+gunhild/inn/12/choices/0/response/0
+쉽게 끝낼 얘긴 아니니 좀 앉아라.
+
+gunhild/inn/12/choices/0/response/1
+돌아온 뒤의 일부터 차례로 말하겠다.
+
+gunhild/inn/12/choices/1/text
+물은 더 필요하세요?
+
+gunhild/inn/12/choices/1/response/0
+말하다가 마를 테니 옆에 두어라.
+
+gunhild/inn/12/choices/2/text
+길드에서 공을 세우면 땅도 받겠죠.
+
+gunhild/inn/12/choices/2/response/0
+그런 약속을 누가 했나?
+
+gunhild/inn/12/choices/2/response/1
+전후에 무슨 약속이 생겼다고 지어내진 마라.
+
+gunhild/inn/12/seen
+땅을 돌려받았다는 말은 한 적 없다.
+
+gunhild/inn/13/situation
+성 앞의 짧은 말을 천천히 적는다.
+
+gunhild/inn/13/lines/0
+폰이라는 말은 남았지.
+
+gunhild/inn/13/lines/1
+그 뒤에 있던 땅은 없는데도.
+
+gunhild/inn/13/lines/2
+내가 자꾸 크게 이름을 댄 이유를 알겠나?
+
+gunhild/inn/13/choices/0/text
+잉크병을 가까이 가져다 놓을까요?
+
+gunhild/inn/13/choices/0/response/0
+지금은 이 정도면 충분하다.
+
+gunhild/inn/13/choices/1/text
+그 말은 이제 빼도 되지 않아요?
+
+gunhild/inn/13/choices/1/response/0
+남은 것을 빼라고 쉽게 말하지 마라.
+
+gunhild/inn/13/choices/1/response/1
+무엇을 남길지는 내가 정하고 싶다.
+
+gunhild/inn/13/choices/2/text
+이름 말할 때의 무게를 조금 알겠어요.
+
+gunhild/inn/13/choices/2/response/0
+안다고 쉽게 대신 설명하지는 마라.
+
+gunhild/inn/13/seen
+폰까지 적은 이유를 오늘은 말해 봤다.
+
+gunhild/inn/14/situation
+투기장으로 건너가던 일을 말한다.
+
+gunhild/inn/14/lines/0
+누가 시켜서 간 건 아니다.
+
+gunhild/inn/14/lines/1
+이름값을 내 손으로 보이려 갔다.
+
+gunhild/inn/14/lines/2
+상을 받는 것만으로 됐는지는 모르겠지만.
+
+gunhild/inn/14/choices/0/text
+가문만 없었으면 편하게 살았겠네요.
+
+gunhild/inn/14/choices/0/response/0
+없는 삶을 만들어 위로하진 마라.
+
+gunhild/inn/14/choices/0/response/1
+그 삶을 내가 싫어하기만 했던 건 아니야.
+
+gunhild/inn/14/choices/1/text
+지금도 같은 이유로 싸우세요?
+
+gunhild/inn/14/choices/1/response/0
+지금은 옆에 선 사람도 보게 됐다.
+
+gunhild/inn/14/choices/2/text
+장소를 옮긴 건 힘들었겠어요.
+
+gunhild/inn/14/choices/2/response/0
+처음 무대에 설 땐 낯설긴 했지.
+
+gunhild/inn/14/seen
+투기장에 간 건 내가 고른 일이었다.
+
+gunhild/inn/15/situation
+칭찬 뒤에 잠시 침묵하다 먼저 입을 연다.
+
+gunhild/inn/15/lines/0
+칭찬을 들으니 좋기는 하다.
+
+gunhild/inn/15/lines/1
+그런데 고맙다는 말이 자꾸 늦는군.
+
+gunhild/inn/15/lines/2
+그걸 보고 자꾸 물으면 더 꼬여.
+
+gunhild/inn/15/choices/0/text
+대답을 고를 때까지 기다릴게요.
+
+gunhild/inn/15/choices/0/response/0
+지금 당장 근사한 말을 하긴 어렵다.
+
+gunhild/inn/15/choices/1/text
+잔을 내려놔도 돼요.
+
+gunhild/inn/15/choices/1/response/0
+자꾸 만지니 소리가 나긴 했군.
+
+gunhild/inn/15/choices/2/text
+기쁜 거 맞다고 제가 대신 말할까요?
+
+gunhild/inn/15/choices/2/response/0
+내 말을 내가 고르게 놔둬라.
+
+gunhild/inn/15/choices/2/response/1
+말이 늦어도 듣고 있다는 건 알아 둬라.
+
+gunhild/inn/15/seen
+기분이 나쁜 건 아니니 말을 좀 고르게 해라.
+
+gunhild/inn/16/situation
+가문 이름을 뺀 짧은 소개를 적어 본다.
+
+gunhild/inn/16/lines/0
+군힐트라고만 적어 봤다.
+
+gunhild/inn/16/lines/1
+가문을 버렸다는 뜻은 아니야.
+
+gunhild/inn/16/lines/2
+그렇게 써도 내가 없어지진 않더군.
+
+gunhild/inn/16/choices/0/text
+종이를 남겨 둘까요?
+
+gunhild/inn/16/choices/0/response/0
+아직 버릴 생각은 없으니 두어라.
+
+gunhild/inn/16/choices/1/text
+이제 가문 얘기는 안 해도 되겠네요.
+
+gunhild/inn/16/choices/1/response/0
+이름 하나 적었다고 끝난 얘긴 아니다.
+
+gunhild/inn/16/choices/1/response/1
+짧게 쓰는 날도 있고 다시 길게 쓸 날도 있겠지.
+
+gunhild/inn/16/choices/2/text
+어느 쪽으로 쓰든 군힐트 씨예요.
+
+gunhild/inn/16/choices/2/response/0
+네가 그렇게 부르면 나도 알아듣는다.
+
+gunhild/inn/16/choices/2/response/1
+가문 이름을 못 쓰는 날이 된 건 아니다.
+
+gunhild/inn/16/seen
+짧게 적은 이름도 내 이름이더군.
+
+gunhild/inn/17/situation
+흔들린 꼬리를 가리지 않고 그대로 둔다.
+
+gunhild/inn/17/lines/0
+뒤에서 소리가 났다고?
+
+gunhild/inn/17/lines/1
+알고 있다. 의자에 닿았군.
+
+gunhild/inn/17/lines/2
+옮기면 되니 그만 쳐다봐라.
+
+gunhild/inn/17/choices/0/text
+예전엔 숨기셨는데 이젠 귀엽네요.
+
+gunhild/inn/17/choices/0/response/0
+지금 옆에 앉아 있는 걸로만 봐도 되지 않나?
+
+gunhild/inn/17/choices/0/response/1
+내가 가리지 않는다고 네가 평할 필요는 없어.
+
+gunhild/inn/17/choices/1/text
+제가 의자를 조금 옮겨 드릴까요?
+
+gunhild/inn/17/choices/1/response/0
+말하고 옮겨 주면 괜찮다.
+
+gunhild/inn/17/choices/2/text
+잔은 안 쏟아졌어요.
+
+gunhild/inn/17/choices/2/response/0
+그럼 닦을 일은 없겠네.
+
+gunhild/inn/17/seen
+이번엔 의자만 옮기고 그냥 두겠다.
+
+gunhild/inn/18/situation
+칭찬 대신 걱정을 듣고 먼저 숨을 고른다.
+
+gunhild/inn/18/lines/0
+피곤한 건 맞다.
+
+gunhild/inn/18/lines/1
+괜히 목소리만 키웠군.
+
+gunhild/inn/18/lines/2
+오늘은 네가 하는 말을 끝까지 들어 보지.
+
+gunhild/inn/18/choices/0/text
+지금 쉬고 싶은지 먼저 물을게요.
+
+gunhild/inn/18/choices/0/response/0
+그래, 잠깐은 아무것도 안 정하고 싶다.
+
+gunhild/inn/18/choices/1/text
+보호대는 여기 놓으세요.
+
+gunhild/inn/18/choices/1/response/0
+풀어 놓으면 팔도 좀 편하겠다.
+
+gunhild/inn/18/choices/2/text
+그럼 오늘은 제가 전부 명령할게요.
+
+gunhild/inn/18/choices/2/response/0
+명령하는 사람을 바꾸자는 뜻은 아니었다.
+
+gunhild/inn/18/choices/2/response/1
+오늘은 누가 뭘 하라는 말 없이 쉬고 싶다.
+
+gunhild/inn/18/seen
+오늘은 목소리부터 좀 낮춰야겠군.
+[원문 끝]

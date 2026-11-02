@@ -1,0 +1,503 @@
+[청크 컨텍스트] 이 텍스트는 한 문서를 나눈 청크 54/99이다.
+- 문서 전체가 아니므로 서두·결말·전환 문구를 새로 만들지 말 것. 경계가 잘린 듯 보여도 그대로 둔다.
+[진단]
+# 진단 — 게임 동료 대화 30명
+
+장르: 게임 대사. 화계는 인물별 speech.allowed_endings와 정본 말투를 보존한다. 글 전체 화계를 통일하지 않는다.
+
+1. D-14 생성 은유: 자리·몫·이름·줄·문·빈칸이 인물 고유 소재에서 벗어나 감정을 대신하는 곳. 정본 사건과 실제 물건은 보존하고 감정 대목만 일상 발화로 교정한다.
+2. C-8 대칭 대구: 정량 antithesis_count 12. A/B가 다르다·따로다 같은 명제 요약은 구체 대화로 바꾼다. 필요한 거절·경계와 반문은 남긴다.
+3. I-3/H-3 의미 해설: 행동 뒤 그 뜻은 아니다 등으로 감정을 재진술한다. 실제 오해를 풀어야 하는 곳과 중복 설명을 구분한다.
+4. F-7/A-15 사적 공문체: 간격 확보·대화 기록 등 사적 장면의 추상 행정어. 인물 고유 업무·계약·기록 장면은 보존한다.
+5. E-3/C-4 문형 반복: 먼저·오늘은·같이의 밀집, 상대를 진단하는 선택지 및 경계를 그대로 복창하는 반응. 시간 순서와 aff 기능은 유지하고 장면마다 발화 기능을 재검토한다.
+
+정량 앵커: 원문 689517자(경로 식별자 포함), relative_clause_nesting 14, double_particle_count 2, have_make_literal_count 1. risk_band low이나 긴 입력의 구조 지표로 heavy를 추천한다. 산문 기준 z-score를 화계가 섞인 게임 자료의 품질 등급으로 바로 적용하지 않는다.
+
+보존: 장면·선택지 수, 선택지 ID·순서·aff, 인물명·정본 사건·소재·화계. 도입 3줄, 전이 2줄. 수정은 finding이 있는 발화 필드에 한정한다. 지적별 제안은 고침 취지 반영 여부를 기록하며 감점 대사를 호의적 대사로 뒤집는 제안은 대안으로 반영한다.
+[진단 끝]
+
+[정량 사전 점수 v2.0 — v1.6 8지표(KatFish baseline) + v2.0 카운트형]
+risk_band: low  (score 0)
+genre: essay
+char_count: 6991
+
+[v1.6 지표]
+- comma_inclusion_rate: 0.02  (z=-1.42 vs essay 인간 baseline)
+- comma_usage_rate: 0.02  (z=-1.56 vs essay 인간 baseline)
+- ending_comma_rate: 0.00  (z=-0.52 vs essay 인간 baseline)
+- comma_segment_length: 2.94  (z=-0.67 vs essay 인간 baseline)
+- conclusion_pivot_count: 0
+- safe_balance_count: 0
+- hanja_nominalizer_density: 0.000  (z=-2.00 vs essay 인간 baseline)
+- lexical_diversity: 0.73  (z=+1.63 vs essay 인간 baseline)
+
+[v2.0 카운트형 지표 — 원값 / baseline calibration 전 z-score 해석 보류]
+- double_passive_count (이중 피동, 본진 A-8): 0
+- by_passive_count (~에 의해 피동, 본진 A-9): 0
+- pronoun_density (인칭 대명사 밀도, 본진 A-16): 0.000
+- have_make_literal_count (have/make 직역, 본진 A-7): 0
+- double_particle_count (이중 조사 결합, 본진 A-19): 0
+- relative_clause_nesting (관형절 3중+ 중첩 문장 수, 본진 A-18): 0
+- deul_overuse_rate ('-들' 남용률, 본진 A-17 hold): 0.000
+- 카운트 > 0 지표는 해당 본진 ID 처방(quick-rules.md·taxonomy)과 교차 확인 후 윤문할 것.
+
+[근거 사용 가이드]
+- 위 점수는 *근거 보조*다. 단독 판정 금지(보고서 명시).
+- z>1.0 지표는 quick-rules.md S1·S2 패턴과 교차 확인 후 윤문할 것.
+- ending_comma_rate가 ★ S1 트리거인 경우 C-11(연결어미 뒤 쉼표) 우선 손질.
+- conclusion_pivot 매치 토큰은 D-1·H-1 처방 적용 대상.
+
+[원문 시작]
+tika/inn/16/choices/2/response/1
+한 번 앉고 나니까 아까보다 말하기가 나아요.
+
+tika/inn/16/seen
+오늘은 제가 둘이 앉자고 했어요.
+
+tika/inn/17/situation
+혼자 보낸 밤을 처음 먼저 말한다.
+
+tika/inn/17/lines/0
+자유를 사고도 무서운 밤이 있었어요.
+
+tika/inn/17/lines/1
+그게 창피해서 크게만 웃었죠.
+
+tika/inn/17/lines/2
+이젠 매번 숨기진 않으려고요.
+
+tika/inn/17/choices/0/text
+이제 제가 있으니 무서울 일 없어요.
+
+tika/inn/17/choices/0/response/0
+그렇게 약속하면 무서울 때 말 못 하겠어요.
+
+tika/inn/17/choices/0/response/1
+마음이 안 놓이는 날도 있을 거잖아요.
+
+tika/inn/17/choices/1/text
+또 무서운 날엔 그대로 말해 줘요.
+
+tika/inn/17/choices/1/response/0
+웃으면서 말해도 한 번 더 물어봐 줘요.
+
+tika/inn/17/choices/2/text
+어젯밤은 좀 잤어요?
+
+tika/inn/17/choices/2/response/0
+늦게 잠들었지만 푹 잤어요.
+
+tika/inn/17/seen
+다음에 무서우면 먼저 말해 볼게요.
+
+tika/inn/18/situation
+먼저 웃다가 얼굴을 가리지 않는다.
+
+tika/inn/18/lines/0
+아, 웃겨요. 숨 좀 고를게요.
+
+tika/inn/18/lines/1
+아무도 안 보는데 이렇게 웃네요.
+
+tika/inn/18/lines/2
+다시 해 달라고는 안 할게요.
+
+tika/inn/18/choices/0/text
+저도 다시 하면 못 웃길 것 같아요.
+
+tika/inn/18/choices/0/response/0
+그냥 지금 웃은 걸로 해요.
+
+tika/inn/18/choices/1/text
+물은 조금 남았어요.
+
+tika/inn/18/choices/1/response/0
+기침 나기 전에 마셔야겠어요.
+
+tika/inn/18/choices/2/text
+그 웃음으로 사람들 앞에 서 봐요.
+
+tika/inn/18/choices/2/response/0
+지금 웃은 걸 연습하고 싶진 않아요.
+
+tika/inn/18/choices/2/response/1
+여기서 웃는 것까지 무대에 가져가진 않을래요.
+
+tika/inn/18/seen
+오늘 웃음은 연습해 두지 않을래요.
+
+tika/inn/19/situation
+함께 나갈지 묻다가 자기 생각을 덧붙인다.
+
+tika/inn/19/lines/0
+오늘은 안 나가고 싶어요.
+
+tika/inn/19/lines/1
+같이 가자고 하면 거절하기 어려웠거든요.
+
+tika/inn/19/lines/2
+그래서 물으시기 전에 말했어요.
+
+tika/inn/19/choices/0/text
+방은 너무 덥지 않아요?
+
+tika/inn/19/choices/0/response/0
+창을 조금 열면 괜찮겠어요.
+
+tika/inn/19/choices/1/text
+딱 잠깐만 나가면 기분 풀릴 텐데요.
+
+tika/inn/19/choices/1/response/0
+쉬고 싶다는 말은 들으셨죠?
+
+tika/inn/19/choices/1/response/1
+내일 나가고 싶으면 그땐 제가 먼저 말할게요.
+
+tika/inn/19/choices/2/text
+그럼 오늘은 다른 날로 미뤄요.
+
+tika/inn/19/choices/2/response/0
+싫어진 게 아니라 쉬고 싶은 거예요.
+
+tika/inn/19/seen
+오늘은 안 나가고 여기서 쉴 거예요.
+
+tika/inn/20/situation
+약속할 말을 고르다 고개를 든다.
+
+tika/inn/20/lines/0
+앞으로도 같이 가고 싶어요.
+
+tika/inn/20/lines/1
+대신 제가 못 가는 날도 말할게요.
+
+tika/inn/20/lines/2
+그걸 빚처럼 세지는 말아 주세요.
+
+tika/inn/20/choices/0/text
+몇 번까지 빠져도 될지 정해 둬요.
+
+tika/inn/20/choices/0/response/0
+빠진 날을 세는 약속은 싫어요.
+
+tika/inn/20/choices/0/response/1
+같이 가자는 말이 다시 무서워지긴 싫어요.
+
+tika/inn/20/choices/1/text
+못 가면 이유를 듣고 다시 정해요.
+
+tika/inn/20/choices/1/response/0
+말하기 전에 도망갈 생각부터 안 할게요.
+
+tika/inn/20/choices/1/response/1
+지금 못 가는 날부터 세어 두지 않아도 되겠죠?
+
+tika/inn/20/choices/2/text
+다음 일정부터 확인할까요?
+
+tika/inn/20/choices/2/response/0
+정해진 것부터 같이 보면 되겠어요.
+
+tika/inn/20/seen
+같이 갈 약속에 빚이라는 말은 안 붙여요.
+
+tika/inn/21/situation
+칭찬을 듣고 귀를 눕히다가 다시 눈을 든다.
+
+tika/inn/21/lines/0
+고맙다고 해도 되겠죠?
+
+tika/inn/21/lines/1
+전에는 얼른 농담으로 넘겼는데요.
+
+tika/inn/21/lines/2
+오늘은 그냥 듣고 싶었어요.
+
+tika/inn/21/choices/0/text
+고맙다는 말 그대로 받을게요.
+
+tika/inn/21/choices/0/response/0
+제가 딴소리하기 전에 받아 주셨네요.
+
+tika/inn/21/choices/1/text
+목소리가 잘 들렸어요.
+
+tika/inn/21/choices/1/response/0
+오늘은 고개를 숙이기 전에 고맙다고 했어요.
+
+tika/inn/21/choices/2/text
+기왕이면 모두 앞에서도 말해 줘요.
+
+tika/inn/21/choices/2/response/0
+지금 여기서 한 말이면 안 돼요?
+
+tika/inn/21/choices/2/response/1
+다른 사람이 들으면 다시 목이 막힐 것 같아요.
+
+tika/inn/21/seen
+오늘 칭찬에는 농담 대신 고맙다고 했어요.
+
+tika/inn/22/situation
+헤어질 때 먼저 다음 만남을 청한다.
+
+tika/inn/22/lines/0
+다음에도 둘이 만날까요?
+
+tika/inn/22/lines/1
+어디 갈지는 아직 몰라요.
+
+tika/inn/22/lines/2
+장소를 못 정했다고 웃지는 마요.
+
+tika/inn/22/choices/0/text
+시간은 미리 정해요.
+
+tika/inn/22/choices/0/response/0
+그건 잊지 않게 적을게요.
+
+tika/inn/22/choices/1/text
+제가 장소까지 늘 정해 드릴게요.
+
+tika/inn/22/choices/1/response/0
+이번엔 저도 고르는 쪽에 있고 싶어요.
+
+tika/inn/22/choices/1/response/1
+제가 고르면 이상한 데를 골라도 바로 웃진 마요.
+
+tika/inn/22/choices/2/text
+장소는 만나서 정해도 돼요.
+
+tika/inn/22/choices/2/response/0
+제가 먼저 고를 때까지 기다려 줄래요?
+
+tika/inn/22/seen
+장소는 제가 골라 보고 나서 알려 드릴게요.
+
+tika/inn/23/situation
+못한 말을 다시 꺼내려 입을 연다.
+
+tika/inn/23/lines/0
+아까는 아무렇지 않다고 했는데요.
+
+tika/inn/23/lines/1
+조금 속상했어요.
+
+tika/inn/23/lines/2
+지금 고쳐 말해도 돼요?
+
+tika/inn/23/choices/0/text
+다음엔 처음부터 솔직하게 말해요.
+
+tika/inn/23/choices/0/response/0
+알면서 숨긴 건 아니었어요.
+
+tika/inn/23/choices/0/response/1
+괜찮은 줄 알았다가 앉아서야 서운했어요.
+
+tika/inn/23/choices/1/text
+늦게 말해도 어디가 속상했는지 들어요.
+
+tika/inn/23/choices/1/response/0
+말이 바뀌었다고 혼내실까 봐 망설였어요.
+
+tika/inn/23/choices/2/text
+여기 앉아서 다시 얘기해요.
+
+tika/inn/23/choices/2/response/0
+서 있으면 고맙다고만 하고 가 버릴 것 같아요.
+
+tika/inn/23/seen
+아까 못 한 말은 지금 이어서 할게요.
+
+tika/inn/24/situation
+사람들 틈을 지나와 작은 목소리로 부른다.
+
+tika/inn/24/lines/0
+오늘은 저쪽에서 많이 웃었어요.
+
+tika/inn/24/lines/1
+이제는 여기서 좀 쉬고 싶네요.
+
+tika/inn/24/lines/2
+옆에 조용히 있어도 되죠?
+
+tika/inn/24/choices/0/text
+얘기 안 해도 여기 앉아 있어요.
+
+tika/inn/24/choices/0/response/0
+먼저 말을 찾지 않아도 되겠네요.
+
+tika/inn/24/choices/0/response/1
+사람 없는 자리로 와도 혼자는 아니네요.
+
+tika/inn/24/choices/1/text
+물은 제가 따라 둘게요.
+
+tika/inn/24/choices/1/response/0
+천천히 마시고 잔을 놓을게요.
+
+tika/inn/24/choices/2/text
+사람들이 찾으니 한 번 더 가 봐요.
+
+tika/inn/24/choices/2/response/0
+오늘은 충분히 웃고 왔어요.
+
+tika/inn/24/choices/2/response/1
+가자고 부르면 괜히 또 웃게 되니까요.
+
+tika/inn/24/seen
+저쪽에서는 웃었고 여기서는 쉴래요.
+
+tika/inn/25/situation
+스스로 고른 길을 손으로 가리킨다.
+
+tika/inn/25/lines/0
+오늘은 저기로 가 보고 싶어요.
+
+tika/inn/25/lines/1
+구경할 게 없을 수도 있지만요.
+
+tika/inn/25/lines/2
+제가 골랐다는 이유면 부족해요?
+
+tika/inn/25/choices/0/text
+신발 끈부터 볼게요.
+
+tika/inn/25/choices/0/response/0
+저도 느슨한 데가 없는지 볼게요.
+
+tika/inn/25/choices/1/text
+좋은 곳인지 먼저 알아보고 정해요.
+
+tika/inn/25/choices/1/response/0
+한 번쯤은 모르고 골라도 되잖아요.
+
+tika/inn/25/choices/1/response/1
+어떻게든 좋은 데를 골라야 할 것 같아져요.
+
+tika/inn/25/choices/2/text
+저도 괜찮으니 함께 가요.
+
+tika/inn/25/choices/2/response/0
+재미없으면 돌아오는 길에 얘기해요.
+
+tika/inn/25/seen
+오늘 길은 제가 골랐으니 먼저 걸을게요.
+
+tika/inn/26/situation
+웃음이 끊긴 뒤에도 자리를 지킨다.
+
+tika/inn/26/lines/0
+조용하네요, 그런데 괜찮아요.
+
+tika/inn/26/lines/1
+예전엔 이러면 제가 뭘 잘못했나 했어요.
+
+tika/inn/26/lines/2
+지금은 더 앉아 있고 싶어요.
+
+tika/inn/26/choices/0/text
+편해졌으니 이제 큰소리로 웃어 봐요.
+
+tika/inn/26/choices/0/response/0
+편하다고 꼭 크게 웃는 건 아니에요.
+
+tika/inn/26/choices/0/response/1
+작게 웃거나 안 웃고 있어도 편할 수 있잖아요.
+
+tika/inn/26/choices/1/text
+저도 일어날 생각 없었어요.
+
+tika/inn/26/choices/1/response/0
+잔을 치우면 가야 할 것 같으니 조금만 더 둬요.
+
+tika/inn/26/choices/2/text
+의자가 불편하진 않아요?
+
+tika/inn/26/choices/2/response/0
+등을 좀 기대면 괜찮아요.
+
+tika/inn/26/seen
+조용해도 먼저 일어나지는 않을래요.
+
+tika/inn/27/situation
+돌아가기 전에 자기 이름을 짧게 말한다.
+
+tika/inn/27/lines/0
+티카라고 불러 주세요.
+
+tika/inn/27/lines/1
+꼭 무대에 있는 것처럼 크게는 말고요.
+
+tika/inn/27/lines/2
+저 들을 만큼만 불러도 알아요.
+
+tika/inn/27/choices/0/text
+티카 씨, 내일 또 만나요.
+
+tika/inn/27/choices/0/response/0
+네, 내일 제가 먼저 찾아갈게요.
+
+tika/inn/27/choices/1/text
+내일 시간은 그대로죠?
+
+tika/inn/27/choices/1/response/0
+바뀌면 제가 먼저 알려 드려요.
+
+tika/inn/27/choices/2/text
+멋진 별명을 붙여 주고 싶어요.
+
+tika/inn/27/choices/2/response/0
+그냥 제 이름이면 좋겠다고 했잖아요.
+
+tika/inn/27/choices/2/response/1
+지금 제 이름을 듣고 싶어서 말했어요.
+
+tika/inn/27/seen
+내일은 제가 먼저 이름을 부르러 올게요.
+
+tika/dungeon/0/variants/0
+다들 준비됐죠? 저도 갈게요!
+
+tika/dungeon/0/variants/1
+출발부터 너무 빨리 뛰진 않을게요!
+
+tika/dungeon/1/variants/0
+오늘은 같이 나가는 사람이 있네요.
+
+tika/dungeon/1/variants/1
+먼저 가기 전에 한 번 볼게요.
+
+tika/dungeon/2/variants/0
+저, 같이 출발하고 싶어요.
+
+tika/dungeon/2/variants/1
+제 속도도 가면서 말할게요.
+
+tika/dungeon/3/variants/0
+여긴 처음 보는 자리네요!
+
+tika/dungeon/3/variants/1
+들어온 쪽부터 기억하면 되죠?
+
+tika/dungeon/4/variants/0
+새 층에서는 저도 조금 느려져요.
+
+tika/dungeon/4/variants/1
+구경할 건 안전해진 뒤 봐요.
+
+tika/dungeon/5/variants/0
+제가 멈추면 잠깐만 기다려요.
+
+tika/dungeon/5/variants/1
+뒤돌아보니 같이 오고 계셨네요.
+
+tika/dungeon/6/variants/0
+저거 봤어요? 제가 먼저 봤죠!
+
+tika/dungeon/6/variants/1
+찾았다고 바로 뛰어가진 않아요!
+
+tika/dungeon/7/variants/0
+이번에는 같이 살펴볼까요?
+[원문 끝]

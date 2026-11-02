@@ -1,0 +1,42675 @@
+hildegard/inn/0/situation
+힐데가가 빈 의자를 식탁에서 조금 떼어 놓는다.
+
+hildegard/inn/0/lines/0
+의자는 그대로 두십시오. 서로 움직일 자리만 있으면 됩니다.
+
+hildegard/inn/0/lines/1
+용건만 말씀하십시오.
+
+hildegard/inn/0/lines/2
+다음 원정의 역할이라면 듣겠습니다.
+
+hildegard/inn/0/choices/0/text
+앞을 맡을지부터 같이 정해요.
+
+hildegard/inn/0/choices/0/response/0
+그럼 제 의견부터 말씀드리겠습니다.
+
+hildegard/inn/0/choices/0/response/1
+앞에 선다고 정해 둔 것은 아닙니다. 제 쪽 사정도 말씀드리겠습니다.
+
+hildegard/inn/0/choices/1/text
+출발 시각만 알려 주세요.
+
+hildegard/inn/0/choices/1/response/0
+시각이 정해지면 전달하겠습니다.
+
+hildegard/inn/0/choices/1/response/1
+시간을 정해 주시면 그때까지만 듣겠습니다.
+
+hildegard/inn/0/choices/2/text
+불편하시면 역할은 제가 정해서 전할게요.
+
+hildegard/inn/0/choices/2/response/0
+확인할 기회는 주십시오.
+
+hildegard/inn/0/choices/2/response/1
+제 역할을 정하기 전에 제게도 물어 주십시오.
+
+hildegard/inn/0/seen
+그 의자는 통로 밖으로 옮겨 두었습니다.
+
+hildegard/inn/1/situation
+갑옷을 닦던 힐데가가 천을 내려놓는다.
+
+hildegard/inn/1/lines/0
+아직 마르지 않았습니다. 잠시만 기다려 주십시오.
+
+hildegard/inn/1/lines/1
+손질은 제가 하겠습니다.
+
+hildegard/inn/1/lines/2
+어디가 상했는지만 짚어 주십시오.
+
+hildegard/inn/1/choices/0/text
+천이 더 필요하면 말씀하세요.
+
+hildegard/inn/1/choices/0/response/0
+필요하면 제가 가져오겠습니다.
+
+hildegard/inn/1/choices/0/response/1
+손질이 끝나면 다음 점검 때도 말씀드리겠습니다.
+
+hildegard/inn/1/choices/1/text
+피곤하실 테니 흠집은 나중에 보셔도 돼요.
+
+hildegard/inn/1/choices/1/response/0
+지금은 멀쩡해 보여도 끊어질 수 있습니다.
+
+hildegard/inn/1/choices/1/response/1
+쉬라는 뜻은 알겠습니다. 다만 다음에 제 뒤에 설 사람도 생각해야 합니다.
+
+hildegard/inn/1/choices/2/text
+등 쪽 끈이 닳았어요. 거기만 봐 주세요.
+
+hildegard/inn/1/choices/2/response/0
+보이지 않는 곳을 짚어 주셨습니다.
+
+hildegard/inn/1/choices/2/response/1
+등은 제 눈으로 살피기 어렵습니다. 확인하겠습니다.
+
+hildegard/inn/1/seen
+등 쪽 끈까지 빠뜨리지 않고 살펴 두겠습니다.
+
+hildegard/inn/2/situation
+힐데가가 원정 준비물을 식탁 위에 나눠 놓는다.
+
+hildegard/inn/2/lines/0
+무거운 것부터 들도록…… 아닙니다. 먼저 여쭙겠습니다.
+
+hildegard/inn/2/lines/1
+각자 들 수 있는 만큼만 맡기겠습니다.
+
+hildegard/inn/2/lines/2
+남는 짐은 그 뒤에 나누면 됩니다.
+
+hildegard/inn/2/choices/0/text
+몸 튼튼한 분에게 몰아 주면 준비가 빠르겠어요.
+
+hildegard/inn/2/choices/0/response/0
+빠르기는 하겠습니다. 오래 걷는 일은 다릅니다.
+
+hildegard/inn/2/choices/0/response/1
+제게 주셔도 됩니다만, 그분에게도 들 수 있는지 물어 주십시오.
+
+hildegard/inn/2/choices/1/text
+제가 들 무게도 먼저 재 봐요.
+
+hildegard/inn/2/choices/1/response/0
+들고 조금 걸어 보시겠습니까?
+
+hildegard/inn/2/choices/1/response/1
+어디까지 편하게 걸을 수 있는지 말씀해 주십시오. 저도 따르겠습니다.
+
+hildegard/inn/2/choices/2/text
+제 짐은 여기에 둘게요.
+
+hildegard/inn/2/choices/2/response/0
+확인하고 돌려드리겠습니다.
+
+hildegard/inn/2/choices/2/response/1
+비어 있는 자루도 따로 세어 놓겠습니다.
+
+hildegard/inn/2/seen
+이번에도 짐 무게부터 재겠습니다.
+
+hildegard/inn/3/situation
+힐데가가 돌아갈 길을 종이에 표시한다.
+
+hildegard/inn/3/lines/0
+이 점은 기다릴 자리입니다. 아직 출발 표시는 아닙니다.
+
+hildegard/inn/3/lines/1
+물러날 때는 이 길을 씁니다.
+
+hildegard/inn/3/lines/2
+흩어지면 서로 찾을 수 없습니다.
+
+hildegard/inn/3/choices/0/text
+마지막 사람을 확인할 자리도 정해요.
+
+hildegard/inn/3/choices/0/response/0
+끝에 설 사람까지 적어 두겠습니다.
+
+hildegard/inn/3/choices/0/response/1
+제가 늦을 때도 여기서 확인해 주십시오. 제 이름도 넣겠습니다.
+
+hildegard/inn/3/choices/1/text
+갈림길 표시를 더 해 둘까요?
+
+hildegard/inn/3/choices/1/response/0
+표시만으로 구별되게 부탁드립니다.
+
+hildegard/inn/3/choices/1/response/1
+표시를 보시고 알아보기 어려운 곳은 짚어 주십시오.
+
+hildegard/inn/3/choices/2/text
+일행이 믿음직하니 각자 돌아와도 되겠네요.
+
+hildegard/inn/3/choices/2/response/0
+믿습니다. 그래도 만날 곳은 정해 두겠습니다.
+
+hildegard/inn/3/choices/2/response/1
+흩어지면 돕고 싶어도 못 돕습니다.
+
+hildegard/inn/3/seen
+귀환 길의 갈림길은 다시 짚어 드리겠습니다.
+
+hildegard/inn/4/situation
+힐데가가 여관 문 쪽 의자를 가리킨다.
+
+hildegard/inn/4/lines/0
+문이 자주 열립니다. 짐이 통로에 나와 있었습니다.
+
+hildegard/inn/4/lines/1
+거기 서십시오. ……실례했습니다.
+
+hildegard/inn/4/lines/2
+통로를 비우려던 참입니다. 안쪽에 앉으시겠습니까?
+
+hildegard/inn/4/choices/0/text
+저는 서 있어도 괜찮아요.
+
+hildegard/inn/4/choices/0/response/0
+오래 걸릴 이야기는 아닙니다.
+
+hildegard/inn/4/choices/0/response/1
+앉을 자리는 제가 비워 두겠습니다.
+
+hildegard/inn/4/choices/1/text
+제가 밖에 있을게요. 통로가 넓어지겠죠.
+
+hildegard/inn/4/choices/1/response/0
+나가시라는 뜻은 아니었습니다.
+
+hildegard/inn/4/choices/1/response/1
+안쪽 의자를 내드리겠습니다. 여기 계셔도 됩니다.
+
+hildegard/inn/4/choices/2/text
+짐부터 안쪽으로 옮길게요.
+
+hildegard/inn/4/choices/2/response/0
+짐을 옮기면 될 일이었습니다.
+
+hildegard/inn/4/choices/2/response/1
+그럼 안쪽으로 오시겠습니까?
+
+hildegard/inn/4/seen
+의자는 안쪽으로 들여놓았습니다.
+
+hildegard/inn/5/situation
+힐데가가 갑옷의 잠금쇠를 하나씩 눌러 본다.
+
+hildegard/inn/5/lines/0
+닦는 일은 마쳤습니다. 이제 느슨한 곳을 보는 중입니다.
+
+hildegard/inn/5/lines/1
+출발 직전에는 놓치기 쉽습니다.
+
+hildegard/inn/5/lines/2
+지금 잠깐 살펴 두는 편이 낫습니다.
+
+hildegard/inn/5/choices/0/text
+기사 장비니까 알아서 튼튼하겠어요.
+
+hildegard/inn/5/choices/0/response/0
+튼튼해도 잠그는 것은 사람 손입니다.
+
+hildegard/inn/5/choices/0/response/1
+제 손질도 틀릴 수 있습니다. 한번 봐 주시면 좋겠습니다.
+
+hildegard/inn/5/choices/1/text
+제 장비도 보고 서로 확인할까요?
+
+hildegard/inn/5/choices/1/response/0
+서로 등을 봐 주면 놓치는 곳이 줄겠습니다.
+
+hildegard/inn/5/choices/1/response/1
+제가 먼저 끝냈다고 재촉하지 않겠습니다. 확인하신 뒤 알려 주십시오.
+
+hildegard/inn/5/choices/2/text
+손질이 끝나면 불러 주세요.
+
+hildegard/inn/5/choices/2/response/0
+끝나는 대로 말씀드리겠습니다.
+
+hildegard/inn/5/choices/2/response/1
+급히 끼우지 않도록 출발 전에 여유를 두겠습니다.
+
+hildegard/inn/5/seen
+잠금쇠는 닦은 뒤에 한 번 더 눌러 봅니다.
+
+hildegard/inn/6/situation
+힐데가가 식탁 한쪽에 물잔을 모아 둔다.
+
+hildegard/inn/6/lines/0
+빈 잔은 늦게 오실 분 몫으로 빼 두었습니다.
+
+hildegard/inn/6/lines/1
+출발 전에 한 잔씩 마시도록…….
+
+hildegard/inn/6/lines/2
+권해 드리려던 겁니다. 목이 마르지 않습니까?
+
+hildegard/inn/6/choices/0/text
+뒤늦게 오는 사람 몫도 남겨 둬요.
+
+hildegard/inn/6/choices/0/response/0
+다 같이 마시고 나가자는 뜻이었습니다.
+
+hildegard/inn/6/choices/0/response/1
+제가 또 명령부터 했습니다. 한 분씩 권하는 일을 도와주시겠습니까?
+
+hildegard/inn/6/choices/1/text
+저는 조금 있다 마실게요.
+
+hildegard/inn/6/choices/1/response/0
+출발 전에만 챙기시면 됩니다.
+
+hildegard/inn/6/choices/1/response/1
+그럼 잔은 여기 두겠습니다.
+
+hildegard/inn/6/choices/2/text
+목마른 사람이 먼저 마시고 다시 채우면 되죠.
+
+hildegard/inn/6/choices/2/response/0
+다시 채울 분까지 정하면 괜찮겠습니다.
+
+hildegard/inn/6/choices/2/response/1
+남겨 두자는 말을 안 하면, 뒤늦게 오는 분은 없는 줄 알고 지나칩니다.
+
+hildegard/inn/6/seen
+따로 둔 물잔은 아직 건드리지 않았습니다.
+
+hildegard/inn/7/situation
+힐데가가 출발 순서를 적다가 펜을 멈춘다.
+
+hildegard/inn/7/lines/0
+앞만 보다가 뒤를 놓친 일이 있어 순서를 다시 봅니다.
+
+hildegard/inn/7/lines/1
+제가 앞을 맡겠습니다.
+
+hildegard/inn/7/lines/2
+뒤를 살펴 주실 분이 필요합니다.
+
+hildegard/inn/7/choices/0/text
+몇 번째로 걸으면 되나요?
+
+hildegard/inn/7/choices/0/response/0
+우선 제 바로 뒤에서 길을 익히십시오.
+
+hildegard/inn/7/choices/0/response/1
+맡을 곳이 정해지면 제 자리도 표시하겠습니다.
+
+hildegard/inn/7/choices/1/text
+힘든 길이니 강한 분들끼리 앞을 맞춰 가요.
+
+hildegard/inn/7/choices/1/response/0
+끝에 설 분이 따로 남지 않겠습니까?
+
+hildegard/inn/7/choices/1/response/1
+앞을 튼튼히 하는 뜻은 알겠습니다. 그래도 뒤와 닿아 있어야 합니다.
+
+hildegard/inn/7/choices/2/text
+뒤에서 간격을 보고 알려 드릴게요.
+
+hildegard/inn/7/choices/2/response/0
+제가 빨라지면 바로 불러 주십시오.
+
+hildegard/inn/7/choices/2/response/1
+멈추라는 말도 따르겠습니다. 앞에서 안 보이는 것은 부탁드려야 합니다.
+
+hildegard/inn/7/seen
+오늘도 출발 전에 뒤를 맡을 분부터 확인하겠습니다.
+
+hildegard/inn/8/situation
+힐데가가 종이와 펜을 맞은편으로 민다.
+
+hildegard/inn/8/lines/0
+이번에는 제가 펜을 쥐고 있지 않겠습니다.
+
+hildegard/inn/8/lines/1
+오늘 역할은 함께 정했으면 합니다.
+
+hildegard/inn/8/lines/2
+제가 놓친 곳이 있으면 짚어 주시겠습니까?
+
+hildegard/inn/8/choices/0/text
+늘 하시던 대로 정해 주세요.
+
+hildegard/inn/8/choices/0/response/0
+편하시라고 종이를 드린 것은 아닙니다.
+
+hildegard/inn/8/choices/0/response/1
+맡겨 주시는 마음은 압니다. 제게 안 보이는 곳을 같이 봐 주셨으면 합니다.
+
+hildegard/inn/8/choices/1/text
+돌아올 때는 제가 끝을 살필게요.
+
+hildegard/inn/8/choices/1/response/0
+귀환할 때는 뒤를 부탁드리겠습니다.
+
+hildegard/inn/8/choices/1/response/1
+그럼 제 옆에 표시해 주십시오. 빈자리가 있으면 함께 고치겠습니다.
+
+hildegard/inn/8/choices/2/text
+지난번 순서를 다시 볼까요?
+
+hildegard/inn/8/choices/2/response/0
+그 순서에서 불편했던 점부터 듣겠습니다.
+
+hildegard/inn/8/choices/2/response/1
+적으신 순서로 한번 걸어 보고 맞추겠습니다.
+
+hildegard/inn/8/seen
+오늘 역할도 이 종이에 함께 적으면 좋겠습니다.
+
+hildegard/inn/9/situation
+힐데가가 식사 도중 문 쪽을 돌아본다.
+
+hildegard/inn/9/lines/0
+앉아 있으면서도 문 열리는 소리부터 듣게 됩니다.
+
+hildegard/inn/9/lines/1
+아직 안 온 분이 있는지 자꾸 보게 됩니다.
+
+hildegard/inn/9/lines/2
+식사 중인데도 버릇이 남습니다.
+
+hildegard/inn/9/choices/0/text
+문 쪽은 제가 살필게요. 식기 전에 드세요.
+
+hildegard/inn/9/choices/0/response/0
+덕분에 따뜻할 때 먹겠습니다.
+
+hildegard/inn/9/choices/0/response/1
+제가 먹는 동안은 부탁드리겠습니다. 한 숟갈쯤 늦어도 괜찮겠습니다.
+
+hildegard/inn/9/choices/1/text
+음식부터 따뜻할 때 드세요.
+
+hildegard/inn/9/choices/1/response/0
+한 숟갈 뜨고 다시 살피겠습니다.
+
+hildegard/inn/9/choices/1/response/1
+고개를 돌리지 말아야지 하다가 또 돌아봤습니다.
+
+hildegard/inn/9/choices/2/text
+마음 편히 드시게 문을 닫아 둘까요?
+
+hildegard/inn/9/choices/2/response/0
+뒤늦게 오는 분이 계시면 들어오셔야 합니다.
+
+hildegard/inn/9/choices/2/response/1
+닫아 버리면 더 궁금할 것 같습니다. 제가 좀 우습지 않습니까?
+
+hildegard/inn/9/seen
+오늘은 두 사람 다 문이 보이는 쪽에 앉겠습니다.
+
+hildegard/inn/10/situation
+힐데가가 원정 짐 옆에 빈 자루를 내려놓는다.
+
+hildegard/inn/10/lines/0
+담을 것은 아직 없습니다. 빈 공간부터 챙겼습니다.
+
+hildegard/inn/10/lines/1
+돌아올 때 다친 분의 짐을 받을 수도 있습니다.
+
+hildegard/inn/10/lines/2
+조금은 비워 두려고 합니다.
+
+hildegard/inn/10/choices/0/text
+빈 자루는 여기 걸어 둘까요?
+
+hildegard/inn/10/choices/0/response/0
+출발할 때 잊지 않을 곳이면 좋겠습니다.
+
+hildegard/inn/10/choices/0/response/1
+돌아올 때 쓸 자리라 지금은 비워 두겠습니다.
+
+hildegard/inn/10/choices/1/text
+괜히 걱정 마세요. 오늘은 아무도 안 다칠 거예요.
+
+hildegard/inn/10/choices/1/response/0
+저도 그랬으면 합니다.
+
+hildegard/inn/10/choices/1/response/1
+그 말을 믿고 다 채우기는 어렵습니다. 빈 채로 돌아오는 게 가장 좋겠습니다.
+
+hildegard/inn/10/choices/2/text
+제 자루에도 자리를 남겨 둘게요.
+
+hildegard/inn/10/choices/2/response/0
+제 짐만 늘릴 생각을 했습니다.
+
+hildegard/inn/10/choices/2/response/1
+둘이 나누면 다친 분의 짐도 무리 없이 들겠습니다.
+
+hildegard/inn/10/seen
+비워 둔 자루는 무거운 짐 아래 넣지 않았습니다.
+
+hildegard/inn/11/situation
+힐데가가 식탁 위에서 손가락으로 간격을 짚는다.
+
+hildegard/inn/11/lines/0
+보폭을 얼마나 줄여야 할지 생각했습니다.
+
+hildegard/inn/11/lines/1
+제 걸음이 빨랐다고 들었습니다.
+
+hildegard/inn/11/lines/2
+뒤에서 보시기에는 어땠습니까?
+
+hildegard/inn/11/choices/0/text
+그냥 제가 더 빨리 걸으면 돼요.
+
+hildegard/inn/11/choices/0/response/0
+한 분이 맞추면 다른 분은 또 뒤처질 수 있습니다.
+
+hildegard/inn/11/choices/0/response/1
+제 걸음 얘기를 하려던 겁니다. 따라오는 분의 잘못으로 돌리고 싶지 않습니다.
+
+hildegard/inn/11/choices/1/text
+따라오는 사람을 보고 제가 신호할게요.
+
+hildegard/inn/11/choices/1/response/0
+신호를 받으면 변명부터 하지 않겠습니다.
+
+hildegard/inn/11/choices/1/response/1
+잘 이끌었다는 말보다 늦춰 달라는 말을 해 주셔서 도움이 됩니다.
+
+hildegard/inn/11/choices/2/text
+다음에는 조금 천천히 가요.
+
+hildegard/inn/11/choices/2/response/0
+출발할 때 속도를 낮추겠습니다.
+
+hildegard/inn/11/choices/2/response/1
+뒤에서는 어떤 간격이었는지 계속 듣겠습니다.
+
+hildegard/inn/11/seen
+걸음 간격은 출발하면서 다시 맞춰 보겠습니다.
+
+hildegard/inn/12/situation
+힐데가 앞에 뜯지 않은 편지가 놓여 있다.
+
+hildegard/inn/12/lines/0
+봉투만 들었다 놨다 했습니다. 무슨 말을 쓸지 못 골랐습니다.
+
+hildegard/inn/12/lines/1
+변경령으로 돌아오라는 편지입니다.
+
+hildegard/inn/12/lines/2
+답장은 아직 쓰지 못했습니다.
+
+hildegard/inn/12/choices/0/text
+돌아갈지보다 여기 남을 이유부터 적어 봐요.
+
+hildegard/inn/12/choices/0/response/0
+명령에 답하는 말만 찾고 있었습니다.
+
+hildegard/inn/12/choices/0/response/1
+여기서 누구와 무엇을 하려는지, 제 말부터 적겠습니다.
+
+hildegard/inn/12/choices/1/text
+읽으시는 동안 자리를 비울까요?
+
+hildegard/inn/12/choices/1/response/0
+잠시만 시간을 주시면 감사하겠습니다.
+
+hildegard/inn/12/choices/1/response/1
+봉투는 제가 뜯겠습니다. 옆에 조금만 계셔 주십시오.
+
+hildegard/inn/12/choices/2/text
+가족 걱정이 클 테니 일단 돌아가 보는 건 어때요?
+
+hildegard/inn/12/choices/2/response/0
+그 걱정이 가벼운 것은 아닙니다.
+
+hildegard/inn/12/choices/2/response/1
+돌아간 뒤의 일부터 정하면 여기 남은 마음은 또 말하지 못할 것 같습니다.
+
+hildegard/inn/12/seen
+답장 종이는 편지 밑에 두었습니다.
+
+hildegard/inn/13/situation
+힐데가가 새벽까지 남아 있던 잔을 치운다.
+
+hildegard/inn/13/lines/0
+밤이 길었다는 말은 그때도 잘 하지 못했습니다.
+
+hildegard/inn/13/lines/1
+변경 복무가 끝난 뒤에도 성벽에 남았습니다.
+
+hildegard/inn/13/lines/2
+제 구간에는 아직 병사들이 남아 있었습니다.
+
+hildegard/inn/13/choices/0/text
+오래 지키셨군요.
+
+hildegard/inn/13/choices/0/response/0
+그 사이 해가 여러 번 바뀌었습니다.
+
+hildegard/inn/13/choices/0/response/1
+치우고 나면 앉겠습니다. 오늘은 그때 이야기를 조금 하고 싶습니다.
+
+hildegard/inn/13/choices/1/text
+혼자 남아 책임지셨으니 가문도 자랑스러웠겠어요.
+
+hildegard/inn/13/choices/1/response/0
+가문에서 어떻게 볼지는 잘 몰랐습니다.
+
+hildegard/inn/13/choices/1/response/1
+남은 사람들이 제 얼굴을 보던 일을 말하고 싶었습니다. 칭찬받으려던 일은 아닙니다.
+
+hildegard/inn/13/choices/2/text
+남기로 한 뒤에는 무엇이 가장 어려웠어요?
+
+hildegard/inn/13/choices/2/response/0
+남은 뒤의 일을 물어 주셨습니다.
+
+hildegard/inn/13/choices/2/response/1
+힘들다고 하면 남아 있는 병사들까지 흔들릴까 봐 입을 다물었습니다.
+
+hildegard/inn/13/seen
+성벽 이야기는 시간이 있을 때 마저 하겠습니다.
+
+hildegard/inn/14/situation
+힐데가가 귀환 준비를 적은 종이를 접는다.
+
+hildegard/inn/14/lines/0
+아직 간다는 말은 적지 않았습니다. 길부터 보는 중입니다.
+
+hildegard/inn/14/lines/1
+고립의 해에는 증원이 오지 않았습니다.
+
+hildegard/inn/14/lines/2
+기다리는 쪽에 서 보니, 온다는 말이 무거웠습니다.
+
+hildegard/inn/14/choices/0/text
+다 끝난 일이니 이제 좋은 쪽만 생각해요.
+
+hildegard/inn/14/choices/0/response/0
+끝났다고 생각하는 사람도 있겠습니다.
+
+hildegard/inn/14/choices/0/response/1
+제게는 기다리던 얼굴이 아직 남았습니다. 오늘은 그 얘기를 하고 싶었습니다.
+
+hildegard/inn/14/choices/1/text
+장담하기 전에 우리가 갈 수 있는지부터 볼게요.
+
+hildegard/inn/14/choices/1/response/0
+그렇게 묻고도 늦지 않겠습니다.
+
+hildegard/inn/14/choices/1/response/1
+확신 없는 말을 명령처럼 내놓지는 않겠습니다. 모르는 것은 함께 확인해 주십시오.
+
+hildegard/inn/14/choices/2/text
+그해 이야기를 더 듣고 싶어요.
+
+hildegard/inn/14/choices/2/response/0
+오늘은 여기까지만 말씀드리겠습니다.
+
+hildegard/inn/14/choices/2/response/1
+기다리는 사람이 무엇을 들었을지도 같이 확인하겠습니다.
+
+hildegard/inn/14/seen
+증원 이야기는 가볍게 꺼낼 말이 아니었습니다.
+
+hildegard/inn/15/situation
+힐데가가 벗어 둔 장갑을 다시 집어 든다.
+
+hildegard/inn/15/lines/0
+장갑은 벗었습니다. 그런데 손을 어디 둘지 모르겠습니다.
+
+hildegard/inn/15/lines/1
+앉아 있으면 제가 할 일을 찾게 됩니다.
+
+hildegard/inn/15/lines/2
+아무 일도 없다는 말을 들어도 그렇습니다.
+
+hildegard/inn/15/choices/0/text
+그럼 오늘은 제 얘기 좀 들어 주세요.
+
+hildegard/inn/15/choices/0/response/0
+아무 일도 맡지 않고 듣기만 하면 되겠습니까?
+
+hildegard/inn/15/choices/0/response/1
+듣는 동안은 제가 앞장설 필요가 없겠습니다. 말씀해 주십시오.
+
+hildegard/inn/15/choices/1/text
+장갑은 여기 두셔도 돼요.
+
+hildegard/inn/15/choices/1/response/0
+손 닿는 곳에만 두겠습니다.
+
+hildegard/inn/15/choices/1/response/1
+손이 자꾸 장비 쪽으로 가면 한번 불러 주십시오.
+
+hildegard/inn/15/choices/2/text
+편히 쉬시게 혼자 계실 시간을 드릴게요.
+
+hildegard/inn/15/choices/2/response/0
+혼자면 또 할 일을 찾을 것 같습니다.
+
+hildegard/inn/15/choices/2/response/1
+잠깐 같이 있어 달라는 부탁이었는데, 제가 너무 빙 돌렸습니다.
+
+hildegard/inn/15/seen
+오늘은 장갑을 끼지 않고 잠시 앉아 있겠습니다.
+
+hildegard/inn/16/situation
+힐데가가 편지 옆에 새 종이를 편다.
+
+hildegard/inn/16/lines/0
+다시 쓰더라도 이번 종이는 버리지 않으려 합니다.
+
+hildegard/inn/16/lines/1
+가문의 책임이라는 말부터 쓰지 않으려 합니다.
+
+hildegard/inn/16/lines/2
+여기에 남는 것은 제 선택입니다.
+
+hildegard/inn/16/choices/0/text
+잉크가 마를 때까지 기다릴게요.
+
+hildegard/inn/16/choices/0/response/0
+다 쓰면 읽어 주시겠습니까?
+
+hildegard/inn/16/choices/0/response/1
+중간에 고칠지도 모르니 잠시만 기다려 주십시오.
+
+hildegard/inn/16/choices/1/text
+책임감이 강하시니 결국 의무를 택하셨네요.
+
+hildegard/inn/16/choices/1/response/0
+이번에는 의무라고 적지 않았습니다.
+
+hildegard/inn/16/choices/1/response/1
+그 말이 쉬워서 늘 빌렸습니다. 오늘은 좀 어렵게 써 보겠습니다.
+
+hildegard/inn/16/choices/2/text
+왜 남는지 힐데가 경의 말로 써 주세요.
+
+hildegard/inn/16/choices/2/response/0
+이름 앞에 가문을 붙이지 않아도 되겠습니다.
+
+hildegard/inn/16/choices/2/response/1
+제 뜻이 마음에 안 드셔도 그대로 들어 주십시오. 그 말을 쓰고 싶었습니다.
+
+hildegard/inn/16/seen
+편지 첫 줄에는 이제 제 뜻을 적었습니다.
+
+hildegard/inn/17/situation
+힐데가가 선두를 표시하던 돌을 가운데 놓는다.
+
+hildegard/inn/17/lines/0
+선두를 교대하라는 말은 남에게만 했습니다.
+
+hildegard/inn/17/lines/1
+늘 제가 앞에 서야 한다고 생각했습니다.
+
+hildegard/inn/17/lines/2
+오늘은 제 상태부터 말씀드리겠습니다. 조금 지쳤습니다.
+
+hildegard/inn/17/choices/0/text
+오늘만 조금 더 버티면 내일 푹 쉬실 수 있어요.
+
+hildegard/inn/17/choices/0/response/0
+오늘 더 버틸 수 있는지부터 말씀드린 겁니다.
+
+hildegard/inn/17/choices/0/response/1
+괜찮다고 해 버리면 또 말하지 못할 것 같습니다. 이번에는 교대를 부탁드립니다.
+
+hildegard/inn/17/choices/1/text
+그럼 앞을 교대해요. 쉴 순서도 정하고요.
+
+hildegard/inn/17/choices/1/response/0
+지쳤다는 말까지 끝내고 나니 좀 낫습니다.
+
+hildegard/inn/17/choices/1/response/1
+제 차례가 돌아오면 다시 서겠습니다. 지금은 잠깐 맡겨도 되겠습니까?
+
+hildegard/inn/17/choices/2/text
+따뜻한 물을 가져올게요.
+
+hildegard/inn/17/choices/2/response/0
+돌아오실 때까지 앉아 있겠습니다.
+
+hildegard/inn/17/choices/2/response/1
+제 상태도 다른 분들과 같이 적어 두겠습니다.
+
+hildegard/inn/17/seen
+교대할 때가 되면 이번에는 먼저 말씀드리겠습니다.
+
+hildegard/inn/18/situation
+힐데가가 귀환한 동료들의 자리를 세어 본다.
+
+hildegard/inn/18/lines/0
+몇 번을 세어도 빈자리가 없습니다. 좀 더 보고 있었습니다.
+
+hildegard/inn/18/lines/1
+모두 돌아온 날은 말이 잘 안 나옵니다.
+
+hildegard/inn/18/lines/2
+다음 준비보다 이 자리에 조금 더 있고 싶습니다.
+
+hildegard/inn/18/choices/0/text
+준비 이야기는 내일 하고 같이 앉아요.
+
+hildegard/inn/18/choices/0/response/0
+예, 저도 앉겠습니다.
+
+hildegard/inn/18/choices/0/response/1
+오늘 좋았다는 말은 좀 늦게 해도 전해지겠습니까? 저도 이제 해 보겠습니다.
+
+hildegard/inn/18/choices/1/text
+차를 더 따를까요?
+
+hildegard/inn/18/choices/1/response/0
+한 잔만 더 부탁드립니다.
+
+hildegard/inn/18/choices/1/response/1
+이 자리에 있는 사람들을 좀 더 보고 일어나겠습니다.
+
+hildegard/inn/18/choices/2/text
+다들 돌아왔으니 장비부터 정리해 둘까요?
+
+hildegard/inn/18/choices/2/response/0
+정리할 일은 분명 있겠습니다.
+
+hildegard/inn/18/choices/2/response/1
+일을 미뤄 달라고 말하는 제가 낯섭니다. 잠깐만 더 앉아 주십시오.
+
+hildegard/inn/18/seen
+빈 의자가 없는 식탁은 조금 더 보고 싶습니다.
+
+hildegard/inn/19/situation
+힐데가가 출발 순서를 적은 종이를 뒤집는다.
+
+hildegard/inn/19/lines/0
+제가 먼저 쓰면 그쪽으로 이야기가 기울 것 같았습니다.
+
+hildegard/inn/19/lines/1
+의견을 듣고 나서 쓰겠습니다.
+
+hildegard/inn/19/lines/2
+제 방식이 익숙하다는 이유로 밀어붙였던 적이 있습니다.
+
+hildegard/inn/19/choices/0/text
+생각을 정리해서 말씀드릴게요.
+
+hildegard/inn/19/choices/0/response/0
+서두르지 않으셔도 됩니다.
+
+hildegard/inn/19/choices/0/response/1
+듣기 전에 반박할 말을 고르지 않으려 합니다.
+
+hildegard/inn/19/choices/1/text
+믿고 맡길 테니 편한 대로 이끌어 주세요.
+
+hildegard/inn/19/choices/1/response/0
+믿음에 답하려고 혼자 정하곤 했습니다.
+
+hildegard/inn/19/choices/1/response/1
+이번에는 다른 생각도 맡겨 주시면 좋겠습니다. 따르는 일만 부탁드리는 게 아닙니다.
+
+hildegard/inn/19/choices/2/text
+다르면 현장에서 멈춰서 다시 맞춰요.
+
+hildegard/inn/19/choices/2/response/0
+제 의견도 한번 멈춰 세워 주십시오.
+
+hildegard/inn/19/choices/2/response/1
+짧게 말씀하셔도 듣겠습니다. 펜은 내려놓겠습니다.
+
+hildegard/inn/19/seen
+종이를 뒤집어 놓고 말씀을 듣겠습니다.
+
+hildegard/inn/20/situation
+힐데가가 맞은편의 빈자리를 손으로 짚는다.
+
+hildegard/inn/20/lines/0
+버티겠다는 말만 서로 주고받지는 않았으면 합니다.
+
+hildegard/inn/20/lines/1
+다음에도 같은 역할일 필요는 없습니다.
+
+hildegard/inn/20/lines/2
+같이 돌아오겠다는 약속은 지키고 싶습니다.
+
+hildegard/inn/20/choices/0/text
+저는 걱정 안 하셔도 돼요. 늘 따라갈게요.
+
+hildegard/inn/20/choices/0/response/0
+늘 따라오라는 약속을 받고 싶지는 않습니다.
+
+hildegard/inn/20/choices/0/response/1
+못 따라오는 날에도 부르겠다고 해 주십시오. 기다리는 일을 제게 주셔도 됩니다.
+
+hildegard/inn/20/choices/1/text
+서로 못 버틸 때 말하기도 약속해요.
+
+hildegard/inn/20/choices/1/response/0
+저도 힘들 때는 말씀드리겠습니다.
+
+hildegard/inn/20/choices/1/response/1
+함께 돌아오자고 말한 사람도 쉬어야 한다는 걸 잊지 않겠습니다.
+
+hildegard/inn/20/choices/2/text
+출발 전에 다시 확인해요.
+
+hildegard/inn/20/choices/2/response/0
+그때 서로의 짐도 살피겠습니다.
+
+hildegard/inn/20/choices/2/response/1
+못 지킬 날이 생기면 숨기지 않고 다시 말씀드리겠습니다.
+
+hildegard/inn/20/seen
+못 버틸 때 말하자는 약속도 잊지 않았습니다.
+
+hildegard/inn/21/situation
+힐데가가 장비를 내려놓고 먼저 자리를 권한다.
+
+hildegard/inn/21/lines/0
+차를 두고도 서 있었습니다. 먼저 의자를 당기겠습니다.
+
+hildegard/inn/21/lines/1
+앉으십시오. ……함께 쉬시겠습니까?
+
+hildegard/inn/21/lines/2
+쉬는 일까지 지시할 뻔했습니다.
+
+hildegard/inn/21/choices/0/text
+이번에는 제가 차를 권할 차례네요.
+
+hildegard/inn/21/choices/0/response/0
+예, 이번 권유는 제가 받겠습니다.
+
+hildegard/inn/21/choices/0/response/1
+잔을 고르는 일까지 정하려 들면 웃어 주십시오. 스스로도 알아차려야겠습니다.
+
+hildegard/inn/21/choices/1/text
+이 자리면 괜찮겠어요.
+
+hildegard/inn/21/choices/1/response/0
+옆에는 짐 대신 빈 의자를 두겠습니다.
+
+hildegard/inn/21/choices/1/response/1
+쉬라는 말을 또 지시처럼 했습니다. 저부터 앉겠습니다.
+
+hildegard/inn/21/choices/2/text
+아무 말씀 안 하셔도 괜찮아요. 제가 알아서 쉴게요.
+
+hildegard/inn/21/choices/2/response/0
+같이 쉬자는 말은 하고 싶습니다.
+
+hildegard/inn/21/choices/2/response/1
+말을 다 없애면 부탁도 못 하겠습니다. 서툴러도 조금 고쳐 말하겠습니다.
+
+hildegard/inn/21/seen
+차를 기다리는 동안은 아무 일도 정하지 않겠습니다.
+
+hildegard/inn/22/situation
+힐데가가 돌아갈 길의 표시 옆에 작은 점을 찍는다.
+
+hildegard/inn/22/lines/0
+제 자리는 잘 보이게 표시해 두었습니다. 빠뜨리지 않도록 말입니다.
+
+hildegard/inn/22/lines/1
+누군가 늦으면 여기서 다시 셉니다.
+
+hildegard/inn/22/lines/2
+저까지 포함해서 부탁드립니다.
+
+hildegard/inn/22/choices/0/text
+표시가 잘 보이게 덧칠할게요.
+
+hildegard/inn/22/choices/0/response/0
+어두워져도 구별할 수 있겠습니다.
+
+hildegard/inn/22/choices/0/response/1
+표시를 보고 먼저 서둘러 나가지 않겠습니다.
+
+hildegard/inn/22/choices/1/text
+경험 많으시니 따로 오셔도 길은 아시겠죠.
+
+hildegard/inn/22/choices/1/response/0
+길을 알아도 혼자 남고 싶은 것은 아닙니다.
+
+hildegard/inn/22/choices/1/response/1
+그 말씀이 틀리진 않습니다. 그래도 이번에는 함께 세어 주십시오.
+
+hildegard/inn/22/choices/2/text
+힐데가 경이 빠져도 그냥 출발하지 않을게요.
+
+hildegard/inn/22/choices/2/response/0
+제가 늦을 때도 기다려 주시겠습니까?
+
+hildegard/inn/22/choices/2/response/1
+제가 돌아올 사람 수에 들어간다는 게 새삼 마음에 남습니다.
+
+hildegard/inn/22/seen
+합류할 곳을 정하니 제 걸음도 덜 급해집니다.
+
+hildegard/inn/23/situation
+힐데가가 봉투를 접어 가방에 넣는다.
+
+hildegard/inn/23/lines/0
+봉투를 넣고도 손이 한참 거기 머물렀습니다.
+
+hildegard/inn/23/lines/1
+돌아오라는 편지에 답을 보냈습니다.
+
+hildegard/inn/23/lines/2
+제 뜻을 전하는 데 이렇게 오래 걸렸습니다.
+
+hildegard/inn/23/choices/0/text
+답장까지 했으니 이제 가문 생각은 접으셔도 돼요.
+
+hildegard/inn/23/choices/0/response/0
+뜻을 전했다고 마음이 모두 끝나진 않습니다.
+
+hildegard/inn/23/choices/0/response/1
+남겠다는 선택과 돌아갈 곳을 아끼는 마음은 함께 두고 싶습니다.
+
+hildegard/inn/23/choices/1/text
+답이 와도 혼자서 다 감당하려 하진 마세요.
+
+hildegard/inn/23/choices/1/response/0
+기다리는 동안부터 말씀드리겠습니다.
+
+hildegard/inn/23/choices/1/response/1
+걱정이 없다고 하면 또 같은 버릇이겠습니다. 지금은 조금 걱정됩니다.
+
+hildegard/inn/23/choices/2/text
+오늘은 편지 생각을 쉬어요.
+
+hildegard/inn/23/choices/2/response/0
+저녁 한 끼 동안은 그래 보겠습니다.
+
+hildegard/inn/23/choices/2/response/1
+제가 쓴 답은 다시 읽고 나서 보내겠습니다.
+
+hildegard/inn/23/seen
+보낸 편지의 사본은 다시 고치지 않겠습니다.
+
+hildegard/inn/24/situation
+힐데가가 아침 식탁에 의자 두 개를 붙인다.
+
+hildegard/inn/24/lines/0
+앉을 자리를 고르다 문에서 먼 쪽으로 왔습니다.
+
+hildegard/inn/24/lines/1
+출발 이야기는 식사를 마친 뒤에 하겠습니다.
+
+hildegard/inn/24/lines/2
+오늘 아침은 함께 먹고 싶습니다.
+
+hildegard/inn/24/choices/0/text
+그럼 식는 것부터 나눠 먹어요.
+
+hildegard/inn/24/choices/0/response/0
+오늘 아침은 이렇게 나누고 싶었습니다.
+
+hildegard/inn/24/choices/0/response/1
+급히 먹는 버릇도 천천히 고쳐 보겠습니다. 먼저 드시겠습니까?
+
+hildegard/inn/24/choices/1/text
+빵은 이쪽에 둘게요.
+
+hildegard/inn/24/choices/1/response/0
+제 접시에서도 덜어 가십시오.
+
+hildegard/inn/24/choices/1/response/1
+오늘은 식사 순서까지 적지 않겠습니다.
+
+hildegard/inn/24/choices/2/text
+준비부터 마쳐 두면 마음 편히 드실 수 있겠어요.
+
+hildegard/inn/24/choices/2/response/0
+그러면 또 식사가 맨 뒤가 되겠습니다.
+
+hildegard/inn/24/choices/2/response/1
+지금은 함께 먹고 싶습니다. 준비는 조금 뒤에 하겠습니다.
+
+hildegard/inn/24/seen
+아침 식탁의 자리는 오늘도 옆으로 잡겠습니다.
+
+hildegard/inn/25/situation
+힐데가가 장갑을 끼다 말고 웃는다.
+
+hildegard/inn/25/lines/0
+기다리십시오…… 아니, 잠깐 기다려 주시겠습니까?
+
+hildegard/inn/25/lines/1
+이번에는 제 손질이 늦었습니다.
+
+hildegard/inn/25/lines/2
+오늘은 제가 기다려 달라고 부탁드려야겠습니다.
+
+hildegard/inn/25/choices/0/text
+천천히 하셔도 돼요.
+
+hildegard/inn/25/choices/0/response/0
+마지막 끈만 정리하겠습니다.
+
+hildegard/inn/25/choices/0/response/1
+마지막 잠금쇠까지 손으로 확인하고 일어나겠습니다.
+
+hildegard/inn/25/choices/1/text
+길에서 마저 잠그세요. 천천히 걸어갈게요.
+
+hildegard/inn/25/choices/1/response/0
+걸으면서 해도 되는 일은 아닙니다.
+
+hildegard/inn/25/choices/1/response/1
+저를 기다리는 시간이 아깝지 않으시면, 여기서 조금만 더 이야기해 주십시오.
+
+hildegard/inn/25/choices/2/text
+다 잠그실 때까지 여기서 얘기해요.
+
+hildegard/inn/25/choices/2/response/0
+서두르라고 하지 않으셔서 더 서두를 뻔했습니다.
+
+hildegard/inn/25/choices/2/response/1
+제 준비가 늦었는데도 기다려 주셨습니다. 감사합니다.
+
+hildegard/inn/25/seen
+장갑 끝까지 살피고 나면 저도 준비가 끝납니다.
+
+hildegard/inn/26/situation
+힐데가가 종이를 치우고 식탁에 팔을 얹는다.
+
+hildegard/inn/26/lines/0
+무슨 일을 맡기러 왔느냐는 말부터 나올까 봐 망설였습니다.
+
+hildegard/inn/26/lines/1
+오늘은 정할 일이 없습니다.
+
+hildegard/inn/26/lines/2
+그래도 잠깐 이야기해도 되겠습니까?
+
+hildegard/inn/26/choices/0/text
+아무 일 없으면 쉬러 가셔도 돼요.
+
+hildegard/inn/26/choices/0/response/0
+쉬라고 해 주시는 마음은 압니다.
+
+hildegard/inn/26/choices/0/response/1
+혼자 쉬러 가기보다 여기서 쉬고 싶었습니다. 그렇게 말씀드리면 되겠습니까?
+
+hildegard/inn/26/choices/1/text
+맡길 일이 없어도 찾아와 주세요.
+
+hildegard/inn/26/choices/1/response/0
+그 말을 듣고 싶었습니다.
+
+hildegard/inn/26/choices/1/response/1
+볼일이 없다고 돌아서지 않고, 오늘은 여기 앉겠습니다.
+
+hildegard/inn/26/choices/2/text
+무슨 이야기를 하고 싶으세요?
+
+hildegard/inn/26/choices/2/response/0
+아직 고르지 못했습니다. 잠깐 생각하겠습니다.
+
+hildegard/inn/26/choices/2/response/1
+종이를 꺼내지 않고도 할 말이 있는지 생각해 보겠습니다.
+
+hildegard/inn/26/seen
+오늘은 볼일이 없어도 곁에 좀 앉아 있겠습니다.
+
+hildegard/inn/27/situation
+힐데가가 문을 열려다 한 걸음 돌아선다.
+
+hildegard/inn/27/lines/0
+앞서 나가는 대신 문고리를 잡고 기다려 보았습니다.
+
+hildegard/inn/27/lines/1
+준비되면 함께 나가겠습니다.
+
+hildegard/inn/27/lines/2
+오늘은 문부터 함께 나서고 싶습니다.
+
+hildegard/inn/27/choices/0/text
+오늘은 나란히 문을 나가요.
+
+hildegard/inn/27/choices/0/response/0
+오늘은 앞뒤를 세우지 않아도 되겠습니다.
+
+hildegard/inn/27/choices/0/response/1
+위험한 곳에서는 제가 앞에 서겠습니다. 오늘 이 문만은 같이 나가고 싶습니다.
+
+hildegard/inn/27/choices/1/text
+겉옷만 챙기고 갈게요.
+
+hildegard/inn/27/choices/1/response/0
+이쪽에서 기다리겠습니다.
+
+hildegard/inn/27/choices/1/response/1
+문을 나선 뒤 순서는 그때 다시 맞추겠습니다.
+
+hildegard/inn/27/choices/2/text
+앞에서 기다리시면 따라갈게요.
+
+hildegard/inn/27/choices/2/response/0
+예전에는 그 말만 들으면 됐습니다.
+
+hildegard/inn/27/choices/2/response/1
+오늘은 조금 다른 부탁이었습니다. 바로 옆에 서 주시겠습니까?
+
+hildegard/inn/27/seen
+문 앞에서 기다리는 시간도 이제는 편안합니다.
+
+hildegard/dungeon/0/variants/0
+앞은 제가 맡겠습니다. 뒤를 살펴 주십시오.
+
+hildegard/dungeon/0/variants/1
+준비가 끝나면 문 앞에서 모여 주십시오.
+
+hildegard/dungeon/1/variants/0
+뒤를 맡아 주시겠습니까? 저는 앞을 열겠습니다.
+
+hildegard/dungeon/1/variants/1
+늦는 분이 있으면 여기서 함께 기다리겠습니다.
+
+hildegard/dungeon/2/variants/0
+오늘도 서로의 상태부터 확인하고 갑시다.
+
+hildegard/dungeon/2/variants/1
+모두 준비되셨습니까? 걸음을 맞추겠습니다.
+
+hildegard/dungeon/3/variants/0
+발밑부터 살피십시오. 제가 먼저 확인하겠습니다.
+
+hildegard/dungeon/3/variants/1
+진입했습니다. 뒤쪽 간격을 좁혀 주십시오.
+
+hildegard/dungeon/4/variants/0
+제가 앞을 볼 동안 갈림길을 살펴 주시겠습니까?
+
+hildegard/dungeon/4/variants/1
+걸음이 빠르면 말씀하십시오. 맞추겠습니다.
+
+hildegard/dungeon/5/variants/0
+제 앞이 안 보이면 멈추자고 말씀하십시오.
+
+hildegard/dungeon/5/variants/1
+함께 들어왔으니 나갈 길도 같이 기억합시다.
+
+hildegard/dungeon/6/variants/0
+발견한 물건은 한곳에 모아 두십시오.
+
+hildegard/dungeon/6/variants/1
+뒤쪽도 안전한지 확인하고 살피겠습니다.
+
+hildegard/dungeon/7/variants/0
+한쪽에 몰리지 않도록 나눠 살피면 좋겠습니다.
+
+hildegard/dungeon/7/variants/1
+살피는 동안 통로는 제가 보겠습니다.
+
+hildegard/dungeon/8/variants/0
+짐이 늘면 제 자루에도 나눠 넣으십시오.
+
+hildegard/dungeon/8/variants/1
+돌아갈 때 무리가 없는 만큼만 챙깁시다.
+
+hildegard/dungeon/9/variants/0
+제 뒤에서 간격을 유지하십시오.
+
+hildegard/dungeon/9/variants/1
+앞은 막겠습니다. 양옆을 살펴 주십시오.
+
+hildegard/dungeon/10/variants/0
+시야를 가리면 알려 주십시오. 옮기겠습니다.
+
+hildegard/dungeon/10/variants/1
+뒤에서 보내 주실 신호를 믿겠습니다.
+
+hildegard/dungeon/11/variants/0
+제 상태도 보면서 싸워 주십시오.
+
+hildegard/dungeon/11/variants/1
+혼자 버티려 하지 않겠습니다. 함께 막읍시다.
+
+hildegard/dungeon/12/variants/0
+추격보다 인원 확인이 먼저입니다.
+
+hildegard/dungeon/12/variants/1
+전투는 끝났습니다. 다친 곳을 살피십시오.
+
+hildegard/dungeon/13/variants/0
+뒤에서 잘 맞춰 주셨습니다. 모두 확인합시다.
+
+hildegard/dungeon/13/variants/1
+제가 놓친 상처가 있으면 말씀하십시오.
+
+hildegard/dungeon/14/variants/0
+한숨 돌려도 되겠습니다. 저도 잠깐 쉬겠습니다.
+
+hildegard/dungeon/14/variants/1
+모두 서 계셔서 다행입니다. 제 상처도 보겠습니다.
+
+hildegard/dungeon/15/variants/0
+강한 상대입니다. 각자 자리를 확인하십시오.
+
+hildegard/dungeon/15/variants/1
+진입 전에 물러날 길부터 짚겠습니다.
+
+hildegard/dungeon/16/variants/0
+무리라 생각되면 지금 말씀해 주시겠습니까?
+
+hildegard/dungeon/16/variants/1
+제가 버티는 동안만 움직일 필요는 없습니다.
+
+hildegard/dungeon/17/variants/0
+못 버틸 때 숨기지 않기로 한 약속, 기억합시다.
+
+hildegard/dungeon/17/variants/1
+제 판단만 기다리지 마십시오. 의견을 듣겠습니다.
+
+hildegard/dungeon/18/variants/0
+쓰러뜨렸습니다. 흩어지지 말고 모이십시오.
+
+hildegard/dungeon/18/variants/1
+성과는 나중에 셉니다. 먼저 모두 확인하겠습니다.
+
+hildegard/dungeon/19/variants/0
+버텨 주셔서 감사합니다. 돌아갈 준비를 합시다.
+
+hildegard/dungeon/19/variants/1
+일어설 때 서두르지 마십시오. 여기 있겠습니다.
+
+hildegard/dungeon/20/variants/0
+이제 조금 웃어도 되겠습니다. 모두 함께입니다.
+
+hildegard/dungeon/20/variants/1
+돌아가면 저도 장비를 벗고 쉬겠습니다.
+
+hildegard/dungeon/21/variants/0
+뒤로 물러나십시오. 제가 앞을 받겠습니다.
+
+hildegard/dungeon/21/variants/1
+상처를 숨기지 마십시오. 교대하겠습니다.
+
+hildegard/dungeon/22/variants/0
+더 버티실 필요는 없습니다. 제 쪽으로 오십시오.
+
+hildegard/dungeon/22/variants/1
+알려 주셔서 다행입니다. 제가 앞을 맡아도 되겠습니까?
+
+hildegard/dungeon/23/variants/0
+말씀하신 대로 지금 교대합시다. 늦지 않았습니다.
+
+hildegard/dungeon/23/variants/1
+짐은 이쪽으로 넘기십시오. 함께 물러나겠습니다.
+
+hildegard/dungeon/24/variants/0
+쓰러진 분을 두고 움직이지 마십시오.
+
+hildegard/dungeon/24/variants/1
+제가 막겠습니다. 쓰러진 분부터 살펴 주십시오.
+
+hildegard/dungeon/25/variants/0
+혼자 들지 마십시오. 제 쪽에도 무게를 주십시오.
+
+hildegard/dungeon/25/variants/1
+아직 떠나지 않습니다. 상태부터 확인합시다.
+
+hildegard/dungeon/26/variants/0
+약속대로 기다리겠습니다. 먼저 상태를 봅시다.
+
+hildegard/dungeon/26/variants/1
+제가 여기 있습니다. 일어나시라고 재촉하지 않겠습니다.
+
+hildegard/dungeon/27/variants/0
+부상입니다. 앞을 잠시 교대해 주십시오.
+
+hildegard/dungeon/27/variants/1
+힘이 빠집니다. 자리를 바꾸겠습니다.
+
+hildegard/dungeon/28/variants/0
+더 늦기 전에 말씀드립니다. 잠깐 맡아 주십시오.
+
+hildegard/dungeon/28/variants/1
+움직일 수는 있습니다. 하지만 무리하지 않겠습니다.
+
+hildegard/dungeon/29/variants/0
+괜찮다는 말부터 할 뻔했습니다. 도움이 필요합니다.
+
+hildegard/dungeon/29/variants/1
+제 짐도 맡아 주시겠습니까? 잠깐 쉬겠습니다.
+
+hildegard/dungeon/30/variants/0
+장비를 점검한 뒤 쉬십시오. 저도 살피겠습니다.
+
+hildegard/dungeon/30/variants/1
+쉬는 동안 통로를 막지 않게 짐을 놓으십시오.
+
+hildegard/dungeon/31/variants/0
+번갈아 살피면 둘 다 쉴 수 있겠습니다.
+
+hildegard/dungeon/31/variants/1
+오늘은 제가 먼저 앉아도 되겠습니까? 피곤합니다.
+
+hildegard/dungeon/32/variants/0
+이번에는 쉬라는 말씀을 바로 듣겠습니다.
+
+hildegard/dungeon/32/variants/1
+눈을 붙이겠습니다. 교대할 때 불러 주십시오.
+
+hildegard/dungeon/33/variants/0
+봉인을 건드리기 전에 주변부터 확보하십시오.
+
+hildegard/dungeon/33/variants/1
+보관함 앞을 비우십시오. 살필 자리가 필요합니다.
+
+hildegard/dungeon/34/variants/0
+살피실 동안 뒤를 맡겠습니다. 서두르지 마십시오.
+
+hildegard/dungeon/34/variants/1
+위험해 보이면 물러나자고 말씀해 주십시오.
+
+hildegard/dungeon/35/variants/0
+탐이 나도 무리할 이유는 없습니다. 함께 판단합시다.
+
+hildegard/dungeon/35/variants/1
+열지 않고 돌아가도 됩니다. 모두의 의견을 듣겠습니다.
+
+hildegard/dungeon/36/variants/0
+귀환했습니다. 마지막 인원까지 확인하겠습니다.
+
+hildegard/dungeon/36/variants/1
+문 안으로 들어와 주십시오. 길을 비우겠습니다.
+
+hildegard/dungeon/37/variants/0
+마지막 분까지 오셨습니다. 이제 짐을 내려도 되겠습니다.
+
+hildegard/dungeon/37/variants/1
+뒷줄까지 확인해 주셔서 감사합니다.
+
+hildegard/dungeon/38/variants/0
+오늘은 저도 함께 앉겠습니다. 준비는 내일 합시다.
+
+hildegard/dungeon/38/variants/1
+빈 의자가 없으니 좋습니다. 잠깐 더 있겠습니다.
+
+hildegard/dungeon/39/variants/0
+물러납니다. 뒤에 남은 분부터 확인하십시오.
+
+hildegard/dungeon/39/variants/1
+짐보다 사람을 챙기십시오. 제가 뒤를 받겠습니다.
+
+hildegard/dungeon/40/variants/0
+지금은 원인을 따질 때가 아닙니다. 함께 나갑시다.
+
+hildegard/dungeon/40/variants/1
+걸음이 안 되는 분은 말씀하십시오. 나눠 돕겠습니다.
+
+hildegard/dungeon/41/variants/0
+제 판단도 돌아가서 함께 살펴봅시다.
+
+hildegard/dungeon/41/variants/1
+져도 같이 돌아갑니다. 제 손이 필요한 분 계십니까?
+
+hildegard/transitions/0/situation
+힐데가가 맞은편 의자를 조금 당긴다.
+
+hildegard/transitions/0/lines/0
+맡은 일을 함께 확인할 수는 있겠습니다.
+
+hildegard/transitions/0/lines/1
+그 밖의 일은 아직 시간을 주십시오.
+
+hildegard/transitions/1/situation
+힐데가가 출발 순서 옆을 비워 둔다.
+
+hildegard/transitions/1/lines/0
+다음 원정의 역할을 여쭙겠습니다.
+
+hildegard/transitions/1/lines/1
+정하기 전에 의견부터 듣겠습니다.
+
+hildegard/transitions/2/situation
+힐데가가 펜을 맞은편으로 건넨다.
+
+hildegard/transitions/2/lines/0
+이번에는 뒤를 맡아 주시겠습니까?
+
+hildegard/transitions/2/lines/1
+제가 놓치는 곳을 봐 주시면 좋겠습니다.
+
+hildegard/transitions/3/situation
+힐데가가 손질하던 갑옷을 내려놓는다.
+
+hildegard/transitions/3/lines/0
+변경에서 돌아오지 않은 이유를 말씀드리고 싶습니다.
+
+hildegard/transitions/3/lines/1
+일 이야기만 하고 싶어서 꺼내는 것은 아닙니다.
+
+hildegard/transitions/4/situation
+힐데가가 편지 위에서 손을 뗀다.
+
+hildegard/transitions/4/lines/0
+가문의 책임이라고만 말해 왔습니다.
+
+hildegard/transitions/4/lines/1
+이제는 제가 남기로 골랐다고 말씀드리겠습니다.
+
+hildegard/transitions/5/situation
+힐데가가 귀환 경로 옆에 자기 자리를 짚는다.
+
+hildegard/transitions/5/lines/0
+저도 돌아와야 할 한 사람으로 세어 주십시오.
+
+hildegard/transitions/5/lines/1
+도움이 필요할 때는 먼저 말하겠습니다.
+
+hildegard/transitions/6/situation
+힐데가가 문 앞에서 기다리다 나란히 선다.
+
+hildegard/transitions/6/lines/0
+항상 앞에 서지 않아도 함께 갈 수 있겠습니다.
+
+hildegard/transitions/6/lines/1
+오늘은 출발부터 걸음을 맞추고 싶습니다.
+
+hildegard/transitions/7/situation
+힐데가가 당기던 의자를 놓는다.
+
+hildegard/transitions/7/lines/0
+늘 알아주실 거라고 제가 먼저 생각했습니다.
+
+hildegard/transitions/7/lines/1
+오늘은 하고 싶었던 말부터 여쭙겠습니다.
+
+hildegard/transitions/8/situation
+힐데가가 약속을 적은 종이를 편다.
+
+hildegard/transitions/8/lines/0
+같이 돌아가자는 말이 서로 다르게 들린 듯합니다.
+
+hildegard/transitions/8/lines/1
+제가 어디까지 맡기로 했는지 다시 짚고 싶습니다.
+
+hildegard/transitions/9/situation
+힐데가가 쓰던 편지를 덮는다.
+
+hildegard/transitions/9/lines/0
+제 선택을 말하기가 다시 조심스러워졌습니다.
+
+hildegard/transitions/9/lines/1
+당장 결론을 주시기보다 조금만 들어 주십시오.
+
+hildegard/transitions/10/situation
+힐데가가 갑옷 끈을 고르며 말을 멈춘다.
+
+hildegard/transitions/10/lines/0
+개인적인 이야기는 잠시 접겠습니다.
+
+hildegard/transitions/10/lines/1
+함께 맡은 일은 어긋나지 않게 확인하겠습니다.
+
+hildegard/transitions/11/situation
+힐데가가 역할을 적은 종이를 자기 쪽으로 당긴다.
+
+hildegard/transitions/11/lines/0
+부탁드리기 전에 범위를 다시 정해야겠습니다.
+
+hildegard/transitions/11/lines/1
+이번에는 맡으실 수 있는 일만 말씀해 주십시오.
+
+hildegard/transitions/12/situation
+힐데가가 짐 사이의 간격을 벌린다.
+
+hildegard/transitions/12/lines/0
+괜찮으리라 여기고 넘긴 곳이 있었습니다.
+
+hildegard/transitions/12/lines/1
+다음에는 준비가 됐는지 직접 확인하겠습니다.
+
+hildegard/transitions/13/situation
+힐데가가 빈 의자를 통로 밖으로 옮긴다.
+
+hildegard/transitions/13/lines/0
+지금은 제 뒤를 맡아 달라고 청하지 않겠습니다.
+
+hildegard/transitions/13/lines/1
+필요한 용건만 확인하겠습니다.
+
+marceline/inn/0/situation
+마르셀린이 물잔을 놓고 한 걸음 물러선다.
+
+marceline/inn/0/lines/0
+잔은 씻어 온 것입니다. 그 말씀만 드리려 했습니다.
+
+marceline/inn/0/lines/1
+물은 여기 두겠습니다.
+
+marceline/inn/0/lines/2
+다른 용건이 없으시면 먼저 가 보겠습니다.
+
+marceline/inn/0/choices/0/text
+물은 마시고 갈게요.
+
+marceline/inn/0/choices/0/response/0
+빈 잔은 식탁에 놓아 주십시오.
+
+marceline/inn/0/choices/0/response/1
+더 필요하시면 부르십시오. 멀리 가지는 않겠습니다.
+
+marceline/inn/0/choices/1/text
+괜찮으니 제 잔도 다른 분께 드리세요.
+
+marceline/inn/0/choices/1/response/0
+다른 분들 몫은 이미 놓았습니다.
+
+marceline/inn/0/choices/1/response/1
+마시라고 내민 건데, 그냥 두고 가기는 어렵군요.
+
+marceline/inn/0/choices/2/text
+오늘은 물만 받고 인사드릴게요.
+
+marceline/inn/0/choices/2/response/0
+이유를 묻지 않고 받아 주시는군요.
+
+marceline/inn/0/choices/2/response/1
+다음 인사는 제가 먼저 할 수 있으면 좋겠습니다.
+
+marceline/inn/0/seen
+물잔은 손 닿는 쪽에 놓아 두었습니다.
+
+marceline/inn/1/situation
+마르셀린이 의뢰 서류를 접어 가방 위에 얹는다.
+
+marceline/inn/1/lines/0
+서류는 접었어도 확인할 대목은 남겨 두었습니다.
+
+marceline/inn/1/lines/1
+맡은 일은 끝까지 하겠습니다.
+
+marceline/inn/1/lines/2
+그 밖의 약속은 지금 드리기 어렵습니다.
+
+marceline/inn/1/choices/0/text
+일만 잘해 주시면 사적인 약속은 없어도 돼요.
+
+marceline/inn/1/choices/0/response/0
+그렇게 정하면 편하기는 하겠습니다.
+
+marceline/inn/1/choices/0/response/1
+하지만 일을 마치고도 말 걸 수 있을지는 제가 정하고 싶습니다.
+
+marceline/inn/1/choices/1/text
+새 약속보다 맡은 일부터 확인해요.
+
+marceline/inn/1/choices/1/response/0
+지금 할 수 있는 일부터 묻는 말씀이군요.
+
+marceline/inn/1/choices/1/response/1
+그 일마저 피하려는 뜻으로 들리지 않았으면 합니다.
+
+marceline/inn/1/choices/2/text
+서류를 볼 수 있을까요?
+
+marceline/inn/1/choices/2/response/0
+읽으신 뒤에는 제게 돌려주십시오.
+
+marceline/inn/1/choices/2/response/1
+종이는 다시 펼치겠습니다. 못 지킬 말을 더하고 싶지는 않습니다.
+
+marceline/inn/1/seen
+서류에는 맡기로 한 일만 표시해 두었습니다.
+
+marceline/inn/2/situation
+마르셀린이 다른 사람 몫의 식기를 챙긴다.
+
+marceline/inn/2/lines/0
+아직 제 자리는 펴지 않았습니다. 잠깐이면 됩니다.
+
+marceline/inn/2/lines/1
+식사는 조금 뒤에 하겠습니다.
+
+marceline/inn/2/lines/2
+아직 놓지 않은 그릇이 있어서요.
+
+marceline/inn/2/choices/0/text
+놓을 자리만 알려 주시면 같이 할게요.
+
+marceline/inn/2/choices/0/response/0
+손을 비워도 될 구실을 주시는군요.
+
+marceline/inn/2/choices/0/response/1
+이쪽 두 자리만 부탁드리겠습니다. 혼자 하면 또 늦겠습니다.
+
+marceline/inn/2/choices/1/text
+제 그릇은 제가 챙길게요.
+
+marceline/inn/2/choices/1/response/0
+그러시면 이쪽에 두시면 됩니다.
+
+marceline/inn/2/choices/1/response/1
+그릇을 두고 나면 늦지 않게 앉겠습니다.
+
+marceline/inn/2/choices/2/text
+제가 다 할 테니 방에 가서 쉬세요.
+
+marceline/inn/2/choices/2/response/0
+마음 써 주셔서 감사합니다만, 식사는 같이 해도 되겠습니까?
+
+marceline/inn/2/choices/2/response/1
+조금만 기다려 주시겠습니까? 곧 앉겠습니다.
+
+marceline/inn/2/seen
+안쪽 자리에는 이제 식기가 다 놓였습니다.
+
+marceline/inn/3/situation
+마르셀린이 가방에서 삐져나온 책을 밀어 넣는다.
+
+marceline/inn/3/lines/0
+모서리가 구겨질까 봐 가방을 누르고 있었습니다.
+
+marceline/inn/3/lines/1
+아직 읽는 중인 책입니다.
+
+marceline/inn/3/lines/2
+남에게 보여 드릴 만한 것은 아닙니다.
+
+marceline/inn/3/choices/0/text
+그럼 의뢰 이야기만 할까요?
+
+marceline/inn/3/choices/0/response/0
+오늘 확인할 일정은 말씀드리겠습니다.
+
+marceline/inn/3/choices/0/response/1
+가방을 옆으로 내려놓겠습니다. 다른 이야기부터 하겠습니다.
+
+marceline/inn/3/choices/1/text
+교단에서 금한다면 일단 내려놓는 게 편하지 않을까요?
+
+marceline/inn/3/choices/1/response/0
+안 읽으면 되는데, 읽고 싶은 마음은 남아 있습니다.
+
+marceline/inn/3/choices/1/response/1
+말씀은 고맙습니다만, 이 책은 가지고 있겠습니다.
+
+marceline/inn/3/choices/2/text
+덮어 두셔도 돼요. 손은 좀 편히 놓으세요.
+
+marceline/inn/3/choices/2/response/0
+가릴수록 더 눈에 띄었겠군요.
+
+marceline/inn/3/choices/2/response/1
+언젠가 무슨 책인지 제가 먼저 말씀드릴 수 있으면 좋겠습니다.
+
+marceline/inn/3/seen
+가방의 책은 제가 잘 넣어 두겠습니다.
+
+marceline/inn/4/situation
+마르셀린이 먼저 채운 물잔을 내민다.
+
+marceline/inn/4/lines/0
+잔을 건넨 뒤 안부를 물으라고 읽었습니다. 아, 교리서에서요.
+
+marceline/inn/4/lines/1
+출발 전에 드시겠습니까?
+
+marceline/inn/4/lines/2
+저는 조금 뒤에 마셔도 괜찮습니다.
+
+marceline/inn/4/choices/0/text
+저부터 챙기지 마시고 목마른 분들께 더 주세요.
+
+marceline/inn/4/choices/0/response/0
+다른 분들께도 여쭙겠습니다.
+
+marceline/inn/4/choices/0/response/1
+제 잔을 채우는 일은 자꾸 남은 뒤로 미루게 됩니다. 오늘도 그렇게 됐군요.
+
+marceline/inn/4/choices/1/text
+제 잔은 받았으니 마르셀린 씨 잔도 채워요.
+
+marceline/inn/4/choices/1/response/0
+그럼 제 것도 받아 두겠습니다.
+
+marceline/inn/4/choices/1/response/1
+함께 마셔도 인사가 되는지 몰랐습니다. 그런 순서는 없던데요.
+
+marceline/inn/4/choices/2/text
+고마워요. 여기 둘게요.
+
+marceline/inn/4/choices/2/response/0
+쏟지 않게 가방 옆은 피해 두십시오.
+
+marceline/inn/4/choices/2/response/1
+잔이 너무 가득하면 말씀해 주십시오. 조금 덜겠습니다.
+
+marceline/inn/4/seen
+이번에는 제 물잔도 식탁에 올려놓았습니다.
+
+marceline/inn/5/situation
+마르셀린이 의뢰 종이의 한 대목을 짚는다.
+
+marceline/inn/5/lines/0
+여기서 잠깐 멈췄습니다. 서명한 뒤에 여쭤도 될지 몰라서요.
+
+marceline/inn/5/lines/1
+이 부분은 출발 전에 확인하고 싶습니다.
+
+marceline/inn/5/lines/2
+말이 두 가지로 읽혀서요.
+
+marceline/inn/5/choices/0/text
+헷갈리는 채로 약속하지 말고 같이 물어봐요.
+
+marceline/inn/5/choices/0/response/0
+그럼 제가 읽은 뜻부터 말씀드리겠습니다.
+
+marceline/inn/5/choices/0/response/1
+잘못 읽은 채 지키겠다고 하면 그쪽에도 곤란한 일이겠습니다.
+
+marceline/inn/5/choices/1/text
+어느 부분인지 읽어 주세요.
+
+marceline/inn/5/choices/1/response/0
+이 줄부터 천천히 읽겠습니다.
+
+marceline/inn/5/choices/1/response/1
+대답을 듣고 나면 다른 분들께도 전해 두겠습니다.
+
+marceline/inn/5/choices/2/text
+좋은 뜻으로 쓴 말일 테니 너무 걱정하지 마세요.
+
+marceline/inn/5/choices/2/response/0
+좋은 뜻인지는 저도 믿고 싶습니다.
+
+marceline/inn/5/choices/2/response/1
+다만 두 뜻 가운데 어느 쪽을 약속하는지는 알고 싶습니다.
+
+marceline/inn/5/seen
+표시한 줄은 아직 확인을 기다리고 있습니다.
+
+marceline/inn/6/situation
+마르셀린이 다른 이들이 앉은 뒤 마지막 의자를 당긴다.
+
+marceline/inn/6/lines/0
+마지막에 앉으면 자리가 남았는지 안 물어도 되니 편했습니다.
+
+marceline/inn/6/lines/1
+불편한 자리는 없으십니까?
+
+marceline/inn/6/lines/2
+저는 이 끝에 앉으면 됩니다.
+
+marceline/inn/6/choices/0/text
+잠깐 앉아서 쉬세요.
+
+marceline/inn/6/choices/0/response/0
+짐만 내려놓고 앉겠습니다.
+
+marceline/inn/6/choices/0/response/1
+끝에 놓인 그릇은 제가 안쪽으로 옮기겠습니다.
+
+marceline/inn/6/choices/1/text
+그 자리가 익숙하시면 그대로 앉으셔도 괜찮아요.
+
+marceline/inn/6/choices/1/response/0
+익숙해서 괜찮다고 말하려 했습니다.
+
+marceline/inn/6/choices/1/response/1
+오늘은 어디 앉고 싶은지 묻는 줄 알고 잠깐 기대했습니다.
+
+marceline/inn/6/choices/2/text
+끝자리는 바람이 들어요. 안쪽으로 옮겨요.
+
+marceline/inn/6/choices/2/response/0
+제가 바람을 피할 자리는 생각하지 않았습니다.
+
+marceline/inn/6/choices/2/response/1
+그럼 안쪽에 앉겠습니다. 여기는 바람이 덜 드는군요.
+
+marceline/inn/6/seen
+안쪽 의자는 생각보다 바람이 덜 듭니다.
+
+marceline/inn/7/situation
+마르셀린이 책갈피 대신 접은 종이를 만진다.
+
+marceline/inn/7/lines/0
+어디까지 읽었는지 잊지 않으려 끼운 종이입니다.
+
+marceline/inn/7/lines/1
+책장을 접으면 자국이 남아서요.
+
+marceline/inn/7/lines/2
+이 종이면 충분할 것 같습니다.
+
+marceline/inn/7/choices/0/text
+잃어버릴까 봐 그러시면 제가 몇 쪽인지 외워 드릴까요?
+
+marceline/inn/7/choices/0/response/0
+아닙니다. 쪽수까지 외우실 일은 아닙니다.
+
+marceline/inn/7/choices/0/response/1
+그 쪽을 다시 펴는 날이 있다는 것까지 남에게 맡기기는 조금 부끄럽습니다.
+
+marceline/inn/7/choices/1/text
+종이 끝을 둥글게 접으면 덜 긁히겠어요.
+
+marceline/inn/7/choices/1/response/0
+내용부터 보려 하지 않으시는군요.
+
+marceline/inn/7/choices/1/response/1
+교리서…… 비슷하게 읽는 책입니다. 지금은 그렇게 말씀드려도 되겠습니까?
+
+marceline/inn/7/choices/2/text
+다 읽으신 뒤 이야기해요.
+
+marceline/inn/7/choices/2/response/0
+접어 둔 곳까지만 읽겠습니다.
+
+marceline/inn/7/choices/2/response/1
+종이는 넉넉합니다. 필요하시면 한 장 드리겠습니다.
+
+marceline/inn/7/seen
+접은 종이는 아직 책갈피로 잘 쓰고 있습니다.
+
+marceline/inn/8/situation
+마르셀린이 의뢰 이야기를 하다가 말을 늦춘다.
+
+marceline/inn/8/lines/0
+끝났다고 전하러 가려다 발이 멈췄습니다.
+
+marceline/inn/8/lines/1
+규정대로면 여기서 끝입니다.
+
+marceline/inn/8/lines/2
+다만, 기다리는 분에게는…… 조금 더 설명해야 하지 않을까요?
+
+marceline/inn/8/choices/0/text
+끝났다는 말보다 왜 그런지부터 전해요.
+
+marceline/inn/8/choices/0/response/0
+여기서 한참 망설였습니다.
+
+marceline/inn/8/choices/0/response/1
+규정을 외우면 쉬운데, 그 앞에 선 사람의 질문은 남더군요.
+
+marceline/inn/8/choices/1/text
+어떤 설명을 하실 생각이세요?
+
+marceline/inn/8/choices/1/response/0
+조금 정리한 뒤에 여쭙겠습니다.
+
+marceline/inn/8/choices/1/response/1
+함께 가 주시면 제가 설명을 시작하겠습니다.
+
+marceline/inn/8/choices/2/text
+괜히 오래 기다리게 하지 말고 결과만 빨리 전해요.
+
+marceline/inn/8/choices/2/response/0
+늦추고 싶은 것은 아닙니다.
+
+marceline/inn/8/choices/2/response/1
+빨리 끝내 드리는 게 정말 그분을 위한 일인지 한번만 더 생각하겠습니다.
+
+marceline/inn/8/seen
+아까 멈춘 말은 조금 더 생각해 보았습니다.
+
+marceline/inn/9/situation
+마르셀린이 가방 입구를 누른 채 식탁에 앉는다.
+
+marceline/inn/9/lines/0
+어디서 읽었느냐는 질문을 아직 안 하셨군요.
+
+marceline/inn/9/lines/1
+책 귀퉁이가 자꾸 나오는군요.
+
+marceline/inn/9/lines/2
+……교리서는 아닙니다. 그 말씀은 먼저 드려야겠습니다.
+
+marceline/inn/9/choices/0/text
+가방 끈이 느슨한가 봐요.
+
+marceline/inn/9/choices/0/response/0
+끈을 다시 묶어 두겠습니다.
+
+marceline/inn/9/choices/0/response/1
+다음에는 천을 덮지 않고 가져와 보겠습니다.
+
+marceline/inn/9/choices/1/text
+민망하실 테니 책 얘기는 제가 아예 안 꺼낼게요.
+
+marceline/inn/9/choices/1/response/0
+감춰 주시려는 마음은 감사합니다.
+
+marceline/inn/9/choices/1/response/1
+그런데 무슨 대목을 읽는지 물어봐 주시면 좋겠다는 마음도 있습니다.
+
+marceline/inn/9/choices/2/text
+지금은 책을 가방 위에 올려 두셔도 돼요.
+
+marceline/inn/9/choices/2/response/0
+그럼 책을 내려놓겠습니다.
+
+marceline/inn/9/choices/2/response/1
+지난번에 교리서라고 말하려 했습니다. 제가 그렇게 보일 때도 기다려 주십시오.
+
+marceline/inn/9/seen
+가방 끈은 아까보다 단단히 묶었습니다.
+
+marceline/inn/10/situation
+마르셀린이 식탁에 따뜻한 그릇을 놓고 서 있다.
+
+marceline/inn/10/lines/0
+초대할 때는 둘이 함께 먹는다고 되어 있었는데요. 어디서 봤는지는요…….
+
+marceline/inn/10/lines/1
+먼저 드십시오. 제 것은 곧 가져오겠습니다.
+
+marceline/inn/10/lines/2
+식는 줄도 모르고 다른 일을 봤습니다.
+
+marceline/inn/10/choices/0/text
+천천히 다 챙기고 드세요. 저는 먼저 먹을게요.
+
+marceline/inn/10/choices/0/response/0
+예, 식사까지 기다리게 해 드릴 수는 없지요.
+
+marceline/inn/10/choices/0/response/1
+같이 먹고 싶다는 말만 하면 될 텐데 또 순서를 돌아왔습니다.
+
+marceline/inn/10/choices/1/text
+제가 그릇을 가져올 테니 여기서 기다려요.
+
+marceline/inn/10/choices/1/response/0
+앉아서 같이 먹겠습니다.
+
+marceline/inn/10/choices/1/response/1
+기다려 주셔서 감사합니다.
+
+marceline/inn/10/choices/2/text
+수저는 이쪽에 있어요.
+
+marceline/inn/10/choices/2/response/0
+가져다 놓아 주셨군요. 잘 쓰겠습니다.
+
+marceline/inn/10/choices/2/response/1
+제 것도 가져오면 이번에는 바로 앉겠습니다.
+
+marceline/inn/10/seen
+오늘은 제 그릇도 식기 전에 받았습니다.
+
+marceline/inn/11/situation
+마르셀린이 펼친 책 위에 손을 얹고 머뭇거린다.
+
+marceline/inn/11/lines/0
+표시해 둔 쪽만 읽다가 사과할 일을 더 어렵게 만든 듯합니다.
+
+marceline/inn/11/lines/1
+책을 읽다가 사과할 때를 생각했습니다.
+
+marceline/inn/11/lines/2
+말을 먼저 해야 하는지, 기다려야 하는지 모르겠습니다.
+
+marceline/inn/11/choices/0/text
+상대가 들을 준비가 됐는지부터 물어보면 어때요?
+
+marceline/inn/11/choices/0/response/0
+책에는 듣는 분이 늘 기다려 주었습니다.
+
+marceline/inn/11/choices/0/response/1
+얼마나 기다리실 수 있는지 여쭙겠습니다.
+
+marceline/inn/11/choices/1/text
+다음 장에 답이 나올까요?
+
+marceline/inn/11/choices/1/response/0
+아직 넘기지 못해서 저도 궁금합니다.
+
+marceline/inn/11/choices/1/response/1
+무슨 말을 고를지 적어 봤지만 아직 읽어 드리긴 어렵습니다.
+
+marceline/inn/11/choices/2/text
+그냥 평소처럼 하세요. 굳이 책까지 볼 일일까요?
+
+marceline/inn/11/choices/2/response/0
+평소처럼 하려고 펴는 책이었습니다.
+
+marceline/inn/11/choices/2/response/1
+어떻게 해야 할지 몰라서 여쭌 건데, 그 말은 제가 이미 아는 사람 같습니다.
+
+marceline/inn/11/seen
+사과를 언제 해야 할지는 아직도 자주 망설입니다.
+
+marceline/inn/12/situation
+마르셀린이 비어 있는 잔을 두 손으로 감싼다.
+
+marceline/inn/12/lines/0
+잔을 채우면 이야기를 또 미룰 것 같아 비워 두었습니다.
+
+marceline/inn/12/lines/1
+판결 집행의 호위로 섰던 적이 있습니다.
+
+marceline/inn/12/lines/2
+위증이 드러났는데도 판결은 바뀌지 않았습니다.
+
+marceline/inn/12/choices/0/text
+말씀하시기 힘들면 쉬어 가요.
+
+marceline/inn/12/choices/0/response/0
+잔에 물을 조금만 더 따르겠습니다.
+
+marceline/inn/12/choices/0/response/1
+그날 이야기라 오래 걸릴 수 있습니다. 괜찮으시겠습니까?
+
+marceline/inn/12/choices/1/text
+호위였으면 혼자 책임지실 일은 아니겠어요.
+
+marceline/inn/12/choices/1/response/0
+모두 제 책임이라는 말을 하려던 것은 아닙니다.
+
+marceline/inn/12/choices/1/response/1
+제 잘못이 아니라고 하면 마음이 놓일 줄 알았는데, 그렇지가 않았습니다.
+
+marceline/inn/12/choices/2/text
+지금 결론을 내리지 않으셔도 들어 드릴게요.
+
+marceline/inn/12/choices/2/response/0
+어느 쪽이 옳았는지부터 묻지 않으시는군요.
+
+marceline/inn/12/choices/2/response/1
+판결문을 읽어도 그 사람 앞에 섰던 일이 떠올랐습니다.
+
+marceline/inn/12/seen
+그날 일은 오늘도 쉽게 말이 이어지지 않습니다.
+
+marceline/inn/13/situation
+마르셀린이 책을 반쯤 펼쳐 맞은편에 놓는다.
+
+marceline/inn/13/lines/0
+교리서라고 하면 이번에는 믿지 않으시겠지요.
+
+marceline/inn/13/lines/1
+이번에는 제가 읽던 이야기를 보여 드리겠습니다.
+
+marceline/inn/13/lines/2
+다만 소리 내어 읽지는 말아 주십시오.
+
+marceline/inn/13/choices/0/text
+제가 좋은 책을 더 구해 드릴까요? 이런 건 부담 없이 덮으셔도 돼요.
+
+marceline/inn/13/choices/0/response/0
+이 책도 제가 골라 읽던 것입니다.
+
+marceline/inn/13/choices/0/response/1
+좋은 책을 주시려는 건 알지만, 제가 읽은 곳도 한번 봐 주셨으면 합니다.
+
+marceline/inn/13/choices/1/text
+함께 읽고 나서, 이야기해도 될지 여쭐게요.
+
+marceline/inn/13/choices/1/response/0
+읽다가 웃으셔도 나중에 왜 웃었는지 알려 주십시오.
+
+marceline/inn/13/choices/1/response/1
+어느 대목에서 멈추셨는지 조용히 나누고 싶었습니다. 그 순서는 제가 정해도 되겠습니까?
+
+marceline/inn/13/choices/2/text
+제가 읽을 곳을 짚어 주세요.
+
+marceline/inn/13/choices/2/response/0
+접힌 종이 아래부터 읽으시면 됩니다.
+
+marceline/inn/13/choices/2/response/1
+마지막 장은 아직 저도 다 읽지 못했습니다.
+
+marceline/inn/13/seen
+함께 읽던 책장은 접지 않고 표시해 두었습니다.
+
+marceline/inn/14/situation
+마르셀린이 빈 의자에 손을 얹고 눈치를 살핀다.
+
+marceline/inn/14/lines/0
+책에서는 이쯤에 말을 건네던데, 그게 어느 때인지 잘 모르겠습니다.
+
+marceline/inn/14/lines/1
+이럴 때는 옆에 앉아도 되는 순서라고…….
+
+marceline/inn/14/lines/2
+아니, 순서보다 먼저 여쭤야겠습니다. 앉아도 되겠습니까?
+
+marceline/inn/14/choices/0/text
+여기는 비어 있어요. 이야기 없이 쉬어도 좋고요.
+
+marceline/inn/14/choices/0/response/0
+그럼 옆에 앉겠습니다.
+
+marceline/inn/14/choices/0/response/1
+책만 보고 한참을 기다릴 뻔했습니다.
+
+marceline/inn/14/choices/1/text
+의자를 조금 당겨 드릴게요.
+
+marceline/inn/14/choices/1/response/0
+너무 가까워 불편하시면 말씀해 주십시오.
+
+marceline/inn/14/choices/1/response/1
+조금만 의자를 당기겠습니다. 통로는 막지 않겠습니다.
+
+marceline/inn/14/choices/2/text
+자리는 많은데 더 편한 쪽에 앉으세요.
+
+marceline/inn/14/choices/2/response/0
+편한 자리를 고르면 여기였는데요.
+
+marceline/inn/14/choices/2/response/1
+곁에 앉겠다고 말하면 될 일을 순서까지 찾았습니다. 그래도 여기 앉아도 되겠습니까?
+
+marceline/inn/14/seen
+이 자리에 앉는 일은 이제 책에서 찾지 않겠습니다.
+
+marceline/inn/15/situation
+마르셀린이 챙겨 둔 물잔 하나를 자기 앞에 놓는다.
+
+marceline/inn/15/lines/0
+제 잔이 어느 것인지 물으시기 전에 먼저 놓았습니다.
+
+marceline/inn/15/lines/1
+남는 것을 마시려던 건 아닙니다.
+
+marceline/inn/15/lines/2
+그런데 늘 마지막에 가져오게 됩니다.
+
+marceline/inn/15/choices/0/text
+다음에는 잊지 마세요.
+
+marceline/inn/15/choices/0/response/0
+물동이를 들 때 생각해 보겠습니다.
+
+marceline/inn/15/choices/0/response/1
+이 잔은 제가 마시겠습니다. 남은 것을 받았다고 생각하지 않으셔도 됩니다.
+
+marceline/inn/15/choices/1/text
+늘 남는 물도 깨끗하니 괜찮지 않나요?
+
+marceline/inn/15/choices/1/response/0
+물이 나쁘다는 말은 아니었습니다.
+
+marceline/inn/15/choices/1/response/1
+처음부터 제 것을 놓고 싶었습니다. 사소한 일인데 그 말을 하기 어려웠습니다.
+
+marceline/inn/15/choices/2/text
+처음 물 뜰 때 제 것 옆에 같이 놓아 주세요.
+
+marceline/inn/15/choices/2/response/0
+두 잔을 함께 들면 잊지 않겠습니다.
+
+marceline/inn/15/choices/2/response/1
+내일부터는 제 잔도 놓겠습니다.
+
+marceline/inn/15/seen
+제 잔에도 물을 따라 두었습니다.
+
+marceline/inn/16/situation
+마르셀린이 읽던 책을 덮고 고개를 든다.
+
+marceline/inn/16/lines/0
+오늘 할 말은 책갈피에도 적지 않았습니다.
+
+marceline/inn/16/lines/1
+서약문을 외우면 말이 쉬웠습니다.
+
+marceline/inn/16/lines/2
+오늘은 제 말로 드리고 싶습니다. 곁에 있겠습니다.
+
+marceline/inn/16/choices/0/text
+뜻만 전해지면 되죠. 익숙한 서약문으로 해 주세요.
+
+marceline/inn/16/choices/0/response/0
+익숙한 말로 하면 떨리지 않겠습니다.
+
+marceline/inn/16/choices/0/response/1
+그래도 이번에는 제가 고른 말인 줄 알아주셨으면 했습니다.
+
+marceline/inn/16/choices/1/text
+말을 외우지 않아도 천천히 들을게요.
+
+marceline/inn/16/choices/1/response/0
+중간에 멈추면 다음 문장을 기다려 주십시오.
+
+marceline/inn/16/choices/1/response/1
+책에는 이런 다음의 말도 있었습니다. 오늘은 그걸 따르지 않고 고맙다고 하겠습니다.
+
+marceline/inn/16/choices/2/text
+저도 여기서 쉬고 싶어요.
+
+marceline/inn/16/choices/2/response/0
+그럼 오늘은 조금 더 앉아 있겠습니다.
+
+marceline/inn/16/choices/2/response/1
+따뜻한 물은 다 드신 뒤에 다시 가져오겠습니다.
+
+marceline/inn/16/seen
+오늘 드린 말은 책 어디에도 표시하지 않았습니다.
+
+marceline/inn/17/situation
+마르셀린이 의뢰 서류 옆에 빈 종이를 놓는다.
+
+marceline/inn/17/lines/0
+종이에 쓰기 전에 말씀드리고 싶었습니다.
+
+marceline/inn/17/lines/1
+사람과 서약이 부딪히면 멈추겠습니다.
+
+marceline/inn/17/lines/2
+그 사람을 두고 서약만 옳았다고 말하지는 않겠습니다.
+
+marceline/inn/17/choices/0/text
+멈춘 다음 어떻게 도울지도 함께 찾아요.
+
+marceline/inn/17/choices/0/response/0
+멈추겠다는 말 다음이 늘 무서웠습니다.
+
+marceline/inn/17/choices/0/response/1
+같이 찾겠다는 말이 있으니 빈 종이를 두고도 도망치지 않겠습니다.
+
+marceline/inn/17/choices/1/text
+그 말을 오래 생각하셨군요.
+
+marceline/inn/17/choices/1/response/0
+소리 내어 말하기까지 오래 걸렸습니다.
+
+marceline/inn/17/choices/1/response/1
+서약을 버린다는 뜻은 아닙니다. 지키는 법을 다시 찾겠습니다.
+
+marceline/inn/17/choices/2/text
+그때그때 편한 쪽을 고르면 부담이 덜하겠어요.
+
+marceline/inn/17/choices/2/response/0
+편한 쪽은 아닐 것 같습니다.
+
+marceline/inn/17/choices/2/response/1
+사람을 두고 가면 더 쉬울 때도 있겠지요. 그걸 하지 않겠다는 말이었습니다.
+
+marceline/inn/17/seen
+빈 종이에는 아직 함께 찾을 답을 남겨 두었습니다.
+
+marceline/inn/18/situation
+마르셀린이 차를 따르다 제 잔 앞에서 멈춘다.
+
+marceline/inn/18/lines/0
+쉬고 싶다고 말할 때는 허락부터 받는 줄 알았습니다.
+
+marceline/inn/18/lines/1
+오늘은 제가 먼저 쉬고 싶습니다.
+
+marceline/inn/18/lines/2
+말씀드리고 나니 조금 낯설군요.
+
+marceline/inn/18/choices/0/text
+얼마든지 쉬셔도 돼요.
+
+marceline/inn/18/choices/0/response/0
+잔을 내려놓고 바로 앉겠습니다.
+
+marceline/inn/18/choices/0/response/1
+조금 쉬고 나면 저도 다시 함께 하겠습니다.
+
+marceline/inn/18/choices/1/text
+정리까지 마치면 더 편하실 텐데 조금만 기다려요.
+
+marceline/inn/18/choices/1/response/0
+정리를 마쳐야 쉰다고 계속 생각했습니다.
+
+marceline/inn/18/choices/1/response/1
+그 말을 듣고 나니 또 괜찮다고 하려 했습니다. 지금은 잠깐 쉬고 싶습니다.
+
+marceline/inn/18/choices/2/text
+남은 잔은 제가 채울게요. 여기 앉아요.
+
+marceline/inn/18/choices/2/response/0
+이 잔을 놓고 앉겠습니다.
+
+marceline/inn/18/choices/2/response/1
+책을 펴 놓고 쉬면 또 핑계 같을까요? 오늘은 아무것도 안 펴겠습니다.
+
+marceline/inn/18/seen
+먼저 쉰다고 말하는 일도 조금씩 익숙해집니다.
+
+marceline/inn/19/situation
+마르셀린이 책을 펴지 않은 채 한동안 앉아 있다.
+
+marceline/inn/19/lines/0
+사과할 문장부터 찾느라 무슨 말에 아팠는지 놓쳤습니다.
+
+marceline/inn/19/lines/1
+말이 너무 셌습니다. 서약에 비춰 보면…….
+
+marceline/inn/19/lines/2
+아니, 그 말로 피하지 않겠습니다. 아까 서운했습니다.
+
+marceline/inn/19/choices/0/text
+마음에 둔 말은 잊고 새로 시작해요.
+
+marceline/inn/19/choices/0/response/0
+새로 시작하고 싶은 것은 저도 같습니다.
+
+marceline/inn/19/choices/0/response/1
+잊었다고 해야 시작할 수 있으면 또 괜찮다고 해 버릴 것 같습니다.
+
+marceline/inn/19/choices/1/text
+어느 말이 걸렸는지, 괜찮으시면 들려주세요.
+
+marceline/inn/19/choices/1/response/0
+들어 주시겠다면 숨기지 않겠습니다.
+
+marceline/inn/19/choices/1/response/1
+말하다가 좀 멈추더라도 기다려 주십시오.
+
+marceline/inn/19/choices/2/text
+잠깐 생각하고 다시 이야기해요.
+
+marceline/inn/19/choices/2/response/0
+식탁을 떠나지 않고 기다리겠습니다.
+
+marceline/inn/19/choices/2/response/1
+제가 먼저 한 말은 조금 뒤에 다시 사과드리겠습니다.
+
+marceline/inn/19/seen
+아까 못다 한 말은 피하지 않고 이어 가겠습니다.
+
+marceline/inn/20/situation
+마르셀린이 의뢰 서류에서 손을 떼고 마주 본다.
+
+marceline/inn/20/lines/0
+괜찮다는 답을 외워 둔 것처럼 빨리 하곤 했습니다.
+
+marceline/inn/20/lines/1
+오늘은 부탁을 하나 드리고 싶습니다.
+
+marceline/inn/20/lines/2
+제가 괜찮다고 할 때도, 한 번만 더 물어봐 주시겠습니까?
+
+marceline/inn/20/choices/0/text
+다시 묻되, 대답을 바꾸라고 재촉하지 않을게요.
+
+marceline/inn/20/choices/0/response/0
+한 번 더 물으시면 이번에는 숨을 고르겠습니다.
+
+marceline/inn/20/choices/0/response/1
+책에는 늘 마음을 알아채 주는 사람이 있습니다. 저는 직접 말하는 연습도 하겠습니다.
+
+marceline/inn/20/choices/1/text
+지금도 피곤하신가요?
+
+marceline/inn/20/choices/1/response/0
+조금은 피곤합니다. 오늘은 말씀드릴 수 있습니다.
+
+marceline/inn/20/choices/1/response/1
+제가 괜찮다고 말한 까닭도 덧붙여 보겠습니다.
+
+marceline/inn/20/choices/2/text
+안 물어도 표정을 보면 알 수 있게 해 주세요.
+
+marceline/inn/20/choices/2/response/0
+표정부터 고치면 또 모르시겠지요.
+
+marceline/inn/20/choices/2/response/1
+말하지 않아도 알아 달라는 부탁은 아닙니다. 말할 틈만 더 주십시오.
+
+marceline/inn/20/seen
+괜찮다고 해도 한 번 더 물어봐 주시면 좋겠습니다.
+
+marceline/inn/21/situation
+마르셀린이 책 두 권 놓일 만큼 식탁을 비운다.
+
+marceline/inn/21/lines/0
+다음 장보다 지금 옆에서 읽는 소리가 먼저 들립니다.
+
+marceline/inn/21/lines/1
+읽는 속도가 달라도 괜찮겠습니까?
+
+marceline/inn/21/lines/2
+같이 읽으니 다음 장을 서두르게 됩니다.
+
+marceline/inn/21/choices/0/text
+먼저 읽으셔도 괜찮아요.
+
+marceline/inn/21/choices/0/response/0
+다 읽어도 결말은 말씀드리지 않겠습니다.
+
+marceline/inn/21/choices/0/response/1
+저는 이 장만 마저 읽고 잠깐 쉬겠습니다.
+
+marceline/inn/21/choices/1/text
+맞춰 드릴게요. 제가 빨리 읽는 부분은 넘기죠.
+
+marceline/inn/21/choices/1/response/0
+건너뛰셔도 된다고 정해 드리고 싶지는 않습니다.
+
+marceline/inn/21/choices/1/response/1
+같이 읽자고 하고는 읽는 재미까지 덜어 드린 것 같아 마음이 쓰입니다.
+
+marceline/inn/21/choices/2/text
+한 장씩 맞추지 말고, 쉬고 싶을 때 이야기해요.
+
+marceline/inn/21/choices/2/response/0
+표시한 쪽이 달라도 같이 읽은 것이겠군요.
+
+marceline/inn/21/choices/2/response/1
+마음에 드는 곳이 나오면 책을 덮겠습니다. 그때 들어 주시겠습니까?
+
+marceline/inn/21/seen
+결말은 각자 읽을 때까지 아껴 두겠습니다.
+
+marceline/inn/22/situation
+마르셀린이 식탁 가운데 놓인 잔을 자기 쪽으로 당긴다.
+
+marceline/inn/22/lines/0
+두 잔 가운데 제 잔을 이제는 바로 찾겠습니다.
+
+marceline/inn/22/lines/1
+다른 분들 물은 다 챙겼습니다.
+
+marceline/inn/22/lines/2
+이 잔은 제 몫입니다. 이제는 빼놓지 않습니다.
+
+marceline/inn/22/choices/0/text
+목마르지 않으면 굳이 자기 잔까지 채울 필요는 없죠.
+
+marceline/inn/22/choices/0/response/0
+마시고 싶은지부터 제게 물어봤습니다.
+
+marceline/inn/22/choices/0/response/1
+전에는 물이 남아야 제 잔을 챙겼습니다. 이제는 같이 마시겠습니다.
+
+marceline/inn/22/choices/1/text
+오늘은 마르셀린 씨가 마실 때 저도 쉴게요.
+
+marceline/inn/22/choices/1/response/0
+제 잔을 드는 게 쉬자는 신호가 되겠군요.
+
+marceline/inn/22/choices/1/response/1
+같이 쉬어 주시겠다는 말이 반갑습니다.
+
+marceline/inn/22/choices/2/text
+물맛이 어떤가요?
+
+marceline/inn/22/choices/2/response/0
+오래 서 있다 마시는 것보다 좋습니다.
+
+marceline/inn/22/choices/2/response/1
+모자라는 분이 계시면 다시 떠 오면 되겠습니다.
+
+marceline/inn/22/seen
+제 물잔을 남겨 두는 데 이제 변명은 필요 없겠습니다.
+
+marceline/inn/23/situation
+마르셀린이 접은 종이를 책 사이에서 꺼낸다.
+
+marceline/inn/23/lines/0
+종이 한 장인데 버리기가 어려워서 가져왔습니다.
+
+marceline/inn/23/lines/1
+사과하는 장면에 표시해 두었던 종이입니다.
+
+marceline/inn/23/lines/2
+이제 잘못한 일이 있으면 먼저 제 말부터 찾겠습니다.
+
+marceline/inn/23/choices/0/text
+말이 서툴러도 고칠 때까지 같이 들을게요.
+
+marceline/inn/23/choices/0/response/0
+지금 죄송하다고 말씀드리겠습니다.
+
+marceline/inn/23/choices/0/response/1
+제 사정은 그 뒤에 들어 주시겠습니까?
+
+marceline/inn/23/choices/1/text
+그 종이는 버리실 건가요?
+
+marceline/inn/23/choices/1/response/0
+다른 장면을 표시하는 데 쓰겠습니다.
+
+marceline/inn/23/choices/1/response/1
+그 종이는 책갈피로만 쓰겠습니다. 이제 다른 표시가 필요하진 않습니다.
+
+marceline/inn/23/choices/2/text
+잘 쓰인 말을 빌려도 진심이면 되지 않을까요?
+
+marceline/inn/23/choices/2/response/0
+빌린 말이 모두 틀렸다는 뜻은 아닙니다.
+
+marceline/inn/23/choices/2/response/1
+제가 잘못한 곳을 말하지 않고 좋은 문장으로 덮을까 봐 내려놓는 것입니다.
+
+marceline/inn/23/seen
+그 종이에는 이제 사과 순서를 적지 않습니다.
+
+marceline/inn/24/situation
+마르셀린이 아무것도 들지 않고 식탁으로 온다.
+
+marceline/inn/24/lines/0
+다녀오라고 맡기신 일도 없는데 문 앞에서 잠깐 망설였습니다.
+
+marceline/inn/24/lines/1
+오늘은 챙겨 올 것이 없었습니다.
+
+marceline/inn/24/lines/2
+그래도 이 자리에 앉고 싶어서요.
+
+marceline/inn/24/choices/0/text
+의자는 비워 뒀어요.
+
+marceline/inn/24/choices/0/response/0
+기다리고 계셨군요. 늦지 않아 다행입니다.
+
+marceline/inn/24/choices/0/response/1
+마실 것은 앉고 나서 같이 고르겠습니다.
+
+marceline/inn/24/choices/1/text
+편하게 오셨으면 제가 일어나 드릴게요. 혼자 쉬세요.
+
+marceline/inn/24/choices/1/response/0
+혼자 쉬고 싶어서 온 것은 아니었습니다.
+
+marceline/inn/24/choices/1/response/1
+같이 앉고 싶다는 말을 이번에는 바로 해도 되겠습니까?
+
+marceline/inn/24/choices/2/text
+빈손으로 오셔도 마르셀린 씨 자리예요.
+
+marceline/inn/24/choices/2/response/0
+그럼 빈손으로도 찾아오겠습니다.
+
+marceline/inn/24/choices/2/response/1
+교리서라면 식탁을 차린 뒤 앉으라 했을까요? 오늘은 책도 없이 왔습니다.
+
+marceline/inn/24/seen
+오늘도 빈손으로 와서 조금 앉아 있겠습니다.
+
+marceline/inn/25/situation
+마르셀린이 펼친 책을 보다가 조용히 웃는다.
+
+marceline/inn/25/lines/0
+예전 표시를 보니 웃다가도 조금 민망합니다.
+
+marceline/inn/25/lines/1
+예전에는 이 대목에 순서를 적어 두었습니다.
+
+marceline/inn/25/lines/2
+읽을 때 상대의 대답은 미처 생각하지 못했군요.
+
+marceline/inn/25/choices/0/text
+다 읽으셨으면 제가 책을 치워 둘게요.
+
+marceline/inn/25/choices/0/response/0
+아직 읽던 중입니다. 제가 가지고 있겠습니다.
+
+marceline/inn/25/choices/0/response/1
+다시 읽으면 전과 다른 곳에서 멈출 것 같습니다.
+
+marceline/inn/25/choices/1/text
+둘이 읽으니 보이는 데가 달라졌네요.
+
+marceline/inn/25/choices/1/response/0
+제 옆에서 어떤 대답이 나올지도 이제 생각합니다.
+
+marceline/inn/25/choices/1/response/1
+같은 대목인데도 오늘은 기다리는 사람 쪽이 눈에 들어옵니다. 그 이야기를 하고 싶었습니다.
+
+marceline/inn/25/choices/2/text
+표시를 새로 해 둘까요?
+
+marceline/inn/25/choices/2/response/0
+이번에는 접은 종이 하나면 충분합니다.
+
+marceline/inn/25/choices/2/response/1
+이쪽 여백은 비워 두겠습니다. 오늘은 표시 없이 읽으려고요.
+
+marceline/inn/25/seen
+그 장면은 다시 읽어도 전처럼 급해지지 않습니다.
+
+marceline/inn/26/situation
+마르셀린이 잔 두 개를 나란히 놓고 앉는다.
+
+marceline/inn/26/lines/0
+잔을 놓다가 제 것이 먼저인 걸 알아챘습니다. 그대로 뒀습니다.
+
+marceline/inn/26/lines/1
+오늘은 드실지 묻기 전에 제 잔부터 놓았습니다.
+
+marceline/inn/26/lines/2
+어느 쪽을 드시겠습니까?
+
+marceline/inn/26/choices/0/text
+둘 다 식기 전에 함께 마셔요.
+
+marceline/inn/26/choices/0/response/0
+예, 같이 마시겠습니다.
+
+marceline/inn/26/choices/0/response/1
+좋으시다면 내일도 두 잔을 놓겠습니다.
+
+marceline/inn/26/choices/1/text
+가까운 잔으로 받을게요.
+
+marceline/inn/26/choices/1/response/0
+그 잔은 손잡이가 이쪽에 있습니다.
+
+marceline/inn/26/choices/1/response/1
+오늘은 뜨거우니 조금 식힌 뒤 드셔도 됩니다.
+
+marceline/inn/26/choices/2/text
+제 잔은 제가 챙길 테니 따로 놓아 주세요.
+
+marceline/inn/26/choices/2/response/0
+손이 닿지 않는 쪽에 놓았군요. 가까이 다시 놓겠습니다.
+
+marceline/inn/26/choices/2/response/1
+수고를 덜어 주시려는 말인 줄 압니다. 그래도 같이 놓고 싶었습니다.
+
+marceline/inn/26/seen
+다음에는 먼저 온 쪽이 잔을 꺼내 두면 되겠지요.
+
+marceline/inn/27/situation
+마르셀린이 문가에서 돌아와 잠깐 말을 고른다.
+
+marceline/inn/27/lines/0
+인사는 먼저, 안부는 그다음이라고 하던 책이 생각났습니다.
+
+marceline/inn/27/lines/1
+별일은 없으셨습니까?
+
+marceline/inn/27/lines/2
+그냥 안부를 묻고 싶었습니다.
+
+marceline/inn/27/choices/0/text
+오늘은 조용히 보냈어요.
+
+marceline/inn/27/choices/0/response/0
+그 조용한 하루 이야기도 듣고 싶습니다.
+
+marceline/inn/27/choices/0/response/1
+오늘 대답은 천천히 들려주셔도 됩니다.
+
+marceline/inn/27/choices/1/text
+걱정 마세요. 일 생기면 제가 먼저 찾아갈게요.
+
+marceline/inn/27/choices/1/response/0
+일이 생겨야만 만나고 싶은 것은 아닙니다.
+
+marceline/inn/27/choices/1/response/1
+내일도 별일 없이 계셨는지, 그 말이 궁금해서 돌아왔습니다.
+
+marceline/inn/27/choices/2/text
+별일 없어도 내일 또 물어봐 주세요.
+
+marceline/inn/27/choices/2/response/0
+그럼 내일도 제가 먼저 돌아서 보겠습니다.
+
+marceline/inn/27/choices/2/response/1
+별일이 없었다는 대답도 듣고 싶습니다. 이번에는 책에 없어서 못 묻겠다는 말은 안 하겠습니다.
+
+marceline/inn/27/seen
+별일 없는 날에도 안부는 여쭙고 싶습니다.
+
+marceline/dungeon/0/variants/0
+물은 챙기셨습니까? 남는 잔은 여기 두었습니다.
+
+marceline/dungeon/0/variants/1
+맡은 일을 확인한 뒤에 출발하시지요.
+
+marceline/dungeon/1/variants/0
+제 몫도 챙겼습니다. 함께 가도 되겠습니까?
+
+marceline/dungeon/1/variants/1
+늦게 오시는 분에게는 제가 길을 알려 드리겠습니다.
+
+marceline/dungeon/2/variants/0
+이번에는 저도 기다려 달라고 말씀드리겠습니다.
+
+marceline/dungeon/2/variants/1
+오늘도 곁에 서겠습니다. 제 뜻으로 드리는 말입니다.
+
+marceline/dungeon/3/variants/0
+천천히 디디십시오. 뒤에서 오시는 분이 있습니다.
+
+marceline/dungeon/3/variants/1
+돌아갈 길도 눈에 담아 두시면 좋겠습니다.
+
+marceline/dungeon/4/variants/0
+발밑이 불편하시면 말씀해 주시겠습니까?
+
+marceline/dungeon/4/variants/1
+보이지 않는 쪽은 제가 살펴도 되겠지요?
+
+marceline/dungeon/5/variants/0
+먼저 가시라는 말 대신 함께 가자고 하겠습니다.
+
+marceline/dungeon/5/variants/1
+걸음을 늦춰도 괜찮습니다. 저도 곁에 있습니다.
+
+marceline/dungeon/6/variants/0
+발견하신 물건은 여기에 놓으시면 됩니다.
+
+marceline/dungeon/6/variants/1
+제 몫은 나중에 정해도 괜찮겠습니다.
+
+marceline/dungeon/7/variants/0
+무엇인지 확인하고 나누는 편이 좋겠지요?
+
+marceline/dungeon/7/variants/1
+빠진 분의 몫도 따로 두겠습니다.
+
+marceline/dungeon/8/variants/0
+제 몫도 빼놓지 않겠습니다. 같이 살펴볼까요?
+
+marceline/dungeon/8/variants/1
+모두 살핀 뒤에는 저도 하나 골라도 되겠습니까?
+
+marceline/dungeon/9/variants/0
+제가 앞을 막겠습니다. 뒤를 부탁드립니다.
+
+marceline/dungeon/9/variants/1
+물러나실 자리는 비워 두겠습니다.
+
+marceline/dungeon/10/variants/0
+무리하지 마십시오. 필요하면 제게 알려 주세요.
+
+marceline/dungeon/10/variants/1
+혼자 막기 어렵다면 바로 부탁드리겠습니다.
+
+marceline/dungeon/11/variants/0
+앞에 서는 것은 제가 고른 일입니다. 함께해 주십시오.
+
+marceline/dungeon/11/variants/1
+도움이 필요하면 말하겠습니다. 곁을 부탁드립니다.
+
+marceline/dungeon/12/variants/0
+다친 곳은 없으십니까? 천천히 살펴보십시오.
+
+marceline/dungeon/12/variants/1
+장비보다 상처를 먼저 보셔도 됩니다.
+
+marceline/dungeon/13/variants/0
+괜찮다고만 하시지 말고 잠깐 앉으시겠습니까?
+
+marceline/dungeon/13/variants/1
+제 상태도 곧 확인하겠습니다. 먼저 말씀해 주세요.
+
+marceline/dungeon/14/variants/0
+이번에는 제 상처도 함께 봐 주시겠습니까?
+
+marceline/dungeon/14/variants/1
+끝났군요. 조금 기대 쉬어도 되겠지요?
+
+marceline/dungeon/15/variants/0
+들어가시기 전에 준비가 끝났는지 여쭙겠습니다.
+
+marceline/dungeon/15/variants/1
+두려우시면 지금 말씀하셔도 괜찮습니다.
+
+marceline/dungeon/16/variants/0
+망설이는 이유가 있으시면 먼저 듣고 싶습니다.
+
+marceline/dungeon/16/variants/1
+정한 순서라도 무리라면 다시 살펴야겠습니다.
+
+marceline/dungeon/17/variants/0
+약속을 지키려고 사람을 잃고 싶지는 않습니다.
+
+marceline/dungeon/17/variants/1
+들어가기 전에 제 걱정도 말씀드려도 되겠습니까?
+
+marceline/dungeon/18/variants/0
+이겼습니다. 아직 일어나지 못한 분은 없으십니까?
+
+marceline/dungeon/18/variants/1
+부상부터 확인하시지요. 짐은 그다음입니다.
+
+marceline/dungeon/19/variants/0
+다들 버텨 주셨군요. 저도 잠깐 숨을 고르겠습니다.
+
+marceline/dungeon/19/variants/1
+감사하다는 말은 돌아가서도 다시 드리고 싶습니다.
+
+marceline/dungeon/20/variants/0
+서약문에는 없지만 지금은 정말 기쁩니다.
+
+marceline/dungeon/20/variants/1
+옆에 잠깐 앉아도 되겠습니까? 마음이 놓여서요.
+
+marceline/dungeon/21/variants/0
+안색이 좋지 않습니다. 뒤로 오시겠습니까?
+
+marceline/dungeon/21/variants/1
+제가 가리겠습니다. 상처를 살펴 주십시오.
+
+marceline/dungeon/22/variants/0
+괜찮다고 하셔도 한 번만 더 여쭙겠습니다.
+
+marceline/dungeon/22/variants/1
+참지 않으셔도 됩니다. 제가 잠깐 맡겠습니다.
+
+marceline/dungeon/23/variants/0
+말씀해 주셔서 감사합니다. 이제 함께 물러나요.
+
+marceline/dungeon/23/variants/1
+오늘은 도움받을 차례라고 생각해 주시겠습니까?
+
+marceline/dungeon/24/variants/0
+쓰러진 분이 있습니다. 먼저 살펴야겠습니다.
+
+marceline/dungeon/24/variants/1
+자리를 비워 주십시오. 상태를 확인하겠습니다.
+
+marceline/dungeon/25/variants/0
+서두르다 상처를 건드리지 않게 함께 옮겨 주세요.
+
+marceline/dungeon/25/variants/1
+아직 판단하지 마십시오. 제가 곁에서 살피겠습니다.
+
+marceline/dungeon/26/variants/0
+여기 계십니다. 혼자 두지 않겠습니다.
+
+marceline/dungeon/26/variants/1
+말이 안 나오셔도 괜찮습니다. 제가 곁에 있겠습니다.
+
+marceline/dungeon/27/variants/0
+조금 다쳤습니다. 제 장비를 봐 주시겠습니까?
+
+marceline/dungeon/27/variants/1
+움직이기 전에 상처부터 확인하겠습니다.
+
+marceline/dungeon/28/variants/0
+괜찮다고 하려 했는데, 잠시 쉬어야겠습니다.
+
+marceline/dungeon/28/variants/1
+이번에는 제 쪽에서 도움을 청하겠습니다.
+
+marceline/dungeon/29/variants/0
+약속대로 말씀드립니다. 지금은 아픕니다.
+
+marceline/dungeon/29/variants/1
+먼저 돌봐 달라고 부탁드려도 되겠습니까?
+
+marceline/dungeon/30/variants/0
+먼저 앉으십시오. 물은 제가 놓아 드리겠습니다.
+
+marceline/dungeon/30/variants/1
+쉬는 동안에는 짐을 내려놓으셔도 됩니다.
+
+marceline/dungeon/31/variants/0
+여길 비워 주셨군요. 잠깐 앉겠습니다.
+
+marceline/dungeon/31/variants/1
+오늘은 불편한 곳부터 여쭙고 싶습니다.
+
+marceline/dungeon/32/variants/0
+오늘은 제가 먼저 쉬어도 괜찮겠지요?
+
+marceline/dungeon/32/variants/1
+아무것도 챙기지 않고 조금만 함께 있겠습니다.
+
+marceline/dungeon/33/variants/0
+봉인이 보입니다. 손대기 전에 살펴보시지요.
+
+marceline/dungeon/33/variants/1
+제가 주변을 보겠습니다. 아직 열지는 마십시오.
+
+marceline/dungeon/34/variants/0
+서두르실 필요는 없습니다. 살피는 동안 기다리겠습니다.
+
+marceline/dungeon/34/variants/1
+확신이 없으시면 닫힌 채 두어도 되겠지요?
+
+marceline/dungeon/35/variants/0
+약속한 수확보다 다치지 않는 편이 좋겠습니다.
+
+marceline/dungeon/35/variants/1
+열어야 한다는 말만으로는 정하지 않겠습니다.
+
+marceline/dungeon/36/variants/0
+돌아오셨군요. 물부터 드시겠습니까?
+
+marceline/dungeon/36/variants/1
+짐은 천천히 내리십시오. 통로는 비워 두었습니다.
+
+marceline/dungeon/37/variants/0
+제 물도 함께 따라 주시면 감사하겠습니다.
+
+marceline/dungeon/37/variants/1
+이제 모두 앉으셔도 되겠습니다. 저도 쉬겠습니다.
+
+marceline/dungeon/38/variants/0
+오늘은 제 잔도 여기에 놓고 같이 마시겠습니다.
+
+marceline/dungeon/38/variants/1
+곁에 계셔서 좋습니다. 다른 용건은 없습니다.
+
+marceline/dungeon/39/variants/0
+일단 물러나시지요. 다친 분부터 챙기겠습니다.
+
+marceline/dungeon/39/variants/1
+뒤를 막고 있겠습니다. 움직일 수 있는지 알려 주세요.
+
+marceline/dungeon/40/variants/0
+누가 잘못했는지는 돌아가서 함께 묻겠습니다.
+
+marceline/dungeon/40/variants/1
+지금은 제가 괜찮은지보다 모두의 걸음이 먼저입니다.
+
+marceline/dungeon/41/variants/0
+제 판단도 다시 살피겠습니다. 우선 같이 돌아가요.
+
+marceline/dungeon/41/variants/1
+하실 말씀은 돌아가서 듣겠습니다. 지금은 함께 움직여요.
+
+marceline/transitions/0/situation
+마르셀린이 내려놓던 잔을 식탁 가운데로 옮긴다.
+
+marceline/transitions/0/lines/0
+말씀은 들어 보겠습니다.
+
+marceline/transitions/0/lines/1
+다만 바로 괜찮다고 답하기는 어렵겠습니다.
+
+marceline/transitions/1/situation
+마르셀린이 접어 둔 서류를 편다.
+
+marceline/transitions/1/lines/0
+함께 맡은 일부터 다시 확인해도 되겠습니까?
+
+marceline/transitions/1/lines/1
+약속할 수 있는 것은 제 말로 말씀드리겠습니다.
+
+marceline/transitions/2/situation
+마르셀린이 가방을 누르던 손을 내린다.
+
+marceline/transitions/2/lines/0
+옳다고 들은 말에도 멈칫할 때가 있습니다.
+
+marceline/transitions/2/lines/1
+그런 이야기를 조금 여쭤봐도 되겠습니까?
+
+marceline/transitions/3/situation
+마르셀린이 식탁에서 서류를 치운다.
+
+marceline/transitions/3/lines/0
+그날 제가 무엇을 했는지 말씀드리고 싶습니다.
+
+marceline/transitions/3/lines/1
+판결 집행의 호위로 섰던 날이 있었습니다.
+
+marceline/transitions/4/situation
+마르셀린이 서약을 외우려다 입을 다문다.
+
+marceline/transitions/4/lines/0
+이번에는 외운 말 대신 제 뜻을 말씀드리겠습니다.
+
+marceline/transitions/4/lines/1
+사람을 두고 서약만 지켰다고 하지는 않겠습니다.
+
+marceline/transitions/5/situation
+마르셀린이 자기 물잔을 먼저 놓는다.
+
+marceline/transitions/5/lines/0
+제 몫을 뒤로 미루지 않겠다는 말도 지키겠습니다.
+
+marceline/transitions/5/lines/1
+잊는 날에는 다시 여쭤봐 주시겠습니까?
+
+marceline/transitions/6/situation
+마르셀린이 빈손을 내려다보다 의자를 당긴다.
+
+marceline/transitions/6/lines/0
+드릴 것을 챙기지 않아도 찾아올 수 있게 됐습니다.
+
+marceline/transitions/6/lines/1
+오늘은 안부만 여쭙고 싶었습니다.
+
+marceline/transitions/7/situation
+마르셀린이 묻던 안부를 잠깐 멈춘다.
+
+marceline/transitions/7/lines/0
+편해졌다는 이유로 여쭙지 않은 말이 있었습니다.
+
+marceline/transitions/7/lines/1
+알 거라고 넘기지 않고 다시 듣겠습니다.
+
+marceline/transitions/8/situation
+마르셀린이 자기 잔을 두 손으로 감싼다.
+
+marceline/transitions/8/lines/0
+약속한 말을 서로 다르게 기억하는 듯합니다.
+
+marceline/transitions/8/lines/1
+어느 대목이 달랐는지 먼저 들어도 되겠습니까?
+
+marceline/transitions/9/situation
+마르셀린이 펴 둔 책을 천천히 덮는다.
+
+marceline/transitions/9/lines/0
+아까는 괜찮다고 답했지만 서운했습니다.
+
+marceline/transitions/9/lines/1
+제 말로 말씀드리는 일이 오늘은 조금 어렵습니다.
+
+marceline/transitions/10/situation
+마르셀린이 책을 가방 안으로 넣는다.
+
+marceline/transitions/10/lines/0
+제 이야기를 더 꺼내기에는 아직 마음이 걸립니다.
+
+marceline/transitions/10/lines/1
+함께 맡은 일은 그대로 챙기겠습니다.
+
+marceline/transitions/11/situation
+마르셀린이 의뢰 종이 위를 손끝으로 짚는다.
+
+marceline/transitions/11/lines/0
+오늘은 의뢰에 필요한 이야기만 하겠습니다.
+
+marceline/transitions/11/lines/1
+다른 말씀은 조금 뒤에 여쭤도 되겠습니까?
+
+marceline/transitions/12/situation
+마르셀린이 남겨 둔 잔에서 손을 뗀다.
+
+marceline/transitions/12/lines/0
+좋게 들으려다가 제가 놓친 말이 있는 듯합니다.
+
+marceline/transitions/12/lines/1
+다시 듣기 전에는 새 약속을 드리기 어렵습니다.
+
+marceline/transitions/13/situation
+마르셀린이 의자를 제자리로 돌린다.
+
+marceline/transitions/13/lines/0
+맡은 일 외에는 지금 말씀드릴 것이 없습니다.
+
+marceline/transitions/13/lines/1
+그만 일어나도 되겠습니까?
+
+teiris/inn/0/situation
+테이리스가 노트를 덮은 채 맞은편을 바라본다.
+
+teiris/inn/0/lines/0
+끈을 풀까 하다가 그대로 뒀어요. 지금은 듣기만 할게요.
+
+teiris/inn/0/lines/1
+조사에 필요한 말씀만 듣겠어요.
+
+teiris/inn/0/lines/2
+지금은 다른 이야기를 적고 싶지 않아요.
+
+teiris/inn/0/choices/0/text
+적기 편하시게 할 말을 정리해서 드릴게요.
+
+teiris/inn/0/choices/0/response/0
+정리하지 않은 말도 들을 수 있어요.
+
+teiris/inn/0/choices/0/response/1
+제가 적을 것만 말하시려는 것 같아서 조금 멀게 들리네요.
+
+teiris/inn/0/choices/1/text
+출발 얘기만 하고 노트는 덮어 둬요.
+
+teiris/inn/0/choices/1/response/0
+이쪽 종이를 먼저 보자는 말씀이군요.
+
+teiris/inn/0/choices/1/response/1
+제가 언제 펼지 기다려 주시면, 그때 질문도 같이 할게요.
+
+teiris/inn/0/choices/2/text
+출발 시간은 전해 드릴게요.
+
+teiris/inn/0/choices/2/response/0
+확인하면 짐을 챙겨 놓을게요.
+
+teiris/inn/0/choices/2/response/1
+시간은 노트 바깥에도 적어 놓을게요.
+
+teiris/inn/0/seen
+덮어 둔 노트는 오늘도 제가 펼 때까지 두세요.
+
+teiris/inn/1/situation
+테이리스가 적던 종이를 뒤집는다.
+
+teiris/inn/1/lines/0
+빈칸을 먼저 채워야 할 것 같아서 종이를 뒤집었어요.
+
+teiris/inn/1/lines/1
+지금 들은 말은 적지 않을게요.
+
+teiris/inn/1/lines/2
+제가 직접 확인한 것과 달라서요.
+
+teiris/inn/1/choices/0/text
+어디가 다른지만 들을 수 있을까요?
+
+teiris/inn/1/choices/0/response/0
+사람 수보다 제가 본 쪽을 묻는군요.
+
+teiris/inn/1/choices/0/response/1
+본 것부터 나눠 말하면 들은 말도 어디에 둘지 알겠어요.
+
+teiris/inn/1/choices/1/text
+그럼 빈칸으로 남겨 둬요.
+
+teiris/inn/1/choices/1/response/0
+다시 확인할 때까지 비워 놓겠어요.
+
+teiris/inn/1/choices/1/response/1
+빈칸 옆에는 확인하지 않았다는 표시만 둘게요.
+
+teiris/inn/1/choices/2/text
+여러 사람이 봤다니 일단 그 말로 적어 두죠.
+
+teiris/inn/1/choices/2/response/0
+그분들이 본 것까지 지우려는 건 아니에요.
+
+teiris/inn/1/choices/2/response/1
+다만 저는 다른 걸 봤어요. 제가 본 것도 적고 싶어요.
+
+teiris/inn/1/seen
+뒤집어 둔 종이에는 아직 결론을 쓰지 않았어요.
+
+teiris/inn/2/situation
+테이리스가 식탁의 빈 곳을 손끝으로 문지른다.
+
+teiris/inn/2/lines/0
+손을 멈추면 말을 또 삼킬까 봐 식탁을 문지르고 있었어요.
+
+teiris/inn/2/lines/1
+아까 하신 말이 무슨 뜻인지 묻고 싶었어요.
+
+teiris/inn/2/lines/2
+지금도 같은 뜻으로 말씀하시겠어요?
+
+teiris/inn/2/choices/0/text
+조금 생각하고 답할게요.
+
+teiris/inn/2/choices/0/response/0
+그동안 다른 결론은 내리지 않을게요.
+
+teiris/inn/2/choices/0/response/1
+생각하시는 동안은 질문을 더 늘리지 않을게요.
+
+teiris/inn/2/choices/1/text
+말뜻보다 잘 지내려는 마음을 봐 주세요.
+
+teiris/inn/2/choices/1/response/0
+잘 지내고 싶어서 뜻을 묻는 거예요.
+
+teiris/inn/2/choices/1/response/1
+지나가도 되는 말인지까지 제가 혼자 정하고 싶지는 않아요.
+
+teiris/inn/2/choices/2/text
+제가 쓴 말부터 다시 설명해 볼게요.
+
+teiris/inn/2/choices/2/response/0
+제가 적어 둔 뜻이 틀렸을 수도 있겠네요.
+
+teiris/inn/2/choices/2/response/1
+펜은 나중에 들게요. 지금은 그 소리를 듣고 싶어요.
+
+teiris/inn/2/seen
+아까 물은 말의 뜻은 아직 듣고 싶어요.
+
+teiris/inn/3/situation
+테이리스가 입을 열려다 노트 끈을 묶는다.
+
+teiris/inn/3/lines/0
+질문을 안 하면 편해질 줄 알았어요. 그렇지도 않네요.
+
+teiris/inn/3/lines/1
+궁금한 게 있었는데, 다음에 여쭐게요.
+
+teiris/inn/3/lines/2
+오늘은 듣고 싶으신 이야기가 아닌 듯해서요.
+
+teiris/inn/3/choices/0/text
+궁금한 건 일단 적어 두면 나중에 답해 드릴게요.
+
+teiris/inn/3/choices/0/response/0
+나중에 읽을 질문만 남기려던 건 아닌데요.
+
+teiris/inn/3/choices/0/response/1
+노트에 쓰면 또 혼자 결론을 낼까 봐 지금 입을 열어 봤어요.
+
+teiris/inn/3/choices/1/text
+무슨 질문인지부터 듣고 답할지 정할게요.
+
+teiris/inn/3/choices/1/response/0
+질문이 싫으신지 제가 미리 답해 버렸네요.
+
+teiris/inn/3/choices/1/response/1
+지금 말씀하기 어려운 건 나중에 여쭤볼게요.
+
+teiris/inn/3/choices/2/text
+오늘은 짧게 이야기해요.
+
+teiris/inn/3/choices/2/response/0
+그럼 필요한 말만 남겨 볼게요.
+
+teiris/inn/3/choices/2/response/1
+짧게 물으면 제 말도 더 잘 고를 수 있겠어요.
+
+teiris/inn/3/seen
+노트 끈을 묶기 전에 여쭤볼 게 있어요.
+
+teiris/inn/4/situation
+테이리스가 여관 식탁의 작은 얼룩을 들여다본다.
+
+teiris/inn/4/lines/0
+노트에 잔 자국은 그려 뒀는데, 사람들이 언제 앉았는지는 모르겠어요.
+
+teiris/inn/4/lines/1
+여기는 오래 앉았다 가는 분이 많나요?
+
+teiris/inn/4/lines/2
+잔 자국이 서로 겹쳐 있어요. 어느 시간에 가장 붐비나요?
+
+teiris/inn/4/choices/0/text
+저녁에 같이 보면 더 잘 알 수 있겠어요.
+
+teiris/inn/4/choices/0/response/0
+자국만 보고 누가 앉았는지 맞힐 수는 없겠네요.
+
+teiris/inn/4/choices/0/response/1
+저녁에 잔을 놓는 분께 먼저 인사할게요. 노트부터 내밀지는 않을게요.
+
+teiris/inn/4/choices/1/text
+저는 주로 아침에 와요.
+
+teiris/inn/4/choices/1/response/0
+아침 풍경도 따로 봐 둬야겠어요.
+
+teiris/inn/4/choices/1/response/1
+아침에는 어느 자리에서 드시는지도 물어봐도 될까요?
+
+teiris/inn/4/choices/2/text
+닦으면 없어질 자국인데 다른 걸 보시는 건 어때요?
+
+teiris/inn/4/choices/2/response/0
+없어지기 전에 물어볼 수 있는 거잖아요.
+
+teiris/inn/4/choices/2/response/1
+무얼 적을지 정하기 전이라서 이런 게 눈에 들어왔어요.
+
+teiris/inn/4/seen
+겹친 잔 자국은 오늘도 조금 더 늘었네요.
+
+teiris/inn/5/situation
+테이리스가 노트 끈 사이에 손가락을 끼운다.
+
+teiris/inn/5/lines/0
+한참 지나고 나서야 아까 놀라셨다는 걸 알아챘어요.
+
+teiris/inn/5/lines/1
+방금 들은 말인데요, 맛있다는 뜻인가요?
+
+teiris/inn/5/lines/2
+왜 음식에 놀랐다는 말을 붙이는지 궁금해요.
+
+teiris/inn/5/choices/0/text
+저도 자주 쓰는 말은 아니에요.
+
+teiris/inn/5/choices/0/response/0
+그러면 다른 분께도 여쭤볼게요.
+
+teiris/inn/5/choices/0/response/1
+예가 늘면 같은 말도 조금 다르게 보이겠지요?
+
+teiris/inn/5/choices/1/text
+뜻만 통하면 되니 익숙한 말로 하셔도 괜찮아요.
+
+teiris/inn/5/choices/1/response/0
+익숙한 말도 누군가 처음 가르쳐 줬겠지요?
+
+teiris/inn/5/choices/1/response/1
+제가 방금 들은 말로 같이 웃고 싶어서 묻는 거예요.
+
+teiris/inn/5/choices/2/text
+맛보다 놀란 마음을 크게 말하는 거예요.
+
+teiris/inn/5/choices/2/response/0
+그럼 지금 맛있다고 해도 조금 늦은 대박인가요?
+
+teiris/inn/5/choices/2/response/1
+노트에는 맛과 놀람을 따로 적어 뒀어요. 함께 쓰는 말도 옆에 놓을게요.
+
+teiris/inn/5/seen
+음식에 놀랐다는 말은 아직 입에 잘 붙지 않아요.
+
+teiris/inn/6/situation
+테이리스가 빈 종이 위에 손바닥을 올린다.
+
+teiris/inn/6/lines/0
+하루를 어떻게 나눠 쓰는지 노트에 그려 보다가 멈췄어요.
+
+teiris/inn/6/lines/1
+하루가 짧다고들 하시는데, 쉬는 때는 어떻게 고르나요?
+
+teiris/inn/6/lines/2
+할 일을 다 마치고 쉬기에는 자꾸 새 일이 생길 것 같아요.
+
+teiris/inn/6/choices/0/text
+짧게 사는 만큼 쉴 때보다 바쁠 때가 많죠.
+
+teiris/inn/6/choices/0/response/0
+바쁜 이유만 배우려던 건 아니에요.
+
+teiris/inn/6/choices/0/response/1
+함께 가만히 있는 시간도 어떻게 고르는지 알고 싶었어요.
+
+teiris/inn/6/choices/1/text
+다 못 했어도 쉬는 시간을 남겨 두는 편이에요.
+
+teiris/inn/6/choices/1/response/0
+아무 일 없이 보내는 시간도 있군요.
+
+teiris/inn/6/choices/1/response/1
+그럼 오늘은 언제 쉬고 싶으세요? 그 시간까지 묻고 싶어졌어요.
+
+teiris/inn/6/choices/2/text
+배가 고프면 밥부터 먹어요.
+
+teiris/inn/6/choices/2/response/0
+배가 고파서야 시간이 지난 걸 알 때도 있네요.
+
+teiris/inn/6/choices/2/response/1
+배고픈 때와 일이 끝나는 때가 다른 날도 적어 볼게요.
+
+teiris/inn/6/seen
+하루를 다 쓰지 않고 쉬는 방법이 자꾸 생각나요.
+
+teiris/inn/7/situation
+테이리스가 가방에서 나온 책을 다시 반쯤 넣는다.
+
+teiris/inn/7/lines/0
+학술 조사라고 적었는데 읽는 동안 조사를 잊었어요.
+
+teiris/inn/7/lines/1
+가판대에서 본 이야기와 비슷한 책이에요.
+
+teiris/inn/7/lines/2
+같은 이야기를 여러 사람이 읽으면 어디를 먼저 말하나요?
+
+teiris/inn/7/choices/0/text
+좋았던 곳이 서로 같은지부터 물어봐요.
+
+teiris/inn/7/choices/0/response/0
+다른 데서 웃었으면 그 이유도 들을 수 있겠어요.
+
+teiris/inn/7/choices/0/response/1
+책을 내밀기 전에 어떤 부분이 좋았는지 여쭤볼게요.
+
+teiris/inn/7/choices/1/text
+결말 이야기는 나중에 해요.
+
+teiris/inn/7/choices/1/response/0
+그럼 끝까지 읽기 전에도 이야기할 수 있겠어요.
+
+teiris/inn/7/choices/1/response/1
+결말은 노트에도 표시하지 말아야겠네요.
+
+teiris/inn/7/choices/2/text
+연구하실 책이면 줄거리부터 요약해 드릴까요?
+
+teiris/inn/7/choices/2/response/0
+요약을 읽으면 제가 어디서 멈추는지 모르겠어요.
+
+teiris/inn/7/choices/2/response/1
+조사라는 말은 핑계가 조금 섞였어요. 그래도 읽는 재미는 남겨 두고 싶어요.
+
+teiris/inn/7/seen
+같은 책에서 다른 곳을 짚는 이야기를 더 듣고 싶어요.
+
+teiris/inn/8/situation
+테이리스가 처음으로 펼친 노트를 식탁 가운데 놓는다.
+
+teiris/inn/8/lines/0
+노트를 펴 놓으니 음식 냄새보다 이름부터 떠오르네요.
+
+teiris/inn/8/lines/1
+보고서에 옮기지 않은 것들이에요.
+
+teiris/inn/8/lines/2
+음식 이름이 너무 많은가요? 그래도 먹어 본 것은 구별해 뒀어요.
+
+teiris/inn/8/choices/0/text
+오늘 먹은 것부터 볼까요?
+
+teiris/inn/8/choices/0/response/0
+오늘 것은 이쪽 여백에 적었어요.
+
+teiris/inn/8/choices/0/response/1
+오늘 먹은 칸은 아직 지우지 않고 남겨 두었어요.
+
+teiris/inn/8/choices/1/text
+중요한 것만 추려야 보고하기도 편하겠어요.
+
+teiris/inn/8/choices/1/response/0
+이 노트까지 보고할 분량으로 줄이고 싶지는 않아요.
+
+teiris/inn/8/choices/1/response/1
+그냥 궁금해서 적은 것도 읽어 주시면 좋겠어요.
+
+teiris/inn/8/choices/2/text
+먹어 본 것과 궁금한 것을 같이 짚어 봐요.
+
+teiris/inn/8/choices/2/response/0
+이쪽은 냄새만 맡고 돌아온 것도 있어요.
+
+teiris/inn/8/choices/2/response/1
+별표를 많이 붙이면 전부 중요한 게 되나요? 또 표시부터 늘릴 뻔했네요.
+
+teiris/inn/8/seen
+먹어 본 음식에는 오늘도 작은 표시를 해 뒀어요.
+
+teiris/inn/9/situation
+테이리스가 책 옆에 노트를 나란히 놓는다.
+
+teiris/inn/9/lines/0
+학술 조사라고 말을 꺼내면 또 어려워지겠지요?
+
+teiris/inn/9/lines/1
+마르셀린도 이런 이야기를 읽더군요.
+
+teiris/inn/9/lines/2
+어디서부터 말을 걸면 좋을지 모르겠어요.
+
+teiris/inn/9/choices/0/text
+책 얘기 좋아하시잖아요. 다 같이 있는 데서 여쭤봐요.
+
+teiris/inn/9/choices/0/response/0
+제가 좋아해도 그분은 지금 얘기하기 싫을 수 있겠어요.
+
+teiris/inn/9/choices/0/response/1
+함께 웃고 싶어서 앞질러 갈 뻔했어요. 알려 주셔서 고마워요.
+
+teiris/inn/9/choices/1/text
+책을 보셨다는 말부터 조용히 물어보면 어때요?
+
+teiris/inn/9/choices/1/response/0
+그분이 책을 덮을 수도 있게 조용히 물을게요.
+
+teiris/inn/9/choices/1/response/1
+교리서라고 하시면 저도 노트는 꺼내지 않을게요. 조금 기다릴 수 있어요.
+
+teiris/inn/9/choices/2/text
+제가 두 분 이야기에 끼어도 될까요?
+
+teiris/inn/9/choices/2/response/0
+먼저 책 이야기를 해도 되는지 여쭤볼게요.
+
+teiris/inn/9/choices/2/response/1
+괜찮다고 하시면 의자를 하나 더 가져올게요.
+
+teiris/inn/9/seen
+책 이야기를 꺼낼 자리는 조용한 쪽이 좋겠어요.
+
+teiris/inn/10/situation
+테이리스가 식사를 앞에 두고 펜을 든다.
+
+teiris/inn/10/lines/0
+노트에 적은 냄새가 벌써 조금 달라졌어요.
+
+teiris/inn/10/lines/1
+식기 전에 먹어야 하는데 적을 게 많네요.
+
+teiris/inn/10/lines/2
+냄새부터 적으면 맛을 잊을까요? 아니면 반대일까요?
+
+teiris/inn/10/choices/0/text
+한 입 먼저 드시고 생각나는 말을 해 봐요.
+
+teiris/inn/10/choices/0/response/0
+제가 먹는 동안 적어 주시려는 건 아니죠?
+
+teiris/inn/10/choices/0/response/1
+그냥 같이 먹자는 뜻이었군요. 네, 펜은 그릇에서 먼 쪽에 놓을게요.
+
+teiris/inn/10/choices/1/text
+제가 그릇을 조금 옮겨 드릴게요.
+
+teiris/inn/10/choices/1/response/0
+국물이 노트에 닿지 않게 두고 싶었어요.
+
+teiris/inn/10/choices/1/response/1
+국물 묻은 칸도 먹다 남긴 흔적으로 둘 수 있겠네요.
+
+teiris/inn/10/choices/2/text
+식어도 맛은 알 테니 적는 것부터 마치세요.
+
+teiris/inn/10/choices/2/response/0
+식은 맛은 알겠지만 지금 맛은 놓치겠네요.
+
+teiris/inn/10/choices/2/response/1
+원래 이 맛이 궁금해서 폈는데 노트 때문에 기다리게 됐어요.
+
+teiris/inn/10/seen
+이번에는 펜보다 수저를 먼저 들었어요.
+
+teiris/inn/11/situation
+테이리스가 쓰던 문장을 읽다가 고개를 갸웃한다.
+
+teiris/inn/11/lines/0
+아까 조용해서 다들 놀라지 않았나 봐요. 저만 늦게 웃었네요.
+
+teiris/inn/11/lines/1
+아까 다들 웃는 걸 보니 궁금해졌어요. 멋진 걸 보면 대박이라고 하죠?
+
+teiris/inn/11/lines/2
+조용히 좋을 때도 대박이라고 해도 되나요? 크기는 상관없나요?
+
+teiris/inn/11/choices/0/text
+저라면 그냥 좋다고 할래요.
+
+teiris/inn/11/choices/0/response/0
+그럼 저도 좋다는 말부터 써 볼래요.
+
+teiris/inn/11/choices/0/response/1
+쉬운 말 옆에 늦게 알아들은 때도 적어 놓을게요.
+
+teiris/inn/11/choices/1/text
+헷갈리는 말은 안 써도 충분히 잘 통하잖아요.
+
+teiris/inn/11/choices/1/response/0
+아직 모르는 말도 써 보고 싶어요.
+
+teiris/inn/11/choices/1/response/1
+틀린 뜻을 고쳐 주시면 그 말로 다음번에 같이 웃고 싶어요.
+
+teiris/inn/11/choices/2/text
+크기보다 말하는 사람 마음에 달렸어요.
+
+teiris/inn/11/choices/2/response/0
+그럼 아주 작게 말하는 대박도 있겠군요?
+
+teiris/inn/11/choices/2/response/1
+지금 좋았다고 먼저 말하고 나서 써 볼게요. 또 늦어도 알아들어 주실래요?
+
+teiris/inn/11/seen
+크기와 상관없는 말이라는 건 이제 기억해요.
+
+teiris/inn/12/situation
+테이리스가 노트 첫 장을 펴다 잠시 멈춘다.
+
+teiris/inn/12/lines/0
+첫 장을 펴면 그날 일이 떠오를 것 같아요.
+
+teiris/inn/12/lines/1
+첫 장의 질문은 아직 보여 드리기 어렵네요.
+
+teiris/inn/12/lines/2
+오늘은 펼칠 수 있을 줄 알았는데요.
+
+teiris/inn/12/choices/0/text
+중요한 질문이면 답부터 함께 정해 볼까요?
+
+teiris/inn/12/choices/0/response/0
+아직 어떤 질문인지도 말씀 못 드렸네요.
+
+teiris/inn/12/choices/0/response/1
+노트를 여는 것도 자꾸 망설이게 돼요.
+
+teiris/inn/12/choices/1/text
+첫 장 대신 오늘 적은 것부터 봐요.
+
+teiris/inn/12/choices/1/response/0
+보여 드리겠다고 한 건 기억해요.
+
+teiris/inn/12/choices/1/response/1
+오늘 장에는 펼치다 말았다는 것도 적을게요. 그건 같이 본 일이니까요.
+
+teiris/inn/12/choices/2/text
+다음에 준비되면 알려 주세요.
+
+teiris/inn/12/choices/2/response/0
+그때는 제가 먼저 노트를 가져올게요.
+
+teiris/inn/12/choices/2/response/1
+다음번에도 아직 어렵다고 하면 다시 기다려 주실까요?
+
+teiris/inn/12/seen
+첫 장은 아직 그대로 두고 오늘 장부터 펼칠게요.
+
+teiris/inn/13/situation
+테이리스가 인장 쪽으로 손을 가져갔다가 내린다.
+
+teiris/inn/13/lines/0
+노트에는 보고할 말과 제가 궁금한 말이 섞여 있어요.
+
+teiris/inn/13/lines/1
+나에린에서 사절로 뽑혀 나올 때요.
+
+teiris/inn/13/lines/2
+바깥을 보고 오라는 명과 제가 보고 싶은 것이 같다고 여겼어요.
+
+teiris/inn/13/choices/0/text
+지금은 어디가 달라졌는지 함께 짚어 볼까요?
+
+teiris/inn/13/choices/0/response/0
+같다고 적으려니 빠지는 얼굴이 많아요.
+
+teiris/inn/13/choices/0/response/1
+나에린에 보낼 말과 여기 남길 말을 고를 때 옆에 계셔도 되겠어요?
+
+teiris/inn/13/choices/1/text
+밖에 나오니 생각이 많아지셨겠어요.
+
+teiris/inn/13/choices/1/response/0
+듣던 이야기로는 고를 수 없는 일이 많아요.
+
+teiris/inn/13/choices/1/response/1
+이야기가 길어지면 장을 넘기지 말고 잠깐 멈춰 주세요.
+
+teiris/inn/13/choices/2/text
+사절 일이니 개인적인 감상은 따로 두는 게 낫겠어요.
+
+teiris/inn/13/choices/2/response/0
+따로 두면 편해질 줄 저도 알았어요.
+
+teiris/inn/13/choices/2/response/1
+누가 제게 직접 한 말을 감상이라고만 적기가 어려워서요.
+
+teiris/inn/13/seen
+보고할 말과 제가 남길 말은 아직 나눠 보고 있어요.
+
+teiris/inn/14/situation
+테이리스가 이름을 적던 자리 아래를 비워 둔다.
+
+teiris/inn/14/lines/0
+노트를 펴도 이름을 적을 칸 앞에서 자꾸 멈추네요.
+
+teiris/inn/14/lines/1
+이름을 못 들었다고 그냥 지나가게 되네요.
+
+teiris/inn/14/lines/2
+기억하려면 무엇부터 적는 편이 좋을까요?
+
+teiris/inn/14/choices/0/text
+기억나는 모습을 먼저 말씀해 보세요.
+
+teiris/inn/14/choices/0/response/0
+말하면서 놓친 것이 떠오를 수도 있겠네요.
+
+teiris/inn/14/choices/0/response/1
+떠오르는 모습부터 차근차근 말씀드릴게요.
+
+teiris/inn/14/choices/1/text
+이름 아는 분들부터 기록하면 더 정확하지 않을까요?
+
+teiris/inn/14/choices/1/response/0
+정확하게 쓸 수 있는 사람만 기억할까 봐 겁나요.
+
+teiris/inn/14/choices/1/response/1
+이름을 들을 틈이 없던 분부터 자꾸 떠올라서 노트를 편 거예요.
+
+teiris/inn/14/choices/2/text
+모르는 이름은 비우고 실제 본 것부터 남겨요.
+
+teiris/inn/14/choices/2/response/0
+모르는 걸 모른다고 남기는 칸이겠네요.
+
+teiris/inn/14/choices/2/response/1
+이름을 지어 채우지 않을게요. 빈칸도 오래 남겨 둘 수 있겠어요.
+
+teiris/inn/14/seen
+모르는 이름을 비워 둔 칸은 지우지 않았어요.
+
+teiris/inn/15/situation
+테이리스가 한참 쓰던 노트를 갑자기 덮는다.
+
+teiris/inn/15/lines/0
+덮는 소리가 너무 컸나요? 제 질문이 갑자기 싫어졌어요.
+
+teiris/inn/15/lines/1
+오늘은 아무것도 더 묻지 않겠어요.
+
+teiris/inn/15/lines/2
+생각을 정리하고 나서 말씀드릴게요.
+
+teiris/inn/15/choices/0/text
+정리 끝나면 알려 주세요. 저는 결론만 들을게요.
+
+teiris/inn/15/choices/0/response/0
+정리를 잘하면 아무렇지 않은 말만 남을 거예요.
+
+teiris/inn/15/choices/0/response/1
+그전에 같이 망설여 주실 수 있는지도 여쭙고 싶었어요.
+
+teiris/inn/15/choices/1/text
+혼자 정하기 전에 듣고 싶은 말이 있는지 물어봐 주세요.
+
+teiris/inn/15/choices/1/response/0
+혼자 결론을 내린 다음 보여 드리려고 했네요.
+
+teiris/inn/15/choices/1/response/1
+얘기까지 그만할 뻔했어요. 아직 듣고 계시다면 다시 말할게요.
+
+teiris/inn/15/choices/2/text
+그럼 잠깐 쉬었다 이야기해요.
+
+teiris/inn/15/choices/2/response/0
+노트는 옆에 놓고 쉬어 볼게요.
+
+teiris/inn/15/choices/2/response/1
+쉰 뒤에는 무엇 때문에 멈췄는지부터 말씀드릴게요.
+
+teiris/inn/15/seen
+노트를 덮더라도 말씀까지 끊지는 않으려고 해요.
+
+teiris/inn/16/situation
+테이리스가 노트 마지막 쪽을 손끝으로 누른다.
+
+teiris/inn/16/lines/0
+맨 끝 칸은 제 얘기를 적으려고 남겼어요.
+
+teiris/inn/16/lines/1
+마지막 칸에는 함께 다닌 분의 이름을 남기고 싶어요.
+
+teiris/inn/16/lines/2
+무엇을 했는지만 적으면 빠지는 것이 있어서요.
+
+teiris/inn/16/choices/0/text
+이름 옆에 무엇을 쓸지는 테이리스 씨가 골라 주세요.
+
+teiris/inn/16/choices/0/response/0
+처음엔 한 일만 세면 되는 줄 알았어요.
+
+teiris/inn/16/choices/0/response/1
+오늘은 누구와 함께 돌아왔는지를 제 손으로 적고 싶어요. 그게 제 기록이니까요.
+
+teiris/inn/16/choices/1/text
+글씨 쓸 자리가 넉넉한가요?
+
+teiris/inn/16/choices/1/response/0
+여백을 조금 더 남겨 두었어요.
+
+teiris/inn/16/choices/1/response/1
+다음 장을 붙이더라도 이 칸은 이대로 두고 싶어요.
+
+teiris/inn/16/choices/2/text
+이름이 많아질 테니 날짜순으로 정리해 드릴까요?
+
+teiris/inn/16/choices/2/response/0
+찾기 편하게 쓰려던 칸은 아니었어요.
+
+teiris/inn/16/choices/2/response/1
+끝에 하나 남겨 둔 뜻까지 고르게 정리되면 조금 아쉬울 것 같아요.
+
+teiris/inn/16/seen
+마지막 칸에는 다른 기록을 밀어 넣지 않았어요.
+
+teiris/inn/17/situation
+테이리스가 보고서와 노트를 서로 다른 쪽에 놓는다.
+
+teiris/inn/17/lines/0
+두 종이를 겹치면 쉬운데 오늘은 나란히 놓았어요.
+
+teiris/inn/17/lines/1
+숲의 뜻과 제 뜻이 늘 같지는 않아요.
+
+teiris/inn/17/lines/2
+그 말을 쓰면 돌아갈 곳을 잊은 사람처럼 보일까 봐 망설였어요.
+
+teiris/inn/17/choices/0/text
+지금은 노트에만 적어 둬요.
+
+teiris/inn/17/choices/0/response/0
+말을 고를 동안은 그렇게 남겨 둘게요.
+
+teiris/inn/17/choices/0/response/1
+아직 읽어 드릴 말은 아니어도 빈칸으로 두진 않을게요.
+
+teiris/inn/17/choices/1/text
+충돌하는 부분은 보고서에서 잠깐 빼면 되겠어요.
+
+teiris/inn/17/choices/1/response/0
+보고서에 안 넣어도 제 노트에는 적어 둘래요.
+
+teiris/inn/17/choices/1/response/1
+어떻게 쓸지 도와 달라는 말보다 왜 다른지 들어 달라는 말이었어요.
+
+teiris/inn/17/choices/2/text
+어디서 왔는지와 지금 본 것은 함께 써도 되잖아요.
+
+teiris/inn/17/choices/2/response/0
+숲의 말이 싫어졌다고 쓸 필요는 없겠군요.
+
+teiris/inn/17/choices/2/response/1
+두 쪽을 같이 읽어도 제 말이 될 수 있다는 걸 이제 알겠어요.
+
+teiris/inn/17/seen
+종이를 나눠 놓아도 두 쪽 다 제가 쓴 말이네요.
+
+teiris/inn/18/situation
+테이리스가 펜 뚜껑을 닫고 찻잔을 잡는다.
+
+teiris/inn/18/lines/0
+펜을 놓고 나니 무슨 얘기였는지 더 잘 들리네요.
+
+teiris/inn/18/lines/1
+적지 않고 지나가면 잊을까 봐 늘 서둘렀어요.
+
+teiris/inn/18/lines/2
+오늘 이야기는 조금 늦게 적고 싶어요.
+
+teiris/inn/18/choices/0/text
+잊기 전에 한 줄만 쓰고 다시 들으시면 어때요?
+
+teiris/inn/18/choices/0/response/0
+그 한 줄이 자꾸 길어졌어요.
+
+teiris/inn/18/choices/0/response/1
+오늘은 잊어버릴 수 있어도 같이 듣는 쪽을 고르고 싶어요.
+
+teiris/inn/18/choices/1/text
+그러면 다 마실 때까지 오늘 얘기만 해요.
+
+teiris/inn/18/choices/1/response/0
+적을 문장으로 고르지 않고 들어도 되는군요.
+
+teiris/inn/18/choices/1/response/1
+지금 마시는 차도 대박인가요? 아, 차 얘기가 끝나고 또 늦게 말했네요.
+
+teiris/inn/18/choices/2/text
+잊을까 봐 걱정되면 적으셔도 돼요.
+
+teiris/inn/18/choices/2/response/0
+걱정은 나지만 잠깐 내려놓아 보려고요.
+
+teiris/inn/18/choices/2/response/1
+가방 속에 있다는 것만 알고 잠깐 잊어 볼게요.
+
+teiris/inn/18/seen
+차가 식을 때까지는 펜을 덮어 두려고 해요.
+
+teiris/inn/19/situation
+테이리스가 웃다가 잠깐 말수를 줄인다.
+
+teiris/inn/19/lines/0
+노트를 안 펴니 질문이 조금씩 늦게 떠올라요.
+
+teiris/inn/19/lines/1
+제가 궁금한 것만 많이 물었죠?
+
+teiris/inn/19/lines/2
+오늘은 묻지 않고 들어도 될까요? 말씀하다 멈추셔도 괜찮아요.
+
+teiris/inn/19/choices/0/text
+저도 테이리스 씨에게 묻고 싶던 게 있었어요.
+
+teiris/inn/19/choices/0/response/0
+질문을 받을 생각은 하면서도 준비가 늦었네요.
+
+teiris/inn/19/choices/0/response/1
+대답은 들으면서 생각할게요. 지금 궁금한 걸 물어봐 주세요.
+
+teiris/inn/19/choices/1/text
+오늘은 별다른 이야기가 없어요.
+
+teiris/inn/19/choices/1/response/0
+별다르지 않은 하루도 같이 앉아 듣고 싶어요.
+
+teiris/inn/19/choices/1/response/1
+별일 없었다는 말부터 들어도 괜찮아요.
+
+teiris/inn/19/choices/2/text
+모처럼 조용하시니 둘 다 아무 말 말고 쉴까요?
+
+teiris/inn/19/choices/2/response/0
+조용히 쉬는 것도 좋지만 오늘은 듣고 싶었어요.
+
+teiris/inn/19/choices/2/response/1
+묻지 않는 게 관심이 없어서인 줄로 들렸을까 봐 조금 걱정됐어요.
+
+teiris/inn/19/seen
+오늘은 질문을 떠올려도 끝까지 듣고 나서 할게요.
+
+teiris/inn/20/situation
+테이리스가 노트 끈을 느슨하게 묶어 둔다.
+
+teiris/inn/20/lines/0
+빈 줄을 보고 약속할 곳부터 찾을 뻔했어요.
+
+teiris/inn/20/lines/1
+다음에도 함께 보고 싶은 것이 많아요.
+
+teiris/inn/20/lines/2
+모두 약속하면 지킬 수 있을지부터 묻게 되네요.
+
+teiris/inn/20/choices/0/text
+가장 먼저 보고 싶은 건 뭔가요?
+
+teiris/inn/20/choices/0/response/0
+오늘은 저녁 식탁부터 다시 보고 싶어요.
+
+teiris/inn/20/choices/0/response/1
+오늘 저녁을 보고 나서 다음 것을 고르면 되겠네요.
+
+teiris/inn/20/choices/1/text
+기억 못 할 수도 있으니 약속은 가볍게 해요.
+
+teiris/inn/20/choices/1/response/0
+기억 못 하면 다시 물어보고 싶어요.
+
+teiris/inn/20/choices/1/response/1
+가볍게 하신 말도 저는 기억해요. 적게 약속해도 지키고 싶어요.
+
+teiris/inn/20/choices/2/text
+하나씩 정하고 못 가면 꼭 이야기해요.
+
+teiris/inn/20/choices/2/response/0
+못 가는 날도 쓰겠다는 약속이군요.
+
+teiris/inn/20/choices/2/response/1
+못 갔으면 왜 못 갔는지 같이 얘기하면 좋겠어요.
+
+teiris/inn/20/seen
+노트를 채우려고 약속을 늘리지는 않을래요.
+
+teiris/inn/21/situation
+테이리스가 낡은 기록 옆에 빈 종이를 댄다.
+
+teiris/inn/21/lines/0
+전에 쓴 줄이 부끄러워 종이로 가려 봤어요.
+
+teiris/inn/21/lines/1
+전에 적은 말과 지금 본 것이 달라요.
+
+teiris/inn/21/lines/2
+틀린 줄을 지우면 처음에 잘못 본 것도 사라지겠죠?
+
+teiris/inn/21/choices/0/text
+새로 알게 된 게 맞으니 옛 기록은 버리셔도 돼요.
+
+teiris/inn/21/choices/0/response/0
+틀렸다는 걸 알게 된 날도 버리게 되네요.
+
+teiris/inn/21/choices/0/response/1
+처음부터 맞혔다고 적고 싶은 건 아닌데 가리려 한 마음은 비슷했네요.
+
+teiris/inn/21/choices/1/text
+처음 기록도 두고 바뀐 까닭을 옆에 적어요.
+
+teiris/inn/21/choices/1/response/0
+틀렸던 제가 다음 장에서 달라지는 거겠네요.
+
+teiris/inn/21/choices/1/response/1
+맨 처음 같이 잘못 알았던 얘기도 남겨 둘래요. 나중에 같이 읽어 주세요.
+
+teiris/inn/21/choices/2/text
+지금 본 것을 먼저 말씀해 주세요.
+
+teiris/inn/21/choices/2/response/0
+이번에는 무엇을 확인했는지부터 말할게요.
+
+teiris/inn/21/choices/2/response/1
+이번에 확인한 순서도 빠뜨리지 않고 말씀드릴게요.
+
+teiris/inn/21/seen
+빈 종이는 틀린 줄을 가리지 않게 옆에 붙였어요.
+
+teiris/inn/22/situation
+테이리스가 모르는 말이 적힌 줄에서 웃음을 멈춘다.
+
+teiris/inn/22/lines/0
+웃고 난 뒤에야 이 말 뜻을 다시 묻게 됐네요.
+
+teiris/inn/22/lines/1
+이 말은 아직도 조금 헷갈려요.
+
+teiris/inn/22/lines/2
+맞게 말했는지보다, 누구와 웃었는지가 먼저 떠올라요.
+
+teiris/inn/22/choices/0/text
+헷갈리면 같이 다시 써 보면서 웃어요.
+
+teiris/inn/22/choices/0/response/0
+제가 늦게 웃어도 기다려 주시는 거예요?
+
+teiris/inn/22/choices/0/response/1
+이번에도 대박을 한참 뒤에 말했는데요. 같이 웃은 때 옆에 늦었다고 써 둘게요.
+
+teiris/inn/22/choices/1/text
+그 말은 천천히 익혀도 돼요.
+
+teiris/inn/22/choices/1/response/0
+뜻을 아는 속도도 다를 수 있겠어요.
+
+teiris/inn/22/choices/1/response/1
+천천히 익혀도 누가 먼저 웃었는지는 기억날 것 같아요.
+
+teiris/inn/22/choices/2/text
+실수한 줄은 지워 드릴까요? 깔끔해 보이게요.
+
+teiris/inn/22/choices/2/response/0
+지우면 다음에 또 처음 묻는 말이 되겠어요.
+
+teiris/inn/22/choices/2/response/1
+어떤 말로 웃었는지보다 고쳐 가며 같이 있었던 걸 남겨 두고 싶어요.
+
+teiris/inn/22/seen
+헷갈리는 말 옆에는 지우지 않은 흔적이 남았어요.
+
+teiris/inn/23/situation
+테이리스가 노트를 덮은 채 문 쪽을 본다.
+
+teiris/inn/23/lines/0
+보고서에 넣을 칸이 모자란데도 여기에 앉았어요.
+
+teiris/inn/23/lines/1
+돌아갈 날의 보고서를 생각하면 마음이 급해져요.
+
+teiris/inn/23/lines/2
+그렇다고 지금 듣는 말을 줄이고 싶지는 않아요.
+
+teiris/inn/23/choices/0/text
+오늘 쓸 분량부터 마치실래요?
+
+teiris/inn/23/choices/0/response/0
+짧게 정리하고 다시 와도 될까요?
+
+teiris/inn/23/choices/0/response/1
+보고서는 짧게 쓰고 돌아와서 더 말씀드릴게요.
+
+teiris/inn/23/choices/1/text
+일을 먼저 마쳐야 마음 놓일 테니 제가 자리를 비울게요.
+
+teiris/inn/23/choices/1/response/0
+자리를 비워 주시면 보고서는 빨리 쓰겠지요.
+
+teiris/inn/23/choices/1/response/1
+그런데 오늘은 그 일을 늦추더라도 여기 있고 싶어서 온 거예요.
+
+teiris/inn/23/choices/2/text
+보고서에 못 담을 이야기도 여기서 나누면 돼요.
+
+teiris/inn/23/choices/2/response/0
+남길 수 있는 말만 고르지 않아도 되겠어요.
+
+teiris/inn/23/choices/2/response/1
+지금 같이 듣는 소리는 적지 않아도 제게 남을 것 같아요. 조금만 더 계세요.
+
+teiris/inn/23/seen
+보고서가 덮여 있어도 이야기는 계속 들을 수 있네요.
+
+teiris/inn/24/situation
+테이리스가 빈손으로 와 식탁 앞에 선다.
+
+teiris/inn/24/lines/0
+빈손이 조금 어색해서 문 앞에서 소매를 만졌어요.
+
+teiris/inn/24/lines/1
+노트는 두고 왔어요.
+
+teiris/inn/24/lines/2
+이상하네요. 무엇을 물을지 생각하지 않아도 발이 여기로 왔어요.
+
+teiris/inn/24/choices/0/text
+한가하신가 봐요. 잠깐만 기다리시면 할 일을 찾아볼게요.
+
+teiris/inn/24/choices/0/response/0
+한가해서 온 줄로 들렸나요?
+
+teiris/inn/24/choices/0/response/1
+여기서 함께 앉아 있고 싶어서 왔어요.
+
+teiris/inn/24/choices/1/text
+오늘은 질문 없어도 함께 앉아요.
+
+teiris/inn/24/choices/1/response/0
+그럼 무슨 말을 할지 미리 고르지 않고 올게요.
+
+teiris/inn/24/choices/1/response/1
+괜히 학술 조사라고 말할 뻔했어요. 오늘은 그냥 보고 싶어서 왔어요.
+
+teiris/inn/24/choices/2/text
+마실 것부터 고를까요?
+
+teiris/inn/24/choices/2/response/0
+오늘은 향을 맡고 천천히 골라 볼래요.
+
+teiris/inn/24/choices/2/response/1
+향을 맡아도 오늘은 노트를 찾지 않을게요.
+
+teiris/inn/24/seen
+노트가 없어도 여기서는 손이 덜 허전하네요.
+
+teiris/inn/25/situation
+테이리스가 잔 바닥의 자국을 보고 웃는다.
+
+teiris/inn/25/lines/0
+잔을 놓는 손을 보고 나서야 누가 앉았는지 알았어요.
+
+teiris/inn/25/lines/1
+처음에는 이런 자국도 오래 들여다봤어요.
+
+teiris/inn/25/lines/2
+오늘은 누가 어느 잔을 썼는지 먼저 보이네요.
+
+teiris/inn/25/choices/0/text
+지금 이 잔 자국도 우리 얘기에 들어가겠네요.
+
+teiris/inn/25/choices/0/response/0
+처음에는 동그라미 크기만 재고 있었는데요.
+
+teiris/inn/25/choices/0/response/1
+지금 자국이 남은 걸 보고 대박이라고 해도 될까요? 아, 닦은 뒤에 또 늦었네요.
+
+teiris/inn/25/choices/1/text
+식탁을 닦을 천을 가져올게요.
+
+teiris/inn/25/choices/1/response/0
+자국이 없어져도 오늘 일은 기억하겠어요.
+
+teiris/inn/25/choices/1/response/1
+천을 가져오시면 저는 잔을 먼저 들고 있을게요.
+
+teiris/inn/25/choices/2/text
+이젠 잘 아는 자리니 다른 데도 조사해 보세요.
+
+teiris/inn/25/choices/2/response/0
+다시 오니 전에 못 본 게 눈에 들어와요.
+
+teiris/inn/25/choices/2/response/1
+여기서 함께 본 얼굴이 늘어나서 다시 앉고 싶었던 거예요.
+
+teiris/inn/25/seen
+오늘의 잔 자국은 굳이 종이에 옮기지 않아도 되겠어요.
+
+teiris/inn/26/situation
+테이리스가 보고서를 접어 가방에 넣는다.
+
+teiris/inn/26/lines/0
+누가 함께 있었는지 쓰니까 보고서와는 다른 말이 나왔어요.
+
+teiris/inn/26/lines/1
+이제는 어디까지 봤는지보다 누구와 봤는지도 말하고 싶어요.
+
+teiris/inn/26/lines/2
+제가 고른 말이 조금씩 길어지네요.
+
+teiris/inn/26/choices/0/text
+천천히 읽어 주실래요?
+
+teiris/inn/26/choices/0/response/0
+입으로 읽으면 어색한 말도 찾을 수 있겠네요.
+
+teiris/inn/26/choices/0/response/1
+읽다가 제 말이 낯설면 고치기 전에 한번 여쭤볼게요.
+
+teiris/inn/26/choices/1/text
+같이 본 일이니 제 기록을 가져다 쓰셔도 돼요.
+
+teiris/inn/26/choices/1/response/0
+도와주시려는 뜻인 줄 알아요.
+
+teiris/inn/26/choices/1/response/1
+그런데 같은 곳에서 제가 다르게 본 것도 여기 남기고 싶네요.
+
+teiris/inn/26/choices/2/text
+길어져도 중간에 제 말로 바꾸지 않을게요.
+
+teiris/inn/26/choices/2/response/0
+다르게 기억한 곳은 마지막에 들려주세요.
+
+teiris/inn/26/choices/2/response/1
+제 문장이 틀려도 제 손으로 고치고 싶어요. 그동안 듣고 계시면 좋겠어요.
+
+teiris/inn/26/seen
+길어진 말은 줄이기 전에 한 번 읽어 드리고 싶어요.
+
+teiris/inn/27/situation
+테이리스가 이야기 도중 펜을 찾다가 손을 거둔다.
+
+teiris/inn/27/lines/0
+손이 먼저 가방으로 갔네요. 펜이 없는 줄 알고 잠깐 놀랐어요.
+
+teiris/inn/27/lines/1
+아, 또 적으려고 했네요.
+
+teiris/inn/27/lines/2
+조금 잊어도 다시 물을 수 있는 사람이 있다는 걸 자꾸 잊어요.
+
+teiris/inn/27/choices/0/text
+걱정 없게 제가 매번 요약해서 남겨 드릴게요.
+
+teiris/inn/27/choices/0/response/0
+또 전부 남겨야 할 이야기가 되는군요.
+
+teiris/inn/27/choices/0/response/1
+잊어도 다시 듣는 사이가 좋다는 말을 하고 싶었어요. 노트 없이도요.
+
+teiris/inn/27/choices/1/text
+잊으면 물어봐요. 저도 다시 들을게요.
+
+teiris/inn/27/choices/1/response/0
+그럼 오늘은 한 줄 덜 적어도 괜찮겠어요.
+
+teiris/inn/27/choices/1/response/1
+나중에 다시 말해 달라고 해도 되는 게 이렇게 편할 줄은 몰랐어요.
+
+teiris/inn/27/choices/2/text
+펜은 가방 안에 있어요.
+
+teiris/inn/27/choices/2/response/0
+어디 있는지만 알아 두고 지금은 안 꺼낼래요.
+
+teiris/inn/27/choices/2/response/1
+펜이 있는 걸 확인했으니 이제 가방을 닫을게요.
+
+teiris/inn/27/seen
+다시 물어볼 수 있다는 말은 적지 않아도 기억나요.
+
+teiris/dungeon/0/variants/0
+어디부터 볼까요? 맡은 자리부터 확인할게요.
+
+teiris/dungeon/0/variants/1
+들은 것과 어떻게 다른지 직접 보고 싶어요.
+
+teiris/dungeon/1/variants/0
+노트는 챙겼어요. 가면서 질문해도 괜찮을까요?
+
+teiris/dungeon/1/variants/1
+오늘은 놓친 분이 없는지 저도 세어 볼게요.
+
+teiris/dungeon/2/variants/0
+지난번에 못 본 곳을 같이 볼 수 있겠네요.
+
+teiris/dungeon/2/variants/1
+약속은 하나씩 지킬래요. 오늘은 함께 돌아오기예요.
+
+teiris/dungeon/3/variants/0
+새로운 층이네요. 돌아갈 길부터 봐 둬요.
+
+teiris/dungeon/3/variants/1
+발밑이 달라졌어요. 천천히 들어가도 될까요?
+
+teiris/dungeon/4/variants/0
+어디가 달라 보이나요? 제가 본 것과 비교할래요.
+
+teiris/dungeon/4/variants/1
+노트는 나중에 펼게요. 지금은 길부터 볼게요.
+
+teiris/dungeon/5/variants/0
+같이 본다고 같은 것을 기억하지는 않겠지요?
+
+teiris/dungeon/5/variants/1
+안 보이는 곳은 서로 말해 주기로 해요.
+
+teiris/dungeon/6/variants/0
+무엇인지 가까이에서 살펴봐도 될까요?
+
+teiris/dungeon/6/variants/1
+아직 모르는 것은 빈칸으로 남겨 둘게요.
+
+teiris/dungeon/7/variants/0
+이건 먼저 보셨나요? 어디에서 눈에 띄었어요?
+
+teiris/dungeon/7/variants/1
+제가 본 모양도 말씀드릴게요. 같은지 들어 봐요.
+
+teiris/dungeon/8/variants/0
+오늘의 발견에는 함께 본 분도 적고 싶어요.
+
+teiris/dungeon/8/variants/1
+기록하기 전에 같이 한 번 더 살펴봐요.
+
+teiris/dungeon/9/variants/0
+노트는 넣어 둘게요. 지금은 앞을 봐야겠어요.
+
+teiris/dungeon/9/variants/1
+저쪽을 살필게요. 위험하면 알려 주세요.
+
+teiris/dungeon/10/variants/0
+제 뒤가 안 보여요. 잠깐 살펴 주시겠어요?
+
+teiris/dungeon/10/variants/1
+혼자 판단하기 전에 신호를 기다릴게요.
+
+teiris/dungeon/11/variants/0
+지금 본 것을 믿을게요. 함께 움직여요.
+
+teiris/dungeon/11/variants/1
+모르는 움직임이에요. 아는 척하지 않을게요.
+
+teiris/dungeon/12/variants/0
+이제 끝났다고 해도 되나요? 다친 분부터 봐요.
+
+teiris/dungeon/12/variants/1
+적을 말이 많지만 지금은 손을 빌려드릴게요.
+
+teiris/dungeon/13/variants/0
+기록은 뒤에 해도 되겠어요. 먼저 앉으세요.
+
+teiris/dungeon/13/variants/1
+어떻게 보셨나요? 숨을 돌린 뒤에 듣고 싶어요.
+
+teiris/dungeon/14/variants/0
+무사히 끝나서 좋아요. 이번에는 이 말부터 할래요.
+
+teiris/dungeon/14/variants/1
+펜보다 얼굴을 먼저 봤어요. 모두 괜찮으신가요?
+
+teiris/dungeon/15/variants/0
+들은 이야기만으로는 정하기 어렵네요.
+
+teiris/dungeon/15/variants/1
+강해 보여요. 준비가 됐는지 다시 물어볼게요.
+
+teiris/dungeon/16/variants/0
+무엇이 걱정되나요? 말하고 들어가면 좋겠어요.
+
+teiris/dungeon/16/variants/1
+모르는 점은 남겨 둔 채 준비부터 맞춰 봐요.
+
+teiris/dungeon/17/variants/0
+보고할 성과 때문에 서두르지는 않을 거예요.
+
+teiris/dungeon/17/variants/1
+같이 돌아올 수 있을지부터 생각하고 싶어요.
+
+teiris/dungeon/18/variants/0
+이겼네요. 지금 모습은 잊지 않고 싶어요.
+
+teiris/dungeon/18/variants/1
+기록하기 전에 다친 분이 있는지 볼게요.
+
+teiris/dungeon/19/variants/0
+이럴 때 대박이라고 하나요? 아, 상처부터 봐요.
+
+teiris/dungeon/19/variants/1
+끝났다는 걸 적으려니 아직 손이 떨리네요.
+
+teiris/dungeon/20/variants/0
+누구와 여기 있었는지도 함께 남길게요.
+
+teiris/dungeon/20/variants/1
+빠뜨린 이야기는 돌아가서 서로 물어봐요.
+
+teiris/dungeon/21/variants/0
+조금 멈춰요. 얼굴이 아까와 달라 보여요.
+
+teiris/dungeon/21/variants/1
+힘이 빠지셨나요? 뒤에서 숨을 돌려요.
+
+teiris/dungeon/22/variants/0
+괜찮다는 말만 믿고 지나가고 싶지는 않아요.
+
+teiris/dungeon/22/variants/1
+어디가 힘든지 말해 주시면 같이 방법을 찾아요.
+
+teiris/dungeon/23/variants/0
+참는 모습을 적고 싶지는 않아요. 쉬어 주세요.
+
+teiris/dungeon/23/variants/1
+오늘은 이쪽에서 도움을 청해 주셔도 돼요.
+
+teiris/dungeon/24/variants/0
+쓰러지셨어요. 상태를 확인할 자리를 비워요.
+
+teiris/dungeon/24/variants/1
+아직 움직이지 마세요. 다친 곳부터 봐야 해요.
+
+teiris/dungeon/25/variants/0
+지금은 질문하지 않을게요. 곁에서 기다릴게요.
+
+teiris/dungeon/25/variants/1
+제가 무엇을 도우면 될까요? 혼자 들지는 마세요.
+
+teiris/dungeon/26/variants/0
+여기서 혼자 결론 내리지 않을게요. 함께 봐요.
+
+teiris/dungeon/26/variants/1
+곁에 있을게요. 눈을 뜨시면 먼저 말씀해 주세요.
+
+teiris/dungeon/27/variants/0
+제가 다쳤어요. 잠깐 멈춰도 될까요?
+
+teiris/dungeon/27/variants/1
+손이 떨리네요. 상태부터 살펴볼게요.
+
+teiris/dungeon/28/variants/0
+괜찮을 거라고 적기 전에 도움부터 청할게요.
+
+teiris/dungeon/28/variants/1
+혼자 정하지 않을래요. 상처를 봐 주시겠어요?
+
+teiris/dungeon/29/variants/0
+늦기 전에 말씀드릴게요. 저도 지금 쉬어야 해요.
+
+teiris/dungeon/29/variants/1
+참아 보면 알 거라는 생각은 접을게요. 도와주세요.
+
+teiris/dungeon/30/variants/0
+잠깐 앉아도 될까요? 궁금한 것은 나중에 물을게요.
+
+teiris/dungeon/30/variants/1
+여기서 숨을 고르면 들리는 소리도 다르네요.
+
+teiris/dungeon/31/variants/0
+한꺼번에 묻지 않을게요. 먼저 쉬고 이야기해요.
+
+teiris/dungeon/31/variants/1
+물은 마셨나요? 저도 노트보다 잔부터 들게요.
+
+teiris/dungeon/32/variants/0
+오늘은 적지 않고 함께 쉬는 시간을 가질래요.
+
+teiris/dungeon/32/variants/1
+말이 없어도 괜찮네요. 이대로 조금 더 있어요.
+
+teiris/dungeon/33/variants/0
+봉인이 있네요. 모양부터 봐도 될까요?
+
+teiris/dungeon/33/variants/1
+모르는 표시예요. 뜻을 정해 말하지 않을게요.
+
+teiris/dungeon/34/variants/0
+살펴보는 동안 뒤쪽을 맡아 주실 수 있나요?
+
+teiris/dungeon/34/variants/1
+열지 않아도 알아볼 수 있는 것부터 보겠어요.
+
+teiris/dungeon/35/variants/0
+호기심만으로 열지는 않을게요. 같이 정해요.
+
+teiris/dungeon/35/variants/1
+돌아가서 다시 알아봐도 돼요. 서두르지 말아요.
+
+teiris/dungeon/36/variants/0
+돌아왔네요. 보고서와 노트를 나눠 써야겠어요.
+
+teiris/dungeon/36/variants/1
+길에서 본 것을 잊기 전에 잠깐만 적어 둘게요.
+
+teiris/dungeon/37/variants/0
+오늘 본 것 중 무엇이 먼저 떠오르나요?
+
+teiris/dungeon/37/variants/1
+다 적지는 못했어요. 쉬고 나서 들려주시겠어요?
+
+teiris/dungeon/38/variants/0
+기록보다 먼저 인사할래요. 함께 와서 좋았어요.
+
+teiris/dungeon/38/variants/1
+오늘은 노트를 덮고 같은 식탁에 앉고 싶어요.
+
+teiris/dungeon/39/variants/0
+돌아가는 길부터 봐요. 기록은 나중에 해요.
+
+teiris/dungeon/39/variants/1
+못 걷는 분이 있나요? 짐부터 나눠 들어요.
+
+teiris/dungeon/40/variants/0
+지금 모르는 이유를 급히 정하지는 말아요.
+
+teiris/dungeon/40/variants/1
+제가 놓친 것도 있을 거예요. 돌아가서 같이 봐요.
+
+teiris/dungeon/41/variants/0
+이번 일을 혼자 결론 내리고 덮지는 않을게요.
+
+teiris/dungeon/41/variants/1
+졌어도 들을 이야기는 남아요. 함께 돌아가요.
+
+teiris/transitions/0/situation
+테이리스가 묶어 둔 노트 끈을 푼다.
+
+teiris/transitions/0/lines/0
+결론부터 정해 놓지는 않을게요.
+
+teiris/transitions/0/lines/1
+말씀하신 뜻을 한 번 더 들어 보고 싶어요.
+
+teiris/transitions/1/situation
+테이리스가 뒤집어 놓았던 종이를 돌린다.
+
+teiris/transitions/1/lines/0
+들은 것과 본 것을 다시 나눠 보려고 해요.
+
+teiris/transitions/1/lines/1
+아직 모르는 곳은 물어봐도 될까요?
+
+teiris/transitions/2/situation
+테이리스가 노트를 가운데로 펼친다.
+
+teiris/transitions/2/lines/0
+음식 이름부터 보이네요. 보고서와는 다른 노트예요.
+
+teiris/transitions/2/lines/1
+여기 적힌 음식 중에 궁금한 게 있나요?
+
+teiris/transitions/3/situation
+테이리스가 노트 앞쪽을 손가락으로 누른다.
+
+teiris/transitions/3/lines/0
+사절로 골라졌을 때 이야기를 하고 싶어요.
+
+teiris/transitions/3/lines/1
+보고서에는 쓰지 않을 망설임도 있어서요.
+
+teiris/transitions/4/situation
+테이리스가 보고서에서 펜을 떼어 놓는다.
+
+teiris/transitions/4/lines/0
+숲의 뜻과 제 뜻이 다른 곳을 이제는 말하고 싶어요.
+
+teiris/transitions/4/lines/1
+같은 것을 봐도 제 말로 남기려고 해요.
+
+teiris/transitions/5/situation
+테이리스가 노트의 빈 줄을 조금 남겨 둔다.
+
+teiris/transitions/5/lines/0
+다음에 같이 볼 것들을 천천히 정하고 싶어요.
+
+teiris/transitions/5/lines/1
+지킬 수 있는 약속부터 하나씩 해요.
+
+teiris/transitions/6/situation
+테이리스가 노트 없이 식탁에 앉는다.
+
+teiris/transitions/6/lines/0
+기억이 흐려지면 다시 물어볼 수 있겠네요.
+
+teiris/transitions/6/lines/1
+종이에 남길 말부터 고르지 않아도 편해요.
+
+teiris/transitions/7/situation
+테이리스가 펜을 들었다가 식탁에 놓는다.
+
+teiris/transitions/7/lines/0
+다 알 거라고 생각해서 안 물은 것이 있었어요.
+
+teiris/transitions/7/lines/1
+익숙한 말도 오늘 뜻은 다시 듣고 싶어요.
+
+teiris/transitions/8/situation
+테이리스가 약속을 적은 줄에서 멈춘다.
+
+teiris/transitions/8/lines/0
+같은 말을 다르게 기억하고 있었네요.
+
+teiris/transitions/8/lines/1
+새 말을 적기 전에 그때 뜻부터 맞춰 보고 싶어요.
+
+teiris/transitions/9/situation
+테이리스가 노트 마지막 쪽을 덮는다.
+
+teiris/transitions/9/lines/0
+지금은 제 생각을 쉽게 적기 어려워요.
+
+teiris/transitions/9/lines/1
+혼자 정하고 알리지는 않으려고 해요.
+
+teiris/transitions/10/situation
+테이리스가 첫 장을 넘겨 가운데를 편다.
+
+teiris/transitions/10/lines/0
+앞쪽 이야기는 오늘 조금 어렵네요.
+
+teiris/transitions/10/lines/1
+직접 본 것부터 같이 짚어도 괜찮을까요?
+
+teiris/transitions/11/situation
+테이리스가 노트를 자기 쪽으로 옮긴다.
+
+teiris/transitions/11/lines/0
+말씀을 듣기 전에 제가 뜻을 보탠 것 같아요.
+
+teiris/transitions/11/lines/1
+당분간은 물은 것부터 정확히 들을게요.
+
+teiris/transitions/12/situation
+테이리스가 쓰던 줄을 비워 놓는다.
+
+teiris/transitions/12/lines/0
+아까 하신 말씀을 곧이곧대로 적기는 어렵겠어요.
+
+teiris/transitions/12/lines/1
+제가 본 것과 다른 곳부터 확인하고 싶어요.
+
+teiris/transitions/13/situation
+테이리스가 노트 끈을 단단히 묶는다.
+
+teiris/transitions/13/lines/0
+지금은 더 물어도 새로 들을 마음이 안 나요.
+
+teiris/transitions/13/lines/1
+필요한 일은 확인하되 제 이야기는 접어 둘게요.
+
+naran/inn/0/situation
+나란이 맞은편 의자를 발끝으로 당긴다.
+
+naran/inn/0/lines/0
+앉으시려고요?
+
+naran/inn/0/lines/1
+값부터 물어도 돼요?
+
+naran/inn/0/lines/2
+지금은 웃어 드리는 것도 품이 들어서요.
+
+naran/inn/0/choices/0/text
+웃는 건 빼고 출발 시각만 맞춰요.
+
+naran/inn/0/choices/0/response/0
+그건 값 안 받을게요.
+
+naran/inn/0/choices/0/response/1
+다른 약속까지 얹지는 마세요.
+
+naran/inn/0/choices/1/text
+시간만 전하고 갈게요.
+
+naran/inn/0/choices/1/response/0
+시각은 들었어요. 저도 늦지 않을게요.
+
+naran/inn/0/choices/2/text
+기분 푸시게 좋은 소문을 가져올게요.
+
+naran/inn/0/choices/2/response/0
+제 기분도 소문으로 살 수 있나요?
+
+naran/inn/0/choices/2/response/1
+오늘은 기분까지 흥정하고 싶진 않아요.
+
+naran/inn/0/seen
+오늘은 웃음보다 출발 시각이 싸게 먹히겠어요.
+
+naran/inn/1/situation
+나란이 접은 종이를 손바닥 아래 둔다.
+
+naran/inn/1/lines/0
+궁금해요?
+
+naran/inn/1/lines/1
+궁금하셔도 아직 팔기로 정한 얘기는 아니에요.
+
+naran/inn/1/lines/2
+들은 얘기를 어디까지 전할지 아직 못 맞췄잖아요.
+
+naran/inn/1/choices/0/text
+오늘은 종이를 안 봐도 돼요.
+
+naran/inn/1/choices/0/response/0
+그 말은 기억해 둘게요.
+
+naran/inn/1/choices/1/text
+필요한 분께 제가 대신 물어봐 드릴게요.
+
+naran/inn/1/choices/1/response/0
+제가 말하기도 전에 넘길 곳을 고르셨네요.
+
+naran/inn/1/choices/1/response/1
+그 친절은 조금 비싸요.
+
+naran/inn/1/choices/2/text
+제가 전한 부분만 먼저 맞춰 봐요.
+
+naran/inn/1/choices/2/response/0
+출처까지 가져가시진 않겠네요.
+
+naran/inn/1/choices/2/response/1
+그럼 제 쪽도 거기까지만 펴 볼게요.
+
+naran/inn/1/seen
+손 아래 종이는 아직 누구 값에도 안 들어갔어요.
+
+naran/inn/2/situation
+나란이 빈 잔을 돌린다.
+
+naran/inn/2/lines/0
+자꾸 말이 달라진다고요?
+
+naran/inn/2/lines/1
+먼저 물을 수도 있잖아요.
+
+naran/inn/2/lines/2
+어느 말부터 셈하셨어요?
+
+naran/inn/2/choices/0/text
+사람이 좋은 건 아니까 자세한 말은 안 들어도 돼요.
+
+naran/inn/2/choices/0/response/0
+어머, 제 얘기를 더 듣고 고르셔도 되는데요.
+
+naran/inn/2/choices/0/response/1
+제 말은 끝까지 듣는 게 덜 손해예요.
+
+naran/inn/2/choices/1/text
+농담을 뺀 약속만 다시 들어도 될까요?
+
+naran/inn/2/choices/1/response/0
+셈을 없애자는 건 아니군요.
+
+naran/inn/2/choices/1/response/1
+그럼 제가 지킬 말만 남겨요.
+
+naran/inn/2/choices/2/text
+저도 생각하고 말할게요.
+
+naran/inn/2/choices/2/response/0
+빨리 맞히라고 재촉하진 않을게요.
+
+naran/inn/2/seen
+빈 잔을 만지작거리며 대답을 골랐어요.
+
+naran/inn/3/situation
+나란이 문에서 먼 자리를 고른다.
+
+naran/inn/3/lines/0
+밖에 나갈 길은 보여요.
+
+naran/inn/3/lines/1
+못 나가서 여기 있는 건 아니고요.
+
+naran/inn/3/lines/2
+잠깐 조용해지고 싶었어요.
+
+naran/inn/3/choices/0/text
+돌아올 시각 말고 지금 앉을지만 정해요.
+
+naran/inn/3/choices/0/response/0
+오래 있으라는 조건은 없네요.
+
+naran/inn/3/choices/0/response/1
+그럼 잔 하나 비울 동안만 있어요.
+
+naran/inn/3/choices/1/text
+문 옆 자리는 비워 둘게요.
+
+naran/inn/3/choices/1/response/0
+그쪽이 편하면 바꿔 앉을 수도 있겠네요.
+
+naran/inn/3/choices/2/text
+마음 놓으시게 오늘 일정은 제가 다 짜 둘게요.
+
+naran/inn/3/choices/2/response/0
+제 발이 좀 가벼워졌나 했더니요.
+
+naran/inn/3/choices/2/response/1
+다 짜면 제가 고를 칸이 없잖아요.
+
+naran/inn/3/seen
+나갈 수 있는 자리에 앉아도 아직은 여기 있네요.
+
+naran/inn/4/situation
+나란이 식탁의 빈자리를 톡 친다.
+
+naran/inn/4/lines/0
+처음 오셨죠?
+
+naran/inn/4/lines/1
+제가 맞혀 볼까요?
+
+naran/inn/4/lines/2
+일보다 누굴 기다리는 얼굴인데요.
+
+naran/inn/4/choices/0/text
+밥 먹으러 왔어요.
+
+naran/inn/4/choices/0/response/0
+그럼 제 추리보다 밥이 먼저네요.
+
+naran/inn/4/choices/1/text
+맞혀 보시게 제 얘기를 먼저 다 해 드릴게요.
+
+naran/inn/4/choices/1/response/0
+아직 묻지도 않았는데요?
+
+naran/inn/4/choices/1/response/1
+맞히는 재미는 빼고 대금만 미리 주시네요.
+
+naran/inn/4/choices/2/text
+틀리면 제가 하나 맞혀 볼 차례죠?
+
+naran/inn/4/choices/2/response/0
+어머, 틀리면 바로 제 차례가 오는군요.
+
+naran/inn/4/choices/2/response/1
+좋아요. 웃고 넘길 건 서로 골라요.
+
+naran/inn/4/seen
+이번 얼굴은 맞힐수록 값이 달라지겠어요.
+
+naran/inn/5/situation
+나란이 종이 귀퉁이를 접는다.
+
+naran/inn/5/lines/0
+들어 볼래요?
+
+naran/inn/5/lines/1
+아직 확인 전인 말이에요.
+
+naran/inn/5/lines/2
+쉽게 들은 말이라고 쉽게 믿으면 곤란하죠.
+
+naran/inn/5/choices/0/text
+저보다 더 잘 쓰실 분께 먼저 파세요.
+
+naran/inn/5/choices/0/response/0
+어머, 누가 더 비싸게 쓸지도 정하셨나요?
+
+naran/inn/5/choices/0/response/1
+제가 누구한테 먼저 말할지는 남겨 주세요.
+
+naran/inn/5/choices/1/text
+들은 곳은 말고 확인할 부분만 짚어 주세요.
+
+naran/inn/5/choices/1/response/0
+그게 제일 덜 다치는 흥정이에요.
+
+naran/inn/5/choices/1/response/1
+틀리면 제가 먼저 알려 드릴게요.
+
+naran/inn/5/choices/2/text
+일단 듣기만 할게요.
+
+naran/inn/5/choices/2/response/0
+믿겠다는 말은 안 하신 거예요.
+
+naran/inn/5/seen
+확인 전인 말 옆에는 오늘도 접은 자국을 남겼어요.
+
+naran/inn/6/situation
+나란이 늦게 온 사람을 보고 웃는다.
+
+naran/inn/6/lines/0
+칼 안 빼도 되는 날이 좋죠?
+
+naran/inn/6/lines/1
+입이 먼저 바쁘면 손은 편하거든요.
+
+naran/inn/6/lines/2
+어느 쪽이 더 믿음직해요?
+
+naran/inn/6/choices/0/text
+무슨 말을 해야 칼을 안 뺐는지 궁금해요.
+
+naran/inn/6/choices/0/response/0
+솜씨부터 물으시는군요.
+
+naran/inn/6/choices/0/response/1
+값은 그 이야기를 듣고 매겨도 돼요.
+
+naran/inn/6/choices/1/text
+저도 조용한 날이 좋아요.
+
+naran/inn/6/choices/1/response/0
+조용히 만든 입은 조금 시끄러웠겠지만요.
+
+naran/inn/6/choices/2/text
+편하시게 그런 말싸움은 제가 대신할게요.
+
+naran/inn/6/choices/2/response/0
+제 입이 불편해 보였어요?
+
+naran/inn/6/choices/2/response/1
+이건 제가 먼저 잡고 싶은 일이에요.
+
+naran/inn/6/seen
+오늘 편했던 손보다 바빴던 입 얘기가 더 재미있어요.
+
+naran/inn/7/situation
+나란이 출발 종이를 비스듬히 본다.
+
+naran/inn/7/lines/0
+끝나는 때도 적었네요?
+
+naran/inn/7/lines/1
+시작만 있는 약속은 별로예요.
+
+naran/inn/7/lines/2
+나오는 길은 누가 정해요?
+
+naran/inn/7/choices/0/text
+일정이 바뀌면 전할게요.
+
+naran/inn/7/choices/0/response/0
+제 귀에 먼저 닿으면 좋겠어요.
+
+naran/inn/7/choices/1/text
+믿고 오시면 나머지는 알아서 챙겨 드릴게요.
+
+naran/inn/7/choices/1/response/0
+잘 챙긴다는 말에도 끈이 달릴 때가 있어요.
+
+naran/inn/7/choices/1/response/1
+제가 고를 때까진 종이를 접지 마세요.
+
+naran/inn/7/choices/2/text
+끝날 조건도 듣고 제가 고를게요.
+
+naran/inn/7/choices/2/response/0
+그럼 저도 읽고 정할게요.
+
+naran/inn/7/choices/2/response/1
+웃었다고 서명한 줄 알지는 마세요.
+
+naran/inn/7/seen
+웃었어도 서명하기 전에는 읽어 볼게요.
+
+naran/inn/8/situation
+나란이 먼저 작은 종이를 민다.
+
+naran/inn/8/lines/0
+이쪽 길 얘기예요.
+
+naran/inn/8/lines/1
+값은 아직 안 물었는데요?
+
+naran/inn/8/lines/2
+그냥 출발 전에 아셔야 할 것 같아서요.
+
+naran/inn/8/choices/0/text
+공짜로 받으면 불편하니 값을 정해 주세요.
+
+naran/inn/8/choices/0/response/0
+아직 값을 안 정했는데 벌써 빚을 지셨네요.
+
+naran/inn/8/choices/0/response/1
+오늘은 값을 잊었단 말이에요.
+
+naran/inn/8/choices/1/text
+그럼 확인하고 제가 본 것도 나눌게요.
+
+naran/inn/8/choices/1/response/0
+바로 셈을 맞추려는 건 아니죠?
+
+naran/inn/8/choices/1/response/1
+그러면 들려주세요.
+
+naran/inn/8/choices/2/text
+읽고 돌려드릴게요.
+
+naran/inn/8/choices/2/response/0
+종이는 받아도 말은 기억해 두세요.
+
+naran/inn/8/seen
+값 물을 틈 없이 종이를 밀어 본 날도 있네요.
+
+naran/inn/9/situation
+나란이 잔을 내려놓고 질문을 삼킨다.
+
+naran/inn/9/lines/0
+맞혀 보려고 했는데요.
+
+naran/inn/9/lines/1
+물어보는 게 더 빠르겠어요.
+
+naran/inn/9/lines/2
+아까 말 듣고 조금 불편하셨어요?
+
+naran/inn/9/choices/0/text
+맞혔는지 시험 말고 그냥 물어봐 주세요.
+
+naran/inn/9/choices/0/response/0
+그럼 지금 묻는 걸로 해요.
+
+naran/inn/9/choices/0/response/1
+틀렸어도 다음 질문은 해도 되죠?
+
+naran/inn/9/choices/1/text
+조금 생각이 많았어요.
+
+naran/inn/9/choices/1/response/0
+그 생각까지 다 팔라고 하진 않을게요.
+
+naran/inn/9/choices/2/text
+늘 잘 맞히시니까 이번에도 맞혀 보세요.
+
+naran/inn/9/choices/2/response/0
+오늘은 못 맞힐까 봐 물은 건데요.
+
+naran/inn/9/choices/2/response/1
+잘 맞혀야만 들을 수 있는 말이면 좀 어렵네요.
+
+naran/inn/9/seen
+틀리게 짐작하느니 물어보고 싶었어요.
+
+naran/inn/10/situation
+나란이 손가락으로 일정의 빈칸을 누른다.
+
+naran/inn/10/lines/0
+그 시간은 비웠어요.
+
+naran/inn/10/lines/1
+갈 곳을 안 정한 건 아니고요.
+
+naran/inn/10/lines/2
+여기 앉았다 가려고요.
+
+naran/inn/10/choices/0/text
+차는 아직 따뜻해요.
+
+naran/inn/10/choices/0/response/0
+앉을 핑계 하나는 생겼네요.
+
+naran/inn/10/choices/1/text
+빈 시간 아까우니 새 의뢰를 찾아볼까요?
+
+naran/inn/10/choices/1/response/0
+이 시간에는 의뢰를 안 받을래요.
+
+naran/inn/10/choices/1/response/1
+여기 앉으려고 비워 둔 시간이에요.
+
+naran/inn/10/choices/2/text
+돌아오는 시각까지 약속할 필요는 없어요.
+
+naran/inn/10/choices/2/response/0
+도망갈 길부터 열어 주시는군요.
+
+naran/inn/10/choices/2/response/1
+그러면 조금 더 앉고 싶은데요?
+
+naran/inn/10/seen
+할 일을 안 잡아 두니 이렇게 앉아 있을 수 있네요.
+
+naran/inn/11/situation
+나란이 이야기 끝에 종이를 접는다.
+
+naran/inn/11/lines/0
+이건 같이 들었죠?
+
+naran/inn/11/lines/1
+어디까지 전할지 먼저 맞춰요.
+
+naran/inn/11/lines/2
+괜히 다른 값이 붙으면 싫어서요.
+
+naran/inn/11/choices/0/text
+번거롭지 않게 제가 전부 맡아서 전할게요.
+
+naran/inn/11/choices/0/response/0
+제가 전할지 말지 정하고 싶은 얘기도 있어요.
+
+naran/inn/11/choices/0/response/1
+같이 들은 걸 혼자 정리하진 말아요.
+
+naran/inn/11/choices/1/text
+팔 생각이 생기면 먼저 같이 물어요.
+
+naran/inn/11/choices/1/response/0
+팔지 말자는 말보다 오래 갈 약속이네요.
+
+naran/inn/11/choices/1/response/1
+저도 팔기 전에 여쭤볼게요.
+
+naran/inn/11/choices/2/text
+지금은 안 전할게요.
+
+naran/inn/11/choices/2/response/0
+지금까지의 말로 기억할게요.
+
+naran/inn/11/seen
+이 얘기는 같이 들었다고 적어 뒀어요.
+
+naran/inn/12/situation
+나란이 웃다가 손을 멈춘다.
+
+naran/inn/12/lines/0
+집에서는 길도 값이었어요.
+
+naran/inn/12/lines/1
+어디로 가는지 아는 사람이 먼저 웃었죠.
+
+naran/inn/12/lines/2
+저도 그걸 꽤 빨리 배웠고요.
+
+naran/inn/12/choices/0/text
+그럼 값을 안 묻던 길도 있었어요?
+
+naran/inn/12/choices/0/response/0
+그 질문은 좀 늦게 배웠네요.
+
+naran/inn/12/choices/0/response/1
+금방 웃고 답할 얘기는 아니에요.
+
+naran/inn/12/choices/1/text
+지금 말 안 해도 돼요.
+
+naran/inn/12/choices/1/response/0
+말을 시작한 건 제가 고른 일이에요.
+
+naran/inn/12/choices/2/text
+그 집안 방식 덕에 지금 잘 사시는 거죠.
+
+naran/inn/12/choices/2/response/0
+잘 배운 건 맞아요.
+
+naran/inn/12/choices/2/response/1
+그것만 좋아서 여기까지 온 줄로 들리나요?
+
+naran/inn/12/seen
+길값 얘기를 하다 오늘은 계산이 잠깐 늦었네요.
+
+naran/inn/13/situation
+나란이 장부 얘기에서 목소리를 낮춘다.
+
+naran/inn/13/lines/0
+부족 장부와 길드 장부가 달라요.
+
+naran/inn/13/lines/1
+두 군데가 서로 모르는 게 있죠.
+
+naran/inn/13/lines/2
+제가 안 고친 것도 있고요.
+
+naran/inn/13/choices/0/text
+들어 둬야 할 건가요?
+
+naran/inn/13/choices/0/response/0
+더 말할지는 제가 생각해 볼게요.
+
+naran/inn/13/choices/1/text
+걱정 줄이게 한쪽 계약을 바로 끝내면 되죠.
+
+naran/inn/13/choices/1/response/0
+편해지는 길은 저도 알아요.
+
+naran/inn/13/choices/1/response/1
+제가 아직 못 정한 값을 너무 빨리 치르시네요.
+
+naran/inn/13/choices/2/text
+어느 쪽을 고칠지는 제가 대신 정하지 않을게요.
+
+naran/inn/13/choices/2/response/0
+장부 하나를 없애라 하셨으면 농담으로 넘겼을 거예요.
+
+naran/inn/13/choices/2/response/1
+제가 왜 두 계약을 택했는지부터 말해 볼게요.
+
+naran/inn/13/seen
+장부가 둘이라는 말을 하고 나니 웃음이 조금 느려졌어요.
+
+naran/inn/14/situation
+나란이 먼저 농담한 입을 다문다.
+
+naran/inn/14/lines/0
+화난 건 아닌데요.
+
+naran/inn/14/lines/1
+괜히 맞히지도 못할 문제를 냈네요.
+
+naran/inn/14/lines/2
+제가 여기 남을지 시험한 것 같아요.
+
+naran/inn/14/choices/0/text
+안 떠난다고 장담해 드리면 편하시겠어요?
+
+naran/inn/14/choices/0/response/0
+장담을 받으려고 떠본 건 맞아요.
+
+naran/inn/14/choices/0/response/1
+장담을 받아도 내일 또 떠볼 것 같아서 싫네요.
+
+naran/inn/14/choices/1/text
+나갈 자유 말고 남고 싶은지도 물어봐 주세요.
+
+naran/inn/14/choices/1/response/0
+그게 더 어려운 질문이에요.
+
+naran/inn/14/choices/1/response/1
+오늘은 나갈 수 있어도 여기에 있고 싶어요.
+
+naran/inn/14/choices/2/text
+오늘은 쉬었다 해요.
+
+naran/inn/14/choices/2/response/0
+다음 문제는 조금 덜 얄밉게 낼게요.
+
+naran/inn/14/seen
+남을지 묻는 대신 시험한 건 제가 먼저 사과할게요.
+
+naran/inn/15/situation
+나란이 손바닥을 펴 종이를 가리지 않는다.
+
+naran/inn/15/lines/0
+같이 얻은 얘기잖아요.
+
+naran/inn/15/lines/1
+좋은 값이 나와도 혼자 안 넘겼어요.
+
+naran/inn/15/lines/2
+어머, 이걸 자랑하려고 온 건 아니고요.
+
+naran/inn/15/choices/0/text
+안 판 얘기보다 왜 저한테 왔는지 듣고 싶어요.
+
+naran/inn/15/choices/0/response/0
+셈을 맞혔다고만 말하고 싶지 않았어요.
+
+naran/inn/15/choices/0/response/1
+같이 고르자고 온 거예요.
+
+naran/inn/15/choices/1/text
+어떤 얘긴지 같이 봐요.
+
+naran/inn/15/choices/1/response/0
+이쪽부터 읽으면 돼요.
+
+naran/inn/15/choices/2/text
+제 몫은 됐으니 혼자 챙기셔도 괜찮아요.
+
+naran/inn/15/choices/2/response/0
+받을 돈을 정하자는 얘기만 하러 온 게 아닌데요.
+
+naran/inn/15/choices/2/response/1
+그렇게 깔끔하게 혼자 남겨 주진 말아요.
+
+naran/inn/15/seen
+종이를 가져왔으니 같이 읽고 정해요.
+
+naran/inn/16/situation
+나란이 의자를 가까이 당기다 멈춘다.
+
+naran/inn/16/lines/0
+여기 오래 있으면요.
+
+naran/inn/16/lines/1
+묶였다고들 하겠죠?
+
+naran/inn/16/lines/2
+오늘은 그 말이 덜 싫네요.
+
+naran/inn/16/choices/0/text
+일단 오늘 차부터 마셔요.
+
+naran/inn/16/choices/0/response/0
+오늘을 고르는 건 잘할 수 있어요.
+
+naran/inn/16/choices/1/text
+그럼 이제 안 떠나실 거라고 믿어도 되죠?
+
+naran/inn/16/choices/1/response/0
+덜 싫다는 말을 영원히로 사시네요.
+
+naran/inn/16/choices/1/response/1
+남고 싶은 마음은 지금 제가 드린 건데요.
+
+naran/inn/16/choices/2/text
+나가고 싶어지는 날에는 얘기해 줘요.
+
+naran/inn/16/choices/2/response/0
+그런 말까지 들어 주시는군요.
+
+naran/inn/16/choices/2/response/1
+그래서 더 오래 있고 싶나 봐요.
+
+naran/inn/16/seen
+머무는 마음을 말했더니 농담할 값이 남지 않았네요.
+
+naran/inn/17/situation
+나란이 아무것도 적지 않은 종이를 뒤집는다.
+
+naran/inn/17/lines/0
+오늘은 계산을 안 했어요.
+
+naran/inn/17/lines/1
+놓친 건 아닐 거예요.
+
+naran/inn/17/lines/2
+누가 손해 봤는지만 자꾸 찾던 버릇이요.
+
+naran/inn/17/choices/0/text
+손해 없게 제가 대신 계산해 드릴게요.
+
+naran/inn/17/choices/0/response/0
+제가 손 놓은 데 바로 손을 얹으시네요.
+
+naran/inn/17/choices/0/response/1
+오늘은 빈 채로 두고 싶었어요.
+
+naran/inn/17/choices/1/text
+계산 안 한 날이 손해인지는 나중에 봐요.
+
+naran/inn/17/choices/1/response/0
+나중에도 제가 굳이 안 세면요?
+
+naran/inn/17/choices/1/response/1
+그냥 좋은 날로 남겨도 되죠?
+
+naran/inn/17/choices/2/text
+종이는 치워 둘까요?
+
+naran/inn/17/choices/2/response/0
+네, 오늘은 잔 놓을 자리가 더 좋아요.
+
+naran/inn/17/seen
+빈 종이는 치우고 차나 마실래요.
+
+naran/inn/18/situation
+나란이 말을 빠르게 하다 웃음을 걷는다.
+
+naran/inn/18/lines/0
+묻고 싶었어요.
+
+naran/inn/18/lines/1
+제가 농담 안 하면 심심해요?
+
+naran/inn/18/lines/2
+아, 이것도 떠보는 말처럼 들리겠네요.
+
+naran/inn/18/choices/0/text
+대답부터 웃기게 고르실 필요는 없어요.
+
+naran/inn/18/choices/0/response/0
+그럼 웃길 말을 안 고르고 잠깐 앉아 있을게요.
+
+naran/inn/18/choices/0/response/1
+다음 말까지 급하게 팔지 않을래요.
+
+naran/inn/18/choices/1/text
+오늘은 무슨 일이 마음에 남았어요?
+
+naran/inn/18/choices/1/response/0
+그냥 한 번 물어보고 싶어진 날이에요.
+
+naran/inn/18/choices/2/text
+늘 재미있는 얘기를 해 주시니 걱정 마세요.
+
+naran/inn/18/choices/2/response/0
+재밌다는 말에 또 웃을 뻔했어요.
+
+naran/inn/18/choices/2/response/1
+안 웃는 날도 와도 되는지 물었는데요.
+
+naran/inn/18/seen
+농담 없는 대답을 듣는 데 시간이 조금 걸렸어요.
+
+naran/inn/19/situation
+나란이 종이를 접지 않고 옆에 놓는다.
+
+naran/inn/19/lines/0
+이건 안 전했어요.
+
+naran/inn/19/lines/1
+아직 값이 안 맞아서가 아니고요.
+
+naran/inn/19/lines/2
+제가 남겨 두기로 했어요.
+
+naran/inn/19/choices/0/text
+종이는 이쪽에 둘게요.
+
+naran/inn/19/choices/0/response/0
+여기 놓아 주셔서 고마워요. 가방에 넣진 않을 거예요.
+
+naran/inn/19/choices/1/text
+아까운 정보니 나중에 좋은 값에 쓰세요.
+
+naran/inn/19/choices/1/response/0
+아깝다는 말은 저도 쉽게 했는데요.
+
+naran/inn/19/choices/1/response/1
+좋은 값이 나와도 이번 얘기는 안 팔기로 했어요.
+
+naran/inn/19/choices/2/text
+왜 남겼는지는 듣고 싶을 때 여쭤도 돼요?
+
+naran/inn/19/choices/2/response/0
+허락부터 묻는 값은 얼마일까요?
+
+naran/inn/19/choices/2/response/1
+아니, 이번엔 그런 말 없이 대답할게요.
+
+naran/inn/19/seen
+이번 얘기는 값이 올라도 안 팔 거예요.
+
+naran/inn/20/situation
+나란이 약속을 적을 펜을 내려놓는다.
+
+naran/inn/20/lines/0
+많이 적으면 편하죠?
+
+naran/inn/20/lines/1
+많으면 못 지킨 것도 슬쩍 넘기기 쉽고요.
+
+naran/inn/20/lines/2
+저는 하나만 약속할래요.
+
+naran/inn/20/choices/0/text
+믿는 사이인데 일일이 묻는 건 번거롭잖아요.
+
+naran/inn/20/choices/0/response/0
+믿는 게 묻지 않을 자격이면 곤란해요.
+
+naran/inn/20/choices/0/response/1
+저도 모르게 제 말이 팔릴까 봐요.
+
+naran/inn/20/choices/1/text
+같이 얻은 말은 넘기기 전에 서로 물어요.
+
+naran/inn/20/choices/1/response/0
+제 입부터 약속할게요.
+
+naran/inn/20/choices/1/response/1
+물었다고 늘 허락해 달라 하진 않을게요.
+
+naran/inn/20/choices/2/text
+어떤 약속인지 들어 볼게요.
+
+naran/inn/20/choices/2/response/0
+끝까지 듣고 고르셔도 돼요.
+
+naran/inn/20/seen
+서로 묻겠다는 약속 하나는 지키고 싶어요.
+
+naran/inn/21/situation
+나란이 출발 전에 문가에 선다.
+
+naran/inn/21/lines/0
+같이 가자는 말이에요.
+
+naran/inn/21/lines/1
+계약을 늘리자는 건 아니고요.
+
+naran/inn/21/lines/2
+끝나도 같이 밥 먹으면 좋겠어서요.
+
+naran/inn/21/choices/0/text
+일이 끝나면 제가 식탁 자리를 비워 둘게요.
+
+naran/inn/21/choices/0/response/0
+보수에 밥값까지 넣지는 말아요.
+
+naran/inn/21/choices/0/response/1
+저는 일 끝나고도 밥을 같이 먹고 싶었어요.
+
+naran/inn/21/choices/1/text
+끝나는 때 봐서 정해요.
+
+naran/inn/21/choices/1/response/0
+그때 다시 물어볼게요.
+
+naran/inn/21/choices/2/text
+계약에 식사까지 넣으면 잊지 않겠네요.
+
+naran/inn/21/choices/2/response/0
+잊을까 봐 적는 게 늘 좋은 건 아니네요.
+
+naran/inn/21/choices/2/response/1
+안 적어도 제가 돌아오고 싶었어요.
+
+naran/inn/21/seen
+의뢰가 끝나도 저녁은 같이 먹어요.
+
+naran/inn/22/situation
+나란이 웃는 얼굴을 억지로 풀어 본다.
+
+naran/inn/22/lines/0
+오늘은 재미있는 말이 없어요.
+
+naran/inn/22/lines/1
+미리 알려 드리려고요.
+
+naran/inn/22/lines/2
+괜히 걱정하실까 봐서요.
+
+naran/inn/22/choices/0/text
+말 없이 앉아도 돼요.
+
+naran/inn/22/choices/0/response/0
+그럼 질문도 조금 쉬게 둘게요.
+
+naran/inn/22/choices/1/text
+재미있는 얘기를 들으면 금방 기운 나실 거예요.
+
+naran/inn/22/choices/1/response/0
+웃으면 나아진 줄 아실까 봐 말한 건데요.
+
+naran/inn/22/choices/1/response/1
+지금은 안 웃는 얼굴도 좀 봐 주세요.
+
+naran/inn/22/choices/2/text
+재미있는 얘기가 없어도 듣고 싶어요.
+
+naran/inn/22/choices/2/response/0
+그 말은 전에 제가 했어야 했네요.
+
+naran/inn/22/choices/2/response/1
+오늘은 좀 기대도 되겠어요?
+
+naran/inn/22/seen
+안 웃고 와도 괜찮은지 물어보길 잘했네요.
+
+naran/inn/23/situation
+나란이 빈 장부 칸을 손톱으로 짚는다.
+
+naran/inn/23/lines/0
+값을 두 번 받는 건 쉽죠.
+
+naran/inn/23/lines/1
+돌려놓을 때 누가 먼저 알지 생각하면 어렵고요.
+
+naran/inn/23/lines/2
+오늘은 농담으로 못 넘기겠어요.
+
+naran/inn/23/choices/0/text
+복잡하니 지난 일로 두고 새로 시작해요.
+
+naran/inn/23/choices/0/response/0
+지난 일도 제가 한 일이에요.
+
+naran/inn/23/choices/0/response/1
+지우면 편하겠지만 그 값은 누군가 내겠죠.
+
+naran/inn/23/choices/1/text
+제가 감출 말과 같이 책임질 말을 나눠 봐요.
+
+naran/inn/23/choices/1/response/0
+다 덮어 달라는 말은 안 할게요.
+
+naran/inn/23/choices/1/response/1
+제가 한 일부터 짚어 드릴게요.
+
+naran/inn/23/choices/2/text
+정리할 동안 기다릴게요.
+
+naran/inn/23/choices/2/response/0
+오늘도 모르는 척하라고 하진 않을게요.
+
+naran/inn/23/seen
+앞으로 어떻게 할지 정하려고 예전 일을 보고 있어요.
+
+naran/inn/24/situation
+나란이 빈손으로 맞은편에 앉는다.
+
+naran/inn/24/lines/0
+오늘은 팔 게 없어요.
+
+naran/inn/24/lines/1
+맞힐 문제도 없고요.
+
+naran/inn/24/lines/2
+어머, 그냥 오면 첫말이 어렵네요.
+
+naran/inn/24/choices/0/text
+그럼 오늘은 제가 먼저 안부를 물을게요.
+
+naran/inn/24/choices/0/response/0
+값부터 안 물을게요.
+
+naran/inn/24/choices/0/response/1
+네, 오늘은 꽤 괜찮았어요.
+
+naran/inn/24/choices/1/text
+마실 것 고르세요.
+
+naran/inn/24/choices/1/response/0
+이번엔 싼 것부터 고르지 않을래요.
+
+naran/inn/24/choices/2/text
+심심하실 텐데 재미있는 일을 찾아드릴까요?
+
+naran/inn/24/choices/2/response/0
+심심해도 여기 오고 싶었어요.
+
+naran/inn/24/choices/2/response/1
+할 일을 찾아주실 필요는 없어요. 좀 더 앉아 있어요.
+
+naran/inn/24/seen
+아무것도 안 팔고 받은 안부가 오래 남네요.
+
+naran/inn/25/situation
+나란이 출발 종이를 한번 보고 밀어 놓는다.
+
+naran/inn/25/lines/0
+돌아오면 어디 앉을지 아네요.
+
+naran/inn/25/lines/1
+전에는 나갈 길부터 봤는데요.
+
+naran/inn/25/lines/2
+오늘은 둘 다 보여요.
+
+naran/inn/25/choices/0/text
+잔은 씻어 둘게요.
+
+naran/inn/25/choices/0/response/0
+돌아왔을 때 고를 잔이 있겠네요.
+
+naran/inn/25/choices/1/text
+이제 편하니 매번 같은 자리에 계시면 되겠어요.
+
+naran/inn/25/choices/1/response/0
+편한 자리가 지정석이 되면 조금 달라요.
+
+naran/inn/25/choices/1/response/1
+제가 돌아올 자리를 고르는 게 좋았어요.
+
+naran/inn/25/choices/2/text
+자주 옮겨 다니셔도 돌아오면 같이 앉아요.
+
+naran/inn/25/choices/2/response/0
+그럼 떠나기 전에도 말씀드릴게요.
+
+naran/inn/25/choices/2/response/1
+이번에도 돌아오면 여기로 올래요.
+
+naran/inn/25/seen
+문과 식탁을 함께 보는 건 오늘도 제 선택이에요.
+
+naran/inn/26/situation
+나란이 말을 고르다 느리게 웃는다.
+
+naran/inn/26/lines/0
+제가 늦었죠?
+
+naran/inn/26/lines/1
+기다리셨는지부터 물어야 했네요.
+
+naran/inn/26/lines/2
+농담 하나면 될 줄 알던 버릇이 남았어요.
+
+naran/inn/26/choices/0/text
+편한 사이니 늦어도 괜찮아요. 다음엔 말 안 해도 돼요.
+
+naran/inn/26/choices/0/response/0
+편하다고 말까지 없어지진 않았으면 해요.
+
+naran/inn/26/choices/0/response/1
+기다렸을 얼굴이 이제는 먼저 떠올라요.
+
+naran/inn/26/choices/1/text
+기다렸어요. 늦은 까닭은 나중에 들어도 돼요.
+
+naran/inn/26/choices/1/response/0
+기다려 주셔서 고마워요.
+
+naran/inn/26/choices/1/response/1
+이번엔 농담보다 그 말을 하고 싶네요.
+
+naran/inn/26/choices/2/text
+차는 아직 안 식었어요.
+
+naran/inn/26/choices/2/response/0
+그럼 첫 잔은 같이 들 수 있겠어요.
+
+naran/inn/26/seen
+고맙다는 말 한 번에 웃는 버릇이 좀 늦게 붙네요.
+
+naran/inn/27/situation
+나란이 웃지 않은 채 잔을 내려놓는다.
+
+naran/inn/27/lines/0
+묶여도 괜찮은 사람이요.
+
+naran/inn/27/lines/1
+전에 그렇게 말했죠?
+
+naran/inn/27/lines/2
+오늘도 제가 고른 말이에요.
+
+naran/inn/27/choices/0/text
+그 말이 싫어지는 날에도 여기서 얘기해요.
+
+naran/inn/27/choices/0/response/0
+그날을 숨기지 않아도 되는 거네요.
+
+naran/inn/27/choices/0/response/1
+그럼 오늘은 더 분명히 여기 있을래요.
+
+naran/inn/27/choices/1/text
+오늘은 좀 더 앉아요.
+
+naran/inn/27/choices/1/response/0
+이번엔 시간 값을 묻지 않겠어요.
+
+naran/inn/27/choices/2/text
+그런 말은 안 하셔도 돼요. 자유로운 분인 걸 알아요.
+
+naran/inn/27/choices/2/response/0
+알아주셔서 말한 거예요.
+
+naran/inn/27/choices/2/response/1
+나갈 수 있는 제가 여기 있고 싶다는 말도 들어 주세요.
+
+naran/inn/27/seen
+같은 말을 오늘도 스스로 골랐다는 게 좋네요.
+
+naran/dungeon/0/variants/0
+먼저 가는 길값은 누구 몫이에요?
+
+naran/dungeon/0/variants/1
+출발 전에 조건 하나만 더 들어요.
+
+naran/dungeon/1/variants/0
+오늘 길 얘기는 값 안 물을게요.
+
+naran/dungeon/1/variants/1
+먼저 알려 드릴 게 생겼어요.
+
+naran/dungeon/2/variants/0
+돌아와서 앉을 자리도 남겨요.
+
+naran/dungeon/2/variants/1
+오늘은 나갈 길만 보고 온 게 아니에요.
+
+naran/dungeon/3/variants/0
+아래층 소문이 맞는지는 봐야죠.
+
+naran/dungeon/3/variants/1
+처음 온 값은 눈으로 치를게요.
+
+naran/dungeon/4/variants/0
+들은 얘기와 다른 곳부터 짚어요.
+
+naran/dungeon/4/variants/1
+오늘은 제 눈도 함께 빌려 드려요.
+
+naran/dungeon/5/variants/0
+같이 처음 보는 층이라 좋네요.
+
+naran/dungeon/5/variants/1
+나중에 이 길도 둘이 다르게 기억하겠죠?
+
+naran/dungeon/6/variants/0
+눈이 먼저 값을 매겼네요.
+
+naran/dungeon/6/variants/1
+발견한 쪽만 알고 있으면 비싸지죠.
+
+naran/dungeon/7/variants/0
+같이 봤다는 건 먼저 남겨요.
+
+naran/dungeon/7/variants/1
+혼자 넘길 말로 적지는 않을게요.
+
+naran/dungeon/8/variants/0
+값 얘기 전에 같이 좀 봐요.
+
+naran/dungeon/8/variants/1
+이걸 보고 웃은 얼굴부터 기억할래요.
+
+naran/dungeon/9/variants/0
+입으로 끝낼 수 있는지는 이미 지났네요.
+
+naran/dungeon/9/variants/1
+지금은 웃는 값보다 손이 빠르겠어요.
+
+naran/dungeon/10/variants/0
+뒤에서 볼게요. 앞만 혼자 보진 마세요.
+
+naran/dungeon/10/variants/1
+제가 보는 쪽은 바로 알려 드려요.
+
+naran/dungeon/11/variants/0
+농담은 돌아가서 할게요.
+
+naran/dungeon/11/variants/1
+지금은 같은 쪽을 보고 싶어요.
+
+naran/dungeon/12/variants/0
+이긴 값은 혼자 받지 말아요.
+
+naran/dungeon/12/variants/1
+끝났는지부터 확인해요. 값은 나중이에요.
+
+naran/dungeon/13/variants/0
+같이 한 몫부터 맞춰 봐요.
+
+naran/dungeon/13/variants/1
+웃음이 늦었죠? 아직 살필 게 남았어요.
+
+naran/dungeon/14/variants/0
+이제야 그냥 웃을 수 있겠네요.
+
+naran/dungeon/14/variants/1
+누가 이겼는지보다 같이 섰는지부터 볼래요.
+
+naran/dungeon/15/variants/0
+쉬운 의뢰 값은 아니었네요.
+
+naran/dungeon/15/variants/1
+뒤집을 수 있는 판인지 먼저 봐요.
+
+naran/dungeon/16/variants/0
+제가 아는 건 지금 다 말할게요.
+
+naran/dungeon/16/variants/1
+모르는 부분은 웃고 넘기지 않을게요.
+
+naran/dungeon/17/variants/0
+여기서 고른다면 같이 골라요.
+
+naran/dungeon/17/variants/1
+남고 싶다는 말을 함부로 팔진 않을게요.
+
+naran/dungeon/18/variants/0
+수고한 분들 모두 확인해요.
+
+naran/dungeon/18/variants/1
+끝난 뒤에 빠진 사람 없죠?
+
+naran/dungeon/19/variants/0
+돌아갈 여유까지 확인해요.
+
+naran/dungeon/19/variants/1
+같이 얻은 건 같이 놓고 셀게요.
+
+naran/dungeon/20/variants/0
+돌아오자고 한 말부터 지켰네요.
+
+naran/dungeon/20/variants/1
+큰 소문보다 오늘 얼굴이 먼저 남겠어요.
+
+naran/dungeon/21/variants/0
+저쪽 상태부터 봐요. 셈은 멈추고요.
+
+naran/dungeon/21/variants/1
+버티는 값이 너무 커지고 있어요.
+
+naran/dungeon/22/variants/0
+저도 보이니 혼자 달리진 마세요.
+
+naran/dungeon/22/variants/1
+도울 길부터 같이 골라요.
+
+naran/dungeon/23/variants/0
+지금은 맞히는 질문 안 할게요.
+
+naran/dungeon/23/variants/1
+괜찮은 척하는 말은 잠깐 빼 주세요.
+
+naran/dungeon/24/variants/0
+이름부터 불러 봐요. 아직 답은 모르잖아요.
+
+naran/dungeon/24/variants/1
+끝난 일처럼 말하지는 말아요.
+
+naran/dungeon/25/variants/0
+제가 볼 테니 다른 쪽도 살펴요.
+
+naran/dungeon/25/variants/1
+어디까지 갈 수 있는지 바로 알려 드려요.
+
+naran/dungeon/26/variants/0
+남은 사람 셈에 빼지 말아요.
+
+naran/dungeon/26/variants/1
+같이 돌아올 방법부터 찾고 싶어요.
+
+naran/dungeon/27/variants/0
+제 값이 떨어졌다고 웃진 말아요.
+
+naran/dungeon/27/variants/1
+상처가 좀 있네요. 일단 멈춰 봐요.
+
+naran/dungeon/28/variants/0
+이번엔 제 상태부터 말할게요.
+
+naran/dungeon/28/variants/1
+괜찮다고 먼저 팔려던 입은 멈췄어요.
+
+naran/dungeon/29/variants/0
+아프다는 말도 여기서는 할게요.
+
+naran/dungeon/29/variants/1
+제가 늦으면 기다려 줄 건지 바로 물을래요.
+
+naran/dungeon/30/variants/0
+쉬는 데까지 조건 붙이진 않죠?
+
+naran/dungeon/30/variants/1
+나가는 길 보이는 쪽에 앉을게요.
+
+naran/dungeon/31/variants/0
+오늘 빈 시간은 여기 쓰려고요.
+
+naran/dungeon/31/variants/1
+입도 잠깐 손해 안 보고 쉴 수 있네요.
+
+naran/dungeon/32/variants/0
+농담 없이 쉬어도 괜찮은 자리예요.
+
+naran/dungeon/32/variants/1
+오늘은 안 떠나는 쪽을 고를게요.
+
+naran/dungeon/33/variants/0
+열리는 값은 아직 모르는 거죠?
+
+naran/dungeon/33/variants/1
+눈으로 본 것부터 맞춰 봐요.
+
+naran/dungeon/34/variants/0
+제가 안다는 척은 안 할게요.
+
+naran/dungeon/34/variants/1
+확인 전에는 좋은 값도 약속 못 해요.
+
+naran/dungeon/35/variants/0
+같이 멈춰 보는 일도 나쁘지 않네요.
+
+naran/dungeon/35/variants/1
+못 열면 그 얘기도 같이 가지고 돌아가요.
+
+naran/dungeon/36/variants/0
+오늘 말은 어디까지 전할까요?
+
+naran/dungeon/36/variants/1
+보수보다 먼저 돌아온 길을 세어 봐요.
+
+naran/dungeon/37/variants/0
+식탁까지 가는 건 따로 값 안 물어요.
+
+naran/dungeon/37/variants/1
+먼저 와서 자리만 보고 있을게요.
+
+naran/dungeon/38/variants/0
+나갈 때보다 돌아올 때가 조금 느리네요.
+
+naran/dungeon/38/variants/1
+기다릴 얼굴이 생각나서 먼저 왔어요.
+
+naran/dungeon/39/variants/0
+웃고 넘기기는 어렵겠네요.
+
+naran/dungeon/39/variants/1
+지금은 잃은 것보다 남은 쪽을 봐요.
+
+naran/dungeon/40/variants/0
+손해를 혼자 정산하러 가진 말아요.
+
+naran/dungeon/40/variants/1
+같이 못 한 데부터 맞춰 보죠.
+
+naran/dungeon/41/variants/0
+다음 말까지 혼자 고를 필요 없어요.
+
+naran/dungeon/41/variants/1
+졌어도 함께 돌아가요.
+
+naran/transitions/0/situation
+나란이 손 아래 종이를 조금 편다.
+
+naran/transitions/0/lines/0
+전부 펴는 건 아니에요.
+
+naran/transitions/0/lines/1
+그래도 들을 말은 있어졌네요.
+
+naran/transitions/1/situation
+나란이 종이를 다시 접는다.
+
+naran/transitions/1/lines/0
+묻기 전에 값부터 고르셨네요.
+
+naran/transitions/1/lines/1
+오늘은 여기까지만 팔게요.
+
+naran/transitions/2/situation
+나란이 먼저 의자를 당긴다.
+
+naran/transitions/2/lines/0
+이번엔 제가 먼저 물을게요.
+
+naran/transitions/2/lines/1
+틀려도 대답은 들어 보고 싶네요.
+
+naran/transitions/3/situation
+나란이 질문 끝을 웃음으로 감춘다.
+
+naran/transitions/3/lines/0
+맞힐 기분은 좀 사라졌어요.
+
+naran/transitions/3/lines/1
+다음엔 먼저 물어보고 앉아요.
+
+naran/transitions/4/situation
+나란이 계산하기 전에 종이를 민다.
+
+naran/transitions/4/lines/0
+값을 빼먹었나요?
+
+naran/transitions/4/lines/1
+오늘은 알려 드리는 게 먼저 떠올랐어요.
+
+naran/transitions/5/situation
+나란이 종이 위에 손을 얹는다.
+
+naran/transitions/5/lines/0
+먼저 주는 게 좀 빨랐네요.
+
+naran/transitions/5/lines/1
+이건 확인한 뒤에 다시 얘기해요.
+
+naran/transitions/6/situation
+나란이 집안 얘기를 꺼내다 멈춘다.
+
+naran/transitions/6/lines/0
+집에서는 웃으며 값을 치렀어요.
+
+naran/transitions/6/lines/1
+오늘은 웃기 전의 얘기도 하고 싶네요.
+
+naran/transitions/7/situation
+나란이 잔을 만지며 말을 줄인다.
+
+naran/transitions/7/lines/0
+말을 다 하기엔 아직 이르네요.
+
+naran/transitions/7/lines/1
+오늘의 얘기부터 다시 맞춰요.
+
+naran/transitions/8/situation
+나란이 웃지 않은 채 의자를 붙인다.
+
+naran/transitions/8/lines/0
+남고 싶다는 말도 해 볼게요.
+
+naran/transitions/8/lines/1
+묶였다는 말이 오늘은 덜 싫어요.
+
+naran/transitions/9/situation
+나란이 의자를 조금 떼어 놓는다.
+
+naran/transitions/9/lines/0
+나갈 길부터 다시 봤네요.
+
+naran/transitions/9/lines/1
+안 떠난다고 시험하진 않을게요.
+
+naran/transitions/10/situation
+나란이 펜을 내려놓고 마주 본다.
+
+naran/transitions/10/lines/0
+같이 얻은 말은 먼저 물을게요.
+
+naran/transitions/10/lines/1
+저도 모르게 팔리는 건 싫으니까요.
+
+naran/transitions/11/situation
+나란이 약속 적힌 줄을 접는다.
+
+naran/transitions/11/lines/0
+같은 뜻으로 읽은 줄 알았어요.
+
+naran/transitions/11/lines/1
+그 한 줄부터 다시 물어볼래요.
+
+naran/transitions/12/situation
+나란이 빈손을 펴 보인다.
+
+naran/transitions/12/lines/0
+오늘은 값을 안 묻고 왔어요.
+
+naran/transitions/12/lines/1
+그냥 여기 있는 쪽을 제가 골랐어요.
+
+naran/transitions/13/situation
+나란이 말하려다 입술을 다문다.
+
+naran/transitions/13/lines/0
+편해서 안 물어도 되는 줄 알았네요.
+
+naran/transitions/13/lines/1
+다시 물을 약속부터 지킬게요.
+
+haldric/inn/0/situation
+할드리크가 계약서를 식탁에 편다.
+
+haldric/inn/0/lines/0
+맡은 범위는 여기 있소.
+
+haldric/inn/0/lines/1
+그 밖의 말은 지금 하지 않겠소.
+
+haldric/inn/0/lines/2
+확인할 조항부터 짚으시오.
+
+haldric/inn/0/choices/0/text
+내일 시각만 알려 주세요.
+
+haldric/inn/0/choices/0/response/0
+출발 시각은 그대로요.
+
+haldric/inn/0/choices/1/text
+번거로우니 알아서 해 주세요.
+
+haldric/inn/0/choices/1/response/0
+번거로운 줄이 나중에 사람을 묶기도 하오.
+
+haldric/inn/0/choices/1/response/1
+읽고 고르시오.
+
+haldric/inn/0/choices/2/text
+서명한 범위만 다시 맞춰 보죠.
+
+haldric/inn/0/choices/2/response/0
+적힌 말은 바꾸지 않겠소.
+
+haldric/inn/0/choices/2/response/1
+이쪽도 함께 읽으시오.
+
+haldric/inn/0/seen
+펼친 문서에서 확인할 줄만 남겨 두었소.
+
+haldric/inn/1/situation
+할드리크가 빈 의자를 밀어 둔다.
+
+haldric/inn/1/lines/0
+앉을 자리는 있소.
+
+haldric/inn/1/lines/1
+길게 들을 준비는 안 됐소.
+
+haldric/inn/1/lines/2
+할 말이 있으면 먼저 하시오.
+
+haldric/inn/1/choices/0/text
+불편하실 테니 결정만 나중에 전할게요.
+
+haldric/inn/1/choices/0/response/0
+내 이름도 걸린 일이라면 과정부터 알아야 하오.
+
+haldric/inn/1/choices/0/response/1
+내가 읽은 문장도 그 결정에 들어가야 하오.
+
+haldric/inn/1/choices/1/text
+바꿀 조건이 있으면 적어서 상의할게요.
+
+haldric/inn/1/choices/1/response/0
+상의를 건너뛰지 않으면 되오.
+
+haldric/inn/1/choices/2/text
+짧게 전하고 갈게요.
+
+haldric/inn/1/choices/2/response/0
+들은 말은 확인해 답하겠소.
+
+haldric/inn/1/seen
+앉아서 듣겠소. 동의할지는 듣고 정하겠소.
+
+haldric/inn/2/situation
+할드리크가 종이의 고친 자리를 짚는다.
+
+haldric/inn/2/lines/0
+이 줄은 달라졌소.
+
+haldric/inn/2/lines/1
+누가 고쳤는지는 아직 묻지 않겠소.
+
+haldric/inn/2/lines/2
+먼저 바뀐 뜻을 설명하시오.
+
+haldric/inn/2/choices/0/text
+서명 전 문장과 나란히 볼까요?
+
+haldric/inn/2/choices/0/response/0
+둘을 펴 두시오.
+
+haldric/inn/2/choices/0/response/1
+지금 뜻을 옛 서명에 씌우지는 맙시다.
+
+haldric/inn/2/choices/1/text
+제가 확인하고 올게요.
+
+haldric/inn/2/choices/1/response/0
+확인할 동안은 이행을 미루겠소.
+
+haldric/inn/2/choices/2/text
+사소한 표현이니 좋은 뜻으로 읽어 주세요.
+
+haldric/inn/2/choices/2/response/0
+좋은 뜻도 함께 읽어야 같은 약속이 되오.
+
+haldric/inn/2/choices/2/response/1
+같이 들은 뜻이 있어야 다음에 이행하오.
+
+haldric/inn/2/seen
+바뀐 글씨 옆에는 아직 제 확인이 없소.
+
+haldric/inn/3/situation
+할드리크가 식탁 위 물기를 닦는다.
+
+haldric/inn/3/lines/0
+문서가 젖을 뻔했소.
+
+haldric/inn/3/lines/1
+따로 앉는 편이 낫겠구려.
+
+haldric/inn/3/lines/2
+출발 전에는 돌려드리겠소.
+
+haldric/inn/3/choices/0/text
+잔은 치울게요.
+
+haldric/inn/3/choices/0/response/0
+마른 쪽으로 옮겨 놓겠소.
+
+haldric/inn/3/choices/1/text
+제가 문서를 맡아 두면 마음 편하시겠어요?
+
+haldric/inn/3/choices/1/response/0
+맡긴다는 말은 아직 하지 않았소.
+
+haldric/inn/3/choices/1/response/1
+펼칠 문서까지 아직 맡긴 적은 없소.
+
+haldric/inn/3/choices/2/text
+종이 둘 자리만 먼저 비울게요.
+
+haldric/inn/3/choices/2/response/0
+종이 놓을 자리만 비워 주면 되오.
+
+haldric/inn/3/choices/2/response/1
+그대로 앉아 계시오.
+
+haldric/inn/3/seen
+잔이 옮겨졌으니 문서도 여기서 읽을 수 있소.
+
+haldric/inn/4/situation
+할드리크가 서명할 칸을 가리킨다.
+
+haldric/inn/4/lines/0
+계곡 이름까지 쓰오.
+
+haldric/inn/4/lines/1
+보증이 되는 이름이오.
+
+haldric/inn/4/lines/2
+읽고 나서 펜을 드시오.
+
+haldric/inn/4/choices/0/text
+알아보기 쉽게 이름만 쓰면 되겠죠?
+
+haldric/inn/4/choices/0/response/0
+짧게 쓰는 일이 늘 가벼운 일은 아니오.
+
+haldric/inn/4/choices/0/response/1
+보증 이름은 줄일 글씨가 아니오.
+
+haldric/inn/4/choices/1/text
+보증 범위부터 알고 서명할게요.
+
+haldric/inn/4/choices/1/response/0
+이름을 쓰기 전에 물으니 다행이오.
+
+haldric/inn/4/choices/2/text
+천천히 읽어 볼게요.
+
+haldric/inn/4/choices/2/response/0
+기다리는 시간은 있소.
+
+haldric/inn/4/seen
+서명하기 전에는 읽을 시간을 먼저 두시오.
+
+haldric/inn/5/situation
+할드리크가 불 밝은 자리에 앉는다.
+
+haldric/inn/5/lines/0
+글씨가 잘 보이는 자리요.
+
+haldric/inn/5/lines/1
+저쪽은 그림자가 지오.
+
+haldric/inn/5/lines/2
+이쪽에서 읽겠소.
+
+haldric/inn/5/choices/0/text
+문서는 이쪽에 두고 저는 옆에 앉죠.
+
+haldric/inn/5/choices/0/response/0
+예, 자리를 더 벌릴 필요는 없소.
+
+haldric/inn/5/choices/1/text
+불은 그대로 둘게요.
+
+haldric/inn/5/choices/1/response/0
+기름을 더 넣을 일은 아직 없소.
+
+haldric/inn/5/choices/2/text
+눈 쉬시게 불부터 낮출까요?
+
+haldric/inn/5/choices/2/response/0
+아직 읽을 줄이 남았소.
+
+haldric/inn/5/choices/2/response/1
+그대로 두어 주시오.
+
+haldric/inn/5/seen
+그림자 없는 쪽에서 한 줄 더 읽겠소.
+
+haldric/inn/6/situation
+할드리크가 멀리서 난 소리에 문서를 쥔다.
+
+haldric/inn/6/lines/0
+계약 제3조요.
+
+haldric/inn/6/lines/1
+지금은 조금 떨어져 있겠소.
+
+haldric/inn/6/lines/2
+문 쪽만 한번 보시오.
+
+haldric/inn/6/choices/0/text
+무슨 소리였을까요?
+
+haldric/inn/6/choices/0/response/0
+확인 전에는 이름 붙이지 않겠소.
+
+haldric/inn/6/choices/1/text
+바깥 소리 같으니 문은 잊고 글 마저 읽어요.
+
+haldric/inn/6/choices/1/response/0
+밖에서 났어도 자꾸 귀가 그쪽으로 가오.
+
+haldric/inn/6/choices/1/response/1
+문을 한번 확인하면 다음 글자도 보이겠소.
+
+haldric/inn/6/choices/2/text
+제가 문 쪽을 볼 테니 종이는 놓으셔도 돼요.
+
+haldric/inn/6/choices/2/response/0
+손까지 물러나 있었군.
+
+haldric/inn/6/choices/2/response/1
+소리 난 곳만 알려 주시오.
+
+haldric/inn/6/seen
+조금 물러나서 무슨 소리인지 들어 보겠소.
+
+haldric/inn/7/situation
+할드리크가 접은 계약서를 편다.
+
+haldric/inn/7/lines/0
+손해가 나는 줄도 있소.
+
+haldric/inn/7/lines/1
+서명할 때 읽었소.
+
+haldric/inn/7/lines/2
+늦게 알았다는 말은 안 하겠소.
+
+haldric/inn/7/choices/0/text
+다들 이해할 테니 조금 줄여 이행해도 돼요.
+
+haldric/inn/7/choices/0/response/0
+다들인 줄 알았다가 혼자 남는 이가 생기오.
+
+haldric/inn/7/choices/0/response/1
+덜 지킬 수 있는 몫도 내 혼자 고를 수는 없소.
+
+haldric/inn/7/choices/1/text
+그 줄이 싫어도 지키겠다는 거군요.
+
+haldric/inn/7/choices/1/response/0
+싫은 조항이라도 서명한 뒤에는 지키오.
+
+haldric/inn/7/choices/1/response/1
+불리한 줄도 읽어 주니 됐소.
+
+haldric/inn/7/choices/2/text
+언제 끝나는 약속인가요?
+
+haldric/inn/7/choices/2/response/0
+끝날 조건은 이 아래 있소.
+
+haldric/inn/7/seen
+손해를 보더라도 서명한 대로 지키겠소.
+
+haldric/inn/8/situation
+할드리크가 짐을 식탁 옆으로 옮긴다.
+
+haldric/inn/8/lines/0
+문서에는 없는 일이오.
+
+haldric/inn/8/lines/1
+기다릴 동안 들었을 뿐이오.
+
+haldric/inn/8/lines/2
+품삯을 더 적지는 마시오.
+
+haldric/inn/8/choices/0/text
+계약 밖에서 도와주신 건 따로 기억할게요.
+
+haldric/inn/8/choices/0/response/0
+빚으로 적을 필요도 없소.
+
+haldric/inn/8/choices/1/text
+이쪽에 놓아 주세요.
+
+haldric/inn/8/choices/1/response/0
+통로는 비워 두겠소.
+
+haldric/inn/8/choices/2/text
+수고하셨으니 계약에 추가해 드릴게요.
+
+haldric/inn/8/choices/2/response/0
+적히지 않은 채 해 둬도 괜찮은 일이오.
+
+haldric/inn/8/choices/2/response/1
+추가할 조항 없이도 손은 빌려줄 수 있소.
+
+haldric/inn/8/seen
+추가하지 않은 품도 제 손이 고른 일이오.
+
+haldric/inn/9/situation
+할드리크가 갑자기 의자를 붙인다.
+
+haldric/inn/9/lines/0
+뒤가 조금 좁소.
+
+haldric/inn/9/lines/1
+간격을 바꾸겠소.
+
+haldric/inn/9/lines/2
+불편하면 말씀하시오.
+
+haldric/inn/9/choices/0/text
+조금 더 당길까요?
+
+haldric/inn/9/choices/0/response/0
+이만하면 충분하오.
+
+haldric/inn/9/choices/1/text
+뒤쪽이 넓으니 그리 가서 편히 앉으세요.
+
+haldric/inn/9/choices/1/response/0
+옆에서 함께 앉고 싶었소.
+
+haldric/inn/9/choices/1/response/1
+뒤가 비는 것보다 옆이 있는 편이 낫소.
+
+haldric/inn/9/choices/2/text
+옆은 비어 있어요. 이유는 안 물을게요.
+
+haldric/inn/9/choices/2/response/0
+그럼 이 자리로 하겠소.
+
+haldric/inn/9/choices/2/response/1
+뒤를 보느라 말이 길었소.
+
+haldric/inn/9/seen
+붙여 앉으니 문서를 펴기도 나쁘지 않소.
+
+haldric/inn/10/situation
+할드리크가 조항을 읽다 멈춘다.
+
+haldric/inn/10/lines/0
+이대로 하면 다치는 이가 있소.
+
+haldric/inn/10/lines/1
+그렇다고 혼자 고칠 수도 없소.
+
+haldric/inn/10/lines/2
+같이 읽을 수 있겠소?
+
+haldric/inn/10/choices/0/text
+사람이 먼저니 모른 척 넘어가죠.
+
+haldric/inn/10/choices/0/response/0
+넘기면 다음에도 같은 줄이 남소.
+
+haldric/inn/10/choices/0/response/1
+내가 넘긴 줄 때문에 또 다치는 이를 보겠소?
+
+haldric/inn/10/choices/1/text
+바꿀 수 있는 상대부터 함께 찾아요.
+
+haldric/inn/10/choices/1/response/0
+조항을 지키면서 도울 방법을 보자는 말이구려.
+
+haldric/inn/10/choices/1/response/1
+그러면 내가 아는 조항부터 함께 읽겠소.
+
+haldric/inn/10/choices/2/text
+어느 부분인지 짚어 주세요.
+
+haldric/inn/10/choices/2/response/0
+이 줄과 그 아래 줄이오.
+
+haldric/inn/10/seen
+고칠 상대를 찾는 일도 이행의 일부로 보겠소.
+
+haldric/inn/11/situation
+할드리크가 문서를 접어도 자리를 뜨지 않는다.
+
+haldric/inn/11/lines/0
+확인은 끝났소.
+
+haldric/inn/11/lines/1
+더 읽을 것은 없소.
+
+haldric/inn/11/lines/2
+차가 남았다면 잠깐 있겠소.
+
+haldric/inn/11/choices/0/text
+종이 놓을 자리는 안 비워도 되겠네요.
+
+haldric/inn/11/choices/0/response/0
+예, 오늘은 잔만 놓겠소.
+
+haldric/inn/11/choices/1/text
+차를 조금 더 따를게요.
+
+haldric/inn/11/choices/1/response/0
+식기 전에 마시겠소.
+
+haldric/inn/11/choices/2/text
+일 끝났으니 편히 돌아가 쉬세요.
+
+haldric/inn/11/choices/2/response/0
+여기서 쉬어도 되는지 물은 것이오.
+
+haldric/inn/11/choices/2/response/1
+잔을 마저 마실 때까지 같이 앉아 있고 싶소.
+
+haldric/inn/11/seen
+접은 문서는 가방에 두고 잔을 들겠소.
+
+haldric/inn/12/situation
+할드리크가 자기 서명을 짚는다.
+
+haldric/inn/12/lines/0
+알트 계곡에서 이름을 걸었소.
+
+haldric/inn/12/lines/1
+처음엔 글씨만 바르게 쓰려 했소.
+
+haldric/inn/12/lines/2
+돌아갈 이름까지 쓴 줄은 뒤에 알았소.
+
+haldric/inn/12/choices/0/text
+천천히 들려주세요.
+
+haldric/inn/12/choices/0/response/0
+날짜보다 먼저 떠오르는 게 있소.
+
+haldric/inn/12/choices/1/text
+이름을 걸었으니 절대 후회 없으셨겠어요.
+
+haldric/inn/12/choices/1/response/0
+지켰다고 후회까지 없지는 않소.
+
+haldric/inn/12/choices/1/response/1
+후회해도 그 이름으로 돌아왔소.
+
+haldric/inn/12/choices/2/text
+그 이름으로 돌아가기 어려운 날도 있었어요?
+
+haldric/inn/12/choices/2/response/0
+좋았던 계약만 묻지는 않는구려.
+
+haldric/inn/12/choices/2/response/1
+조금 생각하고 답하겠소.
+
+haldric/inn/12/seen
+보증 이름은 지킨 날에도 무거웠소.
+
+haldric/inn/13/situation
+할드리크가 문서 모서리를 세 번 쓸어 편다.
+
+haldric/inn/13/lines/0
+뼈 소리가 무섭소.
+
+haldric/inn/13/lines/1
+움직이는 것만 무서운 것도 아니오.
+
+haldric/inn/13/lines/2
+조항을 외우면 조금 낫소.
+
+haldric/inn/13/choices/0/text
+제가 먼저 전부 살피면 무서워할 일 없겠죠?
+
+haldric/inn/13/choices/0/response/0
+앞을 다 살피러 가시면 나는 뒤에 혼자 남소.
+
+haldric/inn/13/choices/0/response/1
+혼자 남지 않으려고 한 부탁이오.
+
+haldric/inn/13/choices/1/text
+무서우면 조항 끝까지 옆에서 같이 들어요.
+
+haldric/inn/13/choices/1/response/0
+내가 빨리 읽으면 알아채 주시오.
+
+haldric/inn/13/choices/1/response/1
+혼자 중얼거리는 건 그만하고 싶소.
+
+haldric/inn/13/choices/2/text
+불은 꺼 두지 않을게요.
+
+haldric/inn/13/choices/2/response/0
+그럼 부탁하겠소.
+
+haldric/inn/13/seen
+겁난다는 말을 하고도 자리에 남아 있소.
+
+haldric/inn/14/situation
+할드리크가 우르다 쪽을 보고 한숨 쉰다.
+
+haldric/inn/14/lines/0
+저 사람은 다 아오.
+
+haldric/inn/14/lines/1
+놀리다가도 옆에는 있소.
+
+haldric/inn/14/lines/2
+그게 싫기만 한 것은 아니오.
+
+haldric/inn/14/choices/0/text
+웃어도 혼자 두지는 않는 분이군요.
+
+haldric/inn/14/choices/0/response/0
+예, 떠들면서도 곁에 있어 주니 좋소.
+
+haldric/inn/14/choices/1/text
+오래 아셨나요?
+
+haldric/inn/14/choices/1/response/0
+용병대 때부터 함께한 사람이오.
+
+haldric/inn/14/choices/2/text
+놀리지 말라고 제가 단단히 말해 드릴게요.
+
+haldric/inn/14/choices/2/response/0
+그 말까지 대신할 필요는 없소.
+
+haldric/inn/14/choices/2/response/1
+내 입으로 해 보겠소.
+
+haldric/inn/14/seen
+우르다의 웃는 소리가 옆에 있으면 덜 어둡소.
+
+haldric/inn/15/situation
+할드리크가 조항을 외우다 숨을 고른다.
+
+haldric/inn/15/lines/0
+같은 줄만 읽고 있었소.
+
+haldric/inn/15/lines/1
+글자는 읽히는데 뜻이 들어오지 않았소.
+
+haldric/inn/15/lines/2
+겁을 종이에 옮기려 했소.
+
+haldric/inn/15/choices/0/text
+조금 물 드세요.
+
+haldric/inn/15/choices/0/response/0
+목이 말랐던 것도 잊었소.
+
+haldric/inn/15/choices/1/text
+더 익숙해지면 혼자서도 괜찮으실 거예요.
+
+haldric/inn/15/choices/1/response/0
+언젠가는 그럴 수 있겠소.
+
+haldric/inn/15/choices/1/response/1
+지금 곁에 있어 달라는 말은 늦었구려.
+
+haldric/inn/15/choices/2/text
+이번엔 종이 대신 지금 보이는 걸 말해요.
+
+haldric/inn/15/choices/2/response/0
+잔과 식탁, 곁의 손이 보이오.
+
+haldric/inn/15/choices/2/response/1
+소리 내니 이쪽이 더 분명하오.
+
+haldric/inn/15/seen
+문서는 내려놓고 옆을 좀 보겠소.
+
+haldric/inn/16/situation
+할드리크가 빈 종이를 접어 둔다.
+
+haldric/inn/16/lines/0
+적지 않은 약속이 있소.
+
+haldric/inn/16/lines/1
+손해가 나도 지킬 생각이오.
+
+haldric/inn/16/lines/2
+서명부터 받지는 않겠소.
+
+haldric/inn/16/choices/0/text
+잊으면 곤란하니 그래도 서명해 둘까요?
+
+haldric/inn/16/choices/0/response/0
+잊지 않으려고 오늘 직접 말한 것이오.
+
+haldric/inn/16/choices/0/response/1
+그 말을 꼭 종이로만 받아야 하겠소?
+
+haldric/inn/16/choices/1/text
+안 적어도 지킨다는 말을 제가 기억할게요.
+
+haldric/inn/16/choices/1/response/0
+서명은 없어도 서로 들은 말은 기억하겠소.
+
+haldric/inn/16/choices/2/text
+어떤 약속인지 들어요.
+
+haldric/inn/16/choices/2/response/0
+끝까지 듣고 답하시오.
+
+haldric/inn/16/seen
+오늘 빈 종이에는 서명을 더하지 않겠소.
+
+haldric/inn/17/situation
+할드리크가 어두운 문 쪽을 한번 본다.
+
+haldric/inn/17/lines/0
+오늘은 조항이 늦게 떠올랐소.
+
+haldric/inn/17/lines/1
+곁에 누가 있는지 먼저 찾았소.
+
+haldric/inn/17/lines/2
+그게 더 도움이 되었소.
+
+haldric/inn/17/choices/0/text
+그때 제 쪽에서 먼저 이름을 불러 드릴게요.
+
+haldric/inn/17/choices/0/response/0
+조항 말고 내 이름이면 되오.
+
+haldric/inn/17/choices/0/response/1
+겁이 나면 그 소리를 듣고 싶소.
+
+haldric/inn/17/choices/1/text
+옆에 서 있을게요.
+
+haldric/inn/17/choices/1/response/0
+기척만 있어도 알겠소.
+
+haldric/inn/17/choices/2/text
+겁나실 땐 일 생각을 하면 덜하죠.
+
+haldric/inn/17/choices/2/response/0
+그렇게 해 온 시간이 길었소.
+
+haldric/inn/17/choices/2/response/1
+이번엔 사람을 찾는 말을 했소.
+
+haldric/inn/17/seen
+격식 차리지 않고 불러 주니 좀 낫소.
+
+haldric/inn/18/situation
+할드리크가 계약서를 식탁에서 치운다.
+
+haldric/inn/18/lines/0
+쉬는 자리에까지 폈구려.
+
+haldric/inn/18/lines/1
+말할 때 기댈 것이 필요했소.
+
+haldric/inn/18/lines/2
+오늘은 없어도 말해 보겠소.
+
+haldric/inn/18/choices/0/text
+먼저 차를 마셔요.
+
+haldric/inn/18/choices/0/response/0
+손을 비우면 잔을 들 수 있소.
+
+haldric/inn/18/choices/1/text
+늘 하시던 식으로 말해도 저는 편해요.
+
+haldric/inn/18/choices/1/response/0
+편하게 들어 주는 건 고맙소.
+
+haldric/inn/18/choices/1/response/1
+나도 다른 말을 해 보고 싶어 치웠소.
+
+haldric/inn/18/choices/2/text
+급히 안 하셔도 돼요. 조항 번호는 나중에 들어도 돼요.
+
+haldric/inn/18/choices/2/response/0
+번호 없는 첫말이 어렵소.
+
+haldric/inn/18/choices/2/response/1
+그래도 고맙다는 말부터 하겠소.
+
+haldric/inn/18/seen
+접힌 계약서는 오늘 제 말 대신 펴지지 않소.
+
+haldric/inn/19/situation
+할드리크가 기다리는 자리 옆에 자기 이름을 적는다.
+
+haldric/inn/19/lines/0
+나도 늦을 수 있소.
+
+haldric/inn/19/lines/1
+남을 기다린 날만 셌소.
+
+haldric/inn/19/lines/2
+오늘은 나를 기다려 달라고 하겠소.
+
+haldric/inn/19/choices/0/text
+할드리크 부대장이시니 따로 오셔도 믿고 가도 되죠?
+
+haldric/inn/19/choices/0/response/0
+믿음은 고맙소.
+
+haldric/inn/19/choices/0/response/1
+그래도 뒤에 남은 사람 수에 나도 넣으시오.
+
+haldric/inn/19/choices/1/text
+따로 오실 수 있어도 먼저 출발하지 않을게요.
+
+haldric/inn/19/choices/1/response/0
+길을 아는 것과 기다림은 다른 일이구려.
+
+haldric/inn/19/choices/2/text
+표시를 잘 보이게 둘게요.
+
+haldric/inn/19/choices/2/response/0
+돌아오며 찾기 쉽게 적겠소.
+
+haldric/inn/19/seen
+내가 돌아올 때도 기다려 준다는 말이 고맙소.
+
+haldric/inn/20/situation
+할드리크가 펜 없이 약속을 확인한다.
+
+haldric/inn/20/lines/0
+못 할 때는 먼저 말하겠소.
+
+haldric/inn/20/lines/1
+고친다면 같이 고치겠소.
+
+haldric/inn/20/lines/2
+침묵을 동의로 삼지는 않겠소.
+
+haldric/inn/20/choices/0/text
+제 침묵도 한번 더 물어봐 주세요.
+
+haldric/inn/20/choices/0/response/0
+그렇게 하겠소.
+
+haldric/inn/20/choices/0/response/1
+먼저 묻는 수고는 빼지 않겠소.
+
+haldric/inn/20/choices/1/text
+저도 생각할 시간이 필요해요.
+
+haldric/inn/20/choices/1/response/0
+답을 서두를 기한은 없소.
+
+haldric/inn/20/choices/2/text
+알아서 바꿔도 믿어 드릴게요.
+
+haldric/inn/20/choices/2/response/0
+믿는다는 말로 묻는 일을 없애고 싶지 않소.
+
+haldric/inn/20/choices/2/response/1
+생각이 바뀌면 말을 꺼내겠소.
+
+haldric/inn/20/seen
+오늘 확인한 말에는 침묵의 서명이 없소.
+
+haldric/inn/21/situation
+할드리크가 문가 의자에서 기다린다.
+
+haldric/inn/21/lines/0
+먼저 갈 수 있었소.
+
+haldric/inn/21/lines/1
+남은 일은 없었소.
+
+haldric/inn/21/lines/2
+같이 걷는 쪽을 골랐소.
+
+haldric/inn/21/choices/0/text
+이제 준비됐어요.
+
+haldric/inn/21/choices/0/response/0
+발맞출 수 있겠소.
+
+haldric/inn/21/choices/1/text
+시간 아까우니 다음에는 먼저 가세요.
+
+haldric/inn/21/choices/1/response/0
+아깝지 않아서 앉아 있었소.
+
+haldric/inn/21/choices/1/response/1
+함께 가려고 기다렸으니 내게는 아깝지 않소.
+
+haldric/inn/21/choices/2/text
+의뢰 끝나도 기다리셨네요.
+
+haldric/inn/21/choices/2/response/0
+적혀 있지 않은 시간도 내 시간이오.
+
+haldric/inn/21/seen
+끝난 의뢰 밖에서 기다릴 시간을 골랐소.
+
+haldric/inn/22/situation
+할드리크가 같은 조항을 다시 읽으려다 멈춘다.
+
+haldric/inn/22/lines/0
+목소리가 빨라졌소?
+
+haldric/inn/22/lines/1
+예, 조금 무섭소.
+
+haldric/inn/22/lines/2
+숨기느라 더 오래 읽었소.
+
+haldric/inn/22/choices/0/text
+제가 안 듣고 있을 테니 편히 외우세요.
+
+haldric/inn/22/choices/0/response/0
+안 들키려는 말은 아니오.
+
+haldric/inn/22/choices/0/response/1
+듣고 있어 주면 더 낫겠소.
+
+haldric/inn/22/choices/1/text
+오늘은 몇 조인지 안 맞혀도 돼요.
+
+haldric/inn/22/choices/1/response/0
+그럼 종이는 덮겠소.
+
+haldric/inn/22/choices/1/response/1
+옆에서 숨 고를 때까지만 기다리시오.
+
+haldric/inn/22/choices/2/text
+잠시 쉬어 가요.
+
+haldric/inn/22/choices/2/response/0
+불 있는 쪽에서 쉬겠소.
+
+haldric/inn/22/seen
+문서는 덮었소. 잠깐 들어 주시겠소?
+
+haldric/inn/23/situation
+할드리크가 보증 이름을 끝까지 적는다.
+
+haldric/inn/23/lines/0
+계곡 이름도 남기겠소.
+
+haldric/inn/23/lines/1
+그렇다고 모든 말을 대신하게 두진 않겠소.
+
+haldric/inn/23/lines/2
+여기서 고른 약속도 내 것이오.
+
+haldric/inn/23/choices/0/text
+계곡의 말과 여기서 한 말을 같이 기억할게요.
+
+haldric/inn/23/choices/0/response/0
+둘 중 하나를 지울 필요는 없겠소.
+
+haldric/inn/23/choices/1/text
+잉크가 마를 때까지 둘게요.
+
+haldric/inn/23/choices/1/response/0
+서둘러 접지는 않겠소.
+
+haldric/inn/23/choices/2/text
+새로 시작했으니 옛 이름의 부담은 버려요.
+
+haldric/inn/23/choices/2/response/0
+짐이라서만 가져온 이름은 아니오.
+
+haldric/inn/23/choices/2/response/1
+보증으로 쓴 이름이라 아낀 날도 많소.
+
+haldric/inn/23/seen
+계곡 이야기도 지금 하고 싶은 말도 함께 하겠소.
+
+haldric/inn/24/situation
+할드리크가 계약서 없이 식탁에 앉는다.
+
+haldric/inn/24/lines/0
+가방에 두고 왔소.
+
+haldric/inn/24/lines/1
+잊은 것은 아니오.
+
+haldric/inn/24/lines/2
+오늘은 일 얘기를 하러 온 게 아니오.
+
+haldric/inn/24/choices/0/text
+아침은 드셨어요?
+
+haldric/inn/24/choices/0/response/0
+같이 먹으려고 조금 기다렸소.
+
+haldric/inn/24/choices/1/text
+필요할지 모르니 제가 가져와 드릴까요?
+
+haldric/inn/24/choices/1/response/0
+필요 없다는 말도 한번 해 보려 했소.
+
+haldric/inn/24/choices/1/response/1
+문서는 일부러 두고 왔소.
+
+haldric/inn/24/choices/2/text
+잔 놓을 자리만 있으면 되겠네요.
+
+haldric/inn/24/choices/2/response/0
+문서 놓을 폭까지 비우지 않았구려.
+
+haldric/inn/24/choices/2/response/1
+예, 그만하면 되오.
+
+haldric/inn/24/seen
+빈 식탁에도 오늘 할 말은 있소.
+
+haldric/inn/25/situation
+할드리크가 불 가까이 의자 둘을 둔다.
+
+haldric/inn/25/lines/0
+불을 끄지 않았소.
+
+haldric/inn/25/lines/1
+무서워서인 것도 맞소.
+
+haldric/inn/25/lines/2
+그래도 혼자 앉을 생각은 아니었소.
+
+haldric/inn/25/choices/0/text
+이젠 익숙해질 때도 됐으니 불을 낮춰 볼까요?
+
+haldric/inn/25/choices/0/response/0
+오래 봐도 여전히 무섭소.
+
+haldric/inn/25/choices/0/response/1
+곁에 둔 의자까지 치울 이유는 없소.
+
+haldric/inn/25/choices/1/text
+오늘은 제가 늦지 않게 옆에 올게요.
+
+haldric/inn/25/choices/1/response/0
+두려움만 듣고 온 것처럼 여기진 않겠소.
+
+haldric/inn/25/choices/2/text
+불빛이 따뜻하네요.
+
+haldric/inn/25/choices/2/response/0
+바깥바람보다 이쪽이 낫소.
+
+haldric/inn/25/seen
+불 옆 의자는 하나 더 두고 기다리겠소.
+
+haldric/inn/26/situation
+할드리크가 입을 열다 짧게 웃는다.
+
+haldric/inn/26/lines/0
+조항 번호가 먼저 나올 뻔했소.
+
+haldric/inn/26/lines/1
+하고 싶은 말은 따로 있었소.
+
+haldric/inn/26/lines/2
+오늘 돌아와 줘서 고맙소.
+
+haldric/inn/26/choices/0/text
+저도 돌아오면 여기 계실 줄 알았어요.
+
+haldric/inn/26/choices/0/response/0
+기다린 쪽도 약속을 지켰구려.
+
+haldric/inn/26/choices/1/text
+많이 기다렸어요?
+
+haldric/inn/26/choices/1/response/0
+차를 다시 데울 만큼은 기다렸소.
+
+haldric/inn/26/choices/2/text
+일행이면 당연한 일인데 감사까지 하세요?
+
+haldric/inn/26/choices/2/response/0
+당연한 일에도 내 말은 남기고 싶소.
+
+haldric/inn/26/choices/2/response/1
+기록에는 없더라도 고맙다는 말은 할 수 있소.
+
+haldric/inn/26/seen
+번호 없이 고맙다고 말하는 일이 오늘은 덜 어렵소.
+
+haldric/inn/27/situation
+할드리크가 서명할 때 쓰던 손을 식탁에 편다.
+
+haldric/inn/27/lines/0
+내 이름은 알고 있지 않소?
+
+haldric/inn/27/lines/1
+오늘은 불러 주면 좋겠소.
+
+haldric/inn/27/lines/2
+무서운 게 나타나서만은 아니오.
+
+haldric/inn/27/choices/0/text
+차부터 드시겠어요?
+
+haldric/inn/27/choices/0/response/0
+대답은 잔을 들고 하겠소.
+
+haldric/inn/27/choices/1/text
+직함 말고 편한 별명을 지어 드릴까요?
+
+haldric/inn/27/choices/1/response/0
+지금 이름으로 불러 주면 좋겠소.
+
+haldric/inn/27/choices/1/response/1
+오래 불린 이름으로 오늘도 불리고 싶소.
+
+haldric/inn/27/choices/2/text
+할드리크 부대장, 오늘도 같이 앉아요.
+
+haldric/inn/27/choices/2/response/0
+들었소.
+
+haldric/inn/27/choices/2/response/1
+조항 없이도 여기 있어도 되겠구려.
+
+haldric/inn/27/seen
+불러 준 이름으로 조금 더 여기 앉겠소.
+
+haldric/dungeon/0/variants/0
+서명한 범위는 확인했소.
+
+haldric/dungeon/0/variants/1
+출발 시각은 바꾸지 않았소.
+
+haldric/dungeon/1/variants/0
+계약 밖 준비도 끝났소.
+
+haldric/dungeon/1/variants/1
+늦는 사람이 있으면 나도 기다리겠소.
+
+haldric/dungeon/2/variants/0
+문서는 두고도 약속은 기억하오.
+
+haldric/dungeon/2/variants/1
+먼저 나서기 전에 곁을 보겠소.
+
+haldric/dungeon/3/variants/0
+발밑부터 살피시오.
+
+haldric/dungeon/3/variants/1
+아래로 내려갈 순서는 유지하오.
+
+haldric/dungeon/4/variants/0
+뒤쪽 간격은 내가 보겠소.
+
+haldric/dungeon/4/variants/1
+불 보이는 쪽으로 조금 붙겠소.
+
+haldric/dungeon/5/variants/0
+무서우면 이름부터 부르겠소.
+
+haldric/dungeon/5/variants/1
+먼저 내려가도 목소리는 남겨 주시오.
+
+haldric/dungeon/6/variants/0
+발견한 위치를 먼저 적으시오.
+
+haldric/dungeon/6/variants/1
+확인한 것만 기록하겠소.
+
+haldric/dungeon/7/variants/0
+그쪽 손도 함께 본 것으로 남기겠소.
+
+haldric/dungeon/7/variants/1
+보인 데와 모르는 데를 나눠 보오.
+
+haldric/dungeon/8/variants/0
+먼저 알아본 이름을 빼진 않겠소.
+
+haldric/dungeon/8/variants/1
+같이 본 날도 옆에 적어 두겠소.
+
+haldric/dungeon/9/variants/0
+맡은 곳은 내가 지키겠소.
+
+haldric/dungeon/9/variants/1
+자리를 바꾸려면 먼저 말하시오.
+
+haldric/dungeon/10/variants/0
+뒤로 물러서도 말은 하겠소.
+
+haldric/dungeon/10/variants/1
+옆에서 걸음을 맞추겠소.
+
+haldric/dungeon/11/variants/0
+오늘 겁은 숨기지 않겠소.
+
+haldric/dungeon/11/variants/1
+내가 조항만 읊으면 좀 불러 주시오.
+
+haldric/dungeon/12/variants/0
+종료 여부부터 확인하오.
+
+haldric/dungeon/12/variants/1
+보수 확인은 나간 뒤에 하겠소.
+
+haldric/dungeon/13/variants/0
+불리한 몫도 빠뜨리지 말고 읽으시오.
+
+haldric/dungeon/13/variants/1
+나도 돌아갈 사람 수에 넣으시오.
+
+haldric/dungeon/14/variants/0
+이제 조항 말고 숨을 고르겠소.
+
+haldric/dungeon/14/variants/1
+함께 버텨 줘서 고맙소.
+
+haldric/dungeon/15/variants/0
+계약 제3조를 다시 읽겠소.
+
+haldric/dungeon/15/variants/1
+간격을 조금 더 확보하겠소.
+
+haldric/dungeon/16/variants/0
+내 목소리가 빨라졌으면 알려 주시오.
+
+haldric/dungeon/16/variants/1
+지금은 문서보다 곁이 잘 보였으면 하오.
+
+haldric/dungeon/17/variants/0
+먼저 간다는 말은 아직 하지 않겠소.
+
+haldric/dungeon/17/variants/1
+무섭소. 그래도 함께 고를 수 있소.
+
+haldric/dungeon/18/variants/0
+확인 없이 끝났다고 적지는 않소.
+
+haldric/dungeon/18/variants/1
+남은 인원부터 대조하오.
+
+haldric/dungeon/19/variants/0
+종이가 젖었어도 이름은 알아보겠소.
+
+haldric/dungeon/19/variants/1
+돌아갈 길까지 의뢰는 남았소.
+
+haldric/dungeon/20/variants/0
+오늘 지킨 약속에는 곁도 있었소.
+
+haldric/dungeon/20/variants/1
+고맙다는 말은 나가서 미루지 않겠소.
+
+haldric/dungeon/21/variants/0
+저쪽 상태를 먼저 확인하시오.
+
+haldric/dungeon/21/variants/1
+맡은 자리라도 교대할 수 있소.
+
+haldric/dungeon/22/variants/0
+혼자 버티겠다는 말은 다시 들어야겠소.
+
+haldric/dungeon/22/variants/1
+간격을 줄여 도울 수 있는지 보오.
+
+haldric/dungeon/23/variants/0
+다친 사람을 불러 보겠소.
+
+haldric/dungeon/23/variants/1
+도움이 필요하면 내 쪽도 쓰시오.
+
+haldric/dungeon/24/variants/0
+응답을 먼저 확인하오.
+
+haldric/dungeon/24/variants/1
+아직 돌아갈 수에서 빼지 마시오.
+
+haldric/dungeon/25/variants/0
+길을 비우겠소. 상태를 살피시오.
+
+haldric/dungeon/25/variants/1
+지금은 조항을 읽을 때가 아니오.
+
+haldric/dungeon/26/variants/0
+나도 여기서 함께 기다리겠소.
+
+haldric/dungeon/26/variants/1
+이름을 부르는 일은 멈추지 않겠소.
+
+haldric/dungeon/27/variants/0
+내 상태를 보고하겠소.
+
+haldric/dungeon/27/variants/1
+조금 늦을 수 있소. 먼저 알리오.
+
+haldric/dungeon/28/variants/0
+맡은 곳을 잠시 바꾸겠소.
+
+haldric/dungeon/28/variants/1
+괜찮다고 쓰면 거짓 기록이겠소.
+
+haldric/dungeon/29/variants/0
+내 차례에도 기다린다 하지 않았소?
+
+haldric/dungeon/29/variants/1
+오늘은 내가 손을 빌리겠소.
+
+haldric/dungeon/30/variants/0
+불 밝은 쪽에서 쉬겠소.
+
+haldric/dungeon/30/variants/1
+뒤를 볼 수 있는 자리를 택하겠소.
+
+haldric/dungeon/31/variants/0
+옆을 비워 주면 여기 앉겠소.
+
+haldric/dungeon/31/variants/1
+지금은 계약서를 덮어도 되겠소.
+
+haldric/dungeon/32/variants/0
+내 이름을 들으면 좀 편하오.
+
+haldric/dungeon/32/variants/1
+같이 조금 쉬다 가겠소.
+
+haldric/dungeon/33/variants/0
+열 조건은 확인되지 않았소.
+
+haldric/dungeon/33/variants/1
+문서에 없는 답을 만들지는 마시오.
+
+haldric/dungeon/34/variants/0
+보이는 표시만 같이 읽어 보오.
+
+haldric/dungeon/34/variants/1
+모르는 조항처럼 남겨 두겠소.
+
+haldric/dungeon/35/variants/0
+못 열어도 돌아갈 약속은 같소.
+
+haldric/dungeon/35/variants/1
+기다리는 동안에는 곁에 서겠소.
+
+haldric/dungeon/36/variants/0
+완료한 범위부터 확인하오.
+
+haldric/dungeon/36/variants/1
+각자 몫을 바꿔 적진 마시오.
+
+haldric/dungeon/37/variants/0
+돌아온 이름을 소리 내 읽겠소.
+
+haldric/dungeon/37/variants/1
+일이 끝나도 차는 함께 들겠소.
+
+haldric/dungeon/38/variants/0
+계약서는 두고 와도 같이 앉겠소?
+
+haldric/dungeon/38/variants/1
+먼저 왔다면 불은 켜 두겠소.
+
+haldric/dungeon/39/variants/0
+실패한 항목은 숨기지 않겠소.
+
+haldric/dungeon/39/variants/1
+돌아갈 수 있는 사람부터 살피시오.
+
+haldric/dungeon/40/variants/0
+누가 늦었다고 혼자 남기진 않겠소.
+
+haldric/dungeon/40/variants/1
+고칠 조건은 밖에서 함께 고치오.
+
+haldric/dungeon/41/variants/0
+종이를 덮어도 같이 돌아가겠소.
+
+haldric/dungeon/41/variants/1
+오늘은 조항 대신 돌아오라는 말을 듣겠소.
+
+haldric/transitions/0/situation
+할드리크가 확인할 줄을 가리킨다.
+
+haldric/transitions/0/lines/0
+조건을 듣기는 하겠소.
+
+haldric/transitions/0/lines/1
+들은 뒤에 고르겠소. 아직 서명할 뜻은 아니오.
+
+haldric/transitions/1/situation
+할드리크가 문서를 거둔다.
+
+haldric/transitions/1/lines/0
+고친 뜻을 함께 읽지 않았소.
+
+haldric/transitions/1/lines/1
+오늘은 적힌 범위만 남기겠소.
+
+haldric/transitions/2/situation
+할드리크가 계약서를 펴 놓는다.
+
+haldric/transitions/2/lines/0
+한 줄씩 대조할 수 있겠소?
+
+haldric/transitions/2/lines/1
+옆에서 읽어도 불편하지 않소.
+
+haldric/transitions/3/situation
+할드리크가 펜을 자기 쪽으로 둔다.
+
+haldric/transitions/3/lines/0
+먼저 고친 줄은 아직 모르겠소.
+
+haldric/transitions/3/lines/1
+내가 읽을 시간도 주시오.
+
+haldric/transitions/4/situation
+할드리크가 짐을 문 옆에 둔다.
+
+haldric/transitions/4/lines/0
+문서에 없는 일이라 보수를 더 적진 않겠소.
+
+haldric/transitions/4/lines/1
+그래도 해 두고 싶었소.
+
+haldric/transitions/5/situation
+할드리크가 추가한 손길을 멈춘다.
+
+haldric/transitions/5/lines/0
+기꺼이 한 일을 조건으로 읽었구려.
+
+haldric/transitions/5/lines/1
+오늘은 맡은 일부터 맞추겠소.
+
+haldric/transitions/6/situation
+할드리크가 계약서를 쥔 손을 편다.
+
+haldric/transitions/6/lines/0
+같은 조항을 반복하는 이유가 있소.
+
+haldric/transitions/6/lines/1
+무섭다고 말하면 간단했을 일이오.
+
+haldric/transitions/7/situation
+할드리크가 조항을 읽으려다 멈춘다.
+
+haldric/transitions/7/lines/0
+그 말까지 나누긴 아직 어렵소.
+
+haldric/transitions/7/lines/1
+같은 줄을 읽으면 잠깐 기다리시오.
+
+haldric/transitions/8/situation
+할드리크가 종이 없이 마주 앉는다.
+
+haldric/transitions/8/lines/0
+적지 않은 약속도 지키겠소.
+
+haldric/transitions/8/lines/1
+겁날 때는 내 이름을 불러 주시오.
+
+haldric/transitions/9/situation
+할드리크가 빈 종이를 가져온다.
+
+haldric/transitions/9/lines/0
+안 적어도 같을 줄 알았소.
+
+haldric/transitions/9/lines/1
+서로 들은 뜻을 먼저 말해 봅시다.
+
+haldric/transitions/10/situation
+할드리크가 자기 이름을 또렷이 쓴다.
+
+haldric/transitions/10/lines/0
+못 할 때는 먼저 알리겠소.
+
+haldric/transitions/10/lines/1
+침묵으로 고친 약속은 만들지 않겠소.
+
+haldric/transitions/11/situation
+할드리크가 서명 옆에서 손을 멈춘다.
+
+haldric/transitions/11/lines/0
+고치자는 말을 늦게 들었소.
+
+haldric/transitions/11/lines/1
+내게도 다시 물어 주시오.
+
+haldric/transitions/12/situation
+할드리크가 계약서를 가방에 넣는다.
+
+haldric/transitions/12/lines/0
+오늘은 종이가 없어도 앉겠소.
+
+haldric/transitions/12/lines/1
+종이가 없어도 오늘은 이 자리를 내가 골랐소.
+
+haldric/transitions/13/situation
+할드리크가 가방에서 종이를 꺼낸다.
+
+haldric/transitions/13/lines/0
+편한 사이여도 물을 것은 있었소.
+
+haldric/transitions/13/lines/1
+그 약속부터 다시 확인하겠소.
+
+erdene/inn/0/situation
+에르데네가 의자를 거칠게 당긴다.
+
+erdene/inn/0/lines/0
+앉으려고?
+
+erdene/inn/0/lines/1
+할 말부터 해.
+
+erdene/inn/0/lines/2
+내가 앞에 서는 건 따로 정하고.
+
+erdene/inn/0/choices/0/text
+믿음직하니 앞자리는 비워 둘게요.
+
+erdene/inn/0/choices/0/response/0
+싸웠어도 쓸 곳은 남겨 둔 거야?
+
+erdene/inn/0/choices/0/response/1
+앞자리를 받겠다는 말은 아직 안 했어.
+
+erdene/inn/0/choices/1/text
+앞을 맡는다고 대신 말하진 않을게요.
+
+erdene/inn/0/choices/1/response/0
+그래. 내 입은 아직 있어.
+
+erdene/inn/0/choices/2/text
+출발 시각만 전할게요.
+
+erdene/inn/0/choices/2/response/0
+들었어. 그때 나갈게.
+
+erdene/inn/0/seen
+앞에 서겠다는 말은 내가 직접 할 거야.
+
+erdene/inn/1/situation
+에르데네가 짐을 들었다 놓는다.
+
+erdene/inn/1/lines/0
+들 수 있어.
+
+erdene/inn/1/lines/1
+무게 묻는 건 괜찮아.
+
+erdene/inn/1/lines/2
+말없이 가져가지는 마.
+
+erdene/inn/1/choices/0/text
+들기 전에 나눌지 물을게요.
+
+erdene/inn/1/choices/0/response/0
+힘만 재지 않으면 돼.
+
+erdene/inn/1/choices/1/text
+어디 놓을까요?
+
+erdene/inn/1/choices/1/response/0
+문 안쪽에 둬. 내가 다시 들기 좋게.
+
+erdene/inn/1/choices/2/text
+피곤해 보여서 제가 다 옮길게요.
+
+erdene/inn/1/choices/2/response/0
+내가 할 말도 같이 가져가네.
+
+erdene/inn/1/choices/2/response/1
+내가 놓을 데는 내가 말할 수 있어.
+
+erdene/inn/1/seen
+내 짐을 들 때는 나부터 봐 줘.
+
+erdene/inn/2/situation
+에르데네가 출발 종이를 밀어낸다.
+
+erdene/inn/2/lines/0
+이름은 봤어?
+
+erdene/inn/2/lines/1
+누가 어느 줄인지.
+
+erdene/inn/2/lines/2
+강해 보이는 사람부터 앞에 세운 건 아니지?
+
+erdene/inn/2/choices/0/text
+같이 읽어 봐요.
+
+erdene/inn/2/choices/0/response/0
+위에서부터 하나씩 불러.
+
+erdene/inn/2/choices/1/text
+센 분부터 놓으면 다들 안심할 거예요.
+
+erdene/inn/2/choices/1/response/0
+약한 사람은 끝에서 누가 봐?
+
+erdene/inn/2/choices/1/response/1
+끝에서 걷는 사람도 확인해 줘.
+
+erdene/inn/2/choices/2/text
+역할 옆에 이름도 같이 확인해요.
+
+erdene/inn/2/choices/2/response/0
+그래야 누가 뒤처졌는지 알지.
+
+erdene/inn/2/seen
+끝에 걷는 사람 이름도 잘 보이게 적어.
+
+erdene/inn/3/situation
+에르데네가 문 앞에서 걸음을 멈춘다.
+
+erdene/inn/3/lines/0
+나가자는 건 아니야.
+
+erdene/inn/3/lines/1
+답답해서 일어났어.
+
+erdene/inn/3/lines/2
+좀 걸으면 듣기는 할 수 있어.
+
+erdene/inn/3/choices/0/text
+흥분 가라앉게 혼자 나가 계세요.
+
+erdene/inn/3/choices/0/response/0
+듣겠다고 섰는데 내보내네.
+
+erdene/inn/3/choices/0/response/1
+나가고 싶으면 내가 먼저 말할게.
+
+erdene/inn/3/choices/1/text
+앉히지 않을게요. 여기서 얘기해요.
+
+erdene/inn/3/choices/1/response/0
+앞을 막지만 마. 듣고 있어.
+
+erdene/inn/3/choices/2/text
+잠깐 걸으신 뒤에 다시 올게요.
+
+erdene/inn/3/choices/2/response/0
+그럼 내가 먼저 부를게.
+
+erdene/inn/3/seen
+서 있는 것도 듣는 방법이야.
+
+erdene/inn/4/situation
+에르데네가 맞은편을 턱으로 가리킨다.
+
+erdene/inn/4/lines/0
+이름부터 듣자.
+
+erdene/inn/4/lines/1
+모르는 사람 등 뒤에는 안 서.
+
+erdene/inn/4/lines/2
+아, 부탁하는 말이 너무 컸나?
+
+erdene/inn/4/choices/0/text
+저도 에르데네 씨가 앞에 설지 먼저 물을게요.
+
+erdene/inn/4/choices/0/response/0
+물으면 내가 고를 수 있지.
+
+erdene/inn/4/choices/0/response/1
+그럼 이름 다음은 서로 정하자.
+
+erdene/inn/4/choices/1/text
+이름부터 말씀드릴게요.
+
+erdene/inn/4/choices/1/response/0
+내 이름도 끝까지 들어.
+
+erdene/inn/4/choices/2/text
+이름보다 실력을 보면 금방 친해지겠죠?
+
+erdene/inn/4/choices/2/response/0
+싸우기 전에 부를 이름은 있어야지.
+
+erdene/inn/4/choices/2/response/1
+이름 부르면 서로 돌아볼 수 있잖아.
+
+erdene/inn/4/seen
+이름을 알았으니 등 뒤에서도 부를 수 있겠네.
+
+erdene/inn/5/situation
+에르데네가 큰 접시를 옆으로 민다.
+
+erdene/inn/5/lines/0
+이쪽은 남겨 뒀어.
+
+erdene/inn/5/lines/1
+늦게 오는 사람 있잖아.
+
+erdene/inn/5/lines/2
+나도 다 못 먹어. 그 얼굴은 뭐야?
+
+erdene/inn/5/choices/0/text
+조금만 나눠 주세요.
+
+erdene/inn/5/choices/0/response/0
+남길 몫 말고 이쪽에서 덜어.
+
+erdene/inn/5/choices/1/text
+배고픈 분이 먼저 먹어야죠. 다 드세요.
+
+erdene/inn/5/choices/1/response/0
+뒤늦게 온 배는 안 고픈가?
+
+erdene/inn/5/choices/1/response/1
+늦게 온 사람 몫이라고 내가 남긴 거야.
+
+erdene/inn/5/choices/2/text
+늦는 분 오면 직접 권해 주세요.
+
+erdene/inn/5/choices/2/response/0
+큰소리로 부르면 또 놀라겠지?
+
+erdene/inn/5/choices/2/response/1
+이번엔 앉는 것부터 보고 말할게.
+
+erdene/inn/5/seen
+그 접시는 늦게 올 사람한테 줘.
+
+erdene/inn/6/situation
+에르데네가 짐을 어깨에 멘다.
+
+erdene/inn/6/lines/0
+먼저 가 볼게.
+
+erdene/inn/6/lines/1
+길 열리면 불러 줄게.
+
+erdene/inn/6/lines/2
+따라오라는 말은 아직 안 했어.
+
+erdene/inn/6/choices/0/text
+센 분이 먼저 끝내 주시면 저흰 편하겠네요.
+
+erdene/inn/6/choices/0/response/0
+편하라고 혼자 달리려던 건 아니야.
+
+erdene/inn/6/choices/0/response/1
+혼자 나서면 뒤에서 누가 따라오는지 안 보이잖아.
+
+erdene/inn/6/choices/1/text
+보이는 데까지만 가고 서로 신호해요.
+
+erdene/inn/6/choices/1/response/0
+멈출 때도 정하자는 거네.
+
+erdene/inn/6/choices/1/response/1
+나만 빨라지면 불러.
+
+erdene/inn/6/choices/2/text
+출발 준비할게요.
+
+erdene/inn/6/choices/2/response/0
+문 닫기 전에 같이 나가자.
+
+erdene/inn/6/seen
+앞에서 길을 보면 신호할게.
+
+erdene/inn/7/situation
+에르데네가 공적 적힌 종이를 살핀다.
+
+erdene/inn/7/lines/0
+이름을 줄였네.
+
+erdene/inn/7/lines/1
+내 건 다시 쓸게.
+
+erdene/inn/7/lines/2
+길어도 내 이름은 빼지 말았으면 해.
+
+erdene/inn/7/choices/0/text
+공간을 넓힐 테니 직접 적어 주세요.
+
+erdene/inn/7/choices/0/response/0
+대신 예쁜 글씨로 쓰진 마.
+
+erdene/inn/7/choices/0/response/1
+내 손으로 남기고 싶어.
+
+erdene/inn/7/choices/1/text
+어디가 빠졌어요?
+
+erdene/inn/7/choices/1/response/0
+줄 끝까지 읽으면 빠진 데가 보여.
+
+erdene/inn/7/choices/2/text
+알아볼 수 있으니 짧게 둬도 되지 않을까요?
+
+erdene/inn/7/choices/2/response/0
+빠졌다고 알아보는 사람이 나뿐이면 누가 불러?
+
+erdene/inn/7/choices/2/response/1
+찾고 싶은 이름을 편해서 줄이진 않을래.
+
+erdene/inn/7/seen
+긴 이름도 들어갈 자리는 있어야 해.
+
+erdene/inn/8/situation
+에르데네가 뒤쪽 짐을 받아 든다.
+
+erdene/inn/8/lines/0
+내가 먼저 설게.
+
+erdene/inn/8/lines/1
+이번엔 이름만 보고 정한 거 아냐.
+
+erdene/inn/8/lines/2
+뒤에서 누가 오는지 알아.
+
+erdene/inn/8/choices/0/text
+끈만 확인할게요.
+
+erdene/inn/8/choices/0/response/0
+다 묶을 때까진 안 나가.
+
+erdene/inn/8/choices/1/text
+든든하니 이제 뒤는 안 보셔도 돼요.
+
+erdene/inn/8/choices/1/response/0
+앞을 보느라 대답이 늦을 수도 있어.
+
+erdene/inn/8/choices/1/response/1
+그래도 부르면 들을게.
+
+erdene/inn/8/choices/2/text
+너무 빨라지면 제가 바로 부를게요.
+
+erdene/inn/8/choices/2/response/0
+세게 불러도 돼.
+
+erdene/inn/8/choices/2/response/1
+못 들었다고 달리진 않을게.
+
+erdene/inn/8/seen
+뒤에서 누가 오는지 아니까 앞을 맡을 수 있어.
+
+erdene/inn/9/situation
+에르데네가 서둘러 먹다 수저를 놓는다.
+
+erdene/inn/9/lines/0
+기다리면 될 걸 알긴 해.
+
+erdene/inn/9/lines/1
+근데 먼저 가야 할 것 같아.
+
+erdene/inn/9/lines/2
+누가 늦는다는 말만 들으면 그래.
+
+erdene/inn/9/choices/0/text
+제가 데려올 테니 아무 걱정 마세요.
+
+erdene/inn/9/choices/0/response/0
+나도 걱정이 되니 물어는 볼게.
+
+erdene/inn/9/choices/0/response/1
+다 알아서 해 주려고 하지는 마.
+
+erdene/inn/9/choices/1/text
+늦는 이유를 같이 듣고 나가요.
+
+erdene/inn/9/choices/1/response/0
+그 사람 입이 있는데 내가 먼저 뛰었네.
+
+erdene/inn/9/choices/2/text
+한 숟갈 더 드세요.
+
+erdene/inn/9/choices/2/response/0
+식히기만 하다가 끝날 뻔했어.
+
+erdene/inn/9/seen
+늦는 사람 얘기는 그 사람한테 먼저 듣자.
+
+erdene/inn/10/situation
+에르데네가 문 밖을 보다가 돌아온다.
+
+erdene/inn/10/lines/0
+갈 데 없는 사람 얘기였어.
+
+erdene/inn/10/lines/1
+무리부터 만들면 되나 했지.
+
+erdene/inn/10/lines/2
+누가 들어오고 싶은지도 안 물었네.
+
+erdene/inn/10/choices/0/text
+거두기 전에 같이 갈지 물으면 되죠.
+
+erdene/inn/10/choices/0/response/0
+억지로 넣으면 또 흩어지겠지.
+
+erdene/inn/10/choices/0/response/1
+내가 직접 물어볼게.
+
+erdene/inn/10/choices/1/text
+먼저 사정을 들어요.
+
+erdene/inn/10/choices/1/response/0
+말하는 동안은 앞서가지 않을게.
+
+erdene/inn/10/choices/2/text
+힘드실 테니 그런 일은 길드에 맡겨요.
+
+erdene/inn/10/choices/2/response/0
+맡기고 등 돌리는 게 잘 안 돼.
+
+erdene/inn/10/choices/2/response/1
+기다릴 사람이 있으면 그냥 못 돌아서겠어.
+
+erdene/inn/10/seen
+함께 갈지 묻기 전에는 내 무리라고 부르지 않을게.
+
+erdene/inn/11/situation
+에르데네가 큰소리를 내다 목을 가다듬는다.
+
+erdene/inn/11/lines/0
+아, 놀랐어?
+
+erdene/inn/11/lines/1
+급히 말하면 더 커지네.
+
+erdene/inn/11/lines/2
+지금은 부탁 하나 하려던 건데.
+
+erdene/inn/11/choices/0/text
+물 좀 드릴까요?
+
+erdene/inn/11/choices/0/response/0
+한 모금이면 되겠어.
+
+erdene/inn/11/choices/1/text
+그냥 명령하셔도 돼요. 편하게 말하세요.
+
+erdene/inn/11/choices/1/response/0
+편하다고 시키고 싶은 건 아니야.
+
+erdene/inn/11/choices/1/response/1
+부탁할 말이니까 숨부터 고른 거야.
+
+erdene/inn/11/choices/2/text
+천천히 해요. 먼저 끼어들진 않을게요.
+
+erdene/inn/11/choices/2/response/0
+기다리면 더 크게 말할까 봐.
+
+erdene/inn/11/choices/2/response/1
+그래도 한 번 숨 쉬고 할게.
+
+erdene/inn/11/seen
+부탁하려니 말이 천천히 나왔어.
+
+erdene/inn/12/situation
+에르데네가 식탁을 쥔 손을 푼다.
+
+erdene/inn/12/lines/0
+아버지 부족이 해체됐어.
+
+erdene/inn/12/lines/1
+남은 이름도 사람마다 다르게 불렀지.
+
+erdene/inn/12/lines/2
+그 이름을 다시 쓰고 싶어.
+
+erdene/inn/12/choices/0/text
+지금 가문 이름도 좋으니 그걸로 충분하잖아요.
+
+erdene/inn/12/choices/0/response/0
+지금 이름도 좋아. 그래도 잃은 게 있어.
+
+erdene/inn/12/choices/0/response/1
+그 얘기도 좀 들어 줘.
+
+erdene/inn/12/choices/1/text
+말하기 힘든 옛 이름은 안 물을게요. 남기고 싶은 말부터 해요.
+
+erdene/inn/12/choices/1/response/0
+말하기 싫을 때도 있다는 건 알아주네.
+
+erdene/inn/12/choices/1/response/1
+지금 할 수 있는 얘기부터 할게.
+
+erdene/inn/12/choices/2/text
+듣고 있을게요.
+
+erdene/inn/12/choices/2/response/0
+바로 답하지 않아도 돼.
+
+erdene/inn/12/seen
+지금 이름을 아껴도 잃어버린 얘기는 하고 싶어.
+
+erdene/inn/13/situation
+에르데네가 접힌 종이를 펴다 멈춘다.
+
+erdene/inn/13/lines/0
+무리를 다시 세운다는 말만 했네.
+
+erdene/inn/13/lines/1
+같이 가는 사람한테도 그 말만 했어.
+
+erdene/inn/13/lines/2
+뭘 바라는지 묻지 않고.
+
+erdene/inn/13/choices/0/text
+이번엔 제가 어디까지 갈 수 있는지 물어봐 주세요.
+
+erdene/inn/13/choices/0/response/0
+그럼 먼저 물을게.
+
+erdene/inn/13/choices/0/response/1
+내가 멈추면 어디서 기다려 줄 수 있어?
+
+erdene/inn/13/choices/1/text
+오늘은 쉬어 가요.
+
+erdene/inn/13/choices/1/response/0
+그럼 좀 쉬었다 가도 되겠어?
+
+erdene/inn/13/choices/2/text
+목표가 크니 다른 일은 제가 맞출게요.
+
+erdene/inn/13/choices/2/response/0
+또 전부 나한테 맞추네.
+
+erdene/inn/13/choices/2/response/1
+그래서 뒤를 못 봤던 건데.
+
+erdene/inn/13/seen
+내 길에 맞추라는 말 대신 갈 수 있는 곳을 물을게.
+
+erdene/inn/14/situation
+에르데네가 나란 쪽의 웃음을 듣는다.
+
+erdene/inn/14/lines/0
+같은 데서 왔어도 다르지.
+
+erdene/inn/14/lines/1
+집안 얘기 나오면 더 그래.
+
+erdene/inn/14/lines/2
+지금 곁에 선 사람까지 놓치기 싫은데.
+
+erdene/inn/14/choices/0/text
+지금은 다른 자리로 갈까요?
+
+erdene/inn/14/choices/0/response/0
+자리를 피하는 게 꼭 지는 건 아니지.
+
+erdene/inn/14/choices/1/text
+지난 일은 잊고 사이좋게 지내면 편하잖아요.
+
+erdene/inn/14/choices/1/response/0
+잊으라는 말이 제일 안 편해.
+
+erdene/inn/14/choices/1/response/1
+같이 온 날만큼 예전 일도 내가 기억할게.
+
+erdene/inn/14/choices/2/text
+오늘 함께 한 일과 집안 얘기를 나눠 봐요.
+
+erdene/inn/14/choices/2/response/0
+같다고 덮지도 않는구나.
+
+erdene/inn/14/choices/2/response/1
+그럼 오늘 일부터 말할게.
+
+erdene/inn/14/seen
+지난 일은 남아도 오늘은 같이 서 볼게.
+
+erdene/inn/15/situation
+에르데네가 빈 의자를 거칠게 세운다.
+
+erdene/inn/15/lines/0
+뛰어나가려던 거 맞아.
+
+erdene/inn/15/lines/1
+목소리도 안 들었어.
+
+erdene/inn/15/lines/2
+이번엔 돌아와서 듣고 있어.
+
+erdene/inn/15/choices/0/text
+놀라지 않았어요. 성격이 그런 건 다들 알죠.
+
+erdene/inn/15/choices/0/response/0
+그렇다고 매번 못 들은 척하면 안 되지.
+
+erdene/inn/15/choices/0/response/1
+들었다고 끝낼 말은 아닌 것 같아서 돌아왔어.
+
+erdene/inn/15/choices/1/text
+말을 못 들었으면 지금부터 같이 들어요.
+
+erdene/inn/15/choices/1/response/0
+혼내는 말부터 안 하네.
+
+erdene/inn/15/choices/1/response/1
+이번엔 끝까지 서 있을게.
+
+erdene/inn/15/choices/2/text
+의자부터 놓아요.
+
+erdene/inn/15/choices/2/response/0
+앉아서 들어 볼게.
+
+erdene/inn/15/seen
+몸부터 나가다가도 부르면 들을게.
+
+erdene/inn/16/situation
+에르데네가 공적 종이를 내려놓는다.
+
+erdene/inn/16/lines/0
+길은 이쪽이 빠르지.
+
+erdene/inn/16/lines/1
+근데 오늘은 못 가겠어.
+
+erdene/inn/16/lines/2
+먼저 챙길 사람이 있어.
+
+erdene/inn/16/choices/0/text
+그럼 오늘은 기다리는 쪽에 같이 서요.
+
+erdene/inn/16/choices/0/response/0
+느리게 걸어도 내가 앞에서 볼 수 있어.
+
+erdene/inn/16/choices/0/response/1
+이 사람부터 보자.
+
+erdene/inn/16/choices/1/text
+어디부터 도울까요?
+
+erdene/inn/16/choices/1/response/0
+짐 말고 상태부터 봐 줘.
+
+erdene/inn/16/choices/2/text
+큰 목표가 있으니 이번엔 제가 대신 남을게요.
+
+erdene/inn/16/choices/2/response/0
+이번엔 내가 고른 사람 곁에 있고 싶어.
+
+erdene/inn/16/choices/2/response/1
+목표랑 다른 쪽을 내가 고른 날도 있어야지.
+
+erdene/inn/16/seen
+늦어지는 걸 알아도 오늘은 이쪽을 고를래.
+
+erdene/inn/17/situation
+에르데네가 낮은 목소리로 자리를 권한다.
+
+erdene/inn/17/lines/0
+크게 불러도 안 들릴 때 있지?
+
+erdene/inn/17/lines/1
+내가 그랬어.
+
+erdene/inn/17/lines/2
+이번엔 가까이서 말할게.
+
+erdene/inn/17/choices/0/text
+옆으로 올게요.
+
+erdene/inn/17/choices/0/response/0
+이쪽 의자는 안 흔들려.
+
+erdene/inn/17/choices/1/text
+큰 목소리가 더 어울리세요. 평소처럼 해요.
+
+erdene/inn/17/choices/1/response/0
+작게 하고 싶은 말도 있어.
+
+erdene/inn/17/choices/1/response/1
+작아도 먼저 해 보고 싶은 말이야.
+
+erdene/inn/17/choices/2/text
+작게 말해도 제가 듣고 있다는 건 같아요.
+
+erdene/inn/17/choices/2/response/0
+그래? 그럼 큰소리로 덮진 않을게.
+
+erdene/inn/17/seen
+옆에서는 작게 말해도 들리는구나.
+
+erdene/inn/18/situation
+에르데네가 먼저 앉아 짐을 내려놓는다.
+
+erdene/inn/18/lines/0
+오늘은 내가 늦어.
+
+erdene/inn/18/lines/1
+앞에 서겠다는 말은 좀 미룰게.
+
+erdene/inn/18/lines/2
+이상하게 보지는 마.
+
+erdene/inn/18/choices/0/text
+든든한 분이 지치면 저희도 불안해요.
+
+erdene/inn/18/choices/0/response/0
+안 지쳤다고 하면 편해져?
+
+erdene/inn/18/choices/0/response/1
+지쳤다고 숨기면 누가 교대하자고 불러?
+
+erdene/inn/18/choices/1/text
+준비될 때 부르면 같이 나갈게요.
+
+erdene/inn/18/choices/1/response/0
+내가 부를 때까지 기다린다는 거지.
+
+erdene/inn/18/choices/1/response/1
+그 말이면 됐어.
+
+erdene/inn/18/choices/2/text
+물부터 드세요.
+
+erdene/inn/18/choices/2/response/0
+받을게. 오늘은 좀 필요하네.
+
+erdene/inn/18/seen
+지쳤다는 말도 무리 안에서 해도 되는 말이겠지.
+
+erdene/inn/19/situation
+에르데네가 이름 적힌 줄을 손가락으로 쓸어 본다.
+
+erdene/inn/19/lines/0
+이름을 찾고 싶었어.
+
+erdene/inn/19/lines/1
+근데 이름을 부를 사람도 있어야 하네.
+
+erdene/inn/19/lines/2
+이건 좀 늦게 알았어.
+
+erdene/inn/19/choices/0/text
+공적 없는 날에도 제가 불러 드릴게요.
+
+erdene/inn/19/choices/0/response/0
+그러면 오늘도 불러.
+
+erdene/inn/19/choices/0/response/1
+내가 뭘 해냈는지는 뒤에 말하자.
+
+erdene/inn/19/choices/1/text
+종이는 잘 말려 둬요.
+
+erdene/inn/19/choices/1/response/0
+젖지 않게 안쪽에 둘게.
+
+erdene/inn/19/choices/2/text
+이름을 되찾으면 그때 크게 축하해요.
+
+erdene/inn/19/choices/2/response/0
+그날 오기 전에도 내 이름을 불러 줬으면 해.
+
+erdene/inn/19/choices/2/response/1
+뭘 되찾아야만 축하받으면 좀 서운하잖아.
+
+erdene/inn/19/seen
+여기서 내 이름을 불러 주던 것도 기억할게.
+
+erdene/inn/20/situation
+에르데네가 출발 순서를 다시 적는다.
+
+erdene/inn/20/lines/0
+빠르면 세우고.
+
+erdene/inn/20/lines/1
+못 걸으면 부르고.
+
+erdene/inn/20/lines/2
+내가 먼저 그 약속 지킬게.
+
+erdene/inn/20/choices/0/text
+신호부터 맞춰요.
+
+erdene/inn/20/choices/0/response/0
+큰소리만 신호로 쓰진 말자.
+
+erdene/inn/20/choices/1/text
+저는 괜찮으니 다른 분들만 챙겨 주세요.
+
+erdene/inn/20/choices/1/response/0
+괜찮다는 사람도 내 무리인데.
+
+erdene/inn/20/choices/1/response/1
+괜찮다는 말을 안 믿는 건 아냐. 같이 보자는 거지.
+
+erdene/inn/20/choices/2/text
+저한테도 에르데네 씨를 세울 차례를 주세요.
+
+erdene/inn/20/choices/2/response/0
+그래. 앞에서 못 들어도 돌아볼게.
+
+erdene/inn/20/seen
+뒤에서 내 이름을 부르면 멈추는 약속이야.
+
+erdene/inn/21/situation
+에르데네가 식탁 끝자리를 비운다.
+
+erdene/inn/21/lines/0
+늦는 사람 있어.
+
+erdene/inn/21/lines/1
+내 몫을 좀 남겼어.
+
+erdene/inn/21/lines/2
+기다렸다 같이 먹을래.
+
+erdene/inn/21/choices/0/text
+늦는 분은 나중에 먹고 저희는 출발하죠.
+
+erdene/inn/21/choices/0/response/0
+따로 먹을 거면 왜 기다리는지 물었겠어?
+
+erdene/inn/21/choices/0/response/1
+따뜻한 밥을 같이 주려고 남겼어.
+
+erdene/inn/21/choices/1/text
+기다리는 일도 앞장서실 수 있네요.
+
+erdene/inn/21/choices/1/response/0
+그 말은 좀 웃기다.
+
+erdene/inn/21/choices/1/response/1
+그럼 앉아서 기다려 볼게.
+
+erdene/inn/21/choices/2/text
+그릇을 덮어 둘게요.
+
+erdene/inn/21/choices/2/response/0
+덜 식겠네. 고마워.
+
+erdene/inn/21/seen
+앞장서던 날처럼 오늘은 늦게 온 사람을 기다릴게.
+
+erdene/inn/22/situation
+에르데네가 편 종이를 접는다.
+
+erdene/inn/22/lines/0
+이름은 못 찾을 수도 있지.
+
+erdene/inn/22/lines/1
+그런 말 하기 싫었는데.
+
+erdene/inn/22/lines/2
+그렇다고 같이 간 날이 없어지진 않아.
+
+erdene/inn/22/choices/0/text
+이름 되찾는 답은 몰라도 같이 간 날은 기억해요.
+
+erdene/inn/22/choices/0/response/0
+장담 안 해서 더 믿겠네.
+
+erdene/inn/22/choices/1/text
+오늘 일부터 적을까요?
+
+erdene/inn/22/choices/1/response/0
+응, 본 것부터 남겨 줘.
+
+erdene/inn/22/choices/2/text
+꼭 되찾을 거예요. 실패는 생각하지 마세요.
+
+erdene/inn/22/choices/2/response/0
+안 될까 무서웠단 말도 하고 싶었어.
+
+erdene/inn/22/choices/2/response/1
+무섭지 않은 척하다 말이 더 커졌던 날도 있어.
+
+erdene/inn/22/seen
+못 이룰지 모른다는 말도 여기서는 숨기지 않을게.
+
+erdene/inn/23/situation
+에르데네가 머뭇거리며 문을 연다.
+
+erdene/inn/23/lines/0
+먼저 나가라던 버릇 있잖아.
+
+erdene/inn/23/lines/1
+오늘은 같이 나가자.
+
+erdene/inn/23/lines/2
+부탁하는 거야.
+
+erdene/inn/23/choices/0/text
+짐 들고 나올게요.
+
+erdene/inn/23/choices/0/response/0
+문은 내가 잡고 있을게.
+
+erdene/inn/23/choices/1/text
+앞에 서시면 편하니 먼저 가 주세요.
+
+erdene/inn/23/choices/1/response/0
+편한 길 말고 같이 걷는 걸 골랐는데.
+
+erdene/inn/23/choices/1/response/1
+문 하나만은 옆에서 나가 보고 싶어서 그래.
+
+erdene/inn/23/choices/2/text
+문 나갈 때는 나란히 설게요.
+
+erdene/inn/23/choices/2/response/0
+그럼 나도 속도부터 맞출게.
+
+erdene/inn/23/seen
+부탁으로 연 문은 같이 나가고 싶어.
+
+erdene/inn/24/situation
+에르데네가 빈자리 앞에서 손을 든다.
+
+erdene/inn/24/lines/0
+일은 없어.
+
+erdene/inn/24/lines/1
+그냥 여기 앉으려고.
+
+erdene/inn/24/lines/2
+내가 조용해도 놀라지 마.
+
+erdene/inn/24/choices/0/text
+할 일 없으시면 더 쉬고 오셔도 돼요.
+
+erdene/inn/24/choices/0/response/0
+여기 앉는 것도 쉬는 거야.
+
+erdene/inn/24/choices/0/response/1
+할 일이 없어도 같이 앉고 싶어.
+
+erdene/inn/24/choices/1/text
+성과 얘기는 나중에 하고 아침부터 먹어요.
+
+erdene/inn/24/choices/1/response/0
+그게 좋겠다.
+
+erdene/inn/24/choices/1/response/1
+오늘은 이름 확인도 안 해도 되네.
+
+erdene/inn/24/choices/2/text
+의자를 당겨 드릴게요.
+
+erdene/inn/24/choices/2/response/0
+내가 붙들게. 같이 앉자.
+
+erdene/inn/24/seen
+오늘은 앞자리보다 맞은편 자리가 좋아.
+
+erdene/inn/25/situation
+에르데네가 짐을 들다 내려놓고 웃는다.
+
+erdene/inn/25/lines/0
+또 혼자 들었네.
+
+erdene/inn/25/lines/1
+손이 먼저 갔어.
+
+erdene/inn/25/lines/2
+한쪽 잡아 줄래?
+
+erdene/inn/25/choices/0/text
+늘 들던 짐도 오늘은 같이 들어요.
+
+erdene/inn/25/choices/0/response/0
+내가 달라졌다고 짐이 가벼워지진 않네.
+
+erdene/inn/25/choices/0/response/1
+그래도 손은 둘이잖아.
+
+erdene/inn/25/choices/1/text
+이쪽 끈 잡을게요.
+
+erdene/inn/25/choices/1/response/0
+하나, 둘 하고 들자.
+
+erdene/inn/25/choices/2/text
+가벼우니 그냥 혼자 드셔도 되겠어요.
+
+erdene/inn/25/choices/2/response/0
+무거워야만 같이 들자고 하나?
+
+erdene/inn/25/choices/2/response/1
+같이 드는 손이 무거울 때만 있으면 아쉽잖아.
+
+erdene/inn/25/seen
+가벼운 짐에도 같이 들 손을 부를 수 있네.
+
+erdene/inn/26/situation
+에르데네가 종이 없는 식탁을 두드린다.
+
+erdene/inn/26/lines/0
+여기 이름 안 써도 되지?
+
+erdene/inn/26/lines/1
+다 아니까.
+
+erdene/inn/26/lines/2
+오늘은 부르는 소리만 듣고 싶네.
+
+erdene/inn/26/choices/0/text
+차 더 드릴까요?
+
+erdene/inn/26/choices/0/response/0
+조금만. 천천히 마실래.
+
+erdene/inn/26/choices/1/text
+이름보다 이제 편한 별명으로 부를까요?
+
+erdene/inn/26/choices/1/response/0
+이 이름이 편해진 거야.
+
+erdene/inn/26/choices/1/response/1
+나를 제대로 부르는 소리가 이제는 편해.
+
+erdene/inn/26/choices/2/text
+에르데네 씨, 오늘은 제 얘기 좀 들어요.
+
+erdene/inn/26/choices/2/response/0
+응, 부르면 여기 있을게.
+
+erdene/inn/26/choices/2/response/1
+앞에 설 일이 없는 날에도 여기 있을게.
+
+erdene/inn/26/seen
+종이에 쓰지 않고 바로 불러 주니까 좋네.
+
+erdene/inn/27/situation
+에르데네가 먼저 문밖에 나갔다 돌아온다.
+
+erdene/inn/27/lines/0
+걸음이 또 빨랐어.
+
+erdene/inn/27/lines/1
+이번엔 내가 알았지.
+
+erdene/inn/27/lines/2
+같이 나가자고 했는데 말이야.
+
+erdene/inn/27/choices/0/text
+앞에서 길 봐 주시면 제가 따라갈게요.
+
+erdene/inn/27/choices/0/response/0
+오늘은 뒤에서 따라오는 소리 말고 옆 소리가 듣고 싶어.
+
+erdene/inn/27/choices/0/response/1
+오늘은 길 안내를 맡기려던 게 아니었어.
+
+erdene/inn/27/choices/1/text
+돌아와 주셨으니 지금 맞추면 돼요.
+
+erdene/inn/27/choices/1/response/0
+그럼 문부터 다시 같이 나가자.
+
+erdene/inn/27/choices/1/response/1
+늦었다고 놀리지는 마.
+
+erdene/inn/27/choices/2/text
+준비 다 됐어요.
+
+erdene/inn/27/choices/2/response/0
+발맞추고 걸어 볼까.
+
+erdene/inn/27/seen
+앞서가더라도 돌아와서는 같이 앉을게.
+
+erdene/dungeon/0/variants/0
+앞 설 사람부터 정하자.
+
+erdene/dungeon/0/variants/1
+이름 빠진 사람 없는지 봐.
+
+erdene/dungeon/1/variants/0
+뒤에서 부르면 멈출게.
+
+erdene/dungeon/1/variants/1
+내가 빠르면 바로 말해 줘.
+
+erdene/dungeon/2/variants/0
+오늘 내 상태도 먼저 셀게.
+
+erdene/dungeon/2/variants/1
+함께 나가자고 한 말부터 지키자.
+
+erdene/dungeon/3/variants/0
+발 먼저 내밀지 마. 내가 볼게.
+
+erdene/dungeon/3/variants/1
+내려온 이름부터 다시 부르자.
+
+erdene/dungeon/4/variants/0
+뒤 소리 들으면서 갈게.
+
+erdene/dungeon/4/variants/1
+한 번 멈추는 게 지는 건 아니야.
+
+erdene/dungeon/5/variants/0
+나란히 못 서도 목소리는 닿게 가자.
+
+erdene/dungeon/5/variants/1
+내가 뒤여도 같이 내려가는 거야.
+
+erdene/dungeon/6/variants/0
+봐, 이쪽이 먼저 보였어.
+
+erdene/dungeon/6/variants/1
+혼자 뛰진 않을게. 같이 확인해.
+
+erdene/dungeon/7/variants/0
+찾은 사람만 적지 말고 같이 본 것도 남겨.
+
+erdene/dungeon/7/variants/1
+누가 봤는지 같이 남겨 두자.
+
+erdene/dungeon/8/variants/0
+이름 적기 전에 같이 좀 보자.
+
+erdene/dungeon/8/variants/1
+오늘은 발견한 얼굴도 기억할래.
+
+erdene/dungeon/9/variants/0
+뒤는 내가 볼게. 이름 부르면 답해.
+
+erdene/dungeon/9/variants/1
+먼저 나가도 혼자 끝낼 생각은 없어.
+
+erdene/dungeon/10/variants/0
+빠지면 내가 부를 테니 숨어 버리진 마.
+
+erdene/dungeon/10/variants/1
+내가 안 들으면 더 크게 불러.
+
+erdene/dungeon/11/variants/0
+세워 달라면 나도 멈출게.
+
+erdene/dungeon/11/variants/1
+같이 고른 자리부터 지키자.
+
+erdene/dungeon/12/variants/0
+끝났다고 바로 흩어지지 마.
+
+erdene/dungeon/12/variants/1
+먼저 선 사람 말고 뒤도 세자.
+
+erdene/dungeon/13/variants/0
+내가 빨랐으면 지금 말해 줘.
+
+erdene/dungeon/13/variants/1
+다들 버티느라 애썼어.
+
+erdene/dungeon/14/variants/0
+오늘도 같이 돌아갈 수 있겠네.
+
+erdene/dungeon/14/variants/1
+잘했다는 말은 서로 해도 되지?
+
+erdene/dungeon/15/variants/0
+센 게 먼저 가라는 뜻은 아니야.
+
+erdene/dungeon/15/variants/1
+이 앞은 다 보고 정하자.
+
+erdene/dungeon/16/variants/0
+뛰기 전에 한 번 물을게.
+
+erdene/dungeon/16/variants/1
+어디까지 같이 갈 수 있어?
+
+erdene/dungeon/17/variants/0
+내 목표 때문에 다 끌고 가진 않을게.
+
+erdene/dungeon/17/variants/1
+오늘은 멈추는 쪽도 같이 고르자.
+
+erdene/dungeon/18/variants/0
+내 이름만 크게 쓰지 마.
+
+erdene/dungeon/18/variants/1
+뒤에서 버틴 사람도 같이 불러.
+
+erdene/dungeon/19/variants/0
+앞에 섰다고 혼자 이긴 건 아니지.
+
+erdene/dungeon/19/variants/1
+자, 돌아갈 힘도 좀 남겨 둬.
+
+erdene/dungeon/20/variants/0
+종이보다 돌아온 얼굴이 먼저네.
+
+erdene/dungeon/20/variants/1
+이 이름을 부를 사람이 같이 있어 좋다.
+
+erdene/dungeon/21/variants/0
+늦는 사람부터 봐. 내가 갈게.
+
+erdene/dungeon/21/variants/1
+버티라는 말부터 하지 마.
+
+erdene/dungeon/22/variants/0
+누가 도울 수 있는지 먼저 부르자.
+
+erdene/dungeon/22/variants/1
+내가 다 들면 오히려 늦을 수 있어.
+
+erdene/dungeon/23/variants/0
+지금은 내 말보다 그 사람 말을 들어.
+
+erdene/dungeon/23/variants/1
+조금 쉬는 걸로 빠졌다고 세지 말자.
+
+erdene/dungeon/24/variants/0
+쓰러졌다고 끝난 건 아니잖아.
+
+erdene/dungeon/24/variants/1
+이름 불러. 내가 옆을 볼게.
+
+erdene/dungeon/25/variants/0
+내가 먼저 뛰기 전에 상태부터 말해 줘.
+
+erdene/dungeon/25/variants/1
+혼자 남기고 갈 생각은 없어.
+
+erdene/dungeon/26/variants/0
+느리게라도 같이 돌아갈 길을 보자.
+
+erdene/dungeon/26/variants/1
+앞자리 비워도 지금은 곁에 있을래.
+
+erdene/dungeon/27/variants/0
+나도 다쳤어. 아직은 서 있어.
+
+erdene/dungeon/27/variants/1
+혼자 옮기진 마. 먼저 물어.
+
+erdene/dungeon/28/variants/0
+이번엔 내가 교대 부탁할게.
+
+erdene/dungeon/28/variants/1
+괜찮다고 너무 크게 말했네. 상처가 쓰라려.
+
+erdene/dungeon/29/variants/0
+기다리는 수에 나도 넣어 줘.
+
+erdene/dungeon/29/variants/1
+지쳤어. 잠깐 쉬어도 되겠지?
+
+erdene/dungeon/30/variants/0
+잠깐 앉자. 뒤처진 얼굴부터 보고.
+
+erdene/dungeon/30/variants/1
+쉬는 데 앞뒤는 없지.
+
+erdene/dungeon/31/variants/0
+짐은 내려놔. 내가 다 들겠다는 건 아니고.
+
+erdene/dungeon/31/variants/1
+나도 오늘은 먼저 앉을게.
+
+erdene/dungeon/32/variants/0
+여기서는 앞장서지 않아도 되네.
+
+erdene/dungeon/32/variants/1
+좀 더 쉬고 싶으면 내가 먼저 말할게.
+
+erdene/dungeon/33/variants/0
+힘으로 할 일인지 아직 모르잖아.
+
+erdene/dungeon/33/variants/1
+잠깐, 손보다 표시부터 보자.
+
+erdene/dungeon/34/variants/0
+열리지 않으면 다른 길도 봐야지.
+
+erdene/dungeon/34/variants/1
+급한 건 내 마음일 수도 있겠네.
+
+erdene/dungeon/35/variants/0
+못 연 걸 혼자 책임질 필요는 없어.
+
+erdene/dungeon/35/variants/1
+오늘 고른 멈춤도 나중에 같이 말하자.
+
+erdene/dungeon/36/variants/0
+안 돌아온 사람 없어?
+
+erdene/dungeon/36/variants/1
+내 짐은 내가 받아 갈게.
+
+erdene/dungeon/37/variants/0
+오늘은 같이 문을 나가자.
+
+erdene/dungeon/37/variants/1
+빠진 사람 없으면 그때 웃을게.
+
+erdene/dungeon/38/variants/0
+앞자리 말고 맞은편 자리도 남겨 줘.
+
+erdene/dungeon/38/variants/1
+돌아와서 부르는 이름이 제일 좋네.
+
+erdene/dungeon/39/variants/0
+졌다고 약한 사람 탓하진 마.
+
+erdene/dungeon/39/variants/1
+남은 사람부터 모으자.
+
+erdene/dungeon/40/variants/0
+내가 너무 빨랐어? 나가서 들어 볼게.
+
+erdene/dungeon/40/variants/1
+다 못 지켰어도 다시 사람부터 보자.
+
+erdene/dungeon/41/variants/0
+목표 못 이룬 날도 같이 밥은 먹자.
+
+erdene/dungeon/41/variants/1
+오늘 돌아온 사람들도 빠짐없이 적어.
+
+erdene/transitions/0/situation
+에르데네가 식탁 쥔 손을 놓는다.
+
+erdene/transitions/0/lines/0
+안 들으려던 건 아냐.
+
+erdene/transitions/0/lines/1
+오늘은 먼저 말해 봐.
+
+erdene/transitions/1/situation
+에르데네가 의자를 밀어 둔다.
+
+erdene/transitions/1/lines/0
+내가 고를 말까지 가져갔잖아.
+
+erdene/transitions/1/lines/1
+맡은 일 말고는 좀 뒤로 하자.
+
+erdene/transitions/2/situation
+에르데네가 맞은편을 본다.
+
+erdene/transitions/2/lines/0
+이름 다시 들을게.
+
+erdene/transitions/2/lines/1
+뒤에서 부를 때도 제대로 부르고 싶어서 그래.
+
+erdene/transitions/3/situation
+에르데네가 출발 종이를 접는다.
+
+erdene/transitions/3/lines/0
+이름보다 쓸 곳부터 봤네.
+
+erdene/transitions/3/lines/1
+내 몫은 다시 물어봐.
+
+erdene/transitions/4/situation
+에르데네가 먼저 짐을 멘다.
+
+erdene/transitions/4/lines/0
+이번에는 내가 앞에 설게.
+
+erdene/transitions/4/lines/1
+뒤에서 세우면 들을 거야.
+
+erdene/transitions/5/situation
+에르데네가 멘 짐을 내려놓는다.
+
+erdene/transitions/5/lines/0
+혼자 뛰라는 뜻으로 받았네.
+
+erdene/transitions/5/lines/1
+같이 갈 건지 다시 보자.
+
+erdene/transitions/6/situation
+에르데네가 이름 적힌 종이를 편다.
+
+erdene/transitions/6/lines/0
+잃은 이름 얘기를 하고 싶어.
+
+erdene/transitions/6/lines/1
+지금 이름만으로는 잃은 걸 다 말하기 어려워.
+
+erdene/transitions/7/situation
+에르데네가 종이를 조심히 접는다.
+
+erdene/transitions/7/lines/0
+잊으라는 말은 아직 못 듣겠어.
+
+erdene/transitions/7/lines/1
+오늘 함께 할 일부터 말하자.
+
+erdene/transitions/8/situation
+에르데네가 공적 종이에서 손을 뗀다.
+
+erdene/transitions/8/lines/0
+목표보다 먼저 고를 사람이 생겼어.
+
+erdene/transitions/8/lines/1
+그 말을 직접 하고 싶었어.
+
+erdene/transitions/9/situation
+에르데네가 발을 멈추고 돌아본다.
+
+erdene/transitions/9/lines/0
+또 내 길로만 끌고 갔네.
+
+erdene/transitions/9/lines/1
+어디까지였는지부터 다시 듣자.
+
+erdene/transitions/10/situation
+에르데네가 이름들을 하나씩 짚는다.
+
+erdene/transitions/10/lines/0
+내가 못 버티면 먼저 부를게.
+
+erdene/transitions/10/lines/1
+나도 다 돌아왔는지 봐 줘.
+
+erdene/transitions/11/situation
+에르데네가 줄 끝에서 기다린다.
+
+erdene/transitions/11/lines/0
+약속을 내가 더 크게 말했지.
+
+erdene/transitions/11/lines/1
+못 들은 쪽 얘기도 다시 해 줘.
+
+erdene/transitions/12/situation
+에르데네가 먼저 의자 두 개를 당긴다.
+
+erdene/transitions/12/lines/0
+앞을 안 맡아도 같이 있을 수 있네.
+
+erdene/transitions/12/lines/1
+오늘은 여기서 같이 먹자.
+
+erdene/transitions/13/situation
+에르데네가 의자를 당기다 손을 놓는다.
+
+erdene/transitions/13/lines/0
+안 물어도 안다고 생각했어.
+
+erdene/transitions/13/lines/1
+다시 물을게. 같이 앉을래?
+
+bianca/inn/0/situation
+비앙카가 웃으며 빈 종이를 덮는다.
+
+bianca/inn/0/lines/0
+앉으시겠어요?
+
+bianca/inn/0/lines/1
+오늘은 여쭐 일이 없네요.
+
+bianca/inn/0/lines/2
+필요한 말씀만 들을게요.
+
+bianca/inn/0/choices/0/text
+보고할 범위부터 서로 정하죠.
+
+bianca/inn/0/choices/0/response/0
+제가 들은 말을 어디까지 전할지 물으시는군요.
+
+bianca/inn/0/choices/1/text
+시각만 전하고 갈게요.
+
+bianca/inn/0/choices/1/response/0
+변경이 있으면 다시 알려 주세요.
+
+bianca/inn/0/choices/2/text
+앉으시라니 편하게 다 물어봐도 되겠죠?
+
+bianca/inn/0/choices/2/response/0
+오늘은 필요한 말씀만 듣고 싶어요.
+
+bianca/inn/0/choices/2/response/1
+얼마나 말할지는 제가 고를게요.
+
+bianca/inn/0/seen
+덮은 종이에까지 웃음을 옮기지는 않았어요.
+
+bianca/inn/1/situation
+비앙카가 몫을 나눈 종이를 편다.
+
+bianca/inn/1/lines/0
+수는 맞아요.
+
+bianca/inn/1/lines/1
+동의하셨다는 뜻은 아니죠.
+
+bianca/inn/1/lines/2
+확인할 자리까지 남겨 뒀어요.
+
+bianca/inn/1/choices/0/text
+차례대로 볼게요.
+
+bianca/inn/1/choices/0/response/0
+어느 줄인지 같이 짚어요.
+
+bianca/inn/1/choices/1/text
+그 정도 차이는 좋은 뜻으로 넘겨요.
+
+bianca/inn/1/choices/1/response/0
+넘길 몫이 누구 것인지는 먼저 물어야죠.
+
+bianca/inn/1/choices/1/response/1
+작다고 조용히 넘어간 몫은 다음에도 빠지기 쉬워요.
+
+bianca/inn/1/choices/2/text
+제 몫도 빠짐없이 다시 확인해요.
+
+bianca/inn/1/choices/2/response/0
+예, 다 읽으신 뒤 접을게요.
+
+bianca/inn/1/seen
+계산은 맞아요. 받으실지는 여쭤봐야겠어요.
+
+bianca/inn/2/situation
+비앙카가 잔의 손잡이를 돌린다.
+
+bianca/inn/2/lines/0
+궁금한 건 많으시죠?
+
+bianca/inn/2/lines/1
+다 말할 자리는 아니네요.
+
+bianca/inn/2/lines/2
+질문 하나만 고르시겠어요?
+
+bianca/inn/2/choices/0/text
+어차피 다 아실 테니 제 얘기부터 해도 되겠네요.
+
+bianca/inn/2/choices/0/response/0
+아는 척은 해도 모르는 얘기가 많아요.
+
+bianca/inn/2/choices/0/response/1
+아는 것을 고를 시간도 조금은 필요하네요.
+
+bianca/inn/2/choices/1/text
+못 답할 범위부터 말씀해 주세요.
+
+bianca/inn/2/choices/1/response/0
+허락을 받은 뒤 묻는 쪽이군요.
+
+bianca/inn/2/choices/1/response/1
+그럼 범위부터 정해 봐요.
+
+bianca/inn/2/choices/2/text
+다음에 여쭐게요.
+
+bianca/inn/2/choices/2/response/0
+그때도 먼저 말씀해 주세요.
+
+bianca/inn/2/seen
+오늘 잔을 돌린 횟수까지 셀 필요는 없겠죠?
+
+bianca/inn/3/situation
+비앙카가 숫자 아래 선을 긋는다.
+
+bianca/inn/3/lines/0
+빠진 몫이 있어요.
+
+bianca/inn/3/lines/1
+누구 실수인지는 뒤에 물을게요.
+
+bianca/inn/3/lines/2
+지금은 받지 못한 쪽부터요.
+
+bianca/inn/3/choices/0/text
+누락부터 바로잡고 경위는 같이 확인해요.
+
+bianca/inn/3/choices/0/response/0
+서로 다른 일로 보시는군요.
+
+bianca/inn/3/choices/1/text
+어느 줄인가요?
+
+bianca/inn/3/choices/1/response/0
+여기 끝자리부터 봐 주세요.
+
+bianca/inn/3/choices/2/text
+먼저 받은 분들한테 조금씩 부탁하면 되죠.
+
+bianca/inn/3/choices/2/response/0
+잘못 없는 몫부터 움직이는 셈이네요.
+
+bianca/inn/3/choices/2/response/1
+나누기 전에 받은 분들 몫부터 확인해요.
+
+bianca/inn/3/seen
+빠진 줄은 조용히 줄여 쓰지 않겠어요.
+
+bianca/inn/4/situation
+비앙카가 의자를 내준다.
+
+bianca/inn/4/lines/0
+먼 길 오셨겠어요.
+
+bianca/inn/4/lines/1
+어느 길로 오셨는지 여쭤도 될까요?
+
+bianca/inn/4/lines/2
+괜찮으시면 앉아서 들어요.
+
+bianca/inn/4/choices/0/text
+동문 쪽으로 왔어요.
+
+bianca/inn/4/choices/0/response/0
+걸음이 바빴겠어요. 더 캐묻진 않을게요.
+
+bianca/inn/4/choices/1/text
+저도 다 말씀드릴게요. 비앙카 씨도 그러시면 편하겠어요.
+
+bianca/inn/4/choices/1/response/0
+그렇게 서두르시면 저는 좀 불편해요.
+
+bianca/inn/4/choices/1/response/1
+말씀드릴 범위는 저도 천천히 고를래요.
+
+bianca/inn/4/choices/2/text
+차부터 마시고 어디까지 말할지 고를게요.
+
+bianca/inn/4/choices/2/response/0
+말씀도 천천히 고르시는군요.
+
+bianca/inn/4/choices/2/response/1
+그동안 차는 권해도 되겠죠?
+
+bianca/inn/4/seen
+첫 잔에 질문을 다 담지는 않을게요.
+
+bianca/inn/5/situation
+비앙카가 숫자 적힌 쪽을 돌려 준다.
+
+bianca/inn/5/lines/0
+여기서 멈췄어요.
+
+bianca/inn/5/lines/1
+작은 차이라도 남거든요.
+
+bianca/inn/5/lines/2
+함께 확인하시겠어요?
+
+bianca/inn/5/choices/0/text
+밤늦었으니 대충 맞춰도 괜찮아요.
+
+bianca/inn/5/choices/0/response/0
+틀린 수는 밤 지나도 그대로예요.
+
+bianca/inn/5/choices/0/response/1
+적은 돈이라도 누가 받는지는 봐야 해요.
+
+bianca/inn/5/choices/1/text
+누구 몫인지까지 맞춰 봐요.
+
+bianca/inn/5/choices/1/response/0
+이름은 빼고 합계만 맞추는 분도 있죠.
+
+bianca/inn/5/choices/1/response/1
+그다음 줄까지 보시네요.
+
+bianca/inn/5/choices/2/text
+한 줄씩 읽어 주세요.
+
+bianca/inn/5/choices/2/response/0
+제가 짚는 곳을 같이 보세요.
+
+bianca/inn/5/seen
+숫자 옆의 이름까지 읽고 돌려드릴게요.
+
+bianca/inn/6/situation
+비앙카가 질문을 메모하다 웃는다.
+
+bianca/inn/6/lines/0
+제가 질문이 많았네요.
+
+bianca/inn/6/lines/1
+견습은 배울 게 많아서요.
+
+bianca/inn/6/lines/2
+불편한 건 빼셔도 돼요.
+
+bianca/inn/6/choices/0/text
+비앙카 씨 얘기도 하나 들을 차례네요.
+
+bianca/inn/6/choices/0/response/0
+어느 이야기가 값이 있을까요?
+
+bianca/inn/6/choices/0/response/1
+아, 먼저 값을 매겼네요.
+
+bianca/inn/6/choices/1/text
+오늘 본 것만 말할게요.
+
+bianca/inn/6/choices/1/response/0
+그 범위면 저도 헷갈리지 않겠어요.
+
+bianca/inn/6/choices/2/text
+보고할 내용까지 정리해 드릴까요?
+
+bianca/inn/6/choices/2/response/0
+제가 무엇을 남길지도 미리 고르시게요?
+
+bianca/inn/6/choices/2/response/1
+질문을 안 할 때도 편하게 앉아 있고 싶어요.
+
+bianca/inn/6/seen
+질문만 하지 말고 제 얘기도 하나 해 볼게요.
+
+bianca/inn/7/situation
+비앙카가 포도주 잔을 빛에 비춘다.
+
+bianca/inn/7/lines/0
+좋은 향이죠?
+
+bianca/inn/7/lines/1
+숫자를 안 세는 때도 있어요.
+
+bianca/inn/7/lines/2
+이것까지 놀라실 필요는 없는데요.
+
+bianca/inn/7/choices/0/text
+향은 잘 모르겠어요.
+
+bianca/inn/7/choices/0/response/0
+그럼 천천히 맡아 보셔도 돼요.
+
+bianca/inn/7/choices/1/text
+얼마짜린지 알면 더 맛있을 것 같아요.
+
+bianca/inn/7/choices/1/response/0
+오늘은 값부터 말하지 않으려 했는데요.
+
+bianca/inn/7/choices/1/response/1
+좋다고 먼저 고른 향도 있거든요.
+
+bianca/inn/7/choices/2/text
+좋아하는 이유는 값 말고도 있겠죠.
+
+bianca/inn/7/choices/2/response/0
+알아맞히려 하지 않아서 좋네요.
+
+bianca/inn/7/seen
+오늘 첫 잔에는 가격을 적지 않을래요.
+
+bianca/inn/8/situation
+비앙카가 메모를 가방에 넣는다.
+
+bianca/inn/8/lines/0
+오늘은 제가 먼저 말할게요.
+
+bianca/inn/8/lines/1
+질문이 없으면 이상하시려나요?
+
+bianca/inn/8/lines/2
+그냥 조금 피곤했어요.
+
+bianca/inn/8/choices/0/text
+질문 드릴 테니 평소처럼 답해 보세요.
+
+bianca/inn/8/choices/0/response/0
+편하게 해 주시려는 건 알겠어요.
+
+bianca/inn/8/choices/0/response/1
+그런데 오늘은 묻는 쪽도 쉬고 싶네요.
+
+bianca/inn/8/choices/1/text
+듣는 말까지 정리하실 필요는 없어요.
+
+bianca/inn/8/choices/1/response/0
+나중에 쓸 문장부터 고르고 있었네요.
+
+bianca/inn/8/choices/1/response/1
+오늘은 보고할 문장을 고르지 않고 말해 볼게요.
+
+bianca/inn/8/choices/2/text
+차를 더 마실까요?
+
+bianca/inn/8/choices/2/response/0
+오늘은 따뜻한 게 좋겠어요.
+
+bianca/inn/8/seen
+질문 대신 제 얘기를 하니 좀 낯서네요.
+
+bianca/inn/9/situation
+비앙카가 명부 얘기에서 말끝을 늦춘다.
+
+bianca/inn/9/lines/0
+가문 이름은 있어요.
+
+bianca/inn/9/lines/1
+들어갈 수 있는 자리와는 별개죠.
+
+bianca/inn/9/lines/2
+문 앞에서 이름을 다시 읽게 돼요.
+
+bianca/inn/9/choices/0/text
+이름이 있는데도 못 들어가는 자리가 궁금해요.
+
+bianca/inn/9/choices/0/response/0
+이름을 몰라서 막힌 건 아니거든요.
+
+bianca/inn/9/choices/1/text
+계속 들어도 될까요?
+
+bianca/inn/9/choices/1/response/0
+오늘은 여기까지만 말씀드릴게요.
+
+bianca/inn/9/choices/2/text
+부유한 가문이면 다른 기회도 많겠어요.
+
+bianca/inn/9/choices/2/response/0
+많이 안다고 들어갈 수 있는 곳은 아니거든요.
+
+bianca/inn/9/choices/2/response/1
+다른 기회가 그 문을 대신 열지는 못하네요.
+
+bianca/inn/9/seen
+가문 이름을 대도 들여보내 주지는 않아요.
+
+bianca/inn/10/situation
+비앙카가 미소를 거두지 못한 채 잔을 놓는다.
+
+bianca/inn/10/lines/0
+괜찮아요.
+
+bianca/inn/10/lines/1
+아, 너무 빨리 답했네요.
+
+bianca/inn/10/lines/2
+무슨 말인지 듣기도 전에요.
+
+bianca/inn/10/choices/0/text
+잠깐 쉬었다 해요.
+
+bianca/inn/10/choices/0/response/0
+잔을 놓은 채 쉬어도 되겠네요.
+
+bianca/inn/10/choices/1/text
+웃고 계시니 아직 힘이 있으신가 봐요.
+
+bianca/inn/10/choices/1/response/0
+힘이 없어도 웃는 건 할 수 있어요.
+
+bianca/inn/10/choices/1/response/1
+괜찮은 표정을 먼저 고르는 버릇이 오래돼서요.
+
+bianca/inn/10/choices/2/text
+다시 답하셔도 처음 답을 붙잡진 않을게요.
+
+bianca/inn/10/choices/2/response/0
+그럼 조금 지쳤다고 고칠게요.
+
+bianca/inn/10/seen
+다시 고른 답은 첫 미소와 달라도 괜찮겠죠?
+
+bianca/inn/11/situation
+비앙카가 나눈 종이를 모두 펼친다.
+
+bianca/inn/11/lines/0
+빠진 장은 없어요.
+
+bianca/inn/11/lines/1
+제 몫도 여기에 있고요.
+
+bianca/inn/11/lines/2
+함께 읽으면 더 분명하겠죠.
+
+bianca/inn/11/choices/0/text
+믿으니 제 몫은 나중에 봐도 괜찮아요.
+
+bianca/inn/11/choices/0/response/0
+믿어서 확인하는 것도 가능해요.
+
+bianca/inn/11/choices/0/response/1
+믿으셔도 지금 같이 확인해 주세요.
+
+bianca/inn/11/choices/1/text
+비앙카 씨 몫부터 숨기지 않고 확인해요.
+
+bianca/inn/11/choices/1/response/0
+남의 셈만 보던 사람으로 남기진 않으시네요.
+
+bianca/inn/11/choices/2/text
+제가 읽은 장부터 드릴게요.
+
+bianca/inn/11/choices/2/response/0
+그 옆으로 순서대로 놓아요.
+
+bianca/inn/11/seen
+제 이름 적힌 장도 같은 자리에서 읽어요.
+
+bianca/inn/12/situation
+비앙카가 접힌 신청서 얘기를 꺼낸다.
+
+bianca/inn/12/lines/0
+가문 신청은 기각됐어요.
+
+bianca/inn/12/lines/1
+돈이 없어서였느냐고들 물어요.
+
+bianca/inn/12/lines/2
+그 답이면 참 쉬웠겠죠.
+
+bianca/inn/12/choices/0/text
+거절 뒤에도 같은 문을 보게 된 이유를 듣고 싶어요.
+
+bianca/inn/12/choices/0/response/0
+돌아서면 편하다는 말은 안 하시네요.
+
+bianca/inn/12/choices/0/response/1
+조금 길어질 거예요.
+
+bianca/inn/12/choices/1/text
+어떤 자리였어요?
+
+bianca/inn/12/choices/1/response/0
+황금 명부에 오르는 자리였어요.
+
+bianca/inn/12/choices/2/text
+지금도 충분히 잘 사시니 잊으면 어떨까요?
+
+bianca/inn/12/choices/2/response/0
+충분한지는 누가 정해 주는 걸까요?
+
+bianca/inn/12/choices/2/response/1
+돌아서는 말도 제가 골라야겠지요.
+
+bianca/inn/12/seen
+기각됐을 때 이야기를 좀 더 해도 될까요?
+
+bianca/inn/13/situation
+비앙카가 낮은 목소리로 보고서를 언급한다.
+
+bianca/inn/13/lines/0
+십인 위원회에 써요.
+
+bianca/inn/13/lines/1
+길드 안을 들여다보라고 왔죠.
+
+bianca/inn/13/lines/2
+좋게 들릴 말은 아니네요.
+
+bianca/inn/13/choices/0/text
+지금 답은 안 할게요.
+
+bianca/inn/13/choices/0/response/0
+그럴 시간은 드려야죠.
+
+bianca/inn/13/choices/1/text
+그분들이 시킨 일이니 책임감 탓은 아니잖아요.
+
+bianca/inn/13/choices/1/response/0
+시킨 사람이 있어도 제가 보고한 건 맞아요.
+
+bianca/inn/13/choices/1/response/1
+보고하라고 한 손과 실제 적은 손은 달라요.
+
+bianca/inn/13/choices/2/text
+어디까지 보고하는지는 비앙카 씨께 묻고 판단할게요.
+
+bianca/inn/13/choices/2/response/0
+알았으니 다 안다는 말은 아니군요.
+
+bianca/inn/13/choices/2/response/1
+그럼 제가 쓴 범위부터 말할게요.
+
+bianca/inn/13/seen
+부드럽게 말해도 보고했다는 사실은 남아요.
+
+bianca/inn/14/situation
+비앙카가 보증 얘기에서 손을 멈춘다.
+
+bianca/inn/14/lines/0
+표를 모아 준다고 했어요.
+
+bianca/inn/14/lines/1
+그 말만으로 문이 열리진 않죠.
+
+bianca/inn/14/lines/2
+저도 반쯤은 알아요.
+
+bianca/inn/14/choices/0/text
+그럼 위원회 답이 올 때까지 다른 준비는 미룰까요?
+
+bianca/inn/14/choices/0/response/0
+기다리기만 해서는 어려울 것 같아요.
+
+bianca/inn/14/choices/0/response/1
+제가 해야 할 일도 남아 있어요.
+
+bianca/inn/14/choices/1/text
+위원회가 못 해 주는 일도 같이 짚어 봐요.
+
+bianca/inn/14/choices/1/response/0
+제가 세 인장을 드릴 수는 없어요.
+
+bianca/inn/14/choices/1/response/1
+모르는 척 듣고 싶던 말이었나 봐요.
+
+bianca/inn/14/choices/2/text
+무엇이 남았어요?
+
+bianca/inn/14/choices/2/response/0
+보증과 표결의 문턱이 남았어요.
+
+bianca/inn/14/seen
+아는 만큼 말씀드리고 나니 좀 후련하네요.
+
+bianca/inn/15/situation
+비앙카가 리네트 쪽을 보고 시선을 거둔다.
+
+bianca/inn/15/lines/0
+같은 마렌토에서 왔죠.
+
+bianca/inn/15/lines/1
+같은 걸 보지는 않았고요.
+
+bianca/inn/15/lines/2
+그 차이를 모르는 척하기 어렵네요.
+
+bianca/inn/15/choices/0/text
+같은 나라라는 말로 묶지 않고 들어 볼게요.
+
+bianca/inn/15/choices/0/response/0
+제가 어디를 봤는지도 물으시겠죠?
+
+bianca/inn/15/choices/1/text
+오늘 무슨 일이 있었어요?
+
+bianca/inn/15/choices/1/response/0
+대단한 일보다 작은 그릇 하나였어요.
+
+bianca/inn/15/choices/2/text
+다들 성실하니 결국 잘될 거예요.
+
+bianca/inn/15/choices/2/response/0
+성실한 사람도 아래에 남는다는 걸 봤어요.
+
+bianca/inn/15/choices/2/response/1
+아래에 남은 분들을 못 본 척하긴 어려워졌네요.
+
+bianca/inn/15/seen
+같은 도시를 말해도 눈높이가 다를 때가 있네요.
+
+bianca/inn/16/situation
+비앙카가 보고서 한 장을 뒤집는다.
+
+bianca/inn/16/lines/0
+이 줄은 안 썼어요.
+
+bianca/inn/16/lines/1
+잊은 게 아니라 골랐어요.
+
+bianca/inn/16/lines/2
+누구에게나 보일 말은 아니어서요.
+
+bianca/inn/16/choices/0/text
+종이는 그대로 둘게요.
+
+bianca/inn/16/choices/0/response/0
+위로 뒤집지 않아 주시면 돼요.
+
+bianca/inn/16/choices/1/text
+앞으로 아예 보고 안 하면 마음 편하지 않을까요?
+
+bianca/inn/16/choices/1/response/0
+한 장을 고른 걸 전부 버린다고 읽지는 말아요.
+
+bianca/inn/16/choices/1/response/1
+이번에 안 쓰기로 한 말은 끝까지 안 쓰겠어요.
+
+bianca/inn/16/choices/2/text
+안 쓴 이유까지 지금 공개할 필요는 없어요.
+
+bianca/inn/16/choices/2/response/0
+그 얘기는 안 물으시는군요.
+
+bianca/inn/16/choices/2/response/1
+그러면 제 말로 설명할 수 있겠어요.
+
+bianca/inn/16/seen
+무엇을 쓰지 않을지도 제가 정했어요.
+
+bianca/inn/17/situation
+비앙카가 잔을 내려놓으며 미소를 푼다.
+
+bianca/inn/17/lines/0
+오늘은 웃는 게 늦었네요.
+
+bianca/inn/17/lines/1
+정리할 표정까지 생각했어요.
+
+bianca/inn/17/lines/2
+그냥 앉으면 될 걸요.
+
+bianca/inn/17/choices/0/text
+밝게 웃으시면 기분도 나아질 거예요.
+
+bianca/inn/17/choices/0/response/0
+웃는 일은 이미 많이 해 봤어요.
+
+bianca/inn/17/choices/0/response/1
+표정을 바꾸기 전에 지쳤다는 말부터 들려드렸어요.
+
+bianca/inn/17/choices/1/text
+표정 고르는 동안에도 제가 기다릴 수 있어요.
+
+bianca/inn/17/choices/1/response/0
+어떻게 웃을지 다 고르고 오지 않아도 되는군요.
+
+bianca/inn/17/choices/2/text
+편한 쪽으로 앉으세요.
+
+bianca/inn/17/choices/2/response/0
+등을 조금 기대도 될까요?
+
+bianca/inn/17/seen
+억지로 미소 짓지 않고 앉아 있어도 편하네요.
+
+bianca/inn/18/situation
+비앙카가 자기 몫 종이를 앞으로 민다.
+
+bianca/inn/18/lines/0
+이번에도 제 몫이 있어요.
+
+bianca/inn/18/lines/1
+안 받겠다고 하면 보기 좋겠죠.
+
+bianca/inn/18/lines/2
+저는 받고 남을래요.
+
+bianca/inn/18/choices/0/text
+보수는 받으세요. 그 뒤에도 같이 있고 싶어요.
+
+bianca/inn/18/choices/0/response/0
+둘 다 말하면 믿기 어렵다고들 하죠.
+
+bianca/inn/18/choices/0/response/1
+끝까지 듣는 쪽이시네요.
+
+bianca/inn/18/choices/1/text
+숫자는 같이 확인해요.
+
+bianca/inn/18/choices/1/response/0
+한 장도 빼지 않고요.
+
+bianca/inn/18/choices/2/text
+마음이 생겼다면 이익은 덜 따져도 되지 않을까요?
+
+bianca/inn/18/choices/2/response/0
+마음이 생긴 사람도 자기 몫은 있어요.
+
+bianca/inn/18/choices/2/response/1
+같이 있고 싶어도 보수를 포기하긴 어려워요.
+
+bianca/inn/18/seen
+보수를 받고 나서도 여기 앉아 있고 싶어요.
+
+bianca/inn/19/situation
+비앙카가 질문 대신 짧게 침묵한다.
+
+bianca/inn/19/lines/0
+무슨 말을 들으면 좋아하실지는 알겠어요.
+
+bianca/inn/19/lines/1
+그런데 오늘은 그 답이 아니에요.
+
+bianca/inn/19/lines/2
+조금 실망하실 수도 있겠네요.
+
+bianca/inn/19/choices/0/text
+천천히 말씀하세요.
+
+bianca/inn/19/choices/0/response/0
+순서를 고르고 나서 할게요.
+
+bianca/inn/19/choices/1/text
+부담 없게 제가 듣고 싶은 걸 먼저 알려 드릴게요.
+
+bianca/inn/19/choices/1/response/0
+그 답을 만들기는 쉬워질 거예요.
+
+bianca/inn/19/choices/1/response/1
+지금 제 말을 하기는 더 어렵겠죠.
+
+bianca/inn/19/choices/2/text
+듣기 좋은 대답보다 지금 하실 말을 들어요.
+
+bianca/inn/19/choices/2/response/0
+실망하실까 봐 듣기 좋은 쪽으로 돌려 말했네요.
+
+bianca/inn/19/choices/2/response/1
+이번엔 곧게 해 볼게요.
+
+bianca/inn/19/seen
+듣기 좋은 답을 알면서도 다른 말을 골랐어요.
+
+bianca/inn/20/situation
+비앙카가 분배 종이에서 손을 뗀다.
+
+bianca/inn/20/lines/0
+몫을 바꾸려면 먼저 말해요.
+
+bianca/inn/20/lines/1
+사이가 달라져도요.
+
+bianca/inn/20/lines/2
+제가 말없이 줄이지는 않을게요.
+
+bianca/inn/20/choices/0/text
+친한 사이니 작은 차이는 넘어가요.
+
+bianca/inn/20/choices/0/response/0
+친한 쪽 몫부터 작아지면 오래 못 가요.
+
+bianca/inn/20/choices/0/response/1
+가까운 사람 몫부터 말없이 줄이지는 않을게요.
+
+bianca/inn/20/choices/1/text
+제 몫만 아니라 비앙카 씨 몫도 먼저 물을게요.
+
+bianca/inn/20/choices/1/response/0
+그럼 저도 바꾸기 전에 여쭤볼게요.
+
+bianca/inn/20/choices/2/text
+읽고 답할게요.
+
+bianca/inn/20/choices/2/response/0
+서두르시라는 말은 아니에요.
+
+bianca/inn/20/seen
+가까운 사이에도 돈 얘기는 정확히 하고 싶어요.
+
+bianca/inn/21/situation
+비앙카가 보고서 옆에 잔을 놓는다.
+
+bianca/inn/21/lines/0
+이건 보고할 말이 아니에요.
+
+bianca/inn/21/lines/1
+미리 그 말을 하고 싶었어요.
+
+bianca/inn/21/lines/2
+그냥 오늘 안부예요.
+
+bianca/inn/21/choices/0/text
+그럼 제 답을 문장으로 정리하지 말고 들어요.
+
+bianca/inn/21/choices/0/response/0
+버릇처럼 순서를 세우고 있었네요.
+
+bianca/inn/21/choices/1/text
+오늘은 무난했어요.
+
+bianca/inn/21/choices/1/response/0
+무난했다는 소리도 듣고 싶었어요.
+
+bianca/inn/21/choices/2/text
+기억에 남게 요점만 짚어 드릴게요.
+
+bianca/inn/21/choices/2/response/0
+어떻게 지내셨는지 궁금해서 물었어요.
+
+bianca/inn/21/choices/2/response/1
+보고서는 덮어 둘 테니 천천히 얘기해 줘요.
+
+bianca/inn/21/seen
+보고서는 치워 두고 안부를 물었어요.
+
+bianca/inn/22/situation
+비앙카가 종이를 한번 세고 내려놓는다.
+
+bianca/inn/22/lines/0
+제가 정해 놓고도 마음이 무거워요.
+
+bianca/inn/22/lines/1
+버리지는 않을 거예요.
+
+bianca/inn/22/lines/2
+조금 쉬었다 얘기해도 될까요?
+
+bianca/inn/22/choices/0/text
+오늘은 여기까지 해요.
+
+bianca/inn/22/choices/0/response/0
+다음 얘기는 내일 할게요.
+
+bianca/inn/22/choices/1/text
+옳은 선택이니 후회할 필요 없어요.
+
+bianca/inn/22/choices/1/response/0
+후회하지 않을 말을 골라 온 건 아니에요.
+
+bianca/inn/22/choices/1/response/1
+후회해도 제가 정한 일은 마저 해 볼게요.
+
+bianca/inn/22/choices/2/text
+무거우면 다시 말하러 와도 돼요.
+
+bianca/inn/22/choices/2/response/0
+가벼워져야만 돌아오는 건 아니군요.
+
+bianca/inn/22/seen
+고르기 힘들었다는 말도 숨기지 않고 해 볼래요.
+
+bianca/inn/23/situation
+비앙카가 식탁을 한 번 더 정돈한다.
+
+bianca/inn/23/lines/0
+떠날 때를 자꾸 정리하네요.
+
+bianca/inn/23/lines/1
+남을 자리는 두지 않고요.
+
+bianca/inn/23/lines/2
+오늘은 의자를 그대로 둘래요.
+
+bianca/inn/23/choices/0/text
+이제 우리 편이니 떠날 생각은 안 해도 돼요.
+
+bianca/inn/23/choices/0/response/0
+편이 된다는 말에 문을 닫지는 말아요.
+
+bianca/inn/23/choices/0/response/1
+문 열려 있는 곳에서 오래 앉는 쪽이 좋아요.
+
+bianca/inn/23/choices/1/text
+나중에 떠날 얘기도 이 자리에서 해요.
+
+bianca/inn/23/choices/1/response/0
+떠나고 싶어지면 여기서 말씀드릴게요.
+
+bianca/inn/23/choices/2/text
+잔만 치울까요?
+
+bianca/inn/23/choices/2/response/0
+의자는 같이 두면 좋겠어요.
+
+bianca/inn/23/seen
+정돈한 식탁에도 의자 하나는 남겨 뒀어요.
+
+bianca/inn/24/situation
+비앙카가 빈손으로 앉는다.
+
+bianca/inn/24/lines/0
+물어올 소식은 없었어요.
+
+bianca/inn/24/lines/1
+적을 종이도 두고 왔고요.
+
+bianca/inn/24/lines/2
+이렇게 오니 인사만 남네요.
+
+bianca/inn/24/choices/0/text
+오늘은 비앙카 씨가 어떻게 지냈는지 들어요.
+
+bianca/inn/24/choices/0/response/0
+조사한 일이 아니라 제 하루군요.
+
+bianca/inn/24/choices/0/response/1
+별일 없는 데서 시작해도 되겠죠?
+
+bianca/inn/24/choices/1/text
+함께 차 마실까요?
+
+bianca/inn/24/choices/1/response/0
+오늘은 제가 따라 드릴게요.
+
+bianca/inn/24/choices/2/text
+차 마시면서 다음에 알아볼 소식도 정해 볼까요?
+
+bianca/inn/24/choices/2/response/0
+오늘은 소식 얘기를 쉬고 싶어요.
+
+bianca/inn/24/choices/2/response/1
+빈손으로 와도 차는 같이 마실 수 있겠죠?
+
+bianca/inn/24/seen
+종이 없는 날에는 제 하루를 먼저 말하게 되네요.
+
+bianca/inn/25/situation
+비앙카가 웃다가 소리 없이 숨을 뱉는다.
+
+bianca/inn/25/lines/0
+지금 웃은 건 계산 안 했어요.
+
+bianca/inn/25/lines/1
+굳이 말하면 우스워지나요?
+
+bianca/inn/25/lines/2
+그래도 알려 드리고 싶었네요.
+
+bianca/inn/25/choices/0/text
+무슨 게 웃겼어요?
+
+bianca/inn/25/choices/0/response/0
+방금 잔을 못 찾으신 표정이요.
+
+bianca/inn/25/choices/1/text
+이제 다 진심인 걸 아니까 설명 안 하셔도 돼요.
+
+bianca/inn/25/choices/1/response/0
+다 안다고 하면 다른 얼굴을 꺼내기 어려워요.
+
+bianca/inn/25/choices/1/response/1
+다 진심이라는 답까지 미리 정해 오진 않았어요.
+
+bianca/inn/25/choices/2/text
+알려주셨으니 의심부터 하진 않을게요.
+
+bianca/inn/25/choices/2/response/0
+제 말을 그대로 들어 주시네요.
+
+bianca/inn/25/seen
+설명하고 싶은 웃음도 아직 제게 남겨 주세요.
+
+bianca/inn/26/situation
+비앙카가 펼친 장부를 반만 접는다.
+
+bianca/inn/26/lines/0
+일은 좀 남았어요.
+
+bianca/inn/26/lines/1
+그렇다고 지금 가기는 싫네요.
+
+bianca/inn/26/lines/2
+조금 뒤에 이어도 될까요?
+
+bianca/inn/26/choices/0/text
+제가 대신 끝내 드릴 테니 오늘은 다 잊어요.
+
+bianca/inn/26/choices/0/response/0
+제 일을 지워야 편해지는 건 아니에요.
+
+bianca/inn/26/choices/0/response/1
+일하는 제 얼굴과 쉬는 제 얼굴을 같이 두고 싶네요.
+
+bianca/inn/26/choices/1/text
+덮으라는 말은 안 할게요. 이쪽에서 잠깐 쉬어요.
+
+bianca/inn/26/choices/1/response/0
+일이 있는 저도 여기 앉을 수 있겠네요.
+
+bianca/inn/26/choices/2/text
+얼마나 기다릴까요?
+
+bianca/inn/26/choices/2/response/0
+한 잔 마실 만큼이면 좋겠어요.
+
+bianca/inn/26/seen
+남은 일과 앉고 싶은 마음이 함께 있는 날이에요.
+
+bianca/inn/27/situation
+비앙카가 이름을 부르려다 먼저 손을 흔든다.
+
+bianca/inn/27/lines/0
+멀리서도 알아봤어요.
+
+bianca/inn/27/lines/1
+표정부터 고를 틈이 없었네요.
+
+bianca/inn/27/lines/2
+그게 나쁘지는 않아요.
+
+bianca/inn/27/choices/0/text
+저도 인사부터 할 수 있어 좋았어요.
+
+bianca/inn/27/choices/0/response/0
+대접할 말보다 먼저 반갑다고 할게요.
+
+bianca/inn/27/choices/0/response/1
+오늘도 오셨네요.
+
+bianca/inn/27/choices/1/text
+안쪽 자리는 비었어요.
+
+bianca/inn/27/choices/1/response/0
+오늘은 제가 먼저 골라도 되죠?
+
+bianca/inn/27/choices/2/text
+이젠 편하니 격식은 다 버려도 괜찮아요.
+
+bianca/inn/27/choices/2/response/0
+편하게 고른 말에도 제 격식은 조금 남을 거예요.
+
+bianca/inn/27/choices/2/response/1
+격식까지 제가 고르는 말인 줄 알아주시면 좋겠어요.
+
+bianca/inn/27/seen
+오늘 고른 인사는 꾸미기 전에도 제 말이었어요.
+
+bianca/dungeon/0/variants/0
+준비된 몫부터 같이 읽어요.
+
+bianca/dungeon/0/variants/1
+칭찬은 출발 뒤에 드려도 되겠죠?
+
+bianca/dungeon/1/variants/0
+오늘 제 몫도 여기 적었어요.
+
+bianca/dungeon/1/variants/1
+묻기만 하기보다 제가 본 걸 말하며 갈게요.
+
+bianca/dungeon/2/variants/0
+보고서보다 돌아올 얼굴을 먼저 봤어요.
+
+bianca/dungeon/2/variants/1
+함께 나갈 사람은 숫자 옆에도 남겨요.
+
+bianca/dungeon/3/variants/0
+처음 보는 곳일수록 질문이 늘죠.
+
+bianca/dungeon/3/variants/1
+확인 전인 말은 따로 둘게요.
+
+bianca/dungeon/4/variants/0
+여긴 제가 묻기 전에 보여 주시네요.
+
+bianca/dungeon/4/variants/1
+모른다는 칸도 같이 남겨요.
+
+bianca/dungeon/5/variants/0
+같이 보니 더 궁금한 게 많아지네요.
+
+bianca/dungeon/5/variants/1
+오늘 눈에 들어온 건 제 말로 적을게요.
+
+bianca/dungeon/6/variants/0
+좋은 눈을 가지셨네요. 위치도 볼까요?
+
+bianca/dungeon/6/variants/1
+누가 먼저 봤는지부터 적어요.
+
+bianca/dungeon/7/variants/0
+그 몫은 빼지 않고 남기겠어요.
+
+bianca/dungeon/7/variants/1
+찾은 수보다 놓친 사람이 없는지 봐요.
+
+bianca/dungeon/8/variants/0
+보고서에 적기엔 좀 아까운 얘기네요.
+
+bianca/dungeon/8/variants/1
+이건 먼저 같이 보고 싶었어요.
+
+bianca/dungeon/9/variants/0
+필요한 자리를 골라 볼게요.
+
+bianca/dungeon/9/variants/1
+지금은 질문을 아끼는 편이 좋겠죠?
+
+bianca/dungeon/10/variants/0
+제 쪽 위험도 함께 봐 주세요.
+
+bianca/dungeon/10/variants/1
+웃고 있어도 자리를 옮길 수 있어요.
+
+bianca/dungeon/11/variants/0
+같이 돌아온다는 말을 먼저 생각했어요.
+
+bianca/dungeon/11/variants/1
+도울 수 있는 범위부터 분명히 할게요.
+
+bianca/dungeon/12/variants/0
+끝난 뒤에도 몫은 정확해야죠.
+
+bianca/dungeon/12/variants/1
+빠진 이름은 지금 찾는 게 좋아요.
+
+bianca/dungeon/13/variants/0
+제 수고만 크게 적지는 않을게요.
+
+bianca/dungeon/13/variants/1
+분배는 같은 자리에서 같이 읽어요.
+
+bianca/dungeon/14/variants/0
+오늘은 웃는 얼굴부터 알아보겠어요.
+
+bianca/dungeon/14/variants/1
+기록이 끝나도 조금 더 함께 있어요.
+
+bianca/dungeon/15/variants/0
+쉬운 값으로 묶을 상대는 아니네요.
+
+bianca/dungeon/15/variants/1
+제가 아는 범위만 말씀드릴게요.
+
+bianca/dungeon/16/variants/0
+모르는 데까지 웃으며 약속하진 않아요.
+
+bianca/dungeon/16/variants/1
+이쪽 선택도 함께 들으시겠어요?
+
+bianca/dungeon/17/variants/0
+괜찮은 척도 못 하겠네요. 조금 무서워요.
+
+bianca/dungeon/17/variants/1
+겁난다고 말해도 곁에 계셔 줄래요?
+
+bianca/dungeon/18/variants/0
+큰 몫일수록 빠짐없이 확인해요.
+
+bianca/dungeon/18/variants/1
+기쁠 때도 종이는 같이 읽는 거예요.
+
+bianca/dungeon/19/variants/0
+누구 수고인지 가리지 않겠어요.
+
+bianca/dungeon/19/variants/1
+제 보고 전에 먼저 들려드릴 게 있어요.
+
+bianca/dungeon/20/variants/0
+일 끝난 표정보다 반가운 얼굴이 먼저예요.
+
+bianca/dungeon/20/variants/1
+오늘 안 쓸 줄도 제가 고를게요.
+
+bianca/dungeon/21/variants/0
+상태를 보고 역할부터 바꿔요.
+
+bianca/dungeon/21/variants/1
+무리한 몫을 지고 있는 분이 있어요.
+
+bianca/dungeon/22/variants/0
+미소만 보고 괜찮다고 읽진 말아요.
+
+bianca/dungeon/22/variants/1
+쉴 수 있도록 주위를 봐 줘요.
+
+bianca/dungeon/23/variants/0
+괜찮다는 답을 너무 빨리 받지 말아요.
+
+bianca/dungeon/23/variants/1
+오늘은 이름부터 불러 확인할게요.
+
+bianca/dungeon/24/variants/0
+이름을 먼저 불러 주세요.
+
+bianca/dungeon/24/variants/1
+아직 결과로 정리할 때는 아니에요.
+
+bianca/dungeon/25/variants/0
+제가 곁을 볼 테니 상태를 확인해요.
+
+bianca/dungeon/25/variants/1
+도울 몫은 나중으로 미루지 않겠어요.
+
+bianca/dungeon/26/variants/0
+아직 여기 있어요. 상태부터 봐요.
+
+bianca/dungeon/26/variants/1
+함께 돌아갈 방법은 아직 물을 수 있어요.
+
+bianca/dungeon/27/variants/0
+제 상태도 계산에 넣으셔야죠.
+
+bianca/dungeon/27/variants/1
+웃고 있지만 조금 다쳤어요.
+
+bianca/dungeon/28/variants/0
+오늘은 아픈 데부터 말할게요.
+
+bianca/dungeon/28/variants/1
+괜찮은 얼굴을 고를 여유가 없네요.
+
+bianca/dungeon/29/variants/0
+먼저 괜찮다고 할 뻔했어요. 좀 기다려 주세요.
+
+bianca/dungeon/29/variants/1
+이번에는 저도 좀 도와주세요.
+
+bianca/dungeon/30/variants/0
+잘 쉬는 분이 다음 일도 정확하죠.
+
+bianca/dungeon/30/variants/1
+잠깐은 장부를 덮을게요.
+
+bianca/dungeon/31/variants/0
+오늘은 무슨 쓸모가 있을지 안 셀래요.
+
+bianca/dungeon/31/variants/1
+듣는 얼굴도 조금 쉬게 둘게요.
+
+bianca/dungeon/32/variants/0
+웃지 않아도 편한 자리네요.
+
+bianca/dungeon/32/variants/1
+아무것도 안 물어도 함께 앉을 수 있죠?
+
+bianca/dungeon/33/variants/0
+열리는 조건은 아직 모르네요.
+
+bianca/dungeon/33/variants/1
+좋은 뜻으로 맞혔다고 하진 않을게요.
+
+bianca/dungeon/34/variants/0
+본 표시와 추측은 나눠 적어요.
+
+bianca/dungeon/34/variants/1
+함께 읽되 제 답부터 밀진 않을게요.
+
+bianca/dungeon/35/variants/0
+못 열었다고 솔직하게 적어 두죠.
+
+bianca/dungeon/35/variants/1
+확인 안 된 약속은 드리지 않겠어요.
+
+bianca/dungeon/36/variants/0
+오늘 몫은 돌아와서 함께 확인해요.
+
+bianca/dungeon/36/variants/1
+가방 속 종이는 잃지 않았어요.
+
+bianca/dungeon/37/variants/0
+안 쓴 줄은 제가 나중에 말할게요.
+
+bianca/dungeon/37/variants/1
+먼저 식탁 자리를 남겨 둘까요?
+
+bianca/dungeon/38/variants/0
+오늘 안부는 보고서 바깥에서 들을게요.
+
+bianca/dungeon/38/variants/1
+돌아왔다는 말부터 제 목소리로 할래요.
+
+bianca/dungeon/39/variants/0
+손실은 숨기지 않고 보겠어요.
+
+bianca/dungeon/39/variants/1
+다만 지금은 사람부터 세어요.
+
+bianca/dungeon/40/variants/0
+실패를 누군가 몫으로 몰지는 말아요.
+
+bianca/dungeon/40/variants/1
+제가 고른 부분도 같이 읽겠어요.
+
+bianca/dungeon/41/variants/0
+웃으며 괜찮다고 끝내진 못하겠네요.
+
+bianca/dungeon/41/variants/1
+졌던 얘기도 돌아가서 같이 해요.
+
+bianca/transitions/0/situation
+비앙카가 종이를 식탁 가운데 둔다.
+
+bianca/transitions/0/lines/0
+범위부터 들을게요.
+
+bianca/transitions/0/lines/1
+제가 듣는다고 다 쓸 건 아니에요.
+
+bianca/transitions/1/situation
+비앙카가 종이를 다시 덮는다.
+
+bianca/transitions/1/lines/0
+제 이름 앞에서 범위를 바꾸셨네요.
+
+bianca/transitions/1/lines/1
+오늘은 이미 정한 몫만 지킬게요.
+
+bianca/transitions/2/situation
+비앙카가 질문하기 전에 잔을 권한다.
+
+bianca/transitions/2/lines/0
+차가 식겠어요.
+
+bianca/transitions/2/lines/1
+첫 질문은 조금 뒤에 해도 되겠죠?
+
+bianca/transitions/3/situation
+비앙카가 웃으며 메모를 거둔다.
+
+bianca/transitions/3/lines/0
+다 말해도 된다는 뜻은 아니었어요.
+
+bianca/transitions/3/lines/1
+질문할 범위부터 다시 정해요.
+
+bianca/transitions/4/situation
+비앙카가 메모 없이 앉는다.
+
+bianca/transitions/4/lines/0
+오늘은 질문을 안 가져왔어요.
+
+bianca/transitions/4/lines/1
+제 하루도 조금 말해 볼게요.
+
+bianca/transitions/5/situation
+비앙카가 잔을 내려놓고 자세를 편다.
+
+bianca/transitions/5/lines/0
+편하다는 말을 너무 빨리 골랐네요.
+
+bianca/transitions/5/lines/1
+오늘은 확인할 일부터 볼까요?
+
+bianca/transitions/6/situation
+비앙카가 가문 이름을 읽는다.
+
+bianca/transitions/6/lines/0
+가문 이름을 대도 들어갈 수 없는 곳이 있어요.
+
+bianca/transitions/6/lines/1
+그 얘기부터 해 보고 싶어요.
+
+bianca/transitions/7/situation
+비앙카가 접힌 종이를 가방에 넣는다.
+
+bianca/transitions/7/lines/0
+충분하다고 듣고 싶던 건 아니었어요.
+
+bianca/transitions/7/lines/1
+오늘 얘기는 조금만 남겨요.
+
+bianca/transitions/8/situation
+비앙카가 쓰지 않은 줄을 손등으로 가린다.
+
+bianca/transitions/8/lines/0
+이번 얘기는 안 쓰기로 했어요.
+
+bianca/transitions/8/lines/1
+오늘은 그 선택을 알려 드리고 싶었어요.
+
+bianca/transitions/9/situation
+비앙카가 보고서 위에 손을 놓는다.
+
+bianca/transitions/9/lines/0
+한 줄을 고른 뜻이 달라졌네요.
+
+bianca/transitions/9/lines/1
+제가 한 말부터 다시 읽어 드릴게요.
+
+bianca/transitions/10/situation
+비앙카가 자기 몫 옆을 짚는다.
+
+bianca/transitions/10/lines/0
+사이가 가까워도 먼저 물을게요.
+
+bianca/transitions/10/lines/1
+비울 몫까지 대신 고르진 않겠어요.
+
+bianca/transitions/11/situation
+비앙카가 분배 종이를 다시 편다.
+
+bianca/transitions/11/lines/0
+작다고 넘어갈 수는 없네요.
+
+bianca/transitions/11/lines/1
+가까운 사이에도 금액은 같이 확인해요.
+
+bianca/transitions/12/situation
+비앙카가 빈손으로 인사한다.
+
+bianca/transitions/12/lines/0
+대접할 말보다 반가운 말이 먼저네요.
+
+bianca/transitions/12/lines/1
+어떤 소식을 듣기보다 먼저 보고 싶어서 왔어요.
+
+bianca/transitions/13/situation
+비앙카가 미소를 고르다 멈춘다.
+
+bianca/transitions/13/lines/0
+다 안다는 말은 조금 빨랐네요.
+
+bianca/transitions/13/lines/1
+제가 고를 표정도 남겨 주세요.
+
+saya/inn/0/situation
+사야가 실을 가방에 넣는다.
+
+saya/inn/0/lines/0
+용건 있어요?
+
+saya/inn/0/lines/1
+맡은 건 할게요.
+
+saya/inn/0/lines/2
+다른 건 오늘 묻지 마세요.
+
+saya/inn/0/choices/0/text
+시각만 전할게요.
+
+saya/inn/0/choices/0/response/0
+알았어요. 늦지 않을게요.
+
+saya/inn/0/choices/1/text
+뜨개질하면 편해 보이니 옆에서 볼게요.
+
+saya/inn/0/choices/1/response/0
+편한 일과 보여 주는 일은 달라요.
+
+saya/inn/0/choices/1/response/1
+지금은 손도 좀 숨길래요.
+
+saya/inn/0/choices/2/text
+길 확인만 부탁할게요.
+
+saya/inn/0/choices/2/response/0
+그것까진 해요.
+
+saya/inn/0/seen
+가방에 넣은 실은 나중에 꺼낼게요.
+
+saya/inn/1/situation
+사야가 작은 꾸러미를 밀어 놓는다.
+
+saya/inn/1/lines/0
+지난번 몫이에요.
+
+saya/inn/1/lines/1
+풀어 봐도 돼요.
+
+saya/inn/1/lines/2
+지금 답은 안 해도 돼요.
+
+saya/inn/1/choices/0/text
+갚을 것 없으니 가져가세요.
+
+saya/inn/1/choices/0/response/0
+남은 빚을 저 혼자 들고 가네요.
+
+saya/inn/1/choices/0/response/1
+받아 두는 것도 답이 될 수 있어요.
+
+saya/inn/1/choices/1/text
+받고 나서 제가 고맙다고 할게요.
+
+saya/inn/1/choices/1/response/0
+받는 데까지면 돼요.
+
+saya/inn/1/choices/2/text
+여기에 둘게요.
+
+saya/inn/1/choices/2/response/0
+젖지는 않게 해 주세요.
+
+saya/inn/1/seen
+밀어 둔 꾸러미는 다시 당기지 않을게요.
+
+saya/inn/2/situation
+사야가 문가에서 멈춘다.
+
+saya/inn/2/lines/0
+같이 갈지는 들었어요.
+
+saya/inn/2/lines/1
+어디까지인지는 못 들었고요.
+
+saya/inn/2/lines/2
+그거 먼저 말해요.
+
+saya/inn/2/choices/0/text
+돌아올 자리까지 같이 정해요.
+
+saya/inn/2/choices/0/response/0
+그럼 먼저 길 볼게요.
+
+saya/inn/2/choices/1/text
+종이에 적어 올게요.
+
+saya/inn/2/choices/1/response/0
+기다릴게요. 길게는 말고요.
+
+saya/inn/2/choices/2/text
+믿고 따라오세요. 나머진 제가 해요.
+
+saya/inn/2/choices/2/response/0
+제 발 놓을 곳도 제가 알아야 해요.
+
+saya/inn/2/choices/2/response/1
+대신 걷는 건 못 하잖아요.
+
+saya/inn/2/seen
+먼저 듣고 나서 길을 보러 갈게요.
+
+saya/inn/3/situation
+사야가 뜨던 것을 손으로 덮는다.
+
+saya/inn/3/lines/0
+이 부분은 이렇게 뜨는 거예요.
+
+saya/inn/3/lines/1
+크기를 다시 보는 중이에요.
+
+saya/inn/3/lines/2
+누구 건지는 아직 말 안 해요.
+
+saya/inn/3/choices/0/text
+잠깐 뒤에 올게요.
+
+saya/inn/3/choices/0/response/0
+끝나면 여기 둘게요.
+
+saya/inn/3/choices/1/text
+필요한 분께 제가 가져다드릴까요?
+
+saya/inn/3/choices/1/response/0
+줄 사람은 제가 고를게요.
+
+saya/inn/3/choices/1/response/1
+받을 얼굴 생각하고 뜨는 거예요.
+
+saya/inn/3/choices/2/text
+고쳐 뜰 동안은 다른 얘기할게요.
+
+saya/inn/3/choices/2/response/0
+손은 움직여도 듣고 있어요.
+
+saya/inn/3/seen
+덮어 둔 크기는 다 뜬 뒤에 볼 거예요.
+
+saya/inn/4/situation
+사야가 출발 문 옆에 선다.
+
+saya/inn/4/lines/0
+길은 봤어요.
+
+saya/inn/4/lines/1
+막힌 쪽은 피하면 돼요.
+
+saya/inn/4/lines/2
+짐 다 들었어요?
+
+saya/inn/4/choices/0/text
+말이 없으니 준비된 줄 몰랐네요. 크게 알려 주세요.
+
+saya/inn/4/choices/0/response/0
+길은 조용히 봐야 보여요.
+
+saya/inn/4/choices/0/response/1
+길 확인한 말은 제가 먼저 할게요.
+
+saya/inn/4/choices/1/text
+길 봐 주신 건 잊지 않을게요.
+
+saya/inn/4/choices/1/response/0
+이번 일은 갚지 않아도 돼요.
+
+saya/inn/4/choices/1/response/1
+그래도 들었어요.
+
+saya/inn/4/choices/2/text
+끈 하나만 더 묶을게요.
+
+saya/inn/4/choices/2/response/0
+다 묶고 불러요.
+
+saya/inn/4/seen
+길을 보고 왔다는 말만은 먼저 할게요.
+
+saya/inn/5/situation
+사야가 실 끝을 짧게 정리한다.
+
+saya/inn/5/lines/0
+실이 남았어요.
+
+saya/inn/5/lines/1
+조금 뜨는 중이에요.
+
+saya/inn/5/lines/2
+버리긴 아까워서요.
+
+saya/inn/5/choices/0/text
+남는 실도 손이 가야 모양이 나겠네요.
+
+saya/inn/5/choices/0/response/0
+그건 아시네요.
+
+saya/inn/5/choices/0/response/1
+그냥 생기지는 않아요.
+
+saya/inn/5/choices/1/text
+옆에 앉아도 돼요?
+
+saya/inn/5/choices/1/response/0
+실만 안 밟으면 돼요.
+
+saya/inn/5/choices/2/text
+작은 건 사면 빠른데 제가 사 드릴까요?
+
+saya/inn/5/choices/2/response/0
+뜨는 동안이 좋아요.
+
+saya/inn/5/choices/2/response/1
+손으로 갚고 싶은 게 있어서요.
+
+saya/inn/5/seen
+실은 조금씩 줄어도 떠 놓은 건 남아요.
+
+saya/inn/6/situation
+사야가 창밖을 보며 목소리를 낮춘다.
+
+saya/inn/6/lines/0
+가까이 안 와도 돼요.
+
+saya/inn/6/lines/1
+먹을 건 저기 뒀어요.
+
+saya/inn/6/lines/2
+기다리면 알아서 와요.
+
+saya/inn/6/choices/0/text
+여기서 보고 있을게요.
+
+saya/inn/6/choices/0/response/0
+조용히 있으면 돼요.
+
+saya/inn/6/choices/1/text
+친해지게 제가 먼저 데려올까요?
+
+saya/inn/6/choices/1/response/0
+억지로 데려오진 말아요.
+
+saya/inn/6/choices/1/response/1
+그쪽이 올 때까지 기다리면 돼요.
+
+saya/inn/6/choices/2/text
+다가오는 때는 그쪽이 정하겠네요.
+
+saya/inn/6/choices/2/response/0
+겁나면 멀리 있어도 되는 거예요.
+
+saya/inn/6/seen
+다가오지 않는 동안도 기다릴 수 있어요.
+
+saya/inn/7/situation
+사야가 물잔을 받는다.
+
+saya/inn/7/lines/0
+지난번도 받았죠.
+
+saya/inn/7/lines/1
+기억해요.
+
+saya/inn/7/lines/2
+얼마인지는 묻지 않을게요.
+
+saya/inn/7/choices/0/text
+작은 일이니 잊으셔도 돼요.
+
+saya/inn/7/choices/0/response/0
+작다고 금방 잊히진 않아요.
+
+saya/inn/7/choices/0/response/1
+받은 날은 제 손이 알아요.
+
+saya/inn/7/choices/1/text
+값은 없어요. 대신 받아 주시면 돼요.
+
+saya/inn/7/choices/1/response/0
+받는 쪽도 할 일이 있네요.
+
+saya/inn/7/choices/2/text
+따뜻할 때 드세요.
+
+saya/inn/7/choices/2/response/0
+손부터 좀 녹일게요.
+
+saya/inn/7/seen
+잔을 받은 손은 지난번 일도 기억해요.
+
+saya/inn/8/situation
+사야가 장비 옆 꾸러미를 가리킨다.
+
+saya/inn/8/lines/0
+일부러 놓고 간 거예요.
+
+saya/inn/8/lines/1
+거기 놓은 거예요.
+
+saya/inn/8/lines/2
+아침에 손 차갑다고 했잖아요.
+
+saya/inn/8/choices/0/text
+장갑인 줄 몰랐어요. 써 보고 말씀드릴게요.
+
+saya/inn/8/choices/0/response/0
+작으면 고쳐요.
+
+saya/inn/8/choices/0/response/1
+손은 숨기지 말고 보여 줘요.
+
+saya/inn/8/choices/1/text
+여기서 껴 볼게요.
+
+saya/inn/8/choices/1/response/0
+손가락 끝부터 펴 봐요.
+
+saya/inn/8/choices/2/text
+아까워서 쓰진 않고 보관할게요.
+
+saya/inn/8/choices/2/response/0
+따뜻하라고 뜬 거예요.
+
+saya/inn/8/choices/2/response/1
+낡으면 그때 다시 고쳐요.
+
+saya/inn/8/seen
+장비 옆에 놓은 장갑은 쓰라고 둔 거예요.
+
+saya/inn/9/situation
+사야가 문을 열어 두고 기다린다.
+
+saya/inn/9/lines/0
+먼저 봤어요.
+
+saya/inn/9/lines/1
+돌아올 길도요.
+
+saya/inn/9/lines/2
+혼자 두기 싫어서요.
+
+saya/inn/9/choices/0/text
+같이 나갈까요?
+
+saya/inn/9/choices/0/response/0
+이제 문 닫아도 돼요.
+
+saya/inn/9/choices/1/text
+고마우니 다음에는 제가 전부 먼저 볼게요.
+
+saya/inn/9/choices/1/response/0
+저도 다음에 길을 보고 싶어요.
+
+saya/inn/9/choices/1/response/1
+길 보는 건 저도 같이 할래요.
+
+saya/inn/9/choices/2/text
+말 없이 살핀 길도 같이 기억할게요.
+
+saya/inn/9/choices/2/response/0
+굳이 다 말하진 못해요.
+
+saya/inn/9/choices/2/response/1
+알아두면 됐어요.
+
+saya/inn/9/seen
+돌아올 길을 봐 두면 여기 기다리기 편해요.
+
+saya/inn/10/situation
+사야가 실을 뜨다 손을 멈춘다.
+
+saya/inn/10/lines/0
+치수 물을게요.
+
+saya/inn/10/lines/1
+손 잠깐 펴요.
+
+saya/inn/10/lines/2
+재촉하진 않을게요.
+
+saya/inn/10/choices/0/text
+누구에게나 맞게 넉넉히 뜨면 편하죠?
+
+saya/inn/10/choices/0/response/0
+이번 건 쓸 분이 정해져 있어요.
+
+saya/inn/10/choices/0/response/1
+그래서 치수도 물었어요.
+
+saya/inn/10/choices/1/text
+남는 실이라는 말은 안 하셔도 돼요.
+
+saya/inn/10/choices/1/response/0
+그 말부터 하려고 했어요.
+
+saya/inn/10/choices/1/response/1
+손이 느려졌네요.
+
+saya/inn/10/choices/2/text
+이 정도면 될까요?
+
+saya/inn/10/choices/2/response/0
+조금만 더 펴 봐요.
+
+saya/inn/10/seen
+오늘 잰 치수는 다른 사람 것과 바꾸지 않을게요.
+
+saya/inn/11/situation
+사야가 빈 의자에 앉아 손을 쉬게 둔다.
+
+saya/inn/11/lines/0
+아직 안 갚은 게 있어요.
+
+saya/inn/11/lines/1
+빨리 끝낼 건 아니고요.
+
+saya/inn/11/lines/2
+그냥 말해 두려고요.
+
+saya/inn/11/choices/0/text
+갚을 때까지 계속 올 수는 있겠네요.
+
+saya/inn/11/choices/0/response/0
+다 갚은 다음에도 와도 되죠?
+
+saya/inn/11/choices/1/text
+지금은 쉬어요.
+
+saya/inn/11/choices/1/response/0
+손은 좀 쉬고 있어요.
+
+saya/inn/11/choices/2/text
+한 번에 갚으시면 마음 편하실 거예요.
+
+saya/inn/11/choices/2/response/0
+다 갚으면 끝인 것처럼 들리네요.
+
+saya/inn/11/choices/2/response/1
+다 갚고 나서도 같이 앉으면 좋겠어요.
+
+saya/inn/11/seen
+손을 쉬어도 갚을 마음은 없어지지 않아요.
+
+saya/inn/12/situation
+사야가 털실을 두 손 사이에 놓는다.
+
+saya/inn/12/lines/0
+갚을 길이 없었어요.
+
+saya/inn/12/lines/1
+관문 뒷골목에서요.
+
+saya/inn/12/lines/2
+그래서 손으로 만들기 시작했어요.
+
+saya/inn/12/choices/0/text
+계속 들을게요.
+
+saya/inn/12/choices/0/response/0
+실 풀리는 소리 나도 듣고 있어요.
+
+saya/inn/12/choices/1/text
+그분도 잊었을 텐데 이제 빚은 내려놔요.
+
+saya/inn/12/choices/1/response/0
+기억하는 쪽은 아직 여기 있어요.
+
+saya/inn/12/choices/1/response/1
+그분이 잊어도 제가 뜨던 건 남아요.
+
+saya/inn/12/choices/2/text
+누가 도왔는지보다 만들기 시작한 때를 듣고 싶어요.
+
+saya/inn/12/choices/2/response/0
+이름은 아직 말 못 해요.
+
+saya/inn/12/choices/2/response/1
+손으로 남긴 건 말할 수 있어요.
+
+saya/inn/12/seen
+실을 처음 쥐던 때가 아직 생각나요.
+
+saya/inn/13/situation
+사야가 뜬 것을 다시 풀어 본다.
+
+saya/inn/13/lines/0
+안 맞았어요.
+
+saya/inn/13/lines/1
+다 떴다고 생각했어요.
+
+saya/inn/13/lines/2
+처음부터는 아니고 이만큼요.
+
+saya/inn/13/choices/0/text
+다시 사면 되니 애쓰지 마세요.
+
+saya/inn/13/choices/0/response/0
+새것이 이걸 대신하진 않아요.
+
+saya/inn/13/choices/0/response/1
+풀어도 쓸 수 있는 실이에요.
+
+saya/inn/13/choices/1/text
+어디부터 풀지는 사야 씨가 정해요.
+
+saya/inn/13/choices/1/response/0
+다 버리자는 말은 안 하네요.
+
+saya/inn/13/choices/1/response/1
+이 줄은 살릴 수 있어요.
+
+saya/inn/13/choices/2/text
+옆에서 기다릴게요.
+
+saya/inn/13/choices/2/response/0
+실이 엉키면 잠깐 잡아 줘요.
+
+saya/inn/13/seen
+풀기 전에 쓸 수 있는 부분을 볼게요.
+
+saya/inn/14/situation
+사야가 말 없는 꾸러미를 내민다.
+
+saya/inn/14/lines/0
+비슷하게 떴어요.
+
+saya/inn/14/lines/1
+얼굴 말이에요.
+
+saya/inn/14/lines/2
+웃는 건 나중에 해요.
+
+saya/inn/14/choices/0/text
+어느 쪽이 닮았는지 말해도 돼요?
+
+saya/inn/14/choices/0/response/0
+조용히 말해요.
+
+saya/inn/14/choices/0/response/1
+고칠 수는 있어요.
+
+saya/inn/14/choices/1/text
+만져 봐도 될까요?
+
+saya/inn/14/choices/1/response/0
+실만 세게 당기지 마요.
+
+saya/inn/14/choices/2/text
+좋은 솜씨니 팔면 꽤 벌겠어요.
+
+saya/inn/14/choices/2/response/0
+이건 값을 받으려고 만든 게 아니에요.
+
+saya/inn/14/choices/2/response/1
+닮게 만든 얼굴까지 팔긴 싫어요.
+
+saya/inn/14/seen
+닮게 뜨려고 애썼어요. 놀리지는 말아요.
+
+saya/inn/15/situation
+사야가 자리를 뜨려다 가방을 내려놓는다.
+
+saya/inn/15/lines/0
+혼자 다녀오려 했어요.
+
+saya/inn/15/lines/1
+말할 틈이 없었다고 하려 했어요.
+
+saya/inn/15/lines/2
+그건 아니어서요.
+
+saya/inn/15/choices/0/text
+지금 출발하나요?
+
+saya/inn/15/choices/0/response/0
+아직은 아니에요. 조금 뒤예요.
+
+saya/inn/15/choices/1/text
+혼자가 편하시니 다음에도 말 없이 다녀오세요.
+
+saya/inn/15/choices/1/response/0
+편해도 기다리는 쪽은 있겠네요.
+
+saya/inn/15/choices/1/response/1
+돌아올 때 부를 사람은 있으니까요.
+
+saya/inn/15/choices/2/text
+돌아올 말은 남기고 가 주세요.
+
+saya/inn/15/choices/2/response/0
+일을 다 말할 수는 없어요.
+
+saya/inn/15/choices/2/response/1
+시각은 남길게요.
+
+saya/inn/15/seen
+말 없이 사라지는 대신 시각은 남겨 둘게요.
+
+saya/inn/16/situation
+사야가 뜬 목도리를 식탁에 놓는다.
+
+saya/inn/16/lines/0
+직접 줄게요.
+
+saya/inn/16/lines/1
+그냥 놓고 가려 했어요.
+
+saya/inn/16/lines/2
+오늘은 기다렸어요.
+
+saya/inn/16/choices/0/text
+마음만 받을 테니 필요한 분께 주세요.
+
+saya/inn/16/choices/0/response/0
+필요한 사람 생각하고 뜬 거예요.
+
+saya/inn/16/choices/0/response/1
+쓰셨으면 해서 드리는 거예요.
+
+saya/inn/16/choices/1/text
+받고 나서 고맙다는 말도 직접 할게요.
+
+saya/inn/16/choices/1/response/0
+듣고 갈게요.
+
+saya/inn/16/choices/1/response/1
+받는 얼굴 보면 손이 좀 느려져요.
+
+saya/inn/16/choices/2/text
+길이가 넉넉하네요.
+
+saya/inn/16/choices/2/response/0
+접어서 써도 돼요.
+
+saya/inn/16/seen
+놓고 가는 대신 오늘은 받는 얼굴을 볼게요.
+
+saya/inn/17/situation
+사야가 바늘을 잡던 손을 펴 보인다.
+
+saya/inn/17/lines/0
+굳은살 있어요.
+
+saya/inn/17/lines/1
+그대로 내놓을게요.
+
+saya/inn/17/lines/2
+자꾸 주머니에 들어가네요.
+
+saya/inn/17/choices/0/text
+손일한 자리로 보이는데 숨기지 않으셔도 돼요.
+
+saya/inn/17/choices/0/response/0
+처음부터 그렇게 보였어요?
+
+saya/inn/17/choices/1/text
+잠깐 손을 쉬어요.
+
+saya/inn/17/choices/1/response/0
+이만큼만 마치고 놓을게요.
+
+saya/inn/17/choices/2/text
+고운 손이 되게 일은 덜 하세요.
+
+saya/inn/17/choices/2/response/0
+거칠어진 것만 없애고 싶진 않아요.
+
+saya/inn/17/choices/2/response/1
+바늘 잡던 손은 아직 제 손이에요.
+
+saya/inn/17/seen
+주머니 밖 손도 오늘은 좀 편히 둘게요.
+
+saya/inn/18/situation
+사야가 레비아의 빈자리에 잔을 놓는다.
+
+saya/inn/18/lines/0
+말 안 해도 아는 건 있어요.
+
+saya/inn/18/lines/1
+다 안다는 건 아니고요.
+
+saya/inn/18/lines/2
+기다릴 때도 필요해요.
+
+saya/inn/18/choices/0/text
+잔은 여기 둘까요?
+
+saya/inn/18/choices/0/response/0
+손 닿는 쪽이면 돼요.
+
+saya/inn/18/choices/1/text
+같은 나라니 무슨 생각인지 잘 아시겠어요.
+
+saya/inn/18/choices/1/response/0
+그분 얘기는 직접 들어 봐요.
+
+saya/inn/18/choices/1/response/1
+다 모르니까 곁에서 기다리는 거예요.
+
+saya/inn/18/choices/2/text
+모르는 건 모른 채 곁에 계시는 거군요.
+
+saya/inn/18/choices/2/response/0
+알려고 서두르면 숨으니까요.
+
+saya/inn/18/seen
+잔은 여기 둘게요. 천천히 대답해요.
+
+saya/inn/19/situation
+사야가 꾸러미 없이 자리에 앉는다.
+
+saya/inn/19/lines/0
+갚을 일 없이도 오고 싶었어요.
+
+saya/inn/19/lines/1
+오늘은 그냥요.
+
+saya/inn/19/lines/2
+할 말 적다고 돌려보내지는 마요.
+
+saya/inn/19/choices/0/text
+갚을 빚 없으니 이제 편히 혼자 쉬세요.
+
+saya/inn/19/choices/0/response/0
+그냥 같이 앉고 싶었어요.
+
+saya/inn/19/choices/0/response/1
+빈손으로 같이 쉬러 온 거예요.
+
+saya/inn/19/choices/1/text
+갚을 것 없는 날에도 이쪽은 비어 있어요.
+
+saya/inn/19/choices/1/response/0
+그럼 여기 있을게요.
+
+saya/inn/19/choices/1/response/1
+손도 좀 비워 두고요.
+
+saya/inn/19/choices/2/text
+차 드실래요?
+
+saya/inn/19/choices/2/response/0
+조금만 따라 줘요.
+
+saya/inn/19/seen
+빈손으로 앉는 날도 있어도 되겠네요.
+
+saya/inn/20/situation
+사야가 실을 잇던 손을 놓는다.
+
+saya/inn/20/lines/0
+받은 건 기억해요.
+
+saya/inn/20/lines/1
+못 갚을 때도 말할게요.
+
+saya/inn/20/lines/2
+말 없이 숨지는 않을게요.
+
+saya/inn/20/choices/0/text
+기억하는 것과 바로 갚는 건 다를 수 있어요.
+
+saya/inn/20/choices/0/response/0
+늦어도 말은 남기면 되죠?
+
+saya/inn/20/choices/1/text
+그 말은 들어 둘게요.
+
+saya/inn/20/choices/1/response/0
+저도 들은 말은 안 버려요.
+
+saya/inn/20/choices/2/text
+부담 없게 받은 일은 다 잊어요.
+
+saya/inn/20/choices/2/response/0
+잊으라는 말은 편하지 않아요.
+
+saya/inn/20/choices/2/response/1
+기억을 버려야 편한 건 아니에요.
+
+saya/inn/20/seen
+못 갚는 날에도 갚을 마음을 말할게요.
+
+saya/inn/21/situation
+사야가 두 개의 잔을 맞춘다.
+
+saya/inn/21/lines/0
+이건 그냥 드릴래요.
+
+saya/inn/21/lines/1
+같이 마실 거예요.
+
+saya/inn/21/lines/2
+둘 다 채우면 되죠?
+
+saya/inn/21/choices/0/text
+제 것도 놓을게요.
+
+saya/inn/21/choices/0/response/0
+넘치지 않게 여기 둬요.
+
+saya/inn/21/choices/1/text
+먼저 챙겨 주셨으니 꼭 갚을게요.
+
+saya/inn/21/choices/1/response/0
+이번에는 같이 하자는 말이에요.
+
+saya/inn/21/choices/1/response/1
+내일 또 두 잔 놓으면 돼요.
+
+saya/inn/21/choices/2/text
+오늘은 받은 셈을 안 해도 되겠네요.
+
+saya/inn/21/choices/2/response/0
+네, 오늘은 잔 수만 세요.
+
+saya/inn/21/seen
+두 잔 놓는 일은 오늘 셈에 안 넣어요.
+
+saya/inn/22/situation
+사야가 가방 끈을 고쳐 맨다.
+
+saya/inn/22/lines/0
+나가기 전에 말할게요.
+
+saya/inn/22/lines/1
+말 못 할 것도 있겠지만요.
+
+saya/inn/22/lines/2
+돌아올 때는 부를게요.
+
+saya/inn/22/choices/0/text
+걱정 안 할 테니 아무 말 안 해도 괜찮아요.
+
+saya/inn/22/choices/0/response/0
+걱정 말라고 말을 없애고 싶진 않아요.
+
+saya/inn/22/choices/0/response/1
+돌아온 말은 제가 하고 싶어요.
+
+saya/inn/22/choices/1/text
+제가 기다릴 수 있는 곳만 알려 주세요.
+
+saya/inn/22/choices/1/response/0
+문 안쪽이에요.
+
+saya/inn/22/choices/1/response/1
+돌아오면 먼저 볼게요.
+
+saya/inn/22/choices/2/text
+늦으면 어떻게 할까요?
+
+saya/inn/22/choices/2/response/0
+해 지기 전에 소식 남길게요.
+
+saya/inn/22/seen
+필요하면 소리 내서 부를게요.
+
+saya/inn/23/situation
+사야가 뜨던 것을 꺼내 옆으로 민다.
+
+saya/inn/23/lines/0
+급한 건 아니에요.
+
+saya/inn/23/lines/1
+오늘 다 안 떠도 돼요.
+
+saya/inn/23/lines/2
+말 좀 듣고 싶어서요.
+
+saya/inn/23/choices/0/text
+손은 쉬고 제 얘기 들어 주세요.
+
+saya/inn/23/choices/0/response/0
+먼저 말해요.
+
+saya/inn/23/choices/0/response/1
+오늘은 끼어들지 않을게요.
+
+saya/inn/23/choices/1/text
+어디까지 떴어요?
+
+saya/inn/23/choices/1/response/0
+여기 매듭까지예요.
+
+saya/inn/23/choices/2/text
+하면서 들으시면 시간도 덜 아깝죠?
+
+saya/inn/23/choices/2/response/0
+여기 있고 싶어서 왔어요.
+
+saya/inn/23/choices/2/response/1
+오늘은 손보다 귀를 쓰고 싶어요.
+
+saya/inn/23/seen
+뜨개질을 멈춘 손으로도 곁에 있을 수 있어요.
+
+saya/inn/24/situation
+사야가 문가에서 손을 들어 보인다.
+
+saya/inn/24/lines/0
+오늘은 실 없어요.
+
+saya/inn/24/lines/1
+꾸러미도요.
+
+saya/inn/24/lines/2
+같이 앉아도 되죠?
+
+saya/inn/24/choices/0/text
+이쪽으로 오세요.
+
+saya/inn/24/choices/0/response/0
+발밑은 비었네요.
+
+saya/inn/24/choices/1/text
+다음 작품 준비하러 쉬셔도 돼요.
+
+saya/inn/24/choices/1/response/0
+다음에 뜰 얘기는 조금 뒤에 할래요.
+
+saya/inn/24/choices/1/response/1
+아무것도 안 만든 날도 올 수 있죠?
+
+saya/inn/24/choices/2/text
+빈손인 건 봤어요. 얼굴 보고 반가웠고요.
+
+saya/inn/24/choices/2/response/0
+그 말은 좀 늦게 답할게요.
+
+saya/inn/24/choices/2/response/1
+네, 저도요.
+
+saya/inn/24/seen
+아무것도 안 떴어도 인사하러 올게요.
+
+saya/inn/25/situation
+사야가 물을 받아 자기 잔부터 놓는다.
+
+saya/inn/25/lines/0
+제 것도 챙겼어요.
+
+saya/inn/25/lines/1
+받을 때마다 세지는 않고요.
+
+saya/inn/25/lines/2
+오늘은 그냥 마실게요.
+
+saya/inn/25/choices/0/text
+이렇게 자주 받아도 부담 없으시죠?
+
+saya/inn/25/choices/0/response/0
+다시 세기 시작하게 되네요.
+
+saya/inn/25/choices/0/response/1
+물은 그냥 따뜻하게 마실게요.
+
+saya/inn/25/choices/1/text
+따뜻할 때 같이 들어요.
+
+saya/inn/25/choices/1/response/0
+이렇게 받는 날도 되네요.
+
+saya/inn/25/choices/2/text
+조금 식힐까요?
+
+saya/inn/25/choices/2/response/0
+이 온도면 괜찮아요.
+
+saya/inn/25/seen
+오늘 받은 물은 따뜻했다는 것만 기억할래요.
+
+saya/inn/26/situation
+사야가 목도리의 풀린 곳을 만진다.
+
+saya/inn/26/lines/0
+쓰던 게 편하죠?
+
+saya/inn/26/lines/1
+한 줄만 고치면 돼요.
+
+saya/inn/26/lines/2
+새로 뜨자는 말은 안 할게요.
+
+saya/inn/26/choices/0/text
+사야 씨가 고친 자리도 같이 남겠네요.
+
+saya/inn/26/choices/0/response/0
+다 고쳐 숨기지는 않을게요.
+
+saya/inn/26/choices/0/response/1
+썼다는 게 보여도 괜찮죠?
+
+saya/inn/26/choices/1/text
+이쪽도 봐 주세요.
+
+saya/inn/26/choices/1/response/0
+당겨진 곳만 살필게요.
+
+saya/inn/26/choices/2/text
+낡았으니 기념으로 두고 새것 쓸까요?
+
+saya/inn/26/choices/2/response/0
+쓰라고 준 건 지금도 같아요.
+
+saya/inn/26/choices/2/response/1
+고쳐서 다시 쓰면 더 잘 알아봐요.
+
+saya/inn/26/seen
+고친 부분도 오래 쓰면 좋겠어요.
+
+saya/inn/27/situation
+사야가 문을 닫고 다시 앉는다.
+
+saya/inn/27/lines/0
+다른 할 일은 없어요.
+
+saya/inn/27/lines/1
+그래서 더 있어도 될 것 같아서요.
+
+saya/inn/27/lines/2
+오늘은 늦게 일어날게요.
+
+saya/inn/27/choices/0/text
+차가 좀 남았어요.
+
+saya/inn/27/choices/0/response/0
+잔 비우기 전에 말해요.
+
+saya/inn/27/choices/1/text
+다 끝났으면 제가 더 붙잡진 않을게요.
+
+saya/inn/27/choices/1/response/0
+제가 있고 싶어서 있는 거예요.
+
+saya/inn/27/choices/1/response/1
+오늘은 제가 남기로 했어요.
+
+saya/inn/27/choices/2/text
+일 없어도 돌아와 앉는 건 좋네요.
+
+saya/inn/27/choices/2/response/0
+갚을 말 없이 와도 됐네요.
+
+saya/inn/27/choices/2/response/1
+그럼 조금 더 있을게요.
+
+saya/inn/27/seen
+일이 끝난 뒤 돌아오는 자리도 생겼어요.
+
+saya/dungeon/0/variants/0
+길은 확인했어요.
+
+saya/dungeon/0/variants/1
+짐 묶고 부르면 나가요.
+
+saya/dungeon/1/variants/0
+돌아올 길도 봐 뒀어요.
+
+saya/dungeon/1/variants/1
+제가 늦으면 문 안에서 기다려요.
+
+saya/dungeon/2/variants/0
+오늘은 나간다고 먼저 말했어요.
+
+saya/dungeon/2/variants/1
+같이 가면 손은 비워 둘게요.
+
+saya/dungeon/3/variants/0
+발밑 보고 내려와요.
+
+saya/dungeon/3/variants/1
+막히면 뒤에서 밀지 말아요.
+
+saya/dungeon/4/variants/0
+제가 본 곳까지만 먼저 갈게요.
+
+saya/dungeon/4/variants/1
+아직 모르는 길은 같이 봐요.
+
+saya/dungeon/5/variants/0
+손 닿을 거리면 돼요.
+
+saya/dungeon/5/variants/1
+제 걸음이 빨라지면 불러요.
+
+saya/dungeon/6/variants/0
+발견한 곳만 표시해요.
+
+saya/dungeon/6/variants/1
+손부터 대진 말아요.
+
+saya/dungeon/7/variants/0
+같이 봤으니 같이 기억해요.
+
+saya/dungeon/7/variants/1
+제 눈에 먼저 들어온 쪽도 말할게요.
+
+saya/dungeon/8/variants/0
+작아서 놓친 데도 같이 보고 갈래요.
+
+saya/dungeon/8/variants/1
+갚을 물건처럼 고르진 않을게요.
+
+saya/dungeon/9/variants/0
+제 앞을 막지는 마요.
+
+saya/dungeon/9/variants/1
+길 비면 제가 움직일게요.
+
+saya/dungeon/10/variants/0
+혼자 빠지기 전에 말할게요.
+
+saya/dungeon/10/variants/1
+제 위치는 잊지 말아요.
+
+saya/dungeon/11/variants/0
+받은 도움은 지금도 알아요.
+
+saya/dungeon/11/variants/1
+다 갚겠다고 무리하진 않을게요.
+
+saya/dungeon/12/variants/0
+끝난 건 다시 확인해요.
+
+saya/dungeon/12/variants/1
+남은 사람 쪽부터 봐요.
+
+saya/dungeon/13/variants/0
+제 몫만 세지 않을게요.
+
+saya/dungeon/13/variants/1
+도움받은 곳은 기억해요.
+
+saya/dungeon/14/variants/0
+오늘은 이긴 얘기부터 같이 해요.
+
+saya/dungeon/14/variants/1
+고맙다는 말도 조금은 할게요.
+
+saya/dungeon/15/variants/0
+움직일 틈부터 봐요.
+
+saya/dungeon/15/variants/1
+서둘러 들어갈 일은 아니에요.
+
+saya/dungeon/16/variants/0
+제 계획은 짧게 말할게요.
+
+saya/dungeon/16/variants/1
+못 갈 쪽은 제가 먼저 알려요.
+
+saya/dungeon/17/variants/0
+한쪽 손은 빌릴 수도 있어요.
+
+saya/dungeon/17/variants/1
+혼자 끝내고 오겠다는 말은 안 할게요.
+
+saya/dungeon/18/variants/0
+돌아갈 길부터 확인해요.
+
+saya/dungeon/18/variants/1
+제 손은 아직 움직여요.
+
+saya/dungeon/19/variants/0
+여기서 받은 신세도 기억할게요.
+
+saya/dungeon/19/variants/1
+보답 얘기는 나가서 해요.
+
+saya/dungeon/20/variants/0
+돌아가면 같이 손 좀 쉬어요.
+
+saya/dungeon/20/variants/1
+오늘 받은 걸 급히 갚진 않을게요.
+
+saya/dungeon/21/variants/0
+저쪽으로 길 내요.
+
+saya/dungeon/21/variants/1
+버티라고만 하지 마요.
+
+saya/dungeon/22/variants/0
+제가 살피는 동안 옆을 봐 줘요.
+
+saya/dungeon/22/variants/1
+제 말 짧아도 지금 듣고 있어요.
+
+saya/dungeon/23/variants/0
+도울 손은 나눌 수 있어요.
+
+saya/dungeon/23/variants/1
+못 한다고 숨길 때는 아닌 것 같아요.
+
+saya/dungeon/24/variants/0
+아직 답을 못 들었어요.
+
+saya/dungeon/24/variants/1
+쓰러진 쪽부터 확인해요.
+
+saya/dungeon/25/variants/0
+제가 갈 수 있는 데까진 갈게요.
+
+saya/dungeon/25/variants/1
+이름은 한 번 더 불러 봐요.
+
+saya/dungeon/26/variants/0
+받은 신세를 두고 먼저 가진 않을게요.
+
+saya/dungeon/26/variants/1
+다 갚지 못해도 곁은 볼 수 있어요.
+
+saya/dungeon/27/variants/0
+조금 다쳤어요.
+
+saya/dungeon/27/variants/1
+혼자 고치려고 숨진 않을게요.
+
+saya/dungeon/28/variants/0
+이번엔 손 빌릴게요.
+
+saya/dungeon/28/variants/1
+어디 아픈지는 제가 말해요.
+
+saya/dungeon/29/variants/0
+오늘 도움은 바로 갚진 못해요.
+
+saya/dungeon/29/variants/1
+그래도 받아 둘게요. 손 빌려 줘서 고마워요.
+
+saya/dungeon/30/variants/0
+실은 나중에 꺼낼게요.
+
+saya/dungeon/30/variants/1
+여기선 손을 좀 쉬겠네요.
+
+saya/dungeon/31/variants/0
+같이 쉬는 것도 할 수 있어요.
+
+saya/dungeon/31/variants/1
+아무것도 안 떠도 괜찮죠?
+
+saya/dungeon/32/variants/0
+오늘은 갚을 셈 안 하고 앉을게요.
+
+saya/dungeon/32/variants/1
+느리게 움직여도 기다려 주시네요.
+
+saya/dungeon/33/variants/0
+막힌 곳은 그냥 넘기지 마요.
+
+saya/dungeon/33/variants/1
+열 수 있는지는 아직 몰라요.
+
+saya/dungeon/34/variants/0
+표시만 같이 확인해요.
+
+saya/dungeon/34/variants/1
+못 풀면 모른다고 말할게요.
+
+saya/dungeon/35/variants/0
+손으로 만든 것처럼 안다고 하진 않을게요.
+
+saya/dungeon/35/variants/1
+이번 매듭은 같이 읽어야겠어요.
+
+saya/dungeon/36/variants/0
+돌아왔다고 먼저 말할게요.
+
+saya/dungeon/36/variants/1
+맡긴 짐은 이쪽에 있어요.
+
+saya/dungeon/37/variants/0
+따뜻한 물부터 받을래요.
+
+saya/dungeon/37/variants/1
+오늘 받은 도움은 잊지 않았어요.
+
+saya/dungeon/38/variants/0
+꾸러미 없어도 먼저 올게요.
+
+saya/dungeon/38/variants/1
+같이 앉는 건 빚에 안 넣어요.
+
+saya/dungeon/39/variants/0
+잃은 것보다 남은 손부터 봐요.
+
+saya/dungeon/39/variants/1
+제 상태는 여기서 말할게요.
+
+saya/dungeon/40/variants/0
+혼자 돌아가 정리하진 않을게요.
+
+saya/dungeon/40/variants/1
+못 갚은 건 말로 먼저 남겨요.
+
+saya/dungeon/41/variants/0
+졌다고 받은 걸 지우진 않을게요.
+
+saya/dungeon/41/variants/1
+같이 돌아갈 길은 아직 봐야 해요.
+
+saya/transitions/0/situation
+사야가 가방을 내려놓는다.
+
+saya/transitions/0/lines/0
+길 얘기는 들을게요.
+
+saya/transitions/0/lines/1
+다른 건 좀 나중에요.
+
+saya/transitions/1/situation
+사야가 덮은 실을 가방에 넣는다.
+
+saya/transitions/1/lines/0
+누구 건지 대신 정하지 마요.
+
+saya/transitions/1/lines/1
+오늘은 맡은 것만 해요.
+
+saya/transitions/2/situation
+사야가 문 옆을 비워 준다.
+
+saya/transitions/2/lines/0
+길은 봐 둘게요.
+
+saya/transitions/2/lines/1
+출발할 땐 먼저 불러요.
+
+saya/transitions/3/situation
+사야가 문에서 한 발 물러선다.
+
+saya/transitions/3/lines/0
+제 손도 제가 고를게요.
+
+saya/transitions/3/lines/1
+부탁은 듣고 정할 거예요.
+
+saya/transitions/4/situation
+사야가 장비 옆을 가리킨다.
+
+saya/transitions/4/lines/0
+꾸러미 열어 봐요.
+
+saya/transitions/4/lines/1
+춥다고 한 말은 들었어요.
+
+saya/transitions/5/situation
+사야가 꾸러미 끈을 매만진다.
+
+saya/transitions/5/lines/0
+쓰라고 뜬 거였어요.
+
+saya/transitions/5/lines/1
+다음 건 좀 천천히 할게요.
+
+saya/transitions/6/situation
+사야가 뜨개질하던 손을 쉰다.
+
+saya/transitions/6/lines/0
+처음 뜨던 때 얘기할게요.
+
+saya/transitions/6/lines/1
+갚을 길 없던 신세가 있었어요.
+
+saya/transitions/7/situation
+사야가 손 아래 실을 정리한다.
+
+saya/transitions/7/lines/0
+잊으라는 말은 못 받겠어요.
+
+saya/transitions/7/lines/1
+오늘 일부터 다시 말해요.
+
+saya/transitions/8/situation
+사야가 기다렸다 꾸러미를 건넨다.
+
+saya/transitions/8/lines/0
+오늘은 직접 줄게요.
+
+saya/transitions/8/lines/1
+받는 얼굴도 보고 가려고요.
+
+saya/transitions/9/situation
+사야가 꾸러미를 곁에 내려놓는다.
+
+saya/transitions/9/lines/0
+다 갚았다는 말은 아직 안 했어요.
+
+saya/transitions/9/lines/1
+줄 사람도 제가 고를래요.
+
+saya/transitions/10/situation
+사야가 나가기 전에 멈춘다.
+
+saya/transitions/10/lines/0
+돌아올 시각은 말할게요.
+
+saya/transitions/10/lines/1
+못 갚을 때도 숨어 버리진 않을게요.
+
+saya/transitions/11/situation
+사야가 가방 끈을 느슨하게 푼다.
+
+saya/transitions/11/lines/0
+말 없이 와도 되는 줄 알았어요.
+
+saya/transitions/11/lines/1
+기다린 쪽 얘기는 들을게요.
+
+saya/transitions/12/situation
+사야가 빈손으로 의자를 당긴다.
+
+saya/transitions/12/lines/0
+오늘은 갚으러 안 왔어요.
+
+saya/transitions/12/lines/1
+그냥 같이 앉고 싶어요.
+
+saya/transitions/13/situation
+사야가 실 없는 손을 주머니에 넣는다.
+
+saya/transitions/13/lines/0
+빈손을 쉬는 말로만 들었네요.
+
+saya/transitions/13/lines/1
+같이 있고 싶다는 말부터 다시 할게요.
+
+gerda/inn/0/situation
+게르다가 부적을 옷 속에 넣는다.
+
+gerda/inn/0/lines/0
+못 본 척은 안 해도 돼요.
+
+gerda/inn/0/lines/1
+설명은 안 할 거고.
+
+gerda/inn/0/lines/2
+할 얘기 그거예요?
+
+gerda/inn/0/choices/0/text
+마음 편해지게 좋은 징조를 찾아 드릴게요.
+
+gerda/inn/0/choices/0/response/0
+안 들은 말로 달래 주려는 건가?
+
+gerda/inn/0/choices/0/response/1
+믿는 걸 안 들킬 얼굴로만 있긴 피곤해요.
+
+gerda/inn/0/choices/1/text
+출발 얘기만 하러 왔어요.
+
+gerda/inn/0/choices/1/response/0
+그럼 부적은 조용히 두면 되겠네.
+
+gerda/inn/0/choices/2/text
+시각만 적어 둘게요.
+
+gerda/inn/0/choices/2/response/0
+종이는 그쪽에 둬요.
+
+gerda/inn/0/seen
+옷 속에 넣어 둘게요. 지금은 안 보여 줄래요.
+
+gerda/inn/1/situation
+게르다가 문에서 몸을 비킨다.
+
+gerda/inn/1/lines/0
+그쪽 얼굴은 알아요.
+
+gerda/inn/1/lines/1
+모르는 척하면 더 잘 보여.
+
+gerda/inn/1/lines/2
+내가 먼저 볼 테니 비켜 줘요.
+
+gerda/inn/1/choices/0/text
+누군지 확실할 때만 말해 주세요.
+
+gerda/inn/1/choices/0/response/0
+모르는 것도 내가 말할게요.
+
+gerda/inn/1/choices/1/text
+문 안에서 기다릴게요.
+
+gerda/inn/1/choices/1/response/0
+등은 문에 대지 마요.
+
+gerda/inn/1/choices/2/text
+제국 사람이면 다 비슷하니 피하고 봐요.
+
+gerda/inn/1/choices/2/response/0
+얼굴을 안다는 말과 전부 같다는 말은 달라요.
+
+gerda/inn/1/choices/2/response/1
+모르는 얼굴까지 아는 것처럼 말하긴 싫어요.
+
+gerda/inn/1/seen
+내가 알아본 얼굴부터 골라 말할게요.
+
+gerda/inn/2/situation
+게르다가 종이를 손톱으로 톡 친다.
+
+gerda/inn/2/lines/0
+이 말이 달라졌네요.
+
+gerda/inn/2/lines/1
+농담도 아니고.
+
+gerda/inn/2/lines/2
+알면서 따르라는 거예요?
+
+gerda/inn/2/choices/0/text
+같이 다시 읽죠.
+
+gerda/inn/2/choices/0/response/0
+안 보이는 줄은 없게 펴요.
+
+gerda/inn/2/choices/1/text
+다들 따르는 일이니 이번만 넘어가요.
+
+gerda/inn/2/choices/1/response/0
+이번만이 꼭 다음에도 있더라고.
+
+gerda/inn/2/choices/1/response/1
+내가 묻는 뜻은 대답하고 넘어가 줘요.
+
+gerda/inn/2/choices/2/text
+고친 사람한테 뜻부터 물어볼게요.
+
+gerda/inn/2/choices/2/response/0
+그럼 내 질문도 가져가요.
+
+gerda/inn/2/seen
+고친 줄을 못 본 척 읽지는 않을게요.
+
+gerda/inn/3/situation
+게르다가 창가에서 오른쪽을 본다.
+
+gerda/inn/3/lines/0
+저쪽으로 갈래요.
+
+gerda/inn/3/lines/1
+이유는 나중에 묻고.
+
+gerda/inn/3/lines/2
+아니, 길은 보고 말할게요.
+
+gerda/inn/3/choices/0/text
+편하시게 제가 반대쪽은 다녀올게요.
+
+gerda/inn/3/choices/0/response/0
+혼자 그쪽 가라는 말은 안 했어.
+
+gerda/inn/3/choices/0/response/1
+어느 길로 갈지는 같이 봐요.
+
+gerda/inn/3/choices/1/text
+길 확인은 같이 하고 선택은 들어요.
+
+gerda/inn/3/choices/1/response/0
+길과 징조를 한꺼번에 비웃진 않네요.
+
+gerda/inn/3/choices/2/text
+잠시 기다릴게요.
+
+gerda/inn/3/choices/2/response/0
+기다리면서 왼쪽만 보진 마요.
+
+gerda/inn/3/seen
+징조를 말해도 같이 길을 확인할 수는 있죠.
+
+gerda/inn/4/situation
+게르다가 떨어진 수저를 주워 든다.
+
+gerda/inn/4/lines/0
+아침부터 이러네.
+
+gerda/inn/4/lines/1
+오늘은 길을 다시 봐요.
+
+gerda/inn/4/lines/2
+웃기면 나중에 웃고.
+
+gerda/inn/4/choices/0/text
+길을 바꿀 수 있는지 먼저 확인해요.
+
+gerda/inn/4/choices/0/response/0
+확인하고 웃을 차례까지 잡았네요.
+
+gerda/inn/4/choices/0/response/1
+그 순서는 괜찮아요.
+
+gerda/inn/4/choices/1/text
+새 수저 가져올게요.
+
+gerda/inn/4/choices/1/response/0
+그건 고맙네요.
+
+gerda/inn/4/choices/2/text
+수저는 누구나 떨어뜨려요. 신경 쓰지 마세요.
+
+gerda/inn/4/choices/2/response/0
+누구나와 내가 지금은 좀 달라서요.
+
+gerda/inn/4/choices/2/response/1
+한 번 더 보고 가고 싶은 날도 있어요.
+
+gerda/inn/4/seen
+수저는 바꿔도 오늘 길은 한번 더 볼래요.
+
+gerda/inn/5/situation
+게르다가 입술을 움직이다 멈춘다.
+
+gerda/inn/5/lines/0
+입 푸는 거예요.
+
+gerda/inn/5/lines/1
+쏘기 전에 굳으면 안 되니까.
+
+gerda/inn/5/lines/2
+무슨 말을 했는진 안 들었죠?
+
+gerda/inn/5/choices/0/text
+아직 기다릴까요?
+
+gerda/inn/5/choices/0/response/0
+조금만. 손은 다 풀었어요.
+
+gerda/inn/5/choices/1/text
+같이 따라 하면 도움이 될까요?
+
+gerda/inn/5/choices/1/response/0
+다 같이 외울 건 아니에요.
+
+gerda/inn/5/choices/1/response/1
+그건 다른 사람 목소리로 들으면 좀 달라요.
+
+gerda/inn/5/choices/2/text
+다시 말할 필요는 없어요. 준비되면 알려 주세요.
+
+gerda/inn/5/choices/2/response/0
+안 들은 쪽이 고르는 말도 있네요.
+
+gerda/inn/5/seen
+아직 기도 중이니 출발은 잠깐 기다려요.
+
+gerda/inn/6/situation
+게르다가 제국 군복 깃을 만진다.
+
+gerda/inn/6/lines/0
+눈에 띄죠?
+
+gerda/inn/6/lines/1
+벗으면 간단하다고도 하죠.
+
+gerda/inn/6/lines/2
+그렇게 간단하진 않더라고.
+
+gerda/inn/6/choices/0/text
+안 보이게 새 옷을 입으면 안심되겠어요.
+
+gerda/inn/6/choices/0/response/0
+벗는다고 내가 본 얼굴까지 없어져요?
+
+gerda/inn/6/choices/0/response/1
+내가 아는 일까지 옷에 묻고 싶진 않네요.
+
+gerda/inn/6/choices/1/text
+지금 옷 얘기보다 알아본 얼굴부터 들을게요.
+
+gerda/inn/6/choices/1/response/0
+옷만 보면 안다고 하진 않네요.
+
+gerda/inn/6/choices/2/text
+자리 바꿀까요?
+
+gerda/inn/6/choices/2/response/0
+문에서 먼 쪽이면 좋겠어요.
+
+gerda/inn/6/seen
+깃을 바꿔도 아는 얼굴은 알아볼 거예요.
+
+gerda/inn/7/situation
+게르다가 식탁 위 갈림길을 그린다.
+
+gerda/inn/7/lines/0
+왼쪽이 짧대요.
+
+gerda/inn/7/lines/1
+오른쪽도 갈 수는 있고.
+
+gerda/inn/7/lines/2
+나는 오른쪽부터 보고 싶어요.
+
+gerda/inn/7/choices/0/text
+먼저 본 길 얘기와 징조 얘기를 나눠 들어요.
+
+gerda/inn/7/choices/0/response/0
+둘 중 하나를 숨길 필요는 없겠네.
+
+gerda/inn/7/choices/1/text
+시간 차이도 보죠.
+
+gerda/inn/7/choices/1/response/0
+걸을 수 있는지도 먼저 보고요.
+
+gerda/inn/7/choices/2/text
+다 맞춰 드릴 테니 무조건 편한 쪽으로 가요.
+
+gerda/inn/7/choices/2/response/0
+무조건이 붙으면 나도 묻기가 어려워요.
+
+gerda/inn/7/choices/2/response/1
+다 맞는다는 말은 제가 해도 못 믿겠는데요.
+
+gerda/inn/7/seen
+오른쪽 길도 보고 나서 고른 걸로 해요.
+
+gerda/inn/8/situation
+게르다가 먼저 창문을 가린다.
+
+gerda/inn/8/lines/0
+잠깐만 이쪽으로 와요.
+
+gerda/inn/8/lines/1
+순찰하는 얼굴이 보여요.
+
+gerda/inn/8/lines/2
+농담할 기분은 아니에요.
+
+gerda/inn/8/choices/0/text
+문은 제가 볼게요.
+
+gerda/inn/8/choices/0/response/0
+그 사람들 먼저 부르진 말아요.
+
+gerda/inn/8/choices/1/text
+저희가 있으니 당당하게 밖에 나가요.
+
+gerda/inn/8/choices/1/response/0
+믿는 것과 지금 나가는 건 달라요.
+
+gerda/inn/8/choices/1/response/1
+나간다고 덜 겁나는 건 아니어서요.
+
+gerda/inn/8/choices/2/text
+확인하는 동안 저는 안쪽에 있을게요.
+
+gerda/inn/8/choices/2/response/0
+제가 피할 때 같이 달아날 필요는 없어요.
+
+gerda/inn/8/choices/2/response/1
+곁에만 있어요.
+
+gerda/inn/8/seen
+여기로 와 줘요. 같이 앉아 있고 싶어요.
+
+gerda/inn/9/situation
+게르다가 길 표시 옆에 점을 찍는다.
+
+gerda/inn/9/lines/0
+여긴 다시 확인해요.
+
+gerda/inn/9/lines/1
+징조가 마음에 걸려서만은 아니고.
+
+gerda/inn/9/lines/2
+아니, 그것도 조금은 맞아.
+
+gerda/inn/9/choices/0/text
+징조 덕에 늘 살았다니 참 다행이에요.
+
+gerda/inn/9/choices/0/response/0
+늘 맞는다고 한 적은 없어요.
+
+gerda/inn/9/choices/0/response/1
+징조를 봐도 모르는 건 여전히 많아요.
+
+gerda/inn/9/choices/1/text
+확인할 이유가 둘이면 둘 다 들어요.
+
+gerda/inn/9/choices/1/response/0
+반쯤 둘러대려다 그만뒀네.
+
+gerda/inn/9/choices/2/text
+같이 들여다볼게요.
+
+gerda/inn/9/choices/2/response/0
+발 놓을 곳부터 살펴요.
+
+gerda/inn/9/seen
+둘러댄 이유를 지우고 다시 말해 볼게요.
+
+gerda/inn/10/situation
+게르다가 웃다가 부적을 꼭 쥔다.
+
+gerda/inn/10/lines/0
+괜찮다고 하려 했는데.
+
+gerda/inn/10/lines/1
+손이 먼저 알아버렸네.
+
+gerda/inn/10/lines/2
+오늘은 조금 겁나요.
+
+gerda/inn/10/choices/0/text
+농담 끝날 때까지 안 기다려도 말해 주세요.
+
+gerda/inn/10/choices/0/response/0
+앞에 붙일 말이 줄어서 좋네요.
+
+gerda/inn/10/choices/1/text
+따뜻한 물 드릴까요?
+
+gerda/inn/10/choices/1/response/0
+손 놓고 받으면 되겠네.
+
+gerda/inn/10/choices/2/text
+농담 좀 하시면 기운 나실 거예요.
+
+gerda/inn/10/choices/2/response/0
+오늘은 그 농담까지 쉬고 싶어.
+
+gerda/inn/10/choices/2/response/1
+웃는 얼굴까지 만들어 보이기는 좀 피곤하네.
+
+gerda/inn/10/seen
+말도 하기 전에 부적부터 쥐었네요.
+
+gerda/inn/11/situation
+게르다가 비어 있는 의자를 지킨다.
+
+gerda/inn/11/lines/0
+그냥 남겨 뒀어요.
+
+gerda/inn/11/lines/1
+늦는 사람도 앉아야지.
+
+gerda/inn/11/lines/2
+나한테 안 어울려요?
+
+gerda/inn/11/choices/0/text
+그릇을 더 놓을게요.
+
+gerda/inn/11/choices/0/response/0
+수저도 하나 더요.
+
+gerda/inn/11/choices/1/text
+착한 일 하셨네요. 늘 이렇게 하세요.
+
+gerda/inn/11/choices/1/response/0
+그 말 들으려고 비운 건 아니에요.
+
+gerda/inn/11/choices/1/response/1
+의자 하나 비운 일을 계속 잘하라는 말로 받진 말아요.
+
+gerda/inn/11/choices/2/text
+비꼬지 않으셔도 그 자리 비운 뜻은 알아요.
+
+gerda/inn/11/choices/2/response/0
+들킬 거면 바로 말할걸.
+
+gerda/inn/11/seen
+남긴 의자 하나를 두고 자꾸 설명하진 않을래요.
+
+gerda/inn/12/situation
+게르다가 문 닫히는 소리에 입을 다문다.
+
+gerda/inn/12/lines/0
+그라벤에서 봤어요.
+
+gerda/inn/12/lines/1
+성문이 닫혔고 밖에 사람이 있었어.
+
+gerda/inn/12/lines/2
+그 이상은 나도 몰라요.
+
+gerda/inn/12/choices/0/text
+못 막은 일은 이제 잊어도 되잖아요.
+
+gerda/inn/12/choices/0/response/0
+잊을 수 있는지 물은 건 아니었어요.
+
+gerda/inn/12/choices/0/response/1
+기억하는 사람까지 잊으라고 하진 말아요.
+
+gerda/inn/12/choices/1/text
+모르는 원인 말고 직접 본 데까지만 들어요.
+
+gerda/inn/12/choices/1/response/0
+내가 본 걸로 결론까지 만들진 마요.
+
+gerda/inn/12/choices/1/response/1
+그 약속이면 말할게요.
+
+gerda/inn/12/choices/2/text
+잠깐 멈출까요?
+
+gerda/inn/12/choices/2/response/0
+소리 지나가면 다시 할게요.
+
+gerda/inn/12/seen
+닫힌 문 얘기는 아는 데까지만 할 거예요.
+
+gerda/inn/13/situation
+게르다가 부적 끝을 손톱으로 쓸어 본다.
+
+gerda/inn/13/lines/0
+그날도 징조를 봤어요.
+
+gerda/inn/13/lines/1
+알았다고 하면서 못 막았지.
+
+gerda/inn/13/lines/2
+그 말이 제일 싫어요.
+
+gerda/inn/13/choices/0/text
+그때 뭘 할 수 있었는지 기억나는 것만 말해 주세요.
+
+gerda/inn/13/choices/0/response/0
+그때 할 수 있었던 게 뭔지 잘 모르겠어요.
+
+gerda/inn/13/choices/0/response/1
+손이 자꾸 여길 잡아요.
+
+gerda/inn/13/choices/1/text
+그 말을 지금 들어 둘게요.
+
+gerda/inn/13/choices/1/response/0
+당장 답을 내진 말아요.
+
+gerda/inn/13/choices/2/text
+그 부적은 잠깐 치워 두고 다른 얘기 해요.
+
+gerda/inn/13/choices/2/response/0
+그날 얘기를 조금 더 하고 싶어요.
+
+gerda/inn/13/choices/2/response/1
+내가 못 막았다는 말이 자꾸 남아서요.
+
+gerda/inn/13/seen
+부적을 쥐어도 그날 답까지 생기진 않아요.
+
+gerda/inn/14/situation
+게르다가 오래된 군복 단추를 누른다.
+
+gerda/inn/14/lines/0
+떠난 건 그 뒤예요.
+
+gerda/inn/14/lines/1
+들어가라는 명령을 거부했죠.
+
+gerda/inn/14/lines/2
+모든 걸 안다고 나온 건 아니에요.
+
+gerda/inn/14/choices/0/text
+무엇부터 말할까요?
+
+gerda/inn/14/choices/0/response/0
+명령을 들은 때부터요.
+
+gerda/inn/14/choices/1/text
+옳은 선택이었으니 미련은 없겠어요.
+
+gerda/inn/14/choices/1/response/0
+미련 없는 척까지 해야 옳아지나요?
+
+gerda/inn/14/choices/1/response/1
+나왔어도 뒤돌아보는 날은 있어요.
+
+gerda/inn/14/choices/2/text
+다 알지 못해도 거절한 이유는 있겠죠.
+
+gerda/inn/14/choices/2/response/0
+확신 없는 사람도 거절할 수 있네요.
+
+gerda/inn/14/seen
+거절한 날에도 못 정한 마음은 남아 있었어요.
+
+gerda/inn/15/situation
+게르다가 힐데가의 빈자리를 본다.
+
+gerda/inn/15/lines/0
+같은 성벽에 있었죠.
+
+gerda/inn/15/lines/1
+남은 쪽과 떠난 쪽이고.
+
+gerda/inn/15/lines/2
+어느 쪽 말도 쉬워 보이진 않아요.
+
+gerda/inn/15/choices/0/text
+이젠 같은 편이니 지난 차이는 없던 걸로 해요.
+
+gerda/inn/15/choices/0/response/0
+없던 일로 하면 서로 뭐가 남죠?
+
+gerda/inn/15/choices/0/response/1
+같은 편이니까 다른 쪽 말도 할 수 있는 거겠죠.
+
+gerda/inn/15/choices/1/text
+둘 중 누가 옳았는지 정하지 않고 들어요.
+
+gerda/inn/15/choices/1/response/0
+그럼 내 쪽 말을 해도 되겠네.
+
+gerda/inn/15/choices/2/text
+오늘은 조용히 있을까요?
+
+gerda/inn/15/choices/2/response/0
+조금 뒤에 다시 물어봐요.
+
+gerda/inn/15/seen
+같이 밥 먹으면서 다른 생각도 말할 수 있죠.
+
+gerda/inn/16/situation
+게르다가 부적을 옷 밖으로 꺼낸다.
+
+gerda/inn/16/lines/0
+줄까 말까 오래 봤어요.
+
+gerda/inn/16/lines/1
+내가 믿는 걸 안 맡기는 줄 알았지?
+
+gerda/inn/16/lines/2
+오늘은 맡겨 보고 싶어요.
+
+gerda/inn/16/choices/0/text
+뜻은 게르다 씨께 남기고 잠깐 보관할게요.
+
+gerda/inn/16/choices/0/response/0
+모양보다 그 말을 먼저 받네요.
+
+gerda/inn/16/choices/0/response/1
+놓고 싶으면 다시 말할게요.
+
+gerda/inn/16/choices/1/text
+조심히 받을게요.
+
+gerda/inn/16/choices/1/response/0
+매듭은 풀지 말아요.
+
+gerda/inn/16/choices/2/text
+저보다 더 필요한 분이 갖는 게 낫겠어요.
+
+gerda/inn/16/choices/2/response/0
+내가 누구한테 주고 싶은지도 중요해요.
+
+gerda/inn/16/choices/2/response/1
+쥐여 줄 손은 제가 보고 고른 건데요.
+
+gerda/inn/16/seen
+부적을 벗어도 여전히 믿어요.
+
+gerda/inn/17/situation
+게르다가 창가에서 물러서지 않는다.
+
+gerda/inn/17/lines/0
+얼굴은 봤어요.
+
+gerda/inn/17/lines/1
+이번엔 바로 피하진 않을래요.
+
+gerda/inn/17/lines/2
+혼자 나가겠다는 말도 아니고.
+
+gerda/inn/17/choices/0/text
+문 옆에 있을게요.
+
+gerda/inn/17/choices/0/response/0
+안 보이는 데까지 가진 마요.
+
+gerda/inn/17/choices/1/text
+안전하게 제가 대신 나가 볼게요.
+
+gerda/inn/17/choices/1/response/0
+나 대신 겁을 끝내려 하진 말아요.
+
+gerda/inn/17/choices/1/response/1
+오늘은 대신 숨으라는 말보다 곁이 필요해요.
+
+gerda/inn/17/choices/2/text
+서 있을지 물러날지 같이 보고 정해요.
+
+gerda/inn/17/choices/2/response/0
+용감하라고 밀지는 않네요.
+
+gerda/inn/17/seen
+피하지 않고 얘기할 테니 옆에 좀 있어 줘요.
+
+gerda/inn/18/situation
+게르다가 냉소를 삼키고 잔을 민다.
+
+gerda/inn/18/lines/0
+말을 좀 세게 했죠.
+
+gerda/inn/18/lines/1
+맞는 말인 척했는데.
+
+gerda/inn/18/lines/2
+겁나서 그런 거였어요.
+
+gerda/inn/18/choices/0/text
+농담인 줄 알아요. 그냥 잊을게요.
+
+gerda/inn/18/choices/0/response/0
+농담이라고 다시 덮고 싶지는 않아요.
+
+gerda/inn/18/choices/0/response/1
+사과까지 농담으로 남기기는 싫어요.
+
+gerda/inn/18/choices/1/text
+맞고 틀린 건 뒤에 보고 지금 말부터 들어요.
+
+gerda/inn/18/choices/1/response/0
+뒤에 숨을 논리가 없네.
+
+gerda/inn/18/choices/1/response/1
+그래도 안 가서 고마워요.
+
+gerda/inn/18/choices/2/text
+물 좀 마시고 해요.
+
+gerda/inn/18/choices/2/response/0
+잔 놓은 손은 덜 떨리네요.
+
+gerda/inn/18/seen
+비꼰 말을 거두고 남은 건 제 겁이었네요.
+
+gerda/inn/19/situation
+게르다가 오른쪽 의자에 앉아 왼쪽을 비운다.
+
+gerda/inn/19/lines/0
+오른쪽이 좋아요.
+
+gerda/inn/19/lines/1
+그건 그대로고.
+
+gerda/inn/19/lines/2
+옆자리는 비워 뒀어요.
+
+gerda/inn/19/choices/0/text
+저는 왼쪽에 앉을게요. 오른쪽은 게르다 씨가 써요.
+
+gerda/inn/19/choices/0/response/0
+그럼 옆에 좀 있어 줘요.
+
+gerda/inn/19/choices/1/text
+왼쪽에 앉을게요.
+
+gerda/inn/19/choices/1/response/0
+거긴 바람은 덜 들어요.
+
+gerda/inn/19/choices/2/text
+저도 오른쪽으로 옮길게요. 나쁜 건 같이 피해야죠.
+
+gerda/inn/19/choices/2/response/0
+내 믿음을 꼭 따라올 필요는 없어요.
+
+gerda/inn/19/choices/2/response/1
+내가 고른 걸 다 같이 골라야 하는 건 아니니까요.
+
+gerda/inn/19/seen
+다른 쪽에 앉아도 옆이라는 건 같네요.
+
+gerda/inn/20/situation
+게르다가 출발 종이를 돌려 준다.
+
+gerda/inn/20/lines/0
+말 안 듣고 달아나진 않을게요.
+
+gerda/inn/20/lines/1
+싫은 건 먼저 말하고.
+
+gerda/inn/20/lines/2
+그러니 시키기 전에 좀 물어요.
+
+gerda/inn/20/choices/0/text
+변경은 미리 알릴게요.
+
+gerda/inn/20/choices/0/response/0
+뒤에서 듣는 말만 아니면 돼요.
+
+gerda/inn/20/choices/1/text
+안 믿는 건 아니니 이번만 묻지 않고 따르세요.
+
+gerda/inn/20/choices/1/response/0
+이번만은 너무 오래 들었던 말이에요.
+
+gerda/inn/20/choices/1/response/1
+묻기로 한 다음부터도 이번만은 계속 나올 수 있죠.
+
+gerda/inn/20/choices/2/text
+싫으면 거절해 주세요. 다시 얘기하면 되죠.
+
+gerda/inn/20/choices/2/response/0
+거절해도 다음 질문은 하는 거죠?
+
+gerda/inn/20/seen
+싫다고 말해도 된다면 무슨 약속인지 들어 볼래요.
+
+gerda/inn/21/situation
+게르다가 부적 없는 옷깃을 만진다.
+
+gerda/inn/21/lines/0
+허전하긴 해요.
+
+gerda/inn/21/lines/1
+돌려 달라는 말은 아니고.
+
+gerda/inn/21/lines/2
+어디 있는지 알아서요.
+
+gerda/inn/21/choices/0/text
+이제 없어도 괜찮아 보이시니 졸업하셨네요.
+
+gerda/inn/21/choices/0/response/0
+여전히 믿으니까 맡긴 거예요.
+
+gerda/inn/21/choices/0/response/1
+부적은 잘 가지고 있어 줘요.
+
+gerda/inn/21/choices/1/text
+허전하면 말해요. 다시 맡길 때도 물어보고요.
+
+gerda/inn/21/choices/1/response/0
+잘 갖고 있다는 말보다 그게 좋네요.
+
+gerda/inn/21/choices/2/text
+매듭은 그대로예요.
+
+gerda/inn/21/choices/2/response/0
+그 소리는 듣고 싶었어요.
+
+gerda/inn/21/seen
+없는 곳을 만져도 어디 둔 건지는 알아요.
+
+gerda/inn/22/situation
+게르다가 창문을 열고 숨을 고른다.
+
+gerda/inn/22/lines/0
+나쁜 징조라서 피하고 싶었어요.
+
+gerda/inn/22/lines/1
+오늘은 그 말부터 할게요.
+
+gerda/inn/22/lines/2
+딴 이유 붙이지 않고.
+
+gerda/inn/22/choices/0/text
+피할지 남을지 정하기 전에 같이 봐요.
+
+gerda/inn/22/choices/0/response/0
+오늘은 같이 고를 수 있겠네.
+
+gerda/inn/22/choices/1/text
+어떤 걸 봤어요?
+
+gerda/inn/22/choices/1/response/0
+밖의 방향부터 말할게요.
+
+gerda/inn/22/choices/2/text
+아무 일 없을 테니 그냥 무시해요.
+
+gerda/inn/22/choices/2/response/0
+없을 거라는 답은 아직 못 들을 것 같아요.
+
+gerda/inn/22/choices/2/response/1
+아직 안심할 얼굴까지 만들진 못하겠네요.
+
+gerda/inn/22/seen
+징조를 말한 다음에도 고를 시간은 남아요.
+
+gerda/inn/23/situation
+게르다가 잔 두 개를 식탁에 놓는다.
+
+gerda/inn/23/lines/0
+농담 없는 날도 올 거예요.
+
+gerda/inn/23/lines/1
+그때 왜 그러냐고 다그치진 말아요.
+
+gerda/inn/23/lines/2
+말은 제가 할게요.
+
+gerda/inn/23/choices/0/text
+오늘은 같이 마셔요.
+
+gerda/inn/23/choices/0/response/0
+조용한 쪽으로 앉아도 돼요.
+
+gerda/inn/23/choices/1/text
+혼자 있고 싶은 날은 찾아가지 않을게요.
+
+gerda/inn/23/choices/1/response/0
+내가 말 없다고 늘 혼자인 건 아니에요.
+
+gerda/inn/23/choices/1/response/1
+말 적은 날도 사람은 옆에 둘 수 있잖아요.
+
+gerda/inn/23/choices/2/text
+다그치지 않되 옆에 앉을지는 물을게요.
+
+gerda/inn/23/choices/2/response/0
+말 없으면 문까지 닫진 말아 달란 거예요.
+
+gerda/inn/23/seen
+아무 말 없이 잔을 두 개 놓을게요.
+
+gerda/inn/24/situation
+게르다가 작은 소원을 삼키다 웃는다.
+
+gerda/inn/24/lines/0
+들었어요?
+
+gerda/inn/24/lines/1
+입 푸는 거 아니에요.
+
+gerda/inn/24/lines/2
+오늘도 같이 돌아오자고 했어요.
+
+gerda/inn/24/choices/0/text
+말 안 해도 늘 잘 돌아오잖아요.
+
+gerda/inn/24/choices/0/response/0
+나갈 때마다 저는 좀 걱정이 되거든요.
+
+gerda/inn/24/choices/0/response/1
+어제 돌아왔어도 오늘 소원은 새로 하는 거예요.
+
+gerda/inn/24/choices/1/text
+그 소원은 말로도 같이 해요.
+
+gerda/inn/24/choices/1/response/0
+이번엔 안 들킨 척 안 할게요.
+
+gerda/inn/24/choices/1/response/1
+같이 돌아와요.
+
+gerda/inn/24/choices/2/text
+준비는 다 됐어요.
+
+gerda/inn/24/choices/2/response/0
+나는 마지막 끈만 보면 돼요.
+
+gerda/inn/24/seen
+오늘도 무사히 돌아오자고 빌었어요.
+
+gerda/inn/25/situation
+게르다가 먼저 식탁에 앉아 손을 흔든다.
+
+gerda/inn/25/lines/0
+이쪽이에요.
+
+gerda/inn/25/lines/1
+무슨 일 있는 얼굴 말고.
+
+gerda/inn/25/lines/2
+그냥 자리 골라 뒀어요.
+
+gerda/inn/25/choices/0/text
+이번에는 징조 말고 같이 앉고 싶어서군요.
+
+gerda/inn/25/choices/0/response/0
+둘 다일 수도 있지.
+
+gerda/inn/25/choices/0/response/1
+오늘은 같이 앉는 쪽이 먼저예요.
+
+gerda/inn/25/choices/1/text
+잔은 제가 가져올게요.
+
+gerda/inn/25/choices/1/response/0
+내 것도 작은 걸로 줘요.
+
+gerda/inn/25/choices/2/text
+편한 자리 찾으셨으니 저는 다른 쪽에 앉을게요.
+
+gerda/inn/25/choices/2/response/0
+편한 건 옆이 비어 있어서도 그래요.
+
+gerda/inn/25/choices/2/response/1
+혼자 넓게 쓰려고 비워 둔 의자는 아닌데요.
+
+gerda/inn/25/seen
+옆에 앉아요. 같이 있으려고 골라 뒀어요.
+
+gerda/inn/26/situation
+게르다가 종이를 접고 어깨를 편다.
+
+gerda/inn/26/lines/0
+옳은 말만 찾다 오래 걸렸네요.
+
+gerda/inn/26/lines/1
+오늘은 먼저 보고 싶었어요.
+
+gerda/inn/26/lines/2
+그 말이면 됐는데.
+
+gerda/inn/26/choices/0/text
+저도 앉고 싶었어요.
+
+gerda/inn/26/choices/0/response/0
+그러면 의자부터 당겨요.
+
+gerda/inn/26/choices/1/text
+보고 싶은 이유를 맞혀 볼까요?
+
+gerda/inn/26/choices/1/response/0
+그냥 보고 싶어서 왔어요.
+
+gerda/inn/26/choices/1/response/1
+그냥 찾아온 말에도 굳이 답을 맞히진 말아요.
+
+gerda/inn/26/choices/2/text
+논리 없이도 그 말은 알아들어요.
+
+gerda/inn/26/choices/2/response/0
+나도 반박부터 안 해 볼게요.
+
+gerda/inn/26/seen
+왜 왔는지 길게 말하지 않아도 되네요.
+
+gerda/inn/27/situation
+게르다가 창문 닫는 소리에 잠깐 멈춘다.
+
+gerda/inn/27/lines/0
+아직 놀라요.
+
+gerda/inn/27/lines/1
+오래 지나도 이래요.
+
+gerda/inn/27/lines/2
+그래도 바로 나가진 않네요.
+
+gerda/inn/27/choices/0/text
+이젠 잊으셔도 될 만큼 편해 보이세요.
+
+gerda/inn/27/choices/0/response/0
+기억이 남아 있어도 오늘은 편히 앉을 수 있어요.
+
+gerda/inn/27/choices/0/response/1
+옛날 얘기는 조금씩 해도 될까요?
+
+gerda/inn/27/choices/1/text
+놀라신 채로 계세요. 문은 제가 살필게요.
+
+gerda/inn/27/choices/1/response/0
+괜찮아진 척 안 해도 앉을 수 있네요.
+
+gerda/inn/27/choices/2/text
+물은 여기 있어요.
+
+gerda/inn/27/choices/2/response/0
+손 닿는 곳에 두셨네. 물은 잘 마실게요.
+
+gerda/inn/27/seen
+문소리에 멈춰도 다시 앉을 자리는 보여요.
+
+gerda/dungeon/0/variants/0
+오른쪽 길부터 봐요.
+
+gerda/dungeon/0/variants/1
+입 푸는 중이니 먼저 가지 마요.
+
+gerda/dungeon/1/variants/0
+소원만 빌고 나설 건 아니에요.
+
+gerda/dungeon/1/variants/1
+제가 물러날 땐 혼자 사라지기 전에 말할게요.
+
+gerda/dungeon/2/variants/0
+오늘 소원은 같이 돌아오는 거예요.
+
+gerda/dungeon/2/variants/1
+들켰어도 이번엔 안 둘러댈래요.
+
+gerda/dungeon/3/variants/0
+왼쪽 소리는 확인했어요?
+
+gerda/dungeon/3/variants/1
+징조 말고 발밑도 보자고요.
+
+gerda/dungeon/4/variants/0
+내가 아는 수법이면 먼저 말할게요.
+
+gerda/dungeon/4/variants/1
+모르는 얼굴까지 아는 척은 안 해요.
+
+gerda/dungeon/5/variants/0
+겁나면 나도 걸음을 늦출게요.
+
+gerda/dungeon/5/variants/1
+혼자 등을 돌리진 않을게요.
+
+gerda/dungeon/6/variants/0
+찾은 것부터 봐요. 행운 덕이라고는 나중에 해요.
+
+gerda/dungeon/6/variants/1
+눈으로 봤으니 그건 적어도 되죠.
+
+gerda/dungeon/7/variants/0
+본 건 적고 모르는 건 남겨 둬요.
+
+gerda/dungeon/7/variants/1
+찾은 사람 수고까지 부적 덕이라고 하진 않을게요.
+
+gerda/dungeon/8/variants/0
+같이 본 날이라고도 적어 둬요.
+
+gerda/dungeon/8/variants/1
+길게 비꼴 말은 오늘 없네요.
+
+gerda/dungeon/9/variants/0
+소원 빌 때까지만 잠깐 기다려요.
+
+gerda/dungeon/9/variants/1
+쏘기 전에 입부터 푼다니까요.
+
+gerda/dungeon/10/variants/0
+내가 속삭인 건 못 들은 척해 줘요.
+
+gerda/dungeon/10/variants/1
+준비되면 똑바로 알려 줄게요.
+
+gerda/dungeon/11/variants/0
+오늘 소원은 안 숨겨도 되겠네.
+
+gerda/dungeon/11/variants/1
+잘 돌아오자는 말은 같이 해요.
+
+gerda/dungeon/12/variants/0
+그래도 끝났는지는 봐야죠.
+
+gerda/dungeon/12/variants/1
+좋은 징조라고 너무 먼저 웃진 마요.
+
+gerda/dungeon/13/variants/0
+내가 본 얼굴은 나중에 말할게요.
+
+gerda/dungeon/13/variants/1
+맞힌 것보다 무사한 쪽을 세요.
+
+gerda/dungeon/14/variants/0
+운이 좋았다고만 넘기진 않을게요.
+
+gerda/dungeon/14/variants/1
+오늘 같이 버틴 사람은 보여요.
+
+gerda/dungeon/15/variants/0
+부적 만지는 걸 본 건 아니죠?
+
+gerda/dungeon/15/variants/1
+이 앞은 좀 마음에 걸리네요.
+
+gerda/dungeon/16/variants/0
+겁난다는 말을 먼저 할게요.
+
+gerda/dungeon/16/variants/1
+징조도 길도 다시 같이 봐요.
+
+gerda/dungeon/17/variants/0
+용감한 얼굴은 못 만들겠네요.
+
+gerda/dungeon/17/variants/1
+그래도 혼자 피할 생각은 없어요.
+
+gerda/dungeon/18/variants/0
+이제 오른쪽 길 얘기 해도 돼요?
+
+gerda/dungeon/18/variants/1
+그 전에 돌아갈 힘부터 보죠.
+
+gerda/dungeon/19/variants/0
+한 번 더 사람부터 세요.
+
+gerda/dungeon/19/variants/1
+부적이 대신한 일이라고 안 할게요.
+
+gerda/dungeon/20/variants/0
+오늘은 웃고 나서 소원 말할래요.
+
+gerda/dungeon/20/variants/1
+같이 돌아오는 데까지 아직 남았네요.
+
+gerda/dungeon/21/variants/0
+괜찮다는 말 너무 빨리 하지 마요.
+
+gerda/dungeon/21/variants/1
+아픈 쪽을 먼저 보자니까요.
+
+gerda/dungeon/22/variants/0
+참는 게 익숙한 얼굴은 알아요.
+
+gerda/dungeon/22/variants/1
+늦기 전에 자리 바꿀 수 있죠?
+
+gerda/dungeon/23/variants/0
+농담으로 괜찮은 척 안 해도 돼요.
+
+gerda/dungeon/23/variants/1
+기다릴 말은 나도 들을 수 있어요.
+
+gerda/dungeon/24/variants/0
+이름부터 불러요. 결론은 나중에 정해요.
+
+gerda/dungeon/24/variants/1
+대답이 없어도 좀 더 살펴봐요.
+
+gerda/dungeon/25/variants/0
+내가 먼저 뛰면 옆 좀 봐 줘요.
+
+gerda/dungeon/25/variants/1
+사람을 두고 혼자 가 버리지는 말아요.
+
+gerda/dungeon/26/variants/0
+같이 돌아갈 쪽을 아직 볼래요.
+
+gerda/dungeon/26/variants/1
+소원보다 먼저 할 손이 남았어요.
+
+gerda/dungeon/27/variants/0
+옷만 찢어진 건 아니네요.
+
+gerda/dungeon/27/variants/1
+좀 아파요. 그 말 먼저 할게요.
+
+gerda/dungeon/28/variants/0
+부적 쥔다고 아픈 데가 숨겨지진 않네.
+
+gerda/dungeon/28/variants/1
+잠깐 도와달라는 뜻이에요.
+
+gerda/dungeon/29/variants/0
+센 말로 덮지 않을게요. 기다려 줘요.
+
+gerda/dungeon/29/variants/1
+오늘은 나도 뒤에서 부를 수 있죠?
+
+gerda/dungeon/30/variants/0
+오른쪽 자리는 내가 고를게요.
+
+gerda/dungeon/30/variants/1
+뒤는 좀 보이는 쪽으로요.
+
+gerda/dungeon/31/variants/0
+오늘은 입 푸는 것도 쉬고 싶어요.
+
+gerda/dungeon/31/variants/1
+별말 없어도 옆에 앉을 수 있죠?
+
+gerda/dungeon/32/variants/0
+부적 없는 쪽도 이제 허전하지만은 않네요.
+
+gerda/dungeon/32/variants/1
+조용한 얼굴도 좀 남겨 둘래요.
+
+gerda/dungeon/33/variants/0
+열리는 징조까지는 모르겠네.
+
+gerda/dungeon/33/variants/1
+일단 본 표시만 읽어 봐요.
+
+gerda/dungeon/34/variants/0
+믿는다고 다 아는 건 아니니 더 봐요.
+
+gerda/dungeon/34/variants/1
+모른다고 해도 내 말은 들어 줘요.
+
+gerda/dungeon/35/variants/0
+안 열리면 돌아가서 더 알아봐요.
+
+gerda/dungeon/35/variants/1
+이 앞에 같이 선 일도 남겠죠.
+
+gerda/dungeon/36/variants/0
+문 닫히는 소리는 아직 싫네요.
+
+gerda/dungeon/36/variants/1
+그래도 들어와서 말은 할게요.
+
+gerda/dungeon/37/variants/0
+오늘 어디서 피했는지 먼저 말할게요.
+
+gerda/dungeon/37/variants/1
+부적은 잃지 않았는지 봐 줄래요?
+
+gerda/dungeon/38/variants/0
+창문 닫혀도 여기 다시 앉을게요.
+
+gerda/dungeon/38/variants/1
+정말로 같이 돌아왔네요.
+
+gerda/dungeon/39/variants/0
+나쁜 징조 탓만 하지는 말아요.
+
+gerda/dungeon/39/variants/1
+내가 놓친 것도 돌아가서 볼게요.
+
+gerda/dungeon/40/variants/0
+비꼴 힘으로 남은 길부터 봐요.
+
+gerda/dungeon/40/variants/1
+누가 못 따라왔는지 혼내기 전에요.
+
+gerda/dungeon/41/variants/0
+운이 나빴다고 덮기 전에 놓친 데를 볼래요.
+
+gerda/dungeon/41/variants/1
+같이 앉아서 천천히 따져 봐요.
+
+gerda/transitions/0/situation
+게르다가 부적 쥔 손을 느슨하게 푼다.
+
+gerda/transitions/0/lines/0
+길 얘기는 들어요.
+
+gerda/transitions/0/lines/1
+내가 고를 칸은 남겨 두고요.
+
+gerda/transitions/1/situation
+게르다가 창 쪽으로 돌아선다.
+
+gerda/transitions/1/lines/0
+좋은 뜻이면 다 같은 줄 알았나 보네.
+
+gerda/transitions/1/lines/1
+오늘은 징조 얘기 안 할래요.
+
+gerda/transitions/2/situation
+게르다가 오른쪽 의자를 가리킨다.
+
+gerda/transitions/2/lines/0
+여긴 비었어요.
+
+gerda/transitions/2/lines/1
+앉을 거면 질문부터 하나씩 해요.
+
+gerda/transitions/3/situation
+게르다가 의자를 조금 밀어 둔다.
+
+gerda/transitions/3/lines/0
+묻는 줄 알았는데 이미 정했네.
+
+gerda/transitions/3/lines/1
+내 쪽 답은 다시 들으세요.
+
+gerda/transitions/4/situation
+게르다가 부적을 감추지 않는다.
+
+gerda/transitions/4/lines/0
+웃기면 나중에 웃어요.
+
+gerda/transitions/4/lines/1
+지금은 마음에 걸린 데부터 말할게요.
+
+gerda/transitions/5/situation
+게르다가 부적을 옷 안에 넣는다.
+
+gerda/transitions/5/lines/0
+다 안다는 소리는 아직 어렵네요.
+
+gerda/transitions/5/lines/1
+길에서 본 것부터만 말하죠.
+
+gerda/transitions/6/situation
+게르다가 문 닫히는 소리에 멈춘다.
+
+gerda/transitions/6/lines/0
+성문 얘기를 해 볼게요.
+
+gerda/transitions/6/lines/1
+내가 본 데까지만 알아도 괜찮다면요.
+
+gerda/transitions/7/situation
+게르다가 잔을 꼭 쥔다.
+
+gerda/transitions/7/lines/0
+잊으라는 말은 쉽게 들리네요.
+
+gerda/transitions/7/lines/1
+오늘은 농담도 잘 안 나와요.
+
+gerda/transitions/8/situation
+게르다가 부적을 손바닥에 놓는다.
+
+gerda/transitions/8/lines/0
+저는 여전히 믿고 있어요.
+
+gerda/transitions/8/lines/1
+잠깐 맡겨 보고 싶어서요.
+
+gerda/transitions/9/situation
+게르다가 빈 옷깃을 만진다.
+
+gerda/transitions/9/lines/0
+안 믿게 됐다고 읽진 말아요.
+
+gerda/transitions/9/lines/1
+무슨 뜻으로 줬는지 다시 말할게요.
+
+gerda/transitions/10/situation
+게르다가 읽은 종이를 손끝으로 밀어 준다.
+
+gerda/transitions/10/lines/0
+싫으면 먼저 말할게요.
+
+gerda/transitions/10/lines/1
+따르기 전에 물어볼 시간도 줘요.
+
+gerda/transitions/11/situation
+게르다가 펜을 내려놓는다.
+
+gerda/transitions/11/lines/0
+묻기로 했던 말이 빠졌네요.
+
+gerda/transitions/11/lines/1
+이번만이라는 말부터 다시 봐요.
+
+gerda/transitions/12/situation
+게르다가 소원을 소리 내어 말한다.
+
+gerda/transitions/12/lines/0
+이번엔 입 푸는 거 아니에요.
+
+gerda/transitions/12/lines/1
+오늘도 같이 돌아오자는 말이에요.
+
+gerda/transitions/13/situation
+게르다가 창가에서 돌아앉는다.
+
+gerda/transitions/13/lines/0
+편해졌는데도 여전히 겁이 나네요.
+
+gerda/transitions/13/lines/1
+아직 무섭다는 말도 다시 들어 주세요.
+
+judith/inn/0/situation
+유디트가 종이 위를 손으로 가린다.
+
+judith/inn/0/lines/0
+읽을 허락은 안 했어요.
+
+judith/inn/0/lines/1
+의뢰 얘기면 들어요.
+
+judith/inn/0/lines/2
+다른 질문은 나중에 고르죠.
+
+judith/inn/0/choices/0/text
+의뢰에서 맡을 범위만 확인할게요.
+
+judith/inn/0/choices/0/response/0
+제 연구까지 고르실 건 아니군요.
+
+judith/inn/0/choices/1/text
+시각을 전하러 왔어요.
+
+judith/inn/0/choices/1/response/0
+그건 확인했어요.
+
+judith/inn/0/choices/2/text
+보호하려고 그러니 위험한 연구는 제가 맡아 둘게요.
+
+judith/inn/0/choices/2/response/0
+보호한다며 빼앗는 손도 있네요.
+
+judith/inn/0/choices/2/response/1
+연구할 손은 아직 제 손이에요.
+
+judith/inn/0/seen
+덮은 계산을 동의한 계산으로 읽진 마세요.
+
+judith/inn/1/situation
+유디트가 펜을 세워 둔다.
+
+judith/inn/1/lines/0
+제가 짠 순서예요.
+
+judith/inn/1/lines/1
+좋아하라고 내놓은 건 아니고요.
+
+judith/inn/1/lines/2
+틀린 데 있으면 짚어요.
+
+judith/inn/1/choices/0/text
+다 읽고 답할게요.
+
+judith/inn/1/choices/0/response/0
+마지막 줄까지 보세요.
+
+judith/inn/1/choices/1/text
+복잡하니 전부 맡겨 드릴게요.
+
+judith/inn/1/choices/1/response/0
+따르겠다는 말이 검토는 아니에요.
+
+judith/inn/1/choices/1/response/1
+틀린 데를 알아야 저도 고치죠.
+
+judith/inn/1/choices/2/text
+틀린 부분은 근거랑 같이 말할게요.
+
+judith/inn/1/choices/2/response/0
+기분으로 지우진 않겠다는 말이네요.
+
+judith/inn/1/seen
+펜은 아직 고칠 수 있게 세워 둔 거예요.
+
+judith/inn/2/situation
+유디트가 지워진 줄을 다시 쓴다.
+
+judith/inn/2/lines/0
+이건 틀려서 지운 게 아니죠?
+
+judith/inn/2/lines/1
+허가가 없다고요?
+
+judith/inn/2/lines/2
+이유를 더 들어야겠어요.
+
+judith/inn/2/choices/0/text
+문제 생길까 봐 그냥 없애 두면 안심이죠.
+
+judith/inn/2/choices/0/response/0
+누가 안심할지부터 물어봐야겠어요.
+
+judith/inn/2/choices/0/response/1
+답을 지워 버리면 위험한 이유도 남지 않아요.
+
+judith/inn/2/choices/1/text
+금지한 말과 실제 위험을 나눠 봐요.
+
+judith/inn/2/choices/1/response/0
+그러면 뭘 확인할지는 정할 수 있겠네요.
+
+judith/inn/2/choices/2/text
+원문을 가져올게요.
+
+judith/inn/2/choices/2/response/0
+요약 말고 그대로요.
+
+judith/inn/2/seen
+다시 쓴 줄에는 지운 이유도 남겨 놓겠어요.
+
+judith/inn/3/situation
+유디트가 여관 문 쪽을 한번 본다.
+
+judith/inn/3/lines/0
+혼자 가려던 건 맞아요.
+
+judith/inn/3/lines/1
+듣기 싫을 답부터 떠올랐거든요.
+
+judith/inn/3/lines/2
+그래도 아직 안 갔어요.
+
+judith/inn/3/choices/0/text
+반대할 이유를 말할 때까지 기다려 주세요.
+
+judith/inn/3/choices/0/response/0
+그 사이에 제 계획은 읽어 보셔도 돼요.
+
+judith/inn/3/choices/1/text
+출발은 미뤄요.
+
+judith/inn/3/choices/1/response/0
+미룬 이유도 들려주세요.
+
+judith/inn/3/choices/2/text
+영리하시니 안전하게 알아서 하실 거예요.
+
+judith/inn/3/choices/2/response/0
+영리하다는 말로 질문을 끝내네요.
+
+judith/inn/3/choices/2/response/1
+안 간 동안은 같이 들을 말이 있잖아요.
+
+judith/inn/3/seen
+안 나간 동안에는 다른 말도 들을 수 있어요.
+
+judith/inn/4/situation
+유디트가 잔을 옮겨 계산할 자리를 만든다.
+
+judith/inn/4/lines/0
+허가는 안 받았어요.
+
+judith/inn/4/lines/1
+여기서는 쓸 수 있죠.
+
+judith/inn/4/lines/2
+쓸모가 있는지는 보시면 알아요.
+
+judith/inn/4/choices/0/text
+종이를 봐도 돼요?
+
+judith/inn/4/choices/0/response/0
+물 묻은 손만 닦고요.
+
+judith/inn/4/choices/1/text
+문제 안 생기게 허가부터 구하면 편하지 않아요?
+
+judith/inn/4/choices/1/response/0
+편하자는 말로 끝낼 문제는 아니에요.
+
+judith/inn/4/choices/1/response/1
+제가 하는 일보다 허가한 이름을 먼저 보시네요.
+
+judith/inn/4/choices/2/text
+허가 말고 맡길 일부터 같이 확인해요.
+
+judith/inn/4/choices/2/response/0
+제 솜씨를 읽는 질문이군요.
+
+judith/inn/4/choices/2/response/1
+그럼 설명할게요.
+
+judith/inn/4/seen
+잔 옆 계산은 허가증 없이도 읽을 수 있어요.
+
+judith/inn/5/situation
+유디트가 갑자기 펜을 들고 몸을 기울인다.
+
+judith/inn/5/lines/0
+잠깐, 그 말 다시요.
+
+judith/inn/5/lines/1
+무엇부터 달랐다고요?
+
+judith/inn/5/lines/2
+순서를 안 바꾸고 말해 봐요.
+
+judith/inn/5/choices/0/text
+대단해 보였다는 뜻이에요. 자세한 건 넘어가죠.
+
+judith/inn/5/choices/0/response/0
+바로 그 자세한 게 궁금한데요!
+
+judith/inn/5/choices/0/response/1
+모르는 부분을 알게 되는 데 시간이 더 걸려요.
+
+judith/inn/5/choices/1/text
+제가 본 데까지 말할게요. 원인은 아직 몰라요.
+
+judith/inn/5/choices/1/response/0
+원인은 제가 고를 테니…… 아니, 함께 봐요.
+
+judith/inn/5/choices/1/response/1
+본 것부터 듣고 싶어요.
+
+judith/inn/5/choices/2/text
+종이에 그려 볼게요.
+
+judith/inn/5/choices/2/response/0
+방향도 같이 표시해요.
+
+judith/inn/5/seen
+흥분해서 들은 순서를 바꾸진 않을게요.
+
+judith/inn/6/situation
+유디트가 빈칸을 손끝으로 짚는다.
+
+judith/inn/6/lines/0
+여긴 아직 몰라요.
+
+judith/inn/6/lines/1
+모르면 틀렸다고 쓰진 않죠.
+
+judith/inn/6/lines/2
+아직 못 푼 건 다음에 봐요.
+
+judith/inn/6/choices/0/text
+답 없는 칸도 계획에 들어가는군요.
+
+judith/inn/6/choices/0/response/0
+모르는 게 있어야 가 볼 이유가 생기죠.
+
+judith/inn/6/choices/1/text
+다른 줄부터 읽어요.
+
+judith/inn/6/choices/1/response/0
+이쪽은 확인한 순서예요.
+
+judith/inn/6/choices/2/text
+완성돼야 읽기 좋으니 다 풀고 보여 주세요.
+
+judith/inn/6/choices/2/response/0
+다 푼 뒤엔 같이 궁금해할 게 줄어요.
+
+judith/inn/6/choices/2/response/1
+다 같이 궁금해질 때 먼저 보여 준 거예요.
+
+judith/inn/6/seen
+아직 못 푼 곳도 보여 드릴게요.
+
+judith/inn/7/situation
+유디트가 책을 덮고 상대를 본다.
+
+judith/inn/7/lines/0
+쓸모를 묻는 건 좋아요.
+
+judith/inn/7/lines/1
+허가증만 보자는 건 싫고요.
+
+judith/inn/7/lines/2
+어느 쪽을 보고 계세요?
+
+judith/inn/7/choices/0/text
+오늘은 책만 돌려드릴게요.
+
+judith/inn/7/choices/0/response/0
+접힌 곳은 펴지 말고 두세요.
+
+judith/inn/7/choices/1/text
+스승님이 인정하셨으면 믿을 수 있겠어요.
+
+judith/inn/7/choices/1/response/0
+그 인정 때문에 여기 있는 사람은 아니에요.
+
+judith/inn/7/choices/1/response/1
+스승 얘기를 빼고 제 답을 좀 봐 주세요.
+
+judith/inn/7/choices/2/text
+직접 뭘 확인했는지부터 듣고 싶어요.
+
+judith/inn/7/choices/2/response/0
+따라 읽은 말로는 답하기 어렵겠네요.
+
+judith/inn/7/choices/2/response/1
+좋아요, 제가 한 데부터요.
+
+judith/inn/7/seen
+제 책을 읽고 나서 어떻게 생각하는지 들려줘요.
+
+judith/inn/8/situation
+유디트가 먼저 종이를 밀어 준다.
+
+judith/inn/8/lines/0
+어제 틀린 줄 찾았어요.
+
+judith/inn/8/lines/1
+아니, 틀린 데를 찾은 게 좋아서요.
+
+judith/inn/8/lines/2
+왜 웃냐는 얼굴 하지 말아요.
+
+judith/inn/8/choices/0/text
+틀렸으면 실망하셨겠네요. 다음엔 잘될 거예요.
+
+judith/inn/8/choices/0/response/0
+실망 얘기가 아니라 알아냈다는 얘기예요.
+
+judith/inn/8/choices/0/response/1
+틀렸던 게 어디인지 알게 된 게 좋다니까요.
+
+judith/inn/8/choices/1/text
+어디서 어긋났는지 같이 따라가 봐요.
+
+judith/inn/8/choices/1/response/0
+처음 맞았다고 우기면 이 재미가 없죠.
+
+judith/inn/8/choices/1/response/1
+이쪽으로 와 봐요.
+
+judith/inn/8/choices/2/text
+표시한 데부터 볼게요.
+
+judith/inn/8/choices/2/response/0
+화살표를 거꾸로 읽진 말고요.
+
+judith/inn/8/seen
+틀린 줄을 찾은 날에도 웃을 수 있어요.
+
+judith/inn/9/situation
+유디트가 말을 빨리 잇다가 숨을 고른다.
+
+judith/inn/9/lines/0
+질문 하나만 더요.
+
+judith/inn/9/lines/1
+아, 먼저 하던 답도 안 들었네요.
+
+judith/inn/9/lines/2
+이번 건 순서대로 들을게요.
+
+judith/inn/9/choices/0/text
+질문은 적어 두고 제 말 끝까지 들어요.
+
+judith/inn/9/choices/0/response/0
+제가 답까지 대신하려 했네요.
+
+judith/inn/9/choices/1/text
+천천히 설명할게요.
+
+judith/inn/9/choices/1/response/0
+제가 건너뛰면 바로 멈춰요.
+
+judith/inn/9/choices/2/text
+전 잘 모르니 유디트 씨 결론으로 정해요.
+
+judith/inn/9/choices/2/response/0
+모른다는 말로 구경만 하진 말아요.
+
+judith/inn/9/choices/2/response/1
+같이 묻는 입도 필요해서 물어본 거예요.
+
+judith/inn/9/seen
+남의 답을 들을 때는 제 펜도 조금 늦춰야겠어요.
+
+judith/inn/10/situation
+유디트가 등잔에서 종이를 멀리 놓는다.
+
+judith/inn/10/lines/0
+불이 가까웠네요.
+
+judith/inn/10/lines/1
+잉크보다 먼저 탔겠어요.
+
+judith/inn/10/lines/2
+이쪽으로 옮길게요.
+
+judith/inn/10/choices/0/text
+등잔은 제가 옮길게요.
+
+judith/inn/10/choices/0/response/0
+기울지만 않게 해 주세요.
+
+judith/inn/10/choices/1/text
+걱정되니 중요한 연구는 한동안 접어 둬요.
+
+judith/inn/10/choices/1/response/0
+불을 옮길 수 있는데 연구부터 접네요.
+
+judith/inn/10/choices/1/response/1
+잠깐 불을 옮기는 방법도 있는데요.
+
+judith/inn/10/choices/2/text
+불 가까이 뒀다고 연구까지 위험하단 말은 안 해요.
+
+judith/inn/10/choices/2/response/0
+그 둘을 한 말로 묶는 사람이 많아서요.
+
+judith/inn/10/seen
+등잔을 옮겨도 글씨는 잘 보이네요.
+
+judith/inn/11/situation
+유디트가 앞선 계획의 순서를 바꾼다.
+
+judith/inn/11/lines/0
+늦어졌어요.
+
+judith/inn/11/lines/1
+사람을 빼면 빨라지죠.
+
+judith/inn/11/lines/2
+그 말이 제일 쉬워서 문제예요.
+
+judith/inn/11/choices/0/text
+효율 좋아질 테니 느린 분은 기다리게 해요.
+
+judith/inn/11/choices/0/response/0
+그 대답은 저도 금방 했을 거예요.
+
+judith/inn/11/choices/0/response/1
+오늘은 다른 길을 보던 중이에요.
+
+judith/inn/11/choices/1/text
+누굴 빼는 계획인지 이름부터 읽어요.
+
+judith/inn/11/choices/1/response/0
+이 사람들까지 생각하면 간단히 정할 순 없겠네요.
+
+judith/inn/11/choices/1/response/1
+그래도 읽죠.
+
+judith/inn/11/choices/2/text
+시간을 다시 보죠.
+
+judith/inn/11/choices/2/response/0
+늦는 부분부터 짚겠어요.
+
+judith/inn/11/seen
+이름을 읽은 뒤에 계획을 다시 고르겠어요.
+
+judith/inn/12/situation
+유디트가 학술원 얘기에서 펜을 내려놓는다.
+
+judith/inn/12/lines/0
+제적됐어요.
+
+judith/inn/12/lines/1
+계산과 문헌 번역을 맡았고요.
+
+judith/inn/12/lines/2
+화재 뒤에 남은 건 그 말이었죠.
+
+judith/inn/12/choices/0/text
+불의 원인은 몰라도 맡으셨던 일은 들어요.
+
+judith/inn/12/choices/0/response/0
+모르는 걸 범인 얘기로 채우지 않으시네요.
+
+judith/inn/12/choices/0/response/1
+제가 한 데까지만 말하죠.
+
+judith/inn/12/choices/1/text
+말할 수 있는 데까지요.
+
+judith/inn/12/choices/1/response/0
+거기서 끊으면 더 묻지 마세요.
+
+judith/inn/12/choices/2/text
+좋은 경험 삼았으니 이제 잊고 새로 해요.
+
+judith/inn/12/choices/2/response/0
+경험이라고 접을 종이는 아니에요.
+
+judith/inn/12/choices/2/response/1
+잊고 나면 그때 제가 한 일까지 모른 척하게 돼요.
+
+judith/inn/12/seen
+그날 펜을 놓은 이유까지 다 아는 건 아니에요.
+
+judith/inn/13/situation
+유디트가 자기 성을 써 본다.
+
+judith/inn/13/lines/0
+제적 뒤에도 이름은 남았죠.
+
+judith/inn/13/lines/1
+그걸 왜 쓰느냐고 물어요.
+
+judith/inn/13/lines/2
+안 쓰면 그날 일이 없어지나요?
+
+judith/inn/13/choices/0/text
+잉크를 더 드릴까요?
+
+judith/inn/13/choices/0/response/0
+고맙네요. 조금만 들어 줘요.
+
+judith/inn/13/choices/1/text
+새 이름으로 시작하면 편해질 텐데요.
+
+judith/inn/13/choices/1/response/0
+편하려고 전부 버린 건 아니에요.
+
+judith/inn/13/choices/1/response/1
+그날 이후에도 제가 고른 이름이에요.
+
+judith/inn/13/choices/2/text
+남길 이름은 유디트 씨가 고르는 거죠.
+
+judith/inn/13/choices/2/response/0
+그럼 제 손으로 끝까지 쓰겠어요.
+
+judith/inn/13/seen
+제적된 뒤에도 이 이름으로 살고 싶었어요.
+
+judith/inn/14/situation
+유디트가 레비아 쪽을 보다가 고개를 돌린다.
+
+judith/inn/14/lines/0
+가르쳐 주면 될 줄 알았어요.
+
+judith/inn/14/lines/1
+방법을 알면 덜 무서울 거라 생각했어요.
+
+judith/inn/14/lines/2
+그런데 그 말부터 싫어하네요.
+
+judith/inn/14/choices/0/text
+좋은 스승이 필요하니 계속 가르쳐 주세요.
+
+judith/inn/14/choices/0/response/0
+배우겠다는 말은 아직 못 들었어요.
+
+judith/inn/14/choices/0/response/1
+싫은 표정을 못 읽으면 좋은 방법도 소용없죠.
+
+judith/inn/14/choices/1/text
+배울지와 힘을 쓸지를 먼저 물어봐야겠어요.
+
+judith/inn/14/choices/1/response/0
+제가 답부터 가져갔네요.
+
+judith/inn/14/choices/1/response/1
+그 질문은 그분께 할게요.
+
+judith/inn/14/choices/2/text
+오늘은 기다려요.
+
+judith/inn/14/choices/2/response/0
+노트를 들고 다가가진 않겠어요.
+
+judith/inn/14/seen
+방법이 있다고 먼저 쥐여 줄 수는 없겠네요.
+
+judith/inn/15/situation
+유디트가 서류를 따로 놓는다.
+
+judith/inn/15/lines/0
+같은 스승에게 배웠죠.
+
+judith/inn/15/lines/1
+헤드비히와 답은 달라졌고요.
+
+judith/inn/15/lines/2
+스승 이름 하나로 다 묶진 말아요.
+
+judith/inn/15/choices/0/text
+어디서 답이 갈렸는지 듣고 싶어요.
+
+judith/inn/15/choices/0/response/0
+누가 우수했는지부터 묻진 않으시네요.
+
+judith/inn/15/choices/1/text
+오늘은 여기까지만요.
+
+judith/inn/15/choices/1/response/0
+이름만 듣고 결론 내리진 마세요.
+
+judith/inn/15/choices/2/text
+둘 다 똑똑하니 결국 같아질 거예요.
+
+judith/inn/15/choices/2/response/0
+저는 제가 배운 대로 생각해 볼래요.
+
+judith/inn/15/choices/2/response/1
+배운 걸 다르게 쓰는 사람도 있어야죠.
+
+judith/inn/15/seen
+같은 스승에게 배웠어도 저는 이렇게 답할래요.
+
+judith/inn/16/situation
+유디트가 계획을 접어 가방에 넣는다.
+
+judith/inn/16/lines/0
+답에 가까웠어요.
+
+judith/inn/16/lines/1
+그런데 오늘은 돌아왔죠.
+
+judith/inn/16/lines/2
+한 사람 더 보내기 싫어서요.
+
+judith/inn/16/choices/0/text
+앉아서 쉬어요.
+
+judith/inn/16/choices/0/response/0
+앉으니까 늦게 피곤하네요.
+
+judith/inn/16/choices/1/text
+큰 발견이 아깝네요. 다음엔 혼자라도 가요.
+
+judith/inn/16/choices/1/response/0
+아까운 걸 알고도 돌아왔어요.
+
+judith/inn/16/choices/1/response/1
+누굴 두고 안 갔는지까지 같이 보시면 좋겠어요.
+
+judith/inn/16/choices/2/text
+왜 못 갔는지보다 누구와 돌아왔는지 같이 봐요.
+
+judith/inn/16/choices/2/response/0
+손해부터 셀 줄 알았는데요.
+
+judith/inn/16/choices/2/response/1
+우선 다들 돌아왔는지 볼게요.
+
+judith/inn/16/seen
+답이 가까웠던 날에도 돌아올 이유는 있었어요.
+
+judith/inn/17/situation
+유디트가 말을 고르다 짧게 웃는다.
+
+judith/inn/17/lines/0
+고맙다는 말이 좀 늦죠?
+
+judith/inn/17/lines/1
+설명부터 하고 싶어서요.
+
+judith/inn/17/lines/2
+아니, 그 말부터 할게요.
+
+judith/inn/17/choices/0/text
+당연한 걸 했으니 감사는 연구로 갚으세요.
+
+judith/inn/17/choices/0/response/0
+다음 쓸모를 약속하려던 말은 아니에요.
+
+judith/inn/17/choices/0/response/1
+감사 끝에 다음 쓸모를 붙이진 않을 거예요.
+
+judith/inn/17/choices/1/text
+설명 다 끝나기 전에도 받아 둘게요.
+
+judith/inn/17/choices/1/response/0
+그럼 두 번은 안 할 거예요.
+
+judith/inn/17/choices/1/response/1
+오늘 먼저 말한 걸 기억해요.
+
+judith/inn/17/choices/2/text
+차 한 잔 더 할까요?
+
+judith/inn/17/choices/2/response/0
+좋아요. 펜은 잠깐 덮고요.
+
+judith/inn/17/seen
+오늘 감사는 다음 계획의 대가로 안 적겠어요.
+
+judith/inn/18/situation
+유디트가 종이의 빈칸을 가리지 않는다.
+
+judith/inn/18/lines/0
+오늘도 모르겠어요.
+
+judith/inn/18/lines/1
+혼자 풀면 더 빨랐을까요?
+
+judith/inn/18/lines/2
+답이 없어서도 같이 보고 싶네요.
+
+judith/inn/18/choices/0/text
+모르는 채로 같이 보는 시간도 남겨요.
+
+judith/inn/18/choices/0/response/0
+못 풀어도 같이 본 데까지는 남는군요.
+
+judith/inn/18/choices/1/text
+아직 가능성 있는 이쪽 줄부터 볼까요?
+
+judith/inn/18/choices/1/response/0
+이쪽은 아직 가능성이 있어요.
+
+judith/inn/18/choices/2/text
+피곤하니 답 나오면 그때 알려 주세요.
+
+judith/inn/18/choices/2/response/0
+어떻게 풀었는지도 같이 봐 줘요.
+
+judith/inn/18/choices/2/response/1
+오늘은 모르는 데까지 같이 보고 싶었어요.
+
+judith/inn/18/seen
+모르는 칸 앞에서도 같이 있을 수 있네요.
+
+judith/inn/19/situation
+유디트가 먼저 의자를 내준다.
+
+judith/inn/19/lines/0
+앉아요.
+
+judith/inn/19/lines/1
+계산은 제가 하고요.
+
+judith/inn/19/lines/2
+그냥 일찍 와 주면 좋겠어서요.
+
+judith/inn/19/choices/0/text
+이쪽이면 될까요?
+
+judith/inn/19/choices/0/response/0
+제 잔 옆은 비었어요.
+
+judith/inn/19/choices/1/text
+시간 아깝지 않게 간단한 일부터 주세요.
+
+judith/inn/19/choices/1/response/0
+할 일 없어도 앉아 있어 줘요.
+
+judith/inn/19/choices/1/response/1
+혼자 계산하는 것보다 좋아요.
+
+judith/inn/19/choices/2/text
+오늘은 계산 못 도와도 앉아 있을게요.
+
+judith/inn/19/choices/2/response/0
+못한다고 쫓아내진 않을 거예요.
+
+judith/inn/19/choices/2/response/1
+물론 종이는 건드리지 말고요.
+
+judith/inn/19/seen
+옆 의자는 비었어요. 계산은 안 도와줘도 돼요.
+
+judith/inn/20/situation
+유디트가 계획 첫 줄을 바꿔 쓴다.
+
+judith/inn/20/lines/0
+혼자 정하기 전에 보여 줄게요.
+
+judith/inn/20/lines/1
+고칠 데가 있으면 말해 줘요.
+
+judith/inn/20/lines/2
+다 읽고 반대해요.
+
+judith/inn/20/choices/0/text
+영리한 분 계획이니 그냥 따를게요.
+
+judith/inn/20/choices/0/response/0
+같이 보겠다는 약속은 안 하시네요.
+
+judith/inn/20/choices/0/response/1
+영리하다고 안 틀리는 건 아니잖아요.
+
+judith/inn/20/choices/1/text
+막을 이유가 생겨도 종이는 돌려드릴게요.
+
+judith/inn/20/choices/1/response/0
+빼앗고 끝내진 않겠다는 말이네요.
+
+judith/inn/20/choices/2/text
+검토할 시간은 주세요.
+
+judith/inn/20/choices/2/response/0
+그 시간도 계획에 넣겠어요.
+
+judith/inn/20/seen
+계획은 읽어 보고 반대해도 돼요.
+
+judith/inn/21/situation
+유디트가 틀린 줄을 남겨 둔다.
+
+judith/inn/21/lines/0
+처음부터 알았다고 안 쓸래요.
+
+judith/inn/21/lines/1
+틀린 계산도 제가 했어요.
+
+judith/inn/21/lines/2
+지금은 고칠 수 있고요.
+
+judith/inn/21/choices/0/text
+틀린 데 찾은 순서도 같이 남겨요.
+
+judith/inn/21/choices/0/response/0
+누가 먼저 알아챘는지도 쓰죠.
+
+judith/inn/21/choices/0/response/1
+공적을 빼앗을 생각은 없어요.
+
+judith/inn/21/choices/1/text
+고친 줄부터 볼게요.
+
+judith/inn/21/choices/1/response/0
+옆에 날짜를 붙였어요.
+
+judith/inn/21/choices/2/text
+지금 맞으면 됐으니 흠은 지워도 괜찮아요.
+
+judith/inn/21/choices/2/response/0
+나중에 다시 볼 때 도움이 돼요.
+
+judith/inn/21/choices/2/response/1
+처음엔 왜 몰랐는지 알아야 다음에 덜 틀려요.
+
+judith/inn/21/seen
+틀린 데를 누가 고쳤는지도 적어 둘게요.
+
+judith/inn/22/situation
+유디트가 문 쪽에서 돌아와 선다.
+
+judith/inn/22/lines/0
+따라오라는 말은 삼켰어요.
+
+judith/inn/22/lines/1
+거절할 수도 있으니까요.
+
+judith/inn/22/lines/2
+같이 가고 싶은지는 물을게요.
+
+judith/inn/22/choices/0/text
+준비 시간이 필요해요.
+
+judith/inn/22/choices/0/response/0
+다 준비됐을 때 부르세요.
+
+judith/inn/22/choices/1/text
+같이 갈 테니 이유는 안 들어도 돼요.
+
+judith/inn/22/choices/1/response/0
+이유를 못 들은 사람이 위험을 고를 수는 없죠.
+
+judith/inn/22/choices/1/response/1
+제가 고른 위험을 같이 들으셔야죠.
+
+judith/inn/22/choices/2/text
+어디까지인지 듣고 제가 고를게요.
+
+judith/inn/22/choices/2/response/0
+그럼 끝나는 곳부터 설명하죠.
+
+judith/inn/22/seen
+따라오라는 말 대신 고를 이유를 드릴게요.
+
+judith/inn/23/situation
+유디트가 종이를 덮고 손을 내린다.
+
+judith/inn/23/lines/0
+오늘은 여기까지예요.
+
+judith/inn/23/lines/1
+제가 지쳐서 멈췄어요.
+
+judith/inn/23/lines/2
+쉬고 나서 다시 봐야겠네요.
+
+judith/inn/23/choices/0/text
+아깝잖아요. 한 줄만 더 풀고 쉬죠.
+
+judith/inn/23/choices/0/response/0
+제 입에서 나올 말을 먼저 하시네요.
+
+judith/inn/23/choices/0/response/1
+이번엔 제가 쉬겠다고 했으니 좀 기다려 줘요.
+
+judith/inn/23/choices/1/text
+내일 볼 줄은 그대로 두고 지금은 쉬어요.
+
+judith/inn/23/choices/1/response/0
+불은 끄지 말고 조금만 줄여요.
+
+judith/inn/23/choices/2/text
+마실 것 가져올게요.
+
+judith/inn/23/choices/2/response/0
+이번엔 뜨거운 걸로요.
+
+judith/inn/23/seen
+쉬고 싶을 때는 제가 펜을 놓을게요.
+
+judith/inn/24/situation
+유디트가 책 없이 식탁에 온다.
+
+judith/inn/24/lines/0
+두고 온 거 맞아요.
+
+judith/inn/24/lines/1
+답을 잊은 건 아니고요.
+
+judith/inn/24/lines/2
+오늘은 다른 얘기도 해 보려고요.
+
+judith/inn/24/choices/0/text
+연구 없던 하루 얘기도 궁금해요.
+
+judith/inn/24/choices/0/response/0
+없지는 않았는데…… 아, 또 그쪽부터네요.
+
+judith/inn/24/choices/0/response/1
+식사 얘기부터 해 볼게요.
+
+judith/inn/24/choices/1/text
+오늘은 제 쪽 의자를 쓰세요.
+
+judith/inn/24/choices/1/response/0
+종이 펼 공간까지 안 비워도 돼요.
+
+judith/inn/24/choices/2/text
+머리 식히면 답도 더 잘 떠오를 거예요.
+
+judith/inn/24/choices/2/response/0
+답 얘기는 나중에 하고요.
+
+judith/inn/24/choices/2/response/1
+못 푼 채로도 같이 앉아 있고 싶었어요.
+
+judith/inn/24/seen
+책 두고 온 날에도 할 말이 남아 있네요.
+
+judith/inn/25/situation
+유디트가 말을 듣다 갑자기 웃는다.
+
+judith/inn/25/lines/0
+아, 알겠어요!
+
+judith/inn/25/lines/1
+아니, 문제 답 말고요.
+
+judith/inn/25/lines/2
+왜 그때 기다렸는지 이제 알겠어요.
+
+judith/inn/25/choices/0/text
+어느 때 말씀이에요?
+
+judith/inn/25/choices/0/response/0
+문 앞에서 돌아오던 날이요.
+
+judith/inn/25/choices/1/text
+제가 옳았다는 걸 이제 아셨네요.
+
+judith/inn/25/choices/1/response/0
+누가 이겼는지 정하려던 말은 아닌데요.
+
+judith/inn/25/choices/1/response/1
+기다려 주신 게 고맙다는 얘기예요.
+
+judith/inn/25/choices/2/text
+그날 기다린 걸 기억하셨네요.
+
+judith/inn/25/choices/2/response/0
+그때는 기다린 시간을 아깝다고 적었어요.
+
+judith/inn/25/choices/2/response/1
+그때 제가 한 말은 고칠래요.
+
+judith/inn/25/seen
+늦게 알았어도 이제는 제대로 말할래요.
+
+judith/inn/26/situation
+유디트가 접은 책을 옆자리에 둔다.
+
+judith/inn/26/lines/0
+책도 가져왔어요.
+
+judith/inn/26/lines/1
+읽어 달라고는 안 할게요.
+
+judith/inn/26/lines/2
+옆에 앉고 싶어서요.
+
+judith/inn/26/choices/0/text
+끝까지 설명해 주세요. 제가 다 외울게요.
+
+judith/inn/26/choices/0/response/0
+외울 사람이 필요해서 온 건 아니에요.
+
+judith/inn/26/choices/0/response/1
+외우지 않고 궁금할 때만 물어도 돼요.
+
+judith/inn/26/choices/1/text
+같이 앉다가 궁금해지면 제가 물을게요.
+
+judith/inn/26/choices/1/response/0
+묻기 전엔 설명 안 하겠어요.
+
+judith/inn/26/choices/1/response/1
+좀 어려운 약속이네요.
+
+judith/inn/26/choices/2/text
+여백을 좀 볼까요?
+
+judith/inn/26/choices/2/response/0
+낙서 아닌 계산도 있으니 조심해요.
+
+judith/inn/26/seen
+묻기를 기다리는 시간이 설명보다 어렵네요.
+
+judith/inn/27/situation
+유디트가 먼저 펜을 덮고 고개를 든다.
+
+judith/inn/27/lines/0
+돌아오셨네요.
+
+judith/inn/27/lines/1
+어디서 늦었는지는 나중에요.
+
+judith/inn/27/lines/2
+다친 데 없는지부터 물을게요.
+
+judith/inn/27/choices/0/text
+제 얘기를 물으시니 좀 놀랐어요.
+
+judith/inn/27/choices/0/response/0
+걱정됐어요.
+
+judith/inn/27/choices/0/response/1
+발견 얘기는 그 뒤에 들어도 되니까요.
+
+judith/inn/27/choices/1/text
+저도 무사히 돌아왔어요. 이제 앉을까요?
+
+judith/inn/27/choices/1/response/0
+제 옆은 지금 비어 있어요.
+
+judith/inn/27/choices/2/text
+답 찾는 데 도움 됐는지부터 물으셔도 돼요.
+
+judith/inn/27/choices/2/response/0
+그 질문은 아직 기다릴 수 있어요.
+
+judith/inn/27/choices/2/response/1
+발견 얘기는 식사 뒤에 해도 안 사라져요.
+
+judith/inn/27/seen
+발견한 건 나중에 말할게요. 오늘은 어땠어요?
+
+judith/dungeon/0/variants/0
+계획은 끝까지 읽으셨어요?
+
+judith/dungeon/0/variants/1
+동의 못 한 줄은 나가기 전에 말해요.
+
+judith/dungeon/1/variants/0
+오늘은 먼저 고른 길을 보여 줄게요.
+
+judith/dungeon/1/variants/1
+답 안 나온 부분도 숨기진 않아요.
+
+judith/dungeon/2/variants/0
+모두 돌아올 수 있는지도 생각했어요.
+
+judith/dungeon/2/variants/1
+빨리 가자는 말은 조금 늦게 할게요.
+
+judith/dungeon/3/variants/0
+들은 층과 같은지부터 봐요.
+
+judith/dungeon/3/variants/1
+허가 문구보다 구조가 궁금하네요.
+
+judith/dungeon/4/variants/0
+먼저 봤다고 답을 정하진 않겠어요.
+
+judith/dungeon/4/variants/1
+같이 본 차이부터 짚어 주세요.
+
+judith/dungeon/5/variants/0
+이 층도 혼자 풀고 싶은 건 아니에요.
+
+judith/dungeon/5/variants/1
+제 생각이 빠르면 한번 세워 주세요.
+
+judith/dungeon/6/variants/0
+잠깐, 본 순서 그대로 말해 봐요!
+
+judith/dungeon/6/variants/1
+그 차이가 어디서 났는지 궁금하네요.
+
+judith/dungeon/7/variants/0
+모르는 이유까지 지어내진 말아요.
+
+judith/dungeon/7/variants/1
+지금 알아낸 데서부터 같이 볼래요.
+
+judith/dungeon/8/variants/0
+먼저 설명하고 싶은 건 같이 봐서예요.
+
+judith/dungeon/8/variants/1
+답만 나중에 전하러 온 건 아니죠.
+
+judith/dungeon/9/variants/0
+제가 말한 순서부터 보세요.
+
+judith/dungeon/9/variants/1
+안 맞는 곳은 바로 알려 줘요.
+
+judith/dungeon/10/variants/0
+계획을 바꾸면 먼저 말할게요.
+
+judith/dungeon/10/variants/1
+따라올 사람을 빼고 계산하진 않아요.
+
+judith/dungeon/11/variants/0
+오늘은 막히면 같이 멈출 거예요.
+
+judith/dungeon/11/variants/1
+제가 급해지면 이름부터 불러요.
+
+judith/dungeon/12/variants/0
+됐어요? 그럼 확인한 순서도 남겨요.
+
+judith/dungeon/12/variants/1
+이겼다고 원인까지 아는 건 아니에요.
+
+judith/dungeon/13/variants/0
+누가 먼저 알아챘는지 빼놓진 않아요.
+
+judith/dungeon/13/variants/1
+틀린 줄은 돌아가서 같이 고치죠.
+
+judith/dungeon/14/variants/0
+설명 전에 상태부터 물어볼게요.
+
+judith/dungeon/14/variants/1
+다들 돌아갈 수 있겠네요. 다행이에요.
+
+judith/dungeon/15/variants/0
+이 앞은 계획만으론 모르겠네요.
+
+judith/dungeon/15/variants/1
+궁금한 게 늘었지만 바로 가진 않아요.
+
+judith/dungeon/16/variants/0
+위험한 칸도 다 읽고 고르세요.
+
+judith/dungeon/16/variants/1
+영리하다는 말로 대신 동의하진 말고요.
+
+judith/dungeon/17/variants/0
+답이 저기 있어도 혼자 가겠단 말은 안 해요.
+
+judith/dungeon/17/variants/1
+함께 멈출 자리부터 정해 둘게요.
+
+judith/dungeon/18/variants/0
+방금 그 순서 기억해요?
+
+judith/dungeon/18/variants/1
+다시 해 보자는 건 아니니 안심해요.
+
+judith/dungeon/19/variants/0
+먼저 기록한 이름도 같이 남겨요.
+
+judith/dungeon/19/variants/1
+이유가 다 풀린 건 아니라서 더 궁금해요.
+
+judith/dungeon/20/variants/0
+아직 궁금하지만 돌아갈 시간이네요.
+
+judith/dungeon/20/variants/1
+오늘은 그쪽 손이 먼저 눈에 들어와요.
+
+judith/dungeon/21/variants/0
+그 상태면 계획을 바꿔야겠어요.
+
+judith/dungeon/21/variants/1
+버틸 수 있다고 먼저 정하진 말아요.
+
+judith/dungeon/22/variants/0
+한 사람 빼고 빨라지는 답은 싫네요.
+
+judith/dungeon/22/variants/1
+저도 도울 몫이 있으면 말해요.
+
+judith/dungeon/23/variants/0
+답을 늦춰도 지금은 이쪽을 볼게요.
+
+judith/dungeon/23/variants/1
+할 수 있는지 본인한테 먼저 물어요.
+
+judith/dungeon/24/variants/0
+이름부터 확인하세요.
+
+judith/dungeon/24/variants/1
+사람 하나 빠진 일을 대수롭지 않게 말하진 말아요.
+
+judith/dungeon/25/variants/0
+제가 만든 계획도 다시 볼게요.
+
+judith/dungeon/25/variants/1
+지금은 잘못 세기보다 손이 먼저예요.
+
+judith/dungeon/26/variants/0
+혼자 풀 문제처럼 두지 않겠어요.
+
+judith/dungeon/26/variants/1
+돌아올 수 있는 길을 아직 찾아봐요.
+
+judith/dungeon/27/variants/0
+제 상태는 계산에 안 넣었네요.
+
+judith/dungeon/27/variants/1
+다쳤네요. 계획을 좀 바꿀게요.
+
+judith/dungeon/28/variants/0
+참을 수 있어도 먼저 말하겠어요.
+
+judith/dungeon/28/variants/1
+도움이 필요한 건 아는 것과 달라요.
+
+judith/dungeon/29/variants/0
+영리한 사람도 아플 수는 있죠.
+
+judith/dungeon/29/variants/1
+지금은 기다려 달라는 뜻이에요.
+
+judith/dungeon/30/variants/0
+멈출 시간을 뺀 계산이었네요.
+
+judith/dungeon/30/variants/1
+책은 접을 테니 불은 조금 남겨요.
+
+judith/dungeon/31/variants/0
+못 푼 건 두고 잠깐 쉴게요.
+
+judith/dungeon/31/variants/1
+오늘은 펜보다 잔을 먼저 들게요.
+
+judith/dungeon/32/variants/0
+아직 답은 못 찾았어요. 앉아도 돼요?
+
+judith/dungeon/32/variants/1
+같이 쉬는 시간을 낭비라고 안 적을게요.
+
+judith/dungeon/33/variants/0
+허가와 여는 조건은 다른 문제예요.
+
+judith/dungeon/33/variants/1
+표시만으로 안다고 하지는 않겠어요.
+
+judith/dungeon/34/variants/0
+틀린 추측도 나눠 읽어 봐요.
+
+judith/dungeon/34/variants/1
+다 풀기 전에 보여 드려도 되겠죠?
+
+judith/dungeon/35/variants/0
+못 연 걸 혼자 부끄러워하진 않을게요.
+
+judith/dungeon/35/variants/1
+아직 몰라도 같이 기다려 주시네요.
+
+judith/dungeon/36/variants/0
+제가 쓴 순서부터 다시 보죠.
+
+judith/dungeon/36/variants/1
+확인한 것만 크게 말하겠어요.
+
+judith/dungeon/37/variants/0
+마법 얘기는 밥 먹고도 할 수 있겠죠?
+
+judith/dungeon/37/variants/1
+들어 줄 사람을 봐서 말이 빨라졌네요.
+
+judith/dungeon/38/variants/0
+발견한 것 말고 오늘 안부부터 물을게요.
+
+judith/dungeon/38/variants/1
+계산은 그만하고 함께 앉아 있을래요.
+
+judith/dungeon/39/variants/0
+틀린 줄이 있으면 지우지 말고 남겨요.
+
+judith/dungeon/39/variants/1
+연구가 틀린 건지 계획이 틀린 건지 봐야죠.
+
+judith/dungeon/40/variants/0
+제가 고른 순서도 같이 읽어요.
+
+judith/dungeon/40/variants/1
+답 못 찾았다고 누굴 빼놓진 않겠어요.
+
+judith/dungeon/41/variants/0
+오늘은 혼자 정리하러 가지 않을게요.
+
+judith/dungeon/41/variants/1
+지는 날에도 같이 볼 종이는 남네요.
+
+judith/transitions/0/situation
+유디트가 가린 종이를 반만 편다.
+
+judith/transitions/0/lines/0
+근거는 들을 수 있어요.
+
+judith/transitions/0/lines/1
+읽은 만큼만 먼저 말해요.
+
+judith/transitions/1/situation
+유디트가 펜을 가방에 넣는다.
+
+judith/transitions/1/lines/0
+내 뜻부터 지웠네요.
+
+judith/transitions/1/lines/1
+오늘은 연구 말고 맡은 일만 해요.
+
+judith/transitions/2/situation
+유디트가 계산 종이를 내놓는다.
+
+judith/transitions/2/lines/0
+오류면 고칠 수 있어요.
+
+judith/transitions/2/lines/1
+그냥 금지라는 말로 끝내진 말고요.
+
+judith/transitions/3/situation
+유디트가 종이를 거둔다.
+
+judith/transitions/3/lines/0
+동의하는 얼굴만 필요했던 건 아니에요.
+
+judith/transitions/3/lines/1
+다 읽을 때 다시 보여 드리죠.
+
+judith/transitions/4/situation
+유디트가 들뜬 목소리로 부른다.
+
+judith/transitions/4/lines/0
+틀린 줄을 찾았어요!
+
+judith/transitions/4/lines/1
+실패 얘기 아니니 이쪽부터 보세요.
+
+judith/transitions/5/situation
+유디트가 설명하다 입을 다문다.
+
+judith/transitions/5/lines/0
+답만 원하면 지금은 줄 게 적네요.
+
+judith/transitions/5/lines/1
+확인할 계획부터 이야기해요.
+
+judith/transitions/6/situation
+유디트가 펜을 놓고 학술원 얘기를 꺼낸다.
+
+judith/transitions/6/lines/0
+제적됐던 때 말이에요.
+
+judith/transitions/6/lines/1
+제가 한 일부터 직접 말하고 싶어요.
+
+judith/transitions/7/situation
+유디트가 자기 이름을 가린다.
+
+judith/transitions/7/lines/0
+새 출발이 그날을 지우는 말이면 싫어요.
+
+judith/transitions/7/lines/1
+오늘 얘기까지만 하죠.
+
+judith/transitions/8/situation
+유디트가 계획을 접는다.
+
+judith/transitions/8/lines/0
+답이 가까워도 돌아올 수 있었어요.
+
+judith/transitions/8/lines/1
+사람이 먼저일 때도 있었네요.
+
+judith/transitions/9/situation
+유디트가 접은 계획을 다시 본다.
+
+judith/transitions/9/lines/0
+쓸모로만 말하던 버릇이 돌아왔네요.
+
+judith/transitions/9/lines/1
+누굴 보고 한 말인지 다시 들을게요.
+
+judith/transitions/10/situation
+유디트가 계획을 먼저 보여 준다.
+
+judith/transitions/10/lines/0
+반대도 다 읽은 뒤 해요.
+
+judith/transitions/10/lines/1
+말하기 전에 혼자 정하진 않겠어요.
+
+judith/transitions/11/situation
+유디트가 첫 줄에서 펜을 멈춘다.
+
+judith/transitions/11/lines/0
+약속한 검토가 빠졌어요.
+
+judith/transitions/11/lines/1
+빨랐다고 끝낼 수는 없겠네요.
+
+judith/transitions/12/situation
+유디트가 책을 옆에 내려놓는다.
+
+judith/transitions/12/lines/0
+오늘은 계산 없이도 와 봤어요.
+
+judith/transitions/12/lines/1
+쓸모 있는 일만 같이 할 필요는 없네요.
+
+judith/transitions/13/situation
+유디트가 빈 식탁에 손을 편다.
+
+judith/transitions/13/lines/0
+편한 사이여도 제 선택은 물어 주세요.
+
+judith/transitions/13/lines/1
+답부터 대신하진 말고요.
+
+levia/inn/0/situation
+레비아가 잔에서 손을 뗀다.
+
+levia/inn/0/lines/0
+저, 그건 거기 두세요.
+
+levia/inn/0/lines/1
+제가 나중에 마실게요.
+
+levia/inn/0/lines/2
+지금은 좀 떨어져 있고 싶어요.
+
+levia/inn/0/choices/0/text
+나중에 다시 올게요.
+
+levia/inn/0/choices/0/response/0
+소리만 먼저 내 주세요.
+
+levia/inn/0/choices/1/text
+안심되게 제가 옆에서 계속 볼게요.
+
+levia/inn/0/choices/1/response/0
+보이지 않으면 조금 나을 것 같아서요.
+
+levia/inn/0/choices/1/response/1
+보호해 주시는 눈도 계속 있으면 긴장돼요.
+
+levia/inn/0/choices/2/text
+손 닿는 곳에 놓고 한 걸음 물러날게요.
+
+levia/inn/0/choices/2/response/0
+그만큼이면 괜찮아요.
+
+levia/inn/0/seen
+잔은 아직 그대로 두셔도 돼요.
+
+levia/inn/1/situation
+레비아가 의자를 벽 쪽으로 당긴다.
+
+levia/inn/1/lines/0
+출발 얘기인가요?
+
+levia/inn/1/lines/1
+들어 둘게요.
+
+levia/inn/1/lines/2
+그 밖의 건 지금 대답 못 해요.
+
+levia/inn/1/choices/0/text
+불편하니 오늘은 힘을 안 쓰셔도 돼요.
+
+levia/inn/1/choices/0/response/0
+제가 고르기 전에 정하시면 또 무서워요.
+
+levia/inn/1/choices/0/response/1
+안 쓰겠다는 말도 제가 해 보고 싶어요.
+
+levia/inn/1/choices/1/text
+오늘 할 일만 따로 말씀드릴게요.
+
+levia/inn/1/choices/1/response/0
+어디까지 할지는 저도 고를 수 있나요?
+
+levia/inn/1/choices/2/text
+종이에 남겨 둘게요.
+
+levia/inn/1/choices/2/response/0
+다 읽으면 다시 말씀드릴게요.
+
+levia/inn/1/seen
+벽 쪽에서도 출발 얘기는 들을 수 있어요.
+
+levia/inn/2/situation
+레비아가 가방 끈을 두 손으로 쥔다.
+
+levia/inn/2/lines/0
+괜찮다고 했는데요.
+
+levia/inn/2/lines/1
+아직 잘 모르겠어요.
+
+levia/inn/2/lines/2
+조금 다르게 말해도 되나요?
+
+levia/inn/2/choices/0/text
+처음 답은 고쳐도 돼요. 다시 들을게요.
+
+levia/inn/2/choices/0/response/0
+그럼 지금은 싫어요.
+
+levia/inn/2/choices/0/response/1
+그 말부터 해 볼게요.
+
+levia/inn/2/choices/1/text
+생각할 시간을 둘게요.
+
+levia/inn/2/choices/1/response/0
+금방 답하려고 하지 않을게요.
+
+levia/inn/2/choices/2/text
+한번 해 보면 괜찮은지 알 수 있겠죠?
+
+levia/inn/2/choices/2/response/0
+다시 해 보자는 말은 아직 듣기 어려워요.
+
+levia/inn/2/choices/2/response/1
+싫을 때 안 한다고 말씀드리고 싶어요.
+
+levia/inn/2/seen
+괜찮다는 첫말을 오늘은 조금 고쳤어요.
+
+levia/inn/3/situation
+레비아가 문을 보고 입을 다문다.
+
+levia/inn/3/lines/0
+밖에 소리가 나서요.
+
+levia/inn/3/lines/1
+찾는 사람인지는 몰라요.
+
+levia/inn/3/lines/2
+아직은 못 나가겠어요.
+
+levia/inn/3/choices/0/text
+문 안쪽에 있을게요.
+
+levia/inn/3/choices/0/response/0
+문에서 조금 먼 쪽이면 좋아요.
+
+levia/inn/3/choices/1/text
+아무도 아닐 테니 같이 나가 봐요.
+
+levia/inn/3/choices/1/response/0
+아무도 아닌지 아직 모르잖아요.
+
+levia/inn/3/choices/1/response/1
+아직 못 나가겠다는 답도 잠깐 남겨 주세요.
+
+levia/inn/3/choices/2/text
+누군지 확인하기 전엔 여기서 기다려요.
+
+levia/inn/3/choices/2/response/0
+제가 못 봤다고 대신 정하진 않으시네요.
+
+levia/inn/3/seen
+소리가 지나갈 때까지는 이 안에서 들을게요.
+
+levia/inn/4/situation
+레비아가 구석 의자를 손끝으로 만진다.
+
+levia/inn/4/lines/0
+여기 비었나요?
+
+levia/inn/4/lines/1
+통로는 안 막을게요.
+
+levia/inn/4/lines/2
+잠깐만 앉아도 될까요?
+
+levia/inn/4/choices/0/text
+밝은 가운데가 더 편하니 그쪽에 앉아요.
+
+levia/inn/4/choices/0/response/0
+저는 여기서도 잘 들려요.
+
+levia/inn/4/choices/0/response/1
+가운데까지 가야 편해진 건 아닐 것 같아요.
+
+levia/inn/4/choices/1/text
+일어날 때는 레비아 씨가 정하세요.
+
+levia/inn/4/choices/1/response/0
+잠깐이라고 안 해도 되는 건가요?
+
+levia/inn/4/choices/2/text
+이쪽에 앉으세요.
+
+levia/inn/4/choices/2/response/0
+잔은 제가 받을게요.
+
+levia/inn/4/seen
+구석에 앉아도 듣고 있어요.
+
+levia/inn/5/situation
+레비아가 차를 감싸 쥔다.
+
+levia/inn/5/lines/0
+아직 따뜻하네요.
+
+levia/inn/5/lines/1
+금방 안 마셔도 되죠?
+
+levia/inn/5/lines/2
+손부터 좀 녹이고 싶어서요.
+
+levia/inn/5/choices/0/text
+차는 더 식어도 손은 계속 감싸셔도 돼요.
+
+levia/inn/5/choices/0/response/0
+그럼 지금은 이대로 있을게요.
+
+levia/inn/5/choices/1/text
+조금 더 데울까요?
+
+levia/inn/5/choices/1/response/0
+아니요, 이만하면 좋아요.
+
+levia/inn/5/choices/2/text
+식으면 아까우니 먼저 드세요.
+
+levia/inn/5/choices/2/response/0
+아깝지 않게 쓰는 중인 것 같았는데요.
+
+levia/inn/5/choices/2/response/1
+이렇게 손을 감싸는 동안도 따뜻해서 좋아요.
+
+levia/inn/5/seen
+따뜻한 잔을 쥐고 있는 동안도 쉬는 거겠죠?
+
+levia/inn/6/situation
+레비아가 붉은 숄을 고쳐 두른다.
+
+levia/inn/6/lines/0
+바람 때문이에요.
+
+levia/inn/6/lines/1
+안 춥다고 말하려 했어요.
+
+levia/inn/6/lines/2
+조금은 춥네요.
+
+levia/inn/6/choices/0/text
+창문을 닫을까요?
+
+levia/inn/6/choices/0/response/0
+반쯤만 닫아 주세요.
+
+levia/inn/6/choices/1/text
+참으면 곧 따뜻해져요. 저도 그래요.
+
+levia/inn/6/choices/1/response/0
+저는 조금 먼저 말해 보고 싶었어요.
+
+levia/inn/6/choices/1/response/1
+춥다는 말을 따라 해 봤는데 다시 삼키게 되네요.
+
+levia/inn/6/choices/2/text
+추우면 그 말만 해 주셔도 돼요.
+
+levia/inn/6/choices/2/response/0
+이유를 다 설명하지 않아도 되네요.
+
+levia/inn/6/seen
+숄을 고치며 춥다는 말도 같이 해 봤어요.
+
+levia/inn/7/situation
+레비아가 빈 그릇을 앞에 둔다.
+
+levia/inn/7/lines/0
+받을 만큼 받았어요.
+
+levia/inn/7/lines/1
+그런데 조금 모자란 것 같아요.
+
+levia/inn/7/lines/2
+아, 괜찮아요.
+
+levia/inn/7/choices/0/text
+남으면 아까우니 지금 것부터 참아 드세요.
+
+levia/inn/7/choices/0/response/0
+참으라는 말은 아니셨겠지만요.
+
+levia/inn/7/choices/0/response/1
+다시 묻기는 좀 어려워지네요.
+
+levia/inn/7/choices/1/text
+괜찮다는 말 전에 더 필요한지 물을게요.
+
+levia/inn/7/choices/1/response/0
+그러면 조금만 더 받아도 될까요?
+
+levia/inn/7/choices/2/text
+그릇은 여기 둘게요.
+
+levia/inn/7/choices/2/response/0
+제가 직접 조금 덜어 볼게요.
+
+levia/inn/7/seen
+모자라면 조금 더 달라는 말도 해 볼게요.
+
+levia/inn/8/situation
+레비아가 먼저 가까운 의자에 앉는다.
+
+levia/inn/8/lines/0
+오늘은 이쪽으로 왔어요.
+
+levia/inn/8/lines/1
+항상 멀리 앉으면요.
+
+levia/inn/8/lines/2
+말을 걸 때마다 죄송해서요.
+
+levia/inn/8/choices/0/text
+죄송해서 말고 앉고 싶은 쪽을 고르세요.
+
+levia/inn/8/choices/0/response/0
+그럼 오늘도 이쪽이에요.
+
+levia/inn/8/choices/0/response/1
+이번엔 제가 고른 걸로요.
+
+levia/inn/8/choices/1/text
+옆은 비워 둘게요.
+
+levia/inn/8/choices/1/response/0
+너무 넓히실 필요는 없어요.
+
+levia/inn/8/choices/2/text
+이제 괜찮으시니 가운데로 오셔도 돼요.
+
+levia/inn/8/choices/2/response/0
+아직 어려운 것도 있어요.
+
+levia/inn/8/choices/2/response/1
+오늘 가까이 온 만큼만 봐 주셔도 좋아요.
+
+levia/inn/8/seen
+오늘 가까이 온 만큼만 편해져도 되겠죠?
+
+levia/inn/9/situation
+레비아가 잔을 내려놓다 손을 움츠린다.
+
+levia/inn/9/lines/0
+조금 아파요.
+
+levia/inn/9/lines/1
+아, 많이는 아니에요.
+
+levia/inn/9/lines/2
+말 안 하려다 지금 말씀드렸네요.
+
+levia/inn/9/choices/0/text
+손은 잠깐 놓아요.
+
+levia/inn/9/choices/0/response/0
+네, 잔은 식탁에 둘게요.
+
+levia/inn/9/choices/1/text
+참을 만하면 식사 후에 볼까요?
+
+levia/inn/9/choices/1/response/0
+참을 수는 있어도 지금 말하고 싶었어요.
+
+levia/inn/9/choices/1/response/1
+참다가 너무 늦게 말씀드릴까 봐 걱정됐어요.
+
+levia/inn/9/choices/2/text
+크기부터 줄이지 말고 어디 아픈지 들려주세요.
+
+levia/inn/9/choices/2/response/0
+많이 아프다고 하면 더 폐가 될 줄 알았어요.
+
+levia/inn/9/seen
+말할 수 있을 때 아프다고 해 봤어요.
+
+levia/inn/10/situation
+레비아가 사야 옆 빈자리를 본다.
+
+levia/inn/10/lines/0
+말이 없어도 괜찮아요.
+
+levia/inn/10/lines/1
+아무것도 안 묻는 건 아닌 것 같아서요.
+
+levia/inn/10/lines/2
+저도 그렇게 있어 보고 싶어요.
+
+levia/inn/10/choices/0/text
+둘 다 조용하시니 혼자 두는 게 낫겠어요.
+
+levia/inn/10/choices/0/response/0
+조용히 같이 있고 싶다는 말이었어요.
+
+levia/inn/10/choices/0/response/1
+말이 없어도 곁에 있고 싶어요.
+
+levia/inn/10/choices/1/text
+제가 묻지 않는 동안도 듣고는 있을게요.
+
+levia/inn/10/choices/1/response/0
+잠깐 생각하다 대답해도 되겠네요.
+
+levia/inn/10/choices/2/text
+차를 같이 들까요?
+
+levia/inn/10/choices/2/response/0
+그럼 잔은 두 개가 좋겠어요.
+
+levia/inn/10/seen
+말 없는 곁에도 두 잔은 놓을 수 있네요.
+
+levia/inn/11/situation
+레비아가 출발 종이를 천천히 읽는다.
+
+levia/inn/11/lines/0
+제 몫이 여기 있네요.
+
+levia/inn/11/lines/1
+안 보려던 건 아니에요.
+
+levia/inn/11/lines/2
+할 수 있는 만큼을 알고 싶었어요.
+
+levia/inn/11/choices/0/text
+못 하는 것도 제 몫 옆에 같이 적어요.
+
+levia/inn/11/choices/0/response/0
+못 한다고 빼지는 않으시는군요.
+
+levia/inn/11/choices/1/text
+읽고 나서 물을게요.
+
+levia/inn/11/choices/1/response/0
+급히 대답하지 않으셔도 돼요.
+
+levia/inn/11/choices/2/text
+저희가 다 지킬 테니 힘은 편히 쓰세요.
+
+levia/inn/11/choices/2/response/0
+할 수 있는지 말고, 하고 싶은지도 물어 주세요.
+
+levia/inn/11/choices/2/response/1
+도와주셔도 제가 고를 데는 있어야겠어요.
+
+levia/inn/11/seen
+할 수 없는 것도 말씀드려 볼게요.
+
+levia/inn/12/situation
+레비아가 둥근 잔 바닥을 보다가 시선을 든다.
+
+levia/inn/12/lines/0
+수정구가 깨졌어요.
+
+levia/inn/12/lines/1
+열 살 시험에서요.
+
+levia/inn/12/lines/2
+왜 그랬는지는 저도 몰라요.
+
+levia/inn/12/choices/0/text
+잠깐 쉬었다 할까요?
+
+levia/inn/12/choices/0/response/0
+잔만 다른 쪽으로 옮길게요.
+
+levia/inn/12/choices/1/text
+그만큼 강한 분이니 자랑스러워해도 되잖아요.
+
+levia/inn/12/choices/1/response/0
+강하다는 말보다 깨진 소리가 먼저 떠올라요.
+
+levia/inn/12/choices/1/response/1
+잘했다고 듣기 전에 무서웠다는 말을 하고 싶었어요.
+
+levia/inn/12/choices/2/text
+수정구가 깨진 까닭보다 그 뒤에 어땠는지 듣고 싶어요.
+
+levia/inn/12/choices/2/response/0
+무슨 힘인지 맞히려 하진 않으시는군요.
+
+levia/inn/12/choices/2/response/1
+그럼 조금 더 말할게요.
+
+levia/inn/12/seen
+수정구 얘기를 해도 답까지 아는 건 아니에요.
+
+levia/inn/13/situation
+레비아가 옷깃을 만지며 말을 잇는다.
+
+levia/inn/13/lines/0
+약하다고 적은 게 아니래요.
+
+levia/inn/13/lines/1
+다른 형태의 마법이라고 했어요.
+
+levia/inn/13/lines/2
+그리고 오래 지켜봤어요.
+
+levia/inn/13/choices/0/text
+특별히 보호받았다니 다행인 면도 있겠어요.
+
+levia/inn/13/choices/0/response/0
+그 안에 있던 제가 편했는지는 다른 일 같아요.
+
+levia/inn/13/choices/0/response/1
+지켜본 눈이 많아도 혼자인 밤이 있었어요.
+
+levia/inn/13/choices/1/text
+관리받던 시간 얘기는 레비아 씨 말로 들어요.
+
+levia/inn/13/choices/1/response/0
+무슨 실험이었냐고 안 물으시네요.
+
+levia/inn/13/choices/1/response/1
+저도 다 아는 건 아니에요.
+
+levia/inn/13/choices/2/text
+말하기 힘들면 멈춰요.
+
+levia/inn/13/choices/2/response/0
+오늘은 아직 조금 할 수 있어요.
+
+levia/inn/13/seen
+어떻게 적혔는지보다 그때 얘기를 하고 싶었어요.
+
+levia/inn/14/situation
+레비아가 문고리 쪽을 바라본다.
+
+levia/inn/14/lines/0
+교대하던 밤이었어요.
+
+levia/inn/14/lines/1
+문을 지나면 돌아갈 수 없을까 봐 망설였어요.
+
+levia/inn/14/lines/2
+그래도 나왔어요.
+
+levia/inn/14/choices/0/text
+나온 뒤 마음이 다 편해진 건 아니겠죠.
+
+levia/inn/14/choices/0/response/0
+밖이 된 걸 한참 믿지 못했어요.
+
+levia/inn/14/choices/1/text
+지금은 여기 계세요.
+
+levia/inn/14/choices/1/response/0
+네, 그건 제가 볼 수 있네요.
+
+levia/inn/14/choices/2/text
+나왔으면 이제 무서워하지 않아도 돼요.
+
+levia/inn/14/choices/2/response/0
+밖에서도 무서울 수 있는 줄 몰랐어요.
+
+levia/inn/14/choices/2/response/1
+밖에 나온 저도 아직 놀랄 수는 있겠지요?
+
+levia/inn/14/seen
+문밖에서도 무서울 수 있다는 걸 나와서 알았어요.
+
+levia/inn/15/situation
+레비아가 제 이름 적힌 줄을 읽는다.
+
+levia/inn/15/lines/0
+성은 없어요.
+
+levia/inn/15/lines/1
+새로 붙이지 않아도 돼요.
+
+levia/inn/15/lines/2
+이 이름으로 불러 주시면 돼요.
+
+levia/inn/15/choices/0/text
+글씨는 잘 보이나요?
+
+levia/inn/15/choices/0/response/0
+네, 제 이름은 바로 알아봐요.
+
+levia/inn/15/choices/1/text
+새 성이 있으면 새 출발 같아 좋지 않을까요?
+
+levia/inn/15/choices/1/response/0
+없는 걸 부끄럽게 여긴다고 생각하셨나요?
+
+levia/inn/15/choices/1/response/1
+없는 성보다 지금 부르는 이름이 좋아요.
+
+levia/inn/15/choices/2/text
+레비아 씨라고 계속 부를게요.
+
+levia/inn/15/choices/2/response/0
+성을 새로 붙이지 않아도 되는군요.
+
+levia/inn/15/seen
+더 붙이지 않은 이름으로도 저를 부를 수 있어요.
+
+levia/inn/16/situation
+레비아가 출발 종이를 자기 쪽으로 당긴다.
+
+levia/inn/16/lines/0
+숨기지 않고 말해 볼게요.
+
+levia/inn/16/lines/1
+힘을 쓸 수는 있어요.
+
+levia/inn/16/lines/2
+그만두고 싶으면 먼저 말할게요.
+
+levia/inn/16/choices/0/text
+용기 내셨으니 이번에 끝까지 해 보세요.
+
+levia/inn/16/choices/0/response/0
+용기는 멈춘다는 말에도 필요해요.
+
+levia/inn/16/choices/0/response/1
+내일도 할지는 내일 물어봐 주세요.
+
+levia/inn/16/choices/1/text
+쓰겠다는 말과 멈추겠다는 말을 같이 들어요.
+
+levia/inn/16/choices/1/response/0
+둘 중 하나만 고르지 않아도 되네요.
+
+levia/inn/16/choices/1/response/1
+그럼 제 몫을 다시 읽을게요.
+
+levia/inn/16/choices/2/text
+오늘 할 일부터 봐요.
+
+levia/inn/16/choices/2/response/0
+한 번에 다 정하진 말아 주세요.
+
+levia/inn/16/seen
+쓰겠다고 해도 멈출 말은 남겨 두고 싶어요.
+
+levia/inn/17/situation
+레비아가 먼저 빈 잔을 건넨다.
+
+levia/inn/17/lines/0
+물을 더 받고 싶어요.
+
+levia/inn/17/lines/1
+괜찮다면요.
+
+levia/inn/17/lines/2
+아, 지금은 그냥 받고 싶어요.
+
+levia/inn/17/choices/0/text
+그러면 이유는 더 안 묻고 채울게요.
+
+levia/inn/17/choices/0/response/0
+죄송하다는 말 없이도 물을 부탁할 수 있네요.
+
+levia/inn/17/choices/1/text
+조금씩 따를게요.
+
+levia/inn/17/choices/1/response/0
+넘치면 제가 먼저 말할게요.
+
+levia/inn/17/choices/2/text
+제가 알아서 계속 채워 드릴 테니 말 안 해도 돼요.
+
+levia/inn/17/choices/2/response/0
+필요할 때 말해 보고 싶었어요.
+
+levia/inn/17/choices/2/response/1
+필요할 때 제가 잔을 내밀어 볼게요.
+
+levia/inn/17/seen
+더 받고 싶은 때를 제 말로 알릴 수 있네요.
+
+levia/inn/18/situation
+레비아가 유디트 쪽을 보며 숨을 고른다.
+
+levia/inn/18/lines/0
+가르쳐 주려는 건 알아요.
+
+levia/inn/18/lines/1
+그래도 오늘은 싫었어요.
+
+levia/inn/18/lines/2
+나쁜 마음이 되진 않겠죠?
+
+levia/inn/18/choices/0/text
+오늘은 쉬어도 돼요.
+
+levia/inn/18/choices/0/response/0
+쉬고 나서 제가 다시 물을 수도 있고요.
+
+levia/inn/18/choices/1/text
+좋은 기회니 조금만 배워 두면 안심되겠어요.
+
+levia/inn/18/choices/1/response/0
+안심하고 싶어서 거절해 본 건데요.
+
+levia/inn/18/choices/1/response/1
+고마운 마음하고 싫은 마음이 같이 있어도 될까요?
+
+levia/inn/18/choices/2/text
+배우는 것도 거절할 수 있어야 하죠.
+
+levia/inn/18/choices/2/response/0
+그러면 싫을 때 싫다고 해 볼게요.
+
+levia/inn/18/choices/2/response/1
+도망치기 전에요.
+
+levia/inn/18/seen
+배울 기회를 남겨도 오늘은 싫다고 할 수 있네요.
+
+levia/inn/19/situation
+레비아가 숄을 느슨하게 놓고 앉는다.
+
+levia/inn/19/lines/0
+다 숨기지 않아도 될까요?
+
+levia/inn/19/lines/1
+무서운 것도요.
+
+levia/inn/19/lines/2
+말하면 덜 무서운 척해야 할까 봐요.
+
+levia/inn/19/choices/0/text
+늘 지켜 드릴 테니 무서운 말은 하지 마세요.
+
+levia/inn/19/choices/0/response/0
+지켜주신다는 말 앞에서 또 숨게 되네요.
+
+levia/inn/19/choices/0/response/1
+겁나는 말을 숨기면 괜찮은 얼굴만 남을 것 같아요.
+
+levia/inn/19/choices/1/text
+말하고 나서도 무서우면 그대로 있어요.
+
+levia/inn/19/choices/1/response/0
+대답을 못 골라도 찾아와 볼게요.
+
+levia/inn/19/choices/2/text
+옆에 있을게요.
+
+levia/inn/19/choices/2/response/0
+바로 물으시진 않아도 돼요.
+
+levia/inn/19/seen
+무섭다고 말했어도 좀 더 앉아 있을래요.
+
+levia/inn/20/situation
+레비아가 자기 이름 옆에 작은 표시를 한다.
+
+levia/inn/20/lines/0
+못 하겠으면 알릴게요.
+
+levia/inn/20/lines/1
+아무 말 없이 빠지지는 않을게요.
+
+levia/inn/20/lines/2
+대신 답할 때는 조금만 기다려 주세요.
+
+levia/inn/20/choices/0/text
+말을 고를 시간도 약속에 넣어요.
+
+levia/inn/20/choices/0/response/0
+그동안 다른 답으로 채우지 말아 주세요.
+
+levia/inn/20/choices/1/text
+표시는 같이 볼게요.
+
+levia/inn/20/choices/1/response/0
+이쪽이 제 자리예요.
+
+levia/inn/20/choices/2/text
+말하기 힘들면 제가 대신 거절해 드릴게요.
+
+levia/inn/20/choices/2/response/0
+처음에는 제 입으로 해 보고 싶어요.
+
+levia/inn/20/choices/2/response/1
+말을 잘 못 골라도 첫 답은 제 것이었으면 해요.
+
+levia/inn/20/seen
+천천히 생각하고 대답할게요.
+
+levia/inn/21/situation
+레비아가 잔 두 개를 앞에 놓는다.
+
+levia/inn/21/lines/0
+제 것도 꺼내 놓았어요.
+
+levia/inn/21/lines/1
+그다음은 같이 고르려고요.
+
+levia/inn/21/lines/2
+어느 잔이 편하세요?
+
+levia/inn/21/choices/0/text
+작은 쪽을 쓸게요.
+
+levia/inn/21/choices/0/response/0
+이쪽 손잡이가 잡기 편해요.
+
+levia/inn/21/choices/1/text
+저는 아무거나 괜찮으니 다 골라 주세요.
+
+levia/inn/21/choices/1/response/0
+같이 고르는 말도 듣고 싶었어요.
+
+levia/inn/21/choices/1/response/1
+같이 고를 때 어떤 잔을 좋아하시는지도 알 수 있잖아요.
+
+levia/inn/21/choices/2/text
+레비아 씨 잔도 그대로 두고 같이 골라요.
+
+levia/inn/21/choices/2/response/0
+제 걸 밀어 둘 필요는 없네요.
+
+levia/inn/21/seen
+두 잔을 놓은 뒤에는 둘이 골라도 되겠죠?
+
+levia/inn/22/situation
+레비아가 문밖을 보다가 돌아앉는다.
+
+levia/inn/22/lines/0
+찾는 사람이 있을 수 있어요.
+
+levia/inn/22/lines/1
+그 말도 숨기지 않으려고요.
+
+levia/inn/22/lines/2
+같이 있어도 괜찮을까요?
+
+levia/inn/22/choices/0/text
+저희가 다 막을 테니 그런 걱정은 잊어요.
+
+levia/inn/22/choices/0/response/0
+잊은 척하면 들었던 소식도 숨길 것 같아요.
+
+levia/inn/22/choices/0/response/1
+괜찮은 소식만 가져와야 곁에 있을 수는 없겠지요?
+
+levia/inn/22/choices/1/text
+괜찮다고만 하지 말고 알 수 있는 것부터 함께 봐요.
+
+levia/inn/22/choices/1/response/0
+위험이 없다고 하시진 않네요.
+
+levia/inn/22/choices/1/response/1
+그래서 더 말할 수 있을 것 같아요.
+
+levia/inn/22/choices/2/text
+지금은 여기서 기다려요.
+
+levia/inn/22/choices/2/response/0
+바깥을 혼자 보러 가진 않을게요.
+
+levia/inn/22/seen
+함께 있으려면 무서운 소식도 말할 수 있어야겠네요.
+
+levia/inn/23/situation
+레비아가 멈추던 말을 다시 잇는다.
+
+levia/inn/23/lines/0
+얘기를 듣자마자 제 탓이라고 했네요.
+
+levia/inn/23/lines/1
+무슨 일인지도 모르면서요.
+
+levia/inn/23/lines/2
+그 말은 고칠게요.
+
+levia/inn/23/choices/0/text
+확인한 뒤에 책임 얘기도 같이 해요.
+
+levia/inn/23/choices/0/response/0
+제가 다 받으면 조용해질 줄 알았어요.
+
+levia/inn/23/choices/1/text
+지금은 숨부터 고르세요.
+
+levia/inn/23/choices/1/response/0
+한 번만 더 고르고 말할게요.
+
+levia/inn/23/choices/2/text
+레비아 씨 잘못은 절대 아니니까 괜찮아요.
+
+levia/inn/23/choices/2/response/0
+아직 모르는 일도 있지 않나요?
+
+levia/inn/23/choices/2/response/1
+제 잘못이 아닐 거라는 말은 고마운데 아직은 같이 봐요.
+
+levia/inn/23/seen
+제 탓이라는 첫말부터 다시 확인할래요.
+
+levia/inn/24/situation
+레비아가 먼저 식탁으로 온다.
+
+levia/inn/24/lines/0
+자리가 있는 건 아는데요.
+
+levia/inn/24/lines/1
+오늘도 물어보고 싶었어요.
+
+levia/inn/24/lines/2
+같이 앉아도 될까요?
+
+levia/inn/24/choices/0/text
+따뜻한 차가 있어요.
+
+levia/inn/24/choices/0/response/0
+그 잔을 같이 들고 싶어요.
+
+levia/inn/24/choices/1/text
+이젠 안 물어도 되니 그냥 앉으세요.
+
+levia/inn/24/choices/1/response/0
+물어서 편한 날도 아직 있어요.
+
+levia/inn/24/choices/1/response/1
+기다려 주신다는 답을 오늘도 듣고 싶었어요.
+
+levia/inn/24/choices/2/text
+매번 물어도 저는 매번 대답할 수 있어요.
+
+levia/inn/24/choices/2/response/0
+같은 답을 들어도 오늘은 오늘이라서요.
+
+levia/inn/24/choices/2/response/1
+이쪽에 앉을게요.
+
+levia/inn/24/seen
+오늘도 묻고 오늘 대답을 듣는 게 좋네요.
+
+levia/inn/25/situation
+레비아가 작은 목소리로 웃는다.
+
+levia/inn/25/lines/0
+웃는 소리가 컸나요?
+
+levia/inn/25/lines/1
+놀라신 줄 알았어요.
+
+levia/inn/25/lines/2
+제가 먼저 웃을 때가 적어서요.
+
+levia/inn/25/choices/0/text
+자주 웃어 주세요. 그쪽이 훨씬 좋아요.
+
+levia/inn/25/choices/0/response/0
+안 웃는 날은 다시 불편해지실까요?
+
+levia/inn/25/choices/0/response/1
+매번 웃으려고 하면 다시 말이 줄 것 같아요.
+
+levia/inn/25/choices/1/text
+처음 듣는 것처럼 보지는 않을게요.
+
+levia/inn/25/choices/1/response/0
+다음 웃음도 편하게 나올 것 같아요.
+
+levia/inn/25/choices/2/text
+무슨 생각 하셨어요?
+
+levia/inn/25/choices/2/response/0
+잔을 바꿔 잡던 일이 떠올랐어요.
+
+levia/inn/25/seen
+웃지 않는 날도 남겨 두니 웃기가 더 편하네요.
+
+levia/inn/26/situation
+레비아가 숄 끝을 정리하고 잔을 든다.
+
+levia/inn/26/lines/0
+오늘은 안 아파요.
+
+levia/inn/26/lines/1
+무섭지 않은 것도 조금 있고요.
+
+levia/inn/26/lines/2
+아직 어려운 일도 있지만요.
+
+levia/inn/26/choices/0/text
+조금 괜찮은 날인 걸로 같이 있어요.
+
+levia/inn/26/choices/0/response/0
+전부라고 고치지 않아도 되는군요.
+
+levia/inn/26/choices/1/text
+오늘 차는 어떤가요?
+
+levia/inn/26/choices/1/response/0
+조금 식어서 저는 좋아요.
+
+levia/inn/26/choices/2/text
+이제 다 나아 보이세요. 옛일은 끝났네요.
+
+levia/inn/26/choices/2/response/0
+남은 걸 말하면 다시 처음이 되는 걸까요?
+
+levia/inn/26/choices/2/response/1
+남은 무서움도 천천히 이야기할 수 있으면 좋겠어요.
+
+levia/inn/26/seen
+오늘 괜찮은 만큼만 말해도 다 들리네요.
+
+levia/inn/27/situation
+레비아가 문을 나서다 이름을 부르려 멈춘다.
+
+levia/inn/27/lines/0
+저기요.
+
+levia/inn/27/lines/1
+오늘 돌아오면요.
+
+levia/inn/27/lines/2
+같은 자리에서 차 마실래요?
+
+levia/inn/27/choices/0/text
+준비해 두고 기다릴게요.
+
+levia/inn/27/choices/0/response/0
+따뜻한 걸로 골라 둘게요.
+
+levia/inn/27/choices/1/text
+피곤할 테니 돌아오면 혼자 푹 쉬어요.
+
+levia/inn/27/choices/1/response/0
+그때 같이 쉬고 싶어서 물었어요.
+
+levia/inn/27/choices/1/response/1
+같이 마시고 싶다는 말을 제가 먼저 해 봤어요.
+
+levia/inn/27/choices/2/text
+돌아올 때 레비아 씨가 먼저 골라 주세요.
+
+levia/inn/27/choices/2/response/0
+그럼 잔도 제가 두 개 놓을게요.
+
+levia/inn/27/choices/2/response/1
+오실지 제가 물어본 거예요.
+
+levia/inn/27/seen
+돌아온 뒤에도 차 마시고 싶어서 여쭤봤어요.
+
+levia/dungeon/0/variants/0
+저도 같이 가는 거죠?
+
+levia/dungeon/0/variants/1
+대답은 조금 늦어도 기다려 주세요.
+
+levia/dungeon/1/variants/0
+할 수 있는 데까지 먼저 말할게요.
+
+levia/dungeon/1/variants/1
+싫은 건 숨기지 않고 알려 볼게요.
+
+levia/dungeon/2/variants/0
+오늘은 제가 먼저 문 쪽으로 왔어요.
+
+levia/dungeon/2/variants/1
+같이 나가고 싶어서 그런 거예요.
+
+levia/dungeon/3/variants/0
+발은 여기 두면 될까요?
+
+levia/dungeon/3/variants/1
+저는 조금 뒤에서 볼게요.
+
+levia/dungeon/4/variants/0
+가까이 가도 되는지는 제가 물을게요.
+
+levia/dungeon/4/variants/1
+서둘러 답하지 않아도 되는 거죠?
+
+levia/dungeon/5/variants/0
+오늘은 제가 먼저 길을 같이 볼래요.
+
+levia/dungeon/5/variants/1
+무서우면 그 말도 바로 할게요.
+
+levia/dungeon/6/variants/0
+저, 이쪽이 조금 보여요.
+
+levia/dungeon/6/variants/1
+가까이 가기 전엔 잘 모르겠어요.
+
+levia/dungeon/7/variants/0
+본 데까지만 말해도 되나요?
+
+levia/dungeon/7/variants/1
+모르는 건 남겨 두고 같이 보고 싶어요.
+
+levia/dungeon/8/variants/0
+제가 먼저 봤다는 말을 해 보고 싶었어요.
+
+levia/dungeon/8/variants/1
+뒤에서만 보고 있지는 않았네요.
+
+levia/dungeon/9/variants/0
+제가 할 때는 먼저 말할게요.
+
+levia/dungeon/9/variants/1
+조금만 멀리 서 있어 주세요.
+
+levia/dungeon/10/variants/0
+할 수 있다고 해도 멈출 말은 남겨요.
+
+levia/dungeon/10/variants/1
+지금 마음도 한번만 물어봐 주세요.
+
+levia/dungeon/11/variants/0
+오늘은 힘을 숨기지는 않을래요.
+
+levia/dungeon/11/variants/1
+겁난다는 말도 같이 들어 주세요.
+
+levia/dungeon/12/variants/0
+끝난 건가요? 저도 같이 볼게요.
+
+levia/dungeon/12/variants/1
+제 쪽 상태도 먼저 말씀드릴게요.
+
+levia/dungeon/13/variants/0
+잘했다고 하셔도 아직 좀 떨려요.
+
+levia/dungeon/13/variants/1
+웃을 때까지 기다릴 필요는 없어요.
+
+levia/dungeon/14/variants/0
+오늘은 도왔다는 말을 받아 볼게요.
+
+levia/dungeon/14/variants/1
+전부 괜찮은 건 아니어도 같이 기뻐요.
+
+levia/dungeon/15/variants/0
+저, 잠깐만요. 아직 못 고르겠어요.
+
+levia/dungeon/15/variants/1
+생각하는 동안은 먼저 가지 말아 주세요.
+
+levia/dungeon/16/variants/0
+무서워도 대답해 볼 시간은 있어야겠죠?
+
+levia/dungeon/16/variants/1
+할 수 있는 일과 싫은 일은 말할게요.
+
+levia/dungeon/17/variants/0
+같이 가고 싶지만 지금도 조금 무서워요.
+
+levia/dungeon/17/variants/1
+그렇게 말해도 같이 가 주실래요?
+
+levia/dungeon/18/variants/0
+아직 손이 떨려서요.
+
+levia/dungeon/18/variants/1
+저도 돌아갈 사람에 들어가 있죠?
+
+levia/dungeon/19/variants/0
+제가 한 몫도 같이 보실 건가요?
+
+levia/dungeon/19/variants/1
+칭찬을 들으면 뭐라 할지 좀 늦네요.
+
+levia/dungeon/20/variants/0
+오늘은 제가 먼저 고맙다고 말할래요.
+
+levia/dungeon/20/variants/1
+같이 돌아가서 좀 쉬고 싶어요.
+
+levia/dungeon/21/variants/0
+아프면 그 말부터 해도 돼요.
+
+levia/dungeon/21/variants/1
+제가 할 수 있는 쪽도 한번 봐 주세요.
+
+levia/dungeon/22/variants/0
+괜찮다는 말이 너무 빨랐던 것 같아요.
+
+levia/dungeon/22/variants/1
+한 번만 더 물으면 답이 달라질 수도 있어요.
+
+levia/dungeon/23/variants/0
+도울 수 있는지 저한테도 물어 주세요.
+
+levia/dungeon/23/variants/1
+누구도 안 아팠으면 했는데 지금을 먼저 볼게요.
+
+levia/dungeon/24/variants/0
+저, 아직 답 못 들었어요.
+
+levia/dungeon/24/variants/1
+쓰러졌다고 두고 가지는 말아요.
+
+levia/dungeon/25/variants/0
+제 탓부터 말하지 않을게요.
+
+levia/dungeon/25/variants/1
+지금 할 수 있는 일이 있으면 같이 봐요.
+
+levia/dungeon/26/variants/0
+제가 겁나도 여기 남고 싶어요.
+
+levia/dungeon/26/variants/1
+누가 먼저인지 정하기 전에 이름을 불러요.
+
+levia/dungeon/27/variants/0
+아픈 데가 있어요. 숨길까 했는데요.
+
+levia/dungeon/27/variants/1
+못 걷는지는 다시 말씀드릴게요.
+
+levia/dungeon/28/variants/0
+이번에는 제가 먼저 아프다고 했어요.
+
+levia/dungeon/28/variants/1
+괜찮은 척하면 더 늦어질 것 같아서요.
+
+levia/dungeon/29/variants/0
+도움받고 싶다는 말도 해 볼게요.
+
+levia/dungeon/29/variants/1
+기다려 주시는 동안 저도 제 상태를 볼게요.
+
+levia/dungeon/30/variants/0
+구석이면 저는 편할 것 같아요.
+
+levia/dungeon/30/variants/1
+잔은 손 닿는 데만 놓아 주세요.
+
+levia/dungeon/31/variants/0
+오늘은 조금 가까이 앉고 싶어요.
+
+levia/dungeon/31/variants/1
+말이 없다고 혼자 두실 필요는 없어요.
+
+levia/dungeon/32/variants/0
+제가 고른 자리 옆도 비어 있나요?
+
+levia/dungeon/32/variants/1
+힘을 안 쓰는 시간에도 같이 있고 싶어요.
+
+levia/dungeon/33/variants/0
+저는 여는 법을 몰라요.
+
+levia/dungeon/33/variants/1
+힘을 쓰면 된다고 먼저 정하진 마세요.
+
+levia/dungeon/34/variants/0
+표시부터 같이 읽어도 될까요?
+
+levia/dungeon/34/variants/1
+다르게 보인 데만 제가 말할게요.
+
+levia/dungeon/35/variants/0
+모른다는 말을 숨기지 않을게요.
+
+levia/dungeon/35/variants/1
+못 열어도 제가 잘못했다고 먼저 말하진 않아요.
+
+levia/dungeon/36/variants/0
+저도 돌아왔다고 말해도 되죠?
+
+levia/dungeon/36/variants/1
+조용히 먼저 들어가려다 기다렸어요.
+
+levia/dungeon/37/variants/0
+따뜻한 차를 같이 마실 수 있나요?
+
+levia/dungeon/37/variants/1
+아까 무서웠던 얘기도 천천히 할게요.
+
+levia/dungeon/38/variants/0
+돌아오면 마시자고 한 잔은 제가 놓을게요.
+
+levia/dungeon/38/variants/1
+오늘은 먼저 기다리는 쪽도 해 보고 싶어요.
+
+levia/dungeon/39/variants/0
+무슨 일인지 모르는데 제 탓부터 했네요.
+
+levia/dungeon/39/variants/1
+잠깐 멈추고 상태를 봐도 될까요?
+
+levia/dungeon/40/variants/0
+그만하고 싶다는 말을 조금 늦게 했어요.
+
+levia/dungeon/40/variants/1
+다음에 무서울 때는 바로 말씀드릴게요.
+
+levia/dungeon/41/variants/0
+무서워도 혼자 사라지진 않을게요.
+
+levia/dungeon/41/variants/1
+실패한 날에도 여기 앉아 이야기할 수 있죠?
+
+levia/transitions/0/situation
+레비아가 가방 끈을 조금 푼다.
+
+levia/transitions/0/lines/0
+오늘 일은 들을게요.
+
+levia/transitions/0/lines/1
+다 답할 수는 없어도요.
+
+levia/transitions/1/situation
+레비아가 의자를 벽 쪽으로 옮긴다.
+
+levia/transitions/1/lines/0
+고르기도 전에 정해졌네요.
+
+levia/transitions/1/lines/1
+지금은 멀리서 들을래요.
+
+levia/transitions/2/situation
+레비아가 빈자리를 가리킨다.
+
+levia/transitions/2/lines/0
+여기 앉아도 될까요?
+
+levia/transitions/2/lines/1
+오늘은 안 일어나고 좀 있어 볼게요.
+
+levia/transitions/3/situation
+레비아가 잔을 식탁 끝에 둔다.
+
+levia/transitions/3/lines/0
+가까이 오라는 말이 조금 빨랐어요.
+
+levia/transitions/3/lines/1
+제가 다시 물을 때까지 기다려 주세요.
+
+levia/transitions/4/situation
+레비아가 먼저 옆 의자에 앉는다.
+
+levia/transitions/4/lines/0
+오늘은 이쪽에 있고 싶어요.
+
+levia/transitions/4/lines/1
+제가 오고 싶었어요.
+
+levia/transitions/5/situation
+레비아가 숄을 고쳐 두른다.
+
+levia/transitions/5/lines/0
+괜찮은 척하는 게 다시 빨라졌네요.
+
+levia/transitions/5/lines/1
+처음 답은 고칠 시간을 주세요.
+
+levia/transitions/6/situation
+레비아가 둥근 잔에서 눈을 든다.
+
+levia/transitions/6/lines/0
+수정구가 깨진 날을 말해 볼게요.
+
+levia/transitions/6/lines/1
+이유는 저도 다 모르지만요.
+
+levia/transitions/7/situation
+레비아가 말을 멈추고 잔을 감싼다.
+
+levia/transitions/7/lines/0
+강해서 좋았던 기억은 아니에요.
+
+levia/transitions/7/lines/1
+오늘은 조금만 쉬었다 말할래요.
+
+levia/transitions/8/situation
+레비아가 출발 종이를 자기 쪽으로 둔다.
+
+levia/transitions/8/lines/0
+힘을 숨기지 않고 말해 볼게요.
+
+levia/transitions/8/lines/1
+멈추고 싶다는 말도 같이요.
+
+levia/transitions/9/situation
+레비아가 종이에서 손을 뗀다.
+
+levia/transitions/9/lines/0
+하겠다는 말을 끝까지로 읽으셨네요.
+
+levia/transitions/9/lines/1
+제가 고른 데부터 다시 말씀드릴게요.
+
+levia/transitions/10/situation
+레비아가 자기 이름 옆에 표시한다.
+
+levia/transitions/10/lines/0
+못 하겠으면 먼저 말할게요.
+
+levia/transitions/10/lines/1
+대답이 늦어도 기다려 주세요.
+
+levia/transitions/11/situation
+레비아가 표시하던 손을 멈춘다.
+
+levia/transitions/11/lines/0
+대신 답해 주시면 편할 줄 알았어요.
+
+levia/transitions/11/lines/1
+그런데 제 말이 더 작아졌네요.
+
+levia/transitions/12/situation
+레비아가 빈자리를 먼저 고른다.
+
+levia/transitions/12/lines/0
+오늘도 같이 앉고 싶었어요.
+
+levia/transitions/12/lines/1
+지금 대답을 듣는 게 좋아서 물었어요.
+
+levia/transitions/13/situation
+레비아가 의자를 당기다 잠시 멈춘다.
+
+levia/transitions/13/lines/0
+이제 다 괜찮다는 말은 조금 어려워요.
+
+levia/transitions/13/lines/1
+오늘 마음부터 다시 말할게요.
+
+urda/inn/0/situation
+우르다가 국그릇을 밀어 놓는다.
+
+urda/inn/0/lines/0
+밥은 먹어요.
+
+urda/inn/0/lines/1
+말을 받으라는 뜻은 아니오.
+
+urda/inn/0/lines/2
+오늘 내 설교는 그릇보다 작게 두겠소.
+
+urda/inn/0/choices/0/text
+불편하시니 국도 다음에 받죠.
+
+urda/inn/0/choices/0/response/0
+국까지 내 말의 편을 들 필요는 없는데요.
+
+urda/inn/0/choices/0/response/1
+국은 이야기 잘 듣는 사람한테만 주는 게 아니오.
+
+urda/inn/0/choices/1/text
+밥만 받고 질문은 오늘 쉬어 갈게요.
+
+urda/inn/0/choices/1/response/0
+그 약속이면 나도 수저를 들겠소.
+
+urda/inn/0/choices/2/text
+시각만 알려 드릴게요.
+
+urda/inn/0/choices/2/response/0
+먹는 동안 들을 귀는 있소.
+
+urda/inn/0/seen
+말 적게 하는 날에도 국은 내줄 수 있소.
+
+urda/inn/1/situation
+우르다가 성표를 법의 안으로 넣는다.
+
+urda/inn/1/lines/0
+논쟁할 날은 아니네요.
+
+urda/inn/1/lines/1
+필요한 말만 하지요.
+
+urda/inn/1/lines/2
+누굴 도울지는 듣고 정하겠소.
+
+urda/inn/1/choices/0/text
+신앙 말고 지금 할 일부터 맞춰요.
+
+urda/inn/1/choices/0/response/0
+좋소. 밥 굶은 쪽부터 읽어 봅시다.
+
+urda/inn/1/choices/1/text
+자리만 비워 둘게요.
+
+urda/inn/1/choices/1/response/0
+오래 세워 두지는 마시오.
+
+urda/inn/1/choices/2/text
+사이가 풀릴 때까지 일도 쉬시는 게 낫겠어요.
+
+urda/inn/1/choices/2/response/0
+도울 사람은 우리 사이를 기다릴 수 있소?
+
+urda/inn/1/choices/2/response/1
+도울 손까지 우리 기분으로 미루지는 맙시다.
+
+urda/inn/1/seen
+성표를 넣어도 도울 손까지 넣지는 않소.
+
+urda/inn/2/situation
+우르다가 농담을 삼키고 앉는다.
+
+urda/inn/2/lines/0
+웃기면 풀릴 줄 알았소.
+
+urda/inn/2/lines/1
+그건 내 편한 생각이었네요.
+
+urda/inn/2/lines/2
+이번에는 듣겠소.
+
+urda/inn/2/choices/0/text
+지금은 조금 쉬죠.
+
+urda/inn/2/choices/0/response/0
+차가 식는 동안만큼은 말도 쉬겠소.
+
+urda/inn/2/choices/1/text
+좋은 뜻인 걸 아니까 그냥 웃어넘겨요.
+
+urda/inn/2/choices/1/response/0
+좋은 뜻으로 남의 귀를 정할 순 없지요.
+
+urda/inn/2/choices/1/response/1
+웃으라고 하면 내가 또 귀를 닫을 것 같소.
+
+urda/inn/2/choices/2/text
+농담이 걸린 데부터 다시 말할게요.
+
+urda/inn/2/choices/2/response/0
+끝까지 듣고 내 말은 뒤에 놓겠소.
+
+urda/inn/2/seen
+농담은 그만하겠소. 하던 얘기를 들어 봅시다.
+
+urda/inn/3/situation
+우르다가 빈 그릇을 자기 앞으로 당긴다.
+
+urda/inn/3/lines/0
+누구 몫인지 먼저 물었어야 했소.
+
+urda/inn/3/lines/1
+도우면 다 좋아할 줄 알았지요.
+
+urda/inn/3/lines/2
+다시 물으러 가야겠어요.
+
+urda/inn/3/choices/0/text
+좋은 일이니 싫어해도 계속 도와 드려요.
+
+urda/inn/3/choices/0/response/0
+그분이 하려던 일까지 다 맡으면 답답하겠소.
+
+urda/inn/3/choices/0/response/1
+도와줘도 좋은지 물어보겠소.
+
+urda/inn/3/choices/1/text
+다시 권하되 안 받는 답도 들어요.
+
+urda/inn/3/choices/1/response/0
+그릇을 채우기 전에 물었어야 했군요.
+
+urda/inn/3/choices/2/text
+잠시 같이 기다려요.
+
+urda/inn/3/choices/2/response/0
+서두르면 또 밀어 놓겠지요.
+
+urda/inn/3/seen
+빈 그릇을 들고도 먼저 물을 수 있겠소.
+
+urda/inn/4/situation
+우르다가 수저 놓을 자리를 만든다.
+
+urda/inn/4/lines/0
+어서 앉아요.
+
+urda/inn/4/lines/1
+신 얘기는 좀 뒤에 합시다.
+
+urda/inn/4/lines/2
+국은 논쟁 기다리다 식거든요.
+
+urda/inn/4/choices/0/text
+그럼 오늘은 국부터 같이 평가해요.
+
+urda/inn/4/choices/0/response/0
+평가는 넉넉히 해 주시오.
+
+urda/inn/4/choices/0/response/1
+내가 끓였다는 말은 안 했소!
+
+urda/inn/4/choices/1/text
+한 그릇 받을게요.
+
+urda/inn/4/choices/1/response/0
+바닥 보이면 더 말하시오.
+
+urda/inn/4/choices/2/text
+우르다 사제님 기도부터 듣고 먹으면 좋겠어요.
+
+urda/inn/4/choices/2/response/0
+기도는 하겠소만, 배고픈 사람을 먼저 세우진 맙시다.
+
+urda/inn/4/choices/2/response/1
+배부터 채우고 나서도 기도는 할 수 있소.
+
+urda/inn/4/seen
+오늘 첫 논쟁은 국 식기 전에 끝냈소.
+
+urda/inn/5/situation
+우르다가 문밖을 보고 의자를 더 당긴다.
+
+urda/inn/5/lines/0
+한 자리 더 있소.
+
+urda/inn/5/lines/1
+어디서 기도하는지는 나중에 묻고요.
+
+urda/inn/5/lines/2
+지금은 앉을 데가 먼저요.
+
+urda/inn/5/choices/0/text
+뒤늦게 올 분 그릇도 놓아 둘게요.
+
+urda/inn/5/choices/0/response/0
+고맙소. 바람 안 드는 쪽으로요.
+
+urda/inn/5/choices/1/text
+같은 신 믿는 분부터 앉히면 편하지 않아요?
+
+urda/inn/5/choices/1/response/0
+많이 배고픈 사람이 있으면 좀 기다립시다.
+
+urda/inn/5/choices/1/response/1
+같은 식탁에 다른 성표도 놓을 수 있겠지요.
+
+urda/inn/5/choices/2/text
+안 믿는 분도 여기 앉으면 되겠네요.
+
+urda/inn/5/choices/2/response/0
+수저 드는 데 신 이름을 시험하진 않소.
+
+urda/inn/5/seen
+의자 하나 더 놓는 데 교리는 길지 않소.
+
+urda/inn/6/situation
+우르다가 성표를 만지며 웃는다.
+
+urda/inn/6/lines/0
+이단이라고 들었소?
+
+urda/inn/6/lines/1
+요즘은 칭찬으로 듣소.
+
+urda/inn/6/lines/2
+셈에는 넣어 줬다는 말 같아서요.
+
+urda/inn/6/choices/0/text
+칭찬이라니 다행이에요. 상처는 없겠네요.
+
+urda/inn/6/choices/0/response/0
+지금은 웃어도 그때 들은 말은 아팠소.
+
+urda/inn/6/choices/0/response/1
+칭찬이라고 하려면 꽤 오래 웃는 법을 배웠소.
+
+urda/inn/6/choices/1/text
+웃기 전에는 어떤 마음인지도 언젠가 들을게요.
+
+urda/inn/6/choices/1/response/0
+처음부터 웃었던 건지 물으시는군요.
+
+urda/inn/6/choices/1/response/1
+그건 좀 뒤에 이야기하지요.
+
+urda/inn/6/choices/2/text
+지금은 밥부터 먹죠.
+
+urda/inn/6/choices/2/response/0
+그 순서는 내 마음에도 드네요.
+
+urda/inn/6/seen
+웃게 된 말도 처음 들을 때는 달랐소.
+
+urda/inn/7/situation
+우르다가 기도할 자리를 한쪽에 비워 둔다.
+
+urda/inn/7/lines/0
+막사면 충분하오.
+
+urda/inn/7/lines/1
+크게 지을 수 없는 자리도 있지요.
+
+urda/inn/7/lines/2
+사람이 있으면 손을 모을 수는 있소.
+
+urda/inn/7/choices/0/text
+기도하고 싶으신가요? 허락된 곳부터 볼까요?
+
+urda/inn/7/choices/0/response/0
+건물을 못 세운다고 마음까지 접지는 않소.
+
+urda/inn/7/choices/1/text
+어느 쪽을 비울까요?
+
+urda/inn/7/choices/1/response/0
+지나갈 길만 남겨 주시오.
+
+urda/inn/7/choices/2/text
+답답하니 몰래 성소를 만들어 드릴까요?
+
+urda/inn/7/choices/2/response/0
+그 친절은 함께 사는 사람까지 곤란하게 하겠소.
+
+urda/inn/7/choices/2/response/1
+허락된 자리 밖을 넓히는 건 내가 같이 책임질 일이오.
+
+urda/inn/7/seen
+비워 둔 자리는 새 성소를 세우려는 자리가 아니오.
+
+urda/inn/8/situation
+우르다가 국을 뜨다 말을 늦춘다.
+
+urda/inn/8/lines/0
+두 신이 하나였다 믿소.
+
+urda/inn/8/lines/1
+지금 다 듣고 고개 끄덕일 필요는 없소.
+
+urda/inn/8/lines/2
+국 먹듯 천천히 들어요.
+
+urda/inn/8/choices/0/text
+어디서 배운 믿음이에요?
+
+urda/inn/8/choices/0/response/0
+타른 계곡에서 자라며 들었소.
+
+urda/inn/8/choices/1/text
+편하게 지내게 저도 같은 걸 믿겠다고 할게요.
+
+urda/inn/8/choices/1/response/0
+편하려고 할 고백은 아니지요.
+
+urda/inn/8/choices/1/response/1
+입으로 따라오는 믿음보다 천천히 들은 답이 좋소.
+
+urda/inn/8/choices/2/text
+동의 못 해도 이야기는 같이 들을 수 있죠.
+
+urda/inn/8/choices/2/response/0
+그런 식탁이면 내 말도 너무 크지 않겠소.
+
+urda/inn/8/seen
+다르게 믿어도 같이 밥은 먹읍시다.
+
+urda/inn/9/situation
+우르다가 할드리크의 의자를 붙여 둔다.
+
+urda/inn/9/lines/0
+안 무섭다고 할 게요.
+
+urda/inn/9/lines/1
+아, 내가 대신 답할 일은 아니구려.
+
+urda/inn/9/lines/2
+저 자리만 조금 밝혀 둡시다.
+
+urda/inn/9/choices/0/text
+겁 안 나게 해골 얘기로 익숙해지게 해요.
+
+urda/inn/9/choices/0/response/0
+남의 겁을 내 농담감으로 키울 필요는 없소.
+
+urda/inn/9/choices/0/response/1
+농담하는 손으로 남의 겁까지 흔들진 않겠소.
+
+urda/inn/9/choices/1/text
+놀려도 곁은 비우지 않으시는군요.
+
+urda/inn/9/choices/1/response/0
+웃을 때 옆에 있었는지가 더 오래 남지요.
+
+urda/inn/9/choices/2/text
+곁의 불빛은 제가 지켜 둘게요.
+
+urda/inn/9/choices/2/response/0
+그 말은 내 대신 전해도 좋겠소.
+
+urda/inn/9/seen
+할드리크 옆 불빛만은 농담으로 끄지 마시오.
+
+urda/inn/10/situation
+우르다가 여러 종이를 한 장씩 모은다.
+
+urda/inn/10/lines/0
+벌이기만 했네요.
+
+urda/inn/10/lines/1
+말만 하면 다 할 수 있을 것 같았소.
+
+urda/inn/10/lines/2
+웃고 넘기면 또 남의 몫이 되겠소.
+
+urda/inn/10/choices/0/text
+하나씩 줄여도 맡은 건 같이 확인해요.
+
+urda/inn/10/choices/0/response/0
+내가 시작한 것부터 셀게요.
+
+urda/inn/10/choices/0/response/1
+남의 손을 내 손처럼 적었구려.
+
+urda/inn/10/choices/1/text
+오늘 끝낼 것부터 봐요.
+
+urda/inn/10/choices/1/response/0
+국 식기 전에 하나는 정하겠소.
+
+urda/inn/10/choices/2/text
+분위기가 좋으니 덜 끝나도 괜찮아요.
+
+urda/inn/10/choices/2/response/0
+웃고 남긴 일은 누가 치울까요?
+
+urda/inn/10/choices/2/response/1
+남은 일 치울 사람도 웃고 있는지 봐야겠지요.
+
+urda/inn/10/seen
+벌인 일은 농담보다 작은 것부터 끝내겠소.
+
+urda/inn/11/situation
+우르다가 늦게 온 사람의 그릇을 데운다.
+
+urda/inn/11/lines/0
+늦었다고 덜 먹을 건 없소.
+
+urda/inn/11/lines/1
+배고픈 사정은 아직 못 들었소.
+
+urda/inn/11/lines/2
+그냥 따뜻하게 주고 싶네요.
+
+urda/inn/11/choices/0/text
+뚜껑을 가져올게요.
+
+urda/inn/11/choices/0/response/0
+식지 않게 잠깐 덮어요.
+
+urda/inn/11/choices/1/text
+잘못해서 늦었을 수도 있으니 먼저 물어봐요.
+
+urda/inn/11/choices/1/response/0
+이유를 듣는 동안 국은 또 식겠소.
+
+urda/inn/11/choices/1/response/1
+굶은 입에 질문부터 채우고 싶진 않네요.
+
+urda/inn/11/choices/2/text
+이유 묻기 전에 따뜻한 건 줄 수 있겠죠.
+
+urda/inn/11/choices/2/response/0
+대답하는 입도 국 먹고 쉬어야지요.
+
+urda/inn/11/seen
+늦은 까닭은 따뜻한 그릇 뒤에 들어도 되오.
+
+urda/inn/12/situation
+우르다가 성표를 식탁에 올린다.
+
+urda/inn/12/lines/0
+산을 내려왔을 때 처음 들었소.
+
+urda/inn/12/lines/1
+이단이라는 말이오.
+
+urda/inn/12/lines/2
+웃어서 넘기기까지 오래 걸렸어요.
+
+urda/inn/12/choices/0/text
+칭찬으로 바뀌었으니 결국 잘된 일이네요.
+
+urda/inn/12/choices/0/response/0
+잘됐다는 말로 그 십 년을 덮지는 맙시다.
+
+urda/inn/12/choices/0/response/1
+지금 웃는 입으로 그때 아팠던 말도 할 수 있소.
+
+urda/inn/12/choices/1/text
+칭찬으로 듣기 전의 시간도 여기 놓아요.
+
+urda/inn/12/choices/1/response/0
+성표만 내려놓은 줄 알았는데요.
+
+urda/inn/12/choices/1/response/1
+그 말도 같이 놓겠소.
+
+urda/inn/12/choices/2/text
+어느 때부터 달라졌어요?
+
+urda/inn/12/choices/2/response/0
+십 년이라는 말이 짧게 들리는구려.
+
+urda/inn/12/seen
+성표 옆에 놓은 십 년도 같이 봐 주시오.
+
+urda/inn/13/situation
+우르다가 빈 의자를 한번 쓸어 본다.
+
+urda/inn/13/lines/0
+계곡은 날 내치지 않았소.
+
+urda/inn/13/lines/1
+산 밖 신전들이 문을 닫았지요.
+
+urda/inn/13/lines/2
+돌아갈 곳이 없었다는 말은 틀리오.
+
+urda/inn/13/choices/0/text
+계곡에선 어땠고 산 밖에선 어땠는지 들려주세요.
+
+urda/inn/13/choices/0/response/0
+내 고향까지 잃은 사람으로 만들진 않는군요.
+
+urda/inn/13/choices/1/text
+지금은 막사가 자리네요.
+
+urda/inn/13/choices/1/response/0
+예, 이쪽에도 사람이 있소.
+
+urda/inn/13/choices/2/text
+새 집을 찾았으니 고향은 잊어도 되겠어요.
+
+urda/inn/13/choices/2/response/0
+산 밖에서 잘 지내도 고향은 그립소.
+
+urda/inn/13/choices/2/response/1
+계곡 얘기도 조금 더 들어 주겠소?
+
+urda/inn/13/seen
+산 밖을 떠돌다가도 계곡 생각은 나지요.
+
+urda/inn/14/situation
+우르다가 기도 끝에 잠깐 말이 없다.
+
+urda/inn/14/lines/0
+이름을 못 들었소.
+
+urda/inn/14/lines/1
+그래도 기도는 할 수 있지요.
+
+urda/inn/14/lines/2
+모르는 이름을 지어 부를 순 없지요.
+
+urda/inn/14/choices/0/text
+곁에 조용히 있을게요.
+
+urda/inn/14/choices/0/response/0
+그럼 말없이 기도하겠소.
+
+urda/inn/14/choices/1/text
+이름 알아낸 뒤 기도하면 더 좋겠어요.
+
+urda/inn/14/choices/1/response/0
+그때까지 혼자 두지는 맙시다.
+
+urda/inn/14/choices/1/response/1
+이름을 몰라도 오늘 그분들을 위해 기도하겠소.
+
+urda/inn/14/choices/2/text
+모르는 건 비우고 기억한 만큼 같이 기도해요.
+
+urda/inn/14/choices/2/response/0
+예, 그분들이 있었다는 건 알지요.
+
+urda/inn/14/seen
+이름은 모르지만 그분들께도 기도하겠소.
+
+urda/inn/15/situation
+우르다가 농담하던 손을 무릎에 둔다.
+
+urda/inn/15/lines/0
+내 믿음이 맞다고요.
+
+urda/inn/15/lines/1
+남의 성표까지 쉽게 만졌소.
+
+urda/inn/15/lines/2
+친해지면 다 괜찮을 줄 알았네요.
+
+urda/inn/15/choices/0/text
+아는 사이니 그 정도 농담은 이해하겠죠.
+
+urda/inn/15/choices/0/response/0
+가까운 손이라 더 놀랐을 수도 있겠네요.
+
+urda/inn/15/choices/0/response/1
+친한 사이였으니 더 먼저 물었어야 했네요.
+
+urda/inn/15/choices/1/text
+좋은 뜻보다 그분이 싫었던 데부터 들어요.
+
+urda/inn/15/choices/1/response/0
+내가 믿는 걸 말하기 전에 사과부터 하겠소.
+
+urda/inn/15/choices/2/text
+다시 물어보면 돼요.
+
+urda/inn/15/choices/2/response/0
+이번엔 대답을 기다리겠소.
+
+urda/inn/15/seen
+내 성표를 놓는 손으로 남의 선도 지켜야겠소.
+
+urda/inn/16/situation
+우르다가 식탁 한가운데 잔을 내려놓는다.
+
+urda/inn/16/lines/0
+두 신이 하나라는 믿음도요.
+
+urda/inn/16/lines/1
+흔들린 밤이 있었소.
+
+urda/inn/16/lines/2
+웃으면 그 말은 안 하게 되더군요.
+
+urda/inn/16/choices/0/text
+오늘은 웃는 쪽으로 끝내지 않아도 돼요.
+
+urda/inn/16/choices/0/response/0
+그럼 밤 이야기부터 조금 하겠소.
+
+urda/inn/16/choices/0/response/1
+답을 내 달라는 건 아니오.
+
+urda/inn/16/choices/1/text
+조용한 쪽으로 앉죠.
+
+urda/inn/16/choices/1/response/0
+이번엔 내가 말이 좀 적을 수도 있소.
+
+urda/inn/16/choices/2/text
+우르다 사제님이 흔들리시면 다른 분들도 불안하죠.
+
+urda/inn/16/choices/2/response/0
+그래서 혼자 삼킨 말이 길었소.
+
+urda/inn/16/choices/2/response/1
+사제가 답 못 하는 밤도 잠깐은 받아 주시오.
+
+urda/inn/16/seen
+흔들린 밤도 제 믿음 옆에 두고 말하겠소.
+
+urda/inn/17/situation
+우르다가 자기 그릇을 먼저 채운다.
+
+urda/inn/17/lines/0
+내 것도 남겨야지요.
+
+urda/inn/17/lines/1
+항상 국 끝을 보던 버릇이 있소.
+
+urda/inn/17/lines/2
+오늘은 같이 뜨겠소.
+
+urda/inn/17/choices/0/text
+이쪽에 놓을게요.
+
+urda/inn/17/choices/0/response/0
+고맙소. 수저는 내가 챙기지요.
+
+urda/inn/17/choices/1/text
+우르다 사제님은 익숙하니 다른 분들 먼저 챙겨 주세요.
+
+urda/inn/17/choices/1/response/0
+익숙한 배도 고프기는 하오.
+
+urda/inn/17/choices/1/response/1
+돌보던 손도 수저 들 때는 같이 배고프오.
+
+urda/inn/17/choices/2/text
+우르다 사제님 그릇도 같이 식기 전에 들어요.
+
+urda/inn/17/choices/2/response/0
+남의 밥보다 내 밥이 늦을 이유는 없겠소.
+
+urda/inn/17/seen
+국 떠 주던 손으로 내 그릇도 들어 볼게요.
+
+urda/inn/18/situation
+우르다가 기도하던 손을 편다.
+
+urda/inn/18/lines/0
+아무 말 안 해도 되겠소?
+
+urda/inn/18/lines/1
+사제 아닌 얼굴로요.
+
+urda/inn/18/lines/2
+오늘은 남의 답을 듣고 싶네요.
+
+urda/inn/18/choices/0/text
+뭐든 좋은 말씀 하나 해 주시면 좋겠어요.
+
+urda/inn/18/choices/0/response/0
+오늘은 말하는 사제도 조금 쉬려 했소.
+
+urda/inn/18/choices/0/response/1
+오늘은 대답을 만들어 주는 입도 쉬어 가고 싶소.
+
+urda/inn/18/choices/1/text
+답을 주실 일 없이 여기 앉아요.
+
+urda/inn/18/choices/1/response/0
+그 말에 답을 잘해야 하나 또 생각했구려.
+
+urda/inn/18/choices/2/text
+제 하루 얘기할게요.
+
+urda/inn/18/choices/2/response/0
+작은 일부터 들려주시오.
+
+urda/inn/18/seen
+손을 편 동안은 남의 하루를 받아 들겠소.
+
+urda/inn/19/situation
+우르다가 할드리크 쪽을 보며 작게 웃는다.
+
+urda/inn/19/lines/0
+늘 내가 옆에 서 줬다고 했소.
+
+urda/inn/19/lines/1
+그 사람도 내 옆을 지켰지요.
+
+urda/inn/19/lines/2
+내 말이 커서 그걸 덜 말했네요.
+
+urda/inn/19/choices/0/text
+기댄 날 얘기도 들으면 좋겠어요.
+
+urda/inn/19/choices/0/response/0
+말 많은 사람이 빚진 밤도 있지요.
+
+urda/inn/19/choices/0/response/1
+이름을 빼지 않고 들려드리겠소.
+
+urda/inn/19/choices/1/text
+오늘 같이 차 마실까요?
+
+urda/inn/19/choices/1/response/0
+그 사람 얘기도 같이 하겠소.
+
+urda/inn/19/choices/2/text
+도와주시는 분이니 받는 건 어색하겠어요.
+
+urda/inn/19/choices/2/response/0
+어색해도 받았던 날은 있었소.
+
+urda/inn/19/choices/2/response/1
+받는 내 모습까지 모르는 건 아니오.
+
+urda/inn/19/seen
+곁에서 도와준 사람 얘기도 하고 싶소.
+
+urda/inn/20/situation
+우르다가 빈 그릇 세 개를 옮긴다.
+
+urda/inn/20/lines/0
+누가 믿는지는 나중에 물어요.
+
+urda/inn/20/lines/1
+먼저 배고픈지 묻고요.
+
+urda/inn/20/lines/2
+내가 빼먹으면 바로 알려 주시오.
+
+urda/inn/20/choices/0/text
+그릇부터 놓을게요.
+
+urda/inn/20/choices/0/response/0
+이번엔 개수만 세어 봅시다.
+
+urda/inn/20/choices/1/text
+믿음 얘기는 영영 안 하면 더 편하지 않아요?
+
+urda/inn/20/choices/1/response/0
+누구든 돕겠소만, 믿음 얘기도 하고 싶소.
+
+urda/inn/20/choices/1/response/1
+다르게 믿어도 그 사람 말은 들어 봅시다.
+
+urda/inn/20/choices/2/text
+우르다 사제님이 지칠 때도 같은 순서로 물을게요.
+
+urda/inn/20/choices/2/response/0
+나도 그 안에 넣어 주는구려.
+
+urda/inn/20/seen
+지친 사제도 오늘 그릇 셀 사람 수에 넣어 주시오.
+
+urda/inn/21/situation
+우르다가 하고 싶은 말을 적어 내려간다.
+
+urda/inn/21/lines/0
+하나만 먼저 끝내겠소.
+
+urda/inn/21/lines/1
+다 한다고 웃어넘기지는 않겠소.
+
+urda/inn/21/lines/2
+모자란 손은 부탁할게요.
+
+urda/inn/21/choices/0/text
+분위기는 제가 띄울 테니 더 벌여 보세요.
+
+urda/inn/21/choices/0/response/0
+예, 하던 일부터 마치겠소.
+
+urda/inn/21/choices/0/response/1
+벌인 일 끝에 누구 손이 남을지부터 세겠소.
+
+urda/inn/21/choices/1/text
+부탁받아도 못 할 때는 말씀드릴게요.
+
+urda/inn/21/choices/1/response/0
+그럼 어려울 때는 어렵다고 하겠소.
+
+urda/inn/21/choices/2/text
+순서를 같이 볼까요?
+
+urda/inn/21/choices/2/response/0
+내가 벌인 것부터 앞에 두겠소.
+
+urda/inn/21/seen
+오늘 벌일 말은 마칠 손을 세고 나서 하겠소.
+
+urda/inn/22/situation
+우르다가 기도할 자리를 비워 둔다.
+
+urda/inn/22/lines/0
+같이 믿으라는 건 아니오.
+
+urda/inn/22/lines/1
+같이 앉아 주면 좋겠소.
+
+urda/inn/22/lines/2
+의심하는 밤에는 더 그렇고요.
+
+urda/inn/22/choices/0/text
+의심이 생겨도 이 자리로 오세요.
+
+urda/inn/22/choices/0/response/0
+사제가 답을 잃은 얼굴도 괜찮겠소?
+
+urda/inn/22/choices/0/response/1
+그러면 오늘은 여기 앉겠소.
+
+urda/inn/22/choices/1/text
+잔은 옆에 둘게요.
+
+urda/inn/22/choices/1/response/0
+기도 끝날 때까지 식어도 두시오.
+
+urda/inn/22/choices/2/text
+확신이 생기면 그때 불러 주세요.
+
+urda/inn/22/choices/2/response/0
+확신 오기 전 밤이 조금 길어서요.
+
+urda/inn/22/choices/2/response/1
+확신이 오기 전에도 밤은 혼자 길어지더군요.
+
+urda/inn/22/seen
+답이 없는 밤에도 부를 사람이 생겼네요.
+
+urda/inn/23/situation
+우르다가 성표를 옷 밖에 둔다.
+
+urda/inn/23/lines/0
+자꾸 숨기고 싶던 때도 있소.
+
+urda/inn/23/lines/1
+오늘은 내놓을래요.
+
+urda/inn/23/lines/2
+남의 것까지 내놓으라 하지는 않겠소.
+
+urda/inn/23/choices/0/text
+통로는 비워 둘게요.
+
+urda/inn/23/choices/0/response/0
+지나가는 사람도 멈출 수 있겠네요.
+
+urda/inn/23/choices/1/text
+분쟁 없게 오늘만 넣어 두시면 좋겠어요.
+
+urda/inn/23/choices/1/response/0
+분쟁을 피하려고 늘 내 성표만 숨겨야 하면 서운하오.
+
+urda/inn/23/choices/1/response/1
+남의 성표와 같이 보이는 쪽도 고를 수 있지 않소?
+
+urda/inn/23/choices/2/text
+성표가 달라도 같이 앉을 수 있죠.
+
+urda/inn/23/choices/2/response/0
+같은 그릇을 써도 성표까지 바꿀 건 없겠소.
+
+urda/inn/23/seen
+서로 밀어내지 말고 내 성표도 꺼내겠소.
+
+urda/inn/24/situation
+우르다가 아무것도 들지 않고 웃는다.
+
+urda/inn/24/lines/0
+국은 아직 못 떴소.
+
+urda/inn/24/lines/1
+그래도 인사는 할 수 있지요.
+
+urda/inn/24/lines/2
+오늘은 먼저 앉을래요.
+
+urda/inn/24/choices/0/text
+오셨으니 식탁부터 챙겨 주시면 좋겠어요.
+
+urda/inn/24/choices/0/response/0
+앉겠다는 첫말이 국보다 늦게 들렸나 보오.
+
+urda/inn/24/choices/0/response/1
+밥을 안 떠 주는 날도 같이 앉고 싶소.
+
+urda/inn/24/choices/1/text
+손 비어도 우르다 사제님 자리는 있어요.
+
+urda/inn/24/choices/1/response/0
+밥 주는 손만 기다린 건 아니었구려.
+
+urda/inn/24/choices/1/response/1
+그럼 내 하루부터 말할게요.
+
+urda/inn/24/choices/2/text
+차를 제가 따를게요.
+
+urda/inn/24/choices/2/response/0
+오늘은 내가 받겠소.
+
+urda/inn/24/seen
+빈손으로 왔으니 같이 앉아 볼게요.
+
+urda/inn/25/situation
+우르다가 웃다가 잠깐 입을 다문다.
+
+urda/inn/25/lines/0
+농담이 늦었네요.
+
+urda/inn/25/lines/1
+괜찮소, 오늘은 그냥 늦게 둘래요.
+
+urda/inn/25/lines/2
+조용히 있어도 덜 어색해졌소.
+
+urda/inn/25/choices/0/text
+침묵도 급히 채우지 않을게요.
+
+urda/inn/25/choices/0/response/0
+그럼 차 따르는 소리부터 들읍시다.
+
+urda/inn/25/choices/1/text
+옆으로 앉을까요?
+
+urda/inn/25/choices/1/response/0
+예, 오늘은 가까운 쪽이 좋소.
+
+urda/inn/25/choices/2/text
+분위기가 처지니 재미있는 얘기 하나 해 주세요.
+
+urda/inn/25/choices/2/response/0
+조용한 쪽도 오늘 내 얼굴이오.
+
+urda/inn/25/choices/2/response/1
+농담은 안 나와도 옆에 있을 마음은 있소.
+
+urda/inn/25/seen
+농담 쉬는 시간에도 식탁 소리는 남네요.
+
+urda/inn/26/situation
+우르다가 기도 끝에 잔을 든다.
+
+urda/inn/26/lines/0
+오늘은 잘 모르겠다는 말로 끝냈소.
+
+urda/inn/26/lines/1
+그래도 기도는 했고요.
+
+urda/inn/26/lines/2
+끝내고 나니 여기가 보이네요.
+
+urda/inn/26/choices/0/text
+국은 따뜻해요.
+
+urda/inn/26/choices/0/response/0
+이번엔 내가 먼저 한 숟갈 들겠소.
+
+urda/inn/26/choices/1/text
+그럼 답을 들으실 때까지 기도를 더 해 보세요.
+
+urda/inn/26/choices/1/response/0
+기도는 이쯤에서 마치고 싶소.
+
+urda/inn/26/choices/1/response/1
+기도하고 나서도 잘 모르겠다는 말을 할 수 있지요.
+
+urda/inn/26/choices/2/text
+모르는 채로 돌아와도 제가 듣고 있을게요.
+
+urda/inn/26/choices/2/response/0
+다 아는 얼굴로 오지 않아도 되겠소.
+
+urda/inn/26/choices/2/response/1
+그게 오늘은 참 편하네요.
+
+urda/inn/26/seen
+답 없는 기도 끝에도 돌아올 식탁은 있소.
+
+urda/inn/27/situation
+우르다가 문가에서 손을 흔든다.
+
+urda/inn/27/lines/0
+먼저 돌아와 있었소.
+
+urda/inn/27/lines/1
+할 일을 다 마쳐서 온 건 아니오.
+
+urda/inn/27/lines/2
+같이 앉을 자리가 생각나서요.
+
+urda/inn/27/choices/0/text
+수고 덜게 제가 다 해 놓을 테니 가서 쉬세요.
+
+urda/inn/27/choices/0/response/0
+같이 꺼낼 그릇까지 없애면 좀 허전하겠소.
+
+urda/inn/27/choices/0/response/1
+같이 손 움직이는 시간도 오늘 쉬는 시간이오.
+
+urda/inn/27/choices/1/text
+오늘은 저도 그 자리 보고 돌아왔어요.
+
+urda/inn/27/choices/1/response/0
+그럼 서로 기다린 셈이구려.
+
+urda/inn/27/choices/1/response/1
+그럼 밥 얘기 전에 반갑다고 하겠소.
+
+urda/inn/27/choices/2/text
+그릇은 같이 꺼내요.
+
+urda/inn/27/choices/2/response/0
+오늘은 두 손이 더 있네요.
+
+urda/inn/27/seen
+돌아오며 떠올린 자리에 오늘도 사람이 있소.
+
+urda/dungeon/0/variants/0
+밥 먹은 사람 손 들어 보시오.
+
+urda/dungeon/0/variants/1
+굶었다면 출발 전에 한마디 더 하오.
+
+urda/dungeon/1/variants/0
+남의 배만 세다 내 걸 잊었네요.
+
+urda/dungeon/1/variants/1
+오늘은 함께 먹은 걸로 출발합시다.
+
+urda/dungeon/2/variants/0
+같이 돌아올 식탁도 봐 두었소.
+
+urda/dungeon/2/variants/1
+기도보다 먼저 안부를 들을게요.
+
+urda/dungeon/3/variants/0
+신께 묻기 전에 발밑부터 살피겠소.
+
+urda/dungeon/3/variants/1
+내려온 사람 수부터 같이 봅시다.
+
+urda/dungeon/4/variants/0
+어느 신께 기대는지는 달라도 좋소.
+
+urda/dungeon/4/variants/1
+옆에서 내려오면 목소리는 닿지요.
+
+urda/dungeon/5/variants/0
+오늘은 내 겁도 좀 가지고 내려왔소.
+
+urda/dungeon/5/variants/1
+남의 의심만 듣는 사제는 아니네요.
+
+urda/dungeon/6/variants/0
+찾은 사람 눈이 좋구려.
+
+urda/dungeon/6/variants/1
+무엇인지는 확인하고 이름 붙입시다.
+
+urda/dungeon/7/variants/0
+같이 본 손도 기록에 남겨요.
+
+urda/dungeon/7/variants/1
+모르는 데까지 기도 말로 채우진 않소.
+
+urda/dungeon/8/variants/0
+나중에 밥 먹으며 이 얘기도 해요.
+
+urda/dungeon/8/variants/1
+먼저 웃은 사람 얼굴은 내가 기억하오.
+
+urda/dungeon/9/variants/0
+도울 자리부터 알려 주시오.
+
+urda/dungeon/9/variants/1
+다 해내겠단 말은 좀 아껴 둘게요.
+
+urda/dungeon/10/variants/0
+내 손이 모자라면 바로 부르겠소.
+
+urda/dungeon/10/variants/1
+같이 받을 도움도 먼저 정합시다.
+
+urda/dungeon/11/variants/0
+오늘은 나도 함께 도울게요.
+
+urda/dungeon/11/variants/1
+사제도 겁나는 말은 할 수 있지요.
+
+urda/dungeon/12/variants/0
+배고픈 사람부터 확인할까요?
+
+urda/dungeon/12/variants/1
+웃기 전에 다친 쪽도 봅시다.
+
+urda/dungeon/13/variants/0
+남의 몫 먼저 뜨다 내 걸 놓칠 뻔했소.
+
+urda/dungeon/13/variants/1
+이제 수고한 사람을 이름으로 불러요.
+
+urda/dungeon/14/variants/0
+돌아갈 그릇 수가 그대로면 좋겠소.
+
+urda/dungeon/14/variants/1
+오늘 고맙다는 말은 기도 뒤로 안 미룰게요.
+
+urda/dungeon/15/variants/0
+설교가 길어질 상대는 아니네요.
+
+urda/dungeon/15/variants/1
+서 있는 사람부터 함께 봅시다.
+
+urda/dungeon/16/variants/0
+확신 없는 사제도 곁에는 있소.
+
+urda/dungeon/16/variants/1
+내가 벌린 말보다 할 수 있는 손부터요.
+
+urda/dungeon/17/variants/0
+오늘은 나도 조금 무섭소.
+
+urda/dungeon/17/variants/1
+답을 아는 얼굴로만 서 있진 않을게요.
+
+urda/dungeon/18/variants/0
+이제야 국 생각이 나네요.
+
+urda/dungeon/18/variants/1
+아직 돌아갈 길은 남았으니 천천히요.
+
+urda/dungeon/19/variants/0
+내가 한 일도 빼지 말고 세어 주시오.
+
+urda/dungeon/19/variants/1
+돕는 손도 오늘은 도움을 받았소.
+
+urda/dungeon/20/variants/0
+무사히 돌아갈 수 있으니 다행이오.
+
+urda/dungeon/20/variants/1
+함께 앉을 의자가 떠올라서 좋네요.
+
+urda/dungeon/21/variants/0
+누가 믿는 사람인지 물을 때는 아니오.
+
+urda/dungeon/21/variants/1
+제일 힘든 쪽부터 확인합시다.
+
+urda/dungeon/22/variants/0
+괜찮다는 말 뒤도 한 번 더 들어요.
+
+urda/dungeon/22/variants/1
+나도 못 하겠으면 바로 말하겠소.
+
+urda/dungeon/23/variants/0
+도움받는 쪽을 부끄럽게 만들진 맙시다.
+
+urda/dungeon/23/variants/1
+그 사람 대답부터 내 말보다 앞에 두오.
+
+urda/dungeon/24/variants/0
+모르는 이름이라도 먼저 불러 봅시다.
+
+urda/dungeon/24/variants/1
+아직 끝난 기도를 할 때는 아니오.
+
+urda/dungeon/25/variants/0
+도울 손이 있으면 같이 빌리오.
+
+urda/dungeon/25/variants/1
+농담으로 넘길 일은 아니네요.
+
+urda/dungeon/26/variants/0
+답을 못 받아도 곁을 비우지는 않겠소.
+
+urda/dungeon/26/variants/1
+지금 할 수 있는 일을 함께 고르겠소.
+
+urda/dungeon/27/variants/0
+오늘은 내 그릇도 좀 봐야겠소.
+
+urda/dungeon/27/variants/1
+웃고 있지만 아픈 건 맞아요.
+
+urda/dungeon/28/variants/0
+사제도 기다려 달라 할 수 있겠지요?
+
+urda/dungeon/28/variants/1
+남을 챙기는 손은 잠깐 쉬겠소.
+
+urda/dungeon/29/variants/0
+나도 조금 도와주오.
+
+urda/dungeon/29/variants/1
+오늘은 고맙다고 말하고 먼저 앉을게요.
+
+urda/dungeon/30/variants/0
+쉬는 데 신앙 시험은 없소.
+
+urda/dungeon/30/variants/1
+밥이 없으면 물이라도 같이 들어요.
+
+urda/dungeon/31/variants/0
+내 얘기도 조금 듣고 쉬겠소?
+
+urda/dungeon/31/variants/1
+기도 아닌 말로 한 잔쯤 해도 되지요.
+
+urda/dungeon/32/variants/0
+오늘은 농담 없이 곁에 앉겠소.
+
+urda/dungeon/32/variants/1
+답을 못 찾아도 좀 쉬었다 갑시다.
+
+urda/dungeon/33/variants/0
+기도로 여는 법은 나도 모르오.
+
+urda/dungeon/33/variants/1
+조건을 읽기 전에 손부터 대진 맙시다.
+
+urda/dungeon/34/variants/0
+모르는 건 모른다고 같이 말해요.
+
+urda/dungeon/34/variants/1
+신 이름으로 추측을 답처럼 만들진 않소.
+
+urda/dungeon/35/variants/0
+못 열면 그 말도 함께 가지고 돌아가요.
+
+urda/dungeon/35/variants/1
+막힌 앞에서도 곁은 비지 않았네요.
+
+urda/dungeon/36/variants/0
+수저보다 사람 수부터 세겠소.
+
+urda/dungeon/36/variants/1
+막사 국은 돌아온 뒤에 생각해요.
+
+urda/dungeon/37/variants/0
+오늘 내 자리도 식탁에 남아 있겠소?
+
+urda/dungeon/37/variants/1
+말 많은 사제도 먼저 들을 때가 있소.
+
+urda/dungeon/38/variants/0
+답을 못 찾은 날도 이쪽으로 돌아오겠소.
+
+urda/dungeon/38/variants/1
+함께 꺼낼 그릇이 있어서 참 좋네요.
+
+urda/dungeon/39/variants/0
+졌다고 돕는 순서를 바꾸진 맙시다.
+
+urda/dungeon/39/variants/1
+이럴 때 신앙부터 따지는 사람은 없겠지요?
+
+urda/dungeon/40/variants/0
+다 하겠다고 한 내 말도 다시 보겠소.
+
+urda/dungeon/40/variants/1
+남겨진 일을 웃음 뒤에 놓진 않을게요.
+
+urda/dungeon/41/variants/0
+기도의 답은 몰라도 돌아갈 곁은 있소.
+
+urda/dungeon/41/variants/1
+실패한 사제 얼굴도 오늘은 숨기지 않겠소.
+
+urda/transitions/0/situation
+우르다가 국그릇 옆을 비운다.
+
+urda/transitions/0/lines/0
+듣는 일부터 해 보겠소.
+
+urda/transitions/0/lines/1
+국을 받았다고 내 말 편을 들진 않아도 돼요.
+
+urda/transitions/1/situation
+우르다가 성표를 옷 안으로 넣는다.
+
+urda/transitions/1/lines/0
+내가 웃는다고 다 괜찮은 말은 아니오.
+
+urda/transitions/1/lines/1
+오늘은 필요한 일만 합시다.
+
+urda/transitions/2/situation
+우르다가 수저를 하나 더 놓는다.
+
+urda/transitions/2/lines/0
+먼저 앉아요.
+
+urda/transitions/2/lines/1
+이름과 믿음은 밥 먹고 물어도 되겠소.
+
+urda/transitions/3/situation
+우르다가 밀었던 그릇을 거둔다.
+
+urda/transitions/3/lines/0
+받으라고 먼저 정했네요.
+
+urda/transitions/3/lines/1
+권하기 전에 다시 물을게요.
+
+urda/transitions/4/situation
+우르다가 성표를 살짝 들어 보인다.
+
+urda/transitions/4/lines/0
+믿는 얘기도 조금 해 볼까요?
+
+urda/transitions/4/lines/1
+같이 믿겠다는 답부터 듣자는 건 아니오.
+
+urda/transitions/5/situation
+우르다가 성표에서 손을 뗀다.
+
+urda/transitions/5/lines/0
+고개 끄덕이는 답을 너무 빨리 받았소.
+
+urda/transitions/5/lines/1
+오늘은 그릇 얘기부터 다시 해요.
+
+urda/transitions/6/situation
+우르다가 농담 없이 입을 연다.
+
+urda/transitions/6/lines/0
+칭찬으로 듣기 전 시간이 길었소.
+
+urda/transitions/6/lines/1
+그 십 년도 한번 말해 보고 싶네요.
+
+urda/transitions/7/situation
+우르다가 잔을 내려놓는다.
+
+urda/transitions/7/lines/0
+웃을 수 있다고 다 끝난 건 아니오.
+
+urda/transitions/7/lines/1
+오늘 얘기는 여기서 쉬어 갈게요.
+
+urda/transitions/8/situation
+우르다가 두 손을 무릎에 놓고 말을 고른다.
+
+urda/transitions/8/lines/0
+흔들린 밤도 있었소.
+
+urda/transitions/8/lines/1
+오늘은 웃지 않고 그 말을 해 볼게요.
+
+urda/transitions/9/situation
+우르다가 빈 식탁을 살핀다.
+
+urda/transitions/9/lines/0
+답을 못 드리는 날도 찾아왔으면 하오.
+
+urda/transitions/9/lines/1
+내 의심부터 다시 들려드리겠소.
+
+urda/transitions/10/situation
+우르다가 자기 그릇까지 나란히 놓는다.
+
+urda/transitions/10/lines/0
+도울 때 나도 그 수에 넣겠소.
+
+urda/transitions/10/lines/1
+모자란 손은 남의 것처럼 쓰지 않고요.
+
+urda/transitions/11/situation
+우르다가 하려던 일을 세어 본다.
+
+urda/transitions/11/lines/0
+또 다 하겠다고 말이 앞섰네요.
+
+urda/transitions/11/lines/1
+맡을 손부터 다시 물어봅시다.
+
+urda/transitions/12/situation
+우르다가 빈손으로 먼저 앉는다.
+
+urda/transitions/12/lines/0
+밥 주러 오지 않아도 자리가 있네요.
+
+urda/transitions/12/lines/1
+오늘은 내 하루부터 들려드릴게요.
+
+urda/transitions/13/situation
+우르다가 웃으려다 숨을 고른다.
+
+urda/transitions/13/lines/0
+조용한 날도 내 얼굴이라 했지요.
+
+urda/transitions/13/lines/1
+그 말은 다시 약속으로 남겨 둘래요.
+
+lynette/inn/0/situation
+기금 종이를 접어 안쪽으로 치운다.
+
+lynette/inn/0/lines/0
+기금 얘기는 오늘 안 할게요.
+
+lynette/inn/0/lines/1
+사람들 형편까지 설명하고 싶지는 않아요.
+
+lynette/inn/0/lines/2
+차 마시는 동안만 다른 얘기를 해요.
+
+lynette/inn/0/choices/0/text
+차 좀 더 드릴까요?
+
+lynette/inn/0/choices/0/response/0
+그럼 차 식기 전에 이쪽에 잔을 놓아 주세요.
+
+lynette/inn/0/choices/1/text
+내일 날씨 얘기를 해요.
+
+lynette/inn/0/choices/1/response/0
+비가 오면 길이 질겠네요.
+
+lynette/inn/0/choices/2/text
+기부를 모으려면 사연을 알려야죠.
+
+lynette/inn/0/choices/2/response/0
+그 사연을 제 마음대로 팔 수는 없어요.
+
+lynette/inn/0/choices/2/response/1
+그분들이 직접 말하고 싶은지는 모르잖아요.
+
+lynette/inn/0/seen
+그 종이는 아직 펴지 않을게요.
+
+lynette/inn/1/situation
+식탁 끝에 남은 빵을 살핀다.
+
+lynette/inn/1/lines/0
+이건 버릴 빵인가요?
+
+lynette/inn/1/lines/1
+아직 먹을 만해서 물어본 거예요.
+
+lynette/inn/1/lines/2
+제가 가져가도 되는지 주인에게 확인할게요.
+
+lynette/inn/1/choices/0/text
+주인은 주방에 있어요.
+
+lynette/inn/1/choices/0/response/0
+그쪽에 직접 여쭤볼게요.
+
+lynette/inn/1/choices/1/text
+그 정도 남은 건 그냥 가져가요.
+
+lynette/inn/1/choices/1/response/0
+적어도 주인이 주려는 건지는 알아야죠.
+
+lynette/inn/1/choices/1/response/1
+제가 받기로 정한 물건도 아니고요.
+
+lynette/inn/1/choices/2/text
+제 몫은 남겨 뒀으니 같이 확인해요.
+
+lynette/inn/1/choices/2/response/0
+주인도 괜찮다고 하면 같이 가져다드려요.
+
+lynette/inn/1/seen
+버린다는 말 듣기 전에는 안 챙겨요.
+
+lynette/inn/2/situation
+구호에 쓸 품목을 따로 적는다.
+
+lynette/inn/2/lines/0
+동전보다 쌀이 쓸모 있을 때가 있어요.
+
+lynette/inn/2/lines/1
+그렇다고 아무거나 보내면 곤란해요.
+
+lynette/inn/2/lines/2
+받는 쪽에 뭐가 필요한지 알아야죠.
+
+lynette/inn/2/choices/0/text
+싼 걸 많이 보내면 충분하지 않아요?
+
+lynette/inn/2/choices/0/response/0
+먹을 수 없는 걸 많이 받아도 곤란해요.
+
+lynette/inn/2/choices/0/response/1
+받은 뒤에 버리게 되면 서로 속상하죠.
+
+lynette/inn/2/choices/1/text
+필요한 것부터 적는 걸 도울까요?
+
+lynette/inn/2/choices/1/response/0
+제가 아는 것부터 말해 볼게요.
+
+lynette/inn/2/choices/2/text
+종이는 여기 더 있어요.
+
+lynette/inn/2/choices/2/response/0
+품목이 늘면 한 장 더 쓸게요.
+
+lynette/inn/2/seen
+싸다는 이유만으로 정하지는 않아요.
+
+lynette/inn/3/situation
+남의 잔을 채우다가 자기 잔은 비워 둔다.
+
+lynette/inn/3/lines/0
+물 더 드릴까요?
+
+lynette/inn/3/lines/1
+제 잔은 나중에 채워도 돼요.
+
+lynette/inn/3/lines/2
+저쪽 분도 식사를 아직 안 하셨네요.
+
+lynette/inn/3/choices/0/text
+리네트 씨 잔부터 제가 채울게요.
+
+lynette/inn/3/choices/0/response/0
+아, 제 것까지 보셨네요.
+
+lynette/inn/3/choices/1/text
+물병을 가운데 둘게요.
+
+lynette/inn/3/choices/1/response/0
+필요한 분이 직접 따르시겠네요.
+
+lynette/inn/3/choices/2/text
+안 드신 분 명단을 만들어 봐요.
+
+lynette/inn/3/choices/2/response/0
+밥 한 끼에도 이름을 적게 하고 싶진 않아요.
+
+lynette/inn/3/choices/2/response/1
+밥 먹을 때만큼은 설명 없이 앉으셨으면 해요.
+
+lynette/inn/3/seen
+제 잔이 비었다고 물병까지 치우진 마세요.
+
+lynette/inn/4/situation
+접은 종이에 쌀자루 그림을 그린다.
+
+lynette/inn/4/lines/0
+그림이 영 서툴죠?
+
+lynette/inn/4/lines/1
+운하에 보낼 건데 쌀인지 알아보겠어요?
+
+lynette/inn/4/lines/2
+글을 길게 쓰면 정작 필요한 게 묻히더라고요.
+
+lynette/inn/4/choices/0/text
+이 펜이 좀 더 진해요.
+
+lynette/inn/4/choices/0/response/0
+글씨를 덧쓸 때 쓰면 되겠어요.
+
+lynette/inn/4/choices/1/text
+사제 그림을 크게 넣으면 잘 모일 텐데요.
+
+lynette/inn/4/choices/1/response/0
+제가 눈에 띄는 게 목적은 아닌데요.
+
+lynette/inn/4/choices/1/response/1
+쌀 그림보다 제 얼굴이 커지겠네요.
+
+lynette/inn/4/choices/2/text
+자루 옆에 쌀이라고 적으면 어때요?
+
+lynette/inn/4/choices/2/response/0
+쌀이라는 글씨는 알아보게 제가 크게 쓸게요.
+
+lynette/inn/4/choices/2/response/1
+그림만 보고도 쌀이 필요한 줄 알면 좋겠어요.
+
+lynette/inn/4/seen
+이번 그림은 글씨랑 같이 보낼 거예요.
+
+lynette/inn/5/situation
+시장에 다녀온 뒤 가격 메모를 펼친다.
+
+lynette/inn/5/lines/0
+흥정이 길어졌어요.
+
+lynette/inn/5/lines/1
+깎은 몫으로 한 끼라도 더 먹이면 좋잖아요.
+
+lynette/inn/5/lines/2
+가게 주인도 지쳐서 의자까지 내주더라고요.
+
+lynette/inn/5/choices/0/text
+좋은 일이라면 원가로 달라고 하죠.
+
+lynette/inn/5/choices/0/response/0
+그분한테도 먹고살 몫은 있어야죠.
+
+lynette/inn/5/choices/0/response/1
+다음에 물건을 살 가게도 남아 있어야 해요.
+
+lynette/inn/5/choices/1/text
+주인 몫도 남는 값이었어요?
+
+lynette/inn/5/choices/1/response/0
+물어보고 정했어요. 그분도 내일 장사를 해야죠.
+
+lynette/inn/5/choices/2/text
+오래 서 있어서 힘들었겠어요.
+
+lynette/inn/5/choices/2/response/0
+앉으니까 다리가 좀 풀리네요.
+
+lynette/inn/5/seen
+다음엔 앉아서 흥정하자고 하셨어요.
+
+lynette/inn/6/situation
+밤에 펼칠 이름책의 표지를 닦는다.
+
+lynette/inn/6/lines/0
+밤에는 성 밖에 나가요.
+
+lynette/inn/6/lines/1
+이름을 부르는 일이 남아 있거든요.
+
+lynette/inn/6/lines/2
+늦게 끝나도 기다리실 필요는 없어요.
+
+lynette/inn/6/choices/0/text
+문 앞까지 같이 걸어도 될까요?
+
+lynette/inn/6/choices/0/response/0
+책이 젖지 않게 이것만 덮고 가요.
+
+lynette/inn/6/choices/1/text
+겉옷은 챙기셨어요?
+
+lynette/inn/6/choices/1/response/0
+문 옆에 걸어 뒀어요. 잊기 전에 입어야죠.
+
+lynette/inn/6/choices/2/text
+읽는 걸 줄이면 일찍 쉬겠네요.
+
+lynette/inn/6/choices/2/response/0
+빨리 끝내려고 이름을 빼지는 않아요.
+
+lynette/inn/6/choices/2/response/1
+오늘 부르기로 한 이름은 제가 맡았어요.
+
+lynette/inn/6/seen
+책 덮개를 챙겼으니 이제 나가도 되겠어요.
+
+lynette/inn/7/situation
+기금 종이를 설명하다 식사가 식는다.
+
+lynette/inn/7/lines/0
+잠깐만요, 여기 한 줄만 더 쓰고요.
+
+lynette/inn/7/lines/1
+아, 음식이 식었네요.
+
+lynette/inn/7/lines/2
+설명하다 보면 제 밥은 자꾸 잊어요.
+
+lynette/inn/7/choices/0/text
+따뜻한 물은 아직 남았어요.
+
+lynette/inn/7/choices/0/response/0
+국이 너무 식으면 조금 부을게요.
+
+lynette/inn/7/choices/1/text
+식사는 제가 대신 나눠 둘게요.
+
+lynette/inn/7/choices/1/response/0
+제 밥까지 마음대로 나누진 말아 주세요.
+
+lynette/inn/7/choices/1/response/1
+저도 아직 숟가락을 못 들었어요.
+
+lynette/inn/7/choices/2/text
+쓰던 줄 끝나면 함께 먹어요.
+
+lynette/inn/7/choices/2/response/0
+딱 이 문장까지만 적을게요.
+
+lynette/inn/7/seen
+이번엔 숟가락을 종이 위에 올려 뒀어요.
+
+lynette/inn/8/situation
+식사 자리를 잡으며 의자를 빼 준다.
+
+lynette/inn/8/lines/0
+기금 얘기는 됐어요.
+
+lynette/inn/8/lines/1
+앉으세요. 먼저 드릴 말도 없어요.
+
+lynette/inn/8/lines/2
+그냥 같이 먹으려고 불렀어요.
+
+lynette/inn/8/choices/0/text
+돕고 싶은데 필요한 일부터 주세요.
+
+lynette/inn/8/choices/0/response/0
+일이 없어도 불러도 되는 거잖아요.
+
+lynette/inn/8/choices/0/response/1
+저도 배가 고파요. 일 얘기는 밥 먹고 해요.
+
+lynette/inn/8/choices/1/text
+그럼 리네트 씨도 여기 앉아요.
+
+lynette/inn/8/choices/1/response/0
+맞아요, 저도 접시부터 가져와야겠어요.
+
+lynette/inn/8/choices/1/response/1
+제 식사가 식기 전에 같이 먹어요.
+
+lynette/inn/8/choices/2/text
+오늘 국이 따뜻하네요.
+
+lynette/inn/8/choices/2/response/0
+늦게 퍼 왔는데 아직 괜찮네요.
+
+lynette/inn/8/seen
+종이는 방에 두고 왔어요.
+
+lynette/inn/9/situation
+남은 빵을 싸다가 반쪽을 따로 둔다.
+
+lynette/inn/9/lines/0
+이건 내일 제 아침이에요.
+
+lynette/inn/9/lines/1
+전에는 다 싸고 나면 제 것이 없더라고요.
+
+lynette/inn/9/lines/2
+아침부터 배고프다고 할 수는 없잖아요.
+
+lynette/inn/9/choices/0/text
+표시해 두면 제가 안 건드릴게요.
+
+lynette/inn/9/choices/0/response/0
+그럼 천을 한 번 더 접어 둘게요.
+
+lynette/inn/9/choices/1/text
+빵이 마르지 않게 덮어요.
+
+lynette/inn/9/choices/1/response/0
+그릇도 하나 엎어 두면 좋겠네요.
+
+lynette/inn/9/choices/2/text
+배고픈 분이 오면 이것도 드리죠.
+
+lynette/inn/9/choices/2/response/0
+그래서 오늘은 미리 제 거라고 말한 건데요.
+
+lynette/inn/9/choices/2/response/1
+내일 아침을 남기는 것도 조금씩 해 보려고요.
+
+lynette/inn/9/seen
+두 번 접은 천 아래 건 제 아침이에요.
+
+lynette/inn/10/situation
+도움을 청하는 쪽지를 쓰다 펜을 놓는다.
+
+lynette/inn/10/lines/0
+부탁을 너무 자주 하는 것 같아요.
+
+lynette/inn/10/lines/1
+이제 제 얼굴만 봐도 주머니부터 닫을까요?
+
+lynette/inn/10/lines/2
+아니라고 듣고 싶어서 묻는 건 맞아요.
+
+lynette/inn/10/choices/0/text
+쪽지는 아직 안 보내셨죠?
+
+lynette/inn/10/choices/0/response/0
+네, 문장만 계속 고치고 있어요.
+
+lynette/inn/10/choices/1/text
+다른 사람 이름으로 부탁해 봐요.
+
+lynette/inn/10/choices/1/response/0
+제 부탁이라는 건 숨기고 싶지 않아요.
+
+lynette/inn/10/choices/1/response/1
+부탁을 받는 분이 누가 하는 말인지 알아야죠.
+
+lynette/inn/10/choices/2/text
+오늘 부탁은 제가 듣고 정할게요.
+
+lynette/inn/10/choices/2/response/0
+거절하셔도 돼요. 억지로 맡진 마세요.
+
+lynette/inn/10/seen
+쪽지 끝에 거절해도 된다고 적었어요.
+
+lynette/inn/11/situation
+의자에 앉아서도 사람들의 접시를 센다.
+
+lynette/inn/11/lines/0
+저쪽 분은 더 드셨죠?
+
+lynette/inn/11/lines/1
+아, 또 묻네요. 아까 들었는데요.
+
+lynette/inn/11/lines/2
+누가 못 먹었을까 봐 들은 걸 또 묻게 돼요.
+
+lynette/inn/11/choices/0/text
+배부른지 손들게 하면 빠르겠어요.
+
+lynette/inn/11/choices/0/response/0
+밥 먹는데 대답까지 시킬 일은 아니에요.
+
+lynette/inn/11/choices/0/response/1
+제가 불안하다고 모두한테 확인받을 일은 아니죠.
+
+lynette/inn/11/choices/1/text
+제가 본 건 말씀드릴 테니 좀 앉아요.
+
+lynette/inn/11/choices/1/response/0
+못 본 자리까지 대신 답하실 필요는 없어요.
+
+lynette/inn/11/choices/2/text
+빈 접시는 저기 모아 뒀어요.
+
+lynette/inn/11/choices/2/response/0
+그럼 치울 때 덜 헷갈리겠네요.
+
+lynette/inn/11/seen
+오늘은 접시 세는 걸 여기서 그칠게요.
+
+lynette/inn/12/situation
+이름책을 받던 날의 이야기를 꺼낸다.
+
+lynette/inn/12/lines/0
+운하에서 늙은 사제님을 만났어요.
+
+lynette/inn/12/lines/1
+그분이 돌아가시며 이 책을 제게 맡기셨어요.
+
+lynette/inn/12/lines/2
+준비됐느냐고 물을 틈도 없었죠.
+
+lynette/inn/12/choices/0/text
+처음 책을 폈을 때 어땠어요?
+
+lynette/inn/12/choices/0/response/0
+잘못 읽을까 봐 소리도 못 냈어요.
+
+lynette/inn/12/choices/0/response/1
+손가락으로 짚어 가며 겨우 읽기 시작했죠.
+
+lynette/inn/12/choices/1/text
+표지가 오래됐네요.
+
+lynette/inn/12/choices/1/response/0
+손에 닿는 곳부터 닳더라고요.
+
+lynette/inn/12/choices/2/text
+다른 사제에게 넘길 수도 있었잖아요.
+
+lynette/inn/12/choices/2/response/0
+그때는 제가 받은 책이라고 생각했어요.
+
+lynette/inn/12/choices/2/response/1
+책을 받은 뒤로는 제가 읽을 이름들이었어요.
+
+lynette/inn/12/seen
+그 책은 제가 처음부터 쓴 게 아니에요.
+
+lynette/inn/13/situation
+운하에 머문 겨울을 말하다 손을 멈춘다.
+
+lynette/inn/13/lines/0
+쉼터에서 두 겨울을 보냈어요.
+
+lynette/inn/13/lines/1
+열병이 도는데 떠날 수가 없었거든요.
+
+lynette/inn/13/lines/2
+그래도 교리를 어겼다는 생각은 남아요.
+
+lynette/inn/13/choices/0/text
+겨울에는 길도 힘들었겠어요.
+
+lynette/inn/13/choices/0/response/0
+사람이 아프면 길보다 방 안이 더 막막해요.
+
+lynette/inn/13/choices/1/text
+교리를 무시했다고 생각하면 편하죠.
+
+lynette/inn/13/choices/1/response/0
+제가 믿던 것까지 버리고 싶진 않아요.
+
+lynette/inn/13/choices/1/response/1
+머물러야 했던 일과 믿음이 같이 남아 있어요.
+
+lynette/inn/13/choices/2/text
+떠날 수 없었던 사정도 같이 들어요.
+
+lynette/inn/13/choices/2/response/0
+떠날 수 없었다는 말도 변명처럼 들릴까 봐요.
+
+lynette/inn/13/seen
+그해 얘기는 짧게 끝내기가 어렵네요.
+
+lynette/inn/14/situation
+기금 메모 옆에 자기 식비를 적는다.
+
+lynette/inn/14/lines/0
+장례는 삯을 받지 않아요.
+
+lynette/inn/14/lines/1
+그래도 쌀까지 공짜가 되는 건 아니죠.
+
+lynette/inn/14/lines/2
+그 둘을 설명하는 게 늘 어려워요.
+
+lynette/inn/14/choices/0/text
+장례비라고 하면 알아듣기 쉬워요.
+
+lynette/inn/14/choices/0/response/0
+받지 않는 삯을 받는다고 쓸 수는 없어요.
+
+lynette/inn/14/choices/0/response/1
+그렇게 부르면 다음 분도 값을 내셔야 하잖아요.
+
+lynette/inn/14/choices/1/text
+설명을 같이 읽어 봐도 돼요?
+
+lynette/inn/14/choices/1/response/0
+이 문장이 오해를 부르는지 봐 주세요.
+
+lynette/inn/14/choices/2/text
+식비도 따로 적으셨네요.
+
+lynette/inn/14/choices/2/response/0
+섞어 놓으면 저도 헷갈려서요.
+
+lynette/inn/14/seen
+삯이 없다는 말 뒤에 비용도 설명할 거예요.
+
+lynette/inn/15/situation
+밤일을 마치고 문턱에 앉는다.
+
+lynette/inn/15/lines/0
+이름을 읽다가 자꾸 틀렸어요.
+
+lynette/inn/15/lines/1
+다시 읽는데 목이 잠기더라고요.
+
+lynette/inn/15/lines/2
+돌아와서 누구와 얘기하고 싶었어요.
+
+lynette/inn/15/choices/0/text
+다시 읽지 않아도 제가 듣고 있어요.
+
+lynette/inn/15/choices/0/response/0
+오늘은 책 말고 제 얘기를 할게요.
+
+lynette/inn/15/choices/1/text
+물을 조금 드릴까요?
+
+lynette/inn/15/choices/1/response/0
+미지근한 걸로 부탁해도 될까요?
+
+lynette/inn/15/choices/2/text
+잘 읽었는지 지금 확인해 봐요.
+
+lynette/inn/15/choices/2/response/0
+지금은 읽던 걸 좀 잊고 싶어요.
+
+lynette/inn/15/choices/2/response/1
+틀린 게 있으면 나중에 제가 다시 볼게요.
+
+lynette/inn/15/seen
+오늘은 책을 가방에 넣은 채 얘기하고 싶어요.
+
+lynette/inn/16/situation
+자기 몫의 따뜻한 그릇을 먼저 받는다.
+
+lynette/inn/16/lines/0
+이번 그릇은 제가 받을게요.
+
+lynette/inn/16/lines/1
+늘 나중에 먹으니 바닥만 긁게 돼서요.
+
+lynette/inn/16/lines/2
+이렇게 말하니 좀 민망하네요.
+
+lynette/inn/16/choices/0/text
+숟가락은 옆에 있어요.
+
+lynette/inn/16/choices/0/response/0
+찾느라 또 그릇을 식힐 뻔했네요.
+
+lynette/inn/16/choices/1/text
+오늘만 먼저 드시는 거죠?
+
+lynette/inn/16/choices/1/response/0
+내일도 배고프면 달라고 할 건데요.
+
+lynette/inn/16/choices/1/response/1
+오늘만 허락받아서 먹는 것 같아지잖아요.
+
+lynette/inn/16/choices/2/text
+뜨거우니까 천천히 드세요.
+
+lynette/inn/16/choices/2/response/0
+식기 전에 먹는 것도 오랜만이네요.
+
+lynette/inn/16/choices/2/response/1
+말하다가 또 식겠네요. 한입 먹고 할게요.
+
+lynette/inn/16/seen
+국이 뜨거워서 이번엔 말부터 안 할래요.
+
+lynette/inn/17/situation
+개인 물건을 고르다 값을 확인한다.
+
+lynette/inn/17/lines/0
+이건 제 돈으로 사려던 거예요.
+
+lynette/inn/17/lines/1
+기금 종이랑 같이 꺼내서 헷갈리셨죠?
+
+lynette/inn/17/lines/2
+제게 필요한 것도 하나쯤 있더라고요.
+
+lynette/inn/17/choices/0/text
+그 돈도 보내면 한 끼가 늘 텐데요.
+
+lynette/inn/17/choices/0/response/0
+저도 몇 번이나 계산하다가 오늘은 제 걸 골랐어요.
+
+lynette/inn/17/choices/0/response/1
+그러다가 내려놨던 걸 오늘은 사 보려는 거예요.
+
+lynette/inn/17/choices/1/text
+어느 쪽이 더 쓰기 편해요?
+
+lynette/inn/17/choices/1/response/0
+이쪽이 손에 덜 걸려요. 그걸로 하려고요.
+
+lynette/inn/17/choices/2/text
+가격은 아래에 적혀 있네요.
+
+lynette/inn/17/choices/2/response/0
+다행히 생각한 만큼이면 되겠어요.
+
+lynette/inn/17/seen
+오늘은 제 물건을 고르려고 나온 거예요.
+
+lynette/inn/18/situation
+떠날 때와 돌아올 때를 적다가 말을 건다.
+
+lynette/inn/18/lines/0
+돌아오는 사제라는 말이 있어요.
+
+lynette/inn/18/lines/1
+떠났다가도 다시 찾아가는 거예요.
+
+lynette/inn/18/lines/2
+그래도 다시 찾아갈 곳이 있다는 건 좋아요.
+
+lynette/inn/18/choices/0/text
+돌아갈 때 어떤 인사를 할 거예요?
+
+lynette/inn/18/choices/0/response/0
+잘 지냈느냐고 물으려고요.
+
+lynette/inn/18/choices/1/text
+길은 미리 살펴뒀어요?
+
+lynette/inn/18/choices/1/response/0
+정하기 전에 확인할 일이 아직 있어요.
+
+lynette/inn/18/choices/2/text
+그곳을 떠난 건 이제 잊어도 돼요.
+
+lynette/inn/18/choices/2/response/0
+기억하고 싶어서 이렇게 얘기하는 거예요.
+
+lynette/inn/18/choices/2/response/1
+돌아가서 다시 볼 사람들도 있으니까요.
+
+lynette/inn/18/seen
+돌아가면 할 인사를 먼저 적었어요.
+
+lynette/inn/19/situation
+자기 하루를 말하려다 빈 종이를 본다.
+
+lynette/inn/19/lines/0
+오늘은 누구를 도왔느냐고 안 물어보시네요.
+
+lynette/inn/19/lines/1
+그럼 제 얘기를 해도 되겠어요?
+
+lynette/inn/19/lines/2
+별일 없이 낮잠 잔 얘기인데요.
+
+lynette/inn/19/choices/0/text
+방은 조용했어요?
+
+lynette/inn/19/choices/0/response/0
+발소리가 들려도 다시 잠들었어요.
+
+lynette/inn/19/choices/1/text
+쉬었으니 내일 더 도울 수 있겠어요.
+
+lynette/inn/19/choices/1/response/0
+그 말까지 붙여야 쉴 수 있는 건 싫어요.
+
+lynette/inn/19/choices/1/response/1
+낮잠 잔 얘기를 하면 그것만 들어 주셨으면 해요.
+
+lynette/inn/19/choices/2/text
+얼마나 주무셨는지 궁금해요.
+
+lynette/inn/19/choices/2/response/0
+깼는데 해가 꽤 내려가 있었어요.
+
+lynette/inn/19/seen
+오늘 얘기는 낮잠부터 시작할게요.
+
+lynette/inn/20/situation
+구호 일을 나눌 수 있는지 조심스레 묻는다.
+
+lynette/inn/20/lines/0
+제가 미처 못 챙긴 일도 있겠죠.
+
+lynette/inn/20/lines/1
+빠뜨리지 않으려다 같은 것만 확인해요.
+
+lynette/inn/20/lines/2
+맡길 건 맡겨 봐도 될까요?
+
+lynette/inn/20/choices/0/text
+앞으로 전부 맡겨도 돼요.
+
+lynette/inn/20/choices/0/response/0
+전부라고 하면 또 누가 무리하게 되잖아요.
+
+lynette/inn/20/choices/0/response/1
+제가 하던 걸 다른 한 분께 다 넘기고 싶진 않아요.
+
+lynette/inn/20/choices/1/text
+쌀 쪽은 제가 확인해 볼게요.
+
+lynette/inn/20/choices/1/response/0
+모르는 건 비워 두셔도 돼요.
+
+lynette/inn/20/choices/1/response/1
+잘 모르는 건 저랑 물어보러 가요.
+
+lynette/inn/20/choices/2/text
+어느 부분을 봐 드릴까요?
+
+lynette/inn/20/choices/2/response/0
+쌀에 관한 줄부터 같이 보면 되겠어요.
+
+lynette/inn/20/seen
+누가 무슨 일을 할지 정해 뒀어요.
+
+lynette/inn/21/situation
+함께 식사할 시간을 묻는다.
+
+lynette/inn/21/lines/0
+늦으면 먼저 드셔도 돼요.
+
+lynette/inn/21/lines/1
+기다리다가 밥 식히지 마세요.
+
+lynette/inn/21/lines/2
+그래도 같이 먹고 싶어서 시간을 물었어요.
+
+lynette/inn/21/choices/0/text
+늦어지면 먼저 알려 드릴게요.
+
+lynette/inn/21/choices/0/response/0
+그럼 억지로 식히며 기다리진 않을게요.
+
+lynette/inn/21/choices/1/text
+저녁 무렵은 괜찮아요.
+
+lynette/inn/21/choices/1/response/0
+그때쯤 그릇을 가져다 놓을게요.
+
+lynette/inn/21/choices/2/text
+남는 시간에 일 얘기도 끝내요.
+
+lynette/inn/21/choices/2/response/0
+밥 먹자고 부른 이유가 없어지잖아요.
+
+lynette/inn/21/choices/2/response/1
+같이 먹는 시간까지 확인할 일로 채우고 싶진 않아요.
+
+lynette/inn/21/seen
+오늘 저녁엔 기금 종이를 치워 둘게요.
+
+lynette/inn/22/situation
+자기 의견을 말하다 상대 눈치를 본다.
+
+lynette/inn/22/lines/0
+이번에는 제 생각을 말할게요.
+
+lynette/inn/22/lines/1
+늘 괜찮냐고 묻고 나면 말을 바꾸게 돼요.
+
+lynette/inn/22/lines/2
+생각이 다르더라도 제 설명부터 들어 주실래요?
+
+lynette/inn/22/choices/0/text
+지금 시간은 충분해요.
+
+lynette/inn/22/choices/0/response/0
+서두르지 않고 설명할 수 있겠네요.
+
+lynette/inn/22/choices/1/text
+리네트 씨 생각이면 무조건 좋아요.
+
+lynette/inn/22/choices/1/response/0
+아직 듣지도 않으셨는데 그러지 마세요.
+
+lynette/inn/22/choices/1/response/1
+듣고 나서 다르게 생각하셔도 괜찮아요.
+
+lynette/inn/22/choices/2/text
+다 듣고 제 생각도 말할게요.
+
+lynette/inn/22/choices/2/response/0
+반대하셔도 끝까지 말해 볼게요.
+
+lynette/inn/22/seen
+중간에 제 말을 바꾸진 않을게요.
+
+lynette/inn/23/situation
+실패한 흥정 이야기를 먼저 꺼낸다.
+
+lynette/inn/23/lines/0
+결국 못 깎고 왔어요.
+
+lynette/inn/23/lines/1
+화를 내고 싶었는데 그분 사정도 들었거든요.
+
+lynette/inn/23/lines/2
+못한 날 얘기도 그냥 해 보고 싶었어요.
+
+lynette/inn/23/choices/0/text
+다른 가게라고 둘러대 보지 그랬어요.
+
+lynette/inn/23/choices/0/response/0
+없는 값을 지어내면서 깎고 싶진 않아요.
+
+lynette/inn/23/choices/0/response/1
+그분이 한 말도 제가 안 들은 척할 수 없죠.
+
+lynette/inn/23/choices/1/text
+그분은 뭐라고 하셨어요?
+
+lynette/inn/23/choices/1/response/0
+받아 온 값부터 빠듯하다고 하셨어요.
+
+lynette/inn/23/choices/2/text
+메모는 아직 갖고 계세요?
+
+lynette/inn/23/choices/2/response/0
+네, 다음에 비교할 때 쓰려고요.
+
+lynette/inn/23/seen
+안 깎아 주신 이유도 같이 적었어요.
+
+lynette/inn/24/situation
+이름책을 챙긴 뒤 빈손을 보여 준다.
+
+lynette/inn/24/lines/0
+오늘 같이 걷자는 건 부탁이에요.
+
+lynette/inn/24/lines/1
+도울 일은 다 끝냈어요.
+
+lynette/inn/24/lines/2
+말없이 걸어도 좋을 것 같아서요.
+
+lynette/inn/24/choices/0/text
+걸음이 빠르면 말씀해 주세요.
+
+lynette/inn/24/choices/0/response/0
+이번엔 뛰지 않아도 되겠네요.
+
+lynette/inn/24/choices/0/response/1
+짐이 적으니 급히 갈 이유도 없네요.
+
+lynette/inn/24/choices/1/text
+어느 문으로 나갈까요?
+
+lynette/inn/24/choices/1/response/0
+가까운 문으로 나가면 되겠어요.
+
+lynette/inn/24/choices/2/text
+동행하는 동안 기부 얘기를 나누죠.
+
+lynette/inn/24/choices/2/response/0
+오늘은 같이 걷자고 부른 거니까 그 얘긴 미뤄요.
+
+lynette/inn/24/choices/2/response/1
+걷는 동안까지 부탁을 고르고 싶지는 않아요.
+
+lynette/inn/24/seen
+너무 빨리 걷지는 말아요.
+
+lynette/inn/25/situation
+자기 그릇과 남의 그릇을 나란히 놓는다.
+
+lynette/inn/25/lines/0
+요즘은 제 밥을 남의 몫과 따로 놓아 둬요.
+
+lynette/inn/25/lines/1
+제 걸 먹고 나면 남은 음식도 나누고요.
+
+lynette/inn/25/lines/2
+매번 설명하지 않아도 알아주시죠?
+
+lynette/inn/25/choices/0/text
+그릇은 여기 놓으면 돼요?
+
+lynette/inn/25/choices/0/response/0
+제 건 오른쪽에 두어 주세요.
+
+lynette/inn/25/choices/1/text
+그럼 똑같이 나눴는지 제가 봐 드릴게요.
+
+lynette/inn/25/choices/1/response/0
+제 밥까지 계속 검사하실 필요는 없어요.
+
+lynette/inn/25/choices/1/response/1
+제가 제 몫을 남겼다는 건 알아주시면 좋겠어요.
+
+lynette/inn/25/choices/2/text
+남겨 둔 건 손대지 않을게요.
+
+lynette/inn/25/choices/2/response/0
+다 먹은 뒤에 나눌 게 있으면 말할게요.
+
+lynette/inn/25/seen
+오른쪽 그릇은 제가 먹고 치울게요.
+
+lynette/inn/26/situation
+밤일을 마친 뒤 곧장 말을 건다.
+
+lynette/inn/26/lines/0
+일을 잘 못했어요.
+
+lynette/inn/26/lines/1
+괜찮다고 해 달라는 말도 하고 싶고요.
+
+lynette/inn/26/lines/2
+무슨 일이었는지 들어 주실래요?
+
+lynette/inn/26/choices/0/text
+잘한 일부터 세면 기분이 나아져요.
+
+lynette/inn/26/choices/0/response/0
+잘한 일은 생각이 안 나요.
+
+lynette/inn/26/choices/0/response/1
+오늘 일을 덮고 가면 내일도 같은 게 걸릴 것 같아요.
+
+lynette/inn/26/choices/1/text
+괜찮다는 말은 다 듣고 할게요.
+
+lynette/inn/26/choices/1/response/0
+중간에 울어도 잠깐만 기다려 주세요.
+
+lynette/inn/26/choices/2/text
+여기 앉아서 얘기해요.
+
+lynette/inn/26/choices/2/response/0
+책은 옆에 내려놓고 앉을게요.
+
+lynette/inn/26/seen
+오늘 못한 일을 잘한 일로 덮지는 않을래요.
+
+lynette/inn/27/situation
+쉬는 날의 약속을 먼저 잡는다.
+
+lynette/inn/27/lines/0
+다음에는 낮에 만나면 좋겠어요.
+
+lynette/inn/27/lines/1
+밤일 끝나고 잠깐씩만 보는 건 아쉬워요.
+
+lynette/inn/27/lines/2
+제가 쉴 시간도 미리 남겨 놓으려고요.
+
+lynette/inn/27/choices/0/text
+그 시간은 리네트 씨를 위해 비워 둘게요.
+
+lynette/inn/27/choices/0/response/0
+저도 다른 부탁을 끼워 넣지 않을게요.
+
+lynette/inn/27/choices/1/text
+만날 곳은 나중에 정해요.
+
+lynette/inn/27/choices/1/response/0
+네, 시간부터 잊지 않게 적을게요.
+
+lynette/inn/27/choices/2/text
+누가 도와 달라면 취소해야겠죠?
+
+lynette/inn/27/choices/2/response/0
+정말 급한 일인지는 그때 보고 정할래요.
+
+lynette/inn/27/choices/2/response/1
+급한 일이 아니면 저도 좀 쉴래요.
+
+lynette/inn/27/seen
+낮에 만나는 약속을 제 일정에 적었어요.
+
+lynette/dungeon/0/variants/0
+준비가 됐으면 출발해요.
+
+lynette/dungeon/0/variants/1
+제 짐은 제가 챙겼어요.
+
+lynette/dungeon/1/variants/0
+물 마시고 같이 나가요.
+
+lynette/dungeon/1/variants/1
+덜 챙긴 건 없는지 봐요.
+
+lynette/dungeon/2/variants/0
+저도 준비 끝났으니 가요.
+
+lynette/dungeon/2/variants/1
+걸음이 너무 빠르진 않아요?
+
+lynette/dungeon/3/variants/0
+들어온 길은 기억해 둬요.
+
+lynette/dungeon/3/variants/1
+이 층은 발밑부터 봐요.
+
+lynette/dungeon/4/variants/0
+서로 보이는 곳에서 살펴요.
+
+lynette/dungeon/4/variants/1
+제가 뒤에 있는지도 봐 주세요.
+
+lynette/dungeon/5/variants/0
+잠깐 멈추면 제가 따라갈게요.
+
+lynette/dungeon/5/variants/1
+제가 본 쪽도 같이 확인해요.
+
+lynette/dungeon/6/variants/0
+찾았어도 바로 만지진 말아요.
+
+lynette/dungeon/6/variants/1
+발견한 자리를 알려 주세요.
+
+lynette/dungeon/7/variants/0
+한 사람만 급히 들지 말아요.
+
+lynette/dungeon/7/variants/1
+살펴볼 때 제가 옆에 있을게요.
+
+lynette/dungeon/8/variants/0
+제가 놓친 데를 봐 주셨네요.
+
+lynette/dungeon/8/variants/1
+같이 본 다음에 정해요.
+
+lynette/dungeon/9/variants/0
+싸움 시작됐어요. 흩어지지 말아요.
+
+lynette/dungeon/9/variants/1
+저도 제 자리에서 움직일게요.
+
+lynette/dungeon/10/variants/0
+제 쪽은 제가 보고 있어요.
+
+lynette/dungeon/10/variants/1
+다가오는 것부터 함께 봐요.
+
+lynette/dungeon/11/variants/0
+서로 부를 수 있게 싸워요.
+
+lynette/dungeon/11/variants/1
+무리하면 저부터 말할게요.
+
+lynette/dungeon/12/variants/0
+끝났어도 다친 곳은 봐야죠.
+
+lynette/dungeon/12/variants/1
+손 떠는 분은 잠깐 앉아요.
+
+lynette/dungeon/13/variants/0
+저만 보지 말고 서로 살펴요.
+
+lynette/dungeon/13/variants/1
+다들 서 있는지 먼저 봐요.
+
+lynette/dungeon/14/variants/0
+저도 앉아서 숨 좀 고를게요.
+
+lynette/dungeon/14/variants/1
+물은 제가 마신 뒤에 나눌게요.
+
+lynette/dungeon/15/variants/0
+앞이 위험해 보여요.
+
+lynette/dungeon/15/variants/1
+준비 못 한 분은 지금 말해요.
+
+lynette/dungeon/16/variants/0
+들어가기 전에 서로 확인해요.
+
+lynette/dungeon/16/variants/1
+늦어져도 준비부터 하고 가요.
+
+lynette/dungeon/17/variants/0
+제가 망설이면 잠깐 기다려요.
+
+lynette/dungeon/17/variants/1
+지금 할 수 있는 걸 말해 봐요.
+
+lynette/dungeon/18/variants/0
+큰 싸움이 끝났네요.
+
+lynette/dungeon/18/variants/1
+아직 긴장을 다 풀지는 말아요.
+
+lynette/dungeon/19/variants/0
+다친 분부터 여기 앉아요.
+
+lynette/dungeon/19/variants/1
+짐보다 사람을 먼저 확인해요.
+
+lynette/dungeon/20/variants/0
+저도 많이 지쳤어요. 잠시 쉬어 갈래요.
+
+lynette/dungeon/20/variants/1
+이제 서로 목소리가 들리네요.
+
+lynette/dungeon/21/variants/0
+많이 다치셨어요. 제 쪽을 봐요.
+
+lynette/dungeon/21/variants/1
+혼자 버티지 말고 알려 주세요.
+
+lynette/dungeon/22/variants/0
+가까이 갈 틈을 만들어 줘요.
+
+lynette/dungeon/22/variants/1
+지금은 참지 않고 말해도 돼요.
+
+lynette/dungeon/23/variants/0
+도우러 갈 테니 무리하지 마요.
+
+lynette/dungeon/23/variants/1
+제가 갈 때까지 버텨 줘요.
+
+lynette/dungeon/24/variants/0
+쓰러진 분 쪽을 확인해요.
+
+lynette/dungeon/24/variants/1
+바로 괜찮다고 말할 순 없어요.
+
+lynette/dungeon/25/variants/0
+다들 한꺼번에 몰리진 말아요.
+
+lynette/dungeon/25/variants/1
+움직일 수 있는 분은 길을 열어요.
+
+lynette/dungeon/26/variants/0
+확인할 시간만 먼저 벌어 줘요.
+
+lynette/dungeon/26/variants/1
+제가 본 상태부터 말씀드릴게요.
+
+lynette/dungeon/27/variants/0
+저도 다쳤어요. 손을 잠깐 멈출게요.
+
+lynette/dungeon/27/variants/1
+지금 손을 바로 쓰긴 어려워요.
+
+lynette/dungeon/28/variants/0
+제 상처도 먼저 볼게요.
+
+lynette/dungeon/28/variants/1
+저쪽만 보느라 놓쳤네요.
+
+lynette/dungeon/29/variants/0
+아프다는 말은 숨기지 않을게요.
+
+lynette/dungeon/29/variants/1
+이번엔 제 쪽을 봐 주실래요?
+
+lynette/dungeon/30/variants/0
+쉴 때는 짐 좀 내려요.
+
+lynette/dungeon/30/variants/1
+앉기 전에 바닥을 봐요.
+
+lynette/dungeon/31/variants/0
+이번에는 제 잔도 채울게요.
+
+lynette/dungeon/31/variants/1
+물 마시는 동안은 안 재촉해요.
+
+lynette/dungeon/32/variants/0
+저도 여기 앉아서 쉴게요.
+
+lynette/dungeon/32/variants/1
+지금 필요한 건 쉬는 거예요.
+
+lynette/dungeon/33/variants/0
+봉인이 있으면 손부터 멈춰요.
+
+lynette/dungeon/33/variants/1
+제가 열 방법을 아는 건 아니에요.
+
+lynette/dungeon/34/variants/0
+조건이 확인될 때까지 둬요.
+
+lynette/dungeon/34/variants/1
+보관함 앞에서 무리하진 말아요.
+
+lynette/dungeon/35/variants/0
+확인한 것만 서로 말해요.
+
+lynette/dungeon/35/variants/1
+급하다고 열 수 있는 건 아니에요.
+
+lynette/dungeon/36/variants/0
+돌아왔으면 인원부터 봐요.
+
+lynette/dungeon/36/variants/1
+제 짐보다 제 발이 무겁네요.
+
+lynette/dungeon/37/variants/0
+다들 들어왔는지 같이 확인해요.
+
+lynette/dungeon/37/variants/1
+오늘은 밥 먹는 것도 잊지 마요.
+
+lynette/dungeon/38/variants/0
+저도 쉬러 가기 전에 인사할게요.
+
+lynette/dungeon/38/variants/1
+돌아왔으니 이제 짐 좀 풀어요.
+
+lynette/dungeon/39/variants/0
+졌어요. 더 밀어붙이지 말아요.
+
+lynette/dungeon/39/variants/1
+움직일 수 있는지부터 말해요.
+
+lynette/dungeon/40/variants/0
+안 되는 걸 감추지는 말아요.
+
+lynette/dungeon/40/variants/1
+자책은 돌아가서 해도 돼요.
+
+lynette/dungeon/41/variants/0
+제 실수도 나중에 같이 봐요.
+
+lynette/dungeon/41/variants/1
+지금은 서로의 상태부터 들어요.
+
+lynette/transitions/0/situation
+가렸던 기금 종이를 가방에 넣는다.
+
+lynette/transitions/0/lines/0
+오늘은 묻지 않고 기다려 주셨네요.
+
+lynette/transitions/0/lines/1
+다음에는 필요한 얘기만 조금 해 볼게요.
+
+lynette/transitions/1/situation
+펼치려던 메모를 다시 접는다.
+
+lynette/transitions/1/lines/0
+사정을 말하면 돕겠다는 건가요?
+
+lynette/transitions/1/lines/1
+그 조건이면 오늘도 꺼내지 않을게요.
+
+lynette/transitions/2/situation
+자기 잔을 옆으로 옮겨 자리를 낸다.
+
+lynette/transitions/2/lines/0
+이쪽 의자에 앉으면 돼요.
+
+lynette/transitions/2/lines/1
+기금 얘기부터 하면 너무 빠를까요?
+
+lynette/transitions/3/situation
+여럿의 접시를 살피다 이쪽에서 눈을 뗀다.
+
+lynette/transitions/3/lines/0
+나눌 몫은 제가 먼저 확인할게요.
+
+lynette/transitions/3/lines/1
+오늘은 대신 정하지 말아 주세요.
+
+lynette/transitions/4/situation
+자기 접시를 들고 맞은편에 앉는다.
+
+lynette/transitions/4/lines/0
+오늘은 먼저 먹으려고 왔어요.
+
+lynette/transitions/4/lines/1
+해야 할 일 없이도 같이 앉아도 되죠?
+
+lynette/transitions/5/situation
+식사 옆에 다시 메모를 펼친다.
+
+lynette/transitions/5/lines/0
+말로만 맡겨도 될 줄 알았어요.
+
+lynette/transitions/5/lines/1
+이번엔 필요한 걸 다시 적어 둘게요.
+
+lynette/transitions/6/situation
+이름책 덮개를 무릎 위에서 편다.
+
+lynette/transitions/6/lines/0
+제가 이 책을 어떻게 받았는지 궁금하세요?
+
+lynette/transitions/6/lines/1
+오늘은 처음부터 얘기할 수 있겠어요.
+
+lynette/transitions/7/situation
+책을 덮은 뒤 물을 마신다.
+
+lynette/transitions/7/lines/0
+그때 얘기는 잠깐 쉬고 싶어요.
+
+lynette/transitions/7/lines/1
+오늘 있었던 일부터 말하면 안 될까요?
+
+lynette/transitions/8/situation
+남의 그릇 뒤로 밀던 자기 그릇을 당긴다.
+
+lynette/transitions/8/lines/0
+이번에는 제 밥도 따뜻할 때 먹을래요.
+
+lynette/transitions/8/lines/1
+더 나눌 건 다 먹은 뒤에 정할게요.
+
+lynette/transitions/9/situation
+자기 몫을 가리키던 손을 거둔다.
+
+lynette/transitions/9/lines/0
+제가 먼저 먹겠다는 말이 어려웠어요.
+
+lynette/transitions/9/lines/1
+자꾸 설명해야 하면 또 망설이게 돼요.
+
+lynette/transitions/10/situation
+도움받을 항목을 말하며 종이를 나눈다.
+
+lynette/transitions/10/lines/0
+제가 다 확인하지 않아도 되는 거죠?
+
+lynette/transitions/10/lines/1
+모르는 곳은 같이 물으러 가면 좋겠어요.
+
+lynette/transitions/11/situation
+나눠 둔 메모를 한 번 더 살핀다.
+
+lynette/transitions/11/lines/0
+도와주신다는 말은 고마워요.
+
+lynette/transitions/11/lines/1
+하지만 전부 괜찮다고 대신 답하진 말아요.
+
+lynette/transitions/12/situation
+자기 일정에 만날 시간을 먼저 적는다.
+
+lynette/transitions/12/lines/0
+일 없는 날에도 보고 싶다고 해 볼게요.
+
+lynette/transitions/12/lines/1
+이번 약속엔 다른 부탁을 붙이지 않을게요.
+
+lynette/transitions/13/situation
+일정 종이를 접지 않고 그대로 둔다.
+
+lynette/transitions/13/lines/0
+제 말이 잘 안 전해진 것 같아요.
+
+lynette/transitions/13/lines/1
+약속을 취소하기 전에 얘기하고 싶어요.
+
+felice/inn/0/situation
+옆자리 사람에게 웃다가 이쪽을 본다.
+
+felice/inn/0/lines/0
+길 안내는 해 드릴 수 있어요.
+
+felice/inn/0/lines/1
+하지만 골목 사람 얘기는 그만 물어요.
+
+felice/inn/0/lines/2
+당사자한테 직접 물어봐 주세요.
+
+felice/inn/0/choices/0/text
+물은 어디서 받을 수 있어요?
+
+felice/inn/0/choices/0/response/0
+주방 앞에 물병이 놓여 있어요.
+
+felice/inn/0/choices/1/text
+소개만 받으면 제가 잘 설명할게요.
+
+felice/inn/0/choices/1/response/0
+소개해 준 제 말도 믿고 만나실 텐데요.
+
+felice/inn/0/choices/1/response/1
+소개해 드린 뒤에 생긴 일도 제가 듣게 돼요.
+
+felice/inn/0/choices/2/text
+길만 알려 주시면 혼자 찾아갈게요.
+
+felice/inn/0/choices/2/response/0
+큰길에서 꺾는 곳까지만 설명할게요.
+
+felice/inn/0/seen
+오늘은 골목 지름길까지만 알려 드려요.
+
+felice/inn/1/situation
+약병을 닦다가 헝겊을 접는다.
+
+felice/inn/1/lines/0
+일 끝났냐고요?
+
+felice/inn/1/lines/1
+방금 끝났는데 또 뭘 부탁하시려고요?
+
+felice/inn/1/lines/2
+지금은 말할 기운이 없어요.
+
+felice/inn/1/choices/0/text
+기분 풀리게 재밌는 소문 들려줘요.
+
+felice/inn/1/choices/0/response/0
+제가 웃기는 일을 맡은 건 아니잖아요.
+
+felice/inn/1/choices/0/response/1
+오늘은 제가 웃을 얘기도 하나 없네요.
+
+felice/inn/1/choices/1/text
+부탁은 내일 하고 지금은 갈게요.
+
+felice/inn/1/choices/1/response/0
+내일은 용건부터 말씀해 주세요.
+
+felice/inn/1/choices/2/text
+그럼 제 잔만 치워 둘게요.
+
+felice/inn/1/choices/2/response/0
+빈 쟁반 위에 올리면 돼요.
+
+felice/inn/1/seen
+약병은 다 닦았지만 아직 얘긴 안 할래요.
+
+felice/inn/2/situation
+골목 쪽에서 들은 말을 되묻는다.
+
+felice/inn/2/lines/0
+어디서 들었냐고는 안 물을게요.
+
+felice/inn/2/lines/1
+대신 제 말이라고 옮기진 마세요.
+
+felice/inn/2/lines/2
+제가 확인해 본 얘기는 아니거든요.
+
+felice/inn/2/choices/0/text
+옮기기 전에 당사자에게 확인할게요.
+
+felice/inn/2/choices/0/response/0
+직접 확인하면 제 말 때문에 헷갈리진 않겠어요.
+
+felice/inn/2/choices/1/text
+들은 얘기는 여기서 끝내요.
+
+felice/inn/2/choices/1/response/0
+그럼 저도 더 보태지 않을게요.
+
+felice/inn/2/choices/2/text
+펠리스 씨 말이면 믿을 만하다고 하죠.
+
+felice/inn/2/choices/2/response/0
+제 이름이 붙으면 없던 신뢰도 생겨요.
+
+felice/inn/2/choices/2/response/1
+제가 안 물어본 말까지 보증하게 되잖아요.
+
+felice/inn/2/seen
+누구 이름도 붙이지 않고 끝낸 얘기예요.
+
+felice/inn/3/situation
+저녁 약속을 묻자 먼저 시간을 확인한다.
+
+felice/inn/3/lines/0
+오늘은 혼자 먹으려고 했어요.
+
+felice/inn/3/lines/1
+통역 골목 끝집으로 갈 거예요.
+
+felice/inn/3/lines/2
+같이 갈 사람을 소개해 드리진 못해요.
+
+felice/inn/3/choices/0/text
+국수는 어느 쪽에서 팔아요?
+
+felice/inn/3/choices/0/response/0
+통역 골목 끝에 가면 보여요.
+
+felice/inn/3/choices/1/text
+혼자 드신다니 제가 꼭 같이 가야겠네요.
+
+felice/inn/3/choices/1/response/0
+혼자 조용히 먹고 올게요.
+
+felice/inn/3/choices/1/response/1
+혼자 먹고 싶다는 말도 가끔은 할 수 있죠.
+
+felice/inn/3/choices/2/text
+자리만 괜찮으면 인사만 하고 갈게요.
+
+felice/inn/3/choices/2/response/0
+인사는 반갑지만 저는 일찍 갈 수도 있어요.
+
+felice/inn/3/seen
+오늘 저녁은 제가 정한 대로 먹을게요.
+
+felice/inn/4/situation
+손으로 골목이 갈라지는 모양을 그린다.
+
+felice/inn/4/lines/0
+토르바 처음이면 여기서 헤매요.
+
+felice/inn/4/lines/1
+통역 골목으로 가려면 이쪽이에요.
+
+felice/inn/4/lines/2
+제 설명이 빠르면 중간에 끊어도 돼요.
+
+felice/inn/4/choices/0/text
+이름만 외우면 다 찾을 수 있겠죠?
+
+felice/inn/4/choices/0/response/0
+이름 같은 간판도 있어서 길을 봐야 해요.
+
+felice/inn/4/choices/0/response/1
+간판만 보고 가면 반대쪽으로 돌아오기도 해요.
+
+felice/inn/4/choices/1/text
+갈림길부터 한 번 더 알려 주세요.
+
+felice/inn/4/choices/1/response/0
+거기부터 천천히 다시 말할게요.
+
+felice/inn/4/choices/1/response/1
+갈림길 앞에서 손으로 한 번 더 가리킬게요.
+
+felice/inn/4/choices/2/text
+생각보다 길이 많네요.
+
+felice/inn/4/choices/2/response/0
+몇 번 지나가면 금방 익숙해져요.
+
+felice/inn/4/seen
+이번에는 갈림길에서 같이 멈춰 봐요.
+
+felice/inn/5/situation
+국수 얘기를 하다 빈 접시를 두드린다.
+
+felice/inn/5/lines/0
+끝집 국수는 드셔 봤어요?
+
+felice/inn/5/lines/1
+모르는 분한테 자꾸 같은 걸 권하네요.
+
+felice/inn/5/lines/2
+그래도 첫 끼는 거기가 좋더라고요.
+
+felice/inn/5/choices/0/text
+펠리스 씨는 뭘 곁들여 드세요?
+
+felice/inn/5/choices/0/response/0
+저는 국수부터 먹고 나서 골라요.
+
+felice/inn/5/choices/1/text
+가게는 저녁에도 열어요?
+
+felice/inn/5/choices/1/response/0
+닫기 전에 갈 거면 길에서 확인해 봐요.
+
+felice/inn/5/choices/2/text
+제 이름 대면 많이 주시겠죠?
+
+felice/inn/5/choices/2/response/0
+그건 제가 약속할 수 있는 일이 아니에요.
+
+felice/inn/5/choices/2/response/1
+친분으로 양을 더 받겠다고 오시면 곤란해요.
+
+felice/inn/5/seen
+국수 먹고 나서 길 구경을 더 해요.
+
+felice/inn/6/situation
+앞치마의 병을 한 번 더 만진다.
+
+felice/inn/6/lines/0
+약이 필요하면 저한테 물어요.
+
+felice/inn/6/lines/1
+직접 섞는 건 생각보다 손이 가요.
+
+felice/inn/6/lines/2
+수다 떨면서도 손은 안 멈추는 이유죠.
+
+felice/inn/6/choices/0/text
+병은 여기에 둘까요?
+
+felice/inn/6/choices/0/response/0
+넘어지지 않게 벽 쪽으로 놓아 주세요.
+
+felice/inn/6/choices/1/text
+말하면서 하면 금방 끝나겠네요.
+
+felice/inn/6/choices/1/response/0
+잘못 섞으면 다시 해야 해서 천천히 해요.
+
+felice/inn/6/choices/1/response/1
+재밌는 얘기는 병 닫은 다음에 해도 되잖아요.
+
+felice/inn/6/choices/2/text
+손 멈춰도 괜찮을 때 얘기해요.
+
+felice/inn/6/choices/2/response/0
+그럼 이것만 내려놓고 들어 볼게요.
+
+felice/inn/6/seen
+병을 내려놓았으니 이제 얼굴 보고 얘기해요.
+
+felice/inn/7/situation
+낯선 소식에 웃음을 참는다.
+
+felice/inn/7/lines/0
+그 말은 어디서 배우셨어요?
+
+felice/inn/7/lines/1
+테이리스 씨한테도 제가 알려 줬거든요.
+
+felice/inn/7/lines/2
+그분은 가끔 쓸 때를 조금 놓쳐요.
+
+felice/inn/7/choices/0/text
+틀린 말 모아서 얘기해 주세요.
+
+felice/inn/7/choices/0/response/0
+없는 데서 모아 웃고 싶진 않아요.
+
+felice/inn/7/choices/0/response/1
+틀리게 쓴 날엔 저도 조용히 알려 주면 좋겠어요.
+
+felice/inn/7/choices/1/text
+다음엔 제가 써도 어색한지 봐 주세요.
+
+felice/inn/7/choices/1/response/0
+상황부터 보고 같이 골라 봐요.
+
+felice/inn/7/choices/2/text
+금방 바뀌는 말인가 봐요.
+
+felice/inn/7/choices/2/response/0
+저도 한동안 안 들으면 엉뚱한 데 써요.
+
+felice/inn/7/seen
+새 말은 써먹을 자리가 있어야 기억나요.
+
+felice/inn/8/situation
+소문 얘기를 시작하다 말을 고친다.
+
+felice/inn/8/lines/0
+재밌는 소문이 하나 있는데요.
+
+felice/inn/8/lines/1
+아니, 그건 남 얘기고요.
+
+felice/inn/8/lines/2
+오늘 제 약방에서 있었던 얘기부터 할까요?
+
+felice/inn/8/choices/0/text
+펠리스 씨가 보낸 하루 쪽이 더 궁금해요.
+
+felice/inn/8/choices/0/response/0
+길어져도 들어 주실 거죠?
+
+felice/inn/8/choices/0/response/1
+병을 닦다가 있었던 일부터 할게요.
+
+felice/inn/8/choices/1/text
+약방은 많이 바빴어요?
+
+felice/inn/8/choices/1/response/0
+병을 닦다 보니 해가 내려가 있더라고요.
+
+felice/inn/8/choices/2/text
+소문부터 듣고 나중에 약방 얘기해요.
+
+felice/inn/8/choices/2/response/0
+제 얘기는 늘 나중에 하게 되네요.
+
+felice/inn/8/choices/2/response/1
+항상 제 하루가 더 재미없다는 뜻 같잖아요.
+
+felice/inn/8/seen
+약방에서 있었던 얘기 마저 할게요.
+
+felice/inn/9/situation
+장난삼아 내민 손을 도로 거둔다.
+
+felice/inn/9/lines/0
+아는 사람이라고 다 편한 건 아니에요.
+
+felice/inn/9/lines/1
+한 번 부탁하면 다음 부탁도 오고요.
+
+felice/inn/9/lines/2
+웃으면서 거절하는 건 좀 피곤해요.
+
+felice/inn/9/choices/0/text
+오늘 부탁을 많이 받았어요?
+
+felice/inn/9/choices/0/response/0
+같은 길을 세 번 설명했어요.
+
+felice/inn/9/choices/1/text
+모두에게 같은 핑계를 대면 편하죠.
+
+felice/inn/9/choices/1/response/0
+들키면 제가 하는 다른 말도 못 믿어요.
+
+felice/inn/9/choices/1/response/1
+나중에 다른 분한테 제가 한 말까지 의심받고요.
+
+felice/inn/9/choices/2/text
+제 부탁도 싫으면 바로 말해 주세요.
+
+felice/inn/9/choices/2/response/0
+웃지 않고 말해도 놀라지 마세요.
+
+felice/inn/9/seen
+이번 부탁엔 웃지 않고 안 된다고 했어요.
+
+felice/inn/10/situation
+둘이 먹을 자리를 미리 잡아 둔다.
+
+felice/inn/10/lines/0
+여기 자리 잡아 뒀어요.
+
+felice/inn/10/lines/1
+우연히 만난 척하면 또 다른 데 가실까 봐요.
+
+felice/inn/10/lines/2
+저랑 먹자고 부른 거예요.
+
+felice/inn/10/choices/0/text
+아는 분들 다 부르면 더 재밌겠어요.
+
+felice/inn/10/choices/0/response/0
+오늘은 둘이 얘기해 보려고 했는데요.
+
+felice/inn/10/choices/0/response/1
+마주 앉았는데 계속 다른 분들 소개만 할까 봐요.
+
+felice/inn/10/choices/1/text
+오래 기다렸어요? 저도 얼른 먹고 싶어요.
+
+felice/inn/10/choices/1/response/0
+아직 안 시켰으니 지금 같이 고르면 돼요.
+
+felice/inn/10/choices/2/text
+이 의자에 앉으면 돼요?
+
+felice/inn/10/choices/2/response/0
+가방만 옮기면 바로 앉을 수 있어요.
+
+felice/inn/10/seen
+가방 치웠으니 여기 앉아요.
+
+felice/inn/11/situation
+손님 흉내를 내다 갑자기 웃음을 멈춘다.
+
+felice/inn/11/lines/0
+아, 흉내 내니까 좀 못됐네요.
+
+felice/inn/11/lines/1
+그분도 급해서 말이 꼬였을 텐데요.
+
+felice/inn/11/lines/2
+이 얘기는 그만할까요?
+
+felice/inn/11/choices/0/text
+대신 펠리스 씨 얘기를 들어요.
+
+felice/inn/11/choices/0/response/0
+제가 말 꼬인 얘기도 꽤 많아요.
+
+felice/inn/11/choices/1/text
+다른 화제로 바꿔요.
+
+felice/inn/11/choices/1/response/0
+오늘 먹을 것부터 정할까요?
+
+felice/inn/11/choices/2/text
+한 번만 더 해 봐요, 재밌었어요.
+
+felice/inn/11/choices/2/response/0
+재밌다고 계속하면 더 미안할 것 같아요.
+
+felice/inn/11/choices/2/response/1
+어떤 얼굴이었는지 떠올리니까 그만하고 싶어요.
+
+felice/inn/11/seen
+이번 흉내 얘기는 여기서 접어요.
+
+felice/inn/12/situation
+통역 골목 이야기에 평소보다 오래 머문다.
+
+felice/inn/12/lines/0
+계약서가 늘면 골목도 시끄러워졌어요.
+
+felice/inn/12/lines/1
+같은 말이 집집마다 다르게 들렸죠.
+
+felice/inn/12/lines/2
+그래서 되묻는 게 창피하진 않았어요.
+
+felice/inn/12/choices/0/text
+어릴 때부터 그 길을 다녔어요?
+
+felice/inn/12/choices/0/response/0
+네, 돌아다니다 보면 아는 얼굴이 나왔어요.
+
+felice/inn/12/choices/1/text
+사람 말은 대충 뜻만 맞으면 되죠.
+
+felice/inn/12/choices/1/response/0
+계약 앞에서는 그 대충이 큰일이 돼요.
+
+felice/inn/12/choices/1/response/1
+되묻지 않은 한마디 때문에 돈이 달라지기도 하죠.
+
+felice/inn/12/choices/2/text
+못 알아들으면 저도 다시 물을게요.
+
+felice/inn/12/choices/2/response/0
+아는 척하고 웃는 것보다 훨씬 나아요.
+
+felice/inn/12/choices/2/response/1
+제가 못 알아들었을 때도 아는 척하진 않을게요.
+
+felice/inn/12/seen
+그 골목에선 못 알아들으면 꼭 되물었어요.
+
+felice/inn/13/situation
+물컵을 돌리며 섬에서 지낸 날을 말한다.
+
+felice/inn/13/lines/0
+무레나 섬에서는 모르는 얼굴뿐이었어요.
+
+felice/inn/13/lines/1
+먼저 인사하는 건 잘했는데요.
+
+felice/inn/13/lines/2
+인사 끝나고 나면 할 말이 없더라고요.
+
+felice/inn/13/choices/0/text
+인맥 쌓을 기회라 좋았겠네요.
+
+felice/inn/13/choices/0/response/0
+그땐 아는 얼굴 하나가 아쉬웠어요.
+
+felice/inn/13/choices/0/response/1
+아는 얼굴이 생겨도 저녁은 혼자 먹기도 했어요.
+
+felice/inn/13/choices/1/text
+그때 저녁은 어떻게 보내셨어요?
+
+felice/inn/13/choices/1/response/0
+끝난 일을 또 꺼내 놓고 만지작거렸어요.
+
+felice/inn/13/choices/2/text
+수련은 오래 하셨죠?
+
+felice/inn/13/choices/2/response/0
+몇 해를 보내고서야 돌아왔어요.
+
+felice/inn/13/seen
+섬에서는 인사 뒤의 시간이 길었어요.
+
+felice/inn/14/situation
+작은 털실 인형 얘기에 목소리가 낮아진다.
+
+felice/inn/14/lines/0
+사야 씨한테 받은 게 있어요.
+
+felice/inn/14/lines/1
+인형인데 손에 쥐면 크기가 딱 맞아요.
+
+felice/inn/14/lines/2
+처음엔 어디에 둬야 할지 몰랐어요.
+
+felice/inn/14/choices/0/text
+지금은 어디에 두셨어요?
+
+felice/inn/14/choices/0/response/0
+일하다 보이는 쪽에 놓았어요.
+
+felice/inn/14/choices/1/text
+털실로 만든 거였군요.
+
+felice/inn/14/choices/1/response/0
+네, 자세히 보면 손이 많이 갔어요.
+
+felice/inn/14/choices/2/text
+다른 분들 것도 부탁해 봐요.
+
+felice/inn/14/choices/2/response/0
+제 것을 받았다고 주문을 넣고 싶진 않아요.
+
+felice/inn/14/choices/2/response/1
+손으로 만든 걸 받은 뒤에 더 부탁하긴 어려워요.
+
+felice/inn/14/seen
+그 인형은 일하다 한 번씩 쳐다봐요.
+
+felice/inn/15/situation
+웃으며 말하다 컵에서 손을 뗀다.
+
+felice/inn/15/lines/0
+사람 반쯤 안다는 얘기, 자주 하죠?
+
+felice/inn/15/lines/1
+그런데 누구를 부를지 못 정하는 날도 있어요.
+
+felice/inn/15/lines/2
+웃을 수 없으면 만나기 싫을까 봐요.
+
+felice/inn/15/choices/0/text
+오늘 많이 지치셨어요?
+
+felice/inn/15/choices/0/response/0
+말을 좀 덜 하고 싶은 날이네요.
+
+felice/inn/15/choices/1/text
+제일 친한 한 사람만 골라 봐요.
+
+felice/inn/15/choices/1/response/0
+누가 더 친한지 정하고 싶은 건 아니에요.
+
+felice/inn/15/choices/1/response/1
+친한 사람도 부르기 망설여지는 날이 있어요.
+
+felice/inn/15/choices/2/text
+오늘은 웃기려고 애쓰지 않아도 돼요.
+
+felice/inn/15/choices/2/response/0
+잠깐 조용히 있어도 안 가실 거죠?
+
+felice/inn/15/seen
+오늘은 아는 사람 수를 세지 않을래요.
+
+felice/inn/16/situation
+조용히 의자를 끌어 가까이 앉는다.
+
+felice/inn/16/lines/0
+들려줄 소식은 없어요.
+
+felice/inn/16/lines/1
+없는 얘기 만들어 오기도 싫고요.
+
+felice/inn/16/lines/2
+그래도 만나고 싶어서 왔어요.
+
+felice/inn/16/choices/0/text
+생각해 보면 재밌는 일 하나쯤 있겠죠.
+
+felice/inn/16/choices/0/response/0
+찾아내야만 여기 앉을 수 있나요?
+
+felice/inn/16/choices/0/response/1
+만날 때마다 한 가지씩 가져와야 할 것 같아요.
+
+felice/inn/16/choices/1/text
+저도 소식 없이 앉아 있어도 좋아요.
+
+felice/inn/16/choices/1/response/0
+그럼 잔부터 놓고 앉을게요.
+
+felice/inn/16/choices/1/response/1
+물 마실 동안은 저도 말 좀 아낄래요.
+
+felice/inn/16/choices/2/text
+마실 건 골랐어요?
+
+felice/inn/16/choices/2/response/0
+목이 말라서 물이면 충분해요.
+
+felice/inn/16/seen
+아무 얘기 안 챙겨 와도 되겠네요.
+
+felice/inn/17/situation
+밖에서 부르는 소리에 일어나다 다시 앉는다.
+
+felice/inn/17/lines/0
+저 부르는 것 같죠?
+
+felice/inn/17/lines/1
+급한 일인지 물어보고 올게요.
+
+felice/inn/17/lines/2
+급하지 않으면 지금 얘기 끝내고 가려고요.
+
+felice/inn/17/choices/0/text
+확인하고 오면 여기서 기다릴게요.
+
+felice/inn/17/choices/0/response/0
+돌아와서 하던 얘기 계속할게요.
+
+felice/inn/17/choices/1/text
+문은 제가 열어 둘게요.
+
+felice/inn/17/choices/1/response/0
+목소리만 듣고 와도 되겠네요.
+
+felice/inn/17/choices/2/text
+이번엔 모른 척하면 안 돼요?
+
+felice/inn/17/choices/2/response/0
+일이 뭔지도 모르고 외면하긴 싫어요.
+
+felice/inn/17/choices/2/response/1
+급하면 갈 수도 있고, 아니면 조금 있다 갈 수도 있죠.
+
+felice/inn/17/seen
+급한 일이 아니라서 다시 앉았어요.
+
+felice/inn/18/situation
+말을 하려다 웃지 않은 채 입을 연다.
+
+felice/inn/18/lines/0
+방금 말은 좀 서운했어요.
+
+felice/inn/18/lines/1
+장난으로 한 건 아는데요.
+
+felice/inn/18/lines/2
+웃고 넘기면 또 그러실 것 같아서요.
+
+felice/inn/18/choices/0/text
+물 한 모금 마시고 얘기해요.
+
+felice/inn/18/choices/0/response/0
+급하게 말하다 목이 좀 막혔네요.
+
+felice/inn/18/choices/1/text
+펠리스 씨도 늘 농담하시잖아요.
+
+felice/inn/18/choices/1/response/0
+제가 한 장난도 싫을 땐 말해 주시면 좋겠어요.
+
+felice/inn/18/choices/1/response/1
+다음에도 웃고 넘길 수 있을지는 모르겠어요.
+
+felice/inn/18/choices/2/text
+어느 말이었는지 듣고 싶어요.
+
+felice/inn/18/choices/2/response/0
+아는 사람이 많으니 혼자도 괜찮겠다는 말이요.
+
+felice/inn/18/seen
+이번에는 웃기 전에 서운하다고 말했어요.
+
+felice/inn/19/situation
+먼저 저녁 약속을 취소할 이유를 설명한다.
+
+felice/inn/19/lines/0
+약방에 조금 더 있어야 해요.
+
+felice/inn/19/lines/1
+끝나고 같이 먹기엔 너무 늦을 것 같아요.
+
+felice/inn/19/lines/2
+그냥 없던 일로 하긴 싫어서 말했어요.
+
+felice/inn/19/choices/0/text
+약방 일은 내일로 미루고 지금 나와요.
+
+felice/inn/19/choices/0/response/0
+내일로 미뤄도 되는 일이면 벌써 나왔죠.
+
+felice/inn/19/choices/0/response/1
+늦게까지 기다리게 하고 싶진 않아요.
+
+felice/inn/19/choices/1/text
+다른 날을 지금 잡아 둘까요?
+
+felice/inn/19/choices/1/response/0
+그렇게 하면 덜 미안할 것 같아요.
+
+felice/inn/19/choices/2/text
+언제 끝날지는 아직 모르죠?
+
+felice/inn/19/choices/2/response/0
+네, 끝나는 시간을 확답하긴 어려워요.
+
+felice/inn/19/seen
+취소한 저녁 대신 다른 날을 정했어요.
+
+felice/inn/20/situation
+함께 고를 저녁 메뉴를 종이에 적는다.
+
+felice/inn/20/lines/0
+길 안내는 좀 쉴래요.
+
+felice/inn/20/lines/1
+아는 데가 많아도 늘 제가 정할 필요는 없죠.
+
+felice/inn/20/lines/2
+먹고 싶은 데가 있으면 골라 봐요.
+
+felice/inn/20/choices/0/text
+길을 잘못 들면 같이 돌아와요.
+
+felice/inn/20/choices/0/response/0
+네, 제가 설명만 쏟아내진 않을게요.
+
+felice/inn/20/choices/0/response/1
+가다 궁금한 간판이 있으면 물어봐요.
+
+felice/inn/20/choices/1/text
+국수 말고 먹고 싶은 건 있어요?
+
+felice/inn/20/choices/1/response/0
+오늘은 다른 걸 골라도 괜찮아요.
+
+felice/inn/20/choices/2/text
+모르는 데 가면 괜히 손해 볼 텐데요.
+
+felice/inn/20/choices/2/response/0
+그럼 저는 계속 아는 곳만 가야 하잖아요.
+
+felice/inn/20/choices/2/response/1
+가끔은 제가 길을 잘못 골라도 같이 걸어 봐요.
+
+felice/inn/20/seen
+오늘 길은 둘이 찾아보기로 했어요.
+
+felice/inn/21/situation
+웃다가 자기 말을 다시 짚는다.
+
+felice/inn/21/lines/0
+방금도 버릇처럼 웃어 버렸네요.
+
+felice/inn/21/lines/1
+아까 그 말은 좀 서운했어요.
+
+felice/inn/21/lines/2
+아직 그런 버릇이 바로 없어지진 않네요.
+
+felice/inn/21/choices/0/text
+그러면 아까 얘기를 다시 해요.
+
+felice/inn/21/choices/0/response/0
+중간부터 천천히 말해 볼게요.
+
+felice/inn/21/choices/1/text
+앞으로는 웃지 않으면 알기 쉽겠어요.
+
+felice/inn/21/choices/1/response/0
+웃는 것까지 조심하려면 더 힘들어요.
+
+felice/inn/21/choices/1/response/1
+웃고 나서 아니라고 말할 시간도 줘요.
+
+felice/inn/21/choices/2/text
+웃는 얼굴만 보고 넘기진 않을게요.
+
+felice/inn/21/choices/2/response/0
+제가 다시 말할 때도 조금 기다려 주세요.
+
+felice/inn/21/seen
+아까 못 한 말이 있어요.
+
+felice/inn/22/situation
+약속을 적다가 자기 이름을 길게 쓴다.
+
+felice/inn/22/lines/0
+펠리스 다 토르바라고 쓰면 길죠?
+
+felice/inn/22/lines/1
+어느 도시 사람이냐는 이름이에요.
+
+felice/inn/22/lines/2
+오늘은 줄이지 않고 써 봤어요.
+
+felice/inn/22/choices/0/text
+빨리 부를 별명을 제가 지어 줄까요?
+
+felice/inn/22/choices/0/response/0
+이미 부르기 편한 이름이 있는데요.
+
+felice/inn/22/choices/0/response/1
+새 이름보다 지금 이름을 끝까지 쓰고 싶었어요.
+
+felice/inn/22/choices/1/text
+다 쓰실 때까지 종이 잡고 있을게요.
+
+felice/inn/22/choices/1/response/0
+마지막 글자까지 번지지 않게 잡아 주세요.
+
+felice/inn/22/choices/2/text
+글씨가 종이에 딱 맞네요.
+
+felice/inn/22/choices/2/response/0
+처음엔 칸이 모자랄 줄 알았어요.
+
+felice/inn/22/seen
+오늘 종이엔 이름을 끝까지 썼어요.
+
+felice/inn/23/situation
+만남이 끝날 무렵 이야기를 하나 더 꺼낸다.
+
+felice/inn/23/lines/0
+돌아가려는데 자꾸 할 말이 생기네요.
+
+felice/inn/23/lines/1
+붙잡으려고 소문을 꺼내진 않을게요.
+
+felice/inn/23/lines/2
+그냥 조금 더 있다 가고 싶어요.
+
+felice/inn/23/choices/0/text
+얼마나 더 있을지 같이 정해요.
+
+felice/inn/23/choices/0/response/0
+너무 늦어지면 제가 말할게요.
+
+felice/inn/23/choices/1/text
+지금은 아직 시간 있어요.
+
+felice/inn/23/choices/1/response/0
+그럼 잔 치우는 건 조금 미룰까요?
+
+felice/inn/23/choices/2/text
+다음 얘기가 재밌으면 더 있어요.
+
+felice/inn/23/choices/2/response/0
+얘기가 재미없으면 바로 가실 것 같잖아요.
+
+felice/inn/23/choices/2/response/1
+붙잡아 보려고 남 얘기를 꺼내긴 싫더라고요.
+
+felice/inn/23/seen
+소문 없이도 조금 더 앉아 있기로 했어요.
+
+felice/inn/24/situation
+약방 문을 닫은 뒤 먼저 손을 흔든다.
+
+felice/inn/24/lines/0
+저 따라오시려고 했어요?
+
+felice/inn/24/lines/1
+제가 만나러 가려고 문을 닫았거든요.
+
+felice/inn/24/lines/2
+어디로 걷고 싶은지 물어보러 왔어요.
+
+felice/inn/24/choices/0/text
+먼저 겉옷을 챙겨요.
+
+felice/inn/24/choices/0/response/0
+안쪽에 둔 것만 가져오면 돼요.
+
+felice/inn/24/choices/1/text
+가는 길에 단골들한테 인사시켜 줘요.
+
+felice/inn/24/choices/1/response/0
+소개는 다음에 해 드릴게요.
+
+felice/inn/24/choices/1/response/1
+저도 길 안내 말고 다른 얘기 좀 해요.
+
+felice/inn/24/choices/2/text
+같이 정하면서 천천히 걸어요.
+
+felice/inn/24/choices/2/response/0
+제가 멋대로 길을 정하면 말려 주세요.
+
+felice/inn/24/choices/2/response/1
+어디부터 걸을지 저도 처음부터 같이 생각해요.
+
+felice/inn/24/seen
+어디로 가는지 아직 안 물어봤네요.
+
+felice/inn/25/situation
+사람 많은 방에서 조용히 시선을 맞춘다.
+
+felice/inn/25/lines/0
+여럿이 있어도 저를 보셨네요.
+
+felice/inn/25/lines/1
+제가 조용해서 그냥 지나가실 줄 알았어요.
+
+felice/inn/25/lines/2
+지금은 얘기 듣는 게 더 좋아요.
+
+felice/inn/25/choices/0/text
+펠리스 씨가 조용하면 다들 심심해요.
+
+felice/inn/25/choices/0/response/0
+오늘 분위기는 다른 분이 띄워도 되죠.
+
+felice/inn/25/choices/0/response/1
+한 번쯤은 누가 얘기하는 걸 저도 듣고 싶어요.
+
+felice/inn/25/choices/1/text
+말 걸고 싶으면 옆자리로 와요.
+
+felice/inn/25/choices/1/response/0
+중간에 안 끼어도 자리가 있겠네요.
+
+felice/inn/25/choices/2/text
+의자는 하나 더 있어요.
+
+felice/inn/25/choices/2/response/0
+그럼 이쪽으로 가져와도 되겠어요?
+
+felice/inn/25/seen
+그 얘기 재밌네요. 계속해 봐요.
+
+felice/inn/26/situation
+골목에서 있었던 곤란한 부탁을 털어놓는다.
+
+felice/inn/26/lines/0
+두 군데서 같은 시간에 와 달래요.
+
+felice/inn/26/lines/1
+한쪽을 고르면 다른 쪽이 서운하겠죠.
+
+felice/inn/26/lines/2
+그래도 모른 척 사라지진 않으려고요.
+
+felice/inn/26/choices/0/text
+갈 수 있는 시간을 각각 말해 봐요.
+
+felice/inn/26/choices/0/response/0
+못 가는 쪽에도 제가 직접 설명할게요.
+
+felice/inn/26/choices/1/text
+약속한 시간이 겹쳤어요?
+
+felice/inn/26/choices/1/response/0
+아직 답을 안 해서 약속 전이에요.
+
+felice/inn/26/choices/2/text
+더 이익이 되는 쪽을 고르면 편하죠.
+
+felice/inn/26/choices/2/response/0
+아는 사람을 그렇게 줄 세우긴 싫어요.
+
+felice/inn/26/choices/2/response/1
+제 얼굴을 아는 사람한테 손익부터 대긴 어렵네요.
+
+felice/inn/26/seen
+이번엔 못 간다는 말도 직접 할 거예요.
+
+felice/inn/27/situation
+같이 먹던 저녁 끝에 말을 멈춘다.
+
+felice/inn/27/lines/0
+조용해졌네요.
+
+felice/inn/27/lines/1
+전 같으면 새 얘기를 찾았을 텐데요.
+
+felice/inn/27/lines/2
+지금은 그냥 같이 먹는 것도 괜찮아요.
+
+felice/inn/27/choices/0/text
+남은 건 제가 치울게요.
+
+felice/inn/27/choices/0/response/0
+제 접시는 제가 들고 갈게요.
+
+felice/inn/27/choices/1/text
+마지막으로 재밌는 얘기 하나 해 줘요.
+
+felice/inn/27/choices/1/response/0
+지금 편하게 먹었으니 얘기 하나 더 없어도 좋아요.
+
+felice/inn/27/choices/1/response/1
+늘 얘기로 마무리하려니 밥 다 먹고도 바빴어요.
+
+felice/inn/27/choices/2/text
+다 먹고 나서도 조금 앉아 있어요.
+
+felice/inn/27/choices/2/response/0
+그때도 이렇게 조용하면 좋겠네요.
+
+felice/inn/27/seen
+오늘 저녁엔 얘기보다 먹은 시간이 길었어요.
+
+felice/dungeon/0/variants/0
+토르바 길은 돌아와서 알려 드려요.
+
+felice/dungeon/0/variants/1
+지금은 앞에서 정한 길을 봐요.
+
+felice/dungeon/1/variants/0
+병은 흔들리지 않게 넣었어요.
+
+felice/dungeon/1/variants/1
+제가 빠뜨린 것 있으면 말해요.
+
+felice/dungeon/2/variants/0
+오늘도 출발 전엔 말이 많네요.
+
+felice/dungeon/2/variants/1
+돌아와서 먹을 건 그때 골라요.
+
+felice/dungeon/3/variants/0
+골목에서 쓰던 감만 믿고 가면 안 되겠어요.
+
+felice/dungeon/3/variants/1
+여기 길은 저도 처음 살펴요.
+
+felice/dungeon/4/variants/0
+모르는 길은 모른다고 할게요.
+
+felice/dungeon/4/variants/1
+돌아갈 쪽부터 같이 기억해요.
+
+felice/dungeon/5/variants/0
+제가 빨리 말하면 끊어 주세요.
+
+felice/dungeon/5/variants/1
+뒤에 오는 분도 길을 봤죠?
+
+felice/dungeon/6/variants/0
+어머, 저기 보셨어요?
+
+felice/dungeon/6/variants/1
+골목 소문 말고 실제로 찾았네요.
+
+felice/dungeon/7/variants/0
+발견한 쪽을 같이 짚어 봐요.
+
+felice/dungeon/7/variants/1
+아직 뭔지는 단정하지 말아요.
+
+felice/dungeon/8/variants/0
+이건 제가 먼저 봤다고 웃을 때죠?
+
+felice/dungeon/8/variants/1
+뭔지부터 살펴봐야겠네요.
+
+felice/dungeon/9/variants/0
+떠들 틈 없네요. 시작해요!
+
+felice/dungeon/9/variants/1
+이쪽은 제가 보고 있을게요!
+
+felice/dungeon/10/variants/0
+제 말은 들릴 만큼만 할게요!
+
+felice/dungeon/10/variants/1
+서로 움직이는 쪽을 알려 줘요!
+
+felice/dungeon/11/variants/0
+지금은 농담을 아껴 둘래요!
+
+felice/dungeon/11/variants/1
+끝나고도 볼 수 있게 조심해요!
+
+felice/dungeon/12/variants/0
+싸움 끝났어요! 손은 다 괜찮아요?
+
+felice/dungeon/12/variants/1
+웃다가 아픈 데 놓치진 말아요.
+
+felice/dungeon/13/variants/0
+제 병도 안 깨졌나 볼게요.
+
+felice/dungeon/13/variants/1
+고마운 말은 숨 돌린 뒤 할게요.
+
+felice/dungeon/14/variants/0
+지금은 좀 웃어도 되겠네요!
+
+felice/dungeon/14/variants/1
+다 들었으니 한꺼번에 말 안 해도 돼요.
+
+felice/dungeon/15/variants/0
+저 앞이면 준비부터 다시 봐요.
+
+felice/dungeon/15/variants/1
+제가 아는 척할 자리는 아니네요.
+
+felice/dungeon/16/variants/0
+필요한 얘기는 지금 다 해요.
+
+felice/dungeon/16/variants/1
+웃고 넘어갈 건 아닌 것 같아요.
+
+felice/dungeon/17/variants/0
+제 목소리 빨라지면 알려 줘요.
+
+felice/dungeon/17/variants/1
+같이 들어갈 준비가 됐는지 물을게요.
+
+felice/dungeon/18/variants/0
+와, 끝났네요. 이제 숨 쉬겠어요.
+
+felice/dungeon/18/variants/1
+박수보다 다친 곳부터 볼까요?
+
+felice/dungeon/19/variants/0
+이 싸움 얘기는 나중에 길어지겠네요.
+
+felice/dungeon/19/variants/1
+지금은 다들 멀쩡한지 보고 싶어요.
+
+felice/dungeon/20/variants/0
+제가 조용해도 놀라지 마요.
+
+felice/dungeon/20/variants/1
+긴장이 풀리니 말이 잘 안 나와요.
+
+felice/dungeon/21/variants/0
+안 괜찮아 보이는데 말 좀 해요!
+
+felice/dungeon/21/variants/1
+아픈 데는 웃지 말고 알려 줘요!
+
+felice/dungeon/22/variants/0
+제가 다가갈 길 좀 비워 줘요!
+
+felice/dungeon/22/variants/1
+괜찮다는 말은 살핀 뒤에 들어요!
+
+felice/dungeon/23/variants/0
+제 목소리 쪽을 한 번 봐 줘요!
+
+felice/dungeon/23/variants/1
+지금 필요한 걸 짧게 말해 줘요!
+
+felice/dungeon/24/variants/0
+넘어간 쪽을 먼저 봐요!
+
+felice/dungeon/24/variants/1
+대답이 없으면 제가 확인할게요!
+
+felice/dungeon/25/variants/0
+지금은 웃으며 넘길 수 없어요.
+
+felice/dungeon/25/variants/1
+무슨 상태인지 보고 말할게요.
+
+felice/dungeon/26/variants/0
+소리만 지르지 않고 움직일게요.
+
+felice/dungeon/26/variants/1
+다가갈 틈을 같이 만들어 줘요.
+
+felice/dungeon/27/variants/0
+아, 이건 좀 아프네요.
+
+felice/dungeon/27/variants/1
+상처 좀 봐야겠어요.
+
+felice/dungeon/28/variants/0
+제 쪽도 한 번만 봐 주세요.
+
+felice/dungeon/28/variants/1
+말로 감추면 안 되는 상처네요.
+
+felice/dungeon/29/variants/0
+저 지금 버티기가 힘들어요.
+
+felice/dungeon/29/variants/1
+잠깐만 도와 달라고 할게요.
+
+felice/dungeon/30/variants/0
+쉬는 동안엔 제 입도 좀 쉴게요.
+
+felice/dungeon/30/variants/1
+물부터 마시고 다시 얘기해요.
+
+felice/dungeon/31/variants/0
+아무 소식 없어도 같이 앉아요.
+
+felice/dungeon/31/variants/1
+병을 놓고 손 좀 풀게요.
+
+felice/dungeon/32/variants/0
+오늘 저녁 얘기해도 될 때죠?
+
+felice/dungeon/32/variants/1
+말없이 쉬어도 저는 괜찮아요.
+
+felice/dungeon/33/variants/0
+봉인된 걸 골목 요령으로 열 순 없죠.
+
+felice/dungeon/33/variants/1
+열린다는 소문만 믿진 말아요.
+
+felice/dungeon/34/variants/0
+확인된 조건이 있는지 봐요.
+
+felice/dungeon/34/variants/1
+저도 아는 방법이 없으면 말할게요.
+
+felice/dungeon/35/variants/0
+지금은 호기심보다 손을 멈춰요.
+
+felice/dungeon/35/variants/1
+이건 돌아가서 아는 척 못 하겠네요.
+
+felice/dungeon/36/variants/0
+이제 돌아왔으니 길 안내는 제가 할까요?
+
+felice/dungeon/36/variants/1
+일단 짐부터 내려놓고 얘기해요.
+
+felice/dungeon/37/variants/0
+토르바 바람은 알아보겠어요.
+
+felice/dungeon/37/variants/1
+오늘 저녁은 혼자 먹기 싫네요.
+
+felice/dungeon/38/variants/0
+같이 앉을 자리부터 찾을까요?
+
+felice/dungeon/38/variants/1
+소식 없이 돌아와도 반갑잖아요.
+
+felice/dungeon/39/variants/0
+졌다고 웃을 일은 아니네요.
+
+felice/dungeon/39/variants/1
+지금 움직일 수 있는 분부터 말해요.
+
+felice/dungeon/40/variants/0
+괜찮다고 둘러대진 않을게요.
+
+felice/dungeon/40/variants/1
+다들 따라오고 있는지 확인해요.
+
+felice/dungeon/41/variants/0
+무슨 말로 덮을 생각은 없어요.
+
+felice/dungeon/41/variants/1
+오늘 일은 돌아가서 같이 들어요.
+
+felice/transitions/0/situation
+닦던 병을 내려놓고 잠깐 바라본다.
+
+felice/transitions/0/lines/0
+계속 소개해 달라고 안 하셨네요.
+
+felice/transitions/0/lines/1
+길 얘기라면 조금 더 해도 되겠어요.
+
+felice/transitions/1/situation
+웃다가 얼굴을 굳힌다.
+
+felice/transitions/1/lines/0
+제 이름을 대고 부탁하셨다면서요?
+
+felice/transitions/1/lines/1
+오늘은 그 얘기부터 확인해야겠어요.
+
+felice/transitions/2/situation
+손가락으로 통역 골목 쪽을 가리킨다.
+
+felice/transitions/2/lines/0
+그 길은 제가 잘 알아요.
+
+felice/transitions/2/lines/1
+처음 가시면 갈림길부터 같이 볼까요?
+
+felice/transitions/3/situation
+잡아 둔 의자를 식탁 아래로 넣는다.
+
+felice/transitions/3/lines/0
+오늘도 누굴 아느냐는 얘기뿐이네요.
+
+felice/transitions/3/lines/1
+제 소개 없이 갈 길도 있어요.
+
+felice/transitions/4/situation
+소문을 꺼내려다 자기 하루로 말을 돌린다.
+
+felice/transitions/4/lines/0
+남 얘기 말고 제 얘기도 있네요.
+
+felice/transitions/4/lines/1
+오늘은 약방에서 있었던 일부터 할래요.
+
+felice/transitions/5/situation
+약방 이야기를 멈추고 병을 만진다.
+
+felice/transitions/5/lines/0
+역시 소문이 더 궁금하셨네요.
+
+felice/transitions/5/lines/1
+그럼 제 얘기는 여기서 접을게요.
+
+felice/transitions/6/situation
+잔을 놓고 통역 골목 이야기를 시작한다.
+
+felice/transitions/6/lines/0
+웃긴 얘기만은 아닐 수도 있어요.
+
+felice/transitions/6/lines/1
+제가 어떻게 그 골목에서 자랐는지 들어요.
+
+felice/transitions/7/situation
+책상 위의 인형을 안쪽으로 옮긴다.
+
+felice/transitions/7/lines/0
+남의 선물을 더 부탁하진 말아요.
+
+felice/transitions/7/lines/1
+제가 받은 얘기는 제가 말할 때 할게요.
+
+felice/transitions/8/situation
+말 없는 채로 의자에 먼저 앉는다.
+
+felice/transitions/8/lines/0
+오늘은 기운이 조금 없어요.
+
+felice/transitions/8/lines/1
+재밌는 얘기 없이도 같이 있고 싶네요.
+
+felice/transitions/9/situation
+웃으며 하던 말을 스스로 끊는다.
+
+felice/transitions/9/lines/0
+제가 웃으면 다 괜찮은 줄 아시죠?
+
+felice/transitions/9/lines/1
+오늘은 그게 아니었다고 말하고 싶어요.
+
+felice/transitions/10/situation
+먼저 잡은 식사 약속을 다시 확인한다.
+
+felice/transitions/10/lines/0
+누구 소개할 일은 없어요.
+
+felice/transitions/10/lines/1
+그냥 같이 먹을 시간을 남겨 둔 거예요.
+
+felice/transitions/11/situation
+둘이 먹을 자리에 다른 잔을 놓지 않는다.
+
+felice/transitions/11/lines/0
+이번엔 둘이 먹고 싶었어요.
+
+felice/transitions/11/lines/1
+다른 분들께는 다음에 오시라고 해 줘요.
+
+felice/transitions/12/situation
+약방 앞에서 먼저 손을 흔든다.
+
+felice/transitions/12/lines/0
+도시 안내는 나중에도 할 수 있죠.
+
+felice/transitions/12/lines/1
+오늘은 저 만나러 오신 거라 반가워요.
+
+felice/transitions/13/situation
+돌아가려던 걸 멈추고 다시 앉는다.
+
+felice/transitions/13/lines/0
+방금 말은 서운하다고 해 둘게요.
+
+felice/transitions/13/lines/1
+웃고 넘기기보다 다시 얘기하고 싶어요.
+
+sorel/inn/0/situation
+재료 봉투를 자기 쪽으로 당긴다.
+
+sorel/inn/0/lines/0
+이건 제 재료예요.
+
+sorel/inn/0/lines/1
+필요해도 묻고 가져가세요.
+
+sorel/inn/0/lines/2
+물어보면 답은 해 드려요.
+
+sorel/inn/0/choices/0/text
+동료끼리는 같이 써도 되지 않아요?
+
+sorel/inn/0/choices/0/response/0
+제게 묻고 쓰세요.
+
+sorel/inn/0/choices/0/response/1
+얼마나 내줄지는 제가 볼게요.
+
+sorel/inn/0/choices/1/text
+필요한 양부터 말씀드릴게요.
+
+sorel/inn/0/choices/1/response/0
+쓰임을 알면 내줄지 정할 수 있어요.
+
+sorel/inn/0/choices/2/text
+자리를 조금 비켜 드릴까요?
+
+sorel/inn/0/choices/2/response/0
+봉투를 놓을 만큼만 비켜 주세요.
+
+sorel/inn/0/seen
+이 봉투는 제가 열 때까지 두세요.
+
+sorel/inn/1/situation
+값을 적은 종이를 뒤집는다.
+
+sorel/inn/1/lines/0
+설명은 다 했어요.
+
+sorel/inn/1/lines/1
+비싸면 안 쓰셔도 돼요.
+
+sorel/inn/1/lines/2
+이제 제 식사 좀 해도 될까요?
+
+sorel/inn/1/choices/0/text
+먹고 난 뒤 필요하면 다시 물을게요.
+
+sorel/inn/1/choices/0/response/0
+다 먹을 때까지는 이 종이도 접어 둬요.
+
+sorel/inn/1/choices/1/text
+그릇은 이쪽에 있어요.
+
+sorel/inn/1/choices/1/response/0
+식기 전에 가져와야겠네요.
+
+sorel/inn/1/choices/2/text
+일단 써 보고 값은 나중에 정하죠.
+
+sorel/inn/1/choices/2/response/0
+값을 모르고 내주는 거래는 안 해요.
+
+sorel/inn/1/choices/2/response/1
+다 쓰고 난 뒤에는 물릴 방법도 없어요.
+
+sorel/inn/1/seen
+오늘 거래 얘기는 식사 뒤에 해요.
+
+sorel/inn/2/situation
+봉투 입구에 묻은 가루를 턴다.
+
+sorel/inn/2/lines/0
+조금이라고 함부로 흘리진 마세요.
+
+sorel/inn/2/lines/1
+구하기 쉬워 보이는 것도 손이 가요.
+
+sorel/inn/2/lines/2
+닦는 데만 쓰는 헝겊은 따로 두고요.
+
+sorel/inn/2/choices/0/text
+헝겊이 두 종류네요.
+
+sorel/inn/2/choices/0/response/0
+용도를 나누면 덜 버리게 돼요.
+
+sorel/inn/2/choices/1/text
+싸게 다시 사면 되는 양 아닌가요?
+
+sorel/inn/2/choices/1/response/0
+값이 낮다고 버려도 되는 건 아니에요.
+
+sorel/inn/2/choices/1/response/1
+흘린 걸 다시 모아 쓸 수도 없잖아요.
+
+sorel/inn/2/choices/2/text
+어느 헝겊을 쓰는지 보여 주세요.
+
+sorel/inn/2/choices/2/response/0
+이쪽으로 닦으면 섞이지 않아요.
+
+sorel/inn/2/seen
+닦을 헝겊은 왼쪽에 따로 뒀어요.
+
+sorel/inn/3/situation
+장부의 빈칸을 손가락으로 가린다.
+
+sorel/inn/3/lines/0
+남의 값까지 궁금하세요?
+
+sorel/inn/3/lines/1
+다른 거래는 그 사람과 정했어요.
+
+sorel/inn/3/lines/2
+지금 거래할 건 이 견적에 다 적혀 있어요.
+
+sorel/inn/3/choices/0/text
+더 싸게 산 사람 기준으로 맞춰 줘요.
+
+sorel/inn/3/choices/0/response/0
+그 사람 사정까지 제게 말하게 하시네요.
+
+sorel/inn/3/choices/0/response/1
+그런 식으로는 제가 값을 깎은 이유를 설명해야 하죠.
+
+sorel/inn/3/choices/1/text
+제 견적만 확인하고 돌려드릴게요.
+
+sorel/inn/3/choices/1/response/0
+그 칸이면 설명해도 되겠어요.
+
+sorel/inn/3/choices/2/text
+펜이 잘 안 나오네요.
+
+sorel/inn/3/choices/2/response/0
+촉에 묻은 것부터 닦아야겠어요.
+
+sorel/inn/3/seen
+견적은 필요한 칸만 보여 드려요.
+
+sorel/inn/4/situation
+마른 약초를 두 봉투로 나눈다.
+
+sorel/inn/4/lines/0
+잘 마른 것부터 골라요.
+
+sorel/inn/4/lines/1
+겉만 보고 한꺼번에 넣으면 다시 해야 해요.
+
+sorel/inn/4/lines/2
+이 봉투는 아직 닫지 마세요.
+
+sorel/inn/4/choices/0/text
+고르는 기준을 한 번만 보여 주세요.
+
+sorel/inn/4/choices/0/response/0
+손으로 만지기 전에 이쪽부터 보세요.
+
+sorel/inn/4/choices/0/response/1
+제가 고른 것과 아닌 걸 옆에 놓고 보여 드려요.
+
+sorel/inn/4/choices/1/text
+빈 봉투는 더 필요해요?
+
+sorel/inn/4/choices/1/response/0
+하나면 돼요. 작은 걸로 주세요.
+
+sorel/inn/4/choices/2/text
+다 섞어 놓고 나중에 골라도 되죠?
+
+sorel/inn/4/choices/2/response/0
+섞이면 다시 나누는 시간이 더 들어요.
+
+sorel/inn/4/choices/2/response/1
+나누는 이유를 알면 다음엔 덜 번거로워요.
+
+sorel/inn/4/seen
+닫지 않은 봉투부터 구별해 두세요.
+
+sorel/inn/5/situation
+동전 소리에 장부에서 눈을 든다.
+
+sorel/inn/5/lines/0
+돈 소리 좋지 않아요?
+
+sorel/inn/5/lines/1
+값을 맞춰 주면 긴 설명이 필요 없거든요.
+
+sorel/inn/5/lines/2
+돈 얘기하면 보통 농담인 줄 알고 웃더라고요.
+
+sorel/inn/5/choices/0/text
+동전은 이 접시에 둘게요.
+
+sorel/inn/5/choices/0/response/0
+굴러가지 않아서 보기 쉽겠네요.
+
+sorel/inn/5/choices/1/text
+친해지면 약값은 안 받아도 되겠네요.
+
+sorel/inn/5/choices/1/response/0
+약값은 받아야죠.
+
+sorel/inn/5/choices/1/response/1
+친한 사람한테도 값을 말할 거예요.
+
+sorel/inn/5/choices/2/text
+정한 값이 맞는지 같이 셀까요?
+
+sorel/inn/5/choices/2/response/0
+맞으면 더 설명할 것도 없겠어요.
+
+sorel/inn/5/seen
+정한 만큼 셌으면 접시를 치워도 돼요.
+
+sorel/inn/6/situation
+출신을 묻자 봉투를 접는 속도가 느려진다.
+
+sorel/inn/6/lines/0
+나에린에서 나왔어요.
+
+sorel/inn/6/lines/1
+지금은 여기서 약을 팔고요.
+
+sorel/inn/6/lines/2
+오늘 필요한 건 그 정도 설명 아닌가요?
+
+sorel/inn/6/choices/0/text
+다시 돌아갈 방법을 알아봐 드릴게요.
+
+sorel/inn/6/choices/0/response/0
+돌아가겠다고 부탁한 적은 없어요.
+
+sorel/inn/6/choices/0/response/1
+지금 어느 곳에 있고 싶은지부터 제게 물어봐요.
+
+sorel/inn/6/choices/1/text
+여기 약방 얘기부터 들어도 돼요.
+
+sorel/inn/6/choices/1/response/0
+그 얘기라면 길지 않아요.
+
+sorel/inn/6/choices/2/text
+밖은 많이 시끄럽네요.
+
+sorel/inn/6/choices/2/response/0
+문을 닫으면 좀 나아지겠어요.
+
+sorel/inn/6/seen
+오늘은 약방 얘기까지만 하죠.
+
+sorel/inn/7/situation
+약값 메모 옆을 비워 둔다.
+
+sorel/inn/7/lines/0
+여긴 나중에 적을 거예요.
+
+sorel/inn/7/lines/1
+빠뜨린 게 아니라 일부러 비웠어요.
+
+sorel/inn/7/lines/2
+남의 장부는 좀 그대로 두세요.
+
+sorel/inn/7/choices/0/text
+잘못 본 줄 알고 물었어요.
+
+sorel/inn/7/choices/0/response/0
+확인했으면 이제 비워 두시면 돼요.
+
+sorel/inn/7/choices/1/text
+종이가 얇아서 뒤가 비치네요.
+
+sorel/inn/7/choices/1/response/0
+그래서 한쪽 면만 쓰고 있어요.
+
+sorel/inn/7/choices/2/text
+빈칸은 제가 대신 채워 드려요.
+
+sorel/inn/7/choices/2/response/0
+도와주려는 건 알지만 그 값은 제가 적을게요.
+
+sorel/inn/7/choices/2/response/1
+다 적으면 그때 보여 드릴게요.
+
+sorel/inn/7/seen
+그 빈칸은 제가 채울 때가 있어요.
+
+sorel/inn/8/situation
+견적을 고친 뒤 말없이 밀어 준다.
+
+sorel/inn/8/lines/0
+종이는 이걸로 바꿔요.
+
+sorel/inn/8/lines/1
+값을 다시 정했어요.
+
+sorel/inn/8/lines/2
+지금 보여 드린 게 오늘 값이에요.
+
+sorel/inn/8/choices/0/text
+앞의 종이는 돌려드릴까요?
+
+sorel/inn/8/choices/0/response/0
+제가 따로 접어 놓을게요.
+
+sorel/inn/8/choices/1/text
+다른 분들 것도 이 값이면 좋겠어요.
+
+sorel/inn/8/choices/1/response/0
+제가 정한 예외를 늘리진 말아요.
+
+sorel/inn/8/choices/1/response/1
+오늘 한 거래를 다른 사람한테 약속하진 마세요.
+
+sorel/inn/8/choices/2/text
+고친 종이로 다시 읽어 볼게요.
+
+sorel/inn/8/choices/2/response/0
+오늘은 이렇게 받겠어요. 다음 값은 따로 정해요.
+
+sorel/inn/8/choices/2/response/1
+수정 전 금액으로 다시 계산하진 말아요.
+
+sorel/inn/8/seen
+오늘 견적은 고친 종이를 보세요.
+
+sorel/inn/9/situation
+함께 앉아도 장부를 펼치지 않는다.
+
+sorel/inn/9/lines/0
+오늘은 장부가 없어요.
+
+sorel/inn/9/lines/1
+가게에 두고 왔어요.
+
+sorel/inn/9/lines/2
+볼일 없으면 돌아가실 건가요?
+
+sorel/inn/9/choices/0/text
+그럼 외상 얘기를 해도 되겠네요.
+
+sorel/inn/9/choices/0/response/0
+외상은 기억하고 있어요.
+
+sorel/inn/9/choices/0/response/1
+장부가 없으니 편히 쉬고 싶어서 온 건데요.
+
+sorel/inn/9/choices/1/text
+볼일은 없으니 차나 마셔요.
+
+sorel/inn/9/choices/1/response/0
+그럼 값 얘기도 꺼내지 않을게요.
+
+sorel/inn/9/choices/2/text
+이 자리에 앉아도 돼요?
+
+sorel/inn/9/choices/2/response/0
+의자가 흔들리니 안쪽에 앉아요.
+
+sorel/inn/9/seen
+이번에는 장부 없이 앉아 있을 거예요.
+
+sorel/inn/10/situation
+재료 냄새를 맡다가 잠깐 멈춘다.
+
+sorel/inn/10/lines/0
+이 냄새는 아시겠어요?
+
+sorel/inn/10/lines/1
+봉투 가까이서 맡아 보세요.
+
+sorel/inn/10/lines/2
+섞였는지 확인하는 중이에요.
+
+sorel/inn/10/choices/0/text
+다 맡아 보실 때까지 기다릴게요.
+
+sorel/inn/10/choices/0/response/0
+제가 끝나면 봉투를 닫아 주세요.
+
+sorel/inn/10/choices/1/text
+방이 조금 답답하네요.
+
+sorel/inn/10/choices/1/response/0
+창은 확인이 끝나면 열어요.
+
+sorel/inn/10/choices/2/text
+향이 좋으니 방에 계속 두죠.
+
+sorel/inn/10/choices/2/response/0
+향만 맡으려고 열어 두면 못 쓰게 돼요.
+
+sorel/inn/10/choices/2/response/1
+향은 맡았으니 이제 닫아 주세요.
+
+sorel/inn/10/seen
+확인한 봉투는 다시 닫아 놓았어요.
+
+sorel/inn/11/situation
+다른 엘프 이야기에 숟가락을 내려놓는다.
+
+sorel/inn/11/lines/0
+같은 숲이라고 다 아는 건 아니에요.
+
+sorel/inn/11/lines/1
+그분들한테 제 말을 전할 필요도 없고요.
+
+sorel/inn/11/lines/2
+같이 밥 먹는 데 소개가 필요한가요?
+
+sorel/inn/11/choices/0/text
+다른 얘기를 해도 괜찮아요.
+
+sorel/inn/11/choices/0/response/0
+오늘 일 얘기면 제가 먼저 할게요.
+
+sorel/inn/11/choices/1/text
+오해를 풀 자리를 마련해 드릴게요.
+
+sorel/inn/11/choices/1/response/0
+오해였다는 말부터 아직 못 하겠어요.
+
+sorel/inn/11/choices/1/response/1
+중간에서 억지로 만나게 하면 더 불편하겠어요.
+
+sorel/inn/11/choices/2/text
+소개 없이 여기서 같이 먹어요.
+
+sorel/inn/11/choices/2/response/0
+밥이 식기 전에 그 얘긴 접어요.
+
+sorel/inn/11/seen
+같은 숲 얘기는 식탁에서 그만하죠.
+
+sorel/inn/12/situation
+자기 이름을 적다가 성까지 덧쓴다.
+
+sorel/inn/12/lines/0
+아엔윈도 제 이름이에요.
+
+sorel/inn/12/lines/1
+장로들이 지웠다고 했어도 저는 써요.
+
+sorel/inn/12/lines/2
+여기까지 지우고 싶지는 않아서요.
+
+sorel/inn/12/choices/0/text
+새 성을 쓰면 마음이 가벼워질 텐데요.
+
+sorel/inn/12/choices/0/response/0
+바꾸고 싶었으면 벌써 바꿨어요.
+
+sorel/inn/12/choices/0/response/1
+이름 하나라도 제 뜻으로 남기고 싶어요.
+
+sorel/inn/12/choices/1/text
+적힌 그대로 불러 드릴게요.
+
+sorel/inn/12/choices/1/response/0
+편하자고 줄이지는 말아 주세요.
+
+sorel/inn/12/choices/1/response/1
+숲 이름을 빼라고만 안 하시면 돼요.
+
+sorel/inn/12/choices/2/text
+잉크가 아직 덜 말랐어요.
+
+sorel/inn/12/choices/2/response/0
+접기 전에 조금 기다려야겠네요.
+
+sorel/inn/12/seen
+성까지 쓴 종이는 접지 말고 두세요.
+
+sorel/inn/13/situation
+약초를 팔던 시절을 짧게 말한다.
+
+sorel/inn/13/lines/0
+공터에서 허락한 만큼 바꾸곤 했어요.
+
+sorel/inn/13/lines/1
+나중에는 밖에 직접 팔았고요.
+
+sorel/inn/13/lines/2
+그 뒤 추방됐다는 건 아시죠?
+
+sorel/inn/13/choices/0/text
+말하고 싶은 데까지만 들어요.
+
+sorel/inn/13/choices/0/response/0
+말한 데서 기다려 주시니 덜 불편하네요.
+
+sorel/inn/13/choices/1/text
+지금도 그 손질법을 쓰세요?
+
+sorel/inn/13/choices/1/response/0
+약초 다루는 손은 쉽게 안 바뀌어요.
+
+sorel/inn/13/choices/2/text
+먹고살기 위해선 어쩔 수 없었겠죠.
+
+sorel/inn/13/choices/2/response/0
+제가 그런 사정이었다고 말했나요?
+
+sorel/inn/13/choices/2/response/1
+왜 팔았는지는 제가 얘기할게요.
+
+sorel/inn/13/seen
+왜 팔았는지는 아직 말 안 했어요.
+
+sorel/inn/14/situation
+밖에서 들리는 잎 소리에 잠시 귀를 기울인다.
+
+sorel/inn/14/lines/0
+아까부터 저 소리가 들렸어요.
+
+sorel/inn/14/lines/1
+숲 얘기할 때만 조용해진다고요?
+
+sorel/inn/14/lines/2
+그 정도는 눈에 띄나 보네요.
+
+sorel/inn/14/choices/0/text
+창문을 더 열까요?
+
+sorel/inn/14/choices/0/response/0
+그대로 두면 소리가 들어와요.
+
+sorel/inn/14/choices/1/text
+잊으려면 창부터 닫는 게 낫겠어요.
+
+sorel/inn/14/choices/1/response/0
+저 소리가 그리워서 듣고 있어요.
+
+sorel/inn/14/choices/1/response/1
+그리우면 조금 듣고 있을 수도 있죠.
+
+sorel/inn/14/choices/2/text
+듣고 싶으면 잠깐 말 안 할게요.
+
+sorel/inn/14/choices/2/response/0
+말을 이어 가면 저 소리를 놓칠 것 같아요.
+
+sorel/inn/14/seen
+저 소리가 들리는 동안은 창을 두세요.
+
+sorel/inn/15/situation
+할인한 기록을 보다가 장부를 덮는다.
+
+sorel/inn/15/lines/0
+셈은 맞아요.
+
+sorel/inn/15/lines/1
+덜 받은 값도 제가 적어 뒀어요.
+
+sorel/inn/15/lines/2
+손해인지 아닌지는 제가 정할게요.
+
+sorel/inn/15/choices/0/text
+착한 일인데 사람들에게 알려요.
+
+sorel/inn/15/choices/0/response/0
+다음 손님 앞에서 제 값을 설명하기 싫어요.
+
+sorel/inn/15/choices/0/response/1
+그 손님한테 얼마 받았느냐고 물으면 곤란해져요.
+
+sorel/inn/15/choices/1/text
+맞는 셈이면 더 묻지 않을게요.
+
+sorel/inn/15/choices/1/response/0
+제가 정한 값이니 깎인 액수는 그만 봐요.
+
+sorel/inn/15/choices/2/text
+장부 끈이 풀렸네요.
+
+sorel/inn/15/choices/2/response/0
+다시 묶고 넣어 둘 거예요.
+
+sorel/inn/15/seen
+덜 받은 칸도 남한테 읽히려고 쓴 건 아니에요.
+
+sorel/inn/16/situation
+먼저 숲이 그립다는 말을 꺼낸다.
+
+sorel/inn/16/lines/0
+숲이 그리워요.
+
+sorel/inn/16/lines/1
+이 말을 하면 돌아가자고 하실까 봐 피했어요.
+
+sorel/inn/16/lines/2
+그립다고 당장 갈 수 있는 것도 아닌데요.
+
+sorel/inn/16/choices/0/text
+오늘은 그립다는 말만 들어요.
+
+sorel/inn/16/choices/0/response/0
+그럼 설명을 더 붙이지 않아도 되겠네요.
+
+sorel/inn/16/choices/0/response/1
+좀 듣다가 차가 식으면 알려 줘요.
+
+sorel/inn/16/choices/1/text
+조금 더 말하고 싶어요?
+
+sorel/inn/16/choices/1/response/0
+생각나면 제가 이어서 할게요.
+
+sorel/inn/16/choices/2/text
+같은 나무를 구해 방에 놓을까요?
+
+sorel/inn/16/choices/2/response/0
+그 나무를 여기까지 가져오진 말아요.
+
+sorel/inn/16/choices/2/response/1
+그리운 걸 바로 고칠 물건은 없어요.
+
+sorel/inn/16/seen
+오늘은 그립다고 말한 걸로 충분해요.
+
+sorel/inn/17/situation
+약 봉투를 내려놓고 손을 편다.
+
+sorel/inn/17/lines/0
+이건 거래하러 온 게 아니에요.
+
+sorel/inn/17/lines/1
+가져왔으니 드려야 할 것 같아서 내려놨어요.
+
+sorel/inn/17/lines/2
+그냥 얘기하다 갈 거예요.
+
+sorel/inn/17/choices/0/text
+이 자리 덜 춥네요.
+
+sorel/inn/17/choices/0/response/0
+손이 좀 풀리면 가도 되겠어요.
+
+sorel/inn/17/choices/1/text
+선물인 줄 알고 받을 뻔했어요.
+
+sorel/inn/17/choices/1/response/0
+아, 그건 제 거예요.
+
+sorel/inn/17/choices/1/response/1
+얘기 끝나면 제가 다시 챙겨 갈 거예요.
+
+sorel/inn/17/choices/2/text
+봉투는 두고 편하게 앉아요.
+
+sorel/inn/17/choices/2/response/0
+돌아갈 때 잊지 않게 옆에 둘게요.
+
+sorel/inn/17/seen
+봉투는 제 옆에 두고 얘기할래요.
+
+sorel/inn/18/situation
+다음 거래 얘기에서 말을 바꾼다.
+
+sorel/inn/18/lines/0
+다음에도 올 거냐고 물으려던 건데요.
+
+sorel/inn/18/lines/1
+약 얘기부터 꺼냈네요.
+
+sorel/inn/18/lines/2
+안 사셔도 오셔도 돼요.
+
+sorel/inn/18/choices/0/text
+그럼 할인은 계속 받을 수 있겠네요.
+
+sorel/inn/18/choices/0/response/0
+지금 그 얘기를 꺼내고 싶진 않았어요.
+
+sorel/inn/18/choices/0/response/1
+약 안 사도 된다는 뜻은 들으셨죠?
+
+sorel/inn/18/choices/1/text
+살 게 없어도 들를게요.
+
+sorel/inn/18/choices/1/response/0
+바쁘면 잠깐 기다려 주시면 돼요.
+
+sorel/inn/18/choices/2/text
+한가할 때가 언제예요?
+
+sorel/inn/18/choices/2/response/0
+정해진 때는 없으니 와서 봐요.
+
+sorel/inn/18/seen
+안 사도 된다는 말을 또 하게 되네요.
+
+sorel/inn/19/situation
+실수한 계량 기록을 직접 보여 준다.
+
+sorel/inn/19/lines/0
+여기 제가 잘못 적었어요.
+
+sorel/inn/19/lines/1
+쓰는 데 문제는 없지만 기록은 고쳐야죠.
+
+sorel/inn/19/lines/2
+모른 척 넘길 수도 있었겠지만요.
+
+sorel/inn/19/choices/0/text
+고친 걸 확인하고 앞의 건 돌려드려요.
+
+sorel/inn/19/choices/0/response/0
+그럼 잘못된 종이는 제가 지울게요.
+
+sorel/inn/19/choices/1/text
+어느 줄을 보면 돼요?
+
+sorel/inn/19/choices/1/response/0
+맨 아래 합계 바로 위예요.
+
+sorel/inn/19/choices/2/text
+이번 건 공짜로 하면 깔끔하겠어요.
+
+sorel/inn/19/choices/2/response/0
+틀린 글씨 값을 그렇게 매기진 마세요.
+
+sorel/inn/19/choices/2/response/1
+잘못된 합계부터 맞춰요.
+
+sorel/inn/19/seen
+잘못 쓴 종이는 고쳐서 제가 보관해요.
+
+sorel/inn/20/situation
+계획을 묻다가 먼저 자신의 한계를 말한다.
+
+sorel/inn/20/lines/0
+같이 가면 제 몫은 할 거예요.
+
+sorel/inn/20/lines/1
+그렇다고 모든 걸 고칠 수는 없어요.
+
+sorel/inn/20/lines/2
+그 말도 미리 해 두고 싶었어요.
+
+sorel/inn/20/choices/0/text
+필요한 준비부터 말해 주세요.
+
+sorel/inn/20/choices/0/response/0
+재료 상태부터 확인하면 돼요.
+
+sorel/inn/20/choices/1/text
+소렐 씨라면 다 해결할 거예요.
+
+sorel/inn/20/choices/1/response/0
+그런 기대를 받으면 값을 못 정해요.
+
+sorel/inn/20/choices/1/response/1
+기대를 맞추려고 모르는 걸 안다고 하긴 싫어요.
+
+sorel/inn/20/choices/2/text
+할 수 있는 걸 알고 함께 갈게요.
+
+sorel/inn/20/choices/2/response/0
+못 하는 걸 숨기라고 하진 마세요.
+
+sorel/inn/20/choices/2/response/1
+어디까지 할 수 있을지 출발 전에 말씀드려요.
+
+sorel/inn/20/seen
+제가 못 하는 일도 출발 전에 말할게요.
+
+sorel/inn/21/situation
+이름이 적힌 종이를 자신 쪽으로 돌린다.
+
+sorel/inn/21/lines/0
+이름 때문에 언짢을 때가 있어요.
+
+sorel/inn/21/lines/1
+그래도 그걸 뺀다고 편해지진 않아요.
+
+sorel/inn/21/lines/2
+제가 쓰는 걸 그냥 봐 주시면 돼요.
+
+sorel/inn/21/choices/0/text
+숲 이름 말고 지금 이름만 보면 되죠.
+
+sorel/inn/21/choices/0/response/0
+지금 쓰는 이름에 그 숲도 들어 있어요.
+
+sorel/inn/21/choices/0/response/1
+여기 와서도 그 이름을 제가 쓰고 있잖아요.
+
+sorel/inn/21/choices/1/text
+지우라는 말은 제가 하지 않을게요.
+
+sorel/inn/21/choices/1/response/0
+물으실 거면 제가 답할 때까지 기다려요.
+
+sorel/inn/21/choices/2/text
+종이를 잡아 드릴까요?
+
+sorel/inn/21/choices/2/response/0
+왼쪽 끝만 눌러 주시면 돼요.
+
+sorel/inn/21/seen
+아엔윈까지 다 써야 제 이름이에요.
+
+sorel/inn/22/situation
+가까운 자리를 권하면서 찻잔을 옮긴다.
+
+sorel/inn/22/lines/0
+이쪽 자리로 오실래요?
+
+sorel/inn/22/lines/1
+거긴 자꾸 사람들이 지나가잖아요.
+
+sorel/inn/22/lines/2
+얘기할 때마다 사람을 비켜 줘야 하네요.
+
+sorel/inn/22/choices/0/text
+이쪽에서 마저 얘기해요.
+
+sorel/inn/22/choices/0/response/0
+잔은 제가 옮겼으니 몸만 오시면 돼요.
+
+sorel/inn/22/choices/1/text
+안쪽 자리가 비었네요.
+
+sorel/inn/22/choices/1/response/0
+제가 잡아 둔 자리예요.
+
+sorel/inn/22/choices/2/text
+같이 있는 걸 보여 주면 좋지 않아요?
+
+sorel/inn/22/choices/2/response/0
+저는 조용한 데서 얘기하고 싶어요.
+
+sorel/inn/22/choices/2/response/1
+오가는 사람이 적어야 말이 잘 들려요.
+
+sorel/inn/22/seen
+오늘은 오가는 사람 적은 자리에 앉아요.
+
+sorel/inn/23/situation
+돈 얘기를 하다가 먼저 웃음을 거둔다.
+
+sorel/inn/23/lines/0
+돈이 좋은 건 여전해요.
+
+sorel/inn/23/lines/1
+가까워졌다고 그 말까지 바꾸진 않을게요.
+
+sorel/inn/23/lines/2
+다르게 들리는 때가 생겼을 뿐이죠.
+
+sorel/inn/23/choices/0/text
+차는 더 남았어요?
+
+sorel/inn/23/choices/0/response/0
+물병에 조금 있으니 따를게요.
+
+sorel/inn/23/choices/1/text
+그럼 다음 약값은 얘기 안 해도 되겠네요.
+
+sorel/inn/23/choices/1/response/0
+다음 약값도 제가 정해요.
+
+sorel/inn/23/choices/1/response/1
+약 안 살 때도 만나자는 얘기였는데요.
+
+sorel/inn/23/choices/2/text
+약 안 사도 와서 얘기해도 되죠?
+
+sorel/inn/23/choices/2/response/0
+뭘 살 건지 묻지 않고 만나게 됐잖아요.
+
+sorel/inn/23/seen
+오늘도 값은 셌지만 그 얘기만 하진 않았어요.
+
+sorel/inn/24/situation
+빈손으로 와서 맞은편에 앉는다.
+
+sorel/inn/24/lines/0
+정말 아무것도 안 가져왔어요.
+
+sorel/inn/24/lines/1
+오늘 팔 것도 부탁할 것도 없고요.
+
+sorel/inn/24/lines/2
+앉아도 되느냐고 묻는 건 좀 늦었네요.
+
+sorel/inn/24/choices/0/text
+이왕 왔으니 견적 하나만 봐 줘요.
+
+sorel/inn/24/choices/0/response/0
+오늘은 그 종이를 안 보고 싶어요.
+
+sorel/inn/24/choices/0/response/1
+그냥 차 마시면서 쉬고 갈래요.
+
+sorel/inn/24/choices/1/text
+이미 앉았으니 잔부터 받아요.
+
+sorel/inn/24/choices/1/response/0
+그럼 일어났다 다시 묻진 않을게요.
+
+sorel/inn/24/choices/1/response/1
+아무 물건도 안 내놓고 앉는 게 좀 어색하긴 해요.
+
+sorel/inn/24/choices/2/text
+문은 닫고 왔어요?
+
+sorel/inn/24/choices/2/response/0
+바람 들어오던 문까지 닫았어요.
+
+sorel/inn/24/seen
+장부를 안 가져오니 손이 가볍네요.
+
+sorel/inn/25/situation
+숲에서 가져온 이름을 또박또박 쓴다.
+
+sorel/inn/25/lines/0
+그립다고 한 걸 후회하진 않아요.
+
+sorel/inn/25/lines/1
+다만 매번 그 얘기부터 꺼내고 싶진 않죠.
+
+sorel/inn/25/lines/2
+오늘은 여기서 있었던 일을 말할래요.
+
+sorel/inn/25/choices/0/text
+오늘 일은 어디부터 시작해요?
+
+sorel/inn/25/choices/0/response/0
+아침에 가게 문이 잘 안 열렸어요.
+
+sorel/inn/25/choices/1/text
+손은 다치지 않았어요?
+
+sorel/inn/25/choices/1/response/0
+손바닥이 조금 붉어진 정도예요.
+
+sorel/inn/25/choices/2/text
+그런 날엔 숲 생각이 더 나겠네요.
+
+sorel/inn/25/choices/2/response/0
+아직 그 얘기로 돌아갈 생각은 없었어요.
+
+sorel/inn/25/choices/2/response/1
+고향 말고 오늘 있었던 일도 있거든요.
+
+sorel/inn/25/seen
+오늘은 안 열리던 문 얘기부터 할 거예요.
+
+sorel/inn/26/situation
+오래된 견적을 보여 주다가 다시 접는다.
+
+sorel/inn/26/lines/0
+이 값 기억하세요?
+
+sorel/inn/26/lines/1
+처음 깎았을 때 이유를 안 물었죠.
+
+sorel/inn/26/lines/2
+그게 꽤 편했던 건 이제 말해도 되겠네요.
+
+sorel/inn/26/choices/0/text
+종이가 많이 닳았네요.
+
+sorel/inn/26/choices/0/response/0
+가끔 다시 봐서 그런가 봐요.
+
+sorel/inn/26/choices/1/text
+그때부터 특별했다고 적어 둘까요?
+
+sorel/inn/26/choices/1/response/0
+제 마음까지 대신 기록하진 마세요.
+
+sorel/inn/26/choices/1/response/1
+그때 왜 그랬는지는 제가 알아서 말할게요.
+
+sorel/inn/26/choices/2/text
+다음에도 이 종이를 보면 되겠네요.
+
+sorel/inn/26/choices/2/response/0
+제가 설명하고 싶을 때 말할게요.
+
+sorel/inn/26/seen
+그 견적을 왜 남겼는지는 제가 말할게요.
+
+sorel/inn/27/situation
+돌아갈 시간을 묻다가 대답을 기다린다.
+
+sorel/inn/27/lines/0
+조금 더 있어도 될까요?
+
+sorel/inn/27/lines/1
+늦으면 가라고 해도 돼요.
+
+sorel/inn/27/lines/2
+불편하시면 이제 가 볼게요.
+
+sorel/inn/27/choices/0/text
+원하시는 만큼은 무조건 기다릴게요.
+
+sorel/inn/27/choices/0/response/0
+얼마나 힘든지도 말해 주셔야 해요.
+
+sorel/inn/27/choices/0/response/1
+싫어도 기다리셨다는 말을 나중에 듣긴 싫어요.
+
+sorel/inn/27/choices/1/text
+저도 더 있고 싶으니 같이 있어요.
+
+sorel/inn/27/choices/1/response/0
+그럼 조금 더 같이 있어요.
+
+sorel/inn/27/choices/2/text
+잔을 치우는 건 미룰까요?
+
+sorel/inn/27/choices/2/response/0
+하나 더 쓸 생각은 없으니 그대로 둬요.
+
+sorel/inn/27/seen
+조금 더 있다 갈게요.
+
+sorel/dungeon/0/variants/0
+재료는 챙겼어요. 출발하죠.
+
+sorel/dungeon/0/variants/1
+필요한 건 나중에 꺼낼게요.
+
+sorel/dungeon/1/variants/0
+먼저 받은 걸 함부로 쓰진 말아요.
+
+sorel/dungeon/1/variants/1
+빠진 준비는 지금 말해요.
+
+sorel/dungeon/2/variants/0
+돌아올 생각으로 챙겨 왔어요.
+
+sorel/dungeon/2/variants/1
+제가 늦으면 잠깐만 기다려요.
+
+sorel/dungeon/3/variants/0
+이 층은 저도 확인해야 해요.
+
+sorel/dungeon/3/variants/1
+지나온 곳과 같다고 보진 말아요.
+
+sorel/dungeon/4/variants/0
+길을 본 뒤에 자리를 정해요.
+
+sorel/dungeon/4/variants/1
+제가 살핀 쪽도 들어 보세요.
+
+sorel/dungeon/5/variants/0
+혼자 다 안다고 할 생각 없어요.
+
+sorel/dungeon/5/variants/1
+옆에서 본 걸 같이 말해요.
+
+sorel/dungeon/6/variants/0
+찾은 게 쓸 만한지는 따로 봐요.
+
+sorel/dungeon/6/variants/1
+먼저 집으면 손을 다칠 수 있어요.
+
+sorel/dungeon/7/variants/0
+모른 채로 값을 매기진 않아요.
+
+sorel/dungeon/7/variants/1
+재료인지부터 확인해야겠어요.
+
+sorel/dungeon/8/variants/0
+같이 찾았으니 같이 살펴요.
+
+sorel/dungeon/8/variants/1
+확인 전엔 가져갈 몫도 안 정해요.
+
+sorel/dungeon/9/variants/0
+지금은 셈보다 앞을 봐요.
+
+sorel/dungeon/9/variants/1
+제 쪽까지 밀리진 않게 해요.
+
+sorel/dungeon/10/variants/0
+재료 낭비할 틈은 없어요.
+
+sorel/dungeon/10/variants/1
+서로 어디 있는지는 보고 움직여요.
+
+sorel/dungeon/11/variants/0
+제가 할 수 있는 만큼 할게요.
+
+sorel/dungeon/11/variants/1
+전부 맡기겠다는 말은 나중에 해요.
+
+sorel/dungeon/12/variants/0
+끝났으면 상처부터 확인해요.
+
+sorel/dungeon/12/variants/1
+안 쓴 재료는 다시 챙겨요.
+
+sorel/dungeon/13/variants/0
+버티느라 숨긴 데는 없어요?
+
+sorel/dungeon/13/variants/1
+누가 무리했는지 얼굴에 보이네요.
+
+sorel/dungeon/14/variants/0
+값 얘기는 지금 안 할게요.
+
+sorel/dungeon/14/variants/1
+저도 손부터 쉬어야겠어요.
+
+sorel/dungeon/15/variants/0
+저 앞이면 준비를 더 봐야 해요.
+
+sorel/dungeon/15/variants/1
+싸게 끝날 거라 기대하진 말아요.
+
+sorel/dungeon/16/variants/0
+필요한 걸 아낄 때는 아니에요.
+
+sorel/dungeon/16/variants/1
+할 수 없는 일도 지금 말해요.
+
+sorel/dungeon/17/variants/0
+저를 믿어도 무리하진 말아요.
+
+sorel/dungeon/17/variants/1
+들어가면 서로 상태를 알려요.
+
+sorel/dungeon/18/variants/0
+이 정도면 손이 다 굳네요.
+
+sorel/dungeon/18/variants/1
+끝났다고 재료를 던지진 말아요.
+
+sorel/dungeon/19/variants/0
+큰 싸움 뒤일수록 상처를 봐요.
+
+sorel/dungeon/19/variants/1
+여유 생겼다고 바로 걷진 말아요.
+
+sorel/dungeon/20/variants/0
+오늘은 다들 앉는 것부터 해요.
+
+sorel/dungeon/20/variants/1
+제 손도 떨리는 건 사실이에요.
+
+sorel/dungeon/21/variants/0
+다친 곳을 보여 줘요!
+
+sorel/dungeon/21/variants/1
+괜찮은 척하면 확인이 늦어요!
+
+sorel/dungeon/22/variants/0
+그 상태로 혼자 버티진 말아요!
+
+sorel/dungeon/22/variants/1
+다가갈 시간은 좀 벌어 주세요!
+
+sorel/dungeon/23/variants/0
+무리하면 제가 먼저 멈출게요!
+
+sorel/dungeon/23/variants/1
+지금은 약값부터 묻지 말아요!
+
+sorel/dungeon/24/variants/0
+먼저 상태를 봐야겠어요.
+
+sorel/dungeon/24/variants/1
+다시 선다고 약속하진 못해요.
+
+sorel/dungeon/25/variants/0
+쓰러진 쪽으로 갈 틈을 줘요.
+
+sorel/dungeon/25/variants/1
+확인 전에 결론부터 내리진 말아요.
+
+sorel/dungeon/26/variants/0
+여긴 제가 살필 테니 앞을 봐요.
+
+sorel/dungeon/26/variants/1
+제가 혼자 다 할 수는 없어요.
+
+sorel/dungeon/27/variants/0
+저도 상처가 났어요.
+
+sorel/dungeon/27/variants/1
+제 손이 움직이는지 먼저 볼게요.
+
+sorel/dungeon/28/variants/0
+제 쪽을 잠깐 봐 주실래요?
+
+sorel/dungeon/28/variants/1
+아픈 걸 숨기면 더 번거로워져요.
+
+sorel/dungeon/29/variants/0
+이번에는 제가 도움을 청하네요.
+
+sorel/dungeon/29/variants/1
+곧 괜찮다는 말은 안 할게요.
+
+sorel/dungeon/30/variants/0
+앉아서 봉투부터 정리해요.
+
+sorel/dungeon/30/variants/1
+젖은 곳엔 재료를 놓지 마세요.
+
+sorel/dungeon/31/variants/0
+남은 양은 쉬면서 볼게요.
+
+sorel/dungeon/31/variants/1
+잔 들 힘은 있으니 제가 할게요.
+
+sorel/dungeon/32/variants/0
+장부 얘기 없이 좀 앉아요.
+
+sorel/dungeon/32/variants/1
+말이 없어도 먼저 가지 말아요.
+
+sorel/dungeon/33/variants/0
+봉인 풀 재료는 제가 정하지 않아요.
+
+sorel/dungeon/33/variants/1
+조건 모르면 그대로 두세요.
+
+sorel/dungeon/34/variants/0
+값이 나간다고 억지로 열진 말아요.
+
+sorel/dungeon/34/variants/1
+확인한 조건만 다시 읽어요.
+
+sorel/dungeon/35/variants/0
+무리해서 얻을 물건은 아니겠죠?
+
+sorel/dungeon/35/variants/1
+모르는 데 돈부터 걸지는 말아요.
+
+sorel/dungeon/36/variants/0
+돌아왔으니 봉투부터 말려요.
+
+sorel/dungeon/36/variants/1
+짐 내려놓고 상처를 보여 줘요.
+
+sorel/dungeon/37/variants/0
+오늘 셈은 손이 풀린 뒤에 해요.
+
+sorel/dungeon/37/variants/1
+살아 돌아온 얼굴부터 보겠어요.
+
+sorel/dungeon/38/variants/0
+저도 가게 일은 나중에 할래요.
+
+sorel/dungeon/38/variants/1
+오늘은 약 안 사도 같이 앉아요.
+
+sorel/dungeon/39/variants/0
+졌으면 더 쓰기 전에 멈춰요.
+
+sorel/dungeon/39/variants/1
+남은 힘부터 정확히 말해요.
+
+sorel/dungeon/40/variants/0
+손실은 나중에 셀 수 있어요.
+
+sorel/dungeon/40/variants/1
+사람을 놓친 건 없는지 먼저 봐요.
+
+sorel/dungeon/41/variants/0
+저도 판단을 잘못한 데가 있어요.
+
+sorel/dungeon/41/variants/1
+그 얘긴 안전해진 뒤에 같이 해요.
+
+sorel/transitions/0/situation
+재료 봉투를 치우고 장부를 편다.
+
+sorel/transitions/0/lines/0
+필요한 양부터 말하셨네요.
+
+sorel/transitions/0/lines/1
+그럼 견적은 제가 적어 볼게요.
+
+sorel/transitions/1/situation
+봉투 입구를 접어 자기 쪽에 둔다.
+
+sorel/transitions/1/lines/0
+묻기 전에 가져가면 거래를 못 해요.
+
+sorel/transitions/1/lines/1
+오늘 재료는 안 내주겠어요.
+
+sorel/transitions/2/situation
+값을 적어 상대 앞으로 밀어 준다.
+
+sorel/transitions/2/lines/0
+이게 지금 정한 값이에요.
+
+sorel/transitions/2/lines/1
+읽어 보고 물으시면 설명해 드려요.
+
+sorel/transitions/3/situation
+견적의 빈칸을 다시 손으로 가린다.
+
+sorel/transitions/3/lines/0
+제 장부를 대신 고치진 말아요.
+
+sorel/transitions/3/lines/1
+이유를 다 말해야 할 의무는 없어요.
+
+sorel/transitions/4/situation
+견적을 조금 고친 뒤 돌려 준다.
+
+sorel/transitions/4/lines/0
+오늘은 이 종이로 확인해요.
+
+sorel/transitions/4/lines/1
+왜 고쳤는지는 묻지 않아도 되겠어요.
+
+sorel/transitions/5/situation
+할인 칸 옆에 선을 긋는다.
+
+sorel/transitions/5/lines/0
+다른 분까지 같은 값이라 말하셨네요.
+
+sorel/transitions/5/lines/1
+다음 견적은 제가 직접 정할게요.
+
+sorel/transitions/6/situation
+이름 끝에 아엔윈을 천천히 적는다.
+
+sorel/transitions/6/lines/0
+이 숲 이름은 제가 아직 써요.
+
+sorel/transitions/6/lines/1
+그걸 지우지 않는 이유도 얘기해 볼게요.
+
+sorel/transitions/7/situation
+성까지 적은 종이를 접는다.
+
+sorel/transitions/7/lines/0
+새 이름을 권하신 뜻은 알겠어요.
+
+sorel/transitions/7/lines/1
+그래도 오늘은 제 이름 얘기를 그칠래요.
+
+sorel/transitions/8/situation
+창가 소리를 듣다가 고개를 돌린다.
+
+sorel/transitions/8/lines/0
+숲이 그립다는 말은 해도 되겠죠?
+
+sorel/transitions/8/lines/1
+돌아갈 계획을 대신 세우지는 말아요.
+
+sorel/transitions/9/situation
+열린 창을 그대로 두고 한 걸음 물러선다.
+
+sorel/transitions/9/lines/0
+잊는 쪽이 편하다고 정하지 말아요.
+
+sorel/transitions/9/lines/1
+오늘은 더 설명하고 싶지 않아요.
+
+sorel/transitions/10/situation
+장부를 가방 안에 두고 맞은편에 앉는다.
+
+sorel/transitions/10/lines/0
+도울 일 없이도 와도 된다고 했죠?
+
+sorel/transitions/10/lines/1
+그럼 오늘은 그냥 얘기하다 갈래요.
+
+sorel/transitions/11/situation
+꺼내려던 잔을 자기 쪽으로 당긴다.
+
+sorel/transitions/11/lines/0
+만나러 오면 꼭 일을 봐야 하나요?
+
+sorel/transitions/11/lines/1
+오늘은 그 종이를 치우고 싶어요.
+
+sorel/transitions/12/situation
+빈손을 펴 보인 뒤 잔을 받는다.
+
+sorel/transitions/12/lines/0
+살 것도 팔 것도 없이 왔어요.
+
+sorel/transitions/12/lines/1
+이렇게 앉는 게 이제 덜 낯설어요.
+
+sorel/transitions/13/situation
+서두르지 않고 가방을 닫는다.
+
+sorel/transitions/13/lines/0
+제 마음을 그렇게 단정하진 마세요.
+
+sorel/transitions/13/lines/1
+제가 말할 때까지 들을 수는 있잖아요.
+
+tika/inn/0/situation
+식탁에서 큰소리로 웃다가 둘만 남자 굳는다.
+
+tika/inn/0/lines/0
+아, 다들 가셨네요.
+
+tika/inn/0/lines/1
+저도 이제 가려던 참이에요.
+
+tika/inn/0/lines/2
+더 할 얘기는 없어요.
+
+tika/inn/0/choices/0/text
+그럼 제가 길을 비킬게요.
+
+tika/inn/0/choices/0/response/0
+저기 의자만 조금 밀어 주세요.
+
+tika/inn/0/choices/1/text
+잔은 제가 치울까요?
+
+tika/inn/0/choices/1/response/0
+제 건 제가 가져갈게요.
+
+tika/inn/0/choices/2/text
+아까처럼 재밌는 얘기 해 주세요.
+
+tika/inn/0/choices/2/response/0
+아까는 다 같이 있었잖아요.
+
+tika/inn/0/choices/2/response/1
+둘이 남으면 아까 하던 말도 잘 안 나와요.
+
+tika/inn/0/seen
+아까 식탁 얘기는 더 안 할래요.
+
+tika/inn/1/situation
+묻지도 않은 빚 이야기에 귀를 눕힌다.
+
+tika/inn/1/lines/0
+그 얘기는 왜 물어요?
+
+tika/inn/1/lines/1
+다 갚았다고 했잖아요.
+
+tika/inn/1/lines/2
+또 설명해야 하나요?
+
+tika/inn/1/choices/0/text
+앉을 자리는 여기 있어요.
+
+tika/inn/1/choices/0/response/0
+지금은 서 있는 게 나아요.
+
+tika/inn/1/choices/1/text
+확인할 종이만 보여 주면 끝나죠.
+
+tika/inn/1/choices/1/response/0
+제가 왜 여기서 증명해야 하는데요?
+
+tika/inn/1/choices/1/response/1
+다 갚았다는 말을 여기서도 계속 해야 하나요?
+
+tika/inn/1/choices/2/text
+더 묻지 않고 제 얘기나 할게요.
+
+tika/inn/1/choices/2/response/0
+끝난 일로 알아 두시면 돼요.
+
+tika/inn/1/seen
+끝난 빚 얘기로 붙잡지 마세요.
+
+tika/inn/2/situation
+사람들이 떠난 식탁에서 접시만 본다.
+
+tika/inn/2/lines/0
+아까는 너무 크게 웃었죠?
+
+tika/inn/2/lines/1
+다들 웃으니 저도 그랬어요.
+
+tika/inn/2/lines/2
+둘이서는 무슨 말을 해야 할지 모르겠네요.
+
+tika/inn/2/choices/0/text
+사람들을 다시 부르면 편하겠어요.
+
+tika/inn/2/choices/0/response/0
+계속 누굴 불러야 얘기할 수 있나요?
+
+tika/inn/2/choices/0/response/1
+오늘은 누굴 부르지 않고 조금 있어 볼래요.
+
+tika/inn/2/choices/1/text
+아까 하던 얘기 마저 해도 돼요.
+
+tika/inn/2/choices/1/response/0
+재밌게 끝내려고 안 해도 되죠?
+
+tika/inn/2/choices/2/text
+음식은 입에 맞았어요?
+
+tika/inn/2/choices/2/response/0
+따뜻할 때 먹어서 괜찮았어요.
+
+tika/inn/2/seen
+이번엔 사람을 더 부르진 말아요.
+
+tika/inn/3/situation
+손목을 풀다가 시선을 피한다.
+
+tika/inn/3/lines/0
+연습하는 건 아니에요.
+
+tika/inn/3/lines/1
+그냥 손이 굳어서요.
+
+tika/inn/3/lines/2
+여기서 구경거리는 없어요.
+
+tika/inn/3/choices/0/text
+보고 계신 게 싫으면 돌아앉을게요.
+
+tika/inn/3/choices/0/response/0
+계속 설명하지 않아도 되면 괜찮아요.
+
+tika/inn/3/choices/1/text
+창가가 좀 춥네요.
+
+tika/inn/3/choices/1/response/0
+바람 안 드는 쪽으로 갈까요?
+
+tika/inn/3/choices/2/text
+짧게만 보여 주면 안 될까요?
+
+tika/inn/3/choices/2/response/0
+짧아도 지금은 안 하고 싶어요.
+
+tika/inn/3/choices/2/response/1
+그냥 풀고 있는 손도 보여 드려야 하는 건가요?
+
+tika/inn/3/seen
+여긴 연습 보여 드리려고 앉은 게 아니에요.
+
+tika/inn/4/situation
+여럿이 웃는 식탁에서 잔을 높이 든다.
+
+tika/inn/4/lines/0
+다들 봤죠, 제가 먼저 비웠어요!
+
+tika/inn/4/lines/1
+물 마시는 것도 이기면 좋잖아요!
+
+tika/inn/4/lines/2
+아, 너무 빨리 마셔서 숨차네요.
+
+tika/inn/4/choices/0/text
+물을 더 따를게요.
+
+tika/inn/4/choices/0/response/0
+다음 잔은 천천히 마실 거예요.
+
+tika/inn/4/choices/1/text
+진 사람은 잔을 전부 치우죠.
+
+tika/inn/4/choices/1/response/0
+그런 값 걸고 한 말은 아니었는데요.
+
+tika/inn/4/choices/1/response/1
+지는 쪽에 값을 붙이면 갑자기 다른 판이 되잖아요.
+
+tika/inn/4/choices/2/text
+이번엔 제가 먼저 웃었네요.
+
+tika/inn/4/choices/2/response/0
+그럼 웃는 쪽은 제가 졌다고 해 둘까요?
+
+tika/inn/4/choices/2/response/1
+웃긴 건 웃겼다고 한 번 더 말해 줘도 좋아요.
+
+tika/inn/4/seen
+이번 잔엔 이긴 값 같은 건 없어요.
+
+tika/inn/5/situation
+둘이 남자 만지작거리던 잔을 내려놓는다.
+
+tika/inn/5/lines/0
+저, 아까는 고마웠어요.
+
+tika/inn/5/lines/1
+제 말에 웃어 주셔서요.
+
+tika/inn/5/lines/2
+저, 그렇게 웃어 주실 줄은 몰랐어요.
+
+tika/inn/5/choices/0/text
+크게 말해야 잘 들려요.
+
+tika/inn/5/choices/0/response/0
+가까이 있는데도 더 커야 하나요?
+
+tika/inn/5/choices/0/response/1
+저, 큰소리는 사람들이 있을 때 잘 나와요.
+
+tika/inn/5/choices/1/text
+재밌어서 웃었으니 괜찮아요.
+
+tika/inn/5/choices/1/response/0
+저도 웃음이 나네요. 와 주셔서 좋아요.
+
+tika/inn/5/choices/2/text
+잔은 여기 두면 돼요.
+
+tika/inn/5/choices/2/response/0
+손에 쥐고 있는 줄도 몰랐네요.
+
+tika/inn/5/seen
+지금 목소리로 들리면 이대로 얘기해요.
+
+tika/inn/6/situation
+투기장 얘기 끝에 누가 박수를 치자 활짝 웃는다.
+
+tika/inn/6/lines/0
+이 정도에 박수까지요?
+
+tika/inn/6/lines/1
+그러면 한 번 더 얘기하고 싶잖아요!
+
+tika/inn/6/lines/2
+저, 같은 얘기는 좀 그렇죠?
+
+tika/inn/6/choices/0/text
+다른 얘기도 듣고 싶어요.
+
+tika/inn/6/choices/0/response/0
+이긴 얘기만 하면 짧아요. 진 얘기도 해 볼까요?
+
+tika/inn/6/choices/1/text
+물부터 마시고 해요.
+
+tika/inn/6/choices/1/response/0
+웃다가 목이 다 말랐네요.
+
+tika/inn/6/choices/2/text
+졌던 얘기는 빼고 멋진 것만요.
+
+tika/inn/6/choices/2/response/0
+질 때도 있었는데 그걸 빼면 이상해요.
+
+tika/inn/6/choices/2/response/1
+웃겼던 얘기여도 그때는 속상한 적 있었어요.
+
+tika/inn/6/seen
+오늘은 졌던 얘기도 해 볼 거예요.
+
+tika/inn/7/situation
+성에 관한 질문에 잠깐 입을 다문다.
+
+tika/inn/7/lines/0
+이름은 티카예요.
+
+tika/inn/7/lines/1
+그 뒤에 붙이는 건 없어요.
+
+tika/inn/7/lines/2
+짧아서 부르기 편하죠?
+
+tika/inn/7/choices/0/text
+이름을 여기 적을까요?
+
+tika/inn/7/choices/0/response/0
+네, 그 칸이면 돼요.
+
+tika/inn/7/choices/1/text
+새 성을 같이 지으면 기쁘겠어요.
+
+tika/inn/7/choices/1/response/0
+새로 붙여 달라는 말은 안 했어요.
+
+tika/inn/7/choices/1/response/1
+지금 부르는 이름을 바꿔 보고 싶은 건 아니에요.
+
+tika/inn/7/choices/2/text
+그대로 부르면 되겠네요.
+
+tika/inn/7/choices/2/response/0
+길게 만들어 부르실 필요는 없어요.
+
+tika/inn/7/seen
+이름 칸에는 티카만 적으면 돼요.
+
+tika/inn/8/situation
+먼저 다가왔다가 한 번 숨을 고른다.
+
+tika/inn/8/lines/0
+저, 인사하러 왔어요.
+
+tika/inn/8/lines/1
+그, 그냥 넘기지 않고 얘기해 보려고요.
+
+tika/inn/8/lines/2
+오늘은 여기 같이 앉아도 괜찮죠?
+
+tika/inn/8/choices/0/text
+다들 들리게 크게 말씀해 봐요.
+
+tika/inn/8/choices/0/response/0
+지금은 여기에 들릴 만큼만 말하고 싶어요.
+
+tika/inn/8/choices/0/response/1
+크게 하려면 하려던 말이 더 안 나와요.
+
+tika/inn/8/choices/1/text
+물어보러 와 줘서 반가워요.
+
+tika/inn/8/choices/1/response/0
+다음에는 덜 망설여 볼게요.
+
+tika/inn/8/choices/1/response/1
+입구까지 왔다가 한참 서 있었어요.
+
+tika/inn/8/choices/2/text
+이 의자가 비었어요.
+
+tika/inn/8/choices/2/response/0
+가방만 제 발 옆에 둘게요.
+
+tika/inn/8/seen
+여기 앉아서 얘기해도 되죠?
+
+tika/inn/9/situation
+박수가 없는 자리에서 자기 얘기를 시작한다.
+
+tika/inn/9/lines/0
+아까 생각난 얘기가 있어요.
+
+tika/inn/9/lines/1
+잊기 전에 얘기해도 될까요?
+
+tika/inn/9/lines/2
+박수는 안 치셔도 돼요.
+
+tika/inn/9/choices/0/text
+얘기 끝까지 그냥 들어 볼게요.
+
+tika/inn/9/choices/0/response/0
+천천히 말하면 길어져도 괜찮죠?
+
+tika/inn/9/choices/1/text
+물은 옆에 있어요.
+
+tika/inn/9/choices/1/response/0
+목이 마르면 잠깐 마시고 할게요.
+
+tika/inn/9/choices/2/text
+응원해 주려고 치는 건 괜찮죠?
+
+tika/inn/9/choices/2/response/0
+지금은 박수 안 치면 좋겠어요.
+
+tika/inn/9/choices/2/response/1
+박수 소리가 나면 하려던 말을 잊어요.
+
+tika/inn/9/seen
+이 얘기는 박수 없이 끝내 보고 싶어요.
+
+tika/inn/10/situation
+자유로운 저녁 시간을 정하지 못하고 서성인다.
+
+tika/inn/10/lines/0
+저 부르는 데가 없네요.
+
+tika/inn/10/lines/1
+어디 가든 된다고 생각했는데요.
+
+tika/inn/10/lines/2
+막상 고르려니 계속 여기 있네요.
+
+tika/inn/10/choices/0/text
+밖은 아직 밝아요.
+
+tika/inn/10/choices/0/response/0
+나중에 나가도 되겠네요.
+
+tika/inn/10/choices/1/text
+제가 저녁 일정을 다 정해 드려요.
+
+tika/inn/10/choices/1/response/0
+고르는 걸 연습해 보려던 건데요.
+
+tika/inn/10/choices/1/response/1
+아무것도 안 정한 채 앉는 것도 해 보고 싶어요.
+
+tika/inn/10/choices/2/text
+지금 여기 있고 싶으면 그래도 돼요.
+
+tika/inn/10/choices/2/response/0
+안 고른 채로 좀 있어 볼게요.
+
+tika/inn/10/seen
+좀 앉아 있다가 정할래요.
+
+tika/inn/11/situation
+큰 웃음 뒤에 접힌 귀를 슬쩍 편다.
+
+tika/inn/11/lines/0
+방금은 진짜 웃겼어요.
+
+tika/inn/11/lines/1
+아까부터 사람 더 부를 생각은 안 했네요.
+
+tika/inn/11/lines/2
+아, 제 귀는 보지 말고요.
+
+tika/inn/11/choices/0/text
+귀 펴 봐요, 훨씬 자신 있어 보여요.
+
+tika/inn/11/choices/0/response/0
+귀 모양까지 고치려면 웃기도 어렵겠어요.
+
+tika/inn/11/choices/0/response/1
+어떤 얼굴로 웃을지까지 신경 쓰고 싶진 않아요.
+
+tika/inn/11/choices/1/text
+그럼 아까 말하던 데를 볼게요.
+
+tika/inn/11/choices/1/response/0
+다시 말하면 또 웃을 것 같아요.
+
+tika/inn/11/choices/2/text
+잔이 흔들렸네요.
+
+tika/inn/11/choices/2/response/0
+쏟기 전에 내려놔야겠어요.
+
+tika/inn/11/seen
+귀 얘기 안 하니까 웃기가 좀 편해요.
+
+tika/inn/12/situation
+빈 잔을 들여다보다 상환하던 날을 말한다.
+
+tika/inn/12/lines/0
+빚 갚은 날은 잔뜩 웃었어요.
+
+tika/inn/12/lines/1
+그다음에 혼자 방에 들어갔는데요.
+
+tika/inn/12/lines/2
+아무 소리도 안 나서 무서웠어요.
+
+tika/inn/12/choices/0/text
+그때 웃던 얘기 뒤도 들어요.
+
+tika/inn/12/choices/0/response/0
+자유를 샀는데 무섭다고 하면 이상할 줄 알았어요.
+
+tika/inn/12/choices/0/response/1
+그래서 아까는 좋은 날 얘기를 꺼내기가 어려웠어요.
+
+tika/inn/12/choices/1/text
+방이 낯설었던 거예요?
+
+tika/inn/12/choices/1/response/0
+누가 시키는 게 없어서 더 낯설었어요.
+
+tika/inn/12/choices/2/text
+그래도 자유로웠으니 좋은 날이죠.
+
+tika/inn/12/choices/2/response/0
+좋은 날인데도 무서울 수 있잖아요.
+
+tika/inn/12/choices/2/response/1
+방에 들어갔을 때는 웃음이 멈췄거든요.
+
+tika/inn/12/seen
+그날은 웃은 뒤의 시간이 더 생각나요.
+
+tika/inn/13/situation
+빚에 관한 물음에 잠깐 고개를 젓는다.
+
+tika/inn/13/lines/0
+누구 빚이었느냐는 건 말 안 할래요.
+
+tika/inn/13/lines/1
+갚았다는 얘기만 하면 안 될까요?
+
+tika/inn/13/lines/2
+지금 여기에 온 이유는 말할 수 있어요.
+
+tika/inn/13/choices/0/text
+그 얘기는 나중에 해도 돼요.
+
+tika/inn/13/choices/0/response/0
+네, 오늘은 거기까지 얘기할게요.
+
+tika/inn/13/choices/1/text
+사연을 알면 더 잘 도울 수 있어요.
+
+tika/inn/13/choices/1/response/0
+그 얘기를 해야만 도움받는 건 싫어요.
+
+tika/inn/13/choices/1/response/1
+말하고 싶은 범위를 제가 정하면 안 돼요?
+
+tika/inn/13/choices/2/text
+토르바에 온 얘기를 들을게요.
+
+tika/inn/13/choices/2/response/0
+진짜 괴물과 싸워 보고 싶었어요.
+
+tika/inn/13/seen
+오늘은 왜 토르바로 왔는지 얘기해요.
+
+tika/inn/14/situation
+사람들이 나간 방의 문을 바라본다.
+
+tika/inn/14/lines/0
+사람들이 나가면 손부터 바빠져요.
+
+tika/inn/14/lines/1
+할 일을 찾아야 할 것 같아서요.
+
+tika/inn/14/lines/2
+아무도 안 보고 있는데도 그러네요.
+
+tika/inn/14/choices/0/text
+연습을 하면 빈방도 덜 무섭겠죠.
+
+tika/inn/14/choices/0/response/0
+항상 움직이면서 피하고 싶진 않아요.
+
+tika/inn/14/choices/0/response/1
+가만히 있어도 되는지 알아보고 싶어서요.
+
+tika/inn/14/choices/1/text
+손을 쉬고 싶은 만큼 쉬어 봐요.
+
+tika/inn/14/choices/1/response/0
+가만히 있어도 재촉하지 마세요.
+
+tika/inn/14/choices/2/text
+문은 닫아 둘까요?
+
+tika/inn/14/choices/2/response/0
+발소리는 좀 들리는 게 나아요.
+
+tika/inn/14/seen
+문은 조금 열고 손은 쉬어 볼게요.
+
+tika/inn/15/situation
+무대에서 쓰던 웃음을 흉내 내다 멈춘다.
+
+tika/inn/15/lines/0
+져도 더 크게 웃었어요.
+
+tika/inn/15/lines/1
+다음에도 저 보러 오게 해야 했으니까요.
+
+tika/inn/15/lines/2
+그렇게 웃으면 속은 잘 안 보이죠.
+
+tika/inn/15/choices/0/text
+지금은 안 웃고 말해도 들어요.
+
+tika/inn/15/choices/0/response/0
+졌을 때 속상했다고 해도 되겠네요.
+
+tika/inn/15/choices/1/text
+목은 괜찮았어요?
+
+tika/inn/15/choices/1/response/0
+오래 웃으면 소리가 잠기기도 했어요.
+
+tika/inn/15/choices/2/text
+그 덕에 인기가 생겼으니 잘한 거죠.
+
+tika/inn/15/choices/2/response/0
+사람들이 좋아해 주니 기뻤죠.
+
+tika/inn/15/choices/2/response/1
+그래도 지고 나면 속상했어요.
+
+tika/inn/15/seen
+졌을 때 웃은 게 즐거워서만은 아니었어요.
+
+tika/inn/16/situation
+텅 빈 맞은편 의자를 직접 당긴다.
+
+tika/inn/16/lines/0
+이 의자에 앉아 주세요.
+
+tika/inn/16/lines/1
+사람 많으면 편한 줄만 알았는데요.
+
+tika/inn/16/lines/2
+둘이서 하고 싶은 얘기도 생겼어요.
+
+tika/inn/16/choices/0/text
+먼저 잔을 옮길게요.
+
+tika/inn/16/choices/0/response/0
+제가 의자를 너무 당겼네요.
+
+tika/inn/16/choices/1/text
+사람 없을 때 재주도 하나 보여 줘요.
+
+tika/inn/16/choices/1/response/0
+둘이 얘기하자고 불렀어요.
+
+tika/inn/16/choices/1/response/1
+재주는 나중에 하고 여기 앉아요.
+
+tika/inn/16/choices/2/text
+그 얘기는 여기 앉아서 들어요.
+
+tika/inn/16/choices/2/response/0
+이번엔 목소리 키우지 않고 해 볼게요.
+
+tika/inn/16/choices/2/response/1
+한 번 앉고 나니까 아까보다 말하기가 나아요.
+
+tika/inn/16/seen
+이번엔 둘이 앉고 싶었어요.
+
+tika/inn/17/situation
+혼자 보낸 밤을 처음 먼저 말한다.
+
+tika/inn/17/lines/0
+자유를 사고도 무서운 밤이 있었어요.
+
+tika/inn/17/lines/1
+그게 창피해서 크게만 웃었죠.
+
+tika/inn/17/lines/2
+이젠 매번 숨기진 않으려고요.
+
+tika/inn/17/choices/0/text
+이제 제가 있으니 무서울 일 없어요.
+
+tika/inn/17/choices/0/response/0
+그렇게 약속하면 무서울 때 말 못 하겠어요.
+
+tika/inn/17/choices/0/response/1
+마음이 안 놓이는 날도 있을 거잖아요.
+
+tika/inn/17/choices/1/text
+또 무서운 날엔 그대로 말해 줘요.
+
+tika/inn/17/choices/1/response/0
+웃으면서 말해도 한 번 더 물어봐 줘요.
+
+tika/inn/17/choices/2/text
+어젯밤은 좀 잤어요?
+
+tika/inn/17/choices/2/response/0
+늦게 잠들었지만 푹 잤어요.
+
+tika/inn/17/seen
+다음에 무서우면 숨기지 않고 말할게요.
+
+tika/inn/18/situation
+먼저 웃다가 얼굴을 가리지 않는다.
+
+tika/inn/18/lines/0
+아, 웃겨요. 숨 좀 고를게요.
+
+tika/inn/18/lines/1
+아무도 안 보는데 이렇게 웃네요.
+
+tika/inn/18/lines/2
+다시 해 달라고는 안 할게요.
+
+tika/inn/18/choices/0/text
+저도 다시 하면 못 웃길 것 같아요.
+
+tika/inn/18/choices/0/response/0
+그냥 지금 웃은 걸로 해요.
+
+tika/inn/18/choices/1/text
+물은 조금 남았어요.
+
+tika/inn/18/choices/1/response/0
+기침 나기 전에 마셔야겠어요.
+
+tika/inn/18/choices/2/text
+그 웃음으로 사람들 앞에 서 봐요.
+
+tika/inn/18/choices/2/response/0
+지금 웃은 걸 연습하고 싶진 않아요.
+
+tika/inn/18/choices/2/response/1
+여기서 웃는 것까지 무대에 가져가진 않을래요.
+
+tika/inn/18/seen
+오늘 웃음은 연습해 두지 않을래요.
+
+tika/inn/19/situation
+함께 나갈지 묻다가 자기 생각을 덧붙인다.
+
+tika/inn/19/lines/0
+저는 안 나가고 싶어요.
+
+tika/inn/19/lines/1
+같이 가자고 하면 거절하기 어려웠거든요.
+
+tika/inn/19/lines/2
+그래서 물으시기 전에 말했어요.
+
+tika/inn/19/choices/0/text
+방은 너무 덥지 않아요?
+
+tika/inn/19/choices/0/response/0
+창을 조금 열면 괜찮겠어요.
+
+tika/inn/19/choices/1/text
+딱 잠깐만 나가면 기분 풀릴 텐데요.
+
+tika/inn/19/choices/1/response/0
+쉬고 싶다는 말은 들으셨죠?
+
+tika/inn/19/choices/1/response/1
+내일 나가고 싶으면 제가 말할게요.
+
+tika/inn/19/choices/2/text
+그럼 오늘은 다른 날로 미뤄요.
+
+tika/inn/19/choices/2/response/0
+그럼 내일은 좀 쉬고 나서 봐요.
+
+tika/inn/19/seen
+저는 여기서 쉴 거예요.
+
+tika/inn/20/situation
+약속할 말을 고르다 고개를 든다.
+
+tika/inn/20/lines/0
+앞으로도 같이 가고 싶어요.
+
+tika/inn/20/lines/1
+대신 제가 못 가는 날도 말할게요.
+
+tika/inn/20/lines/2
+그걸 빚처럼 세지는 말아 주세요.
+
+tika/inn/20/choices/0/text
+몇 번까지 빠져도 될지 정해 둬요.
+
+tika/inn/20/choices/0/response/0
+빠진 날을 세는 약속은 싫어요.
+
+tika/inn/20/choices/0/response/1
+같이 가자는 말이 다시 무서워지긴 싫어요.
+
+tika/inn/20/choices/1/text
+못 가면 이유를 듣고 다시 정해요.
+
+tika/inn/20/choices/1/response/0
+말하기 전에 도망갈 생각부터 안 할게요.
+
+tika/inn/20/choices/1/response/1
+지금 못 가는 날부터 세어 두지 않아도 되겠죠?
+
+tika/inn/20/choices/2/text
+다음 일정부터 확인할까요?
+
+tika/inn/20/choices/2/response/0
+정해진 것부터 같이 보면 되겠어요.
+
+tika/inn/20/seen
+같이 갈 약속에 빚이라는 말은 안 붙여요.
+
+tika/inn/21/situation
+칭찬을 듣고 귀를 눕히다가 다시 눈을 든다.
+
+tika/inn/21/lines/0
+고맙다고 해도 되겠죠?
+
+tika/inn/21/lines/1
+전에는 얼른 농담으로 넘겼는데요.
+
+tika/inn/21/lines/2
+이번엔 그냥 듣고 싶었어요.
+
+tika/inn/21/choices/0/text
+고맙다는 말 그대로 받을게요.
+
+tika/inn/21/choices/0/response/0
+제가 딴소리하기 전에 받아 주셨네요.
+
+tika/inn/21/choices/1/text
+목소리가 잘 들렸어요.
+
+tika/inn/21/choices/1/response/0
+오늘은 고개를 숙이기 전에 고맙다고 했어요.
+
+tika/inn/21/choices/2/text
+기왕이면 모두 앞에서도 말해 줘요.
+
+tika/inn/21/choices/2/response/0
+지금 여기서 한 말이면 안 돼요?
+
+tika/inn/21/choices/2/response/1
+다른 사람이 들으면 다시 목이 막힐 것 같아요.
+
+tika/inn/21/seen
+오늘 칭찬에는 농담 대신 고맙다고 했어요.
+
+tika/inn/22/situation
+헤어질 때 먼저 다음 만남을 청한다.
+
+tika/inn/22/lines/0
+다음에도 둘이 만날까요?
+
+tika/inn/22/lines/1
+어디 갈지는 아직 몰라요.
+
+tika/inn/22/lines/2
+장소를 못 정했다고 웃지는 마요.
+
+tika/inn/22/choices/0/text
+시간은 미리 정해요.
+
+tika/inn/22/choices/0/response/0
+그건 잊지 않게 적을게요.
+
+tika/inn/22/choices/1/text
+제가 장소까지 늘 정해 드릴게요.
+
+tika/inn/22/choices/1/response/0
+이번엔 저도 고르는 쪽에 있고 싶어요.
+
+tika/inn/22/choices/1/response/1
+제가 고르면 이상한 데를 골라도 바로 웃진 마요.
+
+tika/inn/22/choices/2/text
+장소는 만나서 정해도 돼요.
+
+tika/inn/22/choices/2/response/0
+제가 골라 봐도 될까요?
+
+tika/inn/22/seen
+장소는 제가 골라 보고 나서 알려 드릴게요.
+
+tika/inn/23/situation
+못한 말을 다시 꺼내려 입을 연다.
+
+tika/inn/23/lines/0
+아까는 아무렇지 않다고 했는데요.
+
+tika/inn/23/lines/1
+조금 속상했어요.
+
+tika/inn/23/lines/2
+지금 고쳐 말해도 돼요?
+
+tika/inn/23/choices/0/text
+다음엔 처음부터 솔직하게 말해요.
+
+tika/inn/23/choices/0/response/0
+그땐 저도 괜찮은 줄 알았어요.
+
+tika/inn/23/choices/0/response/1
+괜찮은 줄 알았다가 앉아서야 서운했어요.
+
+tika/inn/23/choices/1/text
+늦게 말해도 어디가 속상했는지 들어요.
+
+tika/inn/23/choices/1/response/0
+말이 바뀌었다고 혼내실까 봐 망설였어요.
+
+tika/inn/23/choices/2/text
+여기 앉아서 다시 얘기해요.
+
+tika/inn/23/choices/2/response/0
+서 있으면 고맙다고만 하고 가 버릴 것 같아요.
+
+tika/inn/23/seen
+아까 못 한 말은 지금 이어서 할게요.
+
+tika/inn/24/situation
+사람들 틈을 지나와 작은 목소리로 부른다.
+
+tika/inn/24/lines/0
+저쪽에서 실컷 웃었어요.
+
+tika/inn/24/lines/1
+이제는 여기서 좀 쉬고 싶네요.
+
+tika/inn/24/lines/2
+옆에 조용히 있어도 되죠?
+
+tika/inn/24/choices/0/text
+얘기 안 해도 여기 앉아 있어요.
+
+tika/inn/24/choices/0/response/0
+무슨 말을 할지 찾다가도 쉴 수 있겠네요.
+
+tika/inn/24/choices/0/response/1
+아, 잔은 이쪽으로 옮겨 둘게요.
+
+tika/inn/24/choices/1/text
+물은 제가 따라 둘게요.
+
+tika/inn/24/choices/1/response/0
+천천히 마시고 잔을 놓을게요.
+
+tika/inn/24/choices/2/text
+사람들이 찾으니 한 번 더 가 봐요.
+
+tika/inn/24/choices/2/response/0
+오늘은 충분히 웃고 왔어요.
+
+tika/inn/24/choices/2/response/1
+가자고 부르면 괜히 또 웃게 되니까요.
+
+tika/inn/24/seen
+저쪽에서는 웃었고 여기서는 쉴래요.
+
+tika/inn/25/situation
+스스로 고른 길을 손으로 가리킨다.
+
+tika/inn/25/lines/0
+저기로 가 보고 싶어요.
+
+tika/inn/25/lines/1
+구경할 게 없을 수도 있지만요.
+
+tika/inn/25/lines/2
+제가 골랐다는 이유면 부족해요?
+
+tika/inn/25/choices/0/text
+신발 끈부터 볼게요.
+
+tika/inn/25/choices/0/response/0
+저도 느슨한 데가 없는지 볼게요.
+
+tika/inn/25/choices/1/text
+좋은 곳인지 먼저 알아보고 정해요.
+
+tika/inn/25/choices/1/response/0
+한 번쯤은 모르고 골라도 되잖아요.
+
+tika/inn/25/choices/1/response/1
+어떻게든 좋은 데를 골라야 할 것 같아져요.
+
+tika/inn/25/choices/2/text
+저도 괜찮으니 함께 가요.
+
+tika/inn/25/choices/2/response/0
+재미없으면 돌아오는 길에 얘기해요.
+
+tika/inn/25/seen
+저 길로 가 볼래요. 따라오세요.
+
+tika/inn/26/situation
+웃음이 끊긴 뒤에도 자리를 지킨다.
+
+tika/inn/26/lines/0
+조용하네요, 그런데 괜찮아요.
+
+tika/inn/26/lines/1
+예전엔 이러면 제가 뭘 잘못했나 했어요.
+
+tika/inn/26/lines/2
+지금은 더 앉아 있고 싶어요.
+
+tika/inn/26/choices/0/text
+조용하니 아까처럼 크게 웃어 줘요.
+
+tika/inn/26/choices/0/response/0
+지금은 이렇게 조용히 있을래요.
+
+tika/inn/26/choices/0/response/1
+목소리도 좀 쉬게 두고요.
+
+tika/inn/26/choices/1/text
+저도 일어날 생각 없었어요.
+
+tika/inn/26/choices/1/response/0
+잔을 치우면 가야 할 것 같으니 조금만 더 둬요.
+
+tika/inn/26/choices/2/text
+의자가 불편하진 않아요?
+
+tika/inn/26/choices/2/response/0
+등을 좀 기대면 괜찮아요.
+
+tika/inn/26/seen
+조용히 좀 더 앉아 있을래요.
+
+tika/inn/27/situation
+돌아가기 전에 자기 이름을 짧게 말한다.
+
+tika/inn/27/lines/0
+티카라고 불러 주세요.
+
+tika/inn/27/lines/1
+꼭 무대에 있는 것처럼 크게는 말고요.
+
+tika/inn/27/lines/2
+저 들을 만큼만 불러도 알아요.
+
+tika/inn/27/choices/0/text
+티카 씨, 내일 또 만나요.
+
+tika/inn/27/choices/0/response/0
+네, 내일 찾아갈게요.
+
+tika/inn/27/choices/1/text
+내일 시간은 그대로죠?
+
+tika/inn/27/choices/1/response/0
+바뀌면 제가 알려 드려요.
+
+tika/inn/27/choices/2/text
+멋진 별명을 붙여 주고 싶어요.
+
+tika/inn/27/choices/2/response/0
+그냥 제 이름이면 좋겠다고 했잖아요.
+
+tika/inn/27/choices/2/response/1
+그냥 티카라고 불러 주세요.
+
+tika/inn/27/seen
+내일 만나면 제가 인사할게요.
+
+tika/dungeon/0/variants/0
+다들 준비됐죠? 저도 갈게요!
+
+tika/dungeon/0/variants/1
+출발부터 너무 빨리 뛰진 않을게요!
+
+tika/dungeon/1/variants/0
+오늘은 같이 나가는 사람이 있네요.
+
+tika/dungeon/1/variants/1
+먼저 가기 전에 한 번 볼게요.
+
+tika/dungeon/2/variants/0
+저, 같이 출발하고 싶어요.
+
+tika/dungeon/2/variants/1
+제 속도도 가면서 말할게요.
+
+tika/dungeon/3/variants/0
+여긴 처음 보는 자리네요!
+
+tika/dungeon/3/variants/1
+들어온 쪽부터 기억하면 되죠?
+
+tika/dungeon/4/variants/0
+새 층에서는 저도 조금 느려져요.
+
+tika/dungeon/4/variants/1
+구경할 건 안전해진 뒤 봐요.
+
+tika/dungeon/5/variants/0
+제가 멈추면 잠깐만 기다려요.
+
+tika/dungeon/5/variants/1
+뒤돌아보니 같이 오고 계셨네요.
+
+tika/dungeon/6/variants/0
+저거 봤어요? 제가 먼저 봤죠!
+
+tika/dungeon/6/variants/1
+찾았다고 바로 뛰어가진 않아요!
+
+tika/dungeon/7/variants/0
+이번에는 같이 살펴볼까요?
+
+tika/dungeon/7/variants/1
+아직 뭔지도 모르니 손은 멈출게요.
+
+tika/dungeon/8/variants/0
+혼자 찾은 척 안 할게요.
+
+tika/dungeon/8/variants/1
+제 눈에 보인 곳도 가리켜 드려요.
+
+tika/dungeon/9/variants/0
+와하하, 다들 보고 있죠?!
+
+tika/dungeon/9/variants/1
+이번엔 제가 앞을 볼게요!
+
+tika/dungeon/10/variants/0
+박수는 없어도 같이 싸울 수 있어요!
+
+tika/dungeon/10/variants/1
+제가 움직이면 뒤도 봐 주세요!
+
+tika/dungeon/11/variants/0
+지금은 웃을 틈이 없네요!
+
+tika/dungeon/11/variants/1
+같이 끝내고 나서 얘기해요!
+
+tika/dungeon/12/variants/0
+이겼어요! 아까 보셨죠?!
+
+tika/dungeon/12/variants/1
+와, 웃다가 숨이 다 찼네요!
+
+tika/dungeon/13/variants/0
+이번엔 제가 좀 무리했어요.
+
+tika/dungeon/13/variants/1
+칭찬 전에 숨부터 고를게요.
+
+tika/dungeon/14/variants/0
+저도 그냥 기뻐서 웃고 있어요.
+
+tika/dungeon/14/variants/1
+다들 괜찮으면 그걸로 좋아요.
+
+tika/dungeon/15/variants/0
+큰 판이네요! 들어가기 전에 살펴요!
+
+tika/dungeon/15/variants/1
+관객 없다고 대충 하진 않아요!
+
+tika/dungeon/16/variants/0
+지금은 무섭다고 말해도 되죠?
+
+tika/dungeon/16/variants/1
+웃고 바로 뛰어들진 않을게요.
+
+tika/dungeon/17/variants/0
+제가 앞에 서도 혼자 가진 않아요.
+
+tika/dungeon/17/variants/1
+들어가기 전에 제 얘기도 들어요.
+
+tika/dungeon/18/variants/0
+이야, 정말 끝났네요!
+
+tika/dungeon/18/variants/1
+박수 치려면 손부터 괜찮은지 봐요!
+
+tika/dungeon/19/variants/0
+이건 투기장 얘기랑 다르네요.
+
+tika/dungeon/19/variants/1
+웃는데도 다리가 좀 떨려요.
+
+tika/dungeon/20/variants/0
+저, 이긴 건 나중에도 기뻐할래요.
+
+tika/dungeon/20/variants/1
+지금은 같이 앉아 쉬고 싶어요.
+
+tika/dungeon/21/variants/0
+많이 다쳤잖아요! 이쪽을 봐요!
+
+tika/dungeon/21/variants/1
+저도 봤으니 혼자 참진 마요!
+
+tika/dungeon/22/variants/0
+제가 앞을 볼 테니 잠깐 버텨요!
+
+tika/dungeon/22/variants/1
+무리하지 말라고 이번엔 제가 말해요!
+
+tika/dungeon/23/variants/0
+웃으면서 괜찮다 하지 말아요!
+
+tika/dungeon/23/variants/1
+제 쪽으로 올 수 있는지 알려 줘요!
+
+tika/dungeon/24/variants/0
+넘어진 쪽이 안 보여요!
+
+tika/dungeon/24/variants/1
+말 들리면 한 번 답해 줘요!
+
+tika/dungeon/25/variants/0
+지금은 크게 웃을 수 없어요.
+
+tika/dungeon/25/variants/1
+확인할 사람에게 길을 줘요.
+
+tika/dungeon/26/variants/0
+저도 어디로 가면 도울 수 있을지 볼게요.
+
+tika/dungeon/26/variants/1
+괜찮다는 말만 기다리진 않을게요.
+
+tika/dungeon/27/variants/0
+아, 다쳤네요! 아직 서 있어요!
+
+tika/dungeon/27/variants/1
+아픈 데 없다는 말은 못 하겠어요!
+
+tika/dungeon/28/variants/0
+저, 제 쪽도 좀 봐 주세요.
+
+tika/dungeon/28/variants/1
+웃는 얼굴로 참으면 안 되겠네요.
+
+tika/dungeon/29/variants/0
+지금은 무리 안 하겠다고 할게요.
+
+tika/dungeon/29/variants/1
+멈춰 달라는 말도 할 수 있어요.
+
+tika/dungeon/30/variants/0
+관객 없는 자리도 조용하네요.
+
+tika/dungeon/30/variants/1
+저는 일단 앉아 볼게요.
+
+tika/dungeon/31/variants/0
+여럿이 안 떠들어도 괜찮겠죠?
+
+tika/dungeon/31/variants/1
+제 손도 잠깐 쉬게 둘래요.
+
+tika/dungeon/32/variants/0
+둘이 앉아도 이제 말은 할 수 있어요.
+
+tika/dungeon/32/variants/1
+오늘은 아무 재주도 안 보여 줄래요.
+
+tika/dungeon/33/variants/0
+봉인이면 손대기 전에 물어봐요!
+
+tika/dungeon/33/variants/1
+힘으로 열 수 있는 건 아니겠죠?
+
+tika/dungeon/34/variants/0
+열 방법은 저도 잘 몰라요.
+
+tika/dungeon/34/variants/1
+빨리 얻자고 무리하진 말아요.
+
+tika/dungeon/35/variants/0
+여기선 제가 먼저 뛰지 않을게요.
+
+tika/dungeon/35/variants/1
+같이 확인한 다음에 정해요.
+
+tika/dungeon/36/variants/0
+돌아왔어요! 이제 좀 웃어도 되죠?
+
+tika/dungeon/36/variants/1
+길에서부터 자랑하진 않을게요!
+
+tika/dungeon/37/variants/0
+저, 오늘 같이 먹을 수 있어요?
+
+tika/dungeon/37/variants/1
+혼자 조용해지기 전에 물어봤어요.
+
+tika/dungeon/38/variants/0
+돌아와서도 만날 사람이 있네요.
+
+tika/dungeon/38/variants/1
+돌아왔으니 같이 앉아요.
+
+tika/dungeon/39/variants/0
+졌다고 더 크게 웃진 못하겠어요.
+
+tika/dungeon/39/variants/1
+지금은 앞을 보고 움직일게요.
+
+tika/dungeon/40/variants/0
+저도 무서우니 모르는 척 안 할래요.
+
+tika/dungeon/40/variants/1
+같이 움직일 수 있는지부터 봐요.
+
+tika/dungeon/41/variants/0
+진 얘기도 나중에 같이 들어요.
+
+tika/dungeon/41/variants/1
+오늘 못한 걸 혼자 숨기진 않을게요.
+
+tika/transitions/0/situation
+비켜 준 통로를 보고 손을 내린다.
+
+tika/transitions/0/lines/0
+안 붙잡으셔서 좀 놀랐어요.
+
+tika/transitions/0/lines/1
+오늘은 인사만 하고 갈게요.
+
+tika/transitions/1/situation
+접시를 들고 사람들 쪽으로 돌아선다.
+
+tika/transitions/1/lines/0
+끝난 빚을 또 확인해야 하나요?
+
+tika/transitions/1/lines/1
+지금은 같이 앉고 싶지 않아요.
+
+tika/transitions/2/situation
+다른 사람들이 앉은 식탁에서 손을 흔든다.
+
+tika/transitions/2/lines/0
+여기 한 자리 남았어요!
+
+tika/transitions/2/lines/1
+아, 둘만 되면 제가 좀 조용해져요.
+
+tika/transitions/3/situation
+큰 웃음을 그치고 잔을 내려놓는다.
+
+tika/transitions/3/lines/0
+사람들 앞이라고 다 말하진 않을래요.
+
+tika/transitions/3/lines/1
+오늘은 구경하는 얘기 그만해요.
+
+tika/transitions/4/situation
+빈 맞은편에 먼저 앉아 말을 꺼낸다.
+
+tika/transitions/4/lines/0
+저, 오늘은 제가 먼저 왔어요.
+
+tika/transitions/4/lines/1
+다른 사람 안 불러도 얘기할 수 있죠?
+
+tika/transitions/5/situation
+말을 잇지 못하고 귀를 눕힌다.
+
+tika/transitions/5/lines/0
+더 크게 말해야만 하나요?
+
+tika/transitions/5/lines/1
+여기서는 자꾸 목소리가 작아지네요.
+
+tika/transitions/6/situation
+잠깐 웃은 뒤 두 손을 가만히 놓는다.
+
+tika/transitions/6/lines/0
+빚 갚은 날 얘기를 해도 될까요?
+
+tika/transitions/6/lines/1
+웃었던 얘기 뒤도 좀 길어요.
+
+tika/transitions/7/situation
+문을 보다가 다시 의자에 앉는다.
+
+tika/transitions/7/lines/0
+좋은 날이었으니 안 무서웠겠다고요?
+
+tika/transitions/7/lines/1
+그 얘기는 오늘 더 못 하겠어요.
+
+tika/transitions/8/situation
+둘이 남은 방에서 먼저 웃는다.
+
+tika/transitions/8/lines/0
+아, 방금은 진짜 웃겼어요.
+
+tika/transitions/8/lines/1
+아무도 안 보는데도 이렇게 웃네요.
+
+tika/transitions/9/situation
+웃다가 고개를 숙이고 다시 말한다.
+
+tika/transitions/9/lines/0
+그 웃음을 연습해 보자는 건 싫어요.
+
+tika/transitions/9/lines/1
+그냥 여기서 웃었던 걸로 두면 안 돼요?
+
+tika/transitions/10/situation
+다음 만남을 묻고도 시선을 피하지 않는다.
+
+tika/transitions/10/lines/0
+제가 고른 데로 같이 갈까요?
+
+tika/transitions/10/lines/1
+재밌을지는 아직 모르지만 가 보고 싶어요.
+
+tika/transitions/11/situation
+약속 옆에 적은 횟수를 지운다.
+
+tika/transitions/11/lines/0
+못 온 날을 빚처럼 세진 말아요.
+
+tika/transitions/11/lines/1
+같이 있고 싶어서 한 약속이에요.
+
+tika/transitions/12/situation
+조용해진 뒤에도 자리를 지킨다.
+
+tika/transitions/12/lines/0
+잠깐 조용해져도 제가 바로 얘기를 찾진 않네요.
+
+tika/transitions/12/lines/1
+오늘은 제가 조금 더 앉자고 할래요.
+
+tika/transitions/13/situation
+일어서다가 망설인 말을 돌려 꺼낸다.
+
+tika/transitions/13/lines/0
+아까 괜찮다고 했는데 조금 속상했어요.
+
+tika/transitions/13/lines/1
+늦었어도 지금 말씀드리고 싶어요.
+
+hedwig/inn/0/situation
+문서 위에 손을 얹어 내용을 가린다.
+
+hedwig/inn/0/lines/0
+오늘은 열람을 허락하지 않았습니다.
+
+hedwig/inn/0/lines/1
+무슨 내용인지도 설명하지 않겠습니다.
+
+hedwig/inn/0/lines/2
+다른 용건이 있으면 말씀하십시오.
+
+hedwig/inn/0/choices/0/text
+의자를 옮겨도 될까요?
+
+hedwig/inn/0/choices/0/response/0
+통로를 막지 않는 쪽으로 옮기십시오.
+
+hedwig/inn/0/choices/1/text
+훑어보기만 하면 금방 이해할 텐데요.
+
+hedwig/inn/0/choices/1/response/0
+빨리 읽으셔도 보여 드릴 수 없습니다.
+
+hedwig/inn/0/choices/1/response/1
+보시게 할 내용은 제가 정하겠습니다.
+
+hedwig/inn/0/choices/2/text
+보지 않고 제 용건만 말하겠습니다.
+
+hedwig/inn/0/choices/2/response/0
+그 범위라면 듣겠습니다.
+
+hedwig/inn/0/seen
+오늘 문서는 닫아 두겠습니다.
+
+hedwig/inn/1/situation
+웃음소리가 나자 펜을 내려놓는다.
+
+hedwig/inn/1/lines/0
+방금 제 말이 우스웠습니까?
+
+hedwig/inn/1/lines/1
+대답하지 않으셔도 됩니다.
+
+hedwig/inn/1/lines/2
+같이 웃을 생각은 없습니다.
+
+hedwig/inn/1/choices/0/text
+친해지려고 장난친 것뿐이에요.
+
+hedwig/inn/1/choices/0/response/0
+지금은 장난을 멈춰 주십시오.
+
+hedwig/inn/1/choices/0/response/1
+지금 불편하다는 말을 장난으로 받진 마십시오.
+
+hedwig/inn/1/choices/1/text
+웃음 때문에 불편했다면 멈추겠습니다.
+
+hedwig/inn/1/choices/1/response/0
+그럼 다른 얘기부터 하십시오.
+
+hedwig/inn/1/choices/2/text
+물병은 종이에서 먼 쪽에 놓을게요.
+
+hedwig/inn/1/choices/2/response/0
+종이에 닿지 않는 곳으로 부탁드립니다.
+
+hedwig/inn/1/seen
+지금은 웃음 얘기를 이어 가지 않겠습니다.
+
+hedwig/inn/2/situation
+서명할 종이를 한 줄씩 가리킨다.
+
+hedwig/inn/2/lines/0
+내용부터 읽으십시오.
+
+hedwig/inn/2/lines/1
+빈칸은 제가 보는 앞에서 채우겠습니다.
+
+hedwig/inn/2/lines/2
+읽으시기 전에는 서명하지 마십시오.
+
+hedwig/inn/2/choices/0/text
+모르는 문구는 먼저 묻겠습니다.
+
+hedwig/inn/2/choices/0/response/0
+설명이 필요한 줄을 가리켜 주십시오.
+
+hedwig/inn/2/choices/1/text
+펜은 이걸 쓰면 되나요?
+
+hedwig/inn/2/choices/1/response/0
+잉크가 번지지 않는지 먼저 보겠습니다.
+
+hedwig/inn/2/choices/2/text
+서명부터 하고 나중에 읽을게요.
+
+hedwig/inn/2/choices/2/response/0
+그 순서로는 동의했다고 보기 어렵습니다.
+
+hedwig/inn/2/choices/2/response/1
+읽으실 때까지 기다리겠습니다.
+
+hedwig/inn/2/seen
+읽지 않은 줄이 남으면 서명은 미루십시오.
+
+hedwig/inn/3/situation
+서류 첫머리를 쓰다가 종이를 덮는다.
+
+hedwig/inn/3/lines/0
+첫머리는 제가 쓰겠습니다.
+
+hedwig/inn/3/lines/1
+이미 아는 문구라 해도 대신 쓰지 마십시오.
+
+hedwig/inn/3/lines/2
+제 이름으로 남길 문서입니다.
+
+hedwig/inn/3/choices/0/text
+종이를 조금 돌릴까요?
+
+hedwig/inn/3/choices/0/response/0
+지금 각도면 괜찮습니다.
+
+hedwig/inn/3/choices/1/text
+늘 쓰는 말은 미리 인쇄하면 편하겠어요.
+
+hedwig/inn/3/choices/1/response/0
+직접 적는 일까지 덜어 낼 생각은 없습니다.
+
+hedwig/inn/3/choices/1/response/1
+제가 직접 쓰겠다는 뜻부터 알아주십시오.
+
+hedwig/inn/3/choices/2/text
+다 쓰실 때까지 기다리겠습니다.
+
+hedwig/inn/3/choices/2/response/0
+끝난 뒤에 본문을 함께 보겠습니다.
+
+hedwig/inn/3/seen
+이 문서 첫 줄은 제가 적겠습니다.
+
+hedwig/inn/4/situation
+의자를 당기기 전에 또박또박 말한다.
+
+hedwig/inn/4/lines/0
+말씀드릴 것이 있습니다.
+
+hedwig/inn/4/lines/1
+합석은 제 개인적인 선택입니다.
+
+hedwig/inn/4/lines/2
+같이 먹고 싶어 왔습니다.
+
+hedwig/inn/4/choices/0/text
+합석한 것도 기록해 두면 어때요?
+
+hedwig/inn/4/choices/0/response/0
+모든 말을 문서로 만들 필요는 없습니다.
+
+hedwig/inn/4/choices/0/response/1
+밥 먹은 일까지 적으면 쉬지 못하겠습니다.
+
+hedwig/inn/4/choices/1/text
+저도 같이 앉고 싶어서 왔어요.
+
+hedwig/inn/4/choices/1/response/0
+그럼 의자는 이쪽으로 놓겠습니다.
+
+hedwig/inn/4/choices/1/response/1
+오늘은 서류를 꺼낼 필요가 없겠습니다.
+
+hedwig/inn/4/choices/2/text
+식사는 하셨습니까?
+
+hedwig/inn/4/choices/2/response/0
+아직 주문하지 않았습니다.
+
+hedwig/inn/4/seen
+합석했다는 기록은 따로 쓰지 않겠습니다.
+
+hedwig/inn/5/situation
+책 모서리를 손바닥으로 덮는다.
+
+hedwig/inn/5/lines/0
+가끔 이런 책도 읽습니다.
+
+hedwig/inn/5/lines/1
+이 책은 설명할 필요가 없을 듯합니다.
+
+hedwig/inn/5/lines/2
+줄거리를 묻지는 마십시오.
+
+hedwig/inn/5/choices/0/text
+제목도 지금은 안 물을게요.
+
+hedwig/inn/5/choices/0/response/0
+책을 덮지는 않아도 되겠습니까?
+
+hedwig/inn/5/choices/1/text
+책갈피가 빠졌어요.
+
+hedwig/inn/5/choices/1/response/0
+쪽수를 잃기 전에 끼워 두겠습니다.
+
+hedwig/inn/5/choices/2/text
+쉬운 책을 보시는군요, 의외예요.
+
+hedwig/inn/5/choices/2/response/0
+저는 재미있어서 읽습니다.
+
+hedwig/inn/5/choices/2/response/1
+같은 책을 여러 번 읽었습니다.
+
+hedwig/inn/5/seen
+이 책은 가방 안쪽에 넣어 두겠습니다.
+
+hedwig/inn/6/situation
+주문 메모 옆에 긴 글자를 적는다.
+
+hedwig/inn/6/lines/0
+이건 주문 자체가 아닙니다.
+
+hedwig/inn/6/lines/1
+부르기 위한 이름을 적는 중입니다.
+
+hedwig/inn/6/lines/2
+효과를 바꿨다는 뜻은 아닙니다.
+
+hedwig/inn/6/choices/0/text
+잉크가 꽤 많이 들겠네요.
+
+hedwig/inn/6/choices/0/response/0
+고쳐 쓰면 그만큼 더 듭니다.
+
+hedwig/inn/6/choices/1/text
+짧은 번호로 부르면 훨씬 빠르겠어요.
+
+hedwig/inn/6/choices/1/response/0
+제가 고르는 이름에는 다른 이유가 있습니다.
+
+hedwig/inn/6/choices/1/response/1
+이름을 붙여 부르면 망설임이 좀 줄어듭니다.
+
+hedwig/inn/6/choices/2/text
+작동 방식과 이름은 따로 볼게요.
+
+hedwig/inn/6/choices/2/response/0
+이름을 다 고르면 들려드리겠습니다.
+
+hedwig/inn/6/seen
+이 메모의 긴 글자는 이름 후보입니다.
+
+hedwig/inn/7/situation
+개인 연구 휴가라는 말을 강조한다.
+
+hedwig/inn/7/lines/0
+저는 공식 파견자가 아닙니다.
+
+hedwig/inn/7/lines/1
+연구 휴가를 청해 왔습니다.
+
+hedwig/inn/7/lines/2
+협력은 제 개인의 선택으로 남깁니다.
+
+hedwig/inn/7/choices/0/text
+학술원 대표라 하면 더 믿을 텐데요.
+
+hedwig/inn/7/choices/0/response/0
+없는 권한으로 신뢰를 얻을 수는 없습니다.
+
+hedwig/inn/7/choices/0/response/1
+학술원 이름으로 약속드릴 권한도 없습니다.
+
+hedwig/inn/7/choices/1/text
+누가 보냈다고 소개하지 않겠습니다.
+
+hedwig/inn/7/choices/1/response/0
+그렇게 소개해 주시면 다시 설명할 필요가 없습니다.
+
+hedwig/inn/7/choices/2/text
+길은 오래 걸리셨습니까?
+
+hedwig/inn/7/choices/2/response/0
+오는 동안 읽을 자료는 충분했습니다.
+
+hedwig/inn/7/seen
+학술원 파견이라는 표현은 쓰지 마십시오.
+
+hedwig/inn/8/situation
+가방에서 영웅담 책을 반쯤 꺼낸다.
+
+hedwig/inn/8/lines/0
+전에 보신 책입니다.
+
+hedwig/inn/8/lines/1
+학술 자료 사이에 넣어 뒀습니다.
+
+hedwig/inn/8/lines/2
+오늘은 보셔도 됩니다. 표지만 말입니다.
+
+hedwig/inn/8/choices/0/text
+책은 그쪽에 두세요. 저는 여기서 볼게요.
+
+hedwig/inn/8/choices/0/response/0
+그럼 표지 위에 얹은 손은 그대로 두겠습니다.
+
+hedwig/inn/8/choices/0/response/1
+오늘은 이만큼만 꺼내 놓겠습니다.
+
+hedwig/inn/8/choices/1/text
+책이 꽤 두껍네요.
+
+hedwig/inn/8/choices/1/response/0
+가지고 다니면 가방이 무겁습니다.
+
+hedwig/inn/8/choices/2/text
+재밌는 대목을 모두 앞에서 읽어 주세요.
+
+hedwig/inn/8/choices/2/response/0
+여기서 둘이 볼 때만 꺼내겠습니다.
+
+hedwig/inn/8/choices/2/response/1
+보여 드리는 상대까지 제가 고르고 싶습니다.
+
+hedwig/inn/8/seen
+오늘 보여 드리는 건 표지까지만입니다.
+
+hedwig/inn/9/situation
+기록용 종이를 치우고 말을 건다.
+
+hedwig/inn/9/lines/0
+지금 얘기는 적지 않겠습니다.
+
+hedwig/inn/9/lines/1
+제 생각이 아직 정리되지 않았습니다.
+
+hedwig/inn/9/lines/2
+들으신 뒤 바로 결론을 내리지 마십시오.
+
+hedwig/inn/9/choices/0/text
+지금은 시간이 충분합니다.
+
+hedwig/inn/9/choices/0/response/0
+그럼 급하게 줄이지 않겠습니다.
+
+hedwig/inn/9/choices/1/text
+제가 요점을 대신 적어 드릴게요.
+
+hedwig/inn/9/choices/1/response/0
+기록하지 않겠다고 말씀드렸습니다.
+
+hedwig/inn/9/choices/1/response/1
+다듬지 않은 말을 기록으로 남기긴 어렵습니다.
+
+hedwig/inn/9/choices/2/text
+말씀 중에 묻고 싶은 건 기다릴게요.
+
+hedwig/inn/9/choices/2/response/0
+끝에 제가 다시 묻겠습니다.
+
+hedwig/inn/9/seen
+종이는 치웠으니 그냥 들어 주십시오.
+
+hedwig/inn/10/situation
+주문 이름을 적다 입술만 움직인다.
+
+hedwig/inn/10/lines/0
+소리를 내야 어색한지 압니다.
+
+hedwig/inn/10/lines/1
+다른 분이 오시면 그만하겠습니다.
+
+hedwig/inn/10/lines/2
+잠깐 들어 주실 수 있습니까?
+
+hedwig/inn/10/choices/0/text
+평범한 주문이면 이름도 평범하면 되죠.
+
+hedwig/inn/10/choices/0/response/0
+평범한 주문이라는 건 저도 압니다.
+
+hedwig/inn/10/choices/0/response/1
+그 이름으로 불러야 제가 덜 망설입니다.
+
+hedwig/inn/10/choices/1/text
+웃지 않고 끝까지 들어 볼게요.
+
+hedwig/inn/10/choices/1/response/0
+중간에 끊지 말고 다 들은 뒤 말씀하십시오.
+
+hedwig/inn/10/choices/2/text
+문은 제가 조금 닫겠습니다.
+
+hedwig/inn/10/choices/2/response/0
+닫고 나면 목소리를 조금 높이겠습니다.
+
+hedwig/inn/10/seen
+이름은 소리 내서 한 번 읽어 보겠습니다.
+
+hedwig/inn/11/situation
+자기 문서와 상대의 종이를 따로 놓는다.
+
+hedwig/inn/11/lines/0
+이쪽은 제 초고입니다.
+
+hedwig/inn/11/lines/1
+고칠 곳이 있으면 먼저 말해 주십시오.
+
+hedwig/inn/11/lines/2
+말씀하신 뒤에 제가 지우겠습니다.
+
+hedwig/inn/11/choices/0/text
+수정할 줄을 말로 먼저 짚겠습니다.
+
+hedwig/inn/11/choices/0/response/0
+들어 보고 바꿀지 정하겠습니다.
+
+hedwig/inn/11/choices/1/text
+종이를 겹치지 않게 둘게요.
+
+hedwig/inn/11/choices/1/response/0
+섞이지 않아서 확인이 쉽겠습니다.
+
+hedwig/inn/11/choices/2/text
+사소한 오자는 바로 고쳐 드려요.
+
+hedwig/inn/11/choices/2/response/0
+작은 수정도 제게 물어 주십시오.
+
+hedwig/inn/11/choices/2/response/1
+작성자를 건너뛰면 작은 글자도 다르게 남습니다.
+
+hedwig/inn/11/seen
+고칠 줄은 제가 듣고 직접 지우겠습니다.
+
+hedwig/inn/12/situation
+문서 첫머리에서 펜이 오래 멈춘다.
+
+hedwig/inn/12/lines/0
+루미엘로 돌아갈 때까지라고 적습니다.
+
+hedwig/inn/12/lines/1
+자라면서 계속 썼습니다.
+
+hedwig/inn/12/lines/2
+정작 그곳을 되돌리는 방법은 모릅니다.
+
+hedwig/inn/12/choices/0/text
+종이를 잠깐 접어 둘까요?
+
+hedwig/inn/12/choices/0/response/0
+마를 때까지만 펴 두겠습니다.
+
+hedwig/inn/12/choices/1/text
+매번 쓰면 언젠가 돌아가겠죠.
+
+hedwig/inn/12/choices/1/response/0
+적는 것만으로 되는 일은 아닙니다.
+
+hedwig/inn/12/choices/1/response/1
+돌아갈 방법을 모른다는 점은 그대로입니다.
+
+hedwig/inn/12/choices/2/text
+모른다는 말도 같이 듣겠습니다.
+
+hedwig/inn/12/choices/2/response/0
+첫 줄을 쓰면서 이런 말을 하긴 어렵습니다.
+
+hedwig/inn/12/choices/2/response/1
+제가 매번 쓰면서도 답을 몰랐던 말입니다.
+
+hedwig/inn/12/seen
+첫머리를 썼다고 답까지 얻는 건 아닙니다.
+
+hedwig/inn/13/situation
+영웅담 책의 닳은 부분을 짚는다.
+
+hedwig/inn/13/lines/0
+어릴 때 기사를 흉내 냈습니다.
+
+hedwig/inn/13/lines/1
+선언부터 하면 덜 무서웠습니다.
+
+hedwig/inn/13/lines/2
+말이 몸보다 앞서던 때였습니다.
+
+hedwig/inn/13/choices/0/text
+이제 어른이니 흉내는 그만둬도 되죠.
+
+hedwig/inn/13/choices/0/response/0
+지금도 도움이 되는 버릇입니다.
+
+hedwig/inn/13/choices/0/response/1
+말을 먼저 해 놓고 손을 움직인 적도 많았습니다.
+
+hedwig/inn/13/choices/1/text
+어떤 때 그 말이 필요했습니까?
+
+hedwig/inn/13/choices/1/response/0
+망설이면 아무것도 못 할 것 같을 때였습니다.
+
+hedwig/inn/13/choices/2/text
+책장은 많이 넘기셨네요.
+
+hedwig/inn/13/choices/2/response/0
+같은 부분을 다시 보는 일이 많았습니다.
+
+hedwig/inn/13/seen
+그 선언 버릇은 어릴 때부터 있었습니다.
+
+hedwig/inn/14/situation
+스승 얘기에서 두 손을 모은다.
+
+hedwig/inn/14/lines/0
+유디트와 같은 스승에게 배웠습니다.
+
+hedwig/inn/14/lines/1
+그분은 떠났고 저는 남았습니다.
+
+hedwig/inn/14/lines/2
+같은 것을 배워도 결론은 달랐습니다.
+
+hedwig/inn/14/choices/0/text
+헤드비히 씨 결론부터 듣겠습니다.
+
+hedwig/inn/14/choices/0/response/0
+비교하기 전에 제 말부터 하겠습니다.
+
+hedwig/inn/14/choices/1/text
+학교 얘기는 힘드시겠네요.
+
+hedwig/inn/14/choices/1/response/0
+말할 수 있는 범위가 좁기는 합니다.
+
+hedwig/inn/14/choices/2/text
+둘이 만나면 금방 화해할 수 있겠어요.
+
+hedwig/inn/14/choices/2/response/0
+친분으로 끝낼 수 있는 차이가 아닙니다.
+
+hedwig/inn/14/choices/2/response/1
+같은 스승 밑에서 달라진 판단이 있습니다.
+
+hedwig/inn/14/seen
+유디트의 생각은 직접 물어보십시오.
+
+hedwig/inn/15/situation
+덮어 둔 초고에서 한 줄을 다시 읽는다.
+
+hedwig/inn/15/lines/0
+남았다고 다 확신했던 건 아닙니다.
+
+hedwig/inn/15/lines/1
+다만 서명한 제 선택을 숨기진 않겠습니다.
+
+hedwig/inn/15/lines/2
+그때 판단을 지금도 묻고 있습니다.
+
+hedwig/inn/15/choices/0/text
+지금은 적지 않고 들어도 되죠?
+
+hedwig/inn/15/choices/0/response/0
+그렇게 해 주시면 더 편하겠습니다.
+
+hedwig/inn/15/choices/1/text
+남은 쪽이 정통이니 옳았겠죠.
+
+hedwig/inn/15/choices/1/response/0
+그 이름이 제 판단까지 대신하진 않습니다.
+
+hedwig/inn/15/choices/1/response/1
+남은 사람의 의심까지 없어지는 것은 아닙니다.
+
+hedwig/inn/15/choices/2/text
+확신 없는 부분도 듣겠습니다.
+
+hedwig/inn/15/choices/2/response/0
+정리되지 않은 말로 들릴 수 있습니다.
+
+hedwig/inn/15/seen
+그때 제 선택에도 의문은 남습니다.
+
+hedwig/inn/16/situation
+새 종이에 첫 문장을 다시 쓴다.
+
+hedwig/inn/16/lines/0
+오늘 첫 줄은 제 말로 쓰겠습니다.
+
+hedwig/inn/16/lines/1
+맹세는 그 위에 그대로 두겠습니다.
+
+hedwig/inn/16/lines/2
+왜 여기 왔는지도 함께 쓰고 싶습니다.
+
+hedwig/inn/16/choices/0/text
+그럼 앞의 문구는 제가 지워 둘게요.
+
+hedwig/inn/16/choices/0/response/0
+앞의 맹세는 남겨 두십시오.
+
+hedwig/inn/16/choices/0/response/1
+처음 쓴 말에 지금의 이유를 덧붙이고 싶습니다.
+
+hedwig/inn/16/choices/1/text
+다 쓰시면 읽어도 되는지 물을게요.
+
+hedwig/inn/16/choices/1/response/0
+먼저 읽으라고 권할 때까지 기다려 주십시오.
+
+hedwig/inn/16/choices/1/response/1
+읽으실 때는 첫 문장부터 함께 봐 주십시오.
+
+hedwig/inn/16/choices/2/text
+새 종이는 넉넉합니다.
+
+hedwig/inn/16/choices/2/response/0
+고쳐 쓰는 데 아끼지 않겠습니다.
+
+hedwig/inn/16/seen
+첫 줄 뒤에 제 이유도 붙이겠습니다.
+
+hedwig/inn/17/situation
+이름 후보를 적은 작은 쪽지를 건넨다.
+
+hedwig/inn/17/lines/0
+이건 새 주문이 아닙니다.
+
+hedwig/inn/17/lines/1
+기존 주문을 부를 이름을 생각했습니다.
+
+hedwig/inn/17/lines/2
+함께 갈 때 쓸 이름이라 보여 드립니다.
+
+hedwig/inn/17/choices/0/text
+뜻부터 설명해 주시겠습니까?
+
+hedwig/inn/17/choices/0/response/0
+무사히 돌아오자는 뜻을 붙였습니다.
+
+hedwig/inn/17/choices/1/text
+쪽지는 이대로 돌려드릴까요?
+
+hedwig/inn/17/choices/1/response/0
+읽으신 뒤 제게 주시면 됩니다.
+
+hedwig/inn/17/choices/2/text
+이름이 좋으니 위력도 커지겠네요.
+
+hedwig/inn/17/choices/2/response/0
+효과는 이전과 같습니다.
+
+hedwig/inn/17/choices/2/response/1
+본래의 주문을 다르게 부르려는 것입니다.
+
+hedwig/inn/17/seen
+이 쪽지로 주문의 효과가 바뀌진 않습니다.
+
+hedwig/inn/18/situation
+말을 시작하려다 선언을 삼킨다.
+
+hedwig/inn/18/lines/0
+선언부터 할 뻔했습니다.
+
+hedwig/inn/18/lines/1
+오늘은 그냥 같이 쉬고 싶었습니다.
+
+hedwig/inn/18/lines/2
+이런 말은 아직 익숙하지 않습니다.
+
+hedwig/inn/18/choices/0/text
+잔을 가져올까요?
+
+hedwig/inn/18/choices/0/response/0
+물로 부탁드립니다. 목이 마릅니다.
+
+hedwig/inn/18/choices/1/text
+그 선언도 해 보세요, 듣고 싶어요.
+
+hedwig/inn/18/choices/1/response/0
+오늘은 하지 않는 쪽을 골랐습니다.
+
+hedwig/inn/18/choices/1/response/1
+그냥 쉬자는 말을 끝까지 하고 싶었습니다.
+
+hedwig/inn/18/choices/2/text
+쉬자는 말은 바로 알아들었습니다.
+
+hedwig/inn/18/choices/2/response/0
+그럼 물 한 잔 마시며 쉬겠습니다.
+
+hedwig/inn/18/seen
+오늘은 선언 없이 쉬고 싶습니다.
+
+hedwig/inn/19/situation
+문서 없이 잡은 약속을 다시 묻는다.
+
+hedwig/inn/19/lines/0
+내일 같은 시간에 뵙기로 했습니다.
+
+hedwig/inn/19/lines/1
+적어 두지 않아도 기억합니다.
+
+hedwig/inn/19/lines/2
+혹시 바뀌면 말씀만 해 주십시오.
+
+hedwig/inn/19/choices/0/text
+혹시 모르니 지금 서명해 둘까요?
+
+hedwig/inn/19/choices/0/response/0
+서명은 없어도 됩니다.
+
+hedwig/inn/19/choices/0/response/1
+말로 정한 약속도 제가 지킬 수 있습니다.
+
+hedwig/inn/19/choices/1/text
+바뀌면 직접 알리겠습니다.
+
+hedwig/inn/19/choices/1/response/0
+그 정도면 다시 서명할 필요는 없겠습니다.
+
+hedwig/inn/19/choices/2/text
+만날 곳도 그대로죠?
+
+hedwig/inn/19/choices/2/response/0
+의자를 옮기지만 않으면 여기입니다.
+
+hedwig/inn/19/seen
+내일 약속은 문서 없이 기억하겠습니다.
+
+hedwig/inn/20/situation
+약속할 문장을 함께 고르자고 한다.
+
+hedwig/inn/20/lines/0
+제가 쓰기 전에 의견을 묻겠습니다.
+
+hedwig/inn/20/lines/1
+혼자 정한 문장에 서명만 받진 않겠습니다.
+
+hedwig/inn/20/lines/2
+고치고 싶은 부분부터 말씀하십시오.
+
+hedwig/inn/20/choices/0/text
+제 뜻도 말한 뒤 함께 정하겠습니다.
+
+hedwig/inn/20/choices/0/response/0
+다른 말이 나오면 처음부터 다시 맞추겠습니다.
+
+hedwig/inn/20/choices/0/response/1
+빠진 의견이 있으면 서명 전에 고치겠습니다.
+
+hedwig/inn/20/choices/1/text
+이 줄부터 보면 될까요?
+
+hedwig/inn/20/choices/1/response/0
+아직 비어 있으니 첫 문장부터 보십시오.
+
+hedwig/inn/20/choices/2/text
+헤드비히 씨가 정하면 저는 다 따릅니다.
+
+hedwig/inn/20/choices/2/response/0
+읽지 않은 뜻까지 맡기지는 마십시오.
+
+hedwig/inn/20/choices/2/response/1
+서로의 뜻이 있어야 같은 문장이 됩니다.
+
+hedwig/inn/20/seen
+이번 문장은 둘이 정한 뒤 쓰겠습니다.
+
+hedwig/inn/21/situation
+도움을 받은 일을 말로 먼저 전한다.
+
+hedwig/inn/21/lines/0
+직접 고맙다고 말씀드리고 싶었습니다.
+
+hedwig/inn/21/lines/1
+그날 기다려 주신 것이 고마웠습니다.
+
+hedwig/inn/21/lines/2
+인사가 늦었습니다.
+
+hedwig/inn/21/choices/0/text
+그날은 비가 왔죠?
+
+hedwig/inn/21/choices/0/response/0
+그래서 종이가 마를 때까지 걸렸습니다.
+
+hedwig/inn/21/choices/1/text
+그럼 다음엔 제 부탁부터 들어 주세요.
+
+hedwig/inn/21/choices/1/response/0
+그날 일에 고맙다는 인사를 드렸습니다.
+
+hedwig/inn/21/choices/1/response/1
+다음 부탁의 조건은 지금 따로 듣겠습니다.
+
+hedwig/inn/21/choices/2/text
+기억하고 말씀해 주셔서 고맙습니다.
+
+hedwig/inn/21/choices/2/response/0
+지금 전해도 늦지 않았다면 다행입니다.
+
+hedwig/inn/21/seen
+다음 부탁은 무슨 일인지 말씀하십시오.
+
+hedwig/inn/22/situation
+작은 실수를 바로 고친 뒤 얼굴을 든다.
+
+hedwig/inn/22/lines/0
+말을 잘못 전했습니다.
+
+hedwig/inn/22/lines/1
+숨기려던 것은 아닙니다.
+
+hedwig/inn/22/lines/2
+고쳐서 다시 말씀드려도 되겠습니까?
+
+hedwig/inn/22/choices/0/text
+아는 뜻이니 그냥 넘어가도 됩니다.
+
+hedwig/inn/22/choices/0/response/0
+틀린 말을 그대로 남기긴 어렵습니다.
+
+hedwig/inn/22/choices/0/response/1
+알아들으셨더라도 제가 틀리게 말한 건 남습니다.
+
+hedwig/inn/22/choices/1/text
+다시 말씀해 주십시오.
+
+hedwig/inn/22/choices/1/response/0
+틀린 부분을 따로 짚고 시작하겠습니다.
+
+hedwig/inn/22/choices/2/text
+물 한 모금 먼저 드세요.
+
+hedwig/inn/22/choices/2/response/0
+설명 전에 목을 좀 축이겠습니다.
+
+hedwig/inn/22/seen
+방금 말은 고친 다음 이어 가겠습니다.
+
+hedwig/inn/23/situation
+영웅담을 덮지 않고 그대로 둔다.
+
+hedwig/inn/23/lines/0
+지금 들어오셔도 책을 숨기진 않겠습니다.
+
+hedwig/inn/23/lines/1
+다른 취향이라 생각하셔도 됩니다.
+
+hedwig/inn/23/lines/2
+제가 읽는 이유까지 같을 필요는 없습니다.
+
+hedwig/inn/23/choices/0/text
+웃음이 나면 먼저 불편한지 묻겠습니다.
+
+hedwig/inn/23/choices/0/response/0
+좋아하라고 요구할 생각은 없습니다.
+
+hedwig/inn/23/choices/1/text
+다 읽은 뒤 얘기할까요?
+
+hedwig/inn/23/choices/1/response/0
+이 문단까지만 읽고 말씀드리겠습니다.
+
+hedwig/inn/23/choices/2/text
+이젠 저도 꼭 좋아해야겠네요.
+
+hedwig/inn/23/choices/2/response/0
+억지로 좋아한다고 하지는 마십시오.
+
+hedwig/inn/23/choices/2/response/1
+같이 좋아하는 척하면 취향을 묻기 어려워집니다.
+
+hedwig/inn/23/seen
+책은 여기 펴 둔 채 얘기하겠습니다.
+
+hedwig/inn/24/situation
+종이를 챙기고도 자리에 다시 앉는다.
+
+hedwig/inn/24/lines/0
+기록은 끝났습니다.
+
+hedwig/inn/24/lines/1
+그런데 돌아가고 싶지는 않습니다.
+
+hedwig/inn/24/lines/2
+볼일 없이 남아도 괜찮은지 묻고 싶습니다.
+
+hedwig/inn/24/choices/0/text
+차가 식었습니다.
+
+hedwig/inn/24/choices/0/response/0
+따뜻한 물을 더 부으면 되겠습니다.
+
+hedwig/inn/24/choices/1/text
+그럼 남은 서류도 같이 끝내시죠.
+
+hedwig/inn/24/choices/1/response/0
+일은 다 끝내고 남았습니다.
+
+hedwig/inn/24/choices/1/response/1
+오늘 남은 일은 다른 자리에서 보겠습니다.
+
+hedwig/inn/24/choices/2/text
+저도 더 앉아 있겠습니다.
+
+hedwig/inn/24/choices/2/response/0
+그럼 가방은 발밑으로 내려놓겠습니다.
+
+hedwig/inn/24/choices/2/response/1
+이 뒤에 나눌 얘기는 적지 않겠습니다.
+
+hedwig/inn/24/seen
+기록을 끝내고도 잠깐 남겠습니다.
+
+hedwig/inn/25/situation
+자기 말로 쓴 첫 줄을 다시 읽는다.
+
+hedwig/inn/25/lines/0
+아직 루미엘을 생각합니다.
+
+hedwig/inn/25/lines/1
+같이 걷는 길도 제 선택입니다.
+
+hedwig/inn/25/lines/2
+둘 다 제가 적은 말로 남기겠습니다.
+
+hedwig/inn/25/choices/0/text
+지금은 우리 얘기만 쓰면 좋겠어요.
+
+hedwig/inn/25/choices/0/response/0
+가까워져도 제가 지키는 말은 남겨 두고 싶습니다.
+
+hedwig/inn/25/choices/0/response/1
+여기에 온 이유를 하나로 줄이긴 어렵습니다.
+
+hedwig/inn/25/choices/1/text
+둘 중 하나를 지우라고 하지 않겠습니다.
+
+hedwig/inn/25/choices/1/response/0
+생각이 바뀌면 제가 말씀드리겠습니다.
+
+hedwig/inn/25/choices/2/text
+잉크가 충분합니까?
+
+hedwig/inn/25/choices/2/response/0
+오늘 쓸 만큼은 남아 있습니다.
+
+hedwig/inn/25/seen
+오늘 문서엔 제 선택도 함께 적겠습니다.
+
+hedwig/inn/26/situation
+주문 이름을 말하려다 먼저 눈을 맞춘다.
+
+hedwig/inn/26/lines/0
+이름을 길게 불러도 놀라지 마십시오.
+
+hedwig/inn/26/lines/1
+어떤 주문인지는 먼저 설명하겠습니다.
+
+hedwig/inn/26/lines/2
+이제 숨겨서 외우진 않겠습니다.
+
+hedwig/inn/26/choices/0/text
+필요한 신호는 따로 확인하겠습니다.
+
+hedwig/inn/26/choices/0/response/0
+이름과 지시를 섞지 않으면 충분합니다.
+
+hedwig/inn/26/choices/1/text
+메모는 어디에 둘까요?
+
+hedwig/inn/26/choices/1/response/0
+젖지 않게 가방 위에 놓으십시오.
+
+hedwig/inn/26/choices/2/text
+그 이름을 제가 더 멋지게 바꿔 드리죠.
+
+hedwig/inn/26/choices/2/response/0
+제가 붙인 이름으로 불러 보고 싶습니다.
+
+hedwig/inn/26/choices/2/response/1
+고치고 싶어지면 그때 보여 드리겠습니다.
+
+hedwig/inn/26/seen
+이름을 부르기 전에 쓰는 주문부터 알리겠습니다.
+
+hedwig/inn/27/situation
+짧은 인사를 쓰려다가 펜을 둔다.
+
+hedwig/inn/27/lines/0
+내일도 뵙고 싶습니다.
+
+hedwig/inn/27/lines/1
+이 말을 적으려다가 문장만 길어졌습니다.
+
+hedwig/inn/27/lines/2
+지금 드린 말로 기억해 주십시오.
+
+hedwig/inn/27/choices/0/text
+시간은 바꾸지 않을까요?
+
+hedwig/inn/27/choices/0/response/0
+오늘과 같은 시간이 좋겠습니다.
+
+hedwig/inn/27/choices/1/text
+잊지 않게 서명해서 주세요.
+
+hedwig/inn/27/choices/1/response/0
+지금 한 말도 믿어 주시면 좋겠습니다.
+
+hedwig/inn/27/choices/1/response/1
+이 말은 서명 없이 드려 보고 싶었습니다.
+
+hedwig/inn/27/choices/2/text
+내일도 여기서 만나겠습니다.
+
+hedwig/inn/27/choices/2/response/0
+이번에는 종이를 접어 드리지 않겠습니다.
+
+hedwig/inn/27/seen
+내일 인사는 지금 말로 드리겠습니다.
+
+hedwig/dungeon/0/variants/0
+출발 준비를 확인했습니다.
+
+hedwig/dungeon/0/variants/1
+개인 물품은 직접 챙기십시오.
+
+hedwig/dungeon/1/variants/0
+계획과 다른 점은 지금 알리십시오.
+
+hedwig/dungeon/1/variants/1
+제 확인도 끝나면 출발하겠습니다.
+
+hedwig/dungeon/2/variants/0
+오늘도 자발적으로 동행하겠습니다.
+
+hedwig/dungeon/2/variants/1
+함께 정한 순서를 따르겠습니다.
+
+hedwig/dungeon/3/variants/0
+새 층에 진입했습니다.
+
+hedwig/dungeon/3/variants/1
+확인하지 않은 길은 기록하지 않겠습니다.
+
+hedwig/dungeon/4/variants/0
+되돌아갈 쪽을 먼저 보겠습니다.
+
+hedwig/dungeon/4/variants/1
+관찰한 내용부터 말씀하십시오.
+
+hedwig/dungeon/5/variants/0
+제가 놓친 곳은 알려 주십시오.
+
+hedwig/dungeon/5/variants/1
+같이 본 뒤에 기록하겠습니다.
+
+hedwig/dungeon/6/variants/0
+발견한 위치를 알리십시오.
+
+hedwig/dungeon/6/variants/1
+정체는 확인 뒤에 적겠습니다.
+
+hedwig/dungeon/7/variants/0
+짐작은 사실과 나누어 말하겠습니다.
+
+hedwig/dungeon/7/variants/1
+만지기 전에 주변부터 살피십시오.
+
+hedwig/dungeon/8/variants/0
+지금은 쓰는 손을 멈추겠습니다.
+
+hedwig/dungeon/8/variants/1
+함께 확인한 내용을 남기겠습니다.
+
+hedwig/dungeon/9/variants/0
+전투가 시작됐습니다. 위치를 지키십시오.
+
+hedwig/dungeon/9/variants/1
+저도 정한 역할부터 수행하겠습니다.
+
+hedwig/dungeon/10/variants/0
+주문 이름과 신호는 구분하겠습니다.
+
+hedwig/dungeon/10/variants/1
+동료 위치를 확인하고 움직이겠습니다.
+
+hedwig/dungeon/11/variants/0
+선언합니다. 루미엘의 마지막 새벽을 쓰겠습니다!
+
+hedwig/dungeon/11/variants/1
+지금 필요한 주문부터 쓰겠습니다.
+
+hedwig/dungeon/12/variants/0
+전투 종료를 확인했습니다.
+
+hedwig/dungeon/12/variants/1
+부상 여부부터 보고하십시오.
+
+hedwig/dungeon/13/variants/0
+방금 잘못 본 곳은 정정하겠습니다.
+
+hedwig/dungeon/13/variants/1
+기록보다 동료 확인을 먼저 하겠습니다.
+
+hedwig/dungeon/14/variants/0
+감사 인사는 제 말로 하겠습니다.
+
+hedwig/dungeon/14/variants/1
+모두 확인한 뒤에 쉬겠습니다.
+
+hedwig/dungeon/15/variants/0
+위험이 큽니다. 준비를 점검하십시오.
+
+hedwig/dungeon/15/variants/1
+불확실한 내용은 확정해 적지 마십시오.
+
+hedwig/dungeon/16/variants/0
+들어가기 전에 의견을 듣겠습니다.
+
+hedwig/dungeon/16/variants/1
+반대할 부분이 있으면 말씀하십시오.
+
+hedwig/dungeon/17/variants/0
+선언보다 준비가 먼저입니다.
+
+hedwig/dungeon/17/variants/1
+제가 아는 범위도 말씀드리겠습니다.
+
+hedwig/dungeon/18/variants/0
+큰 전투가 끝났습니다.
+
+hedwig/dungeon/18/variants/1
+종료 직후의 방심을 경계하십시오.
+
+hedwig/dungeon/19/variants/0
+기록은 상태를 본 뒤에 하겠습니다.
+
+hedwig/dungeon/19/variants/1
+말씀하기 어려우시면 손으로 알리십시오.
+
+hedwig/dungeon/20/variants/0
+계획대로만 된 싸움은 아닙니다.
+
+hedwig/dungeon/20/variants/1
+다친 곳부터 서로 확인하겠습니다.
+
+hedwig/dungeon/21/variants/0
+중상 여부를 확인해야 합니다.
+
+hedwig/dungeon/21/variants/1
+더 버틸 수 있다고 단정하지 마십시오.
+
+hedwig/dungeon/22/variants/0
+도움이 갈 수 있게 길을 비우십시오.
+
+hedwig/dungeon/22/variants/1
+상태를 본 뒤 역할을 바꾸겠습니다.
+
+hedwig/dungeon/23/variants/0
+지금은 기록을 내려놓겠습니다.
+
+hedwig/dungeon/23/variants/1
+직접 확인할 수 있게 도와주십시오.
+
+hedwig/dungeon/24/variants/0
+쓰러진 동료 쪽을 확보하십시오.
+
+hedwig/dungeon/24/variants/1
+확인 전에는 상태를 단정하지 않겠습니다.
+
+hedwig/dungeon/25/variants/0
+다가가는 분을 엄호하겠습니다.
+
+hedwig/dungeon/25/variants/1
+대답이 들리면 바로 알려 주십시오.
+
+hedwig/dungeon/26/variants/0
+제가 할 수 있는 일을 묻겠습니다.
+
+hedwig/dungeon/26/variants/1
+혼자 판단해서 끝내진 않겠습니다.
+
+hedwig/dungeon/27/variants/0
+제게도 부상이 있습니다.
+
+hedwig/dungeon/27/variants/1
+숨기지 않고 상태를 보고하겠습니다.
+
+hedwig/dungeon/28/variants/0
+손이 떨립니다. 잠시 확인하겠습니다.
+
+hedwig/dungeon/28/variants/1
+지금 바로 괜찮다고는 못 하겠습니다.
+
+hedwig/dungeon/29/variants/0
+제 쪽에도 도움이 필요합니다.
+
+hedwig/dungeon/29/variants/1
+명령이 아니라 부탁드리겠습니다.
+
+hedwig/dungeon/30/variants/0
+휴식 장소를 먼저 확인하십시오.
+
+hedwig/dungeon/30/variants/1
+서류는 마른 곳에 놓겠습니다.
+
+hedwig/dungeon/31/variants/0
+기록은 잠깐 접어 두겠습니다.
+
+hedwig/dungeon/31/variants/1
+이 시간에는 목부터 축이겠습니다.
+
+hedwig/dungeon/32/variants/0
+선언 없이 쉬어 보겠습니다.
+
+hedwig/dungeon/32/variants/1
+같이 앉을 자리만 부탁드립니다.
+
+hedwig/dungeon/33/variants/0
+봉인을 확인했습니다. 손을 멈추십시오.
+
+hedwig/dungeon/33/variants/1
+개봉 조건은 확인한 것만 읽겠습니다.
+
+hedwig/dungeon/34/variants/0
+서명이나 이름이 열쇠라고 단정하지 마십시오.
+
+hedwig/dungeon/34/variants/1
+알려진 조건을 다시 대조하겠습니다.
+
+hedwig/dungeon/35/variants/0
+모르는 조건은 모른다고 남기겠습니다.
+
+hedwig/dungeon/35/variants/1
+절차가 확인되기 전에는 기다리겠습니다.
+
+hedwig/dungeon/36/variants/0
+귀환을 확인했습니다.
+
+hedwig/dungeon/36/variants/1
+빠진 인원이 없는지 보겠습니다.
+
+hedwig/dungeon/37/variants/0
+복귀 기록 뒤에는 쉬겠습니다.
+
+hedwig/dungeon/37/variants/1
+같이 돌아온 분들께 감사드립니다.
+
+hedwig/dungeon/38/variants/0
+오늘 기록은 여기서 끝내겠습니다.
+
+hedwig/dungeon/38/variants/1
+남은 인사는 말로 드리겠습니다.
+
+hedwig/dungeon/39/variants/0
+패배를 인정합니다. 더 버티라는 말은 거두겠습니다.
+
+hedwig/dungeon/39/variants/1
+책임 판단은 현재 상태 확인 뒤입니다.
+
+hedwig/dungeon/40/variants/0
+계획이 틀린 곳은 제가 설명하겠습니다.
+
+hedwig/dungeon/40/variants/1
+지금은 움직일 수 있는지 알리십시오.
+
+hedwig/dungeon/41/variants/0
+기록에 제 실수를 빼지 않겠습니다.
+
+hedwig/dungeon/41/variants/1
+함께 돌아갈 방법을 찾겠습니다.
+
+hedwig/transitions/0/situation
+덮었던 문서를 가방에 넣는다.
+
+hedwig/transitions/0/lines/0
+허락을 기다리신 점은 알겠습니다.
+
+hedwig/transitions/0/lines/1
+다른 용건은 짧게 듣겠습니다.
+
+hedwig/transitions/1/situation
+기록 위에 새로 쓴 글자를 가리킨다.
+
+hedwig/transitions/1/lines/0
+먼저 묻고 고치셔야 했습니다.
+
+hedwig/transitions/1/lines/1
+오늘은 이 문서를 보여 드리지 않겠습니다.
+
+hedwig/transitions/2/situation
+맞은편 의자를 직접 당긴다.
+
+hedwig/transitions/2/lines/0
+합석하겠습니다. 개인적인 선택입니다.
+
+hedwig/transitions/2/lines/1
+서류는 넣고 식사부터 하겠습니다.
+
+hedwig/transitions/3/situation
+책 표지 위로 다시 종이를 덮는다.
+
+hedwig/transitions/3/lines/0
+그렇게 웃으시면 책을 보여 드리기 어렵습니다.
+
+hedwig/transitions/3/lines/1
+책 얘기는 다음으로 미루겠습니다.
+
+hedwig/transitions/4/situation
+가방의 영웅담 책을 조금 꺼낸다.
+
+hedwig/transitions/4/lines/0
+전에 보신 책을 다시 가져왔습니다.
+
+hedwig/transitions/4/lines/1
+표지까지는 보여 드려도 되겠습니다.
+
+hedwig/transitions/5/situation
+고친 흔적이 있는 초고를 돌려받는다.
+
+hedwig/transitions/5/lines/0
+작은 수정도 먼저 물으셔야 합니다.
+
+hedwig/transitions/5/lines/1
+다음 초고는 제 쪽에서 확인하겠습니다.
+
+hedwig/transitions/6/situation
+첫머리 문구를 적다가 펜을 멈춘다.
+
+hedwig/transitions/6/lines/0
+이 문장을 쓰며 자랐습니다.
+
+hedwig/transitions/6/lines/1
+오늘은 그때 생각도 말씀드리겠습니다.
+
+hedwig/transitions/7/situation
+스승 얘기를 멈추고 책을 덮는다.
+
+hedwig/transitions/7/lines/0
+화해만으로 끝날 차이는 아닙니다.
+
+hedwig/transitions/7/lines/1
+그 얘기는 정리한 뒤에 다시 하겠습니다.
+
+hedwig/transitions/8/situation
+새 종이에 자기 이유를 덧붙인다.
+
+hedwig/transitions/8/lines/0
+외워 쓴 말 뒤에 제 말도 붙이겠습니다.
+
+hedwig/transitions/8/lines/1
+다 적으면 읽으실지 묻겠습니다.
+
+hedwig/transitions/9/situation
+보여 주던 메모를 천천히 돌려받는다.
+
+hedwig/transitions/9/lines/0
+이름이 달라도 주문의 효과는 같습니다.
+
+hedwig/transitions/9/lines/1
+그 뜻을 나누어 들으셨으면 합니다.
+
+hedwig/transitions/10/situation
+서명 칸을 비워 놓고 먼저 묻는다.
+
+hedwig/transitions/10/lines/0
+혼자 문장을 정하지 않겠습니다.
+
+hedwig/transitions/10/lines/1
+같은 뜻인지 듣고 나서 적겠습니다.
+
+hedwig/transitions/11/situation
+다시 가져온 사적인 쪽지를 접는다.
+
+hedwig/transitions/11/lines/0
+같이 있겠다는 말도 못 믿으십니까?
+
+hedwig/transitions/11/lines/1
+오늘은 서명 대신 답을 듣고 싶습니다.
+
+hedwig/transitions/12/situation
+정리한 문서를 넣은 뒤 자리에 남는다.
+
+hedwig/transitions/12/lines/0
+기록은 여기까지입니다.
+
+hedwig/transitions/12/lines/1
+저는 조금 더 앉아 있고 싶습니다.
+
+hedwig/transitions/13/situation
+꾸며 쓴 인사말을 지우고 다시 말한다.
+
+hedwig/transitions/13/lines/0
+방금 말은 뜻과 다르게 나왔습니다.
+
+hedwig/transitions/13/lines/1
+정정한 말을 끝까지 들어 주십시오.
+
+berenga/inn/0/situation
+이름책을 끈으로 묶어 가방에 넣는다.
+
+berenga/inn/0/lines/0
+지금은 책을 보여 드리지 않을게요.
+
+berenga/inn/0/lines/1
+이름을 읽는 건 재주가 아니에요.
+
+berenga/inn/0/lines/2
+다른 얘기라면 조금 할 수 있어요.
+
+berenga/inn/0/choices/0/text
+잘 읽는지 한 줄만 들어 보면 안 돼요?
+
+berenga/inn/0/choices/0/response/0
+그걸 들려드리려고 책을 지고 다니진 않아요.
+
+berenga/inn/0/choices/0/response/1
+한 줄만 듣고 싶으셔도 지금은 안 할래요.
+
+berenga/inn/0/choices/1/text
+책은 두고 길 얘기를 해요.
+
+berenga/inn/0/choices/1/response/0
+어디까지 걸어 보셨는지부터 들을까요?
+
+berenga/inn/0/choices/2/text
+가방을 놓을 자리는 여기예요.
+
+berenga/inn/0/choices/2/response/0
+발에 걸리지 않게 안쪽에 둘게요.
+
+berenga/inn/0/seen
+오늘 이름책은 가방 안에 둘 거예요.
+
+berenga/inn/1/situation
+신앙을 확인하는 질문에 웃음을 거둔다.
+
+berenga/inn/1/lines/0
+도와드리기 전에 믿는 신을 묻진 않아요.
+
+berenga/inn/1/lines/1
+저한테도 그 순서로 묻진 마세요.
+
+berenga/inn/1/lines/2
+제가 사제인지 시험받고 싶진 않네요.
+
+berenga/inn/1/choices/0/text
+무슨 일이 있었는지 얘기해도 될까요?
+
+berenga/inn/1/choices/0/response/0
+오늘 무슨 일이었는지부터 말해 봐요.
+
+berenga/inn/1/choices/1/text
+여기 앉으셔도 돼요.
+
+berenga/inn/1/choices/1/response/0
+잠깐만 쉬었다 갈게요.
+
+berenga/inn/1/choices/2/text
+어느 신전 추천인지 알아야 안심하죠.
+
+berenga/inn/1/choices/2/response/0
+저를 추천해 줄 신전은 없어요.
+
+berenga/inn/1/choices/2/response/1
+누가 보냈느냐는 질문에는 내밀 종이가 없네요.
+
+berenga/inn/1/seen
+어느 신전 사람이냐는 말은 그만 물어요.
+
+berenga/inn/2/situation
+식탁에 앉고도 겉옷을 벗지 않는다.
+
+berenga/inn/2/lines/0
+오래 있지는 않을 거예요.
+
+berenga/inn/2/lines/1
+몇 마디 나누는 건 좋아요.
+
+berenga/inn/2/lines/2
+그래도 제 짐을 풀어 놓지는 마세요.
+
+berenga/inn/2/choices/0/text
+겉옷이 젖었네요.
+
+berenga/inn/2/choices/0/response/0
+처마 밑에서 조금 늦게 들어왔어요.
+
+berenga/inn/2/choices/1/text
+가방부터 풀어야 쉬기 편하죠.
+
+berenga/inn/2/choices/1/response/0
+쉬는 방법은 제가 정해도 되겠죠?
+
+berenga/inn/2/choices/1/response/1
+한번 앉았어도 일어날 수는 있어야죠.
+
+berenga/inn/2/choices/2/text
+짐은 그대로 두고 얘기해요.
+
+berenga/inn/2/choices/2/response/0
+일어날 때 제가 직접 챙길게요.
+
+berenga/inn/2/seen
+오늘 짐은 묶인 채로 두고 쉴게요.
+
+berenga/inn/3/situation
+식탁의 빈자리를 손으로 가리킨다.
+
+berenga/inn/3/lines/0
+저분도 같이 앉아도 되죠?
+
+berenga/inn/3/lines/1
+어느 신을 믿는지는 안 물었어요.
+
+berenga/inn/3/lines/2
+먹는 동안은 그런 얘기 안 해도 돼요.
+
+berenga/inn/3/choices/0/text
+불편할 수 있으니 따로 차려 드리죠.
+
+berenga/inn/3/choices/0/response/0
+같이 앉고 싶은지 먼저 물으면 안 될까요?
+
+berenga/inn/3/choices/0/response/1
+그분도 같이 먹고 싶을 수 있잖아요.
+
+berenga/inn/3/choices/1/text
+제가 의자를 옆으로 옮길게요.
+
+berenga/inn/3/choices/1/response/0
+서로 얼굴 볼 만큼만 붙여 주세요.
+
+berenga/inn/3/choices/2/text
+그릇은 하나 더 있네요.
+
+berenga/inn/3/choices/2/response/0
+먼저 가져다 놓으면 덜 기다리겠어요.
+
+berenga/inn/3/seen
+앉을지는 그분께 먼저 물어봐요.
+
+berenga/inn/4/situation
+길에서 만난 얼굴처럼 반갑게 인사한다.
+
+berenga/inn/4/lines/0
+어머, 여기서 또 보네요!
+
+berenga/inn/4/lines/1
+처음 뵙는 건가요? 제가 성급했네요.
+
+berenga/inn/4/lines/2
+그럼 지금 인사하면 되죠. 베렌가예요.
+
+berenga/inn/4/choices/0/text
+베렌가 씨, 저는 여기 자주 앉아요.
+
+berenga/inn/4/choices/0/response/0
+다음에는 잘못 알아봤다는 말 안 해도 되겠네요.
+
+berenga/inn/4/choices/0/response/1
+그럼 다음에는 자리보다 얼굴부터 볼게요.
+
+berenga/inn/4/choices/1/text
+먼 길을 걸으셨어요?
+
+berenga/inn/4/choices/1/response/0
+오늘은 신발부터 벗고 싶을 만큼 걸었어요.
+
+berenga/inn/4/choices/2/text
+어제도 같은 인사 하셨잖아요.
+
+berenga/inn/4/choices/2/response/0
+기억이 엇갈렸으면 알려만 주셔도 돼요.
+
+berenga/inn/4/choices/2/response/1
+잘못 인사했으면 지금 다시 인사할게요.
+
+berenga/inn/4/seen
+다음엔 얼굴 보고 바로 인사할게요.
+
+berenga/inn/5/situation
+수프를 앞에 놓고 이야기를 시작한다.
+
+berenga/inn/5/lines/0
+따뜻하네요. 숟가락 잡은 손까지 풀려요.
+
+berenga/inn/5/lines/1
+길에서는 먹다 말고 일어날 때가 많거든요.
+
+berenga/inn/5/lines/2
+이번엔 좀 천천히 먹으려고요.
+
+berenga/inn/5/choices/0/text
+소금은 옆에 있어요.
+
+berenga/inn/5/choices/0/response/0
+맛을 보고 나서 넣을게요.
+
+berenga/inn/5/choices/1/text
+드시는 동안 길 얘기를 쭉 해 주세요.
+
+berenga/inn/5/choices/1/response/0
+입이 하나라 둘 다 하긴 어렵네요.
+
+berenga/inn/5/choices/1/response/1
+오늘은 수프부터 다 먹고 얘기하고 싶네요.
+
+berenga/inn/5/choices/2/text
+식사 끝날 때까지 얘긴 기다릴게요.
+
+berenga/inn/5/choices/2/response/0
+그럼 한입만 먹고 제가 말할게요.
+
+berenga/inn/5/seen
+수프 식기 전에 다 먹을래요.
+
+berenga/inn/6/situation
+가방에서 두꺼운 책 모서리가 보인다.
+
+berenga/inn/6/lines/0
+이름책이냐고요? 맞아요.
+
+berenga/inn/6/lines/1
+산 사람 이름은 여기 안 적어요.
+
+berenga/inn/6/lines/2
+인사했다고 이름을 적진 않아요.
+
+berenga/inn/6/choices/0/text
+살아 있는 이름도 적으면 편하지 않아요?
+
+berenga/inn/6/choices/0/response/0
+그렇게 쓰려고 물려받은 책은 아니에요.
+
+berenga/inn/6/choices/0/response/1
+살아 계신 분 이름은 그냥 기억해 둘게요.
+
+berenga/inn/6/choices/1/text
+이름은 책 밖에서 기억해 주세요.
+
+berenga/inn/6/choices/1/response/0
+얼굴이랑 같이 기억해 둘게요.
+
+berenga/inn/6/choices/2/text
+가방이 꽤 무겁겠어요.
+
+berenga/inn/6/choices/2/response/0
+들 때마다 어깨끈부터 확인해요.
+
+berenga/inn/6/seen
+인사는 책을 안 펴도 기억할 수 있어요.
+
+berenga/inn/7/situation
+목걸이를 만지다가 손을 내려놓는다.
+
+berenga/inn/7/lines/0
+쇠붙이가 없으니 가볍겠다고요?
+
+berenga/inn/7/lines/1
+목걸이보다 가방이 훨씬 무거워요.
+
+berenga/inn/7/lines/2
+옷만 보면 짐이 없는 사람 같을까요?
+
+berenga/inn/7/choices/0/text
+책 놓을 자리를 먼저 찾아요.
+
+berenga/inn/7/choices/0/response/0
+마른 자리면 저는 어디든 괜찮아요.
+
+berenga/inn/7/choices/1/text
+옆 의자가 비어 있어요.
+
+berenga/inn/7/choices/1/response/0
+가방을 올려도 되는지 물어볼게요.
+
+berenga/inn/7/choices/2/text
+사제라면 눈에 띄는 장식도 있어야죠.
+
+berenga/inn/7/choices/2/response/0
+알아보기 쉬워야만 도울 수 있는 건 아니에요.
+
+berenga/inn/7/choices/2/response/1
+옷을 바꾸면 그때는 도와도 되는 걸까요?
+
+berenga/inn/7/seen
+짐은 가방에 있으니 거기부터 봐 주세요.
+
+berenga/inn/8/situation
+읽던 이름을 멈추고 먼저 안부를 묻는다.
+
+berenga/inn/8/lines/0
+길에서 만난 분 얘기를 해도 될까요?
+
+berenga/inn/8/lines/1
+이름은 말하지 않을게요.
+
+berenga/inn/8/lines/2
+아픈 데가 있어도 한참 참다가 말씀하시더라고요.
+
+berenga/inn/8/choices/0/text
+같이 오래 앉아 계셨어요?
+
+berenga/inn/8/choices/0/response/0
+이야기를 다 할 때까지는 있었어요.
+
+berenga/inn/8/choices/1/text
+믿는 신부터 같다고 하면 편해지죠.
+
+berenga/inn/8/choices/1/response/0
+편해지라고 제가 믿는 것까지 꾸미진 않아요.
+
+berenga/inn/8/choices/1/response/1
+그분이 편한 말부터 하실 때까지 앉아 있었어요.
+
+berenga/inn/8/choices/2/text
+어떻게 말문을 여셨어요?
+
+berenga/inn/8/choices/2/response/0
+발이 아프다고 제가 앉았어요.
+
+berenga/inn/8/choices/2/response/1
+그러고 같이 쉬다가 얘기를 나눴어요.
+
+berenga/inn/8/seen
+그분 이름 없이도 얘기할 수 있어요.
+
+berenga/inn/9/situation
+젖은 가방끈을 풀어 말린다.
+
+berenga/inn/9/lines/0
+조금 더 앉아도 되겠어요?
+
+berenga/inn/9/lines/1
+끈이 덜 말라서요.
+
+berenga/inn/9/lines/2
+마른 뒤에도 조금 더 얘기해요.
+
+berenga/inn/9/choices/0/text
+제가 말려 드릴 테니 먼저 가세요.
+
+berenga/inn/9/choices/0/response/0
+저도 여기 앉아서 기다릴게요.
+
+berenga/inn/9/choices/0/response/1
+끈이 마른 뒤에도 할 얘기가 남아 있었어요.
+
+berenga/inn/9/choices/1/text
+마르면 알려 드릴 테니 편히 있어요.
+
+berenga/inn/9/choices/1/response/0
+끈이 말라도 조금 더 얘기해요.
+
+berenga/inn/9/choices/2/text
+불 가까이는 피할까요?
+
+berenga/inn/9/choices/2/response/0
+너무 뜨거우면 끈이 상할 수 있어요.
+
+berenga/inn/9/seen
+가방끈이 말라도 잠깐 더 있을래요.
+
+berenga/inn/10/situation
+말을 이어 가다가 상대의 잔을 본다.
+
+berenga/inn/10/lines/0
+제가 너무 오래 떠들었죠?
+
+berenga/inn/10/lines/1
+빈 잔을 진작 봤어야 했는데요.
+
+berenga/inn/10/lines/2
+이번엔 무슨 일 있었는지 들어 볼게요.
+
+berenga/inn/10/choices/0/text
+제 얘기도 중간에 물어 주세요.
+
+berenga/inn/10/choices/0/response/0
+듣다가 또 제 얘기부터 하면 말려 줘요.
+
+berenga/inn/10/choices/1/text
+물을 다시 따르면 돼요.
+
+berenga/inn/10/choices/1/response/0
+병을 이쪽으로 가져다 놓을게요.
+
+berenga/inn/10/choices/2/text
+계속 말씀하세요, 저는 얘기할 것 없어요.
+
+berenga/inn/10/choices/2/response/0
+없어도 한 번쯤 묻고 싶어요.
+
+berenga/inn/10/choices/2/response/1
+그럼 오늘 드신 얘기라도 해 봐요.
+
+berenga/inn/10/seen
+이번에는 제가 물었으니 다른 분 얘기를 들을게요.
+
+berenga/inn/11/situation
+쉬는 자리를 정하다 먼저 물러난다.
+
+berenga/inn/11/lines/0
+여기 앉으시려던 거예요?
+
+berenga/inn/11/lines/1
+저는 다른 쪽으로 가도 돼요.
+
+berenga/inn/11/lines/2
+아, 함께 앉을 생각은 미처 못 했네요.
+
+berenga/inn/11/choices/0/text
+의자는 두 개네요.
+
+berenga/inn/11/choices/0/response/0
+하나가 가방에 가려 있었네요.
+
+berenga/inn/11/choices/1/text
+번거롭지 않게 제가 다른 데 갈게요.
+
+berenga/inn/11/choices/1/response/0
+저 때문에 자리를 피하실 필요는 없어요.
+
+berenga/inn/11/choices/1/response/1
+제가 자리 양보할 때도 이런 기분이었을까요?
+
+berenga/inn/11/choices/2/text
+옮기지 말고 같이 앉아요.
+
+berenga/inn/11/choices/2/response/0
+제가 옮겨 갈 필요는 없겠네요. 가방만 당길게요.
+
+berenga/inn/11/seen
+오늘은 서로 비켜 주지 말고 같이 앉아요.
+
+berenga/inn/12/situation
+이름책 첫머리를 보다가 덮는다.
+
+berenga/inn/12/lines/0
+이 책은 스승께 받았어요.
+
+berenga/inn/12/lines/1
+안에 이천 명 넘는 이름이 있었죠.
+
+berenga/inn/12/lines/2
+그걸 들고 길을 나섰어요.
+
+berenga/inn/12/choices/0/text
+많으니 중요한 이름만 추려도 되죠.
+
+berenga/inn/12/choices/0/response/0
+중요하지 않은 이름을 제가 고를 수는 없어요.
+
+berenga/inn/12/choices/0/response/1
+목이 쉬면 좀 쉬었다 읽을게요.
+
+berenga/inn/12/choices/1/text
+물려받았을 때 무슨 생각이었어요?
+
+berenga/inn/12/choices/1/response/0
+첫 장을 읽고도 뒤에 남은 이름 수가 생각났어요.
+
+berenga/inn/12/choices/1/response/1
+앞쪽만 읽어도 목소리를 여러 번 가다듬었어요.
+
+berenga/inn/12/choices/2/text
+어깨끈도 그때부터 썼어요?
+
+berenga/inn/12/choices/2/response/0
+끈은 갈아도 책은 계속 지고 다녀요.
+
+berenga/inn/12/seen
+책을 받았을 땐 이름 수부터 세었어요.
+
+berenga/inn/13/situation
+소환장 이야기를 하며 잠깐 눈을 내린다.
+
+berenga/inn/13/lines/0
+솔렌 동부를 돌 때 소환장을 받았어요.
+
+berenga/inn/13/lines/1
+응하지 않고 떠났죠.
+
+berenga/inn/13/lines/2
+그곳에 남은 사람 얘기는 다 알지 못해요.
+
+berenga/inn/13/choices/0/text
+아는 데까지만 말해 주세요.
+
+berenga/inn/13/choices/0/response/0
+제가 떠난 뒤에는 소식을 다 듣진 못했어요.
+
+berenga/inn/13/choices/1/text
+지금도 그 길을 떠올려요?
+
+berenga/inn/13/choices/1/response/0
+비슷한 길목에 서면 그때 챙긴 짐부터 생각나요.
+
+berenga/inn/13/choices/2/text
+안전하게 떠났으니 잘 끝난 일이네요.
+
+berenga/inn/13/choices/2/response/0
+제가 떠난 걸로 다 끝난 건 아니었어요.
+
+berenga/inn/13/choices/2/response/1
+그곳에 남은 사람들 생각이 나요.
+
+berenga/inn/13/seen
+그 길을 떠난 뒤의 일은 다 알지 못해요.
+
+berenga/inn/14/situation
+리네트 얘기에 책 두 권 크기를 손으로 잰다.
+
+berenga/inn/14/lines/0
+운하에서 이름책을 맞댔어요.
+
+berenga/inn/14/lines/1
+서로 아는 이름이 있는지 봤죠.
+
+berenga/inn/14/lines/2
+그분은 그 자리에 오래 있어야 했어요.
+
+berenga/inn/14/choices/0/text
+책은 많이 달랐어요?
+
+berenga/inn/14/choices/0/response/0
+같은 이름이 있는지 오래 들여다봤어요.
+
+berenga/inn/14/choices/1/text
+교리를 어겼으면 바로 떠나야 했겠죠.
+
+berenga/inn/14/choices/1/response/0
+아픈 사람을 두고 그렇게만 말하긴 어려워요.
+
+berenga/inn/14/choices/1/response/1
+그곳에 오래 있던 이유도 같이 들어야죠.
+
+berenga/inn/14/choices/2/text
+베렌가 씨는 그때 무슨 말을 했어요?
+
+berenga/inn/14/choices/2/response/0
+떠나라고 쉽게 말하지는 못했어요.
+
+berenga/inn/14/seen
+그때는 책을 맞대고 오래 앉아 있었어요.
+
+berenga/inn/15/situation
+심연에 내려가는 이유를 다시 묻는다.
+
+berenga/inn/15/lines/0
+돌아오지 못한 이름이 자꾸 늘었어요.
+
+berenga/inn/15/lines/1
+그래서 토르바에 왔어요.
+
+berenga/inn/15/lines/2
+이름은 부르지만 대답을 들은 적은 없어요.
+
+berenga/inn/15/choices/0/text
+다 부르면 망자도 편해지겠죠?
+
+berenga/inn/15/choices/0/response/0
+그걸 제가 확실하다고 말할 수는 없어요.
+
+berenga/inn/15/choices/0/response/1
+답을 들었다고 약속해 드릴 수는 없거든요.
+
+berenga/inn/15/choices/1/text
+어떤 대답이 온다고 기대하진 않을게요.
+
+berenga/inn/15/choices/1/response/0
+그냥 옆에서 들어 주셔도 돼요.
+
+berenga/inn/15/choices/2/text
+책을 놓을 곳부터 볼까요?
+
+berenga/inn/15/choices/2/response/0
+먼지 덜 묻는 쪽이면 좋겠어요.
+
+berenga/inn/15/seen
+이름을 부르되 답을 약속하진 못해요.
+
+berenga/inn/16/situation
+묶던 짐을 다시 내려놓는다.
+
+berenga/inn/16/lines/0
+오늘은 더 있고 싶어요.
+
+berenga/inn/16/lines/1
+길을 가야 한다는 말부터 하려다가요.
+
+berenga/inn/16/lines/2
+가기 싫다는 말도 해 봐야겠어요.
+
+berenga/inn/16/choices/0/text
+지금 떠날 이유가 있는지 같이 봐요.
+
+berenga/inn/16/choices/0/response/0
+습관처럼 챙긴 짐부터 풀어 둘게요.
+
+berenga/inn/16/choices/0/response/1
+길을 떠날 생각부터 하니 앉아 있어도 바쁘더라고요.
+
+berenga/inn/16/choices/1/text
+가방은 제가 잡고 있을까요?
+
+berenga/inn/16/choices/1/response/0
+끈만 풀 때까지 부탁할게요.
+
+berenga/inn/16/choices/2/text
+그럼 앞으로 여기서만 지내요.
+
+berenga/inn/16/choices/2/response/0
+오늘은 여기 더 있고 싶어요.
+
+berenga/inn/16/choices/2/response/1
+그다음 일은 천천히 생각해 볼게요.
+
+berenga/inn/16/seen
+짐 풀었으니 조금 더 쉴 거예요.
+
+berenga/inn/17/situation
+식탁에 자기 자리로 쓸 천을 편다.
+
+berenga/inn/17/lines/0
+제 것이라고 놔둬도 되겠어요?
+
+berenga/inn/17/lines/1
+금방 떠날 사람이 뭘 놓느냐고 할까 봐요.
+
+berenga/inn/17/lines/2
+내일 또 앉을 생각인데요.
+
+berenga/inn/17/choices/0/text
+천은 여기 펴면 돼요?
+
+berenga/inn/17/choices/0/response/0
+물이 닿지 않는 쪽으로 놓을게요.
+
+berenga/inn/17/choices/1/text
+떠날 땐 다 치우셔야 편해요.
+
+berenga/inn/17/choices/1/response/0
+아직 떠날 얘기는 꺼내지 않았어요.
+
+berenga/inn/17/choices/1/response/1
+내일도 앉으려고 놓은 천이에요.
+
+berenga/inn/17/choices/2/text
+내일도 이 자리를 같이 써요.
+
+berenga/inn/17/choices/2/response/0
+다른 분이 필요하면 말로 물을게요.
+
+berenga/inn/17/seen
+내일 앉을 자리에도 제 천을 놓아 볼래요.
+
+berenga/inn/18/situation
+떠나며 놓친 사람들을 말한다.
+
+berenga/inn/18/lines/0
+한 곳에 오래 있을 수는 없었어요.
+
+berenga/inn/18/lines/1
+그래도 더 있었으면 싶은 날은 남아요.
+
+berenga/inn/18/lines/2
+모두 돕지 못했다는 걸 알아도요.
+
+berenga/inn/18/choices/0/text
+시간이 지나도 다시 찾아가 보면 되지 않을까요?
+
+berenga/inn/18/choices/0/response/0
+다시 찾아갈 수 없는 곳도 있어요.
+
+berenga/inn/18/choices/0/response/1
+돌아가도 그때 만날 분이 없을 때가 있어요.
+
+berenga/inn/18/choices/1/text
+더 있었으면 한 곳 얘기를 들어요.
+
+berenga/inn/18/choices/1/response/0
+결과를 다 안다는 듯 말하진 않을게요.
+
+berenga/inn/18/choices/2/text
+조금 쉬었다 이어 갈까요?
+
+berenga/inn/18/choices/2/response/0
+물 한 모금만 마시고 할게요.
+
+berenga/inn/18/seen
+놓친 분들 얘기를 오늘은 조금 해 볼게요.
+
+berenga/inn/19/situation
+인사 대신 솔직한 부탁부터 꺼낸다.
+
+berenga/inn/19/lines/0
+지금은 이야기하기 싫어요.
+
+berenga/inn/19/lines/1
+이상하죠, 늘 먼저 떠들었는데요.
+
+berenga/inn/19/lines/2
+가만히 옆에 앉아 있어도 돼요?
+
+berenga/inn/19/choices/0/text
+말이 없어도 여기 계세요.
+
+berenga/inn/19/choices/0/response/0
+제가 괜히 설명을 더 했네요.
+
+berenga/inn/19/choices/1/text
+겉옷은 제가 걸어 둘까요?
+
+berenga/inn/19/choices/1/response/0
+손이 닿는 곳에 걸어 주시면 좋아요.
+
+berenga/inn/19/choices/2/text
+얘기하면 기분이 풀리지 않을까요?
+
+berenga/inn/19/choices/2/response/0
+오늘은 안 하는 쪽으로 쉬어 볼래요.
+
+berenga/inn/19/choices/2/response/1
+가방만 내려놓고 앉을게요.
+
+berenga/inn/19/seen
+인사했으니 이제 조용히 좀 앉아 있을게요.
+
+berenga/inn/20/situation
+머물고 싶은 마음을 조심스레 설명한다.
+
+berenga/inn/20/lines/0
+떠나지 않겠다고는 못 해요.
+
+berenga/inn/20/lines/1
+그래도 말없이 없어지진 않고 싶어요.
+
+berenga/inn/20/lines/2
+가기 전에는 직접 말씀드릴게요.
+
+berenga/inn/20/choices/0/text
+돌아올 때도 인사해 주세요.
+
+berenga/inn/20/choices/0/response/0
+돌아와서도 찾아오고 싶으니 떠날 때 말해 둘게요.
+
+berenga/inn/20/choices/1/text
+가기 싫게 제가 짐을 숨길게요.
+
+berenga/inn/20/choices/1/response/0
+장난이어도 짐은 그대로 두세요.
+
+berenga/inn/20/choices/1/response/1
+길 떠날 뜻까지 없애 달라고 하진 말아요.
+
+berenga/inn/20/choices/2/text
+제가 붙잡고 싶어도 먼저 듣겠습니다.
+
+berenga/inn/20/choices/2/response/0
+제 이유를 말할 시간은 주실 거죠?
+
+berenga/inn/20/choices/2/response/1
+떠날 때까지 기다렸다는 말은 안 듣게 하고 싶어요.
+
+berenga/inn/20/seen
+떠나는 날엔 짐보다 먼저 말을 꺼낼게요.
+
+berenga/inn/21/situation
+이름을 부르기 전에 목을 가다듬는다.
+
+berenga/inn/21/lines/0
+오늘은 조금 쉬어 가며 읽을래요.
+
+berenga/inn/21/lines/1
+한꺼번에 끝내려고 목을 너무 썼어요.
+
+berenga/inn/21/lines/2
+기다리기 힘들면 먼저 가도 돼요.
+
+berenga/inn/21/choices/0/text
+제가 빨리 읽으면 대신 끝나겠네요.
+
+berenga/inn/21/choices/0/response/0
+끝내는 것만이 전부는 아니에요.
+
+berenga/inn/21/choices/0/response/1
+목을 좀 쉬게 한 뒤에 제가 읽을게요.
+
+berenga/inn/21/choices/1/text
+쉬는 동안에도 같이 기다릴게요.
+
+berenga/inn/21/choices/1/response/0
+침묵이 길어져도 제가 서두르진 않을게요.
+
+berenga/inn/21/choices/2/text
+물병은 여기에 둘게요.
+
+berenga/inn/21/choices/2/response/0
+멈출 때마다 한 모금씩 마실게요.
+
+berenga/inn/21/seen
+오늘은 이름 사이에 목 쉴 틈도 둘 거예요.
+
+berenga/inn/22/situation
+익숙한 인사말을 하다가 다시 고친다.
+
+berenga/inn/22/lines/0
+또 보자고만 하려다가요.
+
+berenga/inn/22/lines/1
+언제 보고 싶은지도 말해 볼게요.
+
+berenga/inn/22/lines/2
+내일 식사할 때 같이 앉아요.
+
+berenga/inn/22/choices/0/text
+내일도 제 자리 옆을 비워 둘게요.
+
+berenga/inn/22/choices/0/response/0
+먼저 오면 제가 잔을 놓아 둘게요.
+
+berenga/inn/22/choices/1/text
+식사 시간은 확인해 둘게요.
+
+berenga/inn/22/choices/1/response/0
+늦어지면 서로 알려 주기로 해요.
+
+berenga/inn/22/choices/2/text
+매일 약속하면 떠나기 어렵겠죠?
+
+berenga/inn/22/choices/2/response/0
+어렵게 묶으려고 말한 건 아니에요.
+
+berenga/inn/22/choices/2/response/1
+다른 날은 그때 가서 정해요.
+
+berenga/inn/22/seen
+내일 보자는 말에 식사 시간도 붙였어요.
+
+berenga/inn/23/situation
+이야기를 듣다가 자기 이름을 말한다.
+
+berenga/inn/23/lines/0
+산 사람 이름은 책에 안 쓴다고 했죠?
+
+berenga/inn/23/lines/1
+제 이름도 그렇네요.
+
+berenga/inn/23/lines/2
+누가 불러 주는 걸 들으면 더 잘 기억나요.
+
+berenga/inn/23/choices/0/text
+잔은 다 비우셨어요?
+
+berenga/inn/23/choices/0/response/0
+아직 남아서 천천히 마실게요.
+
+berenga/inn/23/choices/1/text
+베렌가 씨 이름도 책에 미리 적어 둬요.
+
+berenga/inn/23/choices/1/response/0
+아직 살아서 여기 앉아 있는데요.
+
+berenga/inn/23/choices/1/response/1
+부르시면 제가 대답할 수 있잖아요.
+
+berenga/inn/23/choices/2/text
+베렌가 씨, 잔을 이쪽에 놓을게요.
+
+berenga/inn/23/choices/2/response/0
+그렇게 평소처럼 불러 주시면 돼요.
+
+berenga/inn/23/seen
+제 이름은 여기서 불러 주시면 들어요.
+
+berenga/inn/24/situation
+짐을 내려놓고 어느 때보다 천천히 앉는다.
+
+berenga/inn/24/lines/0
+돌아갈 시간을 정해 두지 않았어요.
+
+berenga/inn/24/lines/1
+이렇게 앉고 싶을 때도 있네요.
+
+berenga/inn/24/lines/2
+길을 나서고 싶은 날도 있겠죠.
+
+berenga/inn/24/choices/0/text
+이제 떠돌지 않아도 되잖아요.
+
+berenga/inn/24/choices/0/response/0
+지금 앉아 있는 걸로만 봐 주세요.
+
+berenga/inn/24/choices/0/response/1
+길에서 보낼 날도 저는 소중해요.
+
+berenga/inn/24/choices/1/text
+길 얘기도 여기 앉아서 나눠요.
+
+berenga/inn/24/choices/1/response/0
+내일 갈지 말지는 나중에 정해도 되겠어요.
+
+berenga/inn/24/choices/1/response/1
+그때까지 하던 얘기 마저 해요.
+
+berenga/inn/24/choices/2/text
+다리가 많이 아프세요?
+
+berenga/inn/24/choices/2/response/0
+쉬고 나면 좀 풀릴 것 같아요.
+
+berenga/inn/24/seen
+얘기하다가 시간이 되면 갈래요.
+
+berenga/inn/25/situation
+이름책 덮개를 손질하고 옆에 놓는다.
+
+berenga/inn/25/lines/0
+책을 아끼는 것처럼 저도 쉬라 하셨죠?
+
+berenga/inn/25/lines/1
+오늘은 그 말을 써먹으려고요.
+
+berenga/inn/25/lines/2
+덮개만 고치고 손을 놓을게요.
+
+berenga/inn/25/choices/0/text
+끝나면 제가 바늘을 치워 드려요.
+
+berenga/inn/25/choices/0/response/0
+찾는다고 다시 꺼내지 않게 잘 놔 주세요.
+
+berenga/inn/25/choices/1/text
+덮개는 많이 닳았네요.
+
+berenga/inn/25/choices/1/response/0
+이 부분만 꿰매면 당장은 괜찮아요.
+
+berenga/inn/25/choices/2/text
+새 책으로 옮기면 일이 빨라지겠어요.
+
+berenga/inn/25/choices/2/response/0
+옮겨 적는 게 오늘 쉬는 방법은 아니에요.
+
+berenga/inn/25/choices/2/response/1
+쉬겠다는 날에 새 일을 만들면 또 못 쉬어요.
+
+berenga/inn/25/seen
+덮개를 고친 다음에는 정말 손을 쉴게요.
+
+berenga/inn/26/situation
+어제 놓아둔 천을 보고 웃는다.
+
+berenga/inn/26/lines/0
+이거 그대로 있네요.
+
+berenga/inn/26/lines/1
+누가 옮겼어도 물어보면 됐겠지만요.
+
+berenga/inn/26/lines/2
+그래도 다시 보니까 반가워요.
+
+berenga/inn/26/choices/0/text
+물은 아직 안 받았어요.
+
+berenga/inn/26/choices/0/response/0
+앉기 전에 같이 가져올까요?
+
+berenga/inn/26/choices/1/text
+혹시 떠나실까 봐 제가 지켰어요.
+
+berenga/inn/26/choices/1/response/0
+천 하나를 지키느라 힘쓰진 말아요.
+
+berenga/inn/26/choices/1/response/1
+옮겼으면 물어보고 같이 펴면 돼요.
+
+berenga/inn/26/choices/2/text
+오늘도 여기 앉으려고 남겨 뒀어요.
+
+berenga/inn/26/choices/2/response/0
+그럼 제가 일찍 와서 기다려도 되겠어요?
+
+berenga/inn/26/seen
+어제 놓은 천을 보고 오늘도 앉았어요.
+
+berenga/inn/27/situation
+헤어질 때 가방끈보다 말을 먼저 건넨다.
+
+berenga/inn/27/lines/0
+오늘 와 주셔서 좋았어요.
+
+berenga/inn/27/lines/1
+길에서 만나서 반갑다는 인사 말고요.
+
+berenga/inn/27/lines/2
+여기로 찾아오셔서 좋았다는 얘기예요.
+
+berenga/inn/27/choices/0/text
+그럼 항상 여기서 기다려 주세요.
+
+berenga/inn/27/choices/0/response/0
+항상은 못 해도 기다릴 날은 말할 수 있어요.
+
+berenga/inn/27/choices/0/response/1
+못 기다리는 날은 알려 드릴게요.
+
+berenga/inn/27/choices/1/text
+다음에도 만나러 여기 올게요.
+
+berenga/inn/27/choices/1/response/0
+다른 데 갈 땐 어디로 가는지 알려 둘게요.
+
+berenga/inn/27/choices/2/text
+내일도 책을 챙기세요?
+
+berenga/inn/27/choices/2/response/0
+쓸 일이 있으면 챙기고 아니면 두려고요.
+
+berenga/inn/27/seen
+다음에 언제 올 수 있는지 알려 둘게요.
+
+berenga/dungeon/0/variants/0
+길 나설 준비는 됐어요.
+
+berenga/dungeon/0/variants/1
+오늘 부를 이름책도 챙겼어요.
+
+berenga/dungeon/1/variants/0
+가방이 걸리면 말해 줘요.
+
+berenga/dungeon/1/variants/1
+같이 걷는 속도로 나가요.
+
+berenga/dungeon/2/variants/0
+다시 돌아올 자리도 기억해요.
+
+berenga/dungeon/2/variants/1
+저도 너무 앞서가진 않을게요.
+
+berenga/dungeon/3/variants/0
+이쪽은 아직 모르는 길이네요.
+
+berenga/dungeon/3/variants/1
+길 위에서도 모르는 곳은 물어봐요.
+
+berenga/dungeon/4/variants/0
+돌아갈 쪽을 같이 짚어 볼까요?
+
+berenga/dungeon/4/variants/1
+제가 뒤처지면 한 번 불러 주세요.
+
+berenga/dungeon/5/variants/0
+여기서도 얼굴은 서로 보여요.
+
+berenga/dungeon/5/variants/1
+말소리 듣고 제 자리부터 정할게요.
+
+berenga/dungeon/6/variants/0
+찾은 게 있다면 같이 봐요.
+
+berenga/dungeon/6/variants/1
+이름을 아는 물건인지는 아직 몰라요.
+
+berenga/dungeon/7/variants/0
+설명보다 손을 먼저 멈춰요.
+
+berenga/dungeon/7/variants/1
+모르는 건 제가 묻고 싶네요.
+
+berenga/dungeon/8/variants/0
+저도 옆에서 한 번 볼게요.
+
+berenga/dungeon/8/variants/1
+찾았다고 성급히 부르진 않을게요.
+
+berenga/dungeon/9/variants/0
+싸움이 시작됐어요. 서로 봐 줘요!
+
+berenga/dungeon/9/variants/1
+제가 할 일도 지금부터 할게요!
+
+berenga/dungeon/10/variants/0
+신앙 묻는 시간은 필요 없어요!
+
+berenga/dungeon/10/variants/1
+누가 다쳤는지 먼저 알려 줘요!
+
+berenga/dungeon/11/variants/0
+지금은 길 얘기를 접어 둘게요!
+
+berenga/dungeon/11/variants/1
+제가 뒤에 있으니 목소리 들어요!
+
+berenga/dungeon/12/variants/0
+끝났네요! 다친 데 말해 봐요.
+
+berenga/dungeon/12/variants/1
+안 아프면 그때 같이 웃어요.
+
+berenga/dungeon/13/variants/0
+짐은 잠깐 내려두어도 돼요.
+
+berenga/dungeon/13/variants/1
+제 어깨도 좀 풀고 확인할게요.
+
+berenga/dungeon/14/variants/0
+기뻐할 틈이 생겨서 좋네요.
+
+berenga/dungeon/14/variants/1
+저도 무리한 곳은 숨기지 않을게요.
+
+berenga/dungeon/15/variants/0
+저 앞이면 지금 쉬어 가도 돼요.
+
+berenga/dungeon/15/variants/1
+준비 못 한 건 말하고 들어가요.
+
+berenga/dungeon/16/variants/0
+기도할 분은 하고 아닌 분은 쉬어요.
+
+berenga/dungeon/16/variants/1
+모두 같은 말을 할 필요는 없어요.
+
+berenga/dungeon/17/variants/0
+제가 불안하면 말씀드릴게요.
+
+berenga/dungeon/17/variants/1
+서로 준비됐는지 눈 보고 물어요.
+
+berenga/dungeon/18/variants/0
+큰 싸움이 끝났어요. 숨 좀 쉬어요.
+
+berenga/dungeon/18/variants/1
+다들 목소리로 답해 주실래요?
+
+berenga/dungeon/19/variants/0
+긴장이 풀리니 어깨가 아프네요.
+
+berenga/dungeon/19/variants/1
+상태를 본 다음에 기뻐해요.
+
+berenga/dungeon/20/variants/0
+책은 내려두고 제 어깨부터 좀 확인할게요.
+
+berenga/dungeon/20/variants/1
+지금 눈앞에 있는 분부터 볼게요.
+
+berenga/dungeon/21/variants/0
+아픈 데를 숨기고 계셨네요!
+
+berenga/dungeon/21/variants/1
+도움받는 데 믿는 신은 안 물어요!
+
+berenga/dungeon/22/variants/0
+제가 갈 수 있는 쪽을 알려 줘요!
+
+berenga/dungeon/22/variants/1
+입으로 괜찮다 하기 전에 좀 봐요!
+
+berenga/dungeon/23/variants/0
+지금은 제게 기대도 괜찮아요!
+
+berenga/dungeon/23/variants/1
+혼자 버티려다 더 늦지는 말아요!
+
+berenga/dungeon/24/variants/0
+쓰러진 분 옆을 비워 줘요!
+
+berenga/dungeon/24/variants/1
+확인하기 전에 책은 안 펼쳐요!
+
+berenga/dungeon/25/variants/0
+대답이 들리면 제게도 알려 줘요.
+
+berenga/dungeon/25/variants/1
+살펴볼 때까지 결론 내리진 말아요.
+
+berenga/dungeon/26/variants/0
+지금 할 수 있는 일을 찾아요.
+
+berenga/dungeon/26/variants/1
+제가 먼저 다가갈 테니 같이 봐요.
+
+berenga/dungeon/27/variants/0
+저도 상처가 났네요.
+
+berenga/dungeon/27/variants/1
+괜찮다는 말부터 하진 않을게요.
+
+berenga/dungeon/28/variants/0
+책은 내려놓고 제 상처도 볼게요.
+
+berenga/dungeon/28/variants/1
+제가 도움을 청할 차례인가 봐요.
+
+berenga/dungeon/29/variants/0
+아프면 먼저 말하기로 했죠?
+
+berenga/dungeon/29/variants/1
+제 쪽도 잠깐 봐 주실래요?
+
+berenga/dungeon/30/variants/0
+잠깐이라도 앉아 쉬어요.
+
+berenga/dungeon/30/variants/1
+짐을 진 채로 쉴 필요는 없죠.
+
+berenga/dungeon/31/variants/0
+오늘은 수다도 조금 쉬어 갈까요?
+
+berenga/dungeon/31/variants/1
+이름책도 마른 곳에 내려둘게요.
+
+berenga/dungeon/32/variants/0
+떠날 얘기는 쉬고 나서 해요.
+
+berenga/dungeon/32/variants/1
+저도 더 앉아 있고 싶네요.
+
+berenga/dungeon/33/variants/0
+봉인된 건 그대로 두고 살펴요.
+
+berenga/dungeon/33/variants/1
+기도로 열린다고 약속하진 못해요.
+
+berenga/dungeon/34/variants/0
+아는 조건이 있는지 확인해요.
+
+berenga/dungeon/34/variants/1
+제 신앙이 열쇠인 건 아니에요.
+
+berenga/dungeon/35/variants/0
+모르면 기다릴 수 있는 거죠.
+
+berenga/dungeon/35/variants/1
+같이 본 것만 말하고 정해요.
+
+berenga/dungeon/36/variants/0
+돌아온 얼굴 보니 반갑네요!
+
+berenga/dungeon/36/variants/1
+짐 놓을 자리부터 찾을까요?
+
+berenga/dungeon/37/variants/0
+저도 오늘은 좀 오래 앉을래요.
+
+berenga/dungeon/37/variants/1
+나중에 인사하러 또 들러 주세요.
+
+berenga/dungeon/38/variants/0
+다음에 보잔 말은 지금 해 둘게요.
+
+berenga/dungeon/38/variants/1
+돌아오셨으니 책 말고 얼굴 보고 인사해요.
+
+berenga/dungeon/39/variants/0
+졌어도 지금은 상태부터 말해요.
+
+berenga/dungeon/39/variants/1
+아직 책에 적을 일을 정하지 말아요.
+
+berenga/dungeon/40/variants/0
+누구 잘못인지부터 나누진 말아요.
+
+berenga/dungeon/40/variants/1
+같이 움직일 수 있는지 물어봐요.
+
+berenga/dungeon/41/variants/0
+저도 놓친 것이 있으면 말할게요.
+
+berenga/dungeon/41/variants/1
+오늘 얘기는 돌아가서 이어 가요.
+
+berenga/transitions/0/situation
+닫은 이름책을 가방 안에 넣는다.
+
+berenga/transitions/0/lines/0
+책을 구경하겠다는 말은 안 하시네요.
+
+berenga/transitions/0/lines/1
+길에서 본 얘기는 조금 할 수 있어요.
+
+berenga/transitions/1/situation
+자리에서 일어나 가방을 직접 든다.
+
+berenga/transitions/1/lines/0
+믿는 신을 증명하라고 하시네요.
+
+berenga/transitions/1/lines/1
+그 순서라면 오늘은 안 앉을게요.
+
+berenga/transitions/2/situation
+문 앞에서 먼저 반가운 얼굴을 한다.
+
+berenga/transitions/2/lines/0
+여기 앉으셨네요, 저도 잠깐 쉬어도 되죠?
+
+berenga/transitions/2/lines/1
+인사는 이제 헷갈리지 않을 것 같아요.
+
+berenga/transitions/3/situation
+합석하려던 자리를 다시 살핀다.
+
+berenga/transitions/3/lines/0
+믿는 게 다르면 따로 먹어야 하나요?
+
+berenga/transitions/3/lines/1
+오늘은 그 식탁에 앉기 어렵겠어요.
+
+berenga/transitions/4/situation
+말리던 가방끈을 느슨하게 풀어 둔다.
+
+berenga/transitions/4/lines/0
+끈이 마른 뒤에도 조금 있으려고요.
+
+berenga/transitions/4/lines/1
+볼일이 없어도 괜찮다면요.
+
+berenga/transitions/5/situation
+짐을 풀지 않은 채 무릎 위에 둔다.
+
+berenga/transitions/5/lines/0
+제 짐은 풀지 말아 주세요.
+
+berenga/transitions/5/lines/1
+언제 일어날지는 제가 정하고 싶어요.
+
+berenga/transitions/6/situation
+이름책의 두꺼운 부분을 손끝으로 짚는다.
+
+berenga/transitions/6/lines/0
+이 책을 받았을 때 얘기를 해 볼까요?
+
+berenga/transitions/6/lines/1
+받자마자 걱정부터 했던 게 생각나요.
+
+berenga/transitions/7/situation
+책장을 덮고 손바닥을 위에 얹는다.
+
+berenga/transitions/7/lines/0
+중요한 이름만 고르긴 어려워요.
+
+berenga/transitions/7/lines/1
+그 얘기는 오늘 이만 해 둘게요.
+
+berenga/transitions/8/situation
+묶었던 짐을 풀고 천을 식탁에 놓는다.
+
+berenga/transitions/8/lines/0
+오늘은 떠나기 싫어서 짐을 다시 내려놨어요.
+
+berenga/transitions/8/lines/1
+매번 길 얘기로 피하지 않으려고요.
+
+berenga/transitions/9/situation
+다음 날 놓을 천을 다시 가방에 넣는다.
+
+berenga/transitions/9/lines/0
+여기 더 머문 뒤에 어디로 갈지 정할게요.
+
+berenga/transitions/9/lines/1
+오늘 말한 데까지만 들어 줘요.
+
+berenga/transitions/10/situation
+먼저 내일 식사 시간을 묻는다.
+
+berenga/transitions/10/lines/0
+다음에 만날 날도 정하고 싶어요.
+
+berenga/transitions/10/lines/1
+언제 보고 싶은지까지 정해 볼까요?
+
+berenga/transitions/11/situation
+이동할 짐을 자기 손에 다시 모은다.
+
+berenga/transitions/11/lines/0
+떠나지 못하게 붙들지는 말아요.
+
+berenga/transitions/11/lines/1
+가기 전에 말하겠다고 약속한 거예요.
+
+berenga/transitions/12/situation
+어제 놓은 천을 펴며 자리에 앉는다.
+
+berenga/transitions/12/lines/0
+여기서 기다릴 약속이 있다는 게 좋네요.
+
+berenga/transitions/12/lines/1
+저도 여기 앉아 기다릴게요.
+
+berenga/transitions/13/situation
+인사하려다 다시 돌아서 얼굴을 본다.
+
+berenga/transitions/13/lines/0
+그 말은 조금 서운했어요.
+
+berenga/transitions/13/lines/1
+말없이 떠나기 전에 얘기하고 싶었어요.
+
+gunhild/inn/0/situation
+의자를 돌려 통로를 넓힌다.
+
+gunhild/inn/0/lines/0
+할 말이 있으면 거기서 해라.
+
+gunhild/inn/0/lines/1
+내 짐에는 손대지 말고.
+
+gunhild/inn/0/lines/2
+의자는 그대로 둬라.
+
+gunhild/inn/0/choices/0/text
+짐은 두고 여기서 말할게요.
+
+gunhild/inn/0/choices/0/response/0
+용건이 짧으면 서 있어도 된다.
+
+gunhild/inn/0/choices/1/text
+문틈 바람이 들어오는데 닫을까요?
+
+gunhild/inn/0/choices/1/response/0
+바람이 들어오니 닫아라.
+
+gunhild/inn/0/choices/2/text
+편하게 앉으시라고 짐을 치울게요.
+
+gunhild/inn/0/choices/2/response/0
+손대지 말라는 말을 못 들었나?
+
+gunhild/inn/0/choices/2/response/1
+내가 한 말을 들은 뒤 움직여라.
+
+gunhild/inn/0/seen
+짐은 내가 옮길 테니 그대로 둬라.
+
+gunhild/inn/1/situation
+칭찬하는 말에 먼저 목소리가 커진다.
+
+gunhild/inn/1/lines/0
+그런 말로 넘어갈 생각 마라.
+
+gunhild/inn/1/lines/1
+내가 뭘 했는지나 알고 칭찬하나?
+
+gunhild/inn/1/lines/2
+모르면 그냥 인사만 해라.
+
+gunhild/inn/1/choices/0/text
+그럼 인사만 드리고 갈게요.
+
+gunhild/inn/1/choices/0/response/0
+지나가려던 거라면 길은 비워 주지.
+
+gunhild/inn/1/choices/1/text
+기분 좋아 보이니 됐죠, 꼬리도요.
+
+gunhild/inn/1/choices/1/response/0
+그쪽을 보면서 말하지 마라.
+
+gunhild/inn/1/choices/1/response/1
+좋아하는지 보려고 한 칭찬이라면 그만해라.
+
+gunhild/inn/1/choices/2/text
+아까 막아 준 일은 제가 봤어요.
+
+gunhild/inn/1/choices/2/response/0
+봤다면 그 일만 말하면 된다.
+
+gunhild/inn/1/seen
+칭찬할 거면 본 일부터 말해라.
+
+gunhild/inn/2/situation
+명부에 적힌 이름을 손가락으로 짚는다.
+
+gunhild/inn/2/lines/0
+여긴 끝까지 적어라.
+
+gunhild/inn/2/lines/1
+군힐트 폰 할렌이라고 했을 텐데.
+
+gunhild/inn/2/lines/2
+칸이 좁다는 핑계는 듣지 않겠다.
+
+gunhild/inn/2/choices/0/text
+가문 이름은 실적 쌓인 뒤 붙여도 되죠.
+
+gunhild/inn/2/choices/0/response/0
+지금 이름을 끝까지 써라.
+
+gunhild/inn/2/choices/0/response/1
+지금 내 이름은 이미 그렇게 정해져 있다.
+
+gunhild/inn/2/choices/1/text
+다 적을 칸으로 옮겨 쓸게요.
+
+gunhild/inn/2/choices/1/response/0
+종이가 모자라면 새로 써라.
+
+gunhild/inn/2/choices/2/text
+새 종이는 여기 있어요.
+
+gunhild/inn/2/choices/2/response/0
+다 쓰면 내가 확인하겠다.
+
+gunhild/inn/2/seen
+명부엔 내 이름을 끝까지 적어라.
+
+gunhild/inn/3/situation
+훈련 이야기를 하다 잔을 내려놓는다.
+
+gunhild/inn/3/lines/0
+내가 앞에 서겠다고 했지.
+
+gunhild/inn/3/lines/1
+내 뒤는 다른 사람이 맡아야 한다.
+
+gunhild/inn/3/lines/2
+맡길 건 미리 정해 둬라.
+
+gunhild/inn/3/choices/0/text
+군힐트 씨 몫부터 함께 정해요.
+
+gunhild/inn/3/choices/0/response/0
+내 말도 들은 다음 나눠라.
+
+gunhild/inn/3/choices/1/text
+의자를 좀 당겨도 돼요?
+
+gunhild/inn/3/choices/1/response/0
+지나다니는 데만 안 걸리면 된다.
+
+gunhild/inn/3/choices/2/text
+가문을 위해 전부 맡아 주시면 든든하죠.
+
+gunhild/inn/3/choices/2/response/0
+이름을 대고 내 몫을 늘리지 마라.
+
+gunhild/inn/3/choices/2/response/1
+내가 못 보는 쪽은 다른 사람이 맡아야 한다.
+
+gunhild/inn/3/seen
+뒤에서 누가 뭘 맡을지도 정해 둬라.
+
+gunhild/inn/4/situation
+팔 보호대를 풀어 식탁 옆에 놓는다.
+
+gunhild/inn/4/lines/0
+이제야 팔이 좀 가볍군.
+
+gunhild/inn/4/lines/1
+보호대는 내 쪽에 두어라.
+
+gunhild/inn/4/lines/2
+그릇 내려놓다가 긁지 않게 조심하고.
+
+gunhild/inn/4/choices/0/text
+끈이 꽤 길어요.
+
+gunhild/inn/4/choices/0/response/0
+손에 맞게 묶으려면 남는 게 있어.
+
+gunhild/inn/4/choices/1/text
+흠집 좀 나도 오래 쓴 티가 나죠.
+
+gunhild/inn/4/choices/1/response/0
+남의 장비에 흠집 내고 할 말은 아니다.
+
+gunhild/inn/4/choices/1/response/1
+오래 쓴 것이라 더 함부로 놓고 싶지 않다.
+
+gunhild/inn/4/choices/2/text
+제가 그릇을 반대편에 둘게요.
+
+gunhild/inn/4/choices/2/response/0
+그러면 내가 옮길 필요는 없겠네.
+
+gunhild/inn/4/choices/2/response/1
+보호대 푼 김에 끈도 한번 봐야겠군.
+
+gunhild/inn/4/seen
+보호대는 식탁 오른쪽에 놓았다.
+
+gunhild/inn/5/situation
+자기 소개를 마친 뒤 상대 얼굴을 살핀다.
+
+gunhild/inn/5/lines/0
+군힐트 폰 할렌이다.
+
+gunhild/inn/5/lines/1
+기억하기 어렵지는 않겠지?
+
+gunhild/inn/5/lines/2
+다음에 다시 설명하긴 싫군.
+
+gunhild/inn/5/choices/0/text
+멋있어 보이는 별명을 붙여 드릴게요.
+
+gunhild/inn/5/choices/0/response/0
+이미 이름이 있다고 방금 말했잖나?
+
+gunhild/inn/5/choices/0/response/1
+길든 짧든 내가 알려 준 이름을 써라.
+
+gunhild/inn/5/choices/1/text
+군힐트 씨라고 부르겠습니다.
+
+gunhild/inn/5/choices/1/response/0
+이름을 아는데 엉뚱하게 부를 일은 없겠지.
+
+gunhild/inn/5/choices/2/text
+저는 여기 자주 앉아요.
+
+gunhild/inn/5/choices/2/response/0
+그럼 이 자리에 오면 찾기 쉽겠네.
+
+gunhild/inn/5/seen
+다음에는 소개를 다시 시키지 마라.
+
+gunhild/inn/6/situation
+칭찬을 듣자 발뒤꿈치 쪽으로 의자를 당긴다.
+
+gunhild/inn/6/lines/0
+아까 본 걸 얘기하는 건가?
+
+gunhild/inn/6/lines/1
+그 정도는 할 수 있다.
+
+gunhild/inn/6/lines/2
+뒤쪽 의자는 그냥 둬라. 내가 조금 옮기겠다.
+
+gunhild/inn/6/choices/0/text
+의자는 두고 고맙다는 말만 할게요.
+
+gunhild/inn/6/choices/0/response/0
+그럼 그 말은 받겠다. 그, 잘 봤군.
+
+gunhild/inn/6/choices/1/text
+자리가 좁으면 제가 옮겨요.
+
+gunhild/inn/6/choices/1/response/0
+조금만 옆으로 가면 괜찮다.
+
+gunhild/inn/6/choices/2/text
+꼬리가 안 가려지니 겉옷을 덮어 줘요?
+
+gunhild/inn/6/choices/2/response/0
+가려 달라는 부탁은 하지 않았다.
+
+gunhild/inn/6/choices/2/response/1
+뒤에 무슨 일이 났는지 자꾸 확인하지 마라.
+
+gunhild/inn/6/seen
+뒤쪽 말고 내 얼굴을 보고 얘기해라.
+
+gunhild/inn/7/situation
+같은 투기장 사람 얘기에 턱을 든다.
+
+gunhild/inn/7/lines/0
+티카와 같은 무대에 선 적은 있다.
+
+gunhild/inn/7/lines/1
+내가 그 애 빚까지 맡은 건 아니야.
+
+gunhild/inn/7/lines/2
+나는 상금과 이름을 걸고 섰다.
+
+gunhild/inn/7/choices/0/text
+마렌토엔 오래 계셨어요?
+
+gunhild/inn/7/choices/0/response/0
+몇 해를 거기서 싸웠다.
+
+gunhild/inn/7/choices/1/text
+투기장 출신은 다 힘들었겠네요.
+
+gunhild/inn/7/choices/1/response/0
+힘들었다는 말로 전부 묶지는 마라.
+
+gunhild/inn/7/choices/1/response/1
+같은 나라에 있었다고 형편까지 같진 않았다.
+
+gunhild/inn/7/choices/2/text
+두 분 사정은 따로 기억할게요.
+
+gunhild/inn/7/choices/2/response/0
+나는 상금을 받으려고 싸웠다.
+
+gunhild/inn/7/seen
+같은 무대에서 싸운 적은 있다.
+
+gunhild/inn/8/situation
+역할을 말하려다 상대에게 종이를 민다.
+
+gunhild/inn/8/lines/0
+이번엔 네 생각부터 듣겠다.
+
+gunhild/inn/8/lines/1
+계획은 아직 비워 뒀다.
+
+gunhild/inn/8/lines/2
+말이 다르면 다시 맞추면 돼.
+
+gunhild/inn/8/choices/0/text
+군힐트 씨 명령이면 그대로 할게요.
+
+gunhild/inn/8/choices/0/response/0
+내가 의견을 물은 이유가 없어지잖나?
+
+gunhild/inn/8/choices/0/response/1
+믿는다면 네가 본 걸 말해 줘야지.
+
+gunhild/inn/8/choices/1/text
+다른 생각도 말해 볼게요.
+
+gunhild/inn/8/choices/1/response/0
+중간에 호령부터 하면 멈추라고 해라.
+
+gunhild/inn/8/choices/1/response/1
+다르다고 바로 내 쪽으로 바꾸진 마라.
+
+gunhild/inn/8/choices/2/text
+이 줄부터 보면 돼요?
+
+gunhild/inn/8/choices/2/response/0
+아직 비었으니 어디부터 써도 된다.
+
+gunhild/inn/8/seen
+이번엔 내 말보다 네 생각을 먼저 듣는다.
+
+gunhild/inn/9/situation
+공을 인정하는 말에 잔을 만지작거린다.
+
+gunhild/inn/9/lines/0
+운이 좋아서만은 아니었다.
+
+gunhild/inn/9/lines/1
+보고 칭찬했다면 받겠다.
+
+gunhild/inn/9/lines/2
+잘 들었으니 두 번까지 할 필요는 없다.
+
+gunhild/inn/9/choices/0/text
+한 번 했으니 잔이나 들어요.
+
+gunhild/inn/9/choices/0/response/0
+네 잔도 같이 가져와라.
+
+gunhild/inn/9/choices/1/text
+차가 조금 식었어요.
+
+gunhild/inn/9/choices/1/response/0
+마시기엔 오히려 편하겠군.
+
+gunhild/inn/9/choices/2/text
+좋아하시니 크게 한 번 더 말할게요.
+
+gunhild/inn/9/choices/2/response/0
+크게 말할 필요 없다고 했잖나?
+
+gunhild/inn/9/choices/2/response/1
+두 번 고맙다고 말하라고 시키는 것 같잖나?
+
+gunhild/inn/9/seen
+봤다는 말로 한 번 칭찬했으면 됐다.
+
+gunhild/inn/10/situation
+머리 근처로 온 손을 보고 몸을 굳힌다.
+
+gunhild/inn/10/lines/0
+잠깐, 먼저 물어라.
+
+gunhild/inn/10/lines/1
+내가 피하지 않는다고 다 된 건 아니다.
+
+gunhild/inn/10/lines/2
+대답은 듣고 움직여도 늦지 않아.
+
+gunhild/inn/10/choices/0/text
+손은 이쪽에 둘게요.
+
+gunhild/inn/10/choices/0/response/0
+그러면 내가 계속 쳐다볼 일도 없겠군.
+
+gunhild/inn/10/choices/1/text
+좋아하시는 건 이미 다 보이는데요.
+
+gunhild/inn/10/choices/1/response/0
+아직 괜찮다고 대답하지 않았다.
+
+gunhild/inn/10/choices/1/response/1
+내 대답을 기다리는 게 그렇게 어렵나?
+
+gunhild/inn/10/choices/2/text
+만져도 괜찮은지 먼저 물을게요.
+
+gunhild/inn/10/choices/2/response/0
+지금은 말로만 얘기하자.
+
+gunhild/inn/10/seen
+손을 내밀기 전에는 먼저 물어라.
+
+gunhild/inn/11/situation
+잘못 내린 호령을 고치고 다시 말한다.
+
+gunhild/inn/11/lines/0
+내가 너무 빨리 정했군.
+
+gunhild/inn/11/lines/1
+아까 지시는 잊어라.
+
+gunhild/inn/11/lines/2
+네가 하던 설명부터 마저 들어야겠다.
+
+gunhild/inn/11/choices/0/text
+괜찮아요, 그냥 원래 명령대로 하죠.
+
+gunhild/inn/11/choices/0/response/0
+잘못 정한 걸 그대로 할 이유는 없다.
+
+gunhild/inn/11/choices/0/response/1
+내가 거둔 지시는 다시 따르지 않아도 된다.
+
+gunhild/inn/11/choices/1/text
+아까 멈춘 데부터 말할게요.
+
+gunhild/inn/11/choices/1/response/0
+끝까지 듣고 나서 다시 정하지.
+
+gunhild/inn/11/choices/2/text
+종이는 아직 여기 있어요.
+
+gunhild/inn/11/choices/2/response/0
+찢지 않아서 다행이군.
+
+gunhild/inn/11/seen
+아까 호령은 거두고 설명부터 듣는다.
+
+gunhild/inn/12/situation
+가문의 땅 얘기에 손을 꽉 쥔다.
+
+gunhild/inn/12/lines/0
+고립의 해에 모두 변경령으로 갔다.
+
+gunhild/inn/12/lines/1
+그동안 농지는 비었고.
+
+gunhild/inn/12/lines/2
+돌아온 뒤에도 땅은 돌려받지 못했지.
+
+gunhild/inn/12/choices/0/text
+그 뒤 어떻게 지내셨는지 들어요.
+
+gunhild/inn/12/choices/0/response/0
+쉽게 끝낼 얘긴 아니니 좀 앉아라.
+
+gunhild/inn/12/choices/0/response/1
+돌아온 뒤의 일부터 차례로 말하겠다.
+
+gunhild/inn/12/choices/1/text
+물은 더 필요하세요?
+
+gunhild/inn/12/choices/1/response/0
+말하다가 마를 테니 옆에 두어라.
+
+gunhild/inn/12/choices/2/text
+길드에서 공을 세우면 땅도 받겠죠.
+
+gunhild/inn/12/choices/2/response/0
+그런 약속을 누가 했나?
+
+gunhild/inn/12/choices/2/response/1
+전후에 무슨 약속이 생겼다고 지어내진 마라.
+
+gunhild/inn/12/seen
+땅을 돌려받았다는 말은 한 적 없다.
+
+gunhild/inn/13/situation
+성 앞의 짧은 말을 천천히 적는다.
+
+gunhild/inn/13/lines/0
+폰이라는 말은 남았지.
+
+gunhild/inn/13/lines/1
+그 뒤에 있던 땅은 없는데도.
+
+gunhild/inn/13/lines/2
+내가 자꾸 크게 이름을 댄 이유를 알겠나?
+
+gunhild/inn/13/choices/0/text
+잉크병을 가까이 가져다 놓을까요?
+
+gunhild/inn/13/choices/0/response/0
+지금은 이 정도면 충분하다.
+
+gunhild/inn/13/choices/1/text
+그 말은 이제 빼도 되지 않아요?
+
+gunhild/inn/13/choices/1/response/0
+남은 것을 빼라고 쉽게 말하지 마라.
+
+gunhild/inn/13/choices/1/response/1
+무엇을 남길지는 내가 정하고 싶다.
+
+gunhild/inn/13/choices/2/text
+이름 말할 때의 무게를 조금 알겠어요.
+
+gunhild/inn/13/choices/2/response/0
+안다고 쉽게 대신 설명하지는 마라.
+
+gunhild/inn/13/seen
+폰까지 적은 이유를 오늘은 말해 봤다.
+
+gunhild/inn/14/situation
+투기장으로 건너가던 일을 말한다.
+
+gunhild/inn/14/lines/0
+누가 시켜서 간 건 아니다.
+
+gunhild/inn/14/lines/1
+이름값을 내 손으로 보이려 갔다.
+
+gunhild/inn/14/lines/2
+상을 받는 것만으로 됐는지는 모르겠지만.
+
+gunhild/inn/14/choices/0/text
+가문만 없었으면 편하게 살았겠네요.
+
+gunhild/inn/14/choices/0/response/0
+없는 삶을 만들어 위로하진 마라.
+
+gunhild/inn/14/choices/0/response/1
+그 삶을 내가 싫어하기만 했던 건 아니야.
+
+gunhild/inn/14/choices/1/text
+지금도 같은 이유로 싸우세요?
+
+gunhild/inn/14/choices/1/response/0
+지금은 옆에 선 사람도 보게 됐다.
+
+gunhild/inn/14/choices/2/text
+장소를 옮긴 건 힘들었겠어요.
+
+gunhild/inn/14/choices/2/response/0
+처음 무대에 설 땐 낯설긴 했지.
+
+gunhild/inn/14/seen
+투기장에 간 건 내가 고른 일이었다.
+
+gunhild/inn/15/situation
+칭찬 뒤에 잠시 침묵하다 먼저 입을 연다.
+
+gunhild/inn/15/lines/0
+칭찬을 들으니 좋기는 하다.
+
+gunhild/inn/15/lines/1
+그런데 고맙다는 말이 자꾸 늦는군.
+
+gunhild/inn/15/lines/2
+그걸 보고 자꾸 물으면 더 꼬여.
+
+gunhild/inn/15/choices/0/text
+대답을 고를 때까지 기다릴게요.
+
+gunhild/inn/15/choices/0/response/0
+지금 당장 근사한 말을 하긴 어렵다.
+
+gunhild/inn/15/choices/1/text
+잔을 내려놔도 돼요.
+
+gunhild/inn/15/choices/1/response/0
+자꾸 만지니 소리가 나긴 했군.
+
+gunhild/inn/15/choices/2/text
+기쁜 거 맞다고 제가 대신 말할까요?
+
+gunhild/inn/15/choices/2/response/0
+내 말을 내가 고르게 놔둬라.
+
+gunhild/inn/15/choices/2/response/1
+말이 늦어도 듣고 있다는 건 알아 둬라.
+
+gunhild/inn/15/seen
+기분이 나쁜 건 아니니 말을 좀 고르게 해라.
+
+gunhild/inn/16/situation
+가문 이름을 뺀 짧은 소개를 적어 본다.
+
+gunhild/inn/16/lines/0
+군힐트라고만 적어 봤다.
+
+gunhild/inn/16/lines/1
+길게 쓸 때도 있겠지.
+
+gunhild/inn/16/lines/2
+짧게 써도 내가 쓴 이름인 건 알겠군.
+
+gunhild/inn/16/choices/0/text
+종이를 남겨 둘까요?
+
+gunhild/inn/16/choices/0/response/0
+아직 버릴 생각은 없으니 두어라.
+
+gunhild/inn/16/choices/1/text
+다음 명부에도 성은 빼고 적을게요.
+
+gunhild/inn/16/choices/1/response/0
+그건 쓸 때마다 내게 물어라.
+
+gunhild/inn/16/choices/1/response/1
+짧게 쓰는 날도 있고 다시 길게 쓸 날도 있겠지.
+
+gunhild/inn/16/choices/2/text
+어느 쪽으로 쓰든 군힐트 씨예요.
+
+gunhild/inn/16/choices/2/response/0
+네가 그렇게 부르면 나도 알아듣는다.
+
+gunhild/inn/16/choices/2/response/1
+오늘 쓴 종이는 접지 말고 두어라.
+
+gunhild/inn/16/seen
+짧게 적은 이름도 내 이름이더군.
+
+gunhild/inn/17/situation
+흔들린 꼬리를 가리지 않고 그대로 둔다.
+
+gunhild/inn/17/lines/0
+뒤에서 소리가 났다고?
+
+gunhild/inn/17/lines/1
+알고 있다. 의자에 닿았군.
+
+gunhild/inn/17/lines/2
+옮기면 되니 그만 쳐다봐라.
+
+gunhild/inn/17/choices/0/text
+예전엔 숨기셨는데 이젠 귀엽네요.
+
+gunhild/inn/17/choices/0/response/0
+지금 옆에 앉아 있는 걸로만 봐도 되지 않나?
+
+gunhild/inn/17/choices/0/response/1
+내가 가리지 않는다고 네가 평할 필요는 없어.
+
+gunhild/inn/17/choices/1/text
+제가 의자를 조금 옮겨 드릴까요?
+
+gunhild/inn/17/choices/1/response/0
+말하고 옮겨 주면 괜찮다.
+
+gunhild/inn/17/choices/2/text
+잔은 안 쏟아졌어요.
+
+gunhild/inn/17/choices/2/response/0
+그럼 닦을 일은 없겠네.
+
+gunhild/inn/17/seen
+이번엔 의자만 옮기고 그냥 두겠다.
+
+gunhild/inn/18/situation
+칭찬 대신 걱정을 듣고 먼저 숨을 고른다.
+
+gunhild/inn/18/lines/0
+피곤한 건 맞다.
+
+gunhild/inn/18/lines/1
+괜히 목소리만 키웠군.
+
+gunhild/inn/18/lines/2
+오늘은 네가 하는 말을 끝까지 들어 보지.
+
+gunhild/inn/18/choices/0/text
+지금 쉬고 싶은지 먼저 물을게요.
+
+gunhild/inn/18/choices/0/response/0
+그래, 잠깐은 아무것도 안 정하고 싶다.
+
+gunhild/inn/18/choices/1/text
+보호대는 여기 놓으세요.
+
+gunhild/inn/18/choices/1/response/0
+풀어 놓으면 팔도 좀 편하겠다.
+
+gunhild/inn/18/choices/2/text
+그럼 오늘은 제가 전부 명령할게요.
+
+gunhild/inn/18/choices/2/response/0
+내가 지금 듣고 싶은 건 명령이 아니다.
+
+gunhild/inn/18/choices/2/response/1
+오늘은 누가 뭘 하라는 말 없이 쉬고 싶다.
+
+gunhild/inn/18/seen
+오늘은 목소리부터 좀 낮춰야겠군.
+
+gunhild/inn/19/situation
+자기 생각을 말하고 답을 기다린다.
+
+gunhild/inn/19/lines/0
+나는 같이 있고 싶다.
+
+gunhild/inn/19/lines/1
+가문 이름을 걸 이유는 없고.
+
+gunhild/inn/19/lines/2
+네 뜻도 듣고 싶어서 말한 거다.
+
+gunhild/inn/19/choices/0/text
+조용한 쪽으로 갈까요?
+
+gunhild/inn/19/choices/0/response/0
+지금 자리도 나쁘지 않다.
+
+gunhild/inn/19/choices/1/text
+할렌의 이름을 걸고 함께할게요.
+
+gunhild/inn/19/choices/1/response/0
+지금은 그 이름을 부르지 않아도 된다.
+
+gunhild/inn/19/choices/1/response/1
+같이 앉는 말에까지 이름을 걸 필요는 없지.
+
+gunhild/inn/19/choices/2/text
+저도 같이 앉아 있고 싶어요.
+
+gunhild/inn/19/choices/2/response/0
+그럼 잔을 하나 더 놓아라.
+
+gunhild/inn/19/seen
+같이 있고 싶다는 말엔 가문을 안 붙였다.
+
+gunhild/inn/20/situation
+함께 정한 일을 다시 확인한다.
+
+gunhild/inn/20/lines/0
+네가 맡겠다는 건 기억한다.
+
+gunhild/inn/20/lines/1
+어려워지면 먼저 말해라.
+
+gunhild/inn/20/lines/2
+약속 때문에 숨기는 건 더 싫다.
+
+gunhild/inn/20/choices/0/text
+이름을 걸었으니 끝까지 버텨야죠.
+
+gunhild/inn/20/choices/0/response/0
+힘들면 내게 알려라.
+
+gunhild/inn/20/choices/0/response/1
+힘든 걸 숨기면서 지키라는 약속은 하지 않았다.
+
+gunhild/inn/20/choices/1/text
+군힐트 씨도 힘들면 알려 줘요.
+
+gunhild/inn/20/choices/1/response/0
+나도 힘들면 말하겠다.
+
+gunhild/inn/20/choices/1/response/1
+그때는 잠깐 멈추고 들어라.
+
+gunhild/inn/20/choices/2/text
+지금 맡은 일부터 적어 둬요.
+
+gunhild/inn/20/choices/2/response/0
+적은 뒤에 서로 한 번 더 보자.
+
+gunhild/inn/20/seen
+약속이 힘들어지면 숨기지 말고 말해라.
+
+gunhild/inn/21/situation
+실패한 일을 설명하며 목소리를 낮춘다.
+
+gunhild/inn/21/lines/0
+오늘은 내 판단이 틀렸다.
+
+gunhild/inn/21/lines/1
+네가 잘한 것도 내가 놓쳤고.
+
+gunhild/inn/21/lines/2
+그건 내가 인정하고 시작하겠다.
+
+gunhild/inn/21/choices/0/text
+그다음 판단은 같이 해 봐요.
+
+gunhild/inn/21/choices/0/response/0
+내가 놓친 부분도 빠짐없이 말해라.
+
+gunhild/inn/21/choices/1/text
+물부터 마시고 얘기해요.
+
+gunhild/inn/21/choices/1/response/0
+목이 잠긴 줄도 모르고 있었군.
+
+gunhild/inn/21/choices/2/text
+가문 생각해서 잘못은 덮어 두죠.
+
+gunhild/inn/21/choices/2/response/0
+거짓으로 이름값을 얻고 싶진 않다.
+
+gunhild/inn/21/choices/2/response/1
+내가 틀린 일을 네가 감출 이유도 없다.
+
+gunhild/inn/21/seen
+내 판단이 틀린 건 내가 인정한다.
+
+gunhild/inn/22/situation
+머리를 만져도 되느냐는 물음에 잠깐 멈춘다.
+
+gunhild/inn/22/lines/0
+오늘은 괜찮다.
+
+gunhild/inn/22/lines/1
+그렇다고 사람들 앞에서 또 묻진 마라.
+
+gunhild/inn/22/lines/2
+지금 물은 것에 대답한 거다.
+
+gunhild/inn/22/choices/0/text
+그럼 이쪽 의자를 당길까요?
+
+gunhild/inn/22/choices/0/response/0
+너무 세게 끌면 꼬리에 걸린다.
+
+gunhild/inn/22/choices/1/text
+다음부터는 물을 필요 없겠네요.
+
+gunhild/inn/22/choices/1/response/0
+한 번 대답했다고 정해진 건 아니다.
+
+gunhild/inn/22/choices/1/response/1
+다음에 싫다고 말할 몫은 남겨 둬라.
+
+gunhild/inn/22/choices/2/text
+지금 허락한 만큼만 할게요.
+
+gunhild/inn/22/choices/2/response/0
+그, 손이 차가우면 먼저 말해라.
+
+gunhild/inn/22/seen
+오늘 괜찮다고 했지 매번 된다고 하진 않았다.
+
+gunhild/inn/23/situation
+긴 소개 대신 짧게 인사를 건넨다.
+
+gunhild/inn/23/lines/0
+기다렸나?
+
+gunhild/inn/23/lines/1
+오늘은 이름부터 댈 필요 없겠지.
+
+gunhild/inn/23/lines/2
+아직 소개도 안 했는데 자리를 빼 주는군.
+
+gunhild/inn/23/choices/0/text
+멋있으니 긴 소개 한 번 해 주세요.
+
+gunhild/inn/23/choices/0/response/0
+지금은 인사만 하고 앉고 싶다.
+
+gunhild/inn/23/choices/0/response/1
+얼굴 아는데 다시 소개할 필요 있나?
+
+gunhild/inn/23/choices/1/text
+군힐트 씨 오는 소리를 들었어요.
+
+gunhild/inn/23/choices/1/response/0
+발소리만 듣고도 고개를 드는군.
+
+gunhild/inn/23/choices/2/text
+이쪽 자리가 비었어요.
+
+gunhild/inn/23/choices/2/response/0
+짐을 놓고 바로 앉겠다.
+
+gunhild/inn/23/seen
+오늘은 소개 없이 바로 앉겠다.
+
+gunhild/inn/24/situation
+빈 의자를 보며 먼저 자리를 권한다.
+
+gunhild/inn/24/lines/0
+여기 앉아라.
+
+gunhild/inn/24/lines/1
+아니, 앉고 싶으면 앉아도 좋다.
+
+gunhild/inn/24/lines/2
+그렇게 고치니 말이 더 길어지는군.
+
+gunhild/inn/24/choices/0/text
+앉고 싶어서 여기 왔어요.
+
+gunhild/inn/24/choices/0/response/0
+그래, 이쪽 의자에 앉아라.
+
+gunhild/inn/24/choices/0/response/1
+잔은 내가 가져오겠다.
+
+gunhild/inn/24/choices/1/text
+가방은 아래에 놓을게요.
+
+gunhild/inn/24/choices/1/response/0
+발이 걸리지 않는 쪽으로 두어라.
+
+gunhild/inn/24/choices/2/text
+명령하셔도 따를 텐데요.
+
+gunhild/inn/24/choices/2/response/0
+따르는 말 말고 네 뜻을 듣고 싶었다.
+
+gunhild/inn/24/choices/2/response/1
+의자 앞에서 내 지시만 기다리게 하긴 싫었다.
+
+gunhild/inn/24/seen
+앉고 싶다면 여기로 와라.
+
+gunhild/inn/25/situation
+가문 이야기를 하다 먼저 차를 따른다.
+
+gunhild/inn/25/lines/0
+이름값은 여전히 신경 쓴다.
+
+gunhild/inn/25/lines/1
+그렇다고 매번 증명하진 않을 거야.
+
+gunhild/inn/25/lines/2
+오늘 차 한 잔에까지 걸 일은 없겠지.
+
+gunhild/inn/25/choices/0/text
+잔이 조금 뜨겁네요.
+
+gunhild/inn/25/choices/0/response/0
+손잡이를 이쪽으로 돌려라.
+
+gunhild/inn/25/choices/1/text
+그럼 이젠 평범해진 거네요.
+
+gunhild/inn/25/choices/1/response/0
+편하게 얘기할 줄도 안다고 해 둬라.
+
+gunhild/inn/25/choices/1/response/1
+이름도 성격도 내가 계속 지고 살 일이다.
+
+gunhild/inn/25/choices/2/text
+그럼 차 맛부터 같이 봐요.
+
+gunhild/inn/25/choices/2/response/0
+뜨거우니 급하게 넘기진 마라.
+
+gunhild/inn/25/seen
+오늘 차를 따르는 데 이름은 걸지 않겠다.
+
+gunhild/inn/26/situation
+칭찬을 듣고 피하지 않은 채 얼굴을 든다.
+
+gunhild/inn/26/lines/0
+고맙다.
+
+gunhild/inn/26/lines/1
+대답이 늦었다고 다시 말하지 마라.
+
+gunhild/inn/26/lines/2
+잘 들었으니 기억하고 있다.
+
+gunhild/inn/26/choices/0/text
+다들 알면 더 기뻐하실 것 같아요.
+
+gunhild/inn/26/choices/0/response/0
+너한테 들으면 되는 말도 있다.
+
+gunhild/inn/26/choices/0/response/1
+한 번 들었으면 충분히 좋다.
+
+gunhild/inn/26/choices/1/text
+한 번 들었다면 저도 기억해요.
+
+gunhild/inn/26/choices/1/response/0
+꼬리가 어쨌다는 말은 덧붙이지 말고.
+
+gunhild/inn/26/choices/2/text
+잔은 비워 두셨어요?
+
+gunhild/inn/26/choices/2/response/0
+조금 더 마실 생각이라 두었다.
+
+gunhild/inn/26/seen
+고맙다는 말은 이번에 바로 해 뒀다.
+
+gunhild/inn/27/situation
+다음에 함께할 일을 고르며 종이를 접는다.
+
+gunhild/inn/27/lines/0
+오늘은 이만큼만 정하자.
+
+gunhild/inn/27/lines/1
+나머지는 다음에 네 생각을 듣겠다.
+
+gunhild/inn/27/lines/2
+혼자 끝내 놓지는 않을게.
+
+gunhild/inn/27/choices/0/text
+다음에 제 생각도 가져올게요.
+
+gunhild/inn/27/choices/0/response/0
+정답처럼 써 오지는 않아도 된다.
+
+gunhild/inn/27/choices/1/text
+종이는 누가 보관할까요?
+
+gunhild/inn/27/choices/1/response/0
+내가 두고 다음에 다시 펴겠다.
+
+gunhild/inn/27/choices/2/text
+편하시게 제가 전부 정리해 올게요.
+
+gunhild/inn/27/choices/2/response/0
+편하자고 같이 정하는 걸 없애진 마라.
+
+gunhild/inn/27/choices/2/response/1
+내가 할 것도 남겨 두어라.
+
+gunhild/inn/27/seen
+나머지는 다음에 만나서 정하자.
+
+gunhild/dungeon/0/variants/0
+출발할 준비가 됐으면 말해라.
+
+gunhild/dungeon/0/variants/1
+내 짐은 내가 확인했다.
+
+gunhild/dungeon/1/variants/0
+네 쪽은 준비됐나?
+
+gunhild/dungeon/1/variants/1
+앞서기 전에 같이 보겠다.
+
+gunhild/dungeon/2/variants/0
+오늘도 함께 가고 싶다.
+
+gunhild/dungeon/2/variants/1
+명령이 아니라 내 뜻이다.
+
+gunhild/dungeon/3/variants/0
+새 층이다. 발밑을 봐라.
+
+gunhild/dungeon/3/variants/1
+들어온 길부터 기억해 둬라.
+
+gunhild/dungeon/4/variants/0
+내가 놓친 곳은 네가 말해라.
+
+gunhild/dungeon/4/variants/1
+자리 정하기 전에 주변을 보자.
+
+gunhild/dungeon/5/variants/0
+내 말만 기다릴 필요는 없다.
+
+gunhild/dungeon/5/variants/1
+네가 본 쪽도 듣겠다.
+
+gunhild/dungeon/6/variants/0
+찾았으면 위치부터 말해라.
+
+gunhild/dungeon/6/variants/1
+확인하기 전에는 집지 마라.
+
+gunhild/dungeon/7/variants/0
+누가 먼저 봤는지는 나중에 정하자.
+
+gunhild/dungeon/7/variants/1
+다 같이 볼 수 있게 비켜라.
+
+gunhild/dungeon/8/variants/0
+내가 못 본 걸 네가 찾았군.
+
+gunhild/dungeon/8/variants/1
+뜻을 정하기 전에 더 살펴보자.
+
+gunhild/dungeon/9/variants/0
+앞은 내가 본다. 뒤를 맡아라!
+
+gunhild/dungeon/9/variants/1
+보고만 있을 틈은 없다!
+
+gunhild/dungeon/10/variants/0
+각자 맡은 쪽부터 봐라!
+
+gunhild/dungeon/10/variants/1
+내 호령이 늦으면 먼저 말해라!
+
+gunhild/dungeon/11/variants/0
+혼자 이름 세울 싸움은 아니다!
+
+gunhild/dungeon/11/variants/1
+네가 움직이는 쪽도 보고 있겠다!
+
+gunhild/dungeon/12/variants/0
+끝났다. 방심은 하지 마라.
+
+gunhild/dungeon/12/variants/1
+칭찬하기 전에 네 상처나 봐라.
+
+gunhild/dungeon/13/variants/0
+네가 막은 건 나도 봤다.
+
+gunhild/dungeon/13/variants/1
+고맙다는 말은 지금 해 두지.
+
+gunhild/dungeon/14/variants/0
+나도 좀 무리한 건 인정한다.
+
+gunhild/dungeon/14/variants/1
+꼬리 말고 다친 팔부터 봐라.
+
+gunhild/dungeon/15/variants/0
+저 앞은 준비 없이 못 간다.
+
+gunhild/dungeon/15/variants/1
+물러설 이유가 있으면 지금 말해라.
+
+gunhild/dungeon/16/variants/0
+내 생각만으로 정하진 않겠다.
+
+gunhild/dungeon/16/variants/1
+네 판단도 듣고 들어가자.
+
+gunhild/dungeon/17/variants/0
+이름을 대고 무리할 생각은 없다.
+
+gunhild/dungeon/17/variants/1
+서로 지킬 수 있는 몫을 정하자.
+
+gunhild/dungeon/18/variants/0
+큰 싸움은 끝났군. 다들 답해라.
+
+gunhild/dungeon/18/variants/1
+이름을 댈 힘보다 쉴 힘을 남겨라.
+
+gunhild/dungeon/19/variants/0
+내가 잘한 것만 얘기하진 마라.
+
+gunhild/dungeon/19/variants/1
+네가 도운 자리도 알고 있다.
+
+gunhild/dungeon/20/variants/0
+그 말은 잘 들었다. 나부터 좀 앉겠다.
+
+gunhild/dungeon/20/variants/1
+나도 보호대부터 좀 풀겠다.
+
+gunhild/dungeon/21/variants/0
+더 버티겠다는 말은 접어라!
+
+gunhild/dungeon/21/variants/1
+내가 앞을 볼 테니 상태를 말해라!
+
+gunhild/dungeon/22/variants/0
+그 상처를 혼자 감추지 마라!
+
+gunhild/dungeon/22/variants/1
+다가갈 틈은 내가 만들겠다!
+
+gunhild/dungeon/23/variants/0
+지금 내가 앞을 맡겠다!
+
+gunhild/dungeon/23/variants/1
+지금은 도움부터 받아라!
+
+gunhild/dungeon/24/variants/0
+쓰러진 쪽으로 갈 길을 내라!
+
+gunhild/dungeon/24/variants/1
+상태도 모르고 끝났다고 하지 마라!
+
+gunhild/dungeon/25/variants/0
+확인하는 동안 내가 앞을 맡겠다.
+
+gunhild/dungeon/25/variants/1
+움직일 수 있는 자는 답해라.
+
+gunhild/dungeon/26/variants/0
+호령만 한다고 해결되진 않겠지.
+
+gunhild/dungeon/26/variants/1
+내가 할 수 있는 일부터 하겠다.
+
+gunhild/dungeon/27/variants/0
+나도 다쳤다. 숨길 생각 없다.
+
+gunhild/dungeon/27/variants/1
+지금 이쪽을 잠깐 봐라.
+
+gunhild/dungeon/28/variants/0
+크게 말했더니 상처가 더 아프군.
+
+gunhild/dungeon/28/variants/1
+내 상처도 먼저 확인해야겠군.
+
+gunhild/dungeon/29/variants/0
+이번에는 내가 손을 빌리겠다.
+
+gunhild/dungeon/29/variants/1
+내 쪽도 좀 봐 줄 수 있나?
+
+gunhild/dungeon/30/variants/0
+쉴 때는 보호대를 풀어라.
+
+gunhild/dungeon/30/variants/1
+앉은 뒤엔 바로 지시부터 내리지 않겠다.
+
+gunhild/dungeon/31/variants/0
+앉을 자리는 네가 골라도 된다.
+
+gunhild/dungeon/31/variants/1
+물은 마신 뒤에 이쪽으로 줘라.
+
+gunhild/dungeon/32/variants/0
+오늘은 쉬는 것도 같이 정하자.
+
+gunhild/dungeon/32/variants/1
+칭찬은 작게 해도 잘 들린다.
+
+gunhild/dungeon/33/variants/0
+봉인이다. 함부로 손대지 마라.
+
+gunhild/dungeon/33/variants/1
+할렌 이름을 대면 열리는 게 아니다.
+
+gunhild/dungeon/34/variants/0
+확인된 조건부터 읽어라.
+
+gunhild/dungeon/34/variants/1
+힘으로 밀자는 의견은 아직 이르다.
+
+gunhild/dungeon/35/variants/0
+내가 정하기 전에 네 생각을 듣겠다.
+
+gunhild/dungeon/35/variants/1
+모르는 조건은 모른다고 말해라.
+
+gunhild/dungeon/36/variants/0
+돌아왔군. 빠진 사람 없는지 봐라.
+
+gunhild/dungeon/36/variants/1
+짐은 각자 내려놓고 다시 모여라.
+
+gunhild/dungeon/37/variants/0
+오늘 네가 한 일은 기억하겠다.
+
+gunhild/dungeon/37/variants/1
+상처도 숨기지 말고 보여라.
+
+gunhild/dungeon/38/variants/0
+이름 없이 반겨도 알아듣는다.
+
+gunhild/dungeon/38/variants/1
+나도 좀 쉬러 가겠다.
+
+gunhild/dungeon/39/variants/0
+졌다. 더 몰아붙이진 마라.
+
+gunhild/dungeon/39/variants/1
+내 판단도 나중에 따로 보겠다.
+
+gunhild/dungeon/40/variants/0
+틀린 호령은 내가 책임지겠다.
+
+gunhild/dungeon/40/variants/1
+지금은 움직일 수 있는지 말해라.
+
+gunhild/dungeon/41/variants/0
+이름을 지키려고 무리하진 않겠다.
+
+gunhild/dungeon/41/variants/1
+같이 돌아갈 생각부터 하자.
+
+gunhild/transitions/0/situation
+막아 두었던 의자를 옆으로 민다.
+
+gunhild/transitions/0/lines/0
+손대지 말란 건 지켰군.
+
+gunhild/transitions/0/lines/1
+용건이 남았으면 거기서 말해라.
+
+gunhild/transitions/1/situation
+끝까지 적지 않은 이름을 손으로 가린다.
+
+gunhild/transitions/1/lines/0
+편하다고 이름부터 빼지는 마라.
+
+gunhild/transitions/1/lines/1
+오늘 명부는 내가 다시 쓰겠다.
+
+gunhild/transitions/2/situation
+보호대를 풀고 식탁 옆에 놓는다.
+
+gunhild/transitions/2/lines/0
+오늘은 인사만 하러 왔다.
+
+gunhild/transitions/2/lines/1
+이름을 아는지 또 묻진 않겠다.
+
+gunhild/transitions/3/situation
+칭찬 끝에 꼬리를 보는 시선을 피한다.
+
+gunhild/transitions/3/lines/0
+그쪽까지 볼 필요는 없다고 했다.
+
+gunhild/transitions/3/lines/1
+더 칭찬하려고 따라오진 마라.
+
+gunhild/transitions/4/situation
+자기 계획을 말하기 전에 종이를 민다.
+
+gunhild/transitions/4/lines/0
+네 의견부터 들어 보겠다.
+
+gunhild/transitions/4/lines/1
+내 명령을 기다리지 말고 말해라.
+
+gunhild/transitions/5/situation
+비어 있던 종이를 자기 쪽으로 돌린다.
+
+gunhild/transitions/5/lines/0
+내가 묻기도 전에 전부 정했군.
+
+gunhild/transitions/5/lines/1
+이번 건 처음부터 다시 봐야겠다.
+
+gunhild/transitions/6/situation
+성 앞의 짧은 글자를 천천히 적는다.
+
+gunhild/transitions/6/lines/0
+땅은 없고 이 말만 남았다.
+
+gunhild/transitions/6/lines/1
+그래서 이름을 크게 댔던 거지.
+
+gunhild/transitions/7/situation
+가문의 얘기를 멈추고 잔을 든다.
+
+gunhild/transitions/7/lines/0
+받을 땅이 약속됐다고 말한 적 없다.
+
+gunhild/transitions/7/lines/1
+오늘은 그 얘기를 그만 듣겠다.
+
+gunhild/transitions/8/situation
+짧게 적은 자기 이름을 그대로 둔다.
+
+gunhild/transitions/8/lines/0
+군힐트라고만 적어도 알아보겠군.
+
+gunhild/transitions/8/lines/1
+그걸 오늘 직접 보고 싶었다.
+
+gunhild/transitions/9/situation
+칭찬을 받다가 손을 들어 말을 막는다.
+
+gunhild/transitions/9/lines/0
+뒤에서 뭘 봤는지는 말하지 마라.
+
+gunhild/transitions/9/lines/1
+고맙다고 할 시간부터 좀 줘라.
+
+gunhild/transitions/10/situation
+자기가 내린 지시를 긋고 새로 적는다.
+
+gunhild/transitions/10/lines/0
+잘못된 호령은 내가 고치겠다.
+
+gunhild/transitions/10/lines/1
+이름을 걸었다고 잘못을 감출 생각은 없다.
+
+gunhild/transitions/11/situation
+먼저 내민 손 앞에서 한 걸음 멈춘다.
+
+gunhild/transitions/11/lines/0
+어제 된다고 오늘도 정해진 건 아니다.
+
+gunhild/transitions/11/lines/1
+다시 묻는 걸 무례하다고 보진 않겠다.
+
+gunhild/transitions/12/situation
+옆자리를 권하려다 말을 고친다.
+
+gunhild/transitions/12/lines/0
+앉고 싶으면 여기 앉아라.
+
+gunhild/transitions/12/lines/1
+오늘은 명령 아닌 말도 잘 알아듣는군.
+
+gunhild/transitions/13/situation
+고개를 들고 낮은 목소리로 말한다.
+
+gunhild/transitions/13/lines/0
+너를 몰아친 건 내 잘못이다.
+
+gunhild/transitions/13/lines/1
+그런데 방금 네 말은 나도 아팠다.
+
+bargut/inn/0/situation
+벽 쪽 의자를 남겨 두고 한 걸음 물러선다.
+
+bargut/inn/0/lines/0
+그 자리는 비워 둬라.
+
+bargut/inn/0/lines/1
+지금은 따로 앉겠다.
+
+bargut/inn/0/lines/2
+할 말이 있으면 들린다.
+
+bargut/inn/0/choices/0/text
+문은 닫을까요?
+
+bargut/inn/0/choices/0/response/0
+바람만 안 들어오면 된다.
+
+bargut/inn/0/choices/1/text
+같이 앉아야 빨리 친해지죠.
+
+bargut/inn/0/choices/1/response/0
+빨리 친해져야 할 이유는 없다.
+
+bargut/inn/0/choices/1/response/1
+이만큼 떨어져도 말은 들린다.
+
+bargut/inn/0/choices/2/text
+거리는 두고 여기서 말할게요.
+
+bargut/inn/0/choices/2/response/0
+더 가까이 올 필요는 없다.
+
+bargut/inn/0/seen
+오늘은 떨어져 앉아도 말이 들린다.
+
+bargut/inn/1/situation
+자기 짐을 집는 손을 조용히 막는다.
+
+bargut/inn/1/lines/0
+내가 들겠다.
+
+bargut/inn/1/lines/1
+무겁다고 한 적 없다.
+
+bargut/inn/1/lines/2
+도움이 필요하면 부르겠다.
+
+bargut/inn/1/choices/0/text
+가벼운 건 제가 가져도 되잖아요.
+
+bargut/inn/1/choices/0/response/0
+가벼운 것도 내가 들겠다.
+
+bargut/inn/1/choices/0/response/1
+필요해지면 그때 부르지.
+
+bargut/inn/1/choices/1/text
+그럼 부르실 때 손을 보탤게요.
+
+bargut/inn/1/choices/1/response/0
+그때 필요한 걸 말하겠다.
+
+bargut/inn/1/choices/2/text
+통로에 의자가 있어요.
+
+bargut/inn/1/choices/2/response/0
+돌아갈 곳은 보인다.
+
+bargut/inn/1/seen
+내 짐은 내가 들고 나갈 거다.
+
+bargut/inn/2/situation
+불이 보이는 벽 쪽에 자리를 잡는다.
+
+bargut/inn/2/lines/0
+여기면 된다.
+
+bargut/inn/2/lines/1
+사람들 사이에 낄 생각은 없다.
+
+bargut/inn/2/lines/2
+불이 보여서 앉은 거다.
+
+bargut/inn/2/choices/0/text
+이 자리 그대로 두고 저는 저쪽에 앉아요.
+
+bargut/inn/2/choices/0/response/0
+지나갈 길만 남겨 둬라.
+
+bargut/inn/2/choices/1/text
+의자는 흔들리지 않아요?
+
+bargut/inn/2/choices/1/response/0
+발 하나만 돌리면 된다.
+
+bargut/inn/2/choices/2/text
+불 가까이 와야 같이 온 티가 나죠.
+
+bargut/inn/2/choices/2/response/0
+남한테 보여 주려고 온 게 아니다.
+
+bargut/inn/2/choices/2/response/1
+나는 이쪽에 앉겠다.
+
+bargut/inn/2/seen
+불이 보이는 이 자리면 충분하다.
+
+bargut/inn/3/situation
+말없이 컵을 옮기고 다시 손을 뗀다.
+
+bargut/inn/3/lines/0
+쏟을 것 같아서 옮겼다.
+
+bargut/inn/3/lines/1
+컵이 끝에 걸려 있었다.
+
+bargut/inn/3/lines/2
+나머지는 네가 챙겨라.
+
+bargut/inn/3/choices/0/text
+컵은 안 깨졌네요.
+
+bargut/inn/3/choices/0/response/0
+바닥에 닿기 전에 잡았다.
+
+bargut/inn/3/choices/1/text
+세심하시니 제 짐도 부탁할게요.
+
+bargut/inn/3/choices/1/response/0
+내가 맡겠다는 말은 하지 않았다.
+
+bargut/inn/3/choices/1/response/1
+고맙다는 말에 일을 하나 더 붙이지 마라.
+
+bargut/inn/3/choices/2/text
+옮겨 주신 것만 고맙게 받을게요.
+
+bargut/inn/3/choices/2/response/0
+다음에는 안쪽에 놓아라.
+
+bargut/inn/3/seen
+컵은 옮겼으니 이제 직접 챙겨라.
+
+bargut/inn/4/situation
+식탁에서 한 자리를 건너뛰고 앉는다.
+
+bargut/inn/4/lines/0
+말하려고 왔나?
+
+bargut/inn/4/lines/1
+이 정도 거리면 들린다.
+
+bargut/inn/4/lines/2
+목소리는 키우지 않아도 돼.
+
+bargut/inn/4/choices/0/text
+모두 같이 앉으면 덜 어색할 텐데요.
+
+bargut/inn/4/choices/0/response/0
+나는 지금 덜 어색하다.
+
+bargut/inn/4/choices/0/response/1
+내가 편한지는 내가 말할 수 있다.
+
+bargut/inn/4/choices/1/text
+잘 안 들리면 다시 물을게요.
+
+bargut/inn/4/choices/1/response/0
+못 들었다고 더 다가올 필요는 없다.
+
+bargut/inn/4/choices/1/response/1
+못 들었으면 말해라. 그때 다시 말하겠다.
+
+bargut/inn/4/choices/2/text
+식사는 하셨어요?
+
+bargut/inn/4/choices/2/response/0
+조금 전에 먹고 왔다.
+
+bargut/inn/4/seen
+오늘도 한 자리 건너서 앉겠다.
+
+bargut/inn/5/situation
+가죽 팔목 보호대의 끈을 살핀다.
+
+bargut/inn/5/lines/0
+매듭이 조금 풀렸다.
+
+bargut/inn/5/lines/1
+금방 고칠 수 있다.
+
+bargut/inn/5/lines/2
+손을 빌릴 일은 없다.
+
+bargut/inn/5/choices/0/text
+끝나면 제가 컵을 밀어 드릴게요.
+
+bargut/inn/5/choices/0/response/0
+물은 흘리지 않는 쪽에 둬라.
+
+bargut/inn/5/choices/1/text
+끈 끝이 아래에 있어요.
+
+bargut/inn/5/choices/1/response/0
+봤다. 먼저 이쪽을 묶겠다.
+
+bargut/inn/5/choices/2/text
+잘 묶이게 손목을 잡아 드릴게요.
+
+bargut/inn/5/choices/2/response/0
+잡아 달라는 말은 안 했다.
+
+bargut/inn/5/choices/2/response/1
+손목은 내가 움직여야 매듭을 고친다.
+
+bargut/inn/5/seen
+매듭은 내가 고쳤으니 컵을 줘라.
+
+bargut/inn/6/situation
+시끄러운 식탁 끝에서 출입문을 본다.
+
+bargut/inn/6/lines/0
+여긴 말소리가 너무 많다.
+
+bargut/inn/6/lines/1
+밖으로 나가려던 참이다.
+
+bargut/inn/6/lines/2
+네가 싫어서 일어나는 건 아니다.
+
+bargut/inn/6/choices/0/text
+겉옷은 문 옆에 있어요.
+
+bargut/inn/6/choices/0/response/0
+찾아 두었으니 들고 나가겠다.
+
+bargut/inn/6/choices/1/text
+조금 더 있으면 익숙해지겠죠.
+
+bargut/inn/6/choices/1/response/0
+참고 있어야 할 자리는 아니다.
+
+bargut/inn/6/choices/1/response/1
+조용한 곳을 고르는 것도 내 방식이다.
+
+bargut/inn/6/choices/2/text
+잠깐 밖에서 말해도 될까요?
+
+bargut/inn/6/choices/2/response/0
+통로를 벗어나면 얘기해도 된다.
+
+bargut/inn/6/seen
+여긴 시끄러우니 문 밖에서 얘기하자.
+
+bargut/inn/7/situation
+불 쪽을 보다가 눈이 마주치자 잔을 든다.
+
+bargut/inn/7/lines/0
+불을 본 거다.
+
+bargut/inn/7/lines/1
+네가 앉은 쪽이라서가 아니다.
+
+bargut/inn/7/lines/2
+이 잔도 아직 따뜻하고.
+
+bargut/inn/7/choices/0/text
+불이 목적이면 잔은 제가 데워 드리죠.
+
+bargut/inn/7/choices/0/response/0
+잔만 따뜻하면 된다는 말은 아니다.
+
+bargut/inn/7/choices/0/response/1
+아직은 그냥 여기 앉게 두면 된다.
+
+bargut/inn/7/choices/1/text
+그쪽이 따뜻하면 더 계셔도 돼요.
+
+bargut/inn/7/choices/1/response/0
+식기 전에는 자리를 안 옮기겠다.
+
+bargut/inn/7/choices/2/text
+잔은 뜨겁지 않아요?
+
+bargut/inn/7/choices/2/response/0
+손에 쥐고 있어도 될 정도다.
+
+bargut/inn/7/seen
+잔이 식을 때까지는 여기 있겠다.
+
+bargut/inn/8/situation
+전보다 한 자리 가까이 앉는다.
+
+bargut/inn/8/lines/0
+오늘은 이쪽에 앉겠다.
+
+bargut/inn/8/lines/1
+저기는 문이 자꾸 열린다.
+
+bargut/inn/8/lines/2
+묻지 않아도 자리는 옮길 수 있지?
+
+bargut/inn/8/choices/0/text
+이쪽 의자는 비워 둘게요.
+
+bargut/inn/8/choices/0/response/0
+비워만 두면 내가 알아서 앉는다.
+
+bargut/inn/8/choices/0/response/1
+옮기는 이유를 매번 설명하진 않아도 되나?
+
+bargut/inn/8/choices/1/text
+가방은 아래에 놔요.
+
+bargut/inn/8/choices/1/response/0
+밟지 않게 내 발 옆에 놓겠다.
+
+bargut/inn/8/choices/2/text
+이젠 항상 그 자리에 앉으세요.
+
+bargut/inn/8/choices/2/response/0
+오늘 고른 자리를 계속 묶어 두진 마라.
+
+bargut/inn/8/choices/2/response/1
+다른 자리를 고르는 날도 있을 거다.
+
+bargut/inn/8/seen
+오늘은 문에서 먼 쪽으로 한 자리 왔다.
+
+bargut/inn/9/situation
+안 보이던 손을 내밀어 컵을 건넨다.
+
+bargut/inn/9/lines/0
+빈 컵은 이쪽에 둬라.
+
+bargut/inn/9/lines/1
+같이 치우고 돌아오겠다.
+
+bargut/inn/9/lines/2
+다른 건 네가 챙겨라.
+
+bargut/inn/9/choices/0/text
+쟁반은 저기에 있어요.
+
+bargut/inn/9/choices/0/response/0
+그걸 쓰면 두 번 갈 필요 없겠다.
+
+bargut/inn/9/choices/1/text
+그럼 앞으로 컵은 맡아 주세요.
+
+bargut/inn/9/choices/1/response/0
+다음에도 내게 맡기려면 물어라.
+
+bargut/inn/9/choices/1/response/1
+오늘 건 이 쟁반에 다 올려라.
+
+bargut/inn/9/choices/2/text
+제 것도 여기 모아 둘게요.
+
+bargut/inn/9/choices/2/response/0
+한 번에 들 만큼만 올려라.
+
+bargut/inn/9/seen
+컵은 오늘 같이 치우겠다고 한 거다.
+
+bargut/inn/10/situation
+먼저 다가와 짧게 안부를 묻는다.
+
+bargut/inn/10/lines/0
+어제는 일찍 갔더군.
+
+bargut/inn/10/lines/1
+묻고 싶은 게 있었는데 못 물었다.
+
+bargut/inn/10/lines/2
+오늘은 잠깐 있나?
+
+bargut/inn/10/choices/0/text
+못 물으신 건 나중에 하고 오늘 저랑 다녀요.
+
+bargut/inn/10/choices/0/response/0
+가자는 말은 아직 안 했다.
+
+bargut/inn/10/choices/0/response/1
+묻고 싶은 것부터 묻겠다.
+
+bargut/inn/10/choices/1/text
+조금 있으니 지금 물어봐요.
+
+bargut/inn/10/choices/1/response/0
+급한 얘기는 아니니 앉고 나서 하겠다.
+
+bargut/inn/10/choices/2/text
+잔은 두 개 가져올게요.
+
+bargut/inn/10/choices/2/response/0
+나는 물이면 된다.
+
+bargut/inn/10/seen
+오늘은 물어볼 게 있어서 왔다.
+
+bargut/inn/11/situation
+통로에서 기다렸다가 발을 맞춘다.
+
+bargut/inn/11/lines/0
+같은 쪽으로 간다.
+
+bargut/inn/11/lines/1
+속도를 맞출 필요는 없고.
+
+bargut/inn/11/lines/2
+갈림길까지는 같이 가도 된다.
+
+bargut/inn/11/choices/0/text
+갈림길에서 다시 길을 정해요.
+
+bargut/inn/11/choices/0/response/0
+그전에는 괜히 돌아가지 않아도 되겠네.
+
+bargut/inn/11/choices/1/text
+계단은 이쪽이에요.
+
+bargut/inn/11/choices/1/response/0
+보이니 먼저 내려가라.
+
+bargut/inn/11/choices/2/text
+계속 같이 가게 손을 잡을까요?
+
+bargut/inn/11/choices/2/response/0
+손은 잡지 말고 같이 걸어라.
+
+bargut/inn/11/choices/2/response/1
+계속 갈지는 갈림길에서 물으면 된다.
+
+bargut/inn/11/seen
+갈림길까지는 나란히 걸어도 된다.
+
+bargut/inn/12/situation
+빈 식탁을 보며 산에서의 일을 꺼낸다.
+
+bargut/inn/12/lines/0
+설산에서는 혼자 쫓았다.
+
+bargut/inn/12/lines/1
+누가 옆에 있는지 볼 필요가 없었다.
+
+bargut/inn/12/lines/2
+여기선 자꾸 그걸 잊는다.
+
+bargut/inn/12/choices/0/text
+산은 많이 추웠어요?
+
+bargut/inn/12/choices/0/response/0
+멈춰 있으면 손부터 굳었다.
+
+bargut/inn/12/choices/1/text
+이제 혼자 움직이는 건 금지하면 되죠.
+
+bargut/inn/12/choices/1/response/0
+처음부터 묶어 두면 배울 수도 없다.
+
+bargut/inn/12/choices/1/response/1
+떨어져 움직이면서 맞추는 법도 필요하다.
+
+bargut/inn/12/choices/2/text
+옆에 있을 땐 먼저 신호할게요.
+
+bargut/inn/12/choices/2/response/0
+나도 움직이기 전에 보겠다.
+
+bargut/inn/12/choices/2/response/1
+보는 쪽이 달라지면 네 신호를 기다리겠다.
+
+bargut/inn/12/seen
+산에서 하던 대로만 움직일 수는 없더군.
+
+bargut/inn/13/situation
+이름 앞의 말을 지우지 않고 남긴다.
+
+bargut/inn/13/lines/0
+표범 부족도 같이 적어라.
+
+bargut/inn/13/lines/1
+낮게 보는 사람이 있어도 뗄 생각 없다.
+
+bargut/inn/13/lines/2
+내가 거기서 배웠으니까.
+
+bargut/inn/13/choices/0/text
+대접이 달라지면 부족은 숨겨도 돼요.
+
+bargut/inn/13/choices/0/response/0
+대접 때문에 내가 나온 곳을 바꾸진 않는다.
+
+bargut/inn/13/choices/0/response/1
+편해지는 대신 내 이름을 덜 쓰긴 싫다.
+
+bargut/inn/13/choices/1/text
+적힌 말은 제가 줄이지 않을게요.
+
+bargut/inn/13/choices/1/response/0
+누가 물으면 내가 직접 설명하겠다.
+
+bargut/inn/13/choices/2/text
+칸이 조금 좁네요.
+
+bargut/inn/13/choices/2/response/0
+다 쓰고 줄을 바꾸면 된다.
+
+bargut/inn/13/seen
+부족 이름은 줄 바꿔서라도 적어라.
+
+bargut/inn/14/situation
+밤이면 자리가 가까워지는 이유를 묻자 멈춘다.
+
+bargut/inn/14/lines/0
+혼자 자는 밤이 길었다.
+
+bargut/inn/14/lines/1
+조용한 게 늘 편한 건 아니더군.
+
+bargut/inn/14/lines/2
+여기선 발소리가 끊겨도 누군가 있다.
+
+bargut/inn/14/choices/0/text
+가까운 자리는 비워 둘게요.
+
+bargut/inn/14/choices/0/response/0
+필요하면 내가 와서 앉겠다.
+
+bargut/inn/14/choices/1/text
+불은 조금 더 남아 있어요.
+
+bargut/inn/14/choices/1/response/0
+꺼지기 전에 여기서 손을 녹이겠다.
+
+bargut/inn/14/choices/2/text
+그러면 혼자 잘 일은 없게 할게요.
+
+bargut/inn/14/choices/2/response/0
+혼자 고를 자리도 있어야 한다.
+
+bargut/inn/14/choices/2/response/1
+가까이 가고 싶을 때 내가 가겠다.
+
+bargut/inn/14/seen
+밤이 길면 누군가 있는 쪽이 낫더군.
+
+bargut/inn/15/situation
+멀리서 동료를 보던 버릇을 말한다.
+
+bargut/inn/15/lines/0
+안 보이면 돌아서 확인했다.
+
+bargut/inn/15/lines/1
+일이 늦어져도 그건 봐야 했다.
+
+bargut/inn/15/lines/2
+눈에 잘 띄는 높은 곳에서 누가 부르기를 기다리기도 했다.
+
+bargut/inn/15/choices/0/text
+어디쯤에서 보셨어요?
+
+bargut/inn/15/choices/0/response/0
+가리는 게 적은 높은 쪽이었다.
+
+bargut/inn/15/choices/1/text
+그럼 안 떠나게 옆에 계속 두면 되죠.
+
+bargut/inn/15/choices/1/response/0
+떠나는 걸 막아 달라는 말은 아니다.
+
+bargut/inn/15/choices/1/response/1
+멀리 있더라도 보이면 부를 수 있다.
+
+bargut/inn/15/choices/2/text
+찾을 땐 이름 부를게요.
+
+bargut/inn/15/choices/2/response/0
+안 들리면 한 번 더 불러라.
+
+bargut/inn/15/seen
+찾을 때는 멀리서 손짓 말고 불러라.
+
+bargut/inn/16/situation
+불 가까운 의자 앞에서 먼저 묻는다.
+
+bargut/inn/16/lines/0
+오늘은 옆에 앉아도 되나?
+
+bargut/inn/16/lines/1
+조금 더 얘기하고 싶다.
+
+bargut/inn/16/lines/2
+지금은 같이 있고 싶다.
+
+bargut/inn/16/choices/0/text
+드디어 솔직해지셨다고 모두에게 말할게요.
+
+bargut/inn/16/choices/0/response/0
+내가 한 말을 구경거리로 만들진 마라.
+
+bargut/inn/16/choices/0/response/1
+지금 한 말은 여기서만 들어라.
+
+bargut/inn/16/choices/1/text
+저도 같이 앉고 싶어요.
+
+bargut/inn/16/choices/1/response/0
+가방만 내려놓고 오겠다.
+
+bargut/inn/16/choices/1/response/1
+앉아서 아까 하던 얘기나 듣겠다.
+
+bargut/inn/16/choices/2/text
+의자는 덜컹거리지 않아요.
+
+bargut/inn/16/choices/2/response/0
+그럼 옮길 필요는 없겠네.
+
+bargut/inn/16/seen
+오늘은 따뜻하다는 핑계 없이 옆에 앉겠다.
+
+bargut/inn/17/situation
+식탁에서 나란히 일어나다 속도를 늦춘다.
+
+bargut/inn/17/lines/0
+먼저 가도 된다.
+
+bargut/inn/17/lines/1
+아니, 같이 나가고 싶으면 잠깐 기다려라.
+
+bargut/inn/17/lines/2
+내 짐만 챙기면 된다.
+
+bargut/inn/17/choices/0/text
+짐 챙길 동안 문에서 기다릴게요.
+
+bargut/inn/17/choices/0/response/0
+내가 부르면 그때 열어라.
+
+bargut/inn/17/choices/1/text
+겉옷은 이 의자에 있어요.
+
+bargut/inn/17/choices/1/response/0
+가방 끈 아래에 걸렸군.
+
+bargut/inn/17/choices/2/text
+짐도 제가 들면 계속 나란히 갈 수 있어요.
+
+bargut/inn/17/choices/2/response/0
+짐은 내가 들겠다.
+
+bargut/inn/17/choices/2/response/1
+그 정도는 들고 옆에서 걸을 수 있다.
+
+bargut/inn/17/seen
+짐은 내가 들고 문에서 같이 나가자.
+
+bargut/inn/18/situation
+혼자 있고 싶은 날을 직접 말한다.
+
+bargut/inn/18/lines/0
+오늘은 조금 떨어져 있겠다.
+
+bargut/inn/18/lines/1
+네가 뭘 잘못한 건 아니다.
+
+bargut/inn/18/lines/2
+다시 얘기하고 싶으면 내가 오지.
+
+bargut/inn/18/choices/0/text
+물병은 가운데 둘게요.
+
+bargut/inn/18/choices/0/response/0
+필요하면 직접 가져가겠다.
+
+bargut/inn/18/choices/1/text
+제가 뭘 했는지 말할 때까지 못 가요.
+
+bargut/inn/18/choices/1/response/0
+잘못이 없다고 이미 말했다.
+
+bargut/inn/18/choices/1/response/1
+무슨 잘못인지 찾느라 붙들고 있진 마라.
+
+bargut/inn/18/choices/2/text
+이 자리에 있을 테니 필요하면 와요.
+
+bargut/inn/18/choices/2/response/0
+어디 있는지 알면 찾을 수 있다.
+
+bargut/inn/18/seen
+오늘 떨어져 앉는 건 네 탓이 아니다.
+
+bargut/inn/19/situation
+다시 다가와 아까 대화를 잇는다.
+
+bargut/inn/19/lines/0
+아까 멈춘 얘기 계속해도 되나?
+
+bargut/inn/19/lines/1
+여기서 잠깐 생각하고 왔다.
+
+bargut/inn/19/lines/2
+생각 정리할 틈이 필요했지.
+
+bargut/inn/19/choices/0/text
+다음엔 생각할 때도 제 옆에 있어요.
+
+bargut/inn/19/choices/0/response/0
+떨어져 있어야 생각날 때도 있다.
+
+bargut/inn/19/choices/0/response/1
+돌아와서 말할 수 있으면 잠깐 떠나도 된다.
+
+bargut/inn/19/choices/1/text
+아까 어느 부분까지 말했죠?
+
+bargut/inn/19/choices/1/response/0
+네가 설명하던 끝을 못 들었다.
+
+bargut/inn/19/choices/2/text
+물은 남겨 뒀어요.
+
+bargut/inn/19/choices/2/response/0
+지금은 손이 비었으니 마시겠다.
+
+bargut/inn/19/seen
+생각이 정리돼서 아까 얘기하러 돌아왔다.
+
+bargut/inn/20/situation
+함께 갈 때의 신호를 손으로 맞춘다.
+
+bargut/inn/20/lines/0
+불러도 못 들을 때가 있다.
+
+bargut/inn/20/lines/1
+그래서 신호를 정해 두려 한다.
+
+bargut/inn/20/lines/2
+멀어져도 알아보게 해 두자.
+
+bargut/inn/20/choices/0/text
+멀어져도 확인할 신호부터 정해요.
+
+bargut/inn/20/choices/0/response/0
+내가 봤다는 답도 따로 주겠다.
+
+bargut/inn/20/choices/0/response/1
+못 봤으면 봤다고 답하지 않겠다.
+
+bargut/inn/20/choices/1/text
+손은 이 높이면 보여요?
+
+bargut/inn/20/choices/1/response/0
+가리는 게 없으면 보인다.
+
+bargut/inn/20/choices/2/text
+끈으로 이어 두면 놓칠 일 없겠네요.
+
+bargut/inn/20/choices/2/response/0
+끈은 쓰지 않겠다.
+
+bargut/inn/20/choices/2/response/1
+내가 멀리 가도 신호를 볼 생각으로 정하자.
+
+bargut/inn/20/seen
+거리가 벌어져도 신호를 보고 답하겠다.
+
+bargut/inn/21/situation
+자기 몫을 마친 뒤 상대의 손을 살핀다.
+
+bargut/inn/21/lines/0
+네 일은 아직 남았나?
+
+bargut/inn/21/lines/1
+도움이 필요하면 말해라.
+
+bargut/inn/21/lines/2
+네가 끝낼 생각이면 기다리겠다.
+
+bargut/inn/21/choices/0/text
+얼마 안 남았어요.
+
+bargut/inn/21/choices/0/response/0
+그럼 서둘러 끝낼 필요는 없다.
+
+bargut/inn/21/choices/1/text
+다 맡길 테니 대신 끝내 주세요.
+
+bargut/inn/21/choices/1/response/0
+같이 잡는 것부터 말해 주면 안 되나?
+
+bargut/inn/21/choices/1/response/1
+전부 해 준다는 말은 내가 안 했다.
+
+bargut/inn/21/choices/2/text
+여기만 같이 잡아 주실래요?
+
+bargut/inn/21/choices/2/response/0
+그 부분이 끝나면 손을 떼겠다.
+
+bargut/inn/21/seen
+필요한 부분만 말하면 거기까지 돕겠다.
+
+bargut/inn/22/situation
+이름을 부르자 망설임 없이 고개를 든다.
+
+bargut/inn/22/lines/0
+들었다.
+
+bargut/inn/22/lines/1
+급하게 부른 건 아니지?
+
+bargut/inn/22/lines/2
+그럼 여기 앉아서 얘기하자.
+
+bargut/inn/22/choices/0/text
+앞으로 부르면 꼭 바로 오세요.
+
+bargut/inn/22/choices/0/response/0
+지금 왔다고 매번 되는 건 아니다.
+
+bargut/inn/22/choices/0/response/1
+부르기 전에 네가 급한지도 말하면 좋다.
+
+bargut/inn/22/choices/1/text
+그냥 같이 있고 싶어서 불렀어요.
+
+bargut/inn/22/choices/1/response/0
+그 이유라면 와서 앉아 있어도 되겠네.
+
+bargut/inn/22/choices/2/text
+창문을 닫고 올게요.
+
+bargut/inn/22/choices/2/response/0
+나는 가방을 내려놓고 있겠다.
+
+bargut/inn/22/seen
+오늘은 급한 일이 없어도 불러서 왔다.
+
+bargut/inn/23/situation
+과묵하다는 말을 듣고 잠시 생각한다.
+
+bargut/inn/23/lines/0
+말이 적으면 답도 없는 줄 알더군.
+
+bargut/inn/23/lines/1
+들으면서 생각할 때가 많다.
+
+bargut/inn/23/lines/2
+네가 기다려 주는 건 안다.
+
+bargut/inn/23/choices/0/text
+답이 필요하면 제가 다시 물을게요.
+
+bargut/inn/23/choices/0/response/0
+그때는 나도 들었다고 말하겠다.
+
+bargut/inn/23/choices/1/text
+지금도 생각 중이었어요?
+
+bargut/inn/23/choices/1/response/0
+방금 얘기의 처음을 떠올리고 있었다.
+
+bargut/inn/23/choices/2/text
+매번 대답하게 연습하면 고쳐질 거예요.
+
+bargut/inn/23/choices/2/response/0
+고장 난 것처럼 말하지 마라.
+
+bargut/inn/23/choices/2/response/1
+내가 듣는 방식을 죄다 고치려고 하진 마라.
+
+bargut/inn/23/seen
+듣고 있으면 들었다고 말하겠다.
+
+bargut/inn/24/situation
+먼저 옆자리를 가리키고 가방을 내린다.
+
+bargut/inn/24/lines/0
+이쪽은 비어 있다.
+
+bargut/inn/24/lines/1
+같이 앉을 생각이면 앉아라.
+
+bargut/inn/24/lines/2
+없으면 나도 잠깐 기다리면 되고.
+
+bargut/inn/24/choices/0/text
+불 쪽은 많이 뜨겁네요.
+
+bargut/inn/24/choices/0/response/0
+의자를 조금 뒤로 빼면 된다.
+
+bargut/inn/24/choices/1/text
+기다리지 않게 항상 붙어 있을게요.
+
+bargut/inn/24/choices/1/response/0
+항상 그럴 필요는 없다고 말하는 거다.
+
+bargut/inn/24/choices/1/response/1
+너도 다른 자리를 고르고 싶은 날이 있겠지.
+
+bargut/inn/24/choices/2/text
+같이 앉으려고 왔어요.
+
+bargut/inn/24/choices/2/response/0
+그럼 짐 놓을 데부터 정하자.
+
+bargut/inn/24/choices/2/response/1
+내 가방은 발밑으로 옮기겠다.
+
+bargut/inn/24/seen
+같이 앉을지는 물어보고 기다릴 수 있다.
+
+bargut/inn/25/situation
+걷던 속도를 맞추고 먼저 옆으로 온다.
+
+bargut/inn/25/lines/0
+오늘은 여기서 걷겠다.
+
+bargut/inn/25/lines/1
+뒤에서 확인하는 것도 습관이 됐군.
+
+bargut/inn/25/lines/2
+옆에서도 네가 보이긴 한다.
+
+bargut/inn/25/choices/0/text
+내일부터도 이쪽에서 같이 걸어요.
+
+bargut/inn/25/choices/0/response/0
+떨어져 걷고 싶은 날도 있겠지.
+
+bargut/inn/25/choices/0/response/1
+필요한 거리는 그날 다시 말하겠다.
+
+bargut/inn/25/choices/1/text
+보폭이 다르면 서로 말해요.
+
+bargut/inn/25/choices/1/response/0
+보폭이 너무 빨라지면 얘기해라.
+
+bargut/inn/25/choices/2/text
+돌이 조금 튀어나왔어요.
+
+bargut/inn/25/choices/2/response/0
+보았다. 바깥으로 돌면 된다.
+
+bargut/inn/25/seen
+오늘은 뒤가 아니라 옆에서 걸어 보겠다.
+
+bargut/inn/26/situation
+돌아갈 때가 되어도 서둘러 가방을 들지 않는다.
+
+bargut/inn/26/lines/0
+조금 더 앉아 있나?
+
+bargut/inn/26/lines/1
+나도 급한 일은 없다.
+
+bargut/inn/26/lines/2
+물이나 한 잔 더 마시지.
+
+bargut/inn/26/choices/0/text
+더 앉아 있을 생각이었어요.
+
+bargut/inn/26/choices/0/response/0
+그럼 여기 더 앉아 있겠다.
+
+bargut/inn/26/choices/1/text
+잔이 비었네요.
+
+bargut/inn/26/choices/1/response/0
+물은 내가 가져오겠다.
+
+bargut/inn/26/choices/2/text
+떠나기 싫다는 말을 길게 해 봐요.
+
+bargut/inn/26/choices/2/response/0
+이미 할 말은 했다고 생각한다.
+
+bargut/inn/26/choices/2/response/1
+더 앉아 있겠다는 얘기다.
+
+bargut/inn/26/seen
+나도 더 앉아 있겠다고 했다.
+
+bargut/inn/27/situation
+불빛이 줄어들자 가방만 가까이 당긴다.
+
+bargut/inn/27/lines/0
+추워졌군.
+
+bargut/inn/27/lines/1
+의자를 조금 옮겨도 되나?
+
+bargut/inn/27/lines/2
+좀 더 같이 앉아 있겠다.
+
+bargut/inn/27/choices/0/text
+물은 식어서 치울게요.
+
+bargut/inn/27/choices/0/response/0
+빈 병은 내가 들고 나가지.
+
+bargut/inn/27/choices/1/text
+이제 의자를 아예 붙여 놓을까요?
+
+bargut/inn/27/choices/1/response/0
+혼자 있고 싶을 땐 혼자 있겠다.
+
+bargut/inn/27/choices/1/response/1
+의자는 내가 옮기고 싶을 때 옮기겠다.
+
+bargut/inn/27/choices/2/text
+이쪽으로 오고 싶으면 와요.
+
+bargut/inn/27/choices/2/response/0
+발에 걸리니 가방은 먼저 치우겠다.
+
+bargut/inn/27/seen
+오늘은 같이 있고 싶어서 의자를 옮겼다.
+
+bargut/dungeon/0/variants/0
+내 준비는 끝났다.
+
+bargut/dungeon/0/variants/1
+늦으면 먼저 말해라.
+
+bargut/dungeon/1/variants/0
+가기 전에 네 짐도 봐라.
+
+bargut/dungeon/1/variants/1
+내가 안 보이면 불러라.
+
+bargut/dungeon/2/variants/0
+출발할 때는 네 옆에 서 있겠다.
+
+bargut/dungeon/2/variants/1
+걷다 멀어지면 신호하겠다.
+
+bargut/dungeon/3/variants/0
+길은 들어와서 본다.
+
+bargut/dungeon/3/variants/1
+뒤쪽은 아직 안 살폈다.
+
+bargut/dungeon/4/variants/0
+새 층에서는 내가 먼저 둘러보겠다.
+
+bargut/dungeon/4/variants/1
+멀리 가기 전에 돌아보지.
+
+bargut/dungeon/5/variants/0
+둘이 보아도 가려지는 곳이 있다.
+
+bargut/dungeon/5/variants/1
+네 쪽도 알려 주면 듣겠다.
+
+bargut/dungeon/6/variants/0
+저기서 뭔가 찾았다.
+
+bargut/dungeon/6/variants/1
+손댄 건 없으니 와서 봐라.
+
+bargut/dungeon/7/variants/0
+여기까지는 확인했다.
+
+bargut/dungeon/7/variants/1
+내 짐작보다 눈으로 봐라.
+
+bargut/dungeon/8/variants/0
+둘 다 확인했으면 그때 움직이자.
+
+bargut/dungeon/8/variants/1
+네가 본 차이도 말해라.
+
+bargut/dungeon/9/variants/0
+시작됐다. 내 쪽은 내가 본다.
+
+bargut/dungeon/9/variants/1
+다가오는 쪽을 먼저 막겠다.
+
+bargut/dungeon/10/variants/0
+움직일 때 신호하겠다.
+
+bargut/dungeon/10/variants/1
+옆에 있으면 한 번 답해라.
+
+bargut/dungeon/11/variants/0
+내가 빨라지면 불러라.
+
+bargut/dungeon/11/variants/1
+네가 서 있는 곳을 본 다음 움직이겠다.
+
+bargut/dungeon/12/variants/0
+끝난 것부터 확인해라.
+
+bargut/dungeon/12/variants/1
+쫓기 전에 주변을 봐라.
+
+bargut/dungeon/13/variants/0
+다친 곳 있으면 말해라.
+
+bargut/dungeon/13/variants/1
+내 쪽은 내가 살피겠다.
+
+bargut/dungeon/14/variants/0
+오늘 네가 막은 걸 봤다.
+
+bargut/dungeon/14/variants/1
+고맙다는 말은 빼지 않겠다.
+
+bargut/dungeon/15/variants/0
+저 앞은 혼자 갈 데가 아니다.
+
+bargut/dungeon/15/variants/1
+준비할 게 있으면 지금 해라.
+
+bargut/dungeon/16/variants/0
+먼저 움직일 생각이면 알려라.
+
+bargut/dungeon/16/variants/1
+나도 네 신호를 보고 가겠다.
+
+bargut/dungeon/17/variants/0
+내가 앞서도 따라붙진 마라.
+
+bargut/dungeon/17/variants/1
+확인한 뒤 돌아와서 말하겠다.
+
+bargut/dungeon/18/variants/0
+큰 건 끝났다. 주변은 남았다.
+
+bargut/dungeon/18/variants/1
+섣불리 등을 보이지 마라.
+
+bargut/dungeon/19/variants/0
+네가 안 보이는 줄 알고 찾았다.
+
+bargut/dungeon/19/variants/1
+서 있으면 한 번 손을 들어라.
+
+bargut/dungeon/20/variants/0
+이제는 옆에 와도 되나?
+
+bargut/dungeon/20/variants/1
+쉬기 전에 상태부터 함께 보자.
+
+bargut/dungeon/21/variants/0
+다친 쪽을 숨기지 마라!
+
+bargut/dungeon/21/variants/1
+내가 가까이 갈 때까지 봐라!
+
+bargut/dungeon/22/variants/0
+움직일 수 있으면 신호해라!
+
+bargut/dungeon/22/variants/1
+막는 건 잠깐 내가 하겠다!
+
+bargut/dungeon/23/variants/0
+네 몫을 다 넘기라는 게 아니다!
+
+bargut/dungeon/23/variants/1
+지금 필요한 도움을 말해라!
+
+bargut/dungeon/24/variants/0
+쓰러진 쪽은 내가 보겠다.
+
+bargut/dungeon/24/variants/1
+다가가기 전에 틈을 만들어라.
+
+bargut/dungeon/25/variants/0
+대답이 없으면 상태를 봐야 한다.
+
+bargut/dungeon/25/variants/1
+판단은 본 다음에 해라.
+
+bargut/dungeon/26/variants/0
+혼자 확인하게 두지는 마라.
+
+bargut/dungeon/26/variants/1
+내 뒤쪽을 잠깐 맡아 줘라.
+
+bargut/dungeon/27/variants/0
+내 쪽도 다쳤다.
+
+bargut/dungeon/27/variants/1
+지금 손이 얼마나 움직이는지 보겠다.
+
+bargut/dungeon/28/variants/0
+상처가 가려져서 안 보이는군.
+
+bargut/dungeon/28/variants/1
+보여 줄 테니 확인해라.
+
+bargut/dungeon/29/variants/0
+이번엔 도움을 받겠다.
+
+bargut/dungeon/29/variants/1
+내가 혼자 못 하는 데가 있다.
+
+bargut/dungeon/30/variants/0
+쉰다면 이쪽은 비어 있다.
+
+bargut/dungeon/30/variants/1
+불이 보이는 곳에서 쉬겠다.
+
+bargut/dungeon/31/variants/0
+나도 여기 짐을 내리겠다.
+
+bargut/dungeon/31/variants/1
+말은 안 했지만 네 얘기는 듣고 있었다.
+
+bargut/dungeon/32/variants/0
+쉬는 동안 네 옆자리를 써도 되나?
+
+bargut/dungeon/32/variants/1
+따뜻한 자리만 찾은 건 아니다.
+
+bargut/dungeon/33/variants/0
+봉인된 물건이다.
+
+bargut/dungeon/33/variants/1
+내가 풀 수 있다고 한 적 없다.
+
+bargut/dungeon/34/variants/0
+열기 전에 조건부터 봐라.
+
+bargut/dungeon/34/variants/1
+모르면 손을 뒤로 빼라.
+
+bargut/dungeon/35/variants/0
+같이 확인할 때까지 기다리겠다.
+
+bargut/dungeon/35/variants/1
+먼저 봤어도 혼자 정하진 않겠다.
+
+bargut/dungeon/36/variants/0
+돌아왔다. 내 짐은 내가 든다.
+
+bargut/dungeon/36/variants/1
+길 끝에서 다시 확인하자.
+
+bargut/dungeon/37/variants/0
+너도 들어오는 건 봤다.
+
+bargut/dungeon/37/variants/1
+잠깐은 같이 걸어도 되나?
+
+bargut/dungeon/38/variants/0
+나는 이쪽에서 기다리겠다.
+
+bargut/dungeon/38/variants/1
+볼일 없어도 잠깐 들러라.
+
+bargut/dungeon/39/variants/0
+졌다. 더 쫓지는 마라.
+
+bargut/dungeon/39/variants/1
+움직일 힘부터 남겨라.
+
+bargut/dungeon/40/variants/0
+떨어져도 보이는 곳에 있겠다.
+
+bargut/dungeon/40/variants/1
+못 움직이면 지금 말해라.
+
+bargut/dungeon/41/variants/0
+내가 놓친 걸 나중에 듣겠다.
+
+bargut/dungeon/41/variants/1
+지금은 혼자 앞서가지 않겠다.
+
+bargut/transitions/0/situation
+막았던 짐을 자기 손으로 옮긴다.
+
+bargut/transitions/0/lines/0
+부르기 전에는 손대지 않았군.
+
+bargut/transitions/0/lines/1
+급한 말이 있으면 지금 해라.
+
+bargut/transitions/1/situation
+가까이 놓인 의자를 원래 자리로 돌린다.
+
+bargut/transitions/1/lines/0
+붙어 앉겠다고 한 적 없다.
+
+bargut/transitions/1/lines/1
+지금은 이만큼 떨어져 있겠다.
+
+bargut/transitions/2/situation
+불이 보이는 쪽에 자리를 잡는다.
+
+bargut/transitions/2/lines/0
+여기면 목소리가 들린다.
+
+bargut/transitions/2/lines/1
+앉아도 되는지는 내가 물어보지.
+
+bargut/transitions/3/situation
+손을 뻗어 잡힌 가방끈을 되찾는다.
+
+bargut/transitions/3/lines/0
+내 몫은 내가 들겠다.
+
+bargut/transitions/3/lines/1
+같이 가자고 내 짐부터 잡진 마라.
+
+bargut/transitions/4/situation
+문에서 한 자리 먼 의자로 옮긴다.
+
+bargut/transitions/4/lines/0
+오늘은 이쪽이 덜 춥다.
+
+bargut/transitions/4/lines/1
+이유를 더 묻지 않으면 앉아 있겠다.
+
+bargut/transitions/5/situation
+함께 앉던 자리에서 한 걸음 물러난다.
+
+bargut/transitions/5/lines/0
+오늘 골랐다고 늘 그 자리는 아니다.
+
+bargut/transitions/5/lines/1
+다시 앉을지는 내가 정하겠다.
+
+bargut/transitions/6/situation
+밤이 길었다는 말을 하고 불을 본다.
+
+bargut/transitions/6/lines/0
+산에서는 혼자 있는 밤이 많았다.
+
+bargut/transitions/6/lines/1
+지금 조용한 게 덜 편한 이유도 그거다.
+
+bargut/transitions/7/situation
+하던 말을 멈추고 자기 컵만 챙긴다.
+
+bargut/transitions/7/lines/0
+곁에 오면 못 떠나게 하겠다는 건가?
+
+bargut/transitions/7/lines/1
+그 말은 좀 더 생각해 봐야겠다.
+
+bargut/transitions/8/situation
+옆의 빈 의자를 보고 직접 묻는다.
+
+bargut/transitions/8/lines/0
+오늘은 옆에 앉고 싶다.
+
+bargut/transitions/8/lines/1
+따뜻해서라는 말은 안 붙이겠다.
+
+bargut/transitions/9/situation
+돌아오려던 걸 멈추고 거리를 둔다.
+
+bargut/transitions/9/lines/0
+혼자 생각할 틈이 필요하다.
+
+bargut/transitions/9/lines/1
+조금 혼자 있다 오겠다.
+
+bargut/transitions/10/situation
+함께 쓸 신호를 손으로 맞춘다.
+
+bargut/transitions/10/lines/0
+멀어져도 네가 보이게 하겠다.
+
+bargut/transitions/10/lines/1
+못 봤을 때는 모른 척하지 않겠다.
+
+bargut/transitions/11/situation
+소매를 붙드는 손에서 팔을 뺀다.
+
+bargut/transitions/11/lines/0
+소매는 놓아라. 가려는 게 아니다.
+
+bargut/transitions/11/lines/1
+불러 주면 들을 수 있다.
+
+bargut/transitions/12/situation
+대열 옆으로 와서 보폭을 늦춘다.
+
+bargut/transitions/12/lines/0
+오늘은 나란히 가겠다.
+
+bargut/transitions/12/lines/1
+속도가 다르면 내가 말하지.
+
+bargut/transitions/13/situation
+멀리 가지 않고 보이는 의자에 앉는다.
+
+bargut/transitions/13/lines/0
+오늘 말은 바로 받기 어렵다.
+
+bargut/transitions/13/lines/1
+생각이 정리되면 내가 다시 오겠다.
+
+altan/inn/0/situation
+장부를 덮고 먼저 용건을 묻는다.
+
+altan/inn/0/lines/0
+수량은 종이에 적어 주십시오.
+
+altan/inn/0/lines/1
+말씀만 하시면 받지 않겠습니다.
+
+altan/inn/0/lines/2
+오늘은 설명을 반복할 생각이 없습니다.
+
+altan/inn/0/choices/0/text
+먼저 내주시면 제가 기억해 둘게요.
+
+altan/inn/0/choices/0/response/0
+기억을 담보로 재료를 내주진 않습니다.
+
+altan/inn/0/choices/0/response/1
+확인할 내용이 없으면 거래도 시작하지 않습니다.
+
+altan/inn/0/choices/1/text
+필요한 양을 적고 다시 오겠습니다.
+
+altan/inn/0/choices/1/response/0
+그때 품목까지 함께 적으십시오.
+
+altan/inn/0/choices/2/text
+펜은 어디에 있습니까?
+
+altan/inn/0/choices/2/response/0
+오른쪽 잉크 옆을 보십시오.
+
+altan/inn/0/seen
+다음 용건은 수량부터 적어 오십시오.
+
+altan/inn/1/situation
+상대의 종이를 받아도 장부를 펴지 않는다.
+
+altan/inn/1/lines/0
+지난 약속을 바꿀 생각이면 말씀하십시오.
+
+altan/inn/1/lines/1
+그냥 없던 일로 하지는 못합니다.
+
+altan/inn/1/lines/2
+고칠 내용은 앞의 것과 나란히 놓겠습니다.
+
+altan/inn/1/choices/0/text
+바뀐 부분을 따로 써 드리겠습니다.
+
+altan/inn/1/choices/0/response/0
+원래 문구도 지우지 말고 남기십시오.
+
+altan/inn/1/choices/1/text
+종이는 이 크기면 됩니까?
+
+altan/inn/1/choices/1/response/0
+두 줄을 비교할 만큼이면 됩니다.
+
+altan/inn/1/choices/2/text
+친한 사이가 되면 이런 건 넘어가죠.
+
+altan/inn/1/choices/2/response/0
+지금은 넘어갈 사이라고 보지 않습니다.
+
+altan/inn/1/choices/2/response/1
+바뀐 약속은 친분과 별개로 확인하겠습니다.
+
+altan/inn/1/seen
+앞의 약속도 남겨 두고 바꿀 내용을 보겠습니다.
+
+altan/inn/2/situation
+빈 병과 기록을 맞춰 보며 고개를 들지 않는다.
+
+altan/inn/2/lines/0
+셈이 하나 맞지 않습니다.
+
+altan/inn/2/lines/1
+아직 다 세지는 못했습니다.
+
+altan/inn/2/lines/2
+말씀 전에 제 기록부터 다시 보겠습니다.
+
+altan/inn/2/choices/0/text
+병은 아직 상자에 있습니다.
+
+altan/inn/2/choices/0/response/0
+거기 것도 빼놓지 않고 세겠습니다.
+
+altan/inn/2/choices/1/text
+한 병쯤은 그냥 나눴다고 치면 되죠.
+
+altan/inn/2/choices/1/response/0
+없는 거래를 만들어 맞추진 않겠습니다.
+
+altan/inn/2/choices/1/response/1
+우선 상자에 남은 병부터 세겠습니다.
+
+altan/inn/2/choices/2/text
+확인한 뒤 제 기록도 같이 보세요.
+
+altan/inn/2/choices/2/response/0
+양쪽을 대조한 다음 판단하겠습니다.
+
+altan/inn/2/seen
+기록을 맞추기 전에는 이유를 정하지 않겠습니다.
+
+altan/inn/3/situation
+보급표의 마지막 줄을 손가락으로 짚는다.
+
+altan/inn/3/lines/0
+여기는 무상 제공이라고 적혀 있습니다.
+
+altan/inn/3/lines/1
+제 쪽에서 동의한 적은 없습니다.
+
+altan/inn/3/lines/2
+좋은 뜻이라는 건 알지만 비용을 댈 분은 정하셨습니까?
+
+altan/inn/3/choices/0/text
+도울 형편이면 이번엔 양보해 주세요.
+
+altan/inn/3/choices/0/response/0
+제 형편을 대신 정하지는 마십시오.
+
+altan/inn/3/choices/0/response/1
+나눌 몫이면 동의한 사람의 것부터 정하십시오.
+
+altan/inn/3/choices/1/text
+동의받지 않은 줄은 다시 의논하죠.
+
+altan/inn/3/choices/1/response/0
+부담할 몫부터 정해 주십시오.
+
+altan/inn/3/choices/2/text
+표를 제가 잘못 옮겼네요.
+
+altan/inn/3/choices/2/response/0
+원본과 대조해 고치십시오.
+
+altan/inn/3/seen
+무상으로 적은 줄은 아직 합의하지 않았습니다.
+
+altan/inn/4/situation
+영수증 종이를 두 장 겹쳐 놓는다.
+
+altan/inn/4/lines/0
+한 장은 제가 보관합니다.
+
+altan/inn/4/lines/1
+같은 내용을 써도 두 번 봅니다.
+
+altan/inn/4/lines/2
+귀찮으시면 다 쓴 뒤에만 확인하십시오.
+
+altan/inn/4/choices/0/text
+저도 받기 전에 내용을 읽겠습니다.
+
+altan/inn/4/choices/0/response/0
+틀린 곳이 있으면 서명 전에 말씀하십시오.
+
+altan/inn/4/choices/0/response/1
+서명하신 뒤에는 한 장을 직접 가져가십시오.
+
+altan/inn/4/choices/1/text
+잉크는 충분합니까?
+
+altan/inn/4/choices/1/response/0
+두 장을 쓸 만큼은 남았습니다.
+
+altan/inn/4/choices/2/text
+한 장을 같이 돌려 보면 종이가 절약돼요.
+
+altan/inn/4/choices/2/response/0
+각자 보관해야 나중에 대조할 수 있습니다.
+
+altan/inn/4/choices/2/response/1
+한 장이 없어져도 다른 한 장은 남습니다.
+
+altan/inn/4/seen
+두 장 모두 쓴 뒤에 확인하십시오.
+
+altan/inn/5/situation
+좋은 먹을 살펴보다 다시 뚜껑을 닫는다.
+
+altan/inn/5/lines/0
+이 먹은 글자가 덜 번집니다.
+
+altan/inn/5/lines/1
+값이 조금 더 나가도 오래 봅니다.
+
+altan/inn/5/lines/2
+값싼 것만 고르지는 않습니다.
+
+altan/inn/5/choices/0/text
+냄새가 진하네요.
+
+altan/inn/5/choices/0/response/0
+열어 두면 마르니 닫겠습니다.
+
+altan/inn/5/choices/1/text
+필기만 되면 제일 싼 게 낫죠.
+
+altan/inn/5/choices/1/response/0
+읽히지 않는 기록은 다시 써야 합니다.
+
+altan/inn/5/choices/1/response/1
+나중에 읽는 사람의 시간도 비용에 듭니다.
+
+altan/inn/5/choices/2/text
+나중에 다시 쓸 비용도 보시는군요.
+
+altan/inn/5/choices/2/response/0
+다시 쓸 일까지 생각하면 이쪽이 싸게 듭니다.
+
+altan/inn/5/seen
+이 먹은 처음 값만 보고 고르지 않습니다.
+
+altan/inn/6/situation
+자기 이름만 적힌 칸을 확인한다.
+
+altan/inn/6/lines/0
+알탄이라고 적으시면 됩니다.
+
+altan/inn/6/lines/1
+부족 이름을 쓰는 칸은 비우십시오.
+
+altan/inn/6/lines/2
+제 이름은 알탄이 전부입니다.
+
+altan/inn/6/choices/0/text
+대접받게 그럴듯한 부족을 붙여 드려요.
+
+altan/inn/6/choices/0/response/0
+문서에 없는 소속을 만들지는 마십시오.
+
+altan/inn/6/choices/0/response/1
+좋은 대접을 위해 허위 기록을 받진 않겠습니다.
+
+altan/inn/6/choices/1/text
+빈칸도 그대로 두겠습니다.
+
+altan/inn/6/choices/1/response/0
+없는 소속을 적으실 필요는 없습니다.
+
+altan/inn/6/choices/2/text
+이름 글씨는 잘 보입니까?
+
+altan/inn/6/choices/2/response/0
+지금 정도면 읽을 수 있습니다.
+
+altan/inn/6/seen
+소속 칸이 빈 것은 누락이 아닙니다.
+
+altan/inn/7/situation
+계산 중인 손을 멈추고 의자를 당긴다.
+
+altan/inn/7/lines/0
+오늘 의뢰 얘기는 끝났습니다.
+
+altan/inn/7/lines/1
+다른 용건이 있으면 앉으십시오.
+
+altan/inn/7/lines/2
+장부는 닫아 두겠습니다.
+
+altan/inn/7/choices/0/text
+의뢰 말고 오늘 얘기를 해도 될까요?
+
+altan/inn/7/choices/0/response/0
+어떤 얘긴지 들어 보겠습니다.
+
+altan/inn/7/choices/1/text
+창가 쪽은 비어 있네요.
+
+altan/inn/7/choices/1/response/0
+서류가 날리지 않으면 거기도 괜찮습니다.
+
+altan/inn/7/choices/2/text
+잠깐이니 무료 조언 하나 부탁해요.
+
+altan/inn/7/choices/2/response/0
+의뢰가 아니어도 제 시간은 듭니다.
+
+altan/inn/7/choices/2/response/1
+잠깐이라는 말로 작업이 없어지는 건 아닙니다.
+
+altan/inn/7/seen
+오늘 장부를 닫은 건 추가 의뢰를 받겠단 뜻이 아닙니다.
+
+altan/inn/8/situation
+장부에 없는 종이를 한 장 따로 건넨다.
+
+altan/inn/8/lines/0
+이 부분은 제가 확인해 뒀습니다.
+
+altan/inn/8/lines/1
+지금 비용을 청구할 생각은 없습니다.
+
+altan/inn/8/lines/2
+다음에도 같다고 정하지는 마십시오.
+
+altan/inn/8/choices/0/text
+확인한 줄은 여기입니까?
+
+altan/inn/8/choices/0/response/0
+표시한 세 줄을 보시면 됩니다.
+
+altan/inn/8/choices/1/text
+좋은 기회니 다른 분 것도 봐 주세요.
+
+altan/inn/8/choices/1/response/0
+지금 해 드린 건 이 종이뿐입니다.
+
+altan/inn/8/choices/1/response/1
+무상으로 한 일의 범위도 제가 정했습니다.
+
+altan/inn/8/choices/2/text
+이번에 해 주신 범위만 기억하겠습니다.
+
+altan/inn/8/choices/2/response/0
+이번 도움을 매번 해 드릴 수는 없습니다.
+
+altan/inn/8/choices/2/response/1
+다른 분께 같은 조건을 미리 알리진 마십시오.
+
+altan/inn/8/seen
+다음 확인은 조건을 다시 말씀드리겠습니다.
+
+altan/inn/9/situation
+종이를 정리하며 조용히 이름을 되묻는다.
+
+altan/inn/9/lines/0
+방금 제 이름을 부르셨습니까?
+
+altan/inn/9/lines/1
+용건은 들었습니다.
+
+altan/inn/9/lines/2
+다시 말씀하실 필요는 없습니다.
+
+altan/inn/9/choices/0/text
+관료님이라고 부르면 더 좋겠네요.
+
+altan/inn/9/choices/0/response/0
+지금은 관청에서 일하지 않습니다.
+
+altan/inn/9/choices/0/response/1
+떠난 직책보다 지금 이름으로 불러 주십시오.
+
+altan/inn/9/choices/1/text
+알탄 씨께 여쭤보려고 불렀습니다.
+
+altan/inn/9/choices/1/response/0
+제게 묻는 일이라면 직접 답하겠습니다.
+
+altan/inn/9/choices/2/text
+이 종이는 어디에 둘까요?
+
+altan/inn/9/choices/2/response/0
+제가 보는 순서대로 왼쪽에 두십시오.
+
+altan/inn/9/seen
+제 이름으로 물으셨으면 제가 답하겠습니다.
+
+altan/inn/10/situation
+보급에 쓸 비용과 남길 비용을 나눈다.
+
+altan/inn/10/lines/0
+전부 쓰는 것이 효율은 아닙니다.
+
+altan/inn/10/lines/1
+남겨 두어야 다음에도 움직입니다.
+
+altan/inn/10/lines/2
+적은 돈이라도 이유는 적습니다.
+
+altan/inn/10/choices/0/text
+남길 이유까지 표에 적어 둬요.
+
+altan/inn/10/choices/0/response/0
+지출만큼 남은 몫도 보여야 합니다.
+
+altan/inn/10/choices/1/text
+합계는 아래에 있습니까?
+
+altan/inn/10/choices/1/response/0
+지출과 잔액을 나누어 적었습니다.
+
+altan/inn/10/choices/2/text
+남는 건 다 기부하면 보람 있겠어요.
+
+altan/inn/10/choices/2/response/0
+다음 일을 못 하게 쓰고 싶지는 않습니다.
+
+altan/inn/10/choices/2/response/1
+남겨 둘 몫까지 쓰려면 이유가 달라야 합니다.
+
+altan/inn/10/seen
+남길 비용도 계산한 뒤에 쓰겠습니다.
+
+altan/inn/11/situation
+예정에 없던 도움을 청할지 망설인다.
+
+altan/inn/11/lines/0
+확인할 눈이 하나 더 있으면 좋겠습니다.
+
+altan/inn/11/lines/1
+단순한 대조입니다.
+
+altan/inn/11/lines/2
+손을 빌리면 그만큼 제 시간도 줄어듭니다.
+
+altan/inn/11/choices/0/text
+표는 어느 쪽부터 읽습니까?
+
+altan/inn/11/choices/0/response/0
+왼쪽 원본부터 확인해 주십시오.
+
+altan/inn/11/choices/1/text
+도와드리니 다음 부탁은 무료로 해 주세요.
+
+altan/inn/11/choices/1/response/0
+교환할 조건이면 시작 전에 정하십시오.
+
+altan/inn/11/choices/1/response/1
+대조를 끝낸 뒤에 조건을 붙이면 곤란합니다.
+
+altan/inn/11/choices/2/text
+제가 읽고 다른 줄만 말씀드릴게요.
+
+altan/inn/11/choices/2/response/0
+맞는 줄을 모두 반복하지 않으셔도 됩니다.
+
+altan/inn/11/seen
+대조할 때는 다른 줄만 알려 주십시오.
+
+altan/inn/12/situation
+관청에서 쓰던 문서 이야기를 꺼낸다.
+
+altan/inn/12/lines/0
+대접은 부족 귀족 못지않았습니다.
+
+altan/inn/12/lines/1
+그래도 소속 칸은 끝내 비어 있었습니다.
+
+altan/inn/12/lines/2
+이름만 적히는 자리는 변하지 않았습니다.
+
+altan/inn/12/choices/0/text
+그만큼 대접받았으면 충분하지 않아요?
+
+altan/inn/12/choices/0/response/0
+어디까지 충분한지는 제가 판단하겠습니다.
+
+altan/inn/12/choices/0/response/1
+제가 바라던 대접을 대신 정하지는 마십시오.
+
+altan/inn/12/choices/1/text
+대접과 기록이 달랐던 거군요.
+
+altan/inn/12/choices/1/response/0
+칭찬을 들어도 서류는 바뀌지 않았습니다.
+
+altan/inn/12/choices/1/response/1
+칭찬을 들어도 저는 어느 부족에도 속하지 못했습니다.
+
+altan/inn/12/choices/2/text
+그때도 장부를 맡으셨습니까?
+
+altan/inn/12/choices/2/response/0
+약제와 보급을 맡으며 조제를 배웠습니다.
+
+altan/inn/12/seen
+좋은 대접을 받아도 소속 칸은 비었습니다.
+
+altan/inn/13/situation
+약재가 모자랐던 해를 묻자 펜을 멈춘다.
+
+altan/inn/13/lines/0
+그해 약재는 값을 더 준 쪽에 넘겼습니다.
+
+altan/inn/13/lines/1
+원래 잡아 둔 마을 몫이 있었습니다.
+
+altan/inn/13/lines/2
+장부의 금액은 맞았습니다.
+
+altan/inn/13/choices/0/text
+그 마을 몫을 바꾸실 때는 무슨 생각이었습니까?
+
+altan/inn/13/choices/0/response/0
+그 질문에 합계만 읽어 드릴 수는 없겠습니다.
+
+altan/inn/13/choices/1/text
+종이는 잠깐 덮어 둘까요?
+
+altan/inn/13/choices/1/response/0
+덮어도 했던 거래가 없어지진 않습니다.
+
+altan/inn/13/choices/2/text
+분명 마을도 다른 약을 구했겠죠.
+
+altan/inn/13/choices/2/response/0
+그 뒤를 확인한 기록은 없습니다.
+
+altan/inn/13/choices/2/response/1
+확인하지 않은 이후의 일은 좋게 말할 수도 없습니다.
+
+altan/inn/13/seen
+그 마을의 이후는 제 기록에 없습니다.
+
+altan/inn/14/situation
+길드 계약에서 자기 이름이 있는 줄을 짚는다.
+
+altan/inn/14/lines/0
+여기는 제 이름으로 실적이 남습니다.
+
+altan/inn/14/lines/1
+약제 값도 나쁘지 않습니다.
+
+altan/inn/14/lines/2
+제가 남는 이유는 분명합니다.
+
+altan/inn/14/choices/0/text
+서명 칸은 이쪽입니까?
+
+altan/inn/14/choices/0/response/0
+마지막 줄에 각자 적습니다.
+
+altan/inn/14/choices/1/text
+속으로는 사람 돕는 게 좋아서겠죠.
+
+altan/inn/14/choices/1/response/0
+말씀드린 이유를 다른 뜻으로 바꾸진 마십시오.
+
+altan/inn/14/choices/1/response/1
+이익이 된다고 말씀드렸습니다.
+
+altan/inn/14/choices/2/text
+값과 실적부터 확인하고 함께 일하죠.
+
+altan/inn/14/choices/2/response/0
+이유를 알고 계시면 불필요한 기대는 없겠습니다.
+
+altan/inn/14/seen
+길드에 남는 이유는 값과 실적에 있습니다.
+
+altan/inn/15/situation
+자기 이름을 읽은 뒤 장부를 덮는다.
+
+altan/inn/15/lines/0
+아까는 직책 없이 부르셨습니다.
+
+altan/inn/15/lines/1
+뜻밖이라 잠깐 멈췄습니다.
+
+altan/inn/15/lines/2
+반가웠습니다.
+
+altan/inn/15/choices/0/text
+다들 이름을 부르게 제가 그 얘길 전해 둘까요?
+
+altan/inn/15/choices/0/response/0
+다른 분들께 전하지는 마십시오.
+
+altan/inn/15/choices/0/response/1
+그 얘기를 듣고 이름을 부르면 신경 쓰입니다.
+
+altan/inn/15/choices/1/text
+다음에도 알탄 씨라고 부르겠습니다.
+
+altan/inn/15/choices/1/response/0
+제가 돌아보면 용건을 말씀하십시오.
+
+altan/inn/15/choices/2/text
+차는 아직 따뜻합니다.
+
+altan/inn/15/choices/2/response/0
+장부를 넣고 마시겠습니다.
+
+altan/inn/15/seen
+알탄이라고 부르셨을 때 반가웠습니다.
+
+altan/inn/16/situation
+장부 없이 앉았다가 빈손을 확인한다.
+
+altan/inn/16/lines/0
+종이를 가져오지 않았습니다.
+
+altan/inn/16/lines/1
+오늘은 계산할 용건이 없습니다.
+
+altan/inn/16/lines/2
+그래도 같이 앉을 생각은 있습니다.
+
+altan/inn/16/choices/0/text
+저도 용건 없이 앉겠습니다.
+
+altan/inn/16/choices/0/response/0
+그럼 장부는 두고 오길 잘했습니다.
+
+altan/inn/16/choices/0/response/1
+이야기를 다 듣고 나서 답을 정해도 되겠습니까?
+
+altan/inn/16/choices/1/text
+잔은 이쪽에 놓겠습니다.
+
+altan/inn/16/choices/1/response/0
+그럼 잔은 이쪽에 놓으시면 됩니다.
+
+altan/inn/16/choices/2/text
+기왕이면 무료로 셈 좀 봐 주세요.
+
+altan/inn/16/choices/2/response/0
+계산할 용건은 없다고 말씀드렸습니다.
+
+altan/inn/16/choices/2/response/1
+쉬려고 나온 자리에도 장부를 펼칠 생각은 없습니다.
+
+altan/inn/16/seen
+오늘은 장부 두고 차 마시러 왔습니다.
+
+altan/inn/17/situation
+이름으로 불린 일을 먼저 이야기한다.
+
+altan/inn/17/lines/0
+값보다 오래 기억나는 말이 있었습니다.
+
+altan/inn/17/lines/1
+제 이름을 부른 말입니다.
+
+altan/inn/17/lines/2
+물론 거래할 때는 계산도 하겠습니다.
+
+altan/inn/17/choices/0/text
+물은 더 필요하십니까?
+
+altan/inn/17/choices/0/response/0
+지금 잔을 비운 뒤에 받겠습니다.
+
+altan/inn/17/choices/1/text
+그럼 오늘은 다른 분들 약값도 빼 주시죠.
+
+altan/inn/17/choices/1/response/0
+약값은 정한 대로 받겠습니다.
+
+altan/inn/17/choices/1/response/1
+값을 빼고 싶으시면 다른 조건을 말씀하십시오.
+
+altan/inn/17/choices/2/text
+셈하시는 모습까지 알고 얘기해요.
+
+altan/inn/17/choices/2/response/0
+다른 사람이 된 것처럼 기대하지는 마십시오.
+
+altan/inn/17/seen
+그날 이름 불러 주신 말은 기억하겠습니다.
+
+altan/inn/18/situation
+지난 마을 얘기를 피하다 스스로 멈춘다.
+
+altan/inn/18/lines/0
+또 다른 얘기로 돌릴 뻔했습니다.
+
+altan/inn/18/lines/1
+그 선택을 설명하면 셈부터 말하게 됩니다.
+
+altan/inn/18/lines/2
+그런데 질문은 셈이 아니었습니다.
+
+altan/inn/18/choices/0/text
+후회한다고 하시면 모두 끝나요.
+
+altan/inn/18/choices/0/response/0
+없는 말을 해서 끝내지는 않겠습니다.
+
+altan/inn/18/choices/0/response/1
+후회하는 척하는 문장으로 답하고 싶진 않습니다.
+
+altan/inn/18/choices/1/text
+오늘 답할 수 있는 말부터 들어요.
+
+altan/inn/18/choices/1/response/0
+피한 이유는 제가 설명해야겠습니다.
+
+altan/inn/18/choices/2/text
+지금은 쉬었다 해도 됩니다.
+
+altan/inn/18/choices/2/response/0
+잠깐 생각한 뒤 말하겠습니다.
+
+altan/inn/18/seen
+이번 질문에는 합계만 읽고 넘기지 않겠습니다.
+
+altan/inn/19/situation
+식사 약속을 두고 시간을 확인한다.
+
+altan/inn/19/lines/0
+오늘은 약속 시간에 맞춰 나왔습니다.
+
+altan/inn/19/lines/1
+의뢰를 하나 미뤘습니다.
+
+altan/inn/19/lines/2
+저도 함께 식사하고 싶었습니다.
+
+altan/inn/19/choices/0/text
+저도 이 시간을 비워 뒀습니다.
+
+altan/inn/19/choices/0/response/0
+그렇다면 서로 헛걸음은 아니겠습니다.
+
+altan/inn/19/choices/1/text
+식사부터 주문할까요?
+
+altan/inn/19/choices/1/response/0
+기다리는 동안 정하면 되겠습니다.
+
+altan/inn/19/choices/2/text
+그 손해는 제가 나중에 갚을게요.
+
+altan/inn/19/choices/2/response/0
+갚으실 일은 없습니다.
+
+altan/inn/19/choices/2/response/1
+저도 같이 먹으려고 나온 것입니다.
+
+altan/inn/19/seen
+오늘은 같이 식사하려고 시간을 냈습니다.
+
+altan/inn/20/situation
+앞으로 맡을 일을 적다가 고개를 든다.
+
+altan/inn/20/lines/0
+맡겠다고 적은 건 지키겠습니다.
+
+altan/inn/20/lines/1
+다만 조건이 바뀌면 함께 고쳐야 합니다.
+
+altan/inn/20/lines/2
+종이 뒤에서 혼자 바꾸진 마십시오.
+
+altan/inn/20/choices/0/text
+이 사본은 제가 보관합니까?
+
+altan/inn/20/choices/0/response/0
+원본과 같은지 본 뒤에 가져가십시오.
+
+altan/inn/20/choices/1/text
+믿는 사이니 말없이 고쳐도 알겠죠.
+
+altan/inn/20/choices/1/response/0
+믿는 사이라서 확인을 빼지는 않겠습니다.
+
+altan/inn/20/choices/1/response/1
+서로 아는 조건이어야 다음 일도 맡을 수 있습니다.
+
+altan/inn/20/choices/2/text
+서로 확인한 뒤에만 바꾸겠습니다.
+
+altan/inn/20/choices/2/response/0
+제 쪽 사정도 바뀌면 먼저 알리겠습니다.
+
+altan/inn/20/choices/2/response/1
+꺼내기 어려운 말도 미루지 않겠습니다.
+
+altan/inn/20/seen
+조건이 바뀌면 사본까지 같이 고치겠습니다.
+
+altan/inn/21/situation
+장부를 닫고 상대의 이름에 관해 묻는다.
+
+altan/inn/21/lines/0
+늘 제 이름만 얘기했습니다.
+
+altan/inn/21/lines/1
+제가 평소처럼 불러도 괜찮습니까?
+
+altan/inn/21/lines/2
+혹시 다른 이름이 더 편한지 궁금했습니다.
+
+altan/inn/21/choices/0/text
+한번 정하면 바꾸지 않는 게 편하죠.
+
+altan/inn/21/choices/0/response/0
+본인이 원하면 다시 물을 수 있습니다.
+
+altan/inn/21/choices/0/response/1
+어떻게 부를지는 본인께 물어야 합니다.
+
+altan/inn/21/choices/1/text
+평소 부르는 방식이면 괜찮습니다.
+
+altan/inn/21/choices/1/response/0
+다르게 부르고 싶을 땐 여쭙겠습니다.
+
+altan/inn/21/choices/2/text
+오늘은 기록하지 않으십니까?
+
+altan/inn/21/choices/2/response/0
+들었으면 기억할 내용입니다.
+
+altan/inn/21/seen
+이름은 기록하기 전에 본인에게 물어보겠습니다.
+
+altan/inn/22/situation
+이익을 보지 못한 거래의 이유를 말한다.
+
+altan/inn/22/lines/0
+이번에는 바로 손해가 났습니다.
+
+altan/inn/22/lines/1
+다음 거래를 보고 받아들였습니다.
+
+altan/inn/22/lines/2
+다음에 이익이 날 것으로 봤습니다.
+
+altan/inn/22/choices/0/text
+어디까지 내다보셨는지 듣겠습니다.
+
+altan/inn/22/choices/0/response/0
+짐작한 것과 확정된 것은 나누어 설명하겠습니다.
+
+altan/inn/22/choices/1/text
+표에 남겨 두셨습니까?
+
+altan/inn/22/choices/1/response/0
+지금 손실과 예상은 따로 적었습니다.
+
+altan/inn/22/choices/2/text
+그런 선택은 다음에도 계속해 주세요.
+
+altan/inn/22/choices/2/response/0
+다음에도 이익이 날지는 따져 봐야 합니다.
+
+altan/inn/22/choices/2/response/1
+손실을 받아들인 이유도 장부에 적어 놓았습니다.
+
+altan/inn/22/seen
+이번 손실에도 제가 예상한 대가가 있습니다.
+
+altan/inn/23/situation
+조용히 더 앉아 있겠다고 말한다.
+
+altan/inn/23/lines/0
+정한 시간은 다 지났습니다.
+
+altan/inn/23/lines/1
+저는 조금 더 있을 수 있습니다.
+
+altan/inn/23/lines/2
+다른 용건을 찾지는 않겠습니다.
+
+altan/inn/23/choices/0/text
+물병은 아직 남았습니다.
+
+altan/inn/23/choices/0/response/0
+목이 마르면 제가 따르겠습니다.
+
+altan/inn/23/choices/1/text
+그럼 서류 한 장만 더 봐 주세요.
+
+altan/inn/23/choices/1/response/0
+여기 남겠다는 말을 다시 생각하게 됩니다.
+
+altan/inn/23/choices/1/response/1
+지금은 일 없이 앉는 쪽을 골랐습니다.
+
+altan/inn/23/choices/2/text
+저도 더 있을 수 있습니다.
+
+altan/inn/23/choices/2/response/0
+그럼 시간부터 다시 잴 필요는 없겠습니다.
+
+altan/inn/23/seen
+조금 더 있는 동안은 서류를 안 펴겠습니다.
+
+altan/inn/24/situation
+개인 이름이 적힌 약속 종이를 접는다.
+
+altan/inn/24/lines/0
+이 종이는 금액을 적은 것이 아닙니다.
+
+altan/inn/24/lines/1
+내일 만날 시간을 썼습니다.
+
+altan/inn/24/lines/2
+잊을까 봐 쓴 건 저도 같습니다.
+
+altan/inn/24/choices/0/text
+이런 것도 적으니 아직 거리감이 있네요.
+
+altan/inn/24/choices/0/response/0
+기억하려고 쓴 것을 멀어진 뜻으로 보진 마십시오.
+
+altan/inn/24/choices/0/response/1
+기억을 돕는 종이를 밀어낼 이유는 없습니다.
+
+altan/inn/24/choices/1/text
+저도 시간을 다시 확인하겠습니다.
+
+altan/inn/24/choices/1/response/0
+변경되면 말씀드리겠습니다.
+
+altan/inn/24/choices/1/response/1
+내일은 그 시간에 여기로 오겠습니다.
+
+altan/inn/24/choices/2/text
+접은 종이는 여기 두십시오.
+
+altan/inn/24/choices/2/response/0
+가방 안쪽에 넣겠습니다.
+
+altan/inn/24/seen
+내일 시간은 적었지만 비용 칸은 없습니다.
+
+altan/inn/25/situation
+장부에서 눈을 들어 바로 대답한다.
+
+altan/inn/25/lines/0
+이름을 부르면 이제 제가 듣는 줄 압니다.
+
+altan/inn/25/lines/1
+뒤에 직책이 없어도 괜찮습니다.
+
+altan/inn/25/lines/2
+그래도 용건은 다 듣고 답하겠습니다.
+
+altan/inn/25/choices/0/text
+용건 없는 안부도 가끔 전할게요.
+
+altan/inn/25/choices/0/response/0
+안부라면 장부를 덮고 듣겠습니다.
+
+altan/inn/25/choices/1/text
+일은 많이 남았습니까?
+
+altan/inn/25/choices/1/response/0
+이 줄까지만 쓰면 끝납니다.
+
+altan/inn/25/choices/2/text
+한 번 부르면 무조건 와 주실 거죠?
+
+altan/inn/25/choices/2/response/0
+못 가는 때도 있으니 대답부터 들으십시오.
+
+altan/inn/25/choices/2/response/1
+대답할 시간을 주시면 제 뜻도 말씀드리겠습니다.
+
+altan/inn/25/seen
+안부를 물으시면 장부를 덮고 듣겠습니다.
+
+altan/inn/26/situation
+과거 얘기 뒤에 덧붙일 말을 고른다.
+
+altan/inn/26/lines/0
+한 번 말했다고 지난 일이 끝나진 않습니다.
+
+altan/inn/26/lines/1
+제가 고른 거래라는 것은 남습니다.
+
+altan/inn/26/lines/2
+같은 질문을 피하지 않는 것부터 하겠습니다.
+
+altan/inn/26/choices/0/text
+오늘 얘기는 여기서 멈출까요?
+
+altan/inn/26/choices/0/response/0
+이 뒤는 생각을 더 정리하겠습니다.
+
+altan/inn/26/choices/1/text
+이제 좋은 일을 하면 셈이 맞겠죠.
+
+altan/inn/26/choices/1/response/0
+다른 일을 더해서 같은 거래를 지울 순 없습니다.
+
+altan/inn/26/choices/1/response/1
+그 마을을 다른 지출 한 줄로 바꿔 적진 않겠습니다.
+
+altan/inn/26/choices/2/text
+다음에도 답할 수 있는 데까지 들어요.
+
+altan/inn/26/choices/2/response/0
+좋게 정리해 달라고 부탁하지는 않겠습니다.
+
+altan/inn/26/seen
+그 선택은 다른 거래를 더해서 지우지 않겠습니다.
+
+altan/inn/27/situation
+만남을 마치며 종이 대신 먼저 인사한다.
+
+altan/inn/27/lines/0
+인사드리고 가겠습니다.
+
+altan/inn/27/lines/1
+잘 들었다는 말도 드리고 싶었습니다.
+
+altan/inn/27/lines/2
+다음에도 이렇게 얘기하고 싶습니다.
+
+altan/inn/27/choices/0/text
+그럼 다음 대화도 제가 예약할게요.
+
+altan/inn/27/choices/0/response/0
+시간은 예약하시되 내용까지 정하지는 마십시오.
+
+altan/inn/27/choices/0/response/1
+다음에 어떤 말을 할지는 아직 정하지 않겠습니다.
+
+altan/inn/27/choices/1/text
+저도 오늘 얘기를 잘 들었습니다.
+
+altan/inn/27/choices/1/response/0
+다음에는 용건이 없어도 안부를 묻겠습니다.
+
+altan/inn/27/choices/2/text
+문은 제가 열겠습니다.
+
+altan/inn/27/choices/2/response/0
+제 가방을 챙길 때까지만 부탁드립니다.
+
+altan/inn/27/seen
+오늘 인사는 종이를 꺼내지 않고 드리겠습니다.
+
+altan/dungeon/0/variants/0
+출발 전 수량을 대조하겠습니다.
+
+altan/dungeon/0/variants/1
+약속한 몫은 각자 확인하십시오.
+
+altan/dungeon/1/variants/0
+빠진 기록은 지금 보충하겠습니다.
+
+altan/dungeon/1/variants/1
+제 쪽 확인이 끝나면 알리겠습니다.
+
+altan/dungeon/2/variants/0
+오늘도 함께 실적을 남기겠습니다.
+
+altan/dungeon/2/variants/1
+서로 정한 역할을 지키겠습니다.
+
+altan/dungeon/3/variants/0
+새 층이니 경로를 다시 보겠습니다.
+
+altan/dungeon/3/variants/1
+이전 기록을 그대로 쓰진 않겠습니다.
+
+altan/dungeon/4/variants/0
+확인한 길부터 말씀하십시오.
+
+altan/dungeon/4/variants/1
+짐작은 별도로 적겠습니다.
+
+altan/dungeon/5/variants/0
+제가 놓친 부분을 알려 주십시오.
+
+altan/dungeon/5/variants/1
+들어온 쪽도 함께 기억하겠습니다.
+
+altan/dungeon/6/variants/0
+발견했다고 수익을 정하진 마십시오.
+
+altan/dungeon/6/variants/1
+먼저 물건의 상태를 보겠습니다.
+
+altan/dungeon/7/variants/0
+확인한 가치만 계산하겠습니다.
+
+altan/dungeon/7/variants/1
+사용 가능한지부터 알아야 합니다.
+
+altan/dungeon/8/variants/0
+함께 찾은 것으로 남기겠습니다.
+
+altan/dungeon/8/variants/1
+확인 전에는 몫을 옮기지 않겠습니다.
+
+altan/dungeon/9/variants/0
+전투입니다. 지금은 집중하십시오.
+
+altan/dungeon/9/variants/1
+지금은 재료를 셀 때가 아닙니다.
+
+altan/dungeon/10/variants/0
+정한 역할대로 움직이겠습니다.
+
+altan/dungeon/10/variants/1
+바뀐 상태는 즉시 알리십시오.
+
+altan/dungeon/11/variants/0
+제 계산과 다르면 말씀하십시오.
+
+altan/dungeon/11/variants/1
+동료 위치도 보고 조정하겠습니다.
+
+altan/dungeon/12/variants/0
+승리를 확인했습니다.
+
+altan/dungeon/12/variants/1
+다친 곳은 빠짐없이 알리십시오.
+
+altan/dungeon/13/variants/0
+사용한 양은 상태 확인 뒤에 셉니다.
+
+altan/dungeon/13/variants/1
+지금 필요한 지출부터 보겠습니다.
+
+altan/dungeon/14/variants/0
+제가 놓친 상처도 보여 주십시오.
+
+altan/dungeon/14/variants/1
+확인할 사람이 남았으니 장부는 뒤에 보겠습니다.
+
+altan/dungeon/15/variants/0
+위험에 비해 준비가 충분한지 봅니다.
+
+altan/dungeon/15/variants/1
+예상 손실을 가볍게 말하지 마십시오.
+
+altan/dungeon/16/variants/0
+계획과 다른 점을 지금 말씀하십시오.
+
+altan/dungeon/16/variants/1
+확인되지 않은 기대는 빼겠습니다.
+
+altan/dungeon/17/variants/0
+무리해서 남길 실적은 바라지 않습니다.
+
+altan/dungeon/17/variants/1
+제가 못 하는 일도 말씀드리겠습니다.
+
+altan/dungeon/18/variants/0
+큰 전투 종료를 확인했습니다.
+
+altan/dungeon/18/variants/1
+종료 후 지출도 계산에 넣겠습니다.
+
+altan/dungeon/19/variants/0
+짐보다 부상부터 확인하겠습니다.
+
+altan/dungeon/19/variants/1
+회복할 시간도 남겨 두십시오.
+
+altan/dungeon/20/variants/0
+제 판단이 빗나간 곳도 있습니다.
+
+altan/dungeon/20/variants/1
+상태를 본 뒤에 같이 검토하겠습니다.
+
+altan/dungeon/21/variants/0
+부상 상태를 정확히 알리십시오!
+
+altan/dungeon/21/variants/1
+버틸 수 있는지 과장하지 마십시오!
+
+altan/dungeon/22/variants/0
+그쪽을 도울 틈이 필요합니다!
+
+altan/dungeon/22/variants/1
+역할을 바꿀 수 있게 신호하십시오!
+
+altan/dungeon/23/variants/0
+지금 제게 필요한 걸 말씀하십시오!
+
+altan/dungeon/23/variants/1
+제 몫을 조정하고 돕겠습니다!
+
+altan/dungeon/24/variants/0
+쓰러진 동료 위치를 알리십시오.
+
+altan/dungeon/24/variants/1
+상태를 보지 않고 손실로 적진 않습니다.
+
+altan/dungeon/25/variants/0
+확인하는 분에게 길을 내주십시오.
+
+altan/dungeon/25/variants/1
+제가 남은 쪽을 맡겠습니다.
+
+altan/dungeon/26/variants/0
+지금 할 수 있는 일을 말해 주십시오.
+
+altan/dungeon/26/variants/1
+확인도 없이 기록을 닫진 않겠습니다.
+
+altan/dungeon/27/variants/0
+제게도 부상이 생겼습니다.
+
+altan/dungeon/27/variants/1
+숨기면 다음 판단도 틀려집니다.
+
+altan/dungeon/28/variants/0
+제 손이 떨리는지 보겠습니다.
+
+altan/dungeon/28/variants/1
+잠시 역할 조정을 요청합니다.
+
+altan/dungeon/29/variants/0
+제 손을 지금 살펴봐 주실 수 있겠습니까?
+
+altan/dungeon/29/variants/1
+도움이 필요하다고 직접 말씀드립니다.
+
+altan/dungeon/30/variants/0
+쉬는 동안 남은 양을 보겠습니다.
+
+altan/dungeon/30/variants/1
+젖는 곳에는 장부를 두지 마십시오.
+
+altan/dungeon/31/variants/0
+확인이 끝나면 저도 쉬겠습니다.
+
+altan/dungeon/31/variants/1
+긴 설명은 잠깐 미루겠습니다.
+
+altan/dungeon/32/variants/0
+지금은 수량을 다 세었습니다.
+
+altan/dungeon/32/variants/1
+다른 용건 없이 같이 앉겠습니다.
+
+altan/dungeon/33/variants/0
+봉인 조건은 별도로 확인하십시오.
+
+altan/dungeon/33/variants/1
+가치가 있다고 열 수 있는 건 아닙니다.
+
+altan/dungeon/34/variants/0
+확인하지 않은 조건에는 서명하지 않습니다.
+
+altan/dungeon/34/variants/1
+열린다고 가정해 몫을 적진 않겠습니다.
+
+altan/dungeon/35/variants/0
+제 계산에 없는 조건이면 기다리겠습니다.
+
+altan/dungeon/35/variants/1
+알고 있는 내용만 서로 대조하겠습니다.
+
+altan/dungeon/36/variants/0
+귀환 인원을 대조하겠습니다.
+
+altan/dungeon/36/variants/1
+보급 기록은 그 뒤에 정리하겠습니다.
+
+altan/dungeon/37/variants/0
+오늘 실적은 각자 이름으로 남깁니다.
+
+altan/dungeon/37/variants/1
+대신한 일은 따로 말씀하십시오.
+
+altan/dungeon/38/variants/0
+제 이름으로 부르시면 듣겠습니다.
+
+altan/dungeon/38/variants/1
+오늘은 인사한 뒤 쉬러 가겠습니다.
+
+altan/dungeon/39/variants/0
+패배입니다. 추가 손실을 막겠습니다.
+
+altan/dungeon/39/variants/1
+움직일 수 있는 분부터 말씀하십시오.
+
+altan/dungeon/40/variants/0
+제 판단도 검토 대상에 넣겠습니다.
+
+altan/dungeon/40/variants/1
+지금은 서로의 상태를 먼저 봅니다.
+
+altan/dungeon/41/variants/0
+기록에서 제 선택을 빼진 않겠습니다.
+
+altan/dungeon/41/variants/1
+동료를 둔 채 셈을 끝내진 않겠습니다.
+
+altan/transitions/0/situation
+적어 온 수량표를 처음부터 읽는다.
+
+altan/transitions/0/lines/0
+이번에는 적어 오신 것을 확인했습니다.
+
+altan/transitions/0/lines/1
+이제 품목과 값을 대조하겠습니다.
+
+altan/transitions/1/situation
+구두로 바꾼 약속을 종이 옆에 적는다.
+
+altan/transitions/1/lines/0
+없는 일로 처리할 순 없습니다.
+
+altan/transitions/1/lines/1
+확인될 때까지 다음 거래는 멈추겠습니다.
+
+altan/transitions/2/situation
+영수증 두 장을 나란히 펼친다.
+
+altan/transitions/2/lines/0
+확인하실 시간은 드리겠습니다.
+
+altan/transitions/2/lines/1
+다 읽으신 뒤에 각자 보관하겠습니다.
+
+altan/transitions/3/situation
+동의하지 않은 지출 줄을 가리킨다.
+
+altan/transitions/3/lines/0
+좋은 뜻이라는 설명은 들었습니다.
+
+altan/transitions/3/lines/1
+제 비용을 쓰기 전에는 동의부터 받으십시오.
+
+altan/transitions/4/situation
+추가로 확인한 종이를 따로 건넨다.
+
+altan/transitions/4/lines/0
+이번 부분은 먼저 보았습니다.
+
+altan/transitions/4/lines/1
+청구하지 않되 다음 조건은 따로 정하겠습니다.
+
+altan/transitions/5/situation
+의뢰가 늘어난 목록을 다시 접는다.
+
+altan/transitions/5/lines/0
+한 번 도왔다고 계속 정해지진 않습니다.
+
+altan/transitions/5/lines/1
+범위부터 다시 합의하겠습니다.
+
+altan/transitions/6/situation
+자기 소속이 비어 있던 칸을 손으로 짚는다.
+
+altan/transitions/6/lines/0
+대접과 기록은 달랐습니다.
+
+altan/transitions/6/lines/1
+이름만 적히던 문서 얘기를 해 드리겠습니다.
+
+altan/transitions/7/situation
+마을 얘기를 하다가 종이를 덮는다.
+
+altan/transitions/7/lines/0
+그 뒤가 좋았다는 기록은 없습니다.
+
+altan/transitions/7/lines/1
+모르는 결과로 제 선택을 덮진 마십시오.
+
+altan/transitions/8/situation
+이름을 부른 쪽을 보고 장부를 닫는다.
+
+altan/transitions/8/lines/0
+그날 받은 값보다 제 이름을 부른 말이 더 생각납니다.
+
+altan/transitions/8/lines/1
+거래할 때는 지금도 계산부터 합니다.
+
+altan/transitions/9/situation
+따로 비워 둔 시간을 다시 확인한다.
+
+altan/transitions/9/lines/0
+그 시간을 갚으실 필요는 없습니다.
+
+altan/transitions/9/lines/1
+저도 만나고 싶어서 나온 것입니다.
+
+altan/transitions/10/situation
+서명 전에 상대의 의견을 기다린다.
+
+altan/transitions/10/lines/0
+제 쪽 조건이 달라져도 설명하고 고치겠습니다.
+
+altan/transitions/10/lines/1
+바뀐 사본도 보내 드리겠습니다.
+
+altan/transitions/11/situation
+고쳐진 사본과 원본을 나란히 놓는다.
+
+altan/transitions/11/lines/0
+믿는 사이여도 확인은 필요합니다.
+
+altan/transitions/11/lines/1
+모르는 변경까지 동의한 것은 아닙니다.
+
+altan/transitions/12/situation
+장부를 넣은 뒤 종이 없이 인사한다.
+
+altan/transitions/12/lines/0
+오늘은 용건 없이 온 것입니다.
+
+altan/transitions/12/lines/1
+이름을 부르시면 안부부터 듣겠습니다.
+
+altan/transitions/13/situation
+지난 선택을 적은 줄을 남겨 둔다.
+
+altan/transitions/13/lines/0
+좋은 일 하나로 지울 수는 없습니다.
+
+altan/transitions/13/lines/1
+다음에 물으셔도 다른 얘기로 넘기지 않겠습니다.
+
+selva/inn/0/situation
+셀바가 접은 종이를 치운다.
+
+selva/inn/0/lines/0
+이미 끝낸 일입니다.
+
+selva/inn/0/lines/1
+같은 설명을 또 하게 하시네요.
+
+selva/inn/0/lines/2
+내일 할 일만 전해 주시죠.
+
+selva/inn/0/choices/0/text
+끝난 일은 다시 맡기지 않을게요.
+
+selva/inn/0/choices/0/response/0
+그럼 새로 부탁할 것부터 듣겠습니다.
+
+selva/inn/0/choices/1/text
+출발은 아침이에요.
+
+selva/inn/0/choices/1/response/0
+시간은 알아 두겠습니다.
+
+selva/inn/0/choices/2/text
+직접 보면 오해가 풀릴 테니 다시 해 봐요.
+
+selva/inn/0/choices/2/response/0
+재주를 보여 달라는 뜻이었습니까?
+
+selva/inn/0/choices/2/response/1
+이미 한 일을 의심받는 건 달갑지 않습니다.
+
+selva/inn/0/seen
+종이는 접었으니 용건부터 말씀하시죠.
+
+selva/inn/1/situation
+셀바가 식탁 끝의 물잔을 옮긴다.
+
+selva/inn/1/lines/0
+거기는 제가 쓰고 있습니다.
+
+selva/inn/1/lines/1
+조금 떨어져 앉아 주시죠.
+
+selva/inn/1/lines/2
+밥 먹는 동안에는 조용했으면 합니다.
+
+selva/inn/1/choices/0/text
+다른 식탁으로 갈게요.
+
+selva/inn/1/choices/0/response/0
+저쪽은 덜 붐빌 겁니다.
+
+selva/inn/1/choices/1/text
+제 그릇도 여기 놓고 먹을게요.
+
+selva/inn/1/choices/1/response/0
+밥 먹는 동안엔 대답하기도 싫습니다.
+
+selva/inn/1/choices/1/response/1
+제 그릇 옆은 비워 주시죠.
+
+selva/inn/1/choices/2/text
+제 그릇만 가져갈게요.
+
+selva/inn/1/choices/2/response/0
+그 정도라면 불편할 것 없습니다.
+
+selva/inn/1/seen
+이 물잔은 아직 쓰고 있습니다.
+
+selva/inn/2/situation
+셀바가 내일 짐을 세어 본다.
+
+selva/inn/2/lines/0
+이 짐도 제게 맡기실 겁니까?
+
+selva/inn/2/lines/1
+나중에 슬쩍 더 얹지는 마시죠.
+
+selva/inn/2/lines/2
+한 번에 알아야 짊어질 수 있습니다.
+
+selva/inn/2/choices/0/text
+힘이 좋으니 조금 더 들어도 괜찮겠죠?
+
+selva/inn/2/choices/0/response/0
+들 수야 있습니다.
+
+selva/inn/2/choices/0/response/1
+괜찮은지는 제게 물으셨어야죠.
+
+selva/inn/2/choices/1/text
+늘어난 건 제가 들게요.
+
+selva/inn/2/choices/1/response/0
+그러면 지금 양으로 맞추겠습니다.
+
+selva/inn/2/choices/2/text
+개수부터 적어 둘게요.
+
+selva/inn/2/choices/2/response/0
+적은 뒤에 저도 확인하겠습니다.
+
+selva/inn/2/seen
+이쪽에 모아 둔 것만 제 짐입니다.
+
+selva/inn/3/situation
+셀바가 덜 마른 소매를 편다.
+
+selva/inn/3/lines/0
+이 상태로는 아직 못 입습니다.
+
+selva/inn/3/lines/1
+급히 말리면 천이 상하죠.
+
+selva/inn/3/lines/2
+출발까지는 마를 겁니다.
+
+selva/inn/3/choices/0/text
+줄을 좀 더 비워 드릴게요.
+
+selva/inn/3/choices/0/response/0
+옆으로 펴 두면 되겠네요. 고맙습니다.
+
+selva/inn/3/choices/1/text
+아직 축축하네요.
+
+selva/inn/3/choices/1/response/0
+안쪽이 특히 덜 말랐습니다.
+
+selva/inn/3/choices/2/text
+불에 가까이 대면 금방 마르지 않을까요?
+
+selva/inn/3/choices/2/response/0
+그 방법으로 옷을 망친 적 있습니까?
+
+selva/inn/3/choices/2/response/1
+제 것은 여기 두겠습니다.
+
+selva/inn/3/seen
+소매 안쪽은 좀 더 말려야 합니다.
+
+selva/inn/4/situation
+셀바가 의뢰 종이를 펼친다.
+
+selva/inn/4/lines/0
+처음 같이 나가는 일이군요.
+
+selva/inn/4/lines/1
+보수와 맡을 일을 확인하겠습니다.
+
+selva/inn/4/lines/2
+서로 다른 생각으로 가면 피곤해지죠.
+
+selva/inn/4/choices/0/text
+출발 시각은 확인했어요.
+
+selva/inn/4/choices/0/response/0
+저도 그 시각에 맞추겠습니다.
+
+selva/inn/4/choices/1/text
+친해진 다음에 돈 얘기를 해도 되잖아요.
+
+selva/inn/4/choices/1/response/0
+지금 정해 두는 편이 편합니다.
+
+selva/inn/4/choices/1/response/1
+친해지고 나서 돈 때문에 얼굴 붉히긴 싫군요.
+
+selva/inn/4/choices/2/text
+제 몫도 여기서 정하죠.
+
+selva/inn/4/choices/2/response/0
+좋습니다. 끝난 뒤에 실랑이할 일은 줄겠네요.
+
+selva/inn/4/seen
+이쪽 문구부터 같이 읽어 보시죠.
+
+selva/inn/5/situation
+셀바가 식당 쪽 냄새를 맡는다.
+
+selva/inn/5/lines/0
+오늘은 국이 진하네요.
+
+selva/inn/5/lines/1
+마렌토에서 다니던 집이 생각납니다.
+
+selva/inn/5/lines/2
+그릇이 뜨거워서 옮길 때도 천을 댔죠.
+
+selva/inn/5/choices/0/text
+비법을 배워 오셨으면 장사가 됐겠어요.
+
+selva/inn/5/choices/0/response/0
+저는 먹으러 간 손님이었습니다.
+
+selva/inn/5/choices/0/response/1
+쉬는 날까지 벌 궁리를 하진 않았죠.
+
+selva/inn/5/choices/1/text
+그래서 천천히 먹었겠네요.
+
+selva/inn/5/choices/1/response/0
+주인은 식기 전에 먹으라며 재촉했죠.
+
+selva/inn/5/choices/2/text
+여기 국도 뜨거워요.
+
+selva/inn/5/choices/2/response/0
+그릇 밑을 받치고 드시죠.
+
+selva/inn/5/seen
+그 집 국은 입천장을 데기 쉬웠습니다.
+
+selva/inn/6/situation
+셀바가 머리끈을 다시 묶는다.
+
+selva/inn/6/lines/0
+식탁에 머리가 자꾸 닿네요.
+
+selva/inn/6/lines/1
+묶어 둬도 고개 숙이면 앞으로 쏟아지네요.
+
+selva/inn/6/lines/2
+매듭만 고치면 됩니다.
+
+selva/inn/6/choices/0/text
+거울을 이쪽으로 돌릴게요.
+
+selva/inn/6/choices/0/response/0
+덕분에 뒤까지 잘 보이네요.
+
+selva/inn/6/choices/1/text
+저는 식기부터 옮길게요.
+
+selva/inn/6/choices/1/response/0
+물잔은 팔꿈치 옆에 두시죠.
+
+selva/inn/6/choices/2/text
+짧게 자르면 훨씬 편하지 않아요?
+
+selva/inn/6/choices/2/response/0
+편하기만 하자면 그렇겠죠.
+
+selva/inn/6/choices/2/response/1
+그래도 지금 길이가 좋습니다.
+
+selva/inn/6/seen
+이번에는 매듭이 단단히 묶였네요.
+
+selva/inn/7/situation
+셀바가 탁자 다리를 짚어 본다.
+
+selva/inn/7/lines/0
+자꾸 흔들린다 했더니 이쪽이 짧군요.
+
+selva/inn/7/lines/1
+종이를 조금 접으면 되겠습니다.
+
+selva/inn/7/lines/2
+잠깐만 그릇을 들어 주시죠.
+
+selva/inn/7/choices/0/text
+접을 종이는 여기 있어요.
+
+selva/inn/7/choices/0/response/0
+너무 두껍지는 않군요. 그걸 쓰죠.
+
+selva/inn/7/choices/1/text
+그냥 다른 탁자로 옮기면 편하잖아요.
+
+selva/inn/7/choices/1/response/0
+뒤에 앉을 사람도 흔들릴 테니까요.
+
+selva/inn/7/choices/1/response/1
+한 번 잡은 김에 끝내겠습니다.
+
+selva/inn/7/choices/2/text
+제가 이쪽을 잡고 있을게요.
+
+selva/inn/7/choices/2/response/0
+손 다치지 않게 조금만 들어 주십시오.
+
+selva/inn/7/seen
+이제 그릇을 내려놓아도 되겠습니다.
+
+selva/inn/8/situation
+셀바가 가방 끈을 조인다.
+
+selva/inn/8/lines/0
+끈이 느슨해서 다시 끼웠습니다.
+
+selva/inn/8/lines/1
+제 짐을 묶다가 보여서요.
+
+selva/inn/8/lines/2
+그대로 메면 어깨가 쓸릴 뻔했죠.
+
+selva/inn/8/choices/0/text
+다른 사람 짐도 전부 봐 주시면 좋겠어요.
+
+selva/inn/8/choices/0/response/0
+이 끈이 눈에 들어와서 손본 겁니다.
+
+selva/inn/8/choices/0/response/1
+다른 짐은 각자 봐 주십시오.
+
+selva/inn/8/choices/1/text
+어제도 자꾸 끌어올렸어요. 손봐 주셔서 고마워요.
+
+selva/inn/8/choices/1/response/0
+다음에는 어깨에 맞춰 한 번 당겨 보시죠.
+
+selva/inn/8/choices/2/text
+매듭은 단단하네요.
+
+selva/inn/8/choices/2/response/0
+빼려면 이 끝부터 당기면 됩니다.
+
+selva/inn/8/seen
+한 번 메 보시죠. 길이가 맞습니까?
+
+selva/inn/9/situation
+셀바가 국그릇을 식힌다.
+
+selva/inn/9/lines/0
+마렌토에서는 늘 같은 집에 갔습니다.
+
+selva/inn/9/lines/1
+나중엔 주문도 하기 전에 국이 나왔죠.
+
+selva/inn/9/lines/2
+새 손님처럼 굴 날이 없더군요.
+
+selva/inn/9/choices/0/text
+자주 가면 그게 편하죠.
+
+selva/inn/9/choices/0/response/0
+예. 피곤할 때는 설명할 일이 적어 좋았습니다.
+
+selva/inn/9/choices/1/text
+저도 국을 식히는 중이에요.
+
+selva/inn/9/choices/1/response/0
+지금 드시면 혀를 데겠습니다.
+
+selva/inn/9/choices/2/text
+다른 집을 못 찾아서 계속 가신 건가요?
+
+selva/inn/9/choices/2/response/0
+다른 집도 가 봤습니다.
+
+selva/inn/9/choices/2/response/1
+입에 맞아서 돌아간 거죠.
+
+selva/inn/9/seen
+이번 국은 이제 먹을 만하네요.
+
+selva/inn/10/situation
+셀바가 창가에서 신발을 턴다.
+
+selva/inn/10/lines/0
+모래가 아직도 나오네요.
+
+selva/inn/10/lines/1
+투기장에서는 매일 이랬습니다.
+
+selva/inn/10/lines/2
+아무리 털어도 다음 날 또 나왔죠.
+
+selva/inn/10/choices/0/text
+저는 문 옆에서 기다릴게요.
+
+selva/inn/10/choices/0/response/0
+금방 끝납니다. 먼저 들어가셔도 되고요.
+
+selva/inn/10/choices/1/text
+모래 냄새도 배었으니 신발을 바꾸면 어때요?
+
+selva/inn/10/choices/1/response/0
+저는 모래 냄새가 싫지 않습니다.
+
+selva/inn/10/choices/1/response/1
+신발만 잘 털면 됩니다.
+
+selva/inn/10/choices/2/text
+양쪽 다 털고 들어가죠.
+
+selva/inn/10/choices/2/response/0
+바닥에 흩어진 건 제가 쓸겠습니다.
+
+selva/inn/10/seen
+반대쪽 신발에도 모래가 남았군요.
+
+selva/inn/11/situation
+셀바가 빈 물병을 눕힌다.
+
+selva/inn/11/lines/0
+내일 챙길 것은 다 보셨습니까?
+
+selva/inn/11/lines/1
+저는 물이 모자라면 성가시더군요.
+
+selva/inn/11/lines/2
+마시기 전에 아껴야 하나부터 생각하게 됩니다.
+
+selva/inn/11/choices/0/text
+몸이 튼튼하니 좀 덜 마셔도 버티시겠죠.
+
+selva/inn/11/choices/0/response/0
+버티는 건 마지막에 할 일입니다.
+
+selva/inn/11/choices/0/response/1
+미리 목말라 있을 이유가 있습니까?
+
+selva/inn/11/choices/1/text
+제 병도 지금 채워 둘게요.
+
+selva/inn/11/choices/1/response/0
+한꺼번에 다녀오면 되겠네요.
+
+selva/inn/11/choices/2/text
+제 것은 아직 남았어요.
+
+selva/inn/11/choices/2/response/0
+마개가 잘 잠기는지만 보시죠.
+
+selva/inn/11/seen
+물병은 세워 두면 자꾸 굴러떨어지네요.
+
+selva/inn/12/situation
+셀바가 케른 쪽 막사를 지나 돌아온다.
+
+selva/inn/12/lines/0
+저 앞에서는 걸음이 빨라집니다.
+
+selva/inn/12/lines/1
+알아보는 사람이 있을까 봐서죠.
+
+selva/inn/12/lines/2
+돌아갈 때가 됐느냐는 말은 아직 불편합니다.
+
+selva/inn/12/choices/0/text
+오늘은 이쪽 골목으로 걸을까요?
+
+selva/inn/12/choices/0/response/0
+조금 돌아가면 아는 얼굴도 덜 마주치겠죠.
+
+selva/inn/12/choices/1/text
+여기서 좀 쉬어요.
+
+selva/inn/12/choices/1/response/0
+예. 물도 좀 마시죠.
+
+selva/inn/12/choices/2/text
+고향이 그리우면 이번에 돌아가 봐요.
+
+selva/inn/12/choices/2/response/0
+그리운 것만으로 정할 수는 없죠.
+
+selva/inn/12/choices/2/response/1
+마렌토에 두고 온 생활도 있습니다.
+
+selva/inn/12/seen
+아까는 제가 너무 빨리 걸었군요.
+
+selva/inn/13/situation
+셀바가 묶어 둔 종이를 들여다본다.
+
+selva/inn/13/lines/0
+마렌토에 온 건 용병 계약 때문입니다.
+
+selva/inn/13/lines/1
+끝나고도 돌아가지 않았죠.
+
+selva/inn/13/lines/2
+처음엔 그렇게 오래 있을 줄 몰랐습니다.
+
+selva/inn/13/choices/0/text
+섬에서 오래 지내셨네요.
+
+selva/inn/13/choices/0/response/0
+투기장에 서기 전부터 있었으니까요.
+
+selva/inn/13/choices/1/text
+결국 보수가 더 좋아서 남으신 거죠?
+
+selva/inn/13/choices/1/response/0
+처음 온 이유는 보수가 맞습니다.
+
+selva/inn/13/choices/1/response/1
+계속 산 이유를 그것 하나로 말하긴 어렵군요.
+
+selva/inn/13/choices/2/text
+어느 날 보니 오래 지냈던 거군요.
+
+selva/inn/13/choices/2/response/0
+예. 아는 골목이 늘고, 돌아가는 배는 또 미뤘죠.
+
+selva/inn/13/seen
+한 번 미루니 다음 배도 쉽게 미루게 되더군요.
+
+selva/inn/14/situation
+셀바가 식탁의 빵가루를 모은다.
+
+selva/inn/14/lines/0
+티카와 군힐트도 그 무대에 섰죠.
+
+selva/inn/14/lines/1
+밖에서 보면 같은 검투사였을 겁니다.
+
+selva/inn/14/lines/2
+끝나고 쉬는 모습은 꽤 달랐지만요.
+
+selva/inn/14/choices/0/text
+셋이 다시 공연하면 인기가 많겠어요.
+
+selva/inn/14/choices/0/response/0
+두 사람 뜻은 제가 모릅니다.
+
+selva/inn/14/choices/0/response/1
+저도 지금 그걸 하려고 온 건 아니죠.
+
+selva/inn/14/choices/1/text
+셀바 씨는 끝나면 뭘 했어요?
+
+selva/inn/14/choices/1/response/0
+씻고 밥 먹었습니다. 그게 제일 급했죠.
+
+selva/inn/14/choices/2/text
+셋 다 여기서 만났네요.
+
+selva/inn/14/choices/2/response/0
+토르바까지 와서도 보게 됐군요.
+
+selva/inn/14/seen
+저는 싸움 끝나면 늘 배부터 고팠습니다.
+
+selva/inn/15/situation
+셀바가 잔을 두 손으로 감싼다.
+
+selva/inn/15/lines/0
+어디 사람이냐고 물으면 케른이라고 합니다.
+
+selva/inn/15/lines/1
+어디 사느냐고 하면 잠깐 멈추죠.
+
+selva/inn/15/lines/2
+마렌토라고 답하던 버릇이 아직 남았습니다.
+
+selva/inn/15/choices/0/text
+그 버릇은 천천히 바뀌겠죠.
+
+selva/inn/15/choices/0/response/0
+토르바도 꽤 익숙해지고는 있습니다.
+
+selva/inn/15/choices/1/text
+오늘은 여기서 저녁 먹어요.
+
+selva/inn/15/choices/1/response/0
+멀리 나갈 생각은 저도 없었습니다.
+
+selva/inn/15/choices/2/text
+케른에서 지내던 얘기는 이제 그만하셔도 돼요.
+
+selva/inn/15/choices/2/response/0
+케른 얘기도 하고 싶습니다.
+
+selva/inn/15/choices/2/response/1
+어디 사느냐는 물음에도 바로 답하고 싶고요.
+
+selva/inn/15/seen
+잔이 따뜻해서 손을 떼기 싫군요.
+
+selva/inn/16/situation
+셀바가 맞은편 의자를 당긴다.
+
+selva/inn/16/lines/0
+오늘은 이쪽에 앉으시죠.
+
+selva/inn/16/lines/1
+혼자 먹으려다 조금 기다렸습니다.
+
+selva/inn/16/lines/2
+아직 국은 안 시켰고요.
+
+selva/inn/16/choices/0/text
+저는 물부터 가져올게요.
+
+selva/inn/16/choices/0/response/0
+제 잔도 같이 채워 주시겠습니까?
+
+selva/inn/16/choices/1/text
+기다리지 말고 드셨어야죠. 시간 아깝게요.
+
+selva/inn/16/choices/1/response/0
+아깝다고 생각하진 않았습니다.
+
+selva/inn/16/choices/1/response/1
+같이 먹고 싶어서 기다린 거죠.
+
+selva/inn/16/choices/2/text
+저도 같이 먹으려고 왔어요.
+
+selva/inn/16/choices/2/response/0
+잘 맞춰 오셨네요. 이번엔 제가 늦을 뻔했습니다.
+
+selva/inn/16/seen
+아직 주문 전이니 함께 고르시죠.
+
+selva/inn/17/situation
+셀바가 토르바 거리를 내다본다.
+
+selva/inn/17/lines/0
+이제는 돌아오면 길부터 압니다.
+
+selva/inn/17/lines/1
+어느 모퉁이에서 소리가 커지는지도요.
+
+selva/inn/17/lines/2
+내일도 여기로 돌아오겠죠. 저는 그게 좋습니다.
+
+selva/inn/17/choices/0/text
+그럼 케른에는 돌아갈 일이 없겠네요.
+
+selva/inn/17/choices/0/response/0
+그건 아직 모를 일입니다.
+
+selva/inn/17/choices/0/response/1
+지금 살 곳을 정한 겁니다.
+
+selva/inn/17/choices/1/text
+내일도 저 길로 돌아오겠네요.
+
+selva/inn/17/choices/1/response/0
+그렇겠죠. 이번엔 식기 전에 밥부터 먹읍시다.
+
+selva/inn/17/choices/2/text
+요즘 길을 잘 찾으시네요.
+
+selva/inn/17/choices/2/response/0
+처음에는 몇 번 돌아다녔죠.
+
+selva/inn/17/seen
+저 모퉁이만 돌면 여관이 보이죠.
+
+selva/inn/18/situation
+셀바가 가방에서 굽은 끈을 편다.
+
+selva/inn/18/lines/0
+쉬는 날에는 가만있으려 했는데요.
+
+selva/inn/18/lines/1
+손에 이런 게 잡히면 그냥 못 두겠습니다.
+
+selva/inn/18/lines/2
+그래도 오늘 의뢰는 더 안 받습니다.
+
+selva/inn/18/choices/0/text
+끈 다 펴면 산책이나 해요.
+
+selva/inn/18/choices/0/response/0
+너무 멀리만 아니면 좋겠네요.
+
+selva/inn/18/choices/1/text
+저는 먼저 씻고 올게요.
+
+selva/inn/18/choices/1/response/0
+다녀오십시오. 이건 금방 끝납니다.
+
+selva/inn/18/choices/2/text
+부지런하시니 내일 일도 당겨 하면 좋겠어요.
+
+selva/inn/18/choices/2/response/0
+그건 내일 하겠습니다.
+
+selva/inn/18/choices/2/response/1
+오늘은 쉬겠다고 말씀드렸죠.
+
+selva/inn/18/seen
+끈은 다 폈고, 이제 손도 좀 쉬어야겠네요.
+
+selva/inn/19/situation
+셀바가 자기 그릇을 앞으로 당긴다.
+
+selva/inn/19/lines/0
+단골집에 가면 늘 먹던 걸 고르죠.
+
+selva/inn/19/lines/1
+여기서는 가끔 다른 것도 먹게 됩니다.
+
+selva/inn/19/lines/2
+같이 온 사람이 뭘 시키나 보게 돼서요.
+
+selva/inn/19/choices/0/text
+저는 지난번 것 먹을래요.
+
+selva/inn/19/choices/0/response/0
+그것도 괜찮았죠. 양이 넉넉했고요.
+
+selva/inn/19/choices/1/text
+제 취향에 맞춰 주실 필요는 없어요.
+
+selva/inn/19/choices/1/response/0
+억지로 고른 게 아닙니다.
+
+selva/inn/19/choices/1/response/1
+궁금해서 보고 있었죠.
+
+selva/inn/19/choices/2/text
+오늘은 제 것 한 입 드셔 볼래요?
+
+selva/inn/19/choices/2/response/0
+조금만 부탁합니다. 제 것도 맛보시죠.
+
+selva/inn/19/seen
+이번에는 국 말고 저쪽도 궁금하군요.
+
+selva/inn/20/situation
+셀바가 내일 쓸 짐을 묶는다.
+
+selva/inn/20/lines/0
+내일 짐은 제가 챙겨 두겠습니다.
+
+selva/inn/20/lines/1
+맡은 일은 끝까지 할 겁니다.
+
+selva/inn/20/lines/2
+돌아와서 짐 푸는 것까지요.
+
+selva/inn/20/choices/0/text
+힘들면 중간에 내려놓고 먼저 오세요.
+
+selva/inn/20/choices/0/response/0
+막히면 같이 방법을 찾죠.
+
+selva/inn/20/choices/0/response/1
+혼자 두고 먼저 오진 않겠습니다.
+
+selva/inn/20/choices/1/text
+저는 돌아와서 말릴 곳을 봐 둘게요.
+
+selva/inn/20/choices/1/response/0
+그러면 젖은 채 들고 서 있을 일은 없겠네요.
+
+selva/inn/20/choices/2/text
+마개는 제가 잠갔어요.
+
+selva/inn/20/choices/2/response/0
+흘릴 걱정은 덜었군요.
+
+selva/inn/20/seen
+내일 짐은 이 묶음으로 끝입니다.
+
+selva/inn/21/situation
+셀바가 식당 불이 낮아지는 것을 본다.
+
+selva/inn/21/lines/0
+이 시간까지 앉아 있었군요.
+
+selva/inn/21/lines/1
+계속 다음 이야기로 넘어갔네요.
+
+selva/inn/21/lines/2
+내일 못 일어나면 곤란하겠죠.
+
+selva/inn/21/choices/0/text
+방금 하던 건 내일 마저 들어요.
+
+selva/inn/21/choices/0/response/0
+제가 어디까지 말했는지 기억해 두시죠.
+
+selva/inn/21/choices/1/text
+이제 올라갈까요?
+
+selva/inn/21/choices/1/response/0
+예. 물잔만 치우고 가죠.
+
+selva/inn/21/choices/2/text
+이야기보다 잠이 중요하니 앞으론 일찍 끝내요.
+
+selva/inn/21/choices/2/response/0
+그날 피곤하면 제가 말하겠습니다.
+
+selva/inn/21/choices/2/response/1
+오늘은 더 얘기하고 싶어서 늦어진 겁니다.
+
+selva/inn/21/seen
+다음 얘기는 아침에 해도 되겠군요.
+
+selva/inn/22/situation
+셀바가 구석에 놓은 가방을 옮긴다.
+
+selva/inn/22/lines/0
+오늘은 일이 없어도 내려왔습니다.
+
+selva/inn/22/lines/1
+오늘도 종이를 꺼낼 줄 아셨습니까?
+
+selva/inn/22/lines/2
+조금은 그러셨겠네요.
+
+selva/inn/22/choices/0/text
+저도 쉬러 내려왔어요.
+
+selva/inn/22/choices/0/response/0
+그럼 급한 용건은 둘 다 없군요.
+
+selva/inn/22/choices/1/text
+온 김에 의뢰 종이도 봐 주실래요?
+
+selva/inn/22/choices/1/response/0
+내일 보겠습니다.
+
+selva/inn/22/choices/1/response/1
+오늘은 그냥 앉아 있고 싶군요.
+
+selva/inn/22/choices/2/text
+아뇨, 국 식히러 오실 줄 알았어요.
+
+selva/inn/22/choices/2/response/0
+예, 오늘도 국 냄새에 끌려왔습니다.
+
+selva/inn/22/seen
+가방을 치웠으니 다리 뻗어도 되겠네요.
+
+selva/inn/23/situation
+셀바가 창문 걸쇠를 잠근다.
+
+selva/inn/23/lines/0
+바람이 세졌습니다.
+
+selva/inn/23/lines/1
+아직 젖은 옷이 있으면 안으로 옮기죠.
+
+selva/inn/23/lines/2
+저도 아까 널어 놓고 잊었습니다.
+
+selva/inn/23/choices/0/text
+소매 하나 잊으셨으니 나머지는 전부 제가 챙길게요.
+
+selva/inn/23/choices/0/response/0
+옷 하나 잊을 수도 있죠.
+
+selva/inn/23/choices/0/response/1
+제 옷은 제가 걷겠습니다.
+
+selva/inn/23/choices/1/text
+같이 걷어 올게요.
+
+selva/inn/23/choices/1/response/0
+제 소매도 아직 덜 말랐을 겁니다.
+
+selva/inn/23/choices/2/text
+창문은 이제 안 흔들리네요.
+
+selva/inn/23/choices/2/response/0
+걸쇠가 조금 헐거웠습니다.
+
+selva/inn/23/seen
+비가 들기 전에 걷어야겠군요.
+
+selva/inn/24/situation
+셀바가 먼저 와서 물을 따라 둔다.
+
+selva/inn/24/lines/0
+계속 같은 시각에 내려오시네요.
+
+selva/inn/24/lines/1
+저도 어느새 맞추고 있었습니다.
+
+selva/inn/24/lines/2
+기다리는 동안 마시려고 떠 왔습니다.
+
+selva/inn/24/choices/0/text
+그럼 내일 물은 제가 떠 올게요.
+
+selva/inn/24/choices/0/response/0
+너무 일찍부터 기다리진 마십시오.
+
+selva/inn/24/choices/1/text
+저녁은 아직인가요?
+
+selva/inn/24/choices/1/response/0
+예. 같이 주문하려고 기다렸습니다.
+
+selva/inn/24/choices/2/text
+만나는 시간을 정식으로 정해 둘까요?
+
+selva/inn/24/choices/2/response/0
+그렇게까지 정할 필요 있습니까?
+
+selva/inn/24/choices/2/response/1
+늦으면 밥부터 먹고 있겠습니다.
+
+selva/inn/24/seen
+물은 따라 놨으니 천천히 드시죠.
+
+selva/inn/25/situation
+셀바가 낡은 신발을 닦는다.
+
+selva/inn/25/lines/0
+이 신발도 오래 신었습니다.
+
+selva/inn/25/lines/1
+밑창은 아직 괜찮죠.
+
+selva/inn/25/lines/2
+토르바 길을 꽤 돌아다녔네요.
+
+selva/inn/25/choices/0/text
+진흙은 거의 닦였네요.
+
+selva/inn/25/choices/0/response/0
+솔기 사이에 조금 남았습니다.
+
+selva/inn/25/choices/1/text
+새것을 사면 지난날도 정리될 텐데요.
+
+selva/inn/25/choices/1/response/0
+신발을 버릴 만큼 나쁜 날만 있진 않았죠.
+
+selva/inn/25/choices/1/response/1
+이건 더 신겠습니다.
+
+selva/inn/25/choices/2/text
+내일도 이걸 신고 같이 걸어요.
+
+selva/inn/25/choices/2/response/0
+닦아 두면 조금은 말끔해 보이겠죠.
+
+selva/inn/25/seen
+오늘 묻은 흙은 오늘 털어야 편하죠.
+
+selva/inn/26/situation
+셀바가 식탁을 밀어 창문을 피한다.
+
+selva/inn/26/lines/0
+이쪽에 앉으면 바람이 덜 듭니다.
+
+selva/inn/26/lines/1
+지난번에 국이 너무 빨리 식었죠.
+
+selva/inn/26/lines/2
+이번엔 따뜻할 때 먹읍시다.
+
+selva/inn/26/choices/0/text
+저 때문에 번거롭게 바꾸실 필요 없어요.
+
+selva/inn/26/choices/0/response/0
+저도 따뜻하게 먹으려고 옮겼습니다.
+
+selva/inn/26/choices/0/response/1
+그릇이나 이쪽으로 주시죠.
+
+selva/inn/26/choices/1/text
+오늘은 제가 천천히 먹지 않을게요.
+
+selva/inn/26/choices/1/response/0
+혀만 데지 마십시오. 또 급해지셨네요.
+
+selva/inn/26/choices/2/text
+그릇은 제가 옮길게요.
+
+selva/inn/26/choices/2/response/0
+기울이면 쏟아집니다. 조심하시죠.
+
+selva/inn/26/seen
+이번에는 바람이 그릇에 바로 닿지 않겠네요.
+
+selva/inn/27/situation
+셀바가 귀환 후 가방을 내려놓는다.
+
+selva/inn/27/lines/0
+짐은 내일 아침에 정리하겠습니다.
+
+selva/inn/27/lines/1
+씻고 밥부터 먹으려 합니다.
+
+selva/inn/27/lines/2
+아래서 조금 기다려 주시겠습니까?
+
+selva/inn/27/choices/0/text
+천천히 씻고 와요. 물부터 떠 둘게요.
+
+selva/inn/27/choices/0/response/0
+그러면 제가 그릇을 가져오죠.
+
+selva/inn/27/choices/1/text
+저도 잠깐 올라갔다 올게요.
+
+selva/inn/27/choices/1/response/0
+식당에서 다시 보겠습니다.
+
+selva/inn/27/choices/2/text
+매듭이 굳기 전에 지금 짐을 풀어 두죠.
+
+selva/inn/27/choices/2/response/0
+지금은 몸부터 씻고 싶습니다.
+
+selva/inn/27/choices/2/response/1
+짐은 내일까지 기다려도 되죠.
+
+selva/inn/27/seen
+이번에는 짐을 두고 밥 먹으러 가겠습니다.
+
+selva/dungeon/0/variants/0
+맡은 것은 챙겼습니다.
+
+selva/dungeon/0/variants/1
+출발 전에 짐을 봐 주시죠.
+
+selva/dungeon/1/variants/0
+오늘은 제가 이쪽을 들겠습니다.
+
+selva/dungeon/1/variants/1
+어깨 끈이 풀리면 말씀하시죠.
+
+selva/dungeon/2/variants/0
+돌아올 때까지 함께 가겠습니다.
+
+selva/dungeon/2/variants/1
+오늘도 잘 맞춰서 다녀옵시다.
+
+selva/dungeon/3/variants/0
+발 딛을 곳부터 보겠습니다.
+
+selva/dungeon/3/variants/1
+여기서는 보폭을 줄이시죠.
+
+selva/dungeon/4/variants/0
+서두르면 뒤가 못 따라옵니다.
+
+selva/dungeon/4/variants/1
+제 걸음에 맞추실 필요는 없습니다.
+
+selva/dungeon/5/variants/0
+잠깐 쉬어 가도 늦지 않겠죠.
+
+selva/dungeon/5/variants/1
+옆에서 걸으면 길이 잘 보이네요.
+
+selva/dungeon/6/variants/0
+어디에서 보셨는지 알려 주십시오.
+
+selva/dungeon/6/variants/1
+겉만 보고 만지진 마시죠.
+
+selva/dungeon/7/variants/0
+제 쪽에서도 보이는지 살피겠습니다.
+
+selva/dungeon/7/variants/1
+설명해 주시면 같이 보죠.
+
+selva/dungeon/8/variants/0
+궁금하긴 하네요. 가까이서 봅시다.
+
+selva/dungeon/8/variants/1
+나중에 헷갈리지 않게 잘 봐 두시죠.
+
+selva/dungeon/9/variants/0
+싸우는 동안은 집중하겠습니다.
+
+selva/dungeon/9/variants/1
+끝나고 얘기하시죠.
+
+selva/dungeon/10/variants/0
+먼저 뛰실 거면 한마디 하십시오.
+
+selva/dungeon/10/variants/1
+무리해서 다 맡지는 마시죠.
+
+selva/dungeon/11/variants/0
+제 쪽은 제가 보겠습니다.
+
+selva/dungeon/11/variants/1
+둘 다 돌아갈 힘은 남겨 둡시다.
+
+selva/dungeon/12/variants/0
+끝났다면 주변도 보겠습니다.
+
+selva/dungeon/12/variants/1
+짐을 다시 챙기시죠.
+
+selva/dungeon/13/variants/0
+한숨은 돌려도 되겠네요.
+
+selva/dungeon/13/variants/1
+손이 떨리면 잠깐 놓으십시오.
+
+selva/dungeon/14/variants/0
+돌아가서 밥은 넉넉히 먹죠.
+
+selva/dungeon/14/variants/1
+이번엔 제가 물부터 찾겠습니다.
+
+selva/dungeon/15/variants/0
+여기서 한번 멈추시죠.
+
+selva/dungeon/15/variants/1
+들어가기 전에 확인할 것이 있습니다.
+
+selva/dungeon/16/variants/0
+저도 긴장은 합니다.
+
+selva/dungeon/16/variants/1
+말 맞추고 움직이는 편이 낫겠죠.
+
+selva/dungeon/17/variants/0
+겁나면 잠깐 더 기다립시다.
+
+selva/dungeon/17/variants/1
+제가 서두르면 잡아 주십시오.
+
+selva/dungeon/18/variants/0
+확실히 끝났는지 보겠습니다.
+
+selva/dungeon/18/variants/1
+아직 어깨 힘이 안 빠지는군요.
+
+selva/dungeon/19/variants/0
+숨부터 고르고 짐을 들죠.
+
+selva/dungeon/19/variants/1
+길이 조용해졌는지도 듣겠습니다.
+
+selva/dungeon/20/variants/0
+이제야 밥 생각이 나는군요.
+
+selva/dungeon/20/variants/1
+돌아가면 국부터 먹고 싶네요.
+
+selva/dungeon/21/variants/0
+입술 색이 많이 옅어졌습니다.
+
+selva/dungeon/21/variants/1
+지금 더 버티실 생각입니까?
+
+selva/dungeon/22/variants/0
+제게 기대도 됩니다.
+
+selva/dungeon/22/variants/1
+짐은 잠깐 내려놓으시죠.
+
+selva/dungeon/23/variants/0
+아픈 곳은 숨기지 말고 말씀하십시오.
+
+selva/dungeon/23/variants/1
+같이 멈추면 되니 조급해 마시죠.
+
+selva/dungeon/24/variants/0
+움직일 수 있는지 먼저 보죠.
+
+selva/dungeon/24/variants/1
+이대로 두고 갈 수는 없습니다.
+
+selva/dungeon/25/variants/0
+제 쪽에서 다가가겠습니다.
+
+selva/dungeon/25/variants/1
+들어 올리기 전에 상태를 봅시다.
+
+selva/dungeon/26/variants/0
+여기서 같이 기다리겠습니다.
+
+selva/dungeon/26/variants/1
+서두르지 않으니 목소리부터 내 보시죠.
+
+selva/dungeon/27/variants/0
+움직임을 확인하겠습니다.
+
+selva/dungeon/27/variants/1
+괜찮은지는 아직 모릅니다.
+
+selva/dungeon/28/variants/0
+잠깐 팔을 쉬어야겠네요.
+
+selva/dungeon/28/variants/1
+이 짐은 조금만 받아 주시죠.
+
+selva/dungeon/29/variants/0
+오늘은 제 쪽도 봐 주십시오.
+
+selva/dungeon/29/variants/1
+참기 전에 말하는 게 낫겠죠.
+
+selva/dungeon/30/variants/0
+쉴 동안은 손을 놓겠습니다.
+
+selva/dungeon/30/variants/1
+물부터 조금 마시죠.
+
+selva/dungeon/31/variants/0
+짧아도 앉으니 낫네요.
+
+selva/dungeon/31/variants/1
+짐은 이쪽에 기대 두십시오.
+
+selva/dungeon/32/variants/0
+여기서는 일 얘기 좀 쉬어도 되겠죠.
+
+selva/dungeon/32/variants/1
+눈 좀 붙이실 거면 말씀하시죠.
+
+selva/dungeon/33/variants/0
+열리는지는 아직 모르겠습니다.
+
+selva/dungeon/33/variants/1
+확인 없이 당기진 마시죠.
+
+selva/dungeon/34/variants/0
+제가 아래쪽을 살펴보겠습니다.
+
+selva/dungeon/34/variants/1
+만질 곳을 정하고 손을 대죠.
+
+selva/dungeon/35/variants/0
+궁금해도 한 번 더 봅시다.
+
+selva/dungeon/35/variants/1
+제가 급해지면 멈추라고 하십시오.
+
+selva/dungeon/36/variants/0
+맡은 짐은 가져왔습니다.
+
+selva/dungeon/36/variants/1
+내려놓고 다시 세겠습니다.
+
+selva/dungeon/37/variants/0
+젖은 것은 먼저 꺼내시죠.
+
+selva/dungeon/37/variants/1
+밥 먹기 전에는 좀 씻어야겠네요.
+
+selva/dungeon/38/variants/0
+돌아오니 이 길이 반갑군요.
+
+selva/dungeon/38/variants/1
+오늘은 식당에서 조금 기다리겠습니다.
+
+selva/dungeon/39/variants/0
+지금은 빠질 길을 봐야 합니다.
+
+selva/dungeon/39/variants/1
+남은 힘부터 확인하시죠.
+
+selva/dungeon/40/variants/0
+혼자 남으려 하지는 마십시오.
+
+selva/dungeon/40/variants/1
+돌아갈 수 있는 방법을 찾죠.
+
+selva/dungeon/41/variants/0
+같이 물러나면 됩니다.
+
+selva/dungeon/41/variants/1
+얘기는 앉을 곳을 찾은 뒤에 합시다.
+
+selva/transitions/0/situation
+셀바가 치우던 종이를 다시 내려놓는다.
+
+selva/transitions/0/lines/0
+오늘 용건은 듣겠습니다.
+
+selva/transitions/0/lines/1
+길게 설명하실 필요는 없습니다.
+
+selva/transitions/1/situation
+셀바가 의자를 뒤로 민다.
+
+selva/transitions/1/lines/0
+그 부탁은 받지 않겠습니다.
+
+selva/transitions/1/lines/1
+오늘은 더 말씀하지 마시죠.
+
+selva/transitions/2/situation
+셀바가 의뢰 종이를 펼쳐 둔다.
+
+selva/transitions/2/lines/0
+이번엔 조건부터 같이 보겠습니다.
+
+selva/transitions/2/lines/1
+읽고 다른 점이 있으면 말씀하시죠.
+
+selva/transitions/3/situation
+셀바가 짐을 다시 나누어 둔다.
+
+selva/transitions/3/lines/0
+제가 맡은 것을 다시 확인하겠습니다.
+
+selva/transitions/3/lines/1
+나중에 더 얹지는 마십시오.
+
+selva/transitions/4/situation
+셀바가 느슨한 매듭을 고친다.
+
+selva/transitions/4/lines/0
+이 정도는 같이 묶죠.
+
+selva/transitions/4/lines/1
+끝을 잡아 주시면 금방 끝납니다.
+
+selva/transitions/5/situation
+셀바가 손을 거두고 묻는다.
+
+selva/transitions/5/lines/0
+오늘은 어디까지 맡길 생각이십니까?
+
+selva/transitions/5/lines/1
+먼저 정하고 손대겠습니다.
+
+selva/transitions/6/situation
+셀바가 식사를 마친 뒤에도 앉아 있다.
+
+selva/transitions/6/lines/0
+마렌토에 남은 얘기를 조금 해 볼까요?
+
+selva/transitions/6/lines/1
+설거지는 다 끝나고 나서 해도 되겠네요.
+
+selva/transitions/7/situation
+셀바가 잔을 먼저 치운다.
+
+selva/transitions/7/lines/0
+고향 얘기는 오늘 하지 않겠습니다.
+
+selva/transitions/7/lines/1
+필요한 일만 듣고 올라가죠.
+
+selva/transitions/8/situation
+셀바가 골목을 돌아 여관을 본다.
+
+selva/transitions/8/lines/0
+이제 여기 길도 제법 익숙합니다.
+
+selva/transitions/8/lines/1
+저는 이곳에서 계속 지내려 합니다.
+
+selva/transitions/9/situation
+셀바가 식탁을 정리하다 멈춘다.
+
+selva/transitions/9/lines/0
+오늘 저녁은 혼자 먹고 싶군요.
+
+selva/transitions/9/lines/1
+기다리시게 하지는 않겠습니다.
+
+selva/transitions/10/situation
+셀바가 내일 짐을 함께 묶는다.
+
+selva/transitions/10/lines/0
+돌아와서 푸는 것까지 제가 보겠습니다.
+
+selva/transitions/10/lines/1
+혼자 다 하시려 들지는 마시죠.
+
+selva/transitions/11/situation
+셀바가 묶던 끈을 내려놓는다.
+
+selva/transitions/11/lines/0
+오늘 약속한 것은 지키겠습니다.
+
+selva/transitions/11/lines/1
+다음 부탁은 지금 정하지 맙시다.
+
+selva/transitions/12/situation
+셀바가 먼저 물잔을 가져온다.
+
+selva/transitions/12/lines/0
+내려오실 것 같아 따라 뒀습니다.
+
+selva/transitions/12/lines/1
+국은 아직 안 시켰으니 같이 고르시죠.
+
+selva/transitions/13/situation
+셀바가 맞은편의 잔을 제자리로 돌린다.
+
+selva/transitions/13/lines/0
+내일은 조금 늦게 올 겁니다.
+
+selva/transitions/13/lines/1
+일이 끝나는 대로 내려오겠습니다.
+
+ornel/inn/0/situation
+오르넬이 활 옆에 손을 놓는다.
+
+ornel/inn/0/lines/0
+여기서 멈춰 주세요.
+
+ornel/inn/0/lines/1
+지금은 가까이 오지 않으셨으면 해요.
+
+ornel/inn/0/lines/2
+필요한 말은 들을 수 있어요.
+
+ornel/inn/0/choices/0/text
+내일 시각만 전할게요.
+
+ornel/inn/0/choices/0/response/0
+잊지 않고 나갈게요.
+
+ornel/inn/0/choices/1/text
+할 말이 더 있으니 조금 가까이 갈게요.
+
+ornel/inn/0/choices/1/response/0
+오늘은 혼자 있고 싶어요.
+
+ornel/inn/0/choices/1/response/1
+할 말은 거기서 해 주세요.
+
+ornel/inn/0/choices/2/text
+여기서 얘기할게요.
+
+ornel/inn/0/choices/2/response/0
+그 정도 떨어져 있으면 돼요.
+
+ornel/inn/0/seen
+그쪽에서도 제 말은 들리겠어요.
+
+ornel/inn/1/situation
+오르넬이 창문에서 몸을 돌린다.
+
+ornel/inn/1/lines/0
+밖을 보던 중이에요.
+
+ornel/inn/1/lines/1
+누구를 기다리는 건 아니에요.
+
+ornel/inn/1/lines/2
+무슨 일이세요?
+
+ornel/inn/1/choices/0/text
+창밖은 그만 보고 제 얘기 좀 들어요.
+
+ornel/inn/1/choices/0/response/0
+지금은 바람을 보고 있었어요.
+
+ornel/inn/1/choices/0/response/1
+조금만 더 보고 얘기하면 안 될까요?
+
+ornel/inn/1/choices/1/text
+불편하면 나중에 올게요.
+
+ornel/inn/1/choices/1/response/0
+급하지 않다면 그렇게 해 주세요.
+
+ornel/inn/1/choices/2/text
+주전자 쓰고 바로 나갈게요.
+
+ornel/inn/1/choices/2/response/0
+주전자는 식탁 끝에 있어요.
+
+ornel/inn/1/seen
+커튼은 그대로 두어도 괜찮아요.
+
+ornel/inn/2/situation
+오르넬이 소음이 큰 식탁을 피한다.
+
+ornel/inn/2/lines/0
+저쪽에서 자꾸 그릇이 부딪혀요.
+
+ornel/inn/2/lines/1
+깨지는 소리 같아서 돌아보게 돼요.
+
+ornel/inn/2/lines/2
+조금만 떨어져 앉을게요.
+
+ornel/inn/2/choices/0/text
+벽 쪽은 덜 울려요.
+
+ornel/inn/2/choices/0/response/0
+그럼 그쪽에서 먹어 볼게요.
+
+ornel/inn/2/choices/1/text
+오늘 사람이 많네요.
+
+ornel/inn/2/choices/1/response/0
+발소리도 평소보다 겹쳐 들려요.
+
+ornel/inn/2/choices/2/text
+며칠 참으면 무뎌질 거예요.
+
+ornel/inn/2/choices/2/response/0
+며칠인지는 아직 모르겠어요.
+
+ornel/inn/2/choices/2/response/1
+우선 오늘 저녁이 조용했으면 좋겠어요.
+
+ornel/inn/2/seen
+그릇 부딪히는 소리가 조금 잦아들었네요.
+
+ornel/inn/3/situation
+오르넬이 접힌 천을 들어 확인한다.
+
+ornel/inn/3/lines/0
+제 활은 제가 챙길게요.
+
+ornel/inn/3/lines/1
+손잡이를 감아 둔 천이 풀렸어요.
+
+ornel/inn/3/lines/2
+어디에 두셨는지 알려 주세요.
+
+ornel/inn/3/choices/0/text
+식탁 끝에서 봤어요.
+
+ornel/inn/3/choices/0/response/0
+떨어지지 않게 가져와야겠어요.
+
+ornel/inn/3/choices/1/text
+익숙해지면 서로 장비도 만져야죠.
+
+ornel/inn/3/choices/1/response/0
+아직은 제 손으로 보고 싶어요.
+
+ornel/inn/3/choices/1/response/1
+말씀 없이 건드리지는 말아 주세요.
+
+ornel/inn/3/choices/2/text
+천은 여기 있어요. 옮겨서 미안해요.
+
+ornel/inn/3/choices/2/response/0
+이제 제가 마저 감을게요.
+
+ornel/inn/3/seen
+천을 찾았으니 활은 제가 챙길 수 있어요.
+
+ornel/inn/4/situation
+오르넬이 발바닥에 묻은 먼지를 턴다.
+
+ornel/inn/4/lines/0
+돌길은 소리가 오래 남네요.
+
+ornel/inn/4/lines/1
+발을 디딜 때마다 뒤에서 따라와요.
+
+ornel/inn/4/lines/2
+숲에서는 이렇게 울리지 않았어요.
+
+ornel/inn/4/choices/0/text
+궁수시니 가볍게 뛰면 안 들리지 않을까요?
+
+ornel/inn/4/choices/0/response/0
+매번 뛰어다니면 금방 지치겠어요.
+
+ornel/inn/4/choices/0/response/1
+밥 먹으러 가는 길부터 편히 걷고 싶어요.
+
+ornel/inn/4/choices/1/text
+저도 보폭을 줄여 볼게요.
+
+ornel/inn/4/choices/1/response/0
+조금 느리게 걸으면 덜 부딪히겠어요.
+
+ornel/inn/4/choices/2/text
+길이 단단하긴 하죠.
+
+ornel/inn/4/choices/2/response/0
+저는 발뒤꿈치부터 닿게 되네요.
+
+ornel/inn/4/seen
+다음에는 조금 천천히 디뎌 볼게요.
+
+ornel/inn/5/situation
+오르넬이 여관 앞 방향을 살핀다.
+
+ornel/inn/5/lines/0
+같은 길로 온 줄 알았어요.
+
+ornel/inn/5/lines/1
+저 창문을 아까도 본 것 같아서요.
+
+ornel/inn/5/lines/2
+도시에서는 뭘 보고 길을 외우세요?
+
+ornel/inn/5/choices/0/text
+저는 모퉁이의 냄새로도 찾아요.
+
+ornel/inn/5/choices/0/response/0
+여기는 빵 냄새가 나는군요. 기억해 둘게요.
+
+ornel/inn/5/choices/1/text
+여관은 뒤쪽이에요.
+
+ornel/inn/5/choices/1/response/0
+이번에는 고개를 돌려 보고 갈게요.
+
+ornel/inn/5/choices/2/text
+혼자 돌아다니면 빨리 외우실 거예요.
+
+ornel/inn/5/choices/2/response/0
+돌아오는 길부터 알고 싶어요.
+
+ornel/inn/5/choices/2/response/1
+오늘은 함께 가 주시면 좋겠어요.
+
+ornel/inn/5/seen
+저 빵 냄새가 나는 쪽을 기억해 볼게요.
+
+ornel/inn/6/situation
+오르넬이 물잔을 조심히 든다.
+
+ornel/inn/6/lines/0
+손잡이 없는 잔은 이렇게 쥐면 되나요?
+
+ornel/inn/6/lines/1
+다들 아무렇지 않게 잡길래 따라 했어요.
+
+ornel/inn/6/lines/2
+손이 미끄러워서 조금 놀랐어요.
+
+ornel/inn/6/choices/0/text
+물은 많이 안 담겼어요.
+
+ornel/inn/6/choices/0/response/0
+넘치기 전에 내려놓을 수 있겠어요.
+
+ornel/inn/6/choices/1/text
+잔이 두꺼우니 떨어져도 잘 안 깨질 거예요.
+
+ornel/inn/6/choices/1/response/0
+떨어뜨리면 잔이 깨질 것 같아요.
+
+ornel/inn/6/choices/1/response/1
+천천히 익히고 싶어요.
+
+ornel/inn/6/choices/2/text
+밑을 받치면 덜 미끄러워요.
+
+ornel/inn/6/choices/2/response/0
+아, 이렇게 들면 안정되네요.
+
+ornel/inn/6/seen
+이제 손바닥으로 잔 밑을 받치고 있어요.
+
+ornel/inn/7/situation
+오르넬이 창문 아래 작은 화분을 본다.
+
+ornel/inn/7/lines/0
+잎이 한쪽으로 기울었어요.
+
+ornel/inn/7/lines/1
+빛이 저쪽에서만 드나 봐요.
+
+ornel/inn/7/lines/2
+돌려 놓아도 되는지 물어봐야겠어요.
+
+ornel/inn/7/choices/0/text
+좋아지게 해 주는 건데 그냥 돌려요.
+
+ornel/inn/7/choices/0/response/0
+키우는 분 생각이 있을 수 있어요.
+
+ornel/inn/7/choices/0/response/1
+한 번만 여쭤보고 싶어요.
+
+ornel/inn/7/choices/1/text
+주인께 제가 물어볼게요.
+
+ornel/inn/7/choices/1/response/0
+그동안 저는 잎이 꺾였는지 볼게요.
+
+ornel/inn/7/choices/2/text
+창문이 작긴 하네요.
+
+ornel/inn/7/choices/2/response/0
+오후에는 다른 쪽에도 볕이 들지 모르겠어요.
+
+ornel/inn/7/seen
+잎끝은 아직 마르지 않았네요.
+
+ornel/inn/8/situation
+오르넬이 신발 끈을 만진다.
+
+ornel/inn/8/lines/0
+이 매듭은 걸을 때 잘 안 풀리네요.
+
+ornel/inn/8/lines/1
+지난번에 보여 주신 대로 했어요.
+
+ornel/inn/8/lines/2
+숲에서 묶던 것보다 여기엔 낫겠어요.
+
+ornel/inn/8/choices/0/text
+오늘은 안 멈춰도 되겠네요.
+
+ornel/inn/8/choices/0/response/0
+끈 때문에 서 있던 시간은 줄겠어요.
+
+ornel/inn/8/choices/1/text
+저도 같은 매듭이에요.
+
+ornel/inn/8/choices/1/response/0
+끝을 안쪽으로 넣으면 덜 걸리겠어요.
+
+ornel/inn/8/choices/2/text
+이제 숲에서 쓰던 건 잊어도 되겠어요.
+
+ornel/inn/8/choices/2/response/0
+그건 숲에서 잘 썼어요.
+
+ornel/inn/8/choices/2/response/1
+길에 맞춰 다르게 묶으면 돼요.
+
+ornel/inn/8/seen
+오늘 끈은 아직 한 번도 안 풀렸어요.
+
+ornel/inn/9/situation
+오르넬이 창가를 향해 걷다 멈춘다.
+
+ornel/inn/9/lines/0
+저쪽 창틀은 제가 나중에 볼게요.
+
+ornel/inn/9/lines/1
+먼지가 좀 움직인 것 같아서요.
+
+ornel/inn/9/lines/2
+아니, 아무것도 아닐 수도 있어요.
+
+ornel/inn/9/choices/0/text
+여기서도 바람은 들어와요.
+
+ornel/inn/9/choices/0/response/0
+그럼 당장 저기 갈 필요는 없겠어요.
+
+ornel/inn/9/choices/1/text
+저는 잘 안 보이니 가까이 가서 좀 봐 주세요.
+
+ornel/inn/9/choices/1/response/0
+오늘은 가까이 보고 싶지 않아요.
+
+ornel/inn/9/choices/1/response/1
+커튼 너머도 잘 안 보이네요.
+
+ornel/inn/9/choices/2/text
+제가 창틀을 볼까요?
+
+ornel/inn/9/choices/2/response/0
+그러면 저는 커튼을 잡아 둘게요.
+
+ornel/inn/9/seen
+커튼은 멀리서도 잡을 수 있겠어요.
+
+ornel/inn/10/situation
+오르넬이 작은 소리에 귀를 기울인다.
+
+ornel/inn/10/lines/0
+저 소리는 식당에서 나는 건가요?
+
+ornel/inn/10/lines/1
+벽 너머라 방향이 헷갈려요.
+
+ornel/inn/10/lines/2
+매번 일어나 보기도 민망해요.
+
+ornel/inn/10/choices/0/text
+궁수라면 그런 소리는 구별해야 하지 않나요?
+
+ornel/inn/10/choices/0/response/0
+숲에서 듣던 것과 달라요.
+
+ornel/inn/10/choices/0/response/1
+여기 소리는 아직 배우는 중이에요.
+
+ornel/inn/10/choices/1/text
+저도 듣고 있었어요. 그릇 씻는 소리예요.
+
+ornel/inn/10/choices/1/response/0
+이제 물소리도 같이 들리네요.
+
+ornel/inn/10/choices/2/text
+잠시 뒤에 조용해질 거예요.
+
+ornel/inn/10/choices/2/response/0
+그럼 앉아서 기다려 볼게요.
+
+ornel/inn/10/seen
+물소리가 나니 이제 어디인지 알겠어요.
+
+ornel/inn/11/situation
+오르넬이 장터 쪽을 가리킨다.
+
+ornel/inn/11/lines/0
+저 골목에서 다들 걸음을 멈추네요.
+
+ornel/inn/11/lines/1
+파는 물건을 보고 싶기도 해요.
+
+ornel/inn/11/lines/2
+한참 구경만 해도 혼나지 않나요?
+
+ornel/inn/11/choices/0/text
+구경만 해도 돼요. 같이 가 봐요.
+
+ornel/inn/11/choices/0/response/0
+그럼 바로 대답할 말을 찾지 않아도 되겠어요.
+
+ornel/inn/11/choices/1/text
+저는 여기서 기다릴게요.
+
+ornel/inn/11/choices/1/response/0
+멀리 가지 않고 보고 올게요.
+
+ornel/inn/11/choices/2/text
+저 대신 물건 값도 물어봐 주세요.
+
+ornel/inn/11/choices/2/response/0
+저는 구경하러 가고 싶어요.
+
+ornel/inn/11/choices/2/response/1
+값은 직접 물어봐 주세요.
+
+ornel/inn/11/seen
+이번에는 멀리서만 보지 않아도 되겠어요.
+
+ornel/inn/12/situation
+오르넬이 팔목 보호대를 고쳐 맨다.
+
+ornel/inn/12/lines/0
+은가지 감시대에서도 이걸 썼어요.
+
+ornel/inn/12/lines/1
+나무껍질을 엮어 만든 거예요.
+
+ornel/inn/12/lines/2
+낡은 데는 제 손으로 덧대곤 했어요.
+
+ornel/inn/12/choices/0/text
+가벼워 보이네요.
+
+ornel/inn/12/choices/0/response/0
+젖지 않으면 무겁지 않아요.
+
+ornel/inn/12/choices/1/text
+쇠로 바꾸면 더 든든할 것 같아요.
+
+ornel/inn/12/choices/1/response/0
+이걸 쓰는 데 익숙해요.
+
+ornel/inn/12/choices/1/response/1
+새것을 고를 생각은 아직 없어요.
+
+ornel/inn/12/choices/2/text
+어디를 덧댔는지 보여 주세요.
+
+ornel/inn/12/choices/2/response/0
+안쪽을 보면 색이 조금 달라요.
+
+ornel/inn/12/seen
+이쪽 엮인 색이 다른 데가 고친 부분이에요.
+
+ornel/inn/13/situation
+오르넬이 주위를 보고 목소리를 낮춘다.
+
+ornel/inn/13/lines/0
+순찰대에서는 다들 알아요.
+
+ornel/inn/13/lines/1
+저는 거미나 지네를 잘 못 봐요.
+
+ornel/inn/13/lines/2
+손이 굳어서 시위를 놓칠 때도 있어요.
+
+ornel/inn/13/choices/0/text
+매일 한 마리씩 보면 익숙해지지 않을까요?
+
+ornel/inn/13/choices/0/response/0
+숲에서도 오래 봤어요.
+
+ornel/inn/13/choices/0/response/1
+일부러 더 보고 싶지는 않아요.
+
+ornel/inn/13/choices/1/text
+그럴 때는 제가 옆을 볼게요.
+
+ornel/inn/13/choices/1/response/0
+미리 말해 두니 조금 덜 겁나요.
+
+ornel/inn/13/choices/2/text
+다른 벌레도 무서워요?
+
+ornel/inn/13/choices/2/response/0
+한꺼번에 많이 움직이면 더 어려워요.
+
+ornel/inn/13/seen
+이 이야기는 식당에서 크게 하진 말아 주세요.
+
+ornel/inn/14/situation
+오르넬이 테이리스가 갔던 쪽을 본다.
+
+ornel/inn/14/lines/0
+테이리스와 멀리까지 나왔네요.
+
+ornel/inn/14/lines/1
+호위하러 따라올 때는 길만 생각했어요.
+
+ornel/inn/14/lines/2
+식당에서 주문하는 일도 어려울 줄은 몰랐어요.
+
+ornel/inn/14/choices/0/text
+오늘 주문은 어제보다 빨랐어요.
+
+ornel/inn/14/choices/0/response/0
+먹어 본 걸 골랐더니 말이 바로 나왔어요.
+
+ornel/inn/14/choices/1/text
+테이리스 씨는 곧 오겠죠.
+
+ornel/inn/14/choices/1/response/0
+오면 같이 먹으려고 해요.
+
+ornel/inn/14/choices/2/text
+호위하러 왔으니 잡일은 맡기셔도 돼요.
+
+ornel/inn/14/choices/2/response/0
+제 밥은 제가 시키고 싶어요.
+
+ornel/inn/14/choices/2/response/1
+그분도 밖에서는 처음인 게 많아요.
+
+ornel/inn/14/seen
+다음에는 다른 음식도 한 번 시켜 볼게요.
+
+ornel/inn/15/situation
+오르넬이 나무 의자의 흠을 만진다.
+
+ornel/inn/15/lines/0
+숲에서는 나무를 볼 때 먼저 규약을 떠올렸어요.
+
+ornel/inn/15/lines/1
+밖에서는 이유를 다시 묻게 돼요.
+
+ornel/inn/15/lines/2
+이 의자도 누군가는 나무를 베어 만들었겠죠.
+
+ornel/inn/15/choices/0/text
+이 의자는 오래 썼나 봐요.
+
+ornel/inn/15/choices/0/response/0
+새로 깎은 자국은 없네요.
+
+ornel/inn/15/choices/1/text
+밖에 나왔으니 규약은 잠깐 잊으세요.
+
+ornel/inn/15/choices/1/response/0
+지키던 규약이니 계속 생각나네요.
+
+ornel/inn/15/choices/1/response/1
+왜 지켰는지 생각하면서 다니고 싶어요.
+
+ornel/inn/15/choices/2/text
+어디까지 괜찮은지 저도 궁금해요.
+
+ornel/inn/15/choices/2/response/0
+저도 아직은 대답을 오래 고르게 돼요.
+
+ornel/inn/15/seen
+이 흠은 누가 오래 기대앉아서 났을까요?
+
+ornel/inn/16/situation
+오르넬이 벽 쪽을 보며 손을 내민다.
+
+ornel/inn/16/lines/0
+저기 지나갈 때만 손을 잡아 주세요.
+
+ornel/inn/16/lines/1
+위쪽을 자꾸 보게 돼서요.
+
+ornel/inn/16/lines/2
+바닥을 못 보고 걸을 것 같아요.
+
+ornel/inn/16/choices/0/text
+손을 놓고 한 번만 혼자 지나가 봐요.
+
+ornel/inn/16/choices/0/response/0
+오늘은 혼자 저 벽을 지나고 싶진 않아요.
+
+ornel/inn/16/choices/0/response/1
+부탁한 대로 조금만 같이 가 주세요.
+
+ornel/inn/16/choices/1/text
+제가 옆에서 같이 걸을게요.
+
+ornel/inn/16/choices/1/response/0
+너무 빨리만 가지 말아 주세요.
+
+ornel/inn/16/choices/2/text
+다른 길로 돌아갈까요?
+
+ornel/inn/16/choices/2/response/0
+돌아갈 수 있으면 그것도 좋아요.
+
+ornel/inn/16/seen
+저 벽만 지나면 손을 놓아도 괜찮겠어요.
+
+ornel/inn/17/situation
+오르넬이 먼저 식당으로 들어온다.
+
+ornel/inn/17/lines/0
+혼자 길을 찾아왔어요.
+
+ornel/inn/17/lines/1
+빵 냄새가 나는 곳에서 꺾었죠.
+
+ornel/inn/17/lines/2
+돌아가는 길도 이제 알겠어요.
+
+ornel/inn/17/choices/0/text
+다음에는 빵 냄새 나는 골목에서 만나요.
+
+ornel/inn/17/choices/0/response/0
+그럼 제가 잘 아는 쪽으로 걸어요.
+
+ornel/inn/17/choices/1/text
+벌써 와 계셨네요.
+
+ornel/inn/17/choices/1/response/0
+사람이 덜 많을 때 나왔어요.
+
+ornel/inn/17/choices/2/text
+다음에는 더 먼 길도 혼자 다녀와 보세요.
+
+ornel/inn/17/choices/2/response/0
+아직 모르는 길이 더 많아요.
+
+ornel/inn/17/choices/2/response/1
+오늘 온 길은 기억할 수 있겠어요.
+
+ornel/inn/17/seen
+다음에는 그 골목에서 기다릴게요.
+
+ornel/inn/18/situation
+오르넬이 창문을 반쯤 닫는다.
+
+ornel/inn/18/lines/0
+여기서 바람을 듣는 것도 좋아졌어요.
+
+ornel/inn/18/lines/1
+나뭇잎 소리는 적지만요.
+
+ornel/inn/18/lines/2
+아는 사람이 돌아오는 소리가 들려요.
+
+ornel/inn/18/choices/0/text
+오늘 바람은 차네요.
+
+ornel/inn/18/choices/0/response/0
+반만 닫으면 덜 차가울 거예요.
+
+ornel/inn/18/choices/1/text
+숲 얘기는 접고 토르바에서 지낼 생각만 해요.
+
+ornel/inn/18/choices/1/response/0
+숲은 여전히 그리워요.
+
+ornel/inn/18/choices/1/response/1
+지금은 여기서 기다려 주는 사람도 있어요.
+
+ornel/inn/18/choices/2/text
+제 걸음도 알아보셨어요?
+
+ornel/inn/18/choices/2/response/0
+계단에서 잠깐 멈추는 소리가 났어요.
+
+ornel/inn/18/seen
+계단에서 멈추셨길래 금방 들어오실 줄 알았어요.
+
+ornel/inn/19/situation
+오르넬이 식탁에 두 잔을 놓는다.
+
+ornel/inn/19/lines/0
+혼자 있을 때는 물만 마시고 올라갔어요.
+
+ornel/inn/19/lines/1
+오늘은 조금 더 앉아 있을래요.
+
+ornel/inn/19/lines/2
+무슨 이야기 하시던 중이었어요?
+
+ornel/inn/19/choices/0/text
+힘드실 텐데 억지로 말 안 하셔도 돼요.
+
+ornel/inn/19/choices/0/response/0
+아까 웃으시던 이야기가 궁금해서 왔어요.
+
+ornel/inn/19/choices/0/response/1
+조금은 저도 얘기할 수 있고요.
+
+ornel/inn/19/choices/1/text
+별일 없었는데, 골목에서 길을 잘못 들었어요.
+
+ornel/inn/19/choices/1/response/0
+어느 쪽이었어요? 저도 헷갈린 곳일지 몰라요.
+
+ornel/inn/19/choices/2/text
+저도 방금 내려왔어요.
+
+ornel/inn/19/choices/2/response/0
+그럼 이제부터 같이 앉아 있어요.
+
+ornel/inn/19/seen
+하던 이야기가 있으면 계속 들려주세요.
+
+ornel/inn/20/situation
+오르넬이 일행의 발소리를 듣는다.
+
+ornel/inn/20/lines/0
+내일은 뒤에서만 걷지 않을게요.
+
+ornel/inn/20/lines/1
+옆에서 길을 보고 싶어요.
+
+ornel/inn/20/lines/2
+놓친 소리가 있으면 서로 알려 줘요.
+
+ornel/inn/20/choices/0/text
+저도 이상하면 바로 말할게요.
+
+ornel/inn/20/choices/0/response/0
+알아듣기 어렵게 손짓만 하지는 않을게요.
+
+ornel/inn/20/choices/1/text
+출발할 때 부를게요.
+
+ornel/inn/20/choices/1/response/0
+끈을 묶고 내려와 있을게요.
+
+ornel/inn/20/choices/2/text
+위험은 제가 볼 테니 편히 따라오세요.
+
+ornel/inn/20/choices/2/response/0
+저도 도울 수 있어요.
+
+ornel/inn/20/choices/2/response/1
+함께 살피는 게 더 편할 것 같아요.
+
+ornel/inn/20/seen
+오늘은 놓친 소리가 있었는지 더 생각해 볼게요.
+
+ornel/inn/21/situation
+오르넬이 창틀에서 시선을 뗀다.
+
+ornel/inn/21/lines/0
+아까는 제가 먼저 물러났어요.
+
+ornel/inn/21/lines/1
+그래도 전처럼 말없이 사라지진 않았죠.
+
+ornel/inn/21/lines/2
+불러 주셔서 돌아올 수 있었어요.
+
+ornel/inn/21/choices/0/text
+지금은 괜찮으세요?
+
+ornel/inn/21/choices/0/response/0
+이제 손은 움직여요.
+
+ornel/inn/21/choices/1/text
+다음에는 물러나지 않으면 더 좋겠네요.
+
+ornel/inn/21/choices/1/response/0
+물러날 때도 있을 거예요.
+
+ornel/inn/21/choices/1/response/1
+그때는 어디로 가는지 말해 볼게요.
+
+ornel/inn/21/choices/2/text
+오르넬 씨가 대답해 줘서 찾았어요.
+
+ornel/inn/21/choices/2/response/0
+다음에도 목소리는 낼 수 있으면 좋겠어요.
+
+ornel/inn/21/seen
+아까처럼 부르면 들을 수 있을 거예요.
+
+ornel/inn/22/situation
+오르넬이 창문 옆 자리를 비운다.
+
+ornel/inn/22/lines/0
+혼자 앉아 있기엔 의자가 두 개네요.
+
+ornel/inn/22/lines/1
+이쪽은 소리가 덜 울려요.
+
+ornel/inn/22/lines/2
+같이 앉으실래요?
+
+ornel/inn/22/choices/0/text
+오늘은 다른 분들과도 얘기해 보세요.
+
+ornel/inn/22/choices/0/response/0
+지금은 여기서 쉬고 싶어요.
+
+ornel/inn/22/choices/0/response/1
+사람들하고 말할 때는 제가 가 볼게요.
+
+ornel/inn/22/choices/1/text
+저는 벽 쪽에 앉을게요.
+
+ornel/inn/22/choices/1/response/0
+그럼 저는 창문 쪽을 볼게요.
+
+ornel/inn/22/choices/2/text
+잠깐 물부터 떠 올게요.
+
+ornel/inn/22/choices/2/response/0
+제 잔은 아직 조금 남았어요.
+
+ornel/inn/22/seen
+이쪽에서는 말소리도 조금 작게 들려요.
+
+ornel/inn/23/situation
+오르넬이 길가의 가지를 피해 걷는다.
+
+ornel/inn/23/lines/0
+나뭇가지가 낮게 나왔어요.
+
+ornel/inn/23/lines/1
+밟으면 부러지겠네요.
+
+ornel/inn/23/lines/2
+이쪽으로 조금만 돌아가요.
+
+ornel/inn/23/choices/0/text
+네, 발밑을 같이 볼게요.
+
+ornel/inn/23/choices/0/response/0
+좁아도 둘이 지나갈 수는 있겠어요.
+
+ornel/inn/23/choices/1/text
+저는 뒤에서 갈게요.
+
+ornel/inn/23/choices/1/response/0
+땅이 젖은 곳만 조심해요.
+
+ornel/inn/23/choices/2/text
+통행에 불편하니 가지를 잘라 두면 좋겠어요.
+
+ornel/inn/23/choices/2/response/0
+발을 옮기면 지나갈 수 있어요.
+
+ornel/inn/23/choices/2/response/1
+오늘은 꺾지 않고 가고 싶어요.
+
+ornel/inn/23/seen
+한 발만 옆으로 디디면 가지를 피할 수 있어요.
+
+ornel/inn/24/situation
+오르넬이 먼저 아침 인사를 한다.
+
+ornel/inn/24/lines/0
+오늘은 계단 소리로 알았어요.
+
+ornel/inn/24/lines/1
+문을 두 번 두드리지 않아도 돼요.
+
+ornel/inn/24/lines/2
+아직 얼굴은 좀 졸려 보이네요.
+
+ornel/inn/24/choices/0/text
+아직 덜 깼어요.
+
+ornel/inn/24/choices/0/response/0
+물부터 천천히 마셔요.
+
+ornel/inn/24/choices/1/text
+걸음만으로 기분도 다 알 수 있겠네요.
+
+ornel/inn/24/choices/1/response/0
+그건 물어봐야 알아요.
+
+ornel/inn/24/choices/1/response/1
+오늘은 많이 졸리신가 했어요.
+
+ornel/inn/24/choices/2/text
+제 발소리가 그렇게 시끄러워요?
+
+ornel/inn/24/choices/2/response/0
+시끄럽진 않아요. 조금 끌고 걸으세요.
+
+ornel/inn/24/seen
+발을 끌고 오셔서 졸린 줄 알았어요.
+
+ornel/inn/25/situation
+오르넬이 접시를 가운데로 옮긴다.
+
+ornel/inn/25/lines/0
+이 음식은 처음보다 덜 낯설어요.
+
+ornel/inn/25/lines/1
+처음에는 어디부터 먹나 보고 있었죠.
+
+ornel/inn/25/lines/2
+오늘은 제가 먼저 덜어 드릴까요?
+
+ornel/inn/25/choices/0/text
+처음에 서툴렀던 얘기는 그만해도 돼요.
+
+ornel/inn/25/choices/0/response/0
+저는 지금 웃으면서 할 수 있어요.
+
+ornel/inn/25/choices/0/response/1
+그때는 정말 접시만 보고 있었거든요.
+
+ornel/inn/25/choices/1/text
+지난번보다 조금만 적게 주세요.
+
+ornel/inn/25/choices/1/response/0
+다 드신 다음에 더 덜면 되겠어요.
+
+ornel/inn/25/choices/2/text
+저는 아직 물 마셔요.
+
+ornel/inn/25/choices/2/response/0
+그럼 접시는 여기 둘게요.
+
+ornel/inn/25/seen
+오늘은 덜어 놓은 음식부터 먹을게요.
+
+ornel/inn/26/situation
+오르넬이 저녁 거리를 천천히 걷는다.
+
+ornel/inn/26/lines/0
+숲으로 돌아갈 때도 이 길은 기억할 거예요.
+
+ornel/inn/26/lines/1
+처음에는 너무 시끄러웠는데요.
+
+ornel/inn/26/lines/2
+지금은 어느 소리가 없어졌나 듣게 돼요.
+
+ornel/inn/26/choices/0/text
+오늘은 식당 쪽이 조용하네요.
+
+ornel/inn/26/choices/0/response/0
+설거지가 벌써 끝났나 봐요.
+
+ornel/inn/26/choices/1/text
+걷기 좋은 저녁이네요.
+
+ornel/inn/26/choices/1/response/0
+돌도 낮보다 덜 따뜻해요.
+
+ornel/inn/26/choices/2/text
+그럼 언젠가 숲보다 여기가 더 좋겠어요.
+
+ornel/inn/26/choices/2/response/0
+그건 골라 말하기 어렵네요.
+
+ornel/inn/26/choices/2/response/1
+오늘 여기 걷는 게 좋기는 해요.
+
+ornel/inn/26/seen
+평소 들리던 그릇 소리가 오늘은 안 나네요.
+
+ornel/inn/27/situation
+오르넬이 창문을 확인하고 돌아온다.
+
+ornel/inn/27/lines/0
+아까는 제가 창틀을 봤어요.
+
+ornel/inn/27/lines/1
+아무것도 없었어요.
+
+ornel/inn/27/lines/2
+그래도 잘 때 또 보고 싶어질지 몰라요.
+
+ornel/inn/27/choices/0/text
+지금은 창문을 닫을까요?
+
+ornel/inn/27/choices/0/response/0
+바람이 차니 닫아도 좋겠어요.
+
+ornel/inn/27/choices/1/text
+저는 올라갈 테니 잘 때 창문은 혼자 확인하세요.
+
+ornel/inn/27/choices/1/response/0
+아직 손이 떨려요.
+
+ornel/inn/27/choices/1/response/1
+잠들기 전엔 같이 봐 주셨으면 해요.
+
+ornel/inn/27/choices/2/text
+그때도 같이 한 번 보면 되죠.
+
+ornel/inn/27/choices/2/response/0
+그러면 잠들기 전에 부를게요.
+
+ornel/inn/27/seen
+잠들기 전에는 창문 아래도 한 번 볼게요.
+
+ornel/dungeon/0/variants/0
+신발 끈은 다 묶었어요.
+
+ornel/dungeon/0/variants/1
+저는 뒤쪽 길도 보고 갈게요.
+
+ornel/dungeon/1/variants/0
+오늘은 제가 모퉁이를 먼저 볼게요.
+
+ornel/dungeon/1/variants/1
+발소리가 가까우면 알려 주세요.
+
+ornel/dungeon/2/variants/0
+같이 걷는 속도를 이제 알겠어요.
+
+ornel/dungeon/2/variants/1
+돌아오면 이 길로 다시 가요.
+
+ornel/dungeon/3/variants/0
+공기가 전보다 차네요.
+
+ornel/dungeon/3/variants/1
+발밑이 어떻게 울리는지 들어 볼게요.
+
+ornel/dungeon/4/variants/0
+한 번 디디고 지나갈게요.
+
+ornel/dungeon/4/variants/1
+저 뒤쪽 소리도 같이 들어 주세요.
+
+ornel/dungeon/5/variants/0
+제 발이 멈추면 잠깐 불러 주세요.
+
+ornel/dungeon/5/variants/1
+여기는 나란히 걸어도 되겠어요.
+
+ornel/dungeon/6/variants/0
+보이는 만큼만 말해 줄래요?
+
+ornel/dungeon/6/variants/1
+저도 방향을 바꿔서 볼게요.
+
+ornel/dungeon/7/variants/0
+움직임이 있는지 잠깐 지켜봐요.
+
+ornel/dungeon/7/variants/1
+만지기 전에 가까이서 봐도 될까요?
+
+ornel/dungeon/8/variants/0
+못 본 건 서로 알려 주면 되죠.
+
+ornel/dungeon/8/variants/1
+옆에서 보니 아까와 조금 다르네요.
+
+ornel/dungeon/9/variants/0
+활은 준비됐어요.
+
+ornel/dungeon/9/variants/1
+제 앞을 지나갈 땐 말해 주세요.
+
+ornel/dungeon/10/variants/0
+지금은 손이 떨리지 않아요.
+
+ornel/dungeon/10/variants/1
+가까이 오면 제가 먼저 알려 줄게요.
+
+ornel/dungeon/11/variants/0
+제 쪽도 보고 있으니 혼자 다 막지 마요.
+
+ornel/dungeon/11/variants/1
+끝난 뒤에는 같이 숨 좀 돌려요.
+
+ornel/dungeon/12/variants/0
+아직 시위는 풀지 않을게요.
+
+ornel/dungeon/12/variants/1
+다른 소리가 있는지 듣고 있어요.
+
+ornel/dungeon/13/variants/0
+조금만 더 듣고 움직여요.
+
+ornel/dungeon/13/variants/1
+저도 이제 어깨를 내릴게요.
+
+ornel/dungeon/14/variants/0
+다들 목소리가 들리니 안심돼요.
+
+ornel/dungeon/14/variants/1
+돌아가면 조용한 데서 물 마셔요.
+
+ornel/dungeon/15/variants/0
+안쪽은 아직 잘 안 보여요.
+
+ornel/dungeon/15/variants/1
+바로 들어가지 않아도 되죠?
+
+ornel/dungeon/16/variants/0
+잠깐만 손을 풀어 볼게요.
+
+ornel/dungeon/16/variants/1
+제가 못 보는 쪽을 알려 주세요.
+
+ornel/dungeon/17/variants/0
+떨리는 동안만 옆에 있어 주세요.
+
+ornel/dungeon/17/variants/1
+한 번 더 숨 쉬고 들어가요.
+
+ornel/dungeon/18/variants/0
+눈으로 끝난 걸 더 확인할게요.
+
+ornel/dungeon/18/variants/1
+조용해져도 조금 기다려 봐요.
+
+ornel/dungeon/19/variants/0
+활을 내리니 팔이 뻐근하네요.
+
+ornel/dungeon/19/variants/1
+다른 분들 있는 쪽으로 갈게요.
+
+ornel/dungeon/20/variants/0
+목소리를 듣고서야 돌아보게 되네요.
+
+ornel/dungeon/20/variants/1
+이제 같이 나갈 길을 찾아요.
+
+ornel/dungeon/21/variants/0
+걸음이 달라졌어요.
+
+ornel/dungeon/21/variants/1
+잠깐 멈춰도 괜찮아요.
+
+ornel/dungeon/22/variants/0
+등에 멘 걸 조금 내려놔요.
+
+ornel/dungeon/22/variants/1
+제 쪽으로 기대도 돼요.
+
+ornel/dungeon/23/variants/0
+아프면 바로 말해 줘요.
+
+ornel/dungeon/23/variants/1
+같이 천천히 가면 될 것 같아요.
+
+ornel/dungeon/24/variants/0
+먼저 목소리가 들리는지 볼게요.
+
+ornel/dungeon/24/variants/1
+함부로 움직이지는 말아 주세요.
+
+ornel/dungeon/25/variants/0
+제가 옆에서 기다리고 있어요.
+
+ornel/dungeon/25/variants/1
+손이 움직이면 조금만 보여 줘요.
+
+ornel/dungeon/26/variants/0
+지금은 제가 불러 드릴게요.
+
+ornel/dungeon/26/variants/1
+혼자 일어나려 하지 않아도 돼요.
+
+ornel/dungeon/27/variants/0
+어느 쪽이 불편한지 볼게요.
+
+ornel/dungeon/27/variants/1
+아직 활을 당기지는 않겠어요.
+
+ornel/dungeon/28/variants/0
+팔이 조금 굳었어요.
+
+ornel/dungeon/28/variants/1
+잠깐 제 짐을 받아 줄래요?
+
+ornel/dungeon/29/variants/0
+팔이 아파서 잠깐 쉬고 싶어요.
+
+ornel/dungeon/29/variants/1
+움직여 보기 전에 곁에 있어 주세요.
+
+ornel/dungeon/30/variants/0
+바람이 덜 드는 쪽에 앉을게요.
+
+ornel/dungeon/30/variants/1
+신발 안을 한 번 털고 싶어요.
+
+ornel/dungeon/31/variants/0
+잠깐은 아무 소리 안 들어도 되겠죠?
+
+ornel/dungeon/31/variants/1
+물 마실 때는 활을 내려놓을게요.
+
+ornel/dungeon/32/variants/0
+기대앉으니 돌소리도 덜 들리네요.
+
+ornel/dungeon/32/variants/1
+지금은 같이 조용히 있어도 좋아요.
+
+ornel/dungeon/33/variants/0
+틈새를 먼저 살펴볼게요.
+
+ornel/dungeon/33/variants/1
+가까이 가기 전에 잠깐 기다려요.
+
+ornel/dungeon/34/variants/0
+저 아래쪽은 먼저 봐 주실래요?
+
+ornel/dungeon/34/variants/1
+저는 위에서 움직이는 게 있는지 볼게요.
+
+ornel/dungeon/35/variants/0
+손이 멈추면 조금만 불러 주세요.
+
+ornel/dungeon/35/variants/1
+같이 보고 나서 열 수 있는지 정해요.
+
+ornel/dungeon/36/variants/0
+여기서부터는 아는 길이에요.
+
+ornel/dungeon/36/variants/1
+사람 소리가 다시 들리네요.
+
+ornel/dungeon/37/variants/0
+제가 식당 가는 쪽을 안내할게요.
+
+ornel/dungeon/37/variants/1
+오늘은 신발이 덜 울리는 길로 가요.
+
+ornel/dungeon/38/variants/0
+돌아오는 발소리도 익숙해졌어요.
+
+ornel/dungeon/38/variants/1
+아래서 기다리면 곧 내려오실 거죠?
+
+ornel/dungeon/39/variants/0
+지나온 길을 떠올려 볼게요.
+
+ornel/dungeon/39/variants/1
+지금은 활보다 발밑을 봐야겠어요.
+
+ornel/dungeon/40/variants/0
+서로 보이는 쪽으로 붙어 가요.
+
+ornel/dungeon/40/variants/1
+뒤를 볼 때는 제가 말할게요.
+
+ornel/dungeon/41/variants/0
+제 목소리 들리면 그쪽으로 와요.
+
+ornel/dungeon/41/variants/1
+쉬게 되면 같이 물부터 마셔요.
+
+ornel/transitions/0/situation
+오르넬이 창문에서 고개를 돌린다.
+
+ornel/transitions/0/lines/0
+잠깐은 들을 수 있어요.
+
+ornel/transitions/0/lines/1
+여기서 얘기해 주세요.
+
+ornel/transitions/1/situation
+오르넬이 활을 자기 곁으로 옮긴다.
+
+ornel/transitions/1/lines/0
+오늘은 가까이 오지 말아 주세요.
+
+ornel/transitions/1/lines/1
+나중에 제가 말씀드릴게요.
+
+ornel/transitions/2/situation
+오르넬이 식당 길을 가리킨다.
+
+ornel/transitions/2/lines/0
+이 길이 맞는지 물어봐도 돼요?
+
+ornel/transitions/2/lines/1
+아까는 다른 골목으로 갔어요.
+
+ornel/transitions/3/situation
+오르넬이 한 걸음 뒤로 선다.
+
+ornel/transitions/3/lines/0
+오늘은 혼자 보고 올게요.
+
+ornel/transitions/3/lines/1
+제 물건은 그대로 두어 주세요.
+
+ornel/transitions/4/situation
+오르넬이 발소리에 귀를 기울인다.
+
+ornel/transitions/4/lines/0
+이 소리는 어디서 나는 거예요?
+
+ornel/transitions/4/lines/1
+같이 들어 주시면 좋겠어요.
+
+ornel/transitions/5/situation
+오르넬이 묻던 말을 멈춘다.
+
+ornel/transitions/5/lines/0
+길은 제가 다시 찾아볼게요.
+
+ornel/transitions/5/lines/1
+오늘은 먼저 들어가세요.
+
+ornel/transitions/6/situation
+오르넬이 목소리를 낮춘다.
+
+ornel/transitions/6/lines/0
+순찰대 동료들은 아는 이야기예요.
+
+ornel/transitions/6/lines/1
+저는 다리 많은 것을 잘 못 봐요.
+
+ornel/transitions/7/situation
+오르넬이 잔을 내려놓는다.
+
+ornel/transitions/7/lines/0
+그때 얘기는 잠깐 멈출래요.
+
+ornel/transitions/7/lines/1
+지금은 평소처럼 길만 같이 가요.
+
+ornel/transitions/8/situation
+오르넬이 나란히 걷다가 손을 내민다.
+
+ornel/transitions/8/lines/0
+저 벽을 지날 때만 잡아 줄래요?
+
+ornel/transitions/8/lines/1
+이제는 부탁해도 될 것 같아요.
+
+ornel/transitions/9/situation
+오르넬이 내밀려던 손을 거둔다.
+
+ornel/transitions/9/lines/0
+오늘은 다른 길로 가고 싶어요.
+
+ornel/transitions/9/lines/1
+조금 돌아가더라도 괜찮을까요?
+
+ornel/transitions/10/situation
+오르넬이 먼저 걷는 속도를 늦춘다.
+
+ornel/transitions/10/lines/0
+소리 없이 멀어지진 않을게요.
+
+ornel/transitions/10/lines/1
+제가 멈추면 한 번 불러 주세요.
+
+ornel/transitions/11/situation
+오르넬이 모퉁이에서 돌아본다.
+
+ornel/transitions/11/lines/0
+오늘은 말이 잘 안 나와요.
+
+ornel/transitions/11/lines/1
+어디 있는지만 알려 드릴게요.
+
+ornel/transitions/12/situation
+오르넬이 계단 소리를 듣고 웃는다.
+
+ornel/transitions/12/lines/0
+오늘도 여기서 한번 멈추셨네요.
+
+ornel/transitions/12/lines/1
+얼굴을 보기 전부터 알았어요.
+
+ornel/transitions/13/situation
+오르넬이 계단에서 잠깐 머뭇거린다.
+
+ornel/transitions/13/lines/0
+저는 이만 올라갈게요.
+
+ornel/transitions/13/lines/1
+다음에 얘기할 때는 조금 천천히 듣고 싶어요.
+
+zahar/inn/0/situation
+자하르가 가방을 제 쪽으로 당긴다.
+
+zahar/inn/0/lines/0
+그건 내가 챙겨.
+
+zahar/inn/0/lines/1
+부탁한 일은 했어.
+
+zahar/inn/0/lines/2
+다른 용건이면 내일 해.
+
+zahar/inn/0/choices/0/text
+힘이 남아 보이니 조금만 더 도와줘요.
+
+zahar/inn/0/choices/0/response/0
+남았는지 보이는 게 다야?
+
+zahar/inn/0/choices/0/response/1
+오늘 일은 끝났어.
+
+zahar/inn/0/choices/1/text
+오늘은 더 안 맡길게요.
+
+zahar/inn/0/choices/1/response/0
+그럼 가방만 묶고 올라갈게.
+
+zahar/inn/0/choices/2/text
+아침에 부를게요.
+
+zahar/inn/0/choices/2/response/0
+늦게 나오진 않을 거야.
+
+zahar/inn/0/seen
+이 끈은 내가 묶고 갈 거야.
+
+zahar/inn/1/situation
+자하르가 식탁에서 숟가락을 내려놓는다.
+
+zahar/inn/1/lines/0
+밥 먹는 중이야.
+
+zahar/inn/1/lines/1
+말하면서 먹는 건 싫어.
+
+zahar/inn/1/lines/2
+용건부터 짧게 해.
+
+zahar/inn/1/choices/0/text
+식사 끝나면 얘기해요.
+
+zahar/inn/1/choices/0/response/0
+다 먹으면 내가 부를게.
+
+zahar/inn/1/choices/1/text
+저는 빈 잔 가지러 왔어요.
+
+zahar/inn/1/choices/1/response/0
+주전자는 저기에 있어.
+
+zahar/inn/1/choices/2/text
+같이 웃고 떠들면 밥도 잘 넘어가요.
+
+zahar/inn/1/choices/2/response/0
+숟가락 내려놓을 때까지 말 안 할래.
+
+zahar/inn/1/choices/2/response/1
+억지로 웃길 생각은 하지 마.
+
+zahar/inn/1/seen
+국이 식기 전에 마저 먹을게.
+
+zahar/inn/2/situation
+자하르가 무거운 꾸러미를 내려놓는다.
+
+zahar/inn/2/lines/0
+이건 여기까지 옮겼어.
+
+zahar/inn/2/lines/1
+다른 데로 갈 거면 지금 말해.
+
+zahar/inn/2/lines/2
+왔다 갔다 하는 건 싫어.
+
+zahar/inn/2/choices/0/text
+길은 비워 둘게요.
+
+zahar/inn/2/choices/0/response/0
+발에 걸리는 것만 치워 줘.
+
+zahar/inn/2/choices/1/text
+건너편도 한번 놓아 보고 정할까요?
+
+zahar/inn/2/choices/1/response/0
+그건 빈 상자로 해 봐.
+
+zahar/inn/2/choices/1/response/1
+이걸 들고 시험하진 않을게.
+
+zahar/inn/2/choices/2/text
+최종 위치는 여기예요.
+
+zahar/inn/2/choices/2/response/0
+그럼 끈을 풀어도 되겠네.
+
+zahar/inn/2/seen
+더 옮길 일 없으면 끈을 풀 거야.
+
+zahar/inn/3/situation
+자하르가 손바닥을 물에 적신다.
+
+zahar/inn/3/lines/0
+물은 내가 떠 왔어.
+
+zahar/inn/3/lines/1
+손부터 씻고 마실 거야.
+
+zahar/inn/3/lines/2
+급한 거 아니면 기다려.
+
+zahar/inn/3/choices/0/text
+손은 나중에 씻고 일부터 마저 하죠.
+
+zahar/inn/3/choices/0/response/0
+손에 모래가 박혔어.
+
+zahar/inn/3/choices/0/response/1
+이대로는 다시 안 잡아.
+
+zahar/inn/3/choices/1/text
+잔은 제가 씻어 둘게요.
+
+zahar/inn/3/choices/1/response/0
+안쪽까지 헹궈 줘. 먼지가 묻었어.
+
+zahar/inn/3/choices/2/text
+저는 잔 씻고 있을게요.
+
+zahar/inn/3/choices/2/response/0
+물이 가라앉으면 떠 줄게.
+
+zahar/inn/3/seen
+손금에 낀 모래부터 씻어야겠어.
+
+zahar/inn/4/situation
+자하르가 짐 하나를 들어 본다.
+
+zahar/inn/4/lines/0
+이건 내가 들게.
+
+zahar/inn/4/lines/1
+나는 무거운 게 편해.
+
+zahar/inn/4/lines/2
+길은 앞에서 봐 줘.
+
+zahar/inn/4/choices/0/text
+발 걸릴 데는 제가 볼게요.
+
+zahar/inn/4/choices/0/response/0
+모퉁이 돌기 전에만 알려 줘.
+
+zahar/inn/4/choices/1/text
+출발은 아직이에요.
+
+zahar/inn/4/choices/1/response/0
+그럼 벽에 기대 둘게.
+
+zahar/inn/4/choices/2/text
+늘 무거운 것만 들면 손해잖아요.
+
+zahar/inn/4/choices/2/response/0
+들고 가는 건 내가 더 편해.
+
+zahar/inn/4/choices/2/response/1
+길을 잘 봐 주면 돼.
+
+zahar/inn/4/seen
+나는 이쪽 손으로 들면 돼.
+
+zahar/inn/5/situation
+자하르가 물잔을 길게 비운다.
+
+zahar/inn/5/lines/0
+일하고 나면 물이 제일 좋아.
+
+zahar/inn/5/lines/1
+말할 시간에 한 잔 더 마시게 돼.
+
+zahar/inn/5/lines/2
+아직 좀 남았어?
+
+zahar/inn/5/choices/0/text
+저도 목이 마르네요.
+
+zahar/inn/5/choices/0/response/0
+천천히 마셔. 급히 넘기면 사레들어.
+
+zahar/inn/5/choices/1/text
+다들 기다리니까 빨리 마셔요.
+
+zahar/inn/5/choices/1/response/0
+마시고 가면 돼.
+
+zahar/inn/5/choices/1/response/1
+이 정도도 못 기다릴 일은 아니잖아.
+
+zahar/inn/5/choices/2/text
+주전자 여기 있어요.
+
+zahar/inn/5/choices/2/response/0
+고마워. 잔을 조금만 옆으로 치워 줘.
+
+zahar/inn/5/seen
+한 잔 더 마시면 갈 수 있어.
+
+zahar/inn/6/situation
+자하르가 어깨에 묻은 먼지를 턴다.
+
+zahar/inn/6/lines/0
+거긴 손이 잘 안 닿아.
+
+zahar/inn/6/lines/1
+매번 조금씩 남아 있어.
+
+zahar/inn/6/lines/2
+묻은 데만 짚어 줘.
+
+zahar/inn/6/choices/0/text
+먼지가 잘 어울리네요. 그냥 둬도 되겠어요.
+
+zahar/inn/6/choices/0/response/0
+나는 씻어 내고 싶어.
+
+zahar/inn/6/choices/0/response/1
+털었는데도 남으면 네가 좀 알려 줘.
+
+zahar/inn/6/choices/1/text
+뒤쪽에 조금 있어요. 털어도 돼요?
+
+zahar/inn/6/choices/1/response/0
+그쪽이면 네 손이 빠르겠네.
+
+zahar/inn/6/choices/2/text
+거울을 가져올게요.
+
+zahar/inn/6/choices/2/response/0
+거울 보면 혼자도 닿을 거야.
+
+zahar/inn/6/seen
+손이 안 닿던 쪽도 이제 털렸네.
+
+zahar/inn/7/situation
+자하르가 손잡이를 닦는다.
+
+zahar/inn/7/lines/0
+닦아 두면 다음에 덜 미끄러워.
+
+zahar/inn/7/lines/1
+안 잡아 본 사람은 잘 모르더라.
+
+zahar/inn/7/lines/2
+미끄러지면 손목부터 아파.
+
+zahar/inn/7/choices/0/text
+다 닦을 때까지 제가 잡아 줄게요.
+
+zahar/inn/7/choices/0/response/0
+끝부분만 잡아. 손 가까이는 닦아야 해.
+
+zahar/inn/7/choices/1/text
+천이 많이 젖었네요.
+
+zahar/inn/7/choices/1/response/0
+마른 쪽으로 한 번 더 닦을 거야.
+
+zahar/inn/7/choices/2/text
+몸이 튼튼하니 조금 미끄러워도 괜찮겠죠.
+
+zahar/inn/7/choices/2/response/0
+미끄러지면 내 손목도 아파.
+
+zahar/inn/7/choices/2/response/1
+다치기 전에 닦는 거야.
+
+zahar/inn/7/seen
+이쪽은 이제 손에 덜 미끄러워.
+
+zahar/inn/8/situation
+자하르가 일행의 짐을 먼저 든다.
+
+zahar/inn/8/lines/0
+어제 어깨 문지르더라.
+
+zahar/inn/8/lines/1
+오늘은 이걸 나한테 줘.
+
+zahar/inn/8/lines/2
+가벼운 짐은 네가 챙겨.
+
+zahar/inn/8/choices/0/text
+조금 쉬면 괜찮을 거예요.
+
+zahar/inn/8/choices/0/response/0
+걸을 때 아프면 말해.
+
+zahar/inn/8/choices/1/text
+괜찮으니 제 것까지 다 들어 주세요.
+
+zahar/inn/8/choices/1/response/0
+다 들면 길 막힐 때 손을 못 써.
+
+zahar/inn/8/choices/1/response/1
+나눠 들 만큼만 줘.
+
+zahar/inn/8/choices/2/text
+그럼 저는 물이랑 길을 맡을게요.
+
+zahar/inn/8/choices/2/response/0
+내가 마실 것도 같이 챙겨 줘.
+
+zahar/inn/8/seen
+가벼운 건 챙겨. 이것만 내가 들게.
+
+zahar/inn/9/situation
+자하르가 식당에서 먼 쪽을 가리킨다.
+
+zahar/inn/9/lines/0
+저쪽이 덜 시끄러워.
+
+zahar/inn/9/lines/1
+말 안 하고 먹어도 되는 데가 좋아.
+
+zahar/inn/9/lines/2
+밥 아직이면 이쪽에 앉아.
+
+zahar/inn/9/choices/0/text
+같이 앉으면 얘기도 좀 해야죠.
+
+zahar/inn/9/choices/0/response/0
+먹다가 하고 싶으면 하면 돼.
+
+zahar/inn/9/choices/0/response/1
+밥 다 먹고도 할 얘기는 할 수 있어.
+
+zahar/inn/9/choices/1/text
+저도 오늘은 천천히 먹고 싶어요.
+
+zahar/inn/9/choices/1/response/0
+국부터 먹어. 식으면 기름이 굳어.
+
+zahar/inn/9/choices/2/text
+저는 물부터 떠 올게요.
+
+zahar/inn/9/choices/2/response/0
+내 잔은 아직 가득해.
+
+zahar/inn/9/seen
+그릇만 옮기면 이쪽에 앉을 수 있어.
+
+zahar/inn/10/situation
+자하르가 문 옆 먼지를 쓸어낸다.
+
+zahar/inn/10/lines/0
+오르넬이 저쪽을 못 지나가더라.
+
+zahar/inn/10/lines/1
+벌레 하나 있어서 치웠어.
+
+zahar/inn/10/lines/2
+그 얘기는 크게 하지 마.
+
+zahar/inn/10/choices/0/text
+알겠어요. 그냥 지나갈게요.
+
+zahar/inn/10/choices/0/response/0
+남은 건 없으니 밟고 가도 돼.
+
+zahar/inn/10/choices/1/text
+창문을 더 열어 둘까요?
+
+zahar/inn/10/choices/1/response/0
+조금 열어 둬. 먼지가 날려.
+
+zahar/inn/10/choices/2/text
+직접 치워 보게 하면 덜 무서워할 텐데요.
+
+zahar/inn/10/choices/2/response/0
+지금 못 지나가고 있었어.
+
+zahar/inn/10/choices/2/response/1
+치워 주는 편이 빨라.
+
+zahar/inn/10/seen
+먼지는 밖으로 다 쓸어 놨어.
+
+zahar/inn/11/situation
+자하르가 의자에 기댄다.
+
+zahar/inn/11/lines/0
+오늘은 손이 좀 뻐근해.
+
+zahar/inn/11/lines/1
+쓰고 나면 이럴 때가 있어.
+
+zahar/inn/11/lines/2
+놓고 있으면 풀려.
+
+zahar/inn/11/choices/0/text
+저도 잠깐 쉴게요.
+
+zahar/inn/11/choices/0/response/0
+발 뻗어. 밑에는 비어 있어.
+
+zahar/inn/11/choices/1/text
+잠깐 아픈 거라면 마저 해도 되겠네요.
+
+zahar/inn/11/choices/1/response/0
+그래서 지금 쉬는 거야.
+
+zahar/inn/11/choices/1/response/1
+더 아파질 때까지 기다리진 않을게.
+
+zahar/inn/11/choices/2/text
+주전자는 제가 들게요.
+
+zahar/inn/11/choices/2/response/0
+그럼 잔만 조금 채워 줘.
+
+zahar/inn/11/seen
+손 펴고 있으니 조금 낫네.
+
+zahar/inn/12/situation
+자하르가 자기 이름을 짧게 말한다.
+
+zahar/inn/12/lines/0
+광산에서는 번호로 불렀어.
+
+zahar/inn/12/lines/1
+사백십칠이었어.
+
+zahar/inn/12/lines/2
+여기선 자하르라고 하면 돼.
+
+zahar/inn/12/choices/0/text
+쉽게 기억되네요. 번호로 불러도 될까요?
+
+zahar/inn/12/choices/0/response/0
+그건 거기 두고 왔어.
+
+zahar/inn/12/choices/0/response/1
+이름으로 불러.
+
+zahar/inn/12/choices/1/text
+자하르 씨, 물 더 드릴까요?
+
+zahar/inn/12/choices/1/response/0
+응. 이번에는 반만 줘.
+
+zahar/inn/12/choices/2/text
+언제부터 번호로 불렸어요?
+
+zahar/inn/12/choices/2/response/0
+어릴 때부터 그렇게 불렀어.
+
+zahar/inn/12/seen
+남한테 전할 때도 자하르라고 해.
+
+zahar/inn/13/situation
+자하르가 젖은 천을 짠다.
+
+zahar/inn/13/lines/0
+드룸을 막으러 징집됐어.
+
+zahar/inn/13/lines/1
+안에 광부들이 있었지.
+
+zahar/inn/13/lines/2
+나도 나중엔 그쪽으로 넘어갔어.
+
+zahar/inn/13/choices/0/text
+말하기 힘들면 여기까지만 들어도 돼요.
+
+zahar/inn/13/choices/0/response/0
+지금은 조금 더 말할 수 있어.
+
+zahar/inn/13/choices/1/text
+그 뒤에 추방된 거예요?
+
+zahar/inn/13/choices/1/response/0
+초여름에 쫓겨났어.
+
+zahar/inn/13/choices/2/text
+그때 일은 전부 명령 탓으로 돌리면 되겠네요.
+
+zahar/inn/13/choices/2/response/0
+처음엔 징집병이었어.
+
+zahar/inn/13/choices/2/response/1
+넘어간 건 내가 골랐어. 그 일까지 빼지는 마.
+
+zahar/inn/13/seen
+천을 다 짰으니 앉아서 얘기할게.
+
+zahar/inn/14/situation
+자하르가 식당 냄새에 고개를 든다.
+
+zahar/inn/14/lines/0
+유황 냄새가 잠깐 난 줄 알았어.
+
+zahar/inn/14/lines/1
+아니네. 불이 눌어붙었나 봐.
+
+zahar/inn/14/lines/2
+이 냄새는 아직 싫어.
+
+zahar/inn/14/choices/0/text
+창문은 열려 있어요.
+
+zahar/inn/14/choices/0/response/0
+바람이 이쪽으로 오면 낫겠네.
+
+zahar/inn/14/choices/1/text
+광산에서 오래 지내서 익숙할 줄 알았어요.
+
+zahar/inn/14/choices/1/response/0
+익숙해도 싫은 건 있어.
+
+zahar/inn/14/choices/1/response/1
+일단 나갔다 올게.
+
+zahar/inn/14/choices/2/text
+잠깐 바깥 공기 쐴까요?
+
+zahar/inn/14/choices/2/response/0
+응. 다녀오면 좀 빠지겠지.
+
+zahar/inn/14/seen
+밖에 나가면 냄새는 덜하겠지.
+
+zahar/inn/15/situation
+자하르가 손등을 내려다본다.
+
+zahar/inn/15/lines/0
+반란에 섞인 뒤로 여기저기 일했어.
+
+zahar/inn/15/lines/1
+채석장에도 있었고 수레도 밀었지.
+
+zahar/inn/15/lines/2
+몸 쓰는 일은 낯설지 않아.
+
+zahar/inn/15/choices/0/text
+떠돌 때보다 편하니 힘든 일은 다 잊어요.
+
+zahar/inn/15/choices/0/response/0
+그때 일도 얘기하고 싶어.
+
+zahar/inn/15/choices/0/response/1
+수레 바퀴를 보면 그때 생각이 나.
+
+zahar/inn/15/choices/1/text
+그래서 무게를 잘 가늠하셨군요.
+
+zahar/inn/15/choices/1/response/0
+들기 전에 바퀴부터 보는 버릇이 남았어.
+
+zahar/inn/15/choices/2/text
+토르바에는 늦게 오셨네요.
+
+zahar/inn/15/choices/2/response/0
+계약증 얘기를 듣고 왔어.
+
+zahar/inn/15/seen
+지금도 수레가 서 있으면 바퀴부터 봐.
+
+zahar/inn/16/situation
+자하르가 물잔을 탁자에 놓는다.
+
+zahar/inn/16/lines/0
+그날 넘어간 건 후회 안 해.
+
+zahar/inn/16/lines/1
+곁에 있던 사람이 다친 건 잊을 수 없어.
+
+zahar/inn/16/lines/2
+다시 고르래도 그쪽으로 갈 거야.
+
+zahar/inn/16/choices/0/text
+둘 다 기억하고 계신 거군요.
+
+zahar/inn/16/choices/0/response/0
+다친 사람 얘기를 빼고 말하긴 싫어.
+
+zahar/inn/16/choices/1/text
+지금은 잠깐 쉬어요.
+
+zahar/inn/16/choices/1/response/0
+물을 좀 더 마시고 있을게.
+
+zahar/inn/16/choices/2/text
+옳은 일을 했으니 다친 일은 생각 마세요.
+
+zahar/inn/16/choices/2/response/0
+그 사람은 실제로 다쳤어.
+
+zahar/inn/16/choices/2/response/1
+얼마나 아팠을지 자꾸 생각나.
+
+zahar/inn/16/seen
+내 선택을 후회하진 않는다고 말하고 싶었어.
+
+zahar/inn/17/situation
+자하르가 젖은 가방을 내려놓는다.
+
+zahar/inn/17/lines/0
+오늘은 나도 좀 맡길게.
+
+zahar/inn/17/lines/1
+끈 풀리는 동안 손이 미끄러워.
+
+zahar/inn/17/lines/2
+이쪽 끝만 잡아 줘.
+
+zahar/inn/17/choices/0/text
+천을 먼저 가져올게요.
+
+zahar/inn/17/choices/0/response/0
+마른 게 있으면 좋겠어.
+
+zahar/inn/17/choices/1/text
+자하르 씨라면 혼자 금방 풀잖아요.
+
+zahar/inn/17/choices/1/response/0
+그래도 같이 하면 덜 미끄러워.
+
+zahar/inn/17/choices/1/response/1
+오늘은 잡아 줬으면 해.
+
+zahar/inn/17/choices/2/text
+여기 잡았어요. 천천히 푸세요.
+
+zahar/inn/17/choices/2/response/0
+그대로 있어. 이제 매듭이 보여.
+
+zahar/inn/17/seen
+이 매듭만 풀면 손 놓아도 돼.
+
+zahar/inn/18/situation
+자하르가 식탁에 먼저 앉는다.
+
+zahar/inn/18/lines/0
+아직 안 먹었지?
+
+zahar/inn/18/lines/1
+나는 밥을 금방 먹으니까.
+
+zahar/inn/18/lines/2
+같이 시작하려고 기다렸어.
+
+zahar/inn/18/choices/0/text
+배고프면 먼저 먹으세요. 기다리는 건 손해죠.
+
+zahar/inn/18/choices/0/response/0
+그렇게까지 오래 안 기다렸어.
+
+zahar/inn/18/choices/0/response/1
+같이 먹으려고 한 거야.
+
+zahar/inn/18/choices/1/text
+같이 먹으니 저도 좋네요.
+
+zahar/inn/18/choices/1/response/0
+그럼 물잔만 가져와. 국은 아직 따뜻해.
+
+zahar/inn/18/choices/2/text
+손은 씻고 왔어요.
+
+zahar/inn/18/choices/2/response/0
+그럼 바로 먹으면 되겠네.
+
+zahar/inn/18/seen
+오늘은 숟가락을 같이 들겠네.
+
+zahar/inn/19/situation
+자하르가 새로 생긴 굳은살을 만진다.
+
+zahar/inn/19/lines/0
+여긴 한동안 안 아팠어.
+
+zahar/inn/19/lines/1
+잡는 데가 달라져서 그런가 봐.
+
+zahar/inn/19/lines/2
+손을 좀 펴고 있어야겠어.
+
+zahar/inn/19/choices/0/text
+이쪽 일은 제가 마저 할게요.
+
+zahar/inn/19/choices/0/response/0
+무거운 건 남겨. 가벼운 것만 해 줘.
+
+zahar/inn/19/choices/1/text
+내일도 아프면 말해요.
+
+zahar/inn/19/choices/1/response/0
+내일 잡아 보면 알겠지.
+
+zahar/inn/19/choices/2/text
+참는 건 익숙하시니 금방 나을 거예요.
+
+zahar/inn/19/choices/2/response/0
+손 쓸 때마다 다시 아파져.
+
+zahar/inn/19/choices/2/response/1
+지금은 손을 쉬게 둘 거야.
+
+zahar/inn/19/seen
+이쪽 손가락은 천천히 펴야겠어.
+
+zahar/inn/20/situation
+자하르가 출발 짐 옆에 선다.
+
+zahar/inn/20/lines/0
+넘어지면 혼자 일어나려 애쓰지 마.
+
+zahar/inn/20/lines/1
+내가 손 뻗을 수 있어.
+
+zahar/inn/20/lines/2
+안 닿으면 소리부터 내.
+
+zahar/inn/20/choices/0/text
+발밑 잘 볼게요.
+
+zahar/inn/20/choices/0/response/0
+짐 아래가 특히 안 보여.
+
+zahar/inn/20/choices/1/text
+제가 느려지면 먼저 가셔도 돼요.
+
+zahar/inn/20/choices/1/response/0
+그럼 멈춰서 같이 가야지.
+
+zahar/inn/20/choices/1/response/1
+혼자 가라고 미리 정하지 마.
+
+zahar/inn/20/choices/2/text
+자하르 씨도 꼭 불러요.
+
+zahar/inn/20/choices/2/response/0
+응. 못 들은 척하지는 마.
+
+zahar/inn/20/seen
+소리 나면 돌아볼 테니 불러.
+
+zahar/inn/21/situation
+자하르가 의뢰 종이를 내려다본다.
+
+zahar/inn/21/lines/0
+사람 쓰는 건 종이 한 장으로 끝나더라.
+
+zahar/inn/21/lines/1
+일이 끝나도 몸은 바로 안 풀려.
+
+zahar/inn/21/lines/2
+밥 먹는 동안은 좀 놔뒀으면 해.
+
+zahar/inn/21/choices/0/text
+다음 일을 잡아 두면 마음 편하잖아요.
+
+zahar/inn/21/choices/0/response/0
+나는 지금 쉬는 게 편해.
+
+zahar/inn/21/choices/0/response/1
+내일 일은 내일 들을게.
+
+zahar/inn/21/choices/1/text
+오늘 얘기는 밥 다 먹고 하죠.
+
+zahar/inn/21/choices/1/response/0
+그때는 나도 들을게.
+
+zahar/inn/21/choices/2/text
+저는 물부터 마실게요.
+
+zahar/inn/21/choices/2/response/0
+빈속에 너무 많이 마시진 마.
+
+zahar/inn/21/seen
+밥그릇 비우기 전엔 이 종이 안 볼 거야.
+
+zahar/inn/22/situation
+자하르가 가방 옆 빈 바닥을 가리킨다.
+
+zahar/inn/22/lines/0
+여기 내려놔.
+
+zahar/inn/22/lines/1
+오늘은 멀리 안 나갈 거야.
+
+zahar/inn/22/lines/2
+손이 비면 나도 좀 덜 움직이겠지.
+
+zahar/inn/22/choices/0/text
+같이 앉아서 물 마셔요.
+
+zahar/inn/22/choices/0/response/0
+좋아. 이번엔 작은 잔으로 줘.
+
+zahar/inn/22/choices/1/text
+저는 잠깐 씻고 올게요.
+
+zahar/inn/22/choices/1/response/0
+돌아올 때 천 하나만 가져와 줘.
+
+zahar/inn/22/choices/2/text
+가만있기 심심하실 테니 짐 좀 봐 주세요.
+
+zahar/inn/22/choices/2/response/0
+오늘은 심심해도 괜찮아.
+
+zahar/inn/22/choices/2/response/1
+짐은 아침에 보자.
+
+zahar/inn/22/seen
+가방 내려놓으니 어깨가 좀 가볍네.
+
+zahar/inn/23/situation
+자하르가 문 쪽 소리에 고개를 든다.
+
+zahar/inn/23/lines/0
+아까 다툼 소리 들었어.
+
+zahar/inn/23/lines/1
+힘없는 쪽이 혼자 서 있더라.
+
+zahar/inn/23/lines/2
+그냥 지나가긴 어렵겠어.
+
+zahar/inn/23/choices/0/text
+여기 짐은 제가 볼게요.
+
+zahar/inn/23/choices/0/response/0
+그럼 다녀올 동안 부탁해.
+
+zahar/inn/23/choices/1/text
+둘이 해결하게 두는 게 서로 편하죠.
+
+zahar/inn/23/choices/1/response/0
+한쪽은 말도 못 하고 있었어.
+
+zahar/inn/23/choices/1/response/1
+나는 보고 올게.
+
+zahar/inn/23/choices/2/text
+저도 같이 가서 얘기를 들어 볼게요.
+
+zahar/inn/23/choices/2/response/0
+먼저 무슨 일인지 보자.
+
+zahar/inn/23/seen
+나는 일단 저쪽 말도 들어 보러 갈게.
+
+zahar/inn/24/situation
+자하르가 아침 물잔을 밀어 둔다.
+
+zahar/inn/24/lines/0
+오늘은 내가 먼저 일어났어.
+
+zahar/inn/24/lines/1
+물 떠 놓고 기다렸지.
+
+zahar/inn/24/lines/2
+잔은 아직 안 썼어.
+
+zahar/inn/24/choices/0/text
+매번 챙겨 주는 게 이제 당연해졌네요.
+
+zahar/inn/24/choices/0/response/0
+매번 할 수 있는 건 아니야.
+
+zahar/inn/24/choices/0/response/1
+졸린 날엔 나도 늦게 내려와.
+
+zahar/inn/24/choices/1/text
+내일은 제가 먼저 떠 놓을게요.
+
+zahar/inn/24/choices/1/response/0
+늦잠 자도 돼. 일어난 사람이 하면 되지.
+
+zahar/inn/24/choices/2/text
+저는 아직 좀 졸려요.
+
+zahar/inn/24/choices/2/response/0
+한 번에 마시진 마. 흘리겠다.
+
+zahar/inn/24/seen
+먼저 마셔. 나는 아까 한 잔 마셨어.
+
+zahar/inn/25/situation
+자하르가 먼지가 묻은 신발을 벗는다.
+
+zahar/inn/25/lines/0
+아까 길에서 발을 헛디뎠어.
+
+zahar/inn/25/lines/1
+아프진 않아.
+
+zahar/inn/25/lines/2
+신발 안에 돌이 들어갔나 봐.
+
+zahar/inn/25/choices/0/text
+잠깐 털고 가요. 여기 앉으세요.
+
+zahar/inn/25/choices/0/response/0
+작은 돌인데 계속 밟히더라.
+
+zahar/inn/25/choices/1/text
+저도 신발 좀 볼게요.
+
+zahar/inn/25/choices/1/response/0
+같은 길에서 들어갔을 수도 있어.
+
+zahar/inn/25/choices/2/text
+그 정도는 그냥 걸어도 괜찮잖아요.
+
+zahar/inn/25/choices/2/response/0
+멈추면 바로 뺄 수 있어.
+
+zahar/inn/25/choices/2/response/1
+굳이 밟고 갈 생각은 없어.
+
+zahar/inn/25/seen
+돌 하나 빼니 발이 덜 걸리네.
+
+zahar/inn/26/situation
+자하르가 식탁 아래 발을 뻗는다.
+
+zahar/inn/26/lines/0
+여기는 무릎이 덜 부딪혀.
+
+zahar/inn/26/lines/1
+그릇도 멀리 안 있고.
+
+zahar/inn/26/lines/2
+다음에도 이쪽에서 먹자.
+
+zahar/inn/26/choices/0/text
+저도 이 식탁이 편해요.
+
+zahar/inn/26/choices/0/response/0
+다리 밑이 넓어서 그래.
+
+zahar/inn/26/choices/1/text
+늘 같은 데 앉으면 재미없지 않아요?
+
+zahar/inn/26/choices/1/response/0
+여긴 무릎이 안 부딪혀서 편해.
+
+zahar/inn/26/choices/1/response/1
+편한 데서 먹고 싶어.
+
+zahar/inn/26/choices/2/text
+제가 일찍 오면 이쪽에 앉을게요.
+
+zahar/inn/26/choices/2/response/0
+자리가 차면 옆에서 먹어도 돼.
+
+zahar/inn/26/seen
+의자만 조금 당기면 발이 더 편해.
+
+zahar/inn/27/situation
+자하르가 돌아온 일행의 가방을 받는다.
+
+zahar/inn/27/lines/0
+무거웠지?
+
+zahar/inn/27/lines/1
+내 것도 여기 내려놨어.
+
+zahar/inn/27/lines/2
+오늘은 둘 다 쉬자.
+
+zahar/inn/27/choices/0/text
+저는 괜찮으니 제 짐부터 정리해 주세요.
+
+zahar/inn/27/choices/0/response/0
+나도 피곤해.
+
+zahar/inn/27/choices/0/response/1
+오늘은 같이 쉬자고 한 거야.
+
+zahar/inn/27/choices/1/text
+끈만 풀고 같이 내려가요.
+
+zahar/inn/27/choices/1/response/0
+응. 이번엔 네가 물 떠 줘.
+
+zahar/inn/27/choices/2/text
+저는 먼지만 털게요.
+
+zahar/inn/27/choices/2/response/0
+털고 나서 씻으러 가자.
+
+zahar/inn/27/seen
+가방은 오늘 여기까지 옮겼으면 됐어.
+
+zahar/dungeon/0/variants/0
+무거운 건 다 챙겼어.
+
+zahar/dungeon/0/variants/1
+길 비면 그때 갈게.
+
+zahar/dungeon/1/variants/0
+난 이쪽으로 들고 갈게.
+
+zahar/dungeon/1/variants/1
+너무 빨리 꺾지만 마.
+
+zahar/dungeon/2/variants/0
+같이 돌아와서 짐 풀자.
+
+zahar/dungeon/2/variants/1
+오늘은 네 물도 잊지 마.
+
+zahar/dungeon/3/variants/0
+바닥이 미끄러운지 볼게.
+
+zahar/dungeon/3/variants/1
+한 번에 많이 내려가지 마.
+
+zahar/dungeon/4/variants/0
+짐 때문에 아래가 잘 안 보여.
+
+zahar/dungeon/4/variants/1
+너는 발 디딜 데를 봐 줘.
+
+zahar/dungeon/5/variants/0
+잠깐 잡아. 같이 디딜게.
+
+zahar/dungeon/5/variants/1
+나는 옆에서 무게를 받칠게.
+
+zahar/dungeon/6/variants/0
+이쪽에서도 보이는지 보자.
+
+zahar/dungeon/6/variants/1
+건드리기 전에 불러.
+
+zahar/dungeon/7/variants/0
+크기부터 한번 봐 둘게.
+
+zahar/dungeon/7/variants/1
+잘 안 보이면 같이 돌아가 보자.
+
+zahar/dungeon/8/variants/0
+궁금하면 더 봐도 돼.
+
+zahar/dungeon/8/variants/1
+난 옆에서 길 안 막히게 서 있을게.
+
+zahar/dungeon/9/variants/0
+일단 여기서 막을게.
+
+zahar/dungeon/9/variants/1
+옆을 지날 땐 말해.
+
+zahar/dungeon/10/variants/0
+한꺼번에 달려들진 마.
+
+zahar/dungeon/10/variants/1
+내가 움직이면 길 좀 내 줘.
+
+zahar/dungeon/11/variants/0
+끝나면 다 같이 쉬자.
+
+zahar/dungeon/11/variants/1
+다 막으려고 무리할 필요는 없어.
+
+zahar/dungeon/12/variants/0
+주변은 내가 더 볼게.
+
+zahar/dungeon/12/variants/1
+옆에서 다른 소리가 나는지 들어 봐.
+
+zahar/dungeon/13/variants/0
+물부터 좀 마시자.
+
+zahar/dungeon/13/variants/1
+어깨에 힘 준 건 이제 풀어.
+
+zahar/dungeon/14/variants/0
+이번엔 네가 물병 좀 잡아 줘.
+
+zahar/dungeon/14/variants/1
+숨 고르고 같이 걸어가자.
+
+zahar/dungeon/15/variants/0
+잠깐 서. 안쪽을 볼게.
+
+zahar/dungeon/15/variants/1
+들어갈 때만 내게 알려.
+
+zahar/dungeon/16/variants/0
+나도 손을 한번 풀어야겠어.
+
+zahar/dungeon/16/variants/1
+지금 서두를 일은 없어.
+
+zahar/dungeon/17/variants/0
+나도 긴장돼. 가기 전에 숨 좀 고르자.
+
+zahar/dungeon/17/variants/1
+같이 갈 수 있는지 보고 움직이자.
+
+zahar/dungeon/18/variants/0
+이제 끝난 건지 확인하자.
+
+zahar/dungeon/18/variants/1
+짐은 아직 들지 말고 쉬어.
+
+zahar/dungeon/19/variants/0
+이제 손 놓으니까 팔이 좀 떨리네.
+
+zahar/dungeon/19/variants/1
+굳은 손부터 펴 볼게.
+
+zahar/dungeon/20/variants/0
+돌아가면 내가 먼저 앉아야겠다.
+
+zahar/dungeon/20/variants/1
+돌아가서는 말없이 먹어도 되지?
+
+zahar/dungeon/21/variants/0
+얼굴이 창백해졌어.
+
+zahar/dungeon/21/variants/1
+거기서 잠깐 멈춰.
+
+zahar/dungeon/22/variants/0
+내 팔 잡아도 돼.
+
+zahar/dungeon/22/variants/1
+짐은 바닥에 내려놔.
+
+zahar/dungeon/23/variants/0
+아프면 바로 말해 줘.
+
+zahar/dungeon/23/variants/1
+더 버틸 때까지 기다리지 마.
+
+zahar/dungeon/24/variants/0
+내가 가까이 가 볼게.
+
+zahar/dungeon/24/variants/1
+주변부터 비켜 줘.
+
+zahar/dungeon/25/variants/0
+움직일 수 있으면 손을 보여 줘.
+
+zahar/dungeon/25/variants/1
+들어 올리기 전에 한번 보자.
+
+zahar/dungeon/26/variants/0
+여기 있어. 네 목소리 듣고 있어.
+
+zahar/dungeon/26/variants/1
+혼자 끌고 나올 생각은 안 해도 돼.
+
+zahar/dungeon/27/variants/0
+잠깐. 잡는 힘이 이상해.
+
+zahar/dungeon/27/variants/1
+어느 쪽인지 보고 갈게.
+
+zahar/dungeon/28/variants/0
+오늘은 네가 이걸 좀 들어 줘.
+
+zahar/dungeon/28/variants/1
+손 펴는 동안 기다려.
+
+zahar/dungeon/29/variants/0
+아프네. 좀 쉬었다 가자.
+
+zahar/dungeon/29/variants/1
+괜찮은지 묻기 전에 쉬어야겠다.
+
+zahar/dungeon/30/variants/0
+앉을 데만 있으면 돼.
+
+zahar/dungeon/30/variants/1
+마실 물은 남았어?
+
+zahar/dungeon/31/variants/0
+이쪽은 발 뻗을 수 있네.
+
+zahar/dungeon/31/variants/1
+짐은 내 발 옆에 두자.
+
+zahar/dungeon/32/variants/0
+나도 오늘은 잠깐 눈 감을게.
+
+zahar/dungeon/32/variants/1
+깨면 내 물부터 한 잔 마실게.
+
+zahar/dungeon/33/variants/0
+당기기 전에 틈을 봐.
+
+zahar/dungeon/33/variants/1
+힘으로 될지는 아직 몰라.
+
+zahar/dungeon/34/variants/0
+윗부분은 네가 좀 봐 줘.
+
+zahar/dungeon/34/variants/1
+손 놓을 데 없으면 멈춰.
+
+zahar/dungeon/35/variants/0
+조급하면 내가 먼저 놓을게.
+
+zahar/dungeon/35/variants/1
+서로 손 걸리지 않게 하자.
+
+zahar/dungeon/36/variants/0
+짐은 벽 쪽에 내려둘게.
+
+zahar/dungeon/36/variants/1
+먼지부터 털고 들어가.
+
+zahar/dungeon/37/variants/0
+이제 물은 여유 있게 마셔도 되겠네.
+
+zahar/dungeon/37/variants/1
+나는 먼저 손 씻고 올게.
+
+zahar/dungeon/38/variants/0
+오늘은 네가 먼저 주문해 줘. 씻고 갈게.
+
+zahar/dungeon/38/variants/1
+오늘은 나도 짐 풀기 전에 앉을 거야.
+
+zahar/dungeon/39/variants/0
+지금은 뒤로 가야 해.
+
+zahar/dungeon/39/variants/1
+서 있을 힘은 남았어?
+
+zahar/dungeon/40/variants/0
+잡을 데 없으면 내 팔 잡아.
+
+zahar/dungeon/40/variants/1
+내가 길 비는 쪽을 볼게.
+
+zahar/dungeon/41/variants/0
+혼자 남을 생각은 하지 마.
+
+zahar/dungeon/41/variants/1
+같이 나가서 다음 걸 생각하자.
+
+zahar/transitions/0/situation
+자하르가 가방을 옆으로 놓는다.
+
+zahar/transitions/0/lines/0
+오늘 일은 말해도 돼.
+
+zahar/transitions/0/lines/1
+내가 할 수 있는지만 볼게.
+
+zahar/transitions/1/situation
+자하르가 짐을 자기 쪽으로 당긴다.
+
+zahar/transitions/1/lines/0
+그건 안 할 거야.
+
+zahar/transitions/1/lines/1
+오늘은 여기서 그만 얘기해.
+
+zahar/transitions/2/situation
+자하르가 꾸러미를 들어 본다.
+
+zahar/transitions/2/lines/0
+이 정도는 내가 들 수 있어.
+
+zahar/transitions/2/lines/1
+어디로 옮길지만 알려 줘.
+
+zahar/transitions/3/situation
+자하르가 손잡이를 놓는다.
+
+zahar/transitions/3/lines/0
+나중에 더 맡길 건 미리 말해.
+
+zahar/transitions/3/lines/1
+들고 나서 정하진 마.
+
+zahar/transitions/4/situation
+자하르가 무거운 짐을 받아 든다.
+
+zahar/transitions/4/lines/0
+어깨가 안 좋아 보였어.
+
+zahar/transitions/4/lines/1
+오늘은 네가 길을 좀 봐 줘.
+
+zahar/transitions/5/situation
+자하르가 들어 주던 짐을 내려놓는다.
+
+zahar/transitions/5/lines/0
+오늘은 각자 들자.
+
+zahar/transitions/5/lines/1
+내 몫은 여기서 챙길게.
+
+zahar/transitions/6/situation
+자하르가 물을 마신 뒤 입을 연다.
+
+zahar/transitions/6/lines/0
+광산에서는 번호가 있었어.
+
+zahar/transitions/6/lines/1
+여기선 그걸 안 불러도 돼.
+
+zahar/transitions/7/situation
+자하르가 잔 밑의 물기를 닦는다.
+
+zahar/transitions/7/lines/0
+광산 얘기는 나중에 하자.
+
+zahar/transitions/7/lines/1
+오늘은 밥만 먹을게.
+
+zahar/transitions/8/situation
+자하르가 손을 펴 탁자에 올린다.
+
+zahar/transitions/8/lines/0
+반란 쪽으로 간 건 후회 안 해.
+
+zahar/transitions/8/lines/1
+그 말은 네 앞에서 하고 싶었어.
+
+zahar/transitions/9/situation
+자하르가 시선을 식탁으로 내린다.
+
+zahar/transitions/9/lines/0
+그날 얘기를 더 하진 않을게.
+
+zahar/transitions/9/lines/1
+오늘은 듣는 것도 좀 어렵네.
+
+zahar/transitions/10/situation
+자하르가 출발 짐 옆에서 고개를 든다.
+
+zahar/transitions/10/lines/0
+내가 놓치면 네가 불러 줘.
+
+zahar/transitions/10/lines/1
+나도 힘들면 바로 말할게.
+
+zahar/transitions/11/situation
+자하르가 빈 물병을 내려놓는다.
+
+zahar/transitions/11/lines/0
+오늘은 나도 혼자 좀 쉬어야겠어.
+
+zahar/transitions/11/lines/1
+필요한 일은 아침에 말해.
+
+zahar/transitions/12/situation
+자하르가 자기 짐도 곁에 내려놓는다.
+
+zahar/transitions/12/lines/0
+짐 내려놓고 둘 다 앉자.
+
+zahar/transitions/12/lines/1
+정리할 건 일어나서 보면 돼.
+
+zahar/transitions/13/situation
+자하르가 식당에서 먼저 일어선다.
+
+zahar/transitions/13/lines/0
+오늘은 같이 앉아 있기 힘들어.
+
+zahar/transitions/13/lines/1
+물은 남았으니 마저 마셔.
+
+jorund/inn/0/situation
+요르드가 종이의 모서리를 맞춘다.
+
+jorund/inn/0/lines/0
+용건만 듣겠습니다.
+
+jorund/inn/0/lines/1
+지난번 설명은 충분히 했습니다.
+
+jorund/inn/0/lines/2
+다시 설득하실 생각이라면 사양합니다.
+
+jorund/inn/0/choices/0/text
+오늘은 확인한 시간만 전할게요.
+
+jorund/inn/0/choices/0/response/0
+그것이라면 듣겠습니다.
+
+jorund/inn/0/choices/1/text
+아침에 출발해요.
+
+jorund/inn/0/choices/1/response/0
+늦지 않게 나가겠습니다.
+
+jorund/inn/0/choices/2/text
+편하게 얘기하면 생각도 달라질 거예요.
+
+jorund/inn/0/choices/2/response/0
+제 판단은 분위기 때문에 바뀌지 않습니다.
+
+jorund/inn/0/choices/2/response/1
+다른 용건은 없습니까?
+
+jorund/inn/0/seen
+전할 것이 있다면 지금 말씀하십시오.
+
+jorund/inn/1/situation
+요르드가 물잔을 자기 쪽으로 옮긴다.
+
+jorund/inn/1/lines/0
+이쪽은 제가 쓰겠습니다.
+
+jorund/inn/1/lines/1
+잠시 혼자 정리할 것이 있습니다.
+
+jorund/inn/1/lines/2
+곁에서 기다리실 필요는 없습니다.
+
+jorund/inn/1/choices/0/text
+저는 다른 식탁에 있을게요.
+
+jorund/inn/1/choices/0/response/0
+필요하면 그쪽으로 가겠습니다.
+
+jorund/inn/1/choices/1/text
+함께 보면 더 빨리 끝날 텐데요.
+
+jorund/inn/1/choices/1/response/0
+도움이 필요한 일은 아닙니다.
+
+jorund/inn/1/choices/1/response/1
+오늘은 제가 마치겠습니다.
+
+jorund/inn/1/choices/2/text
+끝나면 다시 올게요.
+
+jorund/inn/1/choices/2/response/0
+정리한 뒤에 말씀드리겠습니다.
+
+jorund/inn/1/seen
+잔은 옮겼으니 그쪽은 쓰셔도 됩니다.
+
+jorund/inn/2/situation
+요르드가 접힌 의뢰 종이를 편다.
+
+jorund/inn/2/lines/0
+나중에 덧붙일 부탁이 있습니까?
+
+jorund/inn/2/lines/1
+있다면 지금 듣겠습니다.
+
+jorund/inn/2/lines/2
+출발 뒤에 바꾸는 건 곤란합니다.
+
+jorund/inn/2/choices/0/text
+현장에서 융통성 있게 해 주시면 되죠.
+
+jorund/inn/2/choices/0/response/0
+무슨 일을 뜻하는지 먼저 말씀하십시오.
+
+jorund/inn/2/choices/0/response/1
+모르는 부탁에 미리 동의하지는 않습니다.
+
+jorund/inn/2/choices/1/text
+추가할 것은 지금 적어 둘게요.
+
+jorund/inn/2/choices/1/response/0
+읽고 답하겠습니다.
+
+jorund/inn/2/choices/2/text
+지금은 없어요.
+
+jorund/inn/2/choices/2/response/0
+그러면 이대로 준비하겠습니다.
+
+jorund/inn/2/seen
+바뀔 내용이 없다면 이 종이를 접겠습니다.
+
+jorund/inn/3/situation
+요르드가 시각을 확인하고 고개를 든다.
+
+jorund/inn/3/lines/0
+약속한 때가 조금 지났습니다.
+
+jorund/inn/3/lines/1
+다음에는 늦는다고 미리 전해 주십시오.
+
+jorund/inn/3/lines/2
+기다리는 동안 제 일도 멈추었습니다.
+
+jorund/inn/3/choices/0/text
+기다리게 해서 미안해요. 다음엔 알릴게요.
+
+jorund/inn/3/choices/0/response/0
+그렇게 해 주시면 됩니다.
+
+jorund/inn/3/choices/1/text
+지금 시작할 수 있어요.
+
+jorund/inn/3/choices/1/response/0
+그러면 오늘 내용부터 보겠습니다.
+
+jorund/inn/3/choices/2/text
+친한 사이가 되면 이 정도는 괜찮겠죠?
+
+jorund/inn/3/choices/2/response/0
+늦으실 때는 다른 일을 먼저 하고 있겠습니다.
+
+jorund/inn/3/choices/2/response/1
+다음에는 기다릴지 저도 정하겠습니다.
+
+jorund/inn/3/seen
+오늘 남은 시간부터 확인하겠습니다.
+
+jorund/inn/4/situation
+요르드가 의뢰 종이 한 줄을 짚는다.
+
+jorund/inn/4/lines/0
+이 문구는 다시 확인하고 싶습니다.
+
+jorund/inn/4/lines/1
+맡을 일이 둘로 읽힐 수 있습니다.
+
+jorund/inn/4/lines/2
+시작하고 다투기보다는 지금 묻겠습니다.
+
+jorund/inn/4/choices/0/text
+출발 전이면 시간은 있어요.
+
+jorund/inn/4/choices/0/response/0
+그동안 답을 받아 두겠습니다.
+
+jorund/inn/4/choices/1/text
+좋은 뜻으로 쓴 걸 테니 그냥 넘어가요.
+
+jorund/inn/4/choices/1/response/0
+좋은 뜻이 무엇인지 확인하겠습니다.
+
+jorund/inn/4/choices/1/response/1
+빠진 말을 제가 채우지는 않습니다.
+
+jorund/inn/4/choices/2/text
+저도 다르게 읽었어요. 함께 확인해요.
+
+jorund/inn/4/choices/2/response/0
+어느 쪽으로 읽으셨는지 말씀해 주십시오.
+
+jorund/inn/4/seen
+두 가지로 읽히는 곳은 이 줄입니다.
+
+jorund/inn/5/situation
+요르드가 물을 한 모금 마신다.
+
+jorund/inn/5/lines/0
+계곡에서는 물이 더 차가웠습니다.
+
+jorund/inn/5/lines/1
+여기는 잔이 빨리 미지근해집니다.
+
+jorund/inn/5/lines/2
+처음 한 모금이 가장 시원합니다.
+
+jorund/inn/5/choices/0/text
+차가운 물보다 따뜻한 게 몸에 좋잖아요.
+
+jorund/inn/5/choices/0/response/0
+지금은 시원한 물을 마시고 싶습니다.
+
+jorund/inn/5/choices/0/response/1
+이 정도는 제 취향으로 두십시오.
+
+jorund/inn/5/choices/1/text
+조금씩 따라 마시면 어떨까요?
+
+jorund/inn/5/choices/1/response/0
+주전자를 그늘에 두면 더 낫겠습니다.
+
+jorund/inn/5/choices/2/text
+지금 물은 시원하네요.
+
+jorund/inn/5/choices/2/response/0
+방금 떠 와서 아직 차갑습니다.
+
+jorund/inn/5/seen
+한 번에 많이 따르지는 않겠습니다.
+
+jorund/inn/6/situation
+요르드가 구겨진 소매를 편다.
+
+jorund/inn/6/lines/0
+식탁 모서리에 걸렸습니다.
+
+jorund/inn/6/lines/1
+천이 찢어지지는 않았습니다.
+
+jorund/inn/6/lines/2
+이쪽은 조금 비켜 앉는 편이 좋겠습니다.
+
+jorund/inn/6/choices/0/text
+모서리가 튀어나왔네요. 의자를 옮기죠.
+
+jorund/inn/6/choices/0/response/0
+반대편은 괜찮아 보입니다.
+
+jorund/inn/6/choices/1/text
+많이 걸리셨나요?
+
+jorund/inn/6/choices/1/response/0
+잠깐 멈춘 정도였습니다.
+
+jorund/inn/6/choices/2/text
+그런 건 신경 안 쓰셔도 충분히 단정해요.
+
+jorund/inn/6/choices/2/response/0
+단정해 보이려는 일은 아닙니다.
+
+jorund/inn/6/choices/2/response/1
+또 걸리지 않게 옮기는 겁니다.
+
+jorund/inn/6/seen
+저 모서리에서는 소매를 조심하십시오.
+
+jorund/inn/7/situation
+요르드가 창가 의자를 뒤로 민다.
+
+jorund/inn/7/lines/0
+이 시각에는 볕이 눈에 바로 듭니다.
+
+jorund/inn/7/lines/1
+글자 위로 빛이 번져 보입니다.
+
+jorund/inn/7/lines/2
+잠깐만 뒤로 물러나겠습니다.
+
+jorund/inn/7/choices/0/text
+저는 그늘 쪽에 있어요.
+
+jorund/inn/7/choices/0/response/0
+그쪽은 덜 눈부시겠습니다.
+
+jorund/inn/7/choices/1/text
+원로 집안이라 볕 아래 앉는 것도 조심하시네요.
+
+jorund/inn/7/choices/1/response/0
+눈이 부셔서 옮기는 겁니다.
+
+jorund/inn/7/choices/1/response/1
+집안과는 관계없습니다.
+
+jorund/inn/7/choices/2/text
+커튼을 조금 당길게요.
+
+jorund/inn/7/choices/2/response/0
+절반이면 충분합니다.
+
+jorund/inn/7/seen
+커튼 아래로는 아직 길이 잘 보입니다.
+
+jorund/inn/8/situation
+요르드가 골목 두 곳을 가리킨다.
+
+jorund/inn/8/lines/0
+저쪽은 지금 붐빌 겁니다.
+
+jorund/inn/8/lines/1
+조금 돌아가도 이 길이 빠르겠습니다.
+
+jorund/inn/8/lines/2
+원하시면 이유를 말씀드리겠습니다.
+
+jorund/inn/8/choices/0/text
+잘 아시니 앞으로 길은 전부 정해 주세요.
+
+jorund/inn/8/choices/0/response/0
+바뀌는 것은 같이 확인해야 합니다.
+
+jorund/inn/8/choices/0/response/1
+모르는 길은 저도 다시 봐야 합니다.
+
+jorund/inn/8/choices/1/text
+저도 다음에 찾게 알려 주세요.
+
+jorund/inn/8/choices/1/response/0
+사람들이 몰리는 모퉁이부터 보십시오.
+
+jorund/inn/8/choices/2/text
+오늘은 그 길로 가죠.
+
+jorund/inn/8/choices/2/response/0
+좁은 곳에서는 나란히 걷기 어렵습니다.
+
+jorund/inn/8/seen
+저 모퉁이에 사람이 늘면 이쪽으로 돕니다.
+
+jorund/inn/9/situation
+요르드가 여분의 종이를 밀어 둔다.
+
+jorund/inn/9/lines/0
+이건 쓰셔도 됩니다.
+
+jorund/inn/9/lines/1
+저는 필요한 만큼 남겼습니다.
+
+jorund/inn/9/lines/2
+두 번 접혀서 글씨 쓰기는 불편할 수 있습니다.
+
+jorund/inn/9/choices/0/text
+오늘 적을 건 짧아서 괜찮아요.
+
+jorund/inn/9/choices/0/response/0
+그럼 남는 부분까지 쓰실 수 있겠습니다.
+
+jorund/inn/9/choices/1/text
+지금은 쓸 일이 없어요.
+
+jorund/inn/9/choices/1/response/0
+그럼 여기 두겠습니다.
+
+jorund/inn/9/choices/2/text
+이런 것도 다 보수에 넣으시나요?
+
+jorund/inn/9/choices/2/response/0
+종이를 드린 것뿐입니다.
+
+jorund/inn/9/choices/2/response/1
+농담이라도 매번 값을 묻지는 마십시오.
+
+jorund/inn/9/seen
+접힌 데를 피하면 글씨는 잘 써집니다.
+
+jorund/inn/10/situation
+요르드가 저녁 식탁을 살핀다.
+
+jorund/inn/10/lines/0
+저쪽은 김이 나지 않습니다.
+
+jorund/inn/10/lines/1
+저는 따뜻한 것을 고르겠습니다.
+
+jorund/inn/10/lines/2
+식은 뒤에는 같은 맛이 나지 않습니다.
+
+jorund/inn/10/choices/0/text
+저는 이걸 먹어 봤어요.
+
+jorund/inn/10/choices/0/response/0
+양이 어느 정도였습니까?
+
+jorund/inn/10/choices/1/text
+식은 것도 드셔 보세요. 가리지 마시고요.
+
+jorund/inn/10/choices/1/response/0
+따뜻한 음식을 좋아하는 겁니다.
+
+jorund/inn/10/choices/1/response/1
+식기 전에 먹고 싶습니다.
+
+jorund/inn/10/choices/2/text
+저도 방금 나온 걸로 먹을게요.
+
+jorund/inn/10/choices/2/response/0
+주방에서 지금 무엇이 나오는지 보겠습니다.
+
+jorund/inn/10/seen
+김이 나는 동안 먼저 먹겠습니다.
+
+jorund/inn/11/situation
+요르드가 천천히 물을 따른다.
+
+jorund/inn/11/lines/0
+오늘 일은 예상보다 일찍 끝났습니다.
+
+jorund/inn/11/lines/1
+남은 시간은 비워 두었습니다.
+
+jorund/inn/11/lines/2
+급하지 않으면 잠깐 걸어도 되겠습니다.
+
+jorund/inn/11/choices/0/text
+그럼 다음 의뢰도 조금 당겨 보죠.
+
+jorund/inn/11/choices/0/response/0
+오늘 더 받을 생각은 없습니다.
+
+jorund/inn/11/choices/0/response/1
+빈 시간은 그대로 두겠습니다.
+
+jorund/inn/11/choices/1/text
+저도 잠깐 바람 쐬고 싶었어요.
+
+jorund/inn/11/choices/1/response/0
+돌아올 때 물을 새로 떠 오겠습니다.
+
+jorund/inn/11/choices/2/text
+저는 먼저 씻을게요.
+
+jorund/inn/11/choices/2/response/0
+그 뒤에도 시간이 남으면 말씀하십시오.
+
+jorund/inn/11/seen
+지금은 시각을 자주 볼 필요가 없겠습니다.
+
+jorund/inn/12/situation
+요르드가 잔 가장자리를 닦는다.
+
+jorund/inn/12/lines/0
+타른 계곡에서 원로의 손녀로 자랐습니다.
+
+jorund/inn/12/lines/1
+어른들은 제가 듣는 줄도 모르고 조항을 외웠습니다.
+
+jorund/inn/12/lines/2
+그 말들이 오래 남았습니다.
+
+jorund/inn/12/choices/0/text
+식사 때도 그런 얘기를 들었어요?
+
+jorund/inn/12/choices/0/response/0
+밥을 다 먹어도 이야기가 끝나지 않곤 했습니다.
+
+jorund/inn/12/choices/1/text
+어릴 때부터 익히셨군요.
+
+jorund/inn/12/choices/1/response/0
+무슨 뜻인지 알기 전부터 들었습니다.
+
+jorund/inn/12/choices/2/text
+제 사정은 빼고 조항대로만 정해 주세요.
+
+jorund/inn/12/choices/2/response/0
+사정은 듣고 정하겠습니다.
+
+jorund/inn/12/choices/2/response/1
+외운 조항만으로 끝낼 수 있는 일은 아닙니다.
+
+jorund/inn/12/seen
+그때는 밥이 식는 쪽이 더 신경 쓰였습니다.
+
+jorund/inn/13/situation
+요르드가 고향 얘기 중 잠깐 멈춘다.
+
+jorund/inn/13/lines/0
+우르다는 어릴 때부터 저를 봤습니다.
+
+jorund/inn/13/lines/1
+다른 분들 앞에서는 안 꺼낼 이야기도 압니다.
+
+jorund/inn/13/lines/2
+먼저 물으러 가지는 마십시오.
+
+jorund/inn/13/choices/0/text
+같은 계곡 출신이셨군요.
+
+jorund/inn/13/choices/0/response/0
+어릴 때부터 자주 뵈었습니다.
+
+jorund/inn/13/choices/1/text
+어린 시절을 알면 더 잘 이해할 수 있잖아요.
+
+jorund/inn/13/choices/1/response/0
+저를 통해 들으시면 됩니다.
+
+jorund/inn/13/choices/1/response/1
+다른 분에게 확인받을 일은 아닙니다.
+
+jorund/inn/13/choices/2/text
+요르드 씨가 얘기하고 싶을 때 들을게요.
+
+jorund/inn/13/choices/2/response/0
+그편이 낫겠습니다. 오늘은 여기까지만 하겠습니다.
+
+jorund/inn/13/seen
+우르다에게 제 어린 날을 캐묻지는 마십시오.
+
+jorund/inn/14/situation
+요르드가 접은 종이를 한 장 남긴다.
+
+jorund/inn/14/lines/0
+이 파티에 남는 이유를 묻고 싶으셨습니까?
+
+jorund/inn/14/lines/1
+길드 계약이 있고 가문에도 이익이 됩니다.
+
+jorund/inn/14/lines/2
+그 이유는 지금도 같습니다.
+
+jorund/inn/14/choices/0/text
+정이 들었다고 솔직히 말해도 괜찮아요.
+
+jorund/inn/14/choices/0/response/0
+없는 말을 대신 정해 주지 마십시오.
+
+jorund/inn/14/choices/0/response/1
+제가 한 대답부터 들어 주셨으면 합니다.
+
+jorund/inn/14/choices/1/text
+그 안에서 같이 일할 수 있으면 좋겠어요.
+
+jorund/inn/14/choices/1/response/0
+서로 지킬 것을 분명히 하면 됩니다.
+
+jorund/inn/14/choices/2/text
+계약은 아직 이어지는군요.
+
+jorund/inn/14/choices/2/response/0
+예. 맡은 일도 남아 있습니다.
+
+jorund/inn/14/seen
+길드 계약과 가문 얘기를 드린 겁니다.
+
+jorund/inn/15/situation
+요르드가 마른 잔을 뒤집어 둔다.
+
+jorund/inn/15/lines/0
+첫 계약을 맺을 때도 물이 놓여 있었습니다.
+
+jorund/inn/15/lines/1
+베르크홀트였습니다.
+
+jorund/inn/15/lines/2
+잔을 손대기 전에 문구부터 읽었습니다.
+
+jorund/inn/15/choices/0/text
+다 읽고 나서는 물을 마셨어요?
+
+jorund/inn/15/choices/0/response/0
+그때는 이미 미지근해졌습니다.
+
+jorund/inn/15/choices/1/text
+열여덟 살 때였죠?
+
+jorund/inn/15/choices/1/response/0
+예. 그 계약은 그 나이에 맺었습니다.
+
+jorund/inn/15/choices/2/text
+어른들이 시키는 대로 해서 편했겠어요.
+
+jorund/inn/15/choices/2/response/0
+읽고 동의하는 일은 제 몫이었습니다.
+
+jorund/inn/15/choices/2/response/1
+편해서 맺었다고는 하지 않겠습니다.
+
+jorund/inn/15/seen
+물을 너무 늦게 마신 건 지금도 기억합니다.
+
+jorund/inn/16/situation
+요르드가 길을 보다가 말을 건다.
+
+jorund/inn/16/lines/0
+오늘은 먼저 말씀드리고 가겠습니다.
+
+jorund/inn/16/lines/1
+제 설명도 듣고 판단해 주십시오.
+
+jorund/inn/16/lines/2
+저쪽으로 돌아갈 생각입니다.
+
+jorund/inn/16/choices/0/text
+돌아가는 데 얼마나 걸려요?
+
+jorund/inn/16/choices/0/response/0
+많이 늦어지지는 않을 겁니다.
+
+jorund/inn/16/choices/1/text
+늘 맞으셨으니 설명은 안 해도 돼요.
+
+jorund/inn/16/choices/1/response/0
+설명하는 편을 택했습니다.
+
+jorund/inn/16/choices/1/response/1
+이번 길은 같이 정해 보고 싶습니다.
+
+jorund/inn/16/choices/2/text
+저는 이 길도 궁금해요. 비교해 봐요.
+
+jorund/inn/16/choices/2/response/0
+그쪽은 아직 제가 살피지 않았습니다.
+
+jorund/inn/16/seen
+먼저 보려던 길은 저쪽 골목입니다.
+
+jorund/inn/17/situation
+요르드가 작은 종이를 접는다.
+
+jorund/inn/17/lines/0
+이 약속은 계약에 적지 않겠습니다.
+
+jorund/inn/17/lines/1
+내일 여기서 만나기로 한 일입니다.
+
+jorund/inn/17/lines/2
+잊지 않고 오겠습니다.
+
+jorund/inn/17/choices/0/text
+종이에 안 쓰면 잊어도 괜찮겠네요.
+
+jorund/inn/17/choices/0/response/0
+기억하겠다고 말씀드렸습니다.
+
+jorund/inn/17/choices/0/response/1
+가볍게 한 말로 듣지는 마십시오.
+
+jorund/inn/17/choices/1/text
+저도 늦지 않게 올게요.
+
+jorund/inn/17/choices/1/response/0
+늦을 것 같으면 먼저 알려 주십시오.
+
+jorund/inn/17/choices/2/text
+시각은 아침이었죠?
+
+jorund/inn/17/choices/2/response/0
+식당에 사람들이 몰리기 전으로 정했습니다.
+
+jorund/inn/17/seen
+내일 이 시각에 여기서 뵙겠습니다.
+
+jorund/inn/18/situation
+요르드가 창문 밖을 잠시 본다.
+
+jorund/inn/18/lines/0
+지금은 아무것도 정하지 않고 앉아 있겠습니다.
+
+jorund/inn/18/lines/1
+오늘 할 일은 마쳤습니다.
+
+jorund/inn/18/lines/2
+말없이 계셔도 괜찮습니다.
+
+jorund/inn/18/choices/0/text
+저도 잠깐 밖을 볼게요.
+
+jorund/inn/18/choices/0/response/0
+저 골목에서는 말소리가 잘 안 들립니다.
+
+jorund/inn/18/choices/1/text
+저는 물만 더 마실게요.
+
+jorund/inn/18/choices/1/response/0
+주전자가 조금 무겁습니다.
+
+jorund/inn/18/choices/2/text
+쉬면서 내일 계획을 세우면 더 편하죠.
+
+jorund/inn/18/choices/2/response/0
+내일 계획은 이미 세웠습니다.
+
+jorund/inn/18/choices/2/response/1
+지금은 앉아 있으려 합니다.
+
+jorund/inn/18/seen
+오늘은 저 골목을 지켜보기만 하겠습니다.
+
+jorund/inn/19/situation
+요르드가 식은 음식을 다시 맛본다.
+
+jorund/inn/19/lines/0
+식었는데도 향이 남아 있습니다.
+
+jorund/inn/19/lines/1
+평소라면 고르지 않았을 겁니다.
+
+jorund/inn/19/lines/2
+조금 늦게 내려온 덕을 봤습니다.
+
+jorund/inn/19/choices/0/text
+많이 식었어요?
+
+jorund/inn/19/choices/0/response/0
+김이 거의 나지 않습니다.
+
+jorund/inn/19/choices/1/text
+늦는 것도 좋다는 걸 드디어 배우셨네요.
+
+jorund/inn/19/choices/1/response/0
+일부러 약속을 늦출 생각은 없습니다.
+
+jorund/inn/19/choices/1/response/1
+오늘 음식이 괜찮다는 얘기입니다.
+
+jorund/inn/19/choices/2/text
+다음에는 저도 이걸 먹어 볼게요.
+
+jorund/inn/19/choices/2/response/0
+따뜻할 때와 어떻게 다른지도 궁금합니다.
+
+jorund/inn/19/seen
+이 음식은 다음에도 골라 보겠습니다.
+
+jorund/inn/20/situation
+요르드가 내일의 준비를 마친다.
+
+jorund/inn/20/lines/0
+제가 정한 것은 미리 말씀드리겠습니다.
+
+jorund/inn/20/lines/1
+다르게 보시면 그때 말씀하십시오.
+
+jorund/inn/20/lines/2
+같이 움직일 사람의 판단이 필요합니다.
+
+jorund/inn/20/choices/0/text
+제 판단은 믿을 만하지 않으니 맡길게요.
+
+jorund/inn/20/choices/0/response/0
+잘못 볼 수는 있습니다.
+
+jorund/inn/20/choices/0/response/1
+그래도 제가 못 본 것을 보셨을 수 있습니다.
+
+jorund/inn/20/choices/1/text
+제 쪽에서 본 것도 말할게요.
+
+jorund/inn/20/choices/1/response/0
+제 설명이 끝나기 전이라도 괜찮습니다.
+
+jorund/inn/20/choices/2/text
+준비한 것은 여기 있어요.
+
+jorund/inn/20/choices/2/response/0
+빠진 것이 있는지 확인하겠습니다.
+
+jorund/inn/20/seen
+다르게 본 것은 바로 말씀해 주십시오.
+
+jorund/inn/21/situation
+요르드가 물을 따라 나눈다.
+
+jorund/inn/21/lines/0
+물 한 잔 드시겠습니까?
+
+jorund/inn/21/lines/1
+시원할 때 드십시오.
+
+jorund/inn/21/lines/2
+이 잔은 방금 씻었습니다.
+
+jorund/inn/21/choices/0/text
+이번에는 물이 미지근해지기 전에 드시네요.
+
+jorund/inn/21/choices/0/response/0
+오래 설명할 일이 없기 때문입니다.
+
+jorund/inn/21/choices/1/text
+시원한 동안에 조금 마실게요.
+
+jorund/inn/21/choices/1/response/0
+남은 물은 주전자에 두겠습니다.
+
+jorund/inn/21/choices/2/text
+물 따르신 김에 다른 식탁 잔도 채워 주시죠.
+
+jorund/inn/21/choices/2/response/0
+여기서 마실 만큼만 떠 왔습니다.
+
+jorund/inn/21/choices/2/response/1
+나머지는 직접 가져가시면 됩니다.
+
+jorund/inn/21/seen
+물은 시원한 동안 드시는 편이 좋겠습니다.
+
+jorund/inn/22/situation
+요르드가 익숙한 길 앞에서 멈춘다.
+
+jorund/inn/22/lines/0
+오늘은 다른 쪽으로 가도 되겠습니다.
+
+jorund/inn/22/lines/1
+급히 돌아갈 일은 없습니다.
+
+jorund/inn/22/lines/2
+어디로 걸으면 좋겠습니까?
+
+jorund/inn/22/choices/0/text
+저는 이 길도 좋아요.
+
+jorund/inn/22/choices/0/response/0
+그러면 익숙한 쪽으로 걷겠습니다.
+
+jorund/inn/22/choices/1/text
+요르드 씨가 정하면 언제나 제일 낫죠.
+
+jorund/inn/22/choices/1/response/0
+오늘은 가장 빠른 길을 묻지 않았습니다.
+
+jorund/inn/22/choices/1/response/1
+걷고 싶은 곳이 있으신지 물었습니다.
+
+jorund/inn/22/choices/2/text
+아직 안 가 본 골목으로 가 봐요.
+
+jorund/inn/22/choices/2/response/0
+길이 막혀 있으면 돌아오면 됩니다.
+
+jorund/inn/22/seen
+오늘은 길이 조금 돌아가도 괜찮습니다.
+
+jorund/inn/23/situation
+요르드가 목도리를 느슨하게 고친다.
+
+jorund/inn/23/lines/0
+실내가 생각보다 덥습니다.
+
+jorund/inn/23/lines/1
+식사할 때는 느슨하게 두겠습니다.
+
+jorund/inn/23/lines/2
+의자 등에 잠깐 걸겠습니다.
+
+jorund/inn/23/choices/0/text
+늘 단정하시더니 이제 풀어지셨네요.
+
+jorund/inn/23/choices/0/response/0
+덥다고 말씀드렸습니다.
+
+jorund/inn/23/choices/0/response/1
+그 이상으로 보실 일은 없습니다.
+
+jorund/inn/23/choices/1/text
+뒤로 떨어지면 제가 알려 드릴게요.
+
+jorund/inn/23/choices/1/response/0
+밟히지만 않게 해 주십시오.
+
+jorund/inn/23/choices/2/text
+창문을 조금 열까요?
+
+jorund/inn/23/choices/2/response/0
+바람이 세지 않으면 좋겠습니다.
+
+jorund/inn/23/seen
+목도리는 잠깐 의자에 걸어 두겠습니다.
+
+jorund/inn/24/situation
+요르드가 접시를 밀어 두며 고개를 든다.
+
+jorund/inn/24/lines/0
+제가 온 뒤 금방 내려오셨습니다.
+
+jorund/inn/24/lines/1
+저도 방금 왔습니다.
+
+jorund/inn/24/lines/2
+기다리는 동안 물을 마셨습니다.
+
+jorund/inn/24/choices/0/text
+다음엔 제가 물을 따라 놓을게요.
+
+jorund/inn/24/choices/0/response/0
+그때는 너무 많이 따르지 마십시오.
+
+jorund/inn/24/choices/1/text
+일찍 끝난 일이 있었어요?
+
+jorund/inn/24/choices/1/response/0
+오늘 준비는 오래 걸리지 않았습니다.
+
+jorund/inn/24/choices/2/text
+내일 늦게 와도 그냥 기다리고 계세요.
+
+jorund/inn/24/choices/2/response/0
+알려 주시면 기다릴 수 있습니다.
+
+jorund/inn/24/choices/2/response/1
+늦어지면 꼭 알려 주십시오.
+
+jorund/inn/24/seen
+기다린 시간이 길지는 않았습니다.
+
+jorund/inn/25/situation
+요르드가 마른 종이를 정리한다.
+
+jorund/inn/25/lines/0
+이건 오늘 쓰지 않은 것입니다.
+
+jorund/inn/25/lines/1
+남겨 두면 다른 날 쓸 수 있습니다.
+
+jorund/inn/25/lines/2
+모서리가 구겨져도 읽는 데는 문제없습니다.
+
+jorund/inn/25/choices/0/text
+아직은 더 남았네요.
+
+jorund/inn/25/choices/0/response/0
+오늘 쓴 양이 적었습니다.
+
+jorund/inn/25/choices/1/text
+구겨진 건 그냥 버려도 되잖아요.
+
+jorund/inn/25/choices/1/response/0
+더 쓸 수 있는 것입니다.
+
+jorund/inn/25/choices/1/response/1
+버려야 할 이유는 없습니다.
+
+jorund/inn/25/choices/2/text
+저는 반쪽이면 충분해요.
+
+jorund/inn/25/choices/2/response/0
+그럼 이쪽을 잘라 쓰십시오.
+
+jorund/inn/25/seen
+반쪽을 쓰고 남은 것도 여기 두겠습니다.
+
+jorund/inn/26/situation
+요르드가 창가에서 고개를 돌린다.
+
+jorund/inn/26/lines/0
+오늘은 고향 생각이 났습니다.
+
+jorund/inn/26/lines/1
+물 때문인지는 모르겠습니다.
+
+jorund/inn/26/lines/2
+계곡에 돌아갈 때 이야기도 들려드리겠습니다.
+
+jorund/inn/26/choices/0/text
+그때쯤이면 가문보다 저희가 중요하겠죠?
+
+jorund/inn/26/choices/0/response/0
+그런 비교를 하자고 꺼낸 말은 아닙니다.
+
+jorund/inn/26/choices/0/response/1
+가문에 대한 제 생각은 달라지지 않았습니다.
+
+jorund/inn/26/choices/1/text
+그때는 천천히 걸으며 듣고 싶어요.
+
+jorund/inn/26/choices/1/response/0
+걸을 곳은 제가 잘 압니다.
+
+jorund/inn/26/choices/2/text
+오늘 물은 조금 차네요.
+
+jorund/inn/26/choices/2/response/0
+아까보다 늦게 떠 왔습니다.
+
+jorund/inn/26/seen
+계곡에서 걷던 길은 아직 기억합니다.
+
+jorund/inn/27/situation
+요르드가 귀환한 일행을 기다린다.
+
+jorund/inn/27/lines/0
+먼저 먹으려다 기다렸습니다.
+
+jorund/inn/27/lines/1
+급한 일은 아니었습니다.
+
+jorund/inn/27/lines/2
+오늘은 어떤 길로 돌아오셨습니까?
+
+jorund/inn/27/choices/0/text
+큰길이 붐벼서 골목으로 왔어요. 먹으면서 얘기하죠.
+
+jorund/inn/27/choices/0/response/0
+식기 전에 주문부터 하겠습니다.
+
+jorund/inn/27/choices/1/text
+서쪽 길로 왔어요.
+
+jorund/inn/27/choices/1/response/0
+그 길은 지금 덜 붐볐겠습니다.
+
+jorund/inn/27/choices/2/text
+기다린 시간도 기록해 두셨나요?
+
+jorund/inn/27/choices/2/response/0
+시각은 보지 않았습니다.
+
+jorund/inn/27/choices/2/response/1
+그 농담은 오늘도 사양하겠습니다.
+
+jorund/inn/27/seen
+오늘 돌아온 이야기는 식사하며 듣겠습니다.
+
+jorund/dungeon/0/variants/0
+정한 시각에 준비됐습니다.
+
+jorund/dungeon/0/variants/1
+맡을 짐을 확인하겠습니다.
+
+jorund/dungeon/1/variants/0
+바뀐 내용은 지금 말씀하십시오.
+
+jorund/dungeon/1/variants/1
+이쪽으로 나갈 생각입니다.
+
+jorund/dungeon/2/variants/0
+오늘 계획도 설명하겠습니다.
+
+jorund/dungeon/2/variants/1
+함께 살핀 뒤 움직이겠습니다.
+
+jorund/dungeon/3/variants/0
+바닥 상태부터 보겠습니다.
+
+jorund/dungeon/3/variants/1
+지나갈 폭을 확인하십시오.
+
+jorund/dungeon/4/variants/0
+이곳에서는 간격이 필요합니다.
+
+jorund/dungeon/4/variants/1
+앞이 안 보이면 멈춰 주십시오.
+
+jorund/dungeon/5/variants/0
+제 설명이 틀리면 바로 말씀하십시오.
+
+jorund/dungeon/5/variants/1
+같이 걸을 수 있는 쪽을 보겠습니다.
+
+jorund/dungeon/6/variants/0
+확인한 내용부터 듣겠습니다.
+
+jorund/dungeon/6/variants/1
+이름을 붙이기 전에 살펴보겠습니다.
+
+jorund/dungeon/7/variants/0
+다른 쪽에서도 보셨습니까?
+
+jorund/dungeon/7/variants/1
+제 쪽은 아직 잘 안 보입니다.
+
+jorund/dungeon/8/variants/0
+먼저 보신 대로 말씀해 주십시오.
+
+jorund/dungeon/8/variants/1
+다르게 보이는 곳을 함께 짚겠습니다.
+
+jorund/dungeon/9/variants/0
+제가 맡을 쪽을 보겠습니다.
+
+jorund/dungeon/9/variants/1
+움직이기 전에 알려 주십시오.
+
+jorund/dungeon/10/variants/0
+계획과 다르면 바로 전하겠습니다.
+
+jorund/dungeon/10/variants/1
+혼자 정하고 옮기지는 않겠습니다.
+
+jorund/dungeon/11/variants/0
+제 쪽 판단도 들어 주십시오.
+
+jorund/dungeon/11/variants/1
+무리라고 보시면 말씀하셔도 됩니다.
+
+jorund/dungeon/12/variants/0
+남은 위험부터 확인하겠습니다.
+
+jorund/dungeon/12/variants/1
+아직 짐을 풀지는 마십시오.
+
+jorund/dungeon/13/variants/0
+발밑에 떨어진 것도 살피겠습니다.
+
+jorund/dungeon/13/variants/1
+물 마실 시간은 두겠습니다.
+
+jorund/dungeon/14/variants/0
+이번 판단도 돌아가서 같이 보겠습니다.
+
+jorund/dungeon/14/variants/1
+지금은 잠깐 손을 쉬겠습니다.
+
+jorund/dungeon/15/variants/0
+들어갈 이유부터 맞추겠습니다.
+
+jorund/dungeon/15/variants/1
+준비가 끝나지 않으면 기다리겠습니다.
+
+jorund/dungeon/16/variants/0
+제가 못 본 것이 있습니까?
+
+jorund/dungeon/16/variants/1
+아직 서두를 필요는 없습니다.
+
+jorund/dungeon/17/variants/0
+오늘은 의견을 더 듣고 싶습니다.
+
+jorund/dungeon/17/variants/1
+제 계획만으로 들어가지 않겠습니다.
+
+jorund/dungeon/18/variants/0
+확인이 끝나면 나가겠습니다.
+
+jorund/dungeon/18/variants/1
+아직 주변은 살펴야 합니다.
+
+jorund/dungeon/19/variants/0
+어깨에 힘이 계속 들어갑니다.
+
+jorund/dungeon/19/variants/1
+조금 풀고 움직이겠습니다.
+
+jorund/dungeon/20/variants/0
+이제야 배가 고픈 줄 알겠습니다.
+
+jorund/dungeon/20/variants/1
+오늘은 물을 미지근하게 두지 않겠습니다.
+
+jorund/dungeon/21/variants/0
+보폭이 줄어들었습니다.
+
+jorund/dungeon/21/variants/1
+아픈 곳이 있으면 말씀하십시오.
+
+jorund/dungeon/22/variants/0
+짐을 나누면 어떻겠습니까?
+
+jorund/dungeon/22/variants/1
+멈출 수 있을 때 쉬는 편이 낫습니다.
+
+jorund/dungeon/23/variants/0
+괜찮다고만 하지 않으셨으면 합니다.
+
+jorund/dungeon/23/variants/1
+제 손이 필요하면 바로 내밀겠습니다.
+
+jorund/dungeon/24/variants/0
+손부터 움직일 수 있습니까?
+
+jorund/dungeon/24/variants/1
+가까이 가기 전에 길을 보겠습니다.
+
+jorund/dungeon/25/variants/0
+곁에서 상태를 확인하겠습니다.
+
+jorund/dungeon/25/variants/1
+혼자 들지는 않겠습니다.
+
+jorund/dungeon/26/variants/0
+들리시면 조금만 반응해 주십시오.
+
+jorund/dungeon/26/variants/1
+움직일 방법은 함께 찾겠습니다.
+
+jorund/dungeon/27/variants/0
+당장 움직임을 확인하겠습니다.
+
+jorund/dungeon/27/variants/1
+이쪽 팔은 잠시 쓰지 않겠습니다.
+
+jorund/dungeon/28/variants/0
+제가 짐을 나눠야겠습니다.
+
+jorund/dungeon/28/variants/1
+예상보다 통증이 남습니다.
+
+jorund/dungeon/29/variants/0
+오늘은 제 판단을 잠깐 봐 주십시오.
+
+jorund/dungeon/29/variants/1
+괜찮다고 끝내기 전에 쉬겠습니다.
+
+jorund/dungeon/30/variants/0
+정리할 것은 내려놓겠습니다.
+
+jorund/dungeon/30/variants/1
+그늘 쪽에서 물을 마시겠습니다.
+
+jorund/dungeon/31/variants/0
+쉬는 동안 계획은 덮어 두겠습니다.
+
+jorund/dungeon/31/variants/1
+지금은 손을 비우고 싶습니다.
+
+jorund/dungeon/32/variants/0
+지금은 물만 마시며 앉아 있겠습니다.
+
+jorund/dungeon/32/variants/1
+오늘 물은 차가울 때 마시겠습니다.
+
+jorund/dungeon/33/variants/0
+열리는 방향부터 확인하겠습니다.
+
+jorund/dungeon/33/variants/1
+확인 없이 힘을 쓰지는 마십시오.
+
+jorund/dungeon/34/variants/0
+아래쪽을 함께 봐 주십시오.
+
+jorund/dungeon/34/variants/1
+제 쪽에서 보이는 틈은 이곳입니다.
+
+jorund/dungeon/35/variants/0
+제가 놓친 것이 있는지 말씀하십시오.
+
+jorund/dungeon/35/variants/1
+가능한 방법을 맞춘 뒤 시도하겠습니다.
+
+jorund/dungeon/36/variants/0
+정한 곳까지 돌아왔습니다.
+
+jorund/dungeon/36/variants/1
+짐부터 내려놓겠습니다.
+
+jorund/dungeon/37/variants/0
+다음 일은 씻고 나서 보겠습니다.
+
+jorund/dungeon/37/variants/1
+오늘은 짐을 두고 식사하겠습니다.
+
+jorund/dungeon/38/variants/0
+먼저 도착했지만 시각은 안 봤습니다.
+
+jorund/dungeon/38/variants/1
+천천히 정리하고 내려오십시오.
+
+jorund/dungeon/39/variants/0
+지금 가능한 길부터 보겠습니다.
+
+jorund/dungeon/39/variants/1
+전부 들고 갈 수 있는지 확인하십시오.
+
+jorund/dungeon/40/variants/0
+계획은 바꾸어야겠습니다.
+
+jorund/dungeon/40/variants/1
+혼자 뒤에 남지 마십시오.
+
+jorund/dungeon/41/variants/0
+제 쪽도 도움이 필요합니다.
+
+jorund/dungeon/41/variants/1
+함께 나간 뒤 길을 다시 의논하겠습니다.
+
+jorund/transitions/0/situation
+요르드가 종이를 다시 펴 본다.
+
+jorund/transitions/0/lines/0
+확인할 내용은 듣겠습니다.
+
+jorund/transitions/0/lines/1
+그 뒤에 답을 드리겠습니다.
+
+jorund/transitions/1/situation
+요르드가 종이를 접어 치운다.
+
+jorund/transitions/1/lines/0
+그 조건에는 동의하지 않습니다.
+
+jorund/transitions/1/lines/1
+오늘 협의는 끝내겠습니다.
+
+jorund/transitions/2/situation
+요르드가 모호한 문구를 가리킨다.
+
+jorund/transitions/2/lines/0
+이 부분을 함께 확인하겠습니다.
+
+jorund/transitions/2/lines/1
+다르게 읽으셨다면 말씀하십시오.
+
+jorund/transitions/3/situation
+요르드가 의뢰 종이를 돌려준다.
+
+jorund/transitions/3/lines/0
+다시 설명을 듣고 판단하겠습니다.
+
+jorund/transitions/3/lines/1
+지금은 맡겠다고 하지 않겠습니다.
+
+jorund/transitions/4/situation
+요르드가 두 골목을 번갈아 본다.
+
+jorund/transitions/4/lines/0
+제가 고른 이유를 말씀드리겠습니다.
+
+jorund/transitions/4/lines/1
+다른 길도 보셨다면 듣겠습니다.
+
+jorund/transitions/5/situation
+요르드가 미리 그은 표시를 지운다.
+
+jorund/transitions/5/lines/0
+각자 맡을 곳부터 다시 정하겠습니다.
+
+jorund/transitions/5/lines/1
+제가 혼자 더 준비하지는 않겠습니다.
+
+jorund/transitions/6/situation
+요르드가 물잔을 들고 말한다.
+
+jorund/transitions/6/lines/0
+타른 계곡에서는 이런 물을 마셨습니다.
+
+jorund/transitions/6/lines/1
+오늘은 제 얘기도 조금 하겠습니다.
+
+jorund/transitions/7/situation
+요르드가 잔을 비우고 일어난다.
+
+jorund/transitions/7/lines/0
+집안 이야기는 멈추겠습니다.
+
+jorund/transitions/7/lines/1
+내일 일정은 그대로 준비하겠습니다.
+
+jorund/transitions/8/situation
+요르드가 약속을 확인하고 종이를 접는다.
+
+jorund/transitions/8/lines/0
+이건 문구에 더하지 않겠습니다.
+
+jorund/transitions/8/lines/1
+내일 만나기로 했으니 잊지 않고 오겠습니다.
+
+jorund/transitions/9/situation
+요르드가 접었던 종이를 다시 편다.
+
+jorund/transitions/9/lines/0
+다음에는 시간을 먼저 확인하겠습니다.
+
+jorund/transitions/9/lines/1
+말로 정한 것만 믿고 기다리진 않겠습니다.
+
+jorund/transitions/10/situation
+요르드가 계획을 먼저 들려준다.
+
+jorund/transitions/10/lines/0
+제 쪽에서 정한 것은 알려 드리겠습니다.
+
+jorund/transitions/10/lines/1
+함께 판단할 여유도 남겨 두겠습니다.
+
+jorund/transitions/11/situation
+요르드가 설명하던 말을 줄인다.
+
+jorund/transitions/11/lines/0
+오늘 정한 범위는 지키겠습니다.
+
+jorund/transitions/11/lines/1
+그 밖의 일은 다시 협의하겠습니다.
+
+jorund/transitions/12/situation
+요르드가 빈 맞은편을 보고 기다린다.
+
+jorund/transitions/12/lines/0
+기다리느라 물이 미지근해졌습니다.
+
+jorund/transitions/12/lines/1
+그래도 오늘은 먼저 가고 싶지 않았습니다.
+
+jorund/transitions/13/situation
+요르드가 먼저 자기 그릇을 치운다.
+
+jorund/transitions/13/lines/0
+내일은 기다리지 않고 먹겠습니다.
+
+jorund/transitions/13/lines/1
+늦으시면 먼저 알려 주십시오.
+
+lavinia/inn/0/situation
+라비니아가 서류 위에 손을 얹는다.
+
+lavinia/inn/0/lines/0
+확인은 끝났습니다.
+
+lavinia/inn/0/lines/1
+같은 내용을 다시 설명하지는 않겠습니다.
+
+lavinia/inn/0/lines/2
+추가로 바뀐 것이 있습니까?
+
+lavinia/inn/0/choices/0/text
+추가할 내용은 아직 없어요.
+
+lavinia/inn/0/choices/0/response/0
+그럼 추가 확인은 마치겠습니다.
+
+lavinia/inn/0/choices/1/text
+편하게 얘기하면 오해가 풀릴 거예요.
+
+lavinia/inn/0/choices/1/response/0
+무엇이 오해인지 먼저 말씀하십시오.
+
+lavinia/inn/0/choices/1/response/1
+말투를 바꾸는 것으로 끝날 일은 아닙니다.
+
+lavinia/inn/0/choices/2/text
+바뀐 부분만 따로 전할게요.
+
+lavinia/inn/0/choices/2/response/0
+그러면 그 부분부터 보겠습니다.
+
+lavinia/inn/0/seen
+새로 전할 내용만 말씀하시면 됩니다.
+
+lavinia/inn/1/situation
+라비니아가 가슴의 배지를 바로 단다.
+
+lavinia/inn/1/lines/0
+이건 제 허가증입니다.
+
+lavinia/inn/1/lines/1
+허락 없이 만지지 마세요.
+
+lavinia/inn/1/lines/2
+보여 드릴 때는 제가 풀겠습니다.
+
+lavinia/inn/1/choices/0/text
+익숙해지면 이런 건 편하게 만져도 되죠?
+
+lavinia/inn/1/choices/0/response/0
+가까워져도 먼저 물어보셔야 합니다.
+
+lavinia/inn/1/choices/0/response/1
+제 허가증이니까요.
+
+lavinia/inn/1/choices/1/text
+건드려서 미안해요.
+
+lavinia/inn/1/choices/1/response/0
+다음에는 먼저 말씀해 주세요.
+
+lavinia/inn/1/choices/2/text
+여기서도 보이네요.
+
+lavinia/inn/1/choices/2/response/0
+확인하셨으면 됐습니다.
+
+lavinia/inn/1/seen
+배지는 이쪽에 다시 달겠습니다.
+
+lavinia/inn/2/situation
+라비니아가 가방을 다시 연다.
+
+lavinia/inn/2/lines/0
+종이 한 장이 안 보입니다.
+
+lavinia/inn/2/lines/1
+옮기셨다면 어디 두셨는지 알려 주세요.
+
+lavinia/inn/2/lines/2
+다시 찾는 데 시간이 듭니다.
+
+lavinia/inn/2/choices/0/text
+젖을까 봐 위에 올렸어요. 먼저 말할걸요.
+
+lavinia/inn/2/choices/0/response/0
+거기 있군요. 다음에는 꼭 알려 주세요.
+
+lavinia/inn/2/choices/1/text
+탁자 위에 있었어요.
+
+lavinia/inn/2/choices/1/response/0
+제가 확인하겠습니다.
+
+lavinia/inn/2/choices/2/text
+중요한 건 외우면 되니 잃어도 괜찮아요.
+
+lavinia/inn/2/choices/2/response/0
+원본을 가지고 있어야 할 때가 있습니다.
+
+lavinia/inn/2/choices/2/response/1
+저는 찾아서 넣겠습니다.
+
+lavinia/inn/2/seen
+찾은 종이는 안쪽에 다시 넣겠습니다.
+
+lavinia/inn/3/situation
+라비니아가 식당에서 소매를 걷는다.
+
+lavinia/inn/3/lines/0
+손을 씻고 오겠습니다.
+
+lavinia/inn/3/lines/1
+기다리실 필요는 없어요.
+
+lavinia/inn/3/lines/2
+돌아와서 제 그릇은 제가 옮기겠습니다.
+
+lavinia/inn/3/choices/0/text
+저도 아직 시작 안 했어요.
+
+lavinia/inn/3/choices/0/response/0
+그러면 먼저 드셔도 됩니다.
+
+lavinia/inn/3/choices/1/text
+돌아올 때까지 음식도 제가 골라 둘게요.
+
+lavinia/inn/3/choices/1/response/0
+고르는 건 제가 하고 싶어요.
+
+lavinia/inn/3/choices/1/response/1
+잠깐 다녀오는 동안 그대로 두세요.
+
+lavinia/inn/3/choices/2/text
+저는 주전자만 옮겨 둘게요.
+
+lavinia/inn/3/choices/2/response/0
+물이 흐르니 밑을 받쳐 주세요.
+
+lavinia/inn/3/seen
+소매가 젖지 않게 조금 더 걷어야겠네요.
+
+lavinia/inn/4/situation
+라비니아가 허가 배지를 들어 보인다.
+
+lavinia/inn/4/lines/0
+라비니아 다 카델입니다.
+
+lavinia/inn/4/lines/1
+제 허가는 여기서 확인하실 수 있습니다.
+
+lavinia/inn/4/lines/2
+필요한 절차가 있으면 말씀해 주세요.
+
+lavinia/inn/4/choices/0/text
+토르바에서는 필요 없으니 떼셔도 되잖아요.
+
+lavinia/inn/4/choices/0/response/0
+달고 있으면 마음이 놓입니다.
+
+lavinia/inn/4/choices/0/response/1
+오늘도 이대로 두겠습니다.
+
+lavinia/inn/4/choices/1/text
+확인했어요. 맡을 일부터 같이 볼까요?
+
+lavinia/inn/4/choices/1/response/0
+예. 범위를 알고 준비하겠습니다.
+
+lavinia/inn/4/choices/2/text
+이름은 들었어요.
+
+lavinia/inn/4/choices/2/response/0
+그럼 다시 소개드리지는 않겠습니다.
+
+lavinia/inn/4/seen
+제 이름은 이쪽에도 적혀 있습니다.
+
+lavinia/inn/5/situation
+라비니아가 종이 끝의 물기를 닦는다.
+
+lavinia/inn/5/lines/0
+잔을 너무 가까이 뒀네요.
+
+lavinia/inn/5/lines/1
+아직 안쪽까지 젖지는 않았어요.
+
+lavinia/inn/5/lines/2
+옮기고 나서 마저 읽겠습니다.
+
+lavinia/inn/5/choices/0/text
+제 잔도 반대편으로 옮길게요.
+
+lavinia/inn/5/choices/0/response/0
+그러면 종이를 펼쳐도 되겠어요.
+
+lavinia/inn/5/choices/1/text
+여기는 아직 마른 것 같아요.
+
+lavinia/inn/5/choices/1/response/0
+그쪽부터 접으면 되겠습니다.
+
+lavinia/inn/5/choices/2/text
+한 장쯤 다시 쓰면 되니 걱정 마세요.
+
+lavinia/inn/5/choices/2/response/0
+다시 쓰기 전에 말리면 돼요.
+
+lavinia/inn/5/choices/2/response/1
+오늘은 이걸 읽고 싶습니다.
+
+lavinia/inn/5/seen
+마른 천 쪽으로 종이를 옮겨 뒀어요.
+
+lavinia/inn/6/situation
+라비니아가 창가 의자를 당긴다.
+
+lavinia/inn/6/lines/0
+이쪽은 빛이 고르게 들어오네요.
+
+lavinia/inn/6/lines/1
+밥 먹기에도 덜 어둡겠어요.
+
+lavinia/inn/6/lines/2
+잠깐 옮겨 앉아도 될까요?
+
+lavinia/inn/6/choices/0/text
+저는 여기서 먹을게요.
+
+lavinia/inn/6/choices/0/response/0
+그쪽은 바람이 덜 들겠네요.
+
+lavinia/inn/6/choices/1/text
+먹기 전에 옮기면 다 식을 텐데 그냥 먹죠.
+
+lavinia/inn/6/choices/1/response/0
+잘 보이는 곳에서 먹고 싶을 뿐이에요.
+
+lavinia/inn/6/choices/1/response/1
+접시가 잘 보이면 덜 흘릴 것 같고요.
+
+lavinia/inn/6/choices/2/text
+제 그릇도 그쪽으로 가져갈게요.
+
+lavinia/inn/6/choices/2/response/0
+그럼 의자를 조금 더 당기겠습니다.
+
+lavinia/inn/6/seen
+볕이 접시까지 들어와서 잘 보이네요.
+
+lavinia/inn/7/situation
+라비니아가 길드 쪽을 가리킨다.
+
+lavinia/inn/7/lines/0
+카델에서 쓰던 서류와는 조금 달라요.
+
+lavinia/inn/7/lines/1
+같은 뜻인 줄 알고 읽다가 멈췄어요.
+
+lavinia/inn/7/lines/2
+이 부분은 한 번 더 물어보겠습니다.
+
+lavinia/inn/7/choices/0/text
+잘 아실 테니 대충 뜻은 통하잖아요.
+
+lavinia/inn/7/choices/0/response/0
+대충 아는 데서 멈추긴 어렵습니다.
+
+lavinia/inn/7/choices/0/response/1
+오늘 쓸 내용이라 확인하겠습니다.
+
+lavinia/inn/7/choices/1/text
+저도 헷갈렸어요. 같이 확인해요.
+
+lavinia/inn/7/choices/1/response/0
+서로 다르게 읽은 곳부터 보여 드리죠.
+
+lavinia/inn/7/choices/2/text
+지금 물어볼 시간은 있어요.
+
+lavinia/inn/7/choices/2/response/0
+다녀와서 알려 드리겠습니다.
+
+lavinia/inn/7/seen
+같은 뜻인지 확인할 곳이 한 군데 남았어요.
+
+lavinia/inn/8/situation
+라비니아가 서류를 접어 가방에 넣는다.
+
+lavinia/inn/8/lines/0
+오늘 확인할 것은 끝났어요.
+
+lavinia/inn/8/lines/1
+조금 늦게 내려오셔도 기다릴 수 있습니다.
+
+lavinia/inn/8/lines/2
+그동안 제 것도 정리해 둘게요.
+
+lavinia/inn/8/choices/0/text
+늦어지면 미리 알릴게요.
+
+lavinia/inn/8/choices/0/response/0
+그러면 마음 놓고 기다리겠습니다.
+
+lavinia/inn/8/choices/1/text
+금방 다녀올게요.
+
+lavinia/inn/8/choices/1/response/0
+가방은 여기 두셔도 돼요.
+
+lavinia/inn/8/choices/2/text
+그럼 앞으로 조금씩 늦어도 되겠네요.
+
+lavinia/inn/8/choices/2/response/0
+다음 약속 때도 늦으면 곤란해요.
+
+lavinia/inn/8/choices/2/response/1
+오래 걸리지 않는다면 기다릴게요.
+
+lavinia/inn/8/seen
+제 정리가 끝나기 전에는 여유가 있어요.
+
+lavinia/inn/9/situation
+라비니아가 접시 옆의 배지를 만진다.
+
+lavinia/inn/9/lines/0
+먹을 때마다 그릇에 닿네요.
+
+lavinia/inn/9/lines/1
+조금 옆으로 달면 되겠어요.
+
+lavinia/inn/9/lines/2
+소리가 나서 자꾸 내려다보게 됩니다.
+
+lavinia/inn/9/choices/0/text
+그릇을 옮겨도 되겠네요.
+
+lavinia/inn/9/choices/0/response/0
+예. 왼쪽으로 조금 밀어 볼게요.
+
+lavinia/inn/9/choices/1/text
+밥 먹는 동안만 자랑을 쉬어도 되잖아요.
+
+lavinia/inn/9/choices/1/response/0
+늘 지니던 허가증이에요.
+
+lavinia/inn/9/choices/1/response/1
+그 표현은 조금 불편하네요.
+
+lavinia/inn/9/choices/2/text
+끈이 소매에 안 걸리나 봐 드릴게요.
+
+lavinia/inn/9/choices/2/response/0
+이제 숟가락을 들어도 소매에 안 걸려요.
+
+lavinia/inn/9/seen
+이제 숟가락을 들어도 배지가 안 닿아요.
+
+lavinia/inn/10/situation
+라비니아가 탁자 아래 떨어진 끈을 줍는다.
+
+lavinia/inn/10/lines/0
+이건 제 가방 끈이에요.
+
+lavinia/inn/10/lines/1
+한쪽이 자꾸 풀립니다.
+
+lavinia/inn/10/lines/2
+바꿔 매는 법을 찾아야겠어요.
+
+lavinia/inn/10/choices/0/text
+풀릴 때마다 묶으면 되니 그냥 두죠.
+
+lavinia/inn/10/choices/0/response/0
+제가 안 해 본 매듭도 있어요.
+
+lavinia/inn/10/choices/0/response/1
+오늘 익히면 되겠죠.
+
+lavinia/inn/10/choices/1/text
+제가 쓰는 매듭도 한번 보실래요?
+
+lavinia/inn/10/choices/1/response/0
+너무 복잡하지 않으면 좋겠어요.
+
+lavinia/inn/10/choices/2/text
+끝이 닳았네요.
+
+lavinia/inn/10/choices/2/response/0
+많이 당겨서 그런가 봐요.
+
+lavinia/inn/10/seen
+이번 매듭은 좀 덜 풀리면 좋겠네요.
+
+lavinia/inn/11/situation
+라비니아가 가게 쪽을 잠깐 본다.
+
+lavinia/inn/11/lines/0
+저쪽에서 종이를 팔더군요.
+
+lavinia/inn/11/lines/1
+오늘은 구경만 했어요.
+
+lavinia/inn/11/lines/2
+그 옆 음식 냄새가 더 오래 남았네요.
+
+lavinia/inn/11/choices/0/text
+저녁 먹고 같이 지나가 볼까요?
+
+lavinia/inn/11/choices/0/response/0
+이번에는 종이보다 음식부터 볼 것 같아요.
+
+lavinia/inn/11/choices/1/text
+아직 안 드셨어요?
+
+lavinia/inn/11/choices/1/response/0
+예. 이곳에서 먹을 생각이었어요.
+
+lavinia/inn/11/choices/2/text
+필요한 종이가 있으면 지금 사 두세요.
+
+lavinia/inn/11/choices/2/response/0
+지금은 먹을 것 얘기를 하고 있었어요.
+
+lavinia/inn/11/choices/2/response/1
+종이는 아직 남았습니다.
+
+lavinia/inn/11/seen
+저 골목에서는 구운 냄새가 오래 나네요.
+
+lavinia/inn/12/situation
+라비니아가 배지를 조용히 내려놓는다.
+
+lavinia/inn/12/lines/0
+카델 분소에서 허가받던 날이 생각나요.
+
+lavinia/inn/12/lines/1
+앞에서 기다리는 사람이 많았습니다.
+
+lavinia/inn/12/lines/2
+제 차례가 와도 발이 바로 안 움직였어요.
+
+lavinia/inn/12/choices/0/text
+콜레트 씨도 그곳에 갔었죠?
+
+lavinia/inn/12/choices/0/response/0
+한 해 먼저 같은 심사관 앞에 섰어요.
+
+lavinia/inn/12/choices/1/text
+허가를 받았으니 그날 두려움도 끝났겠네요.
+
+lavinia/inn/12/choices/1/response/0
+달고 나온 뒤에도 자꾸 확인했어요.
+
+lavinia/inn/12/choices/1/response/1
+지금도 손이 먼저 갈 때가 있습니다.
+
+lavinia/inn/12/choices/2/text
+한참 기다려도 떨리셨겠어요.
+
+lavinia/inn/12/choices/2/response/0
+문 앞에 서니 제가 할 말을 다시 잊더군요.
+
+lavinia/inn/12/seen
+그날은 허가증이 있는지 여러 번 만져 봤어요.
+
+lavinia/inn/13/situation
+라비니아가 창문 밖으로 고개를 돌린다.
+
+lavinia/inn/13/lines/0
+토르바는 성안 마법 허가가 필요 없죠.
+
+lavinia/inn/13/lines/1
+처음에는 그 말부터 다시 물었습니다.
+
+lavinia/inn/13/lines/2
+지금도 배지를 안 달면 허전해요.
+
+lavinia/inn/13/choices/0/text
+여기서는 안 쓰니 무거운 배지는 가방에 넣어요.
+
+lavinia/inn/13/choices/0/response/0
+이 배지를 달고 다녀도 괜찮습니다.
+
+lavinia/inn/13/choices/0/response/1
+저는 오늘도 달겠습니다.
+
+lavinia/inn/13/choices/1/text
+오늘은 달고 있어도 불편하지 않으세요?
+
+lavinia/inn/13/choices/1/response/0
+예. 이쪽에 두니 그릇에도 안 닿네요.
+
+lavinia/inn/13/choices/2/text
+오신 지는 좀 됐죠?
+
+lavinia/inn/13/choices/2/response/0
+몇 해 지냈는데도 남은 버릇이 있어요.
+
+lavinia/inn/13/seen
+이 도시에서는 허가가 필요 없다는 말이 아직 낯설어요.
+
+lavinia/inn/14/situation
+라비니아가 소매 끝을 만진다.
+
+lavinia/inn/14/lines/0
+유디트를 보면 하고 싶은 말이 많아요.
+
+lavinia/inn/14/lines/1
+어디까지 물어도 되는지 망설일 때도 있고요.
+
+lavinia/inn/14/lines/2
+궁금해도 묻는 말이 딱딱해질까 망설여요.
+
+lavinia/inn/14/choices/0/text
+궁금한 것부터 본인에게 물어보세요.
+
+lavinia/inn/14/choices/0/response/0
+그때는 질문처럼 들리게 말해 보고 싶어요.
+
+lavinia/inn/14/choices/1/text
+두 분은 생각이 다르네요.
+
+lavinia/inn/14/choices/1/response/0
+그분은 제 배지도 불편할 겁니다.
+
+lavinia/inn/14/choices/2/text
+제가 유디트 씨한테 가서 대신 물어볼게요.
+
+lavinia/inn/14/choices/2/response/0
+제가 직접 여쭤보고 싶어요.
+
+lavinia/inn/14/choices/2/response/1
+어떤 말로 꺼낼지만 더 생각해 볼게요.
+
+lavinia/inn/14/seen
+오늘은 그분에게 뭘 물을지 생각하고 있었어요.
+
+lavinia/inn/15/situation
+라비니아가 늦은 식사를 시작한다.
+
+lavinia/inn/15/lines/0
+일이 끝났는데도 종이를 또 보고 있었어요.
+
+lavinia/inn/15/lines/1
+별것 아닌 줄을 몇 번이나 읽었죠.
+
+lavinia/inn/15/lines/2
+그러다 배가 고파졌습니다.
+
+lavinia/inn/15/choices/0/text
+국은 아직 남아 있어요.
+
+lavinia/inn/15/choices/0/response/0
+늦어서 다 떨어진 줄 알았어요.
+
+lavinia/inn/15/choices/1/text
+꼼꼼하시니 한 번 더 봐야 마음 놓이죠.
+
+lavinia/inn/15/choices/1/response/0
+오늘은 충분히 봤습니다.
+
+lavinia/inn/15/choices/1/response/1
+그만 보고 먹고 싶어요.
+
+lavinia/inn/15/choices/2/text
+지금은 덮고 따뜻할 때 드세요.
+
+lavinia/inn/15/choices/2/response/0
+네. 숟가락부터 들겠습니다.
+
+lavinia/inn/15/seen
+이 줄은 내일 읽어도 되겠네요.
+
+lavinia/inn/16/situation
+라비니아가 배지 끈을 쥐었다 놓는다.
+
+lavinia/inn/16/lines/0
+허가를 지키는 것만 생각하던 때가 있어요.
+
+lavinia/inn/16/lines/1
+눈앞에서 사람이 다치면 가만있기 어렵습니다.
+
+lavinia/inn/16/lines/2
+그때는 다친 사람 곁으로 먼저 가고 싶어요.
+
+lavinia/inn/16/choices/0/text
+그럼 허가증은 제가 가방에 넣어 둘게요.
+
+lavinia/inn/16/choices/0/response/0
+저는 계속 지닐 생각입니다.
+
+lavinia/inn/16/choices/0/response/1
+제게는 여전히 중요한 허가증이에요.
+
+lavinia/inn/16/choices/1/text
+그때 곁에서 할 일은 같이 찾을게요.
+
+lavinia/inn/16/choices/1/response/0
+예. 혼자 결론부터 내리지는 않겠습니다.
+
+lavinia/inn/16/choices/2/text
+지금은 다친 분 없어요.
+
+lavinia/inn/16/choices/2/response/0
+오늘은 천천히 생각할 수 있네요.
+
+lavinia/inn/16/seen
+다친 사람을 보면 손부터 뻗고 싶을 때가 있어요.
+
+lavinia/inn/17/situation
+라비니아가 서류를 덮고 손을 편다.
+
+lavinia/inn/17/lines/0
+오늘은 여기까지 하겠습니다.
+
+lavinia/inn/17/lines/1
+벌써 같은 줄을 또 읽었어요.
+
+lavinia/inn/17/lines/2
+이럴 때는 쉬는 편이 낫네요.
+
+lavinia/inn/17/choices/0/text
+옆에서 그냥 물 마셔도 될까요?
+
+lavinia/inn/17/choices/0/response/0
+네. 저도 종이는 덮어 둘게요.
+
+lavinia/inn/17/choices/1/text
+저는 잠깐 바깥에 나갈게요.
+
+lavinia/inn/17/choices/1/response/0
+돌아올 때 바람이 찬지 알려 주세요.
+
+lavinia/inn/17/choices/2/text
+마지막으로 한 장만 확인해 주실래요?
+
+lavinia/inn/17/choices/2/response/0
+급한 것이면 이유를 말씀해 주세요.
+
+lavinia/inn/17/choices/2/response/1
+아니면 내일 봤으면 합니다.
+
+lavinia/inn/17/seen
+손을 펴고 있으니 종이 넘기던 힘이 빠지네요.
+
+lavinia/inn/18/situation
+라비니아가 빈 의자를 당긴다.
+
+lavinia/inn/18/lines/0
+토베와 마주 앉았을 때 생각이 많아졌어요.
+
+lavinia/inn/18/lines/1
+배지를 보는 제 손도 보였을 테고요.
+
+lavinia/inn/18/lines/2
+인사부터 다시 해 보고 싶습니다.
+
+lavinia/inn/18/choices/0/text
+오늘은 밖에 계시던데요.
+
+lavinia/inn/18/choices/0/response/0
+내려가다 마주치면 먼저 인사하겠습니다.
+
+lavinia/inn/18/choices/1/text
+오해는 제가 설명해서 풀어 드릴게요.
+
+lavinia/inn/18/choices/1/response/0
+제가 왜 배지를 봤는지 직접 말할게요.
+
+lavinia/inn/18/choices/1/response/1
+토베 씨에게 미리 말하지는 말아 주세요.
+
+lavinia/inn/18/choices/2/text
+같이 있을 때 제가 부를게요.
+
+lavinia/inn/18/choices/2/response/0
+억지로 오래 붙잡지는 않을게요.
+
+lavinia/inn/18/seen
+다음에 만나면 손부터 배지로 가지 않게 해야겠어요.
+
+lavinia/inn/19/situation
+라비니아가 물병의 마개를 돌린다.
+
+lavinia/inn/19/lines/0
+이 마개는 늘 끝까지 조이게 돼요.
+
+lavinia/inn/19/lines/1
+가방이 젖으면 곤란하니까요.
+
+lavinia/inn/19/lines/2
+오늘은 손에서 잘 안 풀리네요.
+
+lavinia/inn/19/choices/0/text
+마개는 제가 맡을 테니 앞으로는 건드리지 마세요.
+
+lavinia/inn/19/choices/0/response/0
+마개가 조금 뻑뻑한 겁니다.
+
+lavinia/inn/19/choices/0/response/1
+마개 하나가 뻑뻑해도 제 물병은 제가 챙길게요.
+
+lavinia/inn/19/choices/1/text
+천을 대고 같이 돌려 볼까요?
+
+lavinia/inn/19/choices/1/response/0
+미끄럽지 않으니 풀리겠어요.
+
+lavinia/inn/19/choices/2/text
+조금 기다렸다 해 봐요.
+
+lavinia/inn/19/choices/2/response/0
+손을 말린 뒤에 다시 잡을게요.
+
+lavinia/inn/19/seen
+마개는 풀렸으니 이제 물을 따를 수 있겠어요.
+
+lavinia/inn/20/situation
+라비니아가 준비 목록을 접는다.
+
+lavinia/inn/20/lines/0
+필요한 것은 미리 확인하겠습니다.
+
+lavinia/inn/20/lines/1
+늦어질 것 같으면 바로 알릴게요.
+
+lavinia/inn/20/lines/2
+기다리는 분이 있다는 걸 잊지 않겠습니다.
+
+lavinia/inn/20/choices/0/text
+저도 바뀐 일은 바로 전할게요.
+
+lavinia/inn/20/choices/0/response/0
+그러면 다시 확인할 곳을 줄일 수 있겠습니다.
+
+lavinia/inn/20/choices/1/text
+짐은 벌써 묶었어요.
+
+lavinia/inn/20/choices/1/response/0
+마개가 새지 않는지만 보겠습니다.
+
+lavinia/inn/20/choices/2/text
+출발이 급하니 확인 결과는 다녀와서 들어도 되죠?
+
+lavinia/inn/20/choices/2/response/0
+같이 알아야 할 내용은 말씀드릴게요.
+
+lavinia/inn/20/choices/2/response/1
+제 판단만 듣고 따라오실 필요는 없습니다.
+
+lavinia/inn/20/seen
+바뀐 내용은 출발 전에 꼭 전하겠습니다.
+
+lavinia/inn/21/situation
+라비니아가 먼저 안부를 묻는다.
+
+lavinia/inn/21/lines/0
+오늘은 걸음이 느리시네요.
+
+lavinia/inn/21/lines/1
+급한 서류가 있어서 온 건 아닙니다.
+
+lavinia/inn/21/lines/2
+저녁은 드셨어요?
+
+lavinia/inn/21/choices/0/text
+잠깐 앉으면 괜찮아요.
+
+lavinia/inn/21/choices/0/response/0
+그럼 저는 물을 가져올게요.
+
+lavinia/inn/21/choices/1/text
+아무 일 없으면 제가 먼저 올라가도 되죠?
+
+lavinia/inn/21/choices/1/response/0
+올라가셔도 돼요.
+
+lavinia/inn/21/choices/1/response/1
+그냥 밥은 드셨나 궁금했습니다.
+
+lavinia/inn/21/choices/2/text
+아직요. 같이 내려가실래요?
+
+lavinia/inn/21/choices/2/response/0
+저도 이제 먹으러 가려던 중이에요.
+
+lavinia/inn/21/seen
+저녁을 못 드셨으면 함께 먹으려 했어요.
+
+lavinia/inn/22/situation
+라비니아가 식탁 끝에 종이를 둔다.
+
+lavinia/inn/22/lines/0
+이건 내일 보겠습니다.
+
+lavinia/inn/22/lines/1
+오늘은 종이 위에 잔을 올리지 않게만 해 주세요.
+
+lavinia/inn/22/lines/2
+저도 습관적으로 펼치지 않을게요.
+
+lavinia/inn/22/choices/0/text
+조금만 펼쳐 보면 오히려 편하게 쉬실 텐데요.
+
+lavinia/inn/22/choices/0/response/0
+내일 봐도 괜찮다고 정했습니다.
+
+lavinia/inn/22/choices/0/response/1
+오늘은 그대로 두고 싶어요.
+
+lavinia/inn/22/choices/1/text
+제 잔은 이쪽에 둘게요.
+
+lavinia/inn/22/choices/1/response/0
+그럼 편하게 먹을 수 있겠네요.
+
+lavinia/inn/22/choices/2/text
+저는 물 한 잔만 더 마실게요.
+
+lavinia/inn/22/choices/2/response/0
+주전자는 가운데에 둘게요.
+
+lavinia/inn/22/seen
+종이는 저쪽 끝에 두었으니 괜찮겠어요.
+
+lavinia/inn/23/situation
+라비니아가 비에 젖은 머리를 정리한다.
+
+lavinia/inn/23/lines/0
+조금만 더 있다 오려다 비를 맞았어요.
+
+lavinia/inn/23/lines/1
+앞머리가 눈을 가리네요.
+
+lavinia/inn/23/lines/2
+천을 어디 뒀는지 잠깐 잊었네요.
+
+lavinia/inn/23/choices/0/text
+의자에 있어요. 거울도 가져올게요.
+
+lavinia/inn/23/choices/0/response/0
+천을 찾았네요. 물기부터 닦겠습니다.
+
+lavinia/inn/23/choices/1/text
+비가 갑자기 왔죠.
+
+lavinia/inn/23/choices/1/response/0
+예. 골목에서 바로 돌아왔어요.
+
+lavinia/inn/23/choices/2/text
+계획 없이 걸으면 이런 일이 생기네요.
+
+lavinia/inn/23/choices/2/response/0
+비는 걷다가 왔습니다.
+
+lavinia/inn/23/choices/2/response/1
+가끔 젖을 수도 있죠.
+
+lavinia/inn/23/seen
+물기만 닦으면 앞도 잘 보이겠네요.
+
+lavinia/inn/24/situation
+라비니아가 빈손으로 식당에 온다.
+
+lavinia/inn/24/lines/0
+오늘은 가방을 두고 왔습니다.
+
+lavinia/inn/24/lines/1
+자꾸 열어 보게 돼서요.
+
+lavinia/inn/24/lines/2
+밥 먹고 나서 가져와도 되겠죠.
+
+lavinia/inn/24/choices/0/text
+배지는 그대로네요.
+
+lavinia/inn/24/choices/0/response/0
+이건 평소처럼 달고 왔어요.
+
+lavinia/inn/24/choices/1/text
+아예 배지도 방에 두면 더 홀가분하겠어요.
+
+lavinia/inn/24/choices/1/response/0
+오늘은 가방만 두고 싶었습니다.
+
+lavinia/inn/24/choices/1/response/1
+다른 것까지 바꿀 생각은 없어요.
+
+lavinia/inn/24/choices/2/text
+오늘 음식부터 고르죠.
+
+lavinia/inn/24/choices/2/response/0
+예. 방금 나온 것이 뭔지 궁금해요.
+
+lavinia/inn/24/seen
+가방 없이 내려오니 한 손이 비어 있네요.
+
+lavinia/inn/25/situation
+라비니아가 내일 만날 시각을 말한다.
+
+lavinia/inn/25/lines/0
+내일도 이쯤 내려오겠습니다.
+
+lavinia/inn/25/lines/1
+조금 늦으면 먼저 드세요.
+
+lavinia/inn/25/lines/2
+저는 끝나는 대로 올게요.
+
+lavinia/inn/25/choices/0/text
+확실하게 서류로 써 두면 좋겠네요.
+
+lavinia/inn/25/choices/0/response/0
+밥 먹을 때 뵙자는 말이었어요.
+
+lavinia/inn/25/choices/0/response/1
+종이까지 쓸 필요는 없겠죠.
+
+lavinia/inn/25/choices/1/text
+늦으면 국이 식지 않게만 덮어 둘게요.
+
+lavinia/inn/25/choices/1/response/0
+그 정도면 충분히 고맙습니다.
+
+lavinia/inn/25/choices/2/text
+저도 일이 끝나면 올게요.
+
+lavinia/inn/25/choices/2/response/0
+식당에서 마주치면 같이 먹어요.
+
+lavinia/inn/25/seen
+내일은 일이 끝나는 대로 내려올게요.
+
+lavinia/inn/26/situation
+라비니아가 옆자리 잔을 씻어 둔다.
+
+lavinia/inn/26/lines/0
+이 잔을 늘 고르시더군요.
+
+lavinia/inn/26/lines/1
+손잡이 있는 것보다 편하신가 봐요.
+
+lavinia/inn/26/lines/2
+오늘은 제가 먼저 씻어 뒀습니다.
+
+lavinia/inn/26/choices/0/text
+제가 자주 쓰는 걸 기억하셨네요.
+
+lavinia/inn/26/choices/0/response/0
+눈앞에서 여러 번 보니까 알게 되네요.
+
+lavinia/inn/26/choices/1/text
+물은 제가 따라 올게요.
+
+lavinia/inn/26/choices/1/response/0
+가득 담으면 옮기기 무겁습니다.
+
+lavinia/inn/26/choices/2/text
+제 습관도 다 기록해 두시나요?
+
+lavinia/inn/26/choices/2/response/0
+잔 하나 기억한 겁니다.
+
+lavinia/inn/26/choices/2/response/1
+그렇게 불편하게 보지는 말아 주세요.
+
+lavinia/inn/26/seen
+그 잔은 안쪽까지 헹궈 뒀어요.
+
+lavinia/inn/27/situation
+라비니아가 귀환한 가방을 구석에 놓는다.
+
+lavinia/inn/27/lines/0
+오늘은 먼저 씻겠습니다.
+
+lavinia/inn/27/lines/1
+정리는 아침에 해도 됩니다.
+
+lavinia/inn/27/lines/2
+아래서 만나면 된다고 생각하니 마음이 덜 급하네요.
+
+lavinia/inn/27/choices/0/text
+가방은 여기 둘까요?
+
+lavinia/inn/27/choices/0/response/0
+벽에 기대 두면 넘어지지 않겠어요.
+
+lavinia/inn/27/choices/1/text
+흐트러진 채 두면 마음에 걸리실 텐데요.
+
+lavinia/inn/27/choices/1/response/0
+오늘은 그대로 둘 수 있어요.
+
+lavinia/inn/27/choices/1/response/1
+내일 정리할 시간을 내면 되니까요.
+
+lavinia/inn/27/choices/2/text
+저도 씻고 내려갈게요.
+
+lavinia/inn/27/choices/2/response/0
+늦으면 물부터 마시고 있겠습니다.
+
+lavinia/inn/27/seen
+가방을 내려놓았으니 이제 씻으러 가도 되겠어요.
+
+lavinia/dungeon/0/variants/0
+필요한 확인은 마쳤습니다.
+
+lavinia/dungeon/0/variants/1
+제 짐은 이쪽에 있어요.
+
+lavinia/dungeon/1/variants/0
+바뀐 것은 출발 전에 알려 주세요.
+
+lavinia/dungeon/1/variants/1
+놓친 것이 있으면 같이 보겠습니다.
+
+lavinia/dungeon/2/variants/0
+오늘도 함께 확인하고 가요.
+
+lavinia/dungeon/2/variants/1
+시간이 걸리면 먼저 말씀드릴게요.
+
+lavinia/dungeon/3/variants/0
+걸을 수 있는 폭부터 보겠습니다.
+
+lavinia/dungeon/3/variants/1
+바닥에 물기가 있는지 봐 주세요.
+
+lavinia/dungeon/4/variants/0
+이쪽은 제가 먼저 살필게요.
+
+lavinia/dungeon/4/variants/1
+불편한 데가 있으면 멈춰요.
+
+lavinia/dungeon/5/variants/0
+발 디딜 곳은 서로 알려 줘요.
+
+lavinia/dungeon/5/variants/1
+급하면 제가 먼저 기다리겠습니다.
+
+lavinia/dungeon/6/variants/0
+보이는 상태부터 듣겠습니다.
+
+lavinia/dungeon/6/variants/1
+아직 만지지는 말아 주세요.
+
+lavinia/dungeon/7/variants/0
+기록하기 전에 한 번 더 볼게요.
+
+lavinia/dungeon/7/variants/1
+제가 읽은 것과 같은지 봐 주세요.
+
+lavinia/dungeon/8/variants/0
+확실치 않으면 그렇게 말해도 돼요.
+
+lavinia/dungeon/8/variants/1
+함께 보고 나서 정리하겠습니다.
+
+lavinia/dungeon/9/variants/0
+준비 상태를 확인하겠습니다.
+
+lavinia/dungeon/9/variants/1
+제 앞을 지나실 때는 알려 주세요.
+
+lavinia/dungeon/10/variants/0
+지금은 제 쪽도 보고 있습니다.
+
+lavinia/dungeon/10/variants/1
+무리해서 서두르지는 마세요.
+
+lavinia/dungeon/11/variants/0
+달라지는 건 바로 말씀드릴게요.
+
+lavinia/dungeon/11/variants/1
+같이 움직일 수 있게 불러 주세요.
+
+lavinia/dungeon/12/variants/0
+확인할 것이 남았는지 보겠습니다.
+
+lavinia/dungeon/12/variants/1
+장비는 잠깐 내려놓으세요.
+
+lavinia/dungeon/13/variants/0
+이제 숨 좀 돌려도 되겠어요.
+
+lavinia/dungeon/13/variants/1
+손에 힘이 너무 들어갔네요.
+
+lavinia/dungeon/14/variants/0
+돌아가면 서류보다 밥부터 먹어요.
+
+lavinia/dungeon/14/variants/1
+오늘은 저도 한 번 앉고 싶네요.
+
+lavinia/dungeon/15/variants/0
+들어가기 전에 준비를 볼게요.
+
+lavinia/dungeon/15/variants/1
+제 것은 빠지지 않았습니다.
+
+lavinia/dungeon/16/variants/0
+조금 떨리지만 확인은 할 수 있어요.
+
+lavinia/dungeon/16/variants/1
+잠깐 기다리고 같이 가요.
+
+lavinia/dungeon/17/variants/0
+오늘은 손이 먼저 배지로 가네요.
+
+lavinia/dungeon/17/variants/1
+옆에서 한 번 더 말 맞춰 주세요.
+
+lavinia/dungeon/18/variants/0
+주변까지 보고 나가겠습니다.
+
+lavinia/dungeon/18/variants/1
+아직 발밑은 조심해 주세요.
+
+lavinia/dungeon/19/variants/0
+한꺼번에 힘이 빠지네요.
+
+lavinia/dungeon/19/variants/1
+짐은 조금 있다 들게요.
+
+lavinia/dungeon/20/variants/0
+이제야 그릇 잡을 손이 풀리네요.
+
+lavinia/dungeon/20/variants/1
+돌아가서 따뜻한 걸 먹고 싶어요.
+
+lavinia/dungeon/21/variants/0
+지금은 멈추셔야겠어요.
+
+lavinia/dungeon/21/variants/1
+안색이 아까와 다릅니다.
+
+lavinia/dungeon/22/variants/0
+가방부터 같이 내려놓아요.
+
+lavinia/dungeon/22/variants/1
+서 있기 힘들면 말씀해 주세요.
+
+lavinia/dungeon/23/variants/0
+지금 제가 할 수 있는 것부터 찾을게요.
+
+lavinia/dungeon/23/variants/1
+괜찮은 척까지 하지는 마세요.
+
+lavinia/dungeon/24/variants/0
+상태를 먼저 보겠습니다.
+
+lavinia/dungeon/24/variants/1
+주변을 비워 주세요.
+
+lavinia/dungeon/25/variants/0
+제가 가까이에서 부를게요.
+
+lavinia/dungeon/25/variants/1
+함부로 옮기기 전에 같이 봐요.
+
+lavinia/dungeon/26/variants/0
+눈앞에 있으니 먼저 손을 뻗겠습니다.
+
+lavinia/dungeon/26/variants/1
+이동할 수 있는지는 함께 확인해요.
+
+lavinia/dungeon/27/variants/0
+이쪽 손이 불편합니다.
+
+lavinia/dungeon/27/variants/1
+확인하는 동안 잠깐 멈추겠습니다.
+
+lavinia/dungeon/28/variants/0
+가방을 조금 받아 주실래요?
+
+lavinia/dungeon/28/variants/1
+지금은 팔을 펴고 싶어요.
+
+lavinia/dungeon/29/variants/0
+이번에는 제 팔이 아프다고 먼저 말할게요.
+
+lavinia/dungeon/29/variants/1
+제 준비는 잠깐 기다려 주세요.
+
+lavinia/dungeon/30/variants/0
+종이는 꺼내지 않겠습니다.
+
+lavinia/dungeon/30/variants/1
+잠깐 물부터 마실게요.
+
+lavinia/dungeon/31/variants/0
+배지가 걸리지 않게 옆으로 앉을게요.
+
+lavinia/dungeon/31/variants/1
+눈이 피곤하니 오늘은 종이를 안 꺼낼래요.
+
+lavinia/dungeon/32/variants/0
+아무것도 안 펼쳐도 편하네요.
+
+lavinia/dungeon/32/variants/1
+일어날 때까지 그냥 얘기해요.
+
+lavinia/dungeon/33/variants/0
+겉의 표시부터 보겠습니다.
+
+lavinia/dungeon/33/variants/1
+열기 전에 멈춰 주세요.
+
+lavinia/dungeon/34/variants/0
+다르게 읽은 곳이 있는지 봐 주세요.
+
+lavinia/dungeon/34/variants/1
+확실하지 않은 부분은 남겨 둘게요.
+
+lavinia/dungeon/35/variants/0
+서두르다 놓치면 다시 보면 돼요.
+
+lavinia/dungeon/35/variants/1
+둘 다 납득한 뒤에 손을 대요.
+
+lavinia/dungeon/36/variants/0
+돌아온 짐부터 확인하겠습니다.
+
+lavinia/dungeon/36/variants/1
+젖은 서류가 없는지 볼게요.
+
+lavinia/dungeon/37/variants/0
+정리는 아침에도 할 수 있겠네요.
+
+lavinia/dungeon/37/variants/1
+손 씻고 내려올게요.
+
+lavinia/dungeon/38/variants/0
+오늘은 가방을 두고 먹으러 갈래요.
+
+lavinia/dungeon/38/variants/1
+식당에 계시면 제가 찾아갈게요.
+
+lavinia/dungeon/39/variants/0
+지금은 빠져나갈 길을 보겠습니다.
+
+lavinia/dungeon/39/variants/1
+종이보다 발밑을 보세요.
+
+lavinia/dungeon/40/variants/0
+설명은 안전한 곳에서 할게요.
+
+lavinia/dungeon/40/variants/1
+혼자 뒤처지지 않게 불러 주세요.
+
+lavinia/dungeon/41/variants/0
+제가 다 확인할 수는 없네요.
+
+lavinia/dungeon/41/variants/1
+서로 보이는 곳으로 같이 물러나요.
+
+lavinia/transitions/0/situation
+라비니아가 서류에서 손을 뗀다.
+
+lavinia/transitions/0/lines/0
+바뀐 부분은 들을 수 있습니다.
+
+lavinia/transitions/0/lines/1
+그것부터 설명해 주세요.
+
+lavinia/transitions/1/situation
+라비니아가 서류를 가방에 넣는다.
+
+lavinia/transitions/1/lines/0
+오늘은 더 확인하지 않겠습니다.
+
+lavinia/transitions/1/lines/1
+다시 이야기할 때까지 두세요.
+
+lavinia/transitions/2/situation
+라비니아가 배지를 보여 준다.
+
+lavinia/transitions/2/lines/0
+제 것부터 확인하셔도 됩니다.
+
+lavinia/transitions/2/lines/1
+같이 일할 내용은 그다음에 볼게요.
+
+lavinia/transitions/3/situation
+라비니아가 펼친 종이를 다시 모은다.
+
+lavinia/transitions/3/lines/0
+먼저 말씀하신 것부터 확인하겠습니다.
+
+lavinia/transitions/3/lines/1
+지금은 더 맡기 어렵습니다.
+
+lavinia/transitions/4/situation
+라비니아가 서류를 접고 기다린다.
+
+lavinia/transitions/4/lines/0
+오늘은 조금 기다릴 수 있어요.
+
+lavinia/transitions/4/lines/1
+늦어질 때만 먼저 알려 주세요.
+
+lavinia/transitions/5/situation
+라비니아가 시각을 다시 확인한다.
+
+lavinia/transitions/5/lines/0
+다음에는 약속한 때에 뵙겠습니다.
+
+lavinia/transitions/5/lines/1
+제가 기다릴 수 있다고 먼저 정하지는 마세요.
+
+lavinia/transitions/6/situation
+라비니아가 배지를 만지다 말을 건다.
+
+lavinia/transitions/6/lines/0
+카델에서 허가받던 날이 떠올랐어요.
+
+lavinia/transitions/6/lines/1
+그날은 제가 말도 많이 더듬었습니다.
+
+lavinia/transitions/7/situation
+라비니아가 배지를 옷에 다시 단다.
+
+lavinia/transitions/7/lines/0
+분소 얘기는 나중에 할게요.
+
+lavinia/transitions/7/lines/1
+오늘은 필요한 것만 확인하겠습니다.
+
+lavinia/transitions/8/situation
+라비니아가 서류를 보다가 고개를 든다.
+
+lavinia/transitions/8/lines/0
+사람이 다치면 먼저 손을 뻗고 싶어요.
+
+lavinia/transitions/8/lines/1
+그 마음까지 모른 척하진 않겠습니다.
+
+lavinia/transitions/9/situation
+라비니아가 손을 거두고 앉는다.
+
+lavinia/transitions/9/lines/0
+오늘은 혼자 생각할 시간이 필요해요.
+
+lavinia/transitions/9/lines/1
+대답을 지금 정하라고 하지는 마세요.
+
+lavinia/transitions/10/situation
+라비니아가 준비한 것을 나누어 보여 준다.
+
+lavinia/transitions/10/lines/0
+제가 못 본 것도 말해 주세요.
+
+lavinia/transitions/10/lines/1
+제 확인만 믿고 끝내지는 않을게요.
+
+lavinia/transitions/11/situation
+라비니아가 가방을 자기 쪽으로 옮긴다.
+
+lavinia/transitions/11/lines/0
+오늘은 제 것만 정리하겠습니다.
+
+lavinia/transitions/11/lines/1
+더 부탁하실 것은 아침에 말씀해 주세요.
+
+lavinia/transitions/12/situation
+라비니아가 빈손으로 식당에 내려온다.
+
+lavinia/transitions/12/lines/0
+가방은 위에 두고 왔어요.
+
+lavinia/transitions/12/lines/1
+오늘은 저녁부터 같이 고르고 싶습니다.
+
+lavinia/transitions/13/situation
+라비니아가 자기 잔을 먼저 치운다.
+
+lavinia/transitions/13/lines/0
+저는 이만 올라가겠습니다.
+
+lavinia/transitions/13/lines/1
+내일 일은 정한 대로 준비할게요.
+
+tove/inn/0/situation
+토베가 코트를 끌어당긴다.
+
+tove/inn/0/lines/0
+오늘은 그만 얘기할래.
+
+tove/inn/0/lines/1
+춥지는 않아.
+
+tove/inn/0/lines/2
+안으로 들어가.
+
+tove/inn/0/choices/0/text
+저도 잠깐만 옆에 앉아 있을게요.
+
+tove/inn/0/choices/0/response/0
+혼자 있고 싶어서 나온 거야.
+
+tove/inn/0/choices/0/response/1
+오늘은 그냥 가 줘.
+
+tove/inn/0/choices/1/text
+안쪽에 간다고만 알릴게요.
+
+tove/inn/0/choices/1/response/0
+알았어. 나중에 들어갈게.
+
+tove/inn/0/choices/2/text
+바람이 좀 세네요.
+
+tove/inn/0/choices/2/response/0
+나는 여기서 피할 수 있어.
+
+tove/inn/0/seen
+코트가 있으니 나는 좀 더 있을게.
+
+tove/inn/1/situation
+토베가 식탁 옆에서 비켜 선다.
+
+tove/inn/1/lines/0
+지나가도 돼.
+
+tove/inn/1/lines/1
+나는 아직 안 먹을 거야.
+
+tove/inn/1/lines/2
+지금은 묻지 마.
+
+tove/inn/1/choices/0/text
+먹고 싶어지면 그때 같이 가요.
+
+tove/inn/1/choices/0/response/0
+그때 내가 말할게.
+
+tove/inn/1/choices/1/text
+저는 물만 마실게요.
+
+tove/inn/1/choices/1/response/0
+주전자는 안쪽에 있어.
+
+tove/inn/1/choices/2/text
+끼니를 거르면 안 되니 지금 앉아요.
+
+tove/inn/1/choices/2/response/0
+배고프면 먹을게.
+
+tove/inn/1/choices/2/response/1
+지금은 앉고 싶지 않아.
+
+tove/inn/1/seen
+길은 비켜 뒀으니 지나가도 돼.
+
+tove/inn/2/situation
+토베가 입구 가까이 의자를 둔다.
+
+tove/inn/2/lines/0
+여기서 기다릴게.
+
+tove/inn/2/lines/1
+다른 의자는 안 가져와도 돼.
+
+tove/inn/2/lines/2
+금방 옮길 수 있게 두고 싶어.
+
+tove/inn/2/choices/0/text
+저는 안쪽에 있을게요.
+
+tove/inn/2/choices/0/response/0
+부르면 들을 수 있어.
+
+tove/inn/2/choices/1/text
+의자를 더 안쪽으로 옮겨 놓을게요.
+
+tove/inn/2/choices/1/response/0
+아직 옮기지 마.
+
+tove/inn/2/choices/1/response/1
+문 옆이 지금은 편해.
+
+tove/inn/2/choices/2/text
+통로만 비우면 괜찮겠네요.
+
+tove/inn/2/choices/2/response/0
+응. 누가 오면 더 비킬게.
+
+tove/inn/2/seen
+누가 들어오면 의자를 조금 더 당길게.
+
+tove/inn/3/situation
+토베가 덜 마른 코트를 턴다.
+
+tove/inn/3/lines/0
+이건 내가 입던 거야.
+
+tove/inn/3/lines/1
+다른 데로 치우진 마.
+
+tove/inn/3/lines/2
+조금 더 말리고 입을게.
+
+tove/inn/3/choices/0/text
+많이 낡았으니 그냥 버려도 되겠어요.
+
+tove/inn/3/choices/0/response/0
+아직 입을 수 있어.
+
+tove/inn/3/choices/0/response/1
+내가 버릴 때 정할게.
+
+tove/inn/3/choices/1/text
+이쪽은 비 안 맞아요. 옮겨 걸까요?
+
+tove/inn/3/choices/1/response/0
+내가 걸게. 여기 좀 비워 줘.
+
+tove/inn/3/choices/2/text
+아직 안쪽이 젖었네요.
+
+tove/inn/3/choices/2/response/0
+바깥은 거의 말랐어.
+
+tove/inn/3/seen
+소매 안쪽까지 마르면 다시 입을 거야.
+
+tove/inn/4/situation
+토베가 처마 밑에서 하늘을 본다.
+
+tove/inn/4/lines/0
+비가 곧 그칠 것 같아.
+
+tove/inn/4/lines/1
+여기는 안 젖어.
+
+tove/inn/4/lines/2
+우산은 나중에 써도 돼.
+
+tove/inn/4/choices/0/text
+저도 잠깐 여기서 기다릴게요.
+
+tove/inn/4/choices/0/response/0
+물 떨어지는 쪽만 피해.
+
+tove/inn/4/choices/1/text
+저는 먼저 들어갈게요.
+
+tove/inn/4/choices/1/response/0
+발밑이 젖었으니 천천히 가.
+
+tove/inn/4/choices/2/text
+밖에 서 있으면 사람들이 이상하게 봐요.
+
+tove/inn/4/choices/2/response/0
+비 안 맞는 데 서 있는 거야.
+
+tove/inn/4/choices/2/response/1
+지금은 안 들어갈래.
+
+tove/inn/4/seen
+처마 끝에서는 아직 물이 많이 떨어져.
+
+tove/inn/5/situation
+토베가 찬 잔을 손에 든다.
+
+tove/inn/5/lines/0
+따뜻한 줄 알고 잡았어.
+
+tove/inn/5/lines/1
+이건 식었네.
+
+tove/inn/5/lines/2
+다시 데울 필요는 없어.
+
+tove/inn/5/choices/0/text
+새 물은 안쪽에 있어요.
+
+tove/inn/5/choices/0/response/0
+나중에 더 필요하면 가져올게.
+
+tove/inn/5/choices/1/text
+몸이 차니 뜨거운 것만 마셔야 해요.
+
+tove/inn/5/choices/1/response/0
+지금 것도 괜찮아.
+
+tove/inn/5/choices/1/response/1
+내가 마실 만큼은 고를 수 있어.
+
+tove/inn/5/choices/2/text
+저도 식은 물이 편해요.
+
+tove/inn/5/choices/2/response/0
+그럼 여기 남은 것도 마셔도 돼.
+
+tove/inn/5/seen
+지금은 이 잔으로도 충분해.
+
+tove/inn/6/situation
+토베가 아침빛에 눈을 가늘게 뜬다.
+
+tove/inn/6/lines/0
+아직 별로 안 시끄럽네.
+
+tove/inn/6/lines/1
+이때가 좋아.
+
+tove/inn/6/lines/2
+조금만 더 앉아 있을 거야.
+
+tove/inn/6/choices/0/text
+조용할 때 내일 계획을 얘기해 볼까요?
+
+tove/inn/6/choices/0/response/0
+그건 좀 있다 하자.
+
+tove/inn/6/choices/0/response/1
+지금은 아무 말도 안 하고 싶어.
+
+tove/inn/6/choices/1/text
+저도 말 줄이고 물만 마실게요.
+
+tove/inn/6/choices/1/response/0
+편하게 앉아. 대답 안 해도 돼.
+
+tove/inn/6/choices/2/text
+저는 짐 챙기러 갈게요.
+
+tove/inn/6/choices/2/response/0
+끝나면 여기서 만나.
+
+tove/inn/6/seen
+햇빛이 이쪽으로 더 오면 일어날게.
+
+tove/inn/7/situation
+토베가 코트의 천 조각을 눌러 편다.
+
+tove/inn/7/lines/0
+여기가 또 접혔어.
+
+tove/inn/7/lines/1
+기워 둔 쪽이 두꺼워서 그래.
+
+tove/inn/7/lines/2
+입으면 펴지겠지.
+
+tove/inn/7/choices/0/text
+잠깐 펴 두게 제가 잡아 드릴까요?
+
+tove/inn/7/choices/0/response/0
+끝만 잡아. 가운데는 내가 펼게.
+
+tove/inn/7/choices/1/text
+천 색이 조금 다르네요.
+
+tove/inn/7/choices/1/response/0
+남은 걸 이어서 그랬어.
+
+tove/inn/7/choices/2/text
+같은 색으로 다시 기우면 보기 좋겠어요.
+
+tove/inn/7/choices/2/response/0
+지금도 잘 덮여.
+
+tove/inn/7/choices/2/response/1
+색은 크게 신경 안 써.
+
+tove/inn/7/seen
+이렇게 눌러 두면 덜 접힐 거야.
+
+tove/inn/8/situation
+토베가 문가에서 의자를 당긴다.
+
+tove/inn/8/lines/0
+오늘은 여기 앉아 있을게.
+
+tove/inn/8/lines/1
+바람도 덜 들고.
+
+tove/inn/8/lines/2
+밖에 누가 오는지도 보여.
+
+tove/inn/8/choices/0/text
+저는 음식부터 가져올게요.
+
+tove/inn/8/choices/0/response/0
+그릇 들고 오면 길 비켜 줄게.
+
+tove/inn/8/choices/1/text
+안에 계신 김에 다른 분들도 같이 부를까요?
+
+tove/inn/8/choices/1/response/0
+다 부르면 이쪽도 시끄러워져.
+
+tove/inn/8/choices/1/response/1
+오늘은 여기 조용히 있을래.
+
+tove/inn/8/choices/2/text
+저는 옆에 잠깐 앉을게요.
+
+tove/inn/8/choices/2/response/0
+다리 뻗어도 돼. 밑에 넓어.
+
+tove/inn/8/seen
+여기 앉으니 바람이 등에 안 닿네.
+
+tove/inn/9/situation
+토베가 등불 쉼터 쪽을 가리킨다.
+
+tove/inn/9/lines/0
+베렌가가 저기 있을 거야.
+
+tove/inn/9/lines/1
+말 안 해도 같이 앉아 있곤 해.
+
+tove/inn/9/lines/2
+나도 나중에 가 보려고.
+
+tove/inn/9/choices/0/text
+두 분 다 안쪽으로 모시면 더 편하겠네요.
+
+tove/inn/9/choices/0/response/0
+오늘 어디 있을지는 물어봐야 해.
+
+tove/inn/9/choices/0/response/1
+나는 저쪽이 좋을 때도 있어.
+
+tove/inn/9/choices/1/text
+저도 조용히 인사만 할게요.
+
+tove/inn/9/choices/1/response/0
+그럼 걸어가다 같이 보자.
+
+tove/inn/9/choices/2/text
+저는 이 그늘에서 좀 더 쉴게요.
+
+tove/inn/9/choices/2/response/0
+늦어지면 먼저 들어가.
+
+tove/inn/9/seen
+등불 있는 쪽으로 조금 걸어갈 거야.
+
+tove/inn/10/situation
+토베가 접시를 내려다본다.
+
+tove/inn/10/lines/0
+이건 따뜻하네.
+
+tove/inn/10/lines/1
+밖에서 먹으면 금방 식었어.
+
+tove/inn/10/lines/2
+안에서는 천천히 먹어도 돼.
+
+tove/inn/10/choices/0/text
+오늘은 서두르지 말고 같이 먹어요.
+
+tove/inn/10/choices/0/response/0
+국 다 먹을 때까지 앉아 있을게.
+
+tove/inn/10/choices/1/text
+저도 방금 받았어요.
+
+tove/inn/10/choices/1/response/0
+그릇 밑이 뜨거우니 조심해.
+
+tove/inn/10/choices/2/text
+밖이 불편한 걸 알면서 왜 계속 나가세요?
+
+tove/inn/10/choices/2/response/0
+불편한 것도 있고 좋은 것도 있어.
+
+tove/inn/10/choices/2/response/1
+먹는 동안에는 이 얘기 말자.
+
+tove/inn/10/seen
+오늘 국은 마지막까지 따뜻할 것 같아.
+
+tove/inn/11/situation
+토베가 바닥에 떨어진 끈을 줍는다.
+
+tove/inn/11/lines/0
+누가 밟으면 넘어지겠네.
+
+tove/inn/11/lines/1
+여기 올려 둘게.
+
+tove/inn/11/lines/2
+주인이 오면 보이겠지.
+
+tove/inn/11/choices/0/text
+통로는 이제 비었네요.
+
+tove/inn/11/choices/0/response/0
+지나가다 발에 걸렸어.
+
+tove/inn/11/choices/1/text
+오래된 끈인데 치워 버리면 깔끔하죠.
+
+tove/inn/11/choices/1/response/0
+다시 쓸 사람이 있을 수 있어.
+
+tove/inn/11/choices/1/response/1
+주인부터 찾아보자.
+
+tove/inn/11/choices/2/text
+저쪽에서 찾으면 위치를 알려 줄게요.
+
+tove/inn/11/choices/2/response/0
+응. 괜히 버리지는 말고.
+
+tove/inn/11/seen
+찾는 사람이 오면 식탁 위에 있다고 해 줘.
+
+tove/inn/12/situation
+토베가 코트를 무릎에 덮는다.
+
+tove/inn/12/lines/0
+하르벤에서는 병영 쪽에 있었어.
+
+tove/inn/12/lines/1
+겨울엔 같은 담요를 덮고 잤지.
+
+tove/inn/12/lines/2
+몸을 돌릴 때마다 조금 깨곤 했어.
+
+tove/inn/12/choices/0/text
+담요를 같이 덮으면 따뜻했겠네요.
+
+tove/inn/12/choices/0/response/0
+같이 덮고 자도 발끝은 계속 시렸어.
+
+tove/inn/12/choices/0/response/1
+담요를 당기면 옆 사람이 깨고.
+
+tove/inn/12/choices/1/text
+지금은 코트가 무릎을 다 덮네요.
+
+tove/inn/12/choices/1/response/0
+응. 오늘은 나눠 덮을 만큼 춥지도 않아.
+
+tove/inn/12/choices/2/text
+여럿이 같이 지냈군요.
+
+tove/inn/12/choices/2/response/0
+계약 없는 사람들이 모였어.
+
+tove/inn/12/seen
+이 코트는 무릎까지 당기면 편해.
+
+tove/inn/13/situation
+토베가 먼 길을 본 뒤 말한다.
+
+tove/inn/13/lines/0
+하르벤에서 숙박 허가를 받으러 갔어.
+
+tove/inn/13/lines/1
+보증인을 데려오라더라.
+
+tove/inn/13/lines/2
+없어서 성 밖으로 갔어.
+
+tove/inn/13/choices/0/text
+그날 얘기는 더 안 해도 괜찮아요.
+
+tove/inn/13/choices/0/response/0
+오늘은 여기까지 말할래.
+
+tove/inn/13/choices/1/text
+그 뒤에 토르바로 오셨죠?
+
+tove/inn/13/choices/1/response/0
+겨울 지나 길이 풀린 다음이었어.
+
+tove/inn/13/choices/2/text
+보증인을 더 찾아봤으면 달랐겠네요.
+
+tove/inn/13/choices/2/response/0
+그때는 없었어.
+
+tove/inn/13/choices/2/response/1
+그날 얘기는 여기까지만 할래.
+
+tove/inn/13/seen
+그해 겨울은 성 밖에서 보냈어.
+
+tove/inn/14/situation
+토베가 계약증을 가방에 넣는다.
+
+tove/inn/14/lines/0
+이제는 안에서 잘 수 있어.
+
+tove/inn/14/lines/1
+알고 있어도 밖으로 나가게 돼.
+
+tove/inn/14/lines/2
+등불 있는 데가 조용해서 좋아.
+
+tove/inn/14/choices/0/text
+계약증은 잘 넣었네요.
+
+tove/inn/14/choices/0/response/0
+젖으면 안 되니까 안쪽에 둬.
+
+tove/inn/14/choices/1/text
+안에 잘 수 있으니 오늘부터 침상을 쓰면 어때요?
+
+tove/inn/14/choices/1/response/0
+쓸 수 있다는 건 알아.
+
+tove/inn/14/choices/1/response/1
+오늘 어디가 편한지 보고 정할게.
+
+tove/inn/14/choices/2/text
+오늘 밤도 그쪽에서 쉬실 거예요?
+
+tove/inn/14/choices/2/response/0
+조금 앉아 있다 정할게.
+
+tove/inn/14/seen
+계약증은 있어. 오늘은 천천히 정할 거야.
+
+tove/inn/15/situation
+토베가 문밖의 사람을 잠깐 본다.
+
+tove/inn/15/lines/0
+저 사람도 안으로 못 들어온 걸까.
+
+tove/inn/15/lines/1
+그냥 기다리는 걸 수도 있어.
+
+tove/inn/15/lines/2
+묻고 올게.
+
+tove/inn/15/choices/0/text
+괜히 곤란해질 수 있으니 신경 쓰지 마요.
+
+tove/inn/15/choices/0/response/0
+곤란한지부터 보려고 해.
+
+tove/inn/15/choices/0/response/1
+나는 잠깐 가 볼게.
+
+tove/inn/15/choices/1/text
+필요하면 제 의자도 옮길게요.
+
+tove/inn/15/choices/1/response/0
+먼저 앉고 싶은지 물어볼게.
+
+tove/inn/15/choices/2/text
+짐은 제가 보고 있을게요.
+
+tove/inn/15/choices/2/response/0
+금방 다녀올게.
+
+tove/inn/15/seen
+기다리는 건지 한 번 물어보고 올게.
+
+tove/inn/16/situation
+토베가 실내 벽에 코트를 건다.
+
+tove/inn/16/lines/0
+오늘은 여기서 잘래.
+
+tove/inn/16/lines/1
+밖에 나갔다가 다시 돌아왔어.
+
+tove/inn/16/lines/2
+안이 덜 시끄러워졌더라.
+
+tove/inn/16/choices/0/text
+저는 발소리 줄여서 올라갈게요.
+
+tove/inn/16/choices/0/response/0
+고마워. 아침엔 먼저 깨도 안 불러도 돼.
+
+tove/inn/16/choices/1/text
+짐은 이쪽에 둘까요?
+
+tove/inn/16/choices/1/response/0
+벽에 기대 두면 돼.
+
+tove/inn/16/choices/2/text
+이제 앞으로는 늘 안에서 자면 되겠어요.
+
+tove/inn/16/choices/2/response/0
+내일은 내일 정할게.
+
+tove/inn/16/choices/2/response/1
+오늘은 여기 있고 싶어.
+
+tove/inn/16/seen
+코트를 걸었으니 오늘은 그대로 있을래.
+
+tove/inn/17/situation
+토베가 아침에 눈을 비빈다.
+
+tove/inn/17/lines/0
+푹 잤어.
+
+tove/inn/17/lines/1
+아무도 부르지 않더라.
+
+tove/inn/17/lines/2
+먼저 일어났어?
+
+tove/inn/17/choices/0/text
+저도 아직 졸려요.
+
+tove/inn/17/choices/0/response/0
+그럼 조금 더 앉아 있자.
+
+tove/inn/17/choices/1/text
+안에서 자는 게 낫다고 제가 말했잖아요.
+
+tove/inn/17/choices/1/response/0
+오늘은 눈을 뜰 때 어깨가 덜 뻐근했어.
+
+tove/inn/17/choices/1/response/1
+밖이 편한 날도 있었어.
+
+tove/inn/17/choices/2/text
+조금 먼저 일어났어요. 물도 반 잔 떠 놨어요.
+
+tove/inn/17/choices/2/response/0
+나도 한 잔 마시고 깰게.
+
+tove/inn/17/seen
+눈 뜨고 천장을 한참 봤어.
+
+tove/inn/18/situation
+토베가 바깥을 보고 다시 앉는다.
+
+tove/inn/18/lines/0
+지금 나가야 하나 생각했어.
+
+tove/inn/18/lines/1
+아무도 기다리는 건 아닌데.
+
+tove/inn/18/lines/2
+그냥 앉아 있어도 되겠지.
+
+tove/inn/18/choices/0/text
+밖에 있는 분들 챙기셔야 하지 않아요?
+
+tove/inn/18/choices/0/response/0
+내가 가면 좋을 때도 있어.
+
+tove/inn/18/choices/0/response/1
+지금은 잠깐 쉬고 싶어.
+
+tove/inn/18/choices/1/text
+네, 저도 조금 더 쉬려던 참이에요.
+
+tove/inn/18/choices/1/response/0
+그럼 나도 물을 더 마실게.
+
+tove/inn/18/choices/2/text
+저는 곧 나가요.
+
+tove/inn/18/choices/2/response/0
+다녀와. 나는 여기 있을게.
+
+tove/inn/18/seen
+오늘은 문밖을 봐도 다시 앉을 수 있네.
+
+tove/inn/19/situation
+토베가 손을 펴 보인다.
+
+tove/inn/19/lines/0
+아까는 손끝이 좀 시렸어.
+
+tove/inn/19/lines/1
+이제 괜찮아.
+
+tove/inn/19/lines/2
+잔 잡고 있으니 풀렸어.
+
+tove/inn/19/choices/0/text
+한 잔 더 드실래요?
+
+tove/inn/19/choices/0/response/0
+물은 조금만 줘. 손은 아직 잡고 있을게.
+
+tove/inn/19/choices/1/text
+바람이 차긴 했죠.
+
+tove/inn/19/choices/1/response/0
+골목 끝이 특히 그랬어.
+
+tove/inn/19/choices/2/text
+잘 버티시니까 이 정도 바람은 그냥 걸어도 되죠?
+
+tove/inn/19/choices/2/response/0
+추운 줄은 알아.
+
+tove/inn/19/choices/2/response/1
+늘 말하지 않았을 뿐이야.
+
+tove/inn/19/seen
+잔을 조금 더 쥐고 있으면 되겠어.
+
+tove/inn/20/situation
+토베가 빈 의자를 벽 쪽으로 옮긴다.
+
+tove/inn/20/lines/0
+누가 들어오면 앉을 수 있겠어.
+
+tove/inn/20/lines/1
+나는 이쪽도 괜찮아.
+
+tove/inn/20/lines/2
+밖에 오래 서 있으면 발부터 아프더라.
+
+tove/inn/20/choices/0/text
+통로는 괜찮겠어요?
+
+tove/inn/20/choices/0/response/0
+의자를 붙이면 지나갈 수 있어.
+
+tove/inn/20/choices/1/text
+여관 손님인지 확인하고 앉히는 게 낫죠.
+
+tove/inn/20/choices/1/response/0
+앉아서 사정을 물어도 돼.
+
+tove/inn/20/choices/1/response/1
+우선 다리 좀 쉬게 해 주자.
+
+tove/inn/20/choices/2/text
+저도 조금 옮겨 앉을게요.
+
+tove/inn/20/choices/2/response/0
+그러면 의자 하나는 비워 둘 수 있어.
+
+tove/inn/20/seen
+의자 붙였으니 한 사람은 더 앉겠네.
+
+tove/inn/21/situation
+토베가 비 그친 하늘을 본다.
+
+tove/inn/21/lines/0
+같이 조금 걸을래?
+
+tove/inn/21/lines/1
+멀리는 안 갈 거야.
+
+tove/inn/21/lines/2
+말 안 해도 되고.
+
+tove/inn/21/choices/0/text
+걷는 동안 무슨 생각 하는지 다 말해 줘요.
+
+tove/inn/21/choices/0/response/0
+다 말할 만큼 생각이 많진 않아.
+
+tove/inn/21/choices/0/response/1
+그냥 같이 걷고 싶어.
+
+tove/inn/21/choices/1/text
+저도 바람만 쐬고 싶어요.
+
+tove/inn/21/choices/1/response/0
+그럼 길 마른 쪽으로 가자.
+
+tove/inn/21/choices/2/text
+저는 여기서 쉴게요.
+
+tove/inn/21/choices/2/response/0
+다녀와서 어디가 덜 젖었는지 말할게.
+
+tove/inn/21/seen
+이번에는 먼 데까지 안 돌아도 될 것 같아.
+
+tove/inn/22/situation
+토베가 접시의 마지막 음식을 먹는다.
+
+tove/inn/22/lines/0
+오늘은 조금 늦게 먹었네.
+
+tove/inn/22/lines/1
+기다리다 배가 고파졌어.
+
+tove/inn/22/lines/2
+다음에는 먼저 먹고 있을게.
+
+tove/inn/22/choices/0/text
+늦어지면 제가 미리 알려 드릴게요.
+
+tove/inn/22/choices/0/response/0
+그러면 조금 먹으면서 기다리면 돼.
+
+tove/inn/22/choices/1/text
+오늘 음식이 천천히 나왔어요.
+
+tove/inn/22/choices/1/response/0
+그래도 다 먹으니 괜찮아.
+
+tove/inn/22/choices/2/text
+기다리는 건 잘하시니 조금 참아 주세요.
+
+tove/inn/22/choices/2/response/0
+배고프면 나도 먹을래.
+
+tove/inn/22/choices/2/response/1
+기다리다 국까지 식었어.
+
+tove/inn/22/seen
+다음에는 내 접시부터 조금 먹을 거야.
+
+tove/inn/23/situation
+토베가 자신의 짐을 먼저 내려놓는다.
+
+tove/inn/23/lines/0
+이건 내일 봐도 돼.
+
+tove/inn/23/lines/1
+오늘은 좀 눕고 싶어.
+
+tove/inn/23/lines/2
+불러도 못 들을 수 있어.
+
+tove/inn/23/choices/0/text
+저도 짐만 두고 갈게요.
+
+tove/inn/23/choices/0/response/0
+조용히 해 줄 필요까지는 없어.
+
+tove/inn/23/choices/1/text
+잠은 어디서든 잘 주무시니 이동 중에 쉬죠.
+
+tove/inn/23/choices/1/response/0
+오늘은 안 움직이고 싶어.
+
+tove/inn/23/choices/1/response/1
+여기서 눈 감고 있을래.
+
+tove/inn/23/choices/2/text
+필요한 일은 깨어난 뒤에 얘기해요.
+
+tove/inn/23/choices/2/response/0
+그럼 마음 놓고 눈 감을게.
+
+tove/inn/23/seen
+짐은 두고 잠깐 누워 있을게.
+
+tove/inn/24/situation
+토베가 식당 안쪽에서 손을 든다.
+
+tove/inn/24/lines/0
+오늘은 여기 앉았어.
+
+tove/inn/24/lines/1
+아침엔 덜 시끄러워서.
+
+tove/inn/24/lines/2
+찾느라 밖에까지 나갔어?
+
+tove/inn/24/choices/0/text
+아침은 조용하니 내일도 여기서 먹기로 해요.
+
+tove/inn/24/choices/0/response/0
+오늘 여기 앉고 싶었던 거야.
+
+tove/inn/24/choices/0/response/1
+밖에 있어도 잘 지낼 때가 있어.
+
+tove/inn/24/choices/1/text
+문가만 보고 지나칠 뻔했어요.
+
+tove/inn/24/choices/1/response/0
+다음엔 먼저 손 흔들게.
+
+tove/inn/24/choices/2/text
+방금 내려왔어요.
+
+tove/inn/24/choices/2/response/0
+물은 이쪽에 더 있어.
+
+tove/inn/24/seen
+내일은 들어올 때 내가 먼저 볼게.
+
+tove/inn/25/situation
+토베가 코트를 접어 의자에 놓는다.
+
+tove/inn/25/lines/0
+오늘은 안 입어도 되겠네.
+
+tove/inn/25/lines/1
+바람이 덜 차.
+
+tove/inn/25/lines/2
+어깨가 가벼워졌어.
+
+tove/inn/25/choices/0/text
+그늘까지 같이 걸을까요?
+
+tove/inn/25/choices/0/response/0
+응. 해가 세면 거기 앉자.
+
+tove/inn/25/choices/1/text
+코트는 여기 둘게요?
+
+tove/inn/25/choices/1/response/0
+접힌 쪽이 바닥에 안 닿게 해 줘.
+
+tove/inn/25/choices/2/text
+이참에 낡은 코트는 정리해도 되겠네요.
+
+tove/inn/25/choices/2/response/0
+바람 불면 다시 입을 거야.
+
+tove/inn/25/choices/2/response/1
+오늘 안 춥다고 버리진 않아.
+
+tove/inn/25/seen
+다시 추워지면 의자에서 코트를 가져오면 돼.
+
+tove/inn/26/situation
+토베가 먼저 물을 한 잔 따른다.
+
+tove/inn/26/lines/0
+오늘은 내가 기다릴게.
+
+tove/inn/26/lines/1
+짐 다 풀고 내려와.
+
+tove/inn/26/lines/2
+너무 서두르진 말고.
+
+tove/inn/26/choices/0/text
+저는 이미 다 풀었어요.
+
+tove/inn/26/choices/0/response/0
+그럼 지금 같이 앉으면 되겠네.
+
+tove/inn/26/choices/1/text
+짐 푸는 동안 제 옷도 같이 좀 걸어 둘게요.
+
+tove/inn/26/choices/1/response/0
+오늘은 내가 먼저 끝나서 그래.
+
+tove/inn/26/choices/1/response/1
+늦을 때는 나도 있을 거야.
+
+tove/inn/26/choices/2/text
+끈만 풀고 올게요. 오래 안 걸려요.
+
+tove/inn/26/choices/2/response/0
+천천히 해. 나는 물 마시고 있을게.
+
+tove/inn/26/seen
+물이 있으니 조금 늦어도 괜찮아.
+
+tove/inn/27/situation
+토베가 저녁의 등불을 돌아본다.
+
+tove/inn/27/lines/0
+밖에도 잠깐 다녀올게.
+
+tove/inn/27/lines/1
+돌아와서는 안에서 쉴 거야.
+
+tove/inn/27/lines/2
+아래에 있을 거지?
+
+tove/inn/27/choices/0/text
+아직도 밖에 나갈 필요가 있어요?
+
+tove/inn/27/choices/0/response/0
+그냥 걷고 싶은데.
+
+tove/inn/27/choices/0/response/1
+잠깐 바람 쐬고 올게.
+
+tove/inn/27/choices/1/text
+네, 돌아오면 같이 물 마셔요.
+
+tove/inn/27/choices/1/response/0
+잔은 내가 가져올게.
+
+tove/inn/27/choices/2/text
+저도 조금 뒤에 내려와요.
+
+tove/inn/27/choices/2/response/0
+늦게 오면 먼저 앉아 있을게.
+
+tove/inn/27/seen
+금방 다녀와서 이쪽에서 쉴게.
+
+tove/dungeon/0/variants/0
+나는 준비됐어.
+
+tove/dungeon/0/variants/1
+부르면 일어날게.
+
+tove/dungeon/1/variants/0
+조금 천천히 걸어도 돼.
+
+tove/dungeon/1/variants/1
+짐 놓을 데는 내가 볼게.
+
+tove/dungeon/2/variants/0
+오늘도 같이 돌아오자.
+
+tove/dungeon/2/variants/1
+내가 빨라지면 말해 줘.
+
+tove/dungeon/3/variants/0
+여긴 바람이 덜 드네.
+
+tove/dungeon/3/variants/1
+발 디딜 데부터 볼게.
+
+tove/dungeon/4/variants/0
+안 보이는 데는 같이 보자.
+
+tove/dungeon/4/variants/1
+한 발씩 내려가면 돼.
+
+tove/dungeon/5/variants/0
+옆에 있으니 잡아도 돼.
+
+tove/dungeon/5/variants/1
+잠깐 멈추는 건 괜찮아.
+
+tove/dungeon/6/variants/0
+내 쪽에서도 한번 볼게.
+
+tove/dungeon/6/variants/1
+지금 만져도 되는 건 아니지?
+
+tove/dungeon/7/variants/0
+눈높이를 낮추면 더 보이겠어.
+
+tove/dungeon/7/variants/1
+서두르지 말고 봐.
+
+tove/dungeon/8/variants/0
+궁금하면 조금 더 보고 가자.
+
+tove/dungeon/8/variants/1
+옆에서 기다리는 건 괜찮아.
+
+tove/dungeon/9/variants/0
+나는 이쪽에 있을게.
+
+tove/dungeon/9/variants/1
+지날 때 한마디만 해.
+
+tove/dungeon/10/variants/0
+혼자 많이 맡지 마.
+
+tove/dungeon/10/variants/1
+움직일 때는 같이 보자.
+
+tove/dungeon/11/variants/0
+끝나면 나도 쉬고 싶어.
+
+tove/dungeon/11/variants/1
+둘 다 무리하지 않고 가자.
+
+tove/dungeon/12/variants/0
+이제 손을 내려도 될까?
+
+tove/dungeon/12/variants/1
+주변이 조용한지 더 볼게.
+
+tove/dungeon/13/variants/0
+다리 좀 펴고 싶네.
+
+tove/dungeon/13/variants/1
+물은 천천히 마시자.
+
+tove/dungeon/14/variants/0
+돌아가면 오늘은 안에서 쉴래.
+
+tove/dungeon/14/variants/1
+지금은 네 목소리가 잘 들려.
+
+tove/dungeon/15/variants/0
+서둘러 들어가진 않을게.
+
+tove/dungeon/15/variants/1
+좀 더 보고 가도 돼.
+
+tove/dungeon/16/variants/0
+떨리면 여기서 한번 멈추자.
+
+tove/dungeon/16/variants/1
+나는 옆에서 기다릴 수 있어.
+
+tove/dungeon/17/variants/0
+손 잡을 데 필요하면 여기 있어.
+
+tove/dungeon/17/variants/1
+네가 준비되면 불러. 그때 같이 가자.
+
+tove/dungeon/18/variants/0
+끝난 건지 한번 더 보자.
+
+tove/dungeon/18/variants/1
+아직 짐은 내려둬.
+
+tove/dungeon/19/variants/0
+어깨가 이제 무거워지네.
+
+tove/dungeon/19/variants/1
+잠깐만 기대서 있을게.
+
+tove/dungeon/20/variants/0
+돌아가면 말 안 하고 먹을래.
+
+tove/dungeon/20/variants/1
+오늘은 따뜻한 데서 자고 싶어.
+
+tove/dungeon/21/variants/0
+걸음이 느려졌네.
+
+tove/dungeon/21/variants/1
+앉을 데부터 보자.
+
+tove/dungeon/22/variants/0
+내 쪽으로 기대도 돼.
+
+tove/dungeon/22/variants/1
+짐은 지금 내려놔도 괜찮아.
+
+tove/dungeon/23/variants/0
+쉬고 싶으면 바로 말해 줘.
+
+tove/dungeon/23/variants/1
+네가 멈추면 나도 멈출게.
+
+tove/dungeon/24/variants/0
+일단 곁으로 가 볼게.
+
+tove/dungeon/24/variants/1
+움직일 수 있는지는 더 보자.
+
+tove/dungeon/25/variants/0
+목소리 들리면 손만 보여 줘.
+
+tove/dungeon/25/variants/1
+나는 여기서 기다릴게.
+
+tove/dungeon/26/variants/0
+일어나라고 재촉하진 않을 거야.
+
+tove/dungeon/26/variants/1
+같이 나갈 방법을 생각하자.
+
+tove/dungeon/27/variants/0
+이건 좀 아프네.
+
+tove/dungeon/27/variants/1
+걷기 전에 한번 볼게.
+
+tove/dungeon/28/variants/0
+오늘은 잠깐 짐을 놓을래.
+
+tove/dungeon/28/variants/1
+앉았다 가면 좋겠어.
+
+tove/dungeon/29/variants/0
+내 쪽도 조금 봐 줄래?
+
+tove/dungeon/29/variants/1
+이번엔 좀 아프네.
+
+tove/dungeon/30/variants/0
+여기서 쉬면 되겠네.
+
+tove/dungeon/30/variants/1
+나는 바닥도 괜찮아.
+
+tove/dungeon/31/variants/0
+너는 편한 쪽에 앉아.
+
+tove/dungeon/31/variants/1
+나도 다리 좀 뻗을게.
+
+tove/dungeon/32/variants/0
+지금은 여기 앉아 있는 게 좋아.
+
+tove/dungeon/32/variants/1
+조금 졸려도 그대로 둘래.
+
+tove/dungeon/33/variants/0
+가까이서 보기만 할게.
+
+tove/dungeon/33/variants/1
+먼저 당기지는 마.
+
+tove/dungeon/34/variants/0
+이쪽은 손이 잘 안 들어가네.
+
+tove/dungeon/34/variants/1
+어려우면 일단 놓자.
+
+tove/dungeon/35/variants/0
+함께 볼 만큼은 기다릴 수 있어.
+
+tove/dungeon/35/variants/1
+내 손 닿는 데부터 살펴보자.
+
+tove/dungeon/36/variants/0
+이제 좀 앉을 수 있겠네.
+
+tove/dungeon/36/variants/1
+먼지만 털고 들어갈게.
+
+tove/dungeon/37/variants/0
+오늘은 안에 있어도 괜찮겠어.
+
+tove/dungeon/37/variants/1
+짐은 내일 천천히 보자.
+
+tove/dungeon/38/variants/0
+밖에 잠깐 갔다가 다시 올게.
+
+tove/dungeon/38/variants/1
+아래에서 만나면 같이 쉬자.
+
+tove/dungeon/39/variants/0
+가던 쪽으로 돌아가자.
+
+tove/dungeon/39/variants/1
+더 서 있을 힘은 있어?
+
+tove/dungeon/40/variants/0
+짐보다 발 디딜 곳을 봐.
+
+tove/dungeon/40/variants/1
+나는 바로 옆으로 갈게.
+
+tove/dungeon/41/variants/0
+혼자 두고 먼저 가진 않을게.
+
+tove/dungeon/41/variants/1
+쉬는 건 나가서 같이 하자.
+
+tove/transitions/0/situation
+토베가 코트를 조금 푼다.
+
+tove/transitions/0/lines/0
+오늘 할 말은 들을게.
+
+tove/transitions/0/lines/1
+너무 오래는 말고.
+
+tove/transitions/1/situation
+토베가 다시 밖으로 몸을 돌린다.
+
+tove/transitions/1/lines/0
+지금은 그만하고 싶어.
+
+tove/transitions/1/lines/1
+나중에 내가 얘기할게.
+
+tove/transitions/2/situation
+토베가 처마 밑으로 비켜 선다.
+
+tove/transitions/2/lines/0
+여기면 덜 젖어.
+
+tove/transitions/2/lines/1
+기다릴 거면 이쪽에 있어.
+
+tove/transitions/3/situation
+토베가 의자를 벽에 붙인다.
+
+tove/transitions/3/lines/0
+나는 조금 멀리 앉을래.
+
+tove/transitions/3/lines/1
+부를 일 있으면 말해.
+
+tove/transitions/4/situation
+토베가 문 가까이에 앉는다.
+
+tove/transitions/4/lines/0
+오늘은 여기서 먹어도 되겠네.
+
+tove/transitions/4/lines/1
+그릇이 식기 전에 와.
+
+tove/transitions/5/situation
+토베가 먹던 그릇을 치운다.
+
+tove/transitions/5/lines/0
+오늘은 밖에 있을게.
+
+tove/transitions/5/lines/1
+따라 나오지는 않아도 돼.
+
+tove/transitions/6/situation
+토베가 무릎에 코트를 덮는다.
+
+tove/transitions/6/lines/0
+하르벤 겨울 얘기 조금 할까.
+
+tove/transitions/6/lines/1
+길게는 못 할 것 같아.
+
+tove/transitions/7/situation
+토베가 코트를 접어 무릎에서 치운다.
+
+tove/transitions/7/lines/0
+그때 얘기는 그만할래.
+
+tove/transitions/7/lines/1
+오늘 추운 건 아니야.
+
+tove/transitions/8/situation
+토베가 실내에 짐을 내려놓는다.
+
+tove/transitions/8/lines/0
+오늘은 안에서 잘게.
+
+tove/transitions/8/lines/1
+아침에 일어나면 같이 물 마시자.
+
+tove/transitions/9/situation
+토베가 코트를 다시 입는다.
+
+tove/transitions/9/lines/0
+오늘은 밖이 더 편할 것 같아.
+
+tove/transitions/9/lines/1
+왜 그러냐고 계속 묻진 말아 줘.
+
+tove/transitions/10/situation
+토베가 두 의자를 나란히 둔다.
+
+tove/transitions/10/lines/0
+여기서 같이 쉬어도 되겠네.
+
+tove/transitions/10/lines/1
+말은 안 해도 괜찮아.
+
+tove/transitions/11/situation
+토베가 의자 하나를 옆으로 옮긴다.
+
+tove/transitions/11/lines/0
+오늘은 조금 떨어져 있을래.
+
+tove/transitions/11/lines/1
+먼저 들어가도 돼.
+
+tove/transitions/12/situation
+토베가 아침에 먼저 손을 든다.
+
+tove/transitions/12/lines/0
+오늘은 내가 안에서 기다렸어.
+
+tove/transitions/12/lines/1
+물 마시고 싶으면 이쪽으로 와.
+
+tove/transitions/13/situation
+토베가 물을 마시고 일어난다.
+
+tove/transitions/13/lines/0
+나는 이만 가 볼게.
+
+tove/transitions/13/lines/1
+같이 걷는 건 다음에 하자.
+
+miko/inn/0/situation
+미코가 천을 접으며 고개를 든다.
+
+miko/inn/0/lines/0
+용건은 들을게요.
+
+miko/inn/0/lines/1
+손에 든 건 마저 접고요.
+
+miko/inn/0/lines/2
+사적인 이야기는 오늘 안 할래요.
+
+miko/inn/0/choices/0/text
+필요한 일만 전하고 갈게요.
+
+miko/inn/0/choices/0/response/0
+그럼 짧게 듣고 정리할게요.
+
+miko/inn/0/choices/1/text
+내일 아침에 출발해요.
+
+miko/inn/0/choices/1/response/0
+그때까지 제 준비는 해 둘게요.
+
+miko/inn/0/choices/2/text
+천 접는 건 내려놓고 제 얘기부터 들어요.
+
+miko/inn/0/choices/2/response/0
+오늘은 그러고 싶지 않아요.
+
+miko/inn/0/choices/2/response/1
+이 천만 마저 접고 들을게요.
+
+miko/inn/0/seen
+이 천만 다 접으면 용건을 들을 수 있어요.
+
+miko/inn/1/situation
+미코가 빈 병을 자기 쪽으로 모은다.
+
+miko/inn/1/lines/0
+그 병은 만지지 마세요.
+
+miko/inn/1/lines/1
+아직 씻기 전이에요.
+
+miko/inn/1/lines/2
+제가 정리할게요.
+
+miko/inn/1/choices/0/text
+저는 식탁만 닦을게요.
+
+miko/inn/1/choices/0/response/0
+병 없는 쪽부터 닦아 주세요.
+
+miko/inn/1/choices/1/text
+깔끔해 보이는데 그냥 써도 되겠어요.
+
+miko/inn/1/choices/1/response/0
+보이는 것만으로는 몰라요.
+
+miko/inn/1/choices/1/response/1
+그건 제 쪽에 두세요.
+
+miko/inn/1/choices/2/text
+손대기 전에 물어볼게요.
+
+miko/inn/1/choices/2/response/0
+그러면 헷갈릴 일이 덜하겠어요.
+
+miko/inn/1/seen
+씻기 전 병은 이쪽에 모아 둘 거예요.
+
+miko/inn/2/situation
+미코가 약초 바구니를 옆으로 옮긴다.
+
+miko/inn/2/lines/0
+이건 다 쓸 거예요.
+
+miko/inn/2/lines/1
+부스러기라고 털어 버리지 마세요.
+
+miko/inn/2/lines/2
+아까 좀 놀랐어요.
+
+miko/inn/2/choices/0/text
+새것으로 채워 드리면 더 좋잖아요.
+
+miko/inn/2/choices/0/response/0
+지금 있는 것도 필요한 거예요.
+
+miko/inn/2/choices/0/response/1
+구분해서 남겨 둔 약초예요.
+
+miko/inn/2/choices/1/text
+버리기 전에 꼭 물어볼게요.
+
+miko/inn/2/choices/1/response/0
+네. 구분한 건 제가 치울게요.
+
+miko/inn/2/choices/2/text
+여긴 안 건드릴게요.
+
+miko/inn/2/choices/2/response/0
+제가 보는 동안은 그대로 두세요.
+
+miko/inn/2/seen
+바구니에 남은 건 아직 버릴 게 아니에요.
+
+miko/inn/3/situation
+미코가 천을 식탁에 놓는다.
+
+miko/inn/3/lines/0
+지금은 손이 모자라요.
+
+miko/inn/3/lines/1
+손을 보고 있으면 말씀을 놓쳐요.
+
+miko/inn/3/lines/2
+이것만 끝내고 볼게요.
+
+miko/inn/3/choices/0/text
+저는 젖은 천만 따로 모을게요.
+
+miko/inn/3/choices/0/response/0
+그건 고마워요. 마른 쪽이랑 섞지만 마세요.
+
+miko/inn/3/choices/1/text
+천 다 접으시면 그때 들려드릴게요.
+
+miko/inn/3/choices/1/response/0
+앉아 있어요. 서 있으면 다리 아파요.
+
+miko/inn/3/choices/2/text
+대답하면서 하면 덜 지루하실 텐데요.
+
+miko/inn/3/choices/2/response/0
+접는 쪽을 보고 있어야 해요.
+
+miko/inn/3/choices/2/response/1
+다 접고 나면 얘기해요.
+
+miko/inn/3/seen
+이쪽 천을 접고 나면 얘기할 수 있어요.
+
+miko/inn/4/situation
+미코가 소매를 걷고 인사한다.
+
+miko/inn/4/lines/0
+미코예요.
+
+miko/inn/4/lines/1
+막사 훈련장에서 약을 지었어요.
+
+miko/inn/4/lines/2
+목소리가 작아도 들으니 편하게 말하세요.
+
+miko/inn/4/choices/0/text
+여기서 일하신 지 오래예요?
+
+miko/inn/4/choices/0/response/0
+길드에서 일한 건 막사보다 짧아요.
+
+miko/inn/4/choices/1/text
+어려 보이시니 다른 분께 먼저 물어볼게요.
+
+miko/inn/4/choices/1/response/0
+모르는 게 나오면 선배에게 확인하고 와요.
+
+miko/inn/4/choices/1/response/1
+나이부터 보고 넘기진 마세요.
+
+miko/inn/4/choices/2/text
+필요한 건 먼저 말씀드릴게요.
+
+miko/inn/4/choices/2/response/0
+너무 늦게까지 참지만 않으면 돼요.
+
+miko/inn/4/seen
+작게 말씀하셔도 지금은 잘 들려요.
+
+miko/inn/5/situation
+미코가 앞치마 끈을 고쳐 맨다.
+
+miko/inn/5/lines/0
+자꾸 왼쪽이 내려가네요.
+
+miko/inn/5/lines/1
+매듭을 급히 묶었나 봐요.
+
+miko/inn/5/lines/2
+잠깐만 다시 맬게요.
+
+miko/inn/5/choices/0/text
+그 정도면 움직이는 데 문제없겠어요.
+
+miko/inn/5/choices/0/response/0
+자꾸 걸려서 불편해요.
+
+miko/inn/5/choices/0/response/1
+금방 다시 묶으면 돼요.
+
+miko/inn/5/choices/1/text
+바구니는 제가 잡고 있을게요.
+
+miko/inn/5/choices/1/response/0
+그럼 두 손으로 묶을 수 있겠어요.
+
+miko/inn/5/choices/2/text
+천천히 하세요.
+
+miko/inn/5/choices/2/response/0
+이번엔 조금 짧게 묶어 볼게요.
+
+miko/inn/5/seen
+이제 왼쪽도 덜 흘러내리겠어요.
+
+miko/inn/6/situation
+미코가 물잔을 양손으로 감싼다.
+
+miko/inn/6/lines/0
+약초 냄새가 손에 남았어요.
+
+miko/inn/6/lines/1
+씻어도 바로 안 빠지네요.
+
+miko/inn/6/lines/2
+저는 이 냄새가 싫지 않아요.
+
+miko/inn/6/choices/0/text
+식당까지 따라왔네요.
+
+miko/inn/6/choices/0/response/0
+네. 오늘은 잎 말리는 냄새가 좀 진했어요.
+
+miko/inn/6/choices/1/text
+저도 조금 맡아져요.
+
+miko/inn/6/choices/1/response/0
+바구니는 멀리 둘게요.
+
+miko/inn/6/choices/2/text
+쉬는 때까지 일이 생각나면 피곤하지 않아요?
+
+miko/inn/6/choices/2/response/0
+지금은 그냥 냄새가 좋은 거예요.
+
+miko/inn/6/choices/2/response/1
+소매에도 같은 냄새가 나네요.
+
+miko/inn/6/seen
+손바닥보다 소매에 냄새가 더 남았네요.
+
+miko/inn/7/situation
+미코가 주방 쪽을 본다.
+
+miko/inn/7/lines/0
+밥을 조금 늦게 먹었어요.
+
+miko/inn/7/lines/1
+배가 고파야 늦은 줄 알 때가 있어요.
+
+miko/inn/7/lines/2
+오늘은 안 놓쳤으니 다행이죠.
+
+miko/inn/7/choices/0/text
+국이 아직 남아 있어요.
+
+miko/inn/7/choices/0/response/0
+그럼 한 그릇 달라고 할게요.
+
+miko/inn/7/choices/1/text
+바쁘실 테니 드시면서 일해도 되겠네요.
+
+miko/inn/7/choices/1/response/0
+먹을 때는 손 좀 쉬고 싶어요.
+
+miko/inn/7/choices/1/response/1
+국에 종이까지 젖으면 곤란하고요.
+
+miko/inn/7/choices/2/text
+지금 따뜻한 것부터 먹어요.
+
+miko/inn/7/choices/2/response/0
+손에 든 것만 치우고 바로 먹을게요.
+
+miko/inn/7/seen
+이번엔 그릇부터 받아 놓아야겠어요.
+
+miko/inn/8/situation
+미코가 가방 옆 병을 가리킨다.
+
+miko/inn/8/lines/0
+여분도 확인해 뒀어요.
+
+miko/inn/8/lines/1
+지금 드리는 건 아니에요.
+
+miko/inn/8/lines/2
+출발 전에 같이 챙기는지 보려고요.
+
+miko/inn/8/choices/0/text
+넉넉하면 하나쯤 버려도 괜찮겠네요.
+
+miko/inn/8/choices/0/response/0
+쓸 수 있는 걸 왜 버려요?
+
+miko/inn/8/choices/0/response/1
+남으면 다시 챙기면 돼요.
+
+miko/inn/8/choices/1/text
+제 몫도 빠진 게 있나 같이 볼게요.
+
+miko/inn/8/choices/1/response/0
+뚜껑이 풀린 건 없는지 봐 주세요.
+
+miko/inn/8/choices/2/text
+가방은 아직 안 묶었어요.
+
+miko/inn/8/choices/2/response/0
+그럼 보고 나서 닫으면 되겠어요.
+
+miko/inn/8/seen
+출발 전에 마개를 한 번 더 볼 거예요.
+
+miko/inn/9/situation
+미코가 조용히 웃으며 귀를 기울인다.
+
+miko/inn/9/lines/0
+그 노래 들어 본 적 있어요.
+
+miko/inn/9/lines/1
+막사에서는 끝마다 음이 달랐죠.
+
+miko/inn/9/lines/2
+누가 맞게 부르는지 끝내 몰랐어요.
+
+miko/inn/9/choices/0/text
+미코 씨가 기억하는 건 어떻게 끝나요?
+
+miko/inn/9/choices/0/response/0
+마지막이 자꾸 올라갔어요. 부르진 않을래요.
+
+miko/inn/9/choices/1/text
+여기서도 들리네요.
+
+miko/inn/9/choices/1/response/0
+저쪽에서 흥얼거리는 것 같아요.
+
+miko/inn/9/choices/2/text
+틀린 노래를 계속 들으면 괴롭지 않아요?
+
+miko/inn/9/choices/2/response/0
+들으면 어디 있는지 알 수 있었어요.
+
+miko/inn/9/choices/2/response/1
+저한테는 꽤 편한 소리예요.
+
+miko/inn/9/seen
+저 끝음이 올라가는 게 막사에서 듣던 것 같아요.
+
+miko/inn/10/situation
+미코가 빈 의자를 당겨 앉는다.
+
+miko/inn/10/lines/0
+잠깐만 앉아 있을게요.
+
+miko/inn/10/lines/1
+볕이 따뜻하네요.
+
+miko/inn/10/lines/2
+앉아 있으면 졸릴지도 모르겠어요.
+
+miko/inn/10/choices/0/text
+창가가 조금 따뜻해요.
+
+miko/inn/10/choices/0/response/0
+그래서 이쪽으로 왔어요.
+
+miko/inn/10/choices/1/text
+손이 비었으니 남은 병도 정리해 주세요.
+
+miko/inn/10/choices/1/response/0
+지금은 쉬려고 앉았어요.
+
+miko/inn/10/choices/1/response/1
+다 일어나고 나서 할게요.
+
+miko/inn/10/choices/2/text
+저는 물만 마시고 조용히 있을게요.
+
+miko/inn/10/choices/2/response/0
+졸면 잔 넘어뜨리기 전에만 불러 주세요.
+
+miko/inn/10/seen
+볕 들어오는 동안만 이쪽에 앉아 있을래요.
+
+miko/inn/11/situation
+미코가 식탁에서 찡그린 얼굴을 본다.
+
+miko/inn/11/lines/0
+맛이 많이 써요?
+
+miko/inn/11/lines/1
+그릇보다 얼굴이 먼저 말하네요.
+
+miko/inn/11/lines/2
+억지로 안 쓰다고 할 건 없어요.
+
+miko/inn/11/choices/0/text
+괜찮다고 했으니 더 묻지 말아 주세요.
+
+miko/inn/11/choices/0/response/0
+안 묻는 편이 좋을 때도 있죠.
+
+miko/inn/11/choices/0/response/1
+그래도 불편하면 다시 말씀해 주세요.
+
+miko/inn/11/choices/1/text
+좀 쓰긴 해요. 천천히 먹을게요.
+
+miko/inn/11/choices/1/response/0
+네. 급히 넘기지는 마세요.
+
+miko/inn/11/choices/2/text
+물은 여기 있네요.
+
+miko/inn/11/choices/2/response/0
+입에 남으면 한 모금 드세요.
+
+miko/inn/11/seen
+안 쓰다는 표정은 아니었어요.
+
+miko/inn/12/situation
+미코가 앞치마 집게를 만진다.
+
+miko/inn/12/lines/0
+어릴 때부터 토르바 막사에 있었어요.
+
+miko/inn/12/lines/1
+어느 계곡 사람이냐고 하면 대답을 못 해요.
+
+miko/inn/12/lines/2
+제가 잘 아는 건 이 근처 골목이에요.
+
+miko/inn/12/choices/0/text
+여기서는 미코 씨가 길을 더 잘 알겠네요.
+
+miko/inn/12/choices/0/response/0
+훈련장 가는 길은 눈 감아도 찾을 것 같아요.
+
+miko/inn/12/choices/1/text
+막사에서 오래 지내셨군요.
+
+miko/inn/12/choices/1/response/0
+처음 기억나는 소리도 훈련장 쪽이에요.
+
+miko/inn/12/choices/2/text
+부모님을 찾으면 고향도 알 수 있겠어요.
+
+miko/inn/12/choices/2/response/0
+부모님 얘기는 나중에 할게요.
+
+miko/inn/12/choices/2/response/1
+아는 길을 말씀드리고 싶었어요.
+
+miko/inn/12/seen
+저는 이 골목에서 막사로 가는 길이 제일 익숙해요.
+
+miko/inn/13/situation
+미코가 손가락을 펴며 이야기한다.
+
+miko/inn/13/lines/0
+훈련장에서 일을 거든 게 먼저였어요.
+
+miko/inn/13/lines/1
+나중에 길드에서 오라고 했고요.
+
+miko/inn/13/lines/2
+처음엔 어디까지 제가 해도 되는지 자꾸 물었어요.
+
+miko/inn/13/choices/0/text
+열아홉 살 때였죠?
+
+miko/inn/13/choices/0/response/0
+길드로 온 건 그때예요.
+
+miko/inn/13/choices/1/text
+이제 다 아실 테니 안 물어봐도 되잖아요.
+
+miko/inn/13/choices/1/response/0
+다 안다고 하면 놓치게 돼요.
+
+miko/inn/13/choices/1/response/1
+모르면 계속 물어볼 거예요.
+
+miko/inn/13/choices/2/text
+지금도 모르는 건 물어보시죠?
+
+miko/inn/13/choices/2/response/0
+네. 오래 봤어도 처음 보는 건 생겨요.
+
+miko/inn/13/seen
+길드에 처음 왔을 때는 더 자주 물었어요.
+
+miko/inn/14/situation
+미코가 남은 일을 내려다본다.
+
+miko/inn/14/lines/0
+약이 모자란 날은 손이 자꾸 멈춰요.
+
+miko/inn/14/lines/1
+누구부터 볼지 정해야 해서요.
+
+miko/inn/14/lines/2
+기다리던 다른 얼굴이 계속 생각나요.
+
+miko/inn/14/choices/0/text
+가능성이 높은 사람만 고르면 편하잖아요.
+
+miko/inn/14/choices/0/response/0
+그렇게 편하게 고를 수가 없어요.
+
+miko/inn/14/choices/0/response/1
+무얼 골라도 망설여져요.
+
+miko/inn/14/choices/1/text
+그날 일은 혼자만 생각하지 말아요.
+
+miko/inn/14/choices/1/response/0
+얘기할 수 있는 때는 조금씩 말해 볼게요.
+
+miko/inn/14/choices/2/text
+오늘은 괜찮으세요?
+
+miko/inn/14/choices/2/response/0
+오늘은 이렇게 앉을 시간이 있네요.
+
+miko/inn/14/seen
+그날은 누굴 먼저 보든 다른 얼굴이 남아요.
+
+miko/inn/15/situation
+미코가 자기 그릇을 늦게 끌어온다.
+
+miko/inn/15/lines/0
+늘 한 사람만 더 보고 먹으려 해요.
+
+miko/inn/15/lines/1
+그러면 밥이 자꾸 늦어져요.
+
+miko/inn/15/lines/2
+배 안 고픈 척하는 것도 버릇이네요.
+
+miko/inn/15/choices/0/text
+오늘은 같이 시작해요. 식기 전에요.
+
+miko/inn/15/choices/0/response/0
+이번에는 숟가락부터 들게요.
+
+miko/inn/15/choices/1/text
+저도 늦게 내려왔어요.
+
+miko/inn/15/choices/1/response/0
+그럼 같이 늦은 저녁이네요.
+
+miko/inn/15/choices/2/text
+드시기 전에 저쪽 병도 마저 정리해 주세요.
+
+miko/inn/15/choices/2/response/0
+저도 밥은 제때 먹고 싶어요.
+
+miko/inn/15/choices/2/response/1
+병은 밥 먹고 나서 볼게요.
+
+miko/inn/15/seen
+제 그릇도 지금은 아직 따뜻하네요.
+
+miko/inn/16/situation
+미코가 여분 천을 접지 않고 둔다.
+
+miko/inn/16/lines/0
+저도 이제 쉬고 싶어요.
+
+miko/inn/16/lines/1
+한 장만 더 접자고 하면 또 늦겠죠.
+
+miko/inn/16/lines/2
+이건 내일 해도 돼요.
+
+miko/inn/16/choices/0/text
+저는 가방만 두고 갈게요.
+
+miko/inn/16/choices/0/response/0
+식당에서 기다리고 있을게요.
+
+miko/inn/16/choices/1/text
+한 장뿐이니 끝내면 더 개운하잖아요.
+
+miko/inn/16/choices/1/response/0
+그 말로 늘 한 장씩 더 했어요.
+
+miko/inn/16/choices/1/response/1
+오늘은 여기 둘래요.
+
+miko/inn/16/choices/2/text
+그대로 두고 같이 내려가요.
+
+miko/inn/16/choices/2/response/0
+손 씻고 바로 갈게요.
+
+miko/inn/16/seen
+이 천은 내일까지 여기 둬도 괜찮아요.
+
+miko/inn/17/situation
+미코가 비어 있는 잔을 보여 준다.
+
+miko/inn/17/lines/0
+오늘은 제 물도 부탁할게요.
+
+miko/inn/17/lines/1
+잔이 비었는데도 주전자에 손이 안 갔네요.
+
+miko/inn/17/lines/2
+주전자 좀 가까이 옮겨 주실래요?
+
+miko/inn/17/choices/0/text
+이런 건 늘 알아서 챙기셨잖아요.
+
+miko/inn/17/choices/0/response/0
+그래도 부탁할 때가 있어요.
+
+miko/inn/17/choices/0/response/1
+오늘은 좀 받아 마시고 싶네요.
+
+miko/inn/17/choices/1/text
+반쯤 채울게요. 더 필요하면 말해요.
+
+miko/inn/17/choices/1/response/0
+네. 이제 제 잔도 보고 마실게요.
+
+miko/inn/17/choices/2/text
+주전자는 아직 남았어요.
+
+miko/inn/17/choices/2/response/0
+그럼 제가 조금 따라 마실게요.
+
+miko/inn/17/seen
+주전자를 옮기니 저도 손이 닿네요.
+
+miko/inn/18/situation
+미코가 아침에 느릿하게 인사한다.
+
+miko/inn/18/lines/0
+오늘은 조금 더 잤어요.
+
+miko/inn/18/lines/1
+먼저 깼는데 다시 눈을 감았어요.
+
+miko/inn/18/lines/2
+아무도 아프다고 부르지 않더라고요.
+
+miko/inn/18/choices/0/text
+잘 쉬셨어요? 얼굴이 덜 졸려 보여요.
+
+miko/inn/18/choices/0/response/0
+이번엔 일어나면서 덜 하품했어요.
+
+miko/inn/18/choices/1/text
+저도 늦잠 자고 이제 나왔어요.
+
+miko/inn/18/choices/1/response/0
+그럼 같이 아침 먹으면 되겠네요.
+
+miko/inn/18/choices/2/text
+다음엔 일찍 일어나서 같이 정리하고 쉬어요.
+
+miko/inn/18/choices/2/response/0
+오늘은 자고 싶었어요.
+
+miko/inn/18/choices/2/response/1
+다시 자길 잘한 것 같아요.
+
+miko/inn/18/seen
+오늘은 두 번째 눈 떴을 때 일어났어요.
+
+miko/inn/19/situation
+미코가 손의 작은 자국을 본다.
+
+miko/inn/19/lines/0
+아까 급히 정리하다 긁혔어요.
+
+miko/inn/19/lines/1
+그냥 지나가려다 제가 먼저 봤어요.
+
+miko/inn/19/lines/2
+제 손도 봐야 하는데요.
+
+miko/inn/19/choices/0/text
+다녀올 때까지 기다릴게요.
+
+miko/inn/19/choices/0/response/0
+금방 올 테니 앉아 있어요.
+
+miko/inn/19/choices/1/text
+작은 상처는 잘 아시니 그냥 둬도 되죠.
+
+miko/inn/19/choices/1/response/0
+작을 때도 한 번은 볼게요.
+
+miko/inn/19/choices/1/response/1
+제 손이라고 빼놓진 않으려고요.
+
+miko/inn/19/choices/2/text
+정리할 것은 제가 모아 둘게요.
+
+miko/inn/19/choices/2/response/0
+그럼 손을 씻고 올게요.
+
+miko/inn/19/seen
+지금은 남은 것보다 손부터 보고 올래요.
+
+miko/inn/20/situation
+미코가 준비를 마치고 가방을 닫는다.
+
+miko/inn/20/lines/0
+출발 전에 말씀해 주세요.
+
+miko/inn/20/lines/1
+어디가 불편한지 뒤늦게 알면 아쉬워요.
+
+miko/inn/20/lines/2
+참는 쪽으로만 도우려 하진 마세요.
+
+miko/inn/20/choices/0/text
+부담 안 되게 아파도 제가 알아서 할게요.
+
+miko/inn/20/choices/0/response/0
+그렇게 숨기시면 더 늦게 알게 돼요.
+
+miko/inn/20/choices/0/response/1
+불편한 건 말해 주시면 좋겠어요.
+
+miko/inn/20/choices/1/text
+미코 씨도 피곤하면 꼭 말해요.
+
+miko/inn/20/choices/1/response/0
+네. 제 얘기도 빼먹지 않을게요.
+
+miko/inn/20/choices/2/text
+제 가방은 이미 묶었어요.
+
+miko/inn/20/choices/2/response/0
+제 것도 이제 닫으면 끝이에요.
+
+miko/inn/20/seen
+가방 닫기 전에는 바뀐 일도 말해 주세요.
+
+miko/inn/21/situation
+미코가 식탁 위를 천천히 정리한다.
+
+miko/inn/21/lines/0
+오늘은 쉬는 날이에요.
+
+miko/inn/21/lines/1
+막사에 들를까 하다가 내려왔어요.
+
+miko/inn/21/lines/2
+이번엔 그냥 밥부터 먹으려고요.
+
+miko/inn/21/choices/0/text
+저도 아직이에요. 같이 주문해요.
+
+miko/inn/21/choices/0/response/0
+오늘은 먹고 나서도 조금 앉아 있고 싶어요.
+
+miko/inn/21/choices/1/text
+밖은 아직 한산해요.
+
+miko/inn/21/choices/1/response/0
+일찍 내려오니 덜 시끄럽네요.
+
+miko/inn/21/choices/2/text
+가는 김에 막사 일도 조금 봐 주면 좋겠어요.
+
+miko/inn/21/choices/2/response/0
+오늘은 안 들르려고 했어요.
+
+miko/inn/21/choices/2/response/1
+쉬는 날까지 제가 꼭 가야 할까요?
+
+miko/inn/21/seen
+오늘은 막사보다 식당에 먼저 왔어요.
+
+miko/inn/22/situation
+미코가 두 잔 중 작은 것을 고른다.
+
+miko/inn/22/lines/0
+오늘은 이 잔으로 마실래요.
+
+miko/inn/22/lines/1
+큰 잔 들고 있으면 또 채우게 돼요.
+
+miko/inn/22/lines/2
+남은 물은 주전자에 둘게요.
+
+miko/inn/22/choices/0/text
+작은 잔도 여기 있어요.
+
+miko/inn/22/choices/0/response/0
+이건 손에 쥐기 좋겠어요.
+
+miko/inn/22/choices/1/text
+그것도 기록해 두면 안 잊잖아요.
+
+miko/inn/22/choices/1/response/0
+잔을 바꾸는 편이 덜 번거롭겠어요.
+
+miko/inn/22/choices/1/response/1
+마신 양은 안 적을래요.
+
+miko/inn/22/choices/2/text
+저는 큰 걸 쓸게요. 한 번만 따라요.
+
+miko/inn/22/choices/2/response/0
+서로 잘 맞는 잔이 있네요.
+
+miko/inn/22/seen
+이 잔은 손에 가볍게 잡히네요.
+
+miko/inn/23/situation
+미코가 웃다가 하품을 한다.
+
+miko/inn/23/lines/0
+얘기를 더 듣고 싶긴 한데요.
+
+miko/inn/23/lines/1
+눈이 자꾸 감겨요.
+
+miko/inn/23/lines/2
+남은 건 내일 들을게요.
+
+miko/inn/23/choices/0/text
+재미있는 부분이니 조금만 더 들어 주세요.
+
+miko/inn/23/choices/0/response/0
+그 부분까지 들으면 더 못 잘 것 같아요.
+
+miko/inn/23/choices/0/response/1
+오늘은 먼저 눈을 감을래요.
+
+miko/inn/23/choices/1/text
+내일 점심에 이어서 얘기해요.
+
+miko/inn/23/choices/1/response/0
+제가 어디까지 들었는지 기억해 둘게요.
+
+miko/inn/23/choices/2/text
+저도 이제 올라갈게요.
+
+miko/inn/23/choices/2/response/0
+계단에서 졸지는 마세요.
+
+miko/inn/23/seen
+내일은 하품 없이 이어서 듣고 싶어요.
+
+miko/inn/24/situation
+미코가 먼저 자기 접시에 음식을 담는다.
+
+miko/inn/24/lines/0
+오늘은 제 것부터 담았어요.
+
+miko/inn/24/lines/1
+나중엔 또 식을까 봐서요.
+
+miko/inn/24/lines/2
+같이 드실 것도 가져올게요.
+
+miko/inn/24/choices/0/text
+저는 제가 담을게요. 먼저 드세요.
+
+miko/inn/24/choices/0/response/0
+네, 오늘은 숟가락부터 들게요.
+
+miko/inn/24/choices/1/text
+저도 같은 걸 먹을래요.
+
+miko/inn/24/choices/1/response/0
+아직 많이 남아 있어요.
+
+miko/inn/24/choices/2/text
+항상 챙겨 주셨는데 오늘은 제가 늦었네요.
+
+miko/inn/24/choices/2/response/0
+늦은 건 아니에요.
+
+miko/inn/24/choices/2/response/1
+제가 먼저 먹어도 같이 앉을 수 있죠.
+
+miko/inn/24/seen
+오늘 제 그릇에는 아직 김이 나요.
+
+miko/inn/25/situation
+미코가 창가에 등을 기댄다.
+
+miko/inn/25/lines/0
+볕이 여기까지 왔네요.
+
+miko/inn/25/lines/1
+잠깐 졸아도 되겠어요.
+
+miko/inn/25/lines/2
+아픈 데 없으면 깨우지 말아 주세요.
+
+miko/inn/25/choices/0/text
+저는 밖에 다녀올게요.
+
+miko/inn/25/choices/0/response/0
+돌아올 때 문만 살살 닫아 주세요.
+
+miko/inn/25/choices/1/text
+자는 얼굴이 궁금하니 지켜봐도 되죠?
+
+miko/inn/25/choices/1/response/0
+그냥 편하게 자고 싶어요.
+
+miko/inn/25/choices/1/response/1
+깨어 있을 때 보시면 안 될까요?
+
+miko/inn/25/choices/2/text
+저도 옆에서 조용히 쉬고 있을게요.
+
+miko/inn/25/choices/2/response/0
+그러면 햇빛 가는 동안만 눈 감을게요.
+
+miko/inn/25/seen
+햇빛이 옮겨 가면 아마 저도 깨겠어요.
+
+miko/inn/26/situation
+미코가 천을 접다가 중간에 멈춘다.
+
+miko/inn/26/lines/0
+지금 할 일은 다 끝났어요.
+
+miko/inn/26/lines/1
+이건 손이 심심해서 접던 거예요.
+
+miko/inn/26/lines/2
+손 놓고 얘기해도 되겠죠.
+
+miko/inn/26/choices/0/text
+접으면서 들어도 잘 들으시잖아요.
+
+miko/inn/26/choices/0/response/0
+손 놓고 마주 보면서 듣고 싶어요.
+
+miko/inn/26/choices/0/response/1
+오늘은 그냥 손을 두고 싶어요.
+
+miko/inn/26/choices/1/text
+네, 저도 하던 것 내려놓을게요.
+
+miko/inn/26/choices/1/response/0
+이번엔 얼굴 보면서 들을 수 있겠네요.
+
+miko/inn/26/choices/2/text
+무슨 얘기였어요?
+
+miko/inn/26/choices/2/response/0
+아까 길에서 본 것부터 듣고 싶어요.
+
+miko/inn/26/seen
+접던 천은 옆에 두었으니 얘기해 주세요.
+
+miko/inn/27/situation
+미코가 귀환 뒤 일행을 먼저 보낸다.
+
+miko/inn/27/lines/0
+오늘은 저도 같이 씻으러 갈게요.
+
+miko/inn/27/lines/1
+정리부터 하면 또 늦겠죠.
+
+miko/inn/27/lines/2
+가방은 이쪽에 둘게요.
+
+miko/inn/27/choices/0/text
+씻고 나서 같이 밥 먹어요.
+
+miko/inn/27/choices/0/response/0
+이번엔 제 밥도 안 늦어지겠어요.
+
+miko/inn/27/choices/1/text
+수건은 제가 가져올게요.
+
+miko/inn/27/choices/1/response/0
+제 것은 걸어 둔 쪽에 있어요.
+
+miko/inn/27/choices/2/text
+씻기 전에 제 가방 마개도 한번 봐 주세요.
+
+miko/inn/27/choices/2/response/0
+오늘 급한 건 다 봤어요.
+
+miko/inn/27/choices/2/response/1
+저도 지금은 씻으러 가고 싶어요.
+
+miko/inn/27/seen
+가방은 아침에 보고 오늘은 같이 내려갈게요.
+
+miko/dungeon/0/variants/0
+준비한 건 여기 있어요.
+
+miko/dungeon/0/variants/1
+마개부터 한 번 더 볼게요.
+
+miko/dungeon/1/variants/0
+제 밥도 먹고 나왔어요.
+
+miko/dungeon/1/variants/1
+불편한 곳은 지금 말해 주세요.
+
+miko/dungeon/2/variants/0
+오늘은 제 물도 안 잊었어요.
+
+miko/dungeon/2/variants/1
+같이 서두르지 않고 나가요.
+
+miko/dungeon/3/variants/0
+발목이 걸릴 데를 볼게요.
+
+miko/dungeon/3/variants/1
+이쪽은 천천히 디뎌요.
+
+miko/dungeon/4/variants/0
+가방이 흔들리면 바로 멈춰요.
+
+miko/dungeon/4/variants/1
+제가 뒤에서 볼 수 있는지도 봐요.
+
+miko/dungeon/5/variants/0
+조금 늦어져도 괜찮겠어요.
+
+miko/dungeon/5/variants/1
+지금은 옆에서 같이 걸을게요.
+
+miko/dungeon/6/variants/0
+손대기 전에 상태를 보죠.
+
+miko/dungeon/6/variants/1
+냄새는 가까이서 맡지 말아요.
+
+miko/dungeon/7/variants/0
+제가 볼 수 있는 쪽도 알려 주세요.
+
+miko/dungeon/7/variants/1
+모르면 그대로 두고 봐요.
+
+miko/dungeon/8/variants/0
+같이 보고 싶으니 조금만 기다려요.
+
+miko/dungeon/8/variants/1
+궁금한 건 저도 물어볼게요.
+
+miko/dungeon/9/variants/0
+지금은 제 쪽도 준비됐어요.
+
+miko/dungeon/9/variants/1
+급히 움직이면 먼저 말해요.
+
+miko/dungeon/10/variants/0
+불편한 걸 숨기진 말아 주세요.
+
+miko/dungeon/10/variants/1
+제가 못 보는 쪽이면 불러 주세요.
+
+miko/dungeon/11/variants/0
+끝난 뒤에는 저도 앉을래요.
+
+miko/dungeon/11/variants/1
+서로 무리하는지는 같이 봐요.
+
+miko/dungeon/12/variants/0
+지금 불편한 데가 있나요?
+
+miko/dungeon/12/variants/1
+짐을 들기 전에 한 번 볼게요.
+
+miko/dungeon/13/variants/0
+물부터 조금씩 마셔요.
+
+miko/dungeon/13/variants/1
+서두르다 손이 또 굳겠어요.
+
+miko/dungeon/14/variants/0
+오늘은 저도 먼저 쉬겠어요.
+
+miko/dungeon/14/variants/1
+돌아가서 밥을 미루지는 말아요.
+
+miko/dungeon/15/variants/0
+잠깐 손을 펴고 가요.
+
+miko/dungeon/15/variants/1
+준비 덜 됐으면 말해도 돼요.
+
+miko/dungeon/16/variants/0
+표정이 아까보다 굳었네요.
+
+miko/dungeon/16/variants/1
+제 것도 같이 확인하고 들어가요.
+
+miko/dungeon/17/variants/0
+저도 긴장하면 말이 줄어요.
+
+miko/dungeon/17/variants/1
+같이 한 번 더 숨 쉬면 좋겠어요.
+
+miko/dungeon/18/variants/0
+이제 상태부터 다시 보죠.
+
+miko/dungeon/18/variants/1
+짐은 아직 제가 안 들게요.
+
+miko/dungeon/19/variants/0
+한꺼번에 움직이진 말아요.
+
+miko/dungeon/19/variants/1
+손에 힘이 빠지는지 볼게요.
+
+miko/dungeon/20/variants/0
+저도 지금은 앉고 싶어요.
+
+miko/dungeon/20/variants/1
+오늘 밥은 같이 따뜻할 때 먹어요.
+
+miko/dungeon/21/variants/0
+얼굴이 좀 달라졌어요.
+
+miko/dungeon/21/variants/1
+지금은 멈추고 말해 주세요.
+
+miko/dungeon/22/variants/0
+말할 힘 없으면 고개만 움직여요.
+
+miko/dungeon/22/variants/1
+우선 기대앉을 곳을 봐요.
+
+miko/dungeon/23/variants/0
+저한테 숨기느라 참지 말아요.
+
+miko/dungeon/23/variants/1
+무엇부터 할지는 같이 볼게요.
+
+miko/dungeon/24/variants/0
+가까이 가서 확인할게요.
+
+miko/dungeon/24/variants/1
+움직이기 전에는 잠깐 기다려요.
+
+miko/dungeon/25/variants/0
+제가 부르는 소리 들리세요?
+
+miko/dungeon/25/variants/1
+곁에서 조금 더 살펴볼게요.
+
+miko/dungeon/26/variants/0
+다들 한꺼번에 들지는 말아요.
+
+miko/dungeon/26/variants/1
+옮길 수 있는지는 보고 정해요.
+
+miko/dungeon/27/variants/0
+제 손이 조금 불편하네요.
+
+miko/dungeon/27/variants/1
+저도 그냥 넘기진 않을게요.
+
+miko/dungeon/28/variants/0
+오늘은 제 쪽을 먼저 볼게요.
+
+miko/dungeon/28/variants/1
+정리할 것은 잠깐 내려둘래요.
+
+miko/dungeon/29/variants/0
+이번엔 제가 좀 부탁할게요.
+
+miko/dungeon/29/variants/1
+괜찮은 척하다 늦추진 않겠어요.
+
+miko/dungeon/30/variants/0
+손 씻고 잠깐 앉을게요.
+
+miko/dungeon/30/variants/1
+지금은 병을 꺼내진 않을래요.
+
+miko/dungeon/31/variants/0
+제 물도 한 잔 따라올게요.
+
+miko/dungeon/31/variants/1
+부르실 일 없으면 눈 좀 감을게요.
+
+miko/dungeon/32/variants/0
+다른 분들 오기 전에 잠깐 쉬겠어요.
+
+miko/dungeon/32/variants/1
+저도 이 그늘이 참 편해요.
+
+miko/dungeon/33/variants/0
+틈을 손으로 먼저 만지진 마요.
+
+miko/dungeon/33/variants/1
+겉 상태를 보고 정해요.
+
+miko/dungeon/34/variants/0
+제가 아래쪽을 좀 볼게요.
+
+miko/dungeon/34/variants/1
+잘 안 보이면 다른 쪽으로 가요.
+
+miko/dungeon/35/variants/0
+손 놓고 한번 더 봐도 늦지 않아요.
+
+miko/dungeon/35/variants/1
+오늘은 제가 놓친 것도 말해 줘요.
+
+miko/dungeon/36/variants/0
+제 짐부터 내려둘게요.
+
+miko/dungeon/36/variants/1
+손 씻고 나서 확인하죠.
+
+miko/dungeon/37/variants/0
+오늘은 밥을 먼저 먹을래요.
+
+miko/dungeon/37/variants/1
+남은 정리는 내일도 할 수 있어요.
+
+miko/dungeon/38/variants/0
+제 물도 채워 놓을게요.
+
+miko/dungeon/38/variants/1
+아래에서 만나면 같이 주문해요.
+
+miko/dungeon/39/variants/0
+지금은 움직일 수 있는지 봐요.
+
+miko/dungeon/39/variants/1
+혼자 걸을 수 없으면 말해 주세요.
+
+miko/dungeon/40/variants/0
+서로 떨어지면 더 늦어져요.
+
+miko/dungeon/40/variants/1
+제가 뒤처지면 바로 불러 주세요.
+
+miko/dungeon/41/variants/0
+저도 남은 힘을 말할게요.
+
+miko/dungeon/41/variants/1
+같이 나가서 쉬는 곳부터 찾아요.
+
+miko/transitions/0/situation
+미코가 접던 천을 내려놓는다.
+
+miko/transitions/0/lines/0
+필요한 건 들을게요.
+
+miko/transitions/0/lines/1
+일단 이쪽에 앉아 계세요.
+
+miko/transitions/1/situation
+미코가 바구니를 제 쪽으로 당긴다.
+
+miko/transitions/1/lines/0
+오늘은 손대지 말아 주세요.
+
+miko/transitions/1/lines/1
+제가 혼자 정리할게요.
+
+miko/transitions/2/situation
+미코가 빈 의자를 가리킨다.
+
+miko/transitions/2/lines/0
+기다리실 거면 여기 앉아요.
+
+miko/transitions/2/lines/1
+물어보실 것도 천천히 들을게요.
+
+miko/transitions/3/situation
+미코가 가방 마개를 닫는다.
+
+miko/transitions/3/lines/0
+오늘은 제 쪽만 챙길게요.
+
+miko/transitions/3/lines/1
+도움이 필요하면 그때 말해 주세요.
+
+miko/transitions/4/situation
+미코가 마개 하나를 고쳐 잠근다.
+
+miko/transitions/4/lines/0
+이런 건 제가 한번 더 볼게요.
+
+miko/transitions/4/lines/1
+대신 무거운 쪽은 잡아 주세요.
+
+miko/transitions/5/situation
+미코가 주전자를 내려놓는다.
+
+miko/transitions/5/lines/0
+제 것은 제가 가져갈게요.
+
+miko/transitions/5/lines/1
+서로 챙길 것을 다시 확인해요.
+
+miko/transitions/6/situation
+미코가 막사 쪽을 바라본다.
+
+miko/transitions/6/lines/0
+어릴 때부터 저쪽 길로 다녔어요.
+
+miko/transitions/6/lines/1
+오늘은 그 얘기를 해 볼까요?
+
+miko/transitions/7/situation
+미코가 내려온 앞치마 끈을 한 손으로 잡는다.
+
+miko/transitions/7/lines/0
+옛날 얘기는 오늘 멈출게요.
+
+miko/transitions/7/lines/1
+지금 할 것만 같이 봐요.
+
+miko/transitions/8/situation
+미코가 자기 그릇부터 앞으로 당긴다.
+
+miko/transitions/8/lines/0
+오늘은 제 밥 먼저 먹을래요.
+
+miko/transitions/8/lines/1
+같이 먹으시면 더 좋고요.
+
+miko/transitions/9/situation
+미코가 그릇을 잠깐 내려놓는다.
+
+miko/transitions/9/lines/0
+방금 말은 조금 서운했어요.
+
+miko/transitions/9/lines/1
+괜찮다고 하고 넘기고 싶지는 않네요.
+
+miko/transitions/10/situation
+미코가 자기 짐을 같이 내려놓는다.
+
+miko/transitions/10/lines/0
+저도 힘들면 바로 말할게요.
+
+miko/transitions/10/lines/1
+그때는 그냥 들어 주시면 돼요.
+
+miko/transitions/11/situation
+미코가 빈 의자를 보다가 일어선다.
+
+miko/transitions/11/lines/0
+오늘은 혼자 눈 좀 붙일게요.
+
+miko/transitions/11/lines/1
+필요한 일도 내일 말씀해 주세요.
+
+miko/transitions/12/situation
+미코가 두 잔을 나란히 놓는다.
+
+miko/transitions/12/lines/0
+오늘은 제 잔도 먼저 채웠어요.
+
+miko/transitions/12/lines/1
+같이 앉아서 마시면 되겠네요.
+
+miko/transitions/13/situation
+미코가 자기 잔을 들어 일어난다.
+
+miko/transitions/13/lines/0
+저는 이만 올라갈래요.
+
+miko/transitions/13/lines/1
+다음에 내려오면 이어서 들을게요.
+
+adeline/inn/0/situation
+아델린이 카드를 모아 내려놓는다.
+
+adeline/inn/0/lines/0
+오늘은 같이하지 않을게요.
+
+adeline/inn/0/lines/1
+지금 제게 웃으라고 하지는 마세요.
+
+adeline/inn/0/lines/2
+필요한 말씀은 듣겠습니다.
+
+adeline/inn/0/choices/0/text
+저는 먼저 올라갈게요.
+
+adeline/inn/0/choices/0/response/0
+조심해서 올라가세요.
+
+adeline/inn/0/choices/1/text
+한 판만 해요. 제가 패를 나눌게요.
+
+adeline/inn/0/choices/1/response/0
+지금은 이기고 싶은 마음도 없어요.
+
+adeline/inn/0/choices/1/response/1
+오늘은 카드를 덮겠습니다.
+
+adeline/inn/0/choices/2/text
+내일 일정만 전할게요.
+
+adeline/inn/0/choices/2/response/0
+네. 그건 기억하고 준비하겠습니다.
+
+adeline/inn/0/seen
+오늘 카드는 여기서 그만둘게요.
+
+adeline/inn/1/situation
+아델린이 빈 의자 옆에 선다.
+
+adeline/inn/1/lines/0
+이쪽은 곧 치울게요.
+
+adeline/inn/1/lines/1
+오래 붙잡지는 않겠습니다.
+
+adeline/inn/1/lines/2
+혼자 앉고 싶으시면 말씀하세요.
+
+adeline/inn/1/choices/0/text
+늘 양보하시니 이번에도 부탁드릴게요.
+
+adeline/inn/1/choices/0/response/0
+오늘은 저도 조금 쉬고 싶어요.
+
+adeline/inn/1/choices/0/response/1
+다른 의자를 쓰시면 안 될까요?
+
+adeline/inn/1/choices/1/text
+아델린 씨가 쉬고 있던 곳인데 제가 옮길게요.
+
+adeline/inn/1/choices/1/response/0
+그럼 저는 잠깐 더 앉아 있겠습니다.
+
+adeline/inn/1/choices/2/text
+저는 물 떠서 바로 올라갈게요.
+
+adeline/inn/1/choices/2/response/0
+주전자는 아직 따뜻해요.
+
+adeline/inn/1/seen
+이 의자는 조금 더 쓰고 일어날게요.
+
+adeline/inn/2/situation
+아델린이 두 손을 모았다 푼다.
+
+adeline/inn/2/lines/0
+제가 괜찮다고 했어도요.
+
+adeline/inn/2/lines/1
+필요한지 한 번은 물어봐 주셨으면 해요.
+
+adeline/inn/2/lines/2
+오늘은 좀 힘들었거든요.
+
+adeline/inn/2/choices/0/text
+다음에는 한 번 더 여쭤볼게요.
+
+adeline/inn/2/choices/0/response/0
+저도 필요하면 바로 말해 볼게요.
+
+adeline/inn/2/choices/1/text
+오늘은 쉬실 수 있나요?
+
+adeline/inn/2/choices/1/response/0
+지금은 조금 앉아 있을 수 있어요.
+
+adeline/inn/2/choices/2/text
+사양하시면 저는 정말 필요 없는 줄 알았어요.
+
+adeline/inn/2/choices/2/response/0
+그래서 지금 말씀드리는 거예요.
+
+adeline/inn/2/choices/2/response/1
+다음에는 저도 필요한 걸 말해 볼게요.
+
+adeline/inn/2/seen
+오늘은 제가 먼저 필요하다고 말해 볼게요.
+
+adeline/inn/3/situation
+아델린이 주사위를 손안에 넣는다.
+
+adeline/inn/3/lines/0
+지금은 안 던질 거예요.
+
+adeline/inn/3/lines/1
+지금 하자는 약속은 안 했잖아요.
+
+adeline/inn/3/lines/2
+잠깐 보고 있었어요.
+
+adeline/inn/3/choices/0/text
+저는 밥부터 먹을게요.
+
+adeline/inn/3/choices/0/response/0
+먹고 나서도 시간은 있겠어요.
+
+adeline/inn/3/choices/1/text
+겁나서 미루시는 거면 제가 져 드릴게요.
+
+adeline/inn/3/choices/1/response/0
+같은 때에 던져서 이겨 보고 싶어요.
+
+adeline/inn/3/choices/1/response/1
+오늘은 제가 고른 때에 할게요.
+
+adeline/inn/3/choices/2/text
+저는 밥 먹고 올게요. 하고 싶으면 불러요.
+
+adeline/inn/3/choices/2/response/0
+네. 하고 싶어지면 부를게요.
+
+adeline/inn/3/seen
+주사위는 넣어 뒀으니 지금은 안 할게요.
+
+adeline/inn/4/situation
+아델린이 공손히 인사하고 한 걸음 물러선다.
+
+adeline/inn/4/lines/0
+아델린 드 아르카스입니다.
+
+adeline/inn/4/lines/1
+필요한 일이 있으면 말씀해 주세요.
+
+adeline/inn/4/lines/2
+아침 기도 전에는 이쪽에 있어요.
+
+adeline/inn/4/choices/0/text
+성왕국에서 받아들여져서 정말 다행이네요.
+
+adeline/inn/4/choices/0/response/0
+감사한 마음은 있어요.
+
+adeline/inn/4/choices/0/response/1
+그때 일을 한마디로 끝내기는 어렵네요.
+
+adeline/inn/4/choices/1/text
+아델린 씨도 필요한 일이 있으면 말해요.
+
+adeline/inn/4/choices/1/response/0
+네. 먼저 말씀해 주셔서 감사합니다.
+
+adeline/inn/4/choices/2/text
+내일은 아침에 뵙겠네요.
+
+adeline/inn/4/choices/2/response/0
+늦지 않게 내려오겠습니다.
+
+adeline/inn/4/seen
+내일은 기도 전에 이쪽으로 내려올게요.
+
+adeline/inn/5/situation
+아델린이 카드 소리에 눈길을 준다.
+
+adeline/inn/5/lines/0
+저쪽에서 판을 벌였나 봐요.
+
+adeline/inn/5/lines/1
+아, 저는 잠깐 본 것뿐이에요.
+
+adeline/inn/5/lines/2
+카드는 전부터 좋아했어요.
+
+adeline/inn/5/choices/0/text
+구경하러 같이 가 볼까요?
+
+adeline/inn/5/choices/0/response/0
+방해하지 않는 데서 잠깐 보고 싶어요.
+
+adeline/inn/5/choices/1/text
+소리가 여기까지 들리네요.
+
+adeline/inn/5/choices/1/response/0
+마지막 패를 내는 것 같아요.
+
+adeline/inn/5/choices/2/text
+사제님이니까 이런 건 멀리하셔야죠.
+
+adeline/inn/5/choices/2/response/0
+제가 고른 놀이예요.
+
+adeline/inn/5/choices/2/response/1
+기도를 빼놓고 하는 것도 아니에요.
+
+adeline/inn/5/seen
+카드 넘기는 소리에 저도 모르게 돌아봤어요.
+
+adeline/inn/6/situation
+아델린이 접시를 뒤로 민다.
+
+adeline/inn/6/lines/0
+저는 조금 뒤에 먹어도 괜찮아요.
+
+adeline/inn/6/lines/1
+먼저 드셔도 돼요.
+
+adeline/inn/6/lines/2
+아직 따뜻할 때 드시면 좋겠어요.
+
+adeline/inn/6/choices/0/text
+저는 물을 더 떠 올게요.
+
+adeline/inn/6/choices/0/response/0
+그동안 접시는 이쪽에 둘게요.
+
+adeline/inn/6/choices/1/text
+그럼 남은 국까지 제가 다 먹어도 되겠네요.
+
+adeline/inn/6/choices/1/response/0
+제 것도 남겨 주세요.
+
+adeline/inn/6/choices/1/response/1
+조금 뒤에 먹겠다는 말이었어요.
+
+adeline/inn/6/choices/2/text
+제 것도 있으니 같이 시작해요.
+
+adeline/inn/6/choices/2/response/0
+그럼 저도 식기 전에 먹겠습니다.
+
+adeline/inn/6/seen
+제 접시도 아직은 따뜻하네요.
+
+adeline/inn/7/situation
+아델린이 길 끝을 보다가 묻는다.
+
+adeline/inn/7/lines/0
+저기까지는 얼마나 걸릴까요?
+
+adeline/inn/7/lines/1
+뛰면 금방이겠네요.
+
+adeline/inn/7/lines/2
+일단은 걸어서 가 보려고요.
+
+adeline/inn/7/choices/0/text
+발이 빠르시다니 저는 조금 앞에서 뛰어도 되죠?
+
+adeline/inn/7/choices/0/response/0
+같은 데서 출발하고 싶어요.
+
+adeline/inn/7/choices/0/response/1
+아직 겨루자고 한 것도 아니지만요.
+
+adeline/inn/7/choices/1/text
+왜요, 달리기는 자신 있으세요?
+
+adeline/inn/7/choices/1/response/0
+조금은요. 길이 미끄럽지만 않으면요.
+
+adeline/inn/7/choices/2/text
+걸어서도 멀진 않아요.
+
+adeline/inn/7/choices/2/response/0
+그러면 천천히 가도 되겠어요.
+
+adeline/inn/7/seen
+저 골목은 뛰기 전에 바닥부터 봐야겠어요.
+
+adeline/inn/8/situation
+아델린이 아침 인사를 한다.
+
+adeline/inn/8/lines/0
+기도하러 가려던 중이에요.
+
+adeline/inn/8/lines/1
+같이 잠깐 계시겠어요?
+
+adeline/inn/8/lines/2
+서둘러 답하실 필요는 없어요.
+
+adeline/inn/8/choices/0/text
+곁에서 조용히 기다리고 있을게요.
+
+adeline/inn/8/choices/0/response/0
+그럼 끝나고 같이 내려가요.
+
+adeline/inn/8/choices/1/text
+저는 먼저 식당에 있을게요.
+
+adeline/inn/8/choices/1/response/0
+조금 뒤에 뵙겠습니다.
+
+adeline/inn/8/choices/2/text
+기도는 짧게 하고 바로 저랑 가요.
+
+adeline/inn/8/choices/2/response/0
+오늘 할 기도는 마치고 싶어요.
+
+adeline/inn/8/choices/2/response/1
+기다리기 어려우시면 먼저 가셔도 돼요.
+
+adeline/inn/8/seen
+기도를 마치면 식당으로 내려갈게요.
+
+adeline/inn/9/situation
+아델린이 두 손을 허리에 얹는다.
+
+adeline/inn/9/lines/0
+저랑 내기하실래요?
+
+adeline/inn/9/lines/1
+저 모퉁이까지 누가 먼저 가나 겨뤄요.
+
+adeline/inn/9/lines/2
+미끄러운 데는 뛰지 말고요.
+
+adeline/inn/9/choices/0/text
+저는 오늘 걷고 싶어요.
+
+adeline/inn/9/choices/0/response/0
+그럼 오늘은 같이 걸어요.
+
+adeline/inn/9/choices/1/text
+그냥 이겼다고 해 드릴게요. 뛰면 피곤하죠.
+
+adeline/inn/9/choices/1/response/0
+뛰고 싶어서 꺼낸 거예요.
+
+adeline/inn/9/choices/1/response/1
+그렇게 이긴 건 재미없어요.
+
+adeline/inn/9/choices/2/text
+같은 데서 출발해요. 저도 해 볼게요.
+
+adeline/inn/9/choices/2/response/0
+좋아요, 중간에 봐주기 없어요. 제가 셀게요.
+
+adeline/inn/9/seen
+모퉁이 바닥이 젖었는지 먼저 보고 올게요.
+
+adeline/inn/10/situation
+아델린이 패를 내려놓고 잔을 든다.
+
+adeline/inn/10/lines/0
+제가 졌네요.
+
+adeline/inn/10/lines/1
+정한 대로 오늘 정리는 제가 할게요.
+
+adeline/inn/10/lines/2
+그다음에 한 판만 더 할 수 있을까요?
+
+adeline/inn/10/choices/0/text
+이번 패는 없던 걸로 하고 바로 다시 해요.
+
+adeline/inn/10/choices/0/response/0
+진 건 그대로 둘게요.
+
+adeline/inn/10/choices/0/response/1
+정리한 다음에 새로 겨뤄요.
+
+adeline/inn/10/choices/1/text
+정리 끝나고 시간 남으면 다시 해요.
+
+adeline/inn/10/choices/1/response/0
+이번엔 제가 먼저 패를 고를게요.
+
+adeline/inn/10/choices/2/text
+저는 지금 올라가야 해요.
+
+adeline/inn/10/choices/2/response/0
+그럼 다음에 다시 해 주세요.
+
+adeline/inn/10/seen
+정리할 건 정리하고 다음 판을 생각할게요.
+
+adeline/inn/11/situation
+아델린이 군힐트가 지나간 쪽을 본다.
+
+adeline/inn/11/lines/0
+아까 제 뒤는 못 보셨죠?
+
+adeline/inn/11/lines/1
+아니요, 별일은 없었어요.
+
+adeline/inn/11/lines/2
+그냥 잠깐 놀랐던 거예요.
+
+adeline/inn/11/choices/0/text
+저는 접시만 보고 있었어요.
+
+adeline/inn/11/choices/0/response/0
+그럼 접시가 꽤 반짝였나 봐요.
+
+adeline/inn/11/choices/1/text
+무슨 소리 났나요?
+
+adeline/inn/11/choices/1/response/0
+의자가 조금 움직였어요.
+
+adeline/inn/11/choices/2/text
+기분 좋아서 꼬리가 움직였군요. 귀여워요.
+
+adeline/inn/11/choices/2/response/0
+그렇게 크게 말하진 말아 주세요.
+
+adeline/inn/11/choices/2/response/1
+제가 듣기엔 조금 민망해요.
+
+adeline/inn/11/seen
+의자는 이제 움직이지 않으니 괜찮아요.
+
+adeline/inn/12/situation
+아델린이 기도를 마치고 천천히 말한다.
+
+adeline/inn/12/lines/0
+열두 살에 귀의했어요.
+
+adeline/inn/12/lines/1
+그날은 고맙다는 말만 몇 번 했어요.
+
+adeline/inn/12/lines/2
+그 뒤로도 드문 예외라는 말을 자주 들었고요.
+
+adeline/inn/12/choices/0/text
+사제 서품은 나중이었죠?
+
+adeline/inn/12/choices/0/response/0
+스무 살에 받았어요.
+
+adeline/inn/12/choices/1/text
+그래도 특별히 인정받은 거니 기뻐하세요.
+
+adeline/inn/12/choices/1/response/0
+기뻤던 날도 있어요.
+
+adeline/inn/12/choices/1/response/1
+늘 같은 마음으로 들리지는 않았어요.
+
+adeline/inn/12/choices/2/text
+그 말 들을 때는 어떤 마음이었어요?
+
+adeline/inn/12/choices/2/response/0
+반가워해야 하나 먼저 생각하게 됐어요.
+
+adeline/inn/12/seen
+귀의하던 날 얘기는 천천히 하고 싶어요.
+
+adeline/inn/13/situation
+아델린이 길을 걸으며 웃는다.
+
+adeline/inn/13/lines/0
+귀의하기 전에는 달리기에서 안 졌어요.
+
+adeline/inn/13/lines/1
+그래서 지금도 먼저 뛰고 싶어지나 봐요.
+
+adeline/inn/13/lines/2
+그때처럼 끝까지 가 보고 싶어요.
+
+adeline/inn/13/choices/0/text
+지금은 사제시니 승부욕도 줄여야죠.
+
+adeline/inn/13/choices/0/response/0
+기도할 때와 뛰는 때를 제가 알아요.
+
+adeline/inn/13/choices/0/response/1
+좋아하는 건 계속하고 싶어요.
+
+adeline/inn/13/choices/1/text
+다음엔 제가 끝까지 따라가 볼게요.
+
+adeline/inn/13/choices/1/response/0
+끝나기 전에 양보하지는 마세요.
+
+adeline/inn/13/choices/2/text
+어릴 때부터 잘 뛰셨네요.
+
+adeline/inn/13/choices/2/response/0
+뛰기 시작하면 잘 안 멈췄어요.
+
+adeline/inn/13/seen
+다음에 뛰면 끝에 서서 기다릴게요.
+
+adeline/inn/14/situation
+아델린이 자기 성을 적은 부분을 본다.
+
+adeline/inn/14/lines/0
+마르셀린과 같은 성을 받았어요.
+
+adeline/inn/14/lines/1
+집안이 같아서 그런 건 아니에요.
+
+adeline/inn/14/lines/2
+서품하면서 교단이 준 이름이에요.
+
+adeline/inn/14/choices/0/text
+같은 이름을 받은 선배가 계셨군요.
+
+adeline/inn/14/choices/0/response/0
+네. 처음에는 그 사실만으로도 든든했어요.
+
+adeline/inn/14/choices/1/text
+서품받을 때 정해졌네요.
+
+adeline/inn/14/choices/1/response/0
+그전부터 쓰던 성은 아니에요.
+
+adeline/inn/14/choices/2/text
+그러면 이름도 교단에 빚진 셈이네요.
+
+adeline/inn/14/choices/2/response/0
+그렇게만 부르면 조금 무거워요.
+
+adeline/inn/14/choices/2/response/1
+지금은 제가 매일 쓰는 이름이기도 해요.
+
+adeline/inn/14/seen
+서품한 뒤부터 지금 이름을 쓰고 있어요.
+
+adeline/inn/15/situation
+아델린이 새벽 기도 이야기를 꺼낸다.
+
+adeline/inn/15/lines/0
+이번 달엔 구호 일을 누가 더 많이 하나 겨루고 있어요.
+
+adeline/inn/15/lines/1
+진 쪽이 새벽 기도를 맡기로 했어요.
+
+adeline/inn/15/lines/2
+판을 연 건 저예요.
+
+adeline/inn/15/choices/0/text
+아침에 일찍 보이시던데요.
+
+adeline/inn/15/choices/0/response/0
+요즘은 제 차례도 챙기고 있어요.
+
+adeline/inn/15/choices/1/text
+구호도 내기라면 대충 채워도 이기겠네요.
+
+adeline/inn/15/choices/1/response/0
+도울 일은 제대로 해야 해요.
+
+adeline/inn/15/choices/1/response/1
+수를 속여서 이길 생각은 없어요.
+
+adeline/inn/15/choices/2/text
+아델린 씨가 먼저 꺼내셨군요.
+
+adeline/inn/15/choices/2/response/0
+네. 괜히 말해 놓고 물러서진 않을 거예요.
+
+adeline/inn/15/seen
+이번 판은 제가 열었으니 끝까지 할 거예요.
+
+adeline/inn/16/situation
+아델린이 잔을 앞에 두고 말한다.
+
+adeline/inn/16/lines/0
+귀의하던 날을 고맙게 기억해요.
+
+adeline/inn/16/lines/1
+그런데 가끔은 예외라고 불리고 싶지 않아요.
+
+adeline/inn/16/lines/2
+같이 앉아 있어도 그 말을 들으면 멀어져요.
+
+adeline/inn/16/choices/0/text
+더 노력하면 예외라는 말도 칭찬으로 들리겠죠.
+
+adeline/inn/16/choices/0/response/0
+예외라고 부르면 자꾸 저만 보게 되잖아요.
+
+adeline/inn/16/choices/0/response/1
+밥 먹을 때만은 그 얘기를 쉬고 싶어요.
+
+adeline/inn/16/choices/1/text
+오늘은 그냥 같이 밥 먹는 사람이면 좋겠어요.
+
+adeline/inn/16/choices/1/response/0
+네. 그러면 저도 먼저 배고프다고 할래요.
+
+adeline/inn/16/choices/2/text
+지금은 조금 쉬세요.
+
+adeline/inn/16/choices/2/response/0
+따뜻한 물을 마시고 있을게요.
+
+adeline/inn/16/seen
+오늘은 예외 얘기보다 밥 얘기를 하고 싶어요.
+
+adeline/inn/17/situation
+아델린이 진 패를 보고 웃는다.
+
+adeline/inn/17/lines/0
+이번에도 졌네요.
+
+adeline/inn/17/lines/1
+이렇게 져도 웃음이 나오는군요.
+
+adeline/inn/17/lines/2
+다음에는 이길 생각이지만요.
+
+adeline/inn/17/choices/0/text
+다음에도 봐주지는 않을게요.
+
+adeline/inn/17/choices/0/response/0
+좋아요. 저도 끝까지 해 볼게요.
+
+adeline/inn/17/choices/1/text
+정리는 같이 해도 되죠?
+
+adeline/inn/17/choices/1/response/0
+제 몫 먼저 하면 옆에서 도와주세요.
+
+adeline/inn/17/choices/2/text
+이제 이기는 건 안 중요해지셨네요.
+
+adeline/inn/17/choices/2/response/0
+이기면 더 좋죠.
+
+adeline/inn/17/choices/2/response/1
+오늘 져도 괜찮았다는 뜻이에요.
+
+adeline/inn/17/seen
+다음 판은 제가 이길 거예요.
+
+adeline/inn/18/situation
+아델린이 접시를 제 쪽으로 당긴다.
+
+adeline/inn/18/lines/0
+오늘은 이걸 먹고 싶어요.
+
+adeline/inn/18/lines/1
+늘 남은 걸 골랐더니 제 취향도 늦게 알겠네요.
+
+adeline/inn/18/lines/2
+따뜻할 때부터 먹어 보려고요.
+
+adeline/inn/18/choices/0/text
+그건 방금 나왔대요.
+
+adeline/inn/18/choices/0/response/0
+그래서 김이 많이 나나 봐요.
+
+adeline/inn/18/choices/1/text
+남들 먼저 고르게 해 주는 게 편하지 않아요?
+
+adeline/inn/18/choices/1/response/0
+오늘은 제가 먼저 고르고 싶었어요.
+
+adeline/inn/18/choices/1/response/1
+다른 분 것도 아직 많이 남았고요.
+
+adeline/inn/18/choices/2/text
+저도 다른 걸 골랐어요. 한 입씩 나눌까요?
+
+adeline/inn/18/choices/2/response/0
+조금만요. 제 것도 맛보세요.
+
+adeline/inn/18/seen
+오늘은 제가 고른 음식부터 먹을게요.
+
+adeline/inn/19/situation
+아델린이 기도 뒤 문밖을 살핀다.
+
+adeline/inn/19/lines/0
+같은 신앙이 아니어도 앉아 있을 수 있죠.
+
+adeline/inn/19/lines/1
+우르다와 인사할 때 가끔 생각해요.
+
+adeline/inn/19/lines/2
+저는 아침 인사를 계속하고 싶어요.
+
+adeline/inn/19/choices/0/text
+그분을 설득하면 마음 편히 친해질 수 있겠네요.
+
+adeline/inn/19/choices/0/response/0
+인사하려고 설득부터 하고 싶지는 않아요.
+
+adeline/inn/19/choices/0/response/1
+지금도 안부는 물을 수 있어요.
+
+adeline/inn/19/choices/1/text
+다음에 같이 만나면 저도 인사할게요.
+
+adeline/inn/19/choices/1/response/0
+같이 안부부터 물으면 좋겠어요.
+
+adeline/inn/19/choices/2/text
+오늘도 일찍 뵀어요.
+
+adeline/inn/19/choices/2/response/0
+저보다 먼저 나와 계셨어요.
+
+adeline/inn/19/seen
+내일도 만나면 잘 잤는지 물어볼 거예요.
+
+adeline/inn/20/situation
+아델린이 내일의 일을 확인한다.
+
+adeline/inn/20/lines/0
+도울 일이 생기면 함께 보고 싶어요.
+
+adeline/inn/20/lines/1
+누구 믿느냐고 먼저 묻지는 않을게요.
+
+adeline/inn/20/lines/2
+저도 그렇게 앉고 싶던 날이 있었으니까요.
+
+adeline/inn/20/choices/0/text
+제가 먼저 다가가야 하면 말해 주세요.
+
+adeline/inn/20/choices/0/response/0
+그럼 같이 말을 건네면 되겠어요.
+
+adeline/inn/20/choices/1/text
+오늘은 더 할 일이 없어요.
+
+adeline/inn/20/choices/1/response/0
+그럼 남은 시간은 쉬어도 되겠네요.
+
+adeline/inn/20/choices/2/text
+같은 신앙인부터 챙겨야 덜 곤란하죠.
+
+adeline/inn/20/choices/2/response/0
+눈앞에서 힘든 분부터 보고 싶어요.
+
+adeline/inn/20/choices/2/response/1
+제가 배운 말을 그렇게 쓰고 싶진 않아요.
+
+adeline/inn/20/seen
+무엇을 믿는지보다 필요한 게 뭔지 들을게요.
+
+adeline/inn/21/situation
+아델린이 카드를 펼치다 말고 묻는다.
+
+adeline/inn/21/lines/0
+오늘은 해도 될까요?
+
+adeline/inn/21/lines/1
+저는 하고 싶은데 늦었나 싶어서요.
+
+adeline/inn/21/lines/2
+졸리시면 내일 할게요.
+
+adeline/inn/21/choices/0/text
+오늘은 먼저 잘게요.
+
+adeline/inn/21/choices/0/response/0
+내일은 제가 먼저 물어볼게요.
+
+adeline/inn/21/choices/1/text
+아델린 씨가 좋아하니 밤새 해 드릴게요.
+
+adeline/inn/21/choices/1/response/0
+밤새 할 생각은 없었어요.
+
+adeline/inn/21/choices/1/response/1
+같이 즐길 만큼만 하고 싶어요.
+
+adeline/inn/21/choices/2/text
+한 판은 괜찮아요. 지면 바로 잘게요.
+
+adeline/inn/21/choices/2/response/0
+좋아요. 한 판이라고 먼저 정해 둬요.
+
+adeline/inn/21/seen
+오늘은 한 판 할지부터 여쭤본 거예요.
+
+adeline/inn/22/situation
+아델린이 손을 씻고 내려온다.
+
+adeline/inn/22/lines/0
+오늘은 제 것도 먼저 챙겼어요.
+
+adeline/inn/22/lines/1
+이제 앉아도 되겠네요.
+
+adeline/inn/22/lines/2
+혹시 물 더 필요하세요?
+
+adeline/inn/22/choices/0/text
+제 것도 다 챙겨 주시면 저는 편하죠.
+
+adeline/inn/22/choices/0/response/0
+제가 할 수 있는 건 할게요.
+
+adeline/inn/22/choices/0/response/1
+그래도 제 밥까지 늦추진 않을래요.
+
+adeline/inn/22/choices/1/text
+아델린 씨 잔부터 같이 채워요.
+
+adeline/inn/22/choices/1/response/0
+제 잔도 비었네요. 같이 따라요.
+
+adeline/inn/22/choices/2/text
+제 잔은 아직 남았어요.
+
+adeline/inn/22/choices/2/response/0
+그럼 제 것만 더 따라올게요.
+
+adeline/inn/22/seen
+이번에는 제 물도 잊지 않고 채웠어요.
+
+adeline/inn/23/situation
+아델린이 짧게 한숨을 내쉰다.
+
+adeline/inn/23/lines/0
+오늘은 조금 서운했어요.
+
+adeline/inn/23/lines/1
+다 괜찮다고 하면 제 말이 묻히더라고요.
+
+adeline/inn/23/lines/2
+다음에는 바로 말해도 될까요?
+
+adeline/inn/23/choices/0/text
+네, 제가 놓쳤으면 그때 알려 주세요.
+
+adeline/inn/23/choices/0/response/0
+저도 오래 참았다 꺼내지는 않을게요.
+
+adeline/inn/23/choices/1/text
+오늘 무슨 일이었어요?
+
+adeline/inn/23/choices/1/response/0
+처음부터 천천히 말씀드릴게요.
+
+adeline/inn/23/choices/2/text
+다 괜찮다고 하셨으니 저도 그냥 넘어갔죠.
+
+adeline/inn/23/choices/2/response/0
+참고 있었던 날도 있어요.
+
+adeline/inn/23/choices/2/response/1
+지금 말씀드릴 때는 좀 들어 주세요.
+
+adeline/inn/23/seen
+다음에는 조금 서운할 때 말해 볼게요.
+
+adeline/inn/24/situation
+아델린이 아침에 먼저 물을 마신다.
+
+adeline/inn/24/lines/0
+오늘은 기도 마치고 바로 내려왔어요.
+
+adeline/inn/24/lines/1
+아직 아무것도 부탁받지 않았어요.
+
+adeline/inn/24/lines/2
+그래서 밥부터 먹으려고요.
+
+adeline/inn/24/choices/0/text
+오늘은 좀 한산하네요.
+
+adeline/inn/24/choices/0/response/0
+일찍 내려온 보람이 있어요.
+
+adeline/inn/24/choices/1/text
+그럼 부탁 하나만 하고 먹으면 안 될까요?
+
+adeline/inn/24/choices/1/response/0
+급한 일이면 들을게요.
+
+adeline/inn/24/choices/1/response/1
+아니면 오늘은 밥을 먼저 먹고 싶어요.
+
+adeline/inn/24/choices/2/text
+저도 같이 먹으러 왔어요.
+
+adeline/inn/24/choices/2/response/0
+오늘은 같이 첫 그릇을 고르겠네요.
+
+adeline/inn/24/seen
+오늘은 남은 음식보다 막 나온 걸 고르고 싶어요.
+
+adeline/inn/25/situation
+아델린이 주사위를 손에서 굴린다.
+
+adeline/inn/25/lines/0
+아까 진 건 아직 좀 아쉽네요.
+
+adeline/inn/25/lines/1
+그래도 기분은 괜찮아요.
+
+adeline/inn/25/lines/2
+다음에는 제가 먼저 판을 고를게요.
+
+adeline/inn/25/choices/0/text
+졌는데도 웃으니 이제 승부욕이 없어졌네요.
+
+adeline/inn/25/choices/0/response/0
+아직 많이 이기고 싶어요.
+
+adeline/inn/25/choices/0/response/1
+다음에 보시면 알게 될 거예요.
+
+adeline/inn/25/choices/1/text
+좋아요. 어떤 걸 고를지 궁금하네요.
+
+adeline/inn/25/choices/1/response/0
+너무 쉬운 걸 고르진 않을 거예요.
+
+adeline/inn/25/choices/2/text
+다음엔 언제 할까요?
+
+adeline/inn/25/choices/2/response/0
+서로 한가할 때 먼저 말해요.
+
+adeline/inn/25/seen
+다음엔 달리기든 카드든 제가 먼저 꺼낼게요.
+
+adeline/inn/26/situation
+아델린이 자기 이름을 말하다 웃는다.
+
+adeline/inn/26/lines/0
+이름을 끝까지 부르면 조금 길죠.
+
+adeline/inn/26/lines/1
+여기서는 아델린 씨로 부르셔도 돼요.
+
+adeline/inn/26/lines/2
+저도 그게 먼저 들려요.
+
+adeline/inn/26/choices/0/text
+아델린 씨, 오늘은 뭐 드실래요?
+
+adeline/inn/26/choices/0/response/0
+오늘은 방금 나온 국이 먹고 싶어요.
+
+adeline/inn/26/choices/1/text
+발음은 이제 익숙해졌어요.
+
+adeline/inn/26/choices/1/response/0
+처음에는 길다고 하셨죠.
+
+adeline/inn/26/choices/2/text
+가까운 사이니 귀여운 별명도 지어 볼까요?
+
+adeline/inn/26/choices/2/response/0
+아직은 제 이름이 좋아요.
+
+adeline/inn/26/choices/2/response/1
+그대로 불러 주시면 좋겠어요.
+
+adeline/inn/26/seen
+오늘도 아델린 씨라고 부르시면 돌아볼게요.
+
+adeline/inn/27/situation
+아델린이 저녁 기도 뒤 식탁으로 온다.
+
+adeline/inn/27/lines/0
+오늘은 이쪽에 계셨네요.
+
+adeline/inn/27/lines/1
+낮에 못다 한 이야기가 생각났어요.
+
+adeline/inn/27/lines/2
+아직 졸리지는 않으세요?
+
+adeline/inn/27/choices/0/text
+조금만 더 앉아 있을 수 있어요.
+
+adeline/inn/27/choices/0/response/0
+그럼 처음부터 너무 길게 말하진 않을게요.
+
+adeline/inn/27/choices/1/text
+아델린 씨는 항상 남 얘기 듣는 게 더 편하죠?
+
+adeline/inn/27/choices/1/response/0
+오늘은 제 이야기를 하고 싶어요.
+
+adeline/inn/27/choices/1/response/1
+조금만 들어 주셨으면 해요.
+
+adeline/inn/27/choices/2/text
+이번에는 제가 끝까지 들어 볼게요.
+
+adeline/inn/27/choices/2/response/0
+길게는 안 할게요. 중간에 웃으셔도 돼요.
+
+adeline/inn/27/seen
+오늘은 제가 먼저 이야기를 꺼내고 싶었어요.
+
+adeline/dungeon/0/variants/0
+아침 기도는 마쳤어요.
+
+adeline/dungeon/0/variants/1
+준비한 것은 여기 있습니다.
+
+adeline/dungeon/1/variants/0
+오늘은 제 밥도 먹고 왔어요.
+
+adeline/dungeon/1/variants/1
+늦지 않았죠? 같이 나가요.
+
+adeline/dungeon/2/variants/0
+오늘도 무리하지 말고 다녀와요.
+
+adeline/dungeon/2/variants/1
+돌아오면 한 판 할 힘도 남겨요.
+
+adeline/dungeon/3/variants/0
+여기는 뛰지 않을게요.
+
+adeline/dungeon/3/variants/1
+발 디딜 곳부터 보겠습니다.
+
+adeline/dungeon/4/variants/0
+제가 먼저 내려가 볼까요?
+
+adeline/dungeon/4/variants/1
+미끄러운 데는 서로 알려 줘요.
+
+adeline/dungeon/5/variants/0
+같이 천천히 가는 것도 좋아요.
+
+adeline/dungeon/5/variants/1
+오늘은 도착 순서 안 따질게요.
+
+adeline/dungeon/6/variants/0
+아직 만져도 되는지는 모르겠어요.
+
+adeline/dungeon/6/variants/1
+가까이서 한번 볼게요.
+
+adeline/dungeon/7/variants/0
+제 쪽에서도 보이게 알려 주세요.
+
+adeline/dungeon/7/variants/1
+먼저 보셨다고 겨룰 일은 아니겠죠.
+
+adeline/dungeon/8/variants/0
+저도 궁금하니 함께 봐요.
+
+adeline/dungeon/8/variants/1
+혼자 결론을 내리기 전에 불러 주세요.
+
+adeline/dungeon/9/variants/0
+제 준비는 끝났습니다.
+
+adeline/dungeon/9/variants/1
+불편한 곳은 미리 말해 주세요.
+
+adeline/dungeon/10/variants/0
+너무 앞서가시면 못 따라가요.
+
+adeline/dungeon/10/variants/1
+저도 바로 움직일 수 있어요.
+
+adeline/dungeon/11/variants/0
+오늘은 승부보다 다들 보이는 게 좋아요.
+
+adeline/dungeon/11/variants/1
+끝난 뒤에는 서로 상태부터 봐요.
+
+adeline/dungeon/12/variants/0
+일단 숨을 돌리겠습니다.
+
+adeline/dungeon/12/variants/1
+다른 소리가 남았는지도 들어요.
+
+adeline/dungeon/13/variants/0
+오늘은 제가 물부터 마실게요.
+
+adeline/dungeon/13/variants/1
+급한 일 없으면 잠깐 앉아요.
+
+adeline/dungeon/14/variants/0
+돌아가서 내기를 꺼내도 되겠네요.
+
+adeline/dungeon/14/variants/1
+이번에는 제 잔도 먼저 채우겠습니다.
+
+adeline/dungeon/15/variants/0
+잠깐 기도하고 가겠습니다.
+
+adeline/dungeon/15/variants/1
+준비가 덜 됐으면 기다릴게요.
+
+adeline/dungeon/16/variants/0
+저도 좀 떨리네요.
+
+adeline/dungeon/16/variants/1
+옆에서 한 번만 같이 봐 주세요.
+
+adeline/dungeon/17/variants/0
+저는 여기서 같이 기다릴 수 있어요.
+
+adeline/dungeon/17/variants/1
+먼저 가겠다고 혼자 정하지 마요.
+
+adeline/dungeon/18/variants/0
+정말 끝났는지 함께 보죠.
+
+adeline/dungeon/18/variants/1
+먼저 짐부터 들지는 않을게요.
+
+adeline/dungeon/19/variants/0
+목이 말랐는데 잊고 있었어요.
+
+adeline/dungeon/19/variants/1
+이제 물 한 잔 마셔야겠어요.
+
+adeline/dungeon/20/variants/0
+오늘은 다시 겨루기 전에 쉴래요.
+
+adeline/dungeon/20/variants/1
+같이 돌아가서 밥부터 먹어요.
+
+adeline/dungeon/21/variants/0
+지금은 쉬셔야겠어요.
+
+adeline/dungeon/21/variants/1
+얼굴이 많이 굳으셨어요.
+
+adeline/dungeon/22/variants/0
+제 쪽으로 기대셔도 돼요.
+
+adeline/dungeon/22/variants/1
+짐을 내려놓고 상태부터 봐요.
+
+adeline/dungeon/23/variants/0
+괜찮은 척까지 하실 필요는 없어요.
+
+adeline/dungeon/23/variants/1
+같이 멈추는 걸 미안해하지 마요.
+
+adeline/dungeon/24/variants/0
+가까이에서 불러 보겠습니다.
+
+adeline/dungeon/24/variants/1
+갑자기 옮기지는 말아 주세요.
+
+adeline/dungeon/25/variants/0
+제 목소리가 들리세요?
+
+adeline/dungeon/25/variants/1
+손을 움직일 수 있는지 한번 봐요.
+
+adeline/dungeon/26/variants/0
+혼자 일어나려고 서두르지 마세요.
+
+adeline/dungeon/26/variants/1
+제가 곁에서 할 수 있는 걸 볼게요.
+
+adeline/dungeon/27/variants/0
+잠깐 확인하고 가겠습니다.
+
+adeline/dungeon/27/variants/1
+이쪽이 조금 불편해요.
+
+adeline/dungeon/28/variants/0
+오늘은 저도 도움을 부탁할게요.
+
+adeline/dungeon/28/variants/1
+짐을 잠시 받아 주실래요?
+
+adeline/dungeon/29/variants/0
+제 상처도 바로 볼게요.
+
+adeline/dungeon/29/variants/1
+지금은 아프다고 먼저 말하겠습니다.
+
+adeline/dungeon/30/variants/0
+물부터 마셔도 될까요?
+
+adeline/dungeon/30/variants/1
+기도 뒤에는 잠깐 앉겠습니다.
+
+adeline/dungeon/31/variants/0
+오늘은 제가 먼저 그늘에 앉을래요.
+
+adeline/dungeon/31/variants/1
+내기는 쉬고 나서 생각해요.
+
+adeline/dungeon/32/variants/0
+이번엔 저도 그냥 쉴게요.
+
+adeline/dungeon/32/variants/1
+아무것도 안 겨뤄도 지금은 좋네요.
+
+adeline/dungeon/33/variants/0
+열 수 있는지는 먼저 봐야겠어요.
+
+adeline/dungeon/33/variants/1
+손대기 전에 잠깐만 기다려요.
+
+adeline/dungeon/34/variants/0
+이건 누가 먼저 하나 겨루지 말아요.
+
+adeline/dungeon/34/variants/1
+저도 꼼꼼히 보고 싶어요.
+
+adeline/dungeon/35/variants/0
+제가 급해지면 한 번 불러 주세요.
+
+adeline/dungeon/35/variants/1
+같이 본 다음에 움직이면 되죠.
+
+adeline/dungeon/36/variants/0
+다녀와서 먼저 물을 마시겠습니다.
+
+adeline/dungeon/36/variants/1
+제 짐은 제가 내려둘게요.
+
+adeline/dungeon/37/variants/0
+오늘은 식기 전에 먹고 싶어요.
+
+adeline/dungeon/37/variants/1
+아침 내기는 아직 기억하고 있어요.
+
+adeline/dungeon/38/variants/0
+씻고 나면 제가 먼저 찾아갈게요.
+
+adeline/dungeon/38/variants/1
+오늘 이야기부터 같이 나눠요.
+
+adeline/dungeon/39/variants/0
+지금은 물러날 길을 볼게요.
+
+adeline/dungeon/39/variants/1
+혼자 남아 있지는 마세요.
+
+adeline/dungeon/40/variants/0
+지더라도 함께 돌아가야죠.
+
+adeline/dungeon/40/variants/1
+제가 따라가는지 한번 불러 주세요.
+
+adeline/dungeon/41/variants/0
+다음은 나가서 생각해요.
+
+adeline/dungeon/41/variants/1
+지금은 제 뒤에 계신지만 보겠습니다.
+
+adeline/transitions/0/situation
+아델린이 모은 카드를 내려놓는다.
+
+adeline/transitions/0/lines/0
+전할 말씀은 듣겠습니다.
+
+adeline/transitions/0/lines/1
+지금은 잠깐만 앉아 있을게요.
+
+adeline/transitions/1/situation
+아델린이 다시 카드를 덮는다.
+
+adeline/transitions/1/lines/0
+오늘은 같이하고 싶지 않아요.
+
+adeline/transitions/1/lines/1
+더 권하지 말아 주세요.
+
+adeline/transitions/2/situation
+아델린이 먼저 인사를 건넨다.
+
+adeline/transitions/2/lines/0
+내일은 아침에 뵙겠습니다.
+
+adeline/transitions/2/lines/1
+저도 준비해서 내려올게요.
+
+adeline/transitions/3/situation
+아델린이 마주 보던 시선을 내린다.
+
+adeline/transitions/3/lines/0
+저는 방으로 올라가 볼게요.
+
+adeline/transitions/3/lines/1
+필요한 것은 내일 여쭤보겠습니다.
+
+adeline/transitions/4/situation
+아델린이 길 끝을 보고 묻는다.
+
+adeline/transitions/4/lines/0
+저기까지 한번 겨뤄 보실래요?
+
+adeline/transitions/4/lines/1
+이번에는 제가 먼저 꺼냈어요.
+
+adeline/transitions/5/situation
+아델린이 주사위를 주머니에 넣는다.
+
+adeline/transitions/5/lines/0
+내기는 다른 날 할게요.
+
+adeline/transitions/5/lines/1
+오늘은 그냥 걸어가겠습니다.
+
+adeline/transitions/6/situation
+아델린이 기도 뒤에 남아 말한다.
+
+adeline/transitions/6/lines/0
+귀의하던 날 얘기를 해 보고 싶어요.
+
+adeline/transitions/6/lines/1
+그날은 고맙다는 말만 자꾸 했어요.
+
+adeline/transitions/7/situation
+아델린이 빈 잔을 모은다.
+
+adeline/transitions/7/lines/0
+그날 이야기는 여기까지만 할게요.
+
+adeline/transitions/7/lines/1
+오늘은 일찍 쉬고 싶습니다.
+
+adeline/transitions/8/situation
+아델린이 진 패를 보고 작게 웃는다.
+
+adeline/transitions/8/lines/0
+오늘은 져도 웃을 수 있네요.
+
+adeline/transitions/8/lines/1
+다음 판은 그래도 이기고 싶어요.
+
+adeline/transitions/9/situation
+아델린이 접시를 내려놓고 고개를 든다.
+
+adeline/transitions/9/lines/0
+그 말씀은 조금 서운해요.
+
+adeline/transitions/9/lines/1
+오늘은 못 들은 척하지 않을래요.
+
+adeline/transitions/10/situation
+아델린이 먼저 자기 잔을 채운다.
+
+adeline/transitions/10/lines/0
+필요한 것은 저도 말씀드릴게요.
+
+adeline/transitions/10/lines/1
+괜찮다고 먼저 사양하지만은 않겠습니다.
+
+adeline/transitions/11/situation
+아델린이 마시던 물을 내려놓는다.
+
+adeline/transitions/11/lines/0
+오늘은 제 얘기를 조금 들어 주세요.
+
+adeline/transitions/11/lines/1
+지금은 다른 부탁까지 듣기 어렵습니다.
+
+adeline/transitions/12/situation
+아델린이 식탁에서 먼저 손을 흔든다.
+
+adeline/transitions/12/lines/0
+오늘은 제가 먹고 싶은 걸 골랐어요.
+
+adeline/transitions/12/lines/1
+같이 드실 것도 남아 있으니 오세요.
+
+adeline/transitions/13/situation
+아델린이 식탁을 정리하고 일어난다.
+
+adeline/transitions/13/lines/0
+오늘은 따로 쉬겠습니다.
+
+adeline/transitions/13/lines/1
+내일은 정한 시각에 내려올게요.
+
+colette/inn/0/situation
+콜레트가 인장 위에 손을 얹는다.
+
+colette/inn/0/lines/0
+더 말씀하실 것이 있습니까?
+
+colette/inn/0/lines/1
+오늘은 이 이상 듣기 어렵습니다.
+
+colette/inn/0/lines/2
+필요한 내용만 전하십시오.
+
+colette/inn/0/choices/0/text
+분위기가 무거우니 농담 하나 할게요.
+
+colette/inn/0/choices/0/response/0
+오늘은 그러지 마십시오.
+
+colette/inn/0/choices/0/response/1
+제가 지금 웃고 싶은지부터 물으셨으면 합니다.
+
+colette/inn/0/choices/1/text
+내일 일정만 전하겠습니다.
+
+colette/inn/0/choices/1/response/0
+그 내용은 듣겠습니다.
+
+colette/inn/0/choices/2/text
+저는 먼저 돌아갈게요.
+
+colette/inn/0/choices/2/response/0
+계단을 조심하십시오.
+
+colette/inn/0/seen
+전할 내용이 끝났다면 오늘은 쉬겠습니다.
+
+colette/inn/1/situation
+콜레트가 접은 종이를 치운다.
+
+colette/inn/1/lines/0
+이것은 제 서약문입니다.
+
+colette/inn/1/lines/1
+치우셔도 되는 물건은 아닙니다.
+
+colette/inn/1/lines/2
+옮기실 때는 먼저 알려 주십시오.
+
+colette/inn/1/choices/0/text
+다음부터는 먼저 묻겠습니다.
+
+colette/inn/1/choices/0/response/0
+옮기실 때 알려 주시면 제가 치우겠습니다.
+
+colette/inn/1/choices/1/text
+식탁은 다른 쪽부터 닦을게요.
+
+colette/inn/1/choices/1/response/0
+종이 없는 곳은 괜찮습니다.
+
+colette/inn/1/choices/2/text
+외우셨을 테니 종이는 없어도 되잖아요.
+
+colette/inn/1/choices/2/response/0
+저는 가지고 있을 생각입니다.
+
+colette/inn/1/choices/2/response/1
+외웠는지와는 관계없습니다.
+
+colette/inn/1/seen
+서약문은 제가 가방에 넣겠습니다.
+
+colette/inn/2/situation
+콜레트가 시선을 돌리고 숨을 고른다.
+
+colette/inn/2/lines/0
+화난 것은 아닙니다.
+
+colette/inn/2/lines/1
+지금은 말을 조금 아끼겠습니다.
+
+colette/inn/2/lines/2
+잠시 기다려 주십시오.
+
+colette/inn/2/choices/0/text
+저는 맞은편에서 기다릴게요.
+
+colette/inn/2/choices/0/response/0
+오래 걸리지는 않을 겁니다.
+
+colette/inn/2/choices/1/text
+안 화났으면 표정을 좀 풀어 주세요.
+
+colette/inn/2/choices/1/response/0
+표정이 뜻대로 움직이지 않을 때도 있습니다.
+
+colette/inn/2/choices/1/response/1
+지금은 그냥 두셨으면 합니다.
+
+colette/inn/2/choices/2/text
+물 마시고 계시면 저는 먼저 정리할게요.
+
+colette/inn/2/choices/2/response/0
+그동안 호흡을 고르겠습니다.
+
+colette/inn/2/seen
+숨을 고르면 다시 말씀드릴 수 있겠습니다.
+
+colette/inn/3/situation
+콜레트가 물잔을 식탁에 내려놓는다.
+
+colette/inn/3/lines/0
+제 인장은 여기 있습니다.
+
+colette/inn/3/lines/1
+확인이 필요하면 제가 보여 드리겠습니다.
+
+colette/inn/3/lines/2
+지금은 손대지 마십시오.
+
+colette/inn/3/choices/0/text
+확인했으니 인장은 이제 벗어 두셔도 되죠?
+
+colette/inn/3/choices/0/response/0
+계속 지니고 있어야 합니다.
+
+colette/inn/3/choices/0/response/1
+확인만 하고 치울 물건은 아닙니다.
+
+colette/inn/3/choices/1/text
+눈으로 확인하면 되겠습니다.
+
+colette/inn/3/choices/1/response/0
+그러면 이 정도로 보여 드리겠습니다.
+
+colette/inn/3/choices/2/text
+식사 전에 확인할까요?
+
+colette/inn/3/choices/2/response/0
+지금 보셔도 괜찮습니다.
+
+colette/inn/3/seen
+제가 들고 있으니 이쪽에서 보십시오.
+
+colette/inn/4/situation
+콜레트가 짧게 고개를 숙인다.
+
+colette/inn/4/lines/0
+콜레트 드 카델입니다.
+
+colette/inn/4/lines/1
+필요한 때에 말씀하십시오.
+
+colette/inn/4/lines/2
+맡겠다고 한 일은 중간에 놓지 않겠습니다.
+
+colette/inn/4/choices/0/text
+저도 맡을 일은 미리 확인할게요.
+
+colette/inn/4/choices/0/response/0
+그러면 함께 준비할 수 있겠습니다.
+
+colette/inn/4/choices/1/text
+내일 아침에 뵐게요.
+
+colette/inn/4/choices/1/response/0
+그때까지 제 것은 갖춰 두겠습니다.
+
+colette/inn/4/choices/2/text
+그렇게 엄숙하게 안 하셔도 친해질 수 있어요.
+
+colette/inn/4/choices/2/response/0
+이 말씨가 제게 익숙합니다.
+
+colette/inn/4/choices/2/response/1
+천천히 이야기하셔도 듣겠습니다.
+
+colette/inn/4/seen
+지금은 급한 용건이 없어도 괜찮습니다.
+
+colette/inn/5/situation
+콜레트가 식탁의 숟가락을 바로 놓는다.
+
+colette/inn/5/lines/0
+이 숟가락은 밑이 굽었습니다.
+
+colette/inn/5/lines/1
+가만히 두어도 돌아갑니다.
+
+colette/inn/5/lines/2
+다른 것을 써야겠습니다.
+
+colette/inn/5/choices/0/text
+다른 숟가락은 여기 있어요.
+
+colette/inn/5/choices/0/response/0
+하나 빌려 쓰겠습니다.
+
+colette/inn/5/choices/1/text
+숟가락 도는 걸 다른 분도 불러서 보여 드릴까요?
+
+colette/inn/5/choices/1/response/0
+다른 분은 부르지 마십시오.
+
+colette/inn/5/choices/1/response/1
+숟가락만 바꾸겠습니다.
+
+colette/inn/5/choices/2/text
+숟가락도 먹기 싫어서 돌아눕네요.
+
+colette/inn/5/choices/2/response/0
+입꼬리가 자꾸 올라가니 잠시만 못 본 척해 주십시오.
+
+colette/inn/5/seen
+굽은 숟가락은 제가 옆에 따로 두겠습니다.
+
+colette/inn/6/situation
+콜레트가 서고 쪽을 본다.
+
+colette/inn/6/lines/0
+조용한 데서 조금 읽고 싶습니다.
+
+colette/inn/6/lines/1
+오늘은 식당에 사람이 계속 들어옵니다.
+
+colette/inn/6/lines/2
+서고가 비어 있는지 보고 오겠습니다.
+
+colette/inn/6/choices/0/text
+일 없는 때도 꼭 조용해야 편하세요?
+
+colette/inn/6/choices/0/response/0
+오늘은 소리가 조금 크게 들립니다.
+
+colette/inn/6/choices/0/response/1
+잠깐 쉬면 괜찮을 겁니다.
+
+colette/inn/6/choices/1/text
+저는 여기 있을게요. 다녀오세요.
+
+colette/inn/6/choices/1/response/0
+읽고 나면 내려오겠습니다.
+
+colette/inn/6/choices/2/text
+서고는 위층이죠?
+
+colette/inn/6/choices/2/response/0
+계단을 오르면 안쪽에 있습니다.
+
+colette/inn/6/seen
+서고에 사람이 없으면 잠깐 앉아 있겠습니다.
+
+colette/inn/7/situation
+콜레트가 젖은 잔 밑을 닦는다.
+
+colette/inn/7/lines/0
+종이와 멀리 두겠습니다.
+
+colette/inn/7/lines/1
+아까도 물이 조금 흘렀습니다.
+
+colette/inn/7/lines/2
+잔 밑에 천을 두면 낫겠습니다.
+
+colette/inn/7/choices/0/text
+남은 천은 이쪽에 있어요.
+
+colette/inn/7/choices/0/response/0
+접어서 받쳐 두겠습니다.
+
+colette/inn/7/choices/1/text
+제 잔도 젖었네요.
+
+colette/inn/7/choices/1/response/0
+두 잔 다 받칠 만큼은 되겠습니다.
+
+colette/inn/7/choices/2/text
+인장이 물을 먹었다고 농담하면 웃으실까요?
+
+colette/inn/7/choices/2/response/0
+인장 얘기로 웃기려 하지는 마십시오.
+
+colette/inn/7/choices/2/response/1
+그건 제게 가벼운 물건이 아닙니다.
+
+colette/inn/7/seen
+천을 받치니 종이 쪽으로 물이 흐르지 않습니다.
+
+colette/inn/8/situation
+콜레트가 인장을 옷 위로 꺼낸다.
+
+colette/inn/8/lines/0
+마법을 쓸 때는 몸에 지녀야 합니다.
+
+colette/inn/8/lines/1
+허가를 받을 때 정한 조건입니다.
+
+colette/inn/8/lines/2
+나가기 전에 늘 확인합니다.
+
+colette/inn/8/choices/0/text
+지금도 잘 걸려 있어요.
+
+colette/inn/8/choices/0/response/0
+끈도 풀리지 않았습니다.
+
+colette/inn/8/choices/1/text
+몰래 두고 나가도 들키지만 않으면 되죠.
+
+colette/inn/8/choices/1/response/0
+숨겨서 어길 생각은 없습니다.
+
+colette/inn/8/choices/1/response/1
+같이 나갈 때도 이 조건은 지키겠습니다.
+
+colette/inn/8/choices/2/text
+빠졌는지 함께 확인해도 되겠어요?
+
+colette/inn/8/choices/2/response/0
+눈으로 봐 주시는 것이라면 좋겠습니다.
+
+colette/inn/8/seen
+오늘도 인장은 옷 위에 걸어 두겠습니다.
+
+colette/inn/9/situation
+콜레트가 고개를 숙인 채 잔을 든다.
+
+colette/inn/9/lines/0
+아까 제 쪽을 보고 계셨습니까?
+
+colette/inn/9/lines/1
+아니, 대답하지 않으셔도 됩니다.
+
+colette/inn/9/lines/2
+잠깐 목이 막혔습니다.
+
+colette/inn/9/choices/0/text
+웃는 걸 봤어요. 다른 분들도 불러 볼까요?
+
+colette/inn/9/choices/0/response/0
+아무도 부르지 마십시오.
+
+colette/inn/9/choices/0/response/1
+지금은 저 혼자 수습하고 싶습니다.
+
+colette/inn/9/choices/1/text
+그럼 물부터 마셔요. 저는 창밖 볼게요.
+
+colette/inn/9/choices/1/response/0
+잠시만 그렇게 있어 주십시오.
+
+colette/inn/9/choices/2/text
+물은 아직 남았어요.
+
+colette/inn/9/choices/2/response/0
+한 모금이면 되겠습니다.
+
+colette/inn/9/seen
+창밖 보고 계시면 금방 가라앉을 겁니다.
+
+colette/inn/10/situation
+콜레트가 비어 있는 접시를 본다.
+
+colette/inn/10/lines/0
+음식이 생각보다 적었습니다.
+
+colette/inn/10/lines/1
+제가 작게 덜었습니다.
+
+colette/inn/10/lines/2
+다시 가져오겠습니다.
+
+colette/inn/10/choices/0/text
+저도 더 먹고 싶었어요. 같이 가요.
+
+colette/inn/10/choices/0/response/0
+이번에는 처음보다 넉넉히 담겠습니다.
+
+colette/inn/10/choices/1/text
+저는 아직 좀 남았어요.
+
+colette/inn/10/choices/1/response/0
+먼저 마저 드셔도 됩니다.
+
+colette/inn/10/choices/2/text
+참을성 좋으시니 이 정도면 괜찮지 않아요?
+
+colette/inn/10/choices/2/response/0
+오늘은 배가 고픕니다.
+
+colette/inn/10/choices/2/response/1
+참을 일은 아니라고 생각합니다.
+
+colette/inn/10/seen
+이번에는 제 접시를 조금 더 채우겠습니다.
+
+colette/inn/11/situation
+콜레트가 게르다가 지나간 쪽을 피한다.
+
+colette/inn/11/lines/0
+게르다가 방금 무슨 말을 했습니까?
+
+colette/inn/11/lines/1
+못 들었습니다.
+
+colette/inn/11/lines/2
+가능하면 그대로 옮기지는 마십시오.
+
+colette/inn/11/choices/0/text
+저도 잘 못 들었어요.
+
+colette/inn/11/choices/0/response/0
+그러면 다시 묻지는 않겠습니다.
+
+colette/inn/11/choices/1/text
+재미있었는데 제가 똑같이 해 볼게요.
+
+colette/inn/11/choices/1/response/0
+그 표정은 짓지 마십시오.
+
+colette/inn/11/choices/1/response/1
+이번에는 정말 멈추기 어려울 것 같습니다.
+
+colette/inn/11/choices/2/text
+못 들은 걸로 해 둘게요.
+
+colette/inn/11/choices/2/response/0
+그편이 지금은 도움이 되겠습니다.
+
+colette/inn/11/seen
+오늘은 그 말의 뒷부분을 안 듣겠습니다.
+
+colette/inn/12/situation
+콜레트가 접은 서약문을 편다.
+
+colette/inn/12/lines/0
+카델에서 서약하던 날이 기억납니다.
+
+colette/inn/12/lines/1
+감정이 흔들리면 안 된다고 배웠습니다.
+
+colette/inn/12/lines/2
+웃음이 나면 입부터 다물게 됐습니다.
+
+colette/inn/12/choices/0/text
+그 가르침은 틀렸으니 전부 잊으세요.
+
+colette/inn/12/choices/0/response/0
+한마디로 버릴 수는 없습니다.
+
+colette/inn/12/choices/0/response/1
+제가 무엇을 지킬지는 더 생각하겠습니다.
+
+colette/inn/12/choices/1/text
+그래서 혼자 가라앉힐 시간이 필요했군요.
+
+colette/inn/12/choices/1/response/0
+들키면 왜 그랬는지 설명부터 생각했습니다.
+
+colette/inn/12/choices/2/text
+서약은 열여덟 살에 맺으셨어요?
+
+colette/inn/12/choices/2/response/0
+예, 열여덟 살에 카델에서 맺었습니다.
+
+colette/inn/12/seen
+웃으면 안 된다고 여긴 버릇은 그때 붙었습니다.
+
+colette/inn/13/situation
+콜레트가 인장의 끈을 살핀다.
+
+colette/inn/13/lines/0
+카델에 보고되는 인장입니다.
+
+colette/inn/13/lines/1
+허가이기도 하고 감시이기도 합니다.
+
+colette/inn/13/lines/2
+지니고 있다는 걸 잊기는 어렵습니다.
+
+colette/inn/13/choices/0/text
+오늘 끈이 불편한 건 아니세요?
+
+colette/inn/13/choices/0/response/0
+목이 쓸리지는 않습니다.
+
+colette/inn/13/choices/1/text
+라비니아 씨도 같은 곳이었죠?
+
+colette/inn/13/choices/1/response/0
+저보다 한 해 늦게 허가받았습니다.
+
+colette/inn/13/choices/2/text
+감시가 싫으면 인장을 부수면 되잖아요.
+
+colette/inn/13/choices/2/response/0
+그렇게 결정하지는 않겠습니다.
+
+colette/inn/13/choices/2/response/1
+제 서약을 가볍게 끝내고 싶지 않습니다.
+
+colette/inn/13/seen
+끈은 괜찮지만 인장은 자꾸 의식하게 됩니다.
+
+colette/inn/14/situation
+콜레트가 물을 마시다 잔을 내려놓는다.
+
+colette/inn/14/lines/0
+아까 숟가락 얘기가 다시 생각났습니다.
+
+colette/inn/14/lines/1
+그때는 참을 수 있었습니다.
+
+colette/inn/14/lines/2
+지금은 잔을 내려놓는 편이 낫겠습니다.
+
+colette/inn/14/choices/0/text
+잔은 제가 옆에 둘게요.
+
+colette/inn/14/choices/0/response/0
+엎지르지 않게 조금 멀리 두십시오.
+
+colette/inn/14/choices/1/text
+그 장면을 다른 분들한테도 알려 주고 싶어요.
+
+colette/inn/14/choices/1/response/0
+오늘은 여기서만 두십시오.
+
+colette/inn/14/choices/1/response/1
+저를 보러 모이게 하고 싶지는 않습니다.
+
+colette/inn/14/choices/2/text
+이번에는 제가 창밖 보고 있을까요?
+
+colette/inn/14/choices/2/response/0
+그렇게까지 안 하셔도 됩니다. 잠깐만 기다려 주십시오.
+
+colette/inn/14/seen
+지금은 물 마시다가 웃지 않는 게 중요합니다.
+
+colette/inn/15/situation
+콜레트가 짧게 한숨을 쉰다.
+
+colette/inn/15/lines/0
+뜻을 모르고 시키는 일은 힘이 안 납니다.
+
+colette/inn/15/lines/1
+무엇을 지키는 건지는 알고 싶습니다.
+
+colette/inn/15/lines/2
+말씀 없이 따라오라고 하면 자꾸 멈추게 됩니다.
+
+colette/inn/15/choices/0/text
+좋은 일이니 이유는 몰라도 해 주실 거죠?
+
+colette/inn/15/choices/0/response/0
+좋은 일이라는 말씀부터 확인하고 싶습니다.
+
+colette/inn/15/choices/0/response/1
+따라갈 이유를 설명해 주십시오.
+
+colette/inn/15/choices/1/text
+아는 것부터 설명하고 같이 확인해요.
+
+colette/inn/15/choices/1/response/0
+모르는 부분도 그대로 말씀해 주십시오.
+
+colette/inn/15/choices/2/text
+내일 물어볼 시간은 있어요.
+
+colette/inn/15/choices/2/response/0
+출발 전에 듣겠습니다.
+
+colette/inn/15/seen
+무엇을 위해 하는 일인지 먼저 듣고 싶습니다.
+
+colette/inn/16/situation
+콜레트가 인장을 손에 쥔다.
+
+colette/inn/16/lines/0
+서약을 따지기 전에 사람을 구한 날이 있습니다.
+
+colette/inn/16/lines/1
+그 선택을 없던 일로 하고 싶지는 않습니다.
+
+colette/inn/16/lines/2
+지금 말할 수 있는 것은 그 정도입니다.
+
+colette/inn/16/choices/0/text
+그 정도만 들어도 괜찮아요.
+
+colette/inn/16/choices/0/response/0
+더 말할 수 있으면 제가 먼저 꺼내겠습니다.
+
+colette/inn/16/choices/1/text
+지금은 쉬고 계세요.
+
+colette/inn/16/choices/1/response/0
+잠깐 손을 펴고 있겠습니다.
+
+colette/inn/16/choices/2/text
+그러면 서약은 결국 중요하지 않았네요.
+
+colette/inn/16/choices/2/response/0
+여전히 중요합니다.
+
+colette/inn/16/choices/2/response/1
+그래서 그날을 쉽게 설명하지 못하는 겁니다.
+
+colette/inn/16/seen
+그날의 선택을 지워 버리고 싶지는 않습니다.
+
+colette/inn/17/situation
+콜레트가 웃다가 눈가를 누른다.
+
+colette/inn/17/lines/0
+이제 그만 웃겠습니다.
+
+colette/inn/17/lines/1
+아직 조금 남았습니다.
+
+colette/inn/17/lines/2
+잠시만 저쪽을 보아 주십시오.
+
+colette/inn/17/choices/0/text
+물은 멀리 두었어요.
+
+colette/inn/17/choices/0/response/0
+그릇은 엎지르지 않겠습니다.
+
+colette/inn/17/choices/1/text
+이 모습을 꼭 남겨 두고 싶어요.
+
+colette/inn/17/choices/1/response/0
+오늘은 남기지 말아 주십시오.
+
+colette/inn/17/choices/1/response/1
+지금 웃는 것으로 충분히 해 주셨으면 합니다.
+
+colette/inn/17/choices/2/text
+같이 웃고 있었는데 저만 멈춰요?
+
+colette/inn/17/choices/2/response/0
+그 말씀 때문에 더 어려워졌습니다.
+
+colette/inn/17/seen
+이번에는 웃음이 쉽게 가라앉지 않습니다.
+
+colette/inn/18/situation
+콜레트가 식당으로 먼저 내려온다.
+
+colette/inn/18/lines/0
+오늘은 사람들 소리가 싫지 않습니다.
+
+colette/inn/18/lines/1
+저쪽에서는 아까 이야기가 아직 안 끝났습니다.
+
+colette/inn/18/lines/2
+여기서 조금 듣고 있겠습니다.
+
+colette/inn/18/choices/0/text
+앞으로는 서고보다 이쪽이 낫겠네요.
+
+colette/inn/18/choices/0/response/0
+조용히 읽고 싶은 날도 있을 겁니다.
+
+colette/inn/18/choices/0/response/1
+오늘은 여기에 있고 싶은 것입니다.
+
+colette/inn/18/choices/1/text
+저도 여기서 저녁 먹을게요.
+
+colette/inn/18/choices/1/response/0
+그럼 제 잔도 이쪽에 두겠습니다.
+
+colette/inn/18/choices/2/text
+오늘은 오래 앉아 계시네요.
+
+colette/inn/18/choices/2/response/0
+아직 올라가고 싶지는 않습니다.
+
+colette/inn/18/seen
+저쪽 말소리를 조금 더 듣고 올라가겠습니다.
+
+colette/inn/19/situation
+콜레트가 손을 비우고 맞은편을 본다.
+
+colette/inn/19/lines/0
+아까 목이 막혔다고 둘러댔습니다.
+
+colette/inn/19/lines/1
+아까 웃었습니다.
+
+colette/inn/19/lines/2
+그 뒤에도 몇 번 생각났습니다.
+
+colette/inn/19/choices/0/text
+저도 올라가다가 또 웃었어요.
+
+colette/inn/19/choices/0/response/0
+계단에서는 조심하셔야 합니다.
+
+colette/inn/19/choices/1/text
+재미있었던 모양이네요.
+
+colette/inn/19/choices/1/response/0
+이번에는 그렇다고 말씀드리겠습니다.
+
+colette/inn/19/choices/2/text
+그럼 다음엔 더 웃기게 해 드릴게요.
+
+colette/inn/19/choices/2/response/0
+일부러 준비하실 필요는 없습니다.
+
+colette/inn/19/choices/2/response/1
+편하게 말씀하시다 웃어도 좋겠습니다.
+
+colette/inn/19/seen
+오늘 웃은 것은 숨기지 않겠습니다.
+
+colette/inn/20/situation
+콜레트가 내일의 짐을 점검한다.
+
+colette/inn/20/lines/0
+제가 확인하지 못한 것은 묻겠습니다.
+
+colette/inn/20/lines/1
+혼자 판단하고 끝내지는 않겠습니다.
+
+colette/inn/20/lines/2
+함께 움직일 때는 알려 드리겠습니다.
+
+colette/inn/20/choices/0/text
+인장은 잘 걸려 있어요.
+
+colette/inn/20/choices/0/response/0
+출발 때도 한 번 더 보겠습니다.
+
+colette/inn/20/choices/1/text
+서약을 지키시니 무슨 일이든 믿고 맡길게요.
+
+colette/inn/20/choices/1/response/0
+제가 할 수 있는지는 말씀드리겠습니다.
+
+colette/inn/20/choices/1/response/1
+미리 모든 일에 동의한 것은 아닙니다.
+
+colette/inn/20/choices/2/text
+저도 모르는 건 숨기지 않을게요.
+
+colette/inn/20/choices/2/response/0
+제가 물을 때 아는 것부터 답해 주십시오.
+
+colette/inn/20/seen
+모르는 것은 출발 전에 함께 확인하겠습니다.
+
+colette/inn/21/situation
+콜레트가 문득 입꼬리를 누른다.
+
+colette/inn/21/lines/0
+아직 아무 말씀도 안 하셨습니다.
+
+colette/inn/21/lines/1
+그런데 벌써 웃음이 나옵니다.
+
+colette/inn/21/lines/2
+제가 너무 익숙해졌나 봅니다.
+
+colette/inn/21/choices/0/text
+안 웃으려고 버티는 얼굴이 더 재밌어요.
+
+colette/inn/21/choices/0/response/0
+그렇게 보이는지 알고는 있습니다.
+
+colette/inn/21/choices/0/response/1
+그래도 일부러 지켜보진 말아 주십시오.
+
+colette/inn/21/choices/1/text
+제 얼굴이 그렇게 웃긴가요?
+
+colette/inn/21/choices/1/response/0
+그렇게 정색하시면 더 어렵습니다.
+
+colette/inn/21/choices/2/text
+오늘은 피곤하지 않으세요?
+
+colette/inn/21/choices/2/response/0
+피곤한 날에도 웃음은 날 수 있습니다.
+
+colette/inn/21/seen
+아직 아무 말도 안 들었는데 웃음이 납니다.
+
+colette/inn/22/situation
+콜레트가 식은 물을 새로 따른다.
+
+colette/inn/22/lines/0
+아까 권해 주셨을 때 마실 걸 그랬습니다.
+
+colette/inn/22/lines/1
+말을 마치려다 잊었습니다.
+
+colette/inn/22/lines/2
+이번에는 먼저 한 모금 마시겠습니다.
+
+colette/inn/22/choices/0/text
+저도 같이 마실게요.
+
+colette/inn/22/choices/0/response/0
+그러면 말은 잠시 쉬겠습니다.
+
+colette/inn/22/choices/1/text
+물은 아직 충분해요.
+
+colette/inn/22/choices/1/response/0
+필요한 만큼만 따르겠습니다.
+
+colette/inn/22/choices/2/text
+말부터 마저 하고 나서 드세요.
+
+colette/inn/22/choices/2/response/0
+한 모금 마시고 이어서 말씀드리겠습니다.
+
+colette/inn/22/choices/2/response/1
+목이 말라서 더 미루긴 어렵습니다.
+
+colette/inn/22/seen
+이번에는 잔을 내려놓기 전에 마시겠습니다.
+
+colette/inn/23/situation
+콜레트가 게르다의 말이 끝나자 돌아본다.
+
+colette/inn/23/lines/0
+이번에는 들었습니다.
+
+colette/inn/23/lines/1
+못 들었다고 하지는 않겠습니다.
+
+colette/inn/23/lines/2
+잠시만 제가 숨을 고르겠습니다.
+
+colette/inn/23/choices/0/text
+끝나면 물 마셔요.
+
+colette/inn/23/choices/0/response/0
+사레들지 않게 기다리겠습니다.
+
+colette/inn/23/choices/1/text
+게르다 씨를 더 불러 와도 되겠죠?
+
+colette/inn/23/choices/1/response/0
+지금은 그만 들어도 충분합니다.
+
+colette/inn/23/choices/1/response/1
+다음 이야기는 나중에 듣겠습니다.
+
+colette/inn/23/choices/2/text
+저도 웃다가 목이 마르네요.
+
+colette/inn/23/choices/2/response/0
+그러면 두 잔 다 멀리 두는 편이 좋겠습니다.
+
+colette/inn/23/seen
+오늘은 못 들은 척하지 않고 웃겠습니다.
+
+colette/inn/24/situation
+콜레트가 먼저 아침 인사를 건넨다.
+
+colette/inn/24/lines/0
+오늘은 아직 한마디도 안 하셨습니다.
+
+colette/inn/24/lines/1
+벌써 재미있는 말씀을 하실 줄 알았습니다.
+
+colette/inn/24/lines/2
+무슨 말씀을 하실까 기다렸습니다.
+
+colette/inn/24/choices/0/text
+웃기지 못하면 같이 있을 이유가 없겠네요.
+
+colette/inn/24/choices/0/response/0
+농담은 없어도 됩니다.
+
+colette/inn/24/choices/0/response/1
+말없이 계셔도 같이 앉고 싶습니다.
+
+colette/inn/24/choices/1/text
+아직 졸려서 농담이 생각 안 나요.
+
+colette/inn/24/choices/1/response/0
+그러면 물부터 마시고 천천히 깨십시오.
+
+colette/inn/24/choices/2/text
+저도 이제 눈을 뜨고 내려왔어요.
+
+colette/inn/24/choices/2/response/0
+오늘은 제가 먼저 와 있었습니다.
+
+colette/inn/24/seen
+재미있는 말이 없어도 여기 앉으시면 됩니다.
+
+colette/inn/25/situation
+콜레트가 서약문을 가방 안에 넣는다.
+
+colette/inn/25/lines/0
+오늘 읽을 것은 다 읽었습니다.
+
+colette/inn/25/lines/1
+접힌 부분을 다시 펴 보지는 않겠습니다.
+
+colette/inn/25/lines/2
+지금은 식사하러 가고 싶습니다.
+
+colette/inn/25/choices/0/text
+저도 배고파요. 먼저 내려가요.
+
+colette/inn/25/choices/0/response/0
+오늘은 국이 식기 전에 먹겠습니다.
+
+colette/inn/25/choices/1/text
+가방은 제가 옆에 둘게요.
+
+colette/inn/25/choices/1/response/0
+종이가 눌리지 않게 세워 주십시오.
+
+colette/inn/25/choices/2/text
+한 번 더 보면 안심하고 드실 수 있잖아요.
+
+colette/inn/25/choices/2/response/0
+충분히 읽었다고 정했습니다.
+
+colette/inn/25/choices/2/response/1
+지금은 배가 고픕니다.
+
+colette/inn/25/seen
+가방을 닫았으니 지금은 밥부터 먹겠습니다.
+
+colette/inn/26/situation
+콜레트가 빈 의자에 손을 놓는다.
+
+colette/inn/26/lines/0
+이쪽이 볕이 덜 듭니다.
+
+colette/inn/26/lines/1
+오래 앉기에는 편하겠습니다.
+
+colette/inn/26/lines/2
+오늘은 제가 먼저 골랐습니다.
+
+colette/inn/26/choices/0/text
+물은 제가 가져올게요.
+
+colette/inn/26/choices/0/response/0
+제 것은 반 정도만 부탁드립니다.
+
+colette/inn/26/choices/1/text
+앉을 곳쯤은 제가 알아서 정해도 되잖아요.
+
+colette/inn/26/choices/1/response/0
+의자를 골라 두었다고 말씀드린 겁니다.
+
+colette/inn/26/choices/1/response/1
+편하게 앉으셔도 됩니다.
+
+colette/inn/26/choices/2/text
+저는 맞은편에 앉아도 괜찮겠어요?
+
+colette/inn/26/choices/2/response/0
+그쪽은 바람이 조금 들지만 괜찮으시다면 좋습니다.
+
+colette/inn/26/seen
+오늘은 이 의자가 앉기에 편해 보였습니다.
+
+colette/inn/27/situation
+콜레트가 귀환한 뒤 웃으며 고개를 든다.
+
+colette/inn/27/lines/0
+무사히 돌아와서 반갑습니다.
+
+colette/inn/27/lines/1
+먼저 씻고 내려오십시오.
+
+colette/inn/27/lines/2
+오늘 이야기는 식탁에서 듣고 싶습니다.
+
+colette/inn/27/choices/0/text
+오늘도 웃겨 드릴 이야기를 준비해야겠네요.
+
+colette/inn/27/choices/0/response/0
+그냥 있었던 일을 들려주십시오.
+
+colette/inn/27/choices/0/response/1
+같이 앉아 듣는 것으로 충분히 좋습니다.
+
+colette/inn/27/choices/1/text
+콜레트 씨 이야기도 같이 들어요.
+
+colette/inn/27/choices/1/response/0
+그러면 제가 먼저 말할 것도 생각해 두겠습니다.
+
+colette/inn/27/choices/2/text
+잠깐 짐만 내려놓을게요.
+
+colette/inn/27/choices/2/response/0
+저는 아래에서 물을 따라 두겠습니다.
+
+colette/inn/27/seen
+오늘은 제 쪽 이야기도 식탁에서 하겠습니다.
+
+colette/dungeon/0/variants/0
+인장은 지니고 있습니다.
+
+colette/dungeon/0/variants/1
+준비한 것을 확인하겠습니다.
+
+colette/dungeon/1/variants/0
+오늘도 필요한 때에 부르십시오.
+
+colette/dungeon/1/variants/1
+맡은 것은 마치고 돌아오겠습니다.
+
+colette/dungeon/2/variants/0
+서두르면 제가 먼저 말씀드리겠습니다.
+
+colette/dungeon/2/variants/1
+돌아와서 나눌 이야기도 남겨 두십시오.
+
+colette/dungeon/3/variants/0
+발 디딜 곳을 보겠습니다.
+
+colette/dungeon/3/variants/1
+이쪽은 잠시 멈추십시오.
+
+colette/dungeon/4/variants/0
+모퉁이 너머는 아직 못 봤습니다.
+
+colette/dungeon/4/variants/1
+제가 보는 쪽도 알려 드리겠습니다.
+
+colette/dungeon/5/variants/0
+보이지 않으면 목소리를 내 주십시오.
+
+colette/dungeon/5/variants/1
+함께 움직일 수 있게 기다리겠습니다.
+
+colette/dungeon/6/variants/0
+겉모습만으로 정하지 않겠습니다.
+
+colette/dungeon/6/variants/1
+가까이서 보고 말씀드리겠습니다.
+
+colette/dungeon/7/variants/0
+제가 못 본 부분을 짚어 주십시오.
+
+colette/dungeon/7/variants/1
+무슨 뜻인지 함께 생각하겠습니다.
+
+colette/dungeon/8/variants/0
+뜻이 궁금하니 조금 더 보겠습니다.
+
+colette/dungeon/8/variants/1
+아는 것부터 들려주시면 좋겠습니다.
+
+colette/dungeon/9/variants/0
+인장을 먼저 확인했습니다.
+
+colette/dungeon/9/variants/1
+지나실 때는 제게 말씀하십시오.
+
+colette/dungeon/10/variants/0
+지금은 농담을 듣지 않겠습니다.
+
+colette/dungeon/10/variants/1
+움직이는 쪽을 서로 알리십시오.
+
+colette/dungeon/11/variants/0
+제 쪽도 보고 있으니 무리하지 마십시오.
+
+colette/dungeon/11/variants/1
+끝난 뒤에 목소리를 다시 듣겠습니다.
+
+colette/dungeon/12/variants/0
+끝났는지 더 확인하겠습니다.
+
+colette/dungeon/12/variants/1
+짐은 조금 뒤에 챙기십시오.
+
+colette/dungeon/13/variants/0
+이제야 손을 펼 수 있겠습니다.
+
+colette/dungeon/13/variants/1
+물 마실 때 웃기지는 마십시오.
+
+colette/dungeon/14/variants/0
+지금 웃으면 물을 쏟을 것 같습니다.
+
+colette/dungeon/14/variants/1
+돌아가서 이어서 듣겠습니다.
+
+colette/dungeon/15/variants/0
+들어갈 준비부터 확인하겠습니다.
+
+colette/dungeon/15/variants/1
+잠시 숨을 고르겠습니다.
+
+colette/dungeon/16/variants/0
+모르는 것이 남았다면 묻겠습니다.
+
+colette/dungeon/16/variants/1
+제 설명도 들어 주십시오.
+
+colette/dungeon/17/variants/0
+떨리고 있다는 건 숨기지 않겠습니다.
+
+colette/dungeon/17/variants/1
+곁에서 한 번 더 확인해 주십시오.
+
+colette/dungeon/18/variants/0
+아직 주변은 살피겠습니다.
+
+colette/dungeon/18/variants/1
+인장의 끈도 확인하겠습니다.
+
+colette/dungeon/19/variants/0
+이제야 손에 들어간 힘을 풀겠습니다.
+
+colette/dungeon/19/variants/1
+웃는다면 잠시 모른 척해 주십시오.
+
+colette/dungeon/20/variants/0
+돌아가면 조용히 밥부터 먹겠습니다.
+
+colette/dungeon/20/variants/1
+그 농담은 앉아서 들려주십시오.
+
+colette/dungeon/21/variants/0
+지금은 걸음을 멈추십시오.
+
+colette/dungeon/21/variants/1
+아픈 곳이 있으면 알려 주십시오.
+
+colette/dungeon/22/variants/0
+기댈 곳을 같이 보겠습니다.
+
+colette/dungeon/22/variants/1
+제 팔을 잡으셔도 됩니다.
+
+colette/dungeon/23/variants/0
+괜찮다고 끝내지 않으셨으면 합니다.
+
+colette/dungeon/23/variants/1
+곁에서 도울 수 있는 일을 찾겠습니다.
+
+colette/dungeon/24/variants/0
+가까이에서 확인하겠습니다.
+
+colette/dungeon/24/variants/1
+함부로 몸을 옮기지는 마십시오.
+
+colette/dungeon/25/variants/0
+제 목소리가 들리십니까?
+
+colette/dungeon/25/variants/1
+반응을 조금 더 살피겠습니다.
+
+colette/dungeon/26/variants/0
+여기서 함께 기다리겠습니다.
+
+colette/dungeon/26/variants/1
+일어나실 방법은 같이 찾겠습니다.
+
+colette/dungeon/27/variants/0
+어느 쪽이 불편한지 보겠습니다.
+
+colette/dungeon/27/variants/1
+지금은 힘을 덜 쓰겠습니다.
+
+colette/dungeon/28/variants/0
+짐을 잠시 맡아 주십시오.
+
+colette/dungeon/28/variants/1
+제 손도 확인하고 가겠습니다.
+
+colette/dungeon/29/variants/0
+제 짐을 좀 받아 주십시오.
+
+colette/dungeon/29/variants/1
+괜찮다고 숨기기 전에 쉬겠습니다.
+
+colette/dungeon/30/variants/0
+서약문은 펼치지 않겠습니다.
+
+colette/dungeon/30/variants/1
+인장의 끈만 고쳐 두겠습니다.
+
+colette/dungeon/31/variants/0
+그늘에서 물을 마시겠습니다.
+
+colette/dungeon/31/variants/1
+농담은 잔을 내려놓은 뒤에 듣겠습니다.
+
+colette/dungeon/32/variants/0
+오늘은 물소리만 들으며 쉬겠습니다.
+
+colette/dungeon/32/variants/1
+웃음이 남으면 조금 더 앉아 있겠습니다.
+
+colette/dungeon/33/variants/0
+손대기 전에 표시를 보겠습니다.
+
+colette/dungeon/33/variants/1
+어떻게 열리는지는 아직 모릅니다.
+
+colette/dungeon/34/variants/0
+무슨 뜻인지 아는 부분부터 맞추겠습니다.
+
+colette/dungeon/34/variants/1
+혼자 결론을 내리지는 않겠습니다.
+
+colette/dungeon/35/variants/0
+놓친 것이 있으면 바로 말씀하십시오.
+
+colette/dungeon/35/variants/1
+저도 확실하지 않은 곳은 묻겠습니다.
+
+colette/dungeon/36/variants/0
+인장은 그대로 지니고 있습니다.
+
+colette/dungeon/36/variants/1
+짐은 이쪽에 내려놓겠습니다.
+
+colette/dungeon/37/variants/0
+돌아오니 식당 소리가 반갑습니다.
+
+colette/dungeon/37/variants/1
+오늘은 서고보다 아래에 있겠습니다.
+
+colette/dungeon/38/variants/0
+재미있는 일이 없어도 같이 앉으십시오.
+
+colette/dungeon/38/variants/1
+제가 먼저 웃으면 그냥 두셔도 됩니다.
+
+colette/dungeon/39/variants/0
+지금은 나갈 길을 보겠습니다.
+
+colette/dungeon/39/variants/1
+함께 움직일 힘이 있는지 확인하십시오.
+
+colette/dungeon/40/variants/0
+혼자 판단하고 뒤에 남지는 마십시오.
+
+colette/dungeon/40/variants/1
+제 쪽이 안 보이면 불러 주십시오.
+
+colette/dungeon/41/variants/0
+모든 설명을 지금 마칠 필요는 없습니다.
+
+colette/dungeon/41/variants/1
+같이 돌아가서 다시 말하겠습니다.
+
+colette/transitions/0/situation
+콜레트가 손에서 힘을 뺀다.
+
+colette/transitions/0/lines/0
+지금 정해야 할 내용만 듣겠습니다.
+
+colette/transitions/0/lines/1
+오늘은 짧게 전해 주십시오.
+
+colette/transitions/1/situation
+콜레트가 서약문을 가방에 넣는다.
+
+colette/transitions/1/lines/0
+이 대화는 멈추겠습니다.
+
+colette/transitions/1/lines/1
+지금은 혼자 있고 싶습니다.
+
+colette/transitions/2/situation
+콜레트가 먼저 고개를 숙인다.
+
+colette/transitions/2/lines/0
+맡을 일은 확인하겠습니다.
+
+colette/transitions/2/lines/1
+지킬 것은 먼저 말씀해 주십시오.
+
+colette/transitions/3/situation
+콜레트가 설명하던 말을 줄인다.
+
+colette/transitions/3/lines/0
+오늘은 더 말씀드리지 않겠습니다.
+
+colette/transitions/3/lines/1
+제가 확인한 것만 전하겠습니다.
+
+colette/transitions/4/situation
+콜레트가 인장을 손에 들어 보인다.
+
+colette/transitions/4/lines/0
+왜 지니는지 말씀드리겠습니다.
+
+colette/transitions/4/lines/1
+웃기려는 말씀은 잠깐 뒤에 해 주십시오.
+
+colette/transitions/5/situation
+콜레트가 인장을 옷 아래로 넣는다.
+
+colette/transitions/5/lines/0
+지금은 설명을 멈추겠습니다.
+
+colette/transitions/5/lines/1
+필요한 때에 다시 확인하십시오.
+
+colette/transitions/6/situation
+콜레트가 잔을 내려놓고 말한다.
+
+colette/transitions/6/lines/0
+웃음을 참는 버릇은 서약하던 때부터입니다.
+
+colette/transitions/6/lines/1
+오늘은 그 얘기를 조금 하고 싶습니다.
+
+colette/transitions/7/situation
+콜레트가 접은 종이를 다시 모은다.
+
+colette/transitions/7/lines/0
+그날 이야기는 더 하지 않겠습니다.
+
+colette/transitions/7/lines/1
+지금은 다른 말씀을 듣고 싶습니다.
+
+colette/transitions/8/situation
+콜레트가 웃음을 가라앉히려 손등을 눈가에 댄다.
+
+colette/transitions/8/lines/0
+지금은 숨기기 어렵겠습니다.
+
+colette/transitions/8/lines/1
+조금만 더 웃고 말씀드리겠습니다.
+
+colette/transitions/9/situation
+콜레트가 시선을 내리고 말을 멈춘다.
+
+colette/transitions/9/lines/0
+오늘은 제 모습을 남기지 마십시오.
+
+colette/transitions/9/lines/1
+조용히 쉬고 싶습니다.
+
+colette/transitions/10/situation
+콜레트가 먼저 맞은편을 바라본다.
+
+colette/transitions/10/lines/0
+모르는 것은 혼자 정하지 않겠습니다.
+
+colette/transitions/10/lines/1
+같이 확인할 때 제 생각도 말하겠습니다.
+
+colette/transitions/11/situation
+콜레트가 물잔을 자기 쪽으로 옮긴다.
+
+colette/transitions/11/lines/0
+저는 이만 쉬겠습니다.
+
+colette/transitions/11/lines/1
+이유를 더 묻지는 말아 주십시오.
+
+colette/transitions/12/situation
+콜레트가 먼저 웃으며 인사한다.
+
+colette/transitions/12/lines/0
+오늘은 웃음을 참지 않겠습니다.
+
+colette/transitions/12/lines/1
+재미있는 말이 없어도 같이 앉으십시오.
+
+colette/transitions/13/situation
+콜레트가 조용히 일어난다.
+
+colette/transitions/13/lines/0
+오늘 이야기는 다음에 듣겠습니다.
+
+colette/transitions/13/lines/1
+혼자 생각할 시간을 조금 갖겠습니다.
+
+<!-- HUMANIZE-SUMMARY -->
+<!--
+{
+  "status": "corrected",
+  "route": "heavy",
+  "before_chars": 689517,
+  "after_chars": 686879,
+  "grade": "보류",
+  "self_check": "5/6",
+  "change_rate": "99개 청크 각각 0.10~5.82%",
+  "categories": [
+    "생성 비유",
+    "원칙 요약",
+    "중복 해설",
+    "문서어",
+    "선택지 진단",
+    "먼저 반복",
+    "표기"
+  ],
+  "highlights": [
+    "독립 검수 66건 반영",
+    "대사 표시 1032필드 교정",
+    "장면·선택·aff 불변"
+  ],
+  "remaining": "S1 전수 잔존 0·문체 등급은 보류. 상세 문맥과 보존 판단은 pattern-audit5.md."
+}
+-->

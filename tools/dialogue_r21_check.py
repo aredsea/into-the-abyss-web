@@ -13,14 +13,18 @@ import json
 import re
 import unicodedata
 
-from dialogue_r21_build import ROOT, CANON, IDS, STAGES, EVENTS, ENDING_FRAGMENTS, display_fields, lexicon, mentioned_names
+from dialogue_r21_build import ROOT, CANON, IDS, STAGES, EVENTS, REGISTERS, ENDING_FRAGMENTS, display_fields, lexicon, mentioned_names
+from dialogue_r21_round2 import TITLES
 
 ROOT_KEYS = {'speech', 'schema_version', 'character_id', 'name', 'stage_order', 'dungeon_bands', 'stage_rule',
              'integration', 'sources', 'proper_nouns', 'inn', 'dungeon', 'transitions'}
 MBTI = {''.join(v) for v in itertools.product('IE', 'NS', 'TF', 'JP')}
 ALIGNMENTS = ['질서 선', '질서 중립', '질서 악', '중립 선', '중립', '중립 악', '혼돈 선', '혼돈 중립', '혼돈 악']
-FORMAL = re.compile(r'(?:니다|니까|시오|십시오|시다)$')
+BIEUP_FINAL = ''.join(chr(c) for c in range(0xAC00, 0xD7A4) if (c - 0xAC00) % 28 == 17)
+FORMAL = re.compile(r'(?:(?<!아)니다|[' + BIEUP_FINAL + r']니까|시오|십시오|시다)$')
 POLITE = re.compile(r'(?:요|죠)$')
+HAO = re.compile(r'(?:오|소|구려|구료|시다|리다|군|(?:것|자리|그대로|여기|수고|먼저|조)요)$')
+INFORMAL = re.compile(r'(?:아|어|해|돼|봐|줘|둬|와|가|자|지|네|야|냐|니|나|래|게|걸|마|거든|다|까|데|고|라|군|구나|걸로|겠지|러|서|여|워|도|면|려|져|뭐|만|시|놔|겨|쪽|써|차|셔|파|내|혀|춰)$')
 EMOJI = re.compile('[\U0001F000-\U0001FAFF\u2600-\u27BF\uFE0F\u200D\u20E3]')
 
 
@@ -72,13 +76,15 @@ def validate(data, expected_id=None, dictionary=None):
         'algorithm': 'a<=-60 / a<=-20 / a<20 / a<50 / a<80 / a<100 / a<150 / 나머지',
         'minimum': -100, 'maximum': 200, 'soft_cap': 100, 'positive_scale_above_cap': 0.4},
         '/stage_rule', 'canonical affection rule mismatch')
-    speech_keys = {'register', 'address', 'stage_relaxation', 'extension', 'source_quote', 'sources', 'allowed_endings', 'ending_exceptions'}
+    speech_keys = {'register', 'address', 'address_terms', 'stage_relaxation', 'extension', 'source_quote', 'sources', 'allowed_endings', 'ending_exceptions'}
     if obj(data['speech'], speech_keys, '/speech'):
         for k in ['register', 'address', 'stage_relaxation', 'extension', 'source_quote']:
             string(data['speech'][k], '/speech/' + k)
-        expected = ['하십시오체'] if cid == 'hildegard' else ['하십시오체', '해요체'] if cid == 'marceline' else ['해요체']
+        expected = REGISTERS.get(cid, [])
         require(data['speech']['allowed_endings'] == expected, '/speech/allowed_endings', 'register declaration mismatch')
         require(data['speech']['ending_exceptions'] == ENDING_FRAGMENTS.get(cid, []), '/speech/ending_exceptions', 'unreviewed speech ending exception')
+        require(data['speech']['address_terms'] == {'companion_to_player': [], 'player_to_companion': TITLES.get(cid)},
+                '/speech/address_terms', 'address declaration mismatch')
     integration_keys = {'status', 'inn_action', 'daily_limit_key', 'aff_semantics', 'seen_semantics',
                         'transition_semantics', 'dungeon_semantics', 'relationship_scope'}
     if obj(data['integration'], integration_keys, '/integration'):
@@ -108,7 +114,7 @@ def validate(data, expected_id=None, dictionary=None):
         require(scene['stage'] in STAGES, path + '/stage', 'unknown stage')
         stages[scene['stage']] += 1
         structurally_safe &= string(scene['situation'], path + '/situation')
-        structurally_safe &= lines(scene['lines'], 2, 5, path + '/lines')
+        structurally_safe &= lines(scene['lines'], 3, 5, path + '/lines')
         structurally_safe &= string(scene['seen'], path + '/seen')
         if not require(isinstance(scene['choices'], list) and len(scene['choices']) == 3, path + '/choices', 'exactly three choices required'):
             structurally_safe = False
@@ -135,7 +141,7 @@ def validate(data, expected_id=None, dictionary=None):
     metrics['stage_counts'] = dict(stages)
     for stage in STAGES:
         need = 2 if stage in STAGES[:2] else 4
-        if not require(stages[stage] >= need, '/inn', f'{stage}: fewer than {need} scenes'):
+        if not require(stages[stage] == need, '/inn', f'{stage}: fewer or extra scenes; expected {need}'):
             metrics['missing_stages'] += 1
     coverage = Counter()
     for i, scene in enumerate(data['dungeon']):
@@ -207,10 +213,34 @@ def validate(data, expected_id=None, dictionary=None):
                 if is_trailing and s == sentences(text)[-1]:
                     continue
                 metrics['ending_sentences'] += 1
-                okay = bool(FORMAL.search(s)) if cid == 'hildegard' else bool(POLITE.search(s)) if cid == 'teiris' else bool(FORMAL.search(s) or POLITE.search(s))
+                allowed = REGISTERS.get(cid, [])
+                # Standalone acknowledgments/interjections have no sentence-final
+                # speech ending. Keep them as speech, but do not invent a register.
+                if s in {'예', '네', '응', '잠깐'}:
+                    if (s == '응' and '해체' not in allowed) or (s in {'예', '네'} and not any(a in allowed for a in ['하십시오체','해요체','하오체'])):
+                        metrics['ending_deviations'].append({'path':path,'sentence':s})
+                    continue
+                # 군 is shared by 하오체 and 해체 (e.g. 군힐트's 그렇군).
+                # Other 하오 endings must still be rejected by 해체 declarations.
+                informal_hao_conflict = HAO.search(s) and not s.endswith('군')
+                okay = any(bool(pattern.search(s)) and (label != '해체' or not (FORMAL.search(s) or POLITE.search(s) or informal_hao_conflict))
+                           for label, pattern in [('하십시오체', FORMAL), ('해요체', POLITE), ('하오체', HAO), ('해체', INFORMAL)] if label in allowed)
                 if not okay:
                     metrics['ending_deviations'].append({'path': path, 'sentence': s})
         mentioned.update(mentioned_names(text, dictionary))
+        if '/choices/' in path and path.endswith('/text') and cid in IDS:
+            # Player references to this companion use the declared complete title,
+            # including particles; references to other companions are not vocatives.
+            rest = text.replace(TITLES[cid], '')
+            require(IDS[cid] not in rest, path, 'player address inconsistent with speech.address_terms')
+            title = TITLES[cid]
+            coda = (ord(title[-1]) - ord('가')) % 28 != 0
+            bad = '[가는를와]' if coda else '[이은을과]'
+            require(not re.search(re.escape(title) + bad + r'(?=\s|[,.?!]|$)', text), path, 'address particle mismatch')
+            require(not re.search(r'(?<![가-힣])(?:당신|그대|자네|대장님|선생님|주인님|사제님|기사님|부대장님)(?:이|가|은|는|을|를|께|도|의)?(?![가-힣])', rest), path, 'undeclared player address')
+        if companion:
+            require(not re.search(r'(?<![가-힣])(?:당신|그대|자네|대장님|선생님|주인님|모험가님?)(?:이|가|은|는|을|를|께|도|의)?(?![가-힣])', text),
+                    path, 'undeclared companion address')
         for candidate in re.findall(r'([가-힣]{2,12})(?:에서 태어|에서 왔|라는 도시|라는 마을|이라는 가문)', text):
             if candidate not in dictionary:
                 metrics['proper_noun_candidates'].append({'path': path, 'candidate': candidate})
@@ -234,7 +264,7 @@ def run(data_dir):
     dictionary = lexicon()
     files = sorted(data_dir.glob('*.json'))
     if {p.stem for p in files} != set(IDS):
-        errors.append({'path': str(data_dir), 'message': 'expected exactly three pilot files'})
+        errors.append({'path': str(data_dir), 'message': f'expected exactly {len(IDS)} registered character files'})
     cross_lines = defaultdict(list)
     cross_sentences = defaultdict(list)
     game_people = {p['id']: p for p in json.loads((ROOT / 'project/data/world.json').read_text(encoding='utf-8'))['companions']}

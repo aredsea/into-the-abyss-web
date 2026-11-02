@@ -1,0 +1,488 @@
+[청크 컨텍스트] 이 텍스트는 한 문서를 나눈 청크 21/99이다.
+- 문서 전체가 아니므로 서두·결말·전환 문구를 새로 만들지 말 것. 경계가 잘린 듯 보여도 그대로 둔다.
+[진단]
+# 진단 — 게임 동료 대화 30명
+
+장르: 게임 대사. 화계는 인물별 speech.allowed_endings와 정본 말투를 보존한다. 글 전체 화계를 통일하지 않는다.
+
+1. D-14 생성 은유: 자리·몫·이름·줄·문·빈칸이 인물 고유 소재에서 벗어나 감정을 대신하는 곳. 정본 사건과 실제 물건은 보존하고 감정 대목만 일상 발화로 교정한다.
+2. C-8 대칭 대구: 정량 antithesis_count 12. A/B가 다르다·따로다 같은 명제 요약은 구체 대화로 바꾼다. 필요한 거절·경계와 반문은 남긴다.
+3. I-3/H-3 의미 해설: 행동 뒤 그 뜻은 아니다 등으로 감정을 재진술한다. 실제 오해를 풀어야 하는 곳과 중복 설명을 구분한다.
+4. F-7/A-15 사적 공문체: 간격 확보·대화 기록 등 사적 장면의 추상 행정어. 인물 고유 업무·계약·기록 장면은 보존한다.
+5. E-3/C-4 문형 반복: 먼저·오늘은·같이의 밀집, 상대를 진단하는 선택지 및 경계를 그대로 복창하는 반응. 시간 순서와 aff 기능은 유지하고 장면마다 발화 기능을 재검토한다.
+
+정량 앵커: 원문 689517자(경로 식별자 포함), relative_clause_nesting 14, double_particle_count 2, have_make_literal_count 1. risk_band low이나 긴 입력의 구조 지표로 heavy를 추천한다. 산문 기준 z-score를 화계가 섞인 게임 자료의 품질 등급으로 바로 적용하지 않는다.
+
+보존: 장면·선택지 수, 선택지 ID·순서·aff, 인물명·정본 사건·소재·화계. 도입 3줄, 전이 2줄. 수정은 finding이 있는 발화 필드에 한정한다. 지적별 제안은 고침 취지 반영 여부를 기록하며 감점 대사를 호의적 대사로 뒤집는 제안은 대안으로 반영한다.
+[진단 끝]
+
+[정량 사전 점수 v2.0 — v1.6 8지표(KatFish baseline) + v2.0 카운트형]
+risk_band: low  (score 0)
+genre: essay
+char_count: 6996
+
+[v1.6 지표]
+- comma_inclusion_rate: 0.00  (z=-1.50 vs essay 인간 baseline)
+- comma_usage_rate: 0.00  (z=-1.58 vs essay 인간 baseline)
+- ending_comma_rate: 0.00  (z=-0.52 vs essay 인간 baseline)
+- comma_segment_length: 2.96  (n/a vs essay 인간 baseline)
+- conclusion_pivot_count: 0
+- safe_balance_count: 0
+- hanja_nominalizer_density: 0.002  (z=-1.92 vs essay 인간 baseline)
+- lexical_diversity: 0.73  (z=+1.70 vs essay 인간 baseline)
+
+[v2.0 카운트형 지표 — 원값 / baseline calibration 전 z-score 해석 보류]
+- double_passive_count (이중 피동, 본진 A-8): 0
+- by_passive_count (~에 의해 피동, 본진 A-9): 0
+- pronoun_density (인칭 대명사 밀도, 본진 A-16): 0.000
+- have_make_literal_count (have/make 직역, 본진 A-7): 0
+- double_particle_count (이중 조사 결합, 본진 A-19): 0
+- relative_clause_nesting (관형절 3중+ 중첩 문장 수, 본진 A-18): 0
+- deul_overuse_rate ('-들' 남용률, 본진 A-17 hold): 0.000
+- 카운트 > 0 지표는 해당 본진 ID 처방(quick-rules.md·taxonomy)과 교차 확인 후 윤문할 것.
+
+[근거 사용 가이드]
+- 위 점수는 *근거 보조*다. 단독 판정 금지(보고서 명시).
+- z>1.0 지표는 quick-rules.md S1·S2 패턴과 교차 확인 후 윤문할 것.
+- ending_comma_rate가 ★ S1 트리거인 경우 C-11(연결어미 뒤 쉼표) 우선 손질.
+- conclusion_pivot 매치 토큰은 D-1·H-1 처방 적용 대상.
+
+[원문 시작]
+erdene/inn/6/choices/0/text
+센 분이 먼저 끝내 주시면 저흰 편하겠네요.
+
+erdene/inn/6/choices/0/response/0
+편하라고 혼자 달리려던 건 아니야.
+
+erdene/inn/6/choices/0/response/1
+혼자 나서면 뒤에서 누가 따라오는지 안 보이잖아.
+
+erdene/inn/6/choices/1/text
+보이는 데까지만 가고 서로 신호해요.
+
+erdene/inn/6/choices/1/response/0
+멈출 때도 정하자는 거네.
+
+erdene/inn/6/choices/1/response/1
+나만 빨라지면 불러.
+
+erdene/inn/6/choices/2/text
+출발 준비할게요.
+
+erdene/inn/6/choices/2/response/0
+문 닫기 전에 같이 나가자.
+
+erdene/inn/6/seen
+혼자 먼저 가도 신호는 함께 정하는 거야.
+
+erdene/inn/7/situation
+에르데네가 공적 적힌 종이를 살핀다.
+
+erdene/inn/7/lines/0
+이름을 줄였네.
+
+erdene/inn/7/lines/1
+내 건 다시 쓸게.
+
+erdene/inn/7/lines/2
+길어도 내 이름은 빼지 말았으면 해.
+
+erdene/inn/7/choices/0/text
+공간을 넓힐 테니 직접 적어 주세요.
+
+erdene/inn/7/choices/0/response/0
+대신 예쁜 글씨로 쓰진 마.
+
+erdene/inn/7/choices/0/response/1
+내 손으로 남기고 싶어.
+
+erdene/inn/7/choices/1/text
+어디가 빠졌어요?
+
+erdene/inn/7/choices/1/response/0
+줄 끝까지 읽으면 빠진 데가 보여.
+
+erdene/inn/7/choices/2/text
+알아볼 수 있으니 짧게 둬도 되지 않을까요?
+
+erdene/inn/7/choices/2/response/0
+빠졌다고 알아보는 사람이 나뿐이면 누가 불러?
+
+erdene/inn/7/choices/2/response/1
+찾고 싶은 이름을 편해서 줄이진 않을래.
+
+erdene/inn/7/seen
+긴 이름도 들어갈 자리는 있어야 해.
+
+erdene/inn/8/situation
+에르데네가 뒤쪽 짐을 받아 든다.
+
+erdene/inn/8/lines/0
+내가 먼저 설게.
+
+erdene/inn/8/lines/1
+이번엔 이름만 보고 정한 거 아냐.
+
+erdene/inn/8/lines/2
+뒤에서 누가 오는지 알아.
+
+erdene/inn/8/choices/0/text
+끈만 확인할게요.
+
+erdene/inn/8/choices/0/response/0
+다 묶을 때까진 안 나가.
+
+erdene/inn/8/choices/1/text
+든든하니 이제 뒤는 안 보셔도 돼요.
+
+erdene/inn/8/choices/1/response/0
+등을 안 돌린다고 모르는 척하는 건 아니야.
+
+erdene/inn/8/choices/1/response/1
+앞을 보고 있어도 뒤를 버린 건 아니야.
+
+erdene/inn/8/choices/2/text
+너무 빨라지면 제가 바로 부를게요.
+
+erdene/inn/8/choices/2/response/0
+세게 불러도 돼.
+
+erdene/inn/8/choices/2/response/1
+못 들었다고 달리진 않을게.
+
+erdene/inn/8/seen
+오늘 앞에 서는 건 뒤의 이름을 알아서야.
+
+erdene/inn/9/situation
+에르데네가 서둘러 먹다 수저를 놓는다.
+
+erdene/inn/9/lines/0
+기다리면 될 걸 알긴 해.
+
+erdene/inn/9/lines/1
+근데 먼저 가야 할 것 같아.
+
+erdene/inn/9/lines/2
+누가 늦는다는 말만 들으면 그래.
+
+erdene/inn/9/choices/0/text
+제가 데려올 테니 아무 걱정 마세요.
+
+erdene/inn/9/choices/0/response/0
+걱정도 내 몫이야. 다 치우지 마.
+
+erdene/inn/9/choices/0/response/1
+걱정하는 내 자리까지 없앨 필요는 없어.
+
+erdene/inn/9/choices/1/text
+늦는 이유를 같이 듣고 나가요.
+
+erdene/inn/9/choices/1/response/0
+그 사람 입이 있는데 내가 먼저 뛰었네.
+
+erdene/inn/9/choices/2/text
+한 숟갈 더 드세요.
+
+erdene/inn/9/choices/2/response/0
+식히기만 하다가 끝날 뻔했어.
+
+erdene/inn/9/seen
+늦는 사람 얘기는 그 사람한테 먼저 듣자.
+
+erdene/inn/10/situation
+에르데네가 문 밖을 보다가 돌아온다.
+
+erdene/inn/10/lines/0
+갈 데 없는 사람 얘기였어.
+
+erdene/inn/10/lines/1
+무리부터 만들면 되나 했지.
+
+erdene/inn/10/lines/2
+누가 들어오고 싶은지도 안 물었네.
+
+erdene/inn/10/choices/0/text
+거두기 전에 같이 갈지 물으면 되죠.
+
+erdene/inn/10/choices/0/response/0
+억지로 넣으면 또 흩어지겠지.
+
+erdene/inn/10/choices/0/response/1
+내가 직접 물어볼게.
+
+erdene/inn/10/choices/1/text
+먼저 사정을 들어요.
+
+erdene/inn/10/choices/1/response/0
+말하는 동안은 앞서가지 않을게.
+
+erdene/inn/10/choices/2/text
+힘드실 테니 그런 일은 길드에 맡겨요.
+
+erdene/inn/10/choices/2/response/0
+맡기고 등 돌리는 게 잘 안 돼.
+
+erdene/inn/10/choices/2/response/1
+기다릴 사람이 있으면 그냥 못 돌아서겠어.
+
+erdene/inn/10/seen
+함께 갈지 묻기 전에는 내 무리라고 부르지 않을게.
+
+erdene/inn/11/situation
+에르데네가 큰소리를 내다 목을 가다듬는다.
+
+erdene/inn/11/lines/0
+아, 놀랐어?
+
+erdene/inn/11/lines/1
+급히 말하면 더 커지네.
+
+erdene/inn/11/lines/2
+지금은 부탁 하나 하려던 건데.
+
+erdene/inn/11/choices/0/text
+물 좀 드릴까요?
+
+erdene/inn/11/choices/0/response/0
+한 모금이면 되겠어.
+
+erdene/inn/11/choices/1/text
+그냥 명령하셔도 돼요. 편하게 말하세요.
+
+erdene/inn/11/choices/1/response/0
+편하다고 시키고 싶은 건 아니야.
+
+erdene/inn/11/choices/1/response/1
+부탁할 말이니까 숨부터 고른 거야.
+
+erdene/inn/11/choices/2/text
+천천히 해요. 먼저 끼어들진 않을게요.
+
+erdene/inn/11/choices/2/response/0
+기다리면 더 크게 말할까 봐.
+
+erdene/inn/11/choices/2/response/1
+그래도 한 번 숨 쉬고 할게.
+
+erdene/inn/11/seen
+이번 말은 큰소리보다 숨이 먼저였어.
+
+erdene/inn/12/situation
+에르데네가 식탁을 쥔 손을 푼다.
+
+erdene/inn/12/lines/0
+아버지 부족이 해체됐어.
+
+erdene/inn/12/lines/1
+남은 이름도 남이 부르는 게 달랐지.
+
+erdene/inn/12/lines/2
+그 이름을 다시 쓰고 싶어.
+
+erdene/inn/12/choices/0/text
+지금 가문 이름도 좋으니 그걸로 충분하잖아요.
+
+erdene/inn/12/choices/0/response/0
+좋은 이름이라고 잃은 게 없어지진 않아.
+
+erdene/inn/12/choices/0/response/1
+지금 이름을 좋아해도 잃은 건 말할 수 있지.
+
+erdene/inn/12/choices/1/text
+말하기 힘든 옛 이름은 안 물을게요. 남기고 싶은 말부터 해요.
+
+erdene/inn/12/choices/1/response/0
+말하기 싫을 때도 있다는 건 알아주네.
+
+erdene/inn/12/choices/1/response/1
+지금 할 수 있는 얘기부터 할게.
+
+erdene/inn/12/choices/2/text
+듣고 있을게요.
+
+erdene/inn/12/choices/2/response/0
+바로 답하지 않아도 돼.
+
+erdene/inn/12/seen
+잃은 이름 얘기를 해도 지금 이름을 버리는 건 아니야.
+
+erdene/inn/13/situation
+에르데네가 접힌 종이를 펴다 멈춘다.
+
+erdene/inn/13/lines/0
+무리를 다시 세운다는 말만 했네.
+
+erdene/inn/13/lines/1
+같이 가는 사람한테도 그 말만 했어.
+
+erdene/inn/13/lines/2
+뭘 바라는지 묻지 않고.
+
+erdene/inn/13/choices/0/text
+이번엔 제가 어디까지 갈 수 있는지 물어봐 주세요.
+
+erdene/inn/13/choices/0/response/0
+그럼 먼저 물을게.
+
+erdene/inn/13/choices/0/response/1
+내가 멈추면 어디서 기다려 줄 수 있어?
+
+erdene/inn/13/choices/1/text
+오늘은 쉬어 가요.
+
+erdene/inn/13/choices/1/response/0
+쉰다고 뒤처지는 건 아니겠지.
+
+erdene/inn/13/choices/2/text
+목표가 크니 다른 일은 제가 맞출게요.
+
+erdene/inn/13/choices/2/response/0
+또 전부 나한테 맞추네.
+
+erdene/inn/13/choices/2/response/1
+그래서 뒤를 못 봤던 건데.
+
+erdene/inn/13/seen
+내 길에 맞추라는 말 대신 갈 수 있는 곳을 물을게.
+
+erdene/inn/14/situation
+에르데네가 나란 쪽의 웃음을 듣는다.
+
+erdene/inn/14/lines/0
+같은 데서 왔어도 다르지.
+
+erdene/inn/14/lines/1
+집안 얘기 나오면 더 그래.
+
+erdene/inn/14/lines/2
+지금 곁에 선 사람까지 놓치기 싫은데.
+
+erdene/inn/14/choices/0/text
+지금은 다른 자리로 갈까요?
+
+erdene/inn/14/choices/0/response/0
+자리를 피하는 게 꼭 지는 건 아니지.
+
+erdene/inn/14/choices/1/text
+지난 일은 잊고 사이좋게 지내면 편하잖아요.
+
+erdene/inn/14/choices/1/response/0
+잊으라는 말이 제일 안 편해.
+
+erdene/inn/14/choices/1/response/1
+같이 온 날만큼 예전 일도 내가 기억할게.
+
+erdene/inn/14/choices/2/text
+오늘 함께 한 일과 집안 얘기를 나눠 봐요.
+
+erdene/inn/14/choices/2/response/0
+같다고 덮지도 않는구나.
+
+erdene/inn/14/choices/2/response/1
+그럼 오늘 일부터 말할게.
+
+erdene/inn/14/seen
+오늘 함께 선 자리는 지난 일과 따로 기억할게.
+
+erdene/inn/15/situation
+에르데네가 빈 의자를 거칠게 세운다.
+
+erdene/inn/15/lines/0
+뛰어나가려던 거 맞아.
+
+erdene/inn/15/lines/1
+목소리도 안 들었어.
+
+erdene/inn/15/lines/2
+이번엔 돌아와서 듣고 있어.
+
+erdene/inn/15/choices/0/text
+놀라지 않았어요. 성격이 그런 건 다들 알죠.
+
+erdene/inn/15/choices/0/response/0
+그렇다고 매번 못 들은 척하면 안 되지.
+
+erdene/inn/15/choices/0/response/1
+들었다고 끝낼 말은 아닌 것 같아서 돌아왔어.
+
+erdene/inn/15/choices/1/text
+말을 못 들었으면 지금부터 같이 들어요.
+
+erdene/inn/15/choices/1/response/0
+혼내는 말부터 안 하네.
+
+erdene/inn/15/choices/1/response/1
+이번엔 끝까지 서 있을게.
+
+erdene/inn/15/choices/2/text
+의자부터 놓아요.
+
+erdene/inn/15/choices/2/response/0
+앉아서 들어 볼게.
+
+erdene/inn/15/seen
+몸이 먼저 나갔어도 귀까지 나가게 두지는 않을게.
+
+erdene/inn/16/situation
+에르데네가 공적 종이를 내려놓는다.
+
+erdene/inn/16/lines/0
+길은 이쪽이 빠르지.
+
+erdene/inn/16/lines/1
+근데 오늘은 못 가겠어.
+
+erdene/inn/16/lines/2
+먼저 챙길 사람이 있어.
+
+erdene/inn/16/choices/0/text
+그럼 오늘은 기다리는 쪽에 같이 서요.
+
+erdene/inn/16/choices/0/response/0
+느려도 앞을 잃은 건 아니겠지.
+
+erdene/inn/16/choices/0/response/1
+이 사람부터 보자.
+
+erdene/inn/16/choices/1/text
+어디부터 도울까요?
+
+erdene/inn/16/choices/1/response/0
+짐 말고 상태부터 봐 줘.
+
+erdene/inn/16/choices/2/text
+큰 목표가 있으니 이번엔 제가 대신 남을게요.
+
+erdene/inn/16/choices/2/response/0
+이번엔 내가 고른 사람 곁에 있고 싶어.
+
+erdene/inn/16/choices/2/response/1
+목표랑 다른 쪽을 내가 고른 날도 있어야지.
+
+erdene/inn/16/seen
+늦어지는 걸 알아도 오늘은 이쪽을 고를래.
+
+erdene/inn/17/situation
+에르데네가 낮은 목소리로 자리를 권한다.
+
+erdene/inn/17/lines/0
+크게 불러도 안 들릴 때 있지?
+
+erdene/inn/17/lines/1
+내가 그랬어.
+
+erdene/inn/17/lines/2
+이번엔 가까이서 말할게.
+
+erdene/inn/17/choices/0/text
+옆으로 올게요.
+
+erdene/inn/17/choices/0/response/0
+이쪽 의자는 안 흔들려.
+
+erdene/inn/17/choices/1/text
+큰 목소리가 더 어울리세요. 평소처럼 해요.
+
+erdene/inn/17/choices/1/response/0
+작게 하고 싶은 말도 있어.
+[원문 끝]

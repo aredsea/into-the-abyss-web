@@ -1,0 +1,497 @@
+[청크 컨텍스트] 이 텍스트는 한 문서를 나눈 청크 33/99이다.
+- 문서 전체가 아니므로 서두·결말·전환 문구를 새로 만들지 말 것. 경계가 잘린 듯 보여도 그대로 둔다.
+[진단]
+# 진단 — 게임 동료 대화 30명
+
+장르: 게임 대사. 화계는 인물별 speech.allowed_endings와 정본 말투를 보존한다. 글 전체 화계를 통일하지 않는다.
+
+1. D-14 생성 은유: 자리·몫·이름·줄·문·빈칸이 인물 고유 소재에서 벗어나 감정을 대신하는 곳. 정본 사건과 실제 물건은 보존하고 감정 대목만 일상 발화로 교정한다.
+2. C-8 대칭 대구: 정량 antithesis_count 12. A/B가 다르다·따로다 같은 명제 요약은 구체 대화로 바꾼다. 필요한 거절·경계와 반문은 남긴다.
+3. I-3/H-3 의미 해설: 행동 뒤 그 뜻은 아니다 등으로 감정을 재진술한다. 실제 오해를 풀어야 하는 곳과 중복 설명을 구분한다.
+4. F-7/A-15 사적 공문체: 간격 확보·대화 기록 등 사적 장면의 추상 행정어. 인물 고유 업무·계약·기록 장면은 보존한다.
+5. E-3/C-4 문형 반복: 먼저·오늘은·같이의 밀집, 상대를 진단하는 선택지 및 경계를 그대로 복창하는 반응. 시간 순서와 aff 기능은 유지하고 장면마다 발화 기능을 재검토한다.
+
+정량 앵커: 원문 689517자(경로 식별자 포함), relative_clause_nesting 14, double_particle_count 2, have_make_literal_count 1. risk_band low이나 긴 입력의 구조 지표로 heavy를 추천한다. 산문 기준 z-score를 화계가 섞인 게임 자료의 품질 등급으로 바로 적용하지 않는다.
+
+보존: 장면·선택지 수, 선택지 ID·순서·aff, 인물명·정본 사건·소재·화계. 도입 3줄, 전이 2줄. 수정은 finding이 있는 발화 필드에 한정한다. 지적별 제안은 고침 취지 반영 여부를 기록하며 감점 대사를 호의적 대사로 뒤집는 제안은 대안으로 반영한다.
+[진단 끝]
+
+[정량 사전 점수 v2.0 — v1.6 8지표(KatFish baseline) + v2.0 카운트형]
+risk_band: low  (score 0)
+genre: essay
+char_count: 6997
+
+[v1.6 지표]
+- comma_inclusion_rate: 0.02  (z=-1.42 vs essay 인간 baseline)
+- comma_usage_rate: 0.02  (z=-1.56 vs essay 인간 baseline)
+- ending_comma_rate: 0.00  (z=-0.52 vs essay 인간 baseline)
+- comma_segment_length: 2.80  (z=-0.74 vs essay 인간 baseline)
+- conclusion_pivot_count: 0
+- safe_balance_count: 0
+- hanja_nominalizer_density: 0.000  (z=-2.00 vs essay 인간 baseline)
+- lexical_diversity: 0.78  (z=+2.59 vs essay 인간 baseline)
+
+[v2.0 카운트형 지표 — 원값 / baseline calibration 전 z-score 해석 보류]
+- double_passive_count (이중 피동, 본진 A-8): 0
+- by_passive_count (~에 의해 피동, 본진 A-9): 0
+- pronoun_density (인칭 대명사 밀도, 본진 A-16): 0.000
+- have_make_literal_count (have/make 직역, 본진 A-7): 0
+- double_particle_count (이중 조사 결합, 본진 A-19): 0
+- relative_clause_nesting (관형절 3중+ 중첩 문장 수, 본진 A-18): 0
+- deul_overuse_rate ('-들' 남용률, 본진 A-17 hold): 0.000
+- 카운트 > 0 지표는 해당 본진 ID 처방(quick-rules.md·taxonomy)과 교차 확인 후 윤문할 것.
+
+[근거 사용 가이드]
+- 위 점수는 *근거 보조*다. 단독 판정 금지(보고서 명시).
+- z>1.0 지표는 quick-rules.md S1·S2 패턴과 교차 확인 후 윤문할 것.
+- ending_comma_rate가 ★ S1 트리거인 경우 C-11(연결어미 뒤 쉼표) 우선 손질.
+- conclusion_pivot 매치 토큰은 D-1·H-1 처방 적용 대상.
+
+[원문 시작]
+gerda/transitions/4/lines/1
+지금은 마음에 걸린 데부터 말할게요.
+
+gerda/transitions/5/situation
+게르다가 부적을 옷 안에 넣는다.
+
+gerda/transitions/5/lines/0
+다 안다는 소리는 아직 어렵네요.
+
+gerda/transitions/5/lines/1
+길에서 본 것부터만 말하죠.
+
+gerda/transitions/6/situation
+게르다가 문 닫히는 소리에 멈춘다.
+
+gerda/transitions/6/lines/0
+성문 얘기를 해 볼게요.
+
+gerda/transitions/6/lines/1
+내가 본 데까지만 알아도 괜찮다면요.
+
+gerda/transitions/7/situation
+게르다가 잔을 꼭 쥔다.
+
+gerda/transitions/7/lines/0
+잊으라는 말은 쉽게 들리네요.
+
+gerda/transitions/7/lines/1
+오늘은 농담도 잘 안 나와요.
+
+gerda/transitions/8/situation
+게르다가 부적을 손바닥에 놓는다.
+
+gerda/transitions/8/lines/0
+뜻까지 버린 건 아니에요.
+
+gerda/transitions/8/lines/1
+잠깐 맡겨 보고 싶어서요.
+
+gerda/transitions/9/situation
+게르다가 빈 옷깃을 만진다.
+
+gerda/transitions/9/lines/0
+안 믿게 됐다고 읽진 말아요.
+
+gerda/transitions/9/lines/1
+무슨 뜻으로 줬는지 다시 말할게요.
+
+gerda/transitions/10/situation
+게르다가 읽은 종이를 손끝으로 밀어 준다.
+
+gerda/transitions/10/lines/0
+싫으면 먼저 말할게요.
+
+gerda/transitions/10/lines/1
+그러니 따르기 전에 물을 자리도 줘요.
+
+gerda/transitions/11/situation
+게르다가 펜을 내려놓는다.
+
+gerda/transitions/11/lines/0
+묻기로 했던 말이 빠졌네요.
+
+gerda/transitions/11/lines/1
+이번만이라는 말부터 다시 봐요.
+
+gerda/transitions/12/situation
+게르다가 소원을 소리 내어 말한다.
+
+gerda/transitions/12/lines/0
+이번엔 입 푸는 거 아니에요.
+
+gerda/transitions/12/lines/1
+오늘도 같이 돌아오자는 말이에요.
+
+gerda/transitions/13/situation
+게르다가 창가에서 돌아앉는다.
+
+gerda/transitions/13/lines/0
+편해졌다고 겁까지 없어진 건 아니죠.
+
+gerda/transitions/13/lines/1
+아직 무섭다는 말도 다시 들어 주세요.
+
+judith/inn/0/situation
+유디트가 종이 위를 손으로 가린다.
+
+judith/inn/0/lines/0
+읽을 허락은 안 했어요.
+
+judith/inn/0/lines/1
+의뢰 얘기면 들어요.
+
+judith/inn/0/lines/2
+다른 질문은 나중에 고르죠.
+
+judith/inn/0/choices/0/text
+의뢰에서 맡을 범위만 확인할게요.
+
+judith/inn/0/choices/0/response/0
+제 연구까지 고르실 건 아니군요.
+
+judith/inn/0/choices/1/text
+시각을 전하러 왔어요.
+
+judith/inn/0/choices/1/response/0
+그건 확인했어요.
+
+judith/inn/0/choices/2/text
+보호하려고 그러니 위험한 연구는 제가 맡아 둘게요.
+
+judith/inn/0/choices/2/response/0
+보호한다며 빼앗는 손도 있네요.
+
+judith/inn/0/choices/2/response/1
+연구할 손은 아직 제 손이에요.
+
+judith/inn/0/seen
+덮은 계산을 동의한 계산으로 읽진 마세요.
+
+judith/inn/1/situation
+유디트가 펜을 세워 둔다.
+
+judith/inn/1/lines/0
+제가 짠 순서예요.
+
+judith/inn/1/lines/1
+좋아하라고 내놓은 건 아니고요.
+
+judith/inn/1/lines/2
+틀린 데 있으면 짚어요.
+
+judith/inn/1/choices/0/text
+다 읽고 답할게요.
+
+judith/inn/1/choices/0/response/0
+마지막 줄까지 보세요.
+
+judith/inn/1/choices/1/text
+복잡하니 전부 맡겨 드릴게요.
+
+judith/inn/1/choices/1/response/0
+따르겠다는 말이 검토는 아니에요.
+
+judith/inn/1/choices/1/response/1
+틀린 데를 알아야 저도 고치죠.
+
+judith/inn/1/choices/2/text
+틀린 부분은 근거랑 같이 말할게요.
+
+judith/inn/1/choices/2/response/0
+기분으로 지우진 않겠다는 말이네요.
+
+judith/inn/1/seen
+펜은 아직 고칠 수 있게 세워 둔 거예요.
+
+judith/inn/2/situation
+유디트가 지워진 줄을 다시 쓴다.
+
+judith/inn/2/lines/0
+이건 틀려서 지운 게 아니죠?
+
+judith/inn/2/lines/1
+허가가 없다고요?
+
+judith/inn/2/lines/2
+이유를 더 들어야겠어요.
+
+judith/inn/2/choices/0/text
+문제 생길까 봐 그냥 없애 두면 안심이죠.
+
+judith/inn/2/choices/0/response/0
+누가 안심할지부터 물어봐야겠어요.
+
+judith/inn/2/choices/0/response/1
+답을 지워 버리면 위험한 이유도 남지 않아요.
+
+judith/inn/2/choices/1/text
+금지한 말과 실제 위험을 나눠 봐요.
+
+judith/inn/2/choices/1/response/0
+그러면 뭘 확인할지는 정할 수 있겠네요.
+
+judith/inn/2/choices/2/text
+원문을 가져올게요.
+
+judith/inn/2/choices/2/response/0
+요약 말고 그대로요.
+
+judith/inn/2/seen
+다시 쓴 줄에는 지운 이유도 남겨 놓겠어요.
+
+judith/inn/3/situation
+유디트가 여관 문 쪽을 한번 본다.
+
+judith/inn/3/lines/0
+혼자 가려던 건 맞아요.
+
+judith/inn/3/lines/1
+듣기 싫을 답부터 떠올랐거든요.
+
+judith/inn/3/lines/2
+그래도 아직 안 갔어요.
+
+judith/inn/3/choices/0/text
+반대할 이유를 말할 때까지 기다려 주세요.
+
+judith/inn/3/choices/0/response/0
+그 사이에 제 계획은 읽어 보셔도 돼요.
+
+judith/inn/3/choices/1/text
+출발은 미뤄요.
+
+judith/inn/3/choices/1/response/0
+미룬 이유도 들려주세요.
+
+judith/inn/3/choices/2/text
+영리하시니 안전하게 알아서 하실 거예요.
+
+judith/inn/3/choices/2/response/0
+영리하다는 말로 질문을 끝내네요.
+
+judith/inn/3/choices/2/response/1
+안 간 동안은 같이 들을 말이 있잖아요.
+
+judith/inn/3/seen
+안 나간 동안에는 다른 말도 들을 수 있어요.
+
+judith/inn/4/situation
+유디트가 잔을 옮겨 계산할 자리를 만든다.
+
+judith/inn/4/lines/0
+허가는 안 받았어요.
+
+judith/inn/4/lines/1
+여기서는 쓸 수 있죠.
+
+judith/inn/4/lines/2
+쓸모가 있는지는 보시면 알아요.
+
+judith/inn/4/choices/0/text
+종이를 봐도 돼요?
+
+judith/inn/4/choices/0/response/0
+물 묻은 손만 닦고요.
+
+judith/inn/4/choices/1/text
+문제 안 생기게 허가부터 구하면 편하지 않아요?
+
+judith/inn/4/choices/1/response/0
+편하자는 말로 끝낼 문제는 아니에요.
+
+judith/inn/4/choices/1/response/1
+제가 하는 일보다 허가한 이름을 먼저 보시네요.
+
+judith/inn/4/choices/2/text
+허가 말고 맡길 일부터 같이 확인해요.
+
+judith/inn/4/choices/2/response/0
+제 솜씨를 읽는 질문이군요.
+
+judith/inn/4/choices/2/response/1
+그럼 설명할게요.
+
+judith/inn/4/seen
+잔 옆 계산은 허가증 없이도 읽을 수 있어요.
+
+judith/inn/5/situation
+유디트가 갑자기 펜을 들고 몸을 기울인다.
+
+judith/inn/5/lines/0
+잠깐, 그 말 다시요.
+
+judith/inn/5/lines/1
+무엇부터 달랐다고요?
+
+judith/inn/5/lines/2
+순서를 안 바꾸고 말해 봐요.
+
+judith/inn/5/choices/0/text
+대단해 보였다는 뜻이에요. 자세한 건 넘어가죠.
+
+judith/inn/5/choices/0/response/0
+바로 그 자세한 게 궁금한데요!
+
+judith/inn/5/choices/0/response/1
+모르는 부분을 알게 되는 데 시간이 더 걸려요.
+
+judith/inn/5/choices/1/text
+제가 본 데까지 말할게요. 원인은 아직 몰라요.
+
+judith/inn/5/choices/1/response/0
+원인은 제가 고를 테니…… 아니, 함께 봐요.
+
+judith/inn/5/choices/1/response/1
+본 것부터 듣고 싶어요.
+
+judith/inn/5/choices/2/text
+종이에 그려 볼게요.
+
+judith/inn/5/choices/2/response/0
+방향도 같이 표시해요.
+
+judith/inn/5/seen
+흥분해서 들은 순서를 바꾸진 않을게요.
+
+judith/inn/6/situation
+유디트가 빈칸을 손끝으로 짚는다.
+
+judith/inn/6/lines/0
+여긴 아직 몰라요.
+
+judith/inn/6/lines/1
+모르면 틀렸다고 쓰진 않죠.
+
+judith/inn/6/lines/2
+다음에 볼 자리로 둬요.
+
+judith/inn/6/choices/0/text
+답 없는 칸도 계획에 들어가는군요.
+
+judith/inn/6/choices/0/response/0
+모르는 게 있어야 가 볼 이유가 생기죠.
+
+judith/inn/6/choices/1/text
+다른 줄부터 읽어요.
+
+judith/inn/6/choices/1/response/0
+이쪽은 확인한 순서예요.
+
+judith/inn/6/choices/2/text
+완성돼야 읽기 좋으니 다 풀고 보여 주세요.
+
+judith/inn/6/choices/2/response/0
+다 푼 뒤엔 같이 궁금해할 게 줄어요.
+
+judith/inn/6/choices/2/response/1
+다 같이 궁금해질 때 먼저 보여 준 거예요.
+
+judith/inn/6/seen
+빈칸을 보여 준 것도 설명의 일부예요.
+
+judith/inn/7/situation
+유디트가 책을 덮고 상대를 본다.
+
+judith/inn/7/lines/0
+쓸모를 묻는 건 좋아요.
+
+judith/inn/7/lines/1
+허가증만 보자는 건 싫고요.
+
+judith/inn/7/lines/2
+어느 쪽을 보고 계세요?
+
+judith/inn/7/choices/0/text
+오늘은 책만 돌려드릴게요.
+
+judith/inn/7/choices/0/response/0
+접힌 곳은 펴지 말고 두세요.
+
+judith/inn/7/choices/1/text
+스승님이 인정하셨으면 믿을 수 있겠어요.
+
+judith/inn/7/choices/1/response/0
+그 인정 때문에 여기 있는 사람은 아니에요.
+
+judith/inn/7/choices/1/response/1
+제 답은 스승 이름과 따로 읽어도 돼요.
+
+judith/inn/7/choices/2/text
+직접 뭘 확인했는지부터 듣고 싶어요.
+
+judith/inn/7/choices/2/response/0
+따라 읽은 말로는 답하기 어렵겠네요.
+
+judith/inn/7/choices/2/response/1
+좋아요, 제가 한 데부터요.
+
+judith/inn/7/seen
+제 책은 남의 인정부터 펼쳐 보는 책이 아니에요.
+
+judith/inn/8/situation
+유디트가 먼저 종이를 밀어 준다.
+
+judith/inn/8/lines/0
+어제 틀린 줄 찾았어요.
+
+judith/inn/8/lines/1
+아니, 틀린 데를 찾은 게 좋아서요.
+
+judith/inn/8/lines/2
+왜 웃냐는 얼굴 하지 말아요.
+
+judith/inn/8/choices/0/text
+틀렸으면 실망하셨겠네요. 다음엔 잘될 거예요.
+
+judith/inn/8/choices/0/response/0
+실망 얘기가 아니라 알아냈다는 얘기예요.
+
+judith/inn/8/choices/0/response/1
+틀렸던 게 어디인지 알게 된 게 좋다니까요.
+
+judith/inn/8/choices/1/text
+어디서 어긋났는지 같이 따라가 봐요.
+
+judith/inn/8/choices/1/response/0
+처음 맞았다고 우기면 이 재미가 없죠.
+
+judith/inn/8/choices/1/response/1
+이쪽으로 와 봐요.
+
+judith/inn/8/choices/2/text
+표시한 데부터 볼게요.
+
+judith/inn/8/choices/2/response/0
+화살표를 거꾸로 읽진 말고요.
+
+judith/inn/8/seen
+틀린 줄을 찾은 날에도 웃을 수 있어요.
+
+judith/inn/9/situation
+유디트가 말을 빨리 잇다가 숨을 고른다.
+
+judith/inn/9/lines/0
+질문 하나만 더요.
+
+judith/inn/9/lines/1
+아, 먼저 하던 답도 안 들었네요.
+
+judith/inn/9/lines/2
+이번 건 순서대로 들을게요.
+
+judith/inn/9/choices/0/text
+질문은 적어 두고 제 말 끝까지 들어요.
+
+judith/inn/9/choices/0/response/0
+제가 답까지 대신하려 했네요.
+
+judith/inn/9/choices/1/text
+천천히 설명할게요.
+
+judith/inn/9/choices/1/response/0
+제가 건너뛰면 바로 멈춰요.
+
+judith/inn/9/choices/2/text
+전 잘 모르니 유디트 씨 결론으로 정해요.
+[원문 끝]

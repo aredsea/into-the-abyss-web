@@ -1,0 +1,491 @@
+[청크 컨텍스트] 이 텍스트는 한 문서를 나눈 청크 39/99이다.
+- 문서 전체가 아니므로 서두·결말·전환 문구를 새로 만들지 말 것. 경계가 잘린 듯 보여도 그대로 둔다.
+[진단]
+# 진단 — 게임 동료 대화 30명
+
+장르: 게임 대사. 화계는 인물별 speech.allowed_endings와 정본 말투를 보존한다. 글 전체 화계를 통일하지 않는다.
+
+1. D-14 생성 은유: 자리·몫·이름·줄·문·빈칸이 인물 고유 소재에서 벗어나 감정을 대신하는 곳. 정본 사건과 실제 물건은 보존하고 감정 대목만 일상 발화로 교정한다.
+2. C-8 대칭 대구: 정량 antithesis_count 12. A/B가 다르다·따로다 같은 명제 요약은 구체 대화로 바꾼다. 필요한 거절·경계와 반문은 남긴다.
+3. I-3/H-3 의미 해설: 행동 뒤 그 뜻은 아니다 등으로 감정을 재진술한다. 실제 오해를 풀어야 하는 곳과 중복 설명을 구분한다.
+4. F-7/A-15 사적 공문체: 간격 확보·대화 기록 등 사적 장면의 추상 행정어. 인물 고유 업무·계약·기록 장면은 보존한다.
+5. E-3/C-4 문형 반복: 먼저·오늘은·같이의 밀집, 상대를 진단하는 선택지 및 경계를 그대로 복창하는 반응. 시간 순서와 aff 기능은 유지하고 장면마다 발화 기능을 재검토한다.
+
+정량 앵커: 원문 689517자(경로 식별자 포함), relative_clause_nesting 14, double_particle_count 2, have_make_literal_count 1. risk_band low이나 긴 입력의 구조 지표로 heavy를 추천한다. 산문 기준 z-score를 화계가 섞인 게임 자료의 품질 등급으로 바로 적용하지 않는다.
+
+보존: 장면·선택지 수, 선택지 ID·순서·aff, 인물명·정본 사건·소재·화계. 도입 3줄, 전이 2줄. 수정은 finding이 있는 발화 필드에 한정한다. 지적별 제안은 고침 취지 반영 여부를 기록하며 감점 대사를 호의적 대사로 뒤집는 제안은 대안으로 반영한다.
+[진단 끝]
+
+[정량 사전 점수 v2.0 — v1.6 8지표(KatFish baseline) + v2.0 카운트형]
+risk_band: low  (score 0)
+genre: essay
+char_count: 6973
+
+[v1.6 지표]
+- comma_inclusion_rate: 0.01  (z=-1.48 vs essay 인간 baseline)
+- comma_usage_rate: 0.01  (z=-1.57 vs essay 인간 baseline)
+- ending_comma_rate: 0.00  (z=-0.52 vs essay 인간 baseline)
+- comma_segment_length: 3.00  (n/a vs essay 인간 baseline)
+- conclusion_pivot_count: 0
+- safe_balance_count: 0
+- hanja_nominalizer_density: 0.000  (z=-2.00 vs essay 인간 baseline)
+- lexical_diversity: 0.72  (z=+1.44 vs essay 인간 baseline)
+
+[v2.0 카운트형 지표 — 원값 / baseline calibration 전 z-score 해석 보류]
+- double_passive_count (이중 피동, 본진 A-8): 0
+- by_passive_count (~에 의해 피동, 본진 A-9): 0
+- pronoun_density (인칭 대명사 밀도, 본진 A-16): 0.000
+- have_make_literal_count (have/make 직역, 본진 A-7): 0
+- double_particle_count (이중 조사 결합, 본진 A-19): 0
+- relative_clause_nesting (관형절 3중+ 중첩 문장 수, 본진 A-18): 0
+- deul_overuse_rate ('-들' 남용률, 본진 A-17 hold): 0.000
+- 카운트 > 0 지표는 해당 본진 ID 처방(quick-rules.md·taxonomy)과 교차 확인 후 윤문할 것.
+
+[근거 사용 가이드]
+- 위 점수는 *근거 보조*다. 단독 판정 금지(보고서 명시).
+- z>1.0 지표는 quick-rules.md S1·S2 패턴과 교차 확인 후 윤문할 것.
+- ending_comma_rate가 ★ S1 트리거인 경우 C-11(연결어미 뒤 쉼표) 우선 손질.
+- conclusion_pivot 매치 토큰은 D-1·H-1 처방 적용 대상.
+
+[원문 시작]
+levia/dungeon/15/variants/0
+저, 잠깐만요. 아직 못 고르겠어요.
+
+levia/dungeon/15/variants/1
+생각하는 동안은 먼저 가지 말아 주세요.
+
+levia/dungeon/16/variants/0
+무서워도 대답해 볼 시간은 있어야겠죠?
+
+levia/dungeon/16/variants/1
+할 수 있는 몫과 싫은 몫을 나눠 말할게요.
+
+levia/dungeon/17/variants/0
+같이 가고 싶지만 지금도 조금 무서워요.
+
+levia/dungeon/17/variants/1
+그 말을 해도 제 자리는 남는 거죠?
+
+levia/dungeon/18/variants/0
+아직 손이 떨려서요.
+
+levia/dungeon/18/variants/1
+저도 돌아갈 사람에 들어가 있죠?
+
+levia/dungeon/19/variants/0
+제가 한 몫도 같이 보실 건가요?
+
+levia/dungeon/19/variants/1
+칭찬을 들으면 뭐라 할지 좀 늦네요.
+
+levia/dungeon/20/variants/0
+오늘은 제가 먼저 고맙다고 말할래요.
+
+levia/dungeon/20/variants/1
+같이 돌아가서 좀 쉬고 싶어요.
+
+levia/dungeon/21/variants/0
+아프면 그 말부터 해도 돼요.
+
+levia/dungeon/21/variants/1
+제가 할 수 있는 쪽도 한번 봐 주세요.
+
+levia/dungeon/22/variants/0
+괜찮다는 말이 너무 빨랐던 것 같아요.
+
+levia/dungeon/22/variants/1
+한 번만 더 물으면 답이 달라질 수도 있어요.
+
+levia/dungeon/23/variants/0
+도울 수 있는지 저한테도 물어 주세요.
+
+levia/dungeon/23/variants/1
+누구도 안 아팠으면 했는데 지금을 먼저 볼게요.
+
+levia/dungeon/24/variants/0
+저, 아직 답 못 들었어요.
+
+levia/dungeon/24/variants/1
+쓰러졌다고 두고 가지는 말아요.
+
+levia/dungeon/25/variants/0
+제 탓부터 말하지 않을게요.
+
+levia/dungeon/25/variants/1
+지금 할 수 있는 일이 있으면 같이 봐요.
+
+levia/dungeon/26/variants/0
+제가 겁나도 여기 남고 싶어요.
+
+levia/dungeon/26/variants/1
+누가 먼저인지 정하기 전에 이름을 불러요.
+
+levia/dungeon/27/variants/0
+아픈 데가 있어요. 숨길까 했는데요.
+
+levia/dungeon/27/variants/1
+못 걷는지는 다시 말씀드릴게요.
+
+levia/dungeon/28/variants/0
+이번에는 제가 먼저 아프다고 했어요.
+
+levia/dungeon/28/variants/1
+괜찮은 척하면 더 늦어질 것 같아서요.
+
+levia/dungeon/29/variants/0
+도움받고 싶다는 말도 해 볼게요.
+
+levia/dungeon/29/variants/1
+기다려 주시는 동안 저도 제 상태를 볼게요.
+
+levia/dungeon/30/variants/0
+구석이면 저는 편할 것 같아요.
+
+levia/dungeon/30/variants/1
+잔은 손 닿는 데만 놓아 주세요.
+
+levia/dungeon/31/variants/0
+오늘은 조금 가까이 앉고 싶어요.
+
+levia/dungeon/31/variants/1
+말이 없다고 혼자 두실 필요는 없어요.
+
+levia/dungeon/32/variants/0
+제가 고른 자리 옆도 비어 있나요?
+
+levia/dungeon/32/variants/1
+힘을 안 쓰는 시간에도 같이 있고 싶어요.
+
+levia/dungeon/33/variants/0
+저는 여는 법을 몰라요.
+
+levia/dungeon/33/variants/1
+힘을 쓰면 된다고 먼저 정하진 마세요.
+
+levia/dungeon/34/variants/0
+표시부터 같이 읽어도 될까요?
+
+levia/dungeon/34/variants/1
+다르게 보인 데만 제가 말할게요.
+
+levia/dungeon/35/variants/0
+모른다는 말을 숨기지 않을게요.
+
+levia/dungeon/35/variants/1
+못 열어도 제가 잘못했다고 먼저 말하진 않아요.
+
+levia/dungeon/36/variants/0
+저도 돌아왔다고 말해도 되죠?
+
+levia/dungeon/36/variants/1
+조용히 먼저 들어가려다 기다렸어요.
+
+levia/dungeon/37/variants/0
+따뜻한 차를 같이 마실 수 있나요?
+
+levia/dungeon/37/variants/1
+아까 무서웠던 얘기도 천천히 할게요.
+
+levia/dungeon/38/variants/0
+돌아오면 마시자고 한 잔은 제가 놓을게요.
+
+levia/dungeon/38/variants/1
+오늘은 먼저 기다리는 쪽도 해 보고 싶어요.
+
+levia/dungeon/39/variants/0
+무슨 일인지 모르는데 제 탓부터 했네요.
+
+levia/dungeon/39/variants/1
+잠깐 멈추고 상태를 봐도 될까요?
+
+levia/dungeon/40/variants/0
+그만하고 싶다는 말을 조금 늦게 했어요.
+
+levia/dungeon/40/variants/1
+다음에는 먼저 말할 자리를 같이 정해요.
+
+levia/dungeon/41/variants/0
+무서워도 혼자 사라지진 않을게요.
+
+levia/dungeon/41/variants/1
+실패한 날에도 여기 앉아 이야기할 수 있죠?
+
+levia/transitions/0/situation
+레비아가 가방 끈을 조금 푼다.
+
+levia/transitions/0/lines/0
+오늘 일은 들을게요.
+
+levia/transitions/0/lines/1
+다 답할 수는 없어도요.
+
+levia/transitions/1/situation
+레비아가 의자를 벽 쪽으로 옮긴다.
+
+levia/transitions/1/lines/0
+고르기도 전에 정해졌네요.
+
+levia/transitions/1/lines/1
+지금은 멀리서 들을래요.
+
+levia/transitions/2/situation
+레비아가 빈자리를 가리킨다.
+
+levia/transitions/2/lines/0
+여기 앉아도 될까요?
+
+levia/transitions/2/lines/1
+오늘은 안 일어나고 좀 있어 볼게요.
+
+levia/transitions/3/situation
+레비아가 잔을 식탁 끝에 둔다.
+
+levia/transitions/3/lines/0
+가까이 오라는 말이 조금 빨랐어요.
+
+levia/transitions/3/lines/1
+제가 다시 물을 때까지 기다려 주세요.
+
+levia/transitions/4/situation
+레비아가 먼저 옆 의자에 앉는다.
+
+levia/transitions/4/lines/0
+오늘은 이쪽에 있고 싶어요.
+
+levia/transitions/4/lines/1
+죄송해서가 아니라 제가요.
+
+levia/transitions/5/situation
+레비아가 숄을 고쳐 두른다.
+
+levia/transitions/5/lines/0
+괜찮은 척하는 게 다시 빨라졌네요.
+
+levia/transitions/5/lines/1
+처음 답은 고칠 시간을 주세요.
+
+levia/transitions/6/situation
+레비아가 둥근 잔에서 눈을 든다.
+
+levia/transitions/6/lines/0
+수정구가 깨진 날을 말해 볼게요.
+
+levia/transitions/6/lines/1
+이유는 저도 다 모르지만요.
+
+levia/transitions/7/situation
+레비아가 말을 멈추고 잔을 감싼다.
+
+levia/transitions/7/lines/0
+강해서 좋았던 기억은 아니에요.
+
+levia/transitions/7/lines/1
+오늘은 조금만 쉬었다 말할래요.
+
+levia/transitions/8/situation
+레비아가 출발 종이를 자기 쪽으로 둔다.
+
+levia/transitions/8/lines/0
+힘을 숨기지 않고 말해 볼게요.
+
+levia/transitions/8/lines/1
+멈추고 싶다는 말도 같이요.
+
+levia/transitions/9/situation
+레비아가 종이에서 손을 뗀다.
+
+levia/transitions/9/lines/0
+하겠다는 말을 끝까지로 읽으셨네요.
+
+levia/transitions/9/lines/1
+제가 고른 데부터 다시 말씀드릴게요.
+
+levia/transitions/10/situation
+레비아가 자기 이름 옆에 표시한다.
+
+levia/transitions/10/lines/0
+못 하겠으면 먼저 말할게요.
+
+levia/transitions/10/lines/1
+대답이 늦어도 기다려 주세요.
+
+levia/transitions/11/situation
+레비아가 표시하던 손을 멈춘다.
+
+levia/transitions/11/lines/0
+대신 답해 주시면 편할 줄 알았어요.
+
+levia/transitions/11/lines/1
+그런데 제 말이 더 작아졌네요.
+
+levia/transitions/12/situation
+레비아가 빈자리를 먼저 고른다.
+
+levia/transitions/12/lines/0
+오늘도 같이 앉고 싶었어요.
+
+levia/transitions/12/lines/1
+지금 대답을 듣는 게 좋아서 물었어요.
+
+levia/transitions/13/situation
+레비아가 의자를 당기다 잠시 멈춘다.
+
+levia/transitions/13/lines/0
+이제 다 괜찮다는 말은 조금 어려워요.
+
+levia/transitions/13/lines/1
+오늘 마음부터 다시 말할게요.
+
+urda/inn/0/situation
+우르다가 국그릇을 밀어 놓는다.
+
+urda/inn/0/lines/0
+밥은 먹어요.
+
+urda/inn/0/lines/1
+말을 받으라는 뜻은 아니오.
+
+urda/inn/0/lines/2
+오늘 내 설교는 그릇보다 작게 두겠소.
+
+urda/inn/0/choices/0/text
+불편하시니 국도 다음에 받죠.
+
+urda/inn/0/choices/0/response/0
+국까지 내 말의 편을 들 필요는 없는데요.
+
+urda/inn/0/choices/0/response/1
+국은 이야기 잘 듣는 사람한테만 주는 게 아니오.
+
+urda/inn/0/choices/1/text
+밥만 받고 질문은 오늘 쉬어 갈게요.
+
+urda/inn/0/choices/1/response/0
+그 약속이면 나도 수저를 들겠소.
+
+urda/inn/0/choices/2/text
+시각만 알려 드릴게요.
+
+urda/inn/0/choices/2/response/0
+먹는 동안 들을 귀는 있소.
+
+urda/inn/0/seen
+말 적게 하는 날에도 국은 내줄 수 있소.
+
+urda/inn/1/situation
+우르다가 성표를 법의 안으로 넣는다.
+
+urda/inn/1/lines/0
+논쟁할 날은 아니네요.
+
+urda/inn/1/lines/1
+필요한 말만 하지요.
+
+urda/inn/1/lines/2
+누굴 도울지는 듣고 정하겠소.
+
+urda/inn/1/choices/0/text
+신앙 말고 지금 할 일부터 맞춰요.
+
+urda/inn/1/choices/0/response/0
+좋소. 밥 굶은 쪽부터 읽어 봅시다.
+
+urda/inn/1/choices/1/text
+자리만 비워 둘게요.
+
+urda/inn/1/choices/1/response/0
+오래 세워 두지는 마시오.
+
+urda/inn/1/choices/2/text
+사이가 풀릴 때까지 일도 쉬시는 게 낫겠어요.
+
+urda/inn/1/choices/2/response/0
+도울 사람은 우리 사이를 기다릴 수 있소?
+
+urda/inn/1/choices/2/response/1
+도울 손까지 우리 기분으로 미루지는 맙시다.
+
+urda/inn/1/seen
+성표를 넣어도 도울 손까지 넣지는 않소.
+
+urda/inn/2/situation
+우르다가 농담을 삼키고 앉는다.
+
+urda/inn/2/lines/0
+웃기면 풀릴 줄 알았소.
+
+urda/inn/2/lines/1
+그건 내 편한 생각이었네요.
+
+urda/inn/2/lines/2
+이번에는 듣겠소.
+
+urda/inn/2/choices/0/text
+지금은 조금 쉬죠.
+
+urda/inn/2/choices/0/response/0
+차가 식는 동안만큼은 말도 쉬겠소.
+
+urda/inn/2/choices/1/text
+좋은 뜻인 걸 아니까 그냥 웃어넘겨요.
+
+urda/inn/2/choices/1/response/0
+좋은 뜻으로 남의 귀를 정할 순 없지요.
+
+urda/inn/2/choices/1/response/1
+웃으라고 하면 내가 또 귀를 닫을 것 같소.
+
+urda/inn/2/choices/2/text
+농담이 걸린 데부터 다시 말할게요.
+
+urda/inn/2/choices/2/response/0
+끝까지 듣고 내 말은 뒤에 놓겠소.
+
+urda/inn/2/seen
+삼킨 농담보다 들을 말이 먼저 남았소.
+
+urda/inn/3/situation
+우르다가 빈 그릇을 자기 앞으로 당긴다.
+
+urda/inn/3/lines/0
+누구 몫인지 먼저 물었어야 했소.
+
+urda/inn/3/lines/1
+도우면 다 좋아할 줄 알았지요.
+
+urda/inn/3/lines/2
+다시 물으러 가야겠어요.
+
+urda/inn/3/choices/0/text
+좋은 일이니 싫어해도 계속 도와 드려요.
+
+urda/inn/3/choices/0/response/0
+그분 자리까지 내가 채우면 숨 막히겠소.
+
+urda/inn/3/choices/0/response/1
+좋은 일도 받는 손이 고를 자리는 있어야겠소.
+
+urda/inn/3/choices/1/text
+다시 권하되 안 받는 답도 들어요.
+
+urda/inn/3/choices/1/response/0
+그릇을 채울 손보다 물을 입이 먼저군요.
+
+urda/inn/3/choices/2/text
+잠시 같이 기다려요.
+
+urda/inn/3/choices/2/response/0
+서두르면 또 밀어 놓겠지요.
+
+urda/inn/3/seen
+빈 그릇을 들고도 먼저 물을 수 있겠소.
+
+urda/inn/4/situation
+우르다가 수저 놓을 자리를 만든다.
+
+urda/inn/4/lines/0
+어서 앉아요.
+
+urda/inn/4/lines/1
+신 얘기는 좀 뒤에 합시다.
+[원문 끝]

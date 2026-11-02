@@ -1,0 +1,473 @@
+[청크 컨텍스트] 이 텍스트는 한 문서를 나눈 청크 61/99이다.
+- 문서 전체가 아니므로 서두·결말·전환 문구를 새로 만들지 말 것. 경계가 잘린 듯 보여도 그대로 둔다.
+[진단]
+# 진단 — 게임 동료 대화 30명
+
+장르: 게임 대사. 화계는 인물별 speech.allowed_endings와 정본 말투를 보존한다. 글 전체 화계를 통일하지 않는다.
+
+1. D-14 생성 은유: 자리·몫·이름·줄·문·빈칸이 인물 고유 소재에서 벗어나 감정을 대신하는 곳. 정본 사건과 실제 물건은 보존하고 감정 대목만 일상 발화로 교정한다.
+2. C-8 대칭 대구: 정량 antithesis_count 12. A/B가 다르다·따로다 같은 명제 요약은 구체 대화로 바꾼다. 필요한 거절·경계와 반문은 남긴다.
+3. I-3/H-3 의미 해설: 행동 뒤 그 뜻은 아니다 등으로 감정을 재진술한다. 실제 오해를 풀어야 하는 곳과 중복 설명을 구분한다.
+4. F-7/A-15 사적 공문체: 간격 확보·대화 기록 등 사적 장면의 추상 행정어. 인물 고유 업무·계약·기록 장면은 보존한다.
+5. E-3/C-4 문형 반복: 먼저·오늘은·같이의 밀집, 상대를 진단하는 선택지 및 경계를 그대로 복창하는 반응. 시간 순서와 aff 기능은 유지하고 장면마다 발화 기능을 재검토한다.
+
+정량 앵커: 원문 689517자(경로 식별자 포함), relative_clause_nesting 14, double_particle_count 2, have_make_literal_count 1. risk_band low이나 긴 입력의 구조 지표로 heavy를 추천한다. 산문 기준 z-score를 화계가 섞인 게임 자료의 품질 등급으로 바로 적용하지 않는다.
+
+보존: 장면·선택지 수, 선택지 ID·순서·aff, 인물명·정본 사건·소재·화계. 도입 3줄, 전이 2줄. 수정은 finding이 있는 발화 필드에 한정한다. 지적별 제안은 고침 취지 반영 여부를 기록하며 감점 대사를 호의적 대사로 뒤집는 제안은 대안으로 반영한다.
+[진단 끝]
+
+[정량 사전 점수 v2.0 — v1.6 8지표(KatFish baseline) + v2.0 카운트형]
+risk_band: low  (score 0)
+genre: essay
+char_count: 6986
+
+[v1.6 지표]
+- comma_inclusion_rate: 0.00  (z=-1.50 vs essay 인간 baseline)
+- comma_usage_rate: 0.00  (z=-1.58 vs essay 인간 baseline)
+- ending_comma_rate: 0.00  (z=-0.52 vs essay 인간 baseline)
+- comma_segment_length: 2.98  (n/a vs essay 인간 baseline)
+- conclusion_pivot_count: 0
+- safe_balance_count: 0
+- hanja_nominalizer_density: 0.000  (z=-2.00 vs essay 인간 baseline)
+- lexical_diversity: 0.73  (z=+1.62 vs essay 인간 baseline)
+
+[v2.0 카운트형 지표 — 원값 / baseline calibration 전 z-score 해석 보류]
+- double_passive_count (이중 피동, 본진 A-8): 0
+- by_passive_count (~에 의해 피동, 본진 A-9): 0
+- pronoun_density (인칭 대명사 밀도, 본진 A-16): 0.000
+- have_make_literal_count (have/make 직역, 본진 A-7): 0
+- double_particle_count (이중 조사 결합, 본진 A-19): 0
+- relative_clause_nesting (관형절 3중+ 중첩 문장 수, 본진 A-18): 0
+- deul_overuse_rate ('-들' 남용률, 본진 A-17 hold): 0.000
+- 카운트 > 0 지표는 해당 본진 ID 처방(quick-rules.md·taxonomy)과 교차 확인 후 윤문할 것.
+
+[근거 사용 가이드]
+- 위 점수는 *근거 보조*다. 단독 판정 금지(보고서 명시).
+- z>1.0 지표는 quick-rules.md S1·S2 패턴과 교차 확인 후 윤문할 것.
+- ending_comma_rate가 ★ S1 트리거인 경우 C-11(연결어미 뒤 쉼표) 우선 손질.
+- conclusion_pivot 매치 토큰은 D-1·H-1 처방 적용 대상.
+
+[원문 시작]
+berenga/inn/22/choices/1/text
+식사 시간은 확인해 둘게요.
+
+berenga/inn/22/choices/1/response/0
+늦어지면 서로 알려 주기로 해요.
+
+berenga/inn/22/choices/2/text
+매일 약속하면 떠나기 어렵겠죠?
+
+berenga/inn/22/choices/2/response/0
+어렵게 묶으려고 말한 건 아니에요.
+
+berenga/inn/22/choices/2/response/1
+언제 보느냐는 약속이지 못 떠나게 하는 건 아니죠.
+
+berenga/inn/22/seen
+내일 보자는 말에 식사 시간도 붙였어요.
+
+berenga/inn/23/situation
+이야기를 듣다가 자기 이름을 말한다.
+
+berenga/inn/23/lines/0
+산 사람 이름은 책에 안 쓴다고 했죠?
+
+berenga/inn/23/lines/1
+제 이름도 그렇네요.
+
+berenga/inn/23/lines/2
+누가 불러 주는 걸 들으면 더 잘 기억나요.
+
+berenga/inn/23/choices/0/text
+잔은 다 비우셨어요?
+
+berenga/inn/23/choices/0/response/0
+아직 남아서 천천히 마실게요.
+
+berenga/inn/23/choices/1/text
+베렌가 씨 이름도 책에 미리 적어 둬요.
+
+berenga/inn/23/choices/1/response/0
+아직 살아서 여기 앉아 있는데요.
+
+berenga/inn/23/choices/1/response/1
+살아 있는 제가 대답하는 걸 먼저 들어 주세요.
+
+berenga/inn/23/choices/2/text
+베렌가 씨, 잔을 이쪽에 놓을게요.
+
+berenga/inn/23/choices/2/response/0
+그렇게 평소처럼 불러 주시면 돼요.
+
+berenga/inn/23/seen
+제 이름은 여기서 불러 주시면 들어요.
+
+berenga/inn/24/situation
+짐을 내려놓고 어느 때보다 천천히 앉는다.
+
+berenga/inn/24/lines/0
+오늘은 돌아갈 시간부터 세지 않았어요.
+
+berenga/inn/24/lines/1
+이렇게 앉고 싶을 때도 있네요.
+
+berenga/inn/24/lines/2
+그렇다고 길이 싫어진 건 아니에요.
+
+berenga/inn/24/choices/0/text
+이제 떠돌지 않아도 되잖아요.
+
+berenga/inn/24/choices/0/response/0
+지금 앉아 있는 걸로만 봐 주세요.
+
+berenga/inn/24/choices/0/response/1
+길에서 보낼 날도 저는 소중해요.
+
+berenga/inn/24/choices/1/text
+길 얘기도 여기 앉아서 나눠요.
+
+berenga/inn/24/choices/1/response/0
+내일 갈지 말지는 나중에 정해도 되겠어요.
+
+berenga/inn/24/choices/1/response/1
+여기서 나눈 얘기는 다음 길에서도 기억하겠죠.
+
+berenga/inn/24/choices/2/text
+다리가 많이 아프세요?
+
+berenga/inn/24/choices/2/response/0
+쉬고 나면 좀 풀릴 것 같아요.
+
+berenga/inn/24/seen
+오늘은 갈 시간을 먼저 정하지 않을래요.
+
+berenga/inn/25/situation
+이름책 덮개를 손질하고 옆에 놓는다.
+
+berenga/inn/25/lines/0
+책을 아끼는 것처럼 저도 쉬라 하셨죠?
+
+berenga/inn/25/lines/1
+오늘은 그 말을 써먹으려고요.
+
+berenga/inn/25/lines/2
+덮개만 고치고 손을 놓을게요.
+
+berenga/inn/25/choices/0/text
+끝나면 제가 바늘을 치워 드려요.
+
+berenga/inn/25/choices/0/response/0
+찾는다고 다시 꺼내지 않게 잘 놔 주세요.
+
+berenga/inn/25/choices/1/text
+덮개는 많이 닳았네요.
+
+berenga/inn/25/choices/1/response/0
+이 부분만 꿰매면 당장은 괜찮아요.
+
+berenga/inn/25/choices/2/text
+새 책으로 옮기면 일이 빨라지겠어요.
+
+berenga/inn/25/choices/2/response/0
+옮겨 적는 게 오늘 쉬는 방법은 아니에요.
+
+berenga/inn/25/choices/2/response/1
+쉬겠다는 날에 새 일을 만들면 또 못 쉬어요.
+
+berenga/inn/25/seen
+덮개를 고친 다음에는 정말 손을 쉴게요.
+
+berenga/inn/26/situation
+어제 놓아둔 천을 보고 웃는다.
+
+berenga/inn/26/lines/0
+이거 그대로 있네요.
+
+berenga/inn/26/lines/1
+누가 옮겼어도 물어보면 됐겠지만요.
+
+berenga/inn/26/lines/2
+그래도 다시 보니까 반가워요.
+
+berenga/inn/26/choices/0/text
+물은 아직 안 받았어요.
+
+berenga/inn/26/choices/0/response/0
+앉기 전에 같이 가져올까요?
+
+berenga/inn/26/choices/1/text
+혹시 떠나실까 봐 제가 지켰어요.
+
+berenga/inn/26/choices/1/response/0
+천 하나를 지키느라 힘쓰진 말아요.
+
+berenga/inn/26/choices/1/response/1
+옮겼으면 물어보고 같이 펴면 돼요.
+
+berenga/inn/26/choices/2/text
+오늘도 여기 앉으려고 남겨 뒀어요.
+
+berenga/inn/26/choices/2/response/0
+그럼 제가 먼저 와서 기다려도 되겠어요?
+
+berenga/inn/26/seen
+어제 놓은 천을 보고 오늘도 앉았어요.
+
+berenga/inn/27/situation
+헤어질 때 가방끈보다 말을 먼저 건넨다.
+
+berenga/inn/27/lines/0
+오늘 와 주셔서 좋았어요.
+
+berenga/inn/27/lines/1
+길에서 만나서 반갑다는 인사 말고요.
+
+berenga/inn/27/lines/2
+여기로 찾아오셔서 좋았다는 얘기예요.
+
+berenga/inn/27/choices/0/text
+그럼 항상 여기서 기다려 주세요.
+
+berenga/inn/27/choices/0/response/0
+항상은 못 해도 기다릴 날은 말할 수 있어요.
+
+berenga/inn/27/choices/0/response/1
+기다리지 못하는 날은 먼저 알려 드리고 싶어요.
+
+berenga/inn/27/choices/1/text
+다음에도 만나러 여기 올게요.
+
+berenga/inn/27/choices/1/response/0
+제가 없으면 어디 갔는지 먼저 알려 둘게요.
+
+berenga/inn/27/choices/2/text
+내일도 책을 챙기세요?
+
+berenga/inn/27/choices/2/response/0
+쓸 일이 있으면 챙기고 아니면 두려고요.
+
+berenga/inn/27/seen
+다음에 언제 올 수 있는지 제가 먼저 알려 둘게요.
+
+berenga/dungeon/0/variants/0
+길 나설 준비는 됐어요.
+
+berenga/dungeon/0/variants/1
+오늘 부를 이름책도 챙겼어요.
+
+berenga/dungeon/1/variants/0
+가방이 걸리면 먼저 말해 줘요.
+
+berenga/dungeon/1/variants/1
+같이 걷는 속도로 나가요.
+
+berenga/dungeon/2/variants/0
+다시 돌아올 자리도 기억해요.
+
+berenga/dungeon/2/variants/1
+저도 먼저 앞서가지는 않을게요.
+
+berenga/dungeon/3/variants/0
+이쪽은 아직 모르는 길이네요.
+
+berenga/dungeon/3/variants/1
+길 위에서도 모르는 곳은 물어봐요.
+
+berenga/dungeon/4/variants/0
+돌아갈 쪽을 같이 짚어 볼까요?
+
+berenga/dungeon/4/variants/1
+제가 뒤처지면 한 번 불러 주세요.
+
+berenga/dungeon/5/variants/0
+여기서도 얼굴은 서로 보여요.
+
+berenga/dungeon/5/variants/1
+말소리 듣고 제 자리부터 정할게요.
+
+berenga/dungeon/6/variants/0
+찾은 게 있다면 같이 봐요.
+
+berenga/dungeon/6/variants/1
+이름을 아는 물건인지는 아직 몰라요.
+
+berenga/dungeon/7/variants/0
+설명보다 손을 먼저 멈춰요.
+
+berenga/dungeon/7/variants/1
+모르는 건 제가 묻고 싶네요.
+
+berenga/dungeon/8/variants/0
+저도 옆에서 한 번 볼게요.
+
+berenga/dungeon/8/variants/1
+찾았다고 성급히 부르진 않을게요.
+
+berenga/dungeon/9/variants/0
+싸움이 시작됐어요. 서로 봐 줘요!
+
+berenga/dungeon/9/variants/1
+제가 할 일도 지금부터 할게요!
+
+berenga/dungeon/10/variants/0
+신앙 묻는 시간은 필요 없어요!
+
+berenga/dungeon/10/variants/1
+누가 다쳤는지 먼저 알려 줘요!
+
+berenga/dungeon/11/variants/0
+지금은 길 얘기를 접어 둘게요!
+
+berenga/dungeon/11/variants/1
+제가 뒤에 있으니 목소리 들어요!
+
+berenga/dungeon/12/variants/0
+끝났네요! 다친 데 말해 봐요.
+
+berenga/dungeon/12/variants/1
+안 아프면 그때 같이 웃어요.
+
+berenga/dungeon/13/variants/0
+짐은 잠깐 내려두어도 돼요.
+
+berenga/dungeon/13/variants/1
+제 어깨도 좀 풀고 확인할게요.
+
+berenga/dungeon/14/variants/0
+기뻐할 틈이 생겨서 좋네요.
+
+berenga/dungeon/14/variants/1
+저도 무리한 곳은 숨기지 않을게요.
+
+berenga/dungeon/15/variants/0
+저 앞이면 지금 쉬어 가도 돼요.
+
+berenga/dungeon/15/variants/1
+준비 못 한 건 말하고 들어가요.
+
+berenga/dungeon/16/variants/0
+기도할 분은 하고 아닌 분은 쉬어요.
+
+berenga/dungeon/16/variants/1
+모두 같은 말을 할 필요는 없어요.
+
+berenga/dungeon/17/variants/0
+제가 불안하면 먼저 말씀드릴게요.
+
+berenga/dungeon/17/variants/1
+서로 준비됐는지 눈 보고 물어요.
+
+berenga/dungeon/18/variants/0
+큰 싸움이 끝났어요. 숨 좀 쉬어요.
+
+berenga/dungeon/18/variants/1
+다들 목소리로 답해 주실래요?
+
+berenga/dungeon/19/variants/0
+긴장이 풀리니 어깨가 아프네요.
+
+berenga/dungeon/19/variants/1
+상태를 본 다음에 기뻐해요.
+
+berenga/dungeon/20/variants/0
+책은 내려두고 제 어깨부터 좀 확인할게요.
+
+berenga/dungeon/20/variants/1
+지금 눈앞에 있는 분부터 볼게요.
+
+berenga/dungeon/21/variants/0
+아픈 데를 숨기고 계셨네요!
+
+berenga/dungeon/21/variants/1
+도움받는 데 믿는 신은 안 물어요!
+
+berenga/dungeon/22/variants/0
+제가 갈 수 있는 쪽을 알려 줘요!
+
+berenga/dungeon/22/variants/1
+입으로 괜찮다 하기 전에 좀 봐요!
+
+berenga/dungeon/23/variants/0
+지금은 제게 기대도 괜찮아요!
+
+berenga/dungeon/23/variants/1
+혼자 버티려다 더 늦지는 말아요!
+
+berenga/dungeon/24/variants/0
+쓰러진 분 옆을 비워 줘요!
+
+berenga/dungeon/24/variants/1
+확인하기 전에 책은 안 펼쳐요!
+
+berenga/dungeon/25/variants/0
+대답이 들리면 제게도 알려 줘요.
+
+berenga/dungeon/25/variants/1
+살펴볼 때까지 결론 내리진 말아요.
+
+berenga/dungeon/26/variants/0
+지금 할 수 있는 일을 찾아요.
+
+berenga/dungeon/26/variants/1
+제가 먼저 다가갈 테니 같이 봐요.
+
+berenga/dungeon/27/variants/0
+저도 상처가 났네요.
+
+berenga/dungeon/27/variants/1
+괜찮다는 말부터 하진 않을게요.
+
+berenga/dungeon/28/variants/0
+책은 내려놓고 제 상처도 볼게요.
+
+berenga/dungeon/28/variants/1
+제가 도움을 청할 차례인가 봐요.
+
+berenga/dungeon/29/variants/0
+아프면 먼저 말하기로 했죠?
+
+berenga/dungeon/29/variants/1
+제 쪽도 잠깐 봐 주실래요?
+
+berenga/dungeon/30/variants/0
+잠깐이라도 앉아 쉬어요.
+
+berenga/dungeon/30/variants/1
+짐을 진 채로 쉴 필요는 없죠.
+
+berenga/dungeon/31/variants/0
+오늘은 수다도 조금 쉬어 갈까요?
+
+berenga/dungeon/31/variants/1
+이름책도 마른 곳에 내려둘게요.
+
+berenga/dungeon/32/variants/0
+떠날 얘기는 쉬고 나서 해요.
+
+berenga/dungeon/32/variants/1
+저도 더 앉아 있고 싶네요.
+
+berenga/dungeon/33/variants/0
+봉인된 건 그대로 두고 살펴요.
+
+berenga/dungeon/33/variants/1
+기도로 열린다고 약속하진 못해요.
+
+berenga/dungeon/34/variants/0
+아는 조건이 있는지 확인해요.
+
+berenga/dungeon/34/variants/1
+제 신앙이 열쇠인 건 아니에요.
+
+berenga/dungeon/35/variants/0
+모르면 기다릴 수 있는 거죠.
+
+berenga/dungeon/35/variants/1
+같이 본 것만 말하고 정해요.
+
+berenga/dungeon/36/variants/0
+돌아온 얼굴 보니 반갑네요!
+
+berenga/dungeon/36/variants/1
+짐 놓을 자리부터 찾을까요?
+[원문 끝]

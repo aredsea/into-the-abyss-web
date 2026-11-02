@@ -1,0 +1,488 @@
+[청크 컨텍스트] 이 텍스트는 한 문서를 나눈 청크 24/99이다.
+- 문서 전체가 아니므로 서두·결말·전환 문구를 새로 만들지 말 것. 경계가 잘린 듯 보여도 그대로 둔다.
+[진단]
+# 진단 — 게임 동료 대화 30명
+
+장르: 게임 대사. 화계는 인물별 speech.allowed_endings와 정본 말투를 보존한다. 글 전체 화계를 통일하지 않는다.
+
+1. D-14 생성 은유: 자리·몫·이름·줄·문·빈칸이 인물 고유 소재에서 벗어나 감정을 대신하는 곳. 정본 사건과 실제 물건은 보존하고 감정 대목만 일상 발화로 교정한다.
+2. C-8 대칭 대구: 정량 antithesis_count 12. A/B가 다르다·따로다 같은 명제 요약은 구체 대화로 바꾼다. 필요한 거절·경계와 반문은 남긴다.
+3. I-3/H-3 의미 해설: 행동 뒤 그 뜻은 아니다 등으로 감정을 재진술한다. 실제 오해를 풀어야 하는 곳과 중복 설명을 구분한다.
+4. F-7/A-15 사적 공문체: 간격 확보·대화 기록 등 사적 장면의 추상 행정어. 인물 고유 업무·계약·기록 장면은 보존한다.
+5. E-3/C-4 문형 반복: 먼저·오늘은·같이의 밀집, 상대를 진단하는 선택지 및 경계를 그대로 복창하는 반응. 시간 순서와 aff 기능은 유지하고 장면마다 발화 기능을 재검토한다.
+
+정량 앵커: 원문 689517자(경로 식별자 포함), relative_clause_nesting 14, double_particle_count 2, have_make_literal_count 1. risk_band low이나 긴 입력의 구조 지표로 heavy를 추천한다. 산문 기준 z-score를 화계가 섞인 게임 자료의 품질 등급으로 바로 적용하지 않는다.
+
+보존: 장면·선택지 수, 선택지 ID·순서·aff, 인물명·정본 사건·소재·화계. 도입 3줄, 전이 2줄. 수정은 finding이 있는 발화 필드에 한정한다. 지적별 제안은 고침 취지 반영 여부를 기록하며 감점 대사를 호의적 대사로 뒤집는 제안은 대안으로 반영한다.
+[진단 끝]
+
+[정량 사전 점수 v2.0 — v1.6 8지표(KatFish baseline) + v2.0 카운트형]
+risk_band: low  (score 0)
+genre: essay
+char_count: 6950
+
+[v1.6 지표]
+- comma_inclusion_rate: 0.01  (z=-1.48 vs essay 인간 baseline)
+- comma_usage_rate: 0.01  (z=-1.57 vs essay 인간 baseline)
+- ending_comma_rate: 0.00  (z=-0.52 vs essay 인간 baseline)
+- comma_segment_length: 2.84  (n/a vs essay 인간 baseline)
+- conclusion_pivot_count: 0
+- safe_balance_count: 0
+- hanja_nominalizer_density: 0.000  (z=-2.00 vs essay 인간 baseline)
+- lexical_diversity: 0.80  (z=+3.07 vs essay 인간 baseline)
+
+[v2.0 카운트형 지표 — 원값 / baseline calibration 전 z-score 해석 보류]
+- double_passive_count (이중 피동, 본진 A-8): 0
+- by_passive_count (~에 의해 피동, 본진 A-9): 0
+- pronoun_density (인칭 대명사 밀도, 본진 A-16): 0.000
+- have_make_literal_count (have/make 직역, 본진 A-7): 0
+- double_particle_count (이중 조사 결합, 본진 A-19): 0
+- relative_clause_nesting (관형절 3중+ 중첩 문장 수, 본진 A-18): 1
+- deul_overuse_rate ('-들' 남용률, 본진 A-17 hold): 0.000
+- 카운트 > 0 지표는 해당 본진 ID 처방(quick-rules.md·taxonomy)과 교차 확인 후 윤문할 것.
+
+[근거 사용 가이드]
+- 위 점수는 *근거 보조*다. 단독 판정 금지(보고서 명시).
+- z>1.0 지표는 quick-rules.md S1·S2 패턴과 교차 확인 후 윤문할 것.
+- ending_comma_rate가 ★ S1 트리거인 경우 C-11(연결어미 뒤 쉼표) 우선 손질.
+- conclusion_pivot 매치 토큰은 D-1·H-1 처방 적용 대상.
+
+[원문 시작]
+bianca/inn/2/seen
+오늘 잔을 돌린 횟수까지 셀 필요는 없겠죠?
+
+bianca/inn/3/situation
+비앙카가 숫자 아래 선을 긋는다.
+
+bianca/inn/3/lines/0
+빠진 몫이 있어요.
+
+bianca/inn/3/lines/1
+누구 실수인지는 뒤에 물을게요.
+
+bianca/inn/3/lines/2
+지금은 받지 못한 쪽부터요.
+
+bianca/inn/3/choices/0/text
+누락부터 바로잡고 경위는 같이 확인해요.
+
+bianca/inn/3/choices/0/response/0
+서로 다른 일로 보시는군요.
+
+bianca/inn/3/choices/1/text
+어느 줄인가요?
+
+bianca/inn/3/choices/1/response/0
+여기 끝자리부터 봐 주세요.
+
+bianca/inn/3/choices/2/text
+먼저 받은 분들한테 조금씩 부탁하면 되죠.
+
+bianca/inn/3/choices/2/response/0
+잘못 없는 몫부터 움직이는 셈이네요.
+
+bianca/inn/3/choices/2/response/1
+나누기 전에 받은 분들 몫부터 확인해요.
+
+bianca/inn/3/seen
+빠진 줄은 조용히 줄여 쓰지 않겠어요.
+
+bianca/inn/4/situation
+비앙카가 의자를 내준다.
+
+bianca/inn/4/lines/0
+먼 길 오셨겠어요.
+
+bianca/inn/4/lines/1
+어느 길로 오셨는지 여쭤도 될까요?
+
+bianca/inn/4/lines/2
+괜찮으시면 앉아서 들어요.
+
+bianca/inn/4/choices/0/text
+동문 쪽으로 왔어요.
+
+bianca/inn/4/choices/0/response/0
+걸음이 바빴겠어요. 더 캐묻진 않을게요.
+
+bianca/inn/4/choices/1/text
+저도 다 말씀드릴게요. 비앙카 씨도 그러시면 편하겠어요.
+
+bianca/inn/4/choices/1/response/0
+너무 빨리 편해지면 누가 먼저 불편해질까요?
+
+bianca/inn/4/choices/1/response/1
+말씀드릴 범위는 저도 천천히 고를래요.
+
+bianca/inn/4/choices/2/text
+차부터 마시고 어디까지 말할지 고를게요.
+
+bianca/inn/4/choices/2/response/0
+말씀도 천천히 고르시는군요.
+
+bianca/inn/4/choices/2/response/1
+그동안 차는 권해도 되겠죠?
+
+bianca/inn/4/seen
+첫 잔에 질문을 다 담지는 않을게요.
+
+bianca/inn/5/situation
+비앙카가 숫자 적힌 쪽을 돌려 준다.
+
+bianca/inn/5/lines/0
+여기서 멈췄어요.
+
+bianca/inn/5/lines/1
+작은 차이라도 남거든요.
+
+bianca/inn/5/lines/2
+함께 확인하시겠어요?
+
+bianca/inn/5/choices/0/text
+밤늦었으니 대충 맞춰도 괜찮아요.
+
+bianca/inn/5/choices/0/response/0
+틀린 수는 밤 지나도 그대로예요.
+
+bianca/inn/5/choices/0/response/1
+작은 차이가 어느 이름 옆에 남는지 보자는 거예요.
+
+bianca/inn/5/choices/1/text
+누구 몫인지까지 맞춰 봐요.
+
+bianca/inn/5/choices/1/response/0
+이름은 빼고 합계만 맞추는 분도 있죠.
+
+bianca/inn/5/choices/1/response/1
+그다음 줄까지 보시네요.
+
+bianca/inn/5/choices/2/text
+한 줄씩 읽어 주세요.
+
+bianca/inn/5/choices/2/response/0
+제가 짚는 곳을 같이 보세요.
+
+bianca/inn/5/seen
+숫자 옆의 이름까지 읽고 돌려드릴게요.
+
+bianca/inn/6/situation
+비앙카가 질문을 메모하다 웃는다.
+
+bianca/inn/6/lines/0
+제가 질문이 많았네요.
+
+bianca/inn/6/lines/1
+견습은 배울 게 많아서요.
+
+bianca/inn/6/lines/2
+불편한 건 빼셔도 돼요.
+
+bianca/inn/6/choices/0/text
+비앙카 씨 얘기도 하나 들을 차례네요.
+
+bianca/inn/6/choices/0/response/0
+어느 이야기가 값이 있을까요?
+
+bianca/inn/6/choices/0/response/1
+아, 먼저 값을 매겼네요.
+
+bianca/inn/6/choices/1/text
+오늘 본 것만 말할게요.
+
+bianca/inn/6/choices/1/response/0
+그 범위면 저도 헷갈리지 않겠어요.
+
+bianca/inn/6/choices/2/text
+보고할 내용까지 정리해 드릴까요?
+
+bianca/inn/6/choices/2/response/0
+제가 무엇을 남길지도 미리 고르시게요?
+
+bianca/inn/6/choices/2/response/1
+제가 묻는 사람일 때만 편한 자리는 아니었으면 해요.
+
+bianca/inn/6/seen
+질문 하나 뒤에 제 대답도 놓아 볼게요.
+
+bianca/inn/7/situation
+비앙카가 포도주 잔을 빛에 비춘다.
+
+bianca/inn/7/lines/0
+좋은 향이죠?
+
+bianca/inn/7/lines/1
+숫자를 안 세는 때도 있어요.
+
+bianca/inn/7/lines/2
+이것까지 놀라실 필요는 없는데요.
+
+bianca/inn/7/choices/0/text
+향은 잘 모르겠어요.
+
+bianca/inn/7/choices/0/response/0
+그럼 천천히 맡아 보셔도 돼요.
+
+bianca/inn/7/choices/1/text
+얼마짜린지 알면 더 맛있을 것 같아요.
+
+bianca/inn/7/choices/1/response/0
+오늘은 값부터 말하지 않으려 했는데요.
+
+bianca/inn/7/choices/1/response/1
+좋다고 먼저 고른 향도 있거든요.
+
+bianca/inn/7/choices/2/text
+좋아하는 이유는 값 말고도 있겠죠.
+
+bianca/inn/7/choices/2/response/0
+알아맞히려 하지 않아서 좋네요.
+
+bianca/inn/7/seen
+오늘 첫 잔에는 가격을 적지 않을래요.
+
+bianca/inn/8/situation
+비앙카가 메모를 가방에 넣는다.
+
+bianca/inn/8/lines/0
+오늘은 제가 먼저 말할게요.
+
+bianca/inn/8/lines/1
+질문이 없으면 이상하시려나요?
+
+bianca/inn/8/lines/2
+그냥 조금 피곤했어요.
+
+bianca/inn/8/choices/0/text
+질문 드릴 테니 평소처럼 답해 보세요.
+
+bianca/inn/8/choices/0/response/0
+편하게 해 주시려는 건 알겠어요.
+
+bianca/inn/8/choices/0/response/1
+그런데 오늘은 묻는 쪽도 쉬고 싶네요.
+
+bianca/inn/8/choices/1/text
+듣는 말까지 정리하실 필요는 없어요.
+
+bianca/inn/8/choices/1/response/0
+나중에 쓸 문장부터 고르고 있었네요.
+
+bianca/inn/8/choices/1/response/1
+오늘은 보고할 문장을 고르지 않고 말해 볼게요.
+
+bianca/inn/8/choices/2/text
+차를 더 마실까요?
+
+bianca/inn/8/choices/2/response/0
+오늘은 따뜻한 게 좋겠어요.
+
+bianca/inn/8/seen
+질문이 없는 날에도 제 자리는 있네요.
+
+bianca/inn/9/situation
+비앙카가 명부 얘기에서 말끝을 늦춘다.
+
+bianca/inn/9/lines/0
+가문 이름은 있어요.
+
+bianca/inn/9/lines/1
+들어갈 수 있는 자리와는 별개죠.
+
+bianca/inn/9/lines/2
+문 앞에서 이름을 다시 읽게 돼요.
+
+bianca/inn/9/choices/0/text
+이름이 있는데도 못 들어가는 자리가 궁금해요.
+
+bianca/inn/9/choices/0/response/0
+이름을 모른다고 막힌 건 아니거든요.
+
+bianca/inn/9/choices/1/text
+계속 들어도 될까요?
+
+bianca/inn/9/choices/1/response/0
+오늘은 여기까지만 말씀드릴게요.
+
+bianca/inn/9/choices/2/text
+부유한 가문이면 다른 기회도 많겠어요.
+
+bianca/inn/9/choices/2/response/0
+많다는 말이 그 자리까지 열지는 않아요.
+
+bianca/inn/9/choices/2/response/1
+다른 기회가 그 문을 대신 열지는 못하네요.
+
+bianca/inn/9/seen
+가문 이름과 열린 문을 같은 수로 세진 않아요.
+
+bianca/inn/10/situation
+비앙카가 미소를 거두지 못한 채 잔을 놓는다.
+
+bianca/inn/10/lines/0
+괜찮아요.
+
+bianca/inn/10/lines/1
+아, 너무 빨리 답했네요.
+
+bianca/inn/10/lines/2
+무슨 말인지 듣기도 전에요.
+
+bianca/inn/10/choices/0/text
+잠깐 쉬었다 해요.
+
+bianca/inn/10/choices/0/response/0
+잔을 놓은 채 쉬어도 되겠네요.
+
+bianca/inn/10/choices/1/text
+웃고 계시니 아직 힘이 있으신가 봐요.
+
+bianca/inn/10/choices/1/response/0
+힘이 없어도 웃는 건 할 수 있어요.
+
+bianca/inn/10/choices/1/response/1
+괜찮은 표정을 먼저 고르는 버릇이 오래돼서요.
+
+bianca/inn/10/choices/2/text
+다시 답하셔도 처음 답을 붙잡진 않을게요.
+
+bianca/inn/10/choices/2/response/0
+그럼 조금 지쳤다고 고칠게요.
+
+bianca/inn/10/seen
+다시 고른 답은 첫 미소와 달라도 괜찮겠죠?
+
+bianca/inn/11/situation
+비앙카가 나눈 종이를 모두 펼친다.
+
+bianca/inn/11/lines/0
+빠진 장은 없어요.
+
+bianca/inn/11/lines/1
+제 몫도 여기에 있고요.
+
+bianca/inn/11/lines/2
+함께 읽으면 더 분명하겠죠.
+
+bianca/inn/11/choices/0/text
+믿으니 제 몫은 나중에 봐도 괜찮아요.
+
+bianca/inn/11/choices/0/response/0
+믿어서 확인하는 것도 가능해요.
+
+bianca/inn/11/choices/0/response/1
+나중에 보면 믿음이 더 좋아지는 숫자는 아니에요.
+
+bianca/inn/11/choices/1/text
+비앙카 씨 몫부터 숨기지 않고 확인해요.
+
+bianca/inn/11/choices/1/response/0
+남의 셈만 보던 사람으로 남기진 않으시네요.
+
+bianca/inn/11/choices/2/text
+제가 읽은 장부터 드릴게요.
+
+bianca/inn/11/choices/2/response/0
+그 옆으로 순서대로 놓아요.
+
+bianca/inn/11/seen
+제 이름 적힌 장도 같은 자리에서 읽어요.
+
+bianca/inn/12/situation
+비앙카가 접힌 신청서 얘기를 꺼낸다.
+
+bianca/inn/12/lines/0
+가문 신청은 기각됐어요.
+
+bianca/inn/12/lines/1
+돈이 없어서였느냐고들 물어요.
+
+bianca/inn/12/lines/2
+그 답이면 참 쉬웠겠죠.
+
+bianca/inn/12/choices/0/text
+거절 뒤에도 같은 문을 보게 된 이유를 듣고 싶어요.
+
+bianca/inn/12/choices/0/response/0
+돌아서면 편하다는 말은 안 하시네요.
+
+bianca/inn/12/choices/0/response/1
+조금 길어질 거예요.
+
+bianca/inn/12/choices/1/text
+어떤 자리였어요?
+
+bianca/inn/12/choices/1/response/0
+황금 명부에 오르는 자리였어요.
+
+bianca/inn/12/choices/2/text
+지금도 충분히 잘 사시니 잊으면 어떨까요?
+
+bianca/inn/12/choices/2/response/0
+충분한지는 누가 정해 주는 걸까요?
+
+bianca/inn/12/choices/2/response/1
+돌아서는 말도 제가 골라야겠지요.
+
+bianca/inn/12/seen
+기각됐다는 한 줄 뒤에 남은 말이 많아요.
+
+bianca/inn/13/situation
+비앙카가 낮은 목소리로 보고서를 언급한다.
+
+bianca/inn/13/lines/0
+십인 위원회에 써요.
+
+bianca/inn/13/lines/1
+길드 안을 들여다보라고 왔죠.
+
+bianca/inn/13/lines/2
+좋게 들릴 말은 아니네요.
+
+bianca/inn/13/choices/0/text
+지금 답은 안 할게요.
+
+bianca/inn/13/choices/0/response/0
+그럴 시간은 드려야죠.
+
+bianca/inn/13/choices/1/text
+그분들이 시킨 일이니 책임감 탓은 아니잖아요.
+
+bianca/inn/13/choices/1/response/0
+시켰다는 말로 제가 쓴 줄을 없애진 못해요.
+
+bianca/inn/13/choices/1/response/1
+보고하라고 한 손과 실제 적은 손은 달라요.
+
+bianca/inn/13/choices/2/text
+어디까지 보고하는지는 비앙카 씨께 묻고 판단할게요.
+
+bianca/inn/13/choices/2/response/0
+알았으니 다 안다는 말은 아니군요.
+
+bianca/inn/13/choices/2/response/1
+그럼 제가 쓴 범위부터 말할게요.
+
+bianca/inn/13/seen
+부드럽게 말해도 보고했다는 사실은 남아요.
+
+bianca/inn/14/situation
+비앙카가 보증 얘기에서 손을 멈춘다.
+
+bianca/inn/14/lines/0
+표를 모아 준다고 했어요.
+
+bianca/inn/14/lines/1
+그 말만으로 문이 열리진 않죠.
+
+bianca/inn/14/lines/2
+저도 반쯤은 알아요.
+
+bianca/inn/14/choices/0/text
+약속까지 받았으니 이제 기다리면 되겠네요.
+
+bianca/inn/14/choices/0/response/0
+기다린다고 다 주어지는 약속은 아니에요.
+
+bianca/inn/14/choices/0/response/1
+말씀만 듣고 있던 제가 모르는 것도 아니었어요.
+[원문 끝]

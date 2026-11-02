@@ -1,0 +1,1224 @@
+{
+  "errors": [
+    {
+      "file": "altan.json",
+      "path": "inn/3/lines/2",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "altan.json",
+      "path": "/",
+      "message": "duplicate displayed lines"
+    },
+    {
+      "file": "altan.json",
+      "path": "/",
+      "message": "duplicate complete sentences"
+    },
+    {
+      "file": "altan.json",
+      "path": "/speech",
+      "message": "declared speech endings violated; review required"
+    },
+    {
+      "file": "bargut.json",
+      "path": "inn/10/lines/2",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "bargut.json",
+      "path": "dungeon/37/variants/1",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "bargut.json",
+      "path": "/",
+      "message": "duplicate displayed lines"
+    },
+    {
+      "file": "bargut.json",
+      "path": "/",
+      "message": "duplicate complete sentences"
+    },
+    {
+      "file": "bargut.json",
+      "path": "/speech",
+      "message": "declared speech endings violated; review required"
+    },
+    {
+      "file": "berenga.json",
+      "path": "inn/7/lines/2",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "berenga.json",
+      "path": "inn/19/lines/2",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "berenga.json",
+      "path": "dungeon/18/variants/1",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "berenga.json",
+      "path": "dungeon/36/variants/1",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "felice.json",
+      "path": "inn/11/lines/2",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "felice.json",
+      "path": "dungeon/18/variants/1",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "gunhild.json",
+      "path": "inn/13/lines/2",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "gunhild.json",
+      "path": "/speech",
+      "message": "declared speech endings violated; review required"
+    },
+    {
+      "file": "hedwig.json",
+      "path": "inn/10/lines/2",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "hedwig.json",
+      "path": "inn/22/lines/2",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "hedwig.json",
+      "path": "inn/24/lines/2",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "hedwig.json",
+      "path": "/speech",
+      "message": "declared speech endings violated; review required"
+    },
+    {
+      "file": "sorel.json",
+      "path": "inn/13/lines/2",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "tika.json",
+      "path": "inn/1/lines/2",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "tika.json",
+      "path": "inn/6/lines/2",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "tika.json",
+      "path": "inn/7/lines/2",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "tika.json",
+      "path": "inn/8/lines/2",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "tika.json",
+      "path": "inn/23/lines/2",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "tika.json",
+      "path": "inn/24/lines/2",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "tika.json",
+      "path": "inn/25/lines/2",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "tika.json",
+      "path": "dungeon/3/variants/1",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "tika.json",
+      "path": "dungeon/33/variants/1",
+      "message": "stray whitespace"
+    },
+    {
+      "file": "tika.json",
+      "path": "/speech",
+      "message": "declared speech endings violated; review required"
+    },
+    {
+      "path": "/",
+      "message": "sentences repeated across characters"
+    }
+  ],
+  "error_count": 33,
+  "characters": {
+    "altan": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 434,
+      "companion_lines": 308,
+      "max_line_chars": 31,
+      "max_dungeon_chars": 23,
+      "ending_sentences": 310,
+      "ending_deviations": [
+        {
+          "path": "inn/3/lines/2",
+          "sentence": "좋은 뜻이라도 비용은 누가 냅니까"
+        },
+        {
+          "path": "inn/13/choices/0/response/0",
+          "sentence": "같은 대답으로 끝나지 않는 질문이군요"
+        },
+        {
+          "path": "transitions/0/lines/0",
+          "sentence": "문서로 가져오셨군요"
+        }
+      ],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [
+        {
+          "locations": [
+            "inn/26/lines/2",
+            "transitions/13/lines/1"
+          ]
+        }
+      ],
+      "duplicate_sentences": [
+        {
+          "sentence": "같은질문을피하지않는것부터하겠습니다",
+          "locations": [
+            "inn/26/lines/2",
+            "transitions/13/lines/1"
+          ]
+        }
+      ],
+      "ending_deviation_ratio": 0.009677,
+      "proper_nouns": [
+        "알탄"
+      ]
+    },
+    "bargut": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 434,
+      "companion_lines": 308,
+      "max_line_chars": 26,
+      "max_dungeon_chars": 20,
+      "ending_sentences": 314,
+      "ending_deviations": [
+        {
+          "path": "inn/1/choices/0/response/0",
+          "sentence": "무게 때문에 거절한 건 아니다"
+        },
+        {
+          "path": "inn/2/choices/2/response/0",
+          "sentence": "남한테 보여 주려고 온 게 아니다"
+        },
+        {
+          "path": "inn/6/lines/2",
+          "sentence": "네가 싫어서 일어나는 건 아니다"
+        },
+        {
+          "path": "inn/6/choices/1/response/0",
+          "sentence": "참고 있어야 할 자리는 아니다"
+        },
+        {
+          "path": "inn/7/lines/1",
+          "sentence": "네가 앉은 쪽이라서가 아니다"
+        },
+        {
+          "path": "inn/7/choices/0/response/0",
+          "sentence": "잔만 따뜻하면 된다는 말은 아니다"
+        },
+        {
+          "path": "inn/9/lines/2",
+          "sentence": "남의 일까지 떠맡는 건 아니다"
+        },
+        {
+          "path": "inn/9/choices/1/response/0",
+          "sentence": "오늘 치운다고 정해진 몫은 아니다"
+        },
+        {
+          "path": "inn/15/choices/1/response/0",
+          "sentence": "떠나는 걸 막아 달라는 말은 아니다"
+        },
+        {
+          "path": "inn/16/lines/1",
+          "sentence": "따뜻해서만 그러는 건 아니다"
+        },
+        {
+          "path": "inn/17/choices/2/response/0",
+          "sentence": "같이 가자고 내 몫까지 줄 건 아니다"
+        },
+        {
+          "path": "inn/18/lines/1",
+          "sentence": "네가 뭘 잘못한 건 아니다"
+        },
+        {
+          "path": "inn/18/seen",
+          "sentence": "오늘 떨어져 앉는 건 네 탓이 아니다"
+        },
+        {
+          "path": "inn/20/lines/2",
+          "sentence": "붙어 다니자는 뜻은 아니다"
+        },
+        {
+          "path": "inn/22/choices/0/response/0",
+          "sentence": "지금 왔다고 매번 되는 건 아니다"
+        },
+        {
+          "path": "inn/25/choices/0/response/0",
+          "sentence": "오늘 옆에 왔다고 늘 정해진 건 아니다"
+        },
+        {
+          "path": "inn/27/lines/2",
+          "sentence": "오늘은 추위 핑계만 하는 건 아니다"
+        },
+        {
+          "path": "inn/27/choices/1/response/0",
+          "sentence": "같이 있고 싶다고 혼자 못 있는 건 아니다"
+        },
+        {
+          "path": "dungeon/15/variants/0",
+          "sentence": "저 앞은 혼자 갈 데가 아니다"
+        },
+        {
+          "path": "dungeon/23/variants/0",
+          "sentence": "네 몫을 다 넘기라는 게 아니다"
+        },
+        {
+          "path": "dungeon/32/variants/1",
+          "sentence": "따뜻한 자리만 찾은 건 아니다"
+        },
+        {
+          "path": "transitions/5/lines/0",
+          "sentence": "오늘 골랐다고 늘 그 자리는 아니다"
+        },
+        {
+          "path": "transitions/9/lines/1",
+          "sentence": "누가 잘못해서만 떨어지는 건 아니다"
+        },
+        {
+          "path": "transitions/11/lines/0",
+          "sentence": "가까이 있겠다는 말이지 묶이겠단 말은 아니다"
+        }
+      ],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [
+        {
+          "locations": [
+            "inn/16/lines/0",
+            "dungeon/32/variants/0"
+          ]
+        }
+      ],
+      "duplicate_sentences": [
+        {
+          "sentence": "오늘은옆에앉아도되나",
+          "locations": [
+            "inn/16/lines/0",
+            "dungeon/32/variants/0"
+          ]
+        }
+      ],
+      "ending_deviation_ratio": 0.076433,
+      "proper_nouns": []
+    },
+    "berenga": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 434,
+      "companion_lines": 308,
+      "max_line_chars": 26,
+      "max_dungeon_chars": 21,
+      "ending_sentences": 316,
+      "ending_deviations": [],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.0,
+      "proper_nouns": [
+        "리네트",
+        "베렌가",
+        "솔렌",
+        "심연",
+        "토르바"
+      ]
+    },
+    "bianca": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 475,
+      "companion_lines": 349,
+      "max_line_chars": 31,
+      "max_dungeon_chars": 26,
+      "ending_sentences": 353,
+      "ending_deviations": [],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.0,
+      "proper_nouns": [
+        "리네트",
+        "마렌토",
+        "비앙카",
+        "십인 위원회"
+      ]
+    },
+    "erdene": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 481,
+      "companion_lines": 355,
+      "max_line_chars": 35,
+      "max_dungeon_chars": 24,
+      "ending_sentences": 380,
+      "ending_deviations": [],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.0,
+      "proper_nouns": [
+        "나란",
+        "에르데네"
+      ]
+    },
+    "felice": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 434,
+      "companion_lines": 308,
+      "max_line_chars": 25,
+      "max_dungeon_chars": 22,
+      "ending_sentences": 312,
+      "ending_deviations": [],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.0,
+      "proper_nouns": [
+        "무레나 섬",
+        "사야",
+        "테이리스",
+        "토르바",
+        "펠리스",
+        "펠리스 다 토르바"
+      ]
+    },
+    "gerda": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 470,
+      "companion_lines": 344,
+      "max_line_chars": 30,
+      "max_dungeon_chars": 27,
+      "ending_sentences": 350,
+      "ending_deviations": [],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.0,
+      "proper_nouns": [
+        "게르다",
+        "힐데가"
+      ]
+    },
+    "gunhild": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 434,
+      "companion_lines": 308,
+      "max_line_chars": 25,
+      "max_dungeon_chars": 20,
+      "ending_sentences": 318,
+      "ending_deviations": [
+        {
+          "path": "inn/0/lines/2",
+          "sentence": "앉으라는 뜻으로 옮긴 건 아니다"
+        },
+        {
+          "path": "inn/2/choices/0/response/0",
+          "sentence": "실적이 없다고 이름까지 없는 건 아니다"
+        },
+        {
+          "path": "inn/3/lines/1",
+          "sentence": "남의 몫까지 다 맡겠다는 말은 아니다"
+        },
+        {
+          "path": "inn/4/choices/1/response/0",
+          "sentence": "남의 장비에 흠집 내고 할 말은 아니다"
+        },
+        {
+          "path": "inn/8/lines/1",
+          "sentence": "내가 정한 뒤에 묻는 건 아니다"
+        },
+        {
+          "path": "inn/10/lines/1",
+          "sentence": "내가 피하지 않는다고 다 된 건 아니다"
+        },
+        {
+          "path": "inn/10/choices/1/response/0",
+          "sentence": "보인다고 허락을 받은 건 아니다"
+        },
+        {
+          "path": "inn/14/lines/0",
+          "sentence": "누가 시켜서 간 건 아니다"
+        },
+        {
+          "path": "inn/15/lines/0",
+          "sentence": "기분이 나쁜 건 아니다"
+        },
+        {
+          "path": "inn/16/choices/1/response/0",
+          "sentence": "이름 하나 적었다고 끝난 얘긴 아니다"
+        },
+        {
+          "path": "inn/22/choices/1/response/0",
+          "sentence": "한 번 대답했다고 정해진 건 아니다"
+        },
+        {
+          "path": "inn/25/choices/1/response/0",
+          "sentence": "덜 호령한다고 내 전부가 바뀐 건 아니다"
+        },
+        {
+          "path": "dungeon/11/variants/0",
+          "sentence": "혼자 이름 세울 싸움은 아니다"
+        },
+        {
+          "path": "dungeon/23/variants/0",
+          "sentence": "네 몫을 뺏겠다는 뜻이 아니다"
+        },
+        {
+          "path": "dungeon/28/variants/0",
+          "sentence": "목소리가 크다고 멀쩡한 건 아니다"
+        },
+        {
+          "path": "dungeon/33/variants/1",
+          "sentence": "할렌 이름을 대면 열리는 게 아니다"
+        },
+        {
+          "path": "transitions/11/lines/0",
+          "sentence": "어제 된다고 오늘도 정해진 건 아니다"
+        },
+        {
+          "path": "transitions/13/lines/1",
+          "sentence": "그렇다고 지금 네 말이 안 아픈 건 아니다"
+        }
+      ],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.056604,
+      "proper_nouns": [
+        "고립의 해",
+        "군힐트",
+        "변경령",
+        "티카"
+      ]
+    },
+    "haldric": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 478,
+      "companion_lines": 352,
+      "max_line_chars": 31,
+      "max_dungeon_chars": 23,
+      "ending_sentences": 356,
+      "ending_deviations": [],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.0,
+      "proper_nouns": [
+        "알트 계곡",
+        "우르다",
+        "할드리크"
+      ]
+    },
+    "hedwig": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 434,
+      "companion_lines": 308,
+      "max_line_chars": 26,
+      "max_dungeon_chars": 24,
+      "ending_sentences": 316,
+      "ending_deviations": [
+        {
+          "path": "inn/4/lines/2",
+          "sentence": "기록으로 남길 일은 아닙니다만요"
+        },
+        {
+          "path": "inn/7/choices/1/response/0",
+          "sentence": "설명을 반복하지 않아도 되겠군요"
+        },
+        {
+          "path": "inn/8/choices/0/response/0",
+          "sentence": "책을 끝까지 꺼내지 않아도 되겠군요"
+        },
+        {
+          "path": "inn/10/choices/2/response/0",
+          "sentence": "복도까지 들리진 않겠군요"
+        },
+        {
+          "path": "inn/21/lines/2",
+          "sentence": "너무 늦게 말씀드리는군요"
+        },
+        {
+          "path": "inn/23/lines/1",
+          "sentence": "우습게 보실 때도 있겠지만요"
+        },
+        {
+          "path": "inn/24/lines/2",
+          "sentence": "볼일이 더 있어야 앉을 수 있는 건 아니겠죠"
+        },
+        {
+          "path": "inn/25/choices/0/response/0",
+          "sentence": "제 지난 말까지 빼야 가까운 건 아니겠죠"
+        },
+        {
+          "path": "inn/27/lines/1",
+          "sentence": "문장으로 적으니 오히려 길어지는군요"
+        }
+      ],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.028481,
+      "proper_nouns": [
+        "루미엘",
+        "유디트",
+        "헤드비히"
+      ]
+    },
+    "hildegard": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 518,
+      "companion_lines": 392,
+      "max_line_chars": 46,
+      "max_dungeon_chars": 31,
+      "ending_sentences": 512,
+      "ending_deviations": [],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [
+        "inn/6/lines/1"
+      ],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.0,
+      "proper_nouns": [
+        "고립의 해",
+        "변경령",
+        "힐데가"
+      ]
+    },
+    "judith": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 477,
+      "companion_lines": 351,
+      "max_line_chars": 28,
+      "max_dungeon_chars": 26,
+      "ending_sentences": 355,
+      "ending_deviations": [],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.0,
+      "proper_nouns": [
+        "레비아",
+        "유디트",
+        "헤드비히"
+      ]
+    },
+    "levia": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 471,
+      "companion_lines": 345,
+      "max_line_chars": 31,
+      "max_dungeon_chars": 26,
+      "ending_sentences": 348,
+      "ending_deviations": [],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.0,
+      "proper_nouns": [
+        "레비아",
+        "사야",
+        "유디트"
+      ]
+    },
+    "lynette": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 434,
+      "companion_lines": 308,
+      "max_line_chars": 26,
+      "max_dungeon_chars": 19,
+      "ending_sentences": 317,
+      "ending_deviations": [],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.0,
+      "proper_nouns": [
+        "리네트"
+      ]
+    },
+    "marceline": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 518,
+      "companion_lines": 392,
+      "max_line_chars": 52,
+      "max_dungeon_chars": 31,
+      "ending_sentences": 491,
+      "ending_deviations": [],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [
+        "inn/14/lines/1",
+        "inn/19/lines/1"
+      ],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.0,
+      "proper_nouns": [
+        "마르셀린"
+      ]
+    },
+    "naran": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 490,
+      "companion_lines": 364,
+      "max_line_chars": 31,
+      "max_dungeon_chars": 24,
+      "ending_sentences": 373,
+      "ending_deviations": [],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.0,
+      "proper_nouns": [
+        "나란"
+      ]
+    },
+    "saya": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 478,
+      "companion_lines": 352,
+      "max_line_chars": 29,
+      "max_dungeon_chars": 25,
+      "ending_sentences": 356,
+      "ending_deviations": [],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.0,
+      "proper_nouns": [
+        "레비아",
+        "사야"
+      ]
+    },
+    "sorel": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 434,
+      "companion_lines": 308,
+      "max_line_chars": 26,
+      "max_dungeon_chars": 20,
+      "ending_sentences": 310,
+      "ending_deviations": [],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.0,
+      "proper_nouns": [
+        "나에린",
+        "소렐"
+      ]
+    },
+    "teiris": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 518,
+      "companion_lines": 392,
+      "max_line_chars": 45,
+      "max_dungeon_chars": 28,
+      "ending_sentences": 483,
+      "ending_deviations": [],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.0,
+      "proper_nouns": [
+        "나에린",
+        "마르셀린",
+        "테이리스"
+      ]
+    },
+    "tika": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 434,
+      "companion_lines": 308,
+      "max_line_chars": 27,
+      "max_dungeon_chars": 21,
+      "ending_sentences": 317,
+      "ending_deviations": [
+        {
+          "path": "dungeon/9/variants/0",
+          "sentence": "와하하"
+        }
+      ],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.003155,
+      "proper_nouns": [
+        "토르바",
+        "티카"
+      ]
+    },
+    "urda": {
+      "inn_scenes": 28,
+      "choices": 84,
+      "dungeon_variants": 84,
+      "transition_scenes": 14,
+      "missing_stages": 0,
+      "missing_events_bands": 0,
+      "missing_transitions": 0,
+      "display_lines": 472,
+      "companion_lines": 346,
+      "max_line_chars": 31,
+      "max_dungeon_chars": 24,
+      "ending_sentences": 349,
+      "ending_deviations": [],
+      "proper_noun_candidates": [],
+      "intentional_trailing_lines": [],
+      "stage_counts": {
+        "적대": 2,
+        "불신": 2,
+        "낯섦": 4,
+        "신뢰": 4,
+        "유대": 4,
+        "깊은 인연": 4,
+        "맹세": 4,
+        "운명": 4
+      },
+      "duplicate_lines": [],
+      "duplicate_sentences": [],
+      "ending_deviation_ratio": 0.0,
+      "proper_nouns": [
+        "우르다",
+        "타른 계곡",
+        "할드리크"
+      ]
+    }
+  },
+  "cross_character_duplicates": [
+    {
+      "sentence": "그건확인했어요",
+      "locations": [
+        "judith/inn/0/choices/1/response/0",
+        "lynette/inn/5/choices/1/response/0"
+      ]
+    },
+    {
+      "sentence": "잠깐만요",
+      "locations": [
+        "lynette/dungeon/27/variants/0",
+        "teiris/dungeon/21/variants/0"
+      ]
+    }
+  ],
+  "game_canon_name_differences": [
+    {
+      "id": "bargut",
+      "game": "바르구트",
+      "canon": "바르굿"
+    },
+    {
+      "id": "berenga",
+      "game": "베렝가",
+      "canon": "베렌가"
+    },
+    {
+      "id": "hildegard",
+      "game": "힐데가르트",
+      "canon": "힐데가"
+    }
+  ],
+  "terms_stats_absent_but_canonical_wiki_present": [
+    "고립의 해"
+  ],
+  "input_sha256": {
+    "altan.json": "e912c875423514d5d23f5da388c6ea49f463d285de57ceeba75af896ff192a80",
+    "bargut.json": "650275cb8c6dc4d42fe3be31810c7ed6e029787726bf6c3723fe19d2bcefec39",
+    "berenga.json": "e3d4b0b50c41437db6411ec34c6af6a3c9a8f17d08368a0ec9ecbcd9c90a0ed8",
+    "bianca.json": "e6eba0b53b5bbd8932f82ef42f9e09264eb86c665424751c6c648982c0e80c85",
+    "erdene.json": "7cd06dc12260bfd072256312a2aba11e8a1216d98f767ed262222ddb099d74c2",
+    "felice.json": "9a65ecef4285ce2a936ef9e3e0487b4a33ddfde0fe203fa9ad12fca88682a98c",
+    "gerda.json": "433d19f008206460b71beb106d33d8efcdb040994d3a64caa84be96028df3246",
+    "gunhild.json": "4ace12d9a6f827b18661fb5d808d423d3cb9a4b58f88bb55a5453a843a5823e0",
+    "haldric.json": "a79fd41552742017797cb55dad1a776effb20c4702bbbbc800571ca4b15f92b2",
+    "hedwig.json": "56db9d1c776b272a5f7334ab6e3e6ccecf0e475faf425efabdd62ca87d0397eb",
+    "hildegard.json": "d9099f57ec0048089aff34be5748d4626416387835eae5b0669d5f28aa11e5e2",
+    "judith.json": "cdcd9093867a67dc0bf8299c2fe8b7da9b43784a6e67517eda60d6025ad1030e",
+    "levia.json": "c5a278531dcdbb9f34fd142bb8a1a641a10cf7ba11f39d7bd2c28ba8bc8449cf",
+    "lynette.json": "9f5c7291da6eaf1459082575b67406fbc711979b9b79c7e1c6f66f070edae28c",
+    "marceline.json": "f4e9b497144027c1f79a1a2a27190743725a8613a9409c11fef8c4ca071912de",
+    "naran.json": "7ef3e7109fdadb46db3f0e13613cd4668ce15c57424dad71c3faeb1150e1ccd6",
+    "saya.json": "a0481752dac88e8176260a4cb49752c1940956cc0ccd94e5175ba440f2202189",
+    "sorel.json": "e6023487887c07a6de9fb75c6acd3aea4197c57eb3b5474332cc627c01c6e560",
+    "teiris.json": "9e699bf02b6cb1321abb4d9f77457ffb6542a3c40d3e2a367a63b21f301764c1",
+    "tika.json": "58c20b29b75d6a176172cf9f502a74c44fec2f65d61936c301cc0361099d909e",
+    "urda.json": "bd1b845842604b15d3cc91c5085076e2f5e8c4750f5ff080baa2bc52b5553b97"
+  },
+  "limits": {
+    "dungeon_chars": 40,
+    "other_line_chars": 64
+  },
+  "limitations": [
+    "고유명사 검사는 검수한 명시 목록·정본 사전·명명 문형 후보 검사다. 임의의 한국어 신조 고유명사를 모두 찾지는 못한다.",
+    "화계 검사는 문장 끝 어미에 대한 보조 검사다. 발화 의도·위계·자연스러움은 편집 검수와 표본 판정이 필요하다.",
+    "40자 제한은 글자 수 검사다. 이번 작업에는 대사 UI 연결이 없어 실제 360 화면 줄바꿈은 확인하지 않았다."
+  ]
+}
