@@ -25,6 +25,11 @@ func build_frame(owner_screen) -> void:
 
 func build_page() -> void:
 	page_background()
+	var dialogue_state=host.model.s.get("dialogue_r21",{"pending":{},"response":{},"queue":[]})
+	if not dialogue_state.pending.is_empty() or not dialogue_state.response.is_empty():
+		inn_dialogue();return
+	if not dialogue_state.queue.is_empty() and host.screen in ["explore","summary","inn"]:
+		journey_dialogue();return
 	if not host.confirm.is_empty() and host.screen=="explore": retreat()
 	elif host.screen=="town":
 		nav_top=788; home()
@@ -562,7 +567,8 @@ func inn() -> void:
 	for i in range(4):
 		var key=["talk","meal","gift","rest"][i];var e=acts[key];var x=18+i*91
 		var used=not e.day and host.model.s.acts.get(host.who+"_"+key,0)==host.model.s.day
-		action("inn:"+key,"",Rect2(x,645,81,91),func():host._ask(e.name+" · 금화 %d\n호감이 오릅니다."%e.cost,host.model.inn.bind(host.who,key)),i==0,used or host.model.s.gold<e.cost)
+		var callback=func():host._act(host.model.begin_dialogue.bind(host.who),"") if key=="talk" else host._ask(e.name+" · 금화 %d\n호감이 변합니다."%e.cost,host.model.inn.bind(host.who,key))
+		action("inn:"+key,"",Rect2(x,645,81,91),callback,i==0,used or host.model.s.gold<e.cost)
 		icon(["journal","shop","bag","inn"][i],Rect2(x+26,651,28,28),T.PAPER if i==0 else T.INK)
 		label(e.name,Rect2(x+2,684,77,20),11,T.PAPER if i==0 else T.INK,T.BOLD).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 		label("오늘 완료" if used else "무료" if e.cost==0 else "금화 %d"%e.cost,Rect2(x+2,710,77,19),11,T.PAPER if i==0 else T.RED,T.BOLD).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
@@ -589,6 +595,61 @@ func shop() -> void:
 		label("보유 %d"%host.model.s.items[item.id],Rect2(100,y+82,150,19),10)
 		rule(y+103,0,342)
 	stage=prev;feedback();action("shop_bag","가방과 장비 확인",Rect2(18,705,354,43),host.go.bind("equipment"))
+
+func dialogue_frame(who: String,title: String) -> void:
+	fill("dialogue_paper",Rect2(0,0,390,844),T.PAPER)
+	background("inn",Rect2(0,0,390,322))
+	ink(Rect2(-20,194,430,133))
+	picture(who,Rect2(173,22,207,297),"detail-overview")
+	fill("dialogue_identity_paper",Rect2(10,112,164,91),T.PAPER)
+	display(title,Rect2(18,38,194,53),T.INK,36)
+	display(host.model.person(who).name,Rect2(18,121,148,38),T.INK,28)
+	var a=host.model.s.members[who].aff
+	label(host.model.TOWN_RULES.aff_stage(a)+" · 호감 "+host.number(a),Rect2(18,165,148,25),13,T.INK,T.BOLD)
+	fill("dialogue_body",Rect2(0,322,390,522),T.PAPER)
+
+func inn_dialogue() -> void:
+	var state=host.model.s.dialogue_r21;var responding=not state.response.is_empty()
+	var p=state.response if responding else state.pending
+	var row=host.model.dialogue.scene(p.who,p.scene)
+	dialogue_frame(p.who,"대화")
+	if row.is_empty() and not responding:
+		paragraph("이 대화의 기록을 찾을 수 없습니다.",Rect2(18,350,354,70),16)
+		action("dialogue_cancel","여관으로",Rect2(18,746,354,54),func():state.pending={};host._save();host.go("inn"),true);return
+	if responding:
+		paragraph(p.text,Rect2(18,336,354,54),14)
+		paragraph("\n".join(p.lines),Rect2(18,405,354,92),18,T.INK)
+		label("호감 %s → %s (%s%s)"%[host.number(p.before),host.number(p.after),"+" if p.gained>=0 else "",host.number(p.gained)],Rect2(18,504,354,28),14,T.RED,T.BOLD)
+		var t=p.transition
+		if not t.is_empty():
+			label(t.from+" → "+t.to,Rect2(18,550,354,28),16,T.RED,T.BOLD)
+			paragraph(t.situation+"\n"+"\n".join(t.lines),Rect2(18,584,354,136),15)
+		action("dialogue_done","여관으로",Rect2(18,754,354,56),func():host.model.close_dialogue();host._save();host.go("inn"),true)
+	else:
+		paragraph(row.situation,Rect2(18,335,354,60),14)
+		var lines=[row.seen] if state.seen.get(row.id,0)>0 else row.lines
+		paragraph("\n".join(lines),Rect2(18,404,354,100),18)
+		label("어떻게 답할까",Rect2(18,521,354,26),14,T.INK,T.BOLD)
+		for i in range(row.choices.size()):
+			var c=row.choices[i]
+			var b=action("dialogue_choice:"+c.id,c.text,Rect2(18,561+i*68,354,58),func():host._act(host.model.choose_dialogue.bind(c.id),""))
+			b.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;b.add_theme_font_size_override("font_size",15)
+		action("dialogue_cancel","나중에 이야기하기",Rect2(18,779,354,46),func():state.pending={};host._save();host.go("inn"))
+
+func journey_dialogue() -> void:
+	var rows=host.model.s.dialogue_r21.queue
+	fill("journey_paper",Rect2(0,0,390,844),T.PAPER)
+	display("함께 걷는 길",Rect2(18,35,354,57),T.INK,39)
+	var previous=stage;stage=scroll_page(118,581,rows.size()*172)
+	for i in range(rows.size()):
+		var row=rows[i];var y=i*172
+		picture(row.who,Rect2(0,y,77,104),"target-face")
+		label(host.model.person(row.who).name,Rect2(93,y,248,26),18,T.INK,T.BOLD)
+		var text="\n".join(row.lines)
+		if row.kind=="transition":text=row.from+" → "+row.to+"\n"+row.situation+"\n"+text
+		paragraph(text,Rect2(93,y+32,248,133),15)
+	stage=previous
+	action("dialogue_continue","계속",Rect2(18,748,354,58),func():host.model.dismiss_dialogue_queue();host._save();host._draw_screen(),true)
 
 func shop_gear() -> void:
 	member_choice(Rect2(18,427,354,38))
@@ -641,6 +702,7 @@ func recruit() -> void:
 	fill("roster_track",Rect2(18,564,354,7),T.LINE);fill("roster_value",Rect2(18,564,354*w.s.owned.size()/30.0,7),T.RED)
 	paragraph("아직 동료가 아닌 사람 가운데 한 명을\n소개받으면 바로 동료가 됩니다.",Rect2(18,590,354,49),15)
 	label("보유 금화 %d"%w.s.gold,Rect2(18,656,354,25),16,T.INK,T.BOLD)
+	label("합류 레벨 · 당신의 Lv.%d"%w.s.persona_progress_r21.level,Rect2(18,629,354,23),12)
 	action("recruit","소개받기 · 금화 %d"%w.recruit_fee(),Rect2(18,705,354,44),func():host._act(w.recruit,"");host.message=w.s.log[-1];host._draw_screen(),true,w.s.gold<w.recruit_fee() or w.s.owned.size()==30)
 	feedback(674)
 

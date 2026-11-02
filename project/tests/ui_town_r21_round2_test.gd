@@ -58,14 +58,14 @@ func run():
 		await click(s,"item_cancel");check(s.selected_item.is_empty(),"target cancel")
 		s.go("depart");await process_frame;await click(s,"start_run")
 		check(s.model.r21() and s.screen=="explore","default departure enters source floor run")
-		s.town_r21_preview=true;s.go("explore");await capture(s,"explore",dim.x)
-		s.model.s.run.phase="rest";s.model.enter_dungeon_rest();s.go("explore");await capture(s,"rest",dim.x)
+		s.town_r21_preview=true;s.go("explore");await click(s,"dialogue_continue");await capture(s,"explore",dim.x)
+		s.model.s.run.phase="rest";s.model.enter_dungeon_rest();s.go("explore");await click(s,"dialogue_continue");await capture(s,"rest",dim.x)
 		s.go("cards");await capture(s,"cards-empty",dim.x)
 		s.model.s.hand=["key","camp"];s.go("cards");await capture(s,"cards",dim.x)
 		s.go("explore");await process_frame;await click(s,"retreat");await capture(s,"retreat",dim.x)
 		await click(s,"cancel");check(s.model.active(),"retreat cancel keeps run")
 		s.go("explore");await process_frame;await click(s,"retreat");await click(s,"accept")
-		check(s.screen=="summary" and not s.model.active(),"return settles once")
+		check(s.screen=="summary" and not s.model.active(),"return settles once");await click(s,"dialogue_continue")
 		await capture(s,"summary",dim.x)
 		var gold=s.model.s.gold;s.go("town");s.go("summary");check(s.model.s.gold==gold,"summary revisit cannot pay twice")
 		root.remove_child(s);s.queue_free();await process_frame
@@ -78,7 +78,7 @@ func run():
 	legacy.go("guild");await capture(legacy,"legacy-recruit",390)
 	legacy.shop_tab="gear";legacy.go("shop");await capture(legacy,"legacy-shopgear",390)
 	legacy.go("equipment");legacy._show_art("hildegard");await capture(legacy,"legacy-art",390);legacy._close_art()
-	legacy.model=World.new();legacy.model.depart();legacy.model.travel("archive");legacy.model.travel("cache");legacy.go("explore");await capture(legacy,"legacy-cache",390)
+	legacy.model=World.new();legacy.model.depart();legacy.model.travel("archive");legacy.model.travel("cache");legacy.go("explore");await click(legacy,"dialogue_continue");await capture(legacy,"legacy-cache",390)
 	root.remove_child(legacy);legacy.queue_free();await process_frame
 	for result in ["victory","defeat"]:
 		var bw=World.new();bw.s.dungeon_r21.best=60;bw.depart_dungeon(1 if result=="victory" else 27,117);bw.s.run.phase="battle"

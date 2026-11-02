@@ -4,6 +4,8 @@ const TOWN_RULES = preload("res://game/town_rules_r21.gd")
 const Guild=preload("res://game/guild_rules_r21.gd")
 const Commerce=preload("res://game/commerce_rules_r21.gd")
 const PersonaResearch=preload("res://game/persona_research_r21.gd")
+const Dialogue=preload("res://game/dialogue_player_r21.gd")
+var dialogue=Dialogue.new()
 var research_message=""
 
 func _init():
@@ -12,6 +14,11 @@ func _init():
 	ensure_town_r21()
 
 func ensure_town_r21() -> void:
+	if not s.has("persona_progress_r21"):
+		var p=s.get("persona",{});var level=clampi(int(p.get("lv",s.get("lv",1))),1,40)
+		s.persona_progress_r21={"level":level,"xp":clampi(int(p.get("exp",0)),0,need(level)-1) if level<40 else 0}
+	if not s.has("dialogue_r21"):s.dialogue_r21={"seen":{},"pending":{},"response":{},"queue":[],"bark_counts":{}}
+	if not s.has("npc_aff_r21"):s.npc_aff_r21={}
 	if not s.has("research_editor_r21"):s.research_editor_r21={}
 	if not s.has("commerce_r21"):s.commerce_r21={"process_n":0,"sold_day":s.day,"bought":{}}
 	if not s.has("town_r21"):
@@ -52,9 +59,24 @@ func depart_accepted_quest() -> bool:
 	return depart_rift_quest(quest_contract(s.quest))
 
 func settle(result: String) -> bool:
+	var source_run=r21() and active()
+	var before={}
+	var amount_aff=0.0
+	if source_run:
+		for id in s.party:before[id]=s.members[id].aff
+		if result!="defeat":amount_aff=2.0 if not s.run.rift_id.is_empty() and result=="clear" else s.run.wins+(3 if result=="clear" else 0)
 	var quest_run=r21() and s.run.has("source_quest")
 	var accepted=s.run.get("source_quest",{}).duplicate(true)
 	if not super(result): return false
+	if source_run:
+		# Replace A's aggregate with the same source aggregate plus tx_aff synergy.
+		for id in before:s.members[id].aff=before[id]
+		if amount_aff>0:aff_party(amount_aff)
+		if result!="defeat":
+			var p=s.persona_progress_r21;p.xp+=int(floor(float(s.summary.xp)/2))
+			while p.level<40 and p.xp>=need(p.level):p.xp-=need(p.level);p.level+=1
+			if p.level==40:p.xp=0
+		emit_bark("defeat" if result=="defeat" else "return")
 	if quest_run and result in ["clear","defeat"]:
 		if result=="clear":
 			s.quest_wins+=1
@@ -75,6 +97,25 @@ func settle(result: String) -> bool:
 func restore(value: Variant) -> bool:
 	if not value is Dictionary: return false
 	var previous=s.duplicate(true)
+	if value.has("persona"):
+		if not value.persona is Dictionary:return false
+		for key in ["lv","exp"]:
+			if value.persona.has(key) and not _num(value.persona[key]):return false
+	if value.has("lv") and not _num(value.lv):return false
+	if value.has("persona_progress_r21"):
+		var p=value.persona_progress_r21
+		if not _shape(p,{"level":0,"xp":0}) or p.level<1 or p.level>40 or p.level!=int(p.level) or p.xp<0 or p.xp!=int(p.xp) or p.xp>=need(p.level) or (p.level==40 and p.xp!=0):return false
+	if value.has("dialogue_r21") and not valid_dialogue_save(value):return false
+	if value.get("run",{}).has("dialogue_marks"):
+		var marks=value.run.dialogue_marks
+		if not marks is Dictionary:return false
+		for key in marks:
+			if not key is String or not marks[key] is bool:return false
+	if value.has("npc_aff_r21"):
+		if not value.npc_aff_r21 is Dictionary:return false
+		for id in value.npc_aff_r21:
+			var a=value.npc_aff_r21[id]
+			if not id is String or not _num(a) or a<0 or a>200:return false
 	if value.has("research_editor_r21"):
 		var editors=value.research_editor_r21
 		if not editors is Dictionary:return false
@@ -98,6 +139,11 @@ func restore(value: Variant) -> bool:
 	s.erase("town_r21")
 	s.erase("commerce_r21")
 	s.erase("research_editor_r21")
+	s.erase("dialogue_r21")
+	s.erase("npc_aff_r21")
+	s.erase("persona_progress_r21")
+	s.erase("persona")
+	s.erase("lv")
 	if not super(value): s=previous; return false
 	ensure_town_r21()
 	return true
@@ -144,6 +190,7 @@ func buy_gear(id: String,who: String) -> bool:
 	if found.is_empty() or stock_sold(found.code):return false
 	var amount=price({"price":found.price})
 	if s.gold<amount:return false
+	npc_like("pietro")
 	s.gold-=amount;s.serial+=1;s.gear.append({"uid":s.serial,"id":found.id,"seed":found.seed,"forge":0,"tries":0,"source_r21":true})
 	if s.commerce_r21.sold_day!=s.day:s.commerce_r21.sold_day=s.day;s.commerce_r21.bought={}
 	s.commerce_r21.bought[found.code]=true;note(gear.by_id[found.id].name+" 구입");return true
@@ -154,6 +201,7 @@ func process_gear(_who: String) -> bool:
 	var classes=s.owned.map(func(id):return class_def(id).id)
 	var result=gear.process_source(s.town_r21.seed,int(s.commerce_r21.process_n)+1,classes,highest_level())
 	if result.is_empty():return false
+	npc_like("hanna")
 	s.gold-=amount;s.commerce_r21.process_n+=1;s.serial+=1
 	s.gear.append({"uid":s.serial,"id":result.id,"seed":result.seed,"forge":0,"tries":0,"source_r21":true})
 	note("한나의 가공 · "+gear.by_id[result.id].name);return true
@@ -163,6 +211,7 @@ func forge(uid: int) -> bool:
 	var amount=gear.forge_cost(e)
 	if s.gold<amount:return false
 	var success=gear.forge_result(s.town_r21.seed,e)
+	npc_like("hanna")
 	s.gold-=amount;e.tries+=1
 	if success:e.forge+=1
 	note(gear.by_id[e.id].name+(" 강화 성공 +%d"%e.forge if success else " 강화 실패 · 장비 보존"));return true
@@ -170,6 +219,20 @@ func forge(uid: int) -> bool:
 func need(level: int) -> int: return TOWN_RULES.need(level)
 
 func recruit_fee() -> int: return TOWN_RULES.recruit_cost(s.recruits)
+
+func recruit() -> bool:
+	if active() or not s.dialogue_r21.pending.is_empty() or not s.dialogue_r21.response.is_empty():return false
+	var candidates=config.companions.filter(func(p):return p.id not in s.owned)
+	var cost=recruit_fee()
+	if candidates.is_empty() or s.gold<cost:return false
+	s.town_r21.counter+=1
+	var index=mini(candidates.size()-1,int(floor(Guild.random(s.town_r21.seed,s.town_r21.counter)*candidates.size())))
+	var who=candidates[index].id
+	s.gold-=cost;s.recruits+=1;s.owned.append(who)
+	var m=s.members[who];m.aff=0;m.level=s.persona_progress_r21.level;m.xp=0
+	var b=stats(who,m.level);m.hp=b.hp;m.mp=b.mp
+	s.town_r21.meet=who;npc_like("fenella")
+	note("페넬라의 소개 · "+person(who).name+" 합류");return true
 func refresh_fee() -> int: return TOWN_RULES.refresh_cost(s.refreshes)
 
 func price(item: Dictionary) -> int:
@@ -181,17 +244,19 @@ func price(item: Dictionary) -> int:
 func buy(id: String) -> bool:
 	var item=item_def(id)
 	if active() or item.is_empty() or s.gold<price(item) or s.items[id]>=10000: return false
+	npc_like("pietro")
 	s.gold-=price(item); s.items[id]+=1; note(item.name+" 구입"); return true
 
 func inn(id: String,action: String) -> bool:
 	var acts=TOWN_RULES.DATA.inn
-	if active() or id not in s.owned or not acts.has(action): return false
+	if active() or id not in s.owned or not acts.has(action) or not s.dialogue_r21.pending.is_empty(): return false
 	var def=acts[action]; var key=id+"_"+action
 	if s.gold<def.cost or (not def.day and s.acts.get(key,0)==s.day): return false
 	s.gold-=def.cost
 	if def.day: s.day+=1
 	else: s.acts[key]=s.day
-	s.members[id].aff=TOWN_RULES.aff_next(s.members[id].aff,def.aff)
+	aff_add(id,def.aff)
+	if action in ["meal","rest"]:npc_like("dorothea")
 	note(person(id).name+" · "+def.name); return true
 
 func dungeon_catalog() -> Array:
@@ -238,3 +303,161 @@ func gear_comparison(id: String,uid: int) -> Dictionary:
 	for key in before: delta[key]=after.get(key,0)-before[key]
 	for key in after: delta[key]=after[key]-before.get(key,0)
 	return {"before":before,"after":after,"delta":delta,"slot":item.slot,"can_equip":level>=gear.rules.equip_lv[item.rarity] and not active(),"roll_authority":"legacy-web-rng"}
+
+func npc_like(id: String) -> void:
+	if id not in ["fenella","loredana","oswald","pietro","dorothea","knut","hanna","isolde","sven","agnes","noel","muriel","vittoria"]:return
+	var a=float(s.npc_aff_r21.get(id,0))
+	if a<100:s.npc_aff_r21[id]=minf(100,floor((a+1)*100+.5)/100)
+
+func aff_add(id: String,amount: float) -> float:
+	if id not in s.owned:return 0
+	var before=float(s.members[id].aff)
+	var after=TOWN_RULES.aff_next(before,amount);s.members[id].aff=after
+	var t=dialogue.transition(id,before,after)
+	if not t.is_empty():
+		t.who=id;t.kind="transition";s.dialogue_r21.queue.append(t)
+		note(person(id).name+" · "+TOWN_RULES.aff_stage(before)+" → "+TOWN_RULES.aff_stage(after))
+	return floor((after-before)*100+.5)/100
+
+func aff_party(amount: float) -> void:
+	var multiplier=1.2 if party_count("nation","솔렌 성왕국")>=3 else 1.0
+	for id in s.party:aff_add(id,amount*multiplier)
+
+func begin_dialogue(id: String) -> bool:
+	if active() or id not in s.owned:return false
+	var state=s.dialogue_r21
+	if not state.pending.is_empty():return state.pending.who==id
+	if s.acts.get(id+"_talk",0)==s.day:return false
+	var row=dialogue.select_scene(id,s.members[id].aff,state.seen)
+	if row.is_empty():return inn(id,"talk")
+	state.response={};state.pending={"who":id,"scene":row.id,"day":s.day}
+	return true
+
+func choose_dialogue(choice_id: String) -> bool:
+	var state=s.dialogue_r21;var p=state.pending
+	if active() or p.is_empty() or p.who not in s.owned or p.day!=s.day or s.acts.get(p.who+"_talk",0)==s.day:return false
+	var row=dialogue.scene(p.who,p.scene);var choice={}
+	for c in row.get("choices",[]):
+		if c.id==choice_id:choice=c;break
+	if choice.is_empty():return false
+	var before=float(s.members[p.who].aff)
+	var qsize=state.queue.size();var gained=aff_add(p.who,float(choice.aff))
+	var transition={}
+	if state.queue.size()>qsize:transition=state.queue.pop_back()
+	s.acts[p.who+"_talk"]=s.day;state.seen[p.scene]=int(state.seen.get(p.scene,0))+1
+	state.response={"who":p.who,"scene":p.scene,"choice":choice_id,"text":choice.text,"lines":choice.response.duplicate(),"gained":gained,"before":before,"after":s.members[p.who].aff,"transition":transition}
+	state.pending={};note(person(p.who).name+" · 대화하기")
+	return true
+
+func close_dialogue() -> bool:
+	if s.dialogue_r21.response.is_empty():return false
+	s.dialogue_r21.response={};return true
+
+func emit_bark(event: String,only: String="") -> void:
+	var state=s.dialogue_r21;var count=int(state.bark_counts.get(event,0))
+	var ids=s.party.filter(func(id):return (only.is_empty() or id==only) and not dialogue.data(id).is_empty())
+	if ids.is_empty():return
+	var who=ids[posmod(count,ids.size())];var line=dialogue.bark(who,s.members[who].aff,event,int(count/ids.size()))
+	if line.is_empty():return
+	state.bark_counts[event]=count+1
+	state.queue.append({"who":who,"kind":"bark","event":event,"lines":[line]})
+	# Bound persistent presentation history; never affect game RNG or rewards.
+	if state.queue.size()>32:state.queue.pop_front()
+
+func dismiss_dialogue_queue() -> bool:
+	if s.dialogue_r21.queue.is_empty():return false
+	s.dialogue_r21.queue=[];return true
+
+func depart_dungeon(f: int,seed: int=0,rift_id: String="",stars: int=1) -> bool:
+	if not s.dialogue_r21.pending.is_empty() or not s.dialogue_r21.response.is_empty():return false
+	if not super(f,seed,rift_id,stars):return false
+	emit_bark("departure");emit_bark("floor_entry")
+	if s.run.phase=="battle":emit_bark("elite_boss_before");emit_bark("battle_start")
+	return true
+
+func advance() -> bool:
+	if not super():return false
+	if r21():
+		if s.run.phase=="battle":
+			if s.run.kind=="elite":emit_bark("elite_boss_before")
+			emit_bark("battle_start")
+		else:emit_bark("discovery")
+	elif s.run.event=="sealed":emit_bark("sealed_cache")
+	return true
+
+func travel(id: String) -> bool:
+	if not super(id):return false
+	if s.run.event=="sealed":emit_bark("sealed_cache")
+	return true
+
+func use_card(id: String) -> bool:
+	if not super(id):return false
+	emit_bark("rest" if id=="camp" else "discovery")
+	return true
+
+func enter_dungeon_rest():
+	var was_rested=s.run.rested
+	super()
+	if not was_rested:emit_bark("rest")
+
+func final_battle() -> bool:
+	if not super():return false
+	if r21():emit_bark("elite_boss_before");emit_bark("battle_start")
+	return true
+
+func record_battle(snapshot: Dictionary) -> void:
+	# Observe saved engine events outside battle UI; each threshold fires once/run fight.
+	if r21() and active() and s.run.phase=="battle":
+		var marks=s.run.get("dialogue_marks",{})
+		for id in s.party:
+			var a=snapshot.get("units",{}).get(id,{})
+			if a.is_empty():continue
+			var key=str(s.run.step)+":"+str(s.run.final)+":"+id
+			var hp=float(a.get("hp",1));var maximum=float(stats(id,s.members[id].level).hp)
+			if hp<=0 and not marks.has(key+":down"):
+				marks[key+":down"]=true;emit_bark("ally_down")
+			elif hp>0 and hp<=maximum*.25 and not marks.has(key+":low"):
+				marks[key+":low"]=true;emit_bark("self_wounded",id);emit_bark("ally_low_hp")
+		s.run.dialogue_marks=marks
+	super(snapshot)
+
+func finish_battle() -> bool:
+	var source=r21();var final=source and s.run.final
+	var won=source and s.run.battle.get("result","")=="victory"
+	if not super():return false
+	if source and (won or (active() and s.run.phase!="battle") or s.summary.get("result","")=="clear"):
+		emit_bark("boss_defeat" if final else "victory")
+	return true
+
+func valid_dialogue_save(value: Dictionary) -> bool:
+	var d=value.dialogue_r21
+	if not _shape(d,{"seen":{},"pending":{},"response":{},"queue":[],"bark_counts":{}}):return false
+	for counts in [d.seen,d.bark_counts]:
+		for key in counts:
+			if not key is String or not _num(counts[key]) or counts[key]<0 or counts[key]!=int(counts[key]):return false
+	if d.queue.size()>32:return false
+	for row in d.queue:
+		if not _shape(row,{"who":"","kind":"","lines":[]}) or row.who not in value.get("owned",[]):return false
+		if row.kind not in ["transition","bark"]:return false
+		if row.kind=="transition" and not _shape(row,{"from":"","to":"","situation":""}):return false
+		for line in row.lines:
+			if not line is String:return false
+	if not d.pending.is_empty():
+		var p=d.pending
+		if not _shape(p,{"who":"","scene":"","day":0}) or p.who not in value.get("owned",[]) or p.day!=value.day:return false
+		if value.acts.get(p.who+"_talk",0)==value.day:return false
+		# Missing future content cancels presentation during migration, not the save.
+	if not d.response.is_empty():
+		var p=d.response
+		if not _shape(p,{"who":"","scene":"","choice":"","text":"","lines":[],"gained":0,"before":0,"after":0,"transition":{}}) or p.who not in value.get("owned",[]):return false
+		for line in p.lines:
+			if not line is String:return false
+		if not p.transition.is_empty():
+			if not _shape(p.transition,{"from":"","to":"","situation":"","lines":[]}):return false
+			for line in p.transition.lines:
+				if not line is String:return false
+	return true
+
+func accept_quest(id: int) -> bool:
+	if not super(id):return false
+	npc_like("fenella");return true

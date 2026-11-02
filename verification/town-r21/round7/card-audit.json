@@ -1,0 +1,446 @@
+{
+  "status": "source_rules_absent",
+  "scope": "Current canonical bot/src and design, no git history or external archives inspected.",
+  "terms": [
+    "봉인된 보관함",
+    "봉인 해제",
+    "안전한 야영",
+    "탐색 카드",
+    "find_card",
+    "G.hand",
+    "R.hand"
+  ],
+  "files": 96,
+  "hits": [
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\05-gen.lua",
+      "line": 239,
+      "terms": [
+        "봉인 해제"
+      ],
+      "text": "ge_1\", name = \"왕릉 봉인\", jk = \"charge\", ic = \"charge\", kind = \"charge\" }, { id = \"big_all_2\", name = \"봉인 해제\", jk = \"big_all\", ic = \"attack\", vb = \"봉인을 풀어 쏟아냈다\", m = 1.5, kind = \"atk\", shoot = false, low = false, magic = false, all = true, big = true }, { id = \"summon_3\", name = \"왕의 명령\", jk = \"summon\", ic = \"summon\", enemy = \"sacrificed_attendants\", count = 1, kind = \"summon\" } } } },"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\05-gen.lua",
+      "line": 380,
+      "terms": [
+        "봉인 해제"
+      ],
+      "text": " flame should be\", \"복리 효과\": \"Compound Interest\", \"볼프람\": \"Wolfram\", \"봉인 촛대\": \"Sealing Candelabrum\", \"봉인 해제\": \"Break the Seal\", \"봉인막\": \"Sealing Ward\", \"봉인을 풀어 쏟아냈다\": \"broke the seal and unleashed its contents\", \"봉인의 창\": \"Window of the Seal\", \"봉화를 지킨 단검\": \"Beacon-Watch Dagger\", \"봉화를 지킨 장궁\": \"Beacon-Watch Longbow\", \"봉화를 지킨 전투도끼\": \"Beacon-Watch Battleaxe\", \"부가\": \"Secondary\", \"부드러운 금반지\": \"Soft Gold Band"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\enemies.json",
+      "line": 3475,
+      "terms": [
+        "봉인 해제"
+      ],
+      "text": "      \"name\": \"봉인 해제\","
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\i18n\\en\\enemies.json",
+      "line": 370,
+      "terms": [
+        "봉인 해제"
+      ],
+      "text": "  \"봉인 해제\": \"Break the Seal\",\r"
+    }
+  ],
+  "manifest": [
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\00-host.lua",
+      "sha256": "0afd2385f155aebb3b6f04a65e4bf94478493f2831a822c3a835d686f4960c55"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\01-game.lua",
+      "sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\05-gen.lua",
+      "sha256": "5dccbfcb53a0376d6aad940f1f26cbca48f5cf6cf3218b5aeb585462314e3942"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\10-data.lua",
+      "sha256": "74b57744fc12afa088150298c2ed0f674161b7b032e2ef218dce78ac4e59d062"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\15-josa.lua",
+      "sha256": "430945466c501ba7f4c89b7490a210181d2c8b91c26a44affffbdddee8fd8087"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\20-state.lua",
+      "sha256": "67e9a51aaca2f8bf2f299f9b14a6c5a4cc080bb42a6557aec003ed3d67224167"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\24-stats.lua",
+      "sha256": "24a4b73ba34d83bf656065d687f72cf952fd6ed807b6a79473449505e0548597"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\26-start.lua",
+      "sha256": "6aa41d4d86eeaa627f582b3c6ec56e3b8183366f73a3c80fc37f3421c954bf7f"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\27-compose.lua",
+      "sha256": "a2ab4341b949dfbebe85bf15d8f6f2263a8926d3d78d58a6eeedf24e31cb390a"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\29-persona-skill.lua",
+      "sha256": "de2ac53a882b26c8e298fa6e4519f2b1f4f4f8b979f670fc6eb1e9823d186072"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\30-engine.lua",
+      "sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\31-foes.lua",
+      "sha256": "2338629d499ba016d07e6f0c3d51c2ce3a27d6ebea727baf8e3257acaae258a2"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\32-personal-a.lua",
+      "sha256": "7ecb649601d7c2cf9e5d22515bd30bd656e73e876f4194edf7591e89b847ace7"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\32-personal-b.lua",
+      "sha256": "19297199d257c092a2b49ee405feff3880100601efc454f04a03981936b2bfa5"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\34-traits.lua",
+      "sha256": "24f5808560ebb61c3628dafed4ec864b09e65f513475295cbbd5326cc9189aaa"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\40-fx.lua",
+      "sha256": "f1dee39462425d8c96f8984a9566463dde5b2886e04d889dcb350f2e3de0e35a"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\50-render.lua",
+      "sha256": "712dafd8fc34163daf294a0a0266c0f20119341ee49cbf6f0901055e151b95e3"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\51-raid.lua",
+      "sha256": "088151d8bc6d68cddca29ddb56326b03ed0d54cc55cf3face64467edd4329565"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\60-create.lua",
+      "sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\65-codex.lua",
+      "sha256": "19c193f893db0816afa559982c43d059ea8ba14145f66e29ca2fdca7e5f9f743"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\66-status.lua",
+      "sha256": "7003999b4765a0c84255b31361f82ccb88dd7c235267f410da1beec881505f5e"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\67-settings.lua",
+      "sha256": "ff7887a4f0bdfa53273bc10942052c9bb4faddd07b8cf8ee5ebaa64ba8874d6e"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\68-cloud.lua",
+      "sha256": "470ae9ca53e99ae190d961b40059ece624b8f9c7842509f1825a1f7b85410e1c"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\69-rank.lua",
+      "sha256": "d77e709805e9e57401298c826d3924fa9fce13dba10105bf9a755fe64c83b546"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\70-town.lua",
+      "sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\71-shop.lua",
+      "sha256": "49d6d1a5959da53ad29e6787fef84b94a778d9eb147a0dacf440903af43cac2d"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\72-guild.lua",
+      "sha256": "3125fd872513eff4defb1b3db3490f5b5a8fa87c683d23d3d5169681b2472e5f"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\73-inn.lua",
+      "sha256": "c4a7c97be4184a09ad54346b7c41cb7dc8b8d4cd2d5722ed13eab368444b8477"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\74-affection.lua",
+      "sha256": "a8142bb5cf5c00ba451847797bf6a446b46ec619d14dc4e741a21e0226d117ca"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\74-level.lua",
+      "sha256": "59b18059453c5f17c8ac94bdd5222e3099ccf33a0a04c116d579cd2a9f78b9d3"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\75-sortie.lua",
+      "sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\76-dungeon.lua",
+      "sha256": "dd8363226766b6701f6df95fa89ac57ee412dc89082aaddc64fa52e9e511b19e"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\77-explore.lua",
+      "sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\78-battle-item.lua",
+      "sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\79-sex.lua",
+      "sha256": "13440ac76c9428a3947fc2cddcf93caafc74f7093c1ea5ad591e905056288f5b"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\80-press.lua",
+      "sha256": "8796855f85c40bbe7a8e36d1769c2d1f074db42e9f85c349329d45808000f1d7"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\81-gear.lua",
+      "sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\82-smithy.lua",
+      "sha256": "4298d9d7b9cc5cdd6f1a832871c6eaff6a74385a8a4ae7952d99df3d9beafe72"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\85-portrait.lua",
+      "sha256": "024c61e692c07a55d4570c1dad1319074f00c3865900a7a599982716d838e2b9"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\86-portrait-have.lua",
+      "sha256": "8490ad4e3dd2ca9b99e503618085ca4c7f489a1bef708be8ceea5408e2333fc9"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\87-portrait-modules.lua",
+      "sha256": "11bb291fe0d6c57df8afd26e029b7f74825a1352f77f4f72a6409d2f85066c19"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\88-lore.lua",
+      "sha256": "1632a83b8eabf5069defd104fde940d107b7dfdc36f5a183536c680d4e4b5482"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\89-art.lua",
+      "sha256": "3ee092d55f6e0a8ed6c2da67046d108e607a06b32d8c98ee9bea10ba9fd43773"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\89-memory.lua",
+      "sha256": "fe05cb1744412afa242858ed262bd086bff0d28f95d7c76c186367e2332c745c"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\90-triggers.lua",
+      "sha256": "d11d92f323c04701ab55ebf36af1e817775f4262cb90dbee2fdad2c095bc4883"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\BATTLE-PROTO0.md",
+      "sha256": "c97ba4787040e3746f013343abffcd11d56f92e9b40934ec5008dc639023fa50"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\CLASSES.md",
+      "sha256": "31e38d51046550dbea8be7c1d910b46b4320f16cee4077ba7ebd00c89064dc8b"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\CLOUD-SAVE.md",
+      "sha256": "c1891724434ec9dc5093bb6492737da79cb7586a27802d1ce3e3c1baf99f209d"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\COMPANIONS.md",
+      "sha256": "f599d73095e627dd3078986d0e54cbe7284d920c8e82ad2f4009ba9b091bdbd4"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\DUNGEON.md",
+      "sha256": "5bd78c9b5d5af80c9f8f60a6ef411fb9c72fc2168d38a2b8f511fdc7e01c1218"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\ELEMENTS.md",
+      "sha256": "7e4f8fe9bf77060b6a579c54f88dc827e6d7857b8aa30bf1d34dae874c013edb"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\enemies.json",
+      "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\ENEMIES.md",
+      "sha256": "730418aabbd05d8eceb95f99d7723c15e6c1d5e9a7d2674fe63db516844d222e"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\equipment.json",
+      "sha256": "2e1c5f60951b43106098d9789d19566b97a4036a38791ca8054de61c4a6a186c"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\EQUIPMENT.md",
+      "sha256": "43889548e7285593ef6775a1ca308073f36c01b693df25d87d7e96e4f0ef6560"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\EXPEDITION.md",
+      "sha256": "b2312f739f846928181b2fee1c4e5002c63ec514899ee6f0ceec5f4be3c64877"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\FORMULA.md",
+      "sha256": "897fe5ad16468d010b1775759e8e34be94f7aa9a992be1006d9a14eda586ff2e"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\GAME-DESIGN.md",
+      "sha256": "78b90ba60f223cebf714474180a0179002adf619fa6a520b917399e443d641df"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\GAP-MOE.md",
+      "sha256": "dce77c929f59ec59532a44f6d6c4bf98c07c7b4fdc1a8b9a5c17996d48f96c9f"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\gear.json",
+      "sha256": "9b940500dc026eefe265951bbc9255fff7901022d813ca0808846a78f749490b"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\gear_effects.json",
+      "sha256": "a1cca3d1838db99c4a8e1792b52170f0993b5924c5ef11615b2e44d5aa28e9b4"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\guild.json",
+      "sha256": "325899b9be3328ce5435c49816596c6bfa1346b891ad2f05e7657e95c384992c"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\i18n\\en\\c1-create.json",
+      "sha256": "df085412cb2ac742f6e8753b48932fba86e64acdf659a63ed3db5668374c8ca4"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\i18n\\en\\c1-guild.json",
+      "sha256": "f60f340530f1086a992585a9cccd3c09bdcd2392d013859071602184533e4894"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\i18n\\en\\c1-inn.json",
+      "sha256": "0539aa90781ed78ff0757d5877553c08b489bdc0c1ca97f6316871c6aa8fddbe"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\i18n\\en\\c1-items.json",
+      "sha256": "56abb01c7c4ae43be760bfdb40fe2b2cb0bab4644bd6be2c7627935e9a40a201"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\i18n\\en\\c1-places.json",
+      "sha256": "6a60e8ab39cd4369b6c712330da5582a700b4e9f0e44f53ecfba0c9bab404bf4"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\i18n\\en\\c2-combat.json",
+      "sha256": "83a13c6664af171d789c86f26cd4b2004b6b2716c9457b28653c4289918710db"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\i18n\\en\\c2-personal.json",
+      "sha256": "22d89704165bf6e40f5b189aa4ec86bbd8bd92b7d268f47571455bd9dda1d56f"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\i18n\\en\\c3-common.json",
+      "sha256": "23e4bd035eb169fa085138c582d71a3b65528577bc7e51118c41129868061322"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\i18n\\en\\enemies.json",
+      "sha256": "f0f730a2e3bfbe391bdb329b185738a4b11b05f3e50a2a3bc58c8a32d1ad13f3"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\i18n\\en\\equipment.json",
+      "sha256": "0804e6114562e4b570edf972e7b74264a4a027761ec78bb80d4bf600c30beaae"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\i18n\\en\\gear.json",
+      "sha256": "30a9302519e2dca33765d064db9999448101b38e9abaae4d1dd3806074a234cf"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\i18n\\en\\gear_effects.json",
+      "sha256": "1f2d39724f04596cdecde28ec668b675a0d6e251bdb5ee8bebb49389650f9f62"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\i18n\\en\\intimacy.json",
+      "sha256": "d951ce164cbca3863ae4ba31e92556b1cf496791152027278215ff95b0a8e46b"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\i18n\\en\\passives.json",
+      "sha256": "ef2b917138738a553db8ef7e58c806bc748b42c82be4240a21592f1dd243e5b6"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\i18n\\en\\stats.json",
+      "sha256": "f7cba50382664c855ae5e2f70fb0c3ae9f8cb26e8b2246ed6c862f76bd5ac519"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\i18n\\names.json",
+      "sha256": "4f766fc93ee6c3633eed036d9b5fe62ea9ebb2a7ae398a87b7d924422e85da6c"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\i18n\\ui\\en.json",
+      "sha256": "c9463457724cc266467c7724a3ccc6db8b1b554bf982866957c9cdb6a2628802"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\intimacy.json",
+      "sha256": "d5d5100e49a1a527a1f2f2cc42c643a1bb5fe882e4e7277ccae86b7efae106f3"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\INTIMACY.md",
+      "sha256": "20b767c87e68d40f684f998c7a0f593b5962c16ef3457df596cca61ee6102896"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\ITEMS.md",
+      "sha256": "dcfd631c3c09826277d1b576c000d535918f9e3b5f3c3a257d715ccefce0a442"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\legacc_text.json",
+      "sha256": "b157f589f12bd3c56cf0d6687cc216c853583dfbdd724d1f7144e5566116665b"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\NPCS.md",
+      "sha256": "d5aa4b700fe2f46a8a4824959dce6a6f342ac51d7dbdd88cbbaa2244ffa26acd"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\passives.json",
+      "sha256": "16845091f656e03561b23600b0011288cd203f14a22443fd73167b30761972b7"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\PERSONALITY-CAST.md",
+      "sha256": "0af454edc26cb54c0891130e0038e2f88279e42582e8a57e340414515371d56b"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\PERSONALITY.md",
+      "sha256": "a7f23e9c80b50b99e5be1c15b388b39e9a3498f93524e59ff21965e422c9ec23"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\persona_skill.json",
+      "sha256": "8ee260c1084fba1117a7c7959752975fef78d2de463181d82395786d99e05266"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\PERSONA_SKILL.md",
+      "sha256": "f738b9a5d711db17d5a62967a52ffb6163a71088b74535321d9a87af15608270"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\RECRUIT.md",
+      "sha256": "fb67dce2cb79d2d57fa02a10e5db0232b7b330e22e00938eee436b9504b246ed"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\SAVE-LOAD.md",
+      "sha256": "1afc4b9958582211a959efdf1fde2e632b39e5e048b4850f6d61b355e711bf6b"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\shop.json",
+      "sha256": "1c467bb52fd45490859633be43b7c11829bb74a415709473b562494fc1ca4c3a"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\stats.json",
+      "sha256": "fe901acce0b00e1b82fd7451aca071578c0f8d16fdbf2008938bf08081e5eca2"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\TRAIT-SIM.md",
+      "sha256": "67163d2b97014443aca7b5bbf59b009a1d80f32d21b33c69d26928de35d594f7"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\TRAITS-PERSONAL-V2.md",
+      "sha256": "dc8c8524362c2ae43e2027b66b8bc514bd2089fdd9d071175f49a47095a0f21d"
+    },
+    {
+      "file": "C:\\Clauede Code\\dungeon-bot\\design\\TRAITS.md",
+      "sha256": "d50316685c66e2b4bff2c8f5eed89d3cbac2f4326cafd6239f78c1587c73695d"
+    }
+  ],
+  "runtime": {
+    "steps": 5,
+    "kinds": {
+      "coin": 1209,
+      "item": 854,
+      "battle": 4952,
+      "equip": 366,
+      "elite": 619
+    },
+    "samples": 8000
+  },
+  "interpretation": "77 head_card/last_card/party_card/gear_card are HTML panels. The matching seal name is an enemy skill. Existing web key/camp behavior and saved hands are preserved, not claimed as canonical parity."
+}

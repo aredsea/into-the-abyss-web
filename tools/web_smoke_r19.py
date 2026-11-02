@@ -59,7 +59,7 @@ try:
      town_screens.append('default:'+expected)
      if expected=='bag' and id=='item:hp_s': assert page.evaluate('window.__abyssWorld.controls.use_selected.disabled')
    if town_r21:
-    assert page.evaluate('window.__abyssWorld.ui_build')=='r21-d-town-20261102b'
+    assert page.evaluate('window.__abyssWorld.ui_build')=='r21-d-town-20261102c'
     assert not page.evaluate('window.__abyssWorld.town_r21_preview')
     for id,expected in [('nav:party','party'),('member:hildegard','member'),('tab:skills','skills'),('back','party'),('nav:town','town')]:
      click(id)
@@ -73,6 +73,21 @@ try:
     for id,expected in [('guild','guild'),('guild:recruit','recruit'),('back','guild'),('guild:research','research'),('nav:town','town'),('shop','shop'),('shop_equipment','shop'),('shop_bag','equipment'),('equipment_smithy','smithy'),('nav:town','town'),('inn','inn'),('nav:town','town')]:
      click(id);page.wait_for_function('(s)=>window.__abyssWorld.screen===s',arg=expected)
      town_screens.append('default:'+expected)
+    # Round 7: actual authored dialogue, committed reaction, daily limit and reload.
+    click('inn');click('inn:talk')
+    dialogue_before=page.evaluate('window.__abyssWorld.state')
+    assert dialogue_before['dialogue_r21']['pending']['who']=='hildegard'
+    assert all(page.evaluate('(k)=>!!window.__abyssWorld.controls[k]',arg='dialogue_choice:'+c) for c in ['c1','c2','c3'])
+    page.screenshot(path=str(O/f'dialogue-choices-{width}x{height}.png'))
+    click('dialogue_choice:c1')
+    dialogue_after=page.evaluate('window.__abyssWorld.state')
+    assert not dialogue_after['dialogue_r21']['pending']
+    assert dialogue_after['acts']['hildegard_talk']==dialogue_after['day']
+    page.reload();page.wait_for_function('window.__abyssWorld?.controls.dialogue_done',timeout=90000)
+    assert page.evaluate('window.__abyssWorld.state.members.hildegard.aff')==dialogue_after['members']['hildegard']['aff']
+    page.screenshot(path=str(O/f'dialogue-response-{width}x{height}.png'))
+    click('dialogue_done');assert page.evaluate('window.__abyssWorld.controls["inn:talk"].disabled')
+    town_screens.append('source:dialogue-choice-reload');click('nav:town')
     click('guild');click('guild:research');click('research_editor')
     assert page.evaluate('window.__abyssWorld.controls.ps_save.disabled')
     for pick,field,value in [('ps_part:prefixes','prefix','strike'),('ps_part:suffixes','suffix','bane')]:
@@ -115,16 +130,20 @@ try:
      context.close();print('PASS source commerce',width,height,reduced,flush=True);continue
    if town_r21:
     for id in ['depart','start_run']:click(id)
-    for step in range(7):
+    for step in range(20):
      world=page.evaluate('window.__abyssWorld')
      if world['screen']=='battle':break
+     if 'dialogue_continue' in world['controls']:
+      click('dialogue_continue');continue
      click('final_battle' if world['state']['run']['phase']=='rest' else 'advance')
     page.wait_for_function('window.__abyssWorld.screen==="battle"',timeout=30000)
    else:
     for id in ['depart','start_run']:click(id)
-    for step in range(7):
+    for step in range(20):
      world=page.evaluate('window.__abyssWorld')
      if world['screen']=='battle':break
+     if 'dialogue_continue' in world['controls']:
+      click('dialogue_continue');continue
      click('final_battle' if world['state']['run']['phase']=='rest' else 'advance')
    page.wait_for_function('window.__abyssPreview && !window.__abyssPreview.busy',timeout=30000)
    tag=f'{width}'+('' if (width,height) in [(390,844),(360,780)] else f'x{height}')+('-reduced' if reduced else '')
@@ -172,7 +191,7 @@ try:
     assert restored,(town_viewport,after_viewport)
     capture('return')
    assert not errors,errors
-   results.append({'width':width,'height':height,'viewport':initial['viewport'],'reduced':reduced,'ui_build':final['ui_build'],'town_ui_build':'r21-d-town-20261102b' if town_r21 else None,'town_screens':town_screens,'stable_default_checked':stable_default_checked,'errors':errors,'viewport_restored_after_victory':restored,'personal_actions_before':initial['state']['units']['hildegard']['actions'],'personal_actions_after':final['state']['units']['hildegard']['actions'],'text_errors':[t for t in final['text'] if t['needed']>t['available']+1 or t['missing_glyphs']]})
+   results.append({'width':width,'height':height,'viewport':initial['viewport'],'reduced':reduced,'ui_build':final['ui_build'],'town_ui_build':'r21-d-town-20261102c' if town_r21 else None,'town_screens':town_screens,'stable_default_checked':stable_default_checked,'errors':errors,'viewport_restored_after_victory':restored,'personal_actions_before':initial['state']['units']['hildegard']['actions'],'personal_actions_after':final['state']['units']['hildegard']['actions'],'text_errors':[t for t in final['text'] if t['needed']>t['available']+1 or t['missing_glyphs']]})
    context.close(); print('PASS',tag,flush=True)
   browser.close()
 finally:

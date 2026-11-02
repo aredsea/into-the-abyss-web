@@ -73,11 +73,11 @@ func run():
 		await click(s,"buy:hp_s");check(s.model.s.gold==gold-cost and s.model.s.items.hp_s==stock+1,"pointer shop charges source-rounded cost")
 		s.go("guild");await process_frame;await click(s,"guild:recruit");check(s.screen=="recruit","dedicated recruitment route")
 		s.go("inn");await process_frame;await click(s,"inn:meal");await click(s,"cancel");check(s.model.s.gold==gold-cost,"inn cancellation atomic")
-		s.go("depart");await process_frame;await click(s,"start_run");await capture(s,"explore",dim.x)
+		s.go("depart");await process_frame;await click(s,"start_run");await click(s,"dialogue_continue");await capture(s,"explore",dim.x)
 		await click(s,"nav:depart");check(s.screen=="explore","active expedition nav resumes instead of departure")
 		await click(s,"retreat");await capture(s,"retreat",dim.x)
 		var snapshot=JSON.stringify(s.model.s);await click(s,"cancel");check(JSON.stringify(s.model.s)==snapshot,"retreat cancellation does not mutate run")
-		s.model.s.run.phase="rest";s.model.enter_dungeon_rest();s.go("explore");await capture(s,"rest",dim.x)
+		s.model.s.run.phase="rest";s.model.enter_dungeon_rest();s.go("explore");await click(s,"dialogue_continue");await capture(s,"rest",dim.x)
 		s.go("cards");await capture(s,"cards-empty",dim.x)
 		root.remove_child(s);s.queue_free();await process_frame
 	FileAccess.open(folder+"/ui-results.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failures":failures,"captures":captures,"portrait_slots":portraits,"enemy_art_fallbacks":fallback},"  "))

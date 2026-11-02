@@ -69,7 +69,11 @@ func go(page: String) -> void:
 
 func _draw_screen() -> void:
 	if not is_inside_tree(): return
-	if model.active() and model.s.run.phase=="battle":
+	var dialogue_state=model.s.get("dialogue_r21",{"pending":{},"response":{},"queue":[]})
+	var dialogue_open=not dialogue_state.pending.is_empty() or not dialogue_state.response.is_empty()
+	var journey_open=not dialogue_state.queue.is_empty() and screen in ["explore","summary","inn"] and not is_instance_valid(battle)
+	if model.active() and model.s.run.phase=="battle" and not model.s.run.battle.is_empty():journey_open=false
+	if model.active() and model.s.run.phase=="battle" and not journey_open:
 		if is_instance_valid(battle): return
 		for c in get_children(): remove_child(c); c.queue_free()
 		battle=BattleScreen.new()
@@ -86,7 +90,7 @@ func _draw_screen() -> void:
 	town_view=null
 	result_view=null
 	var finished_town=screen in ["town","party","member","skills","cards","depart","bag","formation","journal","summary","inn","shop","guild","recruit","equipment","smithy","research"] or (screen=="explore" and (model.r21() or model.s.run.get("event","")=="sealed"))
-	if finished_town and (confirm.is_empty() or (screen=="explore" and model.r21())):
+	if (finished_town or dialogue_open or journey_open) and (confirm.is_empty() or (screen=="explore" and model.r21())):
 		town_view=TownScreen.new(); add_child(town_view); town_view.build(self)
 		last_drawn_screen=screen; call_deferred("_publish"); return
 	var width=minf(size.x,440); var height=size.y
@@ -475,7 +479,7 @@ func _publish() -> void:
 		if not is_instance_valid(controls[id]): continue
 		var b=controls[id]; var r=b.get_global_rect()
 		buttons[id]={"rect":[r.position.x,r.position.y,r.size.x,r.size.y],"disabled":b.disabled,"needed":FONT.get_multiline_string_size(b.text,HORIZONTAL_ALIGNMENT_LEFT,-1,b.get_theme_font_size("font_size")).x+24}
-	var report={"build":model.config.build,"ui_build":"r21-d-town-20261102b","town_r21_preview":town_r21_preview,"screen":"battle" if is_instance_valid(battle) else screen,"state":model.s,"controls":buttons,"viewport":[size.x,size.y],"restored":restored,"save_error":save_error,"art_preview":art_preview_id,"town_scroll_height":content.size.y if is_instance_valid(content) else 0}
+	var report={"build":model.config.build,"ui_build":"r21-d-town-20261102c","town_r21_preview":town_r21_preview,"screen":"battle" if is_instance_valid(battle) else screen,"state":model.s,"controls":buttons,"viewport":[size.x,size.y],"restored":restored,"save_error":save_error,"art_preview":art_preview_id,"town_scroll_height":content.size.y if is_instance_valid(content) else 0}
 	if is_instance_valid(town_view): report.town_text=town_view.metrics
 	JavaScriptBridge.eval("window.__abyssWorld="+JSON.stringify(report)+";",true)
 
