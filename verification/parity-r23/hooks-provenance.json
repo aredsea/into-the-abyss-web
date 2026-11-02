@@ -1,0 +1,35 @@
+{
+  "sources": [
+    {
+      "name": "05-gen.lua",
+      "sha256": "5dccbfcb53a0376d6aad940f1f26cbca48f5cf6cf3218b5aeb585462314e3942"
+    },
+    {
+      "name": "10-data.lua",
+      "sha256": "74b57744fc12afa088150298c2ed0f674161b7b032e2ef218dce78ac4e59d062"
+    },
+    {
+      "name": "24-stats.lua",
+      "sha256": "24a4b73ba34d83bf656065d687f72cf952fd6ed807b6a79473449505e0548597"
+    },
+    {
+      "name": "81-gear.lua",
+      "sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8"
+    },
+    {
+      "name": "82-smithy.lua",
+      "sha256": "4298d9d7b9cc5cdd6f1a832871c6eaff6a74385a8a4ae7952d99df3d9beafe72"
+    }
+  ],
+  "fixtures": 51,
+  "primitives": "tools/gear_r22_hook_oracle.lua",
+  "prior_callbacks": "isolated empty GH (composed owner behavior remains covered by retained combat traces)",
+  "supporting_build": {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\dist\\bot.lua",
+    "sha256": "2dc6ee8f620492f3b81edcf714c461a163e8a20d1297fb666c3101ffc5d9c215"
+  },
+  "sim_harness": {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\lua_sim.mjs",
+    "sha256": "17ffa65e8f680ffd69cb19db8a65067c2258fd9ea16a5b983b411d428057cbb5"
+  }
+}

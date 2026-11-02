@@ -595,7 +595,7 @@ func inn() -> void:
 	display(host.model.person(host.who).name,Rect2(183,518,180,29),T.INK,24)
 	label(host.model.person(host.who)["class"],Rect2(183,547,180,18),12)
 	var aff=host.model.s.members[host.who].aff
-	label("%s · 호감 %s / 200"%[preload("res://game/affection_r22.gd").stage(aff),host.number(aff)],Rect2(183,567,180,20),12,T.INK,T.BOLD)
+	label("%s · 호감 %s / 200"%[host.model.TOWN_RULES.guild_tier(aff),host.model.TOWN_RULES.aff_fmt(floor(aff))],Rect2(183,567,180,20),12,T.INK,T.BOLD)
 	fill("aff_track",Rect2(183,591,177,8),T.LINE);fill("aff_value",Rect2(183,591,177*maxf(0,aff)/200,8),T.RED)
 	label("함께, 더 깊은 곳으로.",Rect2(18,614,354,25),15,T.INK,T.BOLD)
 	var acts=host.model.TOWN_RULES.DATA.inn
@@ -619,9 +619,15 @@ func shop() -> void:
 	for i in range(2):
 		action(["shop_items","shop_equipment"][i],["보급품","직업 장비"][i],Rect2(18+i*177,378,177,40),func():host.shop_tab="items" if i==0 else "gear";host._draw_screen(),(host.shop_tab=="items")==bool(i==0))
 	if host.shop_tab=="gear":shop_gear();return
-	var prev=stage;stage=scroll_page(432,270,host.model.config.items.size()*107)
-	for i in range(host.model.config.items.size()):
-		var item=host.model.config.items[i];var y=i*107
+	var rows=host.model.config.items.duplicate()
+	if host.model.s.items.get("charm_potion",0)>0:rows.append({"id":"charm_potion","name":"매혹의 비약","nosale":true})
+	var prev=stage;stage=scroll_page(432,270,rows.size()*107)
+	for i in range(rows.size()):
+		var item=rows[i];var y=i*107
+		if item.get("nosale",false):
+			label(item.name,Rect2(12,y+14,260,27),16,T.INK,T.BOLD)
+			label("보유 %d"%host.model.s.items[item.id],Rect2(12,y+52,260,24),13)
+			rule(y+103,0,342);continue
 		asset("res://assets/ic_"+item.icon+".webp",Rect2(0,y,90,92))
 		label(item.name,Rect2(100,y+4,155,24),14,T.INK,T.BOLD)
 		paragraph(host._item_text(item),Rect2(100,y+30,150,52),11)
@@ -640,7 +646,7 @@ func dialogue_frame(who: String,title: String) -> void:
 	display(title,Rect2(18,38,194,53),T.INK,36)
 	display(host.model.person(who).name,Rect2(18,121,148,38),T.INK,28)
 	var a=host.model.s.members[who].aff
-	label(host.model.TOWN_RULES.aff_stage(a)+" · 호감 "+host.number(a),Rect2(18,165,148,25),13,T.INK,T.BOLD)
+	label(host.model.TOWN_RULES.aff_stage(a)+" · 호감 "+host.model.TOWN_RULES.aff_fmt(a),Rect2(18,165,148,25),13,T.INK,T.BOLD)
 	fill("dialogue_body",Rect2(0,322,390,522),T.PAPER)
 
 func inn_dialogue() -> void:

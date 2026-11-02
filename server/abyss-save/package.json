@@ -5,7 +5,7 @@
   "scripts": {
     "generate": "node gen_known.mjs",
     "build": "node build.mjs",
-    "test": "node test/integration.mjs && node test/security.mjs && node test/turnstile.mjs && node test/security-r2.mjs && node test/security-r3.mjs && node test/deployment.mjs && node test/combat-r14.mjs && node test/p2-r15.mjs",
+    "test": "node test/integration.mjs && node test/security.mjs && node test/turnstile.mjs && node test/security-r2.mjs && node test/security-r3.mjs && node test/deployment.mjs && node test/combat-r14.mjs && node test/p2-r15.mjs && node test/gear-r23.mjs",
     "dev": "wrangler dev --env development --local --ip 127.0.0.1",
     "check:deployment": "node check-deployment.mjs",
     "predeploy": "npm run check:deployment",
