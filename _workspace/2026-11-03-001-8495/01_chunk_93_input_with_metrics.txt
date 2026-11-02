@@ -1,0 +1,497 @@
+[청크 컨텍스트] 이 텍스트는 한 문서를 나눈 청크 93/99이다.
+- 문서 전체가 아니므로 서두·결말·전환 문구를 새로 만들지 말 것. 경계가 잘린 듯 보여도 그대로 둔다.
+[진단]
+# 진단 — 게임 동료 대화 30명
+
+장르: 게임 대사. 화계는 인물별 speech.allowed_endings와 정본 말투를 보존한다. 글 전체 화계를 통일하지 않는다.
+
+1. D-14 생성 은유: 자리·몫·이름·줄·문·빈칸이 인물 고유 소재에서 벗어나 감정을 대신하는 곳. 정본 사건과 실제 물건은 보존하고 감정 대목만 일상 발화로 교정한다.
+2. C-8 대칭 대구: 정량 antithesis_count 12. A/B가 다르다·따로다 같은 명제 요약은 구체 대화로 바꾼다. 필요한 거절·경계와 반문은 남긴다.
+3. I-3/H-3 의미 해설: 행동 뒤 그 뜻은 아니다 등으로 감정을 재진술한다. 실제 오해를 풀어야 하는 곳과 중복 설명을 구분한다.
+4. F-7/A-15 사적 공문체: 간격 확보·대화 기록 등 사적 장면의 추상 행정어. 인물 고유 업무·계약·기록 장면은 보존한다.
+5. E-3/C-4 문형 반복: 먼저·오늘은·같이의 밀집, 상대를 진단하는 선택지 및 경계를 그대로 복창하는 반응. 시간 순서와 aff 기능은 유지하고 장면마다 발화 기능을 재검토한다.
+
+정량 앵커: 원문 689517자(경로 식별자 포함), relative_clause_nesting 14, double_particle_count 2, have_make_literal_count 1. risk_band low이나 긴 입력의 구조 지표로 heavy를 추천한다. 산문 기준 z-score를 화계가 섞인 게임 자료의 품질 등급으로 바로 적용하지 않는다.
+
+보존: 장면·선택지 수, 선택지 ID·순서·aff, 인물명·정본 사건·소재·화계. 도입 3줄, 전이 2줄. 수정은 finding이 있는 발화 필드에 한정한다. 지적별 제안은 고침 취지 반영 여부를 기록하며 감점 대사를 호의적 대사로 뒤집는 제안은 대안으로 반영한다.
+[진단 끝]
+
+[정량 사전 점수 v2.0 — v1.6 8지표(KatFish baseline) + v2.0 카운트형]
+risk_band: low  (score 0)
+genre: essay
+char_count: 6989
+
+[v1.6 지표]
+- comma_inclusion_rate: 0.01  (z=-1.46 vs essay 인간 baseline)
+- comma_usage_rate: 0.01  (z=-1.57 vs essay 인간 baseline)
+- ending_comma_rate: 0.00  (z=-0.52 vs essay 인간 baseline)
+- comma_segment_length: 2.68  (z=-0.79 vs essay 인간 baseline)
+- conclusion_pivot_count: 0
+- safe_balance_count: 0
+- hanja_nominalizer_density: 0.000  (z=-2.00 vs essay 인간 baseline)
+- lexical_diversity: 0.71  (z=+1.25 vs essay 인간 baseline)
+
+[v2.0 카운트형 지표 — 원값 / baseline calibration 전 z-score 해석 보류]
+- double_passive_count (이중 피동, 본진 A-8): 0
+- by_passive_count (~에 의해 피동, 본진 A-9): 0
+- pronoun_density (인칭 대명사 밀도, 본진 A-16): 0.001
+- have_make_literal_count (have/make 직역, 본진 A-7): 0
+- double_particle_count (이중 조사 결합, 본진 A-19): 0
+- relative_clause_nesting (관형절 3중+ 중첩 문장 수, 본진 A-18): 0
+- deul_overuse_rate ('-들' 남용률, 본진 A-17 hold): 0.000
+- 카운트 > 0 지표는 해당 본진 ID 처방(quick-rules.md·taxonomy)과 교차 확인 후 윤문할 것.
+
+[근거 사용 가이드]
+- 위 점수는 *근거 보조*다. 단독 판정 금지(보고서 명시).
+- z>1.0 지표는 quick-rules.md S1·S2 패턴과 교차 확인 후 윤문할 것.
+- ending_comma_rate가 ★ S1 트리거인 경우 C-11(연결어미 뒤 쉼표) 우선 손질.
+- conclusion_pivot 매치 토큰은 D-1·H-1 처방 적용 대상.
+
+[원문 시작]
+miko/dungeon/36/variants/1
+손 씻고 나서 확인하죠.
+
+miko/dungeon/37/variants/0
+오늘은 밥을 먼저 먹을래요.
+
+miko/dungeon/37/variants/1
+남은 정리는 내일도 할 수 있어요.
+
+miko/dungeon/38/variants/0
+먼저 제 물부터 채워 놓을게요.
+
+miko/dungeon/38/variants/1
+아래에서 만나면 같이 주문해요.
+
+miko/dungeon/39/variants/0
+지금은 움직일 수 있는지 봐요.
+
+miko/dungeon/39/variants/1
+혼자 걸을 수 없으면 말해 주세요.
+
+miko/dungeon/40/variants/0
+서로 떨어지면 더 늦어져요.
+
+miko/dungeon/40/variants/1
+제가 뒤처지면 바로 불러 주세요.
+
+miko/dungeon/41/variants/0
+저도 남은 힘을 말할게요.
+
+miko/dungeon/41/variants/1
+같이 나가서 쉬는 곳부터 찾아요.
+
+miko/transitions/0/situation
+미코가 접던 천을 내려놓는다.
+
+miko/transitions/0/lines/0
+필요한 건 들을게요.
+
+miko/transitions/0/lines/1
+일단 이쪽에 앉아 계세요.
+
+miko/transitions/1/situation
+미코가 바구니를 제 쪽으로 당긴다.
+
+miko/transitions/1/lines/0
+오늘은 손대지 말아 주세요.
+
+miko/transitions/1/lines/1
+제가 혼자 정리할게요.
+
+miko/transitions/2/situation
+미코가 빈 의자를 가리킨다.
+
+miko/transitions/2/lines/0
+기다리실 거면 여기 앉아요.
+
+miko/transitions/2/lines/1
+물어보실 것도 천천히 들을게요.
+
+miko/transitions/3/situation
+미코가 가방 마개를 닫는다.
+
+miko/transitions/3/lines/0
+오늘은 제 쪽만 챙길게요.
+
+miko/transitions/3/lines/1
+도움이 필요하면 그때 말해 주세요.
+
+miko/transitions/4/situation
+미코가 마개 하나를 고쳐 잠근다.
+
+miko/transitions/4/lines/0
+이런 건 제가 한번 더 볼게요.
+
+miko/transitions/4/lines/1
+대신 무거운 쪽은 잡아 주세요.
+
+miko/transitions/5/situation
+미코가 주전자를 내려놓는다.
+
+miko/transitions/5/lines/0
+제 것은 제가 가져갈게요.
+
+miko/transitions/5/lines/1
+서로 챙길 것을 다시 확인해요.
+
+miko/transitions/6/situation
+미코가 막사 쪽을 바라본다.
+
+miko/transitions/6/lines/0
+어릴 때부터 저쪽 길로 다녔어요.
+
+miko/transitions/6/lines/1
+오늘은 그 얘기를 해 볼까요?
+
+miko/transitions/7/situation
+미코가 내려온 앞치마 끈을 한 손으로 잡는다.
+
+miko/transitions/7/lines/0
+옛날 얘기는 오늘 멈출게요.
+
+miko/transitions/7/lines/1
+지금 할 것만 같이 봐요.
+
+miko/transitions/8/situation
+미코가 자기 그릇부터 앞으로 당긴다.
+
+miko/transitions/8/lines/0
+오늘은 제 밥 먼저 먹을래요.
+
+miko/transitions/8/lines/1
+같이 먹으시면 더 좋고요.
+
+miko/transitions/9/situation
+미코가 그릇을 잠깐 내려놓는다.
+
+miko/transitions/9/lines/0
+방금 말은 조금 서운했어요.
+
+miko/transitions/9/lines/1
+괜찮다고 하고 넘기고 싶지는 않네요.
+
+miko/transitions/10/situation
+미코가 자기 짐을 같이 내려놓는다.
+
+miko/transitions/10/lines/0
+저도 힘들면 바로 말할게요.
+
+miko/transitions/10/lines/1
+그때는 그냥 들어 주시면 돼요.
+
+miko/transitions/11/situation
+미코가 빈 의자를 보다가 일어선다.
+
+miko/transitions/11/lines/0
+오늘은 혼자 눈 좀 붙일게요.
+
+miko/transitions/11/lines/1
+필요한 일도 내일 말씀해 주세요.
+
+miko/transitions/12/situation
+미코가 두 잔을 나란히 놓는다.
+
+miko/transitions/12/lines/0
+오늘은 제 잔도 먼저 채웠어요.
+
+miko/transitions/12/lines/1
+같이 앉아서 마시면 되겠네요.
+
+miko/transitions/13/situation
+미코가 자기 잔을 들어 일어난다.
+
+miko/transitions/13/lines/0
+오늘은 먼저 올라갈래요.
+
+miko/transitions/13/lines/1
+다음에 내려오면 이어서 들을게요.
+
+adeline/inn/0/situation
+아델린이 카드를 모아 내려놓는다.
+
+adeline/inn/0/lines/0
+오늘은 같이하지 않을게요.
+
+adeline/inn/0/lines/1
+지금 제게 웃으라고 하지는 마세요.
+
+adeline/inn/0/lines/2
+필요한 말씀은 듣겠습니다.
+
+adeline/inn/0/choices/0/text
+저는 먼저 올라갈게요.
+
+adeline/inn/0/choices/0/response/0
+조심해서 올라가세요.
+
+adeline/inn/0/choices/1/text
+한 판 이기면 기분도 나아지실 거예요.
+
+adeline/inn/0/choices/1/response/0
+지금은 이기고 싶은 마음도 없어요.
+
+adeline/inn/0/choices/1/response/1
+오늘은 카드를 덮겠습니다.
+
+adeline/inn/0/choices/2/text
+내일 일정만 전할게요.
+
+adeline/inn/0/choices/2/response/0
+네. 그건 기억하고 준비하겠습니다.
+
+adeline/inn/0/seen
+오늘 카드는 여기서 그만 둘게요.
+
+adeline/inn/1/situation
+아델린이 빈 의자 옆에 선다.
+
+adeline/inn/1/lines/0
+이쪽은 곧 치울게요.
+
+adeline/inn/1/lines/1
+오래 붙잡지는 않겠습니다.
+
+adeline/inn/1/lines/2
+혼자 앉고 싶으시면 말씀하세요.
+
+adeline/inn/1/choices/0/text
+늘 양보하시니 이번에도 부탁드릴게요.
+
+adeline/inn/1/choices/0/response/0
+오늘은 저도 조금 쉬고 싶어요.
+
+adeline/inn/1/choices/0/response/1
+다른 의자를 쓰시면 안 될까요?
+
+adeline/inn/1/choices/1/text
+아델린 씨가 쉬고 있던 곳인데 제가 옮길게요.
+
+adeline/inn/1/choices/1/response/0
+그럼 저는 잠깐 더 앉아 있겠습니다.
+
+adeline/inn/1/choices/2/text
+저는 물 떠서 바로 올라갈게요.
+
+adeline/inn/1/choices/2/response/0
+주전자는 아직 따뜻해요.
+
+adeline/inn/1/seen
+이 의자는 조금 더 쓰고 일어날게요.
+
+adeline/inn/2/situation
+아델린이 두 손을 모았다 푼다.
+
+adeline/inn/2/lines/0
+제가 먼저 사양했다고 해도요.
+
+adeline/inn/2/lines/1
+필요한지 한 번은 물어봐 주셨으면 해요.
+
+adeline/inn/2/lines/2
+늘 괜찮은 건 아니어서요.
+
+adeline/inn/2/choices/0/text
+다음에는 한 번 더 여쭤볼게요.
+
+adeline/inn/2/choices/0/response/0
+저도 필요하면 바로 말해 볼게요.
+
+adeline/inn/2/choices/1/text
+오늘은 쉬실 수 있나요?
+
+adeline/inn/2/choices/1/response/0
+지금은 조금 앉아 있을 수 있어요.
+
+adeline/inn/2/choices/2/text
+사양하시면 저는 정말 필요 없는 줄 알았어요.
+
+adeline/inn/2/choices/2/response/0
+그래서 지금 말씀드리는 거예요.
+
+adeline/inn/2/choices/2/response/1
+다시 묻지 말라는 뜻은 아니에요.
+
+adeline/inn/2/seen
+오늘은 제가 먼저 필요하다고 말해 볼게요.
+
+adeline/inn/3/situation
+아델린이 주사위를 손안에 넣는다.
+
+adeline/inn/3/lines/0
+지금은 안 던질 거예요.
+
+adeline/inn/3/lines/1
+지금 하자는 약속은 안 했잖아요.
+
+adeline/inn/3/lines/2
+잠깐 보고 있었어요.
+
+adeline/inn/3/choices/0/text
+저는 밥부터 먹을게요.
+
+adeline/inn/3/choices/0/response/0
+먹고 나서도 시간은 있겠어요.
+
+adeline/inn/3/choices/1/text
+겁나서 미루시는 거면 제가 져 드릴게요.
+
+adeline/inn/3/choices/1/response/0
+같은 때에 던져서 이겨 보고 싶어요.
+
+adeline/inn/3/choices/1/response/1
+오늘은 제가 고른 때에 할게요.
+
+adeline/inn/3/choices/2/text
+하고 싶을 때 아델린 씨가 먼저 꺼내요.
+
+adeline/inn/3/choices/2/response/0
+네. 제가 먼저 말씀드릴게요.
+
+adeline/inn/3/seen
+주사위는 넣어 뒀으니 지금은 안 할게요.
+
+adeline/inn/4/situation
+아델린이 공손히 인사하고 한 걸음 물러선다.
+
+adeline/inn/4/lines/0
+아델린 드 아르카스입니다.
+
+adeline/inn/4/lines/1
+필요한 일이 있으면 말씀해 주세요.
+
+adeline/inn/4/lines/2
+아침 기도 전에는 이쪽에 있어요.
+
+adeline/inn/4/choices/0/text
+성왕국에서 받아들여져서 정말 다행이네요.
+
+adeline/inn/4/choices/0/response/0
+감사한 마음은 있어요.
+
+adeline/inn/4/choices/0/response/1
+그때 일을 한마디로 끝내기는 어렵네요.
+
+adeline/inn/4/choices/1/text
+아델린 씨도 필요한 일이 있으면 말해요.
+
+adeline/inn/4/choices/1/response/0
+네. 먼저 말씀해 주셔서 감사합니다.
+
+adeline/inn/4/choices/2/text
+내일은 아침에 뵙겠네요.
+
+adeline/inn/4/choices/2/response/0
+늦지 않게 내려오겠습니다.
+
+adeline/inn/4/seen
+내일은 기도 전에 이쪽으로 내려올게요.
+
+adeline/inn/5/situation
+아델린이 카드 소리에 눈길을 준다.
+
+adeline/inn/5/lines/0
+저쪽에서 판을 벌였나 봐요.
+
+adeline/inn/5/lines/1
+아, 저는 잠깐 본 것뿐이에요.
+
+adeline/inn/5/lines/2
+카드는 전부터 좋아했어요.
+
+adeline/inn/5/choices/0/text
+구경하러 같이 가 볼까요?
+
+adeline/inn/5/choices/0/response/0
+방해하지 않는 데서 잠깐 보고 싶어요.
+
+adeline/inn/5/choices/1/text
+소리가 여기까지 들리네요.
+
+adeline/inn/5/choices/1/response/0
+마지막 패를 내는 것 같아요.
+
+adeline/inn/5/choices/2/text
+사제님이니까 이런 건 멀리하셔야죠.
+
+adeline/inn/5/choices/2/response/0
+제가 고른 놀이예요.
+
+adeline/inn/5/choices/2/response/1
+기도를 빼놓고 하는 것도 아니에요.
+
+adeline/inn/5/seen
+카드 넘기는 소리에 저도 모르게 돌아봤어요.
+
+adeline/inn/6/situation
+아델린이 접시를 뒤로 민다.
+
+adeline/inn/6/lines/0
+저는 조금 뒤에 먹어도 괜찮아요.
+
+adeline/inn/6/lines/1
+먼저 드셔도 돼요.
+
+adeline/inn/6/lines/2
+아직 따뜻할 때 드시면 좋겠어요.
+
+adeline/inn/6/choices/0/text
+저는 물을 더 떠 올게요.
+
+adeline/inn/6/choices/0/response/0
+그동안 접시는 이쪽에 둘게요.
+
+adeline/inn/6/choices/1/text
+양보해 주셔서 고마워요. 그럼 제가 먼저 먹죠.
+
+adeline/inn/6/choices/1/response/0
+네. 저는 조금 있다 먹을게요.
+
+adeline/inn/6/choices/1/response/1
+혹시 남은 국이 있는지만 봐야겠네요.
+
+adeline/inn/6/choices/2/text
+제 것도 있으니 같이 시작해요.
+
+adeline/inn/6/choices/2/response/0
+그럼 저도 식기 전에 먹겠습니다.
+
+adeline/inn/6/seen
+제 접시도 아직은 따뜻하네요.
+
+adeline/inn/7/situation
+아델린이 길 끝을 보다가 묻는다.
+
+adeline/inn/7/lines/0
+저기까지는 얼마나 걸릴까요?
+
+adeline/inn/7/lines/1
+뛰면 금방이겠네요.
+
+adeline/inn/7/lines/2
+아니요, 지금 하자는 건 아니에요.
+
+adeline/inn/7/choices/0/text
+발이 빠르시다니 저는 조금 앞에서 뛰어도 되죠?
+
+adeline/inn/7/choices/0/response/0
+같은 데서 출발하고 싶어요.
+
+adeline/inn/7/choices/0/response/1
+아직 겨루자고 한 것도 아니지만요.
+
+adeline/inn/7/choices/1/text
+왜요, 달리기는 자신 있으세요?
+
+adeline/inn/7/choices/1/response/0
+조금은요. 길이 미끄럽지만 않으면요.
+
+adeline/inn/7/choices/2/text
+걸어서도 멀진 않아요.
+
+adeline/inn/7/choices/2/response/0
+그러면 천천히 가도 되겠어요.
+
+adeline/inn/7/seen
+저 골목은 뛰기 전에 바닥부터 봐야겠어요.
+[원문 끝]

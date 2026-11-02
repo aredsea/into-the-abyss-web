@@ -1,0 +1,422 @@
+[청크 컨텍스트] 이 텍스트는 한 문서를 나눈 청크 12/99이다.
+- 문서 전체가 아니므로 서두·결말·전환 문구를 새로 만들지 말 것. 경계가 잘린 듯 보여도 그대로 둔다.
+[진단]
+# 진단 — 게임 동료 대화 30명
+
+장르: 게임 대사. 화계는 인물별 speech.allowed_endings와 정본 말투를 보존한다. 글 전체 화계를 통일하지 않는다.
+
+1. D-14 생성 은유: 자리·몫·이름·줄·문·빈칸이 인물 고유 소재에서 벗어나 감정을 대신하는 곳. 정본 사건과 실제 물건은 보존하고 감정 대목만 일상 발화로 교정한다.
+2. C-8 대칭 대구: 정량 antithesis_count 12. A/B가 다르다·따로다 같은 명제 요약은 구체 대화로 바꾼다. 필요한 거절·경계와 반문은 남긴다.
+3. I-3/H-3 의미 해설: 행동 뒤 그 뜻은 아니다 등으로 감정을 재진술한다. 실제 오해를 풀어야 하는 곳과 중복 설명을 구분한다.
+4. F-7/A-15 사적 공문체: 간격 확보·대화 기록 등 사적 장면의 추상 행정어. 인물 고유 업무·계약·기록 장면은 보존한다.
+5. E-3/C-4 문형 반복: 먼저·오늘은·같이의 밀집, 상대를 진단하는 선택지 및 경계를 그대로 복창하는 반응. 시간 순서와 aff 기능은 유지하고 장면마다 발화 기능을 재검토한다.
+
+정량 앵커: 원문 689517자(경로 식별자 포함), relative_clause_nesting 14, double_particle_count 2, have_make_literal_count 1. risk_band low이나 긴 입력의 구조 지표로 heavy를 추천한다. 산문 기준 z-score를 화계가 섞인 게임 자료의 품질 등급으로 바로 적용하지 않는다.
+
+보존: 장면·선택지 수, 선택지 ID·순서·aff, 인물명·정본 사건·소재·화계. 도입 3줄, 전이 2줄. 수정은 finding이 있는 발화 필드에 한정한다. 지적별 제안은 고침 취지 반영 여부를 기록하며 감점 대사를 호의적 대사로 뒤집는 제안은 대안으로 반영한다.
+[진단 끝]
+
+[정량 사전 점수 v2.0 — v1.6 8지표(KatFish baseline) + v2.0 카운트형]
+risk_band: low  (score 0)
+genre: essay
+char_count: 6992
+
+[v1.6 지표]
+- comma_inclusion_rate: 0.01  (z=-1.45 vs essay 인간 baseline)
+- comma_usage_rate: 0.01  (z=-1.57 vs essay 인간 baseline)
+- ending_comma_rate: 0.00  (z=-0.52 vs essay 인간 baseline)
+- comma_segment_length: 3.50  (z=-0.40 vs essay 인간 baseline)
+- conclusion_pivot_count: 0
+- safe_balance_count: 0
+- hanja_nominalizer_density: 0.000  (z=-2.00 vs essay 인간 baseline)
+- lexical_diversity: 0.72  (z=+1.41 vs essay 인간 baseline)
+
+[v2.0 카운트형 지표 — 원값 / baseline calibration 전 z-score 해석 보류]
+- double_passive_count (이중 피동, 본진 A-8): 0
+- by_passive_count (~에 의해 피동, 본진 A-9): 0
+- pronoun_density (인칭 대명사 밀도, 본진 A-16): 0.000
+- have_make_literal_count (have/make 직역, 본진 A-7): 0
+- double_particle_count (이중 조사 결합, 본진 A-19): 0
+- relative_clause_nesting (관형절 3중+ 중첩 문장 수, 본진 A-18): 0
+- deul_overuse_rate ('-들' 남용률, 본진 A-17 hold): 0.000
+- 카운트 > 0 지표는 해당 본진 ID 처방(quick-rules.md·taxonomy)과 교차 확인 후 윤문할 것.
+
+[근거 사용 가이드]
+- 위 점수는 *근거 보조*다. 단독 판정 금지(보고서 명시).
+- z>1.0 지표는 quick-rules.md S1·S2 패턴과 교차 확인 후 윤문할 것.
+- ending_comma_rate가 ★ S1 트리거인 경우 C-11(연결어미 뒤 쉼표) 우선 손질.
+- conclusion_pivot 매치 토큰은 D-1·H-1 처방 적용 대상.
+
+[원문 시작]
+teiris/inn/21/situation
+테이리스가 낡은 기록 옆에 빈 종이를 댄다.
+
+teiris/inn/21/lines/0
+전에 쓴 줄이 부끄러워 종이로 가려 봤어요.
+
+teiris/inn/21/lines/1
+전에 적은 말과 지금 본 것이 달라요.
+
+teiris/inn/21/lines/2
+틀린 줄을 지우면 처음에 잘못 본 것도 사라지겠죠?
+
+teiris/inn/21/choices/0/text
+새로 알게 된 게 맞으니 옛 기록은 버리셔도 돼요.
+
+teiris/inn/21/choices/0/response/0
+틀렸다는 걸 알게 된 날도 버리게 되네요.
+
+teiris/inn/21/choices/0/response/1
+처음부터 맞혔다고 적고 싶은 건 아닌데 가리려 한 마음은 비슷했네요.
+
+teiris/inn/21/choices/1/text
+처음 기록도 두고 바뀐 까닭을 옆에 적어요.
+
+teiris/inn/21/choices/1/response/0
+틀렸던 제가 다음 장에서 달라지는 거겠네요.
+
+teiris/inn/21/choices/1/response/1
+맨 처음 같이 잘못 알았던 얘기도 남겨 둘래요. 나중에 같이 읽어 주세요.
+
+teiris/inn/21/choices/2/text
+지금 본 것을 먼저 말씀해 주세요.
+
+teiris/inn/21/choices/2/response/0
+이번에는 무엇을 확인했는지부터 말할게요.
+
+teiris/inn/21/choices/2/response/1
+이번에 확인한 순서도 빠뜨리지 않고 말씀드릴게요.
+
+teiris/inn/21/seen
+빈 종이는 틀린 줄을 가리지 않게 옆에 붙였어요.
+
+teiris/inn/22/situation
+테이리스가 모르는 말이 적힌 줄에서 웃음을 멈춘다.
+
+teiris/inn/22/lines/0
+웃고 난 뒤에야 이 말 뜻을 다시 묻게 됐네요.
+
+teiris/inn/22/lines/1
+이 말은 아직도 조금 헷갈려요.
+
+teiris/inn/22/lines/2
+맞게 말했는지보다, 누구와 웃었는지가 먼저 떠올라요.
+
+teiris/inn/22/choices/0/text
+헷갈리면 같이 다시 써 보면서 웃어요.
+
+teiris/inn/22/choices/0/response/0
+제가 늦게 웃어도 기다려 주시는 거예요?
+
+teiris/inn/22/choices/0/response/1
+이번에도 대박을 한참 뒤에 말했는데요. 같이 웃은 때 옆에 늦었다고 써 둘게요.
+
+teiris/inn/22/choices/1/text
+그 말은 천천히 익혀도 돼요.
+
+teiris/inn/22/choices/1/response/0
+뜻을 아는 속도도 다를 수 있겠어요.
+
+teiris/inn/22/choices/1/response/1
+천천히 익혀도 누가 먼저 웃었는지는 기억날 것 같아요.
+
+teiris/inn/22/choices/2/text
+실수한 줄은 지워 드릴까요? 깔끔해 보이게요.
+
+teiris/inn/22/choices/2/response/0
+지우면 다음에 또 처음 묻는 말이 되겠어요.
+
+teiris/inn/22/choices/2/response/1
+어떤 말로 웃었는지보다 고쳐 가며 같이 있었던 걸 남겨 두고 싶어요.
+
+teiris/inn/22/seen
+헷갈리는 말 옆에는 지우지 않은 흔적이 남았어요.
+
+teiris/inn/23/situation
+테이리스가 노트를 덮은 채 문 쪽을 본다.
+
+teiris/inn/23/lines/0
+보고서에 넣을 칸이 모자란데도 여기에 앉았어요.
+
+teiris/inn/23/lines/1
+돌아갈 날의 보고서를 생각하면 마음이 급해져요.
+
+teiris/inn/23/lines/2
+그렇다고 지금 듣는 말을 줄이고 싶지는 않아요.
+
+teiris/inn/23/choices/0/text
+오늘 쓸 분량부터 마치실래요?
+
+teiris/inn/23/choices/0/response/0
+짧게 정리하고 다시 와도 될까요?
+
+teiris/inn/23/choices/0/response/1
+짧게 정리해도 안 줄어드는 마음은 돌아와서 말씀드릴게요.
+
+teiris/inn/23/choices/1/text
+일을 먼저 마쳐야 마음 놓일 테니 제가 자리를 비울게요.
+
+teiris/inn/23/choices/1/response/0
+자리를 비워 주시면 보고서는 빨리 쓰겠지요.
+
+teiris/inn/23/choices/1/response/1
+그런데 오늘은 그 일을 늦추더라도 여기 있고 싶어서 온 거예요.
+
+teiris/inn/23/choices/2/text
+보고서에 못 담을 이야기도 여기서 나누면 돼요.
+
+teiris/inn/23/choices/2/response/0
+남길 수 있는 말만 고르지 않아도 되겠어요.
+
+teiris/inn/23/choices/2/response/1
+지금 같이 듣는 소리는 적지 않아도 제게 남을 것 같아요. 조금만 더 계세요.
+
+teiris/inn/23/seen
+보고서가 덮여 있어도 이야기는 계속 들을 수 있네요.
+
+teiris/inn/24/situation
+테이리스가 빈손으로 와 식탁 앞에 선다.
+
+teiris/inn/24/lines/0
+빈손이 조금 어색해서 문 앞에서 소매를 만졌어요.
+
+teiris/inn/24/lines/1
+노트는 두고 왔어요.
+
+teiris/inn/24/lines/2
+이상하네요. 무엇을 물을지 생각하지 않아도 발이 여기로 왔어요.
+
+teiris/inn/24/choices/0/text
+한가하신가 봐요. 잠깐만 기다리시면 할 일을 찾아볼게요.
+
+teiris/inn/24/choices/0/response/0
+한가해서 온 줄로 들렸나요?
+
+teiris/inn/24/choices/0/response/1
+같이 하고 싶은 일은 있었어요. 이 자리에 앉아 있는 일이요.
+
+teiris/inn/24/choices/1/text
+오늘은 질문 없어도 함께 앉아요.
+
+teiris/inn/24/choices/1/response/0
+첫마디를 안 고르고 와도 되는 자리군요.
+
+teiris/inn/24/choices/1/response/1
+괜히 학술 조사라고 말할 뻔했어요. 오늘은 그냥 보고 싶어서 왔어요.
+
+teiris/inn/24/choices/2/text
+마실 것부터 고를까요?
+
+teiris/inn/24/choices/2/response/0
+오늘은 향을 맡고 천천히 골라 볼래요.
+
+teiris/inn/24/choices/2/response/1
+향을 맡아도 오늘은 노트를 찾지 않을게요.
+
+teiris/inn/24/seen
+노트가 없어도 여기서는 손이 덜 허전하네요.
+
+teiris/inn/25/situation
+테이리스가 잔 바닥의 자국을 보고 웃는다.
+
+teiris/inn/25/lines/0
+잔을 놓는 손을 보고 나서야 누가 앉았는지 알았어요.
+
+teiris/inn/25/lines/1
+처음에는 이런 자국도 오래 들여다봤어요.
+
+teiris/inn/25/lines/2
+오늘은 누가 어느 잔을 썼는지 먼저 보이네요.
+
+teiris/inn/25/choices/0/text
+지금 이 잔 자국도 우리 얘기에 들어가겠네요.
+
+teiris/inn/25/choices/0/response/0
+처음에는 동그라미 크기만 재고 있었는데요.
+
+teiris/inn/25/choices/0/response/1
+지금 자국이 남은 걸 보고 대박이라고 해도 될까요? 아, 닦은 뒤에 또 늦었네요.
+
+teiris/inn/25/choices/1/text
+식탁을 닦을 천을 가져올게요.
+
+teiris/inn/25/choices/1/response/0
+자국이 없어져도 오늘 일은 기억하겠어요.
+
+teiris/inn/25/choices/1/response/1
+천을 가져오시면 저는 잔을 먼저 들고 있을게요.
+
+teiris/inn/25/choices/2/text
+이젠 잘 아는 자리니 다른 데도 조사해 보세요.
+
+teiris/inn/25/choices/2/response/0
+같은 곳에 왔다고 같은 걸 본 건 아니에요.
+
+teiris/inn/25/choices/2/response/1
+여기서 함께 본 얼굴이 늘어나서 다시 앉고 싶었던 거예요.
+
+teiris/inn/25/seen
+오늘의 잔 자국은 굳이 종이에 옮기지 않아도 되겠어요.
+
+teiris/inn/26/situation
+테이리스가 보고서를 접어 가방에 넣는다.
+
+teiris/inn/26/lines/0
+누가 함께 있었는지 쓰니까 보고서와는 다른 말이 나왔어요.
+
+teiris/inn/26/lines/1
+이제는 어디까지 봤는지보다 누구와 봤는지도 말하고 싶어요.
+
+teiris/inn/26/lines/2
+제가 고른 말이 조금씩 길어지네요.
+
+teiris/inn/26/choices/0/text
+천천히 읽어 주실래요?
+
+teiris/inn/26/choices/0/response/0
+입으로 읽으면 어색한 말도 찾을 수 있겠네요.
+
+teiris/inn/26/choices/0/response/1
+읽다가 제 말이 낯설면 고치기 전에 한번 여쭤볼게요.
+
+teiris/inn/26/choices/1/text
+같이 본 일이니 제 기록을 가져다 쓰셔도 돼요.
+
+teiris/inn/26/choices/1/response/0
+도와주시려는 뜻인 줄 알아요.
+
+teiris/inn/26/choices/1/response/1
+그런데 같은 곳에서 제가 다르게 본 것도 여기 남기고 싶네요.
+
+teiris/inn/26/choices/2/text
+길어져도 중간에 제 말로 바꾸지 않을게요.
+
+teiris/inn/26/choices/2/response/0
+다르게 기억한 곳은 마지막에 들려주세요.
+
+teiris/inn/26/choices/2/response/1
+제 문장이 틀려도 제 손으로 고치고 싶어요. 그동안 듣고 계시면 좋겠어요.
+
+teiris/inn/26/seen
+길어진 말은 줄이기 전에 한 번 읽어 드리고 싶어요.
+
+teiris/inn/27/situation
+테이리스가 이야기 도중 펜을 찾다가 손을 거둔다.
+
+teiris/inn/27/lines/0
+손이 먼저 가방으로 갔네요. 펜이 없는 줄 알고 잠깐 놀랐어요.
+
+teiris/inn/27/lines/1
+아, 또 적으려고 했네요.
+
+teiris/inn/27/lines/2
+조금 잊어도 다시 물을 수 있는 사람이 있다는 걸 자꾸 잊어요.
+
+teiris/inn/27/choices/0/text
+걱정 없게 제가 매번 요약해서 남겨 드릴게요.
+
+teiris/inn/27/choices/0/response/0
+또 전부 남겨야 할 이야기가 되는군요.
+
+teiris/inn/27/choices/0/response/1
+잊어도 다시 듣는 사이가 좋다는 말을 하고 싶었어요. 노트 없이도요.
+
+teiris/inn/27/choices/1/text
+잊으면 물어봐요. 저도 다시 들을게요.
+
+teiris/inn/27/choices/1/response/0
+그럼 오늘은 한 줄 덜 적어도 괜찮겠어요.
+
+teiris/inn/27/choices/1/response/1
+나중에 다시 말해 달라고 해도 되는 게 이렇게 편할 줄은 몰랐어요.
+
+teiris/inn/27/choices/2/text
+펜은 가방 안에 있어요.
+
+teiris/inn/27/choices/2/response/0
+어디 있는지만 알아 두고 지금은 안 꺼낼래요.
+
+teiris/inn/27/choices/2/response/1
+펜이 있는 걸 확인했으니 이제 가방을 닫을게요.
+
+teiris/inn/27/seen
+다시 물어볼 수 있다는 말은 적지 않아도 기억나요.
+
+teiris/dungeon/0/variants/0
+어디부터 볼까요? 맡은 자리부터 확인할게요.
+
+teiris/dungeon/0/variants/1
+들은 것과 어떻게 다른지 직접 보고 싶어요.
+
+teiris/dungeon/1/variants/0
+노트는 챙겼어요. 가면서 질문해도 괜찮을까요?
+
+teiris/dungeon/1/variants/1
+오늘은 놓친 분이 없는지 저도 세어 볼게요.
+
+teiris/dungeon/2/variants/0
+지난번에 못 본 곳을 같이 볼 수 있겠네요.
+
+teiris/dungeon/2/variants/1
+약속은 하나씩 지킬래요. 오늘은 함께 돌아오기예요.
+
+teiris/dungeon/3/variants/0
+새로운 층이네요. 돌아갈 길부터 봐 둬요.
+
+teiris/dungeon/3/variants/1
+발밑이 달라졌어요. 천천히 들어가도 될까요?
+
+teiris/dungeon/4/variants/0
+어디가 달라 보이나요? 제가 본 것과 비교할래요.
+
+teiris/dungeon/4/variants/1
+노트는 나중에 펼게요. 지금은 길부터 볼게요.
+
+teiris/dungeon/5/variants/0
+같이 본다고 같은 것을 기억하지는 않겠지요?
+
+teiris/dungeon/5/variants/1
+안 보이는 곳은 서로 말해 주기로 해요.
+
+teiris/dungeon/6/variants/0
+무엇인지 가까이에서 살펴봐도 될까요?
+
+teiris/dungeon/6/variants/1
+아직 모르는 것은 빈칸으로 남겨 둘게요.
+
+teiris/dungeon/7/variants/0
+이건 먼저 보셨나요? 어디에서 눈에 띄었어요?
+
+teiris/dungeon/7/variants/1
+제가 본 모양도 말씀드릴게요. 같은지 들어 봐요.
+
+teiris/dungeon/8/variants/0
+오늘의 발견에는 함께 본 분도 적고 싶어요.
+
+teiris/dungeon/8/variants/1
+기록하기 전에 같이 한 번 더 살펴봐요.
+
+teiris/dungeon/9/variants/0
+노트는 넣어 둘게요. 지금은 앞을 봐야겠어요.
+
+teiris/dungeon/9/variants/1
+저쪽을 살필게요. 위험하면 알려 주세요.
+
+teiris/dungeon/10/variants/0
+제 뒤가 안 보여요. 잠깐 살펴 주시겠어요?
+
+teiris/dungeon/10/variants/1
+혼자 판단하기 전에 신호를 기다릴게요.
+
+teiris/dungeon/11/variants/0
+지금 본 것을 믿을게요. 함께 움직여요.
+
+teiris/dungeon/11/variants/1
+모르는 움직임이에요. 아는 척하지 않을게요.
+
+teiris/dungeon/12/variants/0
+이제 끝났다고 해도 되나요? 다친 분부터 봐요.
+
+teiris/dungeon/12/variants/1
+적을 말이 많지만 지금은 손을 빌려드릴게요.
+[원문 끝]

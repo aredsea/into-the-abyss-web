@@ -1,0 +1,1930 @@
+[
+  {
+    "character_id": "selva",
+    "path": "inn/1/choices/1/text",
+    "before": "밥친구가 생기면 기분도 나아질 거예요.",
+    "after": "제 그릇도 여기 놓고 먹을게요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/1/choices/1/response/0",
+    "before": "오늘은 밥 먹으면서 대답도 쉬고 싶습니다.",
+    "after": "밥 먹는 동안엔 대답하기도 싫습니다.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/1/choices/1/response/1",
+    "before": "오늘은 혼자 먹겠습니다.",
+    "after": "제 그릇 옆은 비워 주시죠.",
+    "pattern": "해설",
+    "reason": "지침 2.2·3.1: 같은 정보 재해설을 줄이고 장면 속 다음 행동을 둔다."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/1/choices/1/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "분위기를 바꾸려는 호의지만 원하지 않는 동석을 밀어붙인다.",
+    "after": "혼자 먹겠다는 부탁에도 자기 그릇을 놓고 함께 먹겠다고 한다."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/8/choices/0/response/0",
+    "before": "오늘은 이 끈이 눈에 들어온 겁니다.",
+    "after": "이 끈이 눈에 들어와서 손본 겁니다.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/8/choices/0/response/1",
+    "before": "모든 짐을 맡은 건 아니죠.",
+    "after": "다른 짐은 각자 봐 주십시오.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/10/choices/1/text",
+    "before": "그 냄새까지 지우면 새 출발 같겠어요.",
+    "after": "모래 냄새도 배었으니 신발을 바꾸면 어때요?",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/10/choices/1/response/1",
+    "before": "전부 지워야 할 과거는 아니죠.",
+    "after": "신발만 잘 털면 됩니다.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/10/choices/1/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "격려하려는 말이 본인이 좋아하는 기억까지 버리라고 권한다.",
+    "after": "모래 냄새가 밴 신발을 바꾸라는 제안이 익숙한 냄새까지 없애려 한다."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/12/choices/1/response/0",
+    "before": "예. 숨이 차서 그런 건 아닙니다.",
+    "after": "예. 물도 좀 마시죠.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/15/choices/2/text",
+    "before": "계약을 끝냈으면 케른도 잊어야 편하죠.",
+    "after": "케른에서 지내던 얘기는 이제 그만하셔도 돼요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/15/choices/2/response/0",
+    "before": "잊으려고 떠난 건 아닙니다.",
+    "after": "케른 얘기도 하고 싶습니다.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/15/choices/2/response/1",
+    "before": "그렇게 간단히 끝낼 수 있었다면 덜 망설였겠죠.",
+    "after": "어디 사느냐는 물음에도 바로 답하고 싶고요.",
+    "pattern": "해설",
+    "reason": "지침 2.2·3.1: 같은 정보 재해설을 줄이고 장면 속 다음 행동을 둔다."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/15/choices/2/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "마음 편해지라는 조언이 출신과 삶을 끊으라는 요구가 된다.",
+    "after": "고향 얘기를 멈추라는 말이 아직 이어지는 고민을 덮는다."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/20/lines/0",
+    "before": "내일은 제가 먼저 챙겨 두겠습니다.",
+    "after": "내일 짐은 제가 챙겨 두겠습니다.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/21/choices/2/response/1",
+    "before": "오늘이 싫었던 건 아닙니다.",
+    "after": "오늘은 더 얘기하고 싶어서 늦어진 겁니다.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/23/choices/0/text",
+    "before": "평소엔 안 잊으시니 제가 나머지도 챙겨 둘까요?",
+    "after": "소매 하나 잊으셨으니 나머지는 전부 제가 챙길게요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/23/choices/0/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "걱정에서 대신 챙기겠다는 말이 사소한 깜빡함을 혼자 움직이기 힘든 상태로 확대한다.",
+    "after": "옷 한 벌을 잊었다는 이유로 나머지 준비까지 대신 맡겠다고 한다."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/24/lines/2",
+    "before": "빈 잔만 보고 앉아 있지 않으려고 먼저 떠 왔습니다.",
+    "after": "기다리는 동안 마시려고 떠 왔습니다.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/24/choices/0/text",
+    "before": "그럼 내일은 제가 먼저 올게요.",
+    "after": "그럼 내일 물은 제가 떠 올게요.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/27/lines/1",
+    "before": "오늘은 먼저 씻고 먹으려 합니다.",
+    "after": "씻고 밥부터 먹으려 합니다.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/27/choices/2/response/0",
+    "before": "지금은 씻는 게 먼저입니다.",
+    "after": "지금은 몸부터 씻고 싶습니다.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/27/seen",
+    "before": "이번에는 짐보다 밥을 먼저 먹겠습니다.",
+    "after": "이번에는 짐을 두고 밥 먹으러 가겠습니다.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "selva",
+    "path": "dungeon/32/variants/1",
+    "before": "눈 감아도 되면 먼저 말씀하시죠.",
+    "after": "눈 좀 붙이실 거면 말씀하시죠.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "selva",
+    "path": "transitions/13/lines/0",
+    "before": "내일은 제가 먼저 와 있지 않을 겁니다.",
+    "after": "내일은 조금 늦게 올 겁니다.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/0/choices/1/text",
+    "before": "표정이 안 좋아서 곁에 있어 드릴게요.",
+    "after": "할 말이 더 있으니 조금 가까이 갈게요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/0/choices/1/response/1",
+    "before": "잠깐 지나가는 표정까지 살피진 말아 주세요.",
+    "after": "할 말은 거기서 해 주세요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/0/choices/1/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "걱정하는 마음이 오르넬이 요청한 거리를 좁히는 이유가 된다.",
+    "after": "가까이 오지 말라는 부탁에도 더 다가가 자기 이야기를 하려 한다."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/1/choices/0/text",
+    "before": "계속 밖만 보면 더 외로워져요.",
+    "after": "창밖은 그만 보고 제 얘기 좀 들어요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/1/choices/0/response/1",
+    "before": "기분을 짐작해서 말씀하진 말아 주세요.",
+    "after": "조금만 더 보고 얘기하면 안 될까요?",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/1/choices/0/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "위로하려는 말이 행동의 이유를 외로움으로 단정한다.",
+    "after": "창밖을 보던 행동을 멈추게 하고 자기 이야기를 듣게 한다."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/9/choices/1/text",
+    "before": "저는 잘 안 보이니 오르넬 씨가 좀 봐 주세요.",
+    "after": "저는 잘 안 보이니 가까이 가서 좀 봐 주세요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/9/choices/1/response/1",
+    "before": "다른 걸 먼저 살필게요.",
+    "after": "커튼 너머도 잘 안 보이네요.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/9/choices/1/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "능력을 믿는 부탁이 머뭇거리는 이유를 무시하고 접근을 요구한다.",
+    "after": "창틀에서 물러난 사람에게 가까이 가서 확인해 달라고 떠넘긴다."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/9/choices/2/text",
+    "before": "제가 먼저 창틀을 볼까요?",
+    "after": "제가 창틀을 볼까요?",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/11/choices/2/text",
+    "before": "먼저 값을 물어보면 말을 배우기 좋겠어요.",
+    "after": "저 대신 물건 값도 물어봐 주세요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/11/choices/2/response/0",
+    "before": "살 생각은 아직 없어요.",
+    "after": "저는 구경하러 가고 싶어요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/11/choices/2/response/1",
+    "before": "오늘은 구경부터 해 볼게요.",
+    "after": "값은 직접 물어봐 주세요.",
+    "pattern": "해설",
+    "reason": "지침 2.2·3.1: 같은 정보 재해설을 줄이고 장면 속 다음 행동을 둔다."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/11/choices/2/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "대화 연습을 돕는 제안이 단순한 호기심을 협상 부담으로 바꾼다.",
+    "after": "도시를 구경하려는 부탁을 대신 값을 묻는 심부름으로 바꾼다."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/15/choices/1/response/0",
+    "before": "잊으러 나온 건 아니에요.",
+    "after": "지키던 규약이니 계속 생각나네요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/17/lines/0",
+    "before": "오늘은 혼자 길을 찾아왔어요.",
+    "after": "혼자 길을 찾아왔어요.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/17/choices/1/text",
+    "before": "먼저 오셨네요.",
+    "after": "벌써 와 계셨네요.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/17/choices/2/text",
+    "before": "이제 도시는 다 익숙해지셨겠어요.",
+    "after": "다음에는 더 먼 길도 혼자 다녀와 보세요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/17/choices/2/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "칭찬하려는 말이 작은 성공을 완전한 적응으로 확대한다.",
+    "after": "혼자 찾아온 한 길을 근거로 더 먼 길까지 혼자 다니라고 권한다."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/18/choices/1/text",
+    "before": "그럼 숲에 돌아가고 싶은 마음도 줄었겠네요.",
+    "after": "숲 얘기는 접고 토르바에서 지낼 생각만 해요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/18/choices/1/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "도시에 정 붙인 일을 고향에 대한 애착의 감소로 바꿔 해석한다.",
+    "after": "토르바가 익숙해졌다는 말을 숲 이야기를 접으라는 권유로 받는다."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/19/seen",
+    "before": "마시던 이야기가 있으면 계속 들려주세요.",
+    "after": "하던 이야기가 있으면 계속 들려주세요.",
+    "pattern": "연어",
+    "reason": "지침 1.1·1.4: 뜻이 바로 잡히도록 낱말 짝과 비유를 고친다."
+  },
+  {
+    "character_id": "ornel",
+    "path": "dungeon/23/variants/0",
+    "before": "아프면 제게 먼저 말해 줘요.",
+    "after": "아프면 바로 말해 줘요.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "ornel",
+    "path": "dungeon/29/variants/0",
+    "before": "오늘은 제가 먼저 아프다고 할게요.",
+    "after": "팔이 아파서 잠깐 쉬고 싶어요.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "ornel",
+    "path": "transitions/13/lines/0",
+    "before": "오늘은 제가 먼저 올라갈게요.",
+    "after": "저는 이만 올라갈게요.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "zahar",
+    "path": "inn/1/choices/2/response/0",
+    "before": "오늘은 숟가락 내려놓을 때까지 말 안 할래.",
+    "after": "숟가락 내려놓을 때까지 말 안 할래.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "zahar",
+    "path": "inn/7/choices/2/response/0",
+    "before": "손목은 튼튼하다고 안 아픈 게 아니야.",
+    "after": "미끄러지면 내 손목도 아파.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "zahar",
+    "path": "inn/8/lines/2",
+    "before": "빈손으로 가라는 건 아니야.",
+    "after": "가벼운 짐은 네가 챙겨.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "zahar",
+    "path": "inn/9/choices/0/response/1",
+    "before": "말을 채우려고 앉자는 건 아니야.",
+    "after": "밥 다 먹고도 할 얘기는 할 수 있어.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "zahar",
+    "path": "inn/13/choices/2/text",
+    "before": "처음부터 안 갔으면 더 좋았겠네요.",
+    "after": "그때 일은 전부 명령 탓으로 돌리면 되겠네요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "zahar",
+    "path": "inn/13/choices/2/response/0",
+    "before": "그때는 징집병이었어.",
+    "after": "처음엔 징집병이었어.",
+    "pattern": "연어",
+    "reason": "지침 1.1·1.4: 뜻이 바로 잡히도록 낱말 짝과 비유를 고친다."
+  },
+  {
+    "character_id": "zahar",
+    "path": "inn/13/choices/2/response/1",
+    "before": "내 발로 고를 수 있던 때는 나중이야.",
+    "after": "넘어간 건 내가 골랐어. 그 일까지 빼지는 마.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "zahar",
+    "path": "inn/13/choices/2/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "더 나은 선택을 떠올리는 말이 징집 상황의 제약을 무시한다.",
+    "after": "징집당한 일뿐 아니라 뒤에 스스로 반란에 합류한 선택까지 명령 탓으로 덮는다."
+  },
+  {
+    "character_id": "zahar",
+    "path": "inn/15/choices/0/response/0",
+    "before": "잊으려고 얘기한 건 아니야.",
+    "after": "그때 일도 얘기하고 싶어.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "zahar",
+    "path": "inn/15/choices/0/response/1",
+    "before": "오늘은 그때 생각이 나서 말했어.",
+    "after": "수레 바퀴를 보면 그때 생각이 나.",
+    "pattern": "해설",
+    "reason": "지침 2.2·3.1: 같은 정보 재해설을 줄이고 장면 속 다음 행동을 둔다."
+  },
+  {
+    "character_id": "zahar",
+    "path": "inn/16/lines/1",
+    "before": "곁에 있던 사람이 다친 건 남아 있어.",
+    "after": "곁에 있던 사람이 다친 건 잊을 수 없어.",
+    "pattern": "연어",
+    "reason": "지침 1.1·1.4: 뜻이 바로 잡히도록 낱말 짝과 비유를 고친다."
+  },
+  {
+    "character_id": "zahar",
+    "path": "inn/16/lines/2",
+    "before": "그렇다고 돌아가서 반대로 하진 않을 거야.",
+    "after": "다시 고르래도 그쪽으로 갈 거야.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "zahar",
+    "path": "inn/16/choices/2/response/1",
+    "before": "옳다는 말로 없어지진 않아.",
+    "after": "얼마나 아팠을지 자꾸 생각나.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "zahar",
+    "path": "inn/18/lines/1",
+    "before": "내가 자꾸 먼저 끝내게 되더라.",
+    "after": "나는 밥을 금방 먹으니까.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "zahar",
+    "path": "inn/18/lines/2",
+    "before": "오늘은 같이 시작하려고 기다렸어.",
+    "after": "같이 시작하려고 기다렸어.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "zahar",
+    "path": "inn/19/choices/2/response/0",
+    "before": "참는다고 더 빨리 낫진 않아.",
+    "after": "손 쓸 때마다 다시 아파져.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "zahar",
+    "path": "inn/19/choices/2/response/1",
+    "before": "오늘은 손을 쉬게 둘 거야.",
+    "after": "지금은 손을 쉬게 둘 거야.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "zahar",
+    "path": "dungeon/20/variants/1",
+    "before": "오늘은 말 없이 먹어도 되지?",
+    "after": "돌아가서는 말없이 먹어도 되지?",
+    "pattern": "표기",
+    "reason": "지침 1.6: 맞춤법·띄어쓰기·조사를 고친다."
+  },
+  {
+    "character_id": "zahar",
+    "path": "dungeon/23/variants/0",
+    "before": "아프다고 먼저 말해 줘.",
+    "after": "아프면 바로 말해 줘.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "zahar",
+    "path": "dungeon/29/variants/0",
+    "before": "아프네. 이번엔 먼저 말할게.",
+    "after": "아프네. 좀 쉬었다 가자.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "zahar",
+    "path": "transitions/10/lines/1",
+    "before": "나도 못 버티면 먼저 말할게.",
+    "after": "나도 힘들면 바로 말할게.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "zahar",
+    "path": "transitions/12/lines/0",
+    "before": "오늘은 둘 다 먼저 앉자.",
+    "after": "짐 내려놓고 둘 다 앉자.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/3/lines/1",
+    "before": "다음에는 늦는다고 먼저 전해 주십시오.",
+    "after": "다음에는 늦는다고 미리 전해 주십시오.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/3/choices/2/response/1",
+    "before": "다음에는 먼저 알려 주십시오.",
+    "after": "다음에는 기다릴지 저도 정하겠습니다.",
+    "pattern": "해설",
+    "reason": "지침 2.2·3.1: 같은 정보 재해설을 줄이고 장면 속 다음 행동을 둔다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/5/choices/0/response/0",
+    "before": "오늘은 시원한 물을 마시고 싶습니다.",
+    "after": "지금은 시원한 물을 마시고 싶습니다.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/8/choices/0/response/1",
+    "before": "제 판단을 매번 대신 쓰지는 마십시오.",
+    "after": "모르는 길은 저도 다시 봐야 합니다.",
+    "pattern": "문서",
+    "reason": "지침 1.3·5.4: 사적 문서·판정 어휘를 생활 말로 바꾼다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/10/choices/1/text",
+    "before": "음식까지 손익을 따지시는군요.",
+    "after": "식은 것도 드셔 보세요. 가리지 마시고요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/10/choices/1/response/1",
+    "before": "그것까지 셈으로 읽으실 필요는 없습니다.",
+    "after": "식기 전에 먹고 싶습니다.",
+    "pattern": "문서",
+    "reason": "지침 1.3·5.4: 사적 문서·판정 어휘를 생활 말로 바꾼다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/10/choices/1/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "말투를 빗댄 농담이 단순한 취향을 성격 해설로 바꾼다.",
+    "after": "따뜻한 음식을 고른 취향을 가리지 말라는 말로 밀어낸다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/12/choices/2/text",
+    "before": "그래서 감정 없이 판단하는 게 편하시겠어요.",
+    "after": "제 사정은 빼고 조항대로만 정해 주세요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/12/choices/2/response/0",
+    "before": "편하다고 말씀드리지는 않았습니다.",
+    "after": "사정은 듣고 정하겠습니다.",
+    "pattern": "문서",
+    "reason": "지침 1.3·5.4: 사적 문서·판정 어휘를 생활 말로 바꾼다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/12/choices/2/response/1",
+    "before": "익숙한 것부터 쓰게 되는 겁니다.",
+    "after": "외운 조항만으로 끝낼 수 있는 일은 아닙니다.",
+    "pattern": "해설",
+    "reason": "지침 2.2·3.1: 같은 정보 재해설을 줄이고 장면 속 다음 행동을 둔다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/12/choices/2/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "능력을 이해하려는 말이 성장 과정과 현재의 감정을 단정한다.",
+    "after": "어린 시절 조항을 외우던 얘기를 듣고 자기 사정은 듣지 말고 조항대로만 판단해 달라고 한다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/13/choices/0/response/0",
+    "before": "계곡 이름은 같아도 지낸 일은 다릅니다.",
+    "after": "어릴 때부터 자주 뵈었습니다.",
+    "pattern": "문서",
+    "reason": "지침 1.3·5.4: 사적 문서·판정 어휘를 생활 말로 바꾼다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/14/seen",
+    "before": "오늘 드린 이유가 숨긴 뜻은 아닙니다.",
+    "after": "길드 계약과 가문 얘기를 드린 겁니다.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/17/lines/2",
+    "before": "제가 기억하고 나오겠습니다.",
+    "after": "잊지 않고 오겠습니다.",
+    "pattern": "연어",
+    "reason": "지침 1.1·1.4: 뜻이 바로 잡히도록 낱말 짝과 비유를 고친다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/17/choices/1/text",
+    "before": "저도 기억하고 올게요.",
+    "after": "저도 늦지 않게 올게요.",
+    "pattern": "연어",
+    "reason": "지침 1.1·1.4: 뜻이 바로 잡히도록 낱말 짝과 비유를 고친다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/17/seen",
+    "before": "내일은 종이 없이도 이 시각을 기억하겠습니다.",
+    "after": "내일 이 시각에 여기서 뵙겠습니다.",
+    "pattern": "문서",
+    "reason": "지침 1.3·5.4: 사적 문서·판정 어휘를 생활 말로 바꾼다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/21/lines/0",
+    "before": "오늘은 제 쪽에서 먼저 권하겠습니다.",
+    "after": "물 한 잔 드시겠습니까?",
+    "pattern": "문서",
+    "reason": "지침 1.3·5.4: 사적 문서·판정 어휘를 생활 말로 바꾼다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/21/choices/0/text",
+    "before": "이번에는 물이 식기 전에 드시네요.",
+    "after": "이번에는 물이 미지근해지기 전에 드시네요.",
+    "pattern": "연어",
+    "reason": "지침 1.1·1.4: 뜻이 바로 잡히도록 낱말 짝과 비유를 고친다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/21/choices/2/text",
+    "before": "계산이 없는 호의도 제법 하시네요.",
+    "after": "물 따르신 김에 다른 식탁 잔도 채워 주시죠.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/21/choices/2/response/0",
+    "before": "그 표현은 여전히 불편합니다.",
+    "after": "여기서 마실 만큼만 떠 왔습니다.",
+    "pattern": "문서",
+    "reason": "지침 1.3·5.4: 사적 문서·판정 어휘를 생활 말로 바꾼다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/21/choices/2/response/1",
+    "before": "그냥 물을 권한 것으로 받아 주십시오.",
+    "after": "나머지는 직접 가져가시면 됩니다.",
+    "pattern": "문서",
+    "reason": "지침 1.3·5.4: 사적 문서·판정 어휘를 생활 말로 바꾼다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/21/choices/2/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "성장을 칭찬하려는 말이 평범한 호의를 과거 성격에 대한 평가로 바꾼다.",
+    "after": "물 한 잔 권한 일을 다른 식탁까지 챙길 심부름으로 늘린다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/24/lines/0",
+    "before": "오늘은 저보다 금방 내려오셨습니다.",
+    "after": "제가 온 뒤 금방 내려오셨습니다.",
+    "pattern": "연어",
+    "reason": "지침 1.1·1.4: 뜻이 바로 잡히도록 낱말 짝과 비유를 고친다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/24/lines/1",
+    "before": "제가 조금 먼저 내려왔습니다.",
+    "after": "저도 방금 왔습니다.",
+    "pattern": "해설",
+    "reason": "지침 2.2·3.1: 같은 정보 재해설을 줄이고 장면 속 다음 행동을 둔다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/24/choices/2/response/1",
+    "before": "먼저 알리는 일까지 빼지는 마십시오.",
+    "after": "늦어지면 꼭 알려 주십시오.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "dungeon/2/variants/0",
+    "before": "오늘 계획도 먼저 설명하겠습니다.",
+    "after": "오늘 계획도 설명하겠습니다.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "jorund",
+    "path": "dungeon/21/variants/1",
+    "before": "상태를 먼저 말씀하십시오.",
+    "after": "아픈 곳이 있으면 말씀하십시오.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "jorund",
+    "path": "dungeon/37/variants/1",
+    "before": "오늘은 준비보다 식사를 먼저 하겠습니다.",
+    "after": "오늘은 짐을 두고 식사하겠습니다.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "jorund",
+    "path": "dungeon/41/variants/1",
+    "before": "같이 나가서 판단을 다시 맞추겠습니다.",
+    "after": "함께 나간 뒤 길을 다시 의논하겠습니다.",
+    "pattern": "문서",
+    "reason": "지침 1.3·5.4: 사적 문서·판정 어휘를 생활 말로 바꾼다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "transitions/8/lines/1",
+    "before": "제가 기억해서 나올 약속입니다.",
+    "after": "내일 만나기로 했으니 잊지 않고 오겠습니다.",
+    "pattern": "연어",
+    "reason": "지침 1.1·1.4: 뜻이 바로 잡히도록 낱말 짝과 비유를 고친다."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/6/choices/1/response/1",
+    "before": "피곤해서 고른 건 아닙니다.",
+    "after": "접시가 잘 보이면 덜 흘릴 것 같고요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/8/choices/2/response/0",
+    "before": "매번 늦으셔도 된다는 뜻은 아니에요.",
+    "after": "다음 약속 때도 늦으면 곤란해요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/8/choices/2/response/1",
+    "before": "오늘은 시간이 남았다는 말씀입니다.",
+    "after": "오래 걸리지 않는다면 기다릴게요.",
+    "pattern": "해설",
+    "reason": "지침 2.2·3.1: 같은 정보 재해설을 줄이고 장면 속 다음 행동을 둔다."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/9/choices/1/response/0",
+    "before": "자랑하려고 달아 둔 게 아니에요.",
+    "after": "늘 지니던 허가증이에요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/10/choices/0/text",
+    "before": "모든 걸 정리하시더니 이런 건 서투르시네요.",
+    "after": "풀릴 때마다 묶으면 되니 그냥 두죠.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/10/choices/0/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "의외의 모습을 친근하게 말하지만 배우는 순간을 평가로 만든다.",
+    "after": "풀리는 매듭을 고치려는 사람에게 그때마다 다시 묶으라며 넘긴다."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/14/choices/2/text",
+    "before": "위험해 보이니 제가 대신 단속할게요.",
+    "after": "제가 유디트 씨한테 가서 대신 물어볼게요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/14/choices/2/response/0",
+    "before": "그분을 막아 달라는 뜻은 아니었어요.",
+    "after": "제가 직접 여쭤보고 싶어요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/14/choices/2/response/1",
+    "before": "제 궁금증은 제가 말하겠습니다.",
+    "after": "어떤 말로 꺼낼지만 더 생각해 볼게요.",
+    "pattern": "해설",
+    "reason": "지침 2.2·3.1: 같은 정보 재해설을 줄이고 장면 속 다음 행동을 둔다."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/14/choices/2/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "갈등을 대신 해결하려는 제안이 아직 열리지 않은 대화를 통제로 바꾼다.",
+    "after": "직접 물어볼 말을 고민하는 상황에서 본인 대신 대화를 시작하려 한다."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/16/lines/1",
+    "before": "눈앞에서 사람이 다치면 다르게 보입니다.",
+    "after": "눈앞에서 사람이 다치면 가만있기 어렵습니다.",
+    "pattern": "연어",
+    "reason": "지침 1.1·1.4: 뜻이 바로 잡히도록 낱말 짝과 비유를 고친다."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/16/choices/0/response/1",
+    "before": "버리겠다는 뜻으로 꺼낸 말은 아니에요.",
+    "after": "제게는 여전히 중요한 허가증이에요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/17/choices/0/response/0",
+    "before": "네. 오늘은 저도 아무것도 안 펼칠게요.",
+    "after": "네. 저도 종이는 덮어 둘게요.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/18/choices/1/response/0",
+    "before": "제 눈길에 대한 일은 제가 말할게요.",
+    "after": "제가 왜 배지를 봤는지 직접 말할게요.",
+    "pattern": "문서",
+    "reason": "지침 1.3·5.4: 사적 문서·판정 어휘를 생활 말로 바꾼다."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/18/choices/1/response/1",
+    "before": "먼저 설명하러 가지는 말아 주세요.",
+    "after": "토베 씨에게 미리 말하지는 말아 주세요.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/19/choices/0/text",
+    "before": "다음에는 마개를 좀 느슨하게 잠가요.",
+    "after": "마개는 제가 맡을 테니 앞으로는 건드리지 마세요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/19/choices/0/response/1",
+    "before": "성격까지 설명하실 일은 아니에요.",
+    "after": "마개 하나가 뻑뻑해도 제 물병은 제가 챙길게요.",
+    "pattern": "문서",
+    "reason": "지침 1.3·5.4: 사적 문서·판정 어휘를 생활 말로 바꾼다."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/19/choices/0/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "친근한 비유가 단순한 물건 문제를 인물의 결함 해설로 바꾼다.",
+    "after": "마개 하나가 안 풀린다는 이유로 앞으로 본인이 전부 맡겠다고 한다."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/20/lines/0",
+    "before": "필요한 확인은 제가 먼저 하겠습니다.",
+    "after": "필요한 것은 미리 확인하겠습니다.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/21/lines/0",
+    "before": "오늘은 많이 피곤해 보이네요.",
+    "after": "오늘은 걸음이 느리시네요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/21/choices/1/response/0",
+    "before": "붙잡으려던 건 아니었어요.",
+    "after": "올라가셔도 돼요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/21/seen",
+    "before": "오늘은 서류 대신 저녁 얘기를 하고 싶었어요.",
+    "after": "저녁을 못 드셨으면 함께 먹으려 했어요.",
+    "pattern": "문서",
+    "reason": "지침 1.3·5.4: 사적 문서·판정 어휘를 생활 말로 바꾼다."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "dungeon/37/variants/1",
+    "before": "먼저 손 씻고 내려올게요.",
+    "after": "손 씻고 내려올게요.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "transitions/13/lines/0",
+    "before": "오늘은 먼저 올라가겠습니다.",
+    "after": "저는 이만 올라가겠습니다.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "tove",
+    "path": "inn/0/lines/2",
+    "before": "먼저 들어가.",
+    "after": "안으로 들어가.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "tove",
+    "path": "inn/0/choices/0/text",
+    "before": "혼자 두면 더 우울해지니 같이 있어요.",
+    "after": "저도 잠깐만 옆에 앉아 있을게요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "tove",
+    "path": "inn/0/choices/0/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "걱정하는 말이 밖에 나온 이유를 단정하고 거리를 좁힌다.",
+    "after": "혼자 있고 싶어 나온 사람의 옆에 계속 앉겠다고 한다."
+  },
+  {
+    "character_id": "tove",
+    "path": "inn/0/seen",
+    "before": "코트는 있으니 먼저 들어가도 돼.",
+    "after": "코트가 있으니 나는 좀 더 있을게.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "tove",
+    "path": "inn/2/choices/1/text",
+    "before": "계속 나갈 생각만 하면 적응이 늦어져요.",
+    "after": "의자를 더 안쪽으로 옮겨 놓을게요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "tove",
+    "path": "inn/2/choices/1/response/0",
+    "before": "나갈지 아직 안 정했어.",
+    "after": "아직 옮기지 마.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "tove",
+    "path": "inn/2/choices/1/response/1",
+    "before": "그냥 여기가 편해.",
+    "after": "문 옆이 지금은 편해.",
+    "pattern": "해설",
+    "reason": "지침 2.2·3.1: 같은 정보 재해설을 줄이고 장면 속 다음 행동을 둔다."
+  },
+  {
+    "character_id": "tove",
+    "path": "inn/2/choices/1/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "안에 머물도록 돕는 말이 편한 위치를 도망칠 준비로 해석한다.",
+    "after": "문가가 편하다는 말을 듣기 전에 의자를 안쪽으로 옮기려 한다."
+  },
+  {
+    "character_id": "tove",
+    "path": "inn/8/choices/1/response/0",
+    "before": "그렇게 알릴 일은 아니야.",
+    "after": "다 부르면 이쪽도 시끄러워져.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "tove",
+    "path": "inn/12/choices/0/text",
+    "before": "같이 잤으니 외롭지는 않았겠어요.",
+    "after": "담요를 같이 덮으면 따뜻했겠네요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "tove",
+    "path": "inn/12/choices/0/response/1",
+    "before": "담요 밖 발은 늘 차가웠지.",
+    "after": "담요를 당기면 옆 사람이 깨고.",
+    "pattern": "해설",
+    "reason": "지침 2.2·3.1: 같은 정보 재해설을 줄이고 장면 속 다음 행동을 둔다."
+  },
+  {
+    "character_id": "tove",
+    "path": "inn/12/choices/0/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "위로하려는 말이 추위와 불편을 함께 있었던 따뜻한 기억으로만 바꾼다.",
+    "after": "함께 담요를 덮던 일을 따뜻했을 것이라 쉽게 짐작한다."
+  },
+  {
+    "character_id": "tove",
+    "path": "inn/13/choices/2/response/1",
+    "before": "쉬운 방법을 놓쳐서 밖에 있던 건 아니야.",
+    "after": "그날 얘기는 여기까지만 할래.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "tove",
+    "path": "inn/17/choices/1/response/1",
+    "before": "전에 하던 선택까지 틀린 건 아니고.",
+    "after": "밖이 편한 날도 있었어.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "tove",
+    "path": "inn/17/seen",
+    "before": "오늘은 눈을 뜨니 천장이 먼저 보였어.",
+    "after": "눈 뜨고 천장을 한참 봤어.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "tove",
+    "path": "inn/22/choices/2/response/0",
+    "before": "배고프면 나도 먼저 먹을래.",
+    "after": "배고프면 나도 먹을래.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "tove",
+    "path": "inn/22/choices/2/response/1",
+    "before": "배고프면 먼저 한 숟가락 먹고 있을게.",
+    "after": "기다리다 국까지 식었어.",
+    "pattern": "해설",
+    "reason": "지침 2.2·3.1: 같은 정보 재해설을 줄이고 장면 속 다음 행동을 둔다."
+  },
+  {
+    "character_id": "tove",
+    "path": "inn/23/seen",
+    "before": "오늘은 짐보다 내가 먼저 쉬어야겠어.",
+    "after": "짐은 두고 잠깐 누워 있을게.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "tove",
+    "path": "inn/27/choices/0/response/0",
+    "before": "필요가 있어야만 나가는 건 아니야.",
+    "after": "그냥 걷고 싶은데.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "tove",
+    "path": "dungeon/15/variants/0",
+    "before": "먼저 서두르진 않을게.",
+    "after": "서둘러 들어가진 않을게.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "tove",
+    "path": "dungeon/23/variants/0",
+    "before": "먼저 쉬고 싶다고 말해 줘.",
+    "after": "쉬고 싶으면 바로 말해 줘.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "tove",
+    "path": "dungeon/29/variants/1",
+    "before": "늘 괜찮은 건 아니네.",
+    "after": "이번엔 좀 아프네.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "tove",
+    "path": "transitions/13/lines/0",
+    "before": "오늘은 먼저 가 볼게.",
+    "after": "나는 이만 가 볼게.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/0/choices/2/text",
+    "before": "화난 게 있으면 다 얘기하고 풀어요.",
+    "after": "천 접는 건 내려놓고 제 얘기부터 들어요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/0/choices/2/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "관계를 회복하려는 제안이 당장 말하고 싶지 않은 뜻을 누른다.",
+    "after": "접던 천을 마치겠다는 말에도 일을 멈추고 자기 말을 듣게 한다."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/2/choices/0/response/1",
+    "before": "새것으로 바꾼다고 같은 건 아니에요.",
+    "after": "구분해서 남겨 둔 약초예요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/3/lines/1",
+    "before": "말을 못 들어도 무시한 건 아니에요.",
+    "after": "손을 보고 있으면 말씀을 놓쳐요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/3/choices/2/response/0",
+    "before": "지루해서 조용한 게 아니에요.",
+    "after": "접는 쪽을 보고 있어야 해요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/3/choices/2/response/1",
+    "before": "지금은 손을 보고 싶어요.",
+    "after": "다 접고 나면 얘기해요.",
+    "pattern": "해설",
+    "reason": "지침 2.2·3.1: 같은 정보 재해설을 줄이고 장면 속 다음 행동을 둔다."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/6/choices/2/response/1",
+    "before": "꼭 일을 떠올리는 건 아니고요.",
+    "after": "소매에도 같은 냄새가 나네요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/10/lines/1",
+    "before": "아직 졸린 건 아니에요.",
+    "after": "볕이 따뜻하네요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/10/lines/2",
+    "before": "앉으니 졸릴 수도 있겠지만요.",
+    "after": "앉아 있으면 졸릴지도 모르겠어요.",
+    "pattern": "해설",
+    "reason": "지침 2.2·3.1: 같은 정보 재해설을 줄이고 장면 속 다음 행동을 둔다."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/12/choices/2/response/0",
+    "before": "지금 그 이야기를 하려던 건 아니에요.",
+    "after": "부모님 얘기는 나중에 할게요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/14/lines/2",
+    "before": "그다음 얼굴이 계속 생각나요.",
+    "after": "기다리던 다른 얼굴이 계속 생각나요.",
+    "pattern": "연어",
+    "reason": "지침 1.1·1.4: 뜻이 바로 잡히도록 낱말 짝과 비유를 고친다."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/14/choices/0/response/1",
+    "before": "오늘은 답부터 듣고 싶었던 건 아니에요.",
+    "after": "무얼 골라도 망설여져요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/15/choices/2/text",
+    "before": "배고파도 남을 먼저 보는 게 미코 씨답죠.",
+    "after": "드시기 전에 저쪽 병도 마저 정리해 주세요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/15/choices/2/response/1",
+    "before": "그것까지 기대하진 말아 주세요.",
+    "after": "병은 밥 먹고 나서 볼게요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/15/choices/2/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "헌신을 칭찬하지만 자기 몫을 미루는 버릇을 계속해야 할 미덕으로 만든다.",
+    "after": "자기 끼니가 늦는다고 밝힌 직후 다시 병 정리를 부탁한다."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/16/lines/0",
+    "before": "오늘은 저도 먼저 쉬고 싶어요.",
+    "after": "저도 이제 쉬고 싶어요.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/17/lines/2",
+    "before": "제 건 아까부터 비어 있었어요.",
+    "after": "주전자 좀 가까이 옮겨 주실래요?",
+    "pattern": "해설",
+    "reason": "지침 2.2·3.1: 같은 정보 재해설을 줄이고 장면 속 다음 행동을 둔다."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/17/seen",
+    "before": "제 잔에는 물이 하나도 안 남았었네요.",
+    "after": "주전자를 옮기니 저도 손이 닿네요.",
+    "pattern": "해설",
+    "reason": "지침 2.2·3.1: 같은 정보 재해설을 줄이고 장면 속 다음 행동을 둔다."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/22/lines/2",
+    "before": "한 모금만 마시려다 자꾸 다시 따르게 돼요.",
+    "after": "남은 물은 주전자에 둘게요.",
+    "pattern": "해설",
+    "reason": "지침 2.2·3.1: 같은 정보 재해설을 줄이고 장면 속 다음 행동을 둔다."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/22/choices/1/response/0",
+    "before": "오늘은 잔만 바꿔서 편하게 마실래요.",
+    "after": "잔을 바꾸는 편이 덜 번거롭겠어요.",
+    "pattern": "문서",
+    "reason": "지침 1.3·5.4: 사적 문서·판정 어휘를 생활 말로 바꾼다."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/22/choices/1/response/1",
+    "before": "오늘은 작은 잔이면 되겠어요.",
+    "after": "마신 양은 안 적을래요.",
+    "pattern": "해설",
+    "reason": "지침 2.2·3.1: 같은 정보 재해설을 줄이고 장면 속 다음 행동을 둔다."
+  },
+  {
+    "character_id": "miko",
+    "path": "inn/26/seen",
+    "before": "오늘은 접던 천도 옆에 내려놨어요.",
+    "after": "접던 천은 옆에 두었으니 얘기해 주세요.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "miko",
+    "path": "dungeon/30/variants/1",
+    "before": "지금은 병을 펼치진 않을래요.",
+    "after": "지금은 병을 꺼내진 않을래요.",
+    "pattern": "연어",
+    "reason": "지침 1.1·1.4: 뜻이 바로 잡히도록 낱말 짝과 비유를 고친다."
+  },
+  {
+    "character_id": "miko",
+    "path": "dungeon/32/variants/0",
+    "before": "오늘은 남들보다 먼저 쉬네요.",
+    "after": "다른 분들 오기 전에 잠깐 쉬겠어요.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "miko",
+    "path": "dungeon/38/variants/0",
+    "before": "먼저 제 물부터 채워 놓을게요.",
+    "after": "제 물도 채워 놓을게요.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "miko",
+    "path": "transitions/13/lines/0",
+    "before": "오늘은 먼저 올라갈래요.",
+    "after": "저는 이만 올라갈래요.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/0/choices/1/text",
+    "before": "한 판 이기면 기분도 나아지실 거예요.",
+    "after": "한 판만 해요. 제가 패를 나눌게요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/0/choices/1/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "좋아하는 놀이로 위로하지만 지금 참여하지 않겠다는 뜻을 무시한다.",
+    "after": "지금 놀고 싶지 않다는 말을 듣고도 패를 나눠 한 판을 시작하려 한다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/0/seen",
+    "before": "오늘 카드는 여기서 그만 둘게요.",
+    "after": "오늘 카드는 여기서 그만둘게요.",
+    "pattern": "표기",
+    "reason": "지침 1.6: 맞춤법·띄어쓰기·조사를 고친다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/2/lines/0",
+    "before": "제가 먼저 사양했다고 해도요.",
+    "after": "제가 괜찮다고 했어도요.",
+    "pattern": "연어",
+    "reason": "지침 1.1·1.4: 뜻이 바로 잡히도록 낱말 짝과 비유를 고친다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/2/lines/2",
+    "before": "늘 괜찮은 건 아니어서요.",
+    "after": "오늘은 좀 힘들었거든요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/2/choices/2/response/1",
+    "before": "다시 묻지 말라는 뜻은 아니에요.",
+    "after": "다음에는 저도 필요한 걸 말해 볼게요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/3/choices/2/text",
+    "before": "하고 싶을 때 아델린 씨가 먼저 꺼내요.",
+    "after": "저는 밥 먹고 올게요. 하고 싶으면 불러요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/3/choices/2/response/0",
+    "before": "네. 제가 먼저 말씀드릴게요.",
+    "after": "네. 하고 싶어지면 부를게요.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/3/choices/2/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "자기가 판을 고르는 취향을 존중한다.",
+    "after": "자기 식사를 마친 뒤 놀고 싶으면 부르라며 상대가 고를 때를 남긴다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/6/choices/1/text",
+    "before": "양보해 주셔서 고마워요. 그럼 제가 먼저 먹죠.",
+    "after": "그럼 남은 국까지 제가 다 먹어도 되겠네요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/6/choices/1/response/0",
+    "before": "네. 저는 조금 있다 먹을게요.",
+    "after": "제 것도 남겨 주세요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/6/choices/1/response/1",
+    "before": "혹시 남은 국이 있는지만 봐야겠네요.",
+    "after": "조금 뒤에 먹겠다는 말이었어요.",
+    "pattern": "해설",
+    "reason": "지침 2.2·3.1: 같은 정보 재해설을 줄이고 장면 속 다음 행동을 둔다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/6/choices/1/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "호의를 그대로 받지만 반복되는 자기 식사 미루기를 더 굳힌다.",
+    "after": "조금 뒤에 먹겠다는 양보를 본인 먹을 국까지 넘기는 말로 받아들인다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/7/lines/2",
+    "before": "아니요, 지금 하자는 건 아니에요.",
+    "after": "일단은 걸어서 가 보려고요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/9/lines/0",
+    "before": "오늘은 제가 먼저 내기를 꺼낼게요.",
+    "after": "저랑 내기하실래요?",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/10/choices/0/response/1",
+    "before": "한 판 더 하고 싶은 거지 지운다는 건 아니에요.",
+    "after": "정리한 다음에 새로 겨뤄요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/13/seen",
+    "before": "다음에 뛰면 끝에서까지 기다리고 있을 거예요.",
+    "after": "다음에 뛰면 끝에 서서 기다릴게요.",
+    "pattern": "표기",
+    "reason": "지침 1.6: 맞춤법·띄어쓰기·조사를 고친다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/15/lines/0",
+    "before": "이번 달엔 구호 할당량을 겨루고 있어요.",
+    "after": "이번 달엔 구호 일을 누가 더 많이 하나 겨루고 있어요.",
+    "pattern": "연어",
+    "reason": "지침 1.1·1.4: 뜻이 바로 잡히도록 낱말 짝과 비유를 고친다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/15/seen",
+    "before": "이번 판은 제가 먼저 열었다고 말씀드렸어요.",
+    "after": "이번 판은 제가 열었으니 끝까지 할 거예요.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/16/choices/0/response/0",
+    "before": "노력이 모자라서 불편한 건 아니에요.",
+    "after": "예외라고 부르면 자꾸 저만 보게 되잖아요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/16/choices/0/response/1",
+    "before": "오늘은 그런 답을 바라지 않았어요.",
+    "after": "밥 먹을 때만은 그 얘기를 쉬고 싶어요.",
+    "pattern": "해설",
+    "reason": "지침 2.2·3.1: 같은 정보 재해설을 줄이고 장면 속 다음 행동을 둔다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/17/seen",
+    "before": "웃었다고 다음 판까지 양보하는 건 아니에요.",
+    "after": "다음 판은 제가 이길 거예요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/20/seen",
+    "before": "누가 믿는지보다 지금 필요한 게 뭔지 들을게요.",
+    "after": "무엇을 믿는지보다 필요한 게 뭔지 들을게요.",
+    "pattern": "연어",
+    "reason": "지침 1.1·1.4: 뜻이 바로 잡히도록 낱말 짝과 비유를 고친다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/23/choices/2/text",
+    "before": "온순하신 줄 알았는데 의외로 예민하시네요.",
+    "after": "다 괜찮다고 하셨으니 저도 그냥 넘어갔죠.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/23/choices/2/response/1",
+    "before": "서운하다고 말한 것까지 이상하게 보진 말아 주세요.",
+    "after": "지금 말씀드릴 때는 좀 들어 주세요.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/23/choices/2/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "성격을 이해하려는 말이 감정을 드러낸 일을 기대에서 벗어난 결함으로 만든다.",
+    "after": "서운함을 말하는 상대에게 괜찮다고 했던 말만 들어 책임을 돌린다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "dungeon/8/variants/1",
+    "before": "혼자 결론내리기 전에 불러 주세요.",
+    "after": "혼자 결론을 내리기 전에 불러 주세요.",
+    "pattern": "표기",
+    "reason": "지침 1.6: 맞춤법·띄어쓰기·조사를 고친다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "dungeon/29/variants/0",
+    "before": "제 것도 뒤로 미루지 않을게요.",
+    "after": "제 상처도 바로 볼게요.",
+    "pattern": "연어",
+    "reason": "지침 1.1·1.4: 뜻이 바로 잡히도록 낱말 짝과 비유를 고친다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "dungeon/32/variants/0",
+    "before": "이번엔 그냥 쉬는 데 동참할게요.",
+    "after": "이번엔 저도 그냥 쉴게요.",
+    "pattern": "문서",
+    "reason": "지침 1.3·5.4: 사적 문서·판정 어휘를 생활 말로 바꾼다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "transitions/3/lines/0",
+    "before": "오늘은 먼저 올라갈게요.",
+    "after": "저는 이만 올라갈게요.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "colette",
+    "path": "inn/3/choices/0/text",
+    "before": "목에 건 무게추라고 생각하면 편하겠네요.",
+    "after": "확인했으니 인장은 이제 벗어 두셔도 되죠?",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "colette",
+    "path": "inn/3/choices/0/response/0",
+    "before": "그런 뜻으로 지닌 것이 아닙니다.",
+    "after": "계속 지니고 있어야 합니다.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "colette",
+    "path": "inn/3/choices/0/response/1",
+    "before": "그 비유는 쓰지 말아 주십시오.",
+    "after": "확인만 하고 치울 물건은 아닙니다.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "colette",
+    "path": "inn/3/choices/0/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "마음을 가볍게 해 주려는 말이 중요한 서약의 증표를 조롱처럼 만든다.",
+    "after": "인장을 잠깐 보여 준 일을 끝내고 벗어 놓아도 된다며 지니는 의미를 가볍게 여긴다."
+  },
+  {
+    "character_id": "colette",
+    "path": "inn/5/choices/1/text",
+    "before": "이런 농담에 웃으면 엄숙함이 깨지겠죠?",
+    "after": "웃고 계시죠? 제가 다른 분께도 해 볼게요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "colette",
+    "path": "inn/5/choices/1/response/0",
+    "before": "웃어도 되는지를 평가받고 싶지는 않습니다.",
+    "after": "다른 분은 부르지 마십시오.",
+    "pattern": "문서",
+    "reason": "지침 1.3·5.4: 사적 문서·판정 어휘를 생활 말로 바꾼다."
+  },
+  {
+    "character_id": "colette",
+    "path": "inn/5/choices/1/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "배려하는 질문처럼 들리지만 웃음을 참는 모습을 공개적으로 의식하게 한다.",
+    "after": "웃음을 참는 모습을 드러내 말하고 다른 사람에게도 보이려 한다."
+  },
+  {
+    "character_id": "colette",
+    "path": "inn/5/choices/2/text",
+    "before": "졸려서 혼자 누우려나 봐요.",
+    "after": "숟가락도 먹기 싫어서 돌아눕네요.",
+    "pattern": "연어",
+    "reason": "지침 1.1·1.4: 뜻이 바로 잡히도록 낱말 짝과 비유를 고친다."
+  },
+  {
+    "character_id": "colette",
+    "path": "inn/8/lines/2",
+    "before": "그래서 늘 먼저 확인합니다.",
+    "after": "나가기 전에 늘 확인합니다.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "colette",
+    "path": "inn/12/lines/2",
+    "before": "웃을 때도 먼저 입을 다물게 됐습니다.",
+    "after": "웃음이 나면 입부터 다물게 됐습니다.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "colette",
+    "path": "inn/16/lines/0",
+    "before": "서약보다 먼저 사람을 구한 날이 있습니다.",
+    "after": "서약을 따지기 전에 사람을 구한 날이 있습니다.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "colette",
+    "path": "inn/19/lines/0",
+    "before": "아까는 목이 막힌 게 아니었습니다.",
+    "after": "아까 목이 막혔다고 둘러댔습니다.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "colette",
+    "path": "inn/21/lines/1",
+    "before": "그런데 먼저 웃을 것 같습니다.",
+    "after": "그런데 벌써 웃음이 나옵니다.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "colette",
+    "path": "inn/22/choices/2/text",
+    "before": "끝까지 참는 게 콜레트 씨답긴 해요.",
+    "after": "말부터 마저 하고 나서 드세요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "colette",
+    "path": "inn/22/choices/2/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "절제를 칭찬하지만 사소한 갈증도 견뎌야 하는 성격으로 고정한다.",
+    "after": "물을 마시려는 사람에게 이야기부터 마치라고 한다."
+  },
+  {
+    "character_id": "colette",
+    "path": "inn/24/lines/2",
+    "before": "제가 먼저 기다리고 있었나 봅니다.",
+    "after": "무슨 말씀을 하실까 기다렸습니다.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "colette",
+    "path": "inn/24/choices/0/response/0",
+    "before": "그렇게 부탁한 것은 아닙니다.",
+    "after": "농담은 없어도 됩니다.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "colette",
+    "path": "inn/26/choices/1/text",
+    "before": "이렇게 사소한 것도 허락받아야 하나요?",
+    "after": "앉을 곳쯤은 제가 알아서 정해도 되잖아요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 성격·기분 단정 대신 구체 행동으로 선택의 갈등을 드러낸다. aff 유지."
+  },
+  {
+    "character_id": "colette",
+    "path": "inn/26/choices/1/response/0",
+    "before": "제게 허락을 받으시라는 뜻은 아닙니다.",
+    "after": "의자를 골라 두었다고 말씀드린 겁니다.",
+    "pattern": "부정",
+    "reason": "지침 2.2·3.1: 부정 되받기 대신 원하는 행동을 직접 말한다."
+  },
+  {
+    "character_id": "colette",
+    "path": "inn/26/choices/1/reason",
+    "pattern": "choice_reason",
+    "reason": "바뀐 선택지의 구체 행동과 점수 이유를 맞춘다.",
+    "before": "가까움을 확인하려는 농담이 가벼운 제안을 절차 강요로 오해한다.",
+    "after": "의자를 골라 뒀다는 안내를 자리 간섭으로 받아 날카롭게 반응한다."
+  },
+  {
+    "character_id": "colette",
+    "path": "dungeon/13/variants/1",
+    "before": "그 말씀은 물 마신 뒤에 하십시오.",
+    "after": "물 마실 때 웃기지는 마십시오.",
+    "pattern": "연어",
+    "reason": "지침 1.1·1.4: 뜻이 바로 잡히도록 낱말 짝과 비유를 고친다."
+  },
+  {
+    "character_id": "colette",
+    "path": "dungeon/21/variants/1",
+    "before": "상태를 먼저 알려 주십시오.",
+    "after": "아픈 곳이 있으면 알려 주십시오.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "colette",
+    "path": "dungeon/29/variants/0",
+    "before": "오늘은 제가 먼저 부탁드리겠습니다.",
+    "after": "제 짐을 좀 받아 주십시오.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "colette",
+    "path": "dungeon/34/variants/1",
+    "before": "혼자 결론내리지는 않겠습니다.",
+    "after": "혼자 결론을 내리지는 않겠습니다.",
+    "pattern": "표기",
+    "reason": "지침 1.6: 맞춤법·띄어쓰기·조사를 고친다."
+  },
+  {
+    "character_id": "colette",
+    "path": "transitions/11/lines/0",
+    "before": "오늘은 제 쪽에서 먼저 쉬겠습니다.",
+    "after": "저는 이만 쉬겠습니다.",
+    "pattern": "반복",
+    "reason": "지침 2.2·5.3: 먼저·오늘은 반복을 줄이며 순서와 화계 보존."
+  },
+  {
+    "character_id": "selva",
+    "path": "inn/23/choices/0/response/1",
+    "before": "나갈 힘은 있으니 같이 걷읍시다.",
+    "pattern": "문맥 정합",
+    "reason": "지침 5.4: 바뀐 선택과 장면의 행동에 응답·이유를 맞추고 정본 밖 사실을 더하지 않는다.",
+    "after": "제 옷은 제가 걷겠습니다."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/10/choices/0/text",
+    "before": "속상해 보이니 이번 패는 없던 걸로 해요.",
+    "pattern": "문맥 정합",
+    "reason": "지침 5.4: 바뀐 선택과 장면의 행동에 응답·이유를 맞추고 정본 밖 사실을 더하지 않는다.",
+    "after": "이번 패는 없던 걸로 하고 바로 다시 해요."
+  },
+  {
+    "character_id": "adeline",
+    "path": "inn/10/choices/0/reason",
+    "before": "위로하려는 제안이 패배의 대가를 스스로 치르려는 태도를 무시한다.",
+    "pattern": "choice_reason",
+    "reason": "지침 5.4: 바뀐 선택과 장면의 행동에 응답·이유를 맞추고 정본 밖 사실을 더하지 않는다.",
+    "after": "지고도 다시 겨루려는 뜻을 듣고 진 판부터 지워서 정리할 약속을 없애려 한다."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/27/choices/1/text",
+    "before": "이제 안 무서워하셔도 되겠네요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 속내를 먼저 단정하는 대신 장면에서 하는 대리 결정·부탁으로 감점을 드러내고 응답을 맞춘다.",
+    "after": "저는 올라갈 테니 잘 때 창문은 혼자 확인하세요."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/27/choices/1/response/0",
+    "before": "조금 전에도 떨렸어요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 속내를 먼저 단정하는 대신 장면에서 하는 대리 결정·부탁으로 감점을 드러내고 응답을 맞춘다.",
+    "after": "아직 손이 떨려요."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/27/choices/1/response/1",
+    "before": "한 번 본 걸로 끝나진 않나 봐요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 속내를 먼저 단정하는 대신 장면에서 하는 대리 결정·부탁으로 감점을 드러내고 응답을 맞춘다.",
+    "after": "잠들기 전엔 같이 봐 주셨으면 해요."
+  },
+  {
+    "character_id": "ornel",
+    "path": "inn/27/choices/1/reason",
+    "before": "안심시키려는 말이 여전히 남은 두려움을 끝난 일로 선언한다.",
+    "pattern": "choice_reason",
+    "reason": "지침 5.4: 속내를 먼저 단정하는 대신 장면에서 하는 대리 결정·부탁으로 감점을 드러내고 응답을 맞춘다.",
+    "after": "창틀을 한 번 확인한 사람에게 잠들기 전 확인은 혼자 하라고 떠넘긴다."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/24/choices/2/text",
+    "before": "이제 늦어도 웃어 넘겨 주시겠네요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 속내를 먼저 단정하는 대신 장면에서 하는 대리 결정·부탁으로 감점을 드러내고 응답을 맞춘다.",
+    "after": "내일 늦게 와도 그냥 기다리고 계세요."
+  },
+  {
+    "character_id": "jorund",
+    "path": "inn/24/choices/2/reason",
+    "before": "가까워졌음을 확인하려 하지만 여전히 중요한 예의를 면제할 것으로 생각한다.",
+    "pattern": "choice_reason",
+    "reason": "지침 5.4: 속내를 먼저 단정하는 대신 장면에서 하는 대리 결정·부탁으로 감점을 드러내고 응답을 맞춘다.",
+    "after": "기다림을 반가워하면서도 다음에도 미리 알리지 않고 기다려 달라고 정해 버린다."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/16/choices/0/text",
+    "before": "그럼 허가증은 이제 필요 없으시겠네요.",
+    "pattern": "판단",
+    "reason": "지침 5.4: 속내를 먼저 단정하는 대신 장면에서 하는 대리 결정·부탁으로 감점을 드러내고 응답을 맞춘다.",
+    "after": "그럼 허가증은 제가 가방에 넣어 둘게요."
+  },
+  {
+    "character_id": "lavinia",
+    "path": "inn/16/choices/0/reason",
+    "before": "변화를 반기려는 말이 본인이 계속 지키려는 기준까지 전부 폐기한다.",
+    "pattern": "choice_reason",
+    "reason": "지침 5.4: 속내를 먼저 단정하는 대신 장면에서 하는 대리 결정·부탁으로 감점을 드러내고 응답을 맞춘다.",
+    "after": "사람을 구하고 싶다는 고민을 듣고 당사자가 여전히 지니는 허가증을 대신 치우려 한다."
+  }
+]

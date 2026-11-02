@@ -1,0 +1,12 @@
+[
+  {"character_id":"miko","path":"inn/0/choices/2/response/1","before":"할 얘기가 생기면 제가 말할게요.","after":"이 천만 마저 접고 들을게요.","pattern":"교차 최종 문맥","reason":"미코에게 천을 내려놓고 들으라는 새 요구에 맞춰, 하던 일을 마친 뒤 듣겠다고 답한다. 용건은 듣겠다는 도입과 사적 대화 거절을 모두 유지한다."},
+  {"character_id":"colette","path":"inn/22/choices/2/response/0","before":"오늘은 참을 필요가 없었습니다.","after":"한 모금 마시고 이어서 말씀드리겠습니다.","pattern":"교차 최종 문맥","reason":"말부터 마치라는 새 요구에 예전 일을 해설하지 않고 물을 마시겠다는 현재 행동을 지킨다."},
+  {"character_id":"colette","path":"inn/22/choices/2/response/1","before":"말하다 잊은 것뿐입니다.","after":"목이 말라서 더 미루긴 어렵습니다.","pattern":"교차 최종 문맥","reason":"물을 마시려는 행동을 미루라는 요구를 사정을 대어 거절한다. 하십시오체와 두 줄 반응을 유지한다."},
+  {"character_id":"colette","path":"inn/5/choices/1/text","before":"웃고 계시죠? 제가 다른 분께도 해 볼게요.","after":"숟가락 도는 걸 다른 분도 불러서 보여 드릴까요?","pattern":"교차 최종 문맥","reason":"아직 선택하지 않은 호감 갈래의 웃음을 전제하지 않는다. 숟가락을 구경하러 사람을 부르자는 제안으로 기존 거절 반응과 잇는다."},
+  {"character_id":"adeline","path":"transitions/3/lines/0","before":"저는 이만 올라갈게요.","after":"저는 방으로 올라가 볼게요.","pattern":"최종 중복","reason":"오르넬의 전이 발화와 겹친 문장을 인물과 장면에 맞게 고친다. 아델린이 대화를 마치고 물러나는 뜻은 유지한다."},
+  {"character_id":"colette","path":"inn/5/choices/1/reason","before":"웃음을 참는 모습을 드러내 말하고 다른 사람에게도 보이려 한다.","after":"조용히 숟가락을 바꾸려는 생활 장면을 다른 사람의 구경거리로 넓히려 한다.","pattern":"교차 최종 근거","reason":"감점 선택이 웃음을 전제하지 않는 구경 제안으로 바뀌었으므로 편집용 감점 근거도 실제 말과 맞춘다."},
+  {"character_id":"bianca","path":"inn/21/choices/2/response/1","before":"어떻게 지내셨는지 길게 들어도 괜찮아요.","after":"보고서는 덮어 둘 테니 천천히 얘기해 줘요.","pattern":"최종 근접 반복","reason":"바로 앞 반응의 어떻게 지내셨는지를 다시 말하지 않고 실제 보고서를 덮는 행동과 대화 부탁으로 잇는다."},
+  {"character_id":"gerda","path":"inn/24/choices/0/response/0","before":"늘 돌아왔어도 오늘 돌아온 건 또 다르죠.","after":"나갈 때마다 저는 좀 걱정이 되거든요.","pattern":"최종 시제·재해설","reason":"출발 준비 중이라 오늘 이미 돌아온 듯 말하지 않는다. 늘 잘 돌아온다는 말에 지금 걱정을 직접 말한다."},
+  {"character_id":"gerda","path":"inn/24/seen","before":"오늘의 소원도 어제 말에 묻히진 않네요.","after":"오늘도 무사히 돌아오자고 빌었어요.","pattern":"최종 시적 여운","reason":"소원이 어제 말에 묻힌다는 추상 여운 대신 같은 장면의 소원을 직접 말한다. 소원 버릇과 함께 귀환하려는 바람은 보존한다."},
+  {"character_id":"felice","path":"inn/3/choices/2/response/0","before":"인사는 반갑지만 오래 얘기하진 못해요.","after":"인사는 반갑지만 저는 일찍 갈 수도 있어요.","pattern":"스킬 게이트 서법","reason":"청크 46의 추측 소실 경고를 확인했다. 먼저 갈 수도 있다는 원문의 가능성을 확정적인 대화 불가로 바꾸지 않고 유지한다."}
+]

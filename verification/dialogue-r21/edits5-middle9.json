@@ -1,0 +1,3274 @@
+[
+  {
+    "character_id": "lynette",
+    "path": "inn/13/lines/0",
+    "before": "쉼터에 두 겨울을 있었어요.",
+    "after": "쉼터에서 두 겨울을 보냈어요.",
+    "pattern": "표기",
+    "reason": "KR-101: 장소 조사와 기간 서술을 자연스럽게 연결한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "dungeon/23/variants/1",
+    "before": "제가 닿을 때까지 같이 봐 줘요.",
+    "after": "제가 갈 때까지 버텨 줘요.",
+    "pattern": "연어",
+    "reason": "KR-102: 부상한 상대가 해야 할 행동을 분명히 한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/2/lines/2",
+    "before": "받는 쪽에 필요한 걸 먼저 알아야죠.",
+    "after": "받는 쪽에 뭐가 필요한지 알아야죠.",
+    "pattern": "먼저 반복",
+    "reason": "한 장면에 몰린 순서 부사를 줄이고 실제 행동은 유지한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/7/choices/1/response/0",
+    "before": "제 몫까지 먼저 정하지는 말아 주세요.",
+    "after": "제 밥까지 마음대로 나누진 말아 주세요.",
+    "pattern": "먼저 반복",
+    "reason": "한 장면에 몰린 순서 부사를 줄이고 실제 행동은 유지한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/7/choices/1/response/1",
+    "before": "제가 먹을 생각이었는지도 먼저 물어 주세요.",
+    "after": "저도 아직 숟가락을 못 들었어요.",
+    "pattern": "먼저 반복",
+    "reason": "한 장면에 몰린 순서 부사를 줄이고 실제 행동은 유지한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/10/choices/2/response/0",
+    "before": "거절해도 괜찮다고 먼저 말할 걸 그랬네요.",
+    "after": "거절하셔도 돼요. 억지로 맡진 마세요.",
+    "pattern": "먼저 반복",
+    "reason": "한 장면에 몰린 순서 부사를 줄이고 실제 행동은 유지한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/16/choices/1/response/0",
+    "before": "내일도 배고프면 먼저 달라고 할 건데요.",
+    "after": "내일도 배고프면 달라고 할 건데요.",
+    "pattern": "먼저 반복",
+    "reason": "한 장면에 몰린 순서 부사를 줄이고 실제 행동은 유지한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/16/choices/2/response/1",
+    "before": "누가 더 필요한지 세지 않고 먼저 한입 먹을게요.",
+    "after": "말하다가 또 식겠네요. 한입 먹고 할게요.",
+    "pattern": "먼저 반복",
+    "reason": "한 장면에 몰린 순서 부사를 줄이고 실제 행동은 유지한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/18/choices/0/response/0",
+    "before": "잘 지냈느냐고 먼저 물으려고요.",
+    "after": "잘 지냈느냐고 물으려고요.",
+    "pattern": "먼저 반복",
+    "reason": "한 장면에 몰린 순서 부사를 줄이고 실제 행동은 유지한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/19/lines/1",
+    "before": "그럼 제 얘기를 먼저 해도 되겠어요?",
+    "after": "그럼 제 얘기를 해도 되겠어요?",
+    "pattern": "먼저 반복",
+    "reason": "한 장면에 몰린 순서 부사를 줄이고 실제 행동은 유지한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/22/lines/0",
+    "before": "이번에는 제 생각을 먼저 말할게요.",
+    "after": "이번에는 제 생각을 말할게요.",
+    "pattern": "먼저 반복",
+    "reason": "한 장면에 몰린 순서 부사를 줄이고 실제 행동은 유지한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/26/lines/2",
+    "before": "그래도 먼저 무슨 일이었는지 말할게요.",
+    "after": "무슨 일이었는지 들어 주실래요?",
+    "pattern": "먼저 반복",
+    "reason": "한 장면에 몰린 순서 부사를 줄이고 실제 행동은 유지한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/27/choices/2/response/1",
+    "before": "쉬겠다는 말부터 먼저 거두고 싶지는 않네요.",
+    "after": "급한 일이 아니면 저도 좀 쉴래요.",
+    "pattern": "먼저 반복",
+    "reason": "한 장면에 몰린 순서 부사를 줄이고 실제 행동은 유지한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/27/seen",
+    "before": "낮에 만나는 약속을 제 일정에 먼저 적었어요.",
+    "after": "낮에 만나는 약속을 제 일정에 적었어요.",
+    "pattern": "먼저 반복",
+    "reason": "한 장면에 몰린 순서 부사를 줄이고 실제 행동은 유지한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "dungeon/2/variants/1",
+    "before": "오늘은 먼저 속도를 물을게요.",
+    "after": "걸음이 너무 빠르진 않아요?",
+    "pattern": "먼저 반복",
+    "reason": "한 장면에 몰린 순서 부사를 줄이고 실제 행동은 유지한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "dungeon/20/variants/0",
+    "before": "저도 지쳤다고 먼저 말할게요.",
+    "after": "저도 많이 지쳤어요. 잠시 쉬어 갈래요.",
+    "pattern": "먼저 반복",
+    "reason": "한 장면에 몰린 순서 부사를 줄이고 실제 행동은 유지한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "dungeon/32/variants/0",
+    "before": "저도 먼저 앉아 있겠어요.",
+    "after": "저도 여기 앉아서 쉴게요.",
+    "pattern": "먼저 반복",
+    "reason": "한 장면에 몰린 순서 부사를 줄이고 실제 행동은 유지한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "transitions/13/lines/1",
+    "before": "약속을 없애기보다 먼저 얘기하고 싶어요.",
+    "after": "약속을 취소하기 전에 얘기하고 싶어요.",
+    "pattern": "먼저 반복",
+    "reason": "한 장면에 몰린 순서 부사를 줄이고 실제 행동은 유지한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/5/lines/0",
+    "before": "오늘은 흥정이 길었어요.",
+    "after": "흥정이 길어졌어요.",
+    "pattern": "오늘은 반복",
+    "reason": "일상의 시간 부사를 반복하지 않고 상황에 바로 반응한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/8/lines/0",
+    "before": "오늘은 기금 얘기 안 해도 돼요.",
+    "after": "기금 얘기는 됐어요.",
+    "pattern": "오늘은 반복",
+    "reason": "일상의 시간 부사를 반복하지 않고 상황에 바로 반응한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/8/seen",
+    "before": "오늘은 종이를 방에 두고 왔어요.",
+    "after": "종이는 방에 두고 왔어요.",
+    "pattern": "오늘은 반복",
+    "reason": "일상의 시간 부사를 반복하지 않고 상황에 바로 반응한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/15/lines/0",
+    "before": "오늘은 이름이 자꾸 헛나왔어요.",
+    "after": "이름을 읽다가 자꾸 틀렸어요.",
+    "pattern": "오늘은 반복",
+    "reason": "일상의 시간 부사를 반복하지 않고 상황에 바로 반응한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/16/lines/0",
+    "before": "오늘은 제가 먼저 받을게요.",
+    "after": "이번 그릇은 제가 받을게요.",
+    "pattern": "오늘은 반복",
+    "reason": "일상의 시간 부사를 반복하지 않고 상황에 바로 반응한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/23/lines/0",
+    "before": "오늘은 결국 못 깎았어요.",
+    "after": "결국 못 깎고 왔어요.",
+    "pattern": "오늘은 반복",
+    "reason": "일상의 시간 부사를 반복하지 않고 상황에 바로 반응한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/22/seen",
+    "before": "오늘은 중간에 제 말을 고치지 않을게요.",
+    "after": "중간에 제 말을 바꾸진 않을게요.",
+    "pattern": "오늘은 반복",
+    "reason": "일상의 시간 부사를 반복하지 않고 상황에 바로 반응한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/24/choices/0/response/0",
+    "before": "오늘은 제가 따라잡으려 뛰지 않을게요.",
+    "after": "이번엔 뛰지 않아도 되겠네요.",
+    "pattern": "오늘은 반복",
+    "reason": "일상의 시간 부사를 반복하지 않고 상황에 바로 반응한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/24/seen",
+    "before": "오늘은 걷는 속도부터 같이 정해요.",
+    "after": "너무 빨리 걷지는 말아요.",
+    "pattern": "오늘은 반복",
+    "reason": "일상의 시간 부사를 반복하지 않고 상황에 바로 반응한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/26/lines/0",
+    "before": "오늘은 잘 못했어요.",
+    "after": "일을 잘 못했어요.",
+    "pattern": "오늘은 반복",
+    "reason": "일상의 시간 부사를 반복하지 않고 상황에 바로 반응한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "transitions/13/lines/0",
+    "before": "오늘은 제 말이 잘 안 전해진 것 같아요.",
+    "after": "제 말이 잘 안 전해진 것 같아요.",
+    "pattern": "오늘은 반복",
+    "reason": "일상의 시간 부사를 반복하지 않고 상황에 바로 반응한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/20/lines/0",
+    "before": "제가 못 보는 자리도 있겠죠.",
+    "after": "제가 미처 못 챙긴 일도 있겠죠.",
+    "pattern": "비유",
+    "reason": "칸과 몫으로 감정을 설명하기보다 맡는 일과 식사를 직접 말한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/20/choices/1/response/1",
+    "before": "같이 알아봐야 할 칸도 남겨 둘게요.",
+    "after": "잘 모르는 건 저랑 물어보러 가요.",
+    "pattern": "비유",
+    "reason": "칸과 몫으로 감정을 설명하기보다 맡는 일과 식사를 직접 말한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/20/seen",
+    "before": "맡기는 칸과 제가 할 칸을 나눴어요.",
+    "after": "누가 무슨 일을 할지 정해 뒀어요.",
+    "pattern": "비유",
+    "reason": "칸과 몫으로 감정을 설명하기보다 맡는 일과 식사를 직접 말한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "dungeon/38/variants/1",
+    "before": "오늘 몫은 여기서 내려놔요.",
+    "after": "돌아왔으니 이제 짐 좀 풀어요.",
+    "pattern": "비유",
+    "reason": "칸과 몫으로 감정을 설명하기보다 맡는 일과 식사를 직접 말한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/8/choices/0/response/1",
+    "before": "오늘은 일 나누려는 게 아니라 밥 먹고 싶었어요.",
+    "after": "저도 배가 고파요. 일 얘기는 밥 먹고 해요.",
+    "pattern": "부정 되받기",
+    "reason": "부정으로 원뜻을 해설하는 대신 원하는 일을 짧게 말한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/15/choices/2/response/0",
+    "before": "틀린 걸 찾으려고 부른 건 아니에요.",
+    "after": "지금은 읽던 걸 좀 잊고 싶어요.",
+    "pattern": "부정 되받기",
+    "reason": "부정으로 원뜻을 해설하는 대신 원하는 일을 짧게 말한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/18/lines/1",
+    "before": "한 곳을 붙드는 일과는 다르죠.",
+    "after": "떠났다가도 다시 찾아가는 거예요.",
+    "pattern": "부정 되받기",
+    "reason": "부정으로 원뜻을 해설하는 대신 원하는 일을 짧게 말한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/18/choices/2/response/0",
+    "before": "잊으려고 떠나온 건 아니에요.",
+    "after": "기억하고 싶어서 이렇게 얘기하는 거예요.",
+    "pattern": "부정 되받기",
+    "reason": "부정으로 원뜻을 해설하는 대신 원하는 일을 짧게 말한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/21/lines/1",
+    "before": "기다리라는 부탁은 아니에요.",
+    "after": "기다리다가 밥 식히지 마세요.",
+    "pattern": "부정 되받기",
+    "reason": "부정으로 원뜻을 해설하는 대신 원하는 일을 짧게 말한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/24/lines/1",
+    "before": "도울 일이 있어서 부른 건 아니고요.",
+    "after": "도울 일은 다 끝냈어요.",
+    "pattern": "부정 되받기",
+    "reason": "부정으로 원뜻을 해설하는 대신 원하는 일을 짧게 말한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/25/lines/1",
+    "before": "그렇다고 남을 덜 보고 싶은 건 아니에요.",
+    "after": "제 걸 먹고 나면 남은 음식도 나누고요.",
+    "pattern": "부정 되받기",
+    "reason": "부정으로 원뜻을 해설하는 대신 원하는 일을 짧게 말한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/26/choices/0/response/0",
+    "before": "잘한 일로 덮으려고 꺼낸 얘기는 아니에요.",
+    "after": "잘한 일은 생각이 안 나요.",
+    "pattern": "부정 되받기",
+    "reason": "부정으로 원뜻을 해설하는 대신 원하는 일을 짧게 말한다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/0/choices/0/text",
+    "before": "형편은 묻지 않고 차만 따를게요.",
+    "after": "차 좀 더 드릴까요?",
+    "pattern": "선택지 판단",
+    "reason": "경계 존중을 그대로 되말하는 정답형 선택지를 현장에서 할 법한 물음으로 바꾼다."
+  },
+  {
+    "character_id": "lynette",
+    "path": "inn/20/choices/1/text",
+    "before": "'제가 아는 만큼만 확인한다'고 약속할게요.",
+    "after": "쌀 쪽은 제가 확인해 볼게요.",
+    "pattern": "선택지 판단",
+    "reason": "경계 존중을 그대로 되말하는 정답형 선택지를 현장에서 할 법한 물음으로 바꾼다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/0/choices/1/response/1",
+    "before": "연결해 준 뒤의 일도 제가 듣게 돼요.",
+    "after": "소개해 드린 뒤에 생긴 일도 제가 듣게 돼요.",
+    "pattern": "연어",
+    "reason": "KR-103·104: 소개 뒤의 일과 낯선 길에서의 판단을 직접 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "dungeon/3/variants/0",
+    "before": "새 층이니 골목 감각은 접어 둬요.",
+    "after": "골목에서 쓰던 감만 믿고 가면 안 되겠어요.",
+    "pattern": "연어",
+    "reason": "KR-103·104: 소개 뒤의 일과 낯선 길에서의 판단을 직접 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/2/lines/2",
+    "before": "수다와 보증은 다르니까요.",
+    "after": "제가 확인해 본 얘기는 아니거든요.",
+    "pattern": "원칙 요약",
+    "reason": "수다·보증을 명제로 대비하지 않고 책임과 바람을 직접 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/10/seen",
+    "before": "오늘 잡은 자리는 둘이 앉는 자리예요.",
+    "after": "가방 치웠으니 여기 앉아요.",
+    "pattern": "원칙 요약",
+    "reason": "수다·보증을 명제로 대비하지 않고 책임과 바람을 직접 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/3/choices/2/response/0",
+    "before": "인사는 반갑지만 오늘은 제가 먼저 갈 수도 있어요.",
+    "after": "인사는 반갑지만 오래 얘기하진 못해요.",
+    "pattern": "원칙 요약",
+    "reason": "수다·보증을 명제로 대비하지 않고 책임과 바람을 직접 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/3/lines/1",
+    "before": "아, 국숫집이 싫은 건 아니고요.",
+    "after": "통역 골목 끝집으로 갈 거예요.",
+    "pattern": "감정 재해설",
+    "reason": "이미 드러낸 망설임 뒤에 같은 감정을 설명하지 않고 대화를 잇는다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/8/choices/0/response/0",
+    "before": "길어져도 소문 얘기로 바로 돌리진 마요.",
+    "after": "길어져도 들어 주실 거죠?",
+    "pattern": "감정 재해설",
+    "reason": "이미 드러낸 망설임 뒤에 같은 감정을 설명하지 않고 대화를 잇는다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/8/choices/0/response/1",
+    "before": "오늘은 제가 겪은 일로도 얘기를 이어 보고 싶어요.",
+    "after": "어디까지 말했죠? 병 닦던 데부터 할게요.",
+    "pattern": "감정 재해설",
+    "reason": "이미 드러낸 망설임 뒤에 같은 감정을 설명하지 않고 대화를 잇는다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/15/choices/1/response/1",
+    "before": "누가 부족해서 외롭다는 얘기는 아니거든요.",
+    "after": "그 사람한테도 못 부르겠는 날이 있어요.",
+    "pattern": "감정 재해설",
+    "reason": "이미 드러낸 망설임 뒤에 같은 감정을 설명하지 않고 대화를 잇는다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/16/choices/1/response/0",
+    "before": "그럼 잔부터 놓고 조금 쉴게요.",
+    "after": "그럼 잔부터 놓고 앉을게요.",
+    "pattern": "감정 재해설",
+    "reason": "이미 드러낸 망설임 뒤에 같은 감정을 설명하지 않고 대화를 잇는다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/16/choices/1/response/1",
+    "before": "저도 오늘은 그냥 마주 보고 앉아 볼래요.",
+    "after": "물 마실 동안은 저도 말 좀 아낄래요.",
+    "pattern": "감정 재해설",
+    "reason": "이미 드러낸 망설임 뒤에 같은 감정을 설명하지 않고 대화를 잇는다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/18/choices/1/response/1",
+    "before": "제가 장난쳤으니 아무 말도 못 하란 건 아니죠?",
+    "after": "다음에도 웃고 넘길 수 있을지는 모르겠어요.",
+    "pattern": "감정 재해설",
+    "reason": "이미 드러낸 망설임 뒤에 같은 감정을 설명하지 않고 대화를 잇는다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/20/choices/0/response/1",
+    "before": "아는 간판부터 설명하려던 건 좀 참아 볼게요.",
+    "after": "가다 궁금한 간판이 있으면 물어봐요.",
+    "pattern": "감정 재해설",
+    "reason": "이미 드러낸 망설임 뒤에 같은 감정을 설명하지 않고 대화를 잇는다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/0/lines/2",
+    "before": "제가 안다고 다 전해 드리는 건 아니에요.",
+    "after": "당사자한테 직접 물어봐 주세요.",
+    "pattern": "부정 되받기",
+    "reason": "부정으로 해석을 교정하는 말이 몰린 곳에서 원뜻을 직접 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/3/choices/1/response/0",
+    "before": "같이 가 달라는 뜻은 아니었는데요.",
+    "after": "혼자 조용히 먹고 올게요.",
+    "pattern": "부정 되받기",
+    "reason": "부정으로 해석을 교정하는 말이 몰린 곳에서 원뜻을 직접 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/13/choices/0/response/0",
+    "before": "아는 사람 수를 늘리려고 간 건 아니에요.",
+    "after": "그땐 아는 얼굴 하나가 아쉬웠어요.",
+    "pattern": "부정 되받기",
+    "reason": "부정으로 해석을 교정하는 말이 몰린 곳에서 원뜻을 직접 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/21/lines/0",
+    "before": "방금은 웃으려고 웃은 거예요.",
+    "after": "방금도 버릇처럼 웃어 버렸네요.",
+    "pattern": "부정 되받기",
+    "reason": "부정으로 해석을 교정하는 말이 몰린 곳에서 원뜻을 직접 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/21/lines/1",
+    "before": "괜찮다는 뜻은 아니었고요.",
+    "after": "아까 그 말은 좀 서운했어요.",
+    "pattern": "부정 되받기",
+    "reason": "부정으로 해석을 교정하는 말이 몰린 곳에서 원뜻을 직접 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/21/seen",
+    "before": "아까 웃은 뜻은 다시 설명할게요.",
+    "after": "아까 못 한 말이 있어요.",
+    "pattern": "부정 되받기",
+    "reason": "부정으로 해석을 교정하는 말이 몰린 곳에서 원뜻을 직접 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/24/choices/1/response/0",
+    "before": "오늘은 소개하러 나온 게 아니에요.",
+    "after": "소개는 다음에 해 드릴게요.",
+    "pattern": "부정 되받기",
+    "reason": "부정으로 해석을 교정하는 말이 몰린 곳에서 원뜻을 직접 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "dungeon/27/variants/1",
+    "before": "웃어도 안 아픈 건 아니에요.",
+    "after": "상처 좀 봐야겠어요.",
+    "pattern": "부정 되받기",
+    "reason": "부정으로 해석을 교정하는 말이 몰린 곳에서 원뜻을 직접 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "dungeon/29/variants/0",
+    "before": "저 지금 괜찮다고 안 할래요.",
+    "after": "저 지금 버티기가 힘들어요.",
+    "pattern": "부정 되받기",
+    "reason": "부정으로 해석을 교정하는 말이 몰린 곳에서 원뜻을 직접 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "transitions/11/lines/0",
+    "before": "사람이 많아야 좋은 날만 있는 건 아니에요.",
+    "after": "이번엔 둘이 먹고 싶었어요.",
+    "pattern": "부정 되받기",
+    "reason": "부정으로 해석을 교정하는 말이 몰린 곳에서 원뜻을 직접 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "transitions/11/lines/1",
+    "before": "오늘 제가 부른 뜻부터 들어 줘요.",
+    "after": "다른 분들께는 다음에 오시라고 해 줘요.",
+    "pattern": "부정 되받기",
+    "reason": "부정으로 해석을 교정하는 말이 몰린 곳에서 원뜻을 직접 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/19/choices/0/text",
+    "before": "저랑 먹는 것보다 골목이 먼저군요.",
+    "after": "약방 일은 내일로 미루고 지금 나와요.",
+    "pattern": "선택지 판단",
+    "reason": "우선순위를 성격 평가로 단정하지 않고 실제 일정 제안으로 어긋남을 만든다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/19/choices/0/response/0",
+    "before": "그렇게 둘로 나눠 말하면 대답하기 힘들어요.",
+    "after": "내일로 미뤄도 되는 일이면 벌써 나왔죠.",
+    "pattern": "선택지 판단",
+    "reason": "우선순위를 성격 평가로 단정하지 않고 실제 일정 제안으로 어긋남을 만든다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/19/choices/0/response/1",
+    "before": "누구를 덜 좋아해서 약속을 바꾸는 건 아니에요.",
+    "after": "늦게까지 기다리게 하고 싶진 않아요.",
+    "pattern": "선택지 판단",
+    "reason": "우선순위를 성격 평가로 단정하지 않고 실제 일정 제안으로 어긋남을 만든다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/1/lines/2",
+    "before": "오늘은 제가 먼저 얘기하고 싶지 않아요.",
+    "after": "지금은 말할 기운이 없어요.",
+    "pattern": "먼저 반복",
+    "reason": "순서가 필수 아닌 문장에서 먼저 반복을 덜어 낸다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/8/seen",
+    "before": "오늘은 소문 대신 제 얘기를 먼저 할래요.",
+    "after": "약방에서 있었던 얘기 마저 할게요.",
+    "pattern": "먼저 반복",
+    "reason": "순서가 필수 아닌 문장에서 먼저 반복을 덜어 낸다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/10/lines/0",
+    "before": "오늘은 자리를 먼저 잡았어요.",
+    "after": "여기 자리 잡아 뒀어요.",
+    "pattern": "먼저 반복",
+    "reason": "순서가 필수 아닌 문장에서 먼저 반복을 덜어 낸다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/10/choices/1/text",
+    "before": "기다리게 했으면 먼저 말해 줘요.",
+    "after": "오래 기다렸어요? 저도 얼른 먹고 싶어요.",
+    "pattern": "먼저 반복",
+    "reason": "순서가 필수 아닌 문장에서 먼저 반복을 덜어 낸다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/12/seen",
+    "before": "그 골목에선 모르면 되묻는 게 먼저였어요.",
+    "after": "그 골목에선 못 알아들으면 꼭 되물었어요.",
+    "pattern": "먼저 반복",
+    "reason": "순서가 필수 아닌 문장에서 먼저 반복을 덜어 낸다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/20/lines/2",
+    "before": "먼저 고르면 같이 가 볼게요.",
+    "after": "먹고 싶은 데가 있으면 골라 봐요.",
+    "pattern": "먼저 반복",
+    "reason": "순서가 필수 아닌 문장에서 먼저 반복을 덜어 낸다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/23/choices/0/response/0",
+    "before": "너무 늦기 전에 제가 먼저 말할게요.",
+    "after": "너무 늦어지면 제가 말할게요.",
+    "pattern": "먼저 반복",
+    "reason": "순서가 필수 아닌 문장에서 먼저 반복을 덜어 낸다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/24/choices/1/response/1",
+    "before": "오늘은 골목 사람 말고 제가 먼저 말 걸었잖아요.",
+    "after": "저도 길 안내 말고 다른 얘기 좀 해요.",
+    "pattern": "먼저 반복",
+    "reason": "순서가 필수 아닌 문장에서 먼저 반복을 덜어 낸다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/24/choices/2/response/0",
+    "before": "제가 먼저 길을 정해 버리면 말려 주세요.",
+    "after": "제가 멋대로 길을 정하면 말려 주세요.",
+    "pattern": "먼저 반복",
+    "reason": "순서가 필수 아닌 문장에서 먼저 반복을 덜어 낸다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/27/choices/2/response/0",
+    "before": "그때도 제가 먼저 떠들 필요는 없겠죠?",
+    "after": "그때도 이렇게 조용하면 좋겠네요.",
+    "pattern": "먼저 반복",
+    "reason": "순서가 필수 아닌 문장에서 먼저 반복을 덜어 낸다."
+  },
+  {
+    "character_id": "felice",
+    "path": "dungeon/8/variants/1",
+    "before": "설명보다 확인이 먼저겠네요.",
+    "after": "뭔지부터 살펴봐야겠네요.",
+    "pattern": "먼저 반복",
+    "reason": "순서가 필수 아닌 문장에서 먼저 반복을 덜어 낸다."
+  },
+  {
+    "character_id": "felice",
+    "path": "dungeon/40/variants/1",
+    "before": "누가 빠졌는지 먼저 확인해요.",
+    "after": "다들 따라오고 있는지 확인해요.",
+    "pattern": "먼저 반복",
+    "reason": "순서가 필수 아닌 문장에서 먼저 반복을 덜어 낸다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/16/lines/0",
+    "before": "오늘은 들려줄 소식이 없어요.",
+    "after": "들려줄 소식은 없어요.",
+    "pattern": "오늘은 반복",
+    "reason": "시간을 다시 선언하지 않아도 이어지는 장면은 바로 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/16/seen",
+    "before": "오늘은 빈손으로 와도 되겠네요.",
+    "after": "아무 얘기 안 챙겨 와도 되겠네요.",
+    "pattern": "오늘은 반복",
+    "reason": "시간을 다시 선언하지 않아도 이어지는 장면은 바로 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/19/lines/0",
+    "before": "오늘은 약방에 조금 더 있어야 해요.",
+    "after": "약방에 조금 더 있어야 해요.",
+    "pattern": "오늘은 반복",
+    "reason": "시간을 다시 선언하지 않아도 이어지는 장면은 바로 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/20/lines/0",
+    "before": "오늘은 제가 안내 안 할래요.",
+    "after": "길 안내는 좀 쉴래요.",
+    "pattern": "오늘은 반복",
+    "reason": "시간을 다시 선언하지 않아도 이어지는 장면은 바로 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/24/lines/0",
+    "before": "오늘은 저 따라오실 필요 없어요.",
+    "after": "저 따라오시려고 했어요?",
+    "pattern": "오늘은 반복",
+    "reason": "시간을 다시 선언하지 않아도 이어지는 장면은 바로 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/24/seen",
+    "before": "오늘은 제가 따라가 보는 길도 괜찮아요.",
+    "after": "어디로 가는지 아직 안 물어봤네요.",
+    "pattern": "오늘은 반복",
+    "reason": "시간을 다시 선언하지 않아도 이어지는 장면은 바로 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/25/lines/2",
+    "before": "오늘은 듣는 쪽에 있고 싶거든요.",
+    "after": "지금은 얘기 듣는 게 더 좋아요.",
+    "pattern": "오늘은 반복",
+    "reason": "시간을 다시 선언하지 않아도 이어지는 장면은 바로 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/25/seen",
+    "before": "오늘은 이야기를 듣다가 웃고 싶어요.",
+    "after": "그 얘기 재밌네요. 계속해 봐요.",
+    "pattern": "오늘은 반복",
+    "reason": "시간을 다시 선언하지 않아도 이어지는 장면은 바로 말한다."
+  },
+  {
+    "character_id": "felice",
+    "path": "inn/19/choices/0/reason",
+    "before": "서운함을 충성 시험으로 바꿔 선택의 압박을 준다.",
+    "after": "약방 일을 끝내고 약속을 다시 잡으려는 펠리스에게 일을 미루고 나오라고 요구한다.",
+    "pattern": "선택지 근거",
+    "reason": "선택지 수정에 맞춰 감점 이유를 실제 발화와 일치시킨다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/8/choices/2/response/1",
+    "before": "고친 앞의 값으로 다시 계산하진 말아요.",
+    "after": "수정 전 금액으로 다시 계산하진 말아요.",
+    "pattern": "연어",
+    "reason": "KR-105·107: 금액 기준과 당장 더 머물겠다는 반응을 명확히 한다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/27/choices/1/response/0",
+    "before": "나중에 시간이 되면 먼저 알려 주세요.",
+    "after": "그럼 조금 더 같이 있어요.",
+    "pattern": "연어",
+    "reason": "KR-105·107: 금액 기준과 당장 더 머물겠다는 반응을 명확히 한다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/10/choices/2/response/1",
+    "before": "계속 열면 이만큼은 다시 못 쓰게 돼요.",
+    "after": "향은 맡았으니 이제 닫아 주세요.",
+    "pattern": "감정 재해설",
+    "reason": "KR-106 및 근접 반복: 같은 경고를 되풀이하지 않고 행동으로 잇는다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/7/choices/2/response/1",
+    "before": "빈칸 하나 때문에 제 장부를 맡긴 건 아니에요.",
+    "after": "다 적으면 그때 보여 드릴게요.",
+    "pattern": "감정 재해설",
+    "reason": "KR-106 및 근접 반복: 같은 경고를 되풀이하지 않고 행동으로 잇는다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/16/choices/0/response/1",
+    "before": "그렇다고 기분을 풀어 줄 말을 찾으실 필요도 없어요.",
+    "after": "좀 듣다가 차가 식으면 알려 줘요.",
+    "pattern": "감정 재해설",
+    "reason": "KR-106 및 근접 반복: 같은 경고를 되풀이하지 않고 행동으로 잇는다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/22/choices/2/response/1",
+    "before": "둘이 하는 얘기를 계속 남한테 설명하고 싶진 않아요.",
+    "after": "오가는 사람이 적어야 말이 잘 들려요.",
+    "pattern": "감정 재해설",
+    "reason": "KR-106 및 근접 반복: 같은 경고를 되풀이하지 않고 행동으로 잇는다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/24/choices/0/response/1",
+    "before": "견적 보려고 찾아온 건 아니에요.",
+    "after": "그냥 차 마시면서 쉬고 갈래요.",
+    "pattern": "감정 재해설",
+    "reason": "KR-106 및 근접 반복: 같은 경고를 되풀이하지 않고 행동으로 잇는다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/0/choices/0/response/0",
+    "before": "같이 간다고 주인이 없어지진 않아요.",
+    "after": "제게 묻고 쓰세요.",
+    "pattern": "원칙 요약",
+    "reason": "거래의 경계와 숲 이름은 보존하고 원칙 카피를 실제 부탁으로 바꾼다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/13/seen",
+    "before": "팔았다는 사실과 이유는 다른 얘기예요.",
+    "after": "왜 팔았는지는 아직 말 안 했어요.",
+    "pattern": "원칙 요약",
+    "reason": "거래의 경계와 숲 이름은 보존하고 원칙 카피를 실제 부탁으로 바꾼다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/20/choices/2/response/1",
+    "before": "가능한 것과 아닌 건 출발 전에 나눠 말할게요.",
+    "after": "어디까지 할 수 있을지 출발 전에 말씀드려요.",
+    "pattern": "원칙 요약",
+    "reason": "거래의 경계와 숲 이름은 보존하고 원칙 카피를 실제 부탁으로 바꾼다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/5/choices/1/text",
+    "before": "사람보다 돈을 좋아하면 편하겠어요.",
+    "after": "친해지면 약값은 안 받아도 되겠네요.",
+    "pattern": "선택지 판단",
+    "reason": "상대를 돈과 사람 중 하나로 평가하지 않고 거래 제안으로 갈등을 드러낸다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/5/choices/1/response/0",
+    "before": "그 둘을 비교해 달라는 말은 안 했어요.",
+    "after": "약값은 받아야죠.",
+    "pattern": "선택지 판단",
+    "reason": "상대를 돈과 사람 중 하나로 평가하지 않고 거래 제안으로 갈등을 드러낸다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/5/choices/1/response/1",
+    "before": "돈이 좋다고 한 말에 다른 뜻까지 붙이진 말아요.",
+    "after": "친한 사람한테도 값을 말할 거예요.",
+    "pattern": "선택지 판단",
+    "reason": "상대를 돈과 사람 중 하나로 평가하지 않고 거래 제안으로 갈등을 드러낸다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/23/choices/1/text",
+    "before": "이제 돈보다 사람이 좋다는 거네요.",
+    "after": "그럼 다음 약값은 얘기 안 해도 되겠네요.",
+    "pattern": "선택지 판단",
+    "reason": "상대를 돈과 사람 중 하나로 평가하지 않고 거래 제안으로 갈등을 드러낸다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/23/choices/1/response/0",
+    "before": "둘 중 하나만 고르자고 하진 마세요.",
+    "after": "다음 약값도 제가 정해요.",
+    "pattern": "선택지 판단",
+    "reason": "상대를 돈과 사람 중 하나로 평가하지 않고 거래 제안으로 갈등을 드러낸다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/23/choices/1/response/1",
+    "before": "좋아하는 것 하나를 말할 때마다 시험을 보네요.",
+    "after": "약 안 살 때도 만나자는 얘기였는데요.",
+    "pattern": "선택지 판단",
+    "reason": "상대를 돈과 사람 중 하나로 평가하지 않고 거래 제안으로 갈등을 드러낸다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/3/lines/1",
+    "before": "거래가 다 같은 건 아니에요.",
+    "after": "다른 거래는 그 사람과 정했어요.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 겹친 장면을 직접적인 말로 푼다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/8/lines/1",
+    "before": "틀리게 쓴 건 아니고요.",
+    "after": "값을 다시 정했어요.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 겹친 장면을 직접적인 말로 푼다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/9/lines/1",
+    "before": "잊은 게 아니라 안 가져왔어요.",
+    "after": "가게에 두고 왔어요.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 겹친 장면을 직접적인 말로 푼다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/9/choices/0/response/0",
+    "before": "종이가 없다고 기억도 없는 건 아니에요.",
+    "after": "외상은 기억하고 있어요.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 겹친 장면을 직접적인 말로 푼다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/10/lines/1",
+    "before": "이름을 맞혀 보라는 건 아니에요.",
+    "after": "봉투 가까이서 맡아 보세요.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 겹친 장면을 직접적인 말로 푼다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/13/choices/2/response/1",
+    "before": "제가 한 말 뒤에 남의 사정을 덧붙이진 말아요.",
+    "after": "왜 팔았는지는 제가 얘기할게요.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 겹친 장면을 직접적인 말로 푼다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/14/choices/1/response/0",
+    "before": "잊을 생각으로 듣는 건 아니에요.",
+    "after": "저 소리가 그리워서 듣고 있어요.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 겹친 장면을 직접적인 말로 푼다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/15/lines/0",
+    "before": "셈이 안 맞는 건 아니에요.",
+    "after": "셈은 맞아요.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 겹친 장면을 직접적인 말로 푼다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/16/choices/2/response/0",
+    "before": "방을 숲처럼 꾸미려는 건 아니에요.",
+    "after": "그 나무를 여기까지 가져오진 말아요.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 겹친 장면을 직접적인 말로 푼다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/17/choices/1/response/0",
+    "before": "봉투를 내려놨다고 드리는 건 아니에요.",
+    "after": "아, 그건 제 거예요.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 겹친 장면을 직접적인 말로 푼다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/22/choices/2/response/0",
+    "before": "보여 주려고 부른 자리는 아닌데요.",
+    "after": "저는 조용한 데서 얘기하고 싶어요.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 겹친 장면을 직접적인 말로 푼다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/27/lines/2",
+    "before": "싫다는 말을 듣기 싫어서 못 묻던 건 아니에요.",
+    "after": "불편하시면 이제 가 볼게요.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 겹친 장면을 직접적인 말로 푼다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/0/lines/1",
+    "before": "필요하다고 먼저 가져가진 마세요.",
+    "after": "필요해도 묻고 가져가세요.",
+    "pattern": "먼저 반복",
+    "reason": "소유·순서가 명확한 곳의 부사를 줄인다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/0/choices/0/response/1",
+    "before": "내줄 양도 제가 먼저 봐야겠어요.",
+    "after": "얼마나 내줄지는 제가 볼게요.",
+    "pattern": "먼저 반복",
+    "reason": "소유·순서가 명확한 곳의 부사를 줄인다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/2/choices/2/text",
+    "before": "어느 쪽을 쓰는지 먼저 보여 주세요.",
+    "after": "어느 헝겊을 쓰는지 보여 주세요.",
+    "pattern": "먼저 반복",
+    "reason": "소유·순서가 명확한 곳의 부사를 줄인다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/12/choices/0/response/0",
+    "before": "바꾸고 싶었으면 제가 먼저 바꿨어요.",
+    "after": "바꾸고 싶었으면 벌써 바꿨어요.",
+    "pattern": "먼저 반복",
+    "reason": "소유·순서가 명확한 곳의 부사를 줄인다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/18/choices/1/text",
+    "before": "살 게 없어도 먼저 인사할게요.",
+    "after": "살 게 없어도 들를게요.",
+    "pattern": "먼저 반복",
+    "reason": "소유·순서가 명확한 곳의 부사를 줄인다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/19/choices/2/response/1",
+    "before": "잘못된 합계부터 맞추는 게 먼저예요.",
+    "after": "잘못된 합계부터 맞춰요.",
+    "pattern": "먼저 반복",
+    "reason": "소유·순서가 명확한 곳의 부사를 줄인다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/22/choices/1/response/0",
+    "before": "먼저 잡아 둬서 괜찮아요.",
+    "after": "제가 잡아 둔 자리예요.",
+    "pattern": "먼저 반복",
+    "reason": "소유·순서가 명확한 곳의 부사를 줄인다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/26/choices/2/text",
+    "before": "다음에도 묻기 전에 먼저 기다릴게요.",
+    "after": "다음에도 이 종이를 보면 되겠네요.",
+    "pattern": "먼저 반복",
+    "reason": "소유·순서가 명확한 곳의 부사를 줄인다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/27/seen",
+    "before": "오늘은 제가 먼저 더 있자고 했어요.",
+    "after": "조금 더 있다 갈게요.",
+    "pattern": "먼저 반복",
+    "reason": "소유·순서가 명확한 곳의 부사를 줄인다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "transitions/13/lines/0",
+    "before": "제 마음에 이름을 먼저 붙이진 마세요.",
+    "after": "제 마음을 그렇게 단정하진 마세요.",
+    "pattern": "먼저 반복",
+    "reason": "소유·순서가 명확한 곳의 부사를 줄인다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/22/lines/2",
+    "before": "같이 앉은 얼굴을 계속 놓치네요.",
+    "after": "얘기할 때마다 사람을 비켜 줘야 하네요.",
+    "pattern": "비유",
+    "reason": "생활 장면에서 장부와 자리로 감정을 재설명하지 않는다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/24/seen",
+    "before": "오늘은 장부 놓을 자리도 비워 둬요.",
+    "after": "장부를 안 가져오니 손이 가볍네요.",
+    "pattern": "비유",
+    "reason": "생활 장면에서 장부와 자리로 감정을 재설명하지 않는다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/8/choices/2/text",
+    "before": "이유를 캐묻지 않고 이대로 확인할게요.",
+    "after": "고친 종이로 다시 읽어 볼게요.",
+    "pattern": "선택지 판단",
+    "reason": "상대의 경계를 추상적으로 복창하는 대신 지금 볼 종이와 할 일을 말한다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/23/choices/2/text",
+    "before": "다르다는 말을 더 들어도 돼요?",
+    "after": "약 안 사도 와서 얘기해도 되죠?",
+    "pattern": "선택지 판단",
+    "reason": "상대의 경계를 추상적으로 복창하는 대신 지금 볼 종이와 할 일을 말한다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/5/choices/1/reason",
+    "before": "농담으로 성격을 단순화해 사람을 값으로만 보는 자로 만든다.",
+    "after": "친분을 약값 면제와 바로 연결해, 소렐이 정하는 거래 조건을 건너뛴다.",
+    "pattern": "선택지 근거",
+    "reason": "선택지 수정에 맞춰 감점 이유를 실제 발화와 일치시킨다."
+  },
+  {
+    "character_id": "sorel",
+    "path": "inn/23/choices/1/reason",
+    "before": "변화를 선언으로 단순화해 기존 성향을 버리게 한다.",
+    "after": "살 것이 없어도 만나자는 말을 약값을 정하지 않아도 된다는 뜻으로 바꾸어 듣는다.",
+    "pattern": "선택지 근거",
+    "reason": "선택지 수정에 맞춰 감점 이유를 실제 발화와 일치시킨다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/8/lines/1",
+    "before": "그, 아무것도 아니라고 안 하려고요.",
+    "after": "그, 그냥 넘기지 않고 얘기해 보려고요.",
+    "pattern": "부정 되받기",
+    "reason": "KR-108: 꼬인 부정형과 다른 장면의 부정 재해설을 평이하게 푼다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/5/lines/2",
+    "before": "아니, 웃으라고 한 말은 아닌데요.",
+    "after": "저, 그렇게 웃어 주실 줄은 몰랐어요.",
+    "pattern": "부정 되받기",
+    "reason": "KR-108: 꼬인 부정형과 다른 장면의 부정 재해설을 평이하게 푼다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/5/choices/1/response/0",
+    "before": "제가 웃기려고 한 말이 아니어도 웃어 주시네요.",
+    "after": "저도 웃음이 나네요. 와 주셔서 좋아요.",
+    "pattern": "부정 되받기",
+    "reason": "KR-108: 꼬인 부정형과 다른 장면의 부정 재해설을 평이하게 푼다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/9/lines/0",
+    "before": "오늘 잘한 걸 말하려던 건 아니에요.",
+    "after": "아까 생각난 얘기가 있어요.",
+    "pattern": "부정 되받기",
+    "reason": "KR-108: 꼬인 부정형과 다른 장면의 부정 재해설을 평이하게 푼다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/9/lines/1",
+    "before": "그냥 생각난 게 있어서요.",
+    "after": "잊기 전에 얘기해도 될까요?",
+    "pattern": "부정 되받기",
+    "reason": "KR-108: 꼬인 부정형과 다른 장면의 부정 재해설을 평이하게 푼다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/9/choices/2/response/1",
+    "before": "환호를 기다리면서 하려던 얘기는 아니거든요.",
+    "after": "박수 소리가 나면 하려던 말을 잊어요.",
+    "pattern": "부정 되받기",
+    "reason": "KR-108: 꼬인 부정형과 다른 장면의 부정 재해설을 평이하게 푼다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/15/choices/2/response/0",
+    "before": "잘한 것과 힘든 건 같이 있었어요.",
+    "after": "사람들이 좋아해 주니 기뻤죠.",
+    "pattern": "부정 되받기",
+    "reason": "KR-108: 꼬인 부정형과 다른 장면의 부정 재해설을 평이하게 푼다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/15/choices/2/response/1",
+    "before": "계속 그랬으니까 괜찮았던 건 아니에요.",
+    "after": "그래도 지고 나면 속상했어요.",
+    "pattern": "부정 되받기",
+    "reason": "KR-108: 꼬인 부정형과 다른 장면의 부정 재해설을 평이하게 푼다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/19/choices/2/response/0",
+    "before": "싫어진 게 아니라 쉬고 싶은 거예요.",
+    "after": "그럼 내일은 좀 쉬고 나서 봐요.",
+    "pattern": "부정 되받기",
+    "reason": "KR-108: 꼬인 부정형과 다른 장면의 부정 재해설을 평이하게 푼다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/23/choices/0/response/0",
+    "before": "알면서 숨긴 건 아니었어요.",
+    "after": "그땐 저도 괜찮은 줄 알았어요.",
+    "pattern": "부정 되받기",
+    "reason": "KR-108: 꼬인 부정형과 다른 장면의 부정 재해설을 평이하게 푼다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/26/choices/0/response/0",
+    "before": "편하다고 꼭 크게 웃는 건 아니에요.",
+    "after": "지금은 이렇게 조용히 있을래요.",
+    "pattern": "부정 되받기",
+    "reason": "KR-108: 꼬인 부정형과 다른 장면의 부정 재해설을 평이하게 푼다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/26/choices/0/response/1",
+    "before": "작게 웃거나 안 웃고 있어도 편할 수 있잖아요.",
+    "after": "목소리도 좀 쉬게 두고요.",
+    "pattern": "부정 되받기",
+    "reason": "KR-108: 꼬인 부정형과 다른 장면의 부정 재해설을 평이하게 푼다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/8/choices/0/text",
+    "before": "드디어 낯을 다 가렸네요.",
+    "after": "다들 들리게 크게 말씀해 봐요.",
+    "pattern": "선택지 판단",
+    "reason": "KR-109: 낯가림을 평가하는 선택지를 목소리 요구로 구체화하고 감점 이유를 유지한다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/8/choices/0/response/0",
+    "before": "오늘 먼저 말은 걸었지만 아직 어려울 때도 있어요.",
+    "after": "지금은 여기에 들릴 만큼만 말하고 싶어요.",
+    "pattern": "선택지 판단",
+    "reason": "KR-109: 낯가림을 평가하는 선택지를 목소리 요구로 구체화하고 감점 이유를 유지한다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/8/choices/0/response/1",
+    "before": "괜찮아졌다가 또 말을 더듬을 수도 있죠.",
+    "after": "크게 하려면 하려던 말이 더 안 나와요.",
+    "pattern": "선택지 판단",
+    "reason": "KR-109: 낯가림을 평가하는 선택지를 목소리 요구로 구체화하고 감점 이유를 유지한다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/26/choices/0/text",
+    "before": "편해졌으니 이제 큰소리로 웃어 봐요.",
+    "after": "조용하니 아까처럼 크게 웃어 줘요.",
+    "pattern": "선택지 판단",
+    "reason": "KR-109: 낯가림을 평가하는 선택지를 목소리 요구로 구체화하고 감점 이유를 유지한다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/16/choices/1/response/1",
+    "before": "관객 없는 자리에서 얘기해 보려고요.",
+    "after": "재주는 나중에 하고 여기 앉아요.",
+    "pattern": "감정 재해설",
+    "reason": "상태를 보여 준 뒤 같은 감정을 해설하는 끝줄을 짧은 행동·부탁으로 바꾼다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/8/choices/1/response/1",
+    "before": "오늘 오기 전에도 한 번은 그냥 갈까 했어요.",
+    "after": "입구까지 왔다가 한참 서 있었어요.",
+    "pattern": "감정 재해설",
+    "reason": "상태를 보여 준 뒤 같은 감정을 해설하는 끝줄을 짧은 행동·부탁으로 바꾼다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/24/choices/0/response/1",
+    "before": "사람 없는 자리로 와도 혼자는 아니네요.",
+    "after": "아, 잔은 이쪽으로 옮겨 둘게요.",
+    "pattern": "감정 재해설",
+    "reason": "상태를 보여 준 뒤 같은 감정을 해설하는 끝줄을 짧은 행동·부탁으로 바꾼다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/27/choices/2/response/1",
+    "before": "지금 제 이름을 듣고 싶어서 말했어요.",
+    "after": "그냥 티카라고 불러 주세요.",
+    "pattern": "감정 재해설",
+    "reason": "상태를 보여 준 뒤 같은 감정을 해설하는 끝줄을 짧은 행동·부탁으로 바꾼다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/8/lines/0",
+    "before": "오늘은 제가 먼저 말 걸었어요.",
+    "after": "저, 인사하러 왔어요.",
+    "pattern": "먼저 반복",
+    "reason": "자발적으로 찾아오는 변화는 살리고 여러 줄에 겹친 순서어를 줄인다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/8/seen",
+    "before": "오늘은 먼저 와서 앉았어요.",
+    "after": "여기 앉아서 얘기해도 되죠?",
+    "pattern": "먼저 반복",
+    "reason": "자발적으로 찾아오는 변화는 살리고 여러 줄에 겹친 순서어를 줄인다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/17/seen",
+    "before": "다음에 무서우면 먼저 말해 볼게요.",
+    "after": "다음에 무서우면 숨기지 않고 말할게요.",
+    "pattern": "먼저 반복",
+    "reason": "자발적으로 찾아오는 변화는 살리고 여러 줄에 겹친 순서어를 줄인다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/19/choices/1/response/1",
+    "before": "내일 나가고 싶으면 그땐 제가 먼저 말할게요.",
+    "after": "내일 나가고 싶으면 제가 말할게요.",
+    "pattern": "먼저 반복",
+    "reason": "자발적으로 찾아오는 변화는 살리고 여러 줄에 겹친 순서어를 줄인다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/22/choices/2/response/0",
+    "before": "제가 먼저 고를 때까지 기다려 줄래요?",
+    "after": "제가 골라 봐도 될까요?",
+    "pattern": "먼저 반복",
+    "reason": "자발적으로 찾아오는 변화는 살리고 여러 줄에 겹친 순서어를 줄인다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/24/choices/0/response/0",
+    "before": "먼저 말을 찾지 않아도 되겠네요.",
+    "after": "무슨 말을 할지 찾다가도 쉴 수 있겠네요.",
+    "pattern": "먼저 반복",
+    "reason": "자발적으로 찾아오는 변화는 살리고 여러 줄에 겹친 순서어를 줄인다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/25/seen",
+    "before": "오늘 길은 제가 골랐으니 먼저 걸을게요.",
+    "after": "저 길로 가 볼래요. 따라오세요.",
+    "pattern": "먼저 반복",
+    "reason": "자발적으로 찾아오는 변화는 살리고 여러 줄에 겹친 순서어를 줄인다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/26/seen",
+    "before": "조용해도 먼저 일어나지는 않을래요.",
+    "after": "조용히 좀 더 앉아 있을래요.",
+    "pattern": "먼저 반복",
+    "reason": "자발적으로 찾아오는 변화는 살리고 여러 줄에 겹친 순서어를 줄인다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/27/choices/0/response/0",
+    "before": "네, 내일 제가 먼저 찾아갈게요.",
+    "after": "네, 내일 찾아갈게요.",
+    "pattern": "먼저 반복",
+    "reason": "자발적으로 찾아오는 변화는 살리고 여러 줄에 겹친 순서어를 줄인다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/27/choices/1/response/0",
+    "before": "바뀌면 제가 먼저 알려 드려요.",
+    "after": "바뀌면 제가 알려 드려요.",
+    "pattern": "먼저 반복",
+    "reason": "자발적으로 찾아오는 변화는 살리고 여러 줄에 겹친 순서어를 줄인다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/27/seen",
+    "before": "내일은 제가 먼저 이름을 부르러 올게요.",
+    "after": "내일 만나면 제가 인사할게요.",
+    "pattern": "먼저 반복",
+    "reason": "자발적으로 찾아오는 변화는 살리고 여러 줄에 겹친 순서어를 줄인다."
+  },
+  {
+    "character_id": "tika",
+    "path": "dungeon/15/variants/0",
+    "before": "큰 판이네요! 먼저 살펴봐요!",
+    "after": "큰 판이네요! 들어가기 전에 살펴요!",
+    "pattern": "먼저 반복",
+    "reason": "자발적으로 찾아오는 변화는 살리고 여러 줄에 겹친 순서어를 줄인다."
+  },
+  {
+    "character_id": "tika",
+    "path": "dungeon/26/variants/0",
+    "before": "저도 도울 자리를 먼저 볼게요.",
+    "after": "저도 어디로 가면 도울 수 있을지 볼게요.",
+    "pattern": "먼저 반복",
+    "reason": "자발적으로 찾아오는 변화는 살리고 여러 줄에 겹친 순서어를 줄인다."
+  },
+  {
+    "character_id": "tika",
+    "path": "dungeon/38/variants/1",
+    "before": "오늘은 제가 먼저 앉자고 할게요.",
+    "after": "돌아왔으니 같이 앉아요.",
+    "pattern": "먼저 반복",
+    "reason": "자발적으로 찾아오는 변화는 살리고 여러 줄에 겹친 순서어를 줄인다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/10/lines/0",
+    "before": "오늘은 누가 부르는 데가 없어요.",
+    "after": "저 부르는 데가 없네요.",
+    "pattern": "오늘은 반복",
+    "reason": "변화 선언이 이어지는 일상 장면의 문두를 변주한다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/10/seen",
+    "before": "오늘은 안 고른 채 잠깐 앉아 있을래요.",
+    "after": "좀 앉아 있다가 정할래요.",
+    "pattern": "오늘은 반복",
+    "reason": "변화 선언이 이어지는 일상 장면의 문두를 변주한다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/16/lines/0",
+    "before": "오늘은 여기에 앉아 주세요.",
+    "after": "이 의자에 앉아 주세요.",
+    "pattern": "오늘은 반복",
+    "reason": "변화 선언이 이어지는 일상 장면의 문두를 변주한다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/16/seen",
+    "before": "오늘은 제가 둘이 앉자고 했어요.",
+    "after": "이번엔 둘이 앉고 싶었어요.",
+    "pattern": "오늘은 반복",
+    "reason": "변화 선언이 이어지는 일상 장면의 문두를 변주한다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/19/lines/0",
+    "before": "오늘은 안 나가고 싶어요.",
+    "after": "저는 안 나가고 싶어요.",
+    "pattern": "오늘은 반복",
+    "reason": "변화 선언이 이어지는 일상 장면의 문두를 변주한다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/19/seen",
+    "before": "오늘은 안 나가고 여기서 쉴 거예요.",
+    "after": "저는 여기서 쉴 거예요.",
+    "pattern": "오늘은 반복",
+    "reason": "변화 선언이 이어지는 일상 장면의 문두를 변주한다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/21/lines/2",
+    "before": "오늘은 그냥 듣고 싶었어요.",
+    "after": "이번엔 그냥 듣고 싶었어요.",
+    "pattern": "오늘은 반복",
+    "reason": "변화 선언이 이어지는 일상 장면의 문두를 변주한다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/24/lines/0",
+    "before": "오늘은 저쪽에서 많이 웃었어요.",
+    "after": "저쪽에서 실컷 웃었어요.",
+    "pattern": "오늘은 반복",
+    "reason": "변화 선언이 이어지는 일상 장면의 문두를 변주한다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/25/lines/0",
+    "before": "오늘은 저기로 가 보고 싶어요.",
+    "after": "저기로 가 보고 싶어요.",
+    "pattern": "오늘은 반복",
+    "reason": "변화 선언이 이어지는 일상 장면의 문두를 변주한다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/8/choices/0/reason",
+    "before": "칭찬을 위해 변화가 완성됐다고 단정한다.",
+    "after": "둘만 있는 자리에서 말을 걸어 보려는 티카에게 큰 목소리를 요구해, 편한 크기로 말하고 싶은 바람을 듣지 않는다.",
+    "pattern": "선택지 근거",
+    "reason": "선택지 수정에 맞춰 감점 이유를 실제 발화와 일치시킨다."
+  },
+  {
+    "character_id": "tika",
+    "path": "inn/26/choices/0/reason",
+    "before": "관계의 깊이를 외향적인 반응으로 증명하게 한다.",
+    "after": "조용히 편하게 앉아 있는 티카에게 다시 크게 웃어 달라고 요구한다.",
+    "pattern": "선택지 근거",
+    "reason": "선택지 수정에 맞춰 감점 이유를 실제 발화와 일치시킨다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/24/choices/2/response/1",
+    "before": "이후 대화는 문서에 적지 않아도 되겠습니다.",
+    "after": "이 뒤에 나눌 얘기는 적지 않겠습니다.",
+    "pattern": "사적 문서어",
+    "reason": "KR-110: 기록 습관은 남기고 사적인 만남까지 공문처럼 표현하지 않는다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/4/lines/2",
+    "before": "기록으로 남길 일은 아니지만 먼저 말씀드립니다.",
+    "after": "같이 먹고 싶어 왔습니다.",
+    "pattern": "사적 문서어",
+    "reason": "KR-110: 기록 습관은 남기고 사적인 만남까지 공문처럼 표현하지 않는다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/4/choices/0/response/1",
+    "before": "식사 자리를 협력의 증빙으로 만들지는 않겠습니다.",
+    "after": "밥 먹은 일까지 적으면 쉬지 못하겠습니다.",
+    "pattern": "사적 문서어",
+    "reason": "KR-110: 기록 습관은 남기고 사적인 만남까지 공문처럼 표현하지 않는다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/6/choices/2/response/0",
+    "before": "그 구분을 해 주시면 설명이 편합니다.",
+    "after": "이름을 다 고르면 들려드리겠습니다.",
+    "pattern": "사적 문서어",
+    "reason": "KR-110: 기록 습관은 남기고 사적인 만남까지 공문처럼 표현하지 않는다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/9/seen",
+    "before": "오늘 얘기는 빈 종이에 남기지 않겠습니다.",
+    "after": "종이는 치웠으니 그냥 들어 주십시오.",
+    "pattern": "사적 문서어",
+    "reason": "KR-110: 기록 습관은 남기고 사적인 만남까지 공문처럼 표현하지 않는다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/21/lines/0",
+    "before": "기록에 남길 감사는 아닙니다.",
+    "after": "직접 고맙다고 말씀드리고 싶었습니다.",
+    "pattern": "사적 문서어",
+    "reason": "KR-110: 기록 습관은 남기고 사적인 만남까지 공문처럼 표현하지 않는다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/21/lines/2",
+    "before": "늦어졌지만 직접 감사드리고 싶었습니다.",
+    "after": "인사가 늦었습니다.",
+    "pattern": "사적 문서어",
+    "reason": "KR-110: 기록 습관은 남기고 사적인 만남까지 공문처럼 표현하지 않는다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/22/lines/2",
+    "before": "정정한 뒤 다시 설명해도 되겠습니까?",
+    "after": "고쳐서 다시 말씀드려도 되겠습니까?",
+    "pattern": "사적 문서어",
+    "reason": "KR-110: 기록 습관은 남기고 사적인 만남까지 공문처럼 표현하지 않는다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/22/choices/1/text",
+    "before": "정정한 말부터 듣겠습니다.",
+    "after": "다시 말씀해 주십시오.",
+    "pattern": "사적 문서어",
+    "reason": "KR-110: 기록 습관은 남기고 사적인 만남까지 공문처럼 표현하지 않는다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "transitions/2/lines/1",
+    "before": "공식 협력의 기록과는 구분하겠습니다.",
+    "after": "서류는 넣고 식사부터 하겠습니다.",
+    "pattern": "사적 문서어",
+    "reason": "KR-110: 기록 습관은 남기고 사적인 만남까지 공문처럼 표현하지 않는다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "transitions/11/lines/0",
+    "before": "함께 있는 말까지 증명해야 합니까?",
+    "after": "같이 있겠다는 말도 못 믿으십니까?",
+    "pattern": "사적 문서어",
+    "reason": "KR-110: 기록 습관은 남기고 사적인 만남까지 공문처럼 표현하지 않는다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "transitions/12/lines/1",
+    "before": "그 뒤에도 같이 있고 싶다고 말씀드립니다.",
+    "after": "저는 조금 더 앉아 있고 싶습니다.",
+    "pattern": "사적 문서어",
+    "reason": "KR-110: 기록 습관은 남기고 사적인 만남까지 공문처럼 표현하지 않는다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/0/choices/1/response/0",
+    "before": "이해 속도와 열람 허가는 관계없습니다.",
+    "after": "빨리 읽으셔도 보여 드릴 수 없습니다.",
+    "pattern": "원칙 요약",
+    "reason": "인물의 격식은 살리되 대비하는 카피 대신 구체적인 부탁을 쓴다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/1/choices/0/response/0",
+    "before": "장난을 받아야 친해지는 것은 아닙니다.",
+    "after": "지금은 장난을 멈춰 주십시오.",
+    "pattern": "원칙 요약",
+    "reason": "인물의 격식은 살리되 대비하는 카피 대신 구체적인 부탁을 쓴다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/2/choices/2/response/1",
+    "before": "절차를 빼는 것으로 믿음을 보이진 않으셔도 됩니다.",
+    "after": "읽으실 때까지 기다리겠습니다.",
+    "pattern": "원칙 요약",
+    "reason": "인물의 격식은 살리되 대비하는 카피 대신 구체적인 부탁을 쓴다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/10/choices/0/response/1",
+    "before": "이름이 필요한 이유와 효과는 따로 말씀드렸습니다.",
+    "after": "그 이름으로 불러야 제가 덜 망설입니다.",
+    "pattern": "원칙 요약",
+    "reason": "인물의 격식은 살리되 대비하는 카피 대신 구체적인 부탁을 쓴다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/14/seen",
+    "before": "같은 스승이라는 말만으로 같아지진 않습니다.",
+    "after": "유디트의 생각은 직접 물어보십시오.",
+    "pattern": "원칙 요약",
+    "reason": "인물의 격식은 살리되 대비하는 카피 대신 구체적인 부탁을 쓴다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/15/seen",
+    "before": "남은 선택과 확신은 따로 얘기하겠습니다.",
+    "after": "그때 제 선택에도 의문은 남습니다.",
+    "pattern": "원칙 요약",
+    "reason": "인물의 격식은 살리되 대비하는 카피 대신 구체적인 부탁을 쓴다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/21/choices/1/response/0",
+    "before": "감사와 다음 의뢰는 따로 말씀하십시오.",
+    "after": "그날 일에 고맙다는 인사를 드렸습니다.",
+    "pattern": "원칙 요약",
+    "reason": "인물의 격식은 살리되 대비하는 카피 대신 구체적인 부탁을 쓴다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/21/seen",
+    "before": "오늘 감사는 다음 의뢰와 묶지 않겠습니다.",
+    "after": "다음 부탁은 무슨 일인지 말씀하십시오.",
+    "pattern": "원칙 요약",
+    "reason": "인물의 격식은 살리되 대비하는 카피 대신 구체적인 부탁을 쓴다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/5/lines/0",
+    "before": "학술 자료만 읽는 것은 아닙니다.",
+    "after": "가끔 이런 책도 읽습니다.",
+    "pattern": "부정 되받기",
+    "reason": "반복된 부정 해설을 원하는 행동이나 사실로 푼다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/5/choices/2/response/0",
+    "before": "쉬워서 읽는다고 말한 적은 없습니다.",
+    "after": "저는 재미있어서 읽습니다.",
+    "pattern": "부정 되받기",
+    "reason": "반복된 부정 해설을 원하는 행동이나 사실로 푼다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/5/choices/2/response/1",
+    "before": "재미를 느껴서 여러 번 읽은 것입니다.",
+    "after": "같은 책을 여러 번 읽었습니다.",
+    "pattern": "부정 되받기",
+    "reason": "반복된 부정 해설을 원하는 행동이나 사실로 푼다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/8/choices/2/response/0",
+    "before": "합석한 분들께 보여 드리겠다는 뜻은 아닙니다.",
+    "after": "여기서 둘이 볼 때만 꺼내겠습니다.",
+    "pattern": "부정 되받기",
+    "reason": "반복된 부정 해설을 원하는 행동이나 사실로 푼다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/16/lines/1",
+    "before": "맹세를 지우려는 것은 아닙니다.",
+    "after": "맹세는 그 위에 그대로 두겠습니다.",
+    "pattern": "부정 되받기",
+    "reason": "반복된 부정 해설을 원하는 행동이나 사실로 푼다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/18/choices/2/response/0",
+    "before": "같이 쉬자는 뜻이 전해졌으면 더 설명하지 않겠습니다.",
+    "after": "그럼 물 한 잔 마시며 쉬겠습니다.",
+    "pattern": "부정 되받기",
+    "reason": "반복된 부정 해설을 원하는 행동이나 사실로 푼다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/19/choices/0/response/0",
+    "before": "그렇게까지 해야 안심하는 것은 아닙니다.",
+    "after": "서명은 없어도 됩니다.",
+    "pattern": "부정 되받기",
+    "reason": "반복된 부정 해설을 원하는 행동이나 사실로 푼다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/24/choices/1/response/0",
+    "before": "일을 더 하려고 남은 것은 아닙니다.",
+    "after": "일은 다 끝내고 남았습니다.",
+    "pattern": "부정 되받기",
+    "reason": "반복된 부정 해설을 원하는 행동이나 사실로 푼다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "transitions/3/lines/0",
+    "before": "웃음을 부탁드린 것은 아닙니다.",
+    "after": "그렇게 웃으시면 책을 보여 드리기 어렵습니다.",
+    "pattern": "부정 되받기",
+    "reason": "반복된 부정 해설을 원하는 행동이나 사실로 푼다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/4/lines/0",
+    "before": "먼저 말씀드리겠습니다.",
+    "after": "말씀드릴 것이 있습니다.",
+    "pattern": "먼저 반복",
+    "reason": "격식체 문장에서 겹치는 순서 부사만 줄인다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/9/choices/1/response/0",
+    "before": "기록하지 않겠다고 먼저 말씀드렸습니다.",
+    "after": "기록하지 않겠다고 말씀드렸습니다.",
+    "pattern": "먼저 반복",
+    "reason": "격식체 문장에서 겹치는 순서 부사만 줄인다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/11/choices/2/response/0",
+    "before": "작은 수정도 먼저 물어 주십시오.",
+    "after": "작은 수정도 제게 물어 주십시오.",
+    "pattern": "먼저 반복",
+    "reason": "격식체 문장에서 겹치는 순서 부사만 줄인다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/17/lines/2",
+    "before": "함께 갈 때 쓸 이름이라 먼저 보여 드립니다.",
+    "after": "함께 갈 때 쓸 이름이라 보여 드립니다.",
+    "pattern": "먼저 반복",
+    "reason": "격식체 문장에서 겹치는 순서 부사만 줄인다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/19/choices/1/text",
+    "before": "바뀌면 직접 먼저 알리겠습니다.",
+    "after": "바뀌면 직접 알리겠습니다.",
+    "pattern": "먼저 반복",
+    "reason": "격식체 문장에서 겹치는 순서 부사만 줄인다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/25/choices/1/response/0",
+    "before": "말이 달라지면 제가 먼저 설명하겠습니다.",
+    "after": "생각이 바뀌면 제가 말씀드리겠습니다.",
+    "pattern": "먼저 반복",
+    "reason": "격식체 문장에서 겹치는 순서 부사만 줄인다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/26/choices/2/response/1",
+    "before": "같이 고치고 싶은 날이면 제가 먼저 보여 드리겠습니다.",
+    "after": "고치고 싶어지면 그때 보여 드리겠습니다.",
+    "pattern": "먼저 반복",
+    "reason": "격식체 문장에서 겹치는 순서 부사만 줄인다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "dungeon/17/variants/1",
+    "before": "제가 아는 범위도 먼저 밝히겠습니다.",
+    "after": "제가 아는 범위도 말씀드리겠습니다.",
+    "pattern": "먼저 반복",
+    "reason": "격식체 문장에서 겹치는 순서 부사만 줄인다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "dungeon/41/variants/1",
+    "before": "먼저 함께 돌아갈 방법을 보겠습니다.",
+    "after": "함께 돌아갈 방법을 찾겠습니다.",
+    "pattern": "먼저 반복",
+    "reason": "격식체 문장에서 겹치는 순서 부사만 줄인다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/8/choices/0/text",
+    "before": "허락한 만큼만 볼게요.",
+    "after": "책은 그쪽에 두세요. 저는 여기서 볼게요.",
+    "pattern": "선택지 판단",
+    "reason": "허락 범위라는 정답 문구 대신 실제 책을 보는 위치를 말한다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/16/choices/0/text",
+    "before": "앞의 문구는 이제 빼도 되겠군요.",
+    "after": "그럼 앞의 문구는 제가 지워 둘게요.",
+    "pattern": "선택지 판단",
+    "reason": "맹세의 뜻을 평가하는 문구 대신 실제 문서 편집 제안으로 바꾼다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/16/choices/0/response/0",
+    "before": "버리겠다고 말씀드린 적은 없습니다.",
+    "after": "앞의 맹세는 남겨 두십시오.",
+    "pattern": "선택지 판단",
+    "reason": "맹세의 뜻을 평가하는 문구 대신 실제 문서 편집 제안으로 바꾼다."
+  },
+  {
+    "character_id": "hedwig",
+    "path": "inn/16/choices/0/reason",
+    "before": "개인적인 변화를 옛 맹세의 폐기로 단정한다.",
+    "after": "헤드비히가 첫 문장에 자기 이유를 덧붙이려는 것을 앞의 맹세를 지워도 된다는 허락으로 바꾸어 듣는다.",
+    "pattern": "선택지 근거",
+    "reason": "선택지 수정에 맞춰 감점 이유를 실제 발화와 일치시킨다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/6/lines/2",
+    "before": "인사했다고 책에 들어갈 걱정은 안 하셔도 돼요.",
+    "after": "인사했다고 이름을 적진 않아요.",
+    "pattern": "비유",
+    "reason": "KR-111: 이름책의 실제 용도를 바로 말하고 생활 대화에 덧씌운 비유를 덜어 낸다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/6/choices/0/response/1",
+    "before": "읽는 이름과 만나는 이름을 섞고 싶진 않아요.",
+    "after": "살아 계신 분 이름은 그냥 기억해 둘게요.",
+    "pattern": "비유",
+    "reason": "KR-111: 이름책의 실제 용도를 바로 말하고 생활 대화에 덧씌운 비유를 덜어 낸다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/18/choices/0/response/0",
+    "before": "그렇게 돌아갈 수 없는 자리도 있어요.",
+    "after": "다시 찾아갈 수 없는 곳도 있어요.",
+    "pattern": "비유",
+    "reason": "KR-111: 이름책의 실제 용도를 바로 말하고 생활 대화에 덧씌운 비유를 덜어 낸다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/24/choices/1/response/1",
+    "before": "여기서 나눈 얘기는 다음 길에서도 기억하겠죠.",
+    "after": "그때까지 하던 얘기 마저 해요.",
+    "pattern": "비유",
+    "reason": "KR-111: 이름책의 실제 용도를 바로 말하고 생활 대화에 덧씌운 비유를 덜어 낸다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/9/choices/1/response/0",
+    "before": "마른다는 말이 나가라는 뜻은 아니겠죠?",
+    "after": "끈이 말라도 조금 더 얘기해요.",
+    "pattern": "연어",
+    "reason": "KR-112·113·114: 낯선 결합을 풀고 머무름과 그 이후를 나누어 말한다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/16/choices/2/response/0",
+    "before": "오늘 머무는 말부터 해 보고 싶어요.",
+    "after": "오늘은 여기 더 있고 싶어요.",
+    "pattern": "연어",
+    "reason": "KR-112·113·114: 낯선 결합을 풀고 머무름과 그 이후를 나누어 말한다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/16/choices/2/response/1",
+    "before": "오늘 머무는 데서부터 생각해 보고 싶어요.",
+    "after": "그다음 일은 천천히 생각해 볼게요.",
+    "pattern": "연어",
+    "reason": "KR-112·113·114: 낯선 결합을 풀고 머무름과 그 이후를 나누어 말한다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/19/choices/1/response/0",
+    "before": "직접 닿는 곳에 걸어 주시면 좋아요.",
+    "after": "손이 닿는 곳에 걸어 주시면 좋아요.",
+    "pattern": "연어",
+    "reason": "KR-112·113·114: 낯선 결합을 풀고 머무름과 그 이후를 나누어 말한다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/0/choices/0/response/1",
+    "before": "들려줄 상대를 찾으려고 다니는 건 아니에요.",
+    "after": "한 줄만 듣고 싶으셔도 지금은 안 할래요.",
+    "pattern": "감정 재해설",
+    "reason": "같은 이유를 이어 말하는 반응의 끝줄을 실제 대화나 행동으로 잇는다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/10/choices/2/response/1",
+    "before": "아무 일 없어도 어떤지 한 번 물을 수는 있죠.",
+    "after": "그럼 오늘 드신 얘기라도 해 봐요.",
+    "pattern": "감정 재해설",
+    "reason": "같은 이유를 이어 말하는 반응의 끝줄을 실제 대화나 행동으로 잇는다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/12/choices/0/response/1",
+    "before": "제가 맡은 이름을 그렇게 덜어 낼 순 없어요.",
+    "after": "목이 쉬면 좀 쉬었다 읽을게요.",
+    "pattern": "감정 재해설",
+    "reason": "같은 이유를 이어 말하는 반응의 끝줄을 실제 대화나 행동으로 잇는다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/13/choices/2/response/1",
+    "before": "제가 괜찮았다는 말로 마무리하기는 어려워요.",
+    "after": "그곳에 남은 사람들 생각이 나요.",
+    "pattern": "감정 재해설",
+    "reason": "같은 이유를 이어 말하는 반응의 끝줄을 실제 대화나 행동으로 잇는다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/19/choices/2/response/1",
+    "before": "말을 안 찾는 쪽으로 쉬어 보고 싶어요.",
+    "after": "가방만 내려놓고 앉을게요.",
+    "pattern": "감정 재해설",
+    "reason": "같은 이유를 이어 말하는 반응의 끝줄을 실제 대화나 행동으로 잇는다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/22/choices/2/response/1",
+    "before": "언제 보느냐는 약속이지 못 떠나게 하는 건 아니죠.",
+    "after": "다른 날은 그때 가서 정해요.",
+    "pattern": "감정 재해설",
+    "reason": "같은 이유를 이어 말하는 반응의 끝줄을 실제 대화나 행동으로 잇는다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/9/lines/2",
+    "before": "아, 마른 뒤에도 급히 가야 하는 건 아니에요.",
+    "after": "마른 뒤에도 조금 더 얘기해요.",
+    "pattern": "부정 되받기",
+    "reason": "해석을 부정하는 문장 대신 당장 원하는 일을 말한다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/9/choices/0/response/0",
+    "before": "가려고 맡긴 건 아니었어요.",
+    "after": "저도 여기 앉아서 기다릴게요.",
+    "pattern": "부정 되받기",
+    "reason": "해석을 부정하는 문장 대신 당장 원하는 일을 말한다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/15/lines/2",
+    "before": "이름 부르러 온 거지 답을 얻은 건 아니에요.",
+    "after": "이름은 부르지만 대답을 들은 적은 없어요.",
+    "pattern": "부정 되받기",
+    "reason": "해석을 부정하는 문장 대신 당장 원하는 일을 말한다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/24/lines/2",
+    "before": "그렇다고 길이 싫어진 건 아니에요.",
+    "after": "길을 나서고 싶은 날도 있겠죠.",
+    "pattern": "부정 되받기",
+    "reason": "해석을 부정하는 문장 대신 당장 원하는 일을 말한다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "transitions/9/lines/0",
+    "before": "머문다고 앞으로의 길까지 정한 건 아니에요.",
+    "after": "여기 더 머문 뒤에 어디로 갈지 정할게요.",
+    "pattern": "부정 되받기",
+    "reason": "해석을 부정하는 문장 대신 당장 원하는 일을 말한다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "transitions/10/lines/0",
+    "before": "또 보자는 말만 하려던 건 아니에요.",
+    "after": "다음에 만날 날도 정하고 싶어요.",
+    "pattern": "부정 되받기",
+    "reason": "해석을 부정하는 문장 대신 당장 원하는 일을 말한다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/3/choices/0/response/1",
+    "before": "제가 불편할 거라고 먼저 정하고 싶진 않아요.",
+    "after": "그분도 같이 먹고 싶을 수 있잖아요.",
+    "pattern": "먼저 반복",
+    "reason": "길·인사·부탁 장면에서 같은 순서어를 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/4/seen",
+    "before": "다음엔 이 자리에서 먼저 인사할게요.",
+    "after": "다음엔 얼굴 보고 바로 인사할게요.",
+    "pattern": "먼저 반복",
+    "reason": "길·인사·부탁 장면에서 같은 순서어를 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/8/choices/2/response/0",
+    "before": "제가 먼저 발 아프다고 앉았어요.",
+    "after": "발이 아프다고 제가 앉았어요.",
+    "pattern": "먼저 반복",
+    "reason": "길·인사·부탁 장면에서 같은 순서어를 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/8/choices/2/response/1",
+    "before": "먼저 제 얘기를 하니 조금씩 말씀하시더라고요.",
+    "after": "그러고 같이 쉬다가 얘기를 나눴어요.",
+    "pattern": "먼저 반복",
+    "reason": "길·인사·부탁 장면에서 같은 순서어를 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/21/choices/0/response/1",
+    "before": "목이 아픈 걸 먼저 살피고 이어 읽으려는 거예요.",
+    "after": "목을 좀 쉬게 한 뒤에 제가 읽을게요.",
+    "pattern": "먼저 반복",
+    "reason": "길·인사·부탁 장면에서 같은 순서어를 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/23/choices/1/response/1",
+    "before": "살아 있는 제가 대답하는 걸 먼저 들어 주세요.",
+    "after": "부르시면 제가 대답할 수 있잖아요.",
+    "pattern": "먼저 반복",
+    "reason": "길·인사·부탁 장면에서 같은 순서어를 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/24/seen",
+    "before": "오늘은 갈 시간을 먼저 정하지 않을래요.",
+    "after": "얘기하다가 시간이 되면 갈래요.",
+    "pattern": "먼저 반복",
+    "reason": "길·인사·부탁 장면에서 같은 순서어를 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/26/choices/2/response/0",
+    "before": "그럼 제가 먼저 와서 기다려도 되겠어요?",
+    "after": "그럼 제가 일찍 와서 기다려도 되겠어요?",
+    "pattern": "먼저 반복",
+    "reason": "길·인사·부탁 장면에서 같은 순서어를 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/27/choices/0/response/1",
+    "before": "기다리지 못하는 날은 먼저 알려 드리고 싶어요.",
+    "after": "못 기다리는 날은 알려 드릴게요.",
+    "pattern": "먼저 반복",
+    "reason": "길·인사·부탁 장면에서 같은 순서어를 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/27/choices/1/response/0",
+    "before": "제가 없으면 어디 갔는지 먼저 알려 둘게요.",
+    "after": "다른 데 갈 땐 어디로 가는지 알려 둘게요.",
+    "pattern": "먼저 반복",
+    "reason": "길·인사·부탁 장면에서 같은 순서어를 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/27/seen",
+    "before": "다음에 언제 올 수 있는지 제가 먼저 알려 둘게요.",
+    "after": "다음에 언제 올 수 있는지 알려 둘게요.",
+    "pattern": "먼저 반복",
+    "reason": "길·인사·부탁 장면에서 같은 순서어를 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "dungeon/1/variants/0",
+    "before": "가방이 걸리면 먼저 말해 줘요.",
+    "after": "가방이 걸리면 말해 줘요.",
+    "pattern": "먼저 반복",
+    "reason": "길·인사·부탁 장면에서 같은 순서어를 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "dungeon/2/variants/1",
+    "before": "저도 먼저 앞서가지는 않을게요.",
+    "after": "저도 너무 앞서가진 않을게요.",
+    "pattern": "먼저 반복",
+    "reason": "길·인사·부탁 장면에서 같은 순서어를 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "dungeon/17/variants/0",
+    "before": "제가 불안하면 먼저 말씀드릴게요.",
+    "after": "제가 불안하면 말씀드릴게요.",
+    "pattern": "먼저 반복",
+    "reason": "길·인사·부탁 장면에서 같은 순서어를 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "transitions/5/lines/0",
+    "before": "제 짐을 먼저 풀어 주진 마세요.",
+    "after": "제 짐은 풀지 말아 주세요.",
+    "pattern": "먼저 반복",
+    "reason": "길·인사·부탁 장면에서 같은 순서어를 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "transitions/6/lines/1",
+    "before": "스승 이름보다 제 걱정이 먼저 생각나네요.",
+    "after": "받자마자 걱정부터 했던 게 생각나요.",
+    "pattern": "먼저 반복",
+    "reason": "길·인사·부탁 장면에서 같은 순서어를 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/0/lines/0",
+    "before": "오늘은 책을 보여 드리지 않을게요.",
+    "after": "지금은 책을 보여 드리지 않을게요.",
+    "pattern": "오늘은 반복",
+    "reason": "식사와 휴식에서 문두 시간 부사의 반복을 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/5/lines/2",
+    "before": "오늘은 좀 천천히 먹으려고요.",
+    "after": "이번엔 좀 천천히 먹으려고요.",
+    "pattern": "오늘은 반복",
+    "reason": "식사와 휴식에서 문두 시간 부사의 반복을 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/5/seen",
+    "before": "오늘 수프는 뜨거울 때 다 먹을래요.",
+    "after": "수프 식기 전에 다 먹을래요.",
+    "pattern": "오늘은 반복",
+    "reason": "식사와 휴식에서 문두 시간 부사의 반복을 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/9/lines/0",
+    "before": "오늘은 좀 더 앉아도 되겠어요?",
+    "after": "조금 더 앉아도 되겠어요?",
+    "pattern": "오늘은 반복",
+    "reason": "식사와 휴식에서 문두 시간 부사의 반복을 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/16/seen",
+    "before": "오늘은 짐을 풀고 조금 더 쉴 거예요.",
+    "after": "짐 풀었으니 조금 더 쉴 거예요.",
+    "pattern": "오늘은 반복",
+    "reason": "식사와 휴식에서 문두 시간 부사의 반복을 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/19/lines/0",
+    "before": "오늘은 제가 이야기하기 싫어요.",
+    "after": "지금은 이야기하기 싫어요.",
+    "pattern": "오늘은 반복",
+    "reason": "식사와 휴식에서 문두 시간 부사의 반복을 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/19/seen",
+    "before": "오늘은 인사 뒤에 바로 조용해져도 되겠네요.",
+    "after": "인사했으니 이제 조용히 좀 앉아 있을게요.",
+    "pattern": "오늘은 반복",
+    "reason": "식사와 휴식에서 문두 시간 부사의 반복을 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/24/lines/0",
+    "before": "오늘은 돌아갈 시간부터 세지 않았어요.",
+    "after": "돌아갈 시간을 정해 두지 않았어요.",
+    "pattern": "오늘은 반복",
+    "reason": "식사와 휴식에서 문두 시간 부사의 반복을 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "transitions/12/lines/1",
+    "before": "오늘은 서두르지 않고 앉을게요.",
+    "after": "저도 여기 앉아 기다릴게요.",
+    "pattern": "오늘은 반복",
+    "reason": "식사와 휴식에서 문두 시간 부사의 반복을 줄인다."
+  },
+  {
+    "character_id": "berenga",
+    "path": "inn/1/choices/0/text",
+    "before": "무엇을 믿는지보다 지금 얘기를 들어요.",
+    "after": "무슨 일이 있었는지 얘기해도 될까요?",
+    "pattern": "선택지 판단",
+    "reason": "신앙을 대조하는 주제 문구보다 지금 나눌 대화를 물어본다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/19/choices/1/text",
+    "before": "할렌의 이름에 걸고 함께할게요.",
+    "after": "할렌의 이름을 걸고 함께할게요.",
+    "pattern": "표기",
+    "reason": "KR-115: 관용 표현의 목적격 조사를 고친다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/3/seen",
+    "before": "앞에 선다는 말과 전부 한다는 말은 다르다.",
+    "after": "뒤에서 누가 뭘 맡을지도 정해 둬라.",
+    "pattern": "원칙 요약",
+    "reason": "이름과 호령은 고유 소재로 남기고 대비하는 원칙 문장을 행동과 대답으로 바꾼다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/3/choices/2/response/1",
+    "before": "가문 얘기와 일 나누는 얘기는 따로 해라.",
+    "after": "내가 못 보는 쪽은 다른 사람이 맡아야 한다.",
+    "pattern": "원칙 요약",
+    "reason": "이름과 호령은 고유 소재로 남기고 대비하는 원칙 문장을 행동과 대답으로 바꾼다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/7/choices/2/response/0",
+    "before": "같은 무대라고 같은 삶은 아니지.",
+    "after": "나는 상금을 받으려고 싸웠다.",
+    "pattern": "원칙 요약",
+    "reason": "이름과 호령은 고유 소재로 남기고 대비하는 원칙 문장을 행동과 대답으로 바꾼다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/20/choices/0/response/0",
+    "before": "버티는 것과 숨기는 건 나눠 생각해라.",
+    "after": "힘들면 내게 알려라.",
+    "pattern": "원칙 요약",
+    "reason": "이름과 호령은 고유 소재로 남기고 대비하는 원칙 문장을 행동과 대답으로 바꾼다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/26/choices/0/response/1",
+    "before": "남들 칭찬까지 받아야 오늘 말이 좋은 건 아니다.",
+    "after": "한 번 들었으면 충분히 좋다.",
+    "pattern": "원칙 요약",
+    "reason": "이름과 호령은 고유 소재로 남기고 대비하는 원칙 문장을 행동과 대답으로 바꾼다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/24/seen",
+    "before": "오늘은 명령 말고 같이 앉자는 뜻이다.",
+    "after": "앉고 싶다면 여기로 와라.",
+    "pattern": "원칙 요약",
+    "reason": "이름과 호령은 고유 소재로 남기고 대비하는 원칙 문장을 행동과 대답으로 바꾼다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/0/lines/2",
+    "before": "앉으라는 뜻으로 옮긴 건 아니다.",
+    "after": "의자는 그대로 둬라.",
+    "pattern": "부정 되받기",
+    "reason": "말뜻을 부정해서 재설명하는 문형을 평이하게 풀되 거절은 유지한다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/2/choices/0/response/0",
+    "before": "실적이 없다고 이름까지 없는 건 아니다.",
+    "after": "지금 이름을 끝까지 써라.",
+    "pattern": "부정 되받기",
+    "reason": "말뜻을 부정해서 재설명하는 문형을 평이하게 풀되 거절은 유지한다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/3/lines/1",
+    "before": "남의 몫까지 다 맡겠다는 말은 아니다.",
+    "after": "내 뒤는 다른 사람이 맡아야 한다.",
+    "pattern": "부정 되받기",
+    "reason": "말뜻을 부정해서 재설명하는 문형을 평이하게 풀되 거절은 유지한다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/8/lines/1",
+    "before": "내가 정한 뒤에 묻는 건 아니다.",
+    "after": "계획은 아직 비워 뒀다.",
+    "pattern": "부정 되받기",
+    "reason": "말뜻을 부정해서 재설명하는 문형을 평이하게 풀되 거절은 유지한다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/10/choices/1/response/0",
+    "before": "보인다고 허락을 받은 건 아니다.",
+    "after": "아직 괜찮다고 대답하지 않았다.",
+    "pattern": "부정 되받기",
+    "reason": "말뜻을 부정해서 재설명하는 문형을 평이하게 풀되 거절은 유지한다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/16/lines/1",
+    "before": "가문을 버렸다는 뜻은 아니야.",
+    "after": "길게 쓸 때도 있겠지.",
+    "pattern": "부정 되받기",
+    "reason": "말뜻을 부정해서 재설명하는 문형을 평이하게 풀되 거절은 유지한다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/16/lines/2",
+    "before": "그렇게 써도 내가 없어지진 않더군.",
+    "after": "짧게 써도 내가 쓴 이름인 건 알겠군.",
+    "pattern": "부정 되받기",
+    "reason": "말뜻을 부정해서 재설명하는 문형을 평이하게 풀되 거절은 유지한다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/18/choices/2/response/0",
+    "before": "명령하는 사람을 바꾸자는 뜻은 아니었다.",
+    "after": "내가 지금 듣고 싶은 건 명령이 아니다.",
+    "pattern": "부정 되받기",
+    "reason": "말뜻을 부정해서 재설명하는 문형을 평이하게 풀되 거절은 유지한다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/25/choices/1/response/0",
+    "before": "덜 호령한다고 내 전부가 바뀐 건 아니다.",
+    "after": "편하게 얘기할 줄도 안다고 해 둬라.",
+    "pattern": "부정 되받기",
+    "reason": "말뜻을 부정해서 재설명하는 문형을 평이하게 풀되 거절은 유지한다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "dungeon/23/variants/0",
+    "before": "네 몫을 뺏겠다는 뜻이 아니다!",
+    "after": "지금 내가 앞을 맡겠다!",
+    "pattern": "부정 되받기",
+    "reason": "말뜻을 부정해서 재설명하는 문형을 평이하게 풀되 거절은 유지한다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "dungeon/28/variants/0",
+    "before": "목소리가 크다고 멀쩡한 건 아니다.",
+    "after": "크게 말했더니 상처가 더 아프군.",
+    "pattern": "부정 되받기",
+    "reason": "말뜻을 부정해서 재설명하는 문형을 평이하게 풀되 거절은 유지한다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "transitions/8/lines/0",
+    "before": "군힐트라고만 써도 내가 없어지진 않네.",
+    "after": "군힐트라고만 적어도 알아보겠군.",
+    "pattern": "부정 되받기",
+    "reason": "말뜻을 부정해서 재설명하는 문형을 평이하게 풀되 거절은 유지한다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "transitions/13/lines/1",
+    "before": "그렇다고 지금 네 말이 안 아픈 건 아니다.",
+    "after": "그런데 방금 네 말은 나도 아팠다.",
+    "pattern": "부정 되받기",
+    "reason": "말뜻을 부정해서 재설명하는 문형을 평이하게 풀되 거절은 유지한다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/16/choices/2/response/1",
+    "before": "가문 이름을 못 쓰는 날이 된 건 아니다.",
+    "after": "오늘 쓴 종이는 접지 말고 두어라.",
+    "pattern": "감정 재해설",
+    "reason": "가까워진 반응에서 이미 한 말을 다시 해설하지 않고 행동·부탁으로 잇는다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/20/choices/1/response/0",
+    "before": "나도 먼저 말하는 쪽을 해 보지.",
+    "after": "나도 힘들면 말하겠다.",
+    "pattern": "감정 재해설",
+    "reason": "가까워진 반응에서 이미 한 말을 다시 해설하지 않고 행동·부탁으로 잇는다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/20/choices/1/response/1",
+    "before": "나부터 못 하겠는 일을 늦게 말하지 않겠다.",
+    "after": "그때는 잠깐 멈추고 들어라.",
+    "pattern": "감정 재해설",
+    "reason": "가까워진 반응에서 이미 한 말을 다시 해설하지 않고 행동·부탁으로 잇는다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/24/choices/0/response/0",
+    "before": "그럼 이번엔 명령을 들은 게 아니겠네.",
+    "after": "그래, 이쪽 의자에 앉아라.",
+    "pattern": "감정 재해설",
+    "reason": "가까워진 반응에서 이미 한 말을 다시 해설하지 않고 행동·부탁으로 잇는다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/24/choices/0/response/1",
+    "before": "복종하는 답 말고 그런 답을 들으려던 거다.",
+    "after": "잔은 내가 가져오겠다.",
+    "pattern": "감정 재해설",
+    "reason": "가까워진 반응에서 이미 한 말을 다시 해설하지 않고 행동·부탁으로 잇는다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/27/choices/2/response/1",
+    "before": "대신 끝내 놓으면 내게 남은 몫도 없어지지 않나?",
+    "after": "내가 할 것도 남겨 두어라.",
+    "pattern": "감정 재해설",
+    "reason": "가까워진 반응에서 이미 한 말을 다시 해설하지 않고 행동·부탁으로 잇는다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/27/seen",
+    "before": "나머지는 다음에 같이 정할 몫으로 남겨 둔다.",
+    "after": "나머지는 다음에 만나서 정하자.",
+    "pattern": "감정 재해설",
+    "reason": "가까워진 반응에서 이미 한 말을 다시 해설하지 않고 행동·부탁으로 잇는다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/2/choices/2/response/0",
+    "before": "다 쓰면 내가 먼저 확인하겠다.",
+    "after": "다 쓰면 내가 확인하겠다.",
+    "pattern": "먼저 반복",
+    "reason": "명령에서 부탁으로 바뀌는 흐름은 보존하고 순서 부사 반복을 줄인다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/5/choices/0/response/1",
+    "before": "길든 짧든 먼저 내가 알려 준 이름을 써라.",
+    "after": "길든 짧든 내가 알려 준 이름을 써라.",
+    "pattern": "먼저 반복",
+    "reason": "명령에서 부탁으로 바뀌는 흐름은 보존하고 순서 부사 반복을 줄인다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/7/seen",
+    "before": "같은 무대였다는 것만 먼저 알아 둬라.",
+    "after": "같은 무대에서 싸운 적은 있다.",
+    "pattern": "먼저 반복",
+    "reason": "명령에서 부탁으로 바뀌는 흐름은 보존하고 순서 부사 반복을 줄인다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/21/lines/2",
+    "before": "변명하기 전에 그걸 먼저 말하겠다.",
+    "after": "그건 내가 인정하고 시작하겠다.",
+    "pattern": "먼저 반복",
+    "reason": "명령에서 부탁으로 바뀌는 흐름은 보존하고 순서 부사 반복을 줄인다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/21/seen",
+    "before": "내 판단이 틀린 건 내가 먼저 말한다.",
+    "after": "내 판단이 틀린 건 내가 인정한다.",
+    "pattern": "먼저 반복",
+    "reason": "명령에서 부탁으로 바뀌는 흐름은 보존하고 순서 부사 반복을 줄인다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/23/choices/0/response/1",
+    "before": "소개보다 먼저 얼굴 보고 얘기해도 되잖나?",
+    "after": "얼굴 아는데 다시 소개할 필요 있나?",
+    "pattern": "먼저 반복",
+    "reason": "명령에서 부탁으로 바뀌는 흐름은 보존하고 순서 부사 반복을 줄인다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/27/lines/2",
+    "before": "내가 먼저 끝내 놓지는 않을게.",
+    "after": "혼자 끝내 놓지는 않을게.",
+    "pattern": "먼저 반복",
+    "reason": "명령에서 부탁으로 바뀌는 흐름은 보존하고 순서 부사 반복을 줄인다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "dungeon/5/variants/1",
+    "before": "네가 본 쪽도 먼저 듣겠다.",
+    "after": "네가 본 쪽도 듣겠다.",
+    "pattern": "먼저 반복",
+    "reason": "명령에서 부탁으로 바뀌는 흐름은 보존하고 순서 부사 반복을 줄인다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "dungeon/29/variants/1",
+    "before": "손을 빌려도 되는지 이번엔 내가 먼저 묻겠다.",
+    "after": "내 쪽도 좀 봐 줄 수 있나?",
+    "pattern": "먼저 반복",
+    "reason": "명령에서 부탁으로 바뀌는 흐름은 보존하고 순서 부사 반복을 줄인다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "dungeon/38/variants/1",
+    "before": "오늘은 나도 먼저 쉬러 가겠다.",
+    "after": "나도 좀 쉬러 가겠다.",
+    "pattern": "먼저 반복",
+    "reason": "명령에서 부탁으로 바뀌는 흐름은 보존하고 순서 부사 반복을 줄인다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/16/choices/1/text",
+    "before": "이제 가문 얘기는 안 해도 되겠네요.",
+    "after": "다음 명부에도 성은 빼고 적을게요.",
+    "pattern": "선택지 판단",
+    "reason": "짧게 자기 이름을 적는 변화를 성격 확인으로 받지 않고 다음 명부의 구체적 편집 제안으로 어긋나게 한다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/16/choices/1/response/0",
+    "before": "이름 하나 적었다고 끝난 얘긴 아니다.",
+    "after": "그건 쓸 때마다 내게 물어라.",
+    "pattern": "선택지 판단",
+    "reason": "짧게 자기 이름을 적는 변화를 성격 확인으로 받지 않고 다음 명부의 구체적 편집 제안으로 어긋나게 한다."
+  },
+  {
+    "character_id": "gunhild",
+    "path": "inn/16/choices/1/reason",
+    "before": "변화를 정체성의 단절로 확대한다.",
+    "after": "군힐트가 이번에 짧게 이름을 적어 본 일을 앞으로 모든 명부에서 가문 이름을 생략하겠다는 결정으로 넓힌다.",
+    "pattern": "선택지 근거",
+    "reason": "선택지 수정에 맞춰 감점 이유를 실제 발화와 일치시킨다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/26/choices/0/response/0",
+    "before": "그럼 의자를 돌려 놓고 기다리지 않겠다.",
+    "after": "그럼 여기 더 앉아 있겠다.",
+    "pattern": "연어",
+    "reason": "KR-116·117: 더 머무는 행동과 동료에게 보이는 위치를 분명히 한다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/15/lines/2",
+    "before": "볼 수 있는 데서 누가 부를 때까지 기다리기도 했다.",
+    "after": "눈에 잘 띄는 높은 곳에서 누가 부르기를 기다리기도 했다.",
+    "pattern": "연어",
+    "reason": "KR-116·117: 더 머무는 행동과 동료에게 보이는 위치를 분명히 한다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/11/choices/2/response/0",
+    "before": "같이 걷는 것과 붙드는 건 다르다.",
+    "after": "손은 놓고 같이 걸어라.",
+    "pattern": "원칙 요약",
+    "reason": "거리와 신호를 원칙 카피로 요약하지 않고 바르굿의 구체적 요구로 쓴다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/20/choices/2/response/0",
+    "before": "잇는 것과 묶는 걸 섞지 마라.",
+    "after": "끈은 쓰지 않겠다.",
+    "pattern": "원칙 요약",
+    "reason": "거리와 신호를 원칙 카피로 요약하지 않고 바르굿의 구체적 요구로 쓴다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "transitions/11/lines/0",
+    "before": "가까이 있겠다는 말이지 묶이겠단 말은 아니다.",
+    "after": "소매는 놓아라. 가려는 게 아니다.",
+    "pattern": "원칙 요약",
+    "reason": "거리와 신호를 원칙 카피로 요약하지 않고 바르굿의 구체적 요구로 쓴다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/27/choices/1/response/0",
+    "before": "같이 있고 싶다고 혼자 못 있는 건 아니다.",
+    "after": "혼자 있고 싶을 땐 혼자 있겠다.",
+    "pattern": "원칙 요약",
+    "reason": "거리와 신호를 원칙 카피로 요약하지 않고 바르굿의 구체적 요구로 쓴다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/0/choices/1/response/1",
+    "before": "붙어 있지 않아도 서로 안 보이는 건 아니다.",
+    "after": "이만큼 떨어져도 말은 들린다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 이어지는 곳을 직접적이고 짧은 말로 푼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/1/choices/0/response/0",
+    "before": "무게 때문에 거절한 건 아니다.",
+    "after": "가벼운 것도 내가 들겠다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 이어지는 곳을 직접적이고 짧은 말로 푼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/1/choices/0/response/1",
+    "before": "혼자 들고 싶은 물건은 가벼워도 내가 든다.",
+    "after": "필요해지면 그때 부르지.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 이어지는 곳을 직접적이고 짧은 말로 푼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/2/choices/2/response/1",
+    "before": "여러 사람 사이에 앉겠다고 온 건 아니다.",
+    "after": "나는 이쪽에 앉겠다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 이어지는 곳을 직접적이고 짧은 말로 푼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/3/lines/1",
+    "before": "다른 뜻은 없다.",
+    "after": "컵이 끝에 걸려 있었다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 이어지는 곳을 직접적이고 짧은 말로 푼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/3/lines/2",
+    "before": "네 물건을 맡겠다는 말도 아니고.",
+    "after": "나머지는 네가 챙겨라.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 이어지는 곳을 직접적이고 짧은 말로 푼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/9/lines/2",
+    "before": "남의 일까지 떠맡는 건 아니다.",
+    "after": "다른 건 네가 챙겨라.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 이어지는 곳을 직접적이고 짧은 말로 푼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/9/choices/1/response/0",
+    "before": "오늘 치운다고 정해진 몫은 아니다.",
+    "after": "다음에도 내게 맡기려면 물어라.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 이어지는 곳을 직접적이고 짧은 말로 푼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/16/lines/1",
+    "before": "따뜻해서만 그러는 건 아니다.",
+    "after": "조금 더 얘기하고 싶다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 이어지는 곳을 직접적이고 짧은 말로 푼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/16/choices/1/response/1",
+    "before": "따뜻하다는 말만 하며 돌아갈 생각은 없다.",
+    "after": "앉아서 아까 하던 얘기나 듣겠다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 이어지는 곳을 직접적이고 짧은 말로 푼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/17/choices/2/response/0",
+    "before": "같이 가자고 내 몫까지 줄 건 아니다.",
+    "after": "짐은 내가 들겠다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 이어지는 곳을 직접적이고 짧은 말로 푼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/17/choices/2/response/1",
+    "before": "혼자 할 일도 가지고 옆에 가는 거다.",
+    "after": "그 정도는 들고 옆에서 걸을 수 있다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 이어지는 곳을 직접적이고 짧은 말로 푼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/19/lines/1",
+    "before": "멀리 가려던 건 아니었다.",
+    "after": "여기서 잠깐 생각하고 왔다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 이어지는 곳을 직접적이고 짧은 말로 푼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/20/lines/2",
+    "before": "붙어 다니자는 뜻은 아니다.",
+    "after": "멀어져도 알아보게 해 두자.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 이어지는 곳을 직접적이고 짧은 말로 푼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/25/choices/0/response/0",
+    "before": "오늘 옆에 왔다고 늘 정해진 건 아니다.",
+    "after": "떨어져 걷고 싶은 날도 있겠지.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 이어지는 곳을 직접적이고 짧은 말로 푼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/27/lines/2",
+    "before": "오늘은 추위 핑계만 하는 건 아니다.",
+    "after": "좀 더 같이 앉아 있겠다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 이어지는 곳을 직접적이고 짧은 말로 푼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "transitions/9/lines/1",
+    "before": "누가 잘못해서만 떨어지는 건 아니다.",
+    "after": "조금 혼자 있다 오겠다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 부정 되받기가 이어지는 곳을 직접적이고 짧은 말로 푼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/10/choices/0/text",
+    "before": "외로우셨나 봐요, 이제 자주 찾아올게요.",
+    "after": "못 물으신 건 나중에 하고 오늘 저랑 다녀요.",
+    "pattern": "선택지 판단",
+    "reason": "외로움이나 독립성을 미리 진단하는 답을 실제 행동 제안으로 바꾼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/10/choices/0/response/0",
+    "before": "아직 무슨 얘긴지 말도 안 했다.",
+    "after": "가자는 말은 아직 안 했다.",
+    "pattern": "선택지 판단",
+    "reason": "외로움이나 독립성을 미리 진단하는 답을 실제 행동 제안으로 바꾼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/10/choices/0/response/1",
+    "before": "무슨 마음으로 왔는지는 내가 말하겠다.",
+    "after": "묻고 싶은 것부터 묻겠다.",
+    "pattern": "선택지 판단",
+    "reason": "외로움이나 독립성을 미리 진단하는 답을 실제 행동 제안으로 바꾼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/25/choices/0/text",
+    "before": "이제 떨어질 생각은 안 하시겠네요.",
+    "after": "내일부터도 이쪽에서 같이 걸어요.",
+    "pattern": "선택지 판단",
+    "reason": "외로움이나 독립성을 미리 진단하는 답을 실제 행동 제안으로 바꾼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/27/choices/1/text",
+    "before": "이제 혼자서는 못 지내겠네요.",
+    "after": "이제 의자를 아예 붙여 놓을까요?",
+    "pattern": "선택지 판단",
+    "reason": "외로움이나 독립성을 미리 진단하는 답을 실제 행동 제안으로 바꾼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/27/choices/1/response/1",
+    "before": "오늘 같이 앉자고 한 말은 내가 고른 거다.",
+    "after": "의자는 내가 옮기고 싶을 때 옮기겠다.",
+    "pattern": "선택지 판단",
+    "reason": "외로움이나 독립성을 미리 진단하는 답을 실제 행동 제안으로 바꾼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/9/choices/1/response/1",
+    "before": "모은 컵이 더 있으면 먼저 물어라.",
+    "after": "오늘 건 이 쟁반에 다 올려라.",
+    "pattern": "감정 재해설",
+    "reason": "행동 뒤에 말의 의미를 또 풀이하던 문장을 생활 반응으로 바꾼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/26/lines/2",
+    "before": "급한 게 없으면 나도 좀 더 있겠다.",
+    "after": "물이나 한 잔 더 마시지.",
+    "pattern": "감정 재해설",
+    "reason": "행동 뒤에 말의 의미를 또 풀이하던 문장을 생활 반응으로 바꾼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/26/choices/2/response/1",
+    "before": "네가 들은 말도 내 말이라고 생각한다.",
+    "after": "더 앉아 있겠다는 얘기다.",
+    "pattern": "감정 재해설",
+    "reason": "행동 뒤에 말의 의미를 또 풀이하던 문장을 생활 반응으로 바꾼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/24/choices/2/response/1",
+    "before": "처음부터 내 옆에 앉을 거라 정하진 않았다.",
+    "after": "내 가방은 발밑으로 옮기겠다.",
+    "pattern": "감정 재해설",
+    "reason": "행동 뒤에 말의 의미를 또 풀이하던 문장을 생활 반응으로 바꾼다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/1/lines/2",
+    "before": "도움이 필요하면 먼저 부른다.",
+    "after": "도움이 필요하면 부르겠다.",
+    "pattern": "먼저 반복",
+    "reason": "바르굿의 짧은 발화에서 겹치는 순서어를 덜어 낸다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/4/choices/1/text",
+    "before": "잘 안 들리면 먼저 물을게요.",
+    "after": "잘 안 들리면 다시 물을게요.",
+    "pattern": "먼저 반복",
+    "reason": "바르굿의 짧은 발화에서 겹치는 순서어를 덜어 낸다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/10/seen",
+    "before": "오늘은 내가 먼저 물어볼 게 있다.",
+    "after": "오늘은 물어볼 게 있어서 왔다.",
+    "pattern": "먼저 반복",
+    "reason": "바르굿의 짧은 발화에서 겹치는 순서어를 덜어 낸다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/14/choices/2/response/1",
+    "before": "가까이 가고 싶을 때는 내가 먼저 와도 된다.",
+    "after": "가까이 가고 싶을 때 내가 가겠다.",
+    "pattern": "먼저 반복",
+    "reason": "바르굿의 짧은 발화에서 겹치는 순서어를 덜어 낸다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/15/choices/2/text",
+    "before": "제가 찾으면 먼저 이름 부를게요.",
+    "after": "찾을 땐 이름 부를게요.",
+    "pattern": "먼저 반복",
+    "reason": "바르굿의 짧은 발화에서 겹치는 순서어를 덜어 낸다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/23/choices/0/response/0",
+    "before": "그때는 나도 들었다고 먼저 말하겠다.",
+    "after": "그때는 나도 들었다고 말하겠다.",
+    "pattern": "먼저 반복",
+    "reason": "바르굿의 짧은 발화에서 겹치는 순서어를 덜어 낸다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/23/seen",
+    "before": "듣고 있다는 말은 내가 먼저 해 보겠다.",
+    "after": "듣고 있으면 들었다고 말하겠다.",
+    "pattern": "먼저 반복",
+    "reason": "바르굿의 짧은 발화에서 겹치는 순서어를 덜어 낸다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/25/choices/1/response/0",
+    "before": "내가 먼저 빨라지면 불러라.",
+    "after": "보폭이 너무 빨라지면 얘기해라.",
+    "pattern": "먼저 반복",
+    "reason": "바르굿의 짧은 발화에서 겹치는 순서어를 덜어 낸다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/26/seen",
+    "before": "오늘은 내가 먼저 더 앉아 있자고 물었다.",
+    "after": "나도 더 앉아 있겠다고 했다.",
+    "pattern": "먼저 반복",
+    "reason": "바르굿의 짧은 발화에서 겹치는 순서어를 덜어 낸다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "dungeon/13/variants/1",
+    "before": "내 쪽은 내가 먼저 살피겠다.",
+    "after": "내 쪽은 내가 살피겠다.",
+    "pattern": "먼저 반복",
+    "reason": "바르굿의 짧은 발화에서 겹치는 순서어를 덜어 낸다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "transitions/12/lines/1",
+    "before": "속도가 다르면 내가 먼저 말하지.",
+    "after": "속도가 다르면 내가 말하지.",
+    "pattern": "먼저 반복",
+    "reason": "바르굿의 짧은 발화에서 겹치는 순서어를 덜어 낸다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/10/choices/0/reason",
+    "before": "관심의 이유를 먼저 단정해 감정을 노출시킨다.",
+    "after": "묻고 싶은 것이 있어 찾아온 바르굿의 말을 듣기 전에 나들이 일정을 대신 정한다.",
+    "pattern": "선택지 근거",
+    "reason": "선택지 수정에 맞춰 감점 이유를 실제 발화와 일치시킨다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/25/choices/0/reason",
+    "before": "자발적인 접근을 거리 선택권 포기로 확대한다.",
+    "after": "그날 옆에서 걷겠다는 바르굿의 선택을 다음 날부터의 고정 약속으로 넓힌다.",
+    "pattern": "선택지 근거",
+    "reason": "선택지 수정에 맞춰 감점 이유를 실제 발화와 일치시킨다."
+  },
+  {
+    "character_id": "bargut",
+    "path": "inn/27/choices/1/reason",
+    "before": "친밀한 변화를 의존이나 무능으로 해석한다.",
+    "after": "함께 앉고 싶은 날 스스로 의자를 옮기려는 바르굿에게 의자를 늘 붙여 두자고 제안한다.",
+    "pattern": "선택지 근거",
+    "reason": "선택지 수정에 맞춰 감점 이유를 실제 발화와 일치시킨다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/8/choices/2/response/0",
+    "before": "정해진 일이 되지 않으면 괜찮습니다.",
+    "after": "이번 도움을 매번 해 드릴 수는 없습니다.",
+    "pattern": "연어",
+    "reason": "KR-118·119: 무료 도움의 범위를 직접 말하고 잔을 놓겠다는 말에 맞춰 답한다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/16/choices/1/response/0",
+    "before": "책을 놓을 자리는 비워 두지 않으셔도 됩니다.",
+    "after": "그럼 잔은 이쪽에 놓으시면 됩니다.",
+    "pattern": "연어",
+    "reason": "KR-118·119: 무료 도움의 범위를 직접 말하고 잔을 놓겠다는 말에 맞춰 답한다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/5/lines/2",
+    "before": "값 싼 것만 고르지는 않습니다.",
+    "after": "값싼 것만 고르지는 않습니다.",
+    "pattern": "연어",
+    "reason": "KR-118·119: 무료 도움의 범위를 직접 말하고 잔을 놓겠다는 말에 맞춰 답한다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/20/choices/2/response/1",
+    "before": "말하기 불편해도 바뀐 사정을 먼저 알리겠습니다.",
+    "after": "말하기 어려운 사정도 미루지 않겠습니다.",
+    "pattern": "감정 재해설",
+    "reason": "KR-120 및 근접 반복: 이미 한 약속과 설명을 다시 말하지 않는다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/2/choices/1/response/1",
+    "before": "숫자를 맞추자고 없던 일을 적진 않습니다.",
+    "after": "우선 상자에 남은 병부터 세겠습니다.",
+    "pattern": "감정 재해설",
+    "reason": "KR-120 및 근접 반복: 이미 한 약속과 설명을 다시 말하지 않는다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/4/choices/2/response/1",
+    "before": "각자 가진 종이가 같아야 차이를 찾습니다.",
+    "after": "분실하면 서로 가진 것을 볼 수도 있습니다.",
+    "pattern": "감정 재해설",
+    "reason": "KR-120 및 근접 반복: 이미 한 약속과 설명을 다시 말하지 않는다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/14/choices/1/response/1",
+    "before": "그 말을 해야 제 선택이 덜 거칠게 들립니까?",
+    "after": "이익이 된다고 말씀드렸습니다.",
+    "pattern": "감정 재해설",
+    "reason": "KR-120 및 근접 반복: 이미 한 약속과 설명을 다시 말하지 않는다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/16/choices/0/response/0",
+    "before": "그러면 대답할 내용을 미리 정하지 않겠습니다.",
+    "after": "그럼 장부는 두고 오길 잘했습니다.",
+    "pattern": "감정 재해설",
+    "reason": "KR-120 및 근접 반복: 이미 한 약속과 설명을 다시 말하지 않는다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/19/choices/2/response/1",
+    "before": "스스로 고른 시간을 전부 손해로 보진 않습니다.",
+    "after": "저도 같이 먹으려고 나온 것입니다.",
+    "pattern": "감정 재해설",
+    "reason": "KR-120 및 근접 반복: 이미 한 약속과 설명을 다시 말하지 않는다."
+  },
+  {
+    "character_id": "altan",
+    "path": "transitions/10/lines/1",
+    "before": "제 쪽에서도 말없이 바꾸진 않겠습니다.",
+    "after": "바뀐 사본도 보내 드리겠습니다.",
+    "pattern": "감정 재해설",
+    "reason": "KR-120 및 근접 반복: 이미 한 약속과 설명을 다시 말하지 않는다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/5/choices/2/response/0",
+    "before": "처음 값과 끝의 비용은 다릅니다.",
+    "after": "다시 쓸 일까지 생각하면 이쪽이 싸게 듭니다.",
+    "pattern": "원칙 요약",
+    "reason": "이익과 기록이라는 고유 소재를 남기고 명제식 대비를 구체적 발화로 푼다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/8/seen",
+    "before": "이번 확인은 다음 의뢰의 가격표가 아닙니다.",
+    "after": "다음 확인은 조건을 다시 말씀드리겠습니다.",
+    "pattern": "원칙 요약",
+    "reason": "이익과 기록이라는 고유 소재를 남기고 명제식 대비를 구체적 발화로 푼다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/13/choices/0/text",
+    "before": "금액과 선택은 따로 듣겠습니다.",
+    "after": "그 마을 몫을 바꾸실 때는 무슨 생각이었습니까?",
+    "pattern": "원칙 요약",
+    "reason": "이익과 기록이라는 고유 소재를 남기고 명제식 대비를 구체적 발화로 푼다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/25/choices/2/response/0",
+    "before": "이름을 부르는 것과 명령은 다릅니다.",
+    "after": "못 가는 때도 있으니 대답부터 들으십시오.",
+    "pattern": "원칙 요약",
+    "reason": "이익과 기록이라는 고유 소재를 남기고 명제식 대비를 구체적 발화로 푼다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/12/choices/1/response/1",
+    "before": "종이가 바뀌지 않으니 자리도 그대로라는 뜻입니다.",
+    "after": "칭찬을 들어도 저는 어느 부족에도 속하지 못했습니다.",
+    "pattern": "사적 문서어",
+    "reason": "사적인 안부·식사에서는 사무적인 화계만 보존하고 불필요한 서류 비유를 줄인다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/16/seen",
+    "before": "오늘은 책상 앞이 아니라 의자 옆에 앉겠습니다.",
+    "after": "오늘은 장부 두고 차 마시러 왔습니다.",
+    "pattern": "사적 문서어",
+    "reason": "사적인 안부·식사에서는 사무적인 화계만 보존하고 불필요한 서류 비유를 줄인다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/21/lines/1",
+    "before": "불리고 싶은 이름은 같은지 묻고 싶습니다.",
+    "after": "제가 평소처럼 불러도 괜찮습니까?",
+    "pattern": "사적 문서어",
+    "reason": "사적인 안부·식사에서는 사무적인 화계만 보존하고 불필요한 서류 비유를 줄인다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/21/lines/2",
+    "before": "관청 기록을 만들자는 뜻은 아닙니다.",
+    "after": "혹시 다른 이름이 더 편한지 궁금했습니다.",
+    "pattern": "사적 문서어",
+    "reason": "사적인 안부·식사에서는 사무적인 화계만 보존하고 불필요한 서류 비유를 줄인다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/21/choices/0/response/1",
+    "before": "편하자고 이름의 주인이 정할 몫까지 빼진 않겠습니다.",
+    "after": "어떻게 부를지는 본인께 물어야 합니다.",
+    "pattern": "사적 문서어",
+    "reason": "사적인 안부·식사에서는 사무적인 화계만 보존하고 불필요한 서류 비유를 줄인다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/19/seen",
+    "before": "오늘 비워 둔 시간에 값을 붙이지 않겠습니다.",
+    "after": "오늘은 같이 식사하려고 시간을 냈습니다.",
+    "pattern": "사적 문서어",
+    "reason": "사적인 안부·식사에서는 사무적인 화계만 보존하고 불필요한 서류 비유를 줄인다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/27/lines/2",
+    "before": "그 말까지 기록하실 필요는 없습니다.",
+    "after": "다음에도 이렇게 얘기하고 싶습니다.",
+    "pattern": "사적 문서어",
+    "reason": "사적인 안부·식사에서는 사무적인 화계만 보존하고 불필요한 서류 비유를 줄인다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/2/lines/1",
+    "before": "사라졌다고 정한 것은 아닙니다.",
+    "after": "아직 다 세지는 못했습니다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 방식의 부정 해설을 덜어 내고 현재 사실과 바람을 직접 말한다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/6/lines/2",
+    "before": "잘못 빠진 글자는 아닙니다.",
+    "after": "제 이름은 알탄이 전부입니다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 방식의 부정 해설을 덜어 내고 현재 사실과 바람을 직접 말한다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/9/lines/1",
+    "before": "아니, 용건을 못 들은 것은 아닙니다.",
+    "after": "용건은 들었습니다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 방식의 부정 해설을 덜어 내고 현재 사실과 바람을 직접 말한다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/15/lines/2",
+    "before": "싫었다는 얘기는 아닙니다.",
+    "after": "반가웠습니다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 방식의 부정 해설을 덜어 내고 현재 사실과 바람을 직접 말한다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/15/seen",
+    "before": "제 이름을 부른 것을 못 들어서 다시 물은 건 아닙니다.",
+    "after": "알탄이라고 부르셨을 때 반가웠습니다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 방식의 부정 해설을 덜어 내고 현재 사실과 바람을 직접 말한다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/17/lines/2",
+    "before": "그걸 인정한다고 계산을 그만두진 않습니다.",
+    "after": "물론 거래할 때는 계산도 하겠습니다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 방식의 부정 해설을 덜어 내고 현재 사실과 바람을 직접 말한다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/17/seen",
+    "before": "이름을 기억한다고 장부를 버리는 건 아닙니다.",
+    "after": "그날 이름 불러 주신 말은 기억하겠습니다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 방식의 부정 해설을 덜어 내고 현재 사실과 바람을 직접 말한다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/19/lines/2",
+    "before": "그 값을 돌려 달라는 뜻은 아닙니다.",
+    "after": "저도 함께 식사하고 싶었습니다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 방식의 부정 해설을 덜어 내고 현재 사실과 바람을 직접 말한다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/19/choices/2/response/0",
+    "before": "돌려 달라는 뜻은 아니라고 했습니다.",
+    "after": "갚으실 일은 없습니다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 방식의 부정 해설을 덜어 내고 현재 사실과 바람을 직접 말한다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/22/lines/2",
+    "before": "아무 대가도 바라지 않았다는 말은 아닙니다.",
+    "after": "다음에 이익이 날 것으로 봤습니다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 방식의 부정 해설을 덜어 내고 현재 사실과 바람을 직접 말한다."
+  },
+  {
+    "character_id": "altan",
+    "path": "transitions/8/lines/1",
+    "before": "그렇다고 계산을 그만둔 것은 아닙니다.",
+    "after": "거래할 때는 지금도 계산부터 합니다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 방식의 부정 해설을 덜어 내고 현재 사실과 바람을 직접 말한다."
+  },
+  {
+    "character_id": "altan",
+    "path": "transitions/9/lines/1",
+    "before": "빚으로 남기려고 만난 건 아닙니다.",
+    "after": "저도 만나고 싶어서 나온 것입니다.",
+    "pattern": "부정 되받기",
+    "reason": "같은 방식의 부정 해설을 덜어 내고 현재 사실과 바람을 직접 말한다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/15/choices/0/text",
+    "before": "불쌍한 과거를 생각하면 더 불러 드려야죠.",
+    "after": "다들 이름을 부르게 제가 그 얘길 전해 둘까요?",
+    "pattern": "선택지 판단",
+    "reason": "인물을 평가하는 선택지를 실제 요구로 바꾸고 감점 반응을 맞춘다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/15/choices/0/response/0",
+    "before": "동정을 청하려고 꺼낸 말은 아닙니다.",
+    "after": "다른 분들께 전하지는 마십시오.",
+    "pattern": "선택지 판단",
+    "reason": "인물을 평가하는 선택지를 실제 요구로 바꾸고 감점 반응을 맞춘다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/15/choices/0/response/1",
+    "before": "동정으로 부르는 이름이면 다르게 들립니다.",
+    "after": "그 얘기를 듣고 이름을 부르면 신경 쓰입니다.",
+    "pattern": "선택지 판단",
+    "reason": "인물을 평가하는 선택지를 실제 요구로 바꾸고 감점 반응을 맞춘다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/17/choices/1/text",
+    "before": "이젠 이익 없이도 모두 도우시겠네요.",
+    "after": "그럼 오늘은 다른 분들 약값도 빼 주시죠.",
+    "pattern": "선택지 판단",
+    "reason": "인물을 평가하는 선택지를 실제 요구로 바꾸고 감점 반응을 맞춘다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/17/choices/1/response/0",
+    "before": "그렇게 달라졌다고 말씀드리진 않았습니다.",
+    "after": "약값은 정한 대로 받겠습니다.",
+    "pattern": "선택지 판단",
+    "reason": "인물을 평가하는 선택지를 실제 요구로 바꾸고 감점 반응을 맞춘다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/17/choices/1/response/1",
+    "before": "제 계산이 마음에 안 든다면 그대로 말씀하십시오.",
+    "after": "값을 빼고 싶으시면 다른 조건을 말씀하십시오.",
+    "pattern": "선택지 판단",
+    "reason": "인물을 평가하는 선택지를 실제 요구로 바꾸고 감점 반응을 맞춘다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/22/choices/2/text",
+    "before": "알고 보면 착한 선택이었네요.",
+    "after": "그런 선택은 다음에도 계속해 주세요.",
+    "pattern": "선택지 판단",
+    "reason": "인물을 평가하는 선택지를 실제 요구로 바꾸고 감점 반응을 맞춘다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/22/choices/2/response/0",
+    "before": "좋은 뜻으로 바꾸기보다 제가 한 계산을 들어 주십시오.",
+    "after": "다음에도 이익이 날지는 따져 봐야 합니다.",
+    "pattern": "선택지 판단",
+    "reason": "인물을 평가하는 선택지를 실제 요구로 바꾸고 감점 반응을 맞춘다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/7/choices/0/response/0",
+    "before": "어떤 얘긴지 먼저 들어 보겠습니다.",
+    "after": "어떤 얘긴지 들어 보겠습니다.",
+    "pattern": "먼저 반복",
+    "reason": "수량·계약의 실제 순서는 보존하고 일상 장면의 순서 부사를 줄인다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/8/lines/0",
+    "before": "이 부분은 제가 먼저 확인했습니다.",
+    "after": "이 부분은 제가 확인해 뒀습니다.",
+    "pattern": "먼저 반복",
+    "reason": "수량·계약의 실제 순서는 보존하고 일상 장면의 순서 부사를 줄인다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/21/choices/1/response/0",
+    "before": "다르게 불러야 하면 먼저 물겠습니다.",
+    "after": "다르게 부르고 싶을 땐 여쭙겠습니다.",
+    "pattern": "먼저 반복",
+    "reason": "수량·계약의 실제 순서는 보존하고 일상 장면의 순서 부사를 줄인다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/24/choices/1/response/0",
+    "before": "변경되면 먼저 말씀드리겠습니다.",
+    "after": "변경되면 말씀드리겠습니다.",
+    "pattern": "먼저 반복",
+    "reason": "수량·계약의 실제 순서는 보존하고 일상 장면의 순서 부사를 줄인다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/24/choices/1/response/1",
+    "before": "돈을 받는 약속이면 먼저 말씀드렸을 것입니다.",
+    "after": "내일은 그 시간에 여기로 오겠습니다.",
+    "pattern": "먼저 반복",
+    "reason": "수량·계약의 실제 순서는 보존하고 일상 장면의 순서 부사를 줄인다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/25/choices/0/response/0",
+    "before": "안부라면 장부를 먼저 덮겠습니다.",
+    "after": "안부라면 장부를 덮고 듣겠습니다.",
+    "pattern": "먼저 반복",
+    "reason": "수량·계약의 실제 순서는 보존하고 일상 장면의 순서 부사를 줄인다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/27/lines/0",
+    "before": "오늘은 먼저 인사하고 가겠습니다.",
+    "after": "인사드리고 가겠습니다.",
+    "pattern": "먼저 반복",
+    "reason": "수량·계약의 실제 순서는 보존하고 일상 장면의 순서 부사를 줄인다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/27/choices/1/response/0",
+    "before": "다음에는 용건이 없어도 제가 먼저 안부를 묻겠습니다.",
+    "after": "다음에는 용건이 없어도 안부를 묻겠습니다.",
+    "pattern": "먼저 반복",
+    "reason": "수량·계약의 실제 순서는 보존하고 일상 장면의 순서 부사를 줄인다."
+  },
+  {
+    "character_id": "altan",
+    "path": "dungeon/17/variants/1",
+    "before": "제 한계도 먼저 설명하겠습니다.",
+    "after": "제가 못 하는 일도 말씀드리겠습니다.",
+    "pattern": "먼저 반복",
+    "reason": "수량·계약의 실제 순서는 보존하고 일상 장면의 순서 부사를 줄인다."
+  },
+  {
+    "character_id": "altan",
+    "path": "transitions/10/lines/0",
+    "before": "제 쪽 조건이 달라져도 먼저 설명하고 고치겠습니다.",
+    "after": "제 쪽 조건이 달라져도 설명하고 고치겠습니다.",
+    "pattern": "먼저 반복",
+    "reason": "수량·계약의 실제 순서는 보존하고 일상 장면의 순서 부사를 줄인다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/15/choices/0/reason",
+    "before": "존중의 의미를 불행한 사람에 대한 시혜로 바꾼다.",
+    "after": "이름으로 불렸을 때의 마음을 털어놓은 알탄의 과거를 다른 사람에게 전하려 한다.",
+    "pattern": "선택지 근거",
+    "reason": "선택지 수정에 맞춰 감점 이유를 실제 발화와 일치시킨다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/17/choices/1/reason",
+    "before": "이름의 가치를 인정한 일을 무조건적인 자비로 확대한다.",
+    "after": "이름으로 불린 말이 기억난다는 얘기를 다른 사람의 약값도 빼 달라는 요구로 돌린다.",
+    "pattern": "선택지 근거",
+    "reason": "선택지 수정에 맞춰 감점 이유를 실제 발화와 일치시킨다."
+  },
+  {
+    "character_id": "altan",
+    "path": "inn/22/choices/2/reason",
+    "before": "긍정하려고 이익 계산을 숨은 선행으로 다시 해석한다.",
+    "after": "다음 이익을 예상해 받아들인 손실을 앞으로도 되풀이하라고 권해 거래마다 따지는 판단을 생략한다.",
+    "pattern": "선택지 근거",
+    "reason": "선택지 수정에 맞춰 감점 이유를 실제 발화와 일치시킨다."
+  }
+]

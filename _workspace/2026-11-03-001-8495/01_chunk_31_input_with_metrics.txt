@@ -1,0 +1,497 @@
+[청크 컨텍스트] 이 텍스트는 한 문서를 나눈 청크 31/99이다.
+- 문서 전체가 아니므로 서두·결말·전환 문구를 새로 만들지 말 것. 경계가 잘린 듯 보여도 그대로 둔다.
+[진단]
+# 진단 — 게임 동료 대화 30명
+
+장르: 게임 대사. 화계는 인물별 speech.allowed_endings와 정본 말투를 보존한다. 글 전체 화계를 통일하지 않는다.
+
+1. D-14 생성 은유: 자리·몫·이름·줄·문·빈칸이 인물 고유 소재에서 벗어나 감정을 대신하는 곳. 정본 사건과 실제 물건은 보존하고 감정 대목만 일상 발화로 교정한다.
+2. C-8 대칭 대구: 정량 antithesis_count 12. A/B가 다르다·따로다 같은 명제 요약은 구체 대화로 바꾼다. 필요한 거절·경계와 반문은 남긴다.
+3. I-3/H-3 의미 해설: 행동 뒤 그 뜻은 아니다 등으로 감정을 재진술한다. 실제 오해를 풀어야 하는 곳과 중복 설명을 구분한다.
+4. F-7/A-15 사적 공문체: 간격 확보·대화 기록 등 사적 장면의 추상 행정어. 인물 고유 업무·계약·기록 장면은 보존한다.
+5. E-3/C-4 문형 반복: 먼저·오늘은·같이의 밀집, 상대를 진단하는 선택지 및 경계를 그대로 복창하는 반응. 시간 순서와 aff 기능은 유지하고 장면마다 발화 기능을 재검토한다.
+
+정량 앵커: 원문 689517자(경로 식별자 포함), relative_clause_nesting 14, double_particle_count 2, have_make_literal_count 1. risk_band low이나 긴 입력의 구조 지표로 heavy를 추천한다. 산문 기준 z-score를 화계가 섞인 게임 자료의 품질 등급으로 바로 적용하지 않는다.
+
+보존: 장면·선택지 수, 선택지 ID·순서·aff, 인물명·정본 사건·소재·화계. 도입 3줄, 전이 2줄. 수정은 finding이 있는 발화 필드에 한정한다. 지적별 제안은 고침 취지 반영 여부를 기록하며 감점 대사를 호의적 대사로 뒤집는 제안은 대안으로 반영한다.
+[진단 끝]
+
+[정량 사전 점수 v2.0 — v1.6 8지표(KatFish baseline) + v2.0 카운트형]
+risk_band: low  (score 0)
+genre: essay
+char_count: 6997
+
+[v1.6 지표]
+- comma_inclusion_rate: 0.00  (z=-1.52 vs essay 인간 baseline)
+- comma_usage_rate: 0.00  (z=-1.58 vs essay 인간 baseline)
+- ending_comma_rate: 0.00  (z=-0.52 vs essay 인간 baseline)
+- comma_segment_length: 2.97  (n/a vs essay 인간 baseline)
+- conclusion_pivot_count: 0
+- safe_balance_count: 0
+- hanja_nominalizer_density: 0.002  (z=-1.93 vs essay 인간 baseline)
+- lexical_diversity: 0.75  (z=+2.03 vs essay 인간 baseline)
+
+[v2.0 카운트형 지표 — 원값 / baseline calibration 전 z-score 해석 보류]
+- double_passive_count (이중 피동, 본진 A-8): 0
+- by_passive_count (~에 의해 피동, 본진 A-9): 0
+- pronoun_density (인칭 대명사 밀도, 본진 A-16): 0.000
+- have_make_literal_count (have/make 직역, 본진 A-7): 1
+- double_particle_count (이중 조사 결합, 본진 A-19): 0
+- relative_clause_nesting (관형절 3중+ 중첩 문장 수, 본진 A-18): 0
+- deul_overuse_rate ('-들' 남용률, 본진 A-17 hold): 0.000
+- 카운트 > 0 지표는 해당 본진 ID 처방(quick-rules.md·taxonomy)과 교차 확인 후 윤문할 것.
+
+[근거 사용 가이드]
+- 위 점수는 *근거 보조*다. 단독 판정 금지(보고서 명시).
+- z>1.0 지표는 quick-rules.md S1·S2 패턴과 교차 확인 후 윤문할 것.
+- ending_comma_rate가 ★ S1 트리거인 경우 C-11(연결어미 뒤 쉼표) 우선 손질.
+- conclusion_pivot 매치 토큰은 D-1·H-1 처방 적용 대상.
+
+[원문 시작]
+gerda/inn/11/seen
+남긴 의자 하나를 두고 자꾸 설명하진 않을래요.
+
+gerda/inn/12/situation
+게르다가 문 닫히는 소리에 입을 다문다.
+
+gerda/inn/12/lines/0
+그라벤에서 봤어요.
+
+gerda/inn/12/lines/1
+성문이 닫혔고 밖에 사람이 있었어.
+
+gerda/inn/12/lines/2
+그 이상은 나도 몰라요.
+
+gerda/inn/12/choices/0/text
+못 막은 일은 이제 잊어도 되잖아요.
+
+gerda/inn/12/choices/0/response/0
+잊을 수 있는지 물은 건 아니었어요.
+
+gerda/inn/12/choices/0/response/1
+기억하는 사람을 먼저 지우고 싶진 않네요.
+
+gerda/inn/12/choices/1/text
+모르는 원인 말고 직접 본 데까지만 들어요.
+
+gerda/inn/12/choices/1/response/0
+내가 본 걸로 결론까지 만들진 마요.
+
+gerda/inn/12/choices/1/response/1
+그 약속이면 말할게요.
+
+gerda/inn/12/choices/2/text
+잠깐 멈출까요?
+
+gerda/inn/12/choices/2/response/0
+소리 지나가면 다시 할게요.
+
+gerda/inn/12/seen
+닫힌 문 얘기는 아는 데까지만 할 거예요.
+
+gerda/inn/13/situation
+게르다가 부적 끝을 손톱으로 쓸어 본다.
+
+gerda/inn/13/lines/0
+그날도 징조를 봤어요.
+
+gerda/inn/13/lines/1
+알았다고 하면서 못 막았지.
+
+gerda/inn/13/lines/2
+그 말이 제일 싫어요.
+
+gerda/inn/13/choices/0/text
+징조를 본 일과 막을 수 있었는지는 다른 얘기죠.
+
+gerda/inn/13/choices/0/response/0
+나도 그렇게 따지면 좋겠는데요.
+
+gerda/inn/13/choices/0/response/1
+손이 자꾸 여길 잡아요.
+
+gerda/inn/13/choices/1/text
+그 말을 지금 들어 둘게요.
+
+gerda/inn/13/choices/1/response/0
+당장 답을 내진 말아요.
+
+gerda/inn/13/choices/2/text
+그때 안 맞았으면 이제 안 믿어도 되겠네요.
+
+gerda/inn/13/choices/2/response/0
+틀렸다는 말만 하려고 꺼낸 건 아니에요.
+
+gerda/inn/13/choices/2/response/1
+내가 못 막았다는 말이 자꾸 남아서요.
+
+gerda/inn/13/seen
+부적을 쥐어도 그날 답까지 생기진 않아요.
+
+gerda/inn/14/situation
+게르다가 오래된 군복 단추를 누른다.
+
+gerda/inn/14/lines/0
+떠난 건 그 뒤예요.
+
+gerda/inn/14/lines/1
+들어가라는 명령을 거부했죠.
+
+gerda/inn/14/lines/2
+모든 걸 안다고 나온 건 아니에요.
+
+gerda/inn/14/choices/0/text
+무엇부터 말할까요?
+
+gerda/inn/14/choices/0/response/0
+명령을 들은 때부터요.
+
+gerda/inn/14/choices/1/text
+옳은 선택이었으니 미련은 없겠어요.
+
+gerda/inn/14/choices/1/response/0
+미련 없는 척까지 해야 옳아지나요?
+
+gerda/inn/14/choices/1/response/1
+나왔어도 뒤돌아보는 날은 있어요.
+
+gerda/inn/14/choices/2/text
+다 알지 못해도 거절한 이유는 있겠죠.
+
+gerda/inn/14/choices/2/response/0
+확신 없는 사람도 거절할 수 있네요.
+
+gerda/inn/14/seen
+거절한 날에도 못 정한 마음은 남아 있었어요.
+
+gerda/inn/15/situation
+게르다가 힐데가의 빈자리를 본다.
+
+gerda/inn/15/lines/0
+같은 성벽에 있었죠.
+
+gerda/inn/15/lines/1
+남은 쪽과 떠난 쪽이고.
+
+gerda/inn/15/lines/2
+어느 쪽 말도 쉬워 보이진 않아요.
+
+gerda/inn/15/choices/0/text
+이젠 같은 편이니 지난 차이는 없던 걸로 해요.
+
+gerda/inn/15/choices/0/response/0
+없던 일로 하면 서로 뭐가 남죠?
+
+gerda/inn/15/choices/0/response/1
+같은 편이니까 다른 쪽 말도 할 수 있는 거겠죠.
+
+gerda/inn/15/choices/1/text
+둘 중 누가 옳았는지 정하지 않고 들어요.
+
+gerda/inn/15/choices/1/response/0
+그럼 내 쪽 말을 해도 되겠네.
+
+gerda/inn/15/choices/2/text
+오늘은 조용히 있을까요?
+
+gerda/inn/15/choices/2/response/0
+조금 뒤에 다시 물어봐요.
+
+gerda/inn/15/seen
+같은 식탁이라고 같은 선택을 한 건 아니에요.
+
+gerda/inn/16/situation
+게르다가 부적을 옷 밖으로 꺼낸다.
+
+gerda/inn/16/lines/0
+줄까 말까 오래 봤어요.
+
+gerda/inn/16/lines/1
+내가 믿는 걸 안 맡기는 줄 알았지?
+
+gerda/inn/16/lines/2
+오늘은 맡겨 보고 싶어요.
+
+gerda/inn/16/choices/0/text
+뜻은 게르다 씨께 남기고 잠깐 보관할게요.
+
+gerda/inn/16/choices/0/response/0
+모양보다 그 말을 먼저 받네요.
+
+gerda/inn/16/choices/0/response/1
+놓고 싶으면 다시 말할게요.
+
+gerda/inn/16/choices/1/text
+조심히 받을게요.
+
+gerda/inn/16/choices/1/response/0
+매듭은 풀지 말아요.
+
+gerda/inn/16/choices/2/text
+저보다 더 필요한 분이 갖는 게 낫겠어요.
+
+gerda/inn/16/choices/2/response/0
+내가 누구한테 주고 싶은지도 중요해요.
+
+gerda/inn/16/choices/2/response/1
+쥐여 줄 손은 제가 보고 고른 건데요.
+
+gerda/inn/16/seen
+벗은 부적의 뜻까지 벗어 던진 건 아니에요.
+
+gerda/inn/17/situation
+게르다가 창가에서 물러서지 않는다.
+
+gerda/inn/17/lines/0
+얼굴은 봤어요.
+
+gerda/inn/17/lines/1
+이번엔 바로 피하진 않을래요.
+
+gerda/inn/17/lines/2
+혼자 나가겠다는 말도 아니고.
+
+gerda/inn/17/choices/0/text
+문 옆에 있을게요.
+
+gerda/inn/17/choices/0/response/0
+안 보이는 데까지 가진 마요.
+
+gerda/inn/17/choices/1/text
+안전하게 제가 대신 나가 볼게요.
+
+gerda/inn/17/choices/1/response/0
+나 대신 겁을 끝내려 하진 말아요.
+
+gerda/inn/17/choices/1/response/1
+오늘은 대신 숨으라는 말보다 곁이 필요해요.
+
+gerda/inn/17/choices/2/text
+서 있을지 물러날지 같이 보고 정해요.
+
+gerda/inn/17/choices/2/response/0
+용감하라고 밀지는 않네요.
+
+gerda/inn/17/seen
+안 피하기로 한 자리에도 곁은 필요해요.
+
+gerda/inn/18/situation
+게르다가 냉소를 삼키고 잔을 민다.
+
+gerda/inn/18/lines/0
+말을 좀 세게 했죠.
+
+gerda/inn/18/lines/1
+맞는 말인 척했는데.
+
+gerda/inn/18/lines/2
+겁나서 그런 거였어요.
+
+gerda/inn/18/choices/0/text
+농담인 줄 알아요. 그냥 잊을게요.
+
+gerda/inn/18/choices/0/response/0
+농담이라고 다시 덮고 싶지는 않아요.
+
+gerda/inn/18/choices/0/response/1
+사과까지 농담으로 남기기는 싫어요.
+
+gerda/inn/18/choices/1/text
+맞고 틀린 건 뒤에 보고 지금 말부터 들어요.
+
+gerda/inn/18/choices/1/response/0
+뒤에 숨을 논리가 없네.
+
+gerda/inn/18/choices/1/response/1
+그래도 안 가서 고마워요.
+
+gerda/inn/18/choices/2/text
+물 좀 마시고 해요.
+
+gerda/inn/18/choices/2/response/0
+잔 놓은 손은 덜 떨리네요.
+
+gerda/inn/18/seen
+비꼰 말을 거두고 남은 건 제 겁이었네요.
+
+gerda/inn/19/situation
+게르다가 오른쪽 의자에 앉아 왼쪽을 비운다.
+
+gerda/inn/19/lines/0
+오른쪽이 좋아요.
+
+gerda/inn/19/lines/1
+그건 그대로고.
+
+gerda/inn/19/lines/2
+옆자리는 비워 뒀어요.
+
+gerda/inn/19/choices/0/text
+믿는 자리와 같이 앉을 자리가 다 있어도 되죠.
+
+gerda/inn/19/choices/0/response/0
+하나는 포기하라고 안 하네요.
+
+gerda/inn/19/choices/1/text
+왼쪽에 앉을게요.
+
+gerda/inn/19/choices/1/response/0
+거긴 바람은 덜 들어요.
+
+gerda/inn/19/choices/2/text
+저도 오른쪽으로 옮길게요. 나쁜 건 같이 피해야죠.
+
+gerda/inn/19/choices/2/response/0
+내 믿음을 꼭 따라올 필요는 없어요.
+
+gerda/inn/19/choices/2/response/1
+내가 고른 걸 다 같이 골라야 하는 건 아니니까요.
+
+gerda/inn/19/seen
+다른 쪽에 앉아도 옆이라는 건 같네요.
+
+gerda/inn/20/situation
+게르다가 출발 종이를 돌려 준다.
+
+gerda/inn/20/lines/0
+말 안 듣고 달아나진 않을게요.
+
+gerda/inn/20/lines/1
+싫은 건 먼저 말하고.
+
+gerda/inn/20/lines/2
+그러니 시키기 전에 좀 물어요.
+
+gerda/inn/20/choices/0/text
+변경은 미리 알릴게요.
+
+gerda/inn/20/choices/0/response/0
+뒤에서 듣는 말만 아니면 돼요.
+
+gerda/inn/20/choices/1/text
+안 믿는 건 아니니 이번만 묻지 않고 따르세요.
+
+gerda/inn/20/choices/1/response/0
+이번만은 너무 오래 들었던 말이에요.
+
+gerda/inn/20/choices/1/response/1
+묻기로 한 다음부터도 이번만은 계속 나올 수 있죠.
+
+gerda/inn/20/choices/2/text
+거절하실 자리도 처음부터 둘게요.
+
+gerda/inn/20/choices/2/response/0
+거절해도 다음 질문은 하는 거죠?
+
+gerda/inn/20/seen
+거절할 자리가 있는 약속은 들어 볼래요.
+
+gerda/inn/21/situation
+게르다가 부적 없는 옷깃을 만진다.
+
+gerda/inn/21/lines/0
+허전하긴 해요.
+
+gerda/inn/21/lines/1
+돌려 달라는 말은 아니고.
+
+gerda/inn/21/lines/2
+어디 있는지 알아서요.
+
+gerda/inn/21/choices/0/text
+이제 없어도 괜찮아 보이시니 졸업하셨네요.
+
+gerda/inn/21/choices/0/response/0
+믿는 마음까지 졸업한 건 아니에요.
+
+gerda/inn/21/choices/0/response/1
+맡긴 건 부적이지 믿음 끝내는 증서는 아니에요.
+
+gerda/inn/21/choices/1/text
+허전하면 말해요. 다시 맡길 때도 물어보고요.
+
+gerda/inn/21/choices/1/response/0
+잘 갖고 있다는 말보다 그게 좋네요.
+
+gerda/inn/21/choices/2/text
+매듭은 그대로예요.
+
+gerda/inn/21/choices/2/response/0
+그 소리는 듣고 싶었어요.
+
+gerda/inn/21/seen
+없는 곳을 만져도 어디 둔 건지는 알아요.
+
+gerda/inn/22/situation
+게르다가 창문을 열고 숨을 고른다.
+
+gerda/inn/22/lines/0
+나쁜 징조라서 피하고 싶었어요.
+
+gerda/inn/22/lines/1
+오늘은 그 말부터 할게요.
+
+gerda/inn/22/lines/2
+딴 이유 붙이지 않고.
+
+gerda/inn/22/choices/0/text
+피할지 남을지 정하기 전에 같이 봐요.
+
+gerda/inn/22/choices/0/response/0
+오늘은 같이 고를 수 있겠네.
+
+gerda/inn/22/choices/1/text
+어떤 걸 봤어요?
+
+gerda/inn/22/choices/1/response/0
+밖의 방향부터 말할게요.
+
+gerda/inn/22/choices/2/text
+아무 일 없을 테니 그냥 무시해요.
+
+gerda/inn/22/choices/2/response/0
+없을 거라는 답은 아직 못 들을 것 같아요.
+
+gerda/inn/22/choices/2/response/1
+아직 안심할 얼굴까지 만들진 못하겠네요.
+
+gerda/inn/22/seen
+징조를 말한 다음에도 고를 시간은 남아요.
+
+gerda/inn/23/situation
+게르다가 잔 두 개를 식탁에 놓는다.
+
+gerda/inn/23/lines/0
+농담 없는 날도 올 거예요.
+
+gerda/inn/23/lines/1
+그때 왜 그러냐고 다그치진 말아요.
+
+gerda/inn/23/lines/2
+말은 제가 할게요.
+
+gerda/inn/23/choices/0/text
+오늘은 같이 마셔요.
+
+gerda/inn/23/choices/0/response/0
+조용한 쪽으로 앉아도 돼요.
+
+gerda/inn/23/choices/1/text
+혼자 있고 싶은 날은 찾아가지 않을게요.
+
+gerda/inn/23/choices/1/response/0
+내가 말 없다고 늘 혼자인 건 아니에요.
+
+gerda/inn/23/choices/1/response/1
+말 적은 날도 사람은 옆에 둘 수 있잖아요.
+
+gerda/inn/23/choices/2/text
+다그치지 않되 옆에 앉을지는 물을게요.
+
+gerda/inn/23/choices/2/response/0
+말 없으면 문까지 닫진 말아 달란 거예요.
+
+gerda/inn/23/seen
+농담이 없는 자리에 잔은 둘 놓을 수 있어요.
+[원문 끝]

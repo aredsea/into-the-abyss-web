@@ -1,0 +1,494 @@
+[청크 컨텍스트] 이 텍스트는 한 문서를 나눈 청크 20/99이다.
+- 문서 전체가 아니므로 서두·결말·전환 문구를 새로 만들지 말 것. 경계가 잘린 듯 보여도 그대로 둔다.
+[진단]
+# 진단 — 게임 동료 대화 30명
+
+장르: 게임 대사. 화계는 인물별 speech.allowed_endings와 정본 말투를 보존한다. 글 전체 화계를 통일하지 않는다.
+
+1. D-14 생성 은유: 자리·몫·이름·줄·문·빈칸이 인물 고유 소재에서 벗어나 감정을 대신하는 곳. 정본 사건과 실제 물건은 보존하고 감정 대목만 일상 발화로 교정한다.
+2. C-8 대칭 대구: 정량 antithesis_count 12. A/B가 다르다·따로다 같은 명제 요약은 구체 대화로 바꾼다. 필요한 거절·경계와 반문은 남긴다.
+3. I-3/H-3 의미 해설: 행동 뒤 그 뜻은 아니다 등으로 감정을 재진술한다. 실제 오해를 풀어야 하는 곳과 중복 설명을 구분한다.
+4. F-7/A-15 사적 공문체: 간격 확보·대화 기록 등 사적 장면의 추상 행정어. 인물 고유 업무·계약·기록 장면은 보존한다.
+5. E-3/C-4 문형 반복: 먼저·오늘은·같이의 밀집, 상대를 진단하는 선택지 및 경계를 그대로 복창하는 반응. 시간 순서와 aff 기능은 유지하고 장면마다 발화 기능을 재검토한다.
+
+정량 앵커: 원문 689517자(경로 식별자 포함), relative_clause_nesting 14, double_particle_count 2, have_make_literal_count 1. risk_band low이나 긴 입력의 구조 지표로 heavy를 추천한다. 산문 기준 z-score를 화계가 섞인 게임 자료의 품질 등급으로 바로 적용하지 않는다.
+
+보존: 장면·선택지 수, 선택지 ID·순서·aff, 인물명·정본 사건·소재·화계. 도입 3줄, 전이 2줄. 수정은 finding이 있는 발화 필드에 한정한다. 지적별 제안은 고침 취지 반영 여부를 기록하며 감점 대사를 호의적 대사로 뒤집는 제안은 대안으로 반영한다.
+[진단 끝]
+
+[정량 사전 점수 v2.0 — v1.6 8지표(KatFish baseline) + v2.0 카운트형]
+risk_band: low  (score 0)
+genre: essay
+char_count: 6998
+
+[v1.6 지표]
+- comma_inclusion_rate: 0.00  (z=-1.50 vs essay 인간 baseline)
+- comma_usage_rate: 0.00  (z=-1.58 vs essay 인간 baseline)
+- ending_comma_rate: 0.00  (z=-0.52 vs essay 인간 baseline)
+- comma_segment_length: 2.74  (n/a vs essay 인간 baseline)
+- conclusion_pivot_count: 0
+- safe_balance_count: 0
+- hanja_nominalizer_density: 0.000  (z=-2.00 vs essay 인간 baseline)
+- lexical_diversity: 0.73  (z=+1.61 vs essay 인간 baseline)
+
+[v2.0 카운트형 지표 — 원값 / baseline calibration 전 z-score 해석 보류]
+- double_passive_count (이중 피동, 본진 A-8): 0
+- by_passive_count (~에 의해 피동, 본진 A-9): 0
+- pronoun_density (인칭 대명사 밀도, 본진 A-16): 0.000
+- have_make_literal_count (have/make 직역, 본진 A-7): 0
+- double_particle_count (이중 조사 결합, 본진 A-19): 0
+- relative_clause_nesting (관형절 3중+ 중첩 문장 수, 본진 A-18): 0
+- deul_overuse_rate ('-들' 남용률, 본진 A-17 hold): 0.000
+- 카운트 > 0 지표는 해당 본진 ID 처방(quick-rules.md·taxonomy)과 교차 확인 후 윤문할 것.
+
+[근거 사용 가이드]
+- 위 점수는 *근거 보조*다. 단독 판정 금지(보고서 명시).
+- z>1.0 지표는 quick-rules.md S1·S2 패턴과 교차 확인 후 윤문할 것.
+- ending_comma_rate가 ★ S1 트리거인 경우 C-11(연결어미 뒤 쉼표) 우선 손질.
+- conclusion_pivot 매치 토큰은 D-1·H-1 처방 적용 대상.
+
+[원문 시작]
+haldric/dungeon/28/variants/0
+맡은 줄을 잠시 바꾸겠소.
+
+haldric/dungeon/28/variants/1
+괜찮다고 쓰면 거짓 기록이겠소.
+
+haldric/dungeon/29/variants/0
+내 차례에도 기다린다 하지 않았소?
+
+haldric/dungeon/29/variants/1
+오늘은 내가 손을 빌리겠소.
+
+haldric/dungeon/30/variants/0
+불 밝은 쪽에서 쉬겠소.
+
+haldric/dungeon/30/variants/1
+뒤를 볼 수 있는 자리를 택하겠소.
+
+haldric/dungeon/31/variants/0
+옆을 비워 주면 여기 앉겠소.
+
+haldric/dungeon/31/variants/1
+지금은 계약서를 덮어도 되겠소.
+
+haldric/dungeon/32/variants/0
+내 이름을 들으면 좀 편하오.
+
+haldric/dungeon/32/variants/1
+같이 쉬는 시간은 따로 적지 않겠소.
+
+haldric/dungeon/33/variants/0
+열 조건은 확인되지 않았소.
+
+haldric/dungeon/33/variants/1
+문서에 없는 답을 만들지는 마시오.
+
+haldric/dungeon/34/variants/0
+보이는 표시만 같이 읽어 보오.
+
+haldric/dungeon/34/variants/1
+모르는 조항처럼 남겨 두겠소.
+
+haldric/dungeon/35/variants/0
+못 열어도 돌아갈 약속은 같소.
+
+haldric/dungeon/35/variants/1
+기다리는 동안에는 곁에 서겠소.
+
+haldric/dungeon/36/variants/0
+완료한 범위부터 확인하오.
+
+haldric/dungeon/36/variants/1
+각자 몫을 바꿔 적진 마시오.
+
+haldric/dungeon/37/variants/0
+돌아온 이름을 소리 내 읽겠소.
+
+haldric/dungeon/37/variants/1
+일이 끝나도 차는 함께 들겠소.
+
+haldric/dungeon/38/variants/0
+계약서 없이 앉을 자리가 있겠소?
+
+haldric/dungeon/38/variants/1
+먼저 왔다면 불은 켜 두겠소.
+
+haldric/dungeon/39/variants/0
+실패한 항목은 숨기지 않겠소.
+
+haldric/dungeon/39/variants/1
+돌아갈 수 있는 사람부터 살피시오.
+
+haldric/dungeon/40/variants/0
+누가 늦었다고 혼자 남기진 않겠소.
+
+haldric/dungeon/40/variants/1
+고칠 조건은 밖에서 함께 고치오.
+
+haldric/dungeon/41/variants/0
+종이를 덮어도 같이 돌아가겠소.
+
+haldric/dungeon/41/variants/1
+오늘은 조항 대신 돌아오라는 말을 듣겠소.
+
+haldric/transitions/0/situation
+할드리크가 확인할 줄을 가리킨다.
+
+haldric/transitions/0/lines/0
+조건을 듣기는 하겠소.
+
+haldric/transitions/0/lines/1
+들은 뒤에 고르겠소. 아직 서명할 뜻은 아니오.
+
+haldric/transitions/1/situation
+할드리크가 문서를 거둔다.
+
+haldric/transitions/1/lines/0
+고친 뜻을 함께 읽지 않았소.
+
+haldric/transitions/1/lines/1
+오늘은 적힌 범위만 남기겠소.
+
+haldric/transitions/2/situation
+할드리크가 계약서를 펴 놓는다.
+
+haldric/transitions/2/lines/0
+한 줄씩 대조할 수 있겠소?
+
+haldric/transitions/2/lines/1
+옆에서 읽어도 불편하지 않소.
+
+haldric/transitions/3/situation
+할드리크가 펜을 자기 쪽으로 둔다.
+
+haldric/transitions/3/lines/0
+먼저 고친 줄은 아직 모르겠소.
+
+haldric/transitions/3/lines/1
+내가 읽을 자리도 남겨 두시오.
+
+haldric/transitions/4/situation
+할드리크가 짐을 문 옆에 둔다.
+
+haldric/transitions/4/lines/0
+문서에 없는 일이라 보수를 더 적진 않겠소.
+
+haldric/transitions/4/lines/1
+그래도 해 두고 싶었소.
+
+haldric/transitions/5/situation
+할드리크가 추가한 손길을 멈춘다.
+
+haldric/transitions/5/lines/0
+기꺼이 한 일을 조건으로 읽었구려.
+
+haldric/transitions/5/lines/1
+오늘은 맡은 일부터 맞추겠소.
+
+haldric/transitions/6/situation
+할드리크가 계약서를 쥔 손을 편다.
+
+haldric/transitions/6/lines/0
+같은 조항을 반복하는 이유가 있소.
+
+haldric/transitions/6/lines/1
+무섭다고 말하면 간단했을 일이오.
+
+haldric/transitions/7/situation
+할드리크가 조항을 읽으려다 멈춘다.
+
+haldric/transitions/7/lines/0
+그 말까지 나누긴 아직 어렵소.
+
+haldric/transitions/7/lines/1
+같은 줄을 읽으면 잠깐 기다리시오.
+
+haldric/transitions/8/situation
+할드리크가 종이 없이 마주 앉는다.
+
+haldric/transitions/8/lines/0
+적지 않은 약속도 지키겠소.
+
+haldric/transitions/8/lines/1
+겁날 때는 내 이름을 불러 주시오.
+
+haldric/transitions/9/situation
+할드리크가 빈 종이를 가져온다.
+
+haldric/transitions/9/lines/0
+안 적어도 같을 줄 알았소.
+
+haldric/transitions/9/lines/1
+서로 들은 뜻을 먼저 말해 봅시다.
+
+haldric/transitions/10/situation
+할드리크가 자기 이름을 또렷이 쓴다.
+
+haldric/transitions/10/lines/0
+못 할 때는 먼저 알리겠소.
+
+haldric/transitions/10/lines/1
+침묵으로 고친 약속은 만들지 않겠소.
+
+haldric/transitions/11/situation
+할드리크가 서명 옆에서 손을 멈춘다.
+
+haldric/transitions/11/lines/0
+고치자는 말을 늦게 들었소.
+
+haldric/transitions/11/lines/1
+고를 자리를 다시 두시오.
+
+haldric/transitions/12/situation
+할드리크가 계약서를 가방에 넣는다.
+
+haldric/transitions/12/lines/0
+오늘은 종이가 없어도 앉겠소.
+
+haldric/transitions/12/lines/1
+종이가 없어도 오늘은 이 자리를 내가 골랐소.
+
+haldric/transitions/13/situation
+할드리크가 가방에서 종이를 꺼낸다.
+
+haldric/transitions/13/lines/0
+편한 사이여도 물을 것은 있었소.
+
+haldric/transitions/13/lines/1
+그 약속부터 다시 확인하겠소.
+
+erdene/inn/0/situation
+에르데네가 의자를 거칠게 당긴다.
+
+erdene/inn/0/lines/0
+앉으려고?
+
+erdene/inn/0/lines/1
+할 말부터 해.
+
+erdene/inn/0/lines/2
+내가 앞에 서는 건 따로 정하고.
+
+erdene/inn/0/choices/0/text
+믿음직하니 앞자리는 비워 둘게요.
+
+erdene/inn/0/choices/0/response/0
+싸웠어도 쓸 곳은 남겨 둔 거야?
+
+erdene/inn/0/choices/0/response/1
+앞자리를 받겠다는 말은 아직 안 했어.
+
+erdene/inn/0/choices/1/text
+앞을 맡는다고 대신 말하진 않을게요.
+
+erdene/inn/0/choices/1/response/0
+그래. 내 입은 아직 있어.
+
+erdene/inn/0/choices/2/text
+출발 시각만 전할게요.
+
+erdene/inn/0/choices/2/response/0
+들었어. 그때 나갈게.
+
+erdene/inn/0/seen
+앞에 서겠다는 말은 내가 직접 할 거야.
+
+erdene/inn/1/situation
+에르데네가 짐을 들었다 놓는다.
+
+erdene/inn/1/lines/0
+들 수 있어.
+
+erdene/inn/1/lines/1
+무게 묻는 건 괜찮아.
+
+erdene/inn/1/lines/2
+말없이 가져가지는 마.
+
+erdene/inn/1/choices/0/text
+들기 전에 나눌지 물을게요.
+
+erdene/inn/1/choices/0/response/0
+힘만 재지 않으면 돼.
+
+erdene/inn/1/choices/1/text
+어디 놓을까요?
+
+erdene/inn/1/choices/1/response/0
+문 안쪽에 둬. 내가 다시 들기 좋게.
+
+erdene/inn/1/choices/2/text
+피곤해 보여서 제가 다 옮길게요.
+
+erdene/inn/1/choices/2/response/0
+내가 할 말도 같이 가져가네.
+
+erdene/inn/1/choices/2/response/1
+내가 놓을 데는 내가 말할 수 있어.
+
+erdene/inn/1/seen
+내 짐을 들 때는 나부터 봐 줘.
+
+erdene/inn/2/situation
+에르데네가 출발 종이를 밀어낸다.
+
+erdene/inn/2/lines/0
+이름은 봤어?
+
+erdene/inn/2/lines/1
+누가 어느 줄인지.
+
+erdene/inn/2/lines/2
+세게 보이는 순서로 세운 건 아니지?
+
+erdene/inn/2/choices/0/text
+같이 읽어 봐요.
+
+erdene/inn/2/choices/0/response/0
+위에서부터 하나씩 불러.
+
+erdene/inn/2/choices/1/text
+센 분부터 놓으면 다들 안심할 거예요.
+
+erdene/inn/2/choices/1/response/0
+약한 사람은 끝에서 누가 봐?
+
+erdene/inn/2/choices/1/response/1
+끝에 남는 사람도 이름은 있잖아.
+
+erdene/inn/2/choices/2/text
+역할 옆에 이름도 같이 확인해요.
+
+erdene/inn/2/choices/2/response/0
+그래야 누가 뒤처졌는지 알지.
+
+erdene/inn/2/seen
+줄 끝 이름도 앞과 같은 크기로 적어.
+
+erdene/inn/3/situation
+에르데네가 문 앞에서 걸음을 멈춘다.
+
+erdene/inn/3/lines/0
+나가자는 건 아니야.
+
+erdene/inn/3/lines/1
+답답해서 일어났어.
+
+erdene/inn/3/lines/2
+좀 걸으면 듣기는 할 수 있어.
+
+erdene/inn/3/choices/0/text
+흥분 가라앉게 혼자 나가 계세요.
+
+erdene/inn/3/choices/0/response/0
+듣겠다고 섰는데 내보내네.
+
+erdene/inn/3/choices/0/response/1
+나가고 싶으면 내가 먼저 말할게.
+
+erdene/inn/3/choices/1/text
+앉히지 않을게요. 여기서 얘기해요.
+
+erdene/inn/3/choices/1/response/0
+앞을 막지만 마. 듣고 있어.
+
+erdene/inn/3/choices/2/text
+잠깐 걸으신 뒤에 다시 올게요.
+
+erdene/inn/3/choices/2/response/0
+그럼 내가 먼저 부를게.
+
+erdene/inn/3/seen
+서 있는 것도 듣는 방법이야.
+
+erdene/inn/4/situation
+에르데네가 맞은편을 턱으로 가리킨다.
+
+erdene/inn/4/lines/0
+이름부터 듣자.
+
+erdene/inn/4/lines/1
+모르는 사람 등 뒤에는 안 서.
+
+erdene/inn/4/lines/2
+아, 부탁하는 말이 너무 컸나?
+
+erdene/inn/4/choices/0/text
+저도 에르데네 씨가 앞에 설지 먼저 물을게요.
+
+erdene/inn/4/choices/0/response/0
+물으면 내가 고를 수 있지.
+
+erdene/inn/4/choices/0/response/1
+그럼 이름 다음은 서로 정하자.
+
+erdene/inn/4/choices/1/text
+이름부터 말씀드릴게요.
+
+erdene/inn/4/choices/1/response/0
+내 이름도 끝까지 들어.
+
+erdene/inn/4/choices/2/text
+이름보다 실력을 보면 금방 친해지겠죠?
+
+erdene/inn/4/choices/2/response/0
+싸우기 전에 부를 이름은 있어야지.
+
+erdene/inn/4/choices/2/response/1
+이름 부르면 서로 돌아볼 수 있잖아.
+
+erdene/inn/4/seen
+이름을 알았으니 등 뒤에서도 부를 수 있겠네.
+
+erdene/inn/5/situation
+에르데네가 큰 접시를 옆으로 민다.
+
+erdene/inn/5/lines/0
+이쪽은 남겨 뒀어.
+
+erdene/inn/5/lines/1
+늦게 오는 사람 있잖아.
+
+erdene/inn/5/lines/2
+나도 다 못 먹어. 그 얼굴은 뭐야?
+
+erdene/inn/5/choices/0/text
+조금만 나눠 주세요.
+
+erdene/inn/5/choices/0/response/0
+남길 몫 말고 이쪽에서 덜어.
+
+erdene/inn/5/choices/1/text
+배고픈 분이 먼저 먹어야죠. 다 드세요.
+
+erdene/inn/5/choices/1/response/0
+뒤늦게 온 배는 안 고픈가?
+
+erdene/inn/5/choices/1/response/1
+늦게 온 사람 몫이라고 내가 남긴 거야.
+
+erdene/inn/5/choices/2/text
+늦는 분 오면 직접 권해 주세요.
+
+erdene/inn/5/choices/2/response/0
+큰소리로 부르면 또 놀라겠지?
+
+erdene/inn/5/choices/2/response/1
+이번엔 앉는 것부터 보고 말할게.
+
+erdene/inn/5/seen
+남겨 둔 접시는 늦는 사람 이름으로 기억해.
+
+erdene/inn/6/situation
+에르데네가 짐을 어깨에 멘다.
+
+erdene/inn/6/lines/0
+먼저 가 볼게.
+
+erdene/inn/6/lines/1
+길 열리면 불러 줄게.
+
+erdene/inn/6/lines/2
+따라오라는 말은 아직 안 했어.
+[원문 끝]

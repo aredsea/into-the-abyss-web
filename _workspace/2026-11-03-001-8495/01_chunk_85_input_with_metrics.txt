@@ -1,0 +1,473 @@
+[청크 컨텍스트] 이 텍스트는 한 문서를 나눈 청크 85/99이다.
+- 문서 전체가 아니므로 서두·결말·전환 문구를 새로 만들지 말 것. 경계가 잘린 듯 보여도 그대로 둔다.
+[진단]
+# 진단 — 게임 동료 대화 30명
+
+장르: 게임 대사. 화계는 인물별 speech.allowed_endings와 정본 말투를 보존한다. 글 전체 화계를 통일하지 않는다.
+
+1. D-14 생성 은유: 자리·몫·이름·줄·문·빈칸이 인물 고유 소재에서 벗어나 감정을 대신하는 곳. 정본 사건과 실제 물건은 보존하고 감정 대목만 일상 발화로 교정한다.
+2. C-8 대칭 대구: 정량 antithesis_count 12. A/B가 다르다·따로다 같은 명제 요약은 구체 대화로 바꾼다. 필요한 거절·경계와 반문은 남긴다.
+3. I-3/H-3 의미 해설: 행동 뒤 그 뜻은 아니다 등으로 감정을 재진술한다. 실제 오해를 풀어야 하는 곳과 중복 설명을 구분한다.
+4. F-7/A-15 사적 공문체: 간격 확보·대화 기록 등 사적 장면의 추상 행정어. 인물 고유 업무·계약·기록 장면은 보존한다.
+5. E-3/C-4 문형 반복: 먼저·오늘은·같이의 밀집, 상대를 진단하는 선택지 및 경계를 그대로 복창하는 반응. 시간 순서와 aff 기능은 유지하고 장면마다 발화 기능을 재검토한다.
+
+정량 앵커: 원문 689517자(경로 식별자 포함), relative_clause_nesting 14, double_particle_count 2, have_make_literal_count 1. risk_band low이나 긴 입력의 구조 지표로 heavy를 추천한다. 산문 기준 z-score를 화계가 섞인 게임 자료의 품질 등급으로 바로 적용하지 않는다.
+
+보존: 장면·선택지 수, 선택지 ID·순서·aff, 인물명·정본 사건·소재·화계. 도입 3줄, 전이 2줄. 수정은 finding이 있는 발화 필드에 한정한다. 지적별 제안은 고침 취지 반영 여부를 기록하며 감점 대사를 호의적 대사로 뒤집는 제안은 대안으로 반영한다.
+[진단 끝]
+
+[정량 사전 점수 v2.0 — v1.6 8지표(KatFish baseline) + v2.0 카운트형]
+risk_band: low  (score 0)
+genre: essay
+char_count: 6970
+
+[v1.6 지표]
+- comma_inclusion_rate: 0.00  (z=-1.52 vs essay 인간 baseline)
+- comma_usage_rate: 0.00  (z=-1.58 vs essay 인간 baseline)
+- ending_comma_rate: 0.00  (z=-0.52 vs essay 인간 baseline)
+- comma_segment_length: 2.92  (n/a vs essay 인간 baseline)
+- conclusion_pivot_count: 0
+- safe_balance_count: 0
+- hanja_nominalizer_density: 0.000  (z=-2.00 vs essay 인간 baseline)
+- lexical_diversity: 0.78  (z=+2.60 vs essay 인간 baseline)
+
+[v2.0 카운트형 지표 — 원값 / baseline calibration 전 z-score 해석 보류]
+- double_passive_count (이중 피동, 본진 A-8): 0
+- by_passive_count (~에 의해 피동, 본진 A-9): 0
+- pronoun_density (인칭 대명사 밀도, 본진 A-16): 0.001
+- have_make_literal_count (have/make 직역, 본진 A-7): 0
+- double_particle_count (이중 조사 결합, 본진 A-19): 0
+- relative_clause_nesting (관형절 3중+ 중첩 문장 수, 본진 A-18): 0
+- deul_overuse_rate ('-들' 남용률, 본진 A-17 hold): 0.000
+- 카운트 > 0 지표는 해당 본진 ID 처방(quick-rules.md·taxonomy)과 교차 확인 후 윤문할 것.
+
+[근거 사용 가이드]
+- 위 점수는 *근거 보조*다. 단독 판정 금지(보고서 명시).
+- z>1.0 지표는 quick-rules.md S1·S2 패턴과 교차 확인 후 윤문할 것.
+- ending_comma_rate가 ★ S1 트리거인 경우 C-11(연결어미 뒤 쉼표) 우선 손질.
+- conclusion_pivot 매치 토큰은 D-1·H-1 처방 적용 대상.
+
+[원문 시작]
+lavinia/inn/8/choices/2/text
+그럼 앞으로 조금씩 늦어도 되겠네요.
+
+lavinia/inn/8/choices/2/response/0
+매번 늦으셔도 된다는 뜻은 아니에요.
+
+lavinia/inn/8/choices/2/response/1
+오늘은 시간이 남았다는 말씀입니다.
+
+lavinia/inn/8/seen
+제 정리가 끝나기 전에는 여유가 있어요.
+
+lavinia/inn/9/situation
+라비니아가 접시 옆의 배지를 만진다.
+
+lavinia/inn/9/lines/0
+먹을 때마다 그릇에 닿네요.
+
+lavinia/inn/9/lines/1
+조금 옆으로 달면 되겠어요.
+
+lavinia/inn/9/lines/2
+소리가 나서 자꾸 내려다보게 됩니다.
+
+lavinia/inn/9/choices/0/text
+그릇을 옮겨도 되겠네요.
+
+lavinia/inn/9/choices/0/response/0
+예. 왼쪽으로 조금 밀어 볼게요.
+
+lavinia/inn/9/choices/1/text
+밥 먹는 동안만 자랑을 쉬어도 되잖아요.
+
+lavinia/inn/9/choices/1/response/0
+자랑하려고 달아 둔 게 아니에요.
+
+lavinia/inn/9/choices/1/response/1
+그 표현은 조금 불편하네요.
+
+lavinia/inn/9/choices/2/text
+끈이 소매에 안 걸리나 봐 드릴게요.
+
+lavinia/inn/9/choices/2/response/0
+이제 숟가락을 들어도 소매에 안 걸려요.
+
+lavinia/inn/9/seen
+이제 숟가락을 들어도 배지가 안 닿아요.
+
+lavinia/inn/10/situation
+라비니아가 탁자 아래 떨어진 끈을 줍는다.
+
+lavinia/inn/10/lines/0
+이건 제 가방 끈이에요.
+
+lavinia/inn/10/lines/1
+한쪽이 자꾸 풀립니다.
+
+lavinia/inn/10/lines/2
+바꿔 매는 법을 찾아야겠어요.
+
+lavinia/inn/10/choices/0/text
+모든 걸 정리하시더니 이런 건 서투르시네요.
+
+lavinia/inn/10/choices/0/response/0
+제가 안 해 본 매듭도 있어요.
+
+lavinia/inn/10/choices/0/response/1
+오늘 익히면 되겠죠.
+
+lavinia/inn/10/choices/1/text
+제가 쓰는 매듭도 한번 보실래요?
+
+lavinia/inn/10/choices/1/response/0
+너무 복잡하지 않으면 좋겠어요.
+
+lavinia/inn/10/choices/2/text
+끝이 닳았네요.
+
+lavinia/inn/10/choices/2/response/0
+많이 당겨서 그런가 봐요.
+
+lavinia/inn/10/seen
+이번 매듭은 좀 덜 풀리면 좋겠네요.
+
+lavinia/inn/11/situation
+라비니아가 가게 쪽을 잠깐 본다.
+
+lavinia/inn/11/lines/0
+저쪽에서 종이를 팔더군요.
+
+lavinia/inn/11/lines/1
+오늘은 구경만 했어요.
+
+lavinia/inn/11/lines/2
+그 옆 음식 냄새가 더 오래 남았네요.
+
+lavinia/inn/11/choices/0/text
+저녁 먹고 같이 지나가 볼까요?
+
+lavinia/inn/11/choices/0/response/0
+이번에는 종이보다 음식부터 볼 것 같아요.
+
+lavinia/inn/11/choices/1/text
+아직 안 드셨어요?
+
+lavinia/inn/11/choices/1/response/0
+예. 이곳에서 먹을 생각이었어요.
+
+lavinia/inn/11/choices/2/text
+필요한 종이가 있으면 지금 사 두세요.
+
+lavinia/inn/11/choices/2/response/0
+지금은 먹을 것 얘기를 하고 있었어요.
+
+lavinia/inn/11/choices/2/response/1
+종이는 아직 남았습니다.
+
+lavinia/inn/11/seen
+저 골목에서는 구운 냄새가 오래 나네요.
+
+lavinia/inn/12/situation
+라비니아가 배지를 조용히 내려놓는다.
+
+lavinia/inn/12/lines/0
+카델 분소에서 허가받던 날이 생각나요.
+
+lavinia/inn/12/lines/1
+앞에서 기다리는 사람이 많았습니다.
+
+lavinia/inn/12/lines/2
+제 차례가 와도 발이 바로 안 움직였어요.
+
+lavinia/inn/12/choices/0/text
+콜레트 씨도 그곳에 갔었죠?
+
+lavinia/inn/12/choices/0/response/0
+한 해 먼저 같은 심사관 앞에 섰어요.
+
+lavinia/inn/12/choices/1/text
+허가를 받았으니 그날 두려움도 끝났겠네요.
+
+lavinia/inn/12/choices/1/response/0
+달고 나온 뒤에도 자꾸 확인했어요.
+
+lavinia/inn/12/choices/1/response/1
+지금도 손이 먼저 갈 때가 있습니다.
+
+lavinia/inn/12/choices/2/text
+한참 기다려도 떨리셨겠어요.
+
+lavinia/inn/12/choices/2/response/0
+문 앞에 서니 제가 할 말을 다시 잊더군요.
+
+lavinia/inn/12/seen
+그날은 허가증이 있는지 여러 번 만져 봤어요.
+
+lavinia/inn/13/situation
+라비니아가 창문 밖으로 고개를 돌린다.
+
+lavinia/inn/13/lines/0
+토르바는 성안 마법 허가가 필요 없죠.
+
+lavinia/inn/13/lines/1
+처음에는 그 말부터 다시 물었습니다.
+
+lavinia/inn/13/lines/2
+지금도 배지를 안 달면 허전해요.
+
+lavinia/inn/13/choices/0/text
+여기서는 안 쓰니 무거운 배지는 가방에 넣어요.
+
+lavinia/inn/13/choices/0/response/0
+이 배지를 달고 다녀도 괜찮습니다.
+
+lavinia/inn/13/choices/0/response/1
+저는 오늘도 달겠습니다.
+
+lavinia/inn/13/choices/1/text
+오늘은 달고 있어도 불편하지 않으세요?
+
+lavinia/inn/13/choices/1/response/0
+예. 이쪽에 두니 그릇에도 안 닿네요.
+
+lavinia/inn/13/choices/2/text
+오신 지는 좀 됐죠?
+
+lavinia/inn/13/choices/2/response/0
+몇 해 지냈는데도 남은 버릇이 있어요.
+
+lavinia/inn/13/seen
+이 도시에서는 허가가 필요 없다는 말이 아직 낯설어요.
+
+lavinia/inn/14/situation
+라비니아가 소매 끝을 만진다.
+
+lavinia/inn/14/lines/0
+유디트를 보면 하고 싶은 말이 많아요.
+
+lavinia/inn/14/lines/1
+어디까지 물어도 되는지 망설일 때도 있고요.
+
+lavinia/inn/14/lines/2
+궁금해도 묻는 말이 딱딱해질까 망설여요.
+
+lavinia/inn/14/choices/0/text
+궁금한 것부터 본인에게 물어보세요.
+
+lavinia/inn/14/choices/0/response/0
+그때는 질문처럼 들리게 말해 보고 싶어요.
+
+lavinia/inn/14/choices/1/text
+두 분은 생각이 다르네요.
+
+lavinia/inn/14/choices/1/response/0
+그분은 제 배지도 불편할 겁니다.
+
+lavinia/inn/14/choices/2/text
+위험해 보이니 제가 대신 단속할게요.
+
+lavinia/inn/14/choices/2/response/0
+그분을 막아 달라는 뜻은 아니었어요.
+
+lavinia/inn/14/choices/2/response/1
+제 궁금증은 제가 말하겠습니다.
+
+lavinia/inn/14/seen
+오늘은 그분에게 뭘 물을지 생각하고 있었어요.
+
+lavinia/inn/15/situation
+라비니아가 늦은 식사를 시작한다.
+
+lavinia/inn/15/lines/0
+일이 끝났는데도 종이를 또 보고 있었어요.
+
+lavinia/inn/15/lines/1
+별것 아닌 줄을 몇 번이나 읽었죠.
+
+lavinia/inn/15/lines/2
+그러다 배가 고파졌습니다.
+
+lavinia/inn/15/choices/0/text
+국은 아직 남아 있어요.
+
+lavinia/inn/15/choices/0/response/0
+늦어서 다 떨어진 줄 알았어요.
+
+lavinia/inn/15/choices/1/text
+꼼꼼하시니 한 번 더 봐야 마음 놓이죠.
+
+lavinia/inn/15/choices/1/response/0
+오늘은 충분히 봤습니다.
+
+lavinia/inn/15/choices/1/response/1
+그만 보고 먹고 싶어요.
+
+lavinia/inn/15/choices/2/text
+지금은 덮고 따뜻할 때 드세요.
+
+lavinia/inn/15/choices/2/response/0
+네. 숟가락부터 들겠습니다.
+
+lavinia/inn/15/seen
+이 줄은 내일 읽어도 되겠네요.
+
+lavinia/inn/16/situation
+라비니아가 배지 끈을 쥐었다 놓는다.
+
+lavinia/inn/16/lines/0
+허가를 지키는 것만 생각하던 때가 있어요.
+
+lavinia/inn/16/lines/1
+눈앞에서 사람이 다치면 다르게 보입니다.
+
+lavinia/inn/16/lines/2
+그때는 다친 사람 곁으로 먼저 가고 싶어요.
+
+lavinia/inn/16/choices/0/text
+그럼 허가증은 이제 필요 없으시겠네요.
+
+lavinia/inn/16/choices/0/response/0
+저는 계속 지닐 생각입니다.
+
+lavinia/inn/16/choices/0/response/1
+버리겠다는 뜻으로 꺼낸 말은 아니에요.
+
+lavinia/inn/16/choices/1/text
+그때 곁에서 할 일은 같이 찾을게요.
+
+lavinia/inn/16/choices/1/response/0
+예. 혼자 결론부터 내리지는 않겠습니다.
+
+lavinia/inn/16/choices/2/text
+지금은 다친 분 없어요.
+
+lavinia/inn/16/choices/2/response/0
+오늘은 천천히 생각할 수 있네요.
+
+lavinia/inn/16/seen
+다친 사람을 보면 손부터 뻗고 싶을 때가 있어요.
+
+lavinia/inn/17/situation
+라비니아가 서류를 덮고 손을 편다.
+
+lavinia/inn/17/lines/0
+오늘은 여기까지 하겠습니다.
+
+lavinia/inn/17/lines/1
+벌써 같은 줄을 또 읽었어요.
+
+lavinia/inn/17/lines/2
+이럴 때는 쉬는 편이 낫네요.
+
+lavinia/inn/17/choices/0/text
+옆에서 그냥 물 마셔도 될까요?
+
+lavinia/inn/17/choices/0/response/0
+네. 오늘은 저도 아무것도 안 펼칠게요.
+
+lavinia/inn/17/choices/1/text
+저는 잠깐 바깥에 나갈게요.
+
+lavinia/inn/17/choices/1/response/0
+돌아올 때 바람이 찬지 알려 주세요.
+
+lavinia/inn/17/choices/2/text
+마지막으로 한 장만 확인해 주실래요?
+
+lavinia/inn/17/choices/2/response/0
+급한 것이면 이유를 말씀해 주세요.
+
+lavinia/inn/17/choices/2/response/1
+아니면 내일 봤으면 합니다.
+
+lavinia/inn/17/seen
+손을 펴고 있으니 종이 넘기던 힘이 빠지네요.
+
+lavinia/inn/18/situation
+라비니아가 빈 의자를 당긴다.
+
+lavinia/inn/18/lines/0
+토베와 마주 앉았을 때 생각이 많아졌어요.
+
+lavinia/inn/18/lines/1
+배지를 보는 제 손도 보였을 테고요.
+
+lavinia/inn/18/lines/2
+인사부터 다시 해 보고 싶습니다.
+
+lavinia/inn/18/choices/0/text
+오늘은 밖에 계시던데요.
+
+lavinia/inn/18/choices/0/response/0
+내려가다 마주치면 먼저 인사하겠습니다.
+
+lavinia/inn/18/choices/1/text
+오해는 제가 설명해서 풀어 드릴게요.
+
+lavinia/inn/18/choices/1/response/0
+제 눈길에 대한 일은 제가 말할게요.
+
+lavinia/inn/18/choices/1/response/1
+먼저 설명하러 가지는 말아 주세요.
+
+lavinia/inn/18/choices/2/text
+같이 있을 때 제가 부를게요.
+
+lavinia/inn/18/choices/2/response/0
+억지로 오래 붙잡지는 않을게요.
+
+lavinia/inn/18/seen
+다음에 만나면 손부터 배지로 가지 않게 해야겠어요.
+
+lavinia/inn/19/situation
+라비니아가 물병의 마개를 돌린다.
+
+lavinia/inn/19/lines/0
+이 마개는 늘 끝까지 조이게 돼요.
+
+lavinia/inn/19/lines/1
+가방이 젖으면 곤란하니까요.
+
+lavinia/inn/19/lines/2
+오늘은 손에서 잘 안 풀리네요.
+
+lavinia/inn/19/choices/0/text
+다음에는 마개를 좀 느슨하게 잠가요.
+
+lavinia/inn/19/choices/0/response/0
+마개가 조금 뻑뻑한 겁니다.
+
+lavinia/inn/19/choices/0/response/1
+성격까지 설명하실 일은 아니에요.
+
+lavinia/inn/19/choices/1/text
+천을 대고 같이 돌려 볼까요?
+
+lavinia/inn/19/choices/1/response/0
+미끄럽지 않으니 풀리겠어요.
+
+lavinia/inn/19/choices/2/text
+조금 기다렸다 해 봐요.
+
+lavinia/inn/19/choices/2/response/0
+손을 말린 뒤에 다시 잡을게요.
+
+lavinia/inn/19/seen
+마개는 풀렸으니 이제 물을 따를 수 있겠어요.
+
+lavinia/inn/20/situation
+라비니아가 준비 목록을 접는다.
+
+lavinia/inn/20/lines/0
+필요한 확인은 제가 먼저 하겠습니다.
+
+lavinia/inn/20/lines/1
+늦어질 것 같으면 바로 알릴게요.
+
+lavinia/inn/20/lines/2
+기다리는 분이 있다는 걸 잊지 않겠습니다.
+
+lavinia/inn/20/choices/0/text
+저도 바뀐 일은 바로 전할게요.
+[원문 끝]

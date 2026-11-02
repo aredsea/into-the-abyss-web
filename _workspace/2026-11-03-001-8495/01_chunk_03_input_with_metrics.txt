@@ -1,0 +1,407 @@
+[청크 컨텍스트] 이 텍스트는 한 문서를 나눈 청크 3/99이다.
+- 문서 전체가 아니므로 서두·결말·전환 문구를 새로 만들지 말 것. 경계가 잘린 듯 보여도 그대로 둔다.
+[진단]
+# 진단 — 게임 동료 대화 30명
+
+장르: 게임 대사. 화계는 인물별 speech.allowed_endings와 정본 말투를 보존한다. 글 전체 화계를 통일하지 않는다.
+
+1. D-14 생성 은유: 자리·몫·이름·줄·문·빈칸이 인물 고유 소재에서 벗어나 감정을 대신하는 곳. 정본 사건과 실제 물건은 보존하고 감정 대목만 일상 발화로 교정한다.
+2. C-8 대칭 대구: 정량 antithesis_count 12. A/B가 다르다·따로다 같은 명제 요약은 구체 대화로 바꾼다. 필요한 거절·경계와 반문은 남긴다.
+3. I-3/H-3 의미 해설: 행동 뒤 그 뜻은 아니다 등으로 감정을 재진술한다. 실제 오해를 풀어야 하는 곳과 중복 설명을 구분한다.
+4. F-7/A-15 사적 공문체: 간격 확보·대화 기록 등 사적 장면의 추상 행정어. 인물 고유 업무·계약·기록 장면은 보존한다.
+5. E-3/C-4 문형 반복: 먼저·오늘은·같이의 밀집, 상대를 진단하는 선택지 및 경계를 그대로 복창하는 반응. 시간 순서와 aff 기능은 유지하고 장면마다 발화 기능을 재검토한다.
+
+정량 앵커: 원문 689517자(경로 식별자 포함), relative_clause_nesting 14, double_particle_count 2, have_make_literal_count 1. risk_band low이나 긴 입력의 구조 지표로 heavy를 추천한다. 산문 기준 z-score를 화계가 섞인 게임 자료의 품질 등급으로 바로 적용하지 않는다.
+
+보존: 장면·선택지 수, 선택지 ID·순서·aff, 인물명·정본 사건·소재·화계. 도입 3줄, 전이 2줄. 수정은 finding이 있는 발화 필드에 한정한다. 지적별 제안은 고침 취지 반영 여부를 기록하며 감점 대사를 호의적 대사로 뒤집는 제안은 대안으로 반영한다.
+[진단 끝]
+
+[정량 사전 점수 v2.0 — v1.6 8지표(KatFish baseline) + v2.0 카운트형]
+risk_band: low  (score 0)
+genre: essay
+char_count: 6981
+
+[v1.6 지표]
+- comma_inclusion_rate: 0.02  (z=-1.43 vs essay 인간 baseline)
+- comma_usage_rate: 0.02  (z=-1.56 vs essay 인간 baseline)
+- ending_comma_rate: 0.00  (z=-0.52 vs essay 인간 baseline)
+- comma_segment_length: 3.25  (z=-0.52 vs essay 인간 baseline)
+- conclusion_pivot_count: 0
+- safe_balance_count: 0
+- hanja_nominalizer_density: 0.000  (z=-2.00 vs essay 인간 baseline)
+- lexical_diversity: 0.75  (z=+2.04 vs essay 인간 baseline)
+
+[v2.0 카운트형 지표 — 원값 / baseline calibration 전 z-score 해석 보류]
+- double_passive_count (이중 피동, 본진 A-8): 0
+- by_passive_count (~에 의해 피동, 본진 A-9): 0
+- pronoun_density (인칭 대명사 밀도, 본진 A-16): 0.000
+- have_make_literal_count (have/make 직역, 본진 A-7): 0
+- double_particle_count (이중 조사 결합, 본진 A-19): 0
+- relative_clause_nesting (관형절 3중+ 중첩 문장 수, 본진 A-18): 0
+- deul_overuse_rate ('-들' 남용률, 본진 A-17 hold): 0.000
+- 카운트 > 0 지표는 해당 본진 ID 처방(quick-rules.md·taxonomy)과 교차 확인 후 윤문할 것.
+
+[근거 사용 가이드]
+- 위 점수는 *근거 보조*다. 단독 판정 금지(보고서 명시).
+- z>1.0 지표는 quick-rules.md S1·S2 패턴과 교차 확인 후 윤문할 것.
+- ending_comma_rate가 ★ S1 트리거인 경우 C-11(연결어미 뒤 쉼표) 우선 손질.
+- conclusion_pivot 매치 토큰은 D-1·H-1 처방 적용 대상.
+
+[원문 시작]
+hildegard/inn/17/choices/0/response/0
+오늘 더 버틸 수 있는지부터 말씀드린 겁니다.
+
+hildegard/inn/17/choices/0/response/1
+괜찮다고 해 버리면 또 말하지 못할 것 같습니다. 이번에는 교대를 부탁드립니다.
+
+hildegard/inn/17/choices/1/text
+그럼 앞을 교대해요. 쉴 순서도 정하고요.
+
+hildegard/inn/17/choices/1/response/0
+지쳤다는 말까지 끝내고 나니 좀 낫습니다.
+
+hildegard/inn/17/choices/1/response/1
+제 차례가 돌아오면 다시 서겠습니다. 지금은 잠깐 맡겨도 되겠습니까?
+
+hildegard/inn/17/choices/2/text
+따뜻한 물을 가져올게요.
+
+hildegard/inn/17/choices/2/response/0
+돌아오실 때까지 앉아 있겠습니다.
+
+hildegard/inn/17/choices/2/response/1
+제 상태도 다른 분들과 같이 적어 두겠습니다.
+
+hildegard/inn/17/seen
+교대할 때가 되면 이번에는 먼저 말씀드리겠습니다.
+
+hildegard/inn/18/situation
+힐데가가 귀환한 동료들의 자리를 세어 본다.
+
+hildegard/inn/18/lines/0
+몇 번을 세어도 빈자리가 없습니다. 좀 더 보고 있었습니다.
+
+hildegard/inn/18/lines/1
+모두 돌아온 날은 말이 잘 안 나옵니다.
+
+hildegard/inn/18/lines/2
+다음 준비보다 이 자리에 조금 더 있고 싶습니다.
+
+hildegard/inn/18/choices/0/text
+준비 이야기는 내일 하고 같이 앉아요.
+
+hildegard/inn/18/choices/0/response/0
+다음 준비를 미뤄도 이 자리는 그대로입니다.
+
+hildegard/inn/18/choices/0/response/1
+오늘 좋았다는 말은 좀 늦게 해도 전해지겠습니까? 저도 이제 해 보겠습니다.
+
+hildegard/inn/18/choices/1/text
+차를 더 따를까요?
+
+hildegard/inn/18/choices/1/response/0
+한 잔만 더 부탁드립니다.
+
+hildegard/inn/18/choices/1/response/1
+이 자리에 있는 사람들을 좀 더 보고 일어나겠습니다.
+
+hildegard/inn/18/choices/2/text
+다들 돌아왔으니 장비부터 정리해 둘까요?
+
+hildegard/inn/18/choices/2/response/0
+정리할 일은 분명 있겠습니다.
+
+hildegard/inn/18/choices/2/response/1
+일을 미뤄 달라고 말하는 제가 낯섭니다. 잠깐만 더 앉아 주십시오.
+
+hildegard/inn/18/seen
+빈 의자가 없는 식탁은 조금 더 보고 싶습니다.
+
+hildegard/inn/19/situation
+힐데가가 출발 순서를 적은 종이를 뒤집는다.
+
+hildegard/inn/19/lines/0
+제가 먼저 쓰면 그쪽으로 이야기가 기울 것 같았습니다.
+
+hildegard/inn/19/lines/1
+먼저 의견을 듣겠습니다.
+
+hildegard/inn/19/lines/2
+제 방식이 익숙하다는 이유로 밀어붙였던 적이 있습니다.
+
+hildegard/inn/19/choices/0/text
+생각을 정리해서 말씀드릴게요.
+
+hildegard/inn/19/choices/0/response/0
+서두르지 않으셔도 됩니다.
+
+hildegard/inn/19/choices/0/response/1
+듣기 전에 반박할 말을 고르지 않으려 합니다.
+
+hildegard/inn/19/choices/1/text
+믿고 맡길 테니 편한 대로 이끌어 주세요.
+
+hildegard/inn/19/choices/1/response/0
+믿음에 답하려고 혼자 정하곤 했습니다.
+
+hildegard/inn/19/choices/1/response/1
+이번에는 다른 생각도 맡겨 주시면 좋겠습니다. 따르는 일만 부탁드리는 게 아닙니다.
+
+hildegard/inn/19/choices/2/text
+다르면 현장에서 멈춰서 다시 맞춰요.
+
+hildegard/inn/19/choices/2/response/0
+제 의견도 한번 멈춰 세워 주십시오.
+
+hildegard/inn/19/choices/2/response/1
+말씀이 짧아도 빠뜨리지 않겠습니다. 종이 없이 먼저 들어 보겠습니다.
+
+hildegard/inn/19/seen
+종이 뒷면부터 채우니 생각도 조금 달라집니다.
+
+hildegard/inn/20/situation
+힐데가가 맞은편의 빈자리를 손으로 짚는다.
+
+hildegard/inn/20/lines/0
+버티겠다는 말만 서로 주고받지는 않았으면 합니다.
+
+hildegard/inn/20/lines/1
+다음에도 같은 역할일 필요는 없습니다.
+
+hildegard/inn/20/lines/2
+같이 돌아오겠다는 약속은 지키고 싶습니다.
+
+hildegard/inn/20/choices/0/text
+저는 걱정 안 하셔도 돼요. 늘 따라갈게요.
+
+hildegard/inn/20/choices/0/response/0
+늘 따라오라는 약속을 받고 싶지는 않습니다.
+
+hildegard/inn/20/choices/0/response/1
+못 따라오는 날에도 부르겠다고 해 주십시오. 기다리는 일을 제게 주셔도 됩니다.
+
+hildegard/inn/20/choices/1/text
+서로 못 버틸 때 말하기도 약속해요.
+
+hildegard/inn/20/choices/1/response/0
+제가 먼저 말하지 못하면 약속이 반쪽이겠습니다.
+
+hildegard/inn/20/choices/1/response/1
+함께 돌아오자고 말한 사람도 쉬어야 한다는 걸 잊지 않겠습니다.
+
+hildegard/inn/20/choices/2/text
+출발 전에 다시 확인해요.
+
+hildegard/inn/20/choices/2/response/0
+그때 서로의 짐도 살피겠습니다.
+
+hildegard/inn/20/choices/2/response/1
+못 지킬 날이 생기면 숨기지 않고 다시 말씀드리겠습니다.
+
+hildegard/inn/20/seen
+못 버틸 때 말하자는 약속도 잊지 않았습니다.
+
+hildegard/inn/21/situation
+힐데가가 장비를 내려놓고 먼저 자리를 권한다.
+
+hildegard/inn/21/lines/0
+차를 두고도 서 있었습니다. 먼저 의자를 당기겠습니다.
+
+hildegard/inn/21/lines/1
+앉으십시오. ……함께 쉬시겠습니까?
+
+hildegard/inn/21/lines/2
+쉬는 일까지 지시할 뻔했습니다.
+
+hildegard/inn/21/choices/0/text
+이번에는 제가 차를 권할 차례네요.
+
+hildegard/inn/21/choices/0/response/0
+예, 이번 권유는 제가 받겠습니다.
+
+hildegard/inn/21/choices/0/response/1
+잔을 고르는 일까지 정하려 들면 웃어 주십시오. 스스로도 알아차려야겠습니다.
+
+hildegard/inn/21/choices/1/text
+이 자리면 괜찮겠어요.
+
+hildegard/inn/21/choices/1/response/0
+옆에는 짐 대신 빈 의자를 두겠습니다.
+
+hildegard/inn/21/choices/1/response/1
+쉬라는 말을 또 지시처럼 했습니다. 저부터 앉겠습니다.
+
+hildegard/inn/21/choices/2/text
+아무 말씀 안 하셔도 괜찮아요. 제가 알아서 쉴게요.
+
+hildegard/inn/21/choices/2/response/0
+같이 쉬자는 말은 하고 싶습니다.
+
+hildegard/inn/21/choices/2/response/1
+말을 다 없애면 부탁도 못 하겠습니다. 서툴러도 조금 고쳐 말하겠습니다.
+
+hildegard/inn/21/seen
+차를 기다리는 동안은 아무 일도 정하지 않겠습니다.
+
+hildegard/inn/22/situation
+힐데가가 돌아갈 길의 표시 옆에 작은 점을 찍는다.
+
+hildegard/inn/22/lines/0
+제 자리는 잘 보이게 표시해 두었습니다. 빠뜨리지 않도록 말입니다.
+
+hildegard/inn/22/lines/1
+누군가 늦으면 여기서 다시 셉니다.
+
+hildegard/inn/22/lines/2
+저까지 포함해서 부탁드립니다.
+
+hildegard/inn/22/choices/0/text
+표시가 잘 보이게 덧칠할게요.
+
+hildegard/inn/22/choices/0/response/0
+어두워져도 구별할 수 있겠습니다.
+
+hildegard/inn/22/choices/0/response/1
+표시를 보고 먼저 서둘러 나가지 않겠습니다.
+
+hildegard/inn/22/choices/1/text
+경험 많으시니 따로 오셔도 길은 아시겠죠.
+
+hildegard/inn/22/choices/1/response/0
+길을 알아도 혼자 남고 싶은 것은 아닙니다.
+
+hildegard/inn/22/choices/1/response/1
+그 말씀이 틀리진 않습니다. 그래도 이번에는 함께 세어 주십시오.
+
+hildegard/inn/22/choices/2/text
+힐데가 경이 빠져도 그냥 출발하지 않을게요.
+
+hildegard/inn/22/choices/2/response/0
+제 몫의 기다림도 부탁드렸습니다.
+
+hildegard/inn/22/choices/2/response/1
+제가 돌아올 사람 수에 들어간다는 게 새삼 마음에 남습니다.
+
+hildegard/inn/22/seen
+합류할 곳을 정하니 제 걸음도 덜 급해집니다.
+
+hildegard/inn/23/situation
+힐데가가 봉투를 접어 가방에 넣는다.
+
+hildegard/inn/23/lines/0
+봉투를 넣고도 손이 한참 거기 머물렀습니다.
+
+hildegard/inn/23/lines/1
+돌아오라는 편지에 답을 보냈습니다.
+
+hildegard/inn/23/lines/2
+제 뜻을 전하는 데 이렇게 오래 걸렸습니다.
+
+hildegard/inn/23/choices/0/text
+답장까지 했으니 이제 가문 생각은 접으셔도 돼요.
+
+hildegard/inn/23/choices/0/response/0
+뜻을 전했다고 마음이 모두 끝나진 않습니다.
+
+hildegard/inn/23/choices/0/response/1
+남겠다는 선택과 돌아갈 곳을 아끼는 마음은 함께 두고 싶습니다.
+
+hildegard/inn/23/choices/1/text
+답이 와도 혼자서 다 감당하려 하진 마세요.
+
+hildegard/inn/23/choices/1/response/0
+기다리는 동안부터 말씀드리겠습니다.
+
+hildegard/inn/23/choices/1/response/1
+걱정이 없다고 하면 또 같은 버릇이겠습니다. 지금은 조금 걱정됩니다.
+
+hildegard/inn/23/choices/2/text
+오늘은 편지 생각을 쉬어요.
+
+hildegard/inn/23/choices/2/response/0
+저녁 한 끼 동안은 그래 보겠습니다.
+
+hildegard/inn/23/choices/2/response/1
+제가 쓴 답은 다시 읽고 나서 보내겠습니다.
+
+hildegard/inn/23/seen
+보낸 편지의 사본은 다시 고치지 않겠습니다.
+
+hildegard/inn/24/situation
+힐데가가 아침 식탁에 의자 두 개를 붙인다.
+
+hildegard/inn/24/lines/0
+앉을 자리를 고르다 문에서 먼 쪽으로 왔습니다.
+
+hildegard/inn/24/lines/1
+출발 이야기는 식사를 마친 뒤에 하겠습니다.
+
+hildegard/inn/24/lines/2
+오늘 아침은 함께 먹고 싶습니다.
+
+hildegard/inn/24/choices/0/text
+그럼 식는 것부터 나눠 먹어요.
+
+hildegard/inn/24/choices/0/response/0
+오늘 아침은 이렇게 나누고 싶었습니다.
+
+hildegard/inn/24/choices/0/response/1
+급히 먹는 버릇도 천천히 고쳐 보겠습니다. 먼저 드시겠습니까?
+
+hildegard/inn/24/choices/1/text
+빵은 이쪽에 둘게요.
+
+hildegard/inn/24/choices/1/response/0
+제 접시에서도 덜어 가십시오.
+
+hildegard/inn/24/choices/1/response/1
+오늘은 식사 순서까지 적지 않겠습니다.
+
+hildegard/inn/24/choices/2/text
+준비부터 마쳐 두면 마음 편히 드실 수 있겠어요.
+
+hildegard/inn/24/choices/2/response/0
+그러면 또 식사가 맨 뒤가 되겠습니다.
+
+hildegard/inn/24/choices/2/response/1
+마음 편히 먹는 건 다 끝내서가 아니라, 지금 함께 먹어서인 것 같습니다.
+
+hildegard/inn/24/seen
+아침 식탁의 자리는 오늘도 옆으로 잡겠습니다.
+
+hildegard/inn/25/situation
+힐데가가 장갑을 끼다 말고 웃는다.
+
+hildegard/inn/25/lines/0
+기다리십시오…… 아니, 잠깐 기다려 주시겠습니까?
+
+hildegard/inn/25/lines/1
+이번에는 제 손질이 늦었습니다.
+
+hildegard/inn/25/lines/2
+오늘은 제가 기다려 달라고 부탁드려야겠습니다.
+
+hildegard/inn/25/choices/0/text
+천천히 하셔도 돼요.
+
+hildegard/inn/25/choices/0/response/0
+마지막 끈만 정리하겠습니다.
+
+hildegard/inn/25/choices/0/response/1
+마지막 잠금쇠까지 손으로 확인하고 일어나겠습니다.
+
+hildegard/inn/25/choices/1/text
+길에서 마저 잠그세요. 천천히 걸어갈게요.
+
+hildegard/inn/25/choices/1/response/0
+걸으면서 해도 되는 일은 아닙니다.
+
+hildegard/inn/25/choices/1/response/1
+저를 기다리는 시간이 아깝지 않으시면, 여기서 조금만 더 이야기해 주십시오.
+
+hildegard/inn/25/choices/2/text
+다 잠그실 때까지 여기서 얘기해요.
+
+hildegard/inn/25/choices/2/response/0
+서두르라고 하지 않으셔서 더 서두를 뻔했습니다.
+[원문 끝]

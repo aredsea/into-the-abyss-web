@@ -1,0 +1,500 @@
+[청크 컨텍스트] 이 텍스트는 한 문서를 나눈 청크 81/99이다.
+- 문서 전체가 아니므로 서두·결말·전환 문구를 새로 만들지 말 것. 경계가 잘린 듯 보여도 그대로 둔다.
+[진단]
+# 진단 — 게임 동료 대화 30명
+
+장르: 게임 대사. 화계는 인물별 speech.allowed_endings와 정본 말투를 보존한다. 글 전체 화계를 통일하지 않는다.
+
+1. D-14 생성 은유: 자리·몫·이름·줄·문·빈칸이 인물 고유 소재에서 벗어나 감정을 대신하는 곳. 정본 사건과 실제 물건은 보존하고 감정 대목만 일상 발화로 교정한다.
+2. C-8 대칭 대구: 정량 antithesis_count 12. A/B가 다르다·따로다 같은 명제 요약은 구체 대화로 바꾼다. 필요한 거절·경계와 반문은 남긴다.
+3. I-3/H-3 의미 해설: 행동 뒤 그 뜻은 아니다 등으로 감정을 재진술한다. 실제 오해를 풀어야 하는 곳과 중복 설명을 구분한다.
+4. F-7/A-15 사적 공문체: 간격 확보·대화 기록 등 사적 장면의 추상 행정어. 인물 고유 업무·계약·기록 장면은 보존한다.
+5. E-3/C-4 문형 반복: 먼저·오늘은·같이의 밀집, 상대를 진단하는 선택지 및 경계를 그대로 복창하는 반응. 시간 순서와 aff 기능은 유지하고 장면마다 발화 기능을 재검토한다.
+
+정량 앵커: 원문 689517자(경로 식별자 포함), relative_clause_nesting 14, double_particle_count 2, have_make_literal_count 1. risk_band low이나 긴 입력의 구조 지표로 heavy를 추천한다. 산문 기준 z-score를 화계가 섞인 게임 자료의 품질 등급으로 바로 적용하지 않는다.
+
+보존: 장면·선택지 수, 선택지 ID·순서·aff, 인물명·정본 사건·소재·화계. 도입 3줄, 전이 2줄. 수정은 finding이 있는 발화 필드에 한정한다. 지적별 제안은 고침 취지 반영 여부를 기록하며 감점 대사를 호의적 대사로 뒤집는 제안은 대안으로 반영한다.
+[진단 끝]
+
+[정량 사전 점수 v2.0 — v1.6 8지표(KatFish baseline) + v2.0 카운트형]
+risk_band: low  (score 0)
+genre: essay
+char_count: 6998
+
+[v1.6 지표]
+- comma_inclusion_rate: 0.00  (z=-1.52 vs essay 인간 baseline)
+- comma_usage_rate: 0.00  (z=-1.58 vs essay 인간 baseline)
+- ending_comma_rate: 0.00  (z=-0.52 vs essay 인간 baseline)
+- comma_segment_length: 2.70  (n/a vs essay 인간 baseline)
+- conclusion_pivot_count: 0
+- safe_balance_count: 0
+- hanja_nominalizer_density: 0.001  (z=-1.96 vs essay 인간 baseline)
+- lexical_diversity: 0.78  (z=+2.51 vs essay 인간 baseline)
+
+[v2.0 카운트형 지표 — 원값 / baseline calibration 전 z-score 해석 보류]
+- double_passive_count (이중 피동, 본진 A-8): 0
+- by_passive_count (~에 의해 피동, 본진 A-9): 0
+- pronoun_density (인칭 대명사 밀도, 본진 A-16): 0.003
+- have_make_literal_count (have/make 직역, 본진 A-7): 0
+- double_particle_count (이중 조사 결합, 본진 A-19): 0
+- relative_clause_nesting (관형절 3중+ 중첩 문장 수, 본진 A-18): 0
+- deul_overuse_rate ('-들' 남용률, 본진 A-17 hold): 0.000
+- 카운트 > 0 지표는 해당 본진 ID 처방(quick-rules.md·taxonomy)과 교차 확인 후 윤문할 것.
+
+[근거 사용 가이드]
+- 위 점수는 *근거 보조*다. 단독 판정 금지(보고서 명시).
+- z>1.0 지표는 quick-rules.md S1·S2 패턴과 교차 확인 후 윤문할 것.
+- ending_comma_rate가 ★ S1 트리거인 경우 C-11(연결어미 뒤 쉼표) 우선 손질.
+- conclusion_pivot 매치 토큰은 D-1·H-1 처방 적용 대상.
+
+[원문 시작]
+zahar/transitions/7/lines/0
+광산 얘기는 나중에 하자.
+
+zahar/transitions/7/lines/1
+오늘은 밥만 먹을게.
+
+zahar/transitions/8/situation
+자하르가 손을 펴 탁자에 올린다.
+
+zahar/transitions/8/lines/0
+반란 쪽으로 간 건 후회 안 해.
+
+zahar/transitions/8/lines/1
+그 말은 네 앞에서 하고 싶었어.
+
+zahar/transitions/9/situation
+자하르가 시선을 식탁으로 내린다.
+
+zahar/transitions/9/lines/0
+그날 얘기를 더 하진 않을게.
+
+zahar/transitions/9/lines/1
+오늘은 듣는 것도 좀 어렵네.
+
+zahar/transitions/10/situation
+자하르가 출발 짐 옆에서 고개를 든다.
+
+zahar/transitions/10/lines/0
+내가 놓치면 네가 불러 줘.
+
+zahar/transitions/10/lines/1
+나도 못 버티면 먼저 말할게.
+
+zahar/transitions/11/situation
+자하르가 빈 물병을 내려놓는다.
+
+zahar/transitions/11/lines/0
+오늘은 나도 혼자 좀 쉬어야겠어.
+
+zahar/transitions/11/lines/1
+필요한 일은 아침에 말해.
+
+zahar/transitions/12/situation
+자하르가 자기 짐도 곁에 내려놓는다.
+
+zahar/transitions/12/lines/0
+오늘은 둘 다 먼저 앉자.
+
+zahar/transitions/12/lines/1
+정리할 건 일어나서 보면 돼.
+
+zahar/transitions/13/situation
+자하르가 식당에서 먼저 일어선다.
+
+zahar/transitions/13/lines/0
+오늘은 같이 앉아 있기 힘들어.
+
+zahar/transitions/13/lines/1
+물은 남았으니 마저 마셔.
+
+jorund/inn/0/situation
+요르드가 종이의 모서리를 맞춘다.
+
+jorund/inn/0/lines/0
+용건만 듣겠습니다.
+
+jorund/inn/0/lines/1
+지난번 설명은 충분히 했습니다.
+
+jorund/inn/0/lines/2
+다시 설득하실 생각이라면 사양합니다.
+
+jorund/inn/0/choices/0/text
+오늘은 확인한 시간만 전할게요.
+
+jorund/inn/0/choices/0/response/0
+그것이라면 듣겠습니다.
+
+jorund/inn/0/choices/1/text
+아침에 출발해요.
+
+jorund/inn/0/choices/1/response/0
+늦지 않게 나가겠습니다.
+
+jorund/inn/0/choices/2/text
+편하게 얘기하면 생각도 달라질 거예요.
+
+jorund/inn/0/choices/2/response/0
+제 판단은 분위기 때문에 바뀌지 않습니다.
+
+jorund/inn/0/choices/2/response/1
+다른 용건은 없습니까?
+
+jorund/inn/0/seen
+전할 것이 있다면 지금 말씀하십시오.
+
+jorund/inn/1/situation
+요르드가 물잔을 자기 쪽으로 옮긴다.
+
+jorund/inn/1/lines/0
+이쪽은 제가 쓰겠습니다.
+
+jorund/inn/1/lines/1
+잠시 혼자 정리할 것이 있습니다.
+
+jorund/inn/1/lines/2
+곁에서 기다리실 필요는 없습니다.
+
+jorund/inn/1/choices/0/text
+저는 다른 식탁에 있을게요.
+
+jorund/inn/1/choices/0/response/0
+필요하면 그쪽으로 가겠습니다.
+
+jorund/inn/1/choices/1/text
+함께 보면 더 빨리 끝날 텐데요.
+
+jorund/inn/1/choices/1/response/0
+도움이 필요한 일은 아닙니다.
+
+jorund/inn/1/choices/1/response/1
+오늘은 제가 마치겠습니다.
+
+jorund/inn/1/choices/2/text
+끝나면 다시 올게요.
+
+jorund/inn/1/choices/2/response/0
+정리한 뒤에 말씀드리겠습니다.
+
+jorund/inn/1/seen
+잔은 옮겼으니 그쪽은 쓰셔도 됩니다.
+
+jorund/inn/2/situation
+요르드가 접힌 의뢰 종이를 편다.
+
+jorund/inn/2/lines/0
+나중에 덧붙일 부탁이 있습니까?
+
+jorund/inn/2/lines/1
+있다면 지금 듣겠습니다.
+
+jorund/inn/2/lines/2
+출발 뒤에 바꾸는 건 곤란합니다.
+
+jorund/inn/2/choices/0/text
+현장에서 융통성 있게 해 주시면 되죠.
+
+jorund/inn/2/choices/0/response/0
+무슨 일을 뜻하는지 먼저 말씀하십시오.
+
+jorund/inn/2/choices/0/response/1
+모르는 부탁에 미리 동의하지는 않습니다.
+
+jorund/inn/2/choices/1/text
+추가할 것은 지금 적어 둘게요.
+
+jorund/inn/2/choices/1/response/0
+읽고 답하겠습니다.
+
+jorund/inn/2/choices/2/text
+지금은 없어요.
+
+jorund/inn/2/choices/2/response/0
+그러면 이대로 준비하겠습니다.
+
+jorund/inn/2/seen
+바뀔 내용이 없다면 이 종이를 접겠습니다.
+
+jorund/inn/3/situation
+요르드가 시각을 확인하고 고개를 든다.
+
+jorund/inn/3/lines/0
+약속한 때가 조금 지났습니다.
+
+jorund/inn/3/lines/1
+다음에는 늦는다고 먼저 전해 주십시오.
+
+jorund/inn/3/lines/2
+기다리는 동안 제 일도 멈추었습니다.
+
+jorund/inn/3/choices/0/text
+기다리게 해서 미안해요. 다음엔 알릴게요.
+
+jorund/inn/3/choices/0/response/0
+그렇게 해 주시면 됩니다.
+
+jorund/inn/3/choices/1/text
+지금 시작할 수 있어요.
+
+jorund/inn/3/choices/1/response/0
+그러면 오늘 내용부터 보겠습니다.
+
+jorund/inn/3/choices/2/text
+친한 사이가 되면 이 정도는 괜찮겠죠?
+
+jorund/inn/3/choices/2/response/0
+늦으실 때는 다른 일을 먼저 하고 있겠습니다.
+
+jorund/inn/3/choices/2/response/1
+다음에는 먼저 알려 주십시오.
+
+jorund/inn/3/seen
+오늘 남은 시간부터 확인하겠습니다.
+
+jorund/inn/4/situation
+요르드가 의뢰 종이 한 줄을 짚는다.
+
+jorund/inn/4/lines/0
+이 문구는 다시 확인하고 싶습니다.
+
+jorund/inn/4/lines/1
+맡을 일이 둘로 읽힐 수 있습니다.
+
+jorund/inn/4/lines/2
+시작하고 다투기보다는 지금 묻겠습니다.
+
+jorund/inn/4/choices/0/text
+출발 전이면 시간은 있어요.
+
+jorund/inn/4/choices/0/response/0
+그동안 답을 받아 두겠습니다.
+
+jorund/inn/4/choices/1/text
+좋은 뜻으로 쓴 걸 테니 그냥 넘어가요.
+
+jorund/inn/4/choices/1/response/0
+좋은 뜻이 무엇인지 확인하겠습니다.
+
+jorund/inn/4/choices/1/response/1
+빠진 말을 제가 채우지는 않습니다.
+
+jorund/inn/4/choices/2/text
+저도 다르게 읽었어요. 함께 확인해요.
+
+jorund/inn/4/choices/2/response/0
+어느 쪽으로 읽으셨는지 말씀해 주십시오.
+
+jorund/inn/4/seen
+두 가지로 읽히는 곳은 이 줄입니다.
+
+jorund/inn/5/situation
+요르드가 물을 한 모금 마신다.
+
+jorund/inn/5/lines/0
+계곡에서는 물이 더 차가웠습니다.
+
+jorund/inn/5/lines/1
+여기는 잔이 빨리 미지근해집니다.
+
+jorund/inn/5/lines/2
+처음 한 모금이 가장 시원합니다.
+
+jorund/inn/5/choices/0/text
+차가운 물보다 따뜻한 게 몸에 좋잖아요.
+
+jorund/inn/5/choices/0/response/0
+오늘은 시원한 물을 마시고 싶습니다.
+
+jorund/inn/5/choices/0/response/1
+이 정도는 제 취향으로 두십시오.
+
+jorund/inn/5/choices/1/text
+조금씩 따라 마시면 어떨까요?
+
+jorund/inn/5/choices/1/response/0
+주전자를 그늘에 두면 더 낫겠습니다.
+
+jorund/inn/5/choices/2/text
+지금 물은 시원하네요.
+
+jorund/inn/5/choices/2/response/0
+방금 떠 와서 아직 차갑습니다.
+
+jorund/inn/5/seen
+한 번에 많이 따르지는 않겠습니다.
+
+jorund/inn/6/situation
+요르드가 구겨진 소매를 편다.
+
+jorund/inn/6/lines/0
+식탁 모서리에 걸렸습니다.
+
+jorund/inn/6/lines/1
+천이 찢어지지는 않았습니다.
+
+jorund/inn/6/lines/2
+이쪽은 조금 비켜 앉는 편이 좋겠습니다.
+
+jorund/inn/6/choices/0/text
+모서리가 튀어나왔네요. 의자를 옮기죠.
+
+jorund/inn/6/choices/0/response/0
+반대편은 괜찮아 보입니다.
+
+jorund/inn/6/choices/1/text
+많이 걸리셨나요?
+
+jorund/inn/6/choices/1/response/0
+잠깐 멈춘 정도였습니다.
+
+jorund/inn/6/choices/2/text
+그런 건 신경 안 쓰셔도 충분히 단정해요.
+
+jorund/inn/6/choices/2/response/0
+단정해 보이려는 일은 아닙니다.
+
+jorund/inn/6/choices/2/response/1
+또 걸리지 않게 옮기는 겁니다.
+
+jorund/inn/6/seen
+저 모서리에서는 소매를 조심하십시오.
+
+jorund/inn/7/situation
+요르드가 창가 의자를 뒤로 민다.
+
+jorund/inn/7/lines/0
+이 시각에는 볕이 눈에 바로 듭니다.
+
+jorund/inn/7/lines/1
+글자 위로 빛이 번져 보입니다.
+
+jorund/inn/7/lines/2
+잠깐만 뒤로 물러나겠습니다.
+
+jorund/inn/7/choices/0/text
+저는 그늘 쪽에 있어요.
+
+jorund/inn/7/choices/0/response/0
+그쪽은 덜 눈부시겠습니다.
+
+jorund/inn/7/choices/1/text
+원로 집안이라 볕 아래 앉는 것도 조심하시네요.
+
+jorund/inn/7/choices/1/response/0
+눈이 부셔서 옮기는 겁니다.
+
+jorund/inn/7/choices/1/response/1
+집안과는 관계없습니다.
+
+jorund/inn/7/choices/2/text
+커튼을 조금 당길게요.
+
+jorund/inn/7/choices/2/response/0
+절반이면 충분합니다.
+
+jorund/inn/7/seen
+커튼 아래로는 아직 길이 잘 보입니다.
+
+jorund/inn/8/situation
+요르드가 골목 두 곳을 가리킨다.
+
+jorund/inn/8/lines/0
+저쪽은 지금 붐빌 겁니다.
+
+jorund/inn/8/lines/1
+조금 돌아가도 이 길이 빠르겠습니다.
+
+jorund/inn/8/lines/2
+원하시면 이유를 말씀드리겠습니다.
+
+jorund/inn/8/choices/0/text
+잘 아시니 앞으로 길은 전부 정해 주세요.
+
+jorund/inn/8/choices/0/response/0
+바뀌는 것은 같이 확인해야 합니다.
+
+jorund/inn/8/choices/0/response/1
+제 판단을 매번 대신 쓰지는 마십시오.
+
+jorund/inn/8/choices/1/text
+저도 다음에 찾게 알려 주세요.
+
+jorund/inn/8/choices/1/response/0
+사람들이 몰리는 모퉁이부터 보십시오.
+
+jorund/inn/8/choices/2/text
+오늘은 그 길로 가죠.
+
+jorund/inn/8/choices/2/response/0
+좁은 곳에서는 나란히 걷기 어렵습니다.
+
+jorund/inn/8/seen
+저 모퉁이에 사람이 늘면 이쪽으로 돕니다.
+
+jorund/inn/9/situation
+요르드가 여분의 종이를 밀어 둔다.
+
+jorund/inn/9/lines/0
+이건 쓰셔도 됩니다.
+
+jorund/inn/9/lines/1
+저는 필요한 만큼 남겼습니다.
+
+jorund/inn/9/lines/2
+두 번 접혀서 글씨 쓰기는 불편할 수 있습니다.
+
+jorund/inn/9/choices/0/text
+오늘 적을 건 짧아서 괜찮아요.
+
+jorund/inn/9/choices/0/response/0
+그럼 남는 부분까지 쓰실 수 있겠습니다.
+
+jorund/inn/9/choices/1/text
+지금은 쓸 일이 없어요.
+
+jorund/inn/9/choices/1/response/0
+그럼 여기 두겠습니다.
+
+jorund/inn/9/choices/2/text
+이런 것도 다 보수에 넣으시나요?
+
+jorund/inn/9/choices/2/response/0
+종이를 드린 것뿐입니다.
+
+jorund/inn/9/choices/2/response/1
+농담이라도 매번 값을 묻지는 마십시오.
+
+jorund/inn/9/seen
+접힌 데를 피하면 글씨는 잘 써집니다.
+
+jorund/inn/10/situation
+요르드가 저녁 식탁을 살핀다.
+
+jorund/inn/10/lines/0
+저쪽은 김이 나지 않습니다.
+
+jorund/inn/10/lines/1
+저는 따뜻한 것을 고르겠습니다.
+
+jorund/inn/10/lines/2
+식은 뒤에는 같은 맛이 나지 않습니다.
+
+jorund/inn/10/choices/0/text
+저는 이걸 먹어 봤어요.
+
+jorund/inn/10/choices/0/response/0
+양이 어느 정도였습니까?
+
+jorund/inn/10/choices/1/text
+음식까지 손익을 따지시는군요.
+
+jorund/inn/10/choices/1/response/0
+따뜻한 음식을 좋아하는 겁니다.
+
+jorund/inn/10/choices/1/response/1
+그것까지 셈으로 읽으실 필요는 없습니다.
+
+jorund/inn/10/choices/2/text
+저도 방금 나온 걸로 먹을게요.
+[원문 끝]

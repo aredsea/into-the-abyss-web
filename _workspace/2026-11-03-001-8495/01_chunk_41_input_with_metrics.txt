@@ -1,0 +1,494 @@
+[청크 컨텍스트] 이 텍스트는 한 문서를 나눈 청크 41/99이다.
+- 문서 전체가 아니므로 서두·결말·전환 문구를 새로 만들지 말 것. 경계가 잘린 듯 보여도 그대로 둔다.
+[진단]
+# 진단 — 게임 동료 대화 30명
+
+장르: 게임 대사. 화계는 인물별 speech.allowed_endings와 정본 말투를 보존한다. 글 전체 화계를 통일하지 않는다.
+
+1. D-14 생성 은유: 자리·몫·이름·줄·문·빈칸이 인물 고유 소재에서 벗어나 감정을 대신하는 곳. 정본 사건과 실제 물건은 보존하고 감정 대목만 일상 발화로 교정한다.
+2. C-8 대칭 대구: 정량 antithesis_count 12. A/B가 다르다·따로다 같은 명제 요약은 구체 대화로 바꾼다. 필요한 거절·경계와 반문은 남긴다.
+3. I-3/H-3 의미 해설: 행동 뒤 그 뜻은 아니다 등으로 감정을 재진술한다. 실제 오해를 풀어야 하는 곳과 중복 설명을 구분한다.
+4. F-7/A-15 사적 공문체: 간격 확보·대화 기록 등 사적 장면의 추상 행정어. 인물 고유 업무·계약·기록 장면은 보존한다.
+5. E-3/C-4 문형 반복: 먼저·오늘은·같이의 밀집, 상대를 진단하는 선택지 및 경계를 그대로 복창하는 반응. 시간 순서와 aff 기능은 유지하고 장면마다 발화 기능을 재검토한다.
+
+정량 앵커: 원문 689517자(경로 식별자 포함), relative_clause_nesting 14, double_particle_count 2, have_make_literal_count 1. risk_band low이나 긴 입력의 구조 지표로 heavy를 추천한다. 산문 기준 z-score를 화계가 섞인 게임 자료의 품질 등급으로 바로 적용하지 않는다.
+
+보존: 장면·선택지 수, 선택지 ID·순서·aff, 인물명·정본 사건·소재·화계. 도입 3줄, 전이 2줄. 수정은 finding이 있는 발화 필드에 한정한다. 지적별 제안은 고침 취지 반영 여부를 기록하며 감점 대사를 호의적 대사로 뒤집는 제안은 대안으로 반영한다.
+[진단 끝]
+
+[정량 사전 점수 v2.0 — v1.6 8지표(KatFish baseline) + v2.0 카운트형]
+risk_band: low  (score 0)
+genre: essay
+char_count: 6962
+
+[v1.6 지표]
+- comma_inclusion_rate: 0.01  (z=-1.48 vs essay 인간 baseline)
+- comma_usage_rate: 0.01  (z=-1.57 vs essay 인간 baseline)
+- ending_comma_rate: 0.00  (z=-0.52 vs essay 인간 baseline)
+- comma_segment_length: 3.10  (n/a vs essay 인간 baseline)
+- conclusion_pivot_count: 0
+- safe_balance_count: 0
+- hanja_nominalizer_density: 0.000  (z=-2.00 vs essay 인간 baseline)
+- lexical_diversity: 0.72  (z=+1.35 vs essay 인간 baseline)
+
+[v2.0 카운트형 지표 — 원값 / baseline calibration 전 z-score 해석 보류]
+- double_passive_count (이중 피동, 본진 A-8): 0
+- by_passive_count (~에 의해 피동, 본진 A-9): 0
+- pronoun_density (인칭 대명사 밀도, 본진 A-16): 0.000
+- have_make_literal_count (have/make 직역, 본진 A-7): 0
+- double_particle_count (이중 조사 결합, 본진 A-19): 0
+- relative_clause_nesting (관형절 3중+ 중첩 문장 수, 본진 A-18): 0
+- deul_overuse_rate ('-들' 남용률, 본진 A-17 hold): 0.000
+- 카운트 > 0 지표는 해당 본진 ID 처방(quick-rules.md·taxonomy)과 교차 확인 후 윤문할 것.
+
+[근거 사용 가이드]
+- 위 점수는 *근거 보조*다. 단독 판정 금지(보고서 명시).
+- z>1.0 지표는 quick-rules.md S1·S2 패턴과 교차 확인 후 윤문할 것.
+- ending_comma_rate가 ★ S1 트리거인 경우 C-11(연결어미 뒤 쉼표) 우선 손질.
+- conclusion_pivot 매치 토큰은 D-1·H-1 처방 적용 대상.
+
+[원문 시작]
+urda/inn/16/choices/0/text
+오늘은 웃는 쪽으로 끝내지 않아도 돼요.
+
+urda/inn/16/choices/0/response/0
+그럼 밤 이야기부터 조금 하겠소.
+
+urda/inn/16/choices/0/response/1
+답을 내 달라는 건 아니오.
+
+urda/inn/16/choices/1/text
+조용한 쪽으로 앉죠.
+
+urda/inn/16/choices/1/response/0
+이번엔 내가 말이 좀 적을 수도 있소.
+
+urda/inn/16/choices/2/text
+우르다 사제님이 흔들리시면 다른 분들도 불안하죠.
+
+urda/inn/16/choices/2/response/0
+그래서 혼자 삼킨 말이 길었소.
+
+urda/inn/16/choices/2/response/1
+사제가 답 못 하는 밤도 잠깐은 받아 주시오.
+
+urda/inn/16/seen
+흔들린 밤도 제 믿음 옆에 두고 말하겠소.
+
+urda/inn/17/situation
+우르다가 자기 그릇을 먼저 채운다.
+
+urda/inn/17/lines/0
+내 것도 남겨야지요.
+
+urda/inn/17/lines/1
+항상 국 끝을 보던 버릇이 있소.
+
+urda/inn/17/lines/2
+오늘은 같이 뜨겠소.
+
+urda/inn/17/choices/0/text
+이쪽에 놓을게요.
+
+urda/inn/17/choices/0/response/0
+고맙소. 수저는 내가 챙기지요.
+
+urda/inn/17/choices/1/text
+우르다 사제님은 익숙하니 다른 분들 먼저 챙겨 주세요.
+
+urda/inn/17/choices/1/response/0
+익숙한 배도 고프기는 하오.
+
+urda/inn/17/choices/1/response/1
+돌보던 손도 수저 들 때는 같이 배고프오.
+
+urda/inn/17/choices/2/text
+우르다 사제님 그릇도 같이 식기 전에 들어요.
+
+urda/inn/17/choices/2/response/0
+남의 밥보다 내 밥이 늦을 이유는 없겠소.
+
+urda/inn/17/seen
+국 떠 주던 손으로 내 그릇도 들어 볼게요.
+
+urda/inn/18/situation
+우르다가 기도하던 손을 편다.
+
+urda/inn/18/lines/0
+아무 말 안 해도 되겠소?
+
+urda/inn/18/lines/1
+사제 아닌 얼굴로요.
+
+urda/inn/18/lines/2
+오늘은 남의 답을 듣고 싶네요.
+
+urda/inn/18/choices/0/text
+뭐든 좋은 말씀 하나 해 주시면 좋겠어요.
+
+urda/inn/18/choices/0/response/0
+오늘은 말하는 사제도 조금 쉬려 했소.
+
+urda/inn/18/choices/0/response/1
+오늘은 대답을 만들어 주는 입도 쉬어 가고 싶소.
+
+urda/inn/18/choices/1/text
+답을 주실 일 없이 여기 앉아요.
+
+urda/inn/18/choices/1/response/0
+그 말에 답을 잘해야 하나 또 생각했구려.
+
+urda/inn/18/choices/2/text
+제 하루 얘기할게요.
+
+urda/inn/18/choices/2/response/0
+작은 일부터 들려주시오.
+
+urda/inn/18/seen
+손을 편 동안은 남의 하루를 받아 들겠소.
+
+urda/inn/19/situation
+우르다가 할드리크 쪽을 보며 작게 웃는다.
+
+urda/inn/19/lines/0
+늘 내가 옆에 서 줬다고 했소.
+
+urda/inn/19/lines/1
+그 사람도 내 옆을 지켰지요.
+
+urda/inn/19/lines/2
+내 말이 커서 그걸 덜 말했네요.
+
+urda/inn/19/choices/0/text
+기댄 날 얘기도 들으면 좋겠어요.
+
+urda/inn/19/choices/0/response/0
+말 많은 사람이 빚진 밤도 있지요.
+
+urda/inn/19/choices/0/response/1
+이름을 빼지 않고 들려드리겠소.
+
+urda/inn/19/choices/1/text
+오늘 같이 차 마실까요?
+
+urda/inn/19/choices/1/response/0
+그 사람 자리도 남겨 두겠소.
+
+urda/inn/19/choices/2/text
+도와주시는 분이니 받는 건 어색하겠어요.
+
+urda/inn/19/choices/2/response/0
+어색해도 받았던 날은 있었소.
+
+urda/inn/19/choices/2/response/1
+받는 내 모습까지 모르는 건 아니오.
+
+urda/inn/19/seen
+옆에 서 준 이름을 오늘은 내 얘기에도 넣겠소.
+
+urda/inn/20/situation
+우르다가 빈 그릇 세 개를 옮긴다.
+
+urda/inn/20/lines/0
+누가 믿는지는 나중에 물어요.
+
+urda/inn/20/lines/1
+먼저 배고픈지 묻고요.
+
+urda/inn/20/lines/2
+내가 빼먹으면 바로 알려 주시오.
+
+urda/inn/20/choices/0/text
+그릇부터 놓을게요.
+
+urda/inn/20/choices/0/response/0
+이번엔 갯수만 세어 봅시다.
+
+urda/inn/20/choices/1/text
+믿음 얘기는 영영 안 하면 더 편하지 않아요?
+
+urda/inn/20/choices/1/response/0
+사람을 가리지 않는 것과 그 사람을 안 묻는 건 다르오.
+
+urda/inn/20/choices/1/response/1
+다르게 믿는다고 말할 자리까지 없애진 맙시다.
+
+urda/inn/20/choices/2/text
+우르다 사제님이 지칠 때도 같은 순서로 물을게요.
+
+urda/inn/20/choices/2/response/0
+나도 그 안에 넣어 주는구려.
+
+urda/inn/20/seen
+지친 사제도 오늘 그릇 셀 사람 수에 넣어 주시오.
+
+urda/inn/21/situation
+우르다가 하고 싶은 말을 적어 내려간다.
+
+urda/inn/21/lines/0
+하나만 먼저 끝내겠소.
+
+urda/inn/21/lines/1
+다 한다고 웃어넘기지는 않겠소.
+
+urda/inn/21/lines/2
+모자란 손은 부탁할게요.
+
+urda/inn/21/choices/0/text
+분위기는 제가 띄울 테니 더 벌여 보세요.
+
+urda/inn/21/choices/0/response/0
+떠들 손보다 마칠 손이 먼저 필요하오.
+
+urda/inn/21/choices/0/response/1
+벌인 일 끝에 누구 손이 남을지부터 세겠소.
+
+urda/inn/21/choices/1/text
+부탁받아도 못 할 때는 말씀드릴게요.
+
+urda/inn/21/choices/1/response/0
+그 자리까지 남겨야 참 부탁이겠네요.
+
+urda/inn/21/choices/2/text
+순서를 같이 볼까요?
+
+urda/inn/21/choices/2/response/0
+내가 벌인 것부터 앞에 두겠소.
+
+urda/inn/21/seen
+오늘 벌일 말은 마칠 손을 세고 나서 하겠소.
+
+urda/inn/22/situation
+우르다가 기도할 자리를 비워 둔다.
+
+urda/inn/22/lines/0
+같이 믿으라는 건 아니오.
+
+urda/inn/22/lines/1
+같이 앉아 주면 좋겠소.
+
+urda/inn/22/lines/2
+의심하는 밤에는 더 그렇고요.
+
+urda/inn/22/choices/0/text
+의심이 생겨도 이 자리로 오세요.
+
+urda/inn/22/choices/0/response/0
+사제가 답을 잃은 얼굴도 괜찮겠소?
+
+urda/inn/22/choices/0/response/1
+그러면 오늘은 여기 앉겠소.
+
+urda/inn/22/choices/1/text
+잔은 옆에 둘게요.
+
+urda/inn/22/choices/1/response/0
+기도 끝날 때까지 식어도 두시오.
+
+urda/inn/22/choices/2/text
+확신이 생기면 그때 불러 주세요.
+
+urda/inn/22/choices/2/response/0
+확신 오기 전 밤이 조금 길어서요.
+
+urda/inn/22/choices/2/response/1
+확신이 오기 전에도 밤은 혼자 길어지더군요.
+
+urda/inn/22/seen
+답이 없는 밤에도 부를 사람이 생겼네요.
+
+urda/inn/23/situation
+우르다가 성표를 옷 밖에 둔다.
+
+urda/inn/23/lines/0
+자꾸 숨기고 싶던 때도 있소.
+
+urda/inn/23/lines/1
+오늘은 내놓을래요.
+
+urda/inn/23/lines/2
+남의 것까지 내놓으라 하지는 않겠소.
+
+urda/inn/23/choices/0/text
+통로는 비워 둘게요.
+
+urda/inn/23/choices/0/response/0
+지나가는 사람도 멈출 수 있겠네요.
+
+urda/inn/23/choices/1/text
+분쟁 없게 오늘만 넣어 두시면 좋겠어요.
+
+urda/inn/23/choices/1/response/0
+분쟁을 피하는 자리가 늘 내 옷 안이면 서운하오.
+
+urda/inn/23/choices/1/response/1
+남의 성표와 같이 보이는 쪽도 고를 수 있지 않소?
+
+urda/inn/23/choices/2/text
+같이 있는 사람 성표가 달라도 자리는 같죠.
+
+urda/inn/23/choices/2/response/0
+같은 그릇을 써도 성표까지 바꿀 건 없겠소.
+
+urda/inn/23/seen
+남의 자리를 안 밀고 내 성표도 내놓겠소.
+
+urda/inn/24/situation
+우르다가 아무것도 들지 않고 웃는다.
+
+urda/inn/24/lines/0
+국은 아직 못 떴소.
+
+urda/inn/24/lines/1
+그래도 인사는 할 수 있지요.
+
+urda/inn/24/lines/2
+오늘은 먼저 앉을래요.
+
+urda/inn/24/choices/0/text
+오셨으니 식탁부터 챙겨 주시면 좋겠어요.
+
+urda/inn/24/choices/0/response/0
+앉겠다는 첫말이 국보다 늦게 들렸나 보오.
+
+urda/inn/24/choices/0/response/1
+밥 떠 주지 않아도 오늘 내 자리가 있었으면 하오.
+
+urda/inn/24/choices/1/text
+손 비어도 우르다 사제님 자리는 있어요.
+
+urda/inn/24/choices/1/response/0
+밥 주는 손만 기다린 건 아니었구려.
+
+urda/inn/24/choices/1/response/1
+그럼 내 하루부터 말할게요.
+
+urda/inn/24/choices/2/text
+차를 제가 따를게요.
+
+urda/inn/24/choices/2/response/0
+오늘은 내가 받겠소.
+
+urda/inn/24/seen
+빈손으로 온 사제도 먼저 앉아 볼게요.
+
+urda/inn/25/situation
+우르다가 웃다가 잠깐 입을 다문다.
+
+urda/inn/25/lines/0
+농담이 늦었네요.
+
+urda/inn/25/lines/1
+괜찮소, 오늘은 그냥 늦게 둘래요.
+
+urda/inn/25/lines/2
+조용히 있어도 덜 어색해졌소.
+
+urda/inn/25/choices/0/text
+침묵도 급히 채우지 않을게요.
+
+urda/inn/25/choices/0/response/0
+그럼 차 따르는 소리부터 들읍시다.
+
+urda/inn/25/choices/1/text
+옆으로 앉을까요?
+
+urda/inn/25/choices/1/response/0
+예, 오늘은 가까운 쪽이 좋소.
+
+urda/inn/25/choices/2/text
+분위기가 처지니 재미있는 얘기 하나 해 주세요.
+
+urda/inn/25/choices/2/response/0
+조용한 쪽도 오늘 내 얼굴이오.
+
+urda/inn/25/choices/2/response/1
+농담은 안 나와도 옆에 있을 마음은 있소.
+
+urda/inn/25/seen
+농담 쉬는 시간에도 식탁 소리는 남네요.
+
+urda/inn/26/situation
+우르다가 기도 끝에 잔을 든다.
+
+urda/inn/26/lines/0
+오늘은 잘 모르겠다는 말로 끝냈소.
+
+urda/inn/26/lines/1
+그래도 기도는 했고요.
+
+urda/inn/26/lines/2
+끝내고 나니 여기가 보이네요.
+
+urda/inn/26/choices/0/text
+국은 따뜻해요.
+
+urda/inn/26/choices/0/response/0
+이번엔 내가 먼저 한 숟갈 들겠소.
+
+urda/inn/26/choices/1/text
+기도하셨으니 이제 답이 곧 생기겠네요.
+
+urda/inn/26/choices/1/response/0
+답을 받으려고만 한 기도는 아니오.
+
+urda/inn/26/choices/1/response/1
+기도하고 나서도 잘 모르겠다는 말을 할 수 있지요.
+
+urda/inn/26/choices/2/text
+모르는 채로 돌아와도 제가 듣고 있을게요.
+
+urda/inn/26/choices/2/response/0
+다 아는 얼굴로 오지 않아도 되겠소.
+
+urda/inn/26/choices/2/response/1
+그게 오늘은 참 편하네요.
+
+urda/inn/26/seen
+답 없는 기도 끝에도 돌아올 식탁은 있소.
+
+urda/inn/27/situation
+우르다가 문가에서 손을 흔든다.
+
+urda/inn/27/lines/0
+먼저 돌아와 있었소.
+
+urda/inn/27/lines/1
+할 일을 다 마쳐서 온 건 아니오.
+
+urda/inn/27/lines/2
+같이 앉을 자리가 생각나서요.
+
+urda/inn/27/choices/0/text
+수고 덜게 제가 다 해 놓을 테니 가서 쉬세요.
+
+urda/inn/27/choices/0/response/0
+같이 꺼낼 그릇까지 없애면 좀 허전하겠소.
+
+urda/inn/27/choices/0/response/1
+같이 손 움직이는 시간도 오늘 쉬는 시간이오.
+
+urda/inn/27/choices/1/text
+오늘은 저도 그 자리 보고 돌아왔어요.
+
+urda/inn/27/choices/1/response/0
+그럼 서로 기다린 셈이구려.
+
+urda/inn/27/choices/1/response/1
+밥보다 먼저 반갑다고 하겠소.
+
+urda/inn/27/choices/2/text
+그릇은 같이 꺼내요.
+
+urda/inn/27/choices/2/response/0
+오늘은 두 손이 더 있네요.
+
+urda/inn/27/seen
+돌아오며 떠올린 자리에 오늘도 사람이 있소.
+
+urda/dungeon/0/variants/0
+밥 먹은 사람 손 들어 보시오.
+
+urda/dungeon/0/variants/1
+굶었다면 출발 전에 한마디 더 하오.
+[원문 끝]
