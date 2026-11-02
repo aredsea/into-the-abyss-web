@@ -25,6 +25,12 @@ REGISTERS = {cid: (['하십시오체'] if cid == 'hildegard' else
                   ['해체', '해요체'] if cid in ['erdene', 'gerda'] else ['해요체']) for cid in IDS}
 REGISTERS.update({cid:['하십시오체'] for cid in ['hedwig','altan']})
 REGISTERS.update({cid:['해체'] for cid in ['gunhild','bargut']})
+IDS.update({'selva':'셀바','ornel':'오르넬','zahar':'자하르','jorund':'요르드',
+            'lavinia':'라비니아','tove':'토베','miko':'미코','adeline':'아델린','colette':'콜레트'})
+REGISTERS.update({cid:['하십시오체','해요체'] for cid in ['selva','lavinia','adeline']})
+REGISTERS.update({cid:['해요체'] for cid in ['ornel','miko']})
+REGISTERS.update({cid:['해체'] for cid in ['zahar','tove']})
+REGISTERS.update({cid:['하십시오체'] for cid in ['jorund','colette']})
 ENDING_FRAGMENTS = {
     'hildegard': [{'text': '출발 전에 한 잔씩 마시도록…….', 'reason': '명령조를 내다가 고쳐 말하는 중단. 한국어 지침 5.3 및 인물 정본.'}],
     'marceline': [{'text': '이럴 때는 옆에 앉아도 되는 순서라고…….', 'reason': '책에서 익힌 순서를 말하려다 스스로 멈춤. 한국어 지침 5.3.'},
@@ -116,7 +122,7 @@ def replace_at(data, path, value):
 
 
 def main():
-    from dialogue_r21_round3 import build
+    from dialogue_r21_round4 import build
     build()
 
 

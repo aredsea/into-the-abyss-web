@@ -13,6 +13,8 @@ TITLES = {'hildegard': '힐데가 경', 'marceline': '마르셀린 씨', 'teiris
           'judith': '유디트 씨', 'levia': '레비아 씨', 'urda': '우르다 사제님'}
 TITLES.update({'lynette':'리네트 씨', 'felice':'펠리스 씨', 'sorel':'소렐 씨', 'tika':'티카 씨',
                'hedwig':'헤드비히 씨', 'berenga':'베렌가 씨', 'gunhild':'군힐트 씨', 'bargut':'바르굿 씨', 'altan':'알탄 씨'})
+TITLES.update({'selva':'셀바 씨','ornel':'오르넬 씨','zahar':'자하르 씨','jorund':'요르드 씨',
+               'lavinia':'라비니아 씨','tove':'토베 씨','miko':'미코 씨','adeline':'아델린 씨','colette':'콜레트 씨'})
 VOICE = {
  'hildegard': '반듯한 하십시오체. 명령을 입에 올렸다가 부탁으로 고친다. 가까워지면 맡기고 쉬는 법을 배운다.',
  'marceline': '낮은 존댓말. 남부터 챙기다가 사적인 안부에도 소설에서 읽은 절차를 찾는다. 교리서라는 변명은 가까워질수록 서툴러진다.',

@@ -24,7 +24,7 @@ BIEUP_FINAL = ''.join(chr(c) for c in range(0xAC00, 0xD7A4) if (c - 0xAC00) % 28
 FORMAL = re.compile(r'(?:(?<!아)니다|[' + BIEUP_FINAL + r']니까|시오|십시오|시다)$')
 POLITE = re.compile(r'(?:요|죠)$')
 HAO = re.compile(r'(?:오|소|구려|구료|시다|리다|군|(?:것|자리|그대로|여기|수고|먼저|조)요)$')
-INFORMAL = re.compile(r'(?:아|어|해|돼|봐|줘|둬|와|가|자|지|네|야|냐|니|나|래|게|걸|마|거든|다|까|데|고|라|군|구나|걸로|겠지|러|서|여|워|도|면|려|져|뭐|만|시|놔|겨|쪽)$')
+INFORMAL = re.compile(r'(?:아|어|해|돼|봐|줘|둬|와|가|자|지|네|야|냐|니|나|래|게|걸|마|거든|다|까|데|고|라|군|구나|걸로|겠지|러|서|여|워|도|면|려|져|뭐|만|시|놔|겨|쪽|써|차|셔|파|내|혀|춰)$')
 EMOJI = re.compile('[\U0001F000-\U0001FAFF\u2600-\u27BF\uFE0F\u200D\u20E3]')
 
 
@@ -214,6 +214,12 @@ def validate(data, expected_id=None, dictionary=None):
                     continue
                 metrics['ending_sentences'] += 1
                 allowed = REGISTERS.get(cid, [])
+                # Standalone acknowledgments/interjections have no sentence-final
+                # speech ending. Keep them as speech, but do not invent a register.
+                if s in {'예', '네', '응', '잠깐'}:
+                    if (s == '응' and '해체' not in allowed) or (s in {'예', '네'} and not any(a in allowed for a in ['하십시오체','해요체','하오체'])):
+                        metrics['ending_deviations'].append({'path':path,'sentence':s})
+                    continue
                 # 군 is shared by 하오체 and 해체 (e.g. 군힐트's 그렇군).
                 # Other 하오 endings must still be rejected by 해체 declarations.
                 informal_hao_conflict = HAO.search(s) and not s.endswith('군')
