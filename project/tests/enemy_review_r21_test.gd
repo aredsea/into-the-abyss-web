@@ -153,7 +153,10 @@ func fourth(o: Dictionary):
 		observations.saves.append({"input":row,"hp":a.hp,"shield":a.shield,"wall_after_tick":wall,"rng_unchanged":rng==b.rng_state})
 		check(a.hp==row.hp and a.shield==row.shield,"4.4/7 canonical DOT save "+row.kind)
 		check(rng==b.rng_state and row.rng_unchanged,"4.7 save uses raw setf shield without guardian RNG "+row.kind)
-		if row.wall>0: check(wall==int(row.wall)-1,"4.4 wall duration offsets this start tick "+row.kind)
+		if row.wall>0:
+			check(wall==int(row.wall),"4.4 wall duration unchanged at start tick "+row.kind)
+			b.dungeon_enemy_r21.end_effects(a)
+			check(a.effects.wall_party.turns==int(row.wall)-1,"4.4 wall duration decrements at owner end "+row.kind)
 	var b=fixture(); var a=b.data.allies[0]; var e=b.data.enemies[0]
 	rename_ally(b,1,"felice"); a.hp=50; b.current_id=a.id
 	b.dungeon_enemy_r21.add_dot(a,e,100,1); b._tick(a)
@@ -185,6 +188,7 @@ func fourth(o: Dictionary):
 			var probe=load("res://game/battle_v3.gd").new(b.data)
 			probe.extra_state=b.extra_state.duplicate(true); probe.data.allies[0].hp=0; probe.current_id=b.current_id
 			for u in probe.data.allies+probe.data.enemies: u.remaining=10000.0
+			probe.data.allies[0].remaining=0.0 # canonical source scan fixture died with no positive wait
 			# Keep this event-isolation fixture within its current round. A full
 			# 100-tick advance now legitimately invokes Felice's separate round hook.
 			probe.ctb_tick=0; probe.ctb_round=0; probe.data.allies[2].remaining=1.0
@@ -314,7 +318,7 @@ func fifth(o: Dictionary):
 		restored._incoming_strike(restored.data.allies[0],1000,{}, {"name":"probe"},false,true)
 		check(not b.data.allies[1].effects.has(key) and (cid!="adeline" or not b.data.allies[1].effects.has("regen")),"5.2 real caster death removes guard and Adeline regen "+cid)
 		check(JSON.parse_string(JSON.stringify(b.snapshot()))==JSON.parse_string(JSON.stringify(restored.snapshot())),"5.2 restored caster death continues identically "+cid)
-	var b=fixture(); var caster=b.data.allies[1]; caster.class_id="unsanctioned"; var e=b.data.enemies[0]
+	var b=fixture(); var caster=b.data.allies[1]; caster.class_id="unsanctioned"; var e=b.data.enemies[0]; b.action_id="attack"
 	for i in range(3): b.data.allies[i].nation="모르가스 신관국"
 	for i in range(1,7):
 		caster.base.int=i*100; b._damage(caster,e,.01,0,true)

@@ -1,5 +1,94 @@
 # DATA-R21 — A 갈래 던전·적 데이터 이관
 
+<!-- R22_A6_START -->
+## A6 — 검수 6건 종결 · P2 훅/사건 계약 확장 · 혼합 전투 차이 목록
+
+2026-11-02. **1부 6건 종결(현재 P2에서 기해소 1건, 나머지 5건 수정). 새 검사 251항목 / 실패 0. 공통·기존·신규 24종 / 실패 0**. P3/P4 전체 전투 구현 완료를 뜻하지 않는다. 아래 P2·5차 절은 이전 차수 기록이며 이번 절의 변경 사항이 우선한다.
+
+### 1부 — 원본 Lua와 실제 경로 재현
+
+| 지적 | 재현 및 결과 | 근거 |
+|---|---|---|
+| P1-1 DOT 사망자 MP | 현재 P2의 실제 `_finish_turn` → DOT 사망 → 다음 생존자 선택에서 원본과 같은 MP **5**. 이 경로는 이미 해소되어 있었다. 별도 회귀 시험으로 닫았고 불필요한 예전 MP 원복 장치도 제거했다. | `30-engine.lua:248–260,1053–1087`; `a6-oracle.json:mp` |
+| P1-2 옛 전투 피격 | r21 피격 경로와 옛 전투를 분리했다. **72bf1b2의 실제 blob**에서 읽은 피격 함수를 보존하고 반향·구원·사제·상처·소렐·반올림 6조건을 비교한다. | `a6-legacy-source.json`, `combat_a6_legacy_fixture.gd` |
+| P1-3 ruin 중복 DOT·연쇄 폭발 | 직업 DOT 패시브는 살아 있는 적에게 일반 공격을 했을 때만 적용한다. ruin은 대상별 한 줄, 원본의 `floor(cs*2*.5)`를 쓴다. 매 push에서 연쇄 폭발을 판정하며 각 줄의 잔여 수명을 합산한다. 연쇄 폭발 없는/있는 ruin 3회씩 일치. | `34-traits.lua:407–410`, `30-engine.lua:652–676`, `81-gear.lua:689–712` |
+| P2-4 쓰러진 피격자 상처 | 사망 여부와 무관하게 damaged의 상처 누적. 일반·고정 피해 모두 원본 50과 일치. | `81-gear.lua:919–931` |
+| P2-5 옛 합산 DOT 중첩 | 저장된 `dot_stacks` 개수를 유지하며 새 줄을 더한다. 옛 4줄 총합 100 → 새 줄 20은 **5줄·120**. 저장에 없던 개별 금액·순서는 복구할 수 없으므로 동등 분배로 이관한다. 총합·개수는 유지하되 이후 오래된 줄 제거의 정확한 과거 금액 복원은 보장하지 않는다. | 원본 `B.dot_push`; `a6-oracle.json:migration` |
+| P2-6 소렐/최후의 저항 순서 | 개인 damaged를 먼저, 장비 damaged를 나중에 적용한다. HP 250에서 raw 100 → 소렐 회복 후 **HP 350, 저항 미발동**, 일반·고정 모두 일치. | `30-engine.lua:77–85`, `81-gear.lua:919–931` |
+
+수정 전 유효한 1부 회귀는 **20항목 중 15실패**, 수정 후 20항목 실패 0이다(`a6-part1-before.json`, `a6-part1-after.json`). 최초 임시 fixture의 행동자 기대와 JSON 배열 int/float 비교 문제는 원본 값 변경 없이 바로잡았다. 이후 실패 재현은 `a6-hooks-before.json`, `a6-render-dot-before.json`, `a6-regen-supply-before.json`, `a6-clock-wall-before.json`, `a6-batch-before.json`에 보존했다. 각 산출물은 그 단계의 범위이며 합산 실패 수로 쓰지 않는다.
+
+### 2부 — 남은 P2 범위
+
+1. **라운드·대기·효과 수명**: 유디트의 원래 속도/만료 라운드와 재적용, 페르소나의 `set_persona_regen` 경계 함수(살아 있는 페르소나 round 훅만 실행), 펠리체의 `death_tick + ceil(max(remaining,0)/base_speed)` 대기/슬롯 우선 소생, 죽은 성벽 착용자 수명, 새 성벽의 이전 파티 성벽 교체를 연결했다. 일반 버프는 보유자 차례 끝에 감소하고 자기 시전 버프는 첫 감소를 건너뛴다. 보호막은 자기 차례 끝도 센다. DOT 각 줄의 소유자·수명·만료 폭발, 아델린 중복 재생의 적용 행동 번호와 각 줄 수명도 분리했다. 모르가스 DOT 배수는 문구의 옛 숫자 대신 실행 코드의 **+10%**를 쓴다. 구역 보스의 충전 지연 절반도 고쳤다.
+2. **사건·표시 계약**: `combat_events_r22.gd`가 종류·행동자·대상 슬롯·발생 순서·시작/명중 시각을 내보낸다. 개인 30명, 직업/공통 17행동, 아이템 5종, 적 지원/공격 12조건, 고갈/회복/취소/DOT/종료/단계 및 연속 자동 행동을 포함한 **71개 실제 실행 표본**을 Lua와 비교했다. 원본 한 입력의 자동 행동들은 같은 사건 시계를 이어 간다. `combat_display_r22.gd`는 40-fx의 **28종**에 대해 명중·숫자·이름표·컷인 callback 시각을 대조하고 50-render 상태칩 **27표본**을 비교한다. r21 `effects_text`도 같은 칩 계약을 사용한다. r17~r20의 아트·잉크·컷인·배치 파일은 수정하지 않았다.
+3. **능동 기술·보급품 포함 정책**: 기본 공격 외에 사용할 수 있는 개인/직업 기술과 소형 HP/MP 물약을 선택한다. 원본의 대상·자기 지정 제한을 지키며 두 엔진이 각자 실제 사용 가능 여부를 판단한다. 파티 3조합 × 적 4편성 × 씨앗 4개의 **48전투**를 양쪽 모두 종결했다. 원본 **2,537행동**, Godot **2,766행동**. 전투 전체 일치는 **3/48**, 차이 **45건**이다. 이는 실패 0으로 포장하지 않은 진단 결과다. 최초 차이별 P3 원인 목록은 `a6-parity-gaps.json`이며, 뒷부분의 연쇄 차이를 별개 원인이라고 세지 않는다.
+
+| 혼합 전투 최초 차이 분류 | 전투 수 |
+|---|---:|
+| 바르굿 개인 기술 계수/사용 조건과 입력 분기(P3) | 16 |
+| 나란 개인 기술의 약점 심연 배수/이후 시전 상태(P3) | 9 |
+| 직업 파티 보호막 계수: stat 대신 2×stat 기반(P3) | 18 |
+| 마르셀린 대신 맞기의 전체 공격 적용(P3) | 2 |
+
+혼합 정책의 불일치가 전체 아군 기술·특성·장비 조합을 검증했다는 뜻은 아니다. 원본과 같은 초기 능력치를 고정해 P1/P4의 생성·장비 초기화는 분리했다. P4 전 장비 조합은 미실행이다. 사건 검증은 위 실제 표본의 종류/대상/시계와 원본 callback 관측 계약이며, 원본 HTML/CSS의 픽셀 동일성 또는 아직 P3/P4가 옮기지 않은 모든 proc 경로의 사건 전수 동등성을 주장하지 않는다.
+
+### 저장·보호·검사
+
+schema 3을 유지하고 선택적인 DOT `lifetimes/owners/bursts/initial_turns`, 재생 `heals` 및 유디트/펠리체 숫자 메타데이터를 읽고 쓴다. 옛 메타데이터 없는 효과도 읽는다. 새 배열 길이·소유자·양수 수명·재생 구조를 검증하며, 잘못된 저장은 적용하지 않는다. 유디트 속도는 roster 재구성 뒤 저장된 원래 속도에서 복구한다. 실제 JSON 왕복·잘못된 메타데이터 거부·진행 중 소생 대기는 시험했다. 사용자 저장 파일에는 쓰지 않았다.
+
+- 새 검사: **251 / 실패 0**. Lua 관측 행 **232**, 분포 `a6-summary.json`.
+- 기본 공격 전체 trace: **48전투·1,468행동 / 불일치 0**.
+- 적 행동·리뷰·던전 및 공통/화면/motion 검사: 아래 최신 결과 **24종 / 실패 0**.
+- 원본 그림 **96/96**, 데이터/정본 감사 실패 **0**. 보호 파일 **874개 / 변경 0**, `docs/` **249개 / 변경 0**.
+- 직접 연 이미지: `verification/data-r21/battle-360-7.png`, `verification/ui-r20/all-states-360.png`. 적 이름표/HP, 아군 카드, 명령/기술/보급품/기록 시트 배치를 확인했다. 모든 결과 이미지를 각각 연 것은 아니다.
+
+첫 전체 실행의 r18 종료 리소스 잔류 1건과 추가 실행의 직접 소환 fixture에서 빠진 `kind` 접근 1건은 수정/재검사했다. 진단 요약은 `a6-intermediate-failures.json`이며, 개별 로그는 최신 실행으로 갱신됐다. r18의 간헐적 종료 경고 원인은 특정하지 못했지만 다음 전체 실행은 오류 0이었다. 최신 결과는 `suite-a6-final.json`이다. OS 인증서 저장소 진단만 기존 환경 메시지로 분리했다.
+
+| 최종 검사 | 결과 | 실패/엔진 오류 |
+|---|---|---:|
+| `import` | 통과 | 0 |
+| `world_test` | 통과 | 0 |
+| `state_test` | 통과 | 0 |
+| `route_test` | 통과 | 0 |
+| `expansion_test` | 통과 | 0 |
+| `motion_test` | 통과 | 0 |
+| `motion_asset_test` | 통과 | 0 |
+| `art_test` | 통과 | 0 |
+| `export_licenses` | 통과 | 0 |
+| `data_r21_test` | 통과 | 0 |
+| `dungeon_r21_test` | 통과 | 0 |
+| `enemy_regression_r21_test` | 통과 | 0 |
+| `enemy_action_r21_test` | 통과 | 0 |
+| `enemy_review_r21_test` | 통과 | 0 |
+| `combat_p2_r22_test` | 통과 | 0 |
+| `combat_p2_r22_trace` | 통과 | 0 |
+| `combat_a6_r22_test` | 통과 | 0 |
+| `ui_battle_r17_test` | 통과 | 0 |
+| `ui_battle_r18_test` | 통과 | 0 |
+| `ui_battle_r19_test` | 통과 | 0 |
+| `ui_battle_r20_test` | 통과 | 0 |
+| `motion_r9_integration` | 통과 | 0 |
+| `motion_r18_integration` | 통과 | 0 |
+| `ui_data_r21_test` | 통과 | 0 |
+
+### 파일과 재실행
+
+구현: `project/game/battle_v3.gd`, `dungeon_enemy_r21.gd`, 새 `combat_events_r22.gd`, `combat_display_r22.gd`. 검사: 새 `combat_a6_r22_test.gd`, `combat_a6_r22_fixture.gd`, `combat_a6_legacy_fixture.gd`, `combat_a6_mixed_audit.gd`; 기존 `enemy_review_r21_test.gd`. 기존 시험은 일반 공격의 `action_id`를 명시하고, 시작 틱 대신 원본 종료 틱에서 성벽을 확인하며, 소생 훅 격리 fixture의 사망 게이지를 원본과 같은 0으로 두었다. Lua 기대 숫자는 구현에 맞춰 바꾸지 않았다.
+
+도구: `oracle_combat_a6_r22.mjs/.lua`, `oracle_combat_a6_mixed.mjs`, `prepare_combat_a6_r22.py`, `report_combat_a6_r22.py`, `verify_data_r21.py`. 증거: `verification/data-r21/a6-*`, `suite-a6-final.json`. 기존 검사 산출물도 재생성됐다.
+
+```powershell
+node tools/oracle_combat_a6_r22.mjs
+node tools/oracle_combat_a6_mixed.mjs
+python tools/verify_data_r21.py
+python tools/godot_r17.py --headless --script res://tests/combat_a6_mixed_audit.gd
+python tools/audit_data_r21.py
+python tools/report_combat_a6_r22.py
+```
+
+Web export·버전 갱신은 실행하지 않았다. 원본 봇·다른 worktree·`docs/`에는 쓰지 않았다. 첫 규칙 읽기와 묶여 있던 `git status --short`는 소유권 오류로 실패했다. 이후 git 명령/설정 변경은 하지 않았으며 72bf1b2는 읽기 전용 객체 파일을 직접 읽었다. 성적 콘텐츠는 옮기지 않았다(`79-sex.lua`는 기존 참조 목록 유지).
+<!-- R22_A6_END -->
 <!-- R22_P2_START -->
 ## P2 — CTB·난수·라운드 핵심 이관 / 표시·일부 훅은 미완료
 

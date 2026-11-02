@@ -3,56 +3,56 @@
     "test": "import",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 3.06,
+    "seconds": 2.86,
     "passed": true
   },
   {
     "test": "world_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 0.44,
+    "seconds": 0.42,
     "passed": true
   },
   {
     "test": "state_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 0.8,
+    "seconds": 0.91,
     "passed": true
   },
   {
     "test": "route_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 0.44,
+    "seconds": 0.45,
     "passed": true
   },
   {
     "test": "expansion_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 1.19,
+    "seconds": 1.17,
     "passed": true
   },
   {
     "test": "motion_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 0.39,
+    "seconds": 0.36,
     "passed": true
   },
   {
     "test": "motion_asset_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 0.47,
+    "seconds": 0.42,
     "passed": true
   },
   {
     "test": "art_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 0.75,
+    "seconds": 0.72,
     "passed": true
   },
   {
@@ -66,63 +66,72 @@
     "test": "data_r21_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 1.0,
+    "seconds": 0.91,
     "passed": true
   },
   {
     "test": "dungeon_r21_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 37.8,
+    "seconds": 36.95,
     "passed": true
   },
   {
     "test": "enemy_regression_r21_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 0.91,
+    "seconds": 1.0,
     "passed": true
   },
   {
     "test": "enemy_action_r21_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 16.81,
+    "seconds": 18.31,
     "passed": true
   },
   {
     "test": "enemy_review_r21_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 11.33,
+    "seconds": 10.92,
     "passed": true
   },
   {
     "test": "combat_p2_r22_test",
     "exit_code": 0,
-    "engine_errors": [],
-    "seconds": 14.48,
-    "passed": true
+    "engine_errors": [
+      "SCRIPT ERROR: Invalid access to property or key 'kind' on a base object of type 'Dictionary'."
+    ],
+    "seconds": 15.78,
+    "passed": false
   },
   {
     "test": "combat_p2_r22_trace",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 2.39,
+    "seconds": 2.48,
+    "passed": true
+  },
+  {
+    "test": "combat_a6_r22_test",
+    "exit_code": 0,
+    "engine_errors": [],
+    "seconds": 9.72,
     "passed": true
   },
   {
     "test": "ui_battle_r17_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 44.06,
+    "seconds": 44.75,
     "passed": true
   },
   {
     "test": "ui_battle_r18_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 39.58,
+    "seconds": 37.03,
     "passed": true
   },
   {
@@ -136,28 +145,28 @@
     "test": "ui_battle_r20_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 14.27,
+    "seconds": 13.94,
     "passed": true
   },
   {
     "test": "motion_r9_integration",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 6.66,
+    "seconds": 6.5,
     "passed": true
   },
   {
     "test": "motion_r18_integration",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 56.27,
+    "seconds": 52.31,
     "passed": true
   },
   {
     "test": "ui_data_r21_test",
     "exit_code": 0,
     "engine_errors": [],
-    "seconds": 18.64,
+    "seconds": 15.61,
     "passed": true
   }
 ]

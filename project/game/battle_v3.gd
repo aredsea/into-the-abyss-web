@@ -7,11 +7,20 @@ var hit_serial=0
 var inventory={}
 var dungeon_enemy_r21
 var last_enemy_hit_target=""
-var r21_tick_mp=-1
 const CombatClock=preload("res://game/combat_clock_r22.gd")
 var ctb_tick=0
 var ctb_round=0
 var combat_hits=[]
+var r21_action_actor=""
+const CombatEvents=preload("res://game/combat_events_r22.gd")
+const CombatDisplay=preload("res://game/combat_display_r22.gd")
+var combat_events=CombatEvents.new()
+func combat_event_trace() -> Dictionary: return combat_events.trace()
+func combat_display_schedule(event: Dictionary) -> Array: return CombatDisplay.schedule(event)
+func status_chips(u: Dictionary) -> Array: return CombatDisplay.chips(self,u)
+func _begin_combat_events(id: String,a: Dictionary,e: Dictionary,t: Dictionary) -> void:
+	combat_events=CombatEvents.new()
+	combat_events.begin(self,id,a,e,t)
 
 func _record_hit(actor: String,target: String,damage: int,shield: int,critical: bool=false) -> void:
 	var all=data.allies+data.enemies
@@ -65,6 +74,8 @@ func _round_tick() -> void:
 						_receive_heal(a,fx(a,"sorel_regen")); a.effects.sorel_regen.turns-=1
 						if a.effects.sorel_regen.turns<=0: a.effects.erase("sorel_regen")
 			"felice": _felice_scan()
+			"judith": _judith_unslow()
+			"persona": _persona_round()
 			"jorund":
 				for e in data.enemies: x(e).jd=0
 			"hildegard": _hg_scan()
@@ -79,6 +90,31 @@ func _round_tick() -> void:
 		for a in living(true):
 			for key in ["attack_down","defense_down","zdn"]:
 				if a.effects.has(key): a.effects.erase(key); break
+
+	# Gear's global round hook also runs while the wall wearer is down.
+	for a in data.allies:
+		if a.hp<=0 and a.effects.has("wall_party"):
+			a.effects.wall_party.turns-=1
+			if a.effects.wall_party.turns<=0: a.effects.erase("wall_party")
+
+func _begin_effect_action(actor: String) -> void:
+	r21_action_actor=actor
+
+func set_persona_regen(target: Dictionary,amount: float,rounds: int=2) -> void:
+	# P1's persona assembler can call this boundary without owning the clock.
+	_effect(target,"persona_regen",rounds,amount)
+
+func _persona_round() -> void:
+	for a in living(true):
+		if a.effects.has("persona_regen"):
+			_receive_heal(a,fx(a,"persona_regen"))
+			a.effects.persona_regen.turns-=1
+			if a.effects.persona_regen.turns<=0: a.effects.erase("persona_regen")
+
+func _judith_unslow() -> void:
+	for e in data.enemies:
+		if x(e).has("judith_sp0") and ctb_round>=x(e).get("judith_until",0):
+			e.speed=x(e).judith_sp0; x(e).erase("judith_sp0"); x(e).erase("judith_until")
 
 func _init(scene_data: Dictionary={}) -> void:
 	super(scene_data)
@@ -111,6 +147,7 @@ func _check_end() -> bool:
 	if living(false).is_empty(): result="victory"
 	elif living(true).is_empty() or turn_count>=400: result="defeat"
 	if not result.is_empty():
+		if dungeon_enemy_r21!=null: combat_events.push("end",0,combat_events.T+.3)
 		_event("전투 승리" if result=="victory" else "전투 패배 · 부상으로 이탈")
 		data.queue=[]
 		return true
@@ -163,6 +200,7 @@ func _effect(u: Dictionary,key: String,turns: int,amount: float=0) -> void:
 		elif key in ["guard","psguard","duty","bless","attack_up","defense_up","contract","blood"] or (dungeon_enemy_r21!=null and key=="adeline_guard"):
 			if count_tag("race","하프엘프")>=2: turns+=1
 	super(u,key,turns,amount)
+	if dungeon_enemy_r21!=null and r21_action_actor==u.id and key not in ["shield","taunt","mark","foxflame","wall_party","regen","sorel_regen","persona_regen"]: u.effects[key].fresh=true
 
 func living(friends: bool) -> Array:
 	if not friends: return super(false)
@@ -253,7 +291,6 @@ func _heal(a: Dictionary,t: Dictionary,power: float,use_class_line=false) -> voi
 		var healed_r21=_receive_heal(t,amount,a)
 		_event("%s → %s · HP +%d" % [a.name,t.name,healed_r21])
 		if a.id=="miko": _effect(t,"next_power",4,.6)
-		if a.id=="adeline": _source_effect(t,"regen",3,a.base.int*2*.08,a.id)
 		return
 	amount*=1+a.get("gear_fx",{}).get("heal",0)/100.0
 	amount*=1+bonus(t,"healrecv")
@@ -298,16 +335,76 @@ func _source_effect(u: Dictionary,key: String,turns: int,amount: float,source: S
 	_effect(u,key,turns,amount)
 	if dungeon_enemy_r21!=null: u.effects[key].source=source
 
+func _dot_metadata(e: Dictionary) -> Dictionary:
+	var effect=e.effects.get("dot",{}).duplicate(true)
+	var stacks=effect.get("stacks",[])
+	if stacks.is_empty() and effect.get("amount",0)>0:
+		var count=clampi(int(x(e).get("dot_stacks",1)),1,6)
+		for i in range(count): stacks.append(float(effect.amount)/count)
+	effect.stacks=stacks
+	for key in ["lifetimes","owners","bursts","initial_turns"]:
+		if not effect.has(key):
+			effect[key]=[]
+			for i in range(stacks.size()): effect[key].append(x(e).get("dot_owner","") if key=="owners" else 0 if key=="bursts" else int(effect.get("turns",1)))
+	return effect
+
+func _store_class_dot(e: Dictionary,effect: Dictionary) -> void:
+	x(e).dot_stacks=effect.stacks.size()
+	if effect.stacks.is_empty(): e.effects.erase("dot"); return
+	effect.amount=0.0; effect.turns=0
+	for i in range(effect.stacks.size()):
+		effect.amount+=effect.stacks[i]; effect.turns=maxi(effect.turns,int(effect.lifetimes[i]))
+	e.effects.dot=effect
+
 func _push_class_dot(e: Dictionary,amount: float,turns: int,owner: String) -> void:
-	var stacks=e.effects.get("dot",{}).get("stacks",[]).duplicate()
-	# Old aggregate saves retain their exact total; history was not saved.
-	if stacks.is_empty() and fx(e,"dot")>0: stacks.append(fx(e,"dot"))
+	var effect=_dot_metadata(e); var caster=ally(owner)
 	var cap=6 if count_tag("nation","모르가스 신관국")>=3 else 5
-	while stacks.size()>=cap: stacks.pop_front()
-	stacks.append(amount); var total=0.0
-	for value in stacks: total+=value
-	_effect(e,"dot",turns,total); e.effects.dot.stacks=stacks
-	x(e).dot_stacks=stacks.size(); x(e).dot_owner=owner
+	while effect.stacks.size()>=cap:
+		for key in ["stacks","lifetimes","owners","bursts","initial_turns"]: effect[key].pop_front()
+	if not caster.is_empty() and bonus(caster,"dot")!=0: amount=floor(amount*(1+bonus(caster,"dot"))+.5)
+	var burst=proc(caster,"dot_burst") if not caster.is_empty() else {}
+	effect.stacks.append(amount); effect.lifetimes.append(turns); effect.owners.append(owner)
+	effect.bursts.append(burst.get("x",0)); effect.initial_turns.append(turns)
+	_store_class_dot(e,effect); x(e).dot_owner=owner
+	if caster.is_empty(): return
+	var chain=sig(caster,"un_chain")
+	if not chain.is_empty() and e.hp>0 and effect.stacks.size()>=chain[0]:
+		var pending=0.0
+		for i in range(effect.stacks.size()): pending+=effect.stacks[i]*effect.lifetimes[i]
+		for key in ["corrosion","bleed"]: pending+=fx(e,key)*e.effects.get(key,{}).get("turns",0)
+		var damage=int(floor(pending*(1+chain[1]/100.0)))
+		for key in ["dot","corrosion","bleed"]: e.effects.erase(key)
+		x(e).dot_stacks=0
+		_incoming_strike(e,damage,{}, {"name":"연쇄 폭발"})
+
+func _tick_enemy_dots(e: Dictionary) -> void:
+	var sum=0.0; var owners=[]
+	if e.effects.has("dot"):
+		var effect=_dot_metadata(e)
+		for i in range(effect.stacks.size()-1,-1,-1):
+			sum+=effect.stacks[i]; owners.append(effect.owners[i]); effect.lifetimes[i]-=1
+			if effect.lifetimes[i]<=0:
+				sum+=floor(effect.stacks[i]*effect.initial_turns[i]*effect.bursts[i]/100.0)
+				for key in ["stacks","lifetimes","owners","bursts","initial_turns"]: effect[key].remove_at(i)
+		_store_class_dot(e,effect)
+	for key in ["corrosion","bleed"]:
+		if e.effects.has(key):
+			sum+=fx(e,key); e.effects[key].turns-=1
+			if e.effects[key].turns<=0: e.effects.erase(key)
+	if sum<=0: return
+	if count_tag("nation","모르가스 신관국")>=2: sum=floor(sum*1.1+.5)
+	var before=e.hp
+	_incoming_strike(e,sum,{}, {"name":"지속 피해"})
+	combat_events.push("dot",combat_events.slot(self,e),combat_events.T,[combat_events.slot(self,e)]); combat_events.T+=.9
+	dungeon_enemy_r21.phase_guard(e,before)
+	var seen=[]
+	for id in owners:
+		if id in seen: continue
+		seen.append(id); var owner=ally(id)
+		if owner.is_empty() or owner.hp<=0: continue
+		var blood=sig(owner,"un_blood")
+		if not blood.is_empty():
+			owner.mp=mini(owner.mmp,owner.mp+int(blood[0])); _effect(owner,"next_power",99,minf(fx(owner,"next_power")+blood[1]/100.0,blood[1]*blood[2]/100.0))
 
 func _ally_down(a: Dictionary) -> void:
 	# GH.ally_down refreshes live synergies (count_tag reads HP dynamically),
@@ -316,7 +413,10 @@ func _ally_down(a: Dictionary) -> void:
 	for e in living(false):
 		if e.effects.has("dot") and e.effects.dot.has("stacks"):
 			var stacks=e.effects.dot.stacks
-			while stacks.size()>cap: stacks.pop_front()
+			while stacks.size()>cap:
+				stacks.pop_front()
+				for key in ["lifetimes","owners","bursts","initial_turns"]:
+					if e.effects.dot.has(key): e.effects.dot[key].pop_front()
 			e.effects.dot.amount=0.0
 			for amount in stacks: e.effects.dot.amount+=amount
 			x(e).dot_stacks=stacks.size()
@@ -347,7 +447,6 @@ func _behind(t: Dictionary) -> Dictionary:
 
 func _tick(u: Dictionary) -> void:
 	if dungeon_enemy_r21!=null:
-		r21_tick_mp=-1
 		dungeon_enemy_r21.drop_auras()
 		if u.has("base"):
 			# begin_turn runs before edot_tick, including expiry of taunt.
@@ -355,7 +454,6 @@ func _tick(u: Dictionary) -> void:
 				u.effects.taunt.turns-=1
 				if u.effects.taunt.turns<=0: u.effects.erase("taunt")
 			u.mp=mini(u.mmp,u.mp+int(data.formula.mp_regen)+int(floor(u.get("gear_fx",{}).get("mpreg",0)+.5)))
-			r21_tick_mp=u.mp
 			var begin_heal=proc(u,"taunt_heal")
 			if not begin_heal.is_empty() and u.effects.has("taunt"): _receive_heal(u,u.mhp*begin_heal.x/100.0)
 		if not u.has("base") and u.effects.get("guard",{}).get("r21",false): u.effects.erase("guard")
@@ -368,10 +466,12 @@ func _tick(u: Dictionary) -> void:
 		if dot_damage>0:
 			# edot_tick uses one fixed strike: skip attack/evade, retain damage hooks.
 			_incoming_strike(u,dot_damage,{}, {"name":"지속 피해"},false,true)
+			combat_events.push("adot",combat_events.slot(self,u),combat_events.T,[combat_events.slot(self,u)]); combat_events.T+=.9
 			if u.hp<=0: return # B.run skips end_turn and every subsequent heal.
 	if dungeon_enemy_r21==null and x(u).get("reviving",false): u.hp=maxi(1,int(u.mhp*.25)); x(u).reviving=false; _event(u.name+" · 응급 소생")
+	if dungeon_enemy_r21!=null and not u.has("base"): _tick_enemy_dots(u)
 	for key in ["dot","corrosion","bleed"]:
-		if fx(u,key)>0:
+		if dungeon_enemy_r21==null and fx(u,key)>0:
 			u.hp=maxi(0,u.hp-int(floor(fx(u,key)))); _event("%s · 지속 피해 %d" % [u.name,fx(u,key)])
 			var owner=ally(x(u).get("dot_owner",""))
 			if not owner.is_empty() and owner.hp>0:
@@ -384,18 +484,14 @@ func _tick(u: Dictionary) -> void:
 			u.mp=mini(u.mmp,u.mp+int(u.get("gear_fx",{}).get("mpreg",0)))
 			var th=proc(u,"taunt_heal")
 			if not th.is_empty() and u.effects.has("taunt"): u.hp=mini(u.mhp,u.hp+int(u.mhp*th.x/100.0))
-		if fx(u,"regen")>0: u.hp=mini(u.mhp,u.hp+int(floor(fx(u,"regen"))))
+		if dungeon_enemy_r21==null and fx(u,"regen")>0: u.hp=mini(u.mhp,u.hp+int(floor(fx(u,"regen"))))
 		if dungeon_enemy_r21==null and u.id=="tove": u.shield=mini(int(u.mhp*.3),u.shield+int(u.mhp*.06))
 		if dungeon_enemy_r21==null and u.id=="urda" and not living(true).is_empty():
 			var t=_lowest(); _heal(u,t,.175); _cleanse(t)
 		if dungeon_enemy_r21==null and u.id=="erdene" and u.effects.get("taunt",{}).get("turns",0)==1:
 			u.hp=mini(u.mhp,u.hp+int(x(u).get("prevented",0)*.25)); x(u).prevented=0
-	var held={}
-	if dungeon_enemy_r21!=null:
-		for key in u.effects.keys():
-			if u.effects[key].get("r21",false) or key in ["taunt","sorel_regen"] or key.begins_with("enemy_dot_"): held[key]=u.effects[key]; u.effects.erase(key)
-	super(u)
-	u.effects.merge(held)
+	# r21 buffs tick at the owner turn end; legacy saves retain start ticks.
+	if dungeon_enemy_r21==null: super(u)
 	if dungeon_enemy_r21!=null and not u.has("base"):
 		dungeon_enemy_r21.phase_guard(u)
 		var old_phase=u.phase
@@ -499,16 +595,16 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 		var delay=800.0; var warp=sig(a,"sa_warp")
 		if not warp.is_empty(): delay=100*warp[0]; x(a).pull=maxf(x(a).get("pull",0),warp[0]*warp[2]/10000.0)
 		e.remaining+=delay*(.5 if dungeon_enemy_r21!=null and e.grade=="boss" else 1.0)
-	if a.class_id=="unsanctioned":
-		var dot=a.base.int*.24*(1+bonus(a,"dot"))
-		if not sig(a,"un_seep").is_empty(): dot*=1+sig(a,"un_seep")[0]/100.0
+	if a.class_id=="unsanctioned" and (dungeon_enemy_r21==null or (action_id=="attack" and e.hp>0)):
+		var dot=(maxf(1,floor(a.base.int*.24)) if dungeon_enemy_r21!=null else a.base.int*.24)*(1+bonus(a,"dot") if dungeon_enemy_r21==null else 1)
+		if dungeon_enemy_r21==null and not sig(a,"un_seep").is_empty(): dot*=1+sig(a,"un_seep")[0]/100.0
 		if dungeon_enemy_r21!=null:
 			_push_class_dot(e,dot,4,a.id)
 		else:
 			_effect(e,"dot",4,minf(fx(e,"dot")+dot,dot*5)); x(e).dot_stacks=int(x(e).get("dot_stacks",0))+1
 		x(e).dot_owner=a.id
 		var chain=sig(a,"un_chain")
-		if not chain.is_empty() and x(e).dot_stacks>=chain[0]:
+		if dungeon_enemy_r21==null and not chain.is_empty() and x(e).dot_stacks>=chain[0]:
 			e.hp=maxi(0,e.hp-int(fx(e,"dot")*3*(1+chain[1]/100.0))); e.effects.erase("dot"); x(e).dot_stacks=0
 	if a.id=="naran": _effect(e,"foxflame",3,.6)
 	if a.id=="judith": _effect(e,"corrosion",2,minf(fx(e,"corrosion")+a.base.int*1.5,a.base.int*4.5))
@@ -569,6 +665,7 @@ func _break(e: Dictionary,amount: float) -> void:
 	e.gauge=maxf(0,e.gauge-amount)
 	if e.gauge>0: return
 	e.broken=true; dungeon_enemy_r21.drop_auras()
+	combat_events.push("deplete",combat_events.slot(self,e),combat_events.abyss_time(maxi(0,combat_hits.size()-1)))
 	_event("%s · 고갈 · 다음 행동 취소"%e.short)
 
 func act(id: String) -> bool:
@@ -579,9 +676,11 @@ func act(id: String) -> bool:
 	if sk.target=="아군 1" and (t.is_empty() or t.hp<=0): return false
 	if sk.target.begins_with("적") and living(false).is_empty(): return false
 	events=[]; critical_this_action=false; a.mp-=cost(id); action_id=id; selected_action=id
+	if dungeon_enemy_r21!=null: _begin_effect_action(a.id)
 	combat_hits=[]
 	if dungeon_enemy_r21!=null: dungeon_enemy_r21.begin_random(turn_count+1)
 	x(a).haste_done=false
+	if dungeon_enemy_r21!=null: _begin_combat_events(id,a,e,t)
 	var echo=proc(a,"echo")
 	if sk.mp>0 and not echo.is_empty() and _roll(echo.p/100.0): a.mp=mini(a.mmp,a.mp+int(cost(id)*echo.x/100.0))
 	_event(a.name+" · "+sk.name)
@@ -601,7 +700,7 @@ func act(id: String) -> bool:
 			a.charging=true
 			var warp=sig(a,"sa_warp")
 			var delay=2500.0 if warp.is_empty() else warp[1]*100.0
-			e.remaining+=delay
+			e.remaining+=delay*(.5 if dungeon_enemy_r21!=null and e.grade=="boss" else 1)
 			if not warp.is_empty(): x(a).pull=maxf(x(a).get("pull",0),delay*warp[2]/1000000.0)
 		"pshield","hshield":
 			for member in living(true):
@@ -621,11 +720,13 @@ func act(id: String) -> bool:
 		"ruin":
 			for foe in living(false):
 				_damage(a,foe,.6,0)
-				if dungeon_enemy_r21!=null: _push_class_dot(foe,a.base.int*.5,3,a.id)
+				if dungeon_enemy_r21!=null and foe.hp<=0: continue
+				if dungeon_enemy_r21!=null: _push_class_dot(foe,floor(a.base.int),3,a.id)
 				else: _effect(foe,"dot",3,a.base.int*.5)
 				_effect(foe,"attack_down",3,.15)
 		"blood": a.hp-=hp_cost(a,id); _effect(a,"blood",2,1)
 	if a.effects.has("taunt") and not sig(a,"wa_wall").is_empty(): _effect(a,"gear_guard",int(sig(a,"wa_wall")[1]),sig(a,"wa_wall")[0]/100.0)
+	if dungeon_enemy_r21!=null: combat_events.finish(self)
 	_finish_turn(2.0 if id=="burst" else 1.0); return true
 
 func _tactic(a: Dictionary,e: Dictionary,t: Dictionary,sk: Dictionary) -> void:
@@ -641,12 +742,15 @@ func _tactic(a: Dictionary,e: Dictionary,t: Dictionary,sk: Dictionary) -> void:
 		else:
 			if p.kind.begins_with("heal"): _heal(a,target,p.power,true)
 			else: _shield(target,a.base[a.line]*2*p.power,2)
-			if q.kind=="regen": _effect(target,"regen",3,a.base[a.line]*2*q.value)
+			if q.kind=="regen":
+				if dungeon_enemy_r21!=null: set_persona_regen(target,floor(a.base[a.line]*2*q.value+.5),2)
+				else: _effect(target,"regen",3,a.base[a.line]*2*q.value)
 			if q.kind=="guard": _effect(target,"psguard",2,q.value)
 			if q.kind=="crit": _effect(target,"crit_up",2,q.value)
 
 func _use_supply(item: Dictionary,t: Dictionary) -> bool:
 	if t.is_empty() or t.level<item.level or inventory.get(item.id,0)<=0: return false
+	if dungeon_enemy_r21!=null: return _use_supply_r21(item,t)
 	if item.kind=="revive":
 		if t.hp>0: return false
 		t.hp=maxi(1,int(t.mhp*.25))
@@ -666,7 +770,59 @@ func _use_supply(item: Dictionary,t: Dictionary) -> bool:
 				for key in ["dot","corrosion","bleed","foxflame","enemy_dot_0","enemy_dot_1","enemy_dot_2","enemy_dot_3"]:
 					if t.effects.has(key): t.effects.erase(key); count+=1
 				if count==0: return false
-	inventory[item.id]-=1; events=[]; action_id="supply"; _event(item.name+" → "+t.name); _finish_turn(); return true
+	inventory[item.id]-=1; events=[]; action_id="supply"
+	if dungeon_enemy_r21!=null:
+		combat_hits=[]; dungeon_enemy_r21.begin_random(turn_count+1)
+		_begin_combat_events("supply",ally(current_id),enemy(selected_enemy),t); combat_events.finish(self)
+	_event(item.name+" → "+t.name); _finish_turn(); return true
+
+func _use_supply_r21(item: Dictionary,t: Dictionary) -> bool:
+	# 78-battle-item: validate before reseeding or consuming the action.
+	var maximum=t.mmp if item.kind=="mp" else t.mhp
+	if item.kind=="revive":
+		if t.hp>0: return false
+	else:
+		if t.hp<=0: return false
+		if item.kind in ["hp","mp"] and t[item.kind]>=maximum: return false
+		if item.kind=="shield" and t.shield>=floor(t.mhp*item.fraction+.5): return false
+		if item.kind=="cleanse" and t.effects.keys().filter(func(key):return key in ["dot","corrosion","bleed","foxflame"] or key.begins_with("enemy_dot_")).is_empty(): return false
+	dungeon_enemy_r21.begin_random(turn_count+1); combat_hits=[]; events=[]; action_id="supply"
+	_begin_effect_action(current_id); _begin_combat_events("supply",ally(current_id),enemy(selected_enemy),t)
+	var mul=1.1 if count_tag("nation","마렌토 공화국")>=2 else 1.0
+	var amount=int(floor(maximum*item.get("fraction",0)*mul+.5))
+	match item.kind:
+		"hp": _receive_heal(t,amount)
+		"mp": t.mp=mini(t.mmp,t.mp+amount)
+		"shield":
+			var shield_amount=float(amount)
+			if count_tag("nation","솔렌 성왕국")>=2: shield_amount*=1.03
+			_shield(t,shield_amount,3)
+		"cleanse":
+			for key in t.effects.keys():
+				if key in ["dot","corrosion","bleed","foxflame"] or key.begins_with("enemy_dot_"): t.effects.erase(key)
+			x(t).dot_stacks=0
+		"revive":
+			t.hp=maxi(1,int(floor(t.mhp*.25))); t.remaining=10000.0; t.effects={}; t.charging=false
+			x(t).cover=""; x(t).reviving=false; x(t).erase("death_tick")
+	inventory[item.id]-=1; combat_events.finish(self)
+	_event(item.name+" → "+t.name); _finish_turn(); return true
+
+func _add_adeline_regen(t: Dictionary,amount: float,turns: int,owner: String) -> void:
+	var heals=t.effects.get("regen",{}).get("heals",[]).duplicate(true)
+	heals.append({"amount":amount,"turns":turns,"action":turn_count+1})
+	_source_effect(t,"regen",turns,amount,owner); t.effects.regen.heals=heals
+
+func _turn_end_regen(t: Dictionary) -> void:
+	if t.hp<=0 or not t.effects.has("regen") or not has_alive("adeline"): return
+	var eff=t.effects.regen
+	var heals=eff.get("heals",[{"amount":eff.amount,"turns":eff.turns,"action":-1}])
+	var keep=[]; var amount=0.0; var left=0
+	for entry in heals:
+		if entry.action!=turn_count+1: amount+=entry.amount; entry.turns-=1
+		if entry.turns>0: keep.append(entry); left=maxi(left,int(entry.turns))
+	_receive_heal(t,amount)
+	if keep.is_empty(): t.effects.erase("regen")
+	else: eff.heals=keep; eff.turns=left
 
 func _personal(a: Dictionary,e: Dictionary,t: Dictionary,sk: Dictionary) -> void:
 	match a.id:
@@ -685,7 +841,14 @@ func _personal(a: Dictionary,e: Dictionary,t: Dictionary,sk: Dictionary) -> void
 		"gerda":
 			var other=_behind(e); _damage(a,e,1.3,3)
 			if not other.is_empty(): _damage(a,other,1.3,3,true)
-		"judith": _effect(e,"defense_down",3,.2); _effect(e,"attack_down",3,.15); _effect(e,"slow",3,.15); _effect(e,"corrosion",2,a.base.int*1.5); _break(e,3)
+		"judith":
+			_effect(e,"defense_down",3,.2); _effect(e,"attack_down",3,.15)
+			if dungeon_enemy_r21!=null:
+				_effect(e,"haste",3,.15)
+				if not x(e).has("judith_sp0"): x(e).judith_sp0=e.speed; e.speed=floor(e.speed*.85+.5)
+				x(e).judith_until=ctb_round+3
+			else: _effect(e,"slow",3,.15)
+			_effect(e,"corrosion",2,a.base.int*1.5); _break(e,3)
 		"levia": a.hp-=hp_cost(a,"personal"); _effect(a,"rift_charge",99,1)
 		"urda":
 			for key in t.effects:
@@ -717,16 +880,27 @@ func _personal(a: Dictionary,e: Dictionary,t: Dictionary,sk: Dictionary) -> void
 		"tove": _break(e,40); _effect(a,"taunt",2)
 		"miko": _heal(a,t,1); t.remaining=maxf(0,t.remaining-3000)
 		"adeline":
-			for m in living(true): _heal(a,m,.4); _source_effect(m,"adeline_guard",2,.1,a.id); _source_effect(m,"regen",3,a.base.int*.16,a.id)
+			for m in living(true):
+				_heal(a,m,.4); _source_effect(m,"adeline_guard",2,.1,a.id)
+				if dungeon_enemy_r21!=null: _add_adeline_regen(m,a.base.int*.16,2,a.id)
+				else: _source_effect(m,"regen",3,a.base.int*.16,a.id)
 		_: _damage(a,e,1.4 if a.id=="bianca" else 1.2,sk.brk)
 
 func _felice_scan() -> void:
 	if not has_alive("felice"): return
+	if dungeon_enemy_r21==null: return
+	var owner=ally("felice")
+	if x(owner).get("revive",false): return
+	var pick={}; var earliest=INF
 	for member in data.allies:
-		if member.hp<=0 and x(member).get("reviving",false):
-			member.hp=maxi(1,int(member.mhp*.25)); member.effects={}; member.shield=0; member.charging=false
-			member.remaining=0.0; x(member).reviving=false
-			_event(member.name+" · 펠리체 소생"); break
+		if member.id==owner.id or member.hp>0: continue
+		if not x(member).has("death_tick"): x(member).death_tick=ctb_tick
+		var ready=x(member).death_tick+ceil(maxf(0,member.remaining)/member.base.spd)
+		if ctb_tick>=ready and ready<earliest: pick=member; earliest=ready
+	if pick.is_empty(): return
+	pick.hp=maxi(1,int(floor(pick.mhp*.25))); pick.effects={}; pick.shield=0; pick.charging=false
+	pick.remaining=0.0; x(pick).reviving=false; x(pick).erase("death_tick"); x(owner).revive=true
+	_event(pick.name+" · 펠리체 소생")
 
 func _finish_turn(interval_scale: float=1) -> void:
 	if dungeon_enemy_r21!=null:
@@ -737,6 +911,9 @@ func _finish_turn(interval_scale: float=1) -> void:
 		if not ally(current_id).is_empty() and unit(current_id).hp>0:
 			_felice_scan(); _hg_scan()
 		dungeon_enemy_r21.end_effects(unit(current_id))
+		_turn_end_regen(unit(current_id))
+		if has_alive("judith"): _judith_unslow()
+		r21_action_actor=""
 	var a=ally(current_id)
 	if not a.is_empty():
 		interval_scale*=1-float(x(a).get("pull",0)); x(a).pull=0
@@ -755,8 +932,6 @@ func _finish_turn(interval_scale: float=1) -> void:
 		critical_this_action=false; turn_count+=1
 		if not _check_end(): _advance_ctb()
 		refresh_forecast()
-	# The base scheduler adds MP after _tick; r21 already did begin_turn before DOT.
-	if dungeon_enemy_r21!=null and result.is_empty() and not ally(current_id).is_empty() and unit(current_id).hp>0 and r21_tick_mp>=0: unit(current_id).mp=r21_tick_mp
 	if result.is_empty() and unit(current_id).hp<=0:
 		if dungeon_enemy_r21!=null: _advance_after_dot_death()
 		else: _finish_turn()
@@ -765,12 +940,10 @@ func _advance_after_dot_death() -> void:
 	# Repeat only CTB selection from battle_state._finish_turn. A dead actor
 	# neither acts nor ends a turn, so actions/turn_count must not advance.
 	while result.is_empty() and unit(current_id).hp<=0:
-		if living(false).is_empty() or living(true).is_empty():
-			result="victory" if living(false).is_empty() else "defeat"; break
+		if _check_end(): break
 		_advance_ctb()
 		var next=unit(current_id)
-		if living(false).is_empty() or living(true).is_empty():
-			result="victory" if living(false).is_empty() else "defeat"; break
+		if _check_end(): break
 		if next.hp<=0: continue
 		if next.has("mp"):
 			last_ally=next.id
@@ -786,7 +959,9 @@ func automatic_turn() -> bool:
 	events=[]; action_id="burst"; a.charging=false; _event(a.name+" · 마력 폭발 발동")
 	combat_hits=[]
 	if dungeon_enemy_r21!=null: dungeon_enemy_r21.begin_random(turn_count+1)
+	if dungeon_enemy_r21!=null: combat_events.begin(self,"release",a,enemy(selected_enemy),a)
 	for e in living(false): _damage(a,e,a.skills.burst.power,a.skills.burst.brk)
+	if dungeon_enemy_r21!=null: combat_events.finish(self)
 	_finish_turn(); return true
 
 func _plan_redirect(e: Dictionary) -> void:
@@ -848,6 +1023,7 @@ func _enemy_hit(e: Dictionary,a: Dictionary,sk: Dictionary) -> void:
 	_incoming_strike(a,hit,e,sk,covered)
 
 func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,covered=false,fixed=false) -> void:
+	if dungeon_enemy_r21==null: _legacy_incoming_strike(a,hit,e,sk,covered,fixed); return
 	if a.hp<=0: return
 	if not a.has("base"):
 		var damage=maxi(1,int(floor(hit))); var absorbed=mini(int(a.get("shield",0)),damage)
@@ -880,7 +1056,7 @@ func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,cove
 		hit*=1-fx(a,"contract")
 	if has_alive("adeline"): hit*=1-fx(a,"adeline_guard")
 	hit*=1-fx(a,"gear_guard")
-	for member in living(true): hit*=1-fx(member,"wall_party")
+	for member in data.allies: hit*=1-fx(member,"wall_party")
 	if a.shield>0 and not sig(a,"pa_wrath").is_empty(): hit*=1-sig(a,"pa_wrath")[1]/100.0
 	if a.charging and not sig(a,"sa_ward").is_empty():
 		var ward=sig(a,"sa_ward"); x(a).charge_damage=x(a).get("charge_damage",0)+hit*ward[0]*ward[1]/10000.0; hit*=1-ward[0]/100.0
@@ -895,6 +1071,7 @@ func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,cove
 	if dungeon_enemy_r21!=null and not fixed and not e.is_empty(): _record_hit(e.id,a.id,damage,absorbed)
 	# Lua al stays true during save hooks, even after lethal HP becomes zero.
 	var save_owners=data.allies.filter(func(member): return member.hp>0)
+	if a.hp-damage+absorbed<=0 and has_alive("felice") and a.id!="felice": x(a).death_tick=ctb_tick
 	a.shield-=absorbed; damage-=absorbed; a.hp=maxi(0,a.hp-damage)
 	if not e.is_empty(): e.hp=maxi(0,e.hp-int(damage*bonus(a,"reflect")))
 	var echo_broken=absorbed>0 and a.shield==0
@@ -907,6 +1084,7 @@ func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,cove
 		if a.id=="marceline" and not x(a).get("saved",false):
 			x(a).saved=true; a.hp=mini(a.mhp,1+int(a.mhp*.25)); _shield(a,a.mhp*.15,3,false)
 		elif not sig(a,"wa_last").is_empty() and not x(a).get("wall_saved",false):
+			for member in data.allies: member.effects.erase("wall_party")
 			var wall=sig(a,"wa_last"); x(a).wall_saved=true; a.hp=maxi(1,int(floor(a.mhp*wall[0]/100.0+.5))); _effect(a,"wall_party",int(wall[1])+(1 if current_id==a.id else 0),wall[2]/100.0)
 		else:
 			if not a.ward_used:
@@ -918,18 +1096,18 @@ func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,cove
 					if not miracle.is_empty(): _shield(a,a.mhp*miracle[1]/100.0,3,false)
 					break
 			if a.hp==0 and a.id!="felice" and has_alive("felice") and not x(ally("felice")).get("revive",false):
-				x(ally("felice")).revive=true; x(a).reviving=true; _event("펠리체 · 다음 차례에 소생")
+				x(a).reviving=true; _event("펠리체 · 다음 차례에 소생")
 		if a.hp<=0 and dungeon_enemy_r21!=null: _ally_down(a)
 	a.effects.erase("mark")
-	if (not fixed or damage>0) and a.hp>0 and not sig(a,"wa_scar").is_empty():
+	if (not fixed or damage>0) and not sig(a,"wa_scar").is_empty():
 		var scar=sig(a,"wa_scar"); x(a).scar=minf(a.mhp*scar[1]/100.0,x(a).get("scar",0)+damage*scar[0]/100.0)
-	var stand=proc(a,"last_stand")
-	if (not fixed or damage>0) and not stand.is_empty() and a.hp>0 and a.hp<a.mhp*stand.x/100.0 and not x(a).get("stood",false):
-		x(a).stood=true; _effect(a,"gear_guard",int(stand.n),.3)
 	if (not fixed or damage>0) and a.hp>0 and a.hp<=a.mhp*.25 and has_alive("sorel") and x(ally("sorel")).get("rescue",0)<2:
 		x(ally("sorel")).rescue=x(ally("sorel")).get("rescue",0)+1
 		if dungeon_enemy_r21!=null: _receive_heal(a,ally("sorel").base.int*2)
 		else: _heal(ally("sorel"),a,1)
+	var stand=proc(a,"last_stand")
+	if (not fixed or damage>0) and not stand.is_empty() and a.hp>0 and a.hp<a.mhp*stand.x/100.0 and not x(a).get("stood",false):
+		x(a).stood=true; _effect(a,"gear_guard",int(stand.n),.3)
 	# Both fixed and ordinary strikes run pecho after saves, death and damaged.
 	if echo_broken and a.hp>0:
 		var echo=0.0
@@ -937,7 +1115,91 @@ func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,cove
 			if member.hp>0 and not sig(member,"pa_echo").is_empty(): echo=maxf(echo,sig(member,"pa_echo")[0]/100.0)
 		_receive_heal(a,absorbed*echo)
 
+# Frozen legacy damage path from 72bf1b2; ongoing pre-r21 expeditions keep their rules.
+func _legacy_incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,covered=false,fixed=false) -> void:
+	if a.hp<=0: return
+	if not a.has("base"):
+		var damage=maxi(1,int(floor(hit))); var absorbed=mini(int(a.get("shield",0)),damage)
+		a.shield=a.get("shield",0)-absorbed; a.hp=maxi(0,a.hp-(damage-absorbed))
+		return
+	# B.strike: stance and cover precede take; tactical psguard follows it.
+	if not fixed and a.effects.has("guard"): hit=floor(hit*(1-fx(a,"guard")))
+	if covered: hit=floor(hit*.7)
+	if a.id=="hildegard": hit*=.85*(1-fx(a,"duty"))
+	if a.get("race")=="하프엘프": hit*=.98
+	if count_tag("race","하프엘프")>=3: hit*=.98
+	var nox=count_tag("race","녹스")
+	if nox>=2: hit*=.95 if nox>=3 else .97
+	if nox>=3 and a.effects.has("taunt"): hit*=.92
+	if count_tag("nation","신성 세레디아 제국")>=2 and a.row=="전열": hit*=.97
+	if a.get("nation")=="케른 연방" and a.effects.has("taunt"): hit*=.98
+	if a.id=="zahar" and (fixed or not sk.get("magic",false)): hit*=.62
+	if a.id=="zahar" and fx(a,"zdn")>0:
+		var n=int(data.encounter_r21.el)-1 if dungeon_enemy_r21!=null else int(e.get("level",1))-1
+		var k=40*(1+data.def_curve.a*n+data.def_curve.b*n*n)
+		var d0=a.base.def*(1+fx(a,"bless")+fx(a,"defense_up"))
+		var d1=d0-a.base.def*fx(a,"zdn")
+		hit*=(k+d0)/(k+d1)
+	if a.id=="erdene" and a.effects.has("taunt"): x(a).prevented=x(a).get("prevented",0)+hit*.15; hit*=.85
+	if has_alive("haldric"):
+		if a.id=="haldric" or ally("haldric").effects.has("taunt"): hit*=.85
+		hit*=1-fx(a,"contract")
+	if has_alive("adeline"): hit*=1-fx(a,"adeline_guard")
+	hit*=1-fx(a,"gear_guard")
+	for member in living(true): hit*=1-fx(member,"wall_party")
+	if a.shield>0 and not sig(a,"pa_wrath").is_empty(): hit*=1-sig(a,"pa_wrath")[1]/100.0
+	if a.charging and not sig(a,"sa_ward").is_empty():
+		var ward=sig(a,"sa_ward"); x(a).charge_damage=x(a).get("charge_damage",0)+hit*ward[0]*ward[1]/10000.0; hit*=1-ward[0]/100.0
+	if a.class_id=="gladiator": hit*=1-.1*float(a.hp)/a.mhp
+	hit*=1-minf(.8,a.get("gear_fx",{}).get("dr",0)/100.0)
+	if not fixed and has_alive("altan") and sk.get("m",1)>=1.5 and x(ally("altan")).get("refresh",0)<2:
+		_shield(a,ally("altan").base.int*2,3); x(ally("altan")).refresh=x(ally("altan")).get("refresh",0)+1
+	# red25 (duty) belongs inside take; psguard is rounded separately.
+	hit=floor(hit+.5)
+	if fx(a,"psguard")>0: hit=floor(hit*(1-fx(a,"psguard"))+.5)
+	var damage=maxi(1,int(hit)); var absorbed=mini(a.shield,damage)
+	a.shield-=absorbed; damage-=absorbed; a.hp=maxi(0,a.hp-damage)
+	if (not fixed or damage>0) and not sig(a,"wa_scar").is_empty():
+		var scar=sig(a,"wa_scar"); x(a).scar=minf(a.mhp*scar[1]/100.0,x(a).get("scar",0)+damage*scar[0]/100.0)
+	if not e.is_empty(): e.hp=maxi(0,e.hp-int(damage*bonus(a,"reflect")))
+	var echo_heal=0
+	if absorbed>0 and a.shield==0:
+		var thorns=proc(a,"thorns_shd")
+		if not e.is_empty() and not thorns.is_empty(): e.hp=maxi(0,e.hp-int(absorbed*thorns.x/100.0))
+		var echo=0.0
+		for member in living(true):
+			if not sig(member,"pa_echo").is_empty(): echo=maxf(echo,sig(member,"pa_echo")[0]/100.0)
+		if fixed: echo_heal=int(absorbed*echo)
+		else: a.hp=mini(a.mhp,a.hp+int(absorbed*echo))
+	_event("%s → %s · %d 피해" % [sk.name,a.name,damage])
+	if a.hp==0:
+		if not sig(a,"wa_last").is_empty() and not x(a).get("wall_saved",false):
+			var wall=sig(a,"wa_last"); x(a).wall_saved=true; a.hp=int(a.mhp*wall[0]/100.0); _effect(a,"wall_party",int(wall[1])+(1 if current_id==a.id else 0),wall[2]/100.0)
+		elif a.id=="marceline" and not x(a).get("saved",false):
+			x(a).saved=true; a.hp=1+int(a.mhp*.25); _shield(a,a.mhp*.15,3,false)
+		else:
+			var priest=false
+			for m in living(true):
+				if m.class_id=="priest": priest=true
+			if priest and not a.ward_used:
+				a.ward_used=true; a.hp=int(a.mhp*.5)
+				for member in living(true):
+					var miracle=sig(member,"pr_miracle")
+					if not miracle.is_empty(): a.hp=maxi(a.hp,int(a.mhp*miracle[0]/100.0)); _shield(a,a.mhp*miracle[1]/100.0,3,false)
+			elif has_alive("felice") and not x(ally("felice")).get("revive",false):
+				x(ally("felice")).revive=true; x(a).reviving=true; _event("펠리체 · 다음 차례에 소생")
+	var stand=proc(a,"last_stand")
+	if (not fixed or damage>0) and not stand.is_empty() and a.hp>0 and a.hp<a.mhp*stand.x/100.0 and not x(a).get("stood",false):
+		x(a).stood=true; _effect(a,"gear_guard",int(stand.n),.3)
+	if (not fixed or damage>0) and a.hp>0 and a.hp<=a.mhp*.25 and has_alive("sorel") and x(ally("sorel")).get("rescue",0)<2:
+		x(ally("sorel")).rescue=x(ally("sorel")).get("rescue",0)+1; _heal(ally("sorel"),a,1)
+	# Canonical strike resolves lethal saves and damaged hooks before shield echo.
+	if fixed and a.hp>0: a.hp=mini(a.mhp,a.hp+echo_heal)
+
 func effects_text(a: Dictionary) -> String:
+	if dungeon_enemy_r21!=null:
+		var chips=status_chips(a)
+		return " · ".join(chips) if not chips.is_empty() else "걸린 효과 없음"
 	if a.hp<=0: return "부상 이탈"
 	var names={"taunt":"도발","guard":"방어","duty":"피해 감소","psguard":"전술 피해 감소","zdn":"방어 감소","shield":"보호막","bless":"공격·방어 강화","attack_up":"공격 강화","defense_up":"방어 강화","attack_down":"공격 약화","defense_down":"방어 약화","slow":"감속","haste":"가속","regen":"재생","dot":"지속 피해","corrosion":"부식","bleed":"출혈","mark":"확정 치명 표식","foxflame":"여우불","next_power":"다음 공격 강화","magic_amp":"마법 강화","contract":"면책","adeline_guard":"피해 감소","silence":"마법 봉인","rift_charge":"심연 강화","blood":"피의 갈증"}
 	var out=[]
@@ -991,6 +1253,13 @@ func _restore_v3(value: Variant) -> bool:
 			var eff=v.effects[key]
 			if not eff is Dictionary or not _number(eff.get("turns")) or not _number(eff.get("amount")) or eff.turns<1 or eff.turns>100 or absf(eff.amount)>(1e12 if key.begins_with("enemy_dot_") else 100000): return false
 			if eff.has("source") and (not eff.source is String or not value.units.has(eff.source)): return false
+			if eff.has("heals"):
+				if key!="regen" or not eff.heals is Array or eff.heals.is_empty() or eff.heals.size()>400: return false
+				for entry in eff.heals:
+					if not entry is Dictionary or entry.size()!=3: return false
+					for field in ["amount","turns","action"]:
+						if not _number(entry.get(field)) or entry[field]<0: return false
+					if entry.amount>100000 or entry.turns<1 or entry.turns>100 or entry.turns!=floor(entry.turns) or entry.action<1 or entry.action>400 or entry.action!=floor(entry.action): return false
 			if eff.has("stacks"):
 				if key!="dot" or not eff.stacks is Array or eff.stacks.is_empty() or eff.stacks.size()>6: return false
 				var stack_sum=0.0
@@ -998,8 +1267,18 @@ func _restore_v3(value: Variant) -> bool:
 					if not _number(amount) or amount<0 or amount>100000: return false
 					stack_sum+=amount
 				if not is_equal_approx(stack_sum,float(eff.amount)): return false
+				for metadata in ["lifetimes","owners","bursts","initial_turns"]:
+					if not eff.has(metadata): continue
+					if not eff[metadata] is Array or eff[metadata].size()!=eff.stacks.size(): return false
+					for cell in eff[metadata]:
+						if metadata=="owners":
+							if not cell is String or (cell!="" and not value.units.has(cell)): return false
+						elif not _number(cell) or cell<0 or cell>10000: return false
+						elif metadata in ["lifetimes","initial_turns"] and (cell<1 or cell>100 or cell!=floor(cell)): return false
 		for key in value.extra_state[u.id]:
 			var cell=value.extra_state[u.id][key]
+			if key=="judith_sp0" and (not _number(cell) or cell<=0 or cell>10000000): return false
+			if key in ["judith_until","death_tick"] and (not _number(cell) or cell<0 or cell!=floor(cell)): return false
 			if key=="source_rng" and (not _number(cell) or cell<1 or cell>=2147483647 or cell!=floor(cell)): return false
 			if cell is String:
 				if cell.length()>100: return false
@@ -1017,6 +1296,8 @@ func _restore_v3(value: Variant) -> bool:
 		for key in value.units[u.id]: u[key]=value.units[u.id][key].duplicate(true) if value.units[u.id][key] is Dictionary else value.units[u.id][key]
 	current_id=value.current_id; last_ally=value.last_ally; selected_enemy=value.selected_enemy; selected_action=value.selected_action; selected_ally=value.selected_ally
 	result=value.result; rng_state=int(value.rng); turn_count=int(value.turn_count); history=value.history.duplicate(); events=value.events.duplicate(); extra_state=value.extra_state.duplicate(true)
+	for e in data.enemies:
+		if x(e).has("judith_sp0"): e.speed=floor(x(e).judith_sp0*.85+.5)
 	inventory=value.inventory.duplicate(true)
 	ctb_tick=int(value.get("ctb",{}).get("tick",0)); ctb_round=int(value.get("ctb",{}).get("round",0))
 	refresh_forecast(); return true

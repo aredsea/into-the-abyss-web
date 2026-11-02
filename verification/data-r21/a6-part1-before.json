@@ -1,0 +1,324 @@
+{
+	"checks": 20,
+	"failures": [
+		"2 pinned 72bf1b2 legacy echo",
+		"2 pinned 72bf1b2 legacy priority",
+		"2 pinned 72bf1b2 legacy priest",
+		"2 pinned 72bf1b2 legacy scar",
+		"3 ruin false x1",
+		"3 ruin false x2",
+		"3 ruin false x3",
+		"3 ruin true x1",
+		"3 ruin true x2",
+		"3 ruin true x3",
+		"4 dead scar false",
+		"4 dead scar true",
+		"6 personal damaged before gear false",
+		"6 personal damaged before gear true",
+		"5 old aggregate retains stack count"
+	],
+	"rows": [
+		{
+			"got": 5,
+			"label": "1 actual finish / DOT death MP",
+			"ok": true,
+			"want": 5.0
+		},
+		{
+			"got": null,
+			"label": "1 skips DOT corpse without another action",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				412,
+				0,
+				{},
+				{
+					"psguard": {
+						"amount": 0.1,
+						"turns": 3
+					}
+				}
+			],
+			"label": "2 pinned 72bf1b2 legacy rounding",
+			"ok": true,
+			"want": [
+				412,
+				0,
+				{},
+				{
+					"psguard": {
+						"amount": 0.1,
+						"turns": 3
+					}
+				}
+			]
+		},
+		{
+			"got": [
+				0,
+				0,
+				{},
+				{}
+			],
+			"label": "2 pinned 72bf1b2 legacy echo",
+			"ok": false,
+			"want": [
+				10,
+				0,
+				{},
+				{}
+			]
+		},
+		{
+			"got": [
+				251,
+				150,
+				{
+					"saved": true
+				},
+				{
+					"shield": {
+						"amount": 0.0,
+						"turns": 3
+					}
+				}
+			],
+			"label": "2 pinned 72bf1b2 legacy priority",
+			"ok": false,
+			"want": [
+				200,
+				0,
+				{
+					"wall_saved": true
+				},
+				{
+					"wall_party": {
+						"amount": 0.3,
+						"turns": 2
+					}
+				}
+			]
+		},
+		{
+			"got": [
+				502,
+				0,
+				{},
+				{}
+			],
+			"label": "2 pinned 72bf1b2 legacy priest",
+			"ok": false,
+			"want": [
+				0,
+				0,
+				{},
+				{}
+			]
+		},
+		{
+			"got": [
+				0,
+				0,
+				{},
+				{}
+			],
+			"label": "2 pinned 72bf1b2 legacy scar",
+			"ok": false,
+			"want": [
+				0,
+				0,
+				{
+					"scar": 50.0
+				},
+				{}
+			]
+		},
+		{
+			"got": [
+				350,
+				0,
+				{
+					"stood": true
+				},
+				{
+					"gear_guard": {
+						"amount": 0.3,
+						"turns": 2
+					}
+				}
+			],
+			"label": "2 pinned 72bf1b2 legacy sorel",
+			"ok": true,
+			"want": [
+				350,
+				0,
+				{
+					"stood": true
+				},
+				{
+					"gear_guard": {
+						"amount": 0.3,
+						"turns": 2
+					}
+				}
+			]
+		},
+		{
+			"got": {
+				"amount": 74.0,
+				"count": 2,
+				"hp": 9880
+			},
+			"label": "3 ruin false x1",
+			"ok": false,
+			"want": {
+				"amount": 100.0,
+				"chain": false,
+				"count": 1.0,
+				"hp": 9880.0,
+				"step": 1.0
+			}
+		},
+		{
+			"got": {
+				"amount": 148.0,
+				"count": 4,
+				"hp": 9760
+			},
+			"label": "3 ruin false x2",
+			"ok": false,
+			"want": {
+				"amount": 200.0,
+				"chain": false,
+				"count": 2.0,
+				"hp": 9760.0,
+				"step": 2.0
+			}
+		},
+		{
+			"got": {
+				"amount": 198.0,
+				"count": 5,
+				"hp": 9640
+			},
+			"label": "3 ruin false x3",
+			"ok": false,
+			"want": {
+				"amount": 300.0,
+				"chain": false,
+				"count": 3.0,
+				"hp": 9640.0,
+				"step": 3.0
+			}
+		},
+		{
+			"got": {
+				"amount": 74.0,
+				"count": 2,
+				"hp": 9880
+			},
+			"label": "3 ruin true x1",
+			"ok": false,
+			"want": {
+				"amount": 100.0,
+				"chain": true,
+				"count": 1.0,
+				"hp": 9880.0,
+				"step": 1.0
+			}
+		},
+		{
+			"got": {
+				"amount": 50.0,
+				"count": 1,
+				"hp": 9408
+			},
+			"label": "3 ruin true x2",
+			"ok": false,
+			"want": {
+				"amount": 200.0,
+				"chain": true,
+				"count": 2.0,
+				"hp": 9760.0,
+				"step": 2.0
+			}
+		},
+		{
+			"got": {
+				"amount": 124.0,
+				"count": 3,
+				"hp": 9288
+			},
+			"label": "3 ruin true x3",
+			"ok": false,
+			"want": {
+				"amount": 0.0,
+				"chain": true,
+				"count": 0.0,
+				"hp": 8560.0,
+				"step": 3.0
+			}
+		},
+		{
+			"got": 0,
+			"label": "4 dead scar false",
+			"ok": false,
+			"want": 50.0
+		},
+		{
+			"got": 0,
+			"label": "4 dead scar true",
+			"ok": false,
+			"want": 50.0
+		},
+		{
+			"got": {
+				"hp": 350,
+				"stood": true
+			},
+			"label": "6 personal damaged before gear false",
+			"ok": false,
+			"want": {
+				"fixed": false,
+				"hp": 350.0,
+				"rescue": 0.0,
+				"stood": false
+			}
+		},
+		{
+			"got": {
+				"hp": 350,
+				"stood": true
+			},
+			"label": "6 personal damaged before gear true",
+			"ok": false,
+			"want": {
+				"fixed": true,
+				"hp": 350.0,
+				"rescue": 0.0,
+				"stood": false
+			}
+		},
+		{
+			"got": {
+				"n": 2,
+				"sum": 120.0
+			},
+			"label": "5 old aggregate retains stack count",
+			"ok": false,
+			"want": {
+				"n": 5,
+				"sum": 120
+			}
+		},
+		{
+			"got": null,
+			"label": "5 migrated aggregate JSON restores",
+			"ok": true,
+			"want": null
+		}
+	]
+}

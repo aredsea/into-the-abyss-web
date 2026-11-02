@@ -65,18 +65,21 @@ func hydrate(list: Variant) -> bool:
 		if v.has("target_id"): b.data.enemies[i].target_id=v.target_id
 	return true
 
-func summon(e: Dictionary,a: Dictionary):
-	var adds=0
+func summon(e: Dictionary,a: Dictionary,emit_event=true):
+	var adds=0; var made=[]
 	for u in b.data.enemies:
 		if u.grade=="minion" and u.hp>0: adds+=1
 	for n in range(int(a.get("count",1))):
-		if adds>=int(rules.catalog.tune.boss.summon_cap): return
+		if adds>=int(rules.catalog.tune.boss.summon_cap): break
 		for i in range(b.data.encounter_r21.enc.fl.size(),b.data.enemies.size()):
 			var slot=b.data.enemies[i]
 			if slot.hp<=0:
 				configure(slot,a.enemy,1,i,"minion"); slot.hp=slot.mhp; slot.gauge=float(slot.max); slot.act_index=0; slot.effects={}; slot.broken=false; slot.charged=false; slot.remaining=10000.0
 				b.extra_state[slot.id]={}; slot.target_id=pick_target(slot).id
-				adds+=1; b._event(e.name+" · "+a.name+" → "+slot.name); break
+				adds+=1; made.append(slot); b._event(e.name+" · "+a.name+" → "+slot.name); break
+	if emit_event:
+		var action=a.duplicate(true); action.kind="summon"
+		b.combat_events.enemy(b,e,action,made)
 
 func phase_check():
 	for e in b.data.enemies:
@@ -85,6 +88,7 @@ func phase_check():
 		if f.has("phase2") and e.hp<=e.mhp*rules.catalog.tune.boss.phase_hp:
 			e.phase=2; e.acts=f.phase2.acts.duplicate(true); e.weak=f.phase2.weak.duplicate(); e.gauge=float(e.max); e.broken=false; e.act_index=0; e.charged=false; e.remaining=10000.0
 			b._event(e.name+" · 2단계")
+			b.combat_events.push("phase",b.combat_events.slot(b,e),b.combat_events.T); b.combat_events.T+=1.2
 			if f.phase2.get("weak_cycle",false): cycle(e)
 			if f.phase2.has("entry"): summon(e,f.phase2.entry)
 			e.target_id=pick_target(e).id
@@ -182,10 +186,13 @@ func drop_auras():
 
 func end_effects(u: Dictionary):
 	for key in u.effects.keys():
+		if key.begins_with("enemy_dot_") or key in ["taunt","sorel_regen","persona_regen","dot","corrosion","bleed","regen"]: continue
 		var eff=u.effects[key]
-		if eff.get("r21",false) and not key.begins_with("enemy_dot_"):
-			eff.turns-=1
-			if eff.turns<=0: u.effects.erase(key)
+		if eff.get("fresh",false): eff.erase("fresh"); continue
+		eff.turns-=1
+		if eff.turns<=0:
+			u.effects.erase(key)
+			if key=="shield" and u.has("base"): u.shield=0
 	drop_auras()
 
 func add_dot(u: Dictionary,e: Dictionary,per: int,turns: int):
@@ -252,7 +259,9 @@ func turn() -> bool:
 	var f=rules.foes.get(e.foe_id,{})
 	if e.broken:
 		e.broken=false; e.gauge=float(e.max); b._event(e.name+" · 차례 상실 · 심연 회복")
+		b.combat_events.push("recover",b.combat_events.slot(b,e),b.combat_events.T); b.combat_events.T+=1.2
 		if e.charged:
+			b.combat_events.push("ecut",b.combat_events.slot(b,e),b.combat_events.T)
 			e.charged=false; e.act_index=(int(e.act_index)+1)%e.acts.size()
 			e.hp=maxi(0,e.hp-int(floor(e.mhp*e.rules.get("break_self",0))))
 	else:
@@ -260,6 +269,7 @@ func turn() -> bool:
 		turns+=1; b.x(e).foe_turns=turns
 		if e.phase==2 and f.get("phase2",{}).get("weak_cycle",false): cycle(e)
 		var a=e.acts[e.act_index]; var targets=b.living(false) if a.get("target")=="allies" else [e]
+		var event_targets=[]
 		match a.kind:
 			"charge": e.charged=true; b._event(e.name+" · "+a.name)
 			"guard": effect(e,"guard",2,.4); b._event(e.name+" · "+a.name)
@@ -273,6 +283,7 @@ func turn() -> bool:
 				if not pool.is_empty():
 					var t=lowest(pool); var h=mini(t.mhp-t.hp,int(floor(t.mhp*a.get("amount",.2))))
 					t.hp+=h; b._event(a.name+" → "+t.name+" · HP +%d"%h)
+					event_targets=[t]
 			"buff":
 				if a.get("target")=="ally":
 					var other=b.living(false).filter(func(u):return u.id!=e.id); targets=[lowest(other)] if not other.is_empty() else [e]
@@ -283,25 +294,33 @@ func turn() -> bool:
 						var key="enemy_attack_self" if a.stat=="atk" and a.get("target","self")=="self" and not a.get("until_down",false) else {"atk":"attack_up","def":"defense_up","spd":"haste"}.get(a.stat,"attack_up")
 						effect(t,key,99 if a.get("until_down",false) else int(a.get("turns",3))+1,a.get("amount",0),e.id if a.get("until_down",false) else "")
 				b._event(e.name+" · "+a.name)
+				event_targets=targets
 			"debuff":
 				var list=allies_alive() if a.get("target")=="all" else [target(e,a)]
 				for t in list:
 					if a.stat=="delay": t.remaining+=10000*a.get("amount",.2)
 					else: effect(t,{"atk":"attack_down","def":"defense_down","spd":"slow"}.get(a.stat,"attack_down"),int(a.get("turns",2)),a.get("amount",.2))
 				b._event(e.name+" · "+a.name)
-			"summon": summon(e,a)
+				event_targets=list
+			"summon":
+				var before=b.living(false).duplicate()
+				summon(e,a,false)
+				event_targets=b.living(false).filter(func(u):return u not in before)
 			"special":
 				if a.get("fx")=="silence":
 					var choices=silence_choices()
 					if not choices.is_empty():
 						var choice=choices[int(floor(random()*choices.size()))]; b.x(choice[0]).silenced_id=str(choice[1]); effect(choice[0],"silence",1)
+						event_targets=[choice[0]]
 				b._event(e.name+" · "+a.name)
 			"dot":
 				var t=target(e,a)
 				if not b._enemy_evade(e,t): add_dot(t,e,dot_per(e,t,a.get("m",1)*a.get("tick",.3)),int(a.get("turns",3)))
+				event_targets=[t]
 				b._event(e.name+" · "+a.name)
 			_:
 				var list=allies_alive() if a.kind=="big_all" or a.get("target")=="all" else [target(e,a)]
+				event_targets=list
 				for t in list:
 					var before={}
 					for ally in b.data.allies: before[ally.id]=int(ally.hp)
@@ -316,6 +335,7 @@ func turn() -> bool:
 							for key in ["attack_up","defense_up","bless","guard","haste","shield"]:
 								if t.effects.has(key): t.effects.erase(key); break
 				if a.kind in ["big_one","big_all"]: e.charged=false
+		b.combat_events.enemy(b,e,a,event_targets)
 		e.act_index=(int(e.act_index)+1)%e.acts.size()
 		if e.rules.has("hide_every") and turns%int(e.rules.hide_every)==0: b.x(e).hidden=true
 	e.target_id=pick_target(e).id

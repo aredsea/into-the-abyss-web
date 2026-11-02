@@ -1,0 +1,21 @@
+{
+  "source": "Tool-returned suite rows preserved during this task; subsequent successful runs replaced the per-test log files.",
+  "rows": [
+    {
+      "test": "ui_battle_r18_test",
+      "exit_code": 0,
+      "engine_errors": ["ERROR: 1 resources still in use at exit (run with --verbose for details)."],
+      "seconds": 40.0,
+      "passed": false,
+      "resolution": "The next complete suite run passed this test with no engine errors. Root cause of the intermittent shutdown warning is unknown."
+    },
+    {
+      "test": "combat_p2_r22_test",
+      "exit_code": 0,
+      "engine_errors": ["SCRIPT ERROR: Invalid access to property or key 'kind' on a base object of type 'Dictionary'."],
+      "seconds": 15.78,
+      "passed": false,
+      "resolution": "The public summon boundary now supplies kind=summon when its input omits the optional kind. Repeated affected test runs passed with no engine errors."
+    }
+  ]
+}
