@@ -704,7 +704,7 @@ func recruit() -> void:
 	fill("roster_track",Rect2(18,564,354,7),T.LINE);fill("roster_value",Rect2(18,564,354*w.s.owned.size()/30.0,7),T.RED)
 	paragraph("아직 동료가 아닌 사람 가운데 한 명을\n소개받으면 바로 동료가 됩니다.",Rect2(18,590,354,49),15)
 	label("보유 금화 %d"%w.s.gold,Rect2(18,656,354,25),16,T.INK,T.BOLD)
-	label("합류 레벨 · 당신의 Lv.%d"%w.s.persona_progress_r21.level,Rect2(18,629,354,23),12)
+	label("합류 레벨 · 당신의 Lv.%d"%w.persona_level(),Rect2(18,629,354,23),12)
 	action("recruit","소개받기 · 금화 %d"%w.recruit_fee(),Rect2(18,705,354,44),func():host._act(w.recruit,"");host.message=w.s.log[-1];host._draw_screen(),true,w.s.gold<w.recruit_fee() or w.s.owned.size()==30)
 	feedback(674)
 

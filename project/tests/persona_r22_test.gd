@@ -101,6 +101,9 @@ func run():
 	var original=Legacy.new().s;original.extra_p1={"unknown":[1,2,3],"text":"무손실"}
 	check(copy.restore(original),"legacy r21 restore")
 	for key in original:
+		if key=="persona_progress_r21":
+			check(eq(copy.s.persona_migration_r21.progress,original[key]) and not copy.s.has(key),"legacy progress archived under canonical persona")
+			continue
 		if key in ["members","equipment","research"]:
 			for id in original[key]:check(eq(copy.s[key][id],original[key][id]),"legacy preserved "+key+"/"+id)
 		else:check(eq(copy.s[key],original[key]) if key!="schema" else copy.s.schema==3,"legacy preserved "+key)
@@ -114,6 +117,9 @@ func run():
 		check(copy.restore(snap)==acceptable,"historical specimen "+spec.path)
 		if acceptable:
 			for key in snap:
+				if key=="persona_progress_r21":
+					check(preserves(copy.s.persona_migration_r21.progress,snap[key]),"historical progress archive "+spec.path)
+					continue
 				if key!="schema":check(preserves(copy.s[key],snap[key]),"historical field "+spec.path+"/"+key)
 	var store=Store.new("user://persona-r22-test.json");check(store.write(w.s)==OK and store.read_into(copy),"isolated store round trip")
 	var corrupt=w.s.duplicate(true);corrupt.party=["missing"];var untouched=copy.s.duplicate(true)

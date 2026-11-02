@@ -7,7 +7,7 @@ var body: VBoxContainer
 var scroll: ScrollContainer
 var frame: Control
 var footer: HBoxContainer
-var title: Label
+var title: TextureRect
 var metrics=[]
 
 func setup(owner_screen,heading: String) -> void:
@@ -15,7 +15,8 @@ func setup(owner_screen,heading: String) -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var bg=ColorRect.new();add_child(bg);bg.color=T.PAPER;bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);bg.mouse_filter=MOUSE_FILTER_IGNORE
 	frame=Control.new();add_child(frame);frame.size=Vector2(minf(host.size.x,430),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
-	title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-36,58);title.text=heading;title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",38)
+	var landscape=TextureRect.new();frame.add_child(landscape);landscape.texture=load("res://assets/ui-r21/bg-town.webp");landscape.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;landscape.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED;landscape.position=Vector2(frame.size.x*.48,0);landscape.size=Vector2(frame.size.x*.52,130);landscape.modulate.a=.28;landscape.mouse_filter=MOUSE_FILTER_IGNORE
+	title=TextureRect.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x*.72,58);title.texture=load("res://assets/ui-r21/title-"+("meeting" if heading=="첫 만남" else "create")+".svg");title.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;title.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;title.mouse_filter=MOUSE_FILTER_IGNORE
 	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,132);scroll.size=Vector2(frame.size.x-36,frame.size.y-216);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
 	body=VBoxContainer.new();scroll.add_child(body);body.size_flags_horizontal=SIZE_EXPAND_FILL;body.add_theme_constant_override("separation",12)
 	footer=HBoxContainer.new();frame.add_child(footer);footer.position=Vector2(18,frame.size.y-68);footer.size=Vector2(frame.size.x-36,50);footer.add_theme_constant_override("separation",12)
@@ -27,7 +28,7 @@ func button(id: String,value: String,fn: Callable,selected=false,disabled=false,
 	var b=Button.new();(parent if parent else body).add_child(b);b.text=value;b.custom_minimum_size=Vector2(44,48);b.size_flags_horizontal=SIZE_EXPAND_FILL;b.disabled=disabled;b.add_theme_font_size_override("font_size",15)
 	if selected:
 		for state in ["normal","hover","pressed"]:
-			var p=T.panel(T.RED,T.RED);p.content_margin_left=12;p.content_margin_right=12;p.content_margin_top=10;p.content_margin_bottom=10;b.add_theme_stylebox_override(state,p)
+			var p=StyleBoxTexture.new();p.texture=load("res://assets/ui-r21/button-ink.svg");p.content_margin_left=12;p.content_margin_right=12;p.content_margin_top=10;p.content_margin_bottom=10;b.add_theme_stylebox_override(state,p)
 		for state in ["font_color","font_hover_color","font_pressed_color"]:b.add_theme_color_override(state,T.PAPER)
 	b.pressed.connect(fn);host.controls[id]=b;return b
 func row() -> HBoxContainer:
@@ -45,7 +46,7 @@ func traits(entry: Dictionary) -> void:
 
 func build(owner_screen) -> void:
 	var s=owner_screen.model.s;var p=s.persona;var page=int(s.ui.page)
-	setup(owner_screen,"만남 고르기" if s.scene=="scenario" else "새 모험가")
+	setup(owner_screen,"첫 만남" if s.scene=="scenario" else "새 모험가")
 	if s.scene=="scenario":scenario();return
 	var steps=HBoxContainer.new();frame.add_child(steps);steps.position=Vector2(18,77);steps.size=Vector2(frame.size.x-36,44);steps.add_theme_constant_override("separation",4)
 	for n in range(1,6):button("cr_go_"+str(n),rules.data.steps[n-1],act.bind("go_"+str(n)),n==page,not rules.reach(p,n),steps).add_theme_font_size_override("font_size",13)
@@ -54,7 +55,8 @@ func build(owner_screen) -> void:
 		1:
 			text("어떤 종족으로 살아왔나요?",21)
 			var grid=GridContainer.new();body.add_child(grid);grid.columns=2;grid.add_theme_constant_override("h_separation",8);grid.add_theme_constant_override("v_separation",8)
-			for r in rules.data.races:button("cr_race_"+r.id,r.name,act.bind("race_"+r.id),p.race==r.name,false,grid)
+			for r in rules.data.races:
+				var b=button("cr_race_"+r.id,r.name+"\n"+r.tag,act.bind("race_"+r.id),p.race==r.name,false,grid);b.custom_minimum_size.y=98
 			if p.race=="수인":
 				text("계통",19);var h=row()
 				for l in rules.data.lineages:button("cr_lin_"+l.id,l.name,act.bind("lin_"+l.id),p.lineage==l.name,false,h)
@@ -104,13 +106,17 @@ func points(p: Dictionary) -> void:
 	text("체력 %d · 마력 %d"%[c.hp,c.mp],15)
 
 func scenario() -> void:
-	text("토르바에 막 도착한 날, 누구와 마주치나요?",20)
-	for sc in rules.data.scenarios:
-		var c=host.model.person(sc.companion)
-		button("sc_pick_"+sc.id,c.name+"\n"+sc.title,act.bind("pick_"+sc.id,"sc"),host.model.s.ui.sel==sc.id)
+	var ribbon=TextureRect.new();frame.add_child(ribbon);ribbon.position=Vector2(0,81);ribbon.size=Vector2(frame.size.x,38);ribbon.texture=load("res://assets/ui-r21/button-ink.svg");ribbon.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;ribbon.mouse_filter=MOUSE_FILTER_IGNORE
+	var caption=text("토르바에서 이어질 첫 인연",16,T.PAPER,frame);caption.position=Vector2(18,87);caption.size=Vector2(frame.size.x-36,28)
 	var selected=rules.by(rules.data.scenarios,"id",host.model.s.ui.sel)
 	if not selected.is_empty():
-		text(selected.place,18,T.RED);text(selected.text,16)
+		var portrait=preload("res://ui/town_portrait_r21.gd").new();body.add_child(portrait);portrait.custom_minimum_size=Vector2(0,280);portrait.size_flags_horizontal=SIZE_EXPAND_FILL;portrait.configure(selected.companion,"detail-overview")
+		text(host.model.person(selected.companion).name,27)
+		text(selected.title,20,T.RED);text(selected.place,14,T.MUTED);text(selected.text,16)
 	else:text("만남을 고르면 장면이 미리 보입니다. 시작하면 이 동료와 함께 토르바에서 출발합니다.",15,T.MUTED)
+	text("누구와 마주치나요?",20)
+	var grid=GridContainer.new();body.add_child(grid);grid.columns=2;grid.add_theme_constant_override("h_separation",8);grid.add_theme_constant_override("v_separation",8)
+	for sc in rules.data.scenarios:
+		button("sc_pick_"+sc.id,host.model.person(sc.companion).name,act.bind("pick_"+sc.id,"sc"),host.model.s.ui.sel==sc.id,false,grid)
 	button("sc_back","만들기로",act.bind("back","sc"),false,false,footer)
 	button("sc_go","이 만남으로 시작",act.bind("go","sc"),true,selected.is_empty(),footer)

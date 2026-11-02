@@ -12,6 +12,7 @@ func _init() -> void:
 	s.persona={"name":"","race":"","lineage":"","nation":"","cls":"","stats":{},"fight":1,"lv":1,"exp":0,"bonus_total":5,"bonus_custom":0,"skill":{"prefix":"","suffix":"","prefix_lv":{},"suffix_lv":{}}}
 	s.creation_r22={"complete":false,"legacy":false};s.scene="create";s.ui={"page":1,"sel":"","msg":""};s.scenario="";s.xp_r22={}
 	persona_rules.prepare(s.persona)
+	s.erase("persona_progress_r21")
 	ensure_persona_member()
 
 func ensure_persona_member() -> void:
@@ -57,8 +58,11 @@ func sortie_ids() -> Array:
 	var ids=s.party.duplicate()
 	if s.persona.fight==1:ids.push_front("persona")
 	return ids
+func can_persona_fight() -> bool:
+	return not class_def("persona").is_empty()
 func set_fight(fight: int) -> bool:
 	if active() or fight not in [0,1]:return false
+	if fight==1 and not can_persona_fight():return false
 	s.persona.fight=fight;s.party=persona_rules.clean(s.party,s.owned,fight,config.companions.map(func(c):return c.id));return true
 func toggle_companion(id: String) -> bool:
 	if active() or id not in s.owned:return false
@@ -80,6 +84,7 @@ func average_level() -> float:
 	return value/maxi(1,ids.size())
 func depart_dungeon(f: int,seed: int=0,rift_id: String="",stars: int=1) -> bool:
 	if not s.creation_r22.complete or sortie_ids().is_empty():return false
+	if s.persona.fight==1 and not can_persona_fight():return false
 	var result=super(f,seed,rift_id,stars)
 	if result:
 		s.run.persona_party=sortie_ids();s.run.persona_pm=source_pm()
@@ -138,12 +143,15 @@ func settle(result: String) -> bool:
 	var before={}
 	for id in s.owned:before[id]={"level":s.members[id].level,"xp":s.members[id].xp}
 	if not super(result):return false
-	if s.run.has("persona_party"):
-		# The legacy settlement pays companion XP. Replace that payment once with
-		# the source award contract, including commander's half XP and sid guard.
-		for id in before:s.members[id].level=before[id].level;s.members[id].xp=before[id].xp
-		award_persona_exp({"exp":total_xp if result!="defeat" else 0,"sid":sid,"pm":pm})
-		for gain in s.summary.gains:gain.level=s.members[gain.id].level;gain.xp=s.members[gain.id].xp
+	# The legacy settlement pays companion XP. Replace that payment once with
+	# the source award contract, including commander's half XP and sid guard.
+	for id in before:s.members[id].level=before[id].level;s.members[id].xp=before[id].xp
+	# Pre-P1 active expeditions have no persona snapshot: their party consists
+	# of companions only, so the migrated commander receives half XP.
+	if pm.is_empty():
+		for id in s.party:pm.append({"id":id})
+	award_persona_exp({"exp":total_xp if result!="defeat" else 0,"sid":sid,"pm":pm})
+	for gain in s.summary.gains:gain.level=s.members[gain.id].level;gain.xp=s.members[gain.id].xp
 	return true
 
 func restore(value: Variant) -> bool:

@@ -5,6 +5,23 @@ const Rules=preload("res://game/persona_rules.gd")
 static func migrate(value: Variant) -> Dictionary:
 	if not value is Dictionary:return {}
 	var out=value.duplicate(true)
+	if out.has("persona") and not out.persona is Dictionary:return {}
+	# JSON decodes numbers as floats; Array.has uses typed Variant comparison.
+	var legacy_schema=out.get("schema")==1 or out.get("schema")==2
+	# r21-D wrote only progress; its optional persona was an untouched import.
+	# P1 schema 3 wrote persona and the inherited progress was a second payment.
+	# Choose by writer/schema, never by max(level) and never add duplicate XP.
+	if out.has("persona_progress_r21"):
+		var p=out.persona_progress_r21
+		if not p is Dictionary or not numeric(p.get("level")) or not numeric(p.get("xp")):return {}
+		if p.level<1 or p.level>40 or p.level!=floor(p.level) or p.xp<0 or p.xp!=floor(p.xp) or (p.level==40 and p.xp!=0):return {}
+		var archive="persona_migration_r21"
+		while out.has(archive):archive+="_"
+		out[archive]={"schema":out.get("schema"),"progress":p.duplicate(true),"persona":out.get("persona",{}).duplicate(true),"authority":"r21-progress" if legacy_schema else "p1-persona"}
+		if legacy_schema:
+			if not out.get("persona") is Dictionary:out.persona={}
+			out.persona.lv=p.level;out.persona.exp=p.xp
+		out.erase("persona_progress_r21")
 	settle_experience(out)
 	if out.get("schema")==1 or out.get("schema")==2:
 		var old=Legacy.new()
@@ -12,6 +29,8 @@ static func migrate(value: Variant) -> Dictionary:
 		out=old.s.duplicate(true)
 		out.schema=3
 		out.merge({"persona":{"name":"","race":"","lineage":"","nation":"","cls":"","stats":{},"bonus":{},"fight":0,"lv":1,"exp":0,"bonus_total":5,"bonus_custom":0,"skill":{"prefix":"","suffix":"","prefix_lv":{},"suffix_lv":{}}},"creation_r22":{"complete":true,"legacy":true},"scene":"town","ui":{"page":1,"sel":"","msg":""},"scenario":"","xp_r22":{}},false)
+		out.persona.merge({"name":"","race":"","lineage":"","nation":"","cls":"","stats":{},"bonus":{},"fight":0,"lv":1,"exp":0,"bonus_total":5,"bonus_custom":0,"skill":{"prefix":"","suffix":"","prefix_lv":{},"suffix_lv":{}}},false)
+		out.erase("persona_progress_r21")
 	return out
 
 static func settle_experience(out: Dictionary) -> void:

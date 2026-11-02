@@ -1,5 +1,128 @@
 # UI-R21-D
 
+## 8차 — P1 페르소나 의미 통합 · 원정 준비·만들기·첫 만남
+
+P1의 `s.persona`를 실제 게임의 단일 성장 상태로 연결했다. 영입은 같은 레벨을 읽고, 전투 직후/정산은 `award_persona_exp()`를 사용한다. 준비 화면은 기존 시안의 폐허·종이·초상 열을 복구하고 그 안에 자기 참전/지휘와 동료 3/4명 제한을 배치했다. **시안과 완전히 같다는 판정은 아니다.** 새 만들기·첫 만남에는 개별 승인 시안이 없어 기존 마을 문법을 적용했다.
+
+|항목|최종 수치|
+|---|---:|
+|공통·기존·P1·신규 Godot 검사 그룹 / 실패|38 / 0|
+|P1 규칙·저장 검사 / 실패|4,005 / 0|
+|P1 native UI 검사 / 실패|1,383 / 0|
+|신규 의미 통합·이관 검사 / 실패|1,037 / 0|
+|신규 native 화면 검사 / 실패|7,065 / 0|
+|신규 화면 캡처 / 크기|45 / 5|
+|Web 새 시작 구성 / 서로 다른 크기 / 오류|6 / 5 / 0|
+|실제 Web 전투 승리 합계|10|
+|IndexedDB 옛 저장·백업 보존 및 v3 우선 재로드|1 / 통과|
+|보호 파일 / 변경|1,106 / 0|
+|원본 자산 / 변경|96 / 0|
+|직접 연 비교 4쌍|1200×1342 / 296,038 bytes|
+|Web PCK|64,281,468 bytes|
+
+### 단일 성장 상태와 이관 근거
+
+원본 `74-level.lua:2–5, 22–28, 89–125`는 페르소나 한 명의 lv/exp, 출전자 전량, 미출전 페르소나 50% 내림, 비출전 동료 0, 정산 키 중복 방지를 규정한다. `72-guild.lua`의 영입도 그 페르소나 레벨을 사용한다. 원본에 native 두 필드의 충돌 이관 규칙은 없다. 따라서 값을 합산하거나 최댓값을 고르지 않고, 이전 코드의 **실제 갱신 주체**를 근거로 다음 정책을 적용했다.
+
+- schema 1·2: 7차 `town_world_r21.settle()`이 갱신하던 `persona_progress_r21`을 가져온다. 함께 있는 `persona`는 이 코드에서 갱신하지 않던 원본 이관 값이므로 레벨·XP만 성장 기록으로 교체하고 나머지 필드는 보존한다.
+- schema 3: P1이 실제 갱신하는 `s.persona`를 유지한다. 7차 상속 코드의 성장 기록은 같은 원정의 두 번째 지급 경로였으므로 더하지 않는다.
+- 양쪽 원문과 선택 근거는 `persona_migration_r21`에 보존하고 기존 이름이 있으면 `_`를 덧붙인다. 활성 `persona_progress_r21`은 없앤다. 재로드는 다시 이관하지 않는다. 원본 곡선보다 넘친 XP는 기존 `exp_settle` 방식으로 정리하며 이전 값도 `experience_before_r22`에 보존한다.
+
+40개 레벨 × 반대쪽 레벨 3개에서 양방향 충돌·원문 보존·입력 불변·반복 복원을 검사했다. schema3의 작은 레벨이 이기는 경우도 포함한다. JSON이 schema를 float로 읽으면 배열 멤버십으로 정수 schema를 고르는 판정이 달라지는 버그도 찾아 숫자 동등 비교로 고쳤고, 120개 옛 저장의 JSON 왕복을 추가했다. 진행 중 옛 원정에는 페르소나 편성 스냅샷이 없으므로 동료만 출전한 원정으로 이어 받고, 귀환 때 원본의 미출전 50%를 지급한다. P1 원정은 전투 때 지급한 XP를 귀환에서 다시 주지 않는다. 기존 schema1/2 모델은 옛 저장 검증용 호환 경로로 남고, 실제 월드는 항상 P1 schema3이다.
+
+첫 만남 호감 0 → 여관 선택/반응·하루 제한 → 영입 → 편성 → 출전 → 승리 → 정산 → 레벨업과 그 뒤 영입 레벨을 연결했다. native 의미 검사는 통제된 전투 입력을 사용하며, Web 6구성은 능력치·적·보상 변경 없이 실제 포인터 전투로 Lv.2 이상까지 진행했다. 기본 보너스 20점·직업 추천 배분은 원본의 선택 범위다.
+
+### 저장 파일과 IndexedDB
+
+기존 `world_v1.json`/`.bak` 읽기 전용 fallback과 새 `world_v3.json`/`.bak` 쓰기를 유지했다. 실제 사용자 프로필은 열지 않았고, native fixture 경로와 임시 Chromium 문맥만 사용했다. Web에서 schema2 성장 Lv.17/XP2와 원본 이관 값 Lv.25/XP3을 함께 심은 fixture를 로드해 **17/2**를 확인했다. 불러오기만 해서는 v3 파일이 생기지 않았고 v1·백업 바이트도 그대로였다. 실제 여관 대화로 저장한 뒤 v3가 생성됐고, 재로드는 그 선택 전 대화를 복원하므로 v3 우선순위도 확인했다. 근거: `round8/indexeddb-results.json`.
+
+P1의 기존 저장 보존 검사는 필드 삭제를 허용하도록 느슨하게 바꾸지 않았다. 활성 성장 기록의 위치가 바뀌는 한 항목만 새 보존 위치를 검사하도록 갱신했다. JSON 숫자의 int/float 표현은 값으로 대조한다. 원본 Lua 수식·게임 수치 기대값은 바꾸지 않았다. 기존 `ui_persona_r22_test`는 Create 상속 화면만 폼 치수를 검사하므로 준비 화면이 Town 상속으로 바뀐 뒤 1,383개로 줄었다. 새 UI 검사는 준비 화면의 실제 글자 치수·겹침·뷰포트·44px 터치·원정 연결을 별도로 검사한다.
+
+### 화면·실제 검수와 차이
+
+`persona_sortie_screen.gd`는 폼 상속을 제거하고 기존 `town_screen_r21`의 종이·폐허·배경·초상·버밀리언 버튼·하단 이동을 사용한다. 4칸 중 첫 칸이 자기 참전 페르소나이며, 지휘에서는 동료 4명이다. 빈 칸·전열 없음·보유 동료 정렬/필터·최대 인원·빈 출발 차단·페르소나 단독 출발·수락 의뢰의 별도 출발을 유지했다. 390×664에서도 새 주요 버튼의 실측 높이는 44px 이상이다. 후보가 많으면 해당 영역만 스크롤한다. 생성 클래스 정보가 없는 옛 저장은 자기 참전을 막고 이유를 표시하며 기존 지휘·4인 파티를 유지한다. 직업을 임의로 채우거나 옛 동료를 다시 생성하지 않는다. 이 저장에 새로 생성 정보를 지정하는 편집 흐름은 이번 범위에 넣지 않았다.
+
+만들기 5단계는 기존 글꼴의 SVG 윤곽 제목, 수묵 마을 배경, 종이, 선택/진행의 버밀리언을 쓴다. SVG는 기존 글꼴에서 생성한 것이며 승인 시안 글자를 추적한 것이라고 주장하지 않는다. 첫 만남은 선택한 동료의 기존 `detail-overview` 초상을 크게 놓고 원문 장면을 스크롤로 읽는다. 준비 화면 초상도 기존 `party-tall`/`formation-face` 칸의 배치·크롭만 조절했고 새 초상은 그리지 않았다.
+
+[owner-zoom-8.jpg](verification/town-r21/owner-zoom-8.jpg)의 4쌍과 실제 WASM 360폭 준비 화면을 직접 열었다. 원정 준비는 `03-preparation-0`과 자기 참전/지휘를 비교했다. 만들기·첫 만남은 개별 시안이 없으므로 비교판에 “개별 시안 없음, 마을/길드 문법 참고”라고 표시했다. 확대 합본의 초상 크기를 보고 기존 슬롯의 표시 크롭을 보완한 뒤 다시 열었다. 시안 속 Lv.20/금화/2층 숫자를 복제하지 않고 실제 상태를 쓴다.
+
+남는 외형 차이는 준비 화면에 새 모드 전환·후보 목록이 들어가 원래의 전열/후열 얼굴 줄과 경로 삽화 대신 필터·후보·짧은 경로 안내를 쓰는 점, 페르소나가 초상 없는 문자 칸인 점, 제목이 기존 r21 글꼴 윤곽인 점이다. 새 초상 생성·전투 파일 수정으로 이 차이를 숨기지 않았다. 독립 페르소나의 종족/직업 특성·장비/고유기술 전체 동등성 등 P1 후속 묶음은 이번 검증 범위가 아니다. 기존 카드 정본 없음·나머지 대화 콘텐츠 부족도 이 차수에서 추가 구현하지 않았다.
+
+### 검사·export 근거
+
+|검사|결과|
+|---|---|
+|world_test|WORLD TESTS: 44 checks, 0 failures|
+|state_test|COMBAT CHECKS: 54; FAILURES: 0|
+|route_test|ROUTE TESTS: 41 checks, 0 failures|
+|expansion_test|EXPANSION CHECKS 3350 FAILURES 0|
+|motion_test|MOTION TIMELINE PASS: contact, hitstop, pause, speed, skip, large delta|
+|motion_asset_test|MOTION ASSET PASS: 19 clips, original starts, natural recovery, timing, attachments and mappings|
+|art_test|PASS 30 characters / 60 UV frames / 30 unique cinematics / impact and completion|
+|export_licenses|Exported Godot and bundled library license notices.|
+|town_r21_test|TOWN R21 CHECKS 2675 FAILURES 0 LUA SAMPLES 2544|
+|data_r21_test|DATA_R21 checks=7493 failures=0 composition=1028 stats=700 exploration=300|
+|dungeon_r21_test|3018 checks / 0 failures|
+|enemy_action_r21_test|2878 checks / 0 failures|
+|enemy_regression_r21_test|30 checks / 0 failures|
+|enemy_review_r21_test|354 checks / 0 failures|
+|town_commerce_r21_test|TOWN COMMERCE R21 CHECKS 14714 FAILURES 0 LUA 8520 / 8520|
+|persona_research_r21_test|PERSONA RESEARCH R21 CHECKS 13889 FAILURES 0 LUA 13843 / 13843|
+|affection_r21_test|AFFECTION R21 CHECKS 400 FAILURES 0 LUA SAMPLES 200|
+|dialogue_player_r21_test|DIALOGUE PLAYER R21 CHECKS 5771 FAILURES 0|
+|recruit_r21_test|RECRUIT R21 CHECKS 14991 FAILURES 0 LUA 2496|
+|ui_battle_r17_test|R17 BATTLE UI 6085 CHECKS / 0 FAILURES|
+|ui_battle_r18_test|R18: 4592 checks / 0 failures; 30 distinct effect hashes|
+|ui_battle_r19_test|R19: 859 checks / 0 failures|
+|ui_battle_r20_test|R20: 1659 checks / 0 failures|
+|motion_r9_integration|R9 INTEGRATION: 944 checks / 0 failures|
+|motion_r18_integration|R18 STATE INTEGRATION: 3540 checks / 0 failures|
+|ui_town_r21_test|TOWN UI R21 CHECKS 1553 FAILURES 0 OVERFLOW 0|
+|ui_town_r21_round2_test|TOWN ROUND2 UI CHECKS 4404 FAILURES 0|
+|ui_data_r21_test|UI_DATA_R21 checks=9608 failures=0 nameplates=3200 overflow=0|
+|ui_town_r21_round3_test|TOWN ROUND3 UI CHECKS 8205 FAILURES 0 PORTRAIT SLOTS 300 ENEMY FALLBACKS 0|
+|ui_town_result_r21_test|TOWN RESULT R21 CHECKS 235 FAILURES 0|
+|ui_town_r21_round4_test|TOWN ROUND4 UI CHECKS 10213 FAILURES 0|
+|ui_town_r21_round5_test|TOWN ROUND5 UI CHECKS 2270 FAILURES 0|
+|ui_dialogue_r21_test|DIALOGUE UI R21 CHECKS 9078 FAILURES 0|
+|persona_r22_test|PERSONA R22 CHECKS 4005 FAILURES 0|
+|persona_town_r21_round8_test|PERSONA TOWN ROUND8 CHECKS 1037 FAILURES 0|
+|ui_persona_r22_test|PERSONA UI R22 CHECKS 1383 FAILURES 0 CAPTURES 60|
+|ui_persona_town_round8_test|PERSONA TOWN UI ROUND8 CHECKS 7065 FAILURES 0 CAPTURES 45|
+|import|exit 0|
+
+대화 JSON 검사 오류 0, selftest 58개 실패 0, impeccable detector `[]`를 확인했다. 기존 Windows root certificate store 진단은 환경 경고로 별도 기록했다. 5크기는 360×780·390×844·430×932·390×664·1280×800이며 360폭 reduced-motion을 더해 Web 6구성이다. 모든 구성에서 선택/반응 재로드, 첫 동료 0, 영입 레벨, 모드 전환, 빈 편성 차단, 전투 승리·레벨업, 귀환 XP 중복 없음, 정산 재로드, 전투 후 뷰포트 복원을 검사했다. 상점 스크롤 검사는 실제 조상 ScrollContainer의 표시 범위를 읽고 실제 휠로 이동한다.
+
+요청한 `godot_r17.py --headless --export-release Web ../docs/index.html` 및 `update_version.py` 실행 완료. `ui_build=r21-d-town-20261102d`, PCK SHA-256 `65be77a8a9bed274380e61c4063923f7f76a9518b7bbf9229a17b0b45f516f65`. 원격 배포는 하지 않았다. 결과는 `verification/town-r21/common-results.json`, `web/results.json`, `round8/{integration-results,ui-results,indexeddb-results,audit,comparison}.json`과 원문 로그에 있다.
+
+전투·A 데이터/규칙·대화 JSON·기존 적/초상·원본 Lua 96파일은 변경하지 않았다. 사용자 저장 삭제/덮어쓰기, git 명령, 다른 worktree 쓰기, 외부 메시지, 성적 장면 이식은 하지 않았다. 기존 DESIGN.md와 `.impeccable/design.json`의 메타데이터 드리프트는 남겨 두었다.
+
+### 변경 파일
+
+- `project/game/persona_save_adapter.gd`
+- `project/game/persona_world.gd`
+- `project/game/town_world_r21.gd`
+- `project/tests/persona_r22_test.gd`
+- `project/ui/create_screen.gd`
+- `project/ui/persona_sortie_screen.gd`
+- `project/ui/town_screen_r21.gd`
+- `project/ui/world_screen.gd`
+- `tools/town_r21_verify.py`
+- `tools/update_version.py`
+- `tools/web_smoke_r19.py`
+- `project/assets/ui-r21/title-create.svg`
+- `project/assets/ui-r21/title-meeting.svg`
+- `project/tests/persona_town_r21_round8_test.gd`
+- `project/tests/persona_town_r21_round8_test.gd.uid`
+- `project/tests/ui_persona_town_round8_test.gd`
+- `project/tests/ui_persona_town_round8_test.gd.uid`
+- `tools/town_r21_round8_assets.py`
+- `tools/town_r21_round8_compare.py`
+- `tools/town_r21_round8_report.py`
+- `tools/town_r21_round8_web.py`
+
+추가 산출물: `verification/town-r21/round8/**`, 검사 결과·native/Web 캡처, `owner-zoom-8.jpg`, `docs/**`, 이 보고서.
+
 ## 6차 — 선택지 대화·호감 훅·원본 영입 (7차 지시)
 
 **선택지 재생기·호감 훅·영입 주선은 연결하고 검사했다. 카드 사건은 현재 정본에 규칙이 없어 이식 완료로 세지 않는다.** 원본의 HTML 정보 패널을 뜻하는 `*_card`와 기존 웹 시제품의 소모성 카드를 구분했다. 카드 정본 감사까지 마친 뒤 영입으로 진행했다.

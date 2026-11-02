@@ -14,7 +14,7 @@ func _init():
 	ensure_town_r21()
 
 func ensure_town_r21() -> void:
-	if not s.has("persona_progress_r21"):
+	if s.get("schema")!=3 and not s.has("persona_progress_r21"):
 		var p=s.get("persona",{});var level=clampi(int(p.get("lv",s.get("lv",1))),1,40)
 		s.persona_progress_r21={"level":level,"xp":clampi(int(p.get("exp",0)),0,need(level)-1) if level<40 else 0}
 	if not s.has("dialogue_r21"):s.dialogue_r21={"seen":{},"pending":{},"response":{},"queue":[],"bark_counts":{}}
@@ -72,7 +72,7 @@ func settle(result: String) -> bool:
 		# Replace A's aggregate with the same source aggregate plus tx_aff synergy.
 		for id in before:s.members[id].aff=before[id]
 		if amount_aff>0:aff_party(amount_aff)
-		if result!="defeat":
+		if result!="defeat" and s.get("schema")!=3:
 			var p=s.persona_progress_r21;p.xp+=int(floor(float(s.summary.xp)/2))
 			while p.level<40 and p.xp>=need(p.level):p.xp-=need(p.level);p.level+=1
 			if p.level==40:p.xp=0
@@ -147,6 +147,9 @@ func restore(value: Variant) -> bool:
 	if not super(value): s=previous; return false
 	ensure_town_r21()
 	return true
+
+func persona_level() -> int:
+	return int(s.persona.lv) if s.get("schema")==3 else int(s.persona_progress_r21.level)
 
 func research_work(who: String) -> Dictionary:
 	var e=s.research_editor_r21.get(who,{})
@@ -229,7 +232,7 @@ func recruit() -> bool:
 	var index=mini(candidates.size()-1,int(floor(Guild.random(s.town_r21.seed,s.town_r21.counter)*candidates.size())))
 	var who=candidates[index].id
 	s.gold-=cost;s.recruits+=1;s.owned.append(who)
-	var m=s.members[who];m.aff=0;m.level=s.persona_progress_r21.level;m.xp=0
+	var m=s.members[who];m.aff=0;m.level=persona_level();m.xp=0
 	var b=stats(who,m.level);m.hp=b.hp;m.mp=b.mp
 	s.town_r21.meet=who;npc_like("fenella")
 	note("페넬라의 소개 · "+person(who).name+" 합류");return true
