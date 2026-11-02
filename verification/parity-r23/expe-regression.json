@@ -1,0 +1,817 @@
+[
+  {
+    "test": "import",
+    "exit": 0,
+    "errors": [],
+    "summary": [],
+    "seconds": 4.44,
+    "passed": true
+  },
+  {
+    "test": "affection_r21_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "AFFECTION R21 CHECKS 400 FAILURES 0 LUA SAMPLES 200"
+    ],
+    "seconds": 0.41,
+    "passed": true
+  },
+  {
+    "test": "art_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [],
+    "seconds": 1.34,
+    "passed": true
+  },
+  {
+    "test": "chronicle_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "CHRONICLE R22 CHECKS 7911 FAILURES 0"
+    ],
+    "seconds": 3.52,
+    "passed": true
+  },
+  {
+    "test": "cloud_archive_r22_test",
+    "exit": 1,
+    "errors": [
+      "ERROR: verified archived account connects only for erasure",
+      "ERROR: archived notice explains erasure",
+      "ERROR: archive download returns archived without changing local adventure",
+      "ERROR: 410 deleted clears archived credentials"
+    ],
+    "summary": [
+      "CLOUD ARCHIVE R22 CHECKS 5 FAILURES 4"
+    ],
+    "seconds": 1.48,
+    "passed": false
+  },
+  {
+    "test": "cloud_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "CLOUD R22 CHECKS 27 FAILURES 0"
+    ],
+    "seconds": 15.62,
+    "passed": true
+  },
+  {
+    "test": "combat_a6_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "A6 251 checks / failures 0 []"
+    ],
+    "seconds": 16.8,
+    "passed": true
+  },
+  {
+    "test": "combat_a7_flow_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "A7 flow 15 / failures 0 []"
+    ],
+    "seconds": 1.22,
+    "passed": true
+  },
+  {
+    "test": "combat_a7_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "A7 part 1 9 checks / failures 0"
+    ],
+    "seconds": 1.92,
+    "passed": true
+  },
+  {
+    "test": "combat_a9_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "A9 targeted 31 checks / failures 0"
+    ],
+    "seconds": 1.92,
+    "passed": true
+  },
+  {
+    "test": "combat_p2_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "P2 789 checks / failures 0"
+    ],
+    "seconds": 34.36,
+    "passed": true
+  },
+  {
+    "test": "combat_p3_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "P3 84736 checks / failures 0 []"
+    ],
+    "seconds": 69.42,
+    "passed": true
+  },
+  {
+    "test": "data_r21_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "DATA_R21 checks=7493 failures=0 composition=1028 stats=700 exploration=300"
+    ],
+    "seconds": 1.38,
+    "passed": true
+  },
+  {
+    "test": "dialogue_player_r21_test",
+    "exit": 124,
+    "errors": [],
+    "summary": [],
+    "seconds": 180.05,
+    "passed": false
+  },
+  {
+    "test": "dialogue_roster_r21_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "DIALOGUE ROSTER CHECKS 17670 FAILURES 0"
+    ],
+    "seconds": 16.23,
+    "passed": true
+  },
+  {
+    "test": "dungeon_r21_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "DUNGEON_R21 {\"art_fallbacks\":0,\"checks\":3008,\"details\":[],\"enemies\":100,\"failures\":0,\"floors\":420,\"outcomes\":{\"defeat\":420,\"natural_defeat\":53,\"natural_victory\":136,\"victory\":420}}"
+    ],
+    "seconds": 139.25,
+    "passed": true
+  },
+  {
+    "test": "enemy_action_r21_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "ENEMY_ACTION_R21 {\"checks\":2878,\"continuous_matched\":1221,\"enemies\":100,\"failures\":0,\"gear_samples\":120,\"matched\":1221,\"samples\":1221,\"silence_samples\":200}"
+    ],
+    "seconds": 130.98,
+    "passed": true
+  },
+  {
+    "test": "enemy_regression_r21_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "ENEMY_REGRESSION_R21 {\"checks\":30,\"failures\":[]}"
+    ],
+    "seconds": 2.22,
+    "passed": true
+  },
+  {
+    "test": "enemy_review_r21_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "ENEMY_REVIEW_R21 {\"checks\":497,\"evidence\":{\"fifth\":{\"class_stack_probe\":{\"amount\":504.0,\"effect\":{\"amount\":504.0,\"bursts\":[0,0,0,0,0,0],\"initial_turns\":[3,3,3,3,3,3],\"lifetimes\":[3,3,3,3,3,3],\"orders\":[1,2,3,4,5,6],\"owners\":[\"neutral_1\",\"neutral_1\",\"neutral_1\",\"neutral_1\",\"neutral_1\",\"neutral_1\"],\"stacks\":[24.0,48.0,72.0,96.0,120.0,144.0],\"turns\":3},\"hp\":19,\"stacks\":6},\"death\":[{\"actual\":{\"charging\":0,\"cover\":0,\"hp\":0,\"kept\":5,\"removed\":5,\"taunt\":0},\"input\":{\"charging\":0.0,\"cid\":\"neutral\",\"cover\":0.0,\"fixed\":true,\"hp\":0.0,\"kept\":5.0,\"removed\":5.0,\"taunt\":0.0}},{\"actual\":{\"charging\":0,\"cover\":0,\"hp\":0,\"kept\":5,\"removed\":5,\"taunt\":0},\"input\":{\"charging\":0.0,\"cid\":\"haldric\",\"cover\":0.0,\"fixed\":true,\"hp\":0.0,\"kept\":5.0,\"removed\":5.0,\"taunt\":0.0}},{\"actual\":{\"charging\":0,\"cover\":0,\"hp\":0,\"kept\""
+    ],
+    "seconds": 26.31,
+    "passed": true
+  },
+  {
+    "test": "expansion_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "EXPANSION CHECKS 3350 FAILURES 0"
+    ],
+    "seconds": 2.05,
+    "passed": true
+  },
+  {
+    "test": "expe_r23_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "EXPE R23 CHECKS 1586 FAILURES 0 GROUPS { \"floor_access\": { \"checks\": 420, \"failures\": 0 }, \"initial_vitals\": { \"checks\": 24, \"failures\": 0 }, \"first_battle\": { \"checks\": 24, \"failures\": 0 }, \"outside_use\": { \"checks\": 792, \"failures\": 0 }, \"boss_guard\": { \"checks\": 8, \"failures\": 0 }, \"log\": { \"checks\": 13, \"failures\": 0 }, \"snapshot\": { \"checks\": 9, \"failures\": 0 }, \"bank_items\": { \"checks\": 3, \"failures\": 0 }, \"gear_roll\": { \"checks\": 240, \"failures\": 0 }, \"bag\": { \"checks\": 4, \"failures\": 0 }, \"discovery\": { \"checks\": 9, \"failures\": 0 }, \"migration\": { \"checks\": 35, \"failures\": 0 }, \"invalid\": { \"checks\": 5, \"failures\": 0 } }"
+    ],
+    "seconds": 59.2,
+    "passed": true
+  },
+  {
+    "test": "expedition_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "EXPEDITION R22 CHECKS 4786 FAILURES 0"
+    ],
+    "seconds": 39.03,
+    "passed": true
+  },
+  {
+    "test": "export_licenses",
+    "exit": 0,
+    "errors": [],
+    "summary": [],
+    "seconds": 0.5,
+    "passed": true
+  },
+  {
+    "test": "facilities_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "FACILITIES R22 CHECKS 4406 FAILURES 0 LUA 4093"
+    ],
+    "seconds": 21.75,
+    "passed": true
+  },
+  {
+    "test": "gear_boundary_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "GEAR BOUNDARY R22 CHECKS 27894 FAILURES 0"
+    ],
+    "seconds": 5.92,
+    "passed": true
+  },
+  {
+    "test": "gear_hooks_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "GEAR HOOKS R22 CHECKS 21267 FAILURES 0"
+    ],
+    "seconds": 9.55,
+    "passed": true
+  },
+  {
+    "test": "gear_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "GEAR R22 CHECKS 122798 FAILURES 0"
+    ],
+    "seconds": 9.56,
+    "passed": true
+  },
+  {
+    "test": "motion_asset_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [],
+    "seconds": 0.97,
+    "passed": true
+  },
+  {
+    "test": "motion_r18_integration",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "R18 STATE INTEGRATION: 3540 checks / 0 failures"
+    ],
+    "seconds": 73.44,
+    "passed": true
+  },
+  {
+    "test": "motion_r9_integration",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "R9 INTEGRATION: 944 checks / 0 failures"
+    ],
+    "seconds": 8.8,
+    "passed": true
+  },
+  {
+    "test": "motion_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [],
+    "seconds": 0.48,
+    "passed": true
+  },
+  {
+    "test": "panels_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "PANELS R22 CHECKS 7345 FAILURES 0"
+    ],
+    "seconds": 2.78,
+    "passed": true
+  },
+  {
+    "test": "persona_combat_a8_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "PERSONA COMBAT A8 CHECKS 34800 FAILURES 0"
+    ],
+    "seconds": 168.41,
+    "passed": true
+  },
+  {
+    "test": "persona_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "PERSONA R22 CHECKS 4005 FAILURES 0"
+    ],
+    "seconds": 8.75,
+    "passed": true
+  },
+  {
+    "test": "persona_research_r21_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "PERSONA RESEARCH R21 CHECKS 13889 FAILURES 0 LUA 13843 / 13843"
+    ],
+    "seconds": 5.14,
+    "passed": true
+  },
+  {
+    "test": "persona_save_a8_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "PERSONA SAVE A8 CHECKS 385 FAILURES 0"
+    ],
+    "seconds": 5.3,
+    "passed": true
+  },
+  {
+    "test": "persona_town_r21_round8_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "PERSONA TOWN ROUND8 CHECKS 1037 FAILURES 0"
+    ],
+    "seconds": 40.73,
+    "passed": true
+  },
+  {
+    "test": "recruit_r21_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "RECRUIT R21 CHECKS 14991 FAILURES 0 LUA 2496"
+    ],
+    "seconds": 1.72,
+    "passed": true
+  },
+  {
+    "test": "route_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "ROUTE TESTS: 41 checks, 0 failures"
+    ],
+    "seconds": 0.56,
+    "passed": true
+  },
+  {
+    "test": "settings_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "SETTINGS R22 CHECKS 205243 FAILURES 0"
+    ],
+    "seconds": 6.5,
+    "passed": true
+  },
+  {
+    "test": "state_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "COMBAT CHECKS: 54; FAILURES: 0"
+    ],
+    "seconds": 1.52,
+    "passed": true
+  },
+  {
+    "test": "town_combat_r21_round14_test",
+    "exit": 1,
+    "errors": [
+      "ERROR: midfight real D1 account",
+      "ERROR: midfight real D1 PUT",
+      "ERROR: midfight real D1 download all fields"
+    ],
+    "summary": [
+      "TOWN COMBAT ROUND14 CHECKS 576 FAILURES 3"
+    ],
+    "seconds": 30.8,
+    "passed": false
+  },
+  {
+    "test": "town_commerce_r21_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "TOWN COMMERCE R21 CHECKS 14714 FAILURES 0 LUA 8520 / 8520"
+    ],
+    "seconds": 2.7,
+    "passed": true
+  },
+  {
+    "test": "town_r21_round10_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "TOWN ROUND10 CHECKS 218 FAILURES 0 LEGACY 11"
+    ],
+    "seconds": 7.16,
+    "passed": true
+  },
+  {
+    "test": "town_r21_round11_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "TOWN ROUND11 CHECKS 148 FAILURES 0 LEGACY 11 SAMPLES 23"
+    ],
+    "seconds": 9.02,
+    "passed": true
+  },
+  {
+    "test": "town_r21_round9_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "TOWN ROUND9 CHECKS 1573 FAILURES 0 DIALOGUE 153 LEGACY 11"
+    ],
+    "seconds": 46.98,
+    "passed": true
+  },
+  {
+    "test": "town_r21_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "TOWN R21 CHECKS 2675 FAILURES 0 LUA SAMPLES 2544"
+    ],
+    "seconds": 2.95,
+    "passed": true
+  },
+  {
+    "test": "ui_battle_r17_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "R17 BATTLE UI 6085 CHECKS / 0 FAILURES"
+    ],
+    "seconds": 64.62,
+    "passed": true
+  },
+  {
+    "test": "ui_battle_r18_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "R18: 4592 checks / 0 failures; 30 distinct effect hashes"
+    ],
+    "seconds": 52.58,
+    "passed": true
+  },
+  {
+    "test": "ui_battle_r19_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "R19: 859 checks / 0 failures"
+    ],
+    "seconds": 11.66,
+    "passed": true
+  },
+  {
+    "test": "ui_battle_r20_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "R20: 1659 checks / 0 failures"
+    ],
+    "seconds": 18.48,
+    "passed": true
+  },
+  {
+    "test": "ui_chronicle_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "CHRONICLE UI R22 CHECKS 3628 FAILURES 0 CAPTURES 75"
+    ],
+    "seconds": 10.14,
+    "passed": true
+  },
+  {
+    "test": "ui_cloud_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "CLOUD UI R22 CHECKS 700 FAILURES 0 CAPTURES 35"
+    ],
+    "seconds": 4.92,
+    "passed": true
+  },
+  {
+    "test": "ui_combat_a8_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "COMBAT A8 UI CHECKS 38929 FAILURES 0 OVERFLOW 0 CAPTURES 261"
+    ],
+    "seconds": 57.94,
+    "passed": true
+  },
+  {
+    "test": "ui_data_r21_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "UI_DATA_R21 checks=9608 failures=0 nameplates=3200 overflow=0"
+    ],
+    "seconds": 29.81,
+    "passed": true
+  },
+  {
+    "test": "ui_dialogue_journey_roster_r21_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "DIALOGUE JOURNEY UI CHECKS 92404 FAILURES 0 OVERFLOW 0"
+    ],
+    "seconds": 70.45,
+    "passed": true
+  },
+  {
+    "test": "ui_dialogue_r21_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "DIALOGUE UI R21 CHECKS 9078 FAILURES 0"
+    ],
+    "seconds": 32.58,
+    "passed": true
+  },
+  {
+    "test": "ui_dialogue_roster_r21_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "DIALOGUE ROSTER UI CHECKS 519964 FAILURES 0 OVERFLOW 0"
+    ],
+    "seconds": 146.27,
+    "passed": true
+  },
+  {
+    "test": "ui_expedition_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "EXPEDITION UI R22 CHECKS 1915 FAILURES 0 CAPTURES 70"
+    ],
+    "seconds": 23.03,
+    "passed": true
+  },
+  {
+    "test": "ui_facilities_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "FACILITIES UI R22 CHECKS 1940 FAILURES 0 CAPTURES 65"
+    ],
+    "seconds": 18.08,
+    "passed": true
+  },
+  {
+    "test": "ui_panels_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "PANELS UI R22 CHECKS 12959 FAILURES 0 CAPTURES 75"
+    ],
+    "seconds": 24.44,
+    "passed": true
+  },
+  {
+    "test": "ui_persona_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "PERSONA UI R22 CHECKS 1463 FAILURES 0 CAPTURES 60"
+    ],
+    "seconds": 10.64,
+    "passed": true
+  },
+  {
+    "test": "ui_persona_town_round8_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "PERSONA TOWN UI ROUND8 CHECKS 5660 FAILURES 0 CAPTURES 45"
+    ],
+    "seconds": 16.59,
+    "passed": true
+  },
+  {
+    "test": "ui_settings_r22_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "SETTINGS UI R22 CHECKS 3645 FAILURES 0 CAPTURES 95"
+    ],
+    "seconds": 12.75,
+    "passed": true
+  },
+  {
+    "test": "ui_town_r21_round10_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "TOWN UI ROUND10 CHECKS 4165 FAILURES 0 CAPTURES 150"
+    ],
+    "seconds": 23.03,
+    "passed": true
+  },
+  {
+    "test": "ui_town_r21_round11_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "TOWN UI ROUND11 CHECKS 5380 FAILURES 0 CAPTURES 170"
+    ],
+    "seconds": 25.7,
+    "passed": true
+  },
+  {
+    "test": "ui_town_r21_round2_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "TOWN ROUND2 UI CHECKS 4458 FAILURES 0"
+    ],
+    "seconds": 13.28,
+    "passed": true
+  },
+  {
+    "test": "ui_town_r21_round3_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "TOWN ROUND3 UI CHECKS 8445 FAILURES 0 PORTRAIT SLOTS 300 ENEMY FALLBACKS 0"
+    ],
+    "seconds": 23.52,
+    "passed": true
+  },
+  {
+    "test": "ui_town_r21_round4_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "TOWN ROUND4 UI CHECKS 10558 FAILURES 0"
+    ],
+    "seconds": 24.73,
+    "passed": true
+  },
+  {
+    "test": "ui_town_r21_round5_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "TOWN ROUND5 UI CHECKS 2270 FAILURES 0"
+    ],
+    "seconds": 8.2,
+    "passed": true
+  },
+  {
+    "test": "ui_town_r21_round9_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "TOWN UI ROUND9 CHECKS 7305 FAILURES 0 CAPTURES 55"
+    ],
+    "seconds": 16.38,
+    "passed": true
+  },
+  {
+    "test": "ui_town_r21_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "TOWN UI R21 CHECKS 1697 FAILURES 0 OVERFLOW 0"
+    ],
+    "seconds": 9.44,
+    "passed": true
+  },
+  {
+    "test": "ui_town_result_r21_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "TOWN RESULT R21 CHECKS 235 FAILURES 0"
+    ],
+    "seconds": 12.11,
+    "passed": true
+  },
+  {
+    "test": "world_test",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "WORLD TESTS: 44 checks, 0 failures"
+    ],
+    "seconds": 0.77,
+    "passed": true
+  },
+  {
+    "test": "combat_p2_r22_trace",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "P2 full battles 48 / actions 1468 / matched 1468 / differences {  }"
+    ],
+    "seconds": 10.3,
+    "passed": true
+  },
+  {
+    "test": "combat_a6_mixed_audit",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "A6 mixed parity 48 battles / source 2537 / actual 2537 / equal battles 48 / matched actions 2537"
+    ],
+    "seconds": 12.84,
+    "passed": true
+  },
+  {
+    "test": "combat_p3_mixed_audit",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "P3 mixed parity 128 battles / source 4929 / actual 4929 / equal battles 128 / matched actions 4929"
+    ],
+    "seconds": 24.83,
+    "passed": true
+  },
+  {
+    "test": "combat_a7_gear_audit",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "A7 gear parity 176 battles / source 2932 / actual 2932 / equal battles 176 / matched actions 2932"
+    ],
+    "seconds": 25.91,
+    "passed": true
+  },
+  {
+    "test": "combat_a7_gear_balanced",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "A7 gear parity 176 battles / source 6279 / actual 6279 / equal battles 176 / matched actions 6279"
+    ],
+    "seconds": 33.55,
+    "passed": true
+  },
+  {
+    "test": "combat_a8_audit",
+    "exit": 124,
+    "errors": [],
+    "summary": [],
+    "seconds": 600.12,
+    "passed": false
+  },
+  {
+    "test": "combat_a9_native_10_audit",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "A9 native 10 parity 312 battles / source 4806 / actual 4806 / equal battles 312 / matched actions 4806"
+    ],
+    "seconds": 42.84,
+    "passed": true
+  },
+  {
+    "test": "combat_a9_native_40_audit",
+    "exit": 0,
+    "errors": [],
+    "summary": [
+      "A9 native 40 parity 312 battles / source 10127 / actual 10127 / equal battles 312 / matched actions 10127"
+    ],
+    "seconds": 57.59,
+    "passed": true
+  }
+]

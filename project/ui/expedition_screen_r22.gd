@@ -21,6 +21,12 @@ func small_party(y: float,tall=false) -> void:
 func exploration() -> void:
 	super()
 	var w=host.model;var r=w.s.run
+	if w.expedition() and host.controls.has("retreat"):
+		var button=host.controls.retreat
+		for connection in button.pressed.get_connections():button.pressed.disconnect(connection.callable)
+		button.pressed.connect(func():
+			if w.expedition_retreat("retreat"):
+				host._save();host._ask("모은 보상을 정산하고 귀환할까요?",w.expedition_retreat.bind("retreat_yes")))
 	if boxes.has("source_progress_map"):
 		var map=boxes.source_progress_map
 		map.position.y=151;map.size.y=306
@@ -39,17 +45,27 @@ func exploration() -> void:
 	action("expedition_log","탐색 기록 · 주머니",Rect2(18,97 if r.phase!="rest" else 220,354,44),host.go.bind("expedition_log"))
 
 func build_page() -> void:
+	if host.screen=="explore" and host.model.expedition() and host.model.active() and host.model.s.run.ask and host.confirm.is_empty():
+		host.confirm={"prompt":"모은 보상을 정산하고 귀환할까요?","callback":host.model.expedition_retreat.bind("retreat_yes")}
 	if host.screen=="expedition_log":
 		page_background();header("탐색 기록 · 주머니","explore")
 		var w=host.model;var r=w.s.run;var lines=[]
 		for line in r.log:lines.append(line)
 		lines.append("미정산 금화 %d · 경험치 %d"%[r.gold,r.xp])
-		for key in r.loot_items:lines.append(w.item_def(w.web_item_id(key)).name+" ×%d"%r.loot_items[key])
-		for code in r.loot_gear:lines.append(w.gear.by_id[code.split(".")[0]].name)
+		for key in r.loot_items:lines.append(w.expedition_item_name(key)+" ×%d"%r.loot_items[key])
+		for code in r.loot_gear:lines.append(w.expedition_gear_label(code,L.language(w.s)=="en"))
 		var prev=stage;stage=scroll_page(70,613,maxi(613,lines.size()*75))
 		for i in range(lines.size()):paragraph(lines[i],Rect2(0,i*75,342,70),14)
 		stage=prev;action("log_back","원정으로",Rect2(18,705,354,44),host.go.bind("explore"),true);navigation();return
 	super()
+
+func retreat() -> void:
+	super()
+	if not host.model.expedition():return
+	var cancel=host.controls.get("cancel")
+	if is_instance_valid(cancel):
+		for connection in cancel.pressed.get_connections():cancel.pressed.disconnect(connection.callable)
+		cancel.pressed.connect(func():host.model.expedition_retreat("retreat_no");host.confirm={};host._save();host._draw_screen())
 
 func bag() -> void:
 	if not host.selected_item.is_empty():target_item();return
@@ -113,7 +129,7 @@ func summary() -> void:
 	if r.lost>0:lines.append("잃은 미정산 금화 %d"%r.lost)
 	for key in r.items:lines.append(w.item_def(w.web_item_id(key)).name+" ×%d"%r.items[key])
 	for key in r.lost_items:lines.append("분실 · "+w.item_def(w.web_item_id(key)).name+" ×%d"%r.lost_items[key])
-	for code in r.gear:lines.append("장비 · "+w.gear.by_id[code.split(".")[0]].name)
+	for code in r.gear:lines.append("장비 · "+w.expedition_gear_label(code,L.language(w.s)=="en"))
 	if r.gear_lost>0:lines.append("가방이 가득 차 장비 %d개 폐기"%r.gear_lost)
 	if r.lost_gear>0:lines.append("장비 %d개 분실"%r.lost_gear)
 	for g in r.gains:lines.append("%s · Lv.%d → %d"%[w.person(g.id).name,g.before,g.level])

@@ -39,8 +39,18 @@ func dungeon_max() -> int:
 		if dungeon_rules.config.zone_order[i] in s.dungeon_r21.cleared_bosses: m=maxi(m,3*(i+1)+1)
 	return m
 
+func dungeon_allowed(f: int) -> bool:
+	return f>=1 and f<=dungeon_max()
+
+func dungeon_floor_view(f: int,avg: float=1.0) -> Dictionary:
+	var info=dungeon_rules.floor_info(f);var zone=dungeon_rules.zones[info.zone]
+	var kind=dungeon_rules.floor_boss_kind(info)
+	var out={"info":info,"zone":zone,"boss_kind":kind,"el":dungeon_rules.floor_level(avg,info),"star":dungeon_rules.floor_star(info),"reward":dungeon_rules.floor_mult(f).reward}
+	if kind=="boss":out.lead=zone.boss
+	return out
+
 func depart_dungeon(f: int,seed: int=0,rift_id: String="",stars: int=1) -> bool:
-	if active() or f<1 or (rift_id.is_empty() and f>dungeon_max()) or (not rift_id.is_empty() and not dungeon_rules.rifts.has(rift_id)): return false
+	if active() or f<1 or (rift_id.is_empty() and not dungeon_allowed(f)) or (not rift_id.is_empty() and not dungeon_rules.rifts.has(rift_id)): return false
 	if not rift_id.is_empty():
 		var r=dungeon_rules.rifts[rift_id]
 		if stars<r.star_min or stars>r.star_max: return false
@@ -60,7 +70,11 @@ func depart_dungeon(f: int,seed: int=0,rift_id: String="",stars: int=1) -> bool:
 func dungeon_title() -> String:
 	if not s.run.get("rift_id","").is_empty(): return dungeon_rules.rifts[s.run.rift_id].quest_name
 	var info=dungeon_rules.floor_info(int(s.run.get("floor",selected_floor)))
-	return dungeon_rules.zones[info.zone].name+(" 심층 %d"%info.dc if info.dk>0 else "")+" · %d층"%info.floor
+	return dungeon_zone_title(info)+" · %d층"%info.floor
+func dungeon_zone_title(info: Dictionary) -> String:
+	var text=preload("res://game/localization_r22.gd");var lang=text.language(s)
+	var suffix=(" Depth %d"%info.dc if lang=="en" else text.u(" 심층 {n}",{"n":info.dc})) if info.dk>0 else ""
+	return text.t(dungeon_rules.zones[info.zone].name,lang)+suffix
 
 func party_classes() -> Array: return s.party.map(func(id):return class_def(id).id)
 func average_level() -> float:

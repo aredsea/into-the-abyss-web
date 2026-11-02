@@ -8,7 +8,7 @@ func build(owner_screen) -> void:
 	header("원정 준비")
 	host.controls.back.position.y=4;host.controls.back.size.y=56
 	var w=host.model;var s=w.s
-	var info=w.dungeon_rules.floor_info(w.selected_floor);var zone=w.dungeon_rules.zones[info.zone]
+	var floor_view=w.dungeon_floor_view(w.selected_floor,w.average_level());var info=floor_view.info;var zone=floor_view.zone
 	label("탐사 지역",Rect2(18,54,180,20),11,T.INK,T.BOLD)
 	display(zone.name,Rect2(18,74,215,48),T.INK,36)
 	display("%d층"%w.selected_floor,Rect2(18,121,150,36),T.RED,29)
@@ -22,11 +22,14 @@ func build(owner_screen) -> void:
 	if w.has_method("floor_page"):
 		pick.clear();pick.fit_to_longest_item=false;pick.clip_text=true
 		var mx=w.dungeon_max();var pg=clampi(int(s.dungeon_r21.get("pg",1)),1,int(ceil((mx+1)/6.0)))
+		var selection_on_page=false
 		for f in range((pg-1)*6+1,mini(pg*6,mx+1)+1):
 			var z=w.dungeon_rules.floor_info(f);var status="잠김" if f>mx else "완료" if f<=s.dungeon_r21.best else "도전 가능"
 			pick.add_item(L.u("{floor}층 {zone}",{"floor":f,"zone":w.dungeon_rules.zones[z.zone].name},L.language(s))+" · "+localized(status),f)
 			pick.get_popup().set_item_disabled(pick.item_count-1,f>mx)
-			if f==w.selected_floor:pick.select(pick.item_count-1)
+			if f==w.selected_floor:pick.select(pick.item_count-1);selection_on_page=true
+		if not selection_on_page:
+			pick.select(-1);pick.text="선택 %d층 · 다른 쪽"%w.selected_floor
 		for connection in pick.item_selected.get_connections():pick.item_selected.disconnect(connection.callable)
 		pick.item_selected.connect(func(i):w.select_dungeon_floor(pick.get_item_id(i));host._save();host._draw_screen())
 		action("floor_prev","이전",Rect2(218,212,72,56),func():w.floor_page(pg-1);host._save();host._draw_screen(),false,pg<=1).add_theme_font_size_override("font_size",11)
@@ -40,7 +43,7 @@ func build(owner_screen) -> void:
 	var self_button=action("so_fight_1","자기 참전 · 동료 3명",Rect2(18,277,174,56),func():w.set_fight(1);host._save();host._draw_screen(),s.persona.fight==1,w.active() or not w.can_persona_fight());self_button.add_theme_font_size_override("font_size",13)
 	if not w.can_persona_fight():self_button.tooltip_text="모험가 생성 정보가 없는 옛 저장입니다. 기존 동료 편성을 유지하고 지휘로 출발합니다."
 	action("so_fight_0","지휘 · 동료 4명",Rect2(198,277,174,56),func():w.set_fight(0);host._save();host._draw_screen(),s.persona.fight==0,w.active()).add_theme_font_size_override("font_size",13)
-	var ids=w.sortie_ids()
+	var ids=w.sortie_members().map(func(m):return m.id) if w.has_method("sortie_members") else w.sortie_ids()
 	for i in range(2):
 		var row="전열" if i==0 else "후열"
 		var group=ids.filter(func(id):return w.person(id).row==row)
@@ -62,7 +65,11 @@ func build(owner_screen) -> void:
 	if candidates.is_empty():label("이 열의 대기 동료가 없습니다.",Rect2(0,0,340,48),14,T.MUTED)
 	stage=previous
 	var fronts=ids.filter(func(id):return w.person(id).row=="전열").size()
-	label("옛 저장은 지휘로 출발 · 초상을 눌러 편성 해제" if not w.can_persona_fight() else "출전할 사람을 골라 주세요." if ids.is_empty() else "전열 없음 · 초상을 눌러 편성 해제" if fronts==0 else "출전 %d / 4 · 초상을 눌러 편성 해제"%ids.size(),Rect2(18,613,354,24),12,T.RED if fronts==0 else T.INK)
+	var summary_data=w.sortie_quest_summary({"lv":floor_view.el}) if w.has_method("sortie_quest_summary") else {}
+	var danger=not summary_data.is_empty() and summary_data.n>0 and summary_data.elv-summary_data.avg>=5
+	var caption="옛 저장은 지휘로 출발 · 초상을 눌러 편성 해제" if not w.can_persona_fight() else "출전할 사람을 골라 주세요." if ids.is_empty() else "전열 없음 · 초상을 눌러 편성 해제" if fronts==0 else "출전 %d / 4 · 초상을 눌러 편성 해제"%ids.size()
+	if danger:caption="위험 · 적 Lv.%d / 파티 평균 Lv.%d%s"%[summary_data.elv,summary_data.avg," · 전열 없음" if fronts==0 else ""]
+	label(caption,Rect2(18,613,354,24),12,T.RED if fronts==0 or danger else T.INK)
 	label("원정 경로",Rect2(18,637,354,22),13,T.INK,T.BOLD)
 	if s.quest.is_empty() and host.save_error==OK:
 		for i in range(3):
@@ -71,8 +78,10 @@ func build(owner_screen) -> void:
 			mark("route_picture:"+str(i),boxes["background:"+["explore","rest","departure"][i]])
 			label(["탐색 5회","휴식","층 보스"][i],Rect2(x,706,114,24),12,T.INK,T.BOLD).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	elif not s.quest.is_empty() and host.save_error==OK:
-		action("accepted_quest","수락한 균열 의뢰로 출발",Rect2(18,667,354,56),func():host._act(w.depart_accepted_quest,"");host.go("explore"),true,ids.is_empty() or w.active())
-	action("start_run","선택한 층으로 출발 →",Rect2(18,736,354,56),func():host._act(w.depart_dungeon.bind(w.selected_floor),"");host.go("explore"),true,ids.is_empty() or w.active())
+			var quest_button=action("accepted_quest","수락한 균열 의뢰로 출발",Rect2(18,667,354,56),func():host._act(w.depart_accepted_quest,"");host.go("explore"),true,ids.is_empty() or w.active())
+			if w.has_method("sortie_quest_summary"):quest_button.tooltip_text="\n".join(w.sortie_quest_summary(s.quest).warns)
+	var start_button=action("start_run","선택한 층으로 출발 →",Rect2(18,736,354,56),func():host._act(w.depart_dungeon.bind(w.selected_floor),"");host.go("explore"),true,ids.is_empty() or w.active())
+	if not summary_data.is_empty():start_button.tooltip_text="\n".join(summary_data.warns)
 	navigation()
 	if host.save_error!=OK:action("save_retry","저장 다시 시도",Rect2(18,667,354,56),func():host._save();host._draw_screen(),true)
 	finish_localization()

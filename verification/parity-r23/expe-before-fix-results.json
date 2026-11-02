@@ -1,0 +1,43 @@
+{
+  "checks": 1263,
+  "failures": [
+    "boss phase/ask { \"phase\": \"rest\", \"ask\": true, \"value\": { \"phase\": \"battle\", \"ask\": false, \"started\": true } }",
+    "old item aliases accepted { \"potion\": 2.0, \"mana\": 3.0 }",
+    "old item aliases accepted { \"mp_s\": 7.0, \"mana\": 3.0, \"potion\": 2.0, \"hp_s\": 5.0 }",
+    "old item aliases accepted { \"potion\": 0.0, \"mana\": 0.0 }"
+  ],
+  "groups": {
+    "bag": {
+      "checks": 4,
+      "failures": 0
+    },
+    "boss_guard": {
+      "checks": 8,
+      "failures": 1
+    },
+    "discovery": {
+      "checks": 9,
+      "failures": 0
+    },
+    "floor_access": {
+      "checks": 420,
+      "failures": 0
+    },
+    "invalid": {
+      "checks": 5,
+      "failures": 0
+    },
+    "log": {
+      "checks": 13,
+      "failures": 0
+    },
+    "migration": {
+      "checks": 12,
+      "failures": 3
+    },
+    "outside_use": {
+      "checks": 792,
+      "failures": 0
+    }
+  }
+}
