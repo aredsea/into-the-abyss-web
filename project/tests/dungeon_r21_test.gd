@@ -55,6 +55,9 @@ func run():
 			# Controlled damage establishes both terminal paths on every source floor.
 			if result=="victory":
 				for a in d.allies: a.base[a.line]=1e12
+				# Canonical fresh CTB can give several enemies the first turns.
+				# This controlled terminal fixture isolates victory from that damage.
+				for e in d.enemies: e.attack=0
 			else:
 				for e in d.enemies: e.attack=1e9
 				for a in d.allies: a.hp=1; a.base[a.line]=.00001

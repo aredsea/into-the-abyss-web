@@ -8,6 +8,77 @@ var inventory={}
 var dungeon_enemy_r21
 var last_enemy_hit_target=""
 var r21_tick_mp=-1
+const CombatClock=preload("res://game/combat_clock_r22.gd")
+var ctb_tick=0
+var ctb_round=0
+var combat_hits=[]
+
+func _record_hit(actor: String,target: String,damage: int,shield: int,critical: bool=false) -> void:
+	var all=data.allies+data.enemies
+	combat_hits.append({"actor":all.find(unit(actor))+1,"target":all.find(unit(target))+1,"damage":damage,"shield":shield,"critical":critical})
+
+func _roll(chance: float) -> bool:
+	if dungeon_enemy_r21==null: return super(chance)
+	return dungeon_enemy_r21.random()<chance
+
+func refresh_forecast() -> void:
+	if dungeon_enemy_r21==null: super(); return
+	if not result.is_empty(): data.queue=[]; return
+	var units=data.allies+data.enemies
+	data.queue=CombatClock.preview(units,units.map(func(u):return speed(u)),current_id)
+
+func _advance_ctb() -> void:
+	dungeon_enemy_r21.phase_check()
+	var units=data.allies+data.enemies
+	var next=CombatClock.advance(units,units.map(func(u):return speed(u)))
+	if next.is_empty(): return
+	ctb_tick+=next.ticks
+	while ctb_round<int(floor(float(ctb_tick)/100)):
+		ctb_round+=1
+		_round_tick()
+	current_id=units[next.index].id
+	_tick(units[next.index])
+	if units[next.index].has("mp"): last_ally=current_id
+	if not living(false).is_empty() and enemy(selected_enemy).hp<=0: selected_enemy=living(false)[0].id
+	selected_action="attack"
+
+func _round_tick() -> void:
+	# MP synergy precedes living personal hooks, then the global round hook.
+	if living(true).filter(func(a):return a.line=="int").size()>=2:
+		for a in living(true):
+			if a.line=="int": a.mp=mini(a.mmp,a.mp+4)
+	for owner in data.allies:
+		if owner.hp<=0: continue
+		match owner.id:
+			"urda":
+				var target=_lowest()
+				if not target.is_empty():
+					_receive_heal(target,owner.base[owner.line]*2*.35)
+					for key in ["attack_down","defense_down"]:
+						if target.effects.has(key): target.effects.erase(key); break
+			"tove":
+				owner.shield=mini(int(floor(owner.mhp*.3)),owner.shield+int(floor(owner.mhp*.06+.5)))
+				_effect(owner,"shield",4)
+			"sorel":
+				for a in living(true):
+					if a.effects.has("sorel_regen"):
+						_receive_heal(a,fx(a,"sorel_regen")); a.effects.sorel_regen.turns-=1
+						if a.effects.sorel_regen.turns<=0: a.effects.erase("sorel_regen")
+			"felice": _felice_scan()
+			"jorund":
+				for e in data.enemies: x(e).jd=0
+			"hildegard": _hg_scan()
+			"miko":
+				var pick={}; var late=-1.0
+				for a in living(true):
+					if a.id==owner.id: continue
+					var wait=float(a.remaining)/speed(a)
+					if wait>late: late=wait; pick=a
+				if not pick.is_empty(): pick.remaining=maxf(0,pick.remaining-4000)
+	if count_tag("race","하프엘프")>=3:
+		for a in living(true):
+			for key in ["attack_down","defense_down","zdn"]:
+				if a.effects.has(key): a.effects.erase(key); break
 
 func _init(scene_data: Dictionary={}) -> void:
 	super(scene_data)
@@ -22,7 +93,39 @@ func _init(scene_data: Dictionary={}) -> void:
 	for a in data.allies:
 		if a.id=="altan":
 			for m in living(true): _shield(m,a.base.int*2,3)
+	if dungeon_enemy_r21!=null: _start_ctb()
 	refresh_forecast()
+
+func _start_ctb() -> void:
+	for a in data.allies:
+		a.remaining=10000.0
+		a.base.spd=floor(a.base.spd+.5)
+		if a.id=="tove" and a.hp>0:
+			a.shield=mini(int(floor(a.mhp*.3)),a.shield+int(floor(a.mhp*.06+.5)))
+			_effect(a,"shield",4)
+	_hg_scan()
+	if not _check_end(): _advance_ctb()
+
+func _check_end() -> bool:
+	if not result.is_empty(): return true
+	if living(false).is_empty(): result="victory"
+	elif living(true).is_empty() or turn_count>=400: result="defeat"
+	if not result.is_empty():
+		_event("전투 승리" if result=="victory" else "전투 패배 · 부상으로 이탈")
+		data.queue=[]
+		return true
+	return false
+
+func _hg_scan() -> void:
+	if dungeon_enemy_r21==null or not has_alive("hildegard"): return
+	var taunted=not living(true).filter(func(a):return a.effects.has("taunt")).is_empty()
+	for e in living(false):
+		if x(e).get("hg_index",-1)==int(e.act_index): continue
+		x(e).hg_index=int(e.act_index); e.redirected=false
+		if e.acts[e.act_index].kind in ["atk","shoot","aimed","spell","big_one","big_all"] and not taunted:
+			var roll=dungeon_enemy_r21.random()
+			if e.target_id!="hildegard" and roll<.35:
+				e.target_id="hildegard"; e.redirected=true
 
 func x(u: Dictionary) -> Dictionary:
 	return extra_state[u.id]
@@ -105,6 +208,22 @@ func choose_ally(id: String) -> bool:
 	selected_ally=id; return true
 
 func speed(u: Dictionary) -> float:
+	if dungeon_enemy_r21!=null:
+		var base_speed=float(u.base.spd) if u.has("base") else float(u.speed)
+		var mult=1.0
+		if u.has("base"):
+			var elves=count_tag("race","엘프")
+			if elves>=2: mult*=1.02 if elves>=3 else 1.01
+			if count_tag("race","수인")>=2: mult*=1.01
+			if u.get("nation")=="대카라쉰": mult*=1.01
+			if count_tag("nation","대카라쉰")>=3: mult*=1+.01*x(data.allies[0]).get("karashin_kills",0)
+			if u.class_id=="gladiator": mult*=1+.08*float(u.hp)/u.mhp
+			for a in living(true):
+				if a.id!=u.id and a.class_id=="alchemist": mult*=1.06; break
+		mult*=1+fx(u,"haste")+fx(u,"windup")+fx(u,"alarm")-fx(u,"slow")
+		if not u.has("base") and u.rules.has("hp_spd") and u.hp<=u.mhp*u.rules.hp_spd.thr: mult*=1+u.rules.hp_spd.amount
+		mult=maxf(.3,mult)
+		return base_speed if mult==1 else floor(base_speed*mult*100+.5)/100
 	var result=super(u)*(1-fx(u,"slow"))*(1+fx(u,"haste"))
 	if dungeon_enemy_r21!=null and not u.has("base") and u.rules.has("hp_spd") and u.hp<=u.mhp*u.rules.hp_spd.thr: result*=1+u.rules.hp_spd.amount
 	if u.has("base"):
@@ -266,19 +385,22 @@ func _tick(u: Dictionary) -> void:
 			var th=proc(u,"taunt_heal")
 			if not th.is_empty() and u.effects.has("taunt"): u.hp=mini(u.mhp,u.hp+int(u.mhp*th.x/100.0))
 		if fx(u,"regen")>0: u.hp=mini(u.mhp,u.hp+int(floor(fx(u,"regen"))))
-		if u.id=="tove": u.shield=mini(int(u.mhp*.3),u.shield+int(u.mhp*.06))
-		if u.id=="urda" and not living(true).is_empty():
+		if dungeon_enemy_r21==null and u.id=="tove": u.shield=mini(int(u.mhp*.3),u.shield+int(u.mhp*.06))
+		if dungeon_enemy_r21==null and u.id=="urda" and not living(true).is_empty():
 			var t=_lowest(); _heal(u,t,.175); _cleanse(t)
 		if dungeon_enemy_r21==null and u.id=="erdene" and u.effects.get("taunt",{}).get("turns",0)==1:
 			u.hp=mini(u.mhp,u.hp+int(x(u).get("prevented",0)*.25)); x(u).prevented=0
 	var held={}
 	if dungeon_enemy_r21!=null:
 		for key in u.effects.keys():
-			if u.effects[key].get("r21",false) or key=="taunt" or key.begins_with("enemy_dot_"): held[key]=u.effects[key]; u.effects.erase(key)
+			if u.effects[key].get("r21",false) or key in ["taunt","sorel_regen"] or key.begins_with("enemy_dot_"): held[key]=u.effects[key]; u.effects.erase(key)
 	super(u)
 	u.effects.merge(held)
 	if dungeon_enemy_r21!=null and not u.has("base"):
-		dungeon_enemy_r21.phase_guard(u); dungeon_enemy_r21.phase_check()
+		dungeon_enemy_r21.phase_guard(u)
+		var old_phase=u.phase
+		dungeon_enemy_r21.phase_check()
+		if old_phase!=u.phase: u.remaining=0.0
 
 func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,source_crit_roll: float=-1) -> void:
 	if e.hp<=0: return
@@ -290,14 +412,18 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 	if a.effects.has("blood"): chance+=.3
 	chance+=fx(a,"crit_up")
 	if a.actions==0 and a.get("lineage") in ["고양이","표범","고양이과"]: chance+=.15
-	var critical=e.effects.has("mark") or (source_crit_roll<minf(1,chance) if source_crit_roll>=0 else _roll(minf(1,chance)))
+	# B.hit always consumes one roll, including a marked guaranteed critical.
+	var crit_roll=source_crit_roll
+	if dungeon_enemy_r21!=null and crit_roll<0: crit_roll=dungeon_enemy_r21.random()
+	var critical=e.effects.has("mark") or (crit_roll<minf(1,chance) if crit_roll>=0 else _roll(minf(1,chance)))
 	critical_this_action=critical_this_action or critical
 	e.effects.erase("mark")
 	var mult=1+fx(a,"bless")+fx(a,"attack_up")+fx(a,"next_power")+gear.get("dmg",0)/100.0
+	if dungeon_enemy_r21!=null: mult-=fx(a,"attack_down")
 	if a.line=="int": mult*=1+fx(a,"magic_amp"); a.effects.erase("magic_amp")
 	if a.get("race")=="엘프" and a.line=="int": mult*=1.03
 	if a.get("race")=="악마" and a.hp<=a.mhp*.3: mult*=1.12
-	if a.get("nation")=="솔렌 성왕국" and (e.id=="executor" or e.get("grade","") in ["elite","boss","chief","core"]): mult*=1.03
+	if a.get("nation")=="솔렌 성왕국" and ((dungeon_enemy_r21==null and e.id=="executor") or e.get("grade","") in ["elite","boss","chief","core"]): mult*=1.03
 	if a.actions==0 and count_tag("nation","대카라쉰")>=2: mult*=1.03
 	var shared=x(data.allies[0])
 	if a.get("lineage") in ["개","여우","늑대","개과"] and shared.get("last_target")==e.id: mult*=1.08
@@ -305,7 +431,7 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 	for member in living(true):
 		var pd=proc(member,"party_dmg")
 		if not pd.is_empty(): mult*=1+pd.x/100.0
-	if e.id=="executor" or e.get("grade","") in ["elite","boss","chief","core"]: mult*=1+bonus(a,"elite")
+	if (dungeon_enemy_r21==null and e.id=="executor") or e.get("grade","") in ["elite","boss","chief","core"]: mult*=1+bonus(a,"elite")
 	if a.hp<=a.mhp*.3: mult*=1+bonus(a,"lowhp")
 	if a.shield>0: mult*=1+bonus(a,"shdmg")
 	if a.actions==0: mult*=1+bonus(a,"first")
@@ -336,7 +462,7 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 	if a.id=="lavinia" and action_id=="personal" and e.acts[e.act_index].kind in ["spell","weaken","summon"]: mult*=1.3
 	if a.id=="bianca" and e.get("grade","") in ["boss","chief","core"]: mult*=1.3
 	var weak=a.element in e.weak
-	var defense=e.defense*(1-fx(e,"defense_down"))
+	var defense=e.defense*(1+fx(e,"defense_up")-fx(e,"defense_down")) if dungeon_enemy_r21!=null else e.defense*(1-fx(e,"defense_down"))
 	var n=e.level-1
 	var k=data.formula.def_k_ratio*data.formula.def_std_base*(1+data.def_curve.a*n+data.def_curve.b*n*n)
 	var damage=a.base[a.line]*2*power*mult*k/(k+defense)*(1+fx(e,"foxflame"))
@@ -350,11 +476,14 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 		damage*=(2.0 if action_id=="snipe" else 1.5)+(.5 if a.effects.has("blood") else 0)+crit_bonus
 	if not extra: damage+=x(a).get("scar",0)+x(a).get("charge_damage",0); x(a).scar=0; x(a).charge_damage=0
 	if not extra: damage+=x(a).get("overheal",0); x(a).overheal=0; a.effects.erase("next_power")
-	var before=int(e.hp); var dealt=maxi(1,int(floor(damage))); e.hp=maxi(0,e.hp-dealt)
+	var before=int(e.hp); var dealt=maxi(1,int(floor(damage+1e-9)))
+	if dungeon_enemy_r21!=null and e.effects.has("guard"): dealt=maxi(1,int(floor(dealt*.6+1e-9)))
+	e.hp=maxi(0,e.hp-dealt)
 	if dungeon_enemy_r21!=null:
 		var shield=mini(dealt,int(fx(e,"shield")))
 		if shield>0: e.effects.shield.amount-=shield; e.hp=mini(e.mhp,e.hp+shield)
-		dungeon_enemy_r21.phase_guard(e)
+		_record_hit(a.id,e.id,dealt,shield,critical)
+		dungeon_enemy_r21.phase_guard(e,before)
 	_event("%s → %s · %d 피해%s" % [a.name,e.short,dealt," · 치명" if critical else ""])
 	var abyss=brk*(1.5 if weak else 1.0)*(1+gear.get("abyss",0)/100.0)
 	if not sig(a,"ch_rift").is_empty(): abyss*=1+sig(a,"ch_rift")[0]/100.0
@@ -369,7 +498,7 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 	if a.class_id=="sanctioned" and action_id in ["attack","burst"] and e.hp>0:
 		var delay=800.0; var warp=sig(a,"sa_warp")
 		if not warp.is_empty(): delay=100*warp[0]; x(a).pull=maxf(x(a).get("pull",0),warp[0]*warp[2]/10000.0)
-		e.remaining+=delay
+		e.remaining+=delay*(.5 if dungeon_enemy_r21!=null and e.grade=="boss" else 1.0)
 	if a.class_id=="unsanctioned":
 		var dot=a.base.int*.24*(1+bonus(a,"dot"))
 		if not sig(a,"un_seep").is_empty(): dot*=1+sig(a,"un_seep")[0]/100.0
@@ -415,6 +544,7 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 		if a.id=="selva" and action_id=="personal": a.mp=mini(a.mmp,a.mp+6)
 		if fx(e,"corrosion")>0:
 			for other in living(false): _effect(other,"corrosion",2,fx(e,"corrosion"))
+	if dungeon_enemy_r21!=null: _hg_scan()
 	if not extra:
 		var frenzy=proc(a,"frenzy")
 		if not frenzy.is_empty() and _roll(frenzy.p/100.0): _effect(a,"crit_up",int(frenzy.n),frenzy.x/100.0)
@@ -434,7 +564,8 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 
 func _break(e: Dictionary,amount: float) -> void:
 	if dungeon_enemy_r21==null: super(e,amount); return
-	if e.hp<=0 or e.broken: return
+	if e.hp<=0 or e.broken or amount<=0: return
+	amount=maxf(1,floor(amount+.5+1e-9))
 	e.gauge=maxf(0,e.gauge-amount)
 	if e.gauge>0: return
 	e.broken=true; dungeon_enemy_r21.drop_auras()
@@ -448,6 +579,8 @@ func act(id: String) -> bool:
 	if sk.target=="아군 1" and (t.is_empty() or t.hp<=0): return false
 	if sk.target.begins_with("적") and living(false).is_empty(): return false
 	events=[]; critical_this_action=false; a.mp-=cost(id); action_id=id; selected_action=id
+	combat_hits=[]
+	if dungeon_enemy_r21!=null: dungeon_enemy_r21.begin_random(turn_count+1)
 	x(a).haste_done=false
 	var echo=proc(a,"echo")
 	if sk.mp>0 and not echo.is_empty() and _roll(echo.p/100.0): a.mp=mini(a.mmp,a.mp+int(cost(id)*echo.x/100.0))
@@ -561,7 +694,9 @@ func _personal(a: Dictionary,e: Dictionary,t: Dictionary,sk: Dictionary) -> void
 			for m in living(true): _heal(a,m,.5); _shield(m,a.base.int,2)
 		"felice": _heal(a,t,.4); _cleanse(t)
 		"sorel":
-			for m in living(true): _heal(a,m,1); _effect(m,"regen",3,a.base.int*.6)
+			for m in living(true):
+				_heal(a,m,1)
+				_effect(m,"sorel_regen" if dungeon_enemy_r21!=null else "regen",2 if dungeon_enemy_r21!=null else 3,int(floor(a.base.int*.6)))
 		"tika": a.hp-=hp_cost(a,"personal"); x(a).free=2
 		"hedwig":
 			_damage(a,e,1.2,15)
@@ -599,15 +734,27 @@ func _finish_turn(interval_scale: float=1) -> void:
 		if not ending.is_empty() and ending.hp>0 and ending.id=="erdene" and not ending.effects.has("taunt"):
 			_receive_heal(ending,x(ending).get("prevented",0)*.25); x(ending).prevented=0
 		# Felice's turn_end is an allied action hook, not an enemy_end hook.
-		if not ally(current_id).is_empty() and unit(current_id).hp>0: _felice_scan()
-		dungeon_enemy_r21.end_effects(unit(current_id)); dungeon_enemy_r21.phase_check()
+		if not ally(current_id).is_empty() and unit(current_id).hp>0:
+			_felice_scan(); _hg_scan()
+		dungeon_enemy_r21.end_effects(unit(current_id))
 	var a=ally(current_id)
 	if not a.is_empty():
 		interval_scale*=1-float(x(a).get("pull",0)); x(a).pull=0
 		if a.id=="tika" and action_id in ["attack","personal"] and x(a).get("free",0)>0 and not (action_id=="personal"):
 			x(a).free-=1; interval_scale=0
 		if a.id=="hedwig" and (int(a.actions)+1)%3==0: _effect(a,"next_power",4,.6)
-	super(interval_scale)
+	if dungeon_enemy_r21==null:
+		super(interval_scale)
+	else:
+		var u=unit(current_id)
+		u.remaining+=10000*interval_scale
+		if u.has("base"):
+			u.actions+=1
+			if u.id=="bargut" and critical_this_action: u.remaining=maxf(0,u.remaining-10000*float(u.trait.p.pull))
+			if u.id=="teiris" and int(u.actions)%int(u.trait.p.every)==0: u.remaining=maxf(0,u.remaining-10000)
+		critical_this_action=false; turn_count+=1
+		if not _check_end(): _advance_ctb()
+		refresh_forecast()
 	# The base scheduler adds MP after _tick; r21 already did begin_turn before DOT.
 	if dungeon_enemy_r21!=null and result.is_empty() and not ally(current_id).is_empty() and unit(current_id).hp>0 and r21_tick_mp>=0: unit(current_id).mp=r21_tick_mp
 	if result.is_empty() and unit(current_id).hp<=0:
@@ -618,12 +765,10 @@ func _advance_after_dot_death() -> void:
 	# Repeat only CTB selection from battle_state._finish_turn. A dead actor
 	# neither acts nor ends a turn, so actions/turn_count must not advance.
 	while result.is_empty() and unit(current_id).hp<=0:
-		var next: Dictionary={}; var elapsed=INF
-		for entry in living(true)+living(false):
-			var t=maxf(0,float(entry.remaining))/speed(entry)
-			if t<elapsed: elapsed=t; next=entry
-		for entry in living(true)+living(false): entry.remaining=maxf(0,float(entry.remaining)-elapsed*speed(entry))
-		current_id=next.id; _tick(next)
+		if living(false).is_empty() or living(true).is_empty():
+			result="victory" if living(false).is_empty() else "defeat"; break
+		_advance_ctb()
+		var next=unit(current_id)
 		if living(false).is_empty() or living(true).is_empty():
 			result="victory" if living(false).is_empty() else "defeat"; break
 		if next.hp<=0: continue
@@ -639,6 +784,8 @@ func automatic_turn() -> bool:
 	if a.is_empty(): return dungeon_enemy_r21.turn() if dungeon_enemy_r21!=null else super()
 	if not a.charging: return false
 	events=[]; action_id="burst"; a.charging=false; _event(a.name+" · 마력 폭발 발동")
+	combat_hits=[]
+	if dungeon_enemy_r21!=null: dungeon_enemy_r21.begin_random(turn_count+1)
 	for e in living(false): _damage(a,e,a.skills.burst.power,a.skills.burst.brk)
 	_finish_turn(); return true
 
@@ -654,7 +801,7 @@ func _peek_target(e: Dictionary) -> Dictionary:
 
 func _attack_target(e: Dictionary) -> Dictionary:
 	var t=_peek_target(e)
-	if t.id=="hildegard" and e.redirected: t.hp=mini(t.mhp,t.hp+int(t.mhp*.04))
+	if dungeon_enemy_r21==null and t.id=="hildegard" and e.redirected: t.hp=mini(t.mhp,t.hp+int(t.mhp*.04))
 	return t
 
 func _enemy_evade(e: Dictionary,a: Dictionary) -> bool:
@@ -683,12 +830,14 @@ func _enemy_hit(e: Dictionary,a: Dictionary,sk: Dictionary) -> void:
 	if a.hp<=0 or e.hp<=0: return
 	# Ordinary attacks also visit Felice's evade hook before the global roll.
 	if dungeon_enemy_r21!=null: _felice_scan()
-	if _roll(bonus(a,"evade")+(.01 if a.get("nation")=="나에린" else 0)): _event(a.name+" · 회피"); return
+	if dungeon_enemy_r21!=null:
+		if _enemy_evade(e,a): _record_hit(e.id,a.id,0,0); return
+	elif _roll(bonus(a,"evade")+(.01 if a.get("nation")=="나에린" else 0)): _event(a.name+" · 회피"); return
 	if sk.kind=="spell" and e.effects.has("silence"): _event("마법 봉인 · 행동 취소"); return
 	var covered=false
 	if has_alive("marceline") and x(ally("marceline")).get("cover")==a.id:
 		a=ally("marceline"); x(a).erase("cover"); covered=true
-	if a.id=="saya" and _roll(.1):
+	if dungeon_enemy_r21==null and a.id=="saya" and _roll(.1):
 		_event("사야 · 회피 후 반격"); _damage(a,e,1.5,0,true); return
 	last_enemy_hit_target=a.id
 	var n=e.level-1
@@ -707,7 +856,10 @@ func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,cove
 	# B.strike: stance and cover precede take; tactical psguard follows it.
 	if not fixed and a.effects.has("guard"): hit=floor(hit*(1-fx(a,"guard")))
 	if covered: hit=floor(hit*.7)
-	if a.id=="hildegard": hit*=.85*(1-fx(a,"duty"))
+	if a.id=="hildegard":
+		hit*=.85*(1-fx(a,"duty"))
+		if dungeon_enemy_r21!=null and not fixed and not e.is_empty() and e.get("redirected",false):
+			e.redirected=false; _receive_heal(a,a.mhp*.04)
 	if a.get("race")=="하프엘프": hit*=.98
 	if count_tag("race","하프엘프")>=3: hit*=.98
 	var nox=count_tag("race","녹스")
@@ -740,6 +892,7 @@ func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,cove
 	hit=floor(hit+.5)
 	if fx(a,"psguard")>0: hit=floor(hit*(1-fx(a,"psguard"))+.5)
 	var damage=maxi(1,int(hit)); var absorbed=mini(a.shield,damage)
+	if dungeon_enemy_r21!=null and not fixed and not e.is_empty(): _record_hit(e.id,a.id,damage,absorbed)
 	# Lua al stays true during save hooks, even after lethal HP becomes zero.
 	var save_owners=data.allies.filter(func(member): return member.hp>0)
 	a.shield-=absorbed; damage-=absorbed; a.hp=maxi(0,a.hp-damage)
@@ -796,7 +949,9 @@ func effects_text(a: Dictionary) -> String:
 func snapshot() -> Dictionary:
 	var v=super(); v.schema_version=3; v.extra_state=extra_state.duplicate(true); v.selected_ally=selected_ally
 	v.inventory=inventory.duplicate(true)
-	if dungeon_enemy_r21!=null: v.r21_roster=dungeon_enemy_r21.roster()
+	if dungeon_enemy_r21!=null:
+		v.r21_roster=dungeon_enemy_r21.roster()
+		v.ctb={"tick":ctb_tick,"round":ctb_round}
 	return v
 
 func restore(value: Variant) -> bool:
@@ -813,6 +968,9 @@ func intent(e: Dictionary) -> String:
 func _restore_v3(value: Variant) -> bool:
 	if not value is Dictionary or value.get("schema_version")!=3 or value.get("build")!=data.build: return false
 	var shape=snapshot()
+	if not value.has("ctb"): shape.erase("ctb")
+	elif not value.ctb is Dictionary or value.ctb.size()!=2 or not _number(value.ctb.get("tick")) or not _number(value.ctb.get("round")): return false
+	elif value.ctb.tick<0 or value.ctb.tick>100000000 or value.ctb.tick!=floor(value.ctb.tick) or value.ctb.round!=floor(value.ctb.tick/100): return false
 	if dungeon_enemy_r21!=null:
 		for id in shape.extra_state: shape.extra_state[id]={}
 	if not _shape_valid(value,shape): return false
@@ -826,12 +984,12 @@ func _restore_v3(value: Variant) -> bool:
 			if not line is String or line.length()>300: return false
 	for u in data.allies+data.enemies:
 		var v=value.units[u.id]
-		if v.hp<0 or v.hp>u.mhp or v.remaining<0 or v.remaining>1000000: return false
+		if v.hp<0 or v.hp>u.mhp or v.remaining<(-1000000 if dungeon_enemy_r21!=null else 0) or v.remaining>1000000: return false
 		if u.has("mp") and (v.mp<0 or v.mp>u.mmp or v.shield<0 or v.shield>100000): return false
 		if u.has("gauge") and (v.gauge<0 or v.gauge>u.max or v.act_index<0 or v.act_index>=u.acts.size()): return false
 		for key in v.effects:
 			var eff=v.effects[key]
-			if not eff is Dictionary or not _number(eff.get("turns")) or not _number(eff.get("amount")) or eff.turns<1 or eff.turns>100 or absf(eff.amount)>100000: return false
+			if not eff is Dictionary or not _number(eff.get("turns")) or not _number(eff.get("amount")) or eff.turns<1 or eff.turns>100 or absf(eff.amount)>(1e12 if key.begins_with("enemy_dot_") else 100000): return false
 			if eff.has("source") and (not eff.source is String or not value.units.has(eff.source)): return false
 			if eff.has("stacks"):
 				if key!="dot" or not eff.stacks is Array or eff.stacks.is_empty() or eff.stacks.size()>6: return false
@@ -852,10 +1010,13 @@ func _restore_v3(value: Variant) -> bool:
 		if value.units[a.id].hp>0 or (dungeon_enemy_r21==null and value.extra_state[a.id].get("reviving",false)): alive_a+=1
 	for e in data.enemies:
 		if value.units[e.id].hp>0: alive_e+=1
-	if (value.result=="victory")!=(alive_e==0) or (value.result=="defeat")!=(alive_a==0): return false
+	if (value.result=="victory")!=(alive_e==0): return false
+	var defeated=alive_e>0 and (alive_a==0 or (dungeon_enemy_r21!=null and value.turn_count>=400))
+	if (value.result=="defeat")!=defeated: return false
 	for u in data.allies+data.enemies:
 		for key in value.units[u.id]: u[key]=value.units[u.id][key].duplicate(true) if value.units[u.id][key] is Dictionary else value.units[u.id][key]
 	current_id=value.current_id; last_ally=value.last_ally; selected_enemy=value.selected_enemy; selected_action=value.selected_action; selected_ally=value.selected_ally
 	result=value.result; rng_state=int(value.rng); turn_count=int(value.turn_count); history=value.history.duplicate(); events=value.events.duplicate(); extra_state=value.extra_state.duplicate(true)
 	inventory=value.inventory.duplicate(true)
+	ctb_tick=int(value.get("ctb",{}).get("tick",0)); ctb_round=int(value.get("ctb",{}).get("round",0))
 	refresh_forecast(); return true

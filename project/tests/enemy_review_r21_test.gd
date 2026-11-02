@@ -185,6 +185,9 @@ func fourth(o: Dictionary):
 			var probe=load("res://game/battle_v3.gd").new(b.data)
 			probe.extra_state=b.extra_state.duplicate(true); probe.data.allies[0].hp=0; probe.current_id=b.current_id
 			for u in probe.data.allies+probe.data.enemies: u.remaining=10000.0
+			# Keep this event-isolation fixture within its current round. A full
+			# 100-tick advance now legitimately invokes Felice's separate round hook.
+			probe.ctb_tick=0; probe.ctb_round=0; probe.data.allies[2].remaining=1.0
 			probe._finish_turn(); a=probe.data.allies[0]
 		check(a.hp==row.hp,"4.5 canonical Felice scan event "+row.event)
 	b=fixture(); a=b.data.allies[0]; e=b.data.enemies[0]; rename_ally(b,1,"felice")
