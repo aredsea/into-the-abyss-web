@@ -21,6 +21,7 @@ func build(owner_screen) -> void:
 		choose("p7_filter_sub",values,state.ui.tab,func(v):cx("f_"+v))
 	button("p7_me","페르소나의 고유 스킬 보기",cx.bind("me"))
 	var list=R.codex_list(host.model.s.owned,state.ui.tab);var page=R.page(list,int(state.ui.page))
+	state.ui.page=page.page
 	if list.is_empty():text("조건에 맞는 동료가 없습니다.",16,T.MUTED)
 	var grid=GridContainer.new();body.add_child(grid);grid.columns=2;grid.add_theme_constant_override("h_separation",12);grid.add_theme_constant_override("v_separation",16)
 	for cid in page.items:
@@ -28,7 +29,7 @@ func build(owner_screen) -> void:
 		var p=portrait(cid,tile,Vector2(0,138));p.size_flags_horizontal=SIZE_EXPAND_FILL
 		if not owned:p.modulate.a=.38
 		button("p7_select_"+cid,c.name,cx.bind("sel_"+cid),false,not owned,tile)
-		text("%s · Lv %d%s"%[c.cls,host.model.s.members[cid].level," · 즐겨찾기" if cid in state.favs() else ""] if owned else "아직 만나지 못한 동료",12,T.MUTED,tile)
+		text("%s · Lv %d%s"%[c.cls,state.level(cid)," · 즐겨찾기" if cid in state.favs() else ""] if owned else "아직 만나지 못한 동료",12,T.MUTED,tile)
 	if page.pages>1:pager(list,int(state.ui.page),R.PAGE,"cx")
 func detail(id: String) -> void:
 	var c=R.DATA.cast[id];var m=host.model.s.members[id];var h=row()
@@ -38,7 +39,7 @@ func detail(id: String) -> void:
 	if split>=0:full=full.left(split)+"\n"+full.substr(split+1)
 	var heading=text(full,27,T.INK,copy);heading.autowrap_mode=TextServer.AUTOWRAP_ARBITRARY
 	text(c.race+(" · "+c.lineage if c.lineage!="" else "")+"\n"+c.nation+"\n"+c.cls+" · "+c.row+"\n"+R.DATA.els.get(c.el,"무"),14,T.MUTED,copy)
-	section("호감도");affection(m.aff);stats(R.companion_stats(id,int(m.level)),int(m.level),int(m.xp))
+	section("호감도");affection(m.aff);stats(R.companion_stats(id,state.level(id)),state.level(id),int(m.xp))
 	section("개인 스킬 · 액티브");text(c.skill,19);text(c.skill_d);section("개인 특성 · 패시브");text(c.trait,19);text(c.trait_d)
 	passives(c.cls,c.race,c.lineage,c.nation);section("장비")
 	for slot in R.DATA.slots:
@@ -47,5 +48,5 @@ func detail(id: String) -> void:
 			gear_card(e,-1);button("p7_un_"+slot[0],"해제",func():state.unequip(id,slot[0]);host._save();host._draw_screen(),false,state.in_battle())
 		else:text("비어 있음",14,T.MUTED)
 		var candidates=state.candidates(id,slot[0])
-		for entry in candidates.slice(0,4):button("p7_cand_"+str(int(entry.uid)),host.model.gear.by_id[entry.id].name+" · 장착",func():state.equip(id,entry);state.persist();host._save();host._draw_screen())
+		for entry in candidates:button("p7_cand_"+str(int(entry.uid)),host.model.gear.by_id[entry.id].name+" · 장착",func():state.equip(id,entry);state.persist();host._save();host._draw_screen(),false,state.in_battle())
 	button("p7_cx_bag","가방 열기",cx.bind("bag"),true,state.in_battle())

@@ -30,7 +30,7 @@ func build(owner_screen) -> void:
 func redraw() -> void:host._draw_screen()
 func journal() -> void:
 	button("cloud_open","클라우드 저장",host.go.bind("cloud"))
-	var enabled=host.model.s.get("settings",{}).get("chron",1)!=0
+	var enabled=Chronicle.enabled(host.model.s,"chron")
 	text("엔진이 확정한 사건을 날짜순으로 보관합니다.",15,T.MUTED)
 	button("p10_toggle","기록 켜짐 · 끄기" if enabled else "기록 꺼짐 · 켜기",func():
 		if not host.model.s.has("settings"):host.model.s.settings={}
@@ -48,7 +48,8 @@ func journal() -> void:
 		body.add_child(HSeparator.new())
 func places() -> void:
 	var pid=view.place;var d=Places.DATA.places[pid]
-	text(d.name,27);text(d.note,14,T.MUTED)
+	var place_label=Places.label({"scene":"smithy" if pid=="smithy" else "town","place":pid},L.language(host.model.s))
+	text(place_label if place_label!="" else d.name,27);text(d.note,14,T.MUTED)
 	if d.get("d","")!="":text(d.d,16)
 	# No invented archive/gate/alley/shelter scenery. Only an existing town asset.
 	if pid=="town":

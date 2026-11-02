@@ -1,0 +1,2053 @@
+{
+  "baseline_commit": "dd0099260c85f7df4cae98b49cf482b42c4501ba",
+  "groups": [
+    {
+      "feature_group": "클라우드·암호·공유 링크·순위",
+      "priority": "P1",
+      "functions": 31,
+      "counts": {
+        "같음": 0,
+        "일부": 20,
+        "없음": 11,
+        "제외": 0,
+        "미확인": 0
+      },
+      "proposed_bundle": "운영 URL/HTTPS·두 기기·Turnstile 검증은 배포 후 수행. 원본 HMAC/공유링크/PIN 계약과 새 계정/CAS 계약 차이는 제품 결정 항목.",
+      "items": [
+        {
+          "id": "P2699",
+          "feature": "클라우드 서명 — 함수 key",
+          "source_symbol": "key",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 5,
+            "end": 9,
+            "symbol": "key"
+          },
+          "status": "없음",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2700",
+          "feature": "클라우드 서명 — 함수 B.cloud_enabled",
+          "source_symbol": "B.cloud_enabled",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 10,
+            "end": 10,
+            "symbol": "B.cloud_enabled"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2701",
+          "feature": "클라우드 서명 — 함수 ror",
+          "source_symbol": "ror",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 11,
+            "end": 11,
+            "symbol": "ror"
+          },
+          "status": "없음",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2703",
+          "feature": "클라우드 서명 — 함수 B.cloud_sha256",
+          "source_symbol": "B.cloud_sha256",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 20,
+            "end": 48,
+            "symbol": "B.cloud_sha256"
+          },
+          "status": "없음",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2704",
+          "feature": "클라우드 서명 — 함수 B.cloud_hmac",
+          "source_symbol": "B.cloud_hmac",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 49,
+            "end": 55,
+            "symbol": "B.cloud_hmac"
+          },
+          "status": "없음",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2705",
+          "feature": "클라우드 서명 — 함수 B.cloud_hex",
+          "source_symbol": "B.cloud_hex",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 56,
+            "end": 56,
+            "symbol": "B.cloud_hex"
+          },
+          "status": "없음",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2706",
+          "feature": "클라우드 서명 — 함수 익명 함수@56",
+          "source_symbol": "익명 함수@56",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 56,
+            "end": 56,
+            "symbol": "익명 함수@56"
+          },
+          "status": "없음",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2708",
+          "feature": "클라우드 서명 — 함수 B.cloud_b64",
+          "source_symbol": "B.cloud_b64",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 58,
+            "end": 68,
+            "symbol": "B.cloud_b64"
+          },
+          "status": "없음",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2711",
+          "feature": "클라우드 서명 — 함수 copy",
+          "source_symbol": "copy",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 71,
+            "end": 71,
+            "symbol": "copy"
+          },
+          "status": "없음",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2712",
+          "feature": "클라우드 서명 — 함수 B.cloud_payload",
+          "source_symbol": "B.cloud_payload",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 72,
+            "end": 87,
+            "symbol": "B.cloud_payload"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2713",
+          "feature": "클라우드 서명 — 함수 B.cloud_link",
+          "source_symbol": "B.cloud_link",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 88,
+            "end": 93,
+            "symbol": "B.cloud_link"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2714",
+          "feature": "클라우드 서명 — 함수 B.cloud_code",
+          "source_symbol": "B.cloud_code",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 94,
+            "end": 98,
+            "symbol": "B.cloud_code"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2715",
+          "feature": "클라우드 서명 — 함수 bounded",
+          "source_symbol": "bounded",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 99,
+            "end": 103,
+            "symbol": "bounded"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2716",
+          "feature": "클라우드 서명 — 함수 B.cloud_apply",
+          "source_symbol": "B.cloud_apply",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 104,
+            "end": 245,
+            "symbol": "B.cloud_apply"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2717",
+          "feature": "클라우드 서명 — 함수 gear_ok",
+          "source_symbol": "gear_ok",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 144,
+            "end": 148,
+            "symbol": "gear_ok"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2718",
+          "feature": "클라우드 서명 — 함수 message",
+          "source_symbol": "message",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 246,
+            "end": 249,
+            "symbol": "message"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2721",
+          "feature": "클라우드 서명 — 함수 B.cloud_recap",
+          "source_symbol": "B.cloud_recap",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 252,
+            "end": 286,
+            "symbol": "B.cloud_recap"
+          },
+          "status": "없음",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2722",
+          "feature": "클라우드 서명 — 함수 score",
+          "source_symbol": "score",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 256,
+            "end": 256,
+            "symbol": "score"
+          },
+          "status": "없음",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2723",
+          "feature": "클라우드 서명 — 함수 nm",
+          "source_symbol": "nm",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 263,
+            "end": 263,
+            "symbol": "nm"
+          },
+          "status": "없음",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2724",
+          "feature": "클라우드 서명 — 함수 B.cloud_button",
+          "source_symbol": "B.cloud_button",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 288,
+            "end": 347,
+            "symbol": "B.cloud_button"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2725",
+          "feature": "클라우드 서명 — 함수 task",
+          "source_symbol": "task",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 289,
+            "end": 344,
+            "symbol": "task"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2728",
+          "feature": "클라우드 서명 — 함수 task::익명 함수@302",
+          "source_symbol": "task::익명 함수@302",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 302,
+            "end": 302,
+            "symbol": "task::익명 함수@302"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2730",
+          "feature": "클라우드 서명 — 함수 task::익명 함수@322",
+          "source_symbol": "task::익명 함수@322",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 322,
+            "end": 322,
+            "symbol": "task::익명 함수@322"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2731",
+          "feature": "클라우드 서명 — 함수 B.cloud_button::익명 함수@346",
+          "source_symbol": "B.cloud_button::익명 함수@346",
+          "source": {
+            "file": "bot/src/68-cloud.lua",
+            "start": 346,
+            "end": 346,
+            "symbol": "B.cloud_button::익명 함수@346"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2735",
+          "feature": "도달 층 순위 — 함수 cached",
+          "source_symbol": "cached",
+          "source": {
+            "file": "bot/src/69-rank.lua",
+            "start": 4,
+            "end": 8,
+            "symbol": "cached"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2736",
+          "feature": "도달 층 순위 — 함수 cached::익명 함수@6",
+          "source_symbol": "cached::익명 함수@6",
+          "source": {
+            "file": "bot/src/69-rank.lua",
+            "start": 6,
+            "end": 6,
+            "symbol": "cached::익명 함수@6"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2737",
+          "feature": "도달 층 순위 — 함수 B.rank_head",
+          "source_symbol": "B.rank_head",
+          "source": {
+            "file": "bot/src/69-rank.lua",
+            "start": 10,
+            "end": 19,
+            "symbol": "B.rank_head"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2739",
+          "feature": "도달 층 순위 — 함수 B.rank_refresh",
+          "source_symbol": "B.rank_refresh",
+          "source": {
+            "file": "bot/src/69-rank.lua",
+            "start": 23,
+            "end": 26,
+            "symbol": "B.rank_refresh"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2740",
+          "feature": "B.H.rk 버튼 접두 처리",
+          "source_symbol": "B.H.rk",
+          "source": {
+            "file": "bot/src/69-rank.lua",
+            "start": 27,
+            "end": 48,
+            "symbol": "B.H.rk"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2742",
+          "feature": "B.H.rk::익명 함수@38 버튼 접두 처리",
+          "source_symbol": "B.H.rk::익명 함수@38",
+          "source": {
+            "file": "bot/src/69-rank.lua",
+            "start": 38,
+            "end": 47,
+            "symbol": "B.H.rk::익명 함수@38"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2743",
+          "feature": "B.H.rk::익명 함수@38::익명 함수@39 버튼 접두 처리",
+          "source_symbol": "B.H.rk::익명 함수@38::익명 함수@39",
+          "source": {
+            "file": "bot/src/69-rank.lua",
+            "start": 39,
+            "end": 39,
+            "symbol": "B.H.rk::익명 함수@38::익명 함수@39"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        }
+      ]
+    },
+    {
+      "feature_group": "계정·생성·도감·가방·설정·언어·초상·장소·기록",
+      "priority": "P2",
+      "functions": 113,
+      "counts": {
+        "같음": 0,
+        "일부": 93,
+        "없음": 0,
+        "제외": 0,
+        "미확인": 20
+      },
+      "proposed_bundle": "저장 매체·호스트 이름/초상·HTML 차이, 정본 영어 없는 fallback, 각 화면의 전체 문구/필터/반환을 묶어 확인.",
+      "items": [
+        {
+          "id": "P0017",
+          "feature": "영구 상태 — 함수 B.G_new",
+          "source_symbol": "B.G_new",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 13,
+            "end": 42,
+            "symbol": "B.G_new"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P0084",
+          "feature": "영구 상태 — 함수 B.G_migrate",
+          "source_symbol": "B.G_migrate",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 44,
+            "end": 56,
+            "symbol": "B.G_migrate"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P0085",
+          "feature": "영구 상태 — 함수 B.G_load",
+          "source_symbol": "B.G_load",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 58,
+            "end": 69,
+            "symbol": "B.G_load"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P0089",
+          "feature": "영구 상태 — 함수 B.ui_pack",
+          "source_symbol": "B.ui_pack",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 78,
+            "end": 85,
+            "symbol": "B.ui_pack"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P0090",
+          "feature": "영구 상태 — 함수 B.U",
+          "source_symbol": "B.U",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 86,
+            "end": 97,
+            "symbol": "B.U"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P0091",
+          "feature": "영구 상태 — 함수 B.U::익명 함수@90",
+          "source_symbol": "B.U::익명 함수@90",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 90,
+            "end": 96,
+            "symbol": "B.U::익명 함수@90"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P0092",
+          "feature": "영구 상태 — 함수 B.en_dict",
+          "source_symbol": "B.en_dict",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 98,
+            "end": 104,
+            "symbol": "B.en_dict"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P0095",
+          "feature": "영구 상태 — 함수 B.T",
+          "source_symbol": "B.T",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 122,
+            "end": 125,
+            "symbol": "B.T"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P0097",
+          "feature": "영구 상태 — 함수 B.G_save",
+          "source_symbol": "B.G_save",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 131,
+            "end": 136,
+            "symbol": "B.G_save"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P0101",
+          "feature": "영구 상태 — 함수 B.new_seed",
+          "source_symbol": "B.new_seed",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 152,
+            "end": 157,
+            "symbol": "B.new_seed"
+          },
+          "status": "미확인",
+          "unverified_branches": []
+        },
+        {
+          "id": "P0102",
+          "feature": "영구 상태 — 함수 B.esc",
+          "source_symbol": "B.esc",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 160,
+            "end": 163,
+            "symbol": "B.esc"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P0103",
+          "feature": "영구 상태 — 함수 B.has",
+          "source_symbol": "B.has",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 164,
+            "end": 164,
+            "symbol": "B.has"
+          },
+          "status": "미확인",
+          "unverified_branches": []
+        },
+        {
+          "id": "P0104",
+          "feature": "영구 상태 — 함수 B.btn",
+          "source_symbol": "B.btn",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 165,
+            "end": 169,
+            "symbol": "B.btn"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P0105",
+          "feature": "영구 상태 — 함수 B.hud",
+          "source_symbol": "B.hud",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 172,
+            "end": 183,
+            "symbol": "B.hud"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P0110",
+          "feature": "B.H.hd 버튼 접두 처리",
+          "source_symbol": "B.H.hd",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 185,
+            "end": 189,
+            "symbol": "B.H.hd"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P0123",
+          "feature": "영구 상태 — 함수 B.pend_hard::익명 함수@225",
+          "source_symbol": "B.pend_hard::익명 함수@225",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 225,
+            "end": 229,
+            "symbol": "B.pend_hard::익명 함수@225"
+          },
+          "status": "미확인",
+          "unverified_branches": []
+        },
+        {
+          "id": "P0128",
+          "feature": "영구 상태 — 함수 B.pimg_kick::익명 함수@267",
+          "source_symbol": "B.pimg_kick::익명 함수@267",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 267,
+            "end": 273,
+            "symbol": "B.pimg_kick::익명 함수@267"
+          },
+          "status": "미확인",
+          "unverified_branches": []
+        },
+        {
+          "id": "P0129",
+          "feature": "영구 상태 — 함수 B.pimg_kick::익명 함수@267::익명 함수@268",
+          "source_symbol": "B.pimg_kick::익명 함수@267::익명 함수@268",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 268,
+            "end": 272,
+            "symbol": "B.pimg_kick::익명 함수@267::익명 함수@268"
+          },
+          "status": "미확인",
+          "unverified_branches": []
+        },
+        {
+          "id": "P0130",
+          "feature": "영구 상태 — 함수 B.pimg",
+          "source_symbol": "B.pimg",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 279,
+            "end": 289,
+            "symbol": "B.pimg"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P0131",
+          "feature": "영구 상태 — 함수 B.view",
+          "source_symbol": "B.view",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 291,
+            "end": 324,
+            "symbol": "B.view"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P0133",
+          "feature": "영구 상태 — 함수 B.route",
+          "source_symbol": "B.route",
+          "source": {
+            "file": "bot/src/01-game.lua",
+            "start": 327,
+            "end": 357,
+            "symbol": "B.route"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2370",
+          "feature": "페르소나 생성 — 함수 B.C1_en",
+          "source_symbol": "B.C1_en",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 6,
+            "end": 6,
+            "symbol": "B.C1_en"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2390",
+          "feature": "페르소나 생성 — 함수 B.CR.scens",
+          "source_symbol": "B.CR.scens",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 159,
+            "end": 166,
+            "symbol": "B.CR.scens"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2391",
+          "feature": "페르소나 생성 — 함수 B.CR.scens::익명 함수@164",
+          "source_symbol": "B.CR.scens::익명 함수@164",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 164,
+            "end": 164,
+            "symbol": "B.CR.scens::익명 함수@164"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2392",
+          "feature": "페르소나 생성 — 함수 B.CR.view",
+          "source_symbol": "B.CR.view",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 168,
+            "end": 174,
+            "symbol": "B.CR.view"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2394",
+          "feature": "페르소나 생성 — 함수 B.CR.P",
+          "source_symbol": "B.CR.P",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 176,
+            "end": 186,
+            "symbol": "B.CR.P"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2415",
+          "feature": "페르소나 생성 — 함수 B.CR.syn_text",
+          "source_symbol": "B.CR.syn_text",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 264,
+            "end": 267,
+            "symbol": "B.CR.syn_text"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2416",
+          "feature": "페르소나 생성 — 함수 B.CR.trait_row",
+          "source_symbol": "B.CR.trait_row",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 268,
+            "end": 275,
+            "symbol": "B.CR.trait_row"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2417",
+          "feature": "페르소나 생성 — 함수 B.CR.opt",
+          "source_symbol": "B.CR.opt",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 276,
+            "end": 280,
+            "symbol": "B.CR.opt"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2418",
+          "feature": "페르소나 생성 — 함수 B.CR.head",
+          "source_symbol": "B.CR.head",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 281,
+            "end": 283,
+            "symbol": "B.CR.head"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2419",
+          "feature": "페르소나 생성 — 함수 B.CR.steps",
+          "source_symbol": "B.CR.steps",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 284,
+            "end": 291,
+            "symbol": "B.CR.steps"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2421",
+          "feature": "페르소나 생성 — 함수 B.CR.nav",
+          "source_symbol": "B.CR.nav",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 292,
+            "end": 302,
+            "symbol": "B.CR.nav"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2425",
+          "feature": "페르소나 생성 — 함수 B.CR.pg_race",
+          "source_symbol": "B.CR.pg_race",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 305,
+            "end": 328,
+            "symbol": "B.CR.pg_race"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2426",
+          "feature": "페르소나 생성 — 함수 B.CR.pg_nation",
+          "source_symbol": "B.CR.pg_nation",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 330,
+            "end": 346,
+            "symbol": "B.CR.pg_nation"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2427",
+          "feature": "페르소나 생성 — 함수 B.CR.pg_cls",
+          "source_symbol": "B.CR.pg_cls",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 348,
+            "end": 369,
+            "symbol": "B.CR.pg_cls"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2428",
+          "feature": "페르소나 생성 — 함수 B.CR.tot_ui",
+          "source_symbol": "B.CR.tot_ui",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 372,
+            "end": 389,
+            "symbol": "B.CR.tot_ui"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2434",
+          "feature": "페르소나 생성 — 함수 B.CR.pg_stats",
+          "source_symbol": "B.CR.pg_stats",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 391,
+            "end": 414,
+            "symbol": "B.CR.pg_stats"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2439",
+          "feature": "페르소나 생성 — 함수 B.CR.pg_confirm",
+          "source_symbol": "B.CR.pg_confirm",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 417,
+            "end": 444,
+            "symbol": "B.CR.pg_confirm"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2441",
+          "feature": "페르소나 생성 — 함수 B.CR.SUB.익명 함수@450",
+          "source_symbol": "B.CR.SUB.익명 함수@450",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 450,
+            "end": 450,
+            "symbol": "B.CR.SUB.익명 함수@450"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2442",
+          "feature": "create 화면/패널 표시",
+          "source_symbol": "B.SCREENS.create",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 454,
+            "end": 465,
+            "symbol": "B.SCREENS.create"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2446",
+          "feature": "B.H.cr 버튼 접두 처리",
+          "source_symbol": "B.H.cr",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 468,
+            "end": 552,
+            "symbol": "B.H.cr"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2462",
+          "feature": "페르소나 생성 — 함수 B.CR.face",
+          "source_symbol": "B.CR.face",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 555,
+            "end": 565,
+            "symbol": "B.CR.face"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2463",
+          "feature": "scenario 화면/패널 표시",
+          "source_symbol": "B.SCREENS.scenario",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 567,
+            "end": 591,
+            "symbol": "B.SCREENS.scenario"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2467",
+          "feature": "B.H.sc 버튼 접두 처리",
+          "source_symbol": "B.H.sc",
+          "source": {
+            "file": "bot/src/60-create.lua",
+            "start": 593,
+            "end": 626,
+            "symbol": "B.H.sc"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2480",
+          "feature": "도감 — 함수 B.C1_chip",
+          "source_symbol": "B.C1_chip",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 5,
+            "end": 8,
+            "symbol": "B.C1_chip"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2484",
+          "feature": "도감 — 함수 PX.lv",
+          "source_symbol": "PX.lv",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 27,
+            "end": 33,
+            "symbol": "PX.lv"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2487",
+          "feature": "도감 — 함수 PX.aff",
+          "source_symbol": "PX.aff",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 39,
+            "end": 44,
+            "symbol": "PX.aff"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2492",
+          "feature": "도감 — 함수 PX.expbar",
+          "source_symbol": "PX.expbar",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 79,
+            "end": 84,
+            "symbol": "PX.expbar"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2493",
+          "feature": "도감 — 함수 PX.num",
+          "source_symbol": "PX.num",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 86,
+            "end": 86,
+            "symbol": "PX.num"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2494",
+          "feature": "도감 — 함수 PX.bar",
+          "source_symbol": "PX.bar",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 87,
+            "end": 92,
+            "symbol": "PX.bar"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2495",
+          "feature": "도감 — 함수 PX.first",
+          "source_symbol": "PX.first",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 93,
+            "end": 97,
+            "symbol": "PX.first"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2496",
+          "feature": "도감 — 함수 PX.face",
+          "source_symbol": "PX.face",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 99,
+            "end": 109,
+            "symbol": "PX.face"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2497",
+          "feature": "도감 — 함수 PX.eltag",
+          "source_symbol": "PX.eltag",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 110,
+            "end": 114,
+            "symbol": "PX.eltag"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2498",
+          "feature": "도감 — 함수 PX.btn",
+          "source_symbol": "PX.btn",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 115,
+            "end": 115,
+            "symbol": "PX.btn"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2499",
+          "feature": "도감 — 함수 PX.stat_grid",
+          "source_symbol": "PX.stat_grid",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 116,
+            "end": 122,
+            "symbol": "PX.stat_grid"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2500",
+          "feature": "도감 — 함수 PX.notice",
+          "source_symbol": "PX.notice",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 123,
+            "end": 126,
+            "symbol": "PX.notice"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2501",
+          "feature": "도감 — 함수 PX.item_name",
+          "source_symbol": "PX.item_name",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 130,
+            "end": 135,
+            "symbol": "PX.item_name"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2503",
+          "feature": "도감 — 함수 PX.items_for",
+          "source_symbol": "PX.items_for",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 138,
+            "end": 156,
+            "symbol": "PX.items_for"
+          },
+          "status": "미확인",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2504",
+          "feature": "도감 — 함수 PX.items_for::익명 함수@150",
+          "source_symbol": "PX.items_for::익명 함수@150",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 150,
+            "end": 150,
+            "symbol": "PX.items_for::익명 함수@150"
+          },
+          "status": "미확인",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2505",
+          "feature": "도감 — 함수 PX.slot_ok",
+          "source_symbol": "PX.slot_ok",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 157,
+            "end": 157,
+            "symbol": "PX.slot_ok"
+          },
+          "status": "미확인",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2507",
+          "feature": "도감 — 함수 PX.fnum",
+          "source_symbol": "PX.fnum",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 164,
+            "end": 164,
+            "symbol": "PX.fnum"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2508",
+          "feature": "도감 — 함수 PX.fx_def",
+          "source_symbol": "PX.fx_def",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 165,
+            "end": 165,
+            "symbol": "PX.fx_def"
+          },
+          "status": "미확인",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2509",
+          "feature": "도감 — 함수 PX.fx_val",
+          "source_symbol": "PX.fx_val",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 167,
+            "end": 170,
+            "symbol": "PX.fx_val"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2510",
+          "feature": "도감 — 함수 PX.fx_name",
+          "source_symbol": "PX.fx_name",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 172,
+            "end": 175,
+            "symbol": "PX.fx_name"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2511",
+          "feature": "도감 — 함수 fxline",
+          "source_symbol": "fxline",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 176,
+            "end": 178,
+            "symbol": "fxline"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2512",
+          "feature": "도감 — 함수 PX.gear_fx",
+          "source_symbol": "PX.gear_fx",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 180,
+            "end": 198,
+            "symbol": "PX.gear_fx"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2513",
+          "feature": "도감 — 함수 PX.gear_icon",
+          "source_symbol": "PX.gear_icon",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 200,
+            "end": 200,
+            "symbol": "PX.gear_icon"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2514",
+          "feature": "도감 — 함수 PX.gear_tile",
+          "source_symbol": "PX.gear_tile",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 202,
+            "end": 207,
+            "symbol": "PX.gear_tile"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2515",
+          "feature": "도감 — 함수 PX.gear_card",
+          "source_symbol": "PX.gear_card",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 209,
+            "end": 214,
+            "symbol": "PX.gear_card"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2518",
+          "feature": "도감 — 함수 PX.cx_tabs",
+          "source_symbol": "PX.cx_tabs",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 256,
+            "end": 271,
+            "symbol": "PX.cx_tabs"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2520",
+          "feature": "도감 — 함수 t",
+          "source_symbol": "t",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 259,
+            "end": 259,
+            "symbol": "t"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2521",
+          "feature": "도감 — 함수 PX.cx_tile",
+          "source_symbol": "PX.cx_tile",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 273,
+            "end": 285,
+            "symbol": "PX.cx_tile"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2523",
+          "feature": "도감 — 함수 PX.cx_listview",
+          "source_symbol": "PX.cx_listview",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 287,
+            "end": 308,
+            "symbol": "PX.cx_listview"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2528",
+          "feature": "도감 — 함수 PX.cx_equip",
+          "source_symbol": "PX.cx_equip",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 313,
+            "end": 344,
+            "symbol": "PX.cx_equip"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2531",
+          "feature": "도감 — 함수 PX.pass_block",
+          "source_symbol": "PX.pass_block",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 348,
+            "end": 368,
+            "symbol": "PX.pass_block"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2532",
+          "feature": "도감 — 함수 one",
+          "source_symbol": "one",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 351,
+            "end": 353,
+            "symbol": "one"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2533",
+          "feature": "도감 — 함수 PX.passives",
+          "source_symbol": "PX.passives",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 369,
+            "end": 383,
+            "symbol": "PX.passives"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2534",
+          "feature": "도감 — 함수 PX.cx_detail",
+          "source_symbol": "PX.cx_detail",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 385,
+            "end": 406,
+            "symbol": "PX.cx_detail"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2537",
+          "feature": "codex 화면/패널 표시",
+          "source_symbol": "B.PANELS.codex",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 408,
+            "end": 413,
+            "symbol": "B.PANELS.codex"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2539",
+          "feature": "B.H.cx 버튼 접두 처리",
+          "source_symbol": "B.H.cx",
+          "source": {
+            "file": "bot/src/65-codex.lua",
+            "start": 415,
+            "end": 466,
+            "symbol": "B.H.cx"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2563",
+          "feature": "페르소나/참전 상태 — 함수 PX.st_fav",
+          "source_symbol": "PX.st_fav",
+          "source": {
+            "file": "bot/src/66-status.lua",
+            "start": 38,
+            "end": 46,
+            "symbol": "PX.st_fav"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2565",
+          "feature": "페르소나/참전 상태 — 함수 PX.st_me",
+          "source_symbol": "PX.st_me",
+          "source": {
+            "file": "bot/src/66-status.lua",
+            "start": 48,
+            "end": 61,
+            "symbol": "PX.st_me"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2567",
+          "feature": "페르소나/참전 상태 — 함수 PX.st_unit",
+          "source_symbol": "PX.st_unit",
+          "source": {
+            "file": "bot/src/66-status.lua",
+            "start": 64,
+            "end": 79,
+            "symbol": "PX.st_unit"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2568",
+          "feature": "페르소나/참전 상태 — 함수 PX.st_battle",
+          "source_symbol": "PX.st_battle",
+          "source": {
+            "file": "bot/src/66-status.lua",
+            "start": 81,
+            "end": 92,
+            "symbol": "PX.st_battle"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2571",
+          "feature": "페르소나/참전 상태 — 함수 bgs",
+          "source_symbol": "bgs",
+          "source": {
+            "file": "bot/src/66-status.lua",
+            "start": 100,
+            "end": 109,
+            "symbol": "bgs"
+          },
+          "status": "미확인",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2572",
+          "feature": "페르소나/참전 상태 — 함수 mname",
+          "source_symbol": "mname",
+          "source": {
+            "file": "bot/src/66-status.lua",
+            "start": 111,
+            "end": 118,
+            "symbol": "mname"
+          },
+          "status": "미확인",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2573",
+          "feature": "페르소나/참전 상태 — 함수 mcls",
+          "source_symbol": "mcls",
+          "source": {
+            "file": "bot/src/66-status.lua",
+            "start": 120,
+            "end": 125,
+            "symbol": "mcls"
+          },
+          "status": "미확인",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2576",
+          "feature": "페르소나/참전 상태 — 함수 chip",
+          "source_symbol": "chip",
+          "source": {
+            "file": "bot/src/66-status.lua",
+            "start": 151,
+            "end": 153,
+            "symbol": "chip"
+          },
+          "status": "미확인",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2578",
+          "feature": "페르소나/참전 상태 — 함수 PX.bg_listview",
+          "source_symbol": "PX.bg_listview",
+          "source": {
+            "file": "bot/src/66-status.lua",
+            "start": 155,
+            "end": 185,
+            "symbol": "PX.bg_listview"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2582",
+          "feature": "페르소나/참전 상태 — 함수 members",
+          "source_symbol": "members",
+          "source": {
+            "file": "bot/src/66-status.lua",
+            "start": 188,
+            "end": 203,
+            "symbol": "members"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2583",
+          "feature": "페르소나/참전 상태 — 함수 add",
+          "source_symbol": "add",
+          "source": {
+            "file": "bot/src/66-status.lua",
+            "start": 190,
+            "end": 194,
+            "symbol": "add"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2586",
+          "feature": "페르소나/참전 상태 — 함수 PX.bg_detail",
+          "source_symbol": "PX.bg_detail",
+          "source": {
+            "file": "bot/src/66-status.lua",
+            "start": 230,
+            "end": 305,
+            "symbol": "PX.bg_detail"
+          },
+          "status": "미확인",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2592",
+          "feature": "페르소나/참전 상태 — 함수 PX.bg_view",
+          "source_symbol": "PX.bg_view",
+          "source": {
+            "file": "bot/src/66-status.lua",
+            "start": 307,
+            "end": 315,
+            "symbol": "PX.bg_view"
+          },
+          "status": "미확인",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2593",
+          "feature": "B.H.bg 버튼 접두 처리",
+          "source_symbol": "B.H.bg",
+          "source": {
+            "file": "bot/src/66-status.lua",
+            "start": 317,
+            "end": 368,
+            "symbol": "B.H.bg"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2606",
+          "feature": "status 화면/패널 표시",
+          "source_symbol": "B.PANELS.status",
+          "source": {
+            "file": "bot/src/66-status.lua",
+            "start": 370,
+            "end": 382,
+            "symbol": "B.PANELS.status"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2611",
+          "feature": "B.H.st 버튼 접두 처리",
+          "source_symbol": "B.H.st",
+          "source": {
+            "file": "bot/src/66-status.lua",
+            "start": 384,
+            "end": 386,
+            "symbol": "B.H.st"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2617",
+          "feature": "페르소나/참전 상태 — 함수 B.HUD_EXTRA[#B.HUD_EXTRA + 1]",
+          "source_symbol": "B.HUD_EXTRA[#B.HUD_EXTRA + 1]",
+          "source": {
+            "file": "bot/src/66-status.lua",
+            "start": 389,
+            "end": 399,
+            "symbol": "B.HUD_EXTRA[#B.HUD_EXTRA + 1]"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2622",
+          "feature": "설정 — 함수 B.cloud_card",
+          "source_symbol": "B.cloud_card",
+          "source": {
+            "file": "bot/src/67-settings.lua",
+            "start": 16,
+            "end": 28,
+            "symbol": "B.cloud_card"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2628",
+          "feature": "save 화면/패널 표시",
+          "source_symbol": "B.PANELS.save",
+          "source": {
+            "file": "bot/src/67-settings.lua",
+            "start": 34,
+            "end": 36,
+            "symbol": "B.PANELS.save"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2629",
+          "feature": "settings 화면/패널 표시",
+          "source_symbol": "B.PANELS.settings",
+          "source": {
+            "file": "bot/src/67-settings.lua",
+            "start": 38,
+            "end": 107,
+            "symbol": "B.PANELS.settings"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2630",
+          "feature": "설정 — 함수 opt",
+          "source_symbol": "opt",
+          "source": {
+            "file": "bot/src/67-settings.lua",
+            "start": 48,
+            "end": 54,
+            "symbol": "opt"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2631",
+          "feature": "설정 — 함수 tog",
+          "source_symbol": "tog",
+          "source": {
+            "file": "bot/src/67-settings.lua",
+            "start": 80,
+            "end": 85,
+            "symbol": "tog"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P2637",
+          "feature": "B.H.op 버튼 접두 처리",
+          "source_symbol": "B.H.op",
+          "source": {
+            "file": "bot/src/67-settings.lua",
+            "start": 109,
+            "end": 150,
+            "symbol": "B.H.op"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P3718",
+          "feature": "초상 검증 — 함수 B.portrait_has",
+          "source_symbol": "B.portrait_has",
+          "source": {
+            "file": "bot/src/85-portrait.lua",
+            "start": 10,
+            "end": 17,
+            "symbol": "B.portrait_has"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P3719",
+          "feature": "초상 검증 — 함수 B.portrait_name",
+          "source_symbol": "B.portrait_name",
+          "source": {
+            "file": "bot/src/85-portrait.lua",
+            "start": 20,
+            "end": 22,
+            "symbol": "B.portrait_name"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P3720",
+          "feature": "초상 검증 — 함수 B.portrait_pick",
+          "source_symbol": "B.portrait_pick",
+          "source": {
+            "file": "bot/src/85-portrait.lua",
+            "start": 25,
+            "end": 37,
+            "symbol": "B.portrait_pick"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P3721",
+          "feature": "초상 검증 — 함수 B.portrait",
+          "source_symbol": "B.portrait",
+          "source": {
+            "file": "bot/src/85-portrait.lua",
+            "start": 42,
+            "end": 46,
+            "symbol": "B.portrait"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P3731",
+          "feature": "마을 장소 — 함수 B.place_label",
+          "source_symbol": "B.place_label",
+          "source": {
+            "file": "bot/src/88-lore.lua",
+            "start": 56,
+            "end": 62,
+            "symbol": "B.place_label"
+          },
+          "status": "일부",
+          "unverified_branches": []
+        },
+        {
+          "id": "P3813",
+          "feature": "확정 사건 연대기 — 함수 B.mem_on",
+          "source_symbol": "B.mem_on",
+          "source": {
+            "file": "bot/src/89-memory.lua",
+            "start": 23,
+            "end": 25,
+            "symbol": "B.mem_on"
+          },
+          "status": "미확인",
+          "unverified_branches": []
+        },
+        {
+          "id": "P3814",
+          "feature": "확정 사건 연대기 — 함수 B.mem_cut",
+          "source_symbol": "B.mem_cut",
+          "source": {
+            "file": "bot/src/89-memory.lua",
+            "start": 28,
+            "end": 34,
+            "symbol": "B.mem_cut"
+          },
+          "status": "미확인",
+          "unverified_branches": []
+        },
+        {
+          "id": "P3815",
+          "feature": "확정 사건 연대기 — 함수 B.mem_len",
+          "source_symbol": "B.mem_len",
+          "source": {
+            "file": "bot/src/89-memory.lua",
+            "start": 35,
+            "end": 38,
+            "symbol": "B.mem_len"
+          },
+          "status": "미확인",
+          "unverified_branches": []
+        },
+        {
+          "id": "P3816",
+          "feature": "확정 사건 연대기 — 함수 B.mem_jget",
+          "source_symbol": "B.mem_jget",
+          "source": {
+            "file": "bot/src/89-memory.lua",
+            "start": 40,
+            "end": 44,
+            "symbol": "B.mem_jget"
+          },
+          "status": "미확인",
+          "unverified_branches": []
+        },
+        {
+          "id": "P3817",
+          "feature": "확정 사건 연대기 — 함수 B.mem_jget::익명 함수@41",
+          "source_symbol": "B.mem_jget::익명 함수@41",
+          "source": {
+            "file": "bot/src/89-memory.lua",
+            "start": 41,
+            "end": 41,
+            "symbol": "B.mem_jget::익명 함수@41"
+          },
+          "status": "미확인",
+          "unverified_branches": []
+        }
+      ]
+    }
+  ],
+  "prior_reasons": {
+    "P2699": "통합판에서도 원본 프로토콜/호스트 유틸리티의 동일 계약 대응을 찾지 못함. game/ui 전체 HTTPRequest/HTTPClient/cloud/wpin/hmac 검색 0건; world_store:write는 로컬 파일/백업뿐, 클라우드 계정·PIN·서명·복원 없음",
+    "P2700": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2701": "통합판에서도 원본 프로토콜/호스트 유틸리티의 동일 계약 대응을 찾지 못함. game/ui 전체 HTTPRequest/HTTPClient/cloud/wpin/hmac 검색 0건; world_store:write는 로컬 파일/백업뿐, 클라우드 계정·PIN·서명·복원 없음",
+    "P2703": "통합판에서도 원본 프로토콜/호스트 유틸리티의 동일 계약 대응을 찾지 못함. game/ui 전체 HTTPRequest/HTTPClient/cloud/wpin/hmac 검색 0건; world_store:write는 로컬 파일/백업뿐, 클라우드 계정·PIN·서명·복원 없음",
+    "P2704": "통합판에서도 원본 프로토콜/호스트 유틸리티의 동일 계약 대응을 찾지 못함. game/ui 전체 HTTPRequest/HTTPClient/cloud/wpin/hmac 검색 0건; world_store:write는 로컬 파일/백업뿐, 클라우드 계정·PIN·서명·복원 없음",
+    "P2705": "통합판에서도 원본 프로토콜/호스트 유틸리티의 동일 계약 대응을 찾지 못함. game/ui 전체 HTTPRequest/HTTPClient/cloud/wpin/hmac 검색 0건; world_store:write는 로컬 파일/백업뿐, 클라우드 계정·PIN·서명·복원 없음",
+    "P2706": "통합판에서도 원본 프로토콜/호스트 유틸리티의 동일 계약 대응을 찾지 못함. game/ui 전체 HTTPRequest/HTTPClient/cloud/wpin/hmac 검색 0건; world_store:write는 로컬 파일/백업뿐, 클라우드 계정·PIN·서명·복원 없음",
+    "P2708": "통합판에서도 원본 프로토콜/호스트 유틸리티의 동일 계약 대응을 찾지 못함. game/ui 전체 HTTPRequest/HTTPClient/cloud/wpin/hmac 검색 0건; world_store:write는 로컬 파일/백업뿐, 클라우드 계정·PIN·서명·복원 없음",
+    "P2711": "통합판에서도 원본 프로토콜/호스트 유틸리티의 동일 계약 대응을 찾지 못함. game/ui 전체 HTTPRequest/HTTPClient/cloud/wpin/hmac 검색 0건; world_store:write는 로컬 파일/백업뿐, 클라우드 계정·PIN·서명·복원 없음",
+    "P2712": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2713": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2714": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2715": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2716": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2717": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2718": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2721": "통합판에서도 원본 프로토콜/호스트 유틸리티의 동일 계약 대응을 찾지 못함. game/ui 전체 HTTPRequest/HTTPClient/cloud/wpin/hmac 검색 0건; world_store:write는 로컬 파일/백업뿐, 클라우드 계정·PIN·서명·복원 없음",
+    "P2722": "통합판에서도 원본 프로토콜/호스트 유틸리티의 동일 계약 대응을 찾지 못함. game/ui 전체 HTTPRequest/HTTPClient/cloud/wpin/hmac 검색 0건; world_store:write는 로컬 파일/백업뿐, 클라우드 계정·PIN·서명·복원 없음",
+    "P2723": "통합판에서도 원본 프로토콜/호스트 유틸리티의 동일 계약 대응을 찾지 못함. game/ui 전체 HTTPRequest/HTTPClient/cloud/wpin/hmac 검색 0건; world_store:write는 로컬 파일/백업뿐, 클라우드 계정·PIN·서명·복원 없음",
+    "P2724": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2725": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2728": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2730": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2731": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2735": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2736": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2737": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2739": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2740": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2742": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2743": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P0017": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P0084": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P0085": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P0089": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P0090": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P0091": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P0092": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P0095": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P0097": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P0101": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "P0102": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P0103": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "P0104": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P0105": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P0110": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P0123": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "P0128": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "P0129": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "P0130": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P0131": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P0133": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2370": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2390": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2391": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2392": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2394": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2415": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2416": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2417": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2418": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2419": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2421": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2425": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2426": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2427": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2428": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2434": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2439": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2441": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2442": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2446": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2462": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2463": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2467": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2480": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2484": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2487": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2492": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2493": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2494": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2495": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2496": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2497": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2498": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2499": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2500": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2501": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2503": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "P2504": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "P2505": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "P2507": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2508": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "P2509": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2510": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2511": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2512": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2513": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2514": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2515": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2518": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2520": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2521": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2523": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2528": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2531": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2532": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2533": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2534": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2537": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2539": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2563": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2565": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2567": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2568": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2571": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "P2572": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "P2573": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "P2576": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "P2578": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2582": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2583": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2586": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "P2592": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "P2593": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2606": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2611": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2617": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2622": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2628": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2629": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2630": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2631": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P2637": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P3718": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P3719": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P3720": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P3721": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P3731": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "P3813": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "P3814": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "P3815": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "P3816": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "P3817": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님."
+  }
+}

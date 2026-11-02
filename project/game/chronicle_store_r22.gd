@@ -2,6 +2,31 @@ extends RefCounted
 ## Engine-confirmed facts only. No AI summary, prompt injection or chat host.
 const DATA=preload("res://data/chronicle-r22.json").data
 const Aff=preload("res://game/affection_r22.gd")
+const Value=preload("res://game/ui_value_r23.gd")
+static func enabled(g: Variant,key: String) -> bool:
+	return not (g is Dictionary and g.get("settings") is Dictionary and Value.equal_number(g.settings.get(key),0))
+static func _utf8(bytes: PackedByteArray) -> Dictionary:
+	var positions=[];var i=0
+	while i<bytes.size():
+		positions.append(i);var c=bytes[i];var width=1 if c<128 else 2 if c>=194 and c<=223 else 3 if c>=224 and c<=239 else 4 if c>=240 and c<=244 else 0
+		if width==0 or i+width>bytes.size():return {"valid":false}
+		for j in range(1,width):
+			if bytes[i+j]<128 or bytes[i+j]>191:return {"valid":false}
+		if width>=3:
+			var second=bytes[i+1]
+			if (c==224 and second<160) or (c==237 and second>=160) or (c==240 and second<144) or (c==244 and second>143):return {"valid":false}
+		i+=width
+	return {"valid":true,"positions":positions}
+static func cut(value,n: int) -> Variant:
+	if value is PackedByteArray:
+		var info=_utf8(value)
+		if not info.valid:return value.slice(0,mini(value.size(),n))
+		return value.duplicate() if n>=info.positions.size() else value.slice(0,info.positions[maxi(0,n)])
+	return Value.text(value).left(maxi(0,n))
+static func length(value) -> int:
+	if value is PackedByteArray:
+		var info=_utf8(value);return info.positions.size() if info.valid else value.size()
+	return Value.text(value).length()
 static func ensure(s: Dictionary) -> void:
 	if not s.has("chronicle_r22"):s.chronicle_r22={"list":[],"queue":[]}
 static func valid(s: Dictionary) -> bool:
@@ -10,7 +35,7 @@ static func valid(s: Dictionary) -> bool:
 	if not c is Dictionary or not c.get("list") is Array or not c.get("queue") is Array:return false
 	if c.list.size()>int(DATA.limits.max) or c.queue.size()>4096:return false
 	for line in c.list+c.queue:
-		if not line is String or line.length()>int(DATA.limits.line):return false
+		if not line is String or length(line)>int(DATA.limits.line):return false
 	return true
 static func english(s: String) -> String:
 	s=preload("res://game/localization_r22.gd").canonical_names(s)
@@ -53,13 +78,13 @@ static func converted(t: String) -> String:
 				return "Leveled up: "+line+a.substr(pos)
 	return t
 static func add(s: Dictionary,text: String,day: float=-999999) -> void:
-	if s.get("settings",{}).get("chron",1)==0:return
+	if not enabled(s,"chron"):return
 	var re=RegEx.new();re.compile("[ \\t\\r\\n\\f\\v]+")
 	text=re.sub(converted(text)," ",true)
 	if text=="":return
 	ensure(s)
 	var d=int(floor(s.get("town",{}).get("day",s.get("day",1)) if day==-999999 else day))
-	var line=("Day %d: "%d+text).left(int(DATA.limits.line))
+	var line=cut("Day %d: "%d+text,int(DATA.limits.line))
 	if line not in s.chronicle_r22.queue:s.chronicle_r22.queue.append(line)
 static func merged(history: Array,queue: Array) -> Array:
 	var list=history.duplicate()

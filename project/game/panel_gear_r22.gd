@@ -2,6 +2,12 @@ extends RefCounted
 ## A view over the existing gear adapter. Does not roll or migrate combat gear.
 const R=preload("res://game/panels_rules_r22.gd")
 const D=preload("res://game/dungeon_rules_r21.gd")
+static func effect_def(gear,key: String) -> Dictionary:return gear.rules.base.get(key,gear.rules.affix.get(key,{}))
+static func effect_name(gear,key: String,job: String="") -> String:
+	if key=="stat" and R.cls(job).has("line"):return R.cls(job).line
+	return effect_def(gear,key).get("name",key)
+static func effect_value(gear,key: String,value: float) -> String:
+	return ("+" if value>=0 else "")+R.fnum(value)+effect_def(gear,key).get("unit","")
 static func describe(gear,e: Dictionary,level: int) -> Dictionary:
 	var it=gear.by_id[e.id];var raw=e.duplicate();raw.forge=0
 	var unscaled=gear.roll(raw,int(it.lv));var values=gear.roll(e,level) if level>0 else unscaled

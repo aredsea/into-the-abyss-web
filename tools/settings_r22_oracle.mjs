@@ -12,7 +12,7 @@ for(const f of fs.readdirSync(src+'/design/i18n/en').sort()){
  Object.assign(words,JSON.parse(read(src+'/design/i18n/en/'+f)));
 }
 Object.assign(words,JSON.parse(read(src+'/design/i18n/names.json')));
-const names=['01-game.lua','05-gen.lua','10-data.lua','15-josa.lua','67-settings.lua','90-triggers.lua'];
+const names=['01-game.lua','05-gen.lua','10-data.lua','15-josa.lua','67-settings.lua','88-lore.lua','90-triggers.lua'];
 const raw=names.map(f=>read(src+'/bot/src/'+f));
 const {mkSim}=await import(pathToFileURL(src+'/bot/lua_sim.mjs'));
 const {sim,L}=await mkSim({policy:false,extra:'local oracle_button=onButtonClick\n'+raw.join('\n')+'\nonButtonClick=oracle_button'});
@@ -37,7 +37,7 @@ for(const id of Object.keys(publicProfiles)){
 }
 const stats=JSON.parse(read(src+'/design/stats.json'));
 const display=Object.fromEntries(stats.companions.map(c=>[c.id,c.name]));
-const data={ui,words,profiles,display,difficulties:await L('return B.DIFF')};
+const data={ui,words,profiles,display,difficulties:await L('return B.DIFF'),place_words:await L("local o={};for _,p in pairs(B.PLACE) do o[p.name]=B.en_dict()[p.name] or p.name end;return o")};
 const fixtures=await L(`
 local out={josa={},diff={},actions={},u={}}
 local samples={'','나란','레비아','힐데가','베렌가','바르굿','서울','길','집','나란·','나란😀','레비아 ( )','L','m','n','r','A','B','Z','0','1','2','3','4','5','6','7','8','9','{{user}}','{{이름}}','😀','가'}
@@ -72,7 +72,7 @@ const targets=['town_screen_r21.gd','create_screen.gd','persona_sortie_screen.gd
 for(const f of targets)for(const m of fs.readFileSync(root+'/project/ui/'+f,'utf8').matchAll(/"((?:[^"\\]|\\.)*)"/g)){
  try{reachable.add(JSON.parse('"'+m[1]+'"'));}catch{}
 }
-for(const f of ['persona_research_r21.gd','panels_state_r22.gd','panel_gear_r22.gd','affection_r22.gd'])for(const m of fs.readFileSync(root+'/project/game/'+f,'utf8').matchAll(/"((?:[^"\\]|\\.)*)"/g)){
+for(const f of ['persona_research_r21.gd','panels_state_r22.gd','panel_gear_r22.gd','affection_r22.gd','town_places_r22.gd'])for(const m of fs.readFileSync(root+'/project/game/'+f,'utf8').matchAll(/"((?:[^"\\]|\\.)*)"/g)){
  try{reachable.add(JSON.parse('"'+m[1]+'"'));}catch{}
 }
 for(const row of fixtures.u)reachable.add(row.src);

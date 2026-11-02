@@ -1,0 +1,145 @@
+{
+  "rows": 144,
+  "promoted_same": 35,
+  "fixed_rows": 17,
+  "fixed_and_promoted": 9,
+  "fixed_remaining_partial": 8,
+  "remaining_rows": 109,
+  "remaining_counts": {
+    "없음": 5,
+    "일부": 94,
+    "미확인": 10
+  },
+  "rule_checks": 10849,
+  "native_ui_checks": 3036,
+  "native_ui_captures": 12,
+  "message_checks": 70,
+  "cloud_compat_checks": 10,
+  "project_groups": 86,
+  "project_failed_groups": 0,
+  "server_groups": 8,
+  "server_failed_groups": 0,
+  "combat_battles": 6320,
+  "combat_matched": 6320,
+  "assets": 96,
+  "changed_assets": [],
+  "source_render_cases": 150,
+  "source_render_failures": 0,
+  "source_rows_executed": 144,
+  "combat": [
+    {
+      "file": "verification/data-r21/p2-full-battles.json",
+      "battles": 48,
+      "matched": 48
+    },
+    {
+      "file": "verification/data-r21/a6-mixed-audit.json",
+      "battles": 48,
+      "matched": 48
+    },
+    {
+      "file": "verification/data-r21/p3-mixed-audit.json",
+      "battles": 128,
+      "matched": 128
+    },
+    {
+      "file": "verification/data-r21/a7-gear-audit.json",
+      "battles": 176,
+      "matched": 176
+    },
+    {
+      "file": "verification/data-r21/a7-gear-balanced-audit.json",
+      "battles": 176,
+      "matched": 176
+    },
+    {
+      "file": "verification/data-r21/a8-audit.json",
+      "battles": 5120,
+      "matched": 5120
+    },
+    {
+      "file": "verification/data-r21/a9-native-10-audit.json",
+      "battles": 312,
+      "matched": 312
+    },
+    {
+      "file": "verification/data-r21/a9-native-40-audit.json",
+      "battles": 312,
+      "matched": 312
+    }
+  ],
+  "fresh_oracles": [
+    {
+      "bundle": "persona",
+      "exit": 0,
+      "game_data_equal": true,
+      "all_generated_fields_match": true,
+      "preserved_native_extensions_only": false,
+      "differences": []
+    },
+    {
+      "bundle": "panels",
+      "exit": 0,
+      "game_data_equal": true,
+      "all_generated_fields_match": true,
+      "preserved_native_extensions_only": false,
+      "differences": []
+    },
+    {
+      "bundle": "chronicle",
+      "exit": 0,
+      "game_data_equal": true,
+      "all_generated_fields_match": true,
+      "preserved_native_extensions_only": false,
+      "differences": []
+    },
+    {
+      "bundle": "settings",
+      "exit": 0,
+      "game_data_equal": false,
+      "all_generated_fields_match": true,
+      "preserved_native_extensions_only": true,
+      "differences": [
+        {
+          "key": "words",
+          "added": [],
+          "removed": [
+            "공격 약화",
+            "굳건한 방어",
+            "방어 약화",
+            "심연",
+            "턴"
+          ],
+          "changed": []
+        },
+        {
+          "key": "ui",
+          "added": [],
+          "removed": [
+            " ({n}턴)",
+            "공격 약화",
+            "노트 사용",
+            "닫기",
+            "방어 약화",
+            "보호막 {n}",
+            "부상 이탈",
+            "심연",
+            "심연 깎기 ×1.5",
+            "심연 회복",
+            "쓰러짐",
+            "약점",
+            "여우불 {n}턴",
+            "은신",
+            "적",
+            "지속 피해 ×{n} ({turns}턴)",
+            "처형",
+            "충전 (다음 차례 발동)",
+            "판결 사용",
+            "표식"
+          ],
+          "changed": []
+        }
+      ]
+    }
+  ]
+}

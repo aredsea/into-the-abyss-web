@@ -15,7 +15,7 @@ static func u(src: String,vars: Dictionary={},lang="ko") -> String:
 	var out="";var pos=0
 	for m in re.search_all(tpl):
 		out+=tpl.substr(pos,m.get_start()-pos);var key=m.get_string(1)
-		if not vars.has(key):out+=m.get_string()
+		if not vars.has(key) or vars[key]==null:out+=m.get_string()
 		else:
 			var v=t(vars[key],lang) if vars[key] is String else str(int(vars[key])) if (vars[key] is float or vars[key] is int) and vars[key]==floor(vars[key]) else str(vars[key]);out+=v
 			if m.get_string(2)!="" and lang=="ko":out+=Josa.tail(v,m.get_string(2),lang)

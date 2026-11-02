@@ -50,8 +50,9 @@ func traits(entry: Dictionary) -> void:
 	if entry.has("syn"):text("시너지 2명 · "+entry.syn,14,T.MUTED)
 
 func build(owner_screen) -> void:
-	var s=owner_screen.model.s;var p=s.persona;var page=int(s.ui.page)
+	var s=owner_screen.model.s;var page=int(s.ui.page)
 	setup(owner_screen,"첫 만남" if s.scene=="scenario" else "새 모험가")
+	var p=rules.view(s)
 	var options=button("p8_open","설정",func():host.open_settings_r22(),false,false,frame);options.position=Vector2(frame.size.x-102,20);options.size=Vector2(84,44)
 	title.size.x=frame.size.x-126
 	if title is Label:L.fit_title(title,30)
@@ -128,7 +129,7 @@ func scenario() -> void:
 	else:text("만남을 고르면 장면이 미리 보입니다. 시작하면 이 동료와 함께 토르바에서 출발합니다.",15,T.MUTED)
 	text("누구와 마주치나요?",20)
 	var grid=GridContainer.new();body.add_child(grid);grid.columns=2;grid.add_theme_constant_override("h_separation",8);grid.add_theme_constant_override("v_separation",8)
-	for sc in rules.data.scenarios:
+	for sc in rules.scenarios(rules.data.scenarios):
 		button("sc_pick_"+sc.id,host.model.person(sc.companion).name,act.bind("pick_"+sc.id,"sc"),host.model.s.ui.sel==sc.id,false,grid)
 	button("sc_back","만들기로",act.bind("back","sc"),false,false,footer)
 	button("sc_go","이 만남으로 시작",act.bind("go","sc"),true,selected.is_empty(),footer)

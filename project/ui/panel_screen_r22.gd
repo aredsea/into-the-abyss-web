@@ -54,7 +54,7 @@ func cx(arg: String) -> void:
 	if arg=="bag" and state.ui.tab=="bag":host.screen="inventory"
 	host._save();host._draw_screen()
 func bg(arg: String) -> void:
-	state.bg_action(arg);host._save();host._draw_screen()
+	state.ui.msg="";state.bg_action(arg);host._save();host._draw_screen()
 	if arg=="sell" and state.bg.conf!="":host.town_view.scroll.call_deferred("ensure_control_visible",host.controls.p7_bg_sell)
 func pager(items: Array,pg: int,count: int,kind: String) -> void:
 	var p=R.page(items,pg,count);var h=row()
@@ -69,7 +69,7 @@ func stats(values: Dictionary,level: int,xp: int) -> void:
 	var grid=GridContainer.new();body.add_child(grid);grid.columns=3;grid.add_theme_constant_override("h_separation",16);grid.add_theme_constant_override("v_separation",10)
 	for s in [["hp","HP"],["mp","MP"],["str","힘"],["agi","민첩"],["int","지능"],["def","방어"],["spd","속도"]]:
 		var v=VBoxContainer.new();grid.add_child(v);v.size_flags_horizontal=SIZE_EXPAND_FILL
-		text(s[1],13,T.MUTED,v);text(str(int(floor(float(values[s[0]])+.5))) if values.has(s[0]) else "—",22,T.INK,v)
+		text(s[1],13,T.MUTED,v);text(R.num(values[s[0]]) if values.has(s[0]) else "—",22,T.INK,v)
 func affection(value: float) -> void:
 	var a=R.shown_aff(value);var p=R.AFF.progress(a)
 	var h=row();text(p.stage,21,T.RED,h);text("%d / 200"%a,15,T.MUTED,h).horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT
@@ -97,7 +97,7 @@ func persona() -> void:
 	var p=host.model.s.get("persona",{});var name=p.get("name","");var h=row();portrait("persona",h,Vector2(72,110));var b=VBoxContainer.new();h.add_child(b);b.size_flags_horizontal=SIZE_EXPAND_FILL
 	text("이름 없는 모험가" if name=="" else name,27,T.INK,b);text(" · ".join([p.get("race",""),p.get("nation",""),p.get("cls","")]).trim_prefix(" · "),14,T.MUTED,b)
 	text("전투 참여" if p.get("fight",0)==1 else "전투 불참",14,T.RED,b)
-	stats(R.persona_stats(p),int(p.get("lv",1)),int(p.get("exp",0)));section("고유 스킬");text(Research.skill_name(p.get("skill",{})),18);text(Research.description(p.get("skill",{})))
+	stats(R.persona_stats(p),state.level(),int(p.get("exp",0)));section("고유 스킬");text(Research.skill_name(p.get("skill",{})),18);text(Research.description(p.get("skill",{})))
 	passives(p.get("cls",""),p.get("race",""),p.get("lineage",""),p.get("nation",""))
 func gear_card(e: Dictionary,level: int) -> void:
 	var item=host.model.gear.by_id[e.id];text(item.name,24);text("%s · Lv %d · %s%s"%[host.model.Gear.RARITY[item.rarity],host.model.gear.rules.equip_lv[item.rarity],host.model.Gear.SLOT[item.slot]," · +%d"%e.forge if e.forge>0 else ""],14,T.MUTED)
@@ -111,7 +111,6 @@ func gear_card(e: Dictionary,level: int) -> void:
 	if not u.is_empty():text("고유 효과",14,T.MUTED);text(u.get("name","고유 효과"),18);text(u.get("text",""),14)
 	if item.get("flavor","")!="":text(item.flavor,14,T.MUTED)
 func fx_name(key: String,job: String) -> String:
-	if key=="stat":return R.cls(job).get("line","계열 능력치")
-	var fx=host.model.gear.rules;return fx.base.get(key,fx.affix.get(key,{})).get("name",key)
+	return preload("res://game/panel_gear_r22.gd").effect_name(host.model.gear,key,job)
 func fx_value(key: String,value: float) -> String:
-	var fx=host.model.gear.rules;return ("+" if value>=0 else "")+Research.num(value)+fx.base.get(key,fx.affix.get(key,{})).get("unit","")
+	return preload("res://game/panel_gear_r22.gd").effect_value(host.model.gear,key,value)

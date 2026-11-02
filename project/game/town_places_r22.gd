@@ -8,6 +8,15 @@ static func place_id(g: Dictionary) -> String:
 	if scene!="town":return ""
 	var p=g.get("place","")
 	return p if p is String and p!="smithy" and DATA.places.has(p) else "town"
+static func label(g: Dictionary,lang="ko") -> String:
+	var p=place_id(g)
+	if g.get("scene")=="smithy" or (g.get("scene")=="town" and p!="town" and p!=""):
+		var l=preload("res://game/localization_r22.gd");var name=DATA.places[p].name
+		# Scenario front matter has its own English place wording. Keep that
+		# dictionary intact and use the source runtime's names for HUD labels.
+		if lang=="en":name=l.DATA.get("place_words",{}).get(name,name)
+		return l.u("토르바 {place}",{"place":name},lang)
+	return ""
 static func set_place(g: Dictionary,pid: String) -> bool:
 	if not DATA.places.has(pid) or not movable(g):return false
 	var d=DATA.places[pid]

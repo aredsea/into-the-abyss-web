@@ -1,6 +1,7 @@
 extends RefCounted
 ## P7 facade. Keeps native UID/seed/forge entries intact; no gear migration.
 const R=preload("res://game/panels_rules_r22.gd")
+const L=preload("res://game/localization_r22.gd")
 var model
 var ui={"tab":"","sel":"","page":1,"msg":"","panel":"codex"}
 var bg={"pg":1,"cls":"","slot":"","rar":"","sel":"","cmp":"","conf":""}
@@ -12,9 +13,7 @@ func _init(world=null):
 			if typeof(saved.get(k))==typeof(ui[k]):ui[k]=saved[k]
 			elif ui[k] is int and saved.get(k) is float and is_finite(saved[k]):ui[k]=maxi(1,int(saved[k]))
 		if saved.get("bg") is Dictionary:
-			for k in bg:
-				if typeof(saved.bg.get(k))==typeof(bg[k]):bg[k]=saved.bg[k]
-				elif bg[k] is int and saved.bg.get(k) is float and is_finite(saved.bg[k]):bg[k]=maxi(1,int(saved.bg[k]))
+			bg=R.normalize_bg(saved.bg)
 func persist() -> void:
 	model.s.panels_r22=ui.duplicate(true);model.s.panels_r22.bg=bg.duplicate(true)
 func favs() -> Array:
@@ -27,6 +26,8 @@ func cx(arg: String) -> void:
 	if ui.has("bg"):bg=ui.bg;ui.erase("bg")
 	persist()
 func in_battle() -> bool:return model.active() and model.s.run.phase=="battle"
+func level(id="persona") -> int:
+	return R.level({"persona":model.s.persona,"roster":model.s.owned,"lvl":{id:model.s.members.get(id,{}).get("level")}},id)
 func entries() -> Array:
 	var out=[]
 	for raw in model.s.gear:
@@ -42,10 +43,10 @@ func members(item_class: String) -> Array:
 	var out=[];var ids=[]
 	if model.s.get("persona",{}).get("cls","")!="":ids.append("persona")
 	for id in model.s.party:
-		if id in model.s.owned and id not in ids:ids.append(id)
+		if R.DATA.cast.has(id) and id in model.s.owned and id not in ids:ids.append(id)
 	for id in R.DATA.order:
-		if id in model.s.owned and id not in ids and model.class_def(id).id==item_class:ids.append(id)
-	for id in ids:out.append({"id":id,"same":model.class_def(id).get("id","")==item_class})
+		if id in model.s.owned and id not in ids and R.member_class(model.s,id)==item_class:ids.append(id)
+	for id in ids:out.append({"id":id,"same":R.member_class(model.s,id)==item_class})
 	return out
 func can_equip(id: String,e: Dictionary) -> String:
 	if in_battle():return "전투 중에는 장비를 바꿀 수 없습니다."
@@ -58,6 +59,9 @@ func can_equip(id: String,e: Dictionary) -> String:
 	var lv=model.gear.rules.equip_lv[it.rarity]
 	if model.s.members[id].level<lv:return "Lv %d부터 낄 수 있습니다."%lv
 	return ""
+func member_name(id: String) -> String:
+	if id=="persona":return model.s.persona.get("name","") if model.s.persona.get("name","")!="" else L.u("나",{},L.language(model.s))
+	return R.DATA.cast.get(id,{}).get("name",id)
 func equip(id: String,e: Dictionary) -> bool:
 	ui.msg=can_equip(id,e)
 	if ui.msg!="":return false
@@ -65,7 +69,7 @@ func equip(id: String,e: Dictionary) -> bool:
 	if not model.s.equipment.has(id):model.s.equipment[id]={}
 	model.s.equipment[id][model.gear.by_id[e.id].slot]=e.uid
 	model._clamp_members()
-	ui.msg="장비를 장착했습니다. 끼고 있던 장비는 가방으로 돌아갑니다."
+	ui.msg=L.u("{name}에게 {item:을를} 장착했습니다. 끼고 있던 장비는 가방으로 돌아갑니다.",{"name":member_name(id),"item":model.gear.by_id[e.id].name},L.language(model.s))
 	return true
 func unequip(id: String,slot: String) -> bool:
 	if in_battle():ui.msg="전투 중에는 장비를 바꿀 수 없습니다.";return false
@@ -74,9 +78,13 @@ func unequip(id: String,slot: String) -> bool:
 	model.s.equipment[id].erase(slot);model._clamp_members();ui.msg="장비를 해제했습니다.";persist();return true
 func candidates(id: String,slot: String) -> Array:
 	var out=[]
+	if not R.slot_ok(slot) or (id!="persona" and not R.DATA.cast.has(id)):return out
+	var job=model.class_def(id).get("id","")
+	if job=="" or not model.s.members.has(id):return out
+	var lv=int(model.s.members[id].level)
 	for e in entries():
 		var it=model.gear.by_id[e.id]
-		if it.slot==slot and it.cls==model.class_def(id).get("id","") and can_equip(id,e)=="":out.append(e)
+		if it.slot==slot and it.cls==job and it.lv<=lv and can_equip(id,e)=="":out.append(e)
 	out.sort_custom(func(a,b):
 		var x=model.gear.by_id[a.id].lv;var y=model.gear.by_id[b.id].lv
 		return a.code<b.code if x==y else x>y)
@@ -98,8 +106,7 @@ func bulk() -> Dictionary:
 		if model.gear.by_id[e.id].rarity=="common":count+=1;gold+=model.gear.sell_price(e)
 	return {"count":count,"gold":gold}
 func bg_action(arg: String) -> void:
-	ui.msg=""
-	if arg.begins_with("pg_"):bg.pg=maxi(1,int(arg.substr(3)));bg.sel="";bg.conf=""
+	if arg.begins_with("pg_"):bg.pg=maxi(1,R.Value.integer(arg.substr(3),1));bg.sel="";bg.conf=""
 	elif arg.begins_with("f_"):
 		var parts=arg.substr(2).split("_",true,1)
 		if parts.size()!=2:return
@@ -108,17 +115,20 @@ func bg_action(arg: String) -> void:
 		if v!="" and ((k=="cls" and R.cls(v).get("id","")!=v) or (k=="slot" and v not in model.Gear.SLOT) or (k=="rar" and v not in R.RK)):return
 		bg[k]=v;bg.pg=1;bg.sel="";bg.conf=""
 	elif arg.begins_with("sel_"):
-		var k=int(arg.substr(4));var list=listing();var index=(int(bg.pg)-1)*R.BAG_PAGE+k-1
+		var k=R.Value.integer(arg.substr(4));var list=listing();var index=(int(bg.pg)-1)*R.BAG_PAGE+k-1
 		if k>=1 and k<=R.BAG_PAGE and index>=0 and index<list.size():bg.sel=list[index].code;bg.conf=""
 	elif arg.begins_with("cmp_"):bg.cmp=arg.substr(4)
 	elif arg=="back":bg.sel="";bg.conf=""
 	elif arg.begins_with("eq_"):
-		if equip(arg.substr(3),selected()):bg.sel="";bg.conf=""
+		var id=arg.substr(3);var e=selected()
+		if e.is_empty() or (id!="persona" and not R.recruited({"roster":model.s.owned},id)):return
+		if equip(id,e):bg.sel="";bg.conf=""
 	elif arg=="sell":
 		var e=selected()
 		if e.is_empty():return
 		if model.gear.by_id[e.id].rarity in ["epic","legend"] and bg.conf!=bg.sel:bg.conf=bg.sel;persist();return
-		if sell(e):ui.msg="장비를 판매했습니다."
+		var name=model.gear.by_id[e.id].name;var price=model.gear.sell_price(e)
+		if sell(e):ui.msg=L.u("{item:을를} 팔아 금화 {gold:을를} 받았습니다.",{"item":name,"gold":price},L.language(model.s))
 		bg.sel="";bg.conf=""
 	elif arg=="sellc":
 		var result={"count":0,"gold":0}
@@ -126,6 +136,6 @@ func bg_action(arg: String) -> void:
 			result=bulk()
 			for e in entries():
 				if model.gear.by_id[e.id].rarity=="common":sell(e)
-		ui.msg="일반 등급 장비 %d개를 팔아 금화 %d를 받았습니다."%[result.count,result.gold] if result.count>0 else "팔 일반 등급 장비가 없습니다."
+		ui.msg=L.u("일반 등급 장비 {n}개를 팔아 금화 {gold:을를} 받았습니다.",{"n":result.count,"gold":result.gold},L.language(model.s)) if result.count>0 else L.u("팔 일반 등급 장비가 없습니다.",{},L.language(model.s))
 		bg.sel="";bg.conf="";bg.pg=1
 	persist()

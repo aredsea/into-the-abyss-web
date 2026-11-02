@@ -6,6 +6,44 @@ const PAGE=12
 const BAG_PAGE=20
 const MAXFAV=3
 const RK={"common":1,"fine":2,"rare":3,"epic":4,"legend":5}
+const Value=preload("res://game/ui_value_r23.gd")
+static func num(value) -> String:return str(int(floor(Value.number(value)+.5)))
+static func fnum(value) -> String:
+	var n=Value.number(value);var bits=PackedFloat64Array([absf(n)]).to_byte_array().decode_u64(0)
+	var exponent=int((bits>>52)&2047);var mantissa=(bits&0x000fffffffffffff)|(0x0010000000000000 if exponent>0 else 0)
+	var shift=1074-exponent if exponent>0 else 1073
+	# Lua string.format uses ties-to-even on the exact binary float. Godot's
+	# decimal formatter rounds halfway away from zero; do the one-digit step
+	# with the binary mantissa so 1.25 -> 1.2 and 2.45 -> 2.5 both match.
+	if shift<=0:return ("%.1f"%n).trim_suffix(".0")
+	var units=0
+	if shift<63:
+		var product=mantissa*5;var denominator=1<<shift
+		units=product/denominator
+		var rem=product%denominator
+		if rem>denominator/2 or (rem==denominator/2 and units%2!=0):units+=1
+	return ("-" if n<0 else "")+str(units/10)+("."+str(units%10) if units%10!=0 else "")
+static func first(value) -> String:
+	var s=Value.text(value)
+	return "◆" if s=="" or s.contains("{{") else s.left(1)
+static func slot_ok(slot: String) -> bool:return slot in ["weapon","armor","acc"]
+static func member_class(g: Dictionary,id: String) -> String:
+	var p=g.get("persona",{})
+	var raw=p.get("cls","") if id=="persona" and p is Dictionary else DATA.cast.get(id,{}).get("cls","")
+	return cls(raw).get("id","") if raw is String else ""
+static func level(g: Dictionary,id="persona") -> int:
+	var p=g.get("persona",{});var raw=p.get("lv") if p is Dictionary else null
+	var base=clampi(Value.integer(raw if Value.truth(raw) else g.get("lv"),1),1,40)
+	if id=="persona":return base
+	if id not in g.get("roster",[]):return 1
+	var levels=g.get("lvl",{});var n=Value.number(levels.get(id),NAN) if levels is Dictionary else NAN
+	return base if is_nan(n) else clampi(int(floor(n)),1,40)
+static func normalize_bg(value: Variant) -> Dictionary:
+	var s=value.duplicate(true) if value is Dictionary else {}
+	s.pg=maxi(1,Value.integer(s.get("pg"),1))
+	for key in ["cls","slot","rar","sel","cmp","conf"]:
+		if not s.get(key) is String:s[key]=""
+	return s
 
 static func cls(key: String) -> Dictionary:
 	for c in DATA.classes:
@@ -56,14 +94,14 @@ static func persona_stats(p: Dictionary) -> Dictionary:
 	for k in ["hp","mp","str","agi","int","def"]:current[k]=int(floor(made.get(k,0)*float(current[k])/maxi(1,b[k])+.5))
 	current.spd=int(floor(made.get("spd",0)+(current.spd-b.spd)+.5))
 	return current
-static func shown_aff(value: float) -> int:return int(floor(clampf(value,-100,200)))
+static func shown_aff(value: Variant) -> int:return int(floor(clampf(Value.number(value),-100,200)))
 static func page(items: Array,pg: int,count=PAGE) -> Dictionary:
 	var pages=maxi(1,int(ceil(float(items.size())/count)));pg=clampi(pg,1,pages)
 	return {"page":pg,"pages":pages,"total":items.size(),"items":items.slice((pg-1)*count,pg*count)}
 static func cx_action(g: Dictionary,arg: String) -> void:
 	var u=g.ui;var sel=u.get("sel","")
 	if arg.begins_with("f_"):u.tab=arg.substr(2) if arg!="f_all" else "";u.page=1;u.sel=""
-	elif arg.begins_with("pg_"):u.page=maxi(1,int(arg.substr(3)))
+	elif arg.begins_with("pg_"):u.page=maxi(1,Value.integer(arg.substr(3),1))
 	elif arg=="me":u.sel="persona"
 	elif arg.begins_with("sel_"):
 		var id=arg.substr(4)

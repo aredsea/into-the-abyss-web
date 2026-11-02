@@ -7,13 +7,19 @@ var initial=""
 var selection={}
 static func matches(value: String,pattern: String) -> bool:
 	var r=RegEx.new();r.compile(pattern);return r.search(value)!=null
+static func asset_name(id: Variant,variant: Variant=null) -> String:
+	return R.Value.text(id)+"_portrait_"+R.Value.text(variant,"default")
+static func has_asset(name: String,have: Variant=null,expr: Dictionary={},enabled=false) -> bool:
+	if have==null:have=R.DATA.have
+	var v=have.get(name,false) if have is Dictionary else false
+	var e=expr.get(name,false)
+	return (v is bool and v) or (enabled and e is bool and e)
 static func pick(id: String,variant="default",have: Variant=null,expr: Dictionary={},enabled=false,hidden=false) -> String:
 	if hidden or not matches(id,"^[a-z0-9]+$"):return ""
-	if have==null:have=R.DATA.have
-	var name=id+"_portrait_"+variant
-	if matches(variant,"^[a-z_]+$") and (have.get(name,false) or (enabled and expr.get(name,false))):return name
-	name=id+"_portrait_default"
-	return name if have.get(name,false) or (enabled and expr.get(name,false)) else ""
+	var name=asset_name(id,variant)
+	if matches(variant,"^[a-z_]+$") and has_asset(name,have,expr,enabled):return name
+	name=asset_name(id)
+	return name if has_asset(name,have,expr,enabled) else ""
 static func resolve(id: String,variant="default") -> Dictionary:
 	var name=pick(id,variant);var path=""
 	if name!="":
@@ -26,7 +32,7 @@ static func resolve(id: String,variant="default") -> Dictionary:
 	return {"name":name,"path":path,"fallback":name!="" and name!=id+"_portrait_default" and not path.ends_with(name+".png")}
 func configure(id: String,variant="default") -> void:
 	selection=resolve(id,variant);texture=load(selection.path) if selection.path!="" else null
-	initial=R.DATA.cast.get(id,{}).get("name","").left(1) if id!="persona" else ""
+	initial=R.first(R.DATA.cast.get(id,{}).get("name","")) if id!="persona" else ""
 	mouse_filter=MOUSE_FILTER_IGNORE;clip_contents=true;texture_filter=TEXTURE_FILTER_LINEAR;queue_redraw()
 func _draw() -> void:
 	if texture:

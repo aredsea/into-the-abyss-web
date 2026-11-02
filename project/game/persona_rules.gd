@@ -1,6 +1,7 @@
 extends RefCounted
 ## P1 pure source contracts: 60-create / 74-level / 75-sortie / 26-start.
 const KEYS=["str","agi","int","def","spd"]
+const Value=preload("res://game/ui_value_r23.gd")
 var data=JSON.parse_string(FileAccess.get_file_as_string("res://data/persona-r22.json"))
 
 func by(list: Array,key: String,value: Variant) -> Dictionary:
@@ -9,7 +10,7 @@ func by(list: Array,key: String,value: Variant) -> Dictionary:
 	return {}
 
 func cls(name: String) -> Dictionary:return by(data.classes,"name",name)
-func total(p: Dictionary) -> int:return clampi(int(floor(float(p.get("bonus_total",5)))),0,99)
+func total(p: Dictionary) -> int:return clampi(Value.integer(p.get("bonus_total"),5),0,99)
 func cap(n: int) -> int:return maxi(3,int((n*3+4)/5))
 func spent(p: Dictionary) -> int:
 	var n=0
@@ -25,10 +26,33 @@ func note(p: Dictionary,nid: String) -> String:
 		var lin=by(data.lineages,"name",p.lineage).get("id","")
 		if notes.has(lin):return notes[lin]
 	return notes.get(r,"")
-func prepare(p: Dictionary) -> void:
+func prepare(p: Dictionary) -> Dictionary:
 	p.merge({"race":"","lineage":"","nation":"","cls":"","fight":1,"stats":{},"bonus_total":5,"bonus_custom":0},false)
+	for key in ["race","lineage","nation","cls"]:
+		if not Value.truth(p.get(key)):p[key]=""
+	if p.get("fight")==null:p.fight=1
+	if not p.get("stats") is Dictionary:p.stats={}
 	if not p.get("bonus") is Dictionary or not p.bonus.has("str"):p.bonus={"str":0,"agi":0,"int":0,"def":0,"spd":0}
 	p.bonus_total=total(p)
+	p.bonus_custom=1 if Value.equal_number(p.get("bonus_custom"),1) else 0
+	return p
+func view(g: Dictionary) -> Dictionary:
+	var p=g.get("persona",{});var b=p.get("bonus",{}) if p is Dictionary else {}
+	if not b is Dictionary:b={}
+	var out={}
+	for key in ["race","lineage","nation","cls"]:out[key]=p.get(key,"") if Value.truth(p.get(key)) else ""
+	out.fight=0 if Value.equal_number(p.get("fight"),0) else 1
+	if p.get("bonus_total")!=null:out.bonus_total=p.bonus_total
+	out.bonus_custom=1 if Value.equal_number(p.get("bonus_custom"),1) else 0
+	out.bonus={}
+	for key in KEYS:out.bonus[key]=b.get(key,0) if Value.truth(b.get(key)) else 0
+	return out
+func scenarios(raw: Variant) -> Array:
+	# Generated scenarios can be an array or an id-keyed table in old bundles.
+	if raw is Array:return raw.duplicate(true)
+	if not raw is Dictionary:return []
+	var out=raw.values();out.sort_custom(func(a,b):return Value.text(a.get("id"))<Value.text(b.get("id")))
+	return out
 func set_total(p: Dictionary,n: int,custom: bool) -> int:
 	n=clampi(n,0,99);p.bonus_total=n;p.bonus_custom=1 if custom else 0
 	var before=spent(p)

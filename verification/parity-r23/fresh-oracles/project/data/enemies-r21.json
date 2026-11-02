@@ -1,0 +1,6211 @@
+{
+  "version": 1,
+  "note": "적 100종의 정본. 사람이 읽는 설명은 design/ENEMIES.md. 빌드(bot/build.py)가 이 파일을 읽어 bot/src/05-gen.lua 에 B.FOES·B.ZONES·B.RIFTS 등을 만든다. 모르는 종류·속성이 있으면 빌드가 실패한다.",
+  "kinds": [
+    "atk",
+    "shoot",
+    "aimed",
+    "spell",
+    "dot",
+    "debuff",
+    "buff",
+    "heal",
+    "summon",
+    "protect",
+    "guard",
+    "charge",
+    "big_one",
+    "big_all",
+    "special"
+  ],
+  "elements": [
+    "fire",
+    "ice",
+    "bolt",
+    "wind",
+    "holy",
+    "dark"
+  ],
+  "roles": {
+    "돌격": {
+      "hp": 1,
+      "atk": 1,
+      "de": 1,
+      "spd": 1.05,
+      "gauge": 30,
+      "threat": 1,
+      "row": "front"
+    },
+    "방어": {
+      "hp": 1.4,
+      "atk": 0.75,
+      "de": 1.5,
+      "spd": 0.85,
+      "gauge": 40,
+      "threat": 1,
+      "row": "front"
+    },
+    "사격": {
+      "hp": 0.8,
+      "atk": 1.1,
+      "de": 0.8,
+      "spd": 1,
+      "gauge": 30,
+      "threat": 1,
+      "row": "back"
+    },
+    "주술": {
+      "hp": 0.75,
+      "atk": 1.05,
+      "de": 0.8,
+      "spd": 0.95,
+      "gauge": 30,
+      "threat": 1.2,
+      "row": "back"
+    },
+    "지원": {
+      "hp": 0.8,
+      "atk": 0.6,
+      "de": 1,
+      "spd": 1.05,
+      "gauge": 30,
+      "threat": 1.2,
+      "row": "back"
+    },
+    "소환": {
+      "hp": 0.9,
+      "atk": 0.6,
+      "de": 1,
+      "spd": 0.9,
+      "gauge": 30,
+      "threat": 1.2,
+      "row": "back"
+    },
+    "무리": {
+      "hp": 0.6,
+      "atk": 0.6,
+      "de": 0.6,
+      "spd": 1.15,
+      "gauge": 15,
+      "threat": 0.5,
+      "row": "front"
+    },
+    "하수인": {
+      "hp": 0.5,
+      "atk": 0.6,
+      "de": 0.8,
+      "spd": 1,
+      "gauge": 15,
+      "threat": 0.5,
+      "row": "front"
+    }
+  },
+  "grades": {
+    "mob": {
+      "hp": 1,
+      "atk": 1,
+      "gauge": null,
+      "threat": null,
+      "kind": "mob",
+      "exp": 12,
+      "label": "잡몹"
+    },
+    "swarm": {
+      "hp": 1,
+      "atk": 1,
+      "gauge": null,
+      "threat": null,
+      "kind": "mob",
+      "exp": 6,
+      "label": "무리"
+    },
+    "minion": {
+      "hp": 1,
+      "atk": 1,
+      "gauge": null,
+      "threat": null,
+      "kind": "mob",
+      "exp": 0,
+      "label": "하수인"
+    },
+    "elite": {
+      "hp": 3.5,
+      "atk": 1.2,
+      "gauge": 80,
+      "threat": 3,
+      "kind": "elite",
+      "exp": 36,
+      "label": "정예"
+    },
+    "chief": {
+      "hp": 5,
+      "atk": 1.25,
+      "gauge": 120,
+      "threat": null,
+      "kind": "elite",
+      "exp": 0,
+      "label": "우두머리"
+    },
+    "boss": {
+      "hp": 8,
+      "atk": 1.35,
+      "gauge": 150,
+      "threat": null,
+      "kind": "boss",
+      "exp": 0,
+      "label": "구역 보스"
+    },
+    "core": {
+      "hp": 6,
+      "atk": 1.3,
+      "gauge": 120,
+      "threat": null,
+      "kind": "boss",
+      "exp": 0,
+      "label": "균열 핵"
+    }
+  },
+  "act_defaults": {
+    "atk": {
+      "m": 1
+    },
+    "shoot": {
+      "m": 1.1
+    },
+    "aimed": {
+      "m": 1.6
+    },
+    "spell": {
+      "m": 1.1
+    },
+    "dot": {
+      "m": 1,
+      "tick": 0.3,
+      "turns": 3
+    },
+    "big_one": {
+      "m": 2.5
+    },
+    "big_all": {
+      "m": 1.5
+    },
+    "heal": {
+      "amount": 0.2
+    }
+  },
+  "act_icons": {
+    "atk": "attack",
+    "shoot": "shoot",
+    "aimed": "shoot",
+    "spell": "spell",
+    "dot": "spell",
+    "debuff": "weaken",
+    "buff": "buff",
+    "heal": "heal",
+    "summon": "summon",
+    "protect": "protect",
+    "guard": "defend",
+    "charge": "charge",
+    "big_one": "charge",
+    "big_all": "charge",
+    "special": "weaken"
+  },
+  "tune": {
+    "note": "밸런스 손잡이 — 적 세기 = 표준(레벨) × 역할 × 등급 × ★ 배수(stats.json meta.stars) × tune.star(★별 보정 — 부드러운 단조 표) × 구역 보정(zones[].tune · rifts[].tune — 그 구역 적 풀의 거칠기를 맞춘다). 28층부터는 deep 이 ★ 배수를 대신한다(구역 보정은 그대로 곱한다). 🔴 대던전 층 전투는 위 식 대신 tune.curve(층 곡선) 하나로 정한다 — 구역 보정은 균열 의뢰에만 쓴다(zones[].tune 은 전부 1).",
+    "star": {
+      "1": {
+        "hp": 3,
+        "atk": 1.8
+      },
+      "2": {
+        "hp": 3,
+        "atk": 1.8
+      },
+      "3": {
+        "hp": 3,
+        "atk": 1.8
+      },
+      "4": {
+        "hp": 3,
+        "atk": 1.8
+      },
+      "5": {
+        "hp": 3,
+        "atk": 1.8
+      },
+      "6": {
+        "hp": 3,
+        "atk": 1.8
+      },
+      "7": {
+        "hp": 3,
+        "atk": 1.8
+      },
+      "8": {
+        "hp": 3,
+        "atk": 1.8
+      },
+      "9": {
+        "hp": 3,
+        "atk": 1.8
+      }
+    },
+    "deep": {
+      "hp0": 2.81,
+      "hpk": 1.07,
+      "atk0": 1.76,
+      "atk1": 1.025,
+      "reward0": 16,
+      "reward1": 1.1,
+      "boss_hp": 0.52,
+      "boss_atk": 0.76
+    },
+    "boss": {
+      "phase_hp": 0.5,
+      "rage_hp": 0.3,
+      "rage_atk": 0.2,
+      "enrage_round": 20,
+      "enrage_step": 0.1,
+      "enrage_max": 1,
+      "reduce": 0.5,
+      "summon_cap": 2
+    },
+    "reward": {
+      "exp_ref_enemies": 3,
+      "gold_ref": 40,
+      "chief": 2.5,
+      "boss": 4,
+      "core": 3
+    },
+    "curve": {
+      "note": "층별 적 세기 곡선 — 종류(normal 일반·정예·하수인 / chief 1·2번째 층 우두머리 / boss 구역 보스)마다 층 번호만의 꺾은선. pts=[층, HP 배율] ≤4개를 log 척도로 이음(첫 점 앞 평평 · 끝점 뒤는 마지막 구간 기울기로 이어 감). 공격 배율 = HP 배율^pow. [10-10 흐름] 이 곡선 위에 구역마다 우두머리 · 구역 보스를 따로 맞춘다 — zones[].tune 의 chief_hp/atk(전 층) · chief_deep_hp/atk(심층만 더) · boss_hp/atk(1~27층) · 구역 보스 deep{hp,atk}(심층). 탐색 전투(보스 아님)는 이 곡선을 쓰지 않고 77-explore.lua B.EX.FOE 곡선을 쓴다. 손잡이는 node bot/tune_flow.mjs (explore | boss | zones | deep).",
+      "normal": {
+        "pow": 0.55,
+        "pts": [
+          [
+            1,
+            1.6
+          ],
+          [
+            27,
+            6
+          ],
+          [
+            40,
+            9.4
+          ],
+          [
+            55,
+            15.175
+          ]
+        ]
+      },
+      "chief": {
+        "pow": 0.55,
+        "pts": [
+          [
+            2,
+            4.041
+          ],
+          [
+            14,
+            4.725
+          ],
+          [
+            27,
+            4.875
+          ],
+          [
+            55,
+            18.319
+          ]
+        ]
+      },
+      "boss": {
+        "pow": 0.55,
+        "pts": [
+          [
+            3,
+            1.409
+          ],
+          [
+            15,
+            2.647
+          ],
+          [
+            30,
+            2.647
+          ],
+          [
+            54,
+            4.873
+          ]
+        ]
+      }
+    }
+  },
+  "threat": {
+    "elite": 3,
+    "base": 3,
+    "per_order": 0.5,
+    "elite_bonus": 2,
+    "zone_bonus": 0
+  },
+  "templates": [
+    {
+      "id": "basic",
+      "name": "기본",
+      "kinds": [
+        "battle"
+      ],
+      "min_order": 1,
+      "weight": 4,
+      "slots": [
+        {
+          "row": "front"
+        },
+        {
+          "row": "front"
+        },
+        {
+          "row": "back"
+        }
+      ]
+    },
+    {
+      "id": "wall",
+      "name": "벽",
+      "kinds": [
+        "battle"
+      ],
+      "min_order": 2,
+      "weight": 3,
+      "slots": [
+        {
+          "role": [
+            "방어"
+          ]
+        },
+        {
+          "role": [
+            "사격",
+            "주술"
+          ]
+        },
+        {
+          "role": [
+            "지원"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "swarm",
+      "name": "무리",
+      "kinds": [
+        "battle"
+      ],
+      "min_order": 1,
+      "weight": 2,
+      "slots": [
+        {
+          "role": [
+            "무리"
+          ]
+        },
+        {
+          "role": [
+            "무리"
+          ]
+        },
+        {
+          "role": [
+            "사격",
+            "주술"
+          ]
+        },
+        {
+          "role": [
+            "돌격"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "summon",
+      "name": "소환",
+      "kinds": [
+        "battle"
+      ],
+      "min_order": 2,
+      "weight": 2,
+      "slots": [
+        {
+          "role": [
+            "소환"
+          ]
+        },
+        {
+          "role": [
+            "방어"
+          ]
+        },
+        {
+          "role": [
+            "돌격"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elite",
+      "name": "정예",
+      "kinds": [
+        "elite"
+      ],
+      "min_order": 1,
+      "weight": 1,
+      "slots": [
+        {
+          "grade": [
+            "elite"
+          ]
+        },
+        {
+          "grade": [
+            "mob",
+            "swarm"
+          ]
+        },
+        {
+          "grade": [
+            "mob",
+            "swarm"
+          ]
+        },
+        {
+          "grade": [
+            "mob",
+            "swarm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "chief",
+      "name": "우두머리",
+      "kinds": [
+        "chief"
+      ],
+      "min_order": 1,
+      "weight": 1,
+      "slots": [
+        {
+          "grade": [
+            "chief"
+          ]
+        },
+        {
+          "grade": [
+            "mob"
+          ]
+        },
+        {
+          "grade": [
+            "mob"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "boss",
+      "name": "구역 보스",
+      "kinds": [
+        "boss"
+      ],
+      "min_order": 1,
+      "weight": 1,
+      "slots": [
+        {
+          "grade": [
+            "boss"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "core",
+      "name": "균열 핵",
+      "kinds": [
+        "rift_core"
+      ],
+      "min_order": 1,
+      "weight": 1,
+      "slots": [
+        {
+          "grade": [
+            "core"
+          ]
+        },
+        {
+          "grade": [
+            "mob"
+          ]
+        },
+        {
+          "grade": [
+            "mob"
+          ]
+        }
+      ]
+    }
+  ],
+  "families": [
+    {
+      "id": 1,
+      "name": "마도 인형",
+      "zone": "academy_upper"
+    },
+    {
+      "id": 2,
+      "name": "학술원 장치",
+      "zone": "academy_upper"
+    },
+    {
+      "id": 3,
+      "name": "학자의 망령",
+      "zone": "academy_upper"
+    },
+    {
+      "id": 4,
+      "name": "살아 있는 책",
+      "zone": "academy_library"
+    },
+    {
+      "id": 5,
+      "name": "잉크",
+      "zone": "academy_library"
+    },
+    {
+      "id": 6,
+      "name": "사서의 망령",
+      "zone": "academy_library"
+    },
+    {
+      "id": 7,
+      "name": "지하의 피난민",
+      "zone": "lumiel_under"
+    },
+    {
+      "id": 8,
+      "name": "제국 근위대",
+      "zone": "lumiel_under"
+    },
+    {
+      "id": 9,
+      "name": "묘지",
+      "zone": "lumiel_under"
+    },
+    {
+      "id": 10,
+      "name": "얼굴들",
+      "zone": "abyss_edge"
+    },
+    {
+      "id": 11,
+      "name": "바닥의 것들",
+      "zone": "abyss_edge"
+    },
+    {
+      "id": 12,
+      "name": "옛 전사",
+      "zone": "abyss_edge"
+    },
+    {
+      "id": 13,
+      "name": "부름파",
+      "zone": "abyss_edge"
+    },
+    {
+      "id": 14,
+      "name": "심연 사냥",
+      "zone": "common"
+    },
+    {
+      "id": 15,
+      "name": "서리 용병대",
+      "zone": "rift_sw_snow"
+    },
+    {
+      "id": 16,
+      "name": "가시 성지",
+      "zone": "rift_se_forest"
+    },
+    {
+      "id": 17,
+      "name": "난파선",
+      "zone": "rift_east_coast"
+    },
+    {
+      "id": 18,
+      "name": "초원의 기마",
+      "zone": "rift_north_steppe"
+    },
+    {
+      "id": 19,
+      "name": "고개의 망자",
+      "zone": "rift_nw_snow"
+    },
+    {
+      "id": 20,
+      "name": "잿불 신도",
+      "zone": "rift_ne_volcano"
+    },
+    {
+      "id": 21,
+      "name": "내전 병사",
+      "zone": "fracture_field"
+    },
+    {
+      "id": 22,
+      "name": "공성 병기",
+      "zone": "fracture_field"
+    },
+    {
+      "id": 23,
+      "name": "철기 전사",
+      "zone": "iron_tombs"
+    },
+    {
+      "id": 24,
+      "name": "옛 왕릉",
+      "zone": "iron_tombs"
+    },
+    {
+      "id": 25,
+      "name": "청동 문명",
+      "zone": "bronze_era"
+    },
+    {
+      "id": 26,
+      "name": "첫 혼혈",
+      "zone": "bronze_era"
+    },
+    {
+      "id": 27,
+      "name": "태초의 짐승",
+      "zone": "primal_forest"
+    },
+    {
+      "id": 28,
+      "name": "돌칼 주술",
+      "zone": "primal_forest"
+    },
+    {
+      "id": 29,
+      "name": "녹아든 것",
+      "zone": "the_bottom"
+    },
+    {
+      "id": 30,
+      "name": "이름 잃은 것",
+      "zone": "the_bottom"
+    }
+  ],
+  "zones": [
+    {
+      "id": "common",
+      "name": "공통",
+      "kind": "common",
+      "order": 0,
+      "floors": null,
+      "star": null
+    },
+    {
+      "id": "academy_upper",
+      "name": "학술원 폐허 상층",
+      "kind": "dungeon",
+      "order": 1,
+      "floors": [
+        1,
+        3
+      ],
+      "star": 1,
+      "lv_lo": 1,
+      "weak_bias": [
+        "bolt"
+      ],
+      "tune": {
+        "hp": 1,
+        "atk": 1,
+        "chief_hp": 0.866,
+        "chief_atk": 0.924,
+        "boss_hp": 0.882,
+        "boss_atk": 0.933,
+        "chief_deep_hp": 1.251,
+        "chief_deep_atk": 1.131
+      },
+      "boss": "raging_lecturer",
+      "chiefs": [
+        "magic_enforcer",
+        "senior_assistant"
+      ]
+    },
+    {
+      "id": "academy_library",
+      "name": "학술원 폐허 서고",
+      "kind": "dungeon",
+      "order": 2,
+      "floors": [
+        4,
+        6
+      ],
+      "star": 2,
+      "lv_lo": 5,
+      "weak_bias": [
+        "fire"
+      ],
+      "tune": {
+        "hp": 1,
+        "atk": 1,
+        "chief_hp": 0.978,
+        "chief_atk": 0.988,
+        "boss_hp": 1.025,
+        "boss_atk": 1.014,
+        "chief_deep_hp": 0.77,
+        "chief_deep_atk": 0.866
+      },
+      "boss": "tome_librarian",
+      "chiefs": [
+        "chained_tome",
+        "ink_knight"
+      ]
+    },
+    {
+      "id": "lumiel_under",
+      "name": "루미엘 지하 통로",
+      "kind": "dungeon",
+      "order": 3,
+      "floors": [
+        7,
+        9
+      ],
+      "star": 3,
+      "lv_lo": 10,
+      "weak_bias": [
+        "holy",
+        "fire"
+      ],
+      "tune": {
+        "hp": 1,
+        "atk": 1,
+        "chief_hp": 1.214,
+        "chief_atk": 1.113,
+        "boss_hp": 1.006,
+        "boss_atk": 1.003,
+        "chief_deep_hp": 0.668,
+        "chief_deep_atk": 0.801
+      },
+      "boss": "imperial_remnant",
+      "chiefs": [
+        "standard_bearer",
+        "chained_executioner"
+      ]
+    },
+    {
+      "id": "abyss_edge",
+      "name": "심연 가장자리",
+      "kind": "dungeon",
+      "order": 4,
+      "floors": [
+        10,
+        12
+      ],
+      "star": 4,
+      "lv_lo": 14,
+      "weak_bias": [],
+      "tune": {
+        "hp": 1,
+        "atk": 1,
+        "chief_hp": 1.105,
+        "chief_atk": 1.056,
+        "boss_hp": 0.866,
+        "boss_atk": 0.924,
+        "chief_deep_hp": 0.411,
+        "chief_deep_atk": 0.614
+      },
+      "boss": "summoners_remnant",
+      "chiefs": [
+        "thousand_names",
+        "abyss_knight"
+      ]
+    },
+    {
+      "id": "fracture_field",
+      "name": "분열의 전장",
+      "kind": "dungeon",
+      "order": 5,
+      "floors": [
+        13,
+        15
+      ],
+      "star": 5,
+      "lv_lo": 19,
+      "weak_bias": [
+        "holy",
+        "bolt"
+      ],
+      "tune": {
+        "hp": 1,
+        "atk": 1,
+        "chief_hp": 0.912,
+        "chief_atk": 0.951,
+        "boss_hp": 0.934,
+        "boss_atk": 0.963,
+        "chief_deep_hp": 0.45,
+        "chief_deep_atk": 0.645
+      },
+      "boss": "throne_of_division",
+      "chiefs": [
+        "civil_war_commander",
+        "siege_tower_remnant"
+      ]
+    },
+    {
+      "id": "iron_tombs",
+      "name": "철기 왕국의 무덤",
+      "kind": "dungeon",
+      "order": 6,
+      "floors": [
+        16,
+        18
+      ],
+      "star": 6,
+      "lv_lo": 23,
+      "weak_bias": [
+        "bolt",
+        "wind"
+      ],
+      "tune": {
+        "hp": 1,
+        "atk": 1,
+        "chief_hp": 0.811,
+        "chief_atk": 0.891,
+        "boss_hp": 0.951,
+        "boss_atk": 0.973,
+        "chief_deep_hp": 0.522,
+        "chief_deep_atk": 0.699
+      },
+      "boss": "iron_coffin_king",
+      "chiefs": [
+        "iron_chariot",
+        "kings_hawk"
+      ]
+    },
+    {
+      "id": "bronze_era",
+      "name": "청동과 혼혈의 시대",
+      "kind": "dungeon",
+      "order": 7,
+      "floors": [
+        19,
+        21
+      ],
+      "star": 7,
+      "lv_lo": 28,
+      "weak_bias": [
+        "ice",
+        "holy"
+      ],
+      "tune": {
+        "hp": 1,
+        "atk": 1,
+        "chief_hp": 0.774,
+        "chief_atk": 0.869,
+        "boss_hp": 1.084,
+        "boss_atk": 1.046,
+        "chief_deep_hp": 0.471,
+        "chief_deep_atk": 0.661
+      },
+      "boss": "bronze_altar",
+      "chiefs": [
+        "bronze_colossus",
+        "exiled_elf_archer"
+      ]
+    },
+    {
+      "id": "primal_forest",
+      "name": "태초의 숲",
+      "kind": "dungeon",
+      "order": 8,
+      "floors": [
+        22,
+        24
+      ],
+      "star": 8,
+      "lv_lo": 32,
+      "weak_bias": [
+        "fire"
+      ],
+      "tune": {
+        "hp": 1,
+        "atk": 1,
+        "chief_hp": 1.097,
+        "chief_atk": 1.052,
+        "boss_hp": 0.986,
+        "boss_atk": 0.993,
+        "chief_deep_hp": 1.191,
+        "chief_deep_atk": 1.101
+      },
+      "boss": "fallen_guardian",
+      "chiefs": [
+        "mammoth_wraith",
+        "cave_painting_hunter"
+      ]
+    },
+    {
+      "id": "the_bottom",
+      "name": "밑바닥",
+      "kind": "dungeon",
+      "order": 9,
+      "floors": [
+        25,
+        27
+      ],
+      "star": 9,
+      "lv_lo": 37,
+      "weak_bias": [],
+      "tune": {
+        "hp": 1,
+        "atk": 1,
+        "chief_hp": 1.196,
+        "chief_atk": 1.104,
+        "boss_hp": 1.137,
+        "boss_atk": 1.073,
+        "chief_deep_hp": 0.456,
+        "chief_deep_atk": 0.649
+      },
+      "boss": "echo_of_bottom",
+      "chiefs": [],
+      "chief_borrow": true
+    }
+  ],
+  "rifts": [
+    {
+      "id": "sw_snow",
+      "name": "남서 설산",
+      "quest_name": "남서 설산 균열",
+      "family": 15,
+      "star_min": 1,
+      "star_max": 2,
+      "tune": {
+        "hp": 1.191,
+        "atk": 1.091,
+        "chief_hp": 1,
+        "chief_atk": 1,
+        "boss_hp": 0.284,
+        "boss_atk": 0.533
+      },
+      "mobs": [
+        "frozen_mercenary",
+        "blizzard_wolves",
+        "ice_crossbowman"
+      ],
+      "elite": "ice_centurion",
+      "core": "frost_contractor"
+    },
+    {
+      "id": "se_forest",
+      "name": "남동 숲",
+      "quest_name": "남동 숲 균열",
+      "family": 16,
+      "star_min": 2,
+      "star_max": 2,
+      "tune": {
+        "hp": 1.206,
+        "atk": 1.098,
+        "chief_hp": 1,
+        "chief_atk": 1,
+        "boss_hp": 0.328,
+        "boss_atk": 0.572
+      },
+      "mobs": [
+        "thorn_pilgrim",
+        "rotten_censer",
+        "shrine_crows"
+      ],
+      "elite": "kneeling_paladin",
+      "core": "corroded_reliquary"
+    },
+    {
+      "id": "east_coast",
+      "name": "동해안",
+      "quest_name": "동해안 균열",
+      "family": 17,
+      "star_min": 2,
+      "star_max": 3,
+      "tune": {
+        "hp": 1.317,
+        "atk": 1.147,
+        "chief_hp": 1,
+        "chief_atk": 1,
+        "boss_hp": 0.259,
+        "boss_atk": 0.509
+      },
+      "mobs": [
+        "waterlogged_sailor",
+        "net_fisher",
+        "barnacle_shell"
+      ],
+      "elite": "wreck_boatswain",
+      "core": "sunken_bell"
+    },
+    {
+      "id": "north_steppe",
+      "name": "북쪽 초원",
+      "quest_name": "북쪽 초원 균열",
+      "family": 18,
+      "star_min": 3,
+      "star_max": 3,
+      "tune": {
+        "hp": 0.819,
+        "atk": 0.905,
+        "chief_hp": 1,
+        "chief_atk": 1,
+        "boss_hp": 0.469,
+        "boss_atk": 0.685
+      },
+      "mobs": [
+        "tangled_riders",
+        "wild_dog_wraiths",
+        "wind_shamaness"
+      ],
+      "elite": "old_khan_rider",
+      "core": "three_head_warhorse"
+    },
+    {
+      "id": "nw_snow",
+      "name": "북서 설산",
+      "quest_name": "북서 설산 균열",
+      "family": 19,
+      "star_min": 3,
+      "star_max": 3,
+      "tune": {
+        "hp": 0.861,
+        "atk": 0.928,
+        "chief_hp": 1,
+        "chief_atk": 1,
+        "boss_hp": 0.697,
+        "boss_atk": 0.835
+      },
+      "mobs": [
+        "snow_leopard_wraith",
+        "ice_tomb_hunter",
+        "hands_in_snow"
+      ],
+      "elite": "ice_mane_leopard",
+      "core": "starving_of_the_pass"
+    },
+    {
+      "id": "ne_volcano",
+      "name": "북동 화산",
+      "quest_name": "북동 화산 균열",
+      "family": 20,
+      "star_min": 4,
+      "star_max": 4,
+      "tune": {
+        "hp": 1.221,
+        "atk": 1.105,
+        "chief_hp": 1,
+        "chief_atk": 1,
+        "boss_hp": 0.407,
+        "boss_atk": 0.638
+      },
+      "mobs": [
+        "ash_zealot",
+        "lava_shell_beast",
+        "ember_bats"
+      ],
+      "elite": "obsidian_priest",
+      "core": "burning_bloodline"
+    }
+  ],
+  "enemies": [
+    {
+      "id": "abyss_hound",
+      "name": "심연 사냥개",
+      "family": 14,
+      "zone": "common",
+      "grade": "mob",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "ice",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "물어뜯기",
+          "kind": "atk",
+          "vb": "물어뜯었다",
+          "m": 1,
+          "id": "bite"
+        },
+        {
+          "name": "물어뜯기",
+          "kind": "atk",
+          "vb": "물어뜯었다",
+          "m": 1,
+          "id": "bite"
+        },
+        {
+          "name": "포효",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.3,
+          "turns": 3,
+          "target": "self",
+          "vb": "포효했다",
+          "id": "howl"
+        }
+      ],
+      "looks": "여러 짐승의 뼈와 털이 엉겨 붙은 검은 개",
+      "legacy": "hound",
+      "art": "res://assets/enemies-r21/abyss_hound.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/0",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "shadow_archer",
+      "name": "그림자 궁수",
+      "family": 14,
+      "zone": "common",
+      "grade": "mob",
+      "role": "사격",
+      "row": "back",
+      "weak": [
+        "ice",
+        "dark"
+      ],
+      "acts": [
+        {
+          "name": "사격",
+          "kind": "shoot",
+          "vb": "쏘았다",
+          "m": 1.1,
+          "id": "shot"
+        },
+        {
+          "name": "조준 사격",
+          "kind": "aimed",
+          "vb": "겨누어 쏘았다",
+          "m": 1.6,
+          "id": "aimed"
+        },
+        {
+          "name": "그림자 화살",
+          "kind": "spell",
+          "vb": "그림자 화살을 날렸다",
+          "m": 1.1,
+          "magic": true,
+          "id": "shade",
+          "target": "one",
+          "shoot": true
+        }
+      ],
+      "looks": "얼굴 없는 사냥꾼의 그림자. 활만 또렷하다",
+      "legacy": "archer",
+      "art": "res://assets/enemies-r21/shadow_archer.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/1",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "dungeon_overseer",
+      "name": "던전 감시관",
+      "family": 14,
+      "zone": "common",
+      "grade": "elite",
+      "role": "방어",
+      "row": "back",
+      "weak": [
+        "dark",
+        "holy",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "내려치기",
+          "kind": "atk",
+          "vb": "내려쳤다",
+          "m": 1,
+          "id": "slam"
+        },
+        {
+          "name": "강타",
+          "kind": "spell",
+          "vb": "강타했다",
+          "m": 1.5,
+          "magic": true,
+          "id": "heavy",
+          "target": "one",
+          "shoot": false
+        },
+        {
+          "name": "방어 자세",
+          "kind": "guard",
+          "id": "guard"
+        },
+        {
+          "name": "내려치기",
+          "kind": "atk",
+          "vb": "내려쳤다",
+          "m": 1,
+          "id": "slam"
+        },
+        {
+          "name": "쇠사슬 강화",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 3,
+          "target": "self",
+          "vb": "쇠사슬을 당겨 힘을 끌어올렸다",
+          "id": "chain"
+        }
+      ],
+      "looks": "쇠사슬을 몸에 감은 거구의 옥졸",
+      "legacy": "overseer",
+      "art": "res://assets/enemies-r21/dungeon_overseer.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/2",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "apprentice_doll",
+      "name": "견습 인형",
+      "family": 1,
+      "zone": "academy_upper",
+      "grade": "mob",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "fire",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "휘두르기",
+          "kind": "atk",
+          "vb": "휘둘렀다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "태엽 감기",
+          "kind": "buff",
+          "stat": "spd",
+          "amount": 0.2,
+          "turns": 3,
+          "target": "self",
+          "vb": "태엽을 감았다",
+          "id": "buff_2"
+        },
+        {
+          "name": "휘두르기",
+          "kind": "atk",
+          "vb": "휘둘렀다",
+          "m": 1,
+          "id": "atk_3"
+        }
+      ],
+      "looks": "학생 제복 조각을 걸친 놋쇠 관절 나무 인형. 이마에 수강 번호가 새겨져 있다",
+      "art": "res://assets/enemies-r21/apprentice_doll.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/3",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "gate_statue",
+      "name": "문지기 석상",
+      "family": 2,
+      "zone": "academy_upper",
+      "grade": "mob",
+      "role": "방어",
+      "row": "front",
+      "weak": [
+        "bolt",
+        "ice"
+      ],
+      "acts": [
+        {
+          "name": "감싸기",
+          "kind": "protect",
+          "guard": false,
+          "id": "protect_1"
+        },
+        {
+          "name": "내려치기",
+          "kind": "atk",
+          "vb": "내려쳤다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "돌 피부",
+          "kind": "guard",
+          "id": "guard_3"
+        }
+      ],
+      "looks": "학술원 정문 옆에 서 있던 방패 든 석상. 온몸에 금이 가 있다",
+      "art": "res://assets/enemies-r21/gate_statue.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/4",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "clockwork_mice",
+      "name": "태엽 생쥐 떼",
+      "family": 2,
+      "zone": "academy_upper",
+      "grade": "swarm",
+      "role": "무리",
+      "row": "front",
+      "weak": [
+        "bolt",
+        "fire"
+      ],
+      "acts": [
+        {
+          "name": "갉기",
+          "kind": "atk",
+          "vb": "갉았다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "갉기",
+          "kind": "atk",
+          "vb": "갉았다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "흩어지기",
+          "kind": "guard",
+          "id": "guard_3"
+        }
+      ],
+      "looks": "실험실에서 쏟아져 나온 손바닥만 한 놋쇠 생쥐들",
+      "art": "res://assets/enemies-r21/clockwork_mice.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/5",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "ashen_student",
+      "name": "잿빛 수강생",
+      "family": 3,
+      "zone": "academy_upper",
+      "grade": "mob",
+      "role": "주술",
+      "row": "back",
+      "weak": [
+        "holy",
+        "wind"
+      ],
+      "acts": [
+        {
+          "name": "낡은 화염 주문",
+          "kind": "spell",
+          "vb": "낡은 화염을 일으켰다",
+          "m": 1.1,
+          "magic": true,
+          "id": "spell_1"
+        },
+        {
+          "name": "졸음 주문",
+          "kind": "debuff",
+          "stat": "spd",
+          "amount": 0.2,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_2"
+        },
+        {
+          "name": "낡은 화염 주문",
+          "kind": "spell",
+          "vb": "낡은 화염을 일으켰다",
+          "m": 1.1,
+          "magic": true,
+          "id": "spell_3"
+        }
+      ],
+      "looks": "재가 된 학생 셋이 한 책상에 엉겨 붙은 망자",
+      "art": "res://assets/enemies-r21/ashen_student.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/6",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "alarm_orb",
+      "name": "경보 수정구",
+      "family": 2,
+      "zone": "academy_upper",
+      "grade": "mob",
+      "role": "사격",
+      "row": "back",
+      "weak": [
+        "ice",
+        "dark"
+      ],
+      "acts": [
+        {
+          "name": "광선",
+          "kind": "shoot",
+          "vb": "광선을 쏘았다",
+          "m": 1.1,
+          "id": "shoot_1"
+        },
+        {
+          "name": "경보",
+          "kind": "buff",
+          "stat": "spd",
+          "amount": 0.1,
+          "turns": 3,
+          "target": "allies",
+          "id": "buff_2"
+        },
+        {
+          "name": "광선",
+          "kind": "shoot",
+          "vb": "광선을 쏘았다",
+          "m": 1.1,
+          "id": "shoot_3"
+        }
+      ],
+      "looks": "금 간 받침대 위의 수정구. 침입자에게 광선을 쏜다",
+      "art": "res://assets/enemies-r21/alarm_orb.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/7",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "wandering_lamp",
+      "name": "떠도는 등불",
+      "family": 3,
+      "zone": "academy_upper",
+      "grade": "mob",
+      "role": "지원",
+      "row": "back",
+      "weak": [
+        "wind",
+        "dark"
+      ],
+      "acts": [
+        {
+          "name": "등불 보수",
+          "kind": "heal",
+          "amount": 0.2,
+          "target": "lowest",
+          "id": "heal_1"
+        },
+        {
+          "name": "불씨 튀기기",
+          "kind": "spell",
+          "vb": "불씨를 튀겼다",
+          "m": 1.1,
+          "magic": true,
+          "id": "spell_2"
+        },
+        {
+          "name": "등불 보수",
+          "kind": "heal",
+          "amount": 0.2,
+          "target": "lowest",
+          "id": "heal_3"
+        }
+      ],
+      "looks": "복도를 떠도는 마도 등. 불씨 자리에 희미한 얼굴이 비친다",
+      "art": "res://assets/enemies-r21/wandering_lamp.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/8",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "senior_assistant",
+      "name": "수석 조교의 잔해",
+      "family": 3,
+      "zone": "academy_upper",
+      "grade": "elite",
+      "role": "소환",
+      "row": "back",
+      "weak": [
+        "holy",
+        "fire"
+      ],
+      "acts": [
+        {
+          "name": "실습 개시",
+          "kind": "summon",
+          "enemy": "apprentice_doll",
+          "count": 1,
+          "id": "summon_1"
+        },
+        {
+          "name": "낙제 선고",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_2"
+        },
+        {
+          "name": "지시봉",
+          "kind": "spell",
+          "vb": "지시봉을 휘둘렀다",
+          "m": 1.1,
+          "magic": true,
+          "id": "spell_3"
+        }
+      ],
+      "looks": "학위복 자락이 수십 겹 엉킨 키 큰 망자. 손에 지시봉을 쥐고 있다",
+      "rules": {
+        "dr_while_ally": {
+          "enemy": "apprentice_doll",
+          "mult": 0.8
+        }
+      },
+      "art": "res://assets/enemies-r21/senior_assistant.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/9",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "magic_enforcer",
+      "name": "마도 집행 인형",
+      "family": 1,
+      "zone": "academy_upper",
+      "grade": "elite",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "bolt",
+        "ice"
+      ],
+      "acts": [
+        {
+          "name": "내려치기",
+          "kind": "atk",
+          "vb": "내려쳤다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "과열",
+          "kind": "charge",
+          "id": "charge_2"
+        },
+        {
+          "name": "증기 분출",
+          "kind": "big_all",
+          "vb": "증기를 뿜어냈다",
+          "m": 0.9,
+          "id": "big_all_3"
+        },
+        {
+          "name": "내려치기",
+          "kind": "atk",
+          "vb": "내려쳤다",
+          "m": 1,
+          "id": "atk_4"
+        }
+      ],
+      "looks": "학술원 경비용 대형 인형. 한쪽 팔이 망치다",
+      "rules": {
+        "break_self": 0.1
+      },
+      "art": "res://assets/enemies-r21/magic_enforcer.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/10",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "raging_lecturer",
+      "name": "폭주한 강의 인형",
+      "family": 1,
+      "zone": "academy_upper",
+      "grade": "boss",
+      "role": "소환",
+      "row": "front",
+      "weak": [
+        "bolt",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "출석 확인",
+          "kind": "atk",
+          "vb": "출석을 불렀다",
+          "m": 0.6,
+          "target": "all",
+          "id": "atk_1"
+        },
+        {
+          "name": "판서",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.2,
+          "turns": 3,
+          "target": "self",
+          "vb": "칠판에 판서를 휘갈겼다",
+          "id": "buff_2"
+        },
+        {
+          "name": "질문",
+          "kind": "spell",
+          "vb": "질문을 던졌다",
+          "m": 1.6,
+          "magic": true,
+          "id": "spell_3"
+        }
+      ],
+      "looks": "강의실 천장에 닿는 강사 인형. 칠판 셋을 등에 지고, 끝나지 않는 강의를 한다.",
+      "stat_role": "돌격",
+      "phase2": {
+        "weak": [
+          "fire",
+          "holy"
+        ],
+        "entry": {
+          "name": "견습 인형 호출",
+          "kind": "summon",
+          "enemy": "apprentice_doll",
+          "count": 2,
+          "id": "entry"
+        },
+        "acts": [
+          {
+            "name": "기말 시험",
+            "kind": "charge",
+            "id": "charge_1"
+          },
+          {
+            "name": "기말 시험 채점",
+            "kind": "big_all",
+            "vb": "시험지를 거둬들였다",
+            "m": 1.5,
+            "id": "big_all_2"
+          },
+          {
+            "name": "낙제",
+            "kind": "debuff",
+            "stat": "atk",
+            "amount": 0.25,
+            "turns": 2,
+            "target": "all",
+            "id": "debuff_3"
+          }
+        ]
+      },
+      "deep": {
+        "hp": 0.866,
+        "atk": 0.924
+      },
+      "art": "res://assets/enemies-r21/raging_lecturer.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/11",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "biting_tome",
+      "name": "물어뜯는 장서",
+      "family": 4,
+      "zone": "academy_library",
+      "grade": "mob",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "fire",
+        "wind"
+      ],
+      "acts": [
+        {
+          "name": "물어뜯기",
+          "kind": "atk",
+          "vb": "물어뜯었다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "물어뜯기",
+          "kind": "atk",
+          "vb": "물어뜯었다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "표지 닫기",
+          "kind": "guard",
+          "id": "guard_3"
+        }
+      ],
+      "looks": "가죽 표지에 이빨이 돋은 두꺼운 책",
+      "art": "res://assets/enemies-r21/biting_tome.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/12",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "bleeding_ink",
+      "name": "번진 잉크",
+      "family": 5,
+      "zone": "academy_library",
+      "grade": "mob",
+      "role": "방어",
+      "row": "front",
+      "weak": [
+        "fire",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "잉크 막",
+          "kind": "protect",
+          "guard": false,
+          "id": "protect_1"
+        },
+        {
+          "name": "먹칠",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_2"
+        },
+        {
+          "name": "덮치기",
+          "kind": "atk",
+          "vb": "덮쳤다",
+          "m": 1,
+          "id": "atk_3"
+        }
+      ],
+      "looks": "엎질러진 잉크가 사람 키만큼 일어섰다. 속에 글자가 떠다닌다",
+      "art": "res://assets/enemies-r21/bleeding_ink.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/13",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "script_moths",
+      "name": "필사 나방 떼",
+      "family": 5,
+      "zone": "academy_library",
+      "grade": "swarm",
+      "role": "무리",
+      "row": "front",
+      "weak": [
+        "fire",
+        "ice"
+      ],
+      "acts": [
+        {
+          "name": "날개 가루",
+          "kind": "debuff",
+          "stat": "spd",
+          "amount": 0.1,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_1"
+        },
+        {
+          "name": "갉기",
+          "kind": "atk",
+          "vb": "갉았다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "갉기",
+          "kind": "atk",
+          "vb": "갉았다",
+          "m": 1,
+          "id": "atk_3"
+        }
+      ],
+      "looks": "날개에 글자가 적힌 회색 나방 떼",
+      "art": "res://assets/enemies-r21/script_moths.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/14",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "stitched_reader",
+      "name": "입 꿰맨 낭독자",
+      "family": 6,
+      "zone": "academy_library",
+      "grade": "mob",
+      "role": "주술",
+      "row": "back",
+      "weak": [
+        "holy",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "금지된 구절",
+          "kind": "dot",
+          "vb": "금지된 구절을 읊었다",
+          "m": 1,
+          "turns": 3,
+          "magic": true,
+          "id": "dot_1"
+        },
+        {
+          "name": "침묵",
+          "kind": "special",
+          "fx": "silence",
+          "turns": 1,
+          "id": "special_2"
+        },
+        {
+          "name": "금지된 구절",
+          "kind": "dot",
+          "vb": "금지된 구절을 읊었다",
+          "m": 1,
+          "turns": 3,
+          "magic": true,
+          "id": "dot_3"
+        }
+      ],
+      "looks": "입이 실로 꿰매진 사서 망령. 금서를 펼쳐 들었다",
+      "art": "res://assets/enemies-r21/stitched_reader.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/15",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "quill_archer",
+      "name": "깃펜 사수",
+      "family": 6,
+      "zone": "academy_library",
+      "grade": "mob",
+      "role": "사격",
+      "row": "back",
+      "weak": [
+        "ice",
+        "wind"
+      ],
+      "acts": [
+        {
+          "name": "깃펜 던지기",
+          "kind": "shoot",
+          "vb": "깃펜을 던졌다",
+          "m": 1.1,
+          "id": "shoot_1"
+        },
+        {
+          "name": "깃펜 던지기",
+          "kind": "shoot",
+          "vb": "깃펜을 던졌다",
+          "m": 1.1,
+          "id": "shoot_2"
+        },
+        {
+          "name": "잉크 묻은 깃펜",
+          "kind": "aimed",
+          "vb": "깃펜을 겨누어 던졌다",
+          "m": 1.6,
+          "id": "aimed_3"
+        }
+      ],
+      "looks": "책장 사다리에 매달린 마른 필경사. 쇠 깃펜을 던진다",
+      "art": "res://assets/enemies-r21/quill_archer.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/16",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "sealing_candelabra",
+      "name": "봉인 촛대",
+      "family": 6,
+      "zone": "academy_library",
+      "grade": "mob",
+      "role": "지원",
+      "row": "back",
+      "weak": [
+        "wind",
+        "dark"
+      ],
+      "acts": [
+        {
+          "name": "봉인막",
+          "kind": "buff",
+          "stat": "shield",
+          "amount": 0.12,
+          "turns": 3,
+          "target": "ally",
+          "id": "buff_1"
+        },
+        {
+          "name": "촛농",
+          "kind": "spell",
+          "vb": "촛농을 떨어뜨렸다",
+          "m": 1.1,
+          "magic": true,
+          "id": "spell_2"
+        },
+        {
+          "name": "봉인막",
+          "kind": "buff",
+          "stat": "shield",
+          "amount": 0.12,
+          "turns": 3,
+          "target": "ally",
+          "id": "buff_3"
+        }
+      ],
+      "looks": "금서를 봉인하던 은촛대. 촛불이 다른 적을 감싼다",
+      "art": "res://assets/enemies-r21/sealing_candelabra.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/17",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "chained_tome",
+      "name": "쇠사슬 금서",
+      "family": 4,
+      "zone": "academy_library",
+      "grade": "elite",
+      "role": "방어",
+      "row": "front",
+      "weak": [
+        "fire",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "사슬 휘두르기",
+          "kind": "atk",
+          "vb": "사슬을 휘둘렀다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "페이지 방벽",
+          "kind": "guard",
+          "id": "guard_2"
+        },
+        {
+          "name": "펼쳐진 장",
+          "kind": "charge",
+          "id": "charge_3"
+        },
+        {
+          "name": "책장 폭풍",
+          "kind": "big_all",
+          "vb": "책장을 휘몰아쳤다",
+          "m": 1.5,
+          "id": "big_all_4"
+        }
+      ],
+      "looks": "쇠사슬에 칭칭 감긴 사람 키만 한 책",
+      "rules": {
+        "counter_when_guard": {
+          "m": 0.6,
+          "vb": "사슬로 되받아쳤다"
+        }
+      },
+      "art": "res://assets/enemies-r21/chained_tome.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/18",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "ink_knight",
+      "name": "먹물 기사",
+      "family": 5,
+      "zone": "academy_library",
+      "grade": "elite",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "wind",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "찌르기",
+          "kind": "atk",
+          "vb": "찔렀다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "찌르기",
+          "kind": "atk",
+          "vb": "찔렀다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "돌진",
+          "kind": "charge",
+          "id": "charge_3"
+        },
+        {
+          "name": "먹빛 일섬",
+          "kind": "big_one",
+          "vb": "먹빛으로 베었다",
+          "m": 2.5,
+          "id": "big_one_4"
+        }
+      ],
+      "looks": "잉크로 다시 그려 낸 옛 제국 기사. 윤곽이 계속 번진다",
+      "rules": {
+        "weak_hit_delay": {
+          "el": "fire",
+          "amount": 0.25
+        }
+      },
+      "art": "res://assets/enemies-r21/ink_knight.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/19",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "tome_librarian",
+      "name": "금서의 사서",
+      "family": 4,
+      "zone": "academy_library",
+      "grade": "boss",
+      "role": "사격",
+      "row": "back",
+      "weak": [
+        "fire",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "반납 독촉",
+          "kind": "shoot",
+          "vb": "독촉장을 쏘았다",
+          "m": 1.2,
+          "id": "shoot_1"
+        },
+        {
+          "name": "열람 금지",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 2,
+          "target": "all",
+          "id": "debuff_2"
+        },
+        {
+          "name": "장서 소환",
+          "kind": "summon",
+          "enemy": "biting_tome",
+          "count": 1,
+          "id": "summon_3"
+        }
+      ],
+      "looks": "천장까지 쌓인 책더미 위에 앉은 사서. 얼굴 자리에 펼친 책이 있다.",
+      "stat_role": "돌격",
+      "phase2": {
+        "weak": [
+          "wind",
+          "holy"
+        ],
+        "acts": [
+          {
+            "name": "마지막 장 낭독",
+            "kind": "charge",
+            "id": "charge_1"
+          },
+          {
+            "name": "마지막 장",
+            "kind": "big_all",
+            "vb": "마지막 장을 읽어 내렸다",
+            "m": 1.5,
+            "dot": {
+              "m": 0.3,
+              "turns": 3
+            },
+            "id": "big_all_2"
+          },
+          {
+            "name": "열람 금지",
+            "kind": "debuff",
+            "stat": "atk",
+            "amount": 0.25,
+            "turns": 2,
+            "target": "all",
+            "id": "debuff_3"
+          }
+        ]
+      },
+      "deep": {
+        "hp": 1.045,
+        "atk": 1.024
+      },
+      "art": "res://assets/enemies-r21/tome_librarian.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/20",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "sewer_rats",
+      "name": "하수 쥐 떼",
+      "family": 7,
+      "zone": "lumiel_under",
+      "grade": "swarm",
+      "role": "무리",
+      "row": "front",
+      "weak": [
+        "fire",
+        "ice"
+      ],
+      "acts": [
+        {
+          "name": "갉기",
+          "kind": "atk",
+          "vb": "갉았다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "갉기",
+          "kind": "atk",
+          "vb": "갉았다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "역병 물기",
+          "kind": "atk",
+          "vb": "물어뜯었다",
+          "m": 1,
+          "dot": {
+            "m": 0.3,
+            "turns": 3
+          },
+          "id": "atk_3"
+        }
+      ],
+      "looks": "털 빠진 쥐 수십 마리가 한 덩어리로 굴러다닌다",
+      "art": "res://assets/enemies-r21/sewer_rats.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/21",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "tangled_refugees",
+      "name": "엉킨 피난민",
+      "family": 7,
+      "zone": "lumiel_under",
+      "grade": "mob",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "holy",
+        "fire"
+      ],
+      "acts": [
+        {
+          "name": "붙잡기",
+          "kind": "debuff",
+          "stat": "spd",
+          "amount": 0.2,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_1"
+        },
+        {
+          "name": "짓누르기",
+          "kind": "atk",
+          "vb": "짓눌렀다",
+          "m": 1.4,
+          "id": "atk_2"
+        },
+        {
+          "name": "붙잡기",
+          "kind": "debuff",
+          "stat": "spd",
+          "amount": 0.2,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_3"
+        }
+      ],
+      "looks": "짐 보따리째 서로 붙어 버린 피난민 여럿",
+      "art": "res://assets/enemies-r21/tangled_refugees.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/22",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "rusted_shieldman",
+      "name": "녹슨 방패병",
+      "family": 8,
+      "zone": "lumiel_under",
+      "grade": "mob",
+      "role": "방어",
+      "row": "front",
+      "weak": [
+        "bolt",
+        "dark"
+      ],
+      "acts": [
+        {
+          "name": "감싸기",
+          "kind": "protect",
+          "guard": false,
+          "id": "protect_1"
+        },
+        {
+          "name": "방패 밀치기",
+          "kind": "atk",
+          "vb": "방패로 밀쳤다",
+          "m": 1,
+          "push": 0.15,
+          "id": "atk_2"
+        },
+        {
+          "name": "방패 벽",
+          "kind": "guard",
+          "id": "guard_3"
+        }
+      ],
+      "looks": "근위대 갑옷만 남아 걸어 다니는 망령. 탑 방패를 들었다",
+      "art": "res://assets/enemies-r21/rusted_shieldman.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/23",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "imperial_crossbow",
+      "name": "근위 석궁병",
+      "family": 8,
+      "zone": "lumiel_under",
+      "grade": "mob",
+      "role": "사격",
+      "row": "back",
+      "weak": [
+        "holy",
+        "wind"
+      ],
+      "acts": [
+        {
+          "name": "사격",
+          "kind": "shoot",
+          "vb": "쏘았다",
+          "m": 1.1,
+          "id": "shoot_1"
+        },
+        {
+          "name": "사격",
+          "kind": "shoot",
+          "vb": "쏘았다",
+          "m": 1.1,
+          "id": "shoot_2"
+        },
+        {
+          "name": "관통 사격",
+          "kind": "aimed",
+          "vb": "관통 사격을 날렸다",
+          "m": 1.6,
+          "id": "aimed_3"
+        }
+      ],
+      "looks": "제국 근위대 문장이 남은 해골 석궁병",
+      "art": "res://assets/enemies-r21/imperial_crossbow.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/24",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "nameless_gravekeeper",
+      "name": "이름 없는 묘지기",
+      "family": 9,
+      "zone": "lumiel_under",
+      "grade": "mob",
+      "role": "주술",
+      "row": "back",
+      "weak": [
+        "holy",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "이름 부르기",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_1"
+        },
+        {
+          "name": "묘지의 한기",
+          "kind": "spell",
+          "vb": "묘지의 한기를 불러냈다",
+          "m": 1.1,
+          "magic": true,
+          "id": "spell_2"
+        },
+        {
+          "name": "이름 부르기",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_3"
+        }
+      ],
+      "looks": "꺼진 등불을 든 묘지기 망령. 목에 이름표를 줄줄이 걸었다",
+      "art": "res://assets/enemies-r21/nameless_gravekeeper.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/25",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "sewer_spore_sac",
+      "name": "하수 포자 주머니",
+      "family": 7,
+      "zone": "lumiel_under",
+      "grade": "mob",
+      "role": "소환",
+      "row": "back",
+      "weak": [
+        "fire",
+        "wind"
+      ],
+      "acts": [
+        {
+          "name": "부풀기",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.2,
+          "turns": 3,
+          "target": "self",
+          "id": "buff_1"
+        },
+        {
+          "name": "터뜨리기",
+          "kind": "summon",
+          "enemy": "sewer_rats",
+          "count": 1,
+          "id": "summon_2"
+        },
+        {
+          "name": "포자",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.2,
+          "turns": 2,
+          "target": "all",
+          "id": "debuff_3"
+        }
+      ],
+      "looks": "천장에 매달린 곰팡이 주머니. 터지면 쥐가 쏟아진다",
+      "art": "res://assets/enemies-r21/sewer_spore_sac.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/26",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "standard_bearer",
+      "name": "근위 기수",
+      "family": 8,
+      "zone": "lumiel_under",
+      "grade": "elite",
+      "role": "지원",
+      "row": "back",
+      "weak": [
+        "holy",
+        "ice"
+      ],
+      "acts": [
+        {
+          "name": "깃발 꽂기",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 3,
+          "target": "allies",
+          "until_down": true,
+          "id": "buff_1"
+        },
+        {
+          "name": "돌격 명령",
+          "kind": "buff",
+          "stat": "pull",
+          "amount": 0.15,
+          "turns": 3,
+          "target": "allies",
+          "id": "buff_2"
+        },
+        {
+          "name": "창 찌르기",
+          "kind": "atk",
+          "vb": "창으로 찔렀다",
+          "m": 1,
+          "id": "atk_3"
+        }
+      ],
+      "looks": "찢긴 제국기를 든 기수 망령",
+      "art": "res://assets/enemies-r21/standard_bearer.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/27",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "chained_executioner",
+      "name": "사슬 묶인 처형인",
+      "family": 9,
+      "zone": "lumiel_under",
+      "grade": "elite",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "wind",
+        "dark",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "내려찍기",
+          "kind": "atk",
+          "vb": "내려찍었다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "내려찍기",
+          "kind": "atk",
+          "vb": "내려찍었다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "목 베기",
+          "kind": "charge",
+          "id": "charge_3"
+        },
+        {
+          "name": "참수",
+          "kind": "big_one",
+          "vb": "도끼로 내리쳤다",
+          "m": 2.5,
+          "id": "big_one_4"
+        }
+      ],
+      "looks": "두 손이 쇠사슬로 도끼에 묶인 처형인",
+      "art": "res://assets/enemies-r21/chained_executioner.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/28",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "imperial_remnant",
+      "name": "제국 근위대의 잔해",
+      "family": 8,
+      "zone": "lumiel_under",
+      "grade": "boss",
+      "role": "방어",
+      "row": "front",
+      "weak": [
+        "holy",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "방패 벽",
+          "kind": "protect",
+          "guard": true,
+          "id": "protect_1"
+        },
+        {
+          "name": "창 숲",
+          "kind": "atk",
+          "vb": "창을 일제히 내밀었다",
+          "m": 0.6,
+          "target": "all",
+          "id": "atk_2"
+        },
+        {
+          "name": "근위 호출",
+          "kind": "summon",
+          "enemy": "rusted_shieldman",
+          "count": 1,
+          "id": "summon_3"
+        }
+      ],
+      "looks": "근위대 수십 명이 갑옷째 뒤엉켜, 거대한 방패 수레처럼 기어 나온다.",
+      "stat_role": "돌격",
+      "phase2": {
+        "weak": [
+          "holy",
+          "dark"
+        ],
+        "acts": [
+          {
+            "name": "마지막 돌격",
+            "kind": "charge",
+            "id": "charge_1"
+          },
+          {
+            "name": "방벽 파쇄",
+            "kind": "big_all",
+            "vb": "방패 수레로 짓밟았다",
+            "m": 1.5,
+            "id": "big_all_2"
+          },
+          {
+            "name": "창 숲",
+            "kind": "atk",
+            "vb": "창을 일제히 내밀었다",
+            "m": 0.6,
+            "target": "all",
+            "id": "atk_3"
+          }
+        ]
+      },
+      "deep": {
+        "hp": 1.16,
+        "atk": 0.993
+      },
+      "art": "res://assets/enemies-r21/imperial_remnant.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/29",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "familiar_face",
+      "name": "아는 얼굴",
+      "family": 10,
+      "zone": "abyss_edge",
+      "grade": "mob",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "holy",
+        "dark"
+      ],
+      "acts": [
+        {
+          "name": "다가서기",
+          "kind": "debuff",
+          "stat": "spd",
+          "amount": 0.2,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_1"
+        },
+        {
+          "name": "끌어안기",
+          "kind": "atk",
+          "vb": "끌어안았다",
+          "m": 1.4,
+          "id": "atk_2"
+        },
+        {
+          "name": "다가서기",
+          "kind": "debuff",
+          "stat": "spd",
+          "amount": 0.2,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_3"
+        }
+      ],
+      "looks": "보는 사람마다 얼굴이 다르다. 저마다 잃어버린 누군가의 얼굴로 보이는 망자",
+      "art": "res://assets/enemies-r21/familiar_face.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/30",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "tangled_beast",
+      "name": "뒤엉킨 짐승",
+      "family": 11,
+      "zone": "abyss_edge",
+      "grade": "mob",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "ice",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "짓밟기",
+          "kind": "atk",
+          "vb": "짓밟았다",
+          "m": 0.6,
+          "target": "all",
+          "id": "atk_1"
+        },
+        {
+          "name": "물어뜯기",
+          "kind": "atk",
+          "vb": "물어뜯었다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "물어뜯기",
+          "kind": "atk",
+          "vb": "물어뜯었다",
+          "m": 1,
+          "id": "atk_3"
+        }
+      ],
+      "looks": "태초의 짐승 여럿이 한 몸으로 엉겼다. 다리가 열둘이다",
+      "art": "res://assets/enemies-r21/tangled_beast.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/31",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "hands_below",
+      "name": "바닥의 손",
+      "family": 11,
+      "zone": "abyss_edge",
+      "grade": "mob",
+      "role": "방어",
+      "row": "front",
+      "weak": [
+        "fire",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "붙들기",
+          "kind": "atk",
+          "vb": "붙들었다",
+          "m": 1,
+          "push": 0.15,
+          "id": "atk_1"
+        },
+        {
+          "name": "손의 벽",
+          "kind": "protect",
+          "guard": false,
+          "id": "protect_2"
+        },
+        {
+          "name": "붙들기",
+          "kind": "atk",
+          "vb": "붙들었다",
+          "m": 1,
+          "push": 0.15,
+          "id": "atk_3"
+        }
+      ],
+      "looks": "바닥에서 끝없이 뻗어 오는 손들",
+      "art": "res://assets/enemies-r21/hands_below.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/32",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "bronze_souls",
+      "name": "청동 시대의 혼",
+      "family": 12,
+      "zone": "abyss_edge",
+      "grade": "mob",
+      "role": "사격",
+      "row": "back",
+      "weak": [
+        "bolt",
+        "wind"
+      ],
+      "acts": [
+        {
+          "name": "투창",
+          "kind": "shoot",
+          "vb": "창을 던졌다",
+          "m": 1.1,
+          "id": "shoot_1"
+        },
+        {
+          "name": "투창",
+          "kind": "shoot",
+          "vb": "창을 던졌다",
+          "m": 1.1,
+          "id": "shoot_2"
+        },
+        {
+          "name": "일제 투척",
+          "kind": "shoot",
+          "vb": "창을 일제히 던졌다",
+          "m": 0.6,
+          "target": "all",
+          "id": "shoot_3"
+        }
+      ],
+      "looks": "청동 갑옷을 입은 옛 전사들. 엘프와 인간의 투구가 섞여 있다",
+      "art": "res://assets/enemies-r21/bronze_souls.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/33",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "ashen_chorus",
+      "name": "잿빛 합창",
+      "family": 10,
+      "zone": "abyss_edge",
+      "grade": "mob",
+      "role": "주술",
+      "row": "back",
+      "weak": [
+        "wind",
+        "fire"
+      ],
+      "acts": [
+        {
+          "name": "불협화음",
+          "kind": "spell",
+          "vb": "불협화음을 울렸다",
+          "m": 0.6,
+          "magic": true,
+          "target": "all",
+          "id": "spell_1"
+        },
+        {
+          "name": "잠기는 목소리",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.2,
+          "turns": 2,
+          "target": "all",
+          "id": "debuff_2"
+        },
+        {
+          "name": "불협화음",
+          "kind": "spell",
+          "vb": "불협화음을 울렸다",
+          "m": 0.6,
+          "magic": true,
+          "target": "all",
+          "id": "spell_3"
+        }
+      ],
+      "looks": "벽에 박힌 입만 남은 얼굴 수십 개가 노래한다",
+      "art": "res://assets/enemies-r21/ashen_chorus.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/34",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "extinguished_priest",
+      "name": "꺼진 신관",
+      "family": 13,
+      "zone": "abyss_edge",
+      "grade": "mob",
+      "role": "지원",
+      "row": "back",
+      "weak": [
+        "ice",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "피의 축복",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.2,
+          "turns": 3,
+          "target": "allies",
+          "id": "buff_1"
+        },
+        {
+          "name": "피 나누기",
+          "kind": "heal",
+          "amount": 0.2,
+          "target": "lowest",
+          "id": "heal_2"
+        },
+        {
+          "name": "피의 축복",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.2,
+          "turns": 3,
+          "target": "allies",
+          "id": "buff_3"
+        }
+      ],
+      "looks": "핏물 밴 신관복 차림의 망령, 금 간 성배를 든다",
+      "art": "res://assets/enemies-r21/extinguished_priest.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/35",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "thousand_names",
+      "name": "천 개의 이름",
+      "family": 10,
+      "zone": "abyss_edge",
+      "grade": "elite",
+      "role": "방어",
+      "row": "front",
+      "weak": [
+        "holy",
+        "dark"
+      ],
+      "acts": [
+        {
+          "name": "이름 부르기",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_1"
+        },
+        {
+          "name": "짓누르기",
+          "kind": "atk",
+          "vb": "짓눌렀다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "이름의 껍질",
+          "kind": "guard",
+          "id": "guard_3"
+        }
+      ],
+      "looks": "온몸에 이름이 새겨진 거인 망령",
+      "gauge": 100,
+      "art": "res://assets/enemies-r21/thousand_names.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/36",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "abyss_knight",
+      "name": "심연 기사",
+      "family": 12,
+      "zone": "abyss_edge",
+      "grade": "elite",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "fire",
+        "bolt",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "베기",
+          "kind": "atk",
+          "vb": "베었다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "베기",
+          "kind": "atk",
+          "vb": "베었다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "베어 넘기기",
+          "kind": "charge",
+          "id": "charge_3"
+        },
+        {
+          "name": "허공 일검",
+          "kind": "big_all",
+          "vb": "허공을 갈랐다",
+          "m": 0.8,
+          "id": "big_all_4"
+        }
+      ],
+      "looks": "어느 나라 것도 아닌 검은 판금 갑옷. 속이 비어 있다",
+      "art": "res://assets/enemies-r21/abyss_knight.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/37",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "summoners_remnant",
+      "name": "부름파의 잔해",
+      "family": 13,
+      "zone": "abyss_edge",
+      "grade": "boss",
+      "role": "소환",
+      "row": "back",
+      "weak": [
+        "holy",
+        "dark"
+      ],
+      "acts": [
+        {
+          "name": "부름",
+          "kind": "summon",
+          "enemy": "familiar_face",
+          "count": 1,
+          "id": "summon_1"
+        },
+        {
+          "name": "통로 열기",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.2,
+          "turns": 3,
+          "target": "self",
+          "vb": "통로를 열었다",
+          "id": "buff_2"
+        },
+        {
+          "name": "옛 주문",
+          "kind": "spell",
+          "vb": "옛 주문을 읊었다",
+          "m": 1.2,
+          "magic": true,
+          "id": "spell_3"
+        }
+      ],
+      "looks": "의식의 원을 이루던 마법사 여럿이 한 몸으로 굳었다. 입들이 아직 무언가를 부르고 있다.",
+      "stat_role": "돌격",
+      "phase2": {
+        "weak": [
+          "ice",
+          "bolt"
+        ],
+        "acts": [
+          {
+            "name": "대답 없는 기도",
+            "kind": "charge",
+            "id": "charge_1"
+          },
+          {
+            "name": "끝나지 않는 부름",
+            "kind": "big_all",
+            "vb": "부름을 쏟아냈다",
+            "m": 1.5,
+            "id": "big_all_2"
+          },
+          {
+            "name": "부름",
+            "kind": "summon",
+            "enemy": "familiar_face",
+            "count": 1,
+            "id": "summon_3"
+          }
+        ]
+      },
+      "deep": {
+        "hp": 0.962,
+        "atk": 0.978
+      },
+      "art": "res://assets/enemies-r21/summoners_remnant.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/38",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "two_flag_soldier",
+      "name": "두 깃발 병사",
+      "family": 21,
+      "zone": "fracture_field",
+      "grade": "mob",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "holy",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "베기",
+          "kind": "atk",
+          "vb": "베었다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "깃발 바꾸기",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.2,
+          "turns": 3,
+          "target": "self",
+          "id": "buff_2"
+        },
+        {
+          "name": "베기",
+          "kind": "atk",
+          "vb": "베었다",
+          "m": 1,
+          "id": "atk_3"
+        }
+      ],
+      "looks": "두 진영의 갑옷이 반씩 엉겨 붙은 병사. 깃발도 둘을 겹쳐 들었다",
+      "art": "res://assets/enemies-r21/two_flag_soldier.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/39",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "conscript_swarm",
+      "name": "징집병 떼",
+      "family": 21,
+      "zone": "fracture_field",
+      "grade": "swarm",
+      "role": "무리",
+      "row": "front",
+      "weak": [
+        "fire",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "찌르기",
+          "kind": "atk",
+          "vb": "찔렀다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "찌르기",
+          "kind": "atk",
+          "vb": "찔렀다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "흩어지기",
+          "kind": "guard",
+          "id": "guard_3"
+        }
+      ],
+      "looks": "맞지 않는 투구를 쓴 징집병 여럿이 창 하나를 같이 쥐었다",
+      "art": "res://assets/enemies-r21/conscript_swarm.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/40",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "rusty_catapult",
+      "name": "녹슨 투석기",
+      "family": 22,
+      "zone": "fracture_field",
+      "grade": "mob",
+      "role": "사격",
+      "row": "back",
+      "weak": [
+        "fire",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "장전",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.3,
+          "turns": 2,
+          "target": "self",
+          "id": "buff_1"
+        },
+        {
+          "name": "돌 던지기",
+          "kind": "shoot",
+          "vb": "돌을 던졌다",
+          "m": 0.6,
+          "target": "all",
+          "id": "shoot_2"
+        },
+        {
+          "name": "장전",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.3,
+          "turns": 2,
+          "target": "self",
+          "id": "buff_3"
+        }
+      ],
+      "looks": "나무 뼈대에 병사들이 엉겨 붙어 줄을 당긴다",
+      "art": "res://assets/enemies-r21/rusty_catapult.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/41",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "boiling_oil_pot",
+      "name": "끓는 기름 솥",
+      "family": 22,
+      "zone": "fracture_field",
+      "grade": "mob",
+      "role": "주술",
+      "row": "back",
+      "weak": [
+        "ice",
+        "wind"
+      ],
+      "acts": [
+        {
+          "name": "끓는 기름",
+          "kind": "dot",
+          "vb": "끓는 기름을 쏟았다",
+          "m": 1,
+          "turns": 3,
+          "magic": true,
+          "id": "dot_1"
+        },
+        {
+          "name": "연기",
+          "kind": "debuff",
+          "stat": "spd",
+          "amount": 0.2,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_2"
+        },
+        {
+          "name": "끓는 기름",
+          "kind": "dot",
+          "vb": "끓는 기름을 쏟았다",
+          "m": 1,
+          "turns": 3,
+          "magic": true,
+          "id": "dot_3"
+        }
+      ],
+      "looks": "성벽에서 붓던 기름 솥. 지금도 끓는다",
+      "art": "res://assets/enemies-r21/boiling_oil_pot.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/42",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "civil_war_commander",
+      "name": "내전 기사단장",
+      "family": 21,
+      "zone": "fracture_field",
+      "grade": "elite",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "wind",
+        "holy",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "돌진",
+          "kind": "atk",
+          "vb": "돌진했다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "베기",
+          "kind": "atk",
+          "vb": "베었다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "반역의 일격",
+          "kind": "charge",
+          "id": "charge_3"
+        },
+        {
+          "name": "반역의 칼날",
+          "kind": "big_one",
+          "vb": "칼날을 내리꽂았다",
+          "m": 2.5,
+          "id": "big_one_4"
+        }
+      ],
+      "looks": "두 문장을 덧칠한 방패를 든 기사. 어느 편이었는지 스스로도 모른다",
+      "rules": {
+        "hp_atk": {
+          "thr": 0.5,
+          "amount": 0.25
+        }
+      },
+      "art": "res://assets/enemies-r21/civil_war_commander.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/43",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "siege_tower_remnant",
+      "name": "공성탑의 잔해",
+      "family": 22,
+      "zone": "fracture_field",
+      "grade": "elite",
+      "role": "소환",
+      "row": "back",
+      "weak": [
+        "fire",
+        "bolt",
+        "dark"
+      ],
+      "acts": [
+        {
+          "name": "사다리 내리기",
+          "kind": "summon",
+          "enemy": "two_flag_soldier",
+          "count": 2,
+          "id": "summon_1"
+        },
+        {
+          "name": "화살 구멍",
+          "kind": "shoot",
+          "vb": "화살을 쏟아냈다",
+          "m": 0.6,
+          "target": "all",
+          "id": "shoot_2"
+        },
+        {
+          "name": "성벽 넘기",
+          "kind": "charge",
+          "id": "charge_3"
+        },
+        {
+          "name": "공성 돌격",
+          "kind": "big_all",
+          "vb": "성벽을 넘어 쏟아졌다",
+          "m": 1.5,
+          "id": "big_all_4"
+        }
+      ],
+      "looks": "바퀴 셋만 남은 공성탑. 층마다 병사가 매달려 있다",
+      "art": "res://assets/enemies-r21/siege_tower_remnant.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/44",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "throne_of_division",
+      "name": "분열의 왕좌",
+      "family": 21,
+      "zone": "fracture_field",
+      "grade": "boss",
+      "role": "소환",
+      "row": "front",
+      "weak": [
+        "holy",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "칙령",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 2,
+          "target": "all",
+          "id": "debuff_1"
+        },
+        {
+          "name": "자치 선언",
+          "kind": "summon",
+          "enemy": "two_flag_soldier",
+          "count": 1,
+          "id": "summon_2"
+        },
+        {
+          "name": "세금 징수",
+          "kind": "shoot",
+          "vb": "세금을 거둬 쏘았다",
+          "m": 1.2,
+          "id": "shoot_3"
+        }
+      ],
+      "looks": "서로 다른 관을 쓴 귀족 망자 여럿이 한 왕좌에 엉겨 붙었다. 입마다 다른 칙령을 외친다.",
+      "stat_role": "돌격",
+      "phase2": {
+        "weak": [
+          "dark",
+          "wind"
+        ],
+        "acts": [
+          {
+            "name": "마지막 내전",
+            "kind": "charge",
+            "id": "charge_1"
+          },
+          {
+            "name": "내전의 함성",
+            "kind": "big_all",
+            "vb": "내전의 함성을 터뜨렸다",
+            "m": 1.5,
+            "id": "big_all_2"
+          },
+          {
+            "name": "칙령",
+            "kind": "debuff",
+            "stat": "atk",
+            "amount": 0.25,
+            "turns": 2,
+            "target": "all",
+            "id": "debuff_3"
+          }
+        ]
+      },
+      "deep": {
+        "hp": 1.147,
+        "atk": 1.079
+      },
+      "art": "res://assets/enemies-r21/throne_of_division.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/45",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "iron_helm_warrior",
+      "name": "쇠 투구 전사",
+      "family": 23,
+      "zone": "iron_tombs",
+      "grade": "mob",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "wind",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "베기",
+          "kind": "atk",
+          "vb": "베었다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "방패 치기",
+          "kind": "atk",
+          "vb": "방패로 쳤다",
+          "m": 1,
+          "push": 0.15,
+          "id": "atk_2"
+        },
+        {
+          "name": "베기",
+          "kind": "atk",
+          "vb": "베었다",
+          "m": 1,
+          "id": "atk_3"
+        }
+      ],
+      "looks": "투박한 쇠 투구와 가죽 갑옷. 칼날에 이가 빠졌다",
+      "art": "res://assets/enemies-r21/iron_helm_warrior.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/46",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "sacrificed_attendants",
+      "name": "순장된 시종 떼",
+      "family": 24,
+      "zone": "iron_tombs",
+      "grade": "swarm",
+      "role": "무리",
+      "row": "front",
+      "weak": [
+        "fire",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "받들기",
+          "kind": "protect",
+          "guard": false,
+          "id": "protect_1"
+        },
+        {
+          "name": "매달리기",
+          "kind": "atk",
+          "vb": "매달렸다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "매달리기",
+          "kind": "atk",
+          "vb": "매달렸다",
+          "m": 1,
+          "id": "atk_3"
+        }
+      ],
+      "looks": "왕과 함께 묻힌 시종들. 서로의 손목을 끈으로 묶었다",
+      "art": "res://assets/enemies-r21/sacrificed_attendants.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/47",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "sling_tribesman",
+      "name": "투석 부족병",
+      "family": 23,
+      "zone": "iron_tombs",
+      "grade": "mob",
+      "role": "사격",
+      "row": "back",
+      "weak": [
+        "ice",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "투석",
+          "kind": "shoot",
+          "vb": "돌을 던졌다",
+          "m": 1.1,
+          "id": "shoot_1"
+        },
+        {
+          "name": "투석",
+          "kind": "shoot",
+          "vb": "돌을 던졌다",
+          "m": 1.1,
+          "id": "shoot_2"
+        },
+        {
+          "name": "머리 노리기",
+          "kind": "aimed",
+          "vb": "머리를 노려 던졌다",
+          "m": 1.6,
+          "id": "aimed_3"
+        }
+      ],
+      "looks": "가죽 끈으로 돌을 돌리는 부족 전사",
+      "art": "res://assets/enemies-r21/sling_tribesman.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/48",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "tomb_priest",
+      "name": "왕릉 제사장",
+      "family": 24,
+      "zone": "iron_tombs",
+      "grade": "mob",
+      "role": "지원",
+      "row": "back",
+      "weak": [
+        "bolt",
+        "dark"
+      ],
+      "acts": [
+        {
+          "name": "제주 붓기",
+          "kind": "heal",
+          "amount": 0.2,
+          "target": "lowest",
+          "id": "heal_1"
+        },
+        {
+          "name": "조상 부르기",
+          "kind": "buff",
+          "stat": "def",
+          "amount": 0.2,
+          "turns": 3,
+          "target": "allies",
+          "id": "buff_2"
+        },
+        {
+          "name": "제주 붓기",
+          "kind": "heal",
+          "amount": 0.2,
+          "target": "lowest",
+          "id": "heal_3"
+        }
+      ],
+      "looks": "제주 항아리를 든 제사장. 얼굴에 붉은 흙을 발랐다",
+      "art": "res://assets/enemies-r21/tomb_priest.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/49",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "iron_chariot",
+      "name": "철 전차",
+      "family": 23,
+      "zone": "iron_tombs",
+      "grade": "elite",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "bolt",
+        "ice",
+        "wind"
+      ],
+      "acts": [
+        {
+          "name": "짓밟기",
+          "kind": "atk",
+          "vb": "짓밟았다",
+          "m": 0.45,
+          "target": "all",
+          "id": "atk_1"
+        },
+        {
+          "name": "바퀴 칼날",
+          "kind": "atk",
+          "vb": "바퀴 칼날로 베었다",
+          "m": 0.65,
+          "id": "atk_2"
+        },
+        {
+          "name": "돌격 준비",
+          "kind": "charge",
+          "id": "charge_3"
+        },
+        {
+          "name": "질주",
+          "kind": "big_one",
+          "vb": "전차째 들이받았다",
+          "m": 1.8,
+          "id": "big_one_4"
+        }
+      ],
+      "looks": "말 뼈가 끄는 쇠바퀴 전차. 바퀴 축에 칼날이 달렸다",
+      "rules": {
+        "first_move": true
+      },
+      "art": "res://assets/enemies-r21/iron_chariot.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/50",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "kings_hawk",
+      "name": "왕의 사냥매",
+      "family": 24,
+      "zone": "iron_tombs",
+      "grade": "elite",
+      "role": "사격",
+      "row": "back",
+      "weak": [
+        "wind",
+        "fire",
+        "ice"
+      ],
+      "acts": [
+        {
+          "name": "내리꽂기",
+          "kind": "shoot",
+          "vb": "내리꽂았다",
+          "m": 1.1,
+          "id": "shoot_1"
+        },
+        {
+          "name": "내리꽂기",
+          "kind": "shoot",
+          "vb": "내리꽂았다",
+          "m": 1.1,
+          "id": "shoot_2"
+        },
+        {
+          "name": "눈 쪼기",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_3"
+        }
+      ],
+      "looks": "날개 폭이 사람 키를 넘는 매. 발목에 왕가의 고리가 남았다",
+      "rules": {
+        "melee_dr": 0.4
+      },
+      "art": "res://assets/enemies-r21/kings_hawk.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/51",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "iron_coffin_king",
+      "name": "쇠관의 왕",
+      "family": 24,
+      "zone": "iron_tombs",
+      "grade": "boss",
+      "role": "방어",
+      "row": "front",
+      "weak": [
+        "bolt",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "관 뚜껑",
+          "kind": "protect",
+          "guard": true,
+          "id": "protect_1"
+        },
+        {
+          "name": "왕의 명령",
+          "kind": "summon",
+          "enemy": "sacrificed_attendants",
+          "count": 1,
+          "id": "summon_2"
+        },
+        {
+          "name": "쇠 홀",
+          "kind": "atk",
+          "vb": "쇠 홀을 내리쳤다",
+          "m": 1,
+          "id": "atk_3"
+        }
+      ],
+      "looks": "쇠로 짠 관째 일어선 첫 왕. 관 뚜껑을 방패처럼 들었다.",
+      "stat_role": "돌격",
+      "phase2": {
+        "weak": [
+          "fire",
+          "holy"
+        ],
+        "acts": [
+          {
+            "name": "왕릉 봉인",
+            "kind": "charge",
+            "id": "charge_1"
+          },
+          {
+            "name": "봉인 해제",
+            "kind": "big_all",
+            "vb": "봉인을 풀어 쏟아냈다",
+            "m": 1.5,
+            "id": "big_all_2"
+          },
+          {
+            "name": "왕의 명령",
+            "kind": "summon",
+            "enemy": "sacrificed_attendants",
+            "count": 1,
+            "id": "summon_3"
+          }
+        ]
+      },
+      "deep": {
+        "hp": 1.147,
+        "atk": 1.079
+      },
+      "art": "res://assets/enemies-r21/iron_coffin_king.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/52",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "bronze_shieldman",
+      "name": "청동 방패 수비병",
+      "family": 25,
+      "zone": "bronze_era",
+      "grade": "mob",
+      "role": "방어",
+      "row": "front",
+      "weak": [
+        "bolt",
+        "fire"
+      ],
+      "acts": [
+        {
+          "name": "방패 벽",
+          "kind": "protect",
+          "guard": true,
+          "id": "protect_1"
+        },
+        {
+          "name": "창 찌르기",
+          "kind": "atk",
+          "vb": "창으로 찔렀다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "방패 벽",
+          "kind": "protect",
+          "guard": true,
+          "id": "protect_3"
+        }
+      ],
+      "looks": "둥근 청동 방패를 든 수비병. 방패 가장자리가 녹색으로 슬었다",
+      "art": "res://assets/enemies-r21/bronze_shieldman.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/53",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "reed_boat_rowers",
+      "name": "갈대배 노잡이 떼",
+      "family": 25,
+      "zone": "bronze_era",
+      "grade": "swarm",
+      "role": "무리",
+      "row": "front",
+      "weak": [
+        "fire",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "노 휘두르기",
+          "kind": "atk",
+          "vb": "노를 휘둘렀다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "노 휘두르기",
+          "kind": "atk",
+          "vb": "노를 휘둘렀다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "물보라",
+          "kind": "debuff",
+          "stat": "spd",
+          "amount": 0.1,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_3"
+        }
+      ],
+      "looks": "갈대배째 가라앉은 노잡이들. 노를 무기처럼 휘두른다",
+      "art": "res://assets/enemies-r21/reed_boat_rowers.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/54",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "two_blood_wanderer",
+      "name": "혼혈 방랑자",
+      "family": 26,
+      "zone": "bronze_era",
+      "grade": "mob",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "holy",
+        "ice"
+      ],
+      "acts": [
+        {
+          "name": "할퀴기",
+          "kind": "atk",
+          "vb": "할퀴었다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "피 끓이기",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.3,
+          "turns": 3,
+          "target": "self",
+          "id": "buff_2"
+        },
+        {
+          "name": "할퀴기",
+          "kind": "atk",
+          "vb": "할퀴었다",
+          "m": 1,
+          "id": "atk_3"
+        }
+      ],
+      "looks": "두 종족의 생김새가 반씩 섞인 방랑자. 두 마을을 오가며 살다 길 위에서 죽어 이름이 남지 않았다",
+      "art": "res://assets/enemies-r21/two_blood_wanderer.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/55",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "horned_diviner",
+      "name": "뿔 달린 점술사",
+      "family": 26,
+      "zone": "bronze_era",
+      "grade": "mob",
+      "role": "주술",
+      "row": "back",
+      "weak": [
+        "holy",
+        "wind"
+      ],
+      "acts": [
+        {
+          "name": "피 점",
+          "kind": "dot",
+          "vb": "피 점을 쳤다",
+          "m": 1,
+          "turns": 3,
+          "magic": true,
+          "id": "dot_1"
+        },
+        {
+          "name": "예언",
+          "kind": "debuff",
+          "stat": "delay",
+          "amount": 0.2,
+          "turns": 1,
+          "target": "one",
+          "id": "debuff_2"
+        },
+        {
+          "name": "피 점",
+          "kind": "dot",
+          "vb": "피 점을 쳤다",
+          "m": 1,
+          "turns": 3,
+          "magic": true,
+          "id": "dot_3"
+        }
+      ],
+      "looks": "작은 뿔이 돋은 점술사. 동물 뼈를 던져 점을 친다",
+      "art": "res://assets/enemies-r21/horned_diviner.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/56",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "bronze_colossus",
+      "name": "청동 거인상",
+      "family": 25,
+      "zone": "bronze_era",
+      "grade": "elite",
+      "role": "방어",
+      "row": "front",
+      "weak": [
+        "bolt",
+        "ice",
+        "wind"
+      ],
+      "acts": [
+        {
+          "name": "짓누르기",
+          "kind": "atk",
+          "vb": "짓눌렀다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "청동 껍질",
+          "kind": "guard",
+          "id": "guard_2"
+        },
+        {
+          "name": "녹은 청동",
+          "kind": "charge",
+          "id": "charge_3"
+        },
+        {
+          "name": "청동 분출",
+          "kind": "big_all",
+          "vb": "녹은 청동을 쏟아냈다",
+          "m": 1.5,
+          "id": "big_all_4"
+        }
+      ],
+      "looks": "신전 앞에 서 있던 청동 거인상. 갈라진 틈으로 녹은 청동이 흐른다",
+      "gauge": 100,
+      "art": "res://assets/enemies-r21/bronze_colossus.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/57",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "exiled_elf_archer",
+      "name": "숲을 잃은 엘프 궁사장",
+      "family": 26,
+      "zone": "bronze_era",
+      "grade": "elite",
+      "role": "사격",
+      "row": "back",
+      "weak": [
+        "fire",
+        "dark",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "화살 비",
+          "kind": "shoot",
+          "vb": "화살 비를 쏟았다",
+          "m": 0.55,
+          "target": "all",
+          "id": "shoot_1"
+        },
+        {
+          "name": "조준 사격",
+          "kind": "aimed",
+          "vb": "겨누어 쏘았다",
+          "m": 0.85,
+          "id": "aimed_2"
+        },
+        {
+          "name": "혈통 화살",
+          "kind": "spell",
+          "vb": "혈통 화살을 날렸다",
+          "m": 0.8,
+          "magic": true,
+          "target": "one",
+          "shoot": true,
+          "id": "spell_3"
+        }
+      ],
+      "looks": "인간에게 밀려난 숲의 궁사장. 활대에 잎 대신 재가 붙어 있다",
+      "rules": {
+        "hide_every": 3,
+        "ranged_dr": 0.35
+      },
+      "art": "res://assets/enemies-r21/exiled_elf_archer.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/58",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "bronze_altar",
+      "name": "청동 제단의 화신",
+      "family": 25,
+      "zone": "bronze_era",
+      "grade": "boss",
+      "role": "주술",
+      "row": "back",
+      "weak": [
+        "ice",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "제물 고르기",
+          "kind": "debuff",
+          "stat": "def",
+          "amount": 0.35,
+          "turns": 3,
+          "target": "one",
+          "id": "debuff_1"
+        },
+        {
+          "name": "청동 불길",
+          "kind": "spell",
+          "vb": "청동 불길을 일으켰다",
+          "m": 0.9,
+          "magic": true,
+          "target": "all",
+          "id": "spell_2"
+        },
+        {
+          "name": "제단 부름",
+          "kind": "summon",
+          "enemy": "two_blood_wanderer",
+          "count": 1,
+          "id": "summon_3"
+        }
+      ],
+      "looks": "청동 제단에 바쳐진 사람들이 제단과 한 몸이 된 것. 제단의 불이 아직 꺼지지 않았다.",
+      "stat_role": "돌격",
+      "phase2": {
+        "weak": [
+          "wind",
+          "dark"
+        ],
+        "acts": [
+          {
+            "name": "마지막 제물",
+            "kind": "charge",
+            "id": "charge_1"
+          },
+          {
+            "name": "제단의 불",
+            "kind": "big_one",
+            "vb": "제단의 불을 쏟았다",
+            "m": 2.5,
+            "id": "big_one_2"
+          },
+          {
+            "name": "청동 불길",
+            "kind": "spell",
+            "vb": "청동 불길을 일으켰다",
+            "m": 0.9,
+            "magic": true,
+            "target": "all",
+            "id": "spell_3"
+          }
+        ],
+        "entry": {
+          "name": "제단 부름",
+          "kind": "summon",
+          "enemy": "two_blood_wanderer",
+          "count": 1,
+          "id": "entry"
+        }
+      },
+      "deep": {
+        "hp": 1.169,
+        "atk": 1.09
+      },
+      "art": "res://assets/enemies-r21/bronze_altar.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/59",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "sabertooth",
+      "name": "이빨 긴 고양이",
+      "family": 27,
+      "zone": "primal_forest",
+      "grade": "mob",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "ice",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "덮치기",
+          "kind": "atk",
+          "vb": "덮쳤다",
+          "m": 1.4,
+          "id": "atk_1"
+        },
+        {
+          "name": "웅크리기",
+          "kind": "guard",
+          "id": "guard_2"
+        },
+        {
+          "name": "할퀴기",
+          "kind": "atk",
+          "vb": "할퀴었다",
+          "m": 1,
+          "id": "atk_3"
+        }
+      ],
+      "looks": "송곳니가 턱 아래까지 내려온 큰 고양이",
+      "art": "res://assets/enemies-r21/sabertooth.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/60",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "giant_beetles",
+      "name": "거대 딱정벌레 떼",
+      "family": 27,
+      "zone": "primal_forest",
+      "grade": "swarm",
+      "role": "무리",
+      "row": "front",
+      "weak": [
+        "fire",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "들이받기",
+          "kind": "atk",
+          "vb": "들이받았다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "들이받기",
+          "kind": "atk",
+          "vb": "들이받았다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "껍질 닫기",
+          "kind": "guard",
+          "id": "guard_3"
+        }
+      ],
+      "looks": "방패만 한 딱정벌레들. 껍질끼리 부딪치는 소리가 요란하다",
+      "art": "res://assets/enemies-r21/giant_beetles.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/61",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "stone_knife_shaman",
+      "name": "돌칼 주술사",
+      "family": 28,
+      "zone": "primal_forest",
+      "grade": "mob",
+      "role": "주술",
+      "row": "back",
+      "weak": [
+        "bolt",
+        "wind"
+      ],
+      "acts": [
+        {
+          "name": "돌의 저주",
+          "kind": "debuff",
+          "stat": "def",
+          "amount": 0.25,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_1"
+        },
+        {
+          "name": "혈통 불꽃",
+          "kind": "spell",
+          "vb": "혈통 불꽃을 일으켰다",
+          "m": 1.1,
+          "magic": true,
+          "id": "spell_2"
+        },
+        {
+          "name": "돌의 저주",
+          "kind": "debuff",
+          "stat": "def",
+          "amount": 0.25,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_3"
+        }
+      ],
+      "looks": "돌칼과 뼈 목걸이를 든 주술사. 혈통 마법의 첫 불꽃을 쓴다",
+      "art": "res://assets/enemies-r21/stone_knife_shaman.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/62",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "swamp_leeches",
+      "name": "늪 거머리 덩어리",
+      "family": 28,
+      "zone": "primal_forest",
+      "grade": "mob",
+      "role": "지원",
+      "row": "back",
+      "weak": [
+        "fire",
+        "ice"
+      ],
+      "acts": [
+        {
+          "name": "피 빨기",
+          "kind": "atk",
+          "vb": "피를 빨았다",
+          "m": 1,
+          "drain": 0.5,
+          "id": "atk_1"
+        },
+        {
+          "name": "피 나눠 주기",
+          "kind": "heal",
+          "amount": 0.2,
+          "target": "lowest",
+          "id": "heal_2"
+        },
+        {
+          "name": "피 빨기",
+          "kind": "atk",
+          "vb": "피를 빨았다",
+          "m": 1,
+          "drain": 0.5,
+          "id": "atk_3"
+        }
+      ],
+      "looks": "늪 바닥에서 뭉친 거머리 수백 마리",
+      "art": "res://assets/enemies-r21/swamp_leeches.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/63",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "mammoth_wraith",
+      "name": "매머드 망령",
+      "family": 27,
+      "zone": "primal_forest",
+      "grade": "elite",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "fire",
+        "bolt",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "엄니 휘두르기",
+          "kind": "atk",
+          "vb": "엄니를 휘둘렀다",
+          "m": 0.4,
+          "target": "all",
+          "id": "atk_1"
+        },
+        {
+          "name": "짓밟기",
+          "kind": "atk",
+          "vb": "짓밟았다",
+          "m": 0.6,
+          "id": "atk_2"
+        },
+        {
+          "name": "큰 울음",
+          "kind": "charge",
+          "id": "charge_3"
+        },
+        {
+          "name": "대지 울림",
+          "kind": "big_all",
+          "vb": "땅을 울렸다",
+          "m": 0.75,
+          "id": "big_all_4"
+        }
+      ],
+      "looks": "엄니에 이끼가 낀 털복숭이 거수",
+      "rules": {
+        "hp_spd": {
+          "thr": 0.5,
+          "amount": 0.2
+        }
+      },
+      "art": "res://assets/enemies-r21/mammoth_wraith.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/64",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "cave_painting_hunter",
+      "name": "동굴 벽화의 사냥꾼",
+      "family": 28,
+      "zone": "primal_forest",
+      "grade": "elite",
+      "role": "소환",
+      "row": "back",
+      "weak": [
+        "holy",
+        "dark",
+        "wind"
+      ],
+      "acts": [
+        {
+          "name": "벽화 그리기",
+          "kind": "summon",
+          "enemy": "sabertooth",
+          "count": 1,
+          "id": "summon_1"
+        },
+        {
+          "name": "돌창 던지기",
+          "kind": "shoot",
+          "vb": "돌창을 던졌다",
+          "m": 1.1,
+          "id": "shoot_2"
+        },
+        {
+          "name": "사냥 의식",
+          "kind": "buff",
+          "stat": "spd",
+          "amount": 0.2,
+          "turns": 3,
+          "target": "allies",
+          "id": "buff_3"
+        }
+      ],
+      "looks": "동굴 벽에 그려진 사냥꾼이 벽에서 걸어 나온 것. 몸이 황토색 선이다",
+      "art": "res://assets/enemies-r21/cave_painting_hunter.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/65",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "fallen_guardian",
+      "name": "떨어진 수호자",
+      "family": 27,
+      "zone": "primal_forest",
+      "grade": "boss",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "ice",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "뼈 날개",
+          "kind": "atk",
+          "vb": "뼈 날개를 휘둘렀다",
+          "m": 0.6,
+          "target": "all",
+          "id": "atk_1"
+        },
+        {
+          "name": "옛 포효",
+          "kind": "debuff",
+          "stat": "spd",
+          "amount": 0.2,
+          "turns": 2,
+          "target": "all",
+          "id": "debuff_2"
+        },
+        {
+          "name": "꼬리 휘두르기",
+          "kind": "atk",
+          "vb": "꼬리를 휘둘렀다",
+          "m": 1,
+          "id": "atk_3"
+        }
+      ],
+      "looks": "날개 달린 거대한 짐승의 뼈. 날개뼈에 이끼가 덮였고, 빈 눈구멍에서 희미한 빛이 샌다. 정체를 아는 사람은 없다.",
+      "stat_role": "돌격",
+      "phase2": {
+        "weak": [
+          "holy",
+          "dark"
+        ],
+        "acts": [
+          {
+            "name": "숨결",
+            "kind": "charge",
+            "id": "charge_1"
+          },
+          {
+            "name": "빛 없는 숨결",
+            "kind": "big_all",
+            "vb": "숨결을 내뿜었다",
+            "m": 1.5,
+            "id": "big_all_2"
+          },
+          {
+            "name": "뼈 날개",
+            "kind": "atk",
+            "vb": "뼈 날개를 휘둘렀다",
+            "m": 0.6,
+            "target": "all",
+            "id": "atk_3"
+          }
+        ]
+      },
+      "deep": {
+        "hp": 0.842,
+        "atk": 0.91
+      },
+      "art": "res://assets/enemies-r21/fallen_guardian.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/66",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "molten_crowd",
+      "name": "녹아든 군중",
+      "family": 29,
+      "zone": "the_bottom",
+      "grade": "mob",
+      "role": "방어",
+      "row": "front",
+      "weak": [
+        "holy",
+        "fire"
+      ],
+      "acts": [
+        {
+          "name": "삼키기",
+          "kind": "atk",
+          "vb": "삼켰다",
+          "m": 1,
+          "push": 0.15,
+          "id": "atk_1"
+        },
+        {
+          "name": "부풀기",
+          "kind": "guard",
+          "id": "guard_2"
+        },
+        {
+          "name": "삼키기",
+          "kind": "atk",
+          "vb": "삼켰다",
+          "m": 1,
+          "push": 0.15,
+          "id": "atk_3"
+        }
+      ],
+      "looks": "사람과 짐승과 물건이 반쯤 녹아 붙은 덩어리",
+      "art": "res://assets/enemies-r21/molten_crowd.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/67",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "voice_only",
+      "name": "목소리만 남은 것",
+      "family": 30,
+      "zone": "the_bottom",
+      "grade": "mob",
+      "role": "주술",
+      "row": "back",
+      "weak": [
+        "bolt",
+        "wind"
+      ],
+      "acts": [
+        {
+          "name": "속삭임",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.2,
+          "turns": 2,
+          "target": "all",
+          "id": "debuff_1"
+        },
+        {
+          "name": "이름 빼앗기",
+          "kind": "spell",
+          "vb": "이름을 빼앗았다",
+          "m": 1.1,
+          "magic": true,
+          "strip": true,
+          "id": "spell_2"
+        },
+        {
+          "name": "속삭임",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.2,
+          "turns": 2,
+          "target": "all",
+          "id": "debuff_3"
+        }
+      ],
+      "looks": "몸 없이 떠도는 속삭임. 가까이 가면 내 이름을 부르는 것처럼 들린다",
+      "art": "res://assets/enemies-r21/voice_only.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/68",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "echo_of_bottom",
+      "name": "밑바닥의 메아리",
+      "family": 29,
+      "zone": "the_bottom",
+      "grade": "boss",
+      "role": "주술",
+      "row": "front",
+      "weak": [
+        "holy",
+        "dark"
+      ],
+      "acts": [
+        {
+          "name": "메아리",
+          "kind": "spell",
+          "vb": "메아리를 울렸다",
+          "m": 0.6,
+          "magic": true,
+          "target": "all",
+          "id": "spell_1"
+        },
+        {
+          "name": "되울림",
+          "kind": "summon",
+          "enemy": "molten_crowd",
+          "count": 1,
+          "id": "summon_2"
+        },
+        {
+          "name": "삼키는 소리",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.2,
+          "turns": 2,
+          "target": "all",
+          "id": "debuff_3"
+        }
+      ],
+      "looks": "이제껏 심연에 떨어진 모든 비명이 한 목소리로 겹쳐 울리는 거대한 그림자. 모양이 쉬지 않고 바뀐다.",
+      "stat_role": "돌격",
+      "phase2": {
+        "weak": [
+          "holy",
+          "dark"
+        ],
+        "weak_cycle": true,
+        "acts": [
+          {
+            "name": "모든 이름의 비명",
+            "kind": "charge",
+            "id": "charge_1"
+          },
+          {
+            "name": "비명의 파도",
+            "kind": "big_all",
+            "vb": "비명을 쏟아냈다",
+            "m": 1.5,
+            "id": "big_all_2"
+          },
+          {
+            "name": "메아리",
+            "kind": "spell",
+            "vb": "메아리를 울렸다",
+            "m": 0.6,
+            "magic": true,
+            "target": "all",
+            "id": "spell_3"
+          }
+        ]
+      },
+      "deep": {
+        "hp": 0.701,
+        "atk": 0.823
+      },
+      "art": "res://assets/enemies-r21/echo_of_bottom.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/69",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "frozen_mercenary",
+      "name": "얼어붙은 용병",
+      "family": 15,
+      "zone": "rift_sw_snow",
+      "grade": "mob",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "fire",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "베기",
+          "kind": "atk",
+          "vb": "베었다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "베기",
+          "kind": "atk",
+          "vb": "베었다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "기합",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 3,
+          "target": "self",
+          "id": "buff_3"
+        }
+      ],
+      "looks": "서리에 굳은 갑옷 속에서 용병이 계약을 기억한 채 움직인다",
+      "art": "res://assets/enemies-r21/frozen_mercenary.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/70",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "blizzard_wolves",
+      "name": "눈보라 늑대 떼",
+      "family": 15,
+      "zone": "rift_sw_snow",
+      "grade": "swarm",
+      "role": "무리",
+      "row": "front",
+      "weak": [
+        "fire",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "물어뜯기",
+          "kind": "atk",
+          "vb": "물어뜯었다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "물어뜯기",
+          "kind": "atk",
+          "vb": "물어뜯었다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "물어뜯기",
+          "kind": "atk",
+          "vb": "물어뜯었다",
+          "m": 1,
+          "id": "atk_3"
+        }
+      ],
+      "looks": "눈보라 속에서 한 덩어리로 몰려다니는 늑대 떼",
+      "art": "res://assets/enemies-r21/blizzard_wolves.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/71",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "ice_crossbowman",
+      "name": "얼음 석궁수",
+      "family": 15,
+      "zone": "rift_sw_snow",
+      "grade": "mob",
+      "role": "사격",
+      "row": "back",
+      "weak": [
+        "fire",
+        "dark"
+      ],
+      "acts": [
+        {
+          "name": "사격",
+          "kind": "shoot",
+          "vb": "쏘았다",
+          "m": 1.1,
+          "id": "shoot_1"
+        },
+        {
+          "name": "사격",
+          "kind": "shoot",
+          "vb": "쏘았다",
+          "m": 1.1,
+          "id": "shoot_2"
+        },
+        {
+          "name": "조준 사격",
+          "kind": "aimed",
+          "vb": "겨누어 쏘았다",
+          "m": 1.6,
+          "id": "aimed_3"
+        }
+      ],
+      "looks": "얼음 속에서 석궁만 또렷한 사수",
+      "art": "res://assets/enemies-r21/ice_crossbowman.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/72",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "ice_centurion",
+      "name": "얼음 속 백인대장",
+      "family": 15,
+      "zone": "rift_sw_snow",
+      "grade": "elite",
+      "role": "방어",
+      "row": "front",
+      "weak": [
+        "fire",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "얼음 방패",
+          "kind": "protect",
+          "guard": false,
+          "id": "protect_1"
+        },
+        {
+          "name": "창 내려치기",
+          "kind": "atk",
+          "vb": "창을 내려쳤다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "서리 갑옷",
+          "kind": "guard",
+          "id": "guard_3"
+        },
+        {
+          "name": "호령",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.2,
+          "turns": 3,
+          "target": "allies",
+          "id": "buff_4"
+        }
+      ],
+      "looks": "얼음 속에 반쯤 묻힌 채 부하를 호령하는 백인대장",
+      "art": "res://assets/enemies-r21/ice_centurion.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/73",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "frost_contractor",
+      "name": "서리 계약자",
+      "family": 15,
+      "zone": "rift_sw_snow",
+      "grade": "core",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "fire",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "계약 조항",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 2,
+          "target": "all",
+          "id": "debuff_1"
+        },
+        {
+          "name": "얼어붙은 서명",
+          "kind": "spell",
+          "vb": "서명을 휘갈겼다",
+          "m": 1.2,
+          "magic": true,
+          "id": "spell_2"
+        },
+        {
+          "name": "계약 이행",
+          "kind": "charge",
+          "id": "charge_3"
+        },
+        {
+          "name": "이행 집행",
+          "kind": "big_all",
+          "vb": "계약을 집행했다",
+          "m": 1.5,
+          "id": "big_all_4"
+        },
+        {
+          "name": "위약 추궁",
+          "kind": "atk",
+          "vb": "위약을 추궁했다",
+          "m": 1,
+          "id": "atk_5"
+        }
+      ],
+      "looks": "얼어붙은 계약서 한 장에 용병대 전부가 묶인 것",
+      "stat_role": "돌격",
+      "art": "res://assets/enemies-r21/frost_contractor.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/74",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "thorn_pilgrim",
+      "name": "가시 순례자",
+      "family": 16,
+      "zone": "rift_se_forest",
+      "grade": "mob",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "fire",
+        "wind"
+      ],
+      "acts": [
+        {
+          "name": "찌르기",
+          "kind": "atk",
+          "vb": "가시로 찔렀다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "찌르기",
+          "kind": "atk",
+          "vb": "가시로 찔렀다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "기도",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 3,
+          "target": "self",
+          "id": "buff_3"
+        }
+      ],
+      "looks": "가시덩굴에 휘감긴 채 성지를 향해 걷는 순례자",
+      "art": "res://assets/enemies-r21/thorn_pilgrim.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/75",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "rotten_censer",
+      "name": "썩은 향로",
+      "family": 16,
+      "zone": "rift_se_forest",
+      "grade": "mob",
+      "role": "지원",
+      "row": "back",
+      "weak": [
+        "wind",
+        "ice"
+      ],
+      "acts": [
+        {
+          "name": "향 피우기",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.2,
+          "turns": 3,
+          "target": "allies",
+          "id": "buff_1"
+        },
+        {
+          "name": "향의 위안",
+          "kind": "heal",
+          "amount": 0.2,
+          "target": "lowest",
+          "id": "heal_2"
+        },
+        {
+          "name": "향 피우기",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.2,
+          "turns": 3,
+          "target": "allies",
+          "id": "buff_3"
+        }
+      ],
+      "looks": "곰팡내 나는 향을 피워 올리는 낡은 향로",
+      "art": "res://assets/enemies-r21/rotten_censer.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/76",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "shrine_crows",
+      "name": "성지의 까마귀 떼",
+      "family": 16,
+      "zone": "rift_se_forest",
+      "grade": "swarm",
+      "role": "무리",
+      "row": "front",
+      "weak": [
+        "bolt",
+        "fire"
+      ],
+      "acts": [
+        {
+          "name": "쪼기",
+          "kind": "atk",
+          "vb": "쪼았다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "쪼기",
+          "kind": "atk",
+          "vb": "쪼았다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "쪼기",
+          "kind": "atk",
+          "vb": "쪼았다",
+          "m": 1,
+          "id": "atk_3"
+        }
+      ],
+      "looks": "성지 지붕에서 내려앉는 검은 까마귀 떼",
+      "art": "res://assets/enemies-r21/shrine_crows.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/77",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "kneeling_paladin",
+      "name": "무릎 꿇은 성기사",
+      "family": 16,
+      "zone": "rift_se_forest",
+      "grade": "elite",
+      "role": "방어",
+      "row": "front",
+      "weak": [
+        "fire",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "기도하는 방패",
+          "kind": "protect",
+          "guard": false,
+          "id": "protect_1"
+        },
+        {
+          "name": "속죄의 일격",
+          "kind": "atk",
+          "vb": "내려쳤다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "무릎 꿇은 자세",
+          "kind": "guard",
+          "id": "guard_3"
+        },
+        {
+          "name": "성스러운 숨",
+          "kind": "heal",
+          "amount": 0.2,
+          "target": "lowest",
+          "id": "heal_4"
+        }
+      ],
+      "looks": "무릎을 꿇은 채 굳어 버린 성기사",
+      "art": "res://assets/enemies-r21/kneeling_paladin.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/78",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "corroded_reliquary",
+      "name": "잠식된 성유물함",
+      "family": 16,
+      "zone": "rift_se_forest",
+      "grade": "core",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "fire",
+        "ice"
+      ],
+      "acts": [
+        {
+          "name": "거짓 축복",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 2,
+          "target": "all",
+          "id": "debuff_1"
+        },
+        {
+          "name": "가시 폭발",
+          "kind": "spell",
+          "vb": "가시를 터뜨렸다",
+          "m": 1.2,
+          "magic": true,
+          "id": "spell_2"
+        },
+        {
+          "name": "거짓 기적",
+          "kind": "charge",
+          "id": "charge_3"
+        },
+        {
+          "name": "기적의 가시",
+          "kind": "big_all",
+          "vb": "가시를 쏟아냈다",
+          "m": 1.5,
+          "id": "big_all_4"
+        },
+        {
+          "name": "덩굴 채찍",
+          "kind": "atk",
+          "vb": "덩굴을 휘둘렀다",
+          "m": 1,
+          "id": "atk_5"
+        }
+      ],
+      "looks": "가시덩굴이 뚫고 나온 유물함",
+      "stat_role": "돌격",
+      "art": "res://assets/enemies-r21/corroded_reliquary.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/79",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "waterlogged_sailor",
+      "name": "물에 불은 선원",
+      "family": 17,
+      "zone": "rift_east_coast",
+      "grade": "mob",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "bolt",
+        "fire"
+      ],
+      "acts": [
+        {
+          "name": "갈고리",
+          "kind": "atk",
+          "vb": "갈고리를 휘둘렀다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "갈고리",
+          "kind": "atk",
+          "vb": "갈고리를 휘둘렀다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "뱃노래",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 3,
+          "target": "self",
+          "id": "buff_3"
+        }
+      ],
+      "looks": "물에 불어 터질 듯한 선원 망자",
+      "art": "res://assets/enemies-r21/waterlogged_sailor.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/80",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "net_fisher",
+      "name": "그물 던지는 어부",
+      "family": 17,
+      "zone": "rift_east_coast",
+      "grade": "mob",
+      "role": "사격",
+      "row": "back",
+      "weak": [
+        "fire",
+        "wind"
+      ],
+      "acts": [
+        {
+          "name": "작살",
+          "kind": "shoot",
+          "vb": "작살을 던졌다",
+          "m": 1.1,
+          "id": "shoot_1"
+        },
+        {
+          "name": "그물 던지기",
+          "kind": "debuff",
+          "stat": "spd",
+          "amount": 0.2,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_2"
+        },
+        {
+          "name": "조준 작살",
+          "kind": "aimed",
+          "vb": "겨누어 쏘았다",
+          "m": 1.6,
+          "id": "aimed_3"
+        }
+      ],
+      "looks": "그물과 작살을 든 어부 망령",
+      "art": "res://assets/enemies-r21/net_fisher.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/81",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "barnacle_shell",
+      "name": "따개비 껍질",
+      "family": 17,
+      "zone": "rift_east_coast",
+      "grade": "mob",
+      "role": "방어",
+      "row": "front",
+      "weak": [
+        "bolt",
+        "dark"
+      ],
+      "acts": [
+        {
+          "name": "껍질 막",
+          "kind": "protect",
+          "guard": false,
+          "id": "protect_1"
+        },
+        {
+          "name": "조이기",
+          "kind": "atk",
+          "vb": "조였다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "껍질 닫기",
+          "kind": "guard",
+          "id": "guard_3"
+        }
+      ],
+      "looks": "따개비가 덕지덕지 붙은 단단한 껍질",
+      "art": "res://assets/enemies-r21/barnacle_shell.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/82",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "wreck_boatswain",
+      "name": "난파선 갑판장",
+      "family": 17,
+      "zone": "rift_east_coast",
+      "grade": "elite",
+      "role": "소환",
+      "row": "back",
+      "weak": [
+        "fire",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "선원 호출",
+          "kind": "summon",
+          "enemy": "waterlogged_sailor",
+          "count": 1,
+          "id": "summon_1"
+        },
+        {
+          "name": "채찍질",
+          "kind": "atk",
+          "vb": "채찍을 휘둘렀다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "호각",
+          "kind": "spell",
+          "vb": "호각을 불었다",
+          "m": 1.1,
+          "magic": true,
+          "id": "spell_3"
+        }
+      ],
+      "looks": "난파선 갑판에서 선원들을 부르는 갑판장",
+      "art": "res://assets/enemies-r21/wreck_boatswain.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/83",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "sunken_bell",
+      "name": "가라앉은 종",
+      "family": 17,
+      "zone": "rift_east_coast",
+      "grade": "core",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "bolt",
+        "dark"
+      ],
+      "acts": [
+        {
+          "name": "녹슨 울림",
+          "kind": "debuff",
+          "stat": "spd",
+          "amount": 0.2,
+          "turns": 2,
+          "target": "all",
+          "id": "debuff_1"
+        },
+        {
+          "name": "종소리",
+          "kind": "spell",
+          "vb": "종을 울렸다",
+          "m": 0.6,
+          "magic": true,
+          "target": "all",
+          "id": "spell_2"
+        },
+        {
+          "name": "만조의 종소리",
+          "kind": "charge",
+          "id": "charge_3"
+        },
+        {
+          "name": "만조",
+          "kind": "big_all",
+          "vb": "물결을 몰아쳤다",
+          "m": 1.5,
+          "id": "big_all_4"
+        },
+        {
+          "name": "종추 내리치기",
+          "kind": "atk",
+          "vb": "종추로 내리쳤다",
+          "m": 1,
+          "id": "atk_5"
+        }
+      ],
+      "looks": "바다 밑에서 울리는 녹슨 종",
+      "stat_role": "돌격",
+      "art": "res://assets/enemies-r21/sunken_bell.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/84",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "tangled_riders",
+      "name": "뒤엉킨 기마",
+      "family": 18,
+      "zone": "rift_north_steppe",
+      "grade": "mob",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "ice",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "짓밟기",
+          "kind": "atk",
+          "vb": "짓밟았다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "창 찌르기",
+          "kind": "atk",
+          "vb": "창으로 찔렀다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "질주",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 3,
+          "target": "self",
+          "id": "buff_3"
+        }
+      ],
+      "looks": "말과 기수가 한 덩어리로 뒤엉킨 망자",
+      "art": "res://assets/enemies-r21/tangled_riders.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/85",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "wild_dog_wraiths",
+      "name": "들개 망령 떼",
+      "family": 18,
+      "zone": "rift_north_steppe",
+      "grade": "swarm",
+      "role": "무리",
+      "row": "front",
+      "weak": [
+        "fire",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "물어뜯기",
+          "kind": "atk",
+          "vb": "물어뜯었다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "물어뜯기",
+          "kind": "atk",
+          "vb": "물어뜯었다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "물어뜯기",
+          "kind": "atk",
+          "vb": "물어뜯었다",
+          "m": 1,
+          "id": "atk_3"
+        }
+      ],
+      "looks": "초원을 떠도는 들개 망령 떼",
+      "art": "res://assets/enemies-r21/wild_dog_wraiths.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/86",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "wind_shamaness",
+      "name": "바람 무당",
+      "family": 18,
+      "zone": "rift_north_steppe",
+      "grade": "mob",
+      "role": "주술",
+      "row": "back",
+      "weak": [
+        "bolt",
+        "dark"
+      ],
+      "acts": [
+        {
+          "name": "바람 부르기",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_1"
+        },
+        {
+          "name": "회오리",
+          "kind": "spell",
+          "vb": "회오리를 일으켰다",
+          "m": 1.1,
+          "magic": true,
+          "id": "spell_2"
+        },
+        {
+          "name": "바람 부르기",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_3"
+        }
+      ],
+      "looks": "깃털 장식을 두른 바람 무당 망령",
+      "art": "res://assets/enemies-r21/wind_shamaness.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/87",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "old_khan_rider",
+      "name": "옛 칸의 기수",
+      "family": 18,
+      "zone": "rift_north_steppe",
+      "grade": "elite",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "ice",
+        "wind"
+      ],
+      "acts": [
+        {
+          "name": "기마 돌격",
+          "kind": "atk",
+          "vb": "돌격했다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "활 쏘기",
+          "kind": "atk",
+          "vb": "활을 쏘았다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "칸의 함성",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.3,
+          "turns": 3,
+          "target": "self",
+          "id": "buff_3"
+        }
+      ],
+      "looks": "옛 칸을 따르던 기수의 망령",
+      "art": "res://assets/enemies-r21/old_khan_rider.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/88",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "three_head_warhorse",
+      "name": "머리 셋 군마",
+      "family": 18,
+      "zone": "rift_north_steppe",
+      "grade": "core",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "ice",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "발굽 구르기",
+          "kind": "atk",
+          "vb": "발굽을 굴렀다",
+          "m": 0.6,
+          "target": "all",
+          "id": "atk_1"
+        },
+        {
+          "name": "들이받기",
+          "kind": "atk",
+          "vb": "들이받았다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "짓밟는 행군",
+          "kind": "charge",
+          "id": "charge_3"
+        },
+        {
+          "name": "행군",
+          "kind": "big_all",
+          "vb": "대지를 짓밟았다",
+          "m": 1.5,
+          "id": "big_all_4"
+        },
+        {
+          "name": "세 울음",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.2,
+          "turns": 3,
+          "target": "self",
+          "id": "buff_5"
+        }
+      ],
+      "looks": "세 부족의 말이 한 몸이 된 것",
+      "stat_role": "돌격",
+      "art": "res://assets/enemies-r21/three_head_warhorse.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/89",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "snow_leopard_wraith",
+      "name": "설표 망령",
+      "family": 19,
+      "zone": "rift_nw_snow",
+      "grade": "mob",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "fire",
+        "dark"
+      ],
+      "acts": [
+        {
+          "name": "할퀴기",
+          "kind": "atk",
+          "vb": "할퀴었다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "할퀴기",
+          "kind": "atk",
+          "vb": "할퀴었다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "웅크리기",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 3,
+          "target": "self",
+          "id": "buff_3"
+        }
+      ],
+      "looks": "눈 속에서 소리 없이 다가오는 설표 망령",
+      "art": "res://assets/enemies-r21/snow_leopard_wraith.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/90",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "ice_tomb_hunter",
+      "name": "얼음 무덤 사냥꾼",
+      "family": 19,
+      "zone": "rift_nw_snow",
+      "grade": "mob",
+      "role": "사격",
+      "row": "back",
+      "weak": [
+        "fire",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "사격",
+          "kind": "shoot",
+          "vb": "쏘았다",
+          "m": 1.1,
+          "id": "shoot_1"
+        },
+        {
+          "name": "사격",
+          "kind": "shoot",
+          "vb": "쏘았다",
+          "m": 1.1,
+          "id": "shoot_2"
+        },
+        {
+          "name": "조준 사격",
+          "kind": "aimed",
+          "vb": "겨누어 쏘았다",
+          "m": 1.6,
+          "id": "aimed_3"
+        }
+      ],
+      "looks": "얼음 무덤에서 일어난 사냥꾼",
+      "art": "res://assets/enemies-r21/ice_tomb_hunter.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/91",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "hands_in_snow",
+      "name": "눈 속의 손",
+      "family": 19,
+      "zone": "rift_nw_snow",
+      "grade": "mob",
+      "role": "방어",
+      "row": "front",
+      "weak": [
+        "fire",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "눈 덮개",
+          "kind": "protect",
+          "guard": false,
+          "id": "protect_1"
+        },
+        {
+          "name": "붙들기",
+          "kind": "atk",
+          "vb": "붙들었다",
+          "m": 1,
+          "push": 0.15,
+          "id": "atk_2"
+        },
+        {
+          "name": "눈에 묻히기",
+          "kind": "guard",
+          "id": "guard_3"
+        }
+      ],
+      "looks": "눈 속에서 뻗어 나오는 손들",
+      "art": "res://assets/enemies-r21/hands_in_snow.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/92",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "ice_mane_leopard",
+      "name": "얼음 갈기 설표",
+      "family": 19,
+      "zone": "rift_nw_snow",
+      "grade": "elite",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "fire",
+        "dark"
+      ],
+      "acts": [
+        {
+          "name": "덮치기",
+          "kind": "atk",
+          "vb": "덮쳤다",
+          "m": 1.4,
+          "id": "atk_1"
+        },
+        {
+          "name": "할퀴기",
+          "kind": "atk",
+          "vb": "할퀴었다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "포효",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.3,
+          "turns": 3,
+          "target": "self",
+          "id": "buff_3"
+        }
+      ],
+      "looks": "갈기가 얼음으로 굳은 거대한 설표",
+      "art": "res://assets/enemies-r21/ice_mane_leopard.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/93",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "starving_of_the_pass",
+      "name": "고개의 굶주린 것",
+      "family": 19,
+      "zone": "rift_nw_snow",
+      "grade": "core",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "fire",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "굶주린 속삭임",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 2,
+          "target": "all",
+          "id": "debuff_1"
+        },
+        {
+          "name": "움켜쥐기",
+          "kind": "atk",
+          "vb": "움켜쥐었다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "눈사태",
+          "kind": "charge",
+          "id": "charge_3"
+        },
+        {
+          "name": "눈사태 덮치기",
+          "kind": "big_all",
+          "vb": "눈사태를 일으켰다",
+          "m": 1.5,
+          "id": "big_all_4"
+        },
+        {
+          "name": "물어뜯기",
+          "kind": "atk",
+          "vb": "물어뜯었다",
+          "m": 1,
+          "id": "atk_5"
+        }
+      ],
+      "looks": "고개에서 얼어 죽은 상단 사람들이 한데 뭉친 것",
+      "stat_role": "돌격",
+      "art": "res://assets/enemies-r21/starving_of_the_pass.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/94",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "ash_zealot",
+      "name": "잿불 신도",
+      "family": 20,
+      "zone": "rift_ne_volcano",
+      "grade": "mob",
+      "role": "주술",
+      "row": "back",
+      "weak": [
+        "ice",
+        "wind"
+      ],
+      "acts": [
+        {
+          "name": "재의 기도",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_1"
+        },
+        {
+          "name": "잿불",
+          "kind": "spell",
+          "vb": "잿불을 던졌다",
+          "m": 1.1,
+          "magic": true,
+          "id": "spell_2"
+        },
+        {
+          "name": "재의 기도",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 2,
+          "target": "one",
+          "id": "debuff_3"
+        }
+      ],
+      "looks": "잿불을 들고 기도하는 신도 망령",
+      "art": "res://assets/enemies-r21/ash_zealot.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/95",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "lava_shell_beast",
+      "name": "용암 껍질 짐승",
+      "family": 20,
+      "zone": "rift_ne_volcano",
+      "grade": "mob",
+      "role": "방어",
+      "row": "front",
+      "weak": [
+        "ice",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "용암 껍질",
+          "kind": "protect",
+          "guard": false,
+          "id": "protect_1"
+        },
+        {
+          "name": "들이받기",
+          "kind": "atk",
+          "vb": "들이받았다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "식은 껍질",
+          "kind": "guard",
+          "id": "guard_3"
+        }
+      ],
+      "looks": "용암이 굳어 껍질이 된 짐승",
+      "art": "res://assets/enemies-r21/lava_shell_beast.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/96",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "ember_bats",
+      "name": "불똥 박쥐 떼",
+      "family": 20,
+      "zone": "rift_ne_volcano",
+      "grade": "swarm",
+      "role": "무리",
+      "row": "front",
+      "weak": [
+        "ice",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "물어뜯기",
+          "kind": "atk",
+          "vb": "물어뜯었다",
+          "m": 1,
+          "id": "atk_1"
+        },
+        {
+          "name": "물어뜯기",
+          "kind": "atk",
+          "vb": "물어뜯었다",
+          "m": 1,
+          "id": "atk_2"
+        },
+        {
+          "name": "물어뜯기",
+          "kind": "atk",
+          "vb": "물어뜯었다",
+          "m": 1,
+          "id": "atk_3"
+        }
+      ],
+      "looks": "불똥을 흘리며 날아드는 박쥐 떼",
+      "art": "res://assets/enemies-r21/ember_bats.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/97",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "obsidian_priest",
+      "name": "흑요 사제",
+      "family": 20,
+      "zone": "rift_ne_volcano",
+      "grade": "elite",
+      "role": "지원",
+      "row": "back",
+      "weak": [
+        "ice",
+        "holy"
+      ],
+      "acts": [
+        {
+          "name": "흑요의 축복",
+          "kind": "buff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 3,
+          "target": "allies",
+          "id": "buff_1"
+        },
+        {
+          "name": "피의 위로",
+          "kind": "heal",
+          "amount": 0.2,
+          "target": "lowest",
+          "id": "heal_2"
+        },
+        {
+          "name": "흑요 단검",
+          "kind": "atk",
+          "vb": "단검으로 찔렀다",
+          "m": 1,
+          "id": "atk_3"
+        }
+      ],
+      "looks": "흑요석 단검을 든 사제 망령",
+      "art": "res://assets/enemies-r21/obsidian_priest.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/98",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    },
+    {
+      "id": "burning_bloodline",
+      "name": "불타는 혈통",
+      "family": 20,
+      "zone": "rift_ne_volcano",
+      "grade": "core",
+      "role": "돌격",
+      "row": "front",
+      "weak": [
+        "ice",
+        "bolt"
+      ],
+      "acts": [
+        {
+          "name": "시험의 낙인",
+          "kind": "debuff",
+          "stat": "atk",
+          "amount": 0.25,
+          "turns": 2,
+          "target": "all",
+          "id": "debuff_1"
+        },
+        {
+          "name": "혈통의 불",
+          "kind": "spell",
+          "vb": "혈통의 불을 일으켰다",
+          "m": 1.2,
+          "magic": true,
+          "id": "spell_2"
+        },
+        {
+          "name": "시험의 불",
+          "kind": "charge",
+          "id": "charge_3"
+        },
+        {
+          "name": "시험의 불길",
+          "kind": "big_all",
+          "vb": "불길을 쏟았다",
+          "m": 1.5,
+          "id": "big_all_4"
+        },
+        {
+          "name": "낙인 찍기",
+          "kind": "atk",
+          "vb": "낙인을 찍었다",
+          "m": 1,
+          "id": "atk_5"
+        }
+      ],
+      "looks": "혈통 시험에서 죽은 신관 후보들",
+      "stat_role": "돌격",
+      "art": "res://assets/enemies-r21/burning_bloodline.png",
+      "source": {
+        "file": "design/enemies.json",
+        "pointer": "/enemies/99",
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1"
+      }
+    }
+  ],
+  "source": {
+    "root": "C:\\Clauede Code\\dungeon-bot",
+    "files": {
+      "design/enemies.json": {
+        "sha256": "40c3d69bba9e730b000ff03680d962051d29ff6722a7899ebc209d9690bebba1",
+        "lines": 5533
+      },
+      "design/ENEMIES.md": {
+        "sha256": "730418aabbd05d8eceb95f99d7723c15e6c1d5e9a7d2674fe63db516844d222e",
+        "lines": 803
+      },
+      "design/DUNGEON.md": {
+        "sha256": "5bd78c9b5d5af80c9f8f60a6ef411fb9c72fc2168d38a2b8f511fdc7e01c1218",
+        "lines": 346
+      },
+      "design/EXPEDITION.md": {
+        "sha256": "b2312f739f846928181b2fee1c4e5002c63ec514899ee6f0ceec5f4be3c64877",
+        "lines": 166
+      },
+      "design/stats.json": {
+        "sha256": "fe901acce0b00e1b82fd7451aca071578c0f8d16fdbf2008938bf08081e5eca2",
+        "lines": 2561
+      },
+      "bot/src/20-state.lua": {
+        "sha256": "67e9a51aaca2f8bf2f299f9b14a6c5a4cc080bb42a6557aec003ed3d67224167",
+        "lines": 370
+      },
+      "bot/src/24-stats.lua": {
+        "sha256": "24a4b73ba34d83bf656065d687f72cf952fd6ed807b6a79473449505e0548597",
+        "lines": 184
+      },
+      "bot/src/26-start.lua": {
+        "sha256": "6aa41d4d86eeaa627f582b3c6ec56e3b8183366f73a3c80fc37f3421c954bf7f",
+        "lines": 86
+      },
+      "bot/src/27-compose.lua": {
+        "sha256": "a2ab4341b949dfbebe85bf15d8f6f2263a8926d3d78d58a6eeedf24e31cb390a",
+        "lines": 403
+      },
+      "bot/src/30-engine.lua": {
+        "sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4",
+        "lines": 1203
+      },
+      "bot/src/31-foes.lua": {
+        "sha256": "2338629d499ba016d07e6f0c3d51c2ce3a27d6ebea727baf8e3257acaae258a2",
+        "lines": 545
+      },
+      "bot/src/70-town.lua": {
+        "sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "lines": 221
+      },
+      "bot/src/72-guild.lua": {
+        "sha256": "3125fd872513eff4defb1b3db3490f5b5a8fa87c683d23d3d5169681b2472e5f",
+        "lines": 370
+      },
+      "bot/src/74-affection.lua": {
+        "sha256": "a8142bb5cf5c00ba451847797bf6a446b46ec619d14dc4e741a21e0226d117ca",
+        "lines": 65
+      },
+      "bot/src/76-dungeon.lua": {
+        "sha256": "dd8363226766b6701f6df95fa89ac57ee412dc89082aaddc64fa52e9e511b19e",
+        "lines": 117
+      },
+      "bot/src/77-explore.lua": {
+        "sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "lines": 924
+      },
+      "bot/src/51-raid.lua": {
+        "sha256": "088151d8bc6d68cddca29ddb56326b03ed0d54cc55cf3face64467edd4329565",
+        "lines": 99
+      },
+      "bot/src/81-gear.lua": {
+        "sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+        "lines": 1204
+      }
+    },
+    "pointer": "design/enemies.json"
+  }
+}

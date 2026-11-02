@@ -78,8 +78,9 @@ func describe(s: Dictionary) -> String:
 func rank_page() -> void:
 	label("최고 도달 %d층"%host.model.s.dungeon_r21.best,22)
 	if not service.rank.is_empty():
-		if service.rank.get("pct")!=null:label("내 기록 · 상위 %d%%"%int(service.rank.pct),24)
-		else:label("아직 순위에 등록된 도달 기록이 없습니다.")
+		var pct=service.Legacy.rank_percent(service.rank,int(host.model.s.dungeon_r21.best))
+		if pct!=null:label("내 기록 · 상위 %s%%"%service.Legacy.Value.text(pct),24)
+		elif service.rank.get("pct")==null:label("아직 순위에 등록된 도달 기록이 없습니다.")
 		label("참여 %d계정 · 최고 %d층"%[int(service.rank.n),int(service.rank.top)])
 		label("확인 시각 · "+Time.get_datetime_string_from_unix_time(int(service.rank.at)),13)
 	label("클라우드에 저장한 최고 도달 층수를 비교합니다. 같은 층수는 같은 백분위입니다. 이름과 자유 입력은 공개하지 않습니다.",14)

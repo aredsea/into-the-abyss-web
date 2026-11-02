@@ -1,6 +1,7 @@
 extends Node
 ## Public endpoint only. A user's PIN stays on their own device and in HTTPS bodies.
 signal changed
+const Legacy=preload("res://game/cloud_legacy_r23.gd")
 const PREFS="user://cloud_r22.json"
 var config: Dictionary={}
 var account={"code":"","pin":"","rev":0,"auto":false,"synced":false}
@@ -12,7 +13,7 @@ var remote: Dictionary={}
 var first_credentials=false
 var archived=false
 var rank: Dictionary={}
-var rank_attempt=0
+var rank_attempt=-1
 var applying=false
 var last_auto=""
 var auto_pending=false
@@ -31,10 +32,17 @@ func _ready() -> void:
 			if saved.has(key) and typeof(saved[key])==typeof(account[key]):account[key]=saved[key]
 		# JSON numbers decode as float; convert only an exact nonnegative revision.
 		if saved.get("rev") is float and saved.rev>=0 and saved.rev==floor(saved.rev):account.rev=int(saved.rev)
+		var cached=saved.get("rank_cache_r23",{})
+		if cached is Dictionary and cached.get("code") is String and cached.code==account.code and not account.code.is_empty():
+			var at=cached.get("attempt")
+			if (at is int or at is float) and is_finite(at) and at>=0 and at==floor(at):
+				rank_attempt=int(at)
+				if valid_rank_cache(cached.get("value")):rank=cached.value.duplicate(true)
 	if connected() and not account.get("synced",false):notice="서버 최신 기록을 불러오면 이 계정에 저장할 수 있습니다."
 
 func persist() -> void:
-	var value=JSON.stringify(account)
+	var saved=account.duplicate(true);saved.rank_cache_r23={"code":account.code,"attempt":rank_attempt,"value":rank}
+	var value=JSON.stringify(saved)
 	if OS.has_feature("web"):
 		JavaScriptBridge.eval("localStorage.setItem('abyss.cloud.r22',"+JSON.stringify(value)+")",true)
 	else:
@@ -42,6 +50,14 @@ func persist() -> void:
 		if f!=null:f.store_string(value)
 
 func enabled() -> bool:return not str(config.get("server_url","")).is_empty()
+static func valid_rank_cache(value: Variant) -> bool:
+	if not value is Dictionary:return false
+	if value.is_empty():return true
+	for key in ["best","n","top","at"]:
+		var n=value.get(key)
+		if not (n is int or n is float) or not is_finite(n):return false
+	var pct=value.get("pct")
+	return pct==null or ((pct is int or pct is float) and is_finite(pct))
 func connected() -> bool:return not account.code.is_empty()
 func can_upload() -> bool:return not archived and connected() and not account.pin.is_empty() and account.get("synced",false)
 func _request(method: HTTPClient.Method,path: String,payload=null) -> Dictionary:
@@ -100,13 +116,14 @@ func create_account() -> void:
 
 func connect_account(code: String,pin: String) -> void:
 	if busy:return
-	code=code.strip_edges().to_upper().replace(" ","")
+	code=Legacy.code(code)
+	if code=="":notice="계정 코드의 형식을 확인해 주세요.";changed.emit();return
 	pin=pin.strip_edges().to_upper().replace(" ","").replace("-","")
 	var r=await _request(HTTPClient.METHOD_GET,"/v1/save/"+code.uri_encode()) if pin.is_empty() else await _request(HTTPClient.METHOD_POST,"/v1/account/connect",{"code":code,"pin":pin})
 	if r.status==200:
-		archived=false;account.code=r.code;account.pin=pin;account.rev=int(r.rev);account.synced=false;auto_pending=false;last_auto="";persist();remote=r;conflict={};revisions=[];rank={};rank_attempt=0;first_credentials=false;notice="읽기 전용으로 연결했습니다. 서버 기록을 불러올 수 있습니다." if pin.is_empty() else "연결했습니다. 서버 최신 기록을 불러오면 저장할 수 있습니다."
+		archived=false;account.code=r.code;account.pin=pin;account.rev=int(r.rev);account.synced=false;auto_pending=false;last_auto="";remote=r;conflict={};revisions=[];rank={};rank_attempt=-1;persist();first_credentials=false;notice="읽기 전용으로 연결했습니다. 서버 기록을 불러올 수 있습니다." if pin.is_empty() else "연결했습니다. 서버 최신 기록을 불러오면 저장할 수 있습니다."
 	elif r.status==410 and not pin.is_empty():
-		account.code=code;account.pin=pin;account.rev=0;account.synced=false;auto_pending=false;last_auto="";remote={};conflict={};revisions=[];rank={};first_credentials=false;persist()
+		account.code=code;account.pin=pin;account.rev=0;account.synced=false;auto_pending=false;last_auto="";remote={};conflict={};revisions=[];rank={};rank_attempt=-1;first_credentials=false;persist()
 	changed.emit()
 
 func upload() -> void:
@@ -155,7 +172,7 @@ func delete_account() -> void:
 	if busy or not connected() or account.pin.is_empty():return
 	var r=await _request(HTTPClient.METHOD_DELETE,"/v1/account",{"code":account.code,"pin":account.pin})
 	if r.status==200 or (r.status==410 and r.get("deleted",false)):
-		archived=false;account={"code":"","pin":"","rev":0,"auto":false,"synced":false};auto_pending=false;last_auto="";persist();remote={};conflict={};revisions=[];rank={};rank_attempt=0;first_credentials=false;notice="클라우드 계정과 기록을 삭제했습니다. 이 기기 저장은 남아 있습니다."
+		archived=false;account={"code":"","pin":"","rev":0,"auto":false,"synced":false};auto_pending=false;last_auto="";remote={};conflict={};revisions=[];rank={};rank_attempt=-1;persist();first_credentials=false;notice="클라우드 계정과 기록을 삭제했습니다. 이 기기 저장은 남아 있습니다."
 	changed.emit()
 
 func toggle_auto(value: bool) -> void:
@@ -175,12 +192,12 @@ func _flush_auto() -> void:
 func fetch_rank() -> void:
 	if busy or not connected():return
 	var now=int(Time.get_unix_time_from_system())
-	if rank_attempt>0 and now-rank_attempt<300:
+	if not Legacy.rank_due({"at":rank_attempt} if rank_attempt>=0 else {},now):
 		notice="순위는 5분마다 새로 확인합니다.";changed.emit();return
-	rank_attempt=now
+	rank_attempt=now;rank={};persist()
 	var submitted={"status":200} if account.pin.is_empty() else await _request(HTTPClient.METHOD_POST,"/v1/rank",{"code":account.code,"pin":account.pin})
 	if submitted.status==200:
 		var r=await _request(HTTPClient.METHOD_GET,"/v1/rank?code="+account.code)
-		if r.status==200:rank=r;notice="클라우드에 저장한 최고 도달 층으로 계산했습니다."
+		if r.status==200:rank=r;persist();notice="클라우드에 저장한 최고 도달 층으로 계산했습니다."
 	elif submitted.status==422:notice="순위 등록 조건을 충족하지 못했습니다. · "+" / ".join(submitted.get("reasons",[]))
 	changed.emit()
