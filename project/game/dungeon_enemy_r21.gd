@@ -1,4 +1,5 @@
 extends RefCounted
+const Text=preload("res://game/combat_display_r22.gd")
 ## Source enemy action vocabulary adapted to the existing r20 CTB battle model.
 const Rules=preload("res://game/dungeon_rules_r21.gd")
 var rules=Rules.new()
@@ -6,7 +7,19 @@ var battle_ref: WeakRef
 var b:
 	get: return battle_ref.get_ref()
 var templates=JSON.parse_string(FileAccess.get_file_as_string("res://data/battle_scene.json"))
+var counter_active=false
 func _init(battle): battle_ref=weakref(battle)
+
+func start() -> void:
+	if not b.data.has("encounter_r21"):return
+	for e in b.data.enemies:
+		if e.hp>0 and e.get("rules",{}).get("first_move",false):e.remaining=0
+
+func turn_start(e: Dictionary) -> void:
+	b.x(e).protect="";b.x(e).hidden=false
+	b.x(e).foe_turns=b.x(e).get("foe_turns",0)+1
+	var f=rules.foes.get(e.foe_id,{})
+	if e.phase==2 and f.get("phase2",{}).get("weak_cycle",false):cycle(e)
 
 func art(id: String) -> Dictionary:
 	var f=rules.foes[id]
@@ -71,7 +84,19 @@ func summon(e: Dictionary,a: Dictionary,emit_event=true):
 		if u.grade=="minion" and u.hp>0: adds+=1
 	for n in range(int(a.get("count",1))):
 		if adds>=int(rules.catalog.tune.boss.summon_cap): break
-		for i in range(b.data.encounter_r21.enc.fl.size(),b.data.enemies.size()):
+		# 31-foes summon_one uses empty slots first. A fallen minion can be
+		# reused only on a later press, after its current event has finished.
+		var candidates=[]
+		for i in range(b.data.enemies.size()):
+			if b.data.enemies[i].foe_id.is_empty(): candidates.append(i)
+		for i in range(b.data.enemies.size()):
+			var u=b.data.enemies[i]
+			# Pre-P2 schema-3 summons retained mob statistics. Their reserved
+			# slots stay reusable until this old fight ends (hydrate preserves
+			# that grade), just like new minion slots.
+			var summon_slot=u.grade=="minion" or i>=b.data.encounter_r21.enc.fl.size()
+			if not u.foe_id.is_empty() and summon_slot and u.hp<=0 and not b.combat_events.changed_slots.has(b.combat_events.slot(b,u)): candidates.append(i)
+		for i in candidates:
 			var slot=b.data.enemies[i]
 			if slot.hp<=0:
 				configure(slot,a.enemy,1,i,"minion"); slot.hp=slot.mhp; slot.gauge=float(slot.max); slot.act_index=0; slot.effects={}; slot.broken=false; slot.charged=false; slot.remaining=10000.0
@@ -104,33 +129,49 @@ func protector(e: Dictionary) -> Dictionary:
 	return e
 
 func defense(a: Dictionary,e: Dictionary) -> float:
+	return defense_tags(a,e,[])
+
+func defense_tags(a: Dictionary,e: Dictionary,tags: Array) -> float:
 	var m=1.0; var R=e.rules
 	if R.has("dr_while_ally"):
 		for u in b.living(false):
-			if u.id!=e.id and u.foe_id==R.dr_while_ally.enemy: m*=R.dr_while_ally.mult; break
-	if a.line=="str" and R.has("melee_dr"): m*=1-R.melee_dr
-	if a.line!="str" and b.x(e).get("hidden",false): m*=1-R.get("ranged_dr",.5)
+			if u.id!=e.id and u.foe_id==R.dr_while_ally.enemy:
+				m*=R.dr_while_ally.mult
+				var name=Text.unit_name(u)
+				tags.append(name+Text.Josa.tail(name,"이가")+" 서 있다 −%d%%"%Text.percent(1-R.dr_while_ally.mult));break
+	if a.line=="str" and R.has("melee_dr"):
+		m*=1-R.melee_dr;tags.append("비행 −%d%%"%Text.percent(R.melee_dr))
+	if R.has("ranged_dr") and a.line!="str" and b.x(e).get("hidden",false):
+		m*=1-R.ranged_dr;tags.append("은신 −%d%%"%Text.percent(R.ranged_dr))
 	return m # Defensive stance is floored after the raw hit, in B.strike.
 
-func after_hit(a: Dictionary,e: Dictionary):
+func after_hit(a: Dictionary,e: Dictionary,element: Variant=null):
 	if e.hp<=0: return
-	if e.rules.has("weak_hit_delay") and a.element==e.rules.weak_hit_delay.el: e.remaining+=10000*e.rules.weak_hit_delay.amount*(rules.catalog.tune.boss.reduce if e.grade=="boss" else 1)
-	if e.rules.has("counter_when_guard") and e.effects.has("guard") and not b.x(e).get("counter_busy",false):
-		b.x(e).counter_busy=true
-		b._enemy_hit(e,a,{"name":"되치기","kind":"atk","m":e.rules.counter_when_guard.get("m",.6)})
-		b.x(e).counter_busy=false
+	var attack_element=a.element if element==null else element
+	if e.rules.has("weak_hit_delay") and attack_element==e.rules.weak_hit_delay.el: e.remaining+=10000*e.rules.weak_hit_delay.amount*(rules.catalog.tune.boss.reduce if e.grade=="boss" else 1)
+	if e.rules.has("counter_when_guard") and e.effects.has("guard") and not counter_active and not b.x(e).get("counter_busy",false):
+		counter_active=true; b.x(e).counter_busy=true
+		b._enemy_hit(e,a,{"name":"되치기","kind":"atk","m":e.rules.counter_when_guard.get("m",.6),"counter":true})
+		b.x(e).counter_busy=false; counter_active=false
 
 func attack_mult(e: Dictionary) -> float:
+	return attack_multiplier(e).value
+
+func attack_multiplier(e: Dictionary) -> Dictionary:
 	var m=(1+b.fx(e,"enemy_attack_self"))*(1+b.fx(e,"attack_up")); var R=e.rules; var T=rules.catalog.tune.boss
-	if R.has("hp_atk") and e.hp<=e.mhp*R.hp_atk.thr: m*=1+R.hp_atk.amount
-	if e.grade=="chief" and e.hp<=e.mhp*T.rage_hp: m*=1+T.rage_atk
+	var tags=[]
+	if R.has("hp_atk") and e.hp<=e.mhp*R.hp_atk.thr:
+		m*=1+R.hp_atk.amount;tags.append("분노 +%d%%"%Text.percent(R.hp_atk.amount))
+	if e.grade=="chief" and e.hp<=e.mhp*T.rage_hp:
+		m*=1+T.rage_atk;tags.append("분노 +%d%%"%Text.percent(T.rage_atk))
 	if b.data.encounter_r21.enc.raid and e.grade in ["chief","boss","core"]:
 		var round_no=b.ctb_round
-		if round_no>T.enrage_round: m*=1+minf(T.enrage_max,T.enrage_step*(round_no-T.enrage_round))
-	return m
+		if round_no>T.enrage_round:
+			var value=minf(T.enrage_max,T.enrage_step*(round_no-T.enrage_round));m*=1+value;tags.append("장기전 +%d%%"%Text.percent(value))
+	return {"value":m,"tags":", ".join(tags) if not tags.is_empty() else false}
 
 func cycle(e: Dictionary):
-	var elements=rules.catalog.elements; var first=int(floor(random()*6)); var second=int(floor(random()*5))
+	var elements=rules.catalog.elements; var first=mini(5,int(floor(random()*6))); var second=mini(4,int(floor(random()*5)))
 	if second>=first: second+=1
 	e.weak=[elements[first],elements[second]]
 	b.x(e).cycle_a=first; b.x(e).cycle_b=second
@@ -158,8 +199,10 @@ func pick_target(e: Dictionary) -> Dictionary:
 	if a.kind in ["buff","guard","heal","summon","protect","charge"]: return e
 	var pool=b.data.allies.filter(func(u):return u.hp>0)
 	if pool.is_empty(): return b.data.allies[0]
-	if a.kind=="aimed" or a.get("low",false): return lowest(pool)
-	return pool[int(floor(random()*pool.size()))]
+	# Imported "aimed" is the native alias for source atk + low=true.
+	# An explicit low flag still takes precedence over that alias.
+	if a.get("low",a.kind=="aimed"): return lowest(pool)
+	return pool[mini(pool.size()-1,int(floor(random()*pool.size())))]
 
 func allies_alive() -> Array:
 	return b.data.allies.filter(func(u):return u.hp>0)
@@ -257,7 +300,6 @@ func turn() -> bool:
 	b.combat_hits=[]
 	begin_random(b.turn_count+1)
 	var turns=int(b.x(e).get("foe_turns",0))
-	var f=rules.foes.get(e.foe_id,{})
 	if e.broken:
 		e.broken=false; e.gauge=float(e.max); b._event(e.name+" · 차례 상실 · 심연 회복")
 		b.combat_events.push("recover",b.combat_events.slot(b,e),b.combat_events.T); b.combat_events.T+=1.2
@@ -266,9 +308,7 @@ func turn() -> bool:
 			e.charged=false; e.act_index=(int(e.act_index)+1)%e.acts.size()
 			e.hp=maxi(0,e.hp-int(floor(e.mhp*e.rules.get("break_self",0))))
 	else:
-		b.x(e).protect=""; b.x(e).hidden=false
-		turns+=1; b.x(e).foe_turns=turns
-		if e.phase==2 and f.get("phase2",{}).get("weak_cycle",false): cycle(e)
+		turn_start(e);turns=int(b.x(e).foe_turns)
 		var a=e.acts[e.act_index]; var targets=b.living(false) if a.get("target")=="allies" else [e]
 		var event_targets=[]
 		match a.kind:

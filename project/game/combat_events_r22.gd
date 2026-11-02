@@ -4,6 +4,9 @@ extends RefCounted
 var events=[]
 var T=.15
 var context={}
+var changed_slots={}
+func changed(b,u: Dictionary) -> void:
+	changed_slots[slot(b,u)]=true
 func slot(b,u: Dictionary) -> int: return (b.data.allies+b.data.enemies).find(u)+1
 func slots(b,list: Array) -> Array: return list.map(func(u):return slot(b,u))
 func push(kind: String,actor: int,start: float,targets: Array=[],hit: float=-1) -> void:

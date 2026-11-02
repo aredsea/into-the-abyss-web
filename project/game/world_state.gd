@@ -2,6 +2,7 @@ extends RefCounted
 
 const Route = preload("res://game/route_v1.gd")
 const Battle = preload("res://game/battle_state.gd")
+const BattleStats = preload("res://game/battle_stats_r23.gd")
 const IDS = ["hildegard","bargut","teiris","berenga"]
 var config: Dictionary
 var template: Dictionary
@@ -22,16 +23,10 @@ func person(id: String) -> Dictionary:
 
 func stats(id: String, level: int) -> Dictionary:
 	var p=person(id)
-	var cls={}
-	for c in config.classes:
-		if c.name==p["class"]: cls=c
-	var out={}; var x=level-1
-	for key in ["hp","mp","str","agi","int","def"]:
-		var curve=config.curves[key if key in ["hp","mp","def"] else "atk"]
-		var value=cls.base[key]*(1.0+p.mod.get(key,0)/100.0)*(1+cls.grow.get(key,1)*(curve.a*x+curve.b*x*x))
-		out[key]=int(round(value)) if key in ["hp","mp"] else value
-	out.spd=cls.base.spd+p.mod.get("spd",0)+config.curves.spd.add*x
-	out.crit=cls.base.crit+p.mod.get("crit",0)
+	var raw=BattleStats.party_stats(p["class"],level,id);var out={}
+	for key in ["hp","mp","str","agi","int","def"]:out[key]=raw[key]
+	out.hp=int(out.hp);out.mp=int(out.mp)
+	out.spd=raw.sp;out.crit=raw.cr
 	return out
 
 func need(level: int) -> int:

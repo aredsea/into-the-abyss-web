@@ -1,4 +1,41 @@
 extends RefCounted
+const Locale=preload("res://game/localization_r22.gd")
+const Josa=preload("res://game/josa_r22.gd")
+static func percent(value: float) -> int:return int(floor(value*100+.5+1e-9))
+static func lua_string(value: Variant) -> String:
+	if value==null:return "nil"
+	if value is bool:return "true" if value else "false"
+	if (value is int or value is float) and value==floor(value):return str(int(value))
+	return str(value)
+static func unit_name(u: Dictionary,lang: String="ko") -> String:return Locale.t(u.name,lang)
+static func subject(u: Dictionary,lang: String="ko") -> String:
+	var name=unit_name(u,lang)
+	return "<b>"+name+"</b>"+Josa.tail(name,"이가",lang)
+static func bold_particle(word: String,key: String,lang: String="ko") -> String:
+	return "<b>"+word+"</b>"+Josa.tail(word,key,lang)
+static func short_name(value: Variant) -> String:
+	var s=lua_string(value);var out="";var pos=0
+	while pos<s.length():
+		if s[pos]!="(":out+=s[pos];pos+=1;continue
+		var depth=1;var end=pos+1
+		while end<s.length() and depth>0:
+			if s[end]=="(":depth+=1
+			elif s[end]==")":depth-=1
+			end+=1
+		if depth!=0:out+=s[pos];pos+=1;continue
+		while not out.is_empty() and out[-1] in [" ","\t","\r","\n","\u000b","\u000c"]:out=out.left(-1)
+		pos=end
+	return out
+static func verb_connection(value: Variant):
+	var s=lua_string(value) if value!=null and not (value is bool and not value) else ""
+	if not s.ends_with("다") or s.length()<2:return false
+	var body=s.left(-1);var cp=body.unicode_at(body.length()-1)
+	if cp<0xac00 or cp>0xd7a3 or (cp-0xac00)%28!=20:return false
+	return body.left(-1)+("베어" if cp==0xbcb4 else String.chr(cp-20))
+static func boss_half(b) -> String:
+	for e in b.living(false):
+		if e.get("grade","")=="boss":return " (보스는 절반)"
+	return ""
 ## 40-fx callback schedule; native art and animation assets are unchanged.
 static func schedule(e: Dictionary) -> Array:
 	var out=[]; var t=float(e.t); var k=e.k; var tg=e.get("tg",[])
@@ -6,7 +43,7 @@ static func schedule(e: Dictionary) -> Array:
 	var result=func(r,at,tier):
 		add.call("hit",at)
 		if r.get("c",0)==1 or not r.get("tags",[]).filter(func(tag):return "약점" in tag).is_empty(): tier=maxi(tier,1)
-		if e.get("last",false): tier=2
+		if e.get("last",false) and k in ["atk","snipe","wave","burst"]: tier=2
 		var delay=[0,.1,.15][tier]
 		add.call("critical" if r.get("c",0)==1 else "number",at+delay)
 		if r.get("sh",0)>0 and r.sh<r.d: add.call("number",at+delay+.25)
