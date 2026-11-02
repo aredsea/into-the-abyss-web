@@ -14,11 +14,15 @@ func begin(b,id: String,a: Dictionary,e: Dictionary,t: Dictionary) -> void:
 		if member.id!=a.id and member.row==a.row: context.row.append(slot(b,member))
 	if id=="personal":
 		push("cut",context.actor,T)
-		T+=1.9 if a.id in ["levia","marceline","naran","teiris"] else 1.4
+		T+=1.9 if a.id in ["persona","levia","marceline","naran","teiris"] else 1.4
+		if a.id=="persona" and a.skills.personal.has("persona_skill"):
+			var p=b.PersonaCombat.Research.part("prefixes",a.skills.personal.persona_skill.prefix)
+			context.persona_spec=["wave" if p.kind=="volley" else "atk",.45,1.5,"foes" if p.kind=="volley" else "enemy"] if p.kind in ["attack","volley"] else ["shield",-1,1.8,"friends" if p.kind.ends_with("_all") else "ally"]
 func body_spec() -> Array:
 	var id=context.id; var owner=context.owner
 	if id=="defend": return ["def",-1,1.0,"none"]
 	if id=="personal":
+		if context.has("persona_spec"): return context.persona_spec
 		if owner=="haldric" and context.row.is_empty(): return ["def",-1,1.4,"none"]
 		return {
 			"levia":["rev",-1,1.2,"none"],"marceline":["oath",-1,1.6,"ally"],"naran":["mark",-1,1.7,"enemy"],

@@ -20,6 +20,7 @@ var combat_events=CombatEvents.new()
 const PersonalRules=preload("res://game/personal_rules_r22.gd")
 const TraitRules=preload("res://game/trait_rules_r22.gd")
 const GearBattle=preload("res://game/gear_battle_r22.gd")
+const PersonaCombat=preload("res://game/persona_combat_r22.gd")
 var gear_bridge
 
 func _volley(a: Dictionary,power: float,brk: float) -> void:
@@ -68,7 +69,7 @@ func _personal_hit_after(h: Dictionary) -> void:
 	if gear_bridge!=null:
 		gear_bridge.pack(); extra_chance=gear_bridge.hooks.assassin_extra(gear_bridge.st.u[gear_bridge.slot(a)-1],.2)
 	if a.hp>0 and a.class_id=="assassin" and (not h.extra or h.get("allow_extra",false)) and e.hp>0 and _roll(extra_chance):
-		_damage(a,e,a.skills.attack.power,0,true,-1,{"hit":.25,"duration":.8})
+		_damage(a,e,a.skills.attack.power,0,true,-1,{"hit":.25,"duration":.8,"element":h.get("element",a.element)})
 
 func _gear_hit_after(h: Dictionary) -> void:
 	if gear_bridge!=null:
@@ -634,7 +635,7 @@ func _tick(u: Dictionary) -> void:
 
 func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,source_crit_roll: float=-1,proc_event: Dictionary={}) -> void:
 	if e.hp<=0: return
-	if dungeon_enemy_r21!=null and not volley_active: e=dungeon_enemy_r21.protector(e)
+	if dungeon_enemy_r21!=null and not volley_active and not proc_event.get("redirected",false): e=dungeon_enemy_r21.protector(e)
 	var gear=a.get("gear_fx",{}) if gear_bridge==null else {}
 	var chance=(a.base.crit+a.get("combat_ag",a.base.agi)/20.0+a.passive.get("crit",0)+a.trait.p.get("crit",0)+gear.get("crit",0))/100.0
 	if dungeon_enemy_r21!=null and a.class_id=="gladiator": chance-=a.passive.get("crit",0)/100.0
@@ -644,7 +645,7 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 			gear_bridge.pack(); chance=gear_bridge.hooks.snipe_crit(gear_bridge.st.u[gear_bridge.slot(a)-1])/100
 		else: chance=sig(a,"ar_wind")[1]/100.0 if not sig(a,"ar_wind").is_empty() else .7
 	if a.effects.has("blood"): chance+=.3
-	chance+=fx(a,"crit_up")
+	chance+=fx(a,"crit_up")+fx(a,"pscrit")
 	if gear_bridge!=null: chance+=gear_bridge.invoke("crit",[gear_bridge.slot(a),gear_bridge.slot(e),{},0])/100
 	if a.get("lineage") in ["고양이","표범","고양이과"]:
 		if not x(a).has("first_attack_action"): x(a).first_attack_action=turn_count+1
@@ -701,7 +702,7 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 	if a.id=="lavinia" and action_id=="personal" and not extra and (e.acts[e.act_index].get("ic","") in ["spell","weaken","summon"] or e.acts[e.act_index].kind in ["spell","weaken","summon"]): mult*=1.3
 	if a.id=="bianca" and e.get("grade","") in ["boss","chief","core"]: mult*=1.3
 	if dungeon_enemy_r21!=null: mult*=PersonalRules.damage_mult(self,a)
-	var weak=a.element in e.weak
+	var weak=proc_event.get("element",a.element) in e.weak
 	var defense=e.defense*(1+fx(e,"defense_up")-fx(e,"defense_down")) if dungeon_enemy_r21!=null else e.defense*(1-fx(e,"defense_down"))
 	var n=e.level-1
 	var k=data.formula.def_k_ratio*data.formula.def_std_base*(1+data.def_curve.a*n+data.def_curve.b*n*n)
@@ -732,6 +733,7 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 		if shield>0: e.effects.shield.amount-=shield; e.hp=mini(e.mhp,e.hp+shield)
 		_record_hit(a.id,e.id,dealt,shield,critical)
 		dungeon_enemy_r21.phase_guard(e,before)
+	if proc_event.get("capture_result",false):proc_event.primary_kill=e.hp<=0
 	_event("%s → %s · %d 피해%s" % [a.name,e.short,dealt," · 치명" if critical else ""])
 	var abyss=brk*(1.5 if weak else 1.0)*(1+gear.get("abyss",0)/100.0)
 	if gear_bridge==null and not sig(a,"ch_rift").is_empty(): abyss*=1+sig(a,"ch_rift")[0]/100.0
@@ -748,11 +750,12 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 		for other in living(false):
 			if other.id!=e.id: _break(other,floor(floor(abyss+.5)*.07+.5))
 	if dungeon_enemy_r21!=null:
-		if not proc_event.is_empty():
+		if proc_event.has("hit"):
 			combat_events.push("atk",combat_events.slot(self,a),combat_events.T,[combat_events.slot(self,e)],combat_events.T+proc_event.hit)
 			combat_events.T+=proc_event.duration
 		if before>0 and e.hp<=0: _personal_enemy_down(e)
 		var hook={"a":a,"e":e,"power":power,"brk":brk,"extra":extra,"critical":critical,"dealt":dealt,"before":before,"shield_before":shield_before,"volley":volley_active,"killed":e.hp<=0}
+		hook.element=proc_event.get("element",a.element)
 		hook.allow_extra=proc_event.get("allow_extra",false)
 		if volley_active: pending_hit_hooks.append(hook)
 		else: _personal_hit_after(hook)
@@ -860,7 +863,9 @@ func act(id: String) -> bool:
 	_event(a.name+" · "+sk.name)
 	match id:
 		"tactic": _tactic(a,e,t,sk)
-		"personal": _personal(a,e,t,sk)
+		"personal":
+			if a.id=="persona" and sk.has("persona_skill"): PersonaCombat.run(self,a,e,t,sk)
+			else: _personal(a,e,t,sk)
 		"attack","snipe","rift":
 			var brk=sk.brk*(1.5 if id=="rift" and a.effects.has("rift_charge") else 1.0)
 			_damage(a,e,sk.power,brk)

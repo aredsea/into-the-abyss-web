@@ -21,6 +21,7 @@ func make_enemy(enc: Dictionary,index: int,level: int,allies: Array,foe_id: Stri
 	return e
 func battle_data() -> Dictionary:
 	var d=super();var mul=battle_multiplier()
+	d.language_r22=preload("res://game/localization_r22.gd").language(s)
 	if r21():d.enemy_power_r21*=mul
 	else:
 		for e in d.enemies:e.mhp=maxi(1,int(floor(e.mhp*mul+.5)));e.hp=0 if e.hp==0 else e.mhp;e.attack*=mul

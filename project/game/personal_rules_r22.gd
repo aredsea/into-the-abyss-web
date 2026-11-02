@@ -26,8 +26,8 @@ static func can(b,a: Dictionary) -> bool:
 			return false
 	return true
 
-static func abyss(b,a,e,amount: float) -> void:
-	var value=amount*(1.5 if a.element in e.weak else 1)
+static func abyss(b,a,e,amount: float,element: String="") -> void:
+	var value=amount*(1.5 if (a.element if element.is_empty() else element) in e.weak else 1)
 	if a.id=="levia": value*=levia_mult(b)
 	if b.gear_bridge!=null:
 		var modified=b.gear_bridge.invoke("abyss_mul",[b.gear_bridge.slot(a),b.gear_bridge.slot(e),value]); value=modified if modified!=null else value

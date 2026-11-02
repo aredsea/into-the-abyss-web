@@ -1,0 +1,75 @@
+{
+  "parity": {
+    "actual_actions": 186707,
+    "battles": 5120,
+    "equal_battles": 5120,
+    "matched_actions": 186707,
+    "purpose": "Strict active-skill and consumable full-battle parity",
+    "source_actions": 186707
+  },
+  "persona": {
+    "checks": 34800,
+    "failures": [],
+    "initial": 1440,
+    "skills": 3520
+  },
+  "save": {
+    "checks": 385,
+    "failures": [],
+    "legacy": 11
+  },
+  "ui": {
+    "checks": 38929,
+    "failures": [],
+    "overflow": []
+  },
+  "regression": {
+    "groups": 55,
+    "failed": []
+  },
+  "coverage": {
+    "class_combinations": 320,
+    "source_persona_casts": 32722,
+    "source_persona_deaths": 2212,
+    "source_persona_revives": 32
+  },
+  "localization": {
+    "shipping": {
+      "ui": 153,
+      "words": 2785
+    },
+    "candidates": 97,
+    "whole_unsupported": 78,
+    "observed_partial_korean": 23
+  },
+  "protected": {
+    "docs/": 249,
+    "project/assets/": 1772,
+    "changed": [],
+    "legacy_specimens": 11,
+    "legacy_changed": []
+  },
+  "before_files": 2490,
+  "modified_existing": [
+    "project/data/localization-r22.json",
+    "project/game/battle_v3.gd",
+    "project/game/combat_display_r22.gd",
+    "project/game/combat_events_r22.gd",
+    "project/game/gear_battle_r22.gd",
+    "project/game/localization_r22.gd",
+    "project/game/personal_rules_r22.gd",
+    "project/game/persona_world.gd",
+    "project/game/settings_world_r22.gd",
+    "project/ui/battle_screen.gd",
+    "project/ui/combat_presentation.gd",
+    "project/ui/signature_sequence.gd",
+    "project/ui/town_screen_r21.gd"
+  ],
+  "contacts": [
+    "verification/data-r21/a8-ui/contact-360x780.jpg",
+    "verification/data-r21/a8-ui/contact-390x844.jpg",
+    "verification/data-r21/a8-ui/contact-390x664.jpg",
+    "verification/data-r21/a8-ui/contact-430x932.jpg",
+    "verification/data-r21/a8-ui/contact-1280x800.jpg"
+  ]
+}

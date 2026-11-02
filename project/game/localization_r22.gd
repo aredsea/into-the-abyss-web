@@ -24,11 +24,13 @@ static func _patterns() -> void:
 	for src in DATA.ui:
 		var matches=token.search_all(src)
 		if matches.is_empty():continue
+		# Variable-only templates cannot identify formatted text safely.
+		if token.sub(src,"",true).strip_edges()=="":continue
 		var expression="^";var pos=0;var keys=[]
 		for m in matches:
 			for ch in src.substr(pos,m.get_start()-pos):expression+=("\\" if ch in "\\.^$|?*+()[]{}" else "")+ch
 			# Runtime formatted counts must not capture an entire Korean sentence.
-			expression+="([+-]?[0-9]+(?:\\.[0-9]+)?)" if m.get_string(1) in ["n","exp","gold"] else "(.+?)";keys.append(m.get_string(1));pos=m.get_end()
+			expression+="([+-]?[0-9]+(?:\\.[0-9]+)?)" if m.get_string(1) in ["n","exp","gold","floor","turns"] else "(.+?)";keys.append(m.get_string(1));pos=m.get_end()
 		for ch in src.substr(pos):expression+=("\\" if ch in "\\.^$|?*+()[]{}" else "")+ch
 		var re=RegEx.new();re.compile(expression+"$");patterns.append({"re":re,"src":src,"keys":keys})
 static func render(value: String,lang="ko") -> String:

@@ -29,9 +29,14 @@ var face_rect=Rect2()
 var title_rect=Rect2()
 var byline_rect=Rect2()
 var preview_body: Control
+var language_r22="ko"
+var art_override={}
+const L=preload("res://game/localization_r22.gd")
 func _ready() -> void:
 	mouse_filter=MOUSE_FILTER_IGNORE; clip_contents=true
-	art=Sprite.info(character_id); tint=FX.color_for(art.element)
+	art=(art_override if not art_override.is_empty() else Sprite.info(character_id)).duplicate(true)
+	art.name=L.t(art.get("name",""),language_r22);art.skill=L.t(art.get("skill",""),language_r22)
+	tint=FX.color_for(art.get("element","none"))
 	if reduced: duration=.36; contact_at=.12
 	portrait=Face.new(); add_child(portrait); portrait.configure(character_id)
 	heading=Label.new(); add_child(heading)
@@ -40,7 +45,7 @@ func _ready() -> void:
 	byline=Label.new(); add_child(byline); byline.add_theme_font_override("font",FONT)
 	byline.add_theme_font_size_override("font_size",14); byline.add_theme_color_override("font_color",PAPER); byline.mouse_filter=MOUSE_FILTER_IGNORE
 	heading.text=art.skill
-	byline.text=art.name+" · "+{"ice":"빙결","bolt":"전격","fire":"화염","holy":"신성","wind":"바람","dark":"암흑","none":"무속성"}.get(art.element,art.element)
+	byline.text=art.name+" · "+L.t({"ice":"빙결","bolt":"전격","fire":"화염","holy":"신성","wind":"바람","dark":"암흑","none":"무속성"}.get(art.element,art.element),language_r22)
 	if preview:
 		preview_body=Sprite.new(); preview_body.battle_pixels=true; preview_body.configure(character_id,true); add_child(preview_body); move_child(preview_body,0)
 	resized.connect(_layout); _layout(); refresh()

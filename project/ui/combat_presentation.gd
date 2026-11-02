@@ -32,6 +32,8 @@ var contact_wall_time: int = 0
 var signature: Control
 var element="none"
 var clip_start=0.0
+var language_r22="ko"
+var signature_art={}
 var hit_material: ShaderMaterial
 var flash_frame=-10
 const FX=preload("res://ui/combat_fx.gd")
@@ -59,6 +61,7 @@ func _ready() -> void:
 			contact=clip_start+float(clip.impact_at) if not clip.is_empty() else 1.10
 			length=maxf(length,contact+.4)
 		signature=Signature.new(); signature.character_id=character_id
+		signature.language_r22=language_r22; signature.art_override=signature_art
 		signature.reduced=reduced; signature.externally_timed=true
 		signature.duration=length; signature.contact_at=contact
 		signature.position=field.position; signature.size=field.size

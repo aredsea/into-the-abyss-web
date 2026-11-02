@@ -48,6 +48,8 @@ static func chips(b,u: Dictionary) -> Array:
 	if effects.has("silence"): out.append("침묵")
 	if not x.get("cover","").is_empty(): out.append("서약 → "+b.unit(x.cover).name)
 	if effects.has("rift_charge"): out.append("심연 깎기 ×1.5")
+	for pair in [["psguard","전술 피해 감소"],["pscrit","치명"],["persona_regen","재생"]]:
+		if effects.has(pair[0]):out.append(pair[1]+" (%d턴)"%effects[pair[0]].turns)
 	if effects.has("mark"): out.append("표식")
 	if effects.has("foxflame"): out.append("여우불 %d턴"%effects.foxflame.turns)
 	for entry in [["attack_up","공격 +"],["defense_up","방어 +"],["attack_down","공격 −"],["defense_down","방어 −"],["haste","속도 +"],["slow","속도 −"]]:

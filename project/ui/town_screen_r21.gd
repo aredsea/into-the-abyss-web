@@ -447,7 +447,7 @@ func research() -> void:
 	header("전술 연구","guild")
 	npc_hero("loredana","전술\n연구","",430)
 	paragraph("더 날카롭게,\n더 멀리.",Rect2(18,250,130,43),14)
-	action("research_editor","조각 조합 · 편집 후 저장",Rect2(18,309,225,44),func():host.research_edit=true;host._draw_screen())
+	action("research_editor","조각 조합 · 편집 후 저장",Rect2(18,309,225,44),func():host.research_edit=true;host.who="persona" if host.model.s.has("persona") else host.who;host._draw_screen())
 	member_choice(Rect2(18,398,354,38))
 	var w=host.model;var r=w.s.research[host.who];var current=w.tactic(host.who)
 	guild_tabs(2)
@@ -483,8 +483,13 @@ func research_editor() -> void:
 	npc_hero("loredana","전술\n연구","",430)
 	fill("research_instructions",Rect2(18,244,237,63),T.PAPER)
 	paragraph("몸통과 덧효과를 고른 뒤 저장하세요.\n바꾸기는 무료, 강화는 조각에 남습니다.",Rect2(18,250,225,54),13)
-	action("research_legacy","동료 전술 관리",Rect2(18,316,188,44),func():host.research_edit=false;host._draw_screen())
-	member_choice(Rect2(18,398,354,38));guild_tabs(2)
+	action("research_legacy","동료 전술 관리",Rect2(18,316,188,44),func():host.research_edit=false;host.who=host.model.s.owned[0] if not host.model.s.owned.is_empty() else host.who;host._draw_screen(),false,host.model.s.owned.is_empty())
+	if host.model.s.has("persona"):
+		host.who="persona"
+		fill("persona_research_owner",Rect2(18,398,354,38),T.PAPER)
+		label(host.model.person("persona").name,Rect2(18,398,354,38),16)
+	else:member_choice(Rect2(18,398,354,38))
+	guild_tabs(2)
 	var w=host.model;var rules=w.PersonaResearch;var v=w.research_work(host.who)
 	for index in range(2):
 		var kind="prefixes" if index==0 else "suffixes";var parts=[]

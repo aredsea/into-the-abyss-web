@@ -22,6 +22,7 @@ func unit_at(i: int) -> Dictionary:
 	if i<=4: return b.data.allies[i-1] if i<=b.data.allies.size() else {}
 	return b.data.enemies[i-5]
 func skill_id(id: String) -> String:
+	if id=="personal" and b.current_id=="persona": return "persona_skill"
 	return {"attack":"atk","defend":"df","ptaunt":"taunt","pshield":"shield","hshield":"pshield","acid":"defdn","chaoswave":"wave"}.get(id,id)
 
 func pack():
