@@ -1,0 +1,8964 @@
+{
+	"checks": 261,
+	"failures": [],
+	"rows": [
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 79,
+					"row": "후열",
+					"sp": 100.0
+				}
+			],
+			"label": "state initial/1/1/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 79.0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 79,
+					"row": "후열",
+					"sp": 100.0
+				}
+			],
+			"label": "state carry revive/1/1/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 79.0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/1/1/0",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			],
+			"label": "state initial/1/1/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			],
+			"label": "state carry revive/1/1/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/1/1/1",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			],
+			"label": "state initial/1/1/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			],
+			"label": "state carry revive/1/1/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/1/1/2",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			],
+			"label": "state initial/1/1/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			],
+			"label": "state carry revive/1/1/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/1/1/3",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 100,
+					"row": "후열",
+					"sp": 102.0
+				}
+			],
+			"label": "state initial/1/10/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 100.0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 100,
+					"row": "후열",
+					"sp": 102.0
+				}
+			],
+			"label": "state carry revive/1/10/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 100.0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/1/10/0",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			],
+			"label": "state initial/1/10/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			],
+			"label": "state carry revive/1/10/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/1/10/1",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			],
+			"label": "state initial/1/10/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			],
+			"label": "state carry revive/1/10/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/1/10/2",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			],
+			"label": "state initial/1/10/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			],
+			"label": "state carry revive/1/10/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/1/10/3",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 171,
+					"row": "후열",
+					"sp": 110.0
+				}
+			],
+			"label": "state initial/1/40/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 171.0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 171,
+					"row": "후열",
+					"sp": 110.0
+				}
+			],
+			"label": "state carry revive/1/40/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 171.0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/1/40/0",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			],
+			"label": "state initial/1/40/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			],
+			"label": "state carry revive/1/40/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/1/40/1",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			],
+			"label": "state initial/1/40/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			],
+			"label": "state carry revive/1/40/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/1/40/2",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			],
+			"label": "state initial/1/40/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			],
+			"label": "state carry revive/1/40/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/1/40/3",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 79,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 60,
+					"row": "후열",
+					"sp": 100.0
+				}
+			],
+			"label": "state initial/2/1/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 79.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 60.0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 79,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 60,
+					"row": "후열",
+					"sp": 100.0
+				}
+			],
+			"label": "state carry revive/2/1/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 79.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 60.0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/2/1/0",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			],
+			"label": "state initial/2/1/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			],
+			"label": "state carry revive/2/1/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/2/1/1",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 79,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			],
+			"label": "state initial/2/1/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 79.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 79,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			],
+			"label": "state carry revive/2/1/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 79.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/2/1/2",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			],
+			"label": "state initial/2/1/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			],
+			"label": "state carry revive/2/1/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/2/1/3",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 100,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 76,
+					"row": "후열",
+					"sp": 102.0
+				}
+			],
+			"label": "state initial/2/10/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 100.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 76.0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 100,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 76,
+					"row": "후열",
+					"sp": 102.0
+				}
+			],
+			"label": "state carry revive/2/10/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 100.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 76.0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/2/10/0",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			],
+			"label": "state initial/2/10/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			],
+			"label": "state carry revive/2/10/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/2/10/1",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 100,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			],
+			"label": "state initial/2/10/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 100.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 100,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			],
+			"label": "state carry revive/2/10/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 100.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/2/10/2",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			],
+			"label": "state initial/2/10/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			],
+			"label": "state carry revive/2/10/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/2/10/3",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 171,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 130,
+					"row": "후열",
+					"sp": 110.0
+				}
+			],
+			"label": "state initial/2/40/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 171.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 130.0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 171,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 130,
+					"row": "후열",
+					"sp": 110.0
+				}
+			],
+			"label": "state carry revive/2/40/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 171.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 130.0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/2/40/0",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			],
+			"label": "state initial/2/40/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			],
+			"label": "state carry revive/2/40/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/2/40/1",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 171,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			],
+			"label": "state initial/2/40/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 171.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 171,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			],
+			"label": "state carry revive/2/40/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 171.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/2/40/2",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			],
+			"label": "state initial/2/40/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			],
+			"label": "state carry revive/2/40/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/2/40/3",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 79,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 60,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 88,
+					"mhp": 88,
+					"mmp": 41,
+					"mp": 41,
+					"row": "후열",
+					"sp": 96.0
+				}
+			],
+			"label": "state initial/3/1/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 79.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 60.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 88.0,
+					"mhp": 88.0,
+					"mmp": 41.0,
+					"mp": 41.0,
+					"row": "후열",
+					"sp": 96.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 79,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 60,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 88,
+					"mhp": 88,
+					"mmp": 41,
+					"mp": 41,
+					"row": "후열",
+					"sp": 96.0
+				}
+			],
+			"label": "state carry revive/3/1/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 79.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 60.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 88.0,
+					"mhp": 88.0,
+					"mmp": 41.0,
+					"mp": 41.0,
+					"row": "후열",
+					"sp": 96.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/3/1/0",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 88,
+					"mmp": 41,
+					"mp": 0,
+					"row": "후열",
+					"sp": 96.0
+				}
+			],
+			"label": "state initial/3/1/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 88.0,
+					"mmp": 41.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 96.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 88,
+					"mmp": 41,
+					"mp": 0,
+					"row": "후열",
+					"sp": 96.0
+				}
+			],
+			"label": "state carry revive/3/1/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 88.0,
+					"mmp": 41.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 96.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/3/1/1",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 79,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 60,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 88,
+					"mmp": 41,
+					"mp": 0,
+					"row": "후열",
+					"sp": 96.0
+				}
+			],
+			"label": "state initial/3/1/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 79.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 60.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 88.0,
+					"mmp": 41.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 96.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 79,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 60,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 88,
+					"mmp": 41,
+					"mp": 0,
+					"row": "후열",
+					"sp": 96.0
+				}
+			],
+			"label": "state carry revive/3/1/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 79.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 60.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 88.0,
+					"mmp": 41.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 96.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/3/1/2",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 88,
+					"mmp": 41,
+					"mp": 0,
+					"row": "후열",
+					"sp": 96.0
+				}
+			],
+			"label": "state initial/3/1/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 88.0,
+					"mmp": 41.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 96.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 88,
+					"mmp": 41,
+					"mp": 0,
+					"row": "후열",
+					"sp": 96.0
+				}
+			],
+			"label": "state carry revive/3/1/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 88.0,
+					"mmp": 41.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 96.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/3/1/3",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 100,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 76,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 164,
+					"mhp": 164,
+					"mmp": 53,
+					"mp": 53,
+					"row": "후열",
+					"sp": 98.0
+				}
+			],
+			"label": "state initial/3/10/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 100.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 76.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 164.0,
+					"mhp": 164.0,
+					"mmp": 53.0,
+					"mp": 53.0,
+					"row": "후열",
+					"sp": 98.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 100,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 76,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 164,
+					"mhp": 164,
+					"mmp": 53,
+					"mp": 53,
+					"row": "후열",
+					"sp": 98.0
+				}
+			],
+			"label": "state carry revive/3/10/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 100.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 76.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 164.0,
+					"mhp": 164.0,
+					"mmp": 53.0,
+					"mp": 53.0,
+					"row": "후열",
+					"sp": 98.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/3/10/0",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 164,
+					"mmp": 53,
+					"mp": 0,
+					"row": "후열",
+					"sp": 98.0
+				}
+			],
+			"label": "state initial/3/10/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 164.0,
+					"mmp": 53.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 98.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 164,
+					"mmp": 53,
+					"mp": 0,
+					"row": "후열",
+					"sp": 98.0
+				}
+			],
+			"label": "state carry revive/3/10/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 164.0,
+					"mmp": 53.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 98.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/3/10/1",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 100,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 76,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 164,
+					"mmp": 53,
+					"mp": 0,
+					"row": "후열",
+					"sp": 98.0
+				}
+			],
+			"label": "state initial/3/10/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 100.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 76.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 164.0,
+					"mmp": 53.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 98.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 100,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 76,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 164,
+					"mmp": 53,
+					"mp": 0,
+					"row": "후열",
+					"sp": 98.0
+				}
+			],
+			"label": "state carry revive/3/10/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 100.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 76.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 164.0,
+					"mmp": 53.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 98.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/3/10/2",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 164,
+					"mmp": 53,
+					"mp": 0,
+					"row": "후열",
+					"sp": 98.0
+				}
+			],
+			"label": "state initial/3/10/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 164.0,
+					"mmp": 53.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 98.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 164,
+					"mmp": 53,
+					"mp": 0,
+					"row": "후열",
+					"sp": 98.0
+				}
+			],
+			"label": "state carry revive/3/10/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 164.0,
+					"mmp": 53.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 98.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/3/10/3",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 171,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 130,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 540,
+					"mhp": 540,
+					"mmp": 90,
+					"mp": 90,
+					"row": "후열",
+					"sp": 106.0
+				}
+			],
+			"label": "state initial/3/40/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 171.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 130.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 540.0,
+					"mhp": 540.0,
+					"mmp": 90.0,
+					"mp": 90.0,
+					"row": "후열",
+					"sp": 106.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 171,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 130,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 540,
+					"mhp": 540,
+					"mmp": 90,
+					"mp": 90,
+					"row": "후열",
+					"sp": 106.0
+				}
+			],
+			"label": "state carry revive/3/40/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 171.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 130.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 540.0,
+					"mhp": 540.0,
+					"mmp": 90.0,
+					"mp": 90.0,
+					"row": "후열",
+					"sp": 106.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/3/40/0",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 540,
+					"mmp": 90,
+					"mp": 0,
+					"row": "후열",
+					"sp": 106.0
+				}
+			],
+			"label": "state initial/3/40/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 540.0,
+					"mmp": 90.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 106.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 540,
+					"mmp": 90,
+					"mp": 0,
+					"row": "후열",
+					"sp": 106.0
+				}
+			],
+			"label": "state carry revive/3/40/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 540.0,
+					"mmp": 90.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 106.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/3/40/1",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 171,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 130,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 540,
+					"mmp": 90,
+					"mp": 0,
+					"row": "후열",
+					"sp": 106.0
+				}
+			],
+			"label": "state initial/3/40/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 171.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 130.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 540.0,
+					"mmp": 90.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 106.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 171,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 130,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 540,
+					"mmp": 90,
+					"mp": 0,
+					"row": "후열",
+					"sp": 106.0
+				}
+			],
+			"label": "state carry revive/3/40/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 171.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 130.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 540.0,
+					"mmp": 90.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 106.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/3/40/2",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 540,
+					"mmp": 90,
+					"mp": 0,
+					"row": "후열",
+					"sp": 106.0
+				}
+			],
+			"label": "state initial/3/40/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 540.0,
+					"mmp": 90.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 106.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 540,
+					"mmp": 90,
+					"mp": 0,
+					"row": "후열",
+					"sp": 106.0
+				}
+			],
+			"label": "state carry revive/3/40/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 540.0,
+					"mmp": 90.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 106.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/3/40/3",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 79,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 60,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 88,
+					"mhp": 88,
+					"mmp": 41,
+					"mp": 41,
+					"row": "후열",
+					"sp": 96.0
+				},
+				{
+					"ag": 5.0,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 16.0,
+					"de": 19.0,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 111,
+					"mhp": 111,
+					"mmp": 53,
+					"mp": 53,
+					"row": "전열",
+					"sp": 82.0
+				}
+			],
+			"label": "state initial/4/1/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 79.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 60.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 88.0,
+					"mhp": 88.0,
+					"mmp": 41.0,
+					"mp": 41.0,
+					"row": "후열",
+					"sp": 96.0
+				},
+				{
+					"ag": 5.0,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 16.0,
+					"de": 19.0,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 111.0,
+					"mhp": 111.0,
+					"mmp": 53.0,
+					"mp": 53.0,
+					"row": "전열",
+					"sp": 82.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 79,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 60,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 88,
+					"mhp": 88,
+					"mmp": 41,
+					"mp": 41,
+					"row": "후열",
+					"sp": 96.0
+				},
+				{
+					"ag": 5.0,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 16.0,
+					"de": 19.0,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 111,
+					"mhp": 111,
+					"mmp": 53,
+					"mp": 53,
+					"row": "전열",
+					"sp": 82.0
+				}
+			],
+			"label": "state carry revive/4/1/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 79.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 60.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 88.0,
+					"mhp": 88.0,
+					"mmp": 41.0,
+					"mp": 41.0,
+					"row": "후열",
+					"sp": 96.0
+				},
+				{
+					"ag": 5.0,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 16.0,
+					"de": 19.0,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 111.0,
+					"mhp": 111.0,
+					"mmp": 53.0,
+					"mp": 53.0,
+					"row": "전열",
+					"sp": 82.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/4/1/0",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 88,
+					"mmp": 41,
+					"mp": 0,
+					"row": "후열",
+					"sp": 96.0
+				},
+				{
+					"ag": 5.0,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 16.0,
+					"de": 19.0,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 111,
+					"mmp": 53,
+					"mp": 0,
+					"row": "전열",
+					"sp": 82.0
+				}
+			],
+			"label": "state initial/4/1/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 88.0,
+					"mmp": 41.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 96.0
+				},
+				{
+					"ag": 5.0,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 16.0,
+					"de": 19.0,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 111.0,
+					"mmp": 53.0,
+					"mp": 0.0,
+					"row": "전열",
+					"sp": 82.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 88,
+					"mmp": 41,
+					"mp": 0,
+					"row": "후열",
+					"sp": 96.0
+				},
+				{
+					"ag": 5.0,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 16.0,
+					"de": 19.0,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 111,
+					"mmp": 53,
+					"mp": 0,
+					"row": "전열",
+					"sp": 82.0
+				}
+			],
+			"label": "state carry revive/4/1/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 88.0,
+					"mmp": 41.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 96.0
+				},
+				{
+					"ag": 5.0,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 16.0,
+					"de": 19.0,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 111.0,
+					"mmp": 53.0,
+					"mp": 0.0,
+					"row": "전열",
+					"sp": 82.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/4/1/1",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 79,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 60,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 88,
+					"mhp": 88,
+					"mmp": 41,
+					"mp": 41,
+					"row": "후열",
+					"sp": 96.0
+				},
+				{
+					"ag": 5.0,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 16.0,
+					"de": 19.0,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 111,
+					"mmp": 53,
+					"mp": 0,
+					"row": "전열",
+					"sp": 82.0
+				}
+			],
+			"label": "state initial/4/1/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 79.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 60.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 88.0,
+					"mhp": 88.0,
+					"mmp": 41.0,
+					"mp": 41.0,
+					"row": "후열",
+					"sp": 96.0
+				},
+				{
+					"ag": 5.0,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 16.0,
+					"de": 19.0,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 111.0,
+					"mmp": 53.0,
+					"mp": 0.0,
+					"row": "전열",
+					"sp": 82.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 79,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 82,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 60,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 88,
+					"mhp": 88,
+					"mmp": 41,
+					"mp": 41,
+					"row": "후열",
+					"sp": 96.0
+				},
+				{
+					"ag": 5.0,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 16.0,
+					"de": 19.0,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 111,
+					"mmp": 53,
+					"mp": 0,
+					"row": "전열",
+					"sp": 82.0
+				}
+			],
+			"label": "state carry revive/4/1/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 79.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 82.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 60.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 88.0,
+					"mhp": 88.0,
+					"mmp": 41.0,
+					"mp": 41.0,
+					"row": "후열",
+					"sp": 96.0
+				},
+				{
+					"ag": 5.0,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 16.0,
+					"de": 19.0,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 111.0,
+					"mmp": 53.0,
+					"mp": 0.0,
+					"row": "전열",
+					"sp": 82.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/4/1/2",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 88,
+					"mmp": 41,
+					"mp": 0,
+					"row": "후열",
+					"sp": 96.0
+				},
+				{
+					"ag": 5.0,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 16.0,
+					"de": 19.0,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 111,
+					"mmp": 53,
+					"mp": 0,
+					"row": "전열",
+					"sp": 82.0
+				}
+			],
+			"label": "state initial/4/1/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 88.0,
+					"mmp": 41.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 96.0
+				},
+				{
+					"ag": 5.0,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 16.0,
+					"de": 19.0,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 111.0,
+					"mmp": 53.0,
+					"mp": 0.0,
+					"row": "전열",
+					"sp": 82.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 82,
+					"mmp": 79,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 82,
+					"mmp": 60,
+					"mp": 0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 88,
+					"mmp": 41,
+					"mp": 0,
+					"row": "후열",
+					"sp": 96.0
+				},
+				{
+					"ag": 5.0,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 16.0,
+					"de": 19.0,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 111,
+					"mmp": 53,
+					"mp": 0,
+					"row": "전열",
+					"sp": 82.0
+				}
+			],
+			"label": "state carry revive/4/1/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 8.8,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 16.0,
+					"de": 9.0,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 82.0,
+					"mmp": 79.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 20.0,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 20.0,
+					"de": 9.0,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 82.0,
+					"mmp": 60.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 100.0
+				},
+				{
+					"ag": 6.0,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 16.65,
+					"de": 6.88,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 88.0,
+					"mmp": 41.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 96.0
+				},
+				{
+					"ag": 5.0,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 16.0,
+					"de": 19.0,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 111.0,
+					"mmp": 53.0,
+					"mp": 0.0,
+					"row": "전열",
+					"sp": 82.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/4/1/3",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 100,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 76,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 164,
+					"mhp": 164,
+					"mmp": 53,
+					"mp": 53,
+					"row": "후열",
+					"sp": 98.0
+				},
+				{
+					"ag": 8.555,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 27.9448,
+					"de": 31.64032,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 216,
+					"mhp": 216,
+					"mmp": 67,
+					"mp": 67,
+					"row": "전열",
+					"sp": 84.0
+				}
+			],
+			"label": "state initial/4/10/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 100.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 76.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 164.0,
+					"mhp": 164.0,
+					"mmp": 53.0,
+					"mp": 53.0,
+					"row": "후열",
+					"sp": 98.0
+				},
+				{
+					"ag": 8.555,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 27.9448,
+					"de": 31.64032,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 216.0,
+					"mhp": 216.0,
+					"mmp": 67.0,
+					"mp": 67.0,
+					"row": "전열",
+					"sp": 84.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 100,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 76,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 164,
+					"mhp": 164,
+					"mmp": 53,
+					"mp": 53,
+					"row": "후열",
+					"sp": 98.0
+				},
+				{
+					"ag": 8.555,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 27.9448,
+					"de": 31.64032,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 216,
+					"mhp": 216,
+					"mmp": 67,
+					"mp": 67,
+					"row": "전열",
+					"sp": 84.0
+				}
+			],
+			"label": "state carry revive/4/10/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 100.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 76.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 164.0,
+					"mhp": 164.0,
+					"mmp": 53.0,
+					"mp": 53.0,
+					"row": "후열",
+					"sp": 98.0
+				},
+				{
+					"ag": 8.555,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 27.9448,
+					"de": 31.64032,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 216.0,
+					"mhp": 216.0,
+					"mmp": 67.0,
+					"mp": 67.0,
+					"row": "전열",
+					"sp": 84.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/4/10/0",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 164,
+					"mmp": 53,
+					"mp": 0,
+					"row": "후열",
+					"sp": 98.0
+				},
+				{
+					"ag": 8.555,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 27.9448,
+					"de": 31.64032,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 216,
+					"mmp": 67,
+					"mp": 0,
+					"row": "전열",
+					"sp": 84.0
+				}
+			],
+			"label": "state initial/4/10/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 164.0,
+					"mmp": 53.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 98.0
+				},
+				{
+					"ag": 8.555,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 27.9448,
+					"de": 31.64032,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 216.0,
+					"mmp": 67.0,
+					"mp": 0.0,
+					"row": "전열",
+					"sp": 84.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 164,
+					"mmp": 53,
+					"mp": 0,
+					"row": "후열",
+					"sp": 98.0
+				},
+				{
+					"ag": 8.555,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 27.9448,
+					"de": 31.64032,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 216,
+					"mmp": 67,
+					"mp": 0,
+					"row": "전열",
+					"sp": 84.0
+				}
+			],
+			"label": "state carry revive/4/10/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 164.0,
+					"mmp": 53.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 98.0
+				},
+				{
+					"ag": 8.555,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 27.9448,
+					"de": 31.64032,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 216.0,
+					"mmp": 67.0,
+					"mp": 0.0,
+					"row": "전열",
+					"sp": 84.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/4/10/1",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 100,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 76,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 164,
+					"mhp": 164,
+					"mmp": 53,
+					"mp": 53,
+					"row": "후열",
+					"sp": 98.0
+				},
+				{
+					"ag": 8.555,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 27.9448,
+					"de": 31.64032,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 216,
+					"mmp": 67,
+					"mp": 0,
+					"row": "전열",
+					"sp": 84.0
+				}
+			],
+			"label": "state initial/4/10/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 100.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 76.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 164.0,
+					"mhp": 164.0,
+					"mmp": 53.0,
+					"mp": 53.0,
+					"row": "후열",
+					"sp": 98.0
+				},
+				{
+					"ag": 8.555,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 27.9448,
+					"de": 31.64032,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 216.0,
+					"mmp": 67.0,
+					"mp": 0.0,
+					"row": "전열",
+					"sp": 84.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 100,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 153,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 76,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 164,
+					"mhp": 164,
+					"mmp": 53,
+					"mp": 53,
+					"row": "후열",
+					"sp": 98.0
+				},
+				{
+					"ag": 8.555,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 27.9448,
+					"de": 31.64032,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 216,
+					"mmp": 67,
+					"mp": 0,
+					"row": "전열",
+					"sp": 84.0
+				}
+			],
+			"label": "state carry revive/4/10/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 100.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 153.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 76.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 164.0,
+					"mhp": 164.0,
+					"mmp": 53.0,
+					"mp": 53.0,
+					"row": "후열",
+					"sp": 98.0
+				},
+				{
+					"ag": 8.555,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 27.9448,
+					"de": 31.64032,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 216.0,
+					"mmp": 67.0,
+					"mp": 0.0,
+					"row": "전열",
+					"sp": 84.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/4/10/2",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 164,
+					"mmp": 53,
+					"mp": 0,
+					"row": "후열",
+					"sp": 98.0
+				},
+				{
+					"ag": 8.555,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 27.9448,
+					"de": 31.64032,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 216,
+					"mmp": 67,
+					"mp": 0,
+					"row": "전열",
+					"sp": 84.0
+				}
+			],
+			"label": "state initial/4/10/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 164.0,
+					"mmp": 53.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 98.0
+				},
+				{
+					"ag": 8.555,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 27.9448,
+					"de": 31.64032,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 216.0,
+					"mmp": 67.0,
+					"mp": 0.0,
+					"row": "전열",
+					"sp": 84.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 153,
+					"mmp": 100,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 153,
+					"mmp": 76,
+					"mp": 0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 164,
+					"mmp": 53,
+					"mp": 0,
+					"row": "후열",
+					"sp": 98.0
+				},
+				{
+					"ag": 8.555,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 27.9448,
+					"de": 31.64032,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 216,
+					"mmp": 67,
+					"mp": 0,
+					"row": "전열",
+					"sp": 84.0
+				}
+			],
+			"label": "state carry revive/4/10/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 15.0568,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 27.9448,
+					"de": 14.4432,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 153.0,
+					"mmp": 100.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 34.931,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 34.931,
+					"de": 14.4432,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 153.0,
+					"mmp": 76.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 102.0
+				},
+				{
+					"ag": 10.266,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 28.48815,
+					"de": 11.041024,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 164.0,
+					"mmp": 53.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 98.0
+				},
+				{
+					"ag": 8.555,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 27.9448,
+					"de": 31.64032,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 216.0,
+					"mmp": 67.0,
+					"mp": 0.0,
+					"row": "전열",
+					"sp": 84.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/4/10/3",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 171,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 130,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 540,
+					"mhp": 540,
+					"mmp": 90,
+					"mp": 90,
+					"row": "후열",
+					"sp": 106.0
+				},
+				{
+					"ag": 26.255,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 87.4168,
+					"de": 93.33712,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 739,
+					"mhp": 739,
+					"mmp": 115,
+					"mp": 115,
+					"row": "전열",
+					"sp": 92.0
+				}
+			],
+			"label": "state initial/4/40/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 171.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 130.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 540.0,
+					"mhp": 540.0,
+					"mmp": 90.0,
+					"mp": 90.0,
+					"row": "후열",
+					"sp": 106.0
+				},
+				{
+					"ag": 26.255,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 87.4168,
+					"de": 93.33712,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 739.0,
+					"mhp": 739.0,
+					"mmp": 115.0,
+					"mp": 115.0,
+					"row": "전열",
+					"sp": 92.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 171,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 130,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 540,
+					"mhp": 540,
+					"mmp": 90,
+					"mp": 90,
+					"row": "후열",
+					"sp": 106.0
+				},
+				{
+					"ag": 26.255,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 87.4168,
+					"de": 93.33712,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 739,
+					"mhp": 739,
+					"mmp": 115,
+					"mp": 115,
+					"row": "전열",
+					"sp": 92.0
+				}
+			],
+			"label": "state carry revive/4/40/0",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 171.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 130.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 540.0,
+					"mhp": 540.0,
+					"mmp": 90.0,
+					"mp": 90.0,
+					"row": "후열",
+					"sp": 106.0
+				},
+				{
+					"ag": 26.255,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 87.4168,
+					"de": 93.33712,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 739.0,
+					"mhp": 739.0,
+					"mmp": 115.0,
+					"mp": 115.0,
+					"row": "전열",
+					"sp": 92.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/4/40/0",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 540,
+					"mmp": 90,
+					"mp": 0,
+					"row": "후열",
+					"sp": 106.0
+				},
+				{
+					"ag": 26.255,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 87.4168,
+					"de": 93.33712,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 739,
+					"mmp": 115,
+					"mp": 0,
+					"row": "전열",
+					"sp": 92.0
+				}
+			],
+			"label": "state initial/4/40/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 540.0,
+					"mmp": 90.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 106.0
+				},
+				{
+					"ag": 26.255,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 87.4168,
+					"de": 93.33712,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 739.0,
+					"mmp": 115.0,
+					"mp": 0.0,
+					"row": "전열",
+					"sp": 92.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 540,
+					"mmp": 90,
+					"mp": 0,
+					"row": "후열",
+					"sp": 106.0
+				},
+				{
+					"ag": 26.255,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 87.4168,
+					"de": 93.33712,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 1,
+					"mhp": 739,
+					"mmp": 115,
+					"mp": 0,
+					"row": "전열",
+					"sp": 92.0
+				}
+			],
+			"label": "state carry revive/4/40/1",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 540.0,
+					"mmp": 90.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 106.0
+				},
+				{
+					"ag": 26.255,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 87.4168,
+					"de": 93.33712,
+					"element": "holy",
+					"g": 10000.0,
+					"hp": 1.0,
+					"mhp": 739.0,
+					"mmp": 115.0,
+					"mp": 0.0,
+					"row": "전열",
+					"sp": 92.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/4/40/1",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 171,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 130,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 540,
+					"mhp": 540,
+					"mmp": 90,
+					"mp": 90,
+					"row": "후열",
+					"sp": 106.0
+				},
+				{
+					"ag": 26.255,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 87.4168,
+					"de": 93.33712,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 739,
+					"mmp": 115,
+					"mp": 0,
+					"row": "전열",
+					"sp": 92.0
+				}
+			],
+			"label": "state initial/4/40/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 171.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 130.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 540.0,
+					"mhp": 540.0,
+					"mmp": 90.0,
+					"mp": 90.0,
+					"row": "후열",
+					"sp": 106.0
+				},
+				{
+					"ag": 26.255,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 87.4168,
+					"de": 93.33712,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 739.0,
+					"mmp": 115.0,
+					"mp": 0.0,
+					"row": "전열",
+					"sp": 92.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 171,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 503,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 130,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 540,
+					"mhp": 540,
+					"mmp": 90,
+					"mp": 90,
+					"row": "후열",
+					"sp": 106.0
+				},
+				{
+					"ag": 26.255,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 87.4168,
+					"de": 93.33712,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 739,
+					"mmp": 115,
+					"mp": 0,
+					"row": "전열",
+					"sp": 92.0
+				}
+			],
+			"label": "state carry revive/4/40/2",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 171.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 10000.0,
+					"hp": 503.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 130.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 10000.0,
+					"hp": 540.0,
+					"mhp": 540.0,
+					"mmp": 90.0,
+					"mp": 90.0,
+					"row": "후열",
+					"sp": 106.0
+				},
+				{
+					"ag": 26.255,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 87.4168,
+					"de": 93.33712,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 739.0,
+					"mmp": 115.0,
+					"mp": 0.0,
+					"row": "전열",
+					"sp": 92.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/4/40/2",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "living carry sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 540,
+					"mmp": 90,
+					"mp": 0,
+					"row": "후열",
+					"sp": 106.0
+				},
+				{
+					"ag": 26.255,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 87.4168,
+					"de": 93.33712,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 739,
+					"mmp": 115,
+					"mp": 0,
+					"row": "전열",
+					"sp": 92.0
+				}
+			],
+			"label": "state initial/4/40/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 540.0,
+					"mmp": 90.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 106.0
+				},
+				{
+					"ag": 26.255,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 87.4168,
+					"de": 93.33712,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 739.0,
+					"mmp": 115.0,
+					"mp": 0.0,
+					"row": "전열",
+					"sp": 92.0
+				}
+			]
+		},
+		{
+			"got": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 503,
+					"mmp": 171,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 503,
+					"mmp": 130,
+					"mp": 0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 540,
+					"mmp": 90,
+					"mp": 0,
+					"row": "후열",
+					"sp": 106.0
+				},
+				{
+					"ag": 26.255,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 87.4168,
+					"de": 93.33712,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0,
+					"mhp": 739,
+					"mmp": 115,
+					"mp": 0,
+					"row": "전열",
+					"sp": 92.0
+				}
+			],
+			"label": "state carry revive/4/40/3",
+			"ok": true,
+			"want": [
+				{
+					"ag": 46.2088,
+					"cls": "alchemist",
+					"cr": 2.0,
+					"cs": 87.4168,
+					"de": 41.0112,
+					"element": "wind",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 503.0,
+					"mmp": 171.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 109.271,
+					"cls": "archer",
+					"cr": 5.0,
+					"cs": 109.271,
+					"de": 41.0112,
+					"element": "fire",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 503.0,
+					"mmp": 130.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 110.0
+				},
+				{
+					"ag": 31.506,
+					"cls": "chaos",
+					"cr": 0.0,
+					"cs": 87.42915,
+					"de": 31.350784,
+					"element": "none",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 540.0,
+					"mmp": 90.0,
+					"mp": 0.0,
+					"row": "후열",
+					"sp": 106.0
+				},
+				{
+					"ag": 26.255,
+					"cls": "paladin",
+					"cr": 0.0,
+					"cs": 87.4168,
+					"de": 93.33712,
+					"element": "holy",
+					"g": 1000000000.0,
+					"hp": 0.0,
+					"mhp": 739.0,
+					"mmp": 115.0,
+					"mp": 0.0,
+					"row": "전열",
+					"sp": 92.0
+				}
+			]
+		},
+		{
+			"got": null,
+			"label": "state JSON resume/4/40/3",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "old downed gauge preserved",
+			"ok": true,
+			"want": null
+		},
+		{
+			"got": null,
+			"label": "invalid downed sentinel rejected atomically",
+			"ok": true,
+			"want": null
+		}
+	]
+}

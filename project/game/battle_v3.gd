@@ -44,6 +44,7 @@ func _personal_enemy_down(e: Dictionary) -> void:
 
 func _flat_enemy(e: Dictionary,amount: float,a: Dictionary={},fixed=true,record_hit=true,credit=true) -> void:
 	if e.hp<=0: return
+	combat_events.changed(self,e)
 	var damage=maxi(1,int(floor(amount)))
 	if not fixed and e.effects.has("guard"): damage=maxi(1,int(floor(damage*.6)))
 	var before=e.hp; var shield=mini(damage,int(fx(e,"shield")))
@@ -65,7 +66,7 @@ func _personal_hit_after(h: Dictionary) -> void:
 	if a.id=="selva" and action_id=="personal" and not h.extra and h.killed: a.mp=mini(a.mmp,a.mp+6)
 	# Source volley does not run foe_hit_after or GH.extra_hit.
 	if h.volley: return
-	dungeon_enemy_r21.after_hit(a,e)
+	dungeon_enemy_r21.after_hit(a,e,h.get("element",a.element))
 	var extra_chance=sig(a,"as_shadow")[0]/100.0 if not sig(a,"as_shadow").is_empty() else .2
 	if gear_bridge!=null:
 		gear_bridge.pack(); extra_chance=gear_bridge.hooks.assassin_extra(gear_bridge.st.u[gear_bridge.slot(a)-1],.2)
@@ -113,6 +114,7 @@ func _begin_combat_events(id: String,a: Dictionary,e: Dictionary,t: Dictionary) 
 
 func _record_hit(actor: String,target: String,damage: int,shield: int,critical: bool=false) -> void:
 	var all=data.allies+data.enemies
+	combat_events.changed(self,unit(target))
 	combat_hits.append({"actor":all.find(unit(actor))+1,"target":all.find(unit(target))+1,"damage":damage,"shield":shield,"critical":critical})
 
 func _roll(chance: float) -> bool:
@@ -225,7 +227,10 @@ func _init(scene_data: Dictionary={}) -> void:
 
 func _start_ctb() -> void:
 	for a in data.allies:
-		a.remaining=10000.0
+		# 20-state.apply_carry keeps a downed member out of the clock. Felice
+		# must not revive a member carried down from the previous battle after
+		# an ordinary 100-tick wait.
+		a.remaining=10000.0 if a.hp>0 else 1000000000.0
 		a.base.spd=floor(a.base.spd+.5)
 		if a.id=="tove" and a.hp>0:
 			a.shield=mini(int(floor(a.mhp*.3)),a.shield+int(floor(a.mhp*.06+.5)))
@@ -1225,12 +1230,16 @@ func _enemy_hit(e: Dictionary,a: Dictionary,sk: Dictionary) -> void:
 	last_enemy_hit_result={}
 	if a.hp<=0 or e.hp<=0: return
 	var covered=false
-	if has_alive("marceline") and a.id!="marceline" and x(ally("marceline")).get("cover")==a.id and (dungeon_enemy_r21==null or (sk.kind!="big_all" and sk.get("target","")!="all")):
+	var counter=dungeon_enemy_r21!=null and sk.get("counter",false)
+	if not counter and has_alive("marceline") and a.id!="marceline" and x(ally("marceline")).get("cover")==a.id and (dungeon_enemy_r21==null or (sk.kind!="big_all" and sk.get("target","")!="all")):
 		a=ally("marceline"); x(a).erase("cover"); covered=true
 	# Ordinary attacks also visit Felice's evade hook before the global roll.
-	if dungeon_enemy_r21!=null: _felice_scan()
 	if dungeon_enemy_r21!=null:
-		if _enemy_evade(e,a): _record_hit(e.id,a.id,0,0); return
+		# 31-foes e_counter calls strike directly: no cover, evade hooks or
+		# Felice scan, and no general attack/rage/enrage multiplier.
+		if not counter:
+			_felice_scan()
+			if _enemy_evade(e,a): _record_hit(e.id,a.id,0,0); return
 	elif _roll(bonus(a,"evade")+(.01 if a.get("nation")=="나에린" else 0)): _event(a.name+" · 회피"); return
 	if sk.kind=="spell" and e.effects.has("silence"): _event("마법 봉인 · 행동 취소"); return
 	if dungeon_enemy_r21==null and a.id=="saya" and _roll(.1):
@@ -1240,7 +1249,9 @@ func _enemy_hit(e: Dictionary,a: Dictionary,sk: Dictionary) -> void:
 	var k=40*(1+data.def_curve.a*n+data.def_curve.b*n*n)
 	var defense=a.base.def*(1+fx(a,"bless")+fx(a,"defense_up")-fx(a,"defense_down")) if dungeon_enemy_r21!=null else a.base.def*(1+fx(a,"bless")+fx(a,"defense_up"))*(1-fx(a,"defense_down"))
 	var hit=e.attack*sk.get("m",1)*k/(k+defense)*(1-fx(e,"attack_down"))
-	if dungeon_enemy_r21!=null: hit=maxi(1,int(floor(hit*dungeon_enemy_r21.attack_mult(e)+1e-9)))
+	if dungeon_enemy_r21!=null:
+		var mult=(1+fx(e,"enemy_attack_self")) if counter else dungeon_enemy_r21.attack_mult(e)
+		hit=maxi(1,int(floor(hit*mult+1e-9)))
 	_incoming_strike(a,hit,e,sk,covered)
 
 func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,covered=false,fixed=false) -> void:
@@ -1437,7 +1448,8 @@ func _restore_v3(value: Variant) -> bool:
 			if not line is String or line.length()>300: return false
 	for u in data.allies+data.enemies:
 		var v=value.units[u.id]
-		if v.hp<0 or v.hp>u.mhp or v.remaining<(-1000000 if dungeon_enemy_r21!=null else 0) or v.remaining>1000000: return false
+		var carried_down=dungeon_enemy_r21!=null and u.has("base") and v.hp==0 and v.remaining==1000000000
+		if v.hp<0 or v.hp>u.mhp or v.remaining<(-1000000 if dungeon_enemy_r21!=null else 0) or (v.remaining>1000000 and not carried_down): return false
 		if u.has("mp") and (v.mp<0 or v.mp>u.mmp or v.shield<0 or v.shield>100000): return false
 		if u.has("gauge") and (v.gauge<0 or v.gauge>u.max or v.act_index<0 or v.act_index>=u.acts.size()): return false
 		for key in v.effects:

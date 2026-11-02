@@ -6,7 +6,7 @@ static func schedule(e: Dictionary) -> Array:
 	var result=func(r,at,tier):
 		add.call("hit",at)
 		if r.get("c",0)==1 or not r.get("tags",[]).filter(func(tag):return "약점" in tag).is_empty(): tier=maxi(tier,1)
-		if e.get("last",false): tier=2
+		if e.get("last",false) and k in ["atk","snipe","wave","burst"]: tier=2
 		var delay=[0,.1,.15][tier]
 		add.call("critical" if r.get("c",0)==1 else "number",at+delay)
 		if r.get("sh",0)>0 and r.sh<r.d: add.call("number",at+delay+.25)

@@ -14,7 +14,8 @@ static func debuffed(e: Dictionary) -> bool:
 	return false
 
 static func run(b,a: Dictionary,e: Dictionary,t: Dictionary,sk: Dictionary) -> void:
-	var raw=sk.persona_skill
+	var raw=Research.clean(sk.get("persona_skill",{}))
+	if not Research.ready(raw): return
 	var p=Research.part("prefixes",raw.prefix); var q=Research.part("suffixes",raw.suffix)
 	var power=p.power+p.step*Research.level(raw.prefix_lv,p.id)
 	var value=q.value+q.step*Research.level(raw.suffix_lv,q.id)
@@ -41,7 +42,7 @@ static func run(b,a: Dictionary,e: Dictionary,t: Dictionary,sk: Dictionary) -> v
 				"weaken": b._effect(target,"attack_down",2,value)
 				"abyss": b.PersonalRules.abyss(b,a,target,value,element)
 	else:
-		var targets=b.living(true) if p.kind.ends_with("_all") else [t]
+		var targets=b.living(true) if p.kind.ends_with("_all") else ([t] if not t.is_empty() and t.hp>0 else [])
 		var amount=floor(a.base[a.line]*2*power+.5)
 		for target in targets:
 			if p.kind.begins_with("heal"): b._receive_heal(target,amount,a)

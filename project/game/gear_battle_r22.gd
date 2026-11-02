@@ -119,7 +119,9 @@ func initialize():
 
 func rnd(_s): return b.dungeon_enemy_r21.random()
 func actor(i): return st.u[i-1]
-func setf(_s,i,key,value,_at): st.u[i-1][key]=value
+func setf(_s,i,key,value,_at):
+	st.u[i-1][key]=value
+	if key in ["hp","mp","sh","ay"]: b.combat_events.changed(b,unit_at(i))
 func trait_line(_s,i,txt,at):
 	b.combat_events.push("trait",b.combat_events.slot(b,unit_at(i)),at); b._event(hooks.defs[i-1].name+" · "+txt)
 func say(_s,txt,_at):
