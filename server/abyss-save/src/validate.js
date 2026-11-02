@@ -84,7 +84,7 @@ function battle(v,p){
  const base=['schema_version','build','units','current_id','last_ally','selected_enemy','selected_action','result','rng','turn_count','history','events'];
  keys(v,[...base,'extra_state','selected_ally','inventory','r21_roster'],p);if(!Object.keys(v).length)return;
  keys(v,[...base,'extra_state','selected_ally','inventory','r21_roster'],p,base);
- if(![2,3].includes(v.schema_version))fail(p+'.schema_version');text(v.build,p+'.build',100);
+ if(![2,3].includes(v.schema_version))fail(p+'.schema_version');if(v.schema_version!==3)for(const k of ['extra_state','inventory','selected_ally'])if(Object.hasOwn(v,k))fail(p+'.'+k);text(v.build,p+'.build',100);
  const unitId=id=>owners.includes(id)||K.battleIds.includes(id)||/^enemy_[0-9]{1,2}$/.test(id);
  const unitText=(id,path,empty=false)=>{if(!(empty&&id==='')&&!unitId(id))fail(path);};
  for(const k of ['current_id','last_ally','selected_enemy'])unitText(v[k],p+'.'+k);
@@ -97,6 +97,7 @@ function battle(v,p){
   unitText(id,p+'.unit');keys(u,['hp','remaining','effects','mp','shield','actions','gauge','act_index',...flags],p+'.unit',['hp','remaining','effects']);
   for(const[k,x]of Object.entries(u)){
    if(k==='effects'){
+    obj(x,p+'.effects');
     for(const key of Object.keys(x))if(!K.battleEffects.includes(key)&&!/^enemy_dot_[0-3]$/.test(key))fail(p+'.effect.id');
     for(const e of Object.values(x)){keys(e,['turns','amount','r21','source','by'],p+'.effect',['turns','amount']);num(e.turns,1,100,p+'.turns');num(e.amount,-100000,100000,p+'.amount',false);if('r21'in e)bool(e.r21,p+'.r21');for(const k of ['source','by'])if(k in e)unitText(e[k],p+'.effect.'+k);}
    }else if(flags.includes(k))bool(x,p+'.'+k);else num(x,0,1e6,p+'.'+k,!['remaining','gauge'].includes(k));
@@ -262,7 +263,7 @@ function validateUnchecked(input){
  const d=s.dungeon_r21;keys(d,['best','cleared_bosses','runs','sel','pg','last'],'dungeon',['best','cleared_bosses','runs','sel']);num(d.best,0,9999,'best');num(d.runs,0,1e6,'dungeon.runs');num(d.sel,1,Math.max(d.best+1,1,...d.cleared_bosses.map(z=>3*(K.zones.indexOf(z)+1)+1)),'dungeon.sel');
  if('pg'in d)num(d.pg,1,Math.ceil((Math.max(d.best+1,1,...d.cleared_bosses.map(z=>3*(K.zones.indexOf(z)+1)+1))+1)/6),'dungeon.pg');if('last'in d)settlement(d.last,'dungeon.last',s);
  list(d.cleared_bosses,'bosses',K.zones.length);if(d.cleared_bosses.some(z=>!K.zones.includes(z))||new Set(d.cleared_bosses).size!==d.cleared_bosses.length)fail('bosses');
- countMap(s.acts,'acts',s.day,k=>owners.some(id=>k.startsWith(id+'_')));keys(s.npc_aff_r21,K.npcs,'npc_aff');for(const v of Object.values(s.npc_aff_r21))num(v,0,200,'npc_aff',false);
+ countMap(s.acts,'acts',s.day,k=>owners.some(id=>k.startsWith(id+'_')&&/^[a-z][a-z0-9_]{0,31}$/.test(k.slice(id.length+1))));keys(s.npc_aff_r21,K.npcs,'npc_aff');for(const v of Object.values(s.npc_aff_r21))num(v,0,200,'npc_aff',false);
  for(const card of list(s.hand,'hand',10000))if(!K.world.cards.some(c=>c.id===card))fail('hand.id');
  list(s.log,'log',40).forEach(x=>text(x,'log.line',300));
  keys(s.town_r21,['seed','counter','qn','meet'],'town',['seed','counter','qn']);num(s.town_r21.seed,1,2147483646,'town.seed');for(const k of ['counter','qn'])num(s.town_r21[k],0,1e6,'town.'+k);if('meet'in s.town_r21&&!ids.includes(s.town_r21.meet))fail('town.meet');
@@ -312,6 +313,7 @@ export function rankReasons(s,previous=null,elapsed=0){
  if(!s.creation_r22.complete)reasons.push('만들기 미완료');
  const minimum=K.rankLevels[Math.min(Math.floor(Math.max(0,best-1)/3),K.rankLevels.length-1)];
  if(lv<minimum)reasons.push('층 대비 레벨');if(s.dungeon_r21.runs<best)reasons.push('도전 횟수 대비 층');if(s.gold>10000000)reasons.push('금화 상한');
+ elapsed=Math.min(86400,Math.max(0,Number.isFinite(elapsed)?elapsed:0));
  if(previous){if(best>previous.best+2+Math.floor(elapsed/600))reasons.push('최고 층 급증');if(lv>previous.level+2+Math.floor(elapsed/300))reasons.push('레벨 급증');}
  return reasons;
 }

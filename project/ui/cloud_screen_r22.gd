@@ -56,7 +56,7 @@ func build(owner_screen) -> void:
 		button("cloud_switch","다른 계정 연결",func():host.cloud_connecting=true;host._draw_screen())
 		if host.cloud_connecting:
 			input("code","연결할 계정 코드",false);input("pin","연결할 쓰기 PIN",true);button("cloud_connect","계정 연결",connect_values)
-		button("cloud_delete","클라우드 계정 삭제",func():ask("클라우드의 계정과 모든 기록을 삭제할까요? 이 작업은 되돌릴 수 없습니다. 이 기기 저장은 남습니다.",service.delete_account),service.account.pin.is_empty())
+		button("cloud_delete","클라우드 계정 삭제",func():ask("클라우드의 계정과 모든 기록(비활성 보관본 포함)을 삭제할까요? 이 작업은 되돌릴 수 없습니다. 이 기기 저장은 남습니다.",service.delete_account),service.account.pin.is_empty())
 func label(value: String,fs=15) -> void:
 	var l=Label.new();body.add_child(l);l.text=value;l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;l.add_theme_font_size_override("font_size",fs);l.mouse_filter=MOUSE_FILTER_IGNORE
 	if fs>=19:l.add_theme_font_override("font",T.BOLD)

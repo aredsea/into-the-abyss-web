@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "server_checks": 5828,
+  "server_failures": 0,
+  "native_checks": 732,
+  "native_failures": 0,
+  "regression_groups": 35,
+  "regression_failures": 0,
+  "poc_round2_scripts": 8,
+  "poc_round1_scripts": 4,
+  "protected_assets": 96,
+  "asset_mismatches": 0,
+  "native_captures": 35,
+  "visually_reviewed_contact_sheets": 5,
+  "visually_reviewed_desktop_originals": 2,
+  "worker_bundle_matches_source": true,
+  "unchanged_from_p9b": [
+    "server/abyss-save/src/known.json",
+    "server/abyss-save/migrations/0002_security.sql",
+    "project/data/cloud-r22.json",
+    "project/web_shell.html"
+  ],
+  "deployment": false,
+  "live_turnstile": false,
+  "web_retested": false,
+  "sha256": {
+    "server/abyss-save/src/index.js": "d2b855aecb54f84e1cc20d1236cba093920fed270fa9682e49f382f5cc44b427",
+    "server/abyss-save/src/validate.js": "de7a518af16482a74a8a4b917ff227df798d87d3a1a8e27da28912526feeeb8b",
+    "server/abyss-save/src/known.json": "10bde0573fc4bb2408f3938969dafe65b4d8b582fcc78dead607b74b35e4ddda",
+    "server/abyss-save/migrations/0002_security.sql": "35c491735539cc5754eb9dd1758cefef758a80e5231be8a8a9e94f49575f4f9b",
+    "server/abyss-save/dist/worker.mjs": "ed2af9d4312d2a13605e75e07aab307edfb295d10a949f0d13fe2c1c843334b1",
+    "server/abyss-save/wrangler.toml": "67d9df5b9659ef0674f8dcfc14825bc056039c63a187ceedf1fc0029fecab0c5",
+    "project/game/cloud_store_r22.gd": "a3120c89608f0495c5f3ca5a59b9076e154c254ba4c7c0059fcb083f30184819",
+    "project/ui/cloud_screen_r22.gd": "1538828b11c1f98ba8e72320a62ba9654fff174cdf5964548a165e7bf9fbbe59",
+    "project/data/cloud-r22.json": "7a1d64edf5fd39766567a95f2cdf372d6b0acb5c4608113a7a02b3d2b9f34eae",
+    "P9-R22.md": "a6318a4146bcee6ccde0349faac89dc6582a4bd0a7c7afd6df70e5adf26f627e",
+    "UI-R21-cloudfix.md": "216c6a8c679df48680abdc7be1ca30465ae979bfc87b9d4a20cf114cda6686f5",
+    "server/abyss-save/DEPLOYMENT-SECURITY.md": "6fe25b478f8e471de9a972ef671b2e5c4d0189e333cf7d43e8ddc6e5f9ad51cf"
+  }
+}

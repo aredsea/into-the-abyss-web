@@ -1,0 +1,56 @@
+{
+  "checks": 72,
+  "failures": 10,
+  "groups": [
+    {
+      "name": "1 IP/account byte budgets isolate victim and creation",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"url\":\"/v1/save\",\"status\":200,\"value\":{\"code\":\"SC8N-XWPF-D1JQ\",\"rev\":4,\"summary\":{\"day\":1,\"gold\":300,\"level\":1,\"best\":0,\"runs\":0,\"companions\":1}}}\n\n200 !== 429\n\n    at call (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:13:62)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:23:2\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:16:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:20:1"
+    },
+    {
+      "name": "2 no shared request ceiling; IPv6 /48 auxiliary limit",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"url\":\"/v1/rank\",\"status\":429,\"value\":{\"error\":\"rate_limited\",\"retry_after\":47}}\n\n429 !== 200\n\n    at call (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:13:62)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async group.GLOBAL_REQUESTS_PER_MINUTE (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:31:22)\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:16:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:30:1"
+    },
+    {
+      "name": "2 daily signup persists across minute windows",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"url\":\"/v1/account\",\"status\":201,\"value\":{\"code\":\"07YE-A8M1-53M9\",\"pin\":\"S0RTFVVG6K\",\"rev\":1,\"summary\":{\"day\":1,\"gold\":300,\"level\":1,\"best\":0,\"runs\":0,\"companions\":1}}}\n\n201 !== 429\n\n    at call (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:13:62)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async group.NEW_PER_IP_PER_DAY (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:41:2)\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:16:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:38:1"
+    },
+    {
+      "name": "3 atomic pre-PBKDF2 admission rejects concurrent correct PIN last",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n200 !== 429\n\n    at group.PIN_PBKDF2_ITERATIONS (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:47:9)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:16:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:44:1"
+    },
+    {
+      "name": "4 public read code+IP and authenticated download account isolation",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"url\":\"/v1/save/C8T9-K9NA-6ARD\",\"status\":429,\"value\":{\"error\":\"rate_limited\",\"retry_after\":45}}\n\n429 !== 200\n\n    at call (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:13:62)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:54:2\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:16:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:51:1"
+    },
+    {
+      "name": "5 v2 battle rejects v3-only keys independently and effects must be object",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"url\":\"/v1/account\",\"status\":201,\"value\":{\"code\":\"6EWP-4JJ5-0B3Z\",\"pin\":\"CRFF8TDQXT\",\"rev\":1,\"summary\":{\"day\":1,\"gold\":300,\"level\":1,\"best\":419,\"runs\":1,\"companions\":1}}}\n\n201 !== 422\n\n    at call (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:13:62)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:65:38\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:16:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:60:1"
+    },
+    {
+      "name": "6 rank elapsed capped at 24h for aged and migrated baselines",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"url\":\"/v1/rank\",\"status\":200,\"value\":{\"submitted\":true,\"best\":9999,\"cache_seconds\":300}}\n\n200 !== 422\n\n    at call (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:13:62)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:74:2\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:16:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:71:1"
+    },
+    {
+      "name": "7 archived PIN verification, 410 response and owner erasure",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"url\":\"/v1/save\",\"status\":403,\"value\":{\"error\":\"invalid_pin\"}}\n\n403 !== 410\n\n    at call (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:13:62)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:80:2\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:16:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:78:1"
+    },
+    {
+      "name": "Nit acts keys restrict syntax without changing field allowlists",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"url\":\"/v1/account\",\"status\":201,\"value\":{\"code\":\"MJQ2-2ZDY-TWM4\",\"pin\":\"AKGMQ12V2P\",\"rev\":1,\"summary\":{\"day\":5,\"gold\":300,\"level\":1,\"best\":0,\"runs\":0,\"companions\":1}}}\n\n201 !== 422\n\n    at call (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:13:62)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:86:94\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:16:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:85:1"
+    },
+    {
+      "name": "Nit 422/429 do not consume Turnstile and enabled requires challenge",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n1 !== 0\n\n    at group.TURNSTILE_ENABLED (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:90:90)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:16:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security-r2.mjs:89:1"
+    }
+  ]
+}

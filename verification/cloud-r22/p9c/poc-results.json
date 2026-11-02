@@ -1,0 +1,277 @@
+{
+  "checks": 8,
+  "failures": 0,
+  "results": [
+    {
+      "script": "dos_bytes.mjs",
+      "exit": 0,
+      "passed": true,
+      "result": {
+        "bigBytes": 63805,
+        "victimCreated": true,
+        "attCreate0": 201,
+        "attCreate1": 201,
+        "attackerPutStatuses": {
+          "200": 4,
+          "429": 1,
+          "fill413": 10
+        },
+        "attackerRequestsTotal": 17,
+        "smallestValidSave": 6487,
+        "globalBytes": 255220,
+        "victimSmallPut": {
+          "status": 200,
+          "value": {
+            "code": "RZX0-9KGT-WCDV",
+            "rev": 2,
+            "summary": {
+              "day": 1,
+              "gold": 300,
+              "level": 1,
+              "best": 0,
+              "runs": 0,
+              "companions": 1
+            }
+          }
+        },
+        "otherUserCreate": {
+          "status": 201,
+          "value": {
+            "code": "CDZT-P1N8-Q3Y2",
+            "pin": "7FP32ZK84P",
+            "rev": 1,
+            "summary": {
+              "day": 1,
+              "gold": 300,
+              "level": 1,
+              "best": 0,
+              "runs": 0,
+              "companions": 1
+            }
+          }
+        },
+        "sameMinute": true
+      }
+    },
+    {
+      "script": "dos_requests.mjs",
+      "exit": 0,
+      "passed": true,
+      "result": {
+        "attackerStatuses": {
+          "200": 240,
+          "429": 960
+        },
+        "victimRankGet": 200,
+        "victimConnect": 200,
+        "victimDownload": 200,
+        "sameMinute": true,
+        "newAttackerStatuses": {
+          "201": 60
+        },
+        "victimCreate": {
+          "code": "K6X4-6RHB-1EWE",
+          "pin": "N5NK24X6Z2",
+          "rev": 1,
+          "summary": {
+            "day": 1,
+            "gold": 300,
+            "level": 1,
+            "best": 0,
+            "runs": 0,
+            "companions": 1
+          }
+        }
+      }
+    },
+    {
+      "script": "toctou.mjs",
+      "exit": 0,
+      "passed": true,
+      "result": {
+        "sequentialWrong": {
+          "403": 20,
+          "429": 1
+        },
+        "sequentialRightAfter": 429,
+        "concurrentMs": 1762,
+        "concurrentWrong": {
+          "403": 20,
+          "429": 130
+        },
+        "concurrentRightLast": 429,
+        "authfailCounter": [
+          20,
+          20
+        ],
+        "sequentialAbsent150Ms": 1804,
+        "concurrentAbsent150Ms": 1382,
+        "sameMinute": true
+      }
+    },
+    {
+      "script": "misc.mjs",
+      "exit": 0,
+      "passed": true,
+      "result": {
+        "control_legit_v3": {
+          "accepted": true,
+          "extra": {
+            "apprentice": {},
+            "executor": {
+              "source_rng": 1854227663
+            },
+            "marceline": {},
+            "persona": {}
+          },
+          "inv": {
+            "antidote": 0,
+            "bandage": 0,
+            "hp_l": 0,
+            "hp_m": 0,
+            "hp_s": 0,
+            "level_scroll": 0,
+            "mp_l": 0,
+            "mp_m": 0,
+            "mp_s": 0,
+            "return": 0,
+            "shield_l": 0,
+            "shield_m": 0,
+            "shield_s": 0
+          },
+          "ally": "persona"
+        },
+        "v3_extra_blob": {
+          "accepted": false,
+          "field": "run.battle.extra.id"
+        },
+        "v2_extra_blob": {
+          "accepted": false,
+          "field": "run.battle.extra_state"
+        },
+        "effects_number": {
+          "accepted": false,
+          "field": "run.battle.effects"
+        },
+        "acts_free_text_key": {
+          "accepted": false,
+          "field": "acts.key"
+        },
+        "v2Create": 422,
+        "attackerReads": {
+          "200": 60
+        },
+        "ownerDownload": 200,
+        "ownerHistory": 200,
+        "ownerRankView": 200,
+        "ownerConnect": 200,
+        "after1day_best146": {
+          "submitted": true,
+          "best": 146,
+          "cache_seconds": 300
+        },
+        "after70days_best9999": {
+          "error": "rank_ineligible",
+          "reasons": [
+            "최고 층 급증"
+          ]
+        }
+      }
+    },
+    {
+      "script": "migr.mjs",
+      "exit": 0,
+      "passed": true,
+      "result": {
+        "accountAfter": {
+          "code": "AAAA-BBBB-CCCC",
+          "pin_iterations": 100000,
+          "rank_best": 0,
+          "rank_level": 1,
+          "rank_at_is_created": 1,
+          "created": 1790175604
+        },
+        "savePreserved": true,
+        "ranksAfter": 0,
+        "fkCheck": [],
+        "oldConnect": 200,
+        "oldPut": 200,
+        "oldRank5000": {
+          "error": "rank_ineligible",
+          "reasons": [
+            "최고 층 급증"
+          ]
+        },
+        "afterCronAccount": null,
+        "archiveCols": [
+          "code",
+          "salt",
+          "pin_hash",
+          "pin_iterations",
+          "rev",
+          "payload",
+          "summary",
+          "saved",
+          "archived",
+          "expires"
+        ],
+        "ownerPutAfterArchive": {
+          "status": 410,
+          "value": {
+            "error": "archived"
+          }
+        },
+        "ownerDeleteAfterArchive": 410,
+        "archiveStillThere": 0
+      }
+    },
+    {
+      "script": "fill.mjs",
+      "exit": 0,
+      "passed": true,
+      "result": {
+        "statuses": {
+          "201": 28,
+          "429": 7
+        },
+        "storedBytes": {
+          "n": 1786540,
+          "c": 28
+        },
+        "perDayGiB": 2.4,
+        "hoursTo500MB": 4.7,
+        "daysTo10GB": 3.9
+      }
+    },
+    {
+      "script": "proto2.mjs",
+      "exit": 0,
+      "passed": true,
+      "result": {
+        "constructorTop_injected": true,
+        "constructorTop": "save",
+        "protoTop_injected": true,
+        "protoTop": "save",
+        "prototypeTop_injected": true,
+        "prototypeTop": "save",
+        "loneSurrogateName": "accepted"
+      }
+    },
+    {
+      "script": "vtime.mjs",
+      "exit": 0,
+      "passed": true,
+      "result": {
+        "big_ms": 0.592,
+        "town_ms": 0.291,
+        "largest_legit_bytes": 9579,
+        "largest_legit_ms": 0.437
+      }
+    }
+  ],
+  "notes": [
+    "fill: old per-minute projections do not model the new daily limits; distributed IP storage pressure remains an operational concern.",
+    "proto2: a lone surrogate in a bounded name is text, not executable input; remains allowed.",
+    "vtime: timing diagnostic, not an exploit or a production CPU guarantee."
+  ]
+}

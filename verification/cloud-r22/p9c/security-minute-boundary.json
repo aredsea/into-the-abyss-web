@@ -1,0 +1,75 @@
+{
+  "checks": 419,
+  "failures": 1,
+  "groups": [
+    {
+      "name": "P1 rank: fresh 9999 and repeated identical PUT never establish progress",
+      "passed": true
+    },
+    {
+      "name": "P1 global account cap, denial has no counter writes even with rotating IP",
+      "passed": true
+    },
+    {
+      "name": "P1 concurrent admissions never overdraw global creation cap",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n3 !== 2\n\n    at group.GLOBAL_NEW_PER_MINUTE (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:42:9)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:17:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-cloudfix/server/abyss-save/test/security.mjs:40:1"
+    },
+    {
+      "name": "P1 global UTF-8 write bytes bounded across IPs",
+      "passed": true
+    },
+    {
+      "name": "P1 IPv6 /64 normalized and saturated IP rejects without updates",
+      "passed": true
+    },
+    {
+      "name": "P1 inactive cron preserves last save before account cascade; archives expire separately",
+      "passed": true
+    },
+    {
+      "name": "P1 inactive and archive retention settings are applied",
+      "passed": true
+    },
+    {
+      "name": "P2 failed PIN uses code+IP only; owner remains able to save",
+      "passed": true
+    },
+    {
+      "name": "P2 inherited equipment names and bought codes rejected independently",
+      "passed": true
+    },
+    {
+      "name": "P2 all reported opaque fields reject arbitrary objects",
+      "passed": true
+    },
+    {
+      "name": "P2 missing pepper prevents Worker startup",
+      "passed": true
+    },
+    {
+      "name": "P2 PBKDF2 configurable, recorded per account and old hashes remain usable",
+      "passed": true
+    },
+    {
+      "name": "P2 stored IP key is peppered HMAC; IPv4 mapped variants share one key",
+      "passed": true
+    },
+    {
+      "name": "P2 deletion preserves cache and concurrent expiry has one generation",
+      "passed": true
+    },
+    {
+      "name": "P2 malformed URL encoding, hex revision, production localhost denied",
+      "passed": true
+    },
+    {
+      "name": "P2 configured HTTPS domain is exact and production localhost cannot be opted in accidentally",
+      "passed": true
+    },
+    {
+      "name": "P2 legitimate native dialogues, transitions, battle snapshots and settlements remain valid",
+      "passed": true
+    }
+  ]
+}

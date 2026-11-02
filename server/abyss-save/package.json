@@ -5,7 +5,7 @@
   "scripts": {
     "generate": "node gen_known.mjs",
     "build": "node build.mjs",
-    "test": "node test/integration.mjs && node test/security.mjs && node test/turnstile.mjs",
+    "test": "node test/integration.mjs && node test/security.mjs && node test/turnstile.mjs && node test/security-r2.mjs",
     "dev": "wrangler dev --local --ip 127.0.0.1",
     "deploy": "wrangler deploy"
   },
