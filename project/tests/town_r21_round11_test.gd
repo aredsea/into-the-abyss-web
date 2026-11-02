@@ -79,7 +79,7 @@ func run():
 	save_sample(w,"facilities")
 	var store=Store.new("user://round11/cloud.json");DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path("user://round11"))
 	check(store.write(w.s)==OK,"integrated disk save")
-	var cloud=Cloud.new();cloud.model=w;cloud.storage=store;root.add_child(cloud);cloud.config.server_url="http://127.0.0.1:8787";cloud.account={"code":"","pin":"","rev":0,"auto":false,"synced":false}
+	var cloud=Cloud.new();cloud.model=w;cloud.storage=store;root.add_child(cloud);cloud.config.server_url=(OS.get_environment("ABYSS_TEST_SERVER") if not OS.get_environment("ABYSS_TEST_SERVER").is_empty() else "http://127.0.0.1:8787");cloud.account={"code":"","pin":"","rev":0,"auto":false,"synced":false}
 	await cloud.create_account();check(cloud.account.rev==1 and cloud.can_upload(),"integrated local D1 account")
 	await cloud.upload();check(cloud.account.rev==2,"integrated local D1 upload")
 	var gold=w.s.gold;w.s.gold=1;await cloud.download();check(w.s.gold==gold and cloud.account.rev==2,"integrated local D1 download uses complete model")

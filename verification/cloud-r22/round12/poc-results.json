@@ -1,0 +1,60 @@
+{
+  "checks": 2,
+  "failures": 0,
+  "settle_blob": {
+    "exit": 0,
+    "passed": true,
+    "result": {
+      "control_clear_fell_obj": {
+        "accepted": false,
+        "field": "summary.fell"
+      },
+      "summary_aff_blob": {
+        "accepted": false,
+        "field": "summary.aff"
+      },
+      "summary_fell_blob": {
+        "accepted": false,
+        "field": "summary.fell"
+      },
+      "summary_steps_string": {
+        "accepted": false,
+        "field": "summary.steps"
+      },
+      "summary_first_array": {
+        "accepted": false,
+        "field": "summary.first"
+      },
+      "summary_from_clear_minus_version": {
+        "accepted": false,
+        "field": "summary.steps"
+      },
+      "dungeon_last_blob": {
+        "accepted": false,
+        "field": "dungeon.last.steps"
+      },
+      "big_opaque": {
+        "accepted": false,
+        "field": "dungeon.last.aff"
+      },
+      "create": 422
+    }
+  },
+  "scan2": {
+    "exit": 0,
+    "passed": true,
+    "result": {
+      "samples": 154,
+      "candidates": 322,
+      "pathsTried": 948,
+      "nodesTried": 353,
+      "replaceAccepted": [],
+      "addAccepted": []
+    }
+  },
+  "source_sha256": {
+    "C:\\Users\\asone\\AppData\\Local\\Temp\\claude\\C--Clauede-Code\\8827866b-4906-44ba-b235-c0148a886034\\scratchpad\\r3-poc\\settle_blob.mjs": "addfad12b190cdcd0e6b9df4d4279ec496e8820f7b32d7c75f4f71fee0f7eb05",
+    "C:\\Users\\asone\\AppData\\Local\\Temp\\claude\\C--Clauede-Code\\8827866b-4906-44ba-b235-c0148a886034\\scratchpad\\r3-fixcheck\\scan2.mjs": "ec740777c7cf35ded65a7c50eabb1ebf79ee574e38319cc5dfcc886be4eb5cc8"
+  },
+  "scan_adaptation": "Only the hardcoded base directory is replaced with this worktree; original files unchanged."
+}

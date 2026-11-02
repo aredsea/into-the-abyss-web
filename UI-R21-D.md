@@ -1,5 +1,68 @@
 # UI-R21-D
 
+## 12차 — 클라우드 최종 보안 2건 · 운영 배포 준비
+
+작업 지시서와 공통 규칙, `DEPLOYMENT-SECURITY.md`, cloudfix의 P9c 절을 UTF-8로 읽고 후속 수정했다. 원격 배포·migration·운영 토큰 사용·웹 export는 수행하지 않았다. 아래 근거는 `verification/cloud-r22/round12/`에 모았다.
+
+### 수정과 재현
+
+- `summary`와 `dungeon_r21.last`는 `expedition_version`이 없으면 `steps`·`first`·`aff`·`fell`의 존재 자체를 거절한다. 객체뿐 아니라 숫자·불리언·빈 객체도 거절하며, 정상 구형 정산과 옛 저장 이관은 유지한다.
+- 신규 가입의 전역 UTC 일일 상한 두 개를 추가했다. `GLOBAL_NEW_PER_DAY=10000`, `GLOBAL_NEW_BYTES_PER_DAY=268435456`(256MiB)이다. IP별·/48별·분별 예산과 같은 D1 원자 문장에서 예약하므로 회전 IP와 동시 가입으로 초과할 수 없다. 429에서는 모든 카운터가 불변이고, cron은 당일 전역 일일 카운터를 보존한다. 기존 계정 읽기·PUT은 이 신규 가입 예산을 쓰지 않는다.
+- 운영 `TURNSTILE_ENABLED=true`, 별도 `development` 환경은 false로 분리했다. 개발 환경에는 별도 D1 바인딩과 전체 vars를 명시했다. 클라이언트의 사이트 키·서버 주소는 빈 값으로 유지했다. `npm run check:deployment`와 `predeploy`는 운영 false를 거절한다. 실제 Wrangler 설정 해석 및 false 설정의 비정상 종료도 시험했다.
+- 운영 `workers_dev=true`는 유지했다. 전용 도메인·WAF 연결 시 false 전환, hostname·CORS 변경, 실제 사이트 키·secret 설정을 배포 체크리스트에 명시했다.
+- `npm run generate`로 원본 데이터 이름과 SHA256을 반영한 `known.json`을 재생성했다. Miniflare는 P9c와 같은 `5.20261012.0-beta`로 이미 정확히 고정돼 있음을 확인하고 `npm install --package-lock-only --ignore-scripts --offline`으로 lockfile을 재생성했다. Worker 번들도 다시 빌드했다.
+
+시험을 먼저 추가해 수정 전 **5그룹 실패**를 `security-red.json`·`security-red.log`에 남겼다. 정산 구멍 1그룹과 전역 일일 예산 4그룹이다. 같은 시험의 수정 후 결과는 실패 0이다. 새 정산 시험은 `legacy_00`를 사용해 두 경로·네 키를 독립 변이하고 정상 구형 정산 대조군도 검사한다. 기존 시험의 기대값은 바꾸지 않았다.
+
+### 검사 수치
+
+|검사|결과|근거|
+|---|---:|---|
+|기존 Worker + 실제 D1 integration|5,659 / 실패 0|`integration-results.json`|
+|기존 보안 1차 / Siteverify / 보안 2차|423 / 7 / 119 · 실패 0|`security-r1-results.json`, `siteverify-results.json`, `security-r2-results.json`|
+|새 보안 3차|670 · 6그룹 / 실패 0|`security-results.json`|
+|운영·개발 설정 / 배포 거부 검사|22 / 실패 0|`deployment-results.json`, `deployment-gate.log`|
+|서버 `npm test` 합계|**6,900 / 실패 0**|`npm-test.log`|
+|제공 `settle_blob.mjs`|**계정 생성 422**, 변이 모두 거절|`settle_blob.stdout.log`|
+|정상 저장 표본|**154 / 154 수용**, 입력 불변|`security-results.json`|
+|제공 `scan2`|948경로·353노드·322후보, **임의 객체 수용 0곳**|`scan2.stdout.log`|
+|Godot 전체 회귀 + import|**58그룹 / 실패 0**|`regression.json`, `godot-run.log`, `godot-rerun.log`|
+|Godot 클라우드 HTTP / 보관 / UI|27 / 5 / 700 · **합계 732 / 실패 0**|`native-{service,archive,ui}-results.json`|
+|마을 round11 의미 통합|**148 / 실패 0**, 옛 저장 11·통합 표본 23|`town_r21_round11_test.log`|
+|마을 round11 UI|**5,380 / 실패 0**, 170장|`ui_town_r21_round11_test.log`|
+|보호 파일 / 원본 에셋|**1,889 / 96 · 변경 0**|`audit.json`|
+|재생성 카탈로그 / Worker 번들|원본 JSON 7개 SHA 일치 / 현재 소스와 바이트 일치|`audit.json`|
+
+전체 집계는 `summary.json`이다. 실행기는 `test/serve.mjs`와 같은 실제 workerd/D1 runtime을 빈 포트에 띄우고 시험 그룹마다 quota를 초기화한다. 사용자 컴퓨터의 기존 서버를 종료하지 않았다. Windows의 기존 root certificate store 진단은 로그에 남기고 스크립트·검사 실패와 구분했다.
+
+첫 전체 실행에서 `town_r21_round11_test`만 8787 주소를 하드코딩해 HTTP 연결 검사 3개가 실패했다. 다른 클라우드 시험처럼 `ABYSS_TEST_SERVER`를 따르도록 시험 주소만 수정했다. 기대값은 유지했고 재실행은 148개 모두 통과했다. 첫 시도 로그·전체 집계는 `town_r21_round11-first-attempt.log`·`regression-first-attempt.json`에 보존했다.
+
+클라우드 35장과 마을 round11 170장을 각각 5개 크기의 연락판으로 만들어 **10개 연락판을 직접 열었다**. 보관·삭제 확인 데스크톱 원본과 390×664 충돌 원본도 열어 읽었다. 클라우드의 보관 안내·저장 비활성·충돌 선택은 보이며, 짧은 화면의 하단 동작은 스크롤이 필요하다. 마을·편성·출발·상점·정산 화면의 기존 배치가 유지된다. 나머지 회귀 UI는 자동 검사 결과로 확인했으며 모든 개별 원본 캡처를 열었다고 주장하지 않는다.
+
+`settle_blob.mjs`는 제공 원문을 그대로 실행했다. `scan2`는 오래된 scratch 사본을 하드코딩하므로 **기준 디렉터리 한 곳만 현재 worktree로 바꾼 사본**으로 실행했다. 스캔 논리와 5개 표본 집합은 그대로이며 원문 두 파일은 수정하지 않았다. 원문 SHA256과 사본은 `poc-results.json`·`scan2-local.mjs`에 남겼다.
+
+### 변경 파일과 남은 운영 작업
+
+- 서버: `src/{validate.js,index.js,known.json}`, `dist/worker.mjs`, `wrangler.toml`, `package.json`, `package-lock.json`, `check-deployment.mjs`, `DEPLOYMENT-SECURITY.md`.
+- 검사: `server/abyss-save/test/{security-r3.mjs,deployment.mjs,godot-r3.mjs}`, `project/tests/town_r21_round11_test.gd`, `tools/cloud_r22_round12_{pocs,audit}.py` 및 `verification/cloud-r22/round12/`.
+- 보고: 이 문서의 12차 절. 게임 규칙·저장 형식·클라이언트 소스·원본 에셋은 변경하지 않았다.
+
+전역 일일 값은 실측 이용량이 아닌 초기 비용 예산이다. 신규 계정의 최초 payload 예산이며 기존 PUT 이력·인덱스·백업을 포함한 D1 전체 비용의 상한은 아니다. 실패한 Siteverify도 예약된 입장 예산을 소비한다. 운영 관측 뒤 담당자가 비용과 트래픽에 맞춰 조정해야 한다.
+
+Claude가 실제 DB id·사이트 키·secret·서버 주소를 넣은 뒤 배포하고, 실제 Turnstile·HTTPS CORS·두 기기 흐름을 확인해야 한다. 이번 결과는 로컬 workerd/D1·모의 Siteverify 검증이다. 웹 export는 지시대로 생략했다.
+
+```powershell
+cd server/abyss-save
+npm test
+node test/godot-r3.mjs
+npm run check:deployment
+npm run generate
+npm run build
+cd ../..
+python tools/cloud_r22_round12_pocs.py
+python tools/cloud_r22_round12_audit.py
+```
+
 ## 11차 — P9b·P5·P6 병합 · 통합 저장 허용 목록 · 정수 표시와 영어 제목
 
 충돌을 파일 내용으로 해결하고 8~10차의 준비 화면·설정·P7/P10 복귀 흐름 위에 원정·시설·클라우드를 연결했다. 정본 영어가 없는 문구는 한국어로 유지한다. 운영 클라우드는 배포하지 않았다.

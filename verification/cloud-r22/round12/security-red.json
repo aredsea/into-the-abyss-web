@@ -1,0 +1,35 @@
+{
+  "checks": 622,
+  "failures": 5,
+  "groups": [
+    {
+      "name": "legacy_00 and legacy dungeon last reject expedition-only fields independently",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Missing expected exception.\n    at file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-d-town/server/abyss-save/test/security-r3.mjs:29:10\n    at group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-d-town/server/abyss-save/test/security-r3.mjs:20:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-d-town/server/abyss-save/test/security-r3.mjs:24:1"
+    },
+    {
+      "name": "all 154 legitimate samples retain accepted HTTP migration and immutable input",
+      "passed": true
+    },
+    {
+      "name": "global daily signup cap survives rotating IP and minute buckets, rejection is atomic",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"status\":201,\"value\":{\"code\":\"G8BM-CGMP-SPZM\",\"pin\":\"E5W4W1Q3ZE\",\"rev\":1,\"summary\":{\"day\":1,\"gold\":300,\"level\":1,\"best\":0,\"runs\":0,\"companions\":1}}}\n\n201 !== 429\n\n    at call (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-d-town/server/abyss-save/test/security-r3.mjs:18:37)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async group.GLOBAL_NEW_PER_DAY (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-d-town/server/abyss-save/test/security-r3.mjs:48:2)\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-d-town/server/abyss-save/test/security-r3.mjs:20:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-d-town/server/abyss-save/test/security-r3.mjs:44:1"
+    },
+    {
+      "name": "global daily new-save byte cap exact boundary and rotating IP",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"status\":201,\"value\":{\"code\":\"KAGG-8121-TP1C\",\"pin\":\"MYFXXAXPAW\",\"rev\":1,\"summary\":{\"day\":1,\"gold\":300,\"level\":1,\"best\":0,\"runs\":0,\"companions\":1}}}\n\n201 !== 429\n\n    at call (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-d-town/server/abyss-save/test/security-r3.mjs:18:37)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-d-town/server/abyss-save/test/security-r3.mjs:64:2\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-d-town/server/abyss-save/test/security-r3.mjs:20:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-d-town/server/abyss-save/test/security-r3.mjs:61:1"
+    },
+    {
+      "name": "global daily concurrent rotating networks cannot overdraw",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n  [\n    201,\n    201,\n    201,\n+   201,\n+   201,\n+   201,\n+   201,\n+   201\n-   429,\n-   429,\n-   429,\n-   429,\n-   429\n  ]\n\n    at group.GLOBAL_NEW_PER_DAY (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-d-town/server/abyss-save/test/security-r3.mjs:70:9)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-d-town/server/abyss-save/test/security-r3.mjs:20:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-d-town/server/abyss-save/test/security-r3.mjs:68:1"
+    },
+    {
+      "name": "global daily denial precedes one-use Turnstile verification",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: {\"status\":201,\"value\":{\"code\":\"HBYQ-59J5-NJSR\",\"pin\":\"DWAC11K7A6\",\"rev\":1,\"summary\":{\"day\":1,\"gold\":300,\"level\":1,\"best\":0,\"runs\":0,\"companions\":1}}}\n\n201 !== 429\n\n    at call (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-d-town/server/abyss-save/test/security-r3.mjs:18:37)\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\n    at async group.GLOBAL_NEW_PER_DAY (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-d-town/server/abyss-save/test/security-r3.mjs:76:34)\n    at async group (file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-d-town/server/abyss-save/test/security-r3.mjs:20:6)\n    at async file:///C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-d-town/server/abyss-save/test/security-r3.mjs:75:1"
+    }
+  ]
+}

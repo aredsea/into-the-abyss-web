@@ -5,8 +5,10 @@
   "scripts": {
     "generate": "node gen_known.mjs",
     "build": "node build.mjs",
-    "test": "node test/integration.mjs && node test/security.mjs && node test/turnstile.mjs && node test/security-r2.mjs",
-    "dev": "wrangler dev --local --ip 127.0.0.1",
+    "test": "node test/integration.mjs && node test/security.mjs && node test/turnstile.mjs && node test/security-r2.mjs && node test/security-r3.mjs && node test/deployment.mjs",
+    "dev": "wrangler dev --env development --local --ip 127.0.0.1",
+    "check:deployment": "node check-deployment.mjs",
+    "predeploy": "npm run check:deployment",
     "deploy": "wrangler deploy"
   },
   "devDependencies": {"wrangler": "4.156.1", "miniflare": "5.20261012.0-beta"}

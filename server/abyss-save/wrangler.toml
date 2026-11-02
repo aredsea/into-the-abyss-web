@@ -16,13 +16,15 @@ database_id = "00000000-0000-0000-0000-000000000000"
 migrations_dir = "migrations"
 
 [vars]
-TURNSTILE_ENABLED = "false"
+TURNSTILE_ENABLED = "true"
 ALLOW_LOCALHOST = "false"
 CORS_ORIGINS = "https://aredsea.github.io"
 TURNSTILE_HOSTNAMES = "aredsea.github.io"
 GLOBAL_NEW_PER_MINUTE = "6000"
+GLOBAL_NEW_PER_DAY = "10000"
 GLOBAL_WRITE_BYTES_PER_MINUTE = "134217728"
 GLOBAL_NEW_BYTES_PER_MINUTE = "67108864"
+GLOBAL_NEW_BYTES_PER_DAY = "268435456"
 IP_WRITE_BYTES_PER_MINUTE = "262144"
 ACCOUNT_WRITE_BYTES_PER_MINUTE = "262144"
 IP_NEW_BYTES_PER_MINUTE = "262144"
@@ -37,3 +39,34 @@ RANK_MIN_AGE_SECONDS = "600"
 
 [triggers]
 crons = ["17 * * * *"]
+
+# Local-only environment. Vars and D1 bindings do not inherit from production.
+[env.development]
+name = "abyss-web-save-development"
+workers_dev = false
+
+[env.development.vars]
+TURNSTILE_ENABLED = "false"
+ALLOW_LOCALHOST = "true"
+CORS_ORIGINS = "https://aredsea.github.io"
+TURNSTILE_HOSTNAMES = "localhost,127.0.0.1"
+GLOBAL_NEW_PER_MINUTE = "6000"
+GLOBAL_NEW_PER_DAY = "10000"
+GLOBAL_WRITE_BYTES_PER_MINUTE = "134217728"
+GLOBAL_NEW_BYTES_PER_MINUTE = "67108864"
+GLOBAL_NEW_BYTES_PER_DAY = "268435456"
+IP_WRITE_BYTES_PER_MINUTE = "262144"
+ACCOUNT_WRITE_BYTES_PER_MINUTE = "262144"
+IP_NEW_BYTES_PER_MINUTE = "262144"
+NEW_PER_IP_PER_DAY = "20"
+IPV6_48_REQUESTS_PER_MINUTE = "240"
+INACTIVE_DAYS = "180"
+ARCHIVE_DAYS = "30"
+PIN_PBKDF2_ITERATIONS = "5000"
+RANK_MIN_AGE_SECONDS = "600"
+
+[[env.development.d1_databases]]
+binding = "DB"
+database_name = "abyss-web-save-development"
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"

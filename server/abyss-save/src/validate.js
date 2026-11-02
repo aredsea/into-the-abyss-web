@@ -165,6 +165,7 @@ function settlement(v,p,s){
  const base=['result','gold','xp','wins','lost','gains','floor','penalty'];
  const extra=['expedition_version','steps','kept_gold','lost_items','gear_lost','lost_gear','first','aff','fell','items','gear','title'];
  keys(v,[...base,...extra],p);if(!Object.keys(v).length)return;
+ if(!Object.hasOwn(v,'expedition_version'))for(const k of ['steps','first','aff','fell'])if(Object.hasOwn(v,k))fail(p+'.'+k);
  keys(v,[...base,...extra],p,['result','gold','xp','wins','lost','gains']);
  if(!['clear','retreat','defeat'].includes(v.result))fail(p+'.result');
  for(const k of ['gold','xp','wins','lost','penalty','kept_gold','gear_lost','lost_gear'])if(k in v)num(v[k],0,k==='wins'?6:Number.MAX_SAFE_INTEGER,p+'.'+k);

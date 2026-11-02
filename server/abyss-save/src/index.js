@@ -124,7 +124,9 @@ async function route(request,env){
   await admit([['new:'+ipHash,5],['daily:new:'+dailyIP,setting(env,'NEW_PER_IP_PER_DAY',20),1,86400],
    ...(v6?[['new48:'+subnetHash,20],['daily:new48:'+dailySubnet,200,1,86400]]:[]),
    ['global:new',setting(env,'GLOBAL_NEW_PER_MINUTE',6000)],
+   ['daily:global:new',setting(env,'GLOBAL_NEW_PER_DAY',10000),1,86400],
    ['newbytes:'+ipHash,setting(env,'IP_NEW_BYTES_PER_MINUTE',262144),bytes],
+   ['daily:global:newbytes',setting(env,'GLOBAL_NEW_BYTES_PER_DAY',268435456),bytes,86400],
    ['global:newbytes',setting(env,'GLOBAL_NEW_BYTES_PER_MINUTE',67108864),bytes]]);
   // Syntax, save validation and all admission decisions precede one-use verification.
   await turnstile(request,env,b.turnstile);
