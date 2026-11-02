@@ -1,0 +1,32 @@
+{
+  "network_rank": {
+    "pattern": "HTTPRequest|HTTPClient|\\bcloud\\b|wpin|hmac|\\brank\\b",
+    "scope": "project/game/*.gd + project/ui/*.gd 全文",
+    "hits": [],
+    "count": 0
+  },
+  "localization": {
+    "pattern": "\\blanguage\\b|\\blocale\\b|TranslationServer",
+    "scope": "project/game/*.gd + project/ui/*.gd 全文",
+    "hits": [],
+    "count": 0
+  },
+  "persona_state": {
+    "pattern": "\\bpersona\\b",
+    "scope": "project/game/*.gd + project/ui/*.gd 全文",
+    "hits": [],
+    "count": 0
+  },
+  "favorite": {
+    "pattern": "\\bfavs\\b|즐겨찾기",
+    "scope": "project/game/*.gd + project/ui/*.gd 全文",
+    "hits": [],
+    "count": 0
+  },
+  "affection_stage": {
+    "pattern": "적대|불신|낯섦|깊은 인연|맹세|운명",
+    "scope": "project/game/*.gd + project/ui/*.gd 全文",
+    "hits": [],
+    "count": 0
+  }
+}

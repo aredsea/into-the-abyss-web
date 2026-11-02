@@ -1,0 +1,15 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath,pathToFileURL} from 'node:url';
+const out=path.dirname(fileURLToPath(import.meta.url));
+const src='C:/Clauede Code/dungeon-bot/bot/src';
+const {mkSim}=await import(pathToFileURL('C:/Clauede Code/dungeon-bot/bot/lua_sim.mjs').href);
+const names=['01-game.lua','05-gen.lua','10-data.lua','60-create.lua','71-shop.lua','73-inn.lua','74-affection.lua','74-level.lua','76-dungeon.lua','77-explore.lua','78-battle-item.lua','81-gear.lua'];
+const text=names.map(n=>'\ndo\n'+fs.readFileSync(path.join(src,n),'utf8')+'\nend\n').join('');
+const {L,sim}=await mkSim({policy:false,extra:text});
+const data=await L(`local names={'GEN','FM','CURVES','CLS','STARS','GAUGE','ENEMY_STD','LEVEL_MAX','CAST','CAST_ORDER','CLASSES','PASSIVES','ROLES','GRADES','TUNE_FLOOR','DEEP','CURVE','BOSSR','REWARDR','THREAT','TEMPLATES','ACT_DEFAULTS','FAMS','ZONES','ZONE_ORDER','RIFTS','RIFT_ORDER','FOES','FOE_ORDER','RARITY_ORDER','RARITY','EQUIP_DROP','EQUIP','EQUIP_ORDER','GEAR_GL','INTIMACY','SCEN','SCEN_EN','LORE','LORE_ORDER','ATK','KIT','DF','PSK','POTION','ITEMS','ITEM_ORDER','POTION_IDS','INN_ACTS','INN_ORDER','AFF','LV_MAX','DN','EX','IT'} local out={} for _,k in ipairs(names) do out[k]=B[k] end for _,k in ipairs({'GEAR','SHOP','GUILD','EN','PERSONA'}) do out[k..'_RAW']=json.decode(B[k..'_RAW']) end out.UI_RAW={en=json.decode(B.UI_RAW.en)} local g=B.gear();out.GEAR_EXPANDED={items=g.items,order=g.order,pools=g.pools,range=g.range,fx=g.fx} return out`);
+fs.writeFileSync(path.join(out,'lua-constants.json'),JSON.stringify(data,null,2)+'\n','utf8');
+fs.writeFileSync(path.join(out,'lua-save-defaults.json'),JSON.stringify(await L('return B.G_new()'),null,2)+'\n','utf8');
+console.log(JSON.stringify({tables:Object.keys(data).length,foes:Object.keys(data.FOES).length,cast:Object.keys(data.CAST).length,gear_raw_keys:Object.keys(data.GEAR_RAW),gear_raw_n:data.GEAR_RAW.items?.length}));
+if(sim.close)await sim.close();
+process.exit(0);

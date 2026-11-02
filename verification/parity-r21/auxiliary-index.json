@@ -1,0 +1,2362 @@
+[
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\ARCHITECTURE.md",
+    "lines": 94,
+    "sha256": "d819aa307a33b839b670103743bf168a5b5c70cec27703b447b527b724ba8be2",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 봇 본체 (개발판) — 구조와 계약"
+      },
+      {
+        "line": 3,
+        "text": "## 클라우드 저장 계약 (2026-10-10)"
+      },
+      {
+        "line": 10,
+        "text": "## 폴더"
+      },
+      {
+        "line": 31,
+        "text": "## 게임 상태 G (`01-game.lua` B.G_new — 채팅 변수 `dk_game`)"
+      },
+      {
+        "line": 37,
+        "text": "## 화면 등록 계약"
+      },
+      {
+        "line": 56,
+        "text": "## UI 정체성"
+      },
+      {
+        "line": 60,
+        "text": "## 로어북 원고 형식 (`lore/**/*.md`)"
+      },
+      {
+        "line": 74,
+        "text": "## 에셋 계약"
+      },
+      {
+        "line": 79,
+        "text": "## 검증"
+      },
+      {
+        "line": 82,
+        "text": "## 빌드 고리 (build.py 가 있으면 부른다 — 담당 파일)"
+      },
+      {
+        "line": 90,
+        "text": "## 의뢰 전투 난이도 [제안 10-08]"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\ASSETS.md",
+    "lines": 109,
+    "sha256": "5818c3bfd5a8aba420b2bde687d4b9ce57102a2d829398a66409f30531e002c3",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 에셋 체계 — 기본 의상은 charx, 나머지는 에셋 모듈 (세팅만)"
+      },
+      {
+        "line": 6,
+        "text": "## 1. 원본 이름 규칙과 「기본 의상」 판단"
+      },
+      {
+        "line": 19,
+        "text": "## 2. charx 에 실리는 것 (기본 의상, 2026-10-08 변환 결과)"
+      },
+      {
+        "line": 27,
+        "text": "## 3. Lua — `B.portrait(id, variant)`"
+      },
+      {
+        "line": 34,
+        "text": "## 4. 성인 그림 에셋 모듈 (`.risum` 하나 — 2026-10-10 만들어진다)"
+      },
+      {
+        "line": 49,
+        "text": "### 현재 스냅샷 (`dist/dungeon_assets_nsfw_v1.risum`)"
+      },
+      {
+        "line": 89,
+        "text": "## 5. NAI 삽화 로어북 (`tools/nai_tags.py`)"
+      },
+      {
+        "line": 96,
+        "text": "## 6. 갱신 절차"
+      },
+      {
+        "line": 105,
+        "text": "## 7. 비전투 인물(NPC) 22명 (2026-10-09)"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness.mjs",
+    "lines": 484,
+    "sha256": "ab46f60fc0b5a40534c8bcb731498f342fe470709dfbf037584d9861496f564e",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_affection.mjs",
+    "lines": 160,
+    "sha256": "eee090e84db4fcd299982220bb0437bf6f5cc4dbb19b9489310e94d942bc8973",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_art.mjs",
+    "lines": 228,
+    "sha256": "89c1498d8d48d19f1143bb70d5578d0c98e0b5da6053ce6d98d2b4b35ce3a24e",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_cloud.mjs",
+    "lines": 150,
+    "sha256": "5ef37fa1903d4afee009c3ae83cb42805149a3aef9e8ff5af34be50e66e81ffe",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_create.mjs",
+    "lines": 455,
+    "sha256": "4fb4f989dab2400ebafc78e180845dbfb12abd2acb877ced79c4badcb3262a3a",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_economy.mjs",
+    "lines": 107,
+    "sha256": "50138ab441e5ef864b849a2b603a02bd6e0104d7dcbf5b1ab0ab8d7e267cdf00",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_expedition.mjs",
+    "lines": 948,
+    "sha256": "4b01cda1cc4ba00f3398a22d93f57c15dc10b7a76d411497dc1d11cc11051635",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_gear.mjs",
+    "lines": 527,
+    "sha256": "df6f659933bd737e5e5636c7ba1302be43689a3e4042398572339bd75244c6e1",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_i18n.mjs",
+    "lines": 315,
+    "sha256": "8b510a4a557ef10e81b535a1eda609dc26c20c9d2b429218e8336c951bdd0877",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_lore.mjs",
+    "lines": 210,
+    "sha256": "d8c24fb9ca3bbaa66c9a8b3c6162ab33024bc0f8ffb0a1a9acbecec164476bd6",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_memory.mjs",
+    "lines": 440,
+    "sha256": "60d8a75acd63fd3fc06cb206a95a89af7fcda23f4df55b00be38ffb4ee19548f",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_npcaff.mjs",
+    "lines": 324,
+    "sha256": "bcf39e232bdd2c1f227477c8700b68decaa36518656f4cef635e6d4c41b65def",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_panels.mjs",
+    "lines": 671,
+    "sha256": "019ea976444faaee3287697ba9bd8ee98ed6258a685b9117c5a47f5460dd0d49",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_party.mjs",
+    "lines": 297,
+    "sha256": "5116fb49029fb6ce2d9fe1db9a4a1f0b0b263e89b980223551ad823d0f60109c",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_persona_bonus.mjs",
+    "lines": 29,
+    "sha256": "0dde8fca838ccb3a3b09affcbe92e2bd30b2b6e3a82ec317667072e4641cbe0a",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_persona_skill.mjs",
+    "lines": 201,
+    "sha256": "bf4c3f993cb763f225d38064b6209e92f8cda79e9184ad500bf49be9f16fcbb2",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_personal_a.mjs",
+    "lines": 646,
+    "sha256": "4c0be57a62e8ebf7852c192c58a5c4a3e2ceeeb37f0075a7043f0fbadf4827a2",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_personal_b.mjs",
+    "lines": 808,
+    "sha256": "4c90a2d25fe3a24be72172e2d8d783182d74679c882dc8472f75ee0d6b1bfc8f",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_portrait.mjs",
+    "lines": 117,
+    "sha256": "00770e8abe353a774087e679685441296332863274cc7b3b086a07241fddc39d",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_raid.mjs",
+    "lines": 791,
+    "sha256": "ba6a146f8309348a29ecfdda61eb1cfdf0d15e053121ac89f8cf198b3d7a2cd5",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_regen_mix.mjs",
+    "lines": 39,
+    "sha256": "596d84c0c7c5c75ed3c2791069ec802baeeed569ae3ece2fafbc6c7e63bdd0af",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_settings_form.mjs",
+    "lines": 154,
+    "sha256": "7b9202343220c4e8cb260aaa747347af7f4dcfec4738cf16bfdf813e4c43bb42",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_sex.mjs",
+    "lines": 769,
+    "sha256": "b2aeaa3025cfd17e54ce7fdb77ef8ce85e524ec64b35f9c05352a4185638f064",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_smithy.mjs",
+    "lines": 280,
+    "sha256": "188b90da7925f25b254d03b667363ad1fae32a4536221c1d533281206a0ea158",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_sortie.mjs",
+    "lines": 457,
+    "sha256": "1ad3c316b2d3bac2cd310144e4098cfcb8d81997991689dfb3314c7ea6d83a94",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_sxaux.mjs",
+    "lines": 112,
+    "sha256": "e6c9424d0c75dfbb6dcfbb43134d8b40e0e565477cf641fa0c83676158cb591f",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_town.mjs",
+    "lines": 434,
+    "sha256": "d5af132d6ee311e327f7b83230cb11886df51edfe1055e33217262c51eba2384",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\harness_traits.mjs",
+    "lines": 773,
+    "sha256": "43179a6bc796c80217906adaf069c395832b6d1f9ef138ab453574c3ff45d035",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\lua_sim.mjs",
+    "lines": 43,
+    "sha256": "17ffa65e8f680ffd69cb19db8a65067c2258fd9ea16a5b983b411d428057cbb5",
+    "headings": []
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\bot\\PERSONAL-PORT.md",
+    "lines": 29,
+    "sha256": "7c81216ccbb884d290677e18b2e99282c2a5bc42c0920652906c3521537d119b",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 동료 개인 스킬·특성 이식 안내 (전투 엔진 · 2026-10-08)"
+      },
+      {
+        "line": 6,
+        "text": "## 정본(무엇을 만들지)"
+      },
+      {
+        "line": 11,
+        "text": "## 넣는 꼴"
+      },
+      {
+        "line": 28,
+        "text": "## 확인"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\BATTLE-PROTO0.md",
+    "lines": 73,
+    "sha256": "c97ba4787040e3746f013343abffcd11d56f92e9b40934ec5008dc639023fa50",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 전투 시제품 0 설계서"
+      },
+      {
+        "line": 7,
+        "text": "## 범위"
+      },
+      {
+        "line": 17,
+        "text": "## 파티"
+      },
+      {
+        "line": 27,
+        "text": "## 적"
+      },
+      {
+        "line": 30,
+        "text": "## 능력치와 판정 (수치는 시제품용 초안)"
+      },
+      {
+        "line": 36,
+        "text": "## 스킬 (시제품에 넣는 것)"
+      },
+      {
+        "line": 49,
+        "text": "## 화면 (버튼 한 번에 다시 그리기 한 번)"
+      },
+      {
+        "line": 59,
+        "text": "## 전투가 끝나면"
+      },
+      {
+        "line": 64,
+        "text": "## 실기 함정 (시험 카드에서 확인한 것, 반드시 지킨다)"
+      },
+      {
+        "line": 70,
+        "text": "## 완료 기준"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\CLASSES.md",
+    "lines": 94,
+    "sha256": "31e38d51046550dbea8be7c1d910b46b4320f16cee4077ba7ebd00c89064dc8b",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 직업과 고유 스킬"
+      },
+      {
+        "line": 5,
+        "text": "## 직업의 기본 구상"
+      },
+      {
+        "line": 18,
+        "text": "## 직업 표"
+      },
+      {
+        "line": 46,
+        "text": "## 세계관과 이어지는 곳"
+      },
+      {
+        "line": 50,
+        "text": "## 열린 질문과 정해진 것"
+      },
+      {
+        "line": 59,
+        "text": "## 10번째 직업: 심연 마도사 (고갈 특화)"
+      },
+      {
+        "line": 73,
+        "text": "## 직업 패시브 수치"
+      },
+      {
+        "line": 89,
+        "text": "## 도발 지속 규칙"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\CLOUD-SAVE.md",
+    "lines": 89,
+    "sha256": "c1891724434ec9dc5093bb6492737da79cb7586a27802d1ce3e3c1baf99f209d",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 계정 코드 저장(클라우드 세이브): 가능성 검토"
+      },
+      {
+        "line": 3,
+        "text": "## 구현"
+      },
+      {
+        "line": 11,
+        "text": "### 배포 순서 (소유자)"
+      },
+      {
+        "line": 21,
+        "text": "## 검토 배경"
+      },
+      {
+        "line": 27,
+        "text": "## 결론: 조건부 가능, 단 GitHub 레포를 저장소로 쓰는 것은 권하지 않는다"
+      },
+      {
+        "line": 33,
+        "text": "## 구조"
+      },
+      {
+        "line": 43,
+        "text": "## RisuAI 쪽 근거 (확인, 커밋 2a511a31)"
+      },
+      {
+        "line": 51,
+        "text": "## 「간단한 인증 코드」 안"
+      },
+      {
+        "line": 57,
+        "text": "## 밸런스, 전투 데이터와 업적 안"
+      },
+      {
+        "line": 64,
+        "text": "## 위험"
+      },
+      {
+        "line": 70,
+        "text": "## 실기 확인 목록"
+      },
+      {
+        "line": 79,
+        "text": "## 단계 계획"
+      },
+      {
+        "line": 86,
+        "text": "## 사장님 결정이 필요한 것"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\COMPANIONS.md",
+    "lines": 981,
+    "sha256": "f599d73095e627dd3078986d0e54cbe7284d920c8e82ad2f4009ba9b091bdbd4",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 동료 30명 구성"
+      },
+      {
+        "line": 7,
+        "text": "## 목차"
+      },
+      {
+        "line": 18,
+        "text": "## 구성 원칙"
+      },
+      {
+        "line": 28,
+        "text": "## 한눈에 보기"
+      },
+      {
+        "line": 62,
+        "text": "## 분포 확인"
+      },
+      {
+        "line": 71,
+        "text": "## 인물별 설정"
+      },
+      {
+        "line": 75,
+        "text": "### 1. 마르셀린: 인간, 솔렌, 성기사"
+      },
+      {
+        "line": 84,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 97,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 107,
+        "text": "### 2. 나란: 수인(여우), 대카라쉰, 궁수"
+      },
+      {
+        "line": 114,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 127,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 135,
+        "text": "### 3. 테이리스: 엘프, 나에린, 공인 마법사"
+      },
+      {
+        "line": 144,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 157,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 166,
+        "text": "### 4. 할드리크: 녹스, 케른, 전사"
+      },
+      {
+        "line": 175,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 188,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 195,
+        "text": "### 5. 에르데네: 수인(늑대), 대카라쉰, 전사"
+      },
+      {
+        "line": 202,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 215,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 223,
+        "text": "### 6. 비앙카: 인간, 마렌토, 암살자"
+      },
+      {
+        "line": 230,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 243,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 251,
+        "text": "### 7. 사야: 악마, 모르가스, 암살자"
+      },
+      {
+        "line": 260,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 273,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 282,
+        "text": "### 8. 게르다: 인간, 신성 제국, 궁수"
+      },
+      {
+        "line": 291,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 304,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 313,
+        "text": "### 9. 유디트: 인간, 신성 제국, 비공인 마법사"
+      },
+      {
+        "line": 320,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 333,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 341,
+        "text": "### 10. 레비아: 악마, 모르가스, 심연 마도사"
+      },
+      {
+        "line": 351,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 364,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 374,
+        "text": "### 11. 우르다: 녹스, 케른, 사제"
+      },
+      {
+        "line": 381,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 394,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 402,
+        "text": "### 12. 리네트: 하프엘프, 마렌토, 사제"
+      },
+      {
+        "line": 409,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 422,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 430,
+        "text": "### 13. 펠리스: 하프엘프, 경계도시(토르바), 연금술사"
+      },
+      {
+        "line": 437,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 450,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 457,
+        "text": "### 14. 소렐: 엘프, 나에린(추방), 연금술사"
+      },
+      {
+        "line": 464,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 477,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 485,
+        "text": "### 15. 티카: 수인(고양이), 마렌토, 검투사"
+      },
+      {
+        "line": 494,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 507,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 515,
+        "text": "### 16. 헤드비히: 인간, 신성 세레디아 제국, 공인 마법사"
+      },
+      {
+        "line": 525,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 538,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 547,
+        "text": "### 17. 힐데가: 인간, 신성 세레디아 제국, 전사"
+      },
+      {
+        "line": 555,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 568,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 576,
+        "text": "### 18. 베렌가: 하프엘프, 신성 세레디아 제국, 사제"
+      },
+      {
+        "line": 584,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 597,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 605,
+        "text": "### 19. 군힐트: 수인(개), 신성 세레디아 제국, 검투사"
+      },
+      {
+        "line": 615,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 628,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 636,
+        "text": "### 20. 바르굿: 수인(표범), 대카라쉰, 암살자"
+      },
+      {
+        "line": 646,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 659,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 666,
+        "text": "### 21. 알탄: 인간, 대카라쉰, 연금술사"
+      },
+      {
+        "line": 674,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 687,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 696,
+        "text": "### 22. 콜레트: 인간, 솔렌 성왕국, 공인 마법사"
+      },
+      {
+        "line": 706,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 719,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 727,
+        "text": "### 23. 셀바: 녹스, 마렌토 공화국, 검투사"
+      },
+      {
+        "line": 735,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 748,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 757,
+        "text": "### 24. 오르넬: 엘프, 나에린, 궁수"
+      },
+      {
+        "line": 767,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 780,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 788,
+        "text": "### 25. 자하르: 악마, 모르가스 신관국, 전사"
+      },
+      {
+        "line": 796,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 809,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 817,
+        "text": "### 26. 요르드: 녹스, 케른 연방, 암살자"
+      },
+      {
+        "line": 825,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 838,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 845,
+        "text": "### 27. 라비니아: 인간, 경계도시, 공인 마법사"
+      },
+      {
+        "line": 853,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 866,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 873,
+        "text": "### 28. 토베: 악마, 경계도시, 검투사"
+      },
+      {
+        "line": 881,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 894,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 902,
+        "text": "### 29. 미코: 녹스, 경계도시, 연금술사"
+      },
+      {
+        "line": 910,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 923,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 930,
+        "text": "### 30. 아델린: 수인(개), 솔렌 성왕국, 사제"
+      },
+      {
+        "line": 940,
+        "text": "#### 프로필"
+      },
+      {
+        "line": 953,
+        "text": "#### 행적 (연도는 분열 후)"
+      },
+      {
+        "line": 961,
+        "text": "## 관계 실마리"
+      },
+      {
+        "line": 974,
+        "text": "## 이름 겹침 점검"
+      },
+      {
+        "line": 977,
+        "text": "## 열린 질문"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\DUNGEON.md",
+    "lines": 346,
+    "sha256": "5bd78c9b5d5af80c9f8f60a6ef411fb9c72fc2168d38a2b8f511fdc7e01c1218",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 던전 구성과 원정 진행: 한 판은 어떻게 흘러가나"
+      },
+      {
+        "line": 7,
+        "text": "## 목차"
+      },
+      {
+        "line": 25,
+        "text": "## 한눈에 보기"
+      },
+      {
+        "line": 47,
+        "text": "## 한 원정의 흐름"
+      },
+      {
+        "line": 61,
+        "text": "## 채팅에서 한 지점이 굴러가는 방식"
+      },
+      {
+        "line": 87,
+        "text": "## 한 판에 걸리는 시간"
+      },
+      {
+        "line": 101,
+        "text": "## 층: 구역, 층 번호, 갈림길 지도"
+      },
+      {
+        "line": 103,
+        "text": "### 한 층의 진행 구조"
+      },
+      {
+        "line": 123,
+        "text": "### 구역과 층 번호"
+      },
+      {
+        "line": 147,
+        "text": "### 갈림길 지도 (대체됨, 폐기 후보)"
+      },
+      {
+        "line": 178,
+        "text": "### 결정론 씨앗"
+      },
+      {
+        "line": 185,
+        "text": "## 지점 종류별 설계"
+      },
+      {
+        "line": 187,
+        "text": "### 전투와 정예"
+      },
+      {
+        "line": 192,
+        "text": "### 사건"
+      },
+      {
+        "line": 212,
+        "text": "### 축복"
+      },
+      {
+        "line": 217,
+        "text": "### 야영"
+      },
+      {
+        "line": 222,
+        "text": "### 상점"
+      },
+      {
+        "line": 225,
+        "text": "### 보물"
+      },
+      {
+        "line": 229,
+        "text": "### 층 보스와 귀환 지점"
+      },
+      {
+        "line": 233,
+        "text": "## 실패와 부상"
+      },
+      {
+        "line": 246,
+        "text": "## 원정이 끝나면: 남는 것과 사라지는 것"
+      },
+      {
+        "line": 262,
+        "text": "## 진행 곡선: 회차마다 무엇이 열리나"
+      },
+      {
+        "line": 279,
+        "text": "## 첫 원정: 길잡이 원정"
+      },
+      {
+        "line": 287,
+        "text": "## 소규모 균열: 길드 의뢰"
+      },
+      {
+        "line": 300,
+        "text": "## 에셋 목록: 지도와 지점"
+      },
+      {
+        "line": 312,
+        "text": "## 구현 순서: 시제품 단계"
+      },
+      {
+        "line": 328,
+        "text": "## 사장님 결정이 필요한 것"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\ELEMENTS.md",
+    "lines": 152,
+    "sha256": "7e4f8fe9bf77060b6a579c54f88dc827e6d7857b8aa30bf1d34dae874c013edb",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 속성: 여섯 속성과 무속성"
+      },
+      {
+        "line": 7,
+        "text": "## 목차"
+      },
+      {
+        "line": 20,
+        "text": "## 속성 일곱 칸"
+      },
+      {
+        "line": 37,
+        "text": "## 공격 속성: 누가 무엇으로 치나"
+      },
+      {
+        "line": 44,
+        "text": "## 약점"
+      },
+      {
+        "line": 56,
+        "text": "## 무속성"
+      },
+      {
+        "line": 64,
+        "text": "## 동료 30명의 속성"
+      },
+      {
+        "line": 127,
+        "text": "## 파티를 짤 때"
+      },
+      {
+        "line": 134,
+        "text": "## 적 약점 배치"
+      },
+      {
+        "line": 146,
+        "text": "## 시너지와의 관계"
+      },
+      {
+        "line": 149,
+        "text": "## 아직 정하지 않은 것"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\ENEMIES.md",
+    "lines": 803,
+    "sha256": "730418aabbd05d8eceb95f99d7723c15e6c1d5e9a7d2674fe63db516844d222e",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 적 구성: 등급, 역할, 예고, 약점, 구역별 계통"
+      },
+      {
+        "line": 9,
+        "text": "## 목차"
+      },
+      {
+        "line": 31,
+        "text": "## 한눈에 보기"
+      },
+      {
+        "line": 42,
+        "text": "## 적의 등급"
+      },
+      {
+        "line": 53,
+        "text": "## 역할 일곱 가지"
+      },
+      {
+        "line": 67,
+        "text": "## 행동 예고: 깃발로 다음 수를 보여 준다"
+      },
+      {
+        "line": 90,
+        "text": "## 심연 게이지"
+      },
+      {
+        "line": 106,
+        "text": "## 약점: 매 전투 해법이 둘 이상"
+      },
+      {
+        "line": 126,
+        "text": "## 전열과 후열"
+      },
+      {
+        "line": 134,
+        "text": "## 수치: 표준 적에 곱하는 배수"
+      },
+      {
+        "line": 187,
+        "text": "## 구역별 적 계통"
+      },
+      {
+        "line": 190,
+        "text": "### 공통: 어느 구역에나 섞여 나온다"
+      },
+      {
+        "line": 199,
+        "text": "### 학술원 폐허 상층: ★1, 1~3층"
+      },
+      {
+        "line": 223,
+        "text": "### 학술원 폐허 서고: ★2, 4~6층"
+      },
+      {
+        "line": 247,
+        "text": "### 루미엘 지하 통로: ★3, 7~9층"
+      },
+      {
+        "line": 272,
+        "text": "### 심연 가장자리: ★4, 10층~"
+      },
+      {
+        "line": 301,
+        "text": "### 분열의 전장: ★5, 13~15층"
+      },
+      {
+        "line": 323,
+        "text": "### 철기 왕국의 무덤: ★6, 16~18층"
+      },
+      {
+        "line": 345,
+        "text": "### 청동과 혼혈의 시대: ★7, 19~21층"
+      },
+      {
+        "line": 368,
+        "text": "### 태초의 숲: ★8, 22~24층"
+      },
+      {
+        "line": 391,
+        "text": "### 밑바닥: ★9, 25~27층"
+      },
+      {
+        "line": 410,
+        "text": "## 소규모 균열의 적"
+      },
+      {
+        "line": 426,
+        "text": "## 한 전투의 적 조합"
+      },
+      {
+        "line": 470,
+        "text": "## 끝없는 층: 28층 아래"
+      },
+      {
+        "line": 483,
+        "text": "## 레이드 전투: 층 보스"
+      },
+      {
+        "line": 513,
+        "text": "## 계열 30: 그림 단위"
+      },
+      {
+        "line": 552,
+        "text": "## 유혹과 매혹 행동"
+      },
+      {
+        "line": 560,
+        "text": "## 에셋 목록: 적 그림"
+      },
+      {
+        "line": 578,
+        "text": "## 열린 질문"
+      },
+      {
+        "line": 588,
+        "text": "## 새 모험가 시작: 소인원 첫 층 보정"
+      },
+      {
+        "line": 617,
+        "text": "## 흐름 재튜닝: 탐색 ×5 → 휴식 → 층 보스 (한 층 통째)"
+      },
+      {
+        "line": 647,
+        "text": "## 밸런스 시뮬 표: 대던전 층"
+      },
+      {
+        "line": 676,
+        "text": "### 구역 보스와 우두머리 조정 (행동 수치로만, 층 곡선은 그대로)"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\EQUIPMENT.md",
+    "lines": 66,
+    "sha256": "43889548e7285593ef6775a1ca308073f36c01b693df25d87d7e96e4f0ef6560",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 장비와 제련"
+      },
+      {
+        "line": 5,
+        "text": "## 착용과 능력치"
+      },
+      {
+        "line": 19,
+        "text": "## 대던전 드랍"
+      },
+      {
+        "line": 31,
+        "text": "## 상점과 대장간"
+      },
+      {
+        "line": 37,
+        "text": "### 제련"
+      },
+      {
+        "line": 47,
+        "text": "### 장비 가공"
+      },
+      {
+        "line": 64,
+        "text": "### 제련 및 가공 완료"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\EXPEDITION.md",
+    "lines": 166,
+    "sha256": "b2312f739f846928181b2fee1c4e5002c63ec514899ee6f0ceec5f4be3c64877",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 원정 구조: 거점, 심연, 축복, 장비, 경제"
+      },
+      {
+        "line": 7,
+        "text": "## 목차"
+      },
+      {
+        "line": 23,
+        "text": "## 확정된 뼈대"
+      },
+      {
+        "line": 30,
+        "text": "## 한 판의 흐름"
+      },
+      {
+        "line": 46,
+        "text": "## 거점: 토르바"
+      },
+      {
+        "line": 59,
+        "text": "## 심연: 층과 갈림길 지도"
+      },
+      {
+        "line": 90,
+        "text": "## 3택1 축복"
+      },
+      {
+        "line": 107,
+        "text": "## 유물과 장비 조합"
+      },
+      {
+        "line": 117,
+        "text": "## 경제"
+      },
+      {
+        "line": 128,
+        "text": "## 잡몹 자동 전투"
+      },
+      {
+        "line": 133,
+        "text": "## 원정이 끝날 때: 남는 것과 사라지는 것"
+      },
+      {
+        "line": 142,
+        "text": "## AI와 엔진의 역할 나누기"
+      },
+      {
+        "line": 154,
+        "text": "## 화면 3종"
+      },
+      {
+        "line": 161,
+        "text": "## 열린 질문"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\FORMULA.md",
+    "lines": 180,
+    "sha256": "897fe5ad16468d010b1775759e8e34be94f7aa9a992be1006d9a14eda586ff2e",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 피해 공식, 능력치 기준, 레벨 곡선"
+      },
+      {
+        "line": 5,
+        "text": "## 목차"
+      },
+      {
+        "line": 20,
+        "text": "## 설계 지시"
+      },
+      {
+        "line": 23,
+        "text": "## 참고한 게임들의 계산 구조"
+      },
+      {
+        "line": 33,
+        "text": "## 설계 원칙: 밸런스를 지키는 다섯 가지"
+      },
+      {
+        "line": 40,
+        "text": "## 능력치: 무엇을 하는가"
+      },
+      {
+        "line": 54,
+        "text": "## 레벨 곡선"
+      },
+      {
+        "line": 73,
+        "text": "## 피해 공식"
+      },
+      {
+        "line": 95,
+        "text": "## 회복, 보호막, 지속 피해, 행동 순서"
+      },
+      {
+        "line": 104,
+        "text": "## 고갈: 심연 게이지와 심연 깎기"
+      },
+      {
+        "line": 132,
+        "text": "## 표준 적과 난이도 등급"
+      },
+      {
+        "line": 146,
+        "text": "## 검산: 레벨이 올라도 밸런스가 유지되는가"
+      },
+      {
+        "line": 167,
+        "text": "## 레이드 보스 감경"
+      },
+      {
+        "line": 176,
+        "text": "## 열린 질문"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\GAME-DESIGN.md",
+    "lines": 124,
+    "sha256": "78b90ba60f223cebf714474180a0179002adf619fa6a520b917399e443d641df",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 게임 설계"
+      },
+      {
+        "line": 5,
+        "text": "## 게임의 틀"
+      },
+      {
+        "line": 15,
+        "text": "## 길드 의뢰와 대던전 보상"
+      },
+      {
+        "line": 23,
+        "text": "## 동료"
+      },
+      {
+        "line": 30,
+        "text": "## 동료 영입"
+      },
+      {
+        "line": 39,
+        "text": "## 전투"
+      },
+      {
+        "line": 51,
+        "text": "### 전투가 끝난 뒤 AI에게 서사 넘기기"
+      },
+      {
+        "line": 59,
+        "text": "### 심연 고갈"
+      },
+      {
+        "line": 67,
+        "text": "## 세계관과 이름"
+      },
+      {
+        "line": 74,
+        "text": "## 성향과 호감"
+      },
+      {
+        "line": 80,
+        "text": "## 원정 구조와 성장"
+      },
+      {
+        "line": 98,
+        "text": "## 거점 시설과 NPC"
+      },
+      {
+        "line": 106,
+        "text": "## 장비"
+      },
+      {
+        "line": 115,
+        "text": "## UI와 화풍"
+      },
+      {
+        "line": 121,
+        "text": "## 배포와 기술"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\GAP-MOE.md",
+    "lines": 62,
+    "sha256": "dce77c929f59ec59532a44f6d6c4bf98c07c7b4fdc1a8b9a5c17996d48f96c9f",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 동료 의외성(갭 모에) 설계"
+      },
+      {
+        "line": 7,
+        "text": "## 1. 점검: 지금 개성이 살아 있나"
+      },
+      {
+        "line": 15,
+        "text": "## 2. 의외성을 줄 12명"
+      },
+      {
+        "line": 36,
+        "text": "## 3. 고유 스킬: 이름과 설명만 바꾼다 (효과는 그대로)"
+      },
+      {
+        "line": 55,
+        "text": "## 4. 반영 상태"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\INTIMACY.md",
+    "lines": 1490,
+    "sha256": "20b767c87e68d40f684f998c7a0f593b5962c16ef3457df596cca61ee6102896",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 동료 성향과 섹스 제안 설계: 휴식 칸과 여관의 섹스 제안, 창관, 마을 여성 이벤트, 섹스 장면"
+      },
+      {
+        "line": 13,
+        "text": "## 목차"
+      },
+      {
+        "line": 29,
+        "text": "## 1. 기준과 용어집"
+      },
+      {
+        "line": 35,
+        "text": "### 지배 쪽"
+      },
+      {
+        "line": 51,
+        "text": "### 복종 쪽"
+      },
+      {
+        "line": 66,
+        "text": "### 기타"
+      },
+      {
+        "line": 74,
+        "text": "## 2. 섹스 제안 메커니즘"
+      },
+      {
+        "line": 76,
+        "text": "### 2-1. 흐름"
+      },
+      {
+        "line": 85,
+        "text": "### 2-2. 성공 확률"
+      },
+      {
+        "line": 109,
+        "text": "### 2-3. 결정론 굴림"
+      },
+      {
+        "line": 113,
+        "text": "### 2-4. 기록과 표시"
+      },
+      {
+        "line": 128,
+        "text": "### 2-5. 거절의 효과 (기본은 호감 변화 없음, 같은 휴식 재제안만 아주 조금)"
+      },
+      {
+        "line": 140,
+        "text": "### 2-6. 수락 시 / 거절 시"
+      },
+      {
+        "line": 146,
+        "text": "## 3. 조건 어휘: 엔진이 휴식 화면에서 확인하는 것"
+      },
+      {
+        "line": 168,
+        "text": "## 4. AI 지시문 틀"
+      },
+      {
+        "line": 193,
+        "text": "## 5. 한눈에 보는 30명 요약표"
+      },
+      {
+        "line": 253,
+        "text": "## 6. 인물별 성향 카드"
+      },
+      {
+        "line": 257,
+        "text": "### 1. 마르셀린 (인간, 솔렌 성왕국, 성기사)"
+      },
+      {
+        "line": 298,
+        "text": "### 2. 나란 (수인, 대카라쉰, 궁수)"
+      },
+      {
+        "line": 336,
+        "text": "### 3. 테이리스 (엘프, 나에린, 공인 마법사)"
+      },
+      {
+        "line": 374,
+        "text": "### 4. 할드리크 (녹스, 케른 연방, 전사)"
+      },
+      {
+        "line": 415,
+        "text": "### 5. 에르데네 (수인, 대카라쉰, 전사)"
+      },
+      {
+        "line": 454,
+        "text": "### 6. 비앙카 (인간, 마렌토 공화국, 암살자)"
+      },
+      {
+        "line": 493,
+        "text": "### 7. 사야 (악마, 모르가스 신관국, 암살자)"
+      },
+      {
+        "line": 534,
+        "text": "### 8. 게르다 (인간, 신성 세레디아 제국, 궁수)"
+      },
+      {
+        "line": 572,
+        "text": "### 9. 유디트 (인간, 신성 세레디아 제국, 비공인 마법사)"
+      },
+      {
+        "line": 610,
+        "text": "### 10. 레비아 (악마, 모르가스 신관국, 심연 마도사)"
+      },
+      {
+        "line": 651,
+        "text": "### 11. 우르다 (녹스, 케른 연방, 사제)"
+      },
+      {
+        "line": 689,
+        "text": "### 12. 리네트 (하프엘프, 마렌토 공화국, 사제)"
+      },
+      {
+        "line": 727,
+        "text": "### 13. 펠리스 (하프엘프, 경계도시, 연금술사)"
+      },
+      {
+        "line": 765,
+        "text": "### 14. 소렐 (엘프, 나에린, 연금술사)"
+      },
+      {
+        "line": 803,
+        "text": "### 15. 티카 (수인, 마렌토 공화국, 검투사)"
+      },
+      {
+        "line": 841,
+        "text": "### 16. 헤드비히 (인간, 신성 세레디아 제국, 공인 마법사)"
+      },
+      {
+        "line": 879,
+        "text": "### 17. 힐데가 (인간, 신성 세레디아 제국, 전사)"
+      },
+      {
+        "line": 920,
+        "text": "### 18. 베렌가 (하프엘프, 신성 세레디아 제국, 사제)"
+      },
+      {
+        "line": 958,
+        "text": "### 19. 군힐트 (수인, 신성 세레디아 제국, 검투사)"
+      },
+      {
+        "line": 998,
+        "text": "### 20. 바르굿 (수인, 대카라쉰, 암살자)"
+      },
+      {
+        "line": 1036,
+        "text": "### 21. 알탄 (인간, 대카라쉰, 연금술사)"
+      },
+      {
+        "line": 1074,
+        "text": "### 22. 콜레트 (인간, 솔렌 성왕국, 공인 마법사)"
+      },
+      {
+        "line": 1114,
+        "text": "### 23. 셀바 (녹스, 마렌토 공화국, 검투사)"
+      },
+      {
+        "line": 1152,
+        "text": "### 24. 오르넬 (엘프, 나에린, 궁수)"
+      },
+      {
+        "line": 1192,
+        "text": "### 25. 자하르 (악마, 모르가스 신관국, 전사)"
+      },
+      {
+        "line": 1230,
+        "text": "### 26. 요르드 (녹스, 케른 연방, 암살자)"
+      },
+      {
+        "line": 1270,
+        "text": "### 27. 라비니아 (인간, 경계도시, 공인 마법사)"
+      },
+      {
+        "line": 1308,
+        "text": "### 28. 토베 (악마, 경계도시, 검투사)"
+      },
+      {
+        "line": 1346,
+        "text": "### 29. 미코 (녹스, 경계도시, 연금술사)"
+      },
+      {
+        "line": 1384,
+        "text": "### 30. 아델린 (수인, 솔렌 성왕국, 사제)"
+      },
+      {
+        "line": 1424,
+        "text": "## 7. 점검표"
+      },
+      {
+        "line": 1436,
+        "text": "## 8. 열린 질문"
+      },
+      {
+        "line": 1444,
+        "text": "## 9. 섹스 장면"
+      },
+      {
+        "line": 1452,
+        "text": "## 10. 여관, 창관, 마을 여성"
+      },
+      {
+        "line": 1453,
+        "text": "### 10-1. 여관"
+      },
+      {
+        "line": 1458,
+        "text": "### 10-2. 창관 (장미 골목 `rose`)"
+      },
+      {
+        "line": 1464,
+        "text": "### 10-3. 마을 여성 8명의 호감과 독립 이벤트"
+      },
+      {
+        "line": 1470,
+        "text": "## 11. 장면 중 그림"
+      },
+      {
+        "line": 1476,
+        "text": "## 12. 숫자 한눈에와 열린 결정"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\ITEMS.md",
+    "lines": 36,
+    "sha256": "dcfd631c3c09826277d1b576c000d535918f9e3b5f3c3a257d715ccefce0a442",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 소모품: 물약 9종, 해독약, 붕대, 귀환 두루마리, 레벨업 스크롤"
+      },
+      {
+        "line": 6,
+        "text": "## 물약: 3종류 × 3크기"
+      },
+      {
+        "line": 20,
+        "text": "## 그 밖의 소모품"
+      },
+      {
+        "line": 27,
+        "text": "## 발견 가중치(탐색 중 아이템이 나올 35% 안에서)"
+      },
+      {
+        "line": 32,
+        "text": "## 옛 저장"
+      },
+      {
+        "line": 35,
+        "text": "## 장비"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\NPCS.md",
+    "lines": 369,
+    "sha256": "d5aa4b700fe2f46a8a4824959dce6a6f342ac51d7dbdd88cbbaa2244ffa26acd",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 비전투 인물(NPC) 22명, 에셋 명세서"
+      },
+      {
+        "line": 9,
+        "text": "## 목차"
+      },
+      {
+        "line": 21,
+        "text": "## 1. 요약 표"
+      },
+      {
+        "line": 50,
+        "text": "### 에셋 이름과 NSFW 세트 범위"
+      },
+      {
+        "line": 57,
+        "text": "## 2. 공통 규칙"
+      },
+      {
+        "line": 104,
+        "text": "## 3. 마을 여성 6명과 접대부 2명, 기본 의상과 NSFW 세트"
+      },
+      {
+        "line": 110,
+        "text": "### 3-1. 로레다나 (`loredana`), 연합 길드 현장 본부장"
+      },
+      {
+        "line": 121,
+        "text": "### 3-2. 페넬라 (`fenella`), 연합 길드 본관 접수원"
+      },
+      {
+        "line": 130,
+        "text": "### 3-3. 도로테아 (`dorothea`), 쇠방울 여관 주인"
+      },
+      {
+        "line": 139,
+        "text": "### 3-4. 한나 (`hanna`), 토르바 대장간 주인"
+      },
+      {
+        "line": 148,
+        "text": "### 3-5. 이졸데 (`isolde`), 토르바 기록관장"
+      },
+      {
+        "line": 158,
+        "text": "### 3-6. 아그네스 (`agnes`), 신성 제국 변경령 순찰대장"
+      },
+      {
+        "line": 170,
+        "text": "### 3-7. 뮤리엘 (`muriel`), 토르바 유흥가 접대부 〈동안〉"
+      },
+      {
+        "line": 181,
+        "text": "### 3-8. 비토리아 (`vittoria`), 마렌토에서 흘러온 고급 접대부 〈섹시글램〉"
+      },
+      {
+        "line": 192,
+        "text": "## 4. 마을 남성 5명, 기본 의상만"
+      },
+      {
+        "line": 196,
+        "text": "### 4-1. 크누트 (`knut`), 대장장이 (케른 막사 옆)"
+      },
+      {
+        "line": 205,
+        "text": "### 4-2. 노엘 (`noel`), 통역 골목 서기 조합장"
+      },
+      {
+        "line": 213,
+        "text": "### 4-3. 오스발트 (`oswald`), 토르바 성주"
+      },
+      {
+        "line": 222,
+        "text": "### 4-4. 피에트로 (`pietro`), 마렌토 상회 토르바 지배인"
+      },
+      {
+        "line": 231,
+        "text": "### 4-5. 스벤 (`sven`), 동문 검문소 길드 경비대장"
+      },
+      {
+        "line": 241,
+        "text": "## 5. 지도자 9명, 기본 의상만"
+      },
+      {
+        "line": 245,
+        "text": "### 5-1. 막시밀리안 3세 (`maximilian`), 신성 제국 황제"
+      },
+      {
+        "line": 253,
+        "text": "### 5-2. 에크하르트 (`eckhart`), 신성 제국 변경백"
+      },
+      {
+        "line": 261,
+        "text": "### 5-3. 쇼르가이 칸 (`shorgai`), 대카라쉰 3대 칸"
+      },
+      {
+        "line": 269,
+        "text": "### 5-4. 고드프루아 (`godfroi`), 솔렌 성왕국 국왕"
+      },
+      {
+        "line": 277,
+        "text": "### 5-5. 앙셀므 (`anselme`), 솔렌 대주교"
+      },
+      {
+        "line": 285,
+        "text": "### 5-6. 체사레 (`cesare`), 마렌토 공화국 종신 의장"
+      },
+      {
+        "line": 294,
+        "text": "### 5-7. 엘로웬 (`elowen`), 나에린 세계수의 여왕 (지도자 중 유일한 여성)"
+      },
+      {
+        "line": 304,
+        "text": "### 5-8. 사르콘 (`sarkon`), 모르가스 신관국 제41대 대신관"
+      },
+      {
+        "line": 312,
+        "text": "### 5-9. 볼프람 (`wolfram`), 케른 연방 맹약 회의 의장"
+      },
+      {
+        "line": 323,
+        "text": "## 6. 배색 점검"
+      },
+      {
+        "line": 356,
+        "text": "## 7. 이름과 id 겹침 점검"
+      },
+      {
+        "line": 364,
+        "text": "## 8. 열린 질문"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\PERSONA_SKILL.md",
+    "lines": 21,
+    "sha256": "f738b9a5d711db17d5a62967a52ffb6163a71088b74535321d9a87af15608270",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 페르소나 고유 스킬 — 최종 설계"
+      },
+      {
+        "line": 13,
+        "text": "## 저장과 대화"
+      },
+      {
+        "line": 18,
+        "text": "## 컷인"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\PERSONALITY-CAST.md",
+    "lines": 445,
+    "sha256": "0af454edc26cb54c0891130e0038e2f88279e42582e8a57e340414515371d56b",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 성향 시트: 동료 30명"
+      },
+      {
+        "line": 10,
+        "text": "## 목차"
+      },
+      {
+        "line": 19,
+        "text": "## 한눈에 30명"
+      },
+      {
+        "line": 53,
+        "text": "## 성향 분포"
+      },
+      {
+        "line": 65,
+        "text": "## 시트 30명"
+      },
+      {
+        "line": 67,
+        "text": "### 마르셀린 (질서 선, 내부 기질 ISFJ)"
+      },
+      {
+        "line": 79,
+        "text": "### 나란 (혼돈 중립, 내부 기질 ENTP)"
+      },
+      {
+        "line": 91,
+        "text": "### 테이리스 (중립 선, 내부 기질 ENFP)"
+      },
+      {
+        "line": 103,
+        "text": "### 할드리크 (질서 중립, 내부 기질 ISTJ)"
+      },
+      {
+        "line": 115,
+        "text": "### 에르데네 (혼돈 선, 내부 기질 ESTP)"
+      },
+      {
+        "line": 127,
+        "text": "### 비앙카 (질서 악, 내부 기질 ENFJ)"
+      },
+      {
+        "line": 139,
+        "text": "### 사야 (중립, 내부 기질 ISTP)"
+      },
+      {
+        "line": 151,
+        "text": "### 게르다 (혼돈 중립, 내부 기질 INTP)"
+      },
+      {
+        "line": 163,
+        "text": "### 유디트 (중립 악, 내부 기질 INTJ)"
+      },
+      {
+        "line": 175,
+        "text": "### 레비아 (중립 선, 내부 기질 ISFP)"
+      },
+      {
+        "line": 187,
+        "text": "### 우르다 (혼돈 선, 내부 기질 ENFP)"
+      },
+      {
+        "line": 199,
+        "text": "### 리네트 (중립 선, 내부 기질 ESFJ)"
+      },
+      {
+        "line": 211,
+        "text": "### 펠리스 (중립, 내부 기질 ESFP)"
+      },
+      {
+        "line": 223,
+        "text": "### 소렐 (중립, 내부 기질 INTJ)"
+      },
+      {
+        "line": 235,
+        "text": "### 티카 (혼돈 중립, 내부 기질 ISFP)"
+      },
+      {
+        "line": 247,
+        "text": "### 헤드비히 (질서 중립, 내부 기질 ISTJ)"
+      },
+      {
+        "line": 259,
+        "text": "### 힐데가 (질서 선, 내부 기질 ESTJ)"
+      },
+      {
+        "line": 271,
+        "text": "### 베렌가 (중립 선, 내부 기질 ENFP)"
+      },
+      {
+        "line": 283,
+        "text": "### 군힐트 (질서 중립, 내부 기질 ENTJ)"
+      },
+      {
+        "line": 295,
+        "text": "### 바르굿 (중립, 내부 기질 ISTP)"
+      },
+      {
+        "line": 307,
+        "text": "### 알탄 (중립 악, 내부 기질 ISTJ)"
+      },
+      {
+        "line": 320,
+        "text": "### 콜레트 (질서 선, 내부 기질 INFJ)"
+      },
+      {
+        "line": 332,
+        "text": "### 셀바 (중립, 내부 기질 ESTJ)"
+      },
+      {
+        "line": 344,
+        "text": "### 오르넬 (질서 중립, 내부 기질 ISFP)"
+      },
+      {
+        "line": 356,
+        "text": "### 자하르 (혼돈 선, 내부 기질 ISTP)"
+      },
+      {
+        "line": 368,
+        "text": "### 요르드 (질서 악, 내부 기질 INTJ)"
+      },
+      {
+        "line": 380,
+        "text": "### 라비니아 (질서 중립, 내부 기질 ESTJ)"
+      },
+      {
+        "line": 392,
+        "text": "### 토베 (중립 선, 내부 기질 INFP)"
+      },
+      {
+        "line": 404,
+        "text": "### 미코 (중립 선, 내부 기질 ISFJ)"
+      },
+      {
+        "line": 416,
+        "text": "### 아델린 (질서 선, 내부 기질 ESFJ)"
+      },
+      {
+        "line": 430,
+        "text": "## 원 설정과 어긋나 판단한 곳"
+      },
+      {
+        "line": 436,
+        "text": "## 동료 간 관계에서 새로 정한 것"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\PERSONALITY.md",
+    "lines": 221,
+    "sha256": "a7f23e9c80b50b99e5be1c15b388b39e9a3498f93524e59ff21965e422c9ec23",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 성향 룰북: 성향 9칸 × 기질 16유형"
+      },
+      {
+        "line": 7,
+        "text": "## 목차"
+      },
+      {
+        "line": 20,
+        "text": "## 두 겹: 무엇을 옳다고 여기나, 어떻게 드러내나"
+      },
+      {
+        "line": 31,
+        "text": "## 성향 9칸"
+      },
+      {
+        "line": 52,
+        "text": "## 기질 16유형"
+      },
+      {
+        "line": 83,
+        "text": "## 둘이 부딪힐 때"
+      },
+      {
+        "line": 90,
+        "text": "## 호감: 엔진이 세는 것"
+      },
+      {
+        "line": 93,
+        "text": "### 범위와 단계"
+      },
+      {
+        "line": 107,
+        "text": "### 최대 200과 오르는 속도"
+      },
+      {
+        "line": 130,
+        "text": "### 행동 갈래: 유저가 한 일을 이 중 하나로 본다"
+      },
+      {
+        "line": 144,
+        "text": "### 성향 반응표: 한 번에 움직이는 양(×3 = 호감 점수)"
+      },
+      {
+        "line": 157,
+        "text": "### 기질 보정: 같은 일에 더 크게 반응하는 쪽"
+      },
+      {
+        "line": 168,
+        "text": "### 누가 판정하나"
+      },
+      {
+        "line": 176,
+        "text": "## 호감도 화면"
+      },
+      {
+        "line": 185,
+        "text": "## 동료끼리의 상성"
+      },
+      {
+        "line": 194,
+        "text": "## AI 에게 주는 규칙: 채팅에서 어떻게 드러나나"
+      },
+      {
+        "line": 206,
+        "text": "## 캐릭터 시트 양식"
+      },
+      {
+        "line": 210,
+        "text": "### 이름 (성향, 기질은 내부 표기)"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\RECRUIT.md",
+    "lines": 29,
+    "sha256": "fb67dce2cb79d2d57fa02a10e5db0232b7b330e22e00938eee436b9504b246ed",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 동료 영입: 만남 주선"
+      },
+      {
+        "line": 5,
+        "text": "## 기본 방침"
+      },
+      {
+        "line": 11,
+        "text": "## 규칙"
+      },
+      {
+        "line": 24,
+        "text": "## 아직 정하지 않은 것"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\SAVE-LOAD.md",
+    "lines": 68,
+    "sha256": "1afc4b9958582211a959efdf1fde2e632b39e5e048b4850f6d61b355e711bf6b",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 세이브/로드: 업데이트 뒤에도 진행을 잇는 법"
+      },
+      {
+        "line": 6,
+        "text": "## 결론: 조건부로 가능하다"
+      },
+      {
+        "line": 16,
+        "text": "## 저장소 API (Lua)"
+      },
+      {
+        "line": 29,
+        "text": "## 업데이트 종류별"
+      },
+      {
+        "line": 38,
+        "text": "## 추천 설계"
+      },
+      {
+        "line": 47,
+        "text": "## 실사례 (구조만)"
+      },
+      {
+        "line": 52,
+        "text": "## 위험과 한계"
+      },
+      {
+        "line": 59,
+        "text": "## 실기 확인 목록"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\TRAIT-SIM.md",
+    "lines": 394,
+    "sha256": "67163d2b97014443aca7b5bbf59b009a1d80f32d21b33c69d26928de35d594f7",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 동료 개인 특성 시뮬레이션: 레벨 구간별 효용 측정"
+      },
+      {
+        "line": 7,
+        "text": "## 목차"
+      },
+      {
+        "line": 20,
+        "text": "## 결론"
+      },
+      {
+        "line": 24,
+        "text": "### 과하게 좋은 특성"
+      },
+      {
+        "line": 42,
+        "text": "### 과하게 나쁜 특성 (약하거나, 아예 작동하지 않는 것)"
+      },
+      {
+        "line": 65,
+        "text": "### 레벨이 오를수록 강해지거나 죽는 특성 (스케일링 문제)"
+      },
+      {
+        "line": 79,
+        "text": "### 시뮬로 못 쟀다: 추정"
+      },
+      {
+        "line": 91,
+        "text": "## 읽는 법: 단위와 등급"
+      },
+      {
+        "line": 114,
+        "text": "## 표"
+      },
+      {
+        "line": 116,
+        "text": "### 표 1. 등가 효과: 파티 전원 HP +x% 상당(기대값, %)"
+      },
+      {
+        "line": 153,
+        "text": "### 표 2. 승률 변화 Δ승률(%p, 조건 비율 반영) / ON 전투 길이 변화(라운드)"
+      },
+      {
+        "line": 185,
+        "text": "### 표 3. 대상 본인의 변화(5구간 평균, %): 피해 기여 / 받은 피해 / 남은 HP%p"
+      },
+      {
+        "line": 217,
+        "text": "### 표 4. 신뢰 구간: 대표 셀의 표준오차(등가 %, Lv20)"
+      },
+      {
+        "line": 249,
+        "text": "### 표 5. 기준 곡선: 파티 전원 HP +x% / 공격력 +x% 가 주는 전투 점수 증가"
+      },
+      {
+        "line": 259,
+        "text": "### 표 6. 상황 특성: 조건이 맞을 때의 효과(등가 %) 와 기대값"
+      },
+      {
+        "line": 281,
+        "text": "## 상황 특성: 조건이 맞을 때와 기대값"
+      },
+      {
+        "line": 304,
+        "text": "## 전투 밖 특성"
+      },
+      {
+        "line": 319,
+        "text": "## 방법"
+      },
+      {
+        "line": 345,
+        "text": "## 가정 목록"
+      },
+      {
+        "line": 370,
+        "text": "## 가장 의심스러운 가정"
+      },
+      {
+        "line": 385,
+        "text": "## 재현"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\TRAITS-PERSONAL-V2.md",
+    "lines": 365,
+    "sha256": "dc8c8524362c2ae43e2027b66b8bc514bd2089fdd9d071175f49a47095a0f21d",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 동료 개인 특성 개편안 (v2)"
+      },
+      {
+        "line": 7,
+        "text": "## 설계 규칙"
+      },
+      {
+        "line": 15,
+        "text": "## 개편표"
+      },
+      {
+        "line": 46,
+        "text": "## 엔진 구현: RisuAI 채팅 게임에서 어떻게 도나"
+      },
+      {
+        "line": 62,
+        "text": "## 시뮬 검증"
+      },
+      {
+        "line": 65,
+        "text": "## 시뮬 결과"
+      },
+      {
+        "line": 70,
+        "text": "### 한 줄 결론"
+      },
+      {
+        "line": 78,
+        "text": "### 읽는 법"
+      },
+      {
+        "line": 85,
+        "text": "### 표 1. 30명 최종 등가(%)"
+      },
+      {
+        "line": 122,
+        "text": "### v1에서 v2로 바뀐 등급 분포(새 밴드 기준)"
+      },
+      {
+        "line": 130,
+        "text": "### 표 2. 역할 확인: 본인 피해량, 파티가 받은 피해, 파티 남은 HP, 승률"
+      },
+      {
+        "line": 170,
+        "text": "### 표 3. 최종 수치(`traits_v2.json`과 같다)"
+      },
+      {
+        "line": 207,
+        "text": "### 수치를 맞춘 과정"
+      },
+      {
+        "line": 229,
+        "text": "### 개인 스킬 정정"
+      },
+      {
+        "line": 236,
+        "text": "### 밴드 미달 5명"
+      },
+      {
+        "line": 249,
+        "text": "### 레이드형 시나리오: 레이드 보스 감경 규칙 적용(30명 전원)"
+      },
+      {
+        "line": 292,
+        "text": "### 개편하지 않은 2명(옛 특성 그대로, 수치만)"
+      },
+      {
+        "line": 298,
+        "text": "### 미코 특성 교체"
+      },
+      {
+        "line": 325,
+        "text": "### 가정 목록"
+      },
+      {
+        "line": 355,
+        "text": "### 재현"
+      }
+    ]
+  },
+  {
+    "path": "C:\\Clauede Code\\dungeon-bot\\design\\TRAITS.md",
+    "lines": 164,
+    "sha256": "d50316685c66e2b4bff2c8f5eed89d3cbac2f4326cafd6239f78c1587c73695d",
+    "headings": [
+      {
+        "line": 1,
+        "text": "# 특성(traits)과 시너지"
+      },
+      {
+        "line": 5,
+        "text": "## 목차"
+      },
+      {
+        "line": 19,
+        "text": "## 바탕"
+      },
+      {
+        "line": 24,
+        "text": "## 능력치"
+      },
+      {
+        "line": 36,
+        "text": "## 특성의 세 갈래"
+      },
+      {
+        "line": 43,
+        "text": "## 종족 특성"
+      },
+      {
+        "line": 65,
+        "text": "## 국가 특성"
+      },
+      {
+        "line": 82,
+        "text": "## 전투 효율 측정"
+      },
+      {
+        "line": 111,
+        "text": "## 직업 계열 특성"
+      },
+      {
+        "line": 120,
+        "text": "## 시너지 규칙"
+      },
+      {
+        "line": 127,
+        "text": "## 예시 파티"
+      },
+      {
+        "line": 134,
+        "text": "## 화면 표시"
+      },
+      {
+        "line": 140,
+        "text": "## 열린 질문"
+      },
+      {
+        "line": 146,
+        "text": "## 엔진 구현 메모"
+      },
+      {
+        "line": 161,
+        "text": "## 시너지 개편 구현 메모"
+      }
+    ]
+  }
+]

@@ -1,0 +1,158 @@
+[
+  {
+    "command": [
+      "node",
+      "tools/oracle_data_r21.mjs"
+    ],
+    "exit_code": 0,
+    "seconds": 0.37,
+    "log": "fresh-01.log",
+    "summary": [
+      "{\"samples\":1028,\"rolls\":300,\"allStats\":700,\"source_files\":[\"05-gen.lua\",\"24-stats.lua\",\"26-start.lua\",\"27-compose.lua\",\"31-foes.lua\",\"72-guild.lua\",\"74-affection.lua\",\"76-dungeon.lua\",\"77-explore.lua\"]}"
+    ]
+  },
+  {
+    "command": [
+      "node",
+      "tools/oracle_enemy_r21.mjs"
+    ],
+    "exit_code": 0,
+    "seconds": 1.04,
+    "log": "fresh-02.log",
+    "summary": [
+      "{\"enemies\":100,\"turns\":1221,\"gear\":120}"
+    ]
+  },
+  {
+    "command": [
+      "node",
+      "tools/oracle_enemy_review_r21.mjs"
+    ],
+    "exit_code": 0,
+    "seconds": 0.14,
+    "log": "fresh-03.log",
+    "summary": [
+      "{\"dots\":6,\"evades\":120}"
+    ]
+  },
+  {
+    "command": [
+      "node",
+      "tools/town_r21_oracle.mjs"
+    ],
+    "exit_code": 0,
+    "seconds": 0.18,
+    "log": "fresh-04.log",
+    "summary": [
+      "Original Lua oracle: {",
+      "  inn: 4,",
+      "  costs: 31,",
+      "  guild_loot: 384,",
+      "  source_rng: 96,",
+      "  aff: 99,",
+      "  scroll: 4,",
+      "  ledger: 30,",
+      "  price: 75,",
+      "  guild: 96,",
+      "  need: 46",
+      "}"
+    ]
+  },
+  {
+    "command": [
+      "node",
+      "tools/town_r21_commerce_oracle.mjs"
+    ],
+    "exit_code": 0,
+    "seconds": 0.32,
+    "log": "fresh-05.log",
+    "summary": [
+      "{ roll: 6180, forge: 660, stock: 480, process: 1200 }"
+    ]
+  },
+  {
+    "command": [
+      "C:\\Users\\asone\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+      "tools/godot_r17.py",
+      "--headless",
+      "--script",
+      "res://tests/data_r21_test.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 1.0,
+    "log": "fresh-06.log",
+    "summary": [
+      "",
+      "ERROR: Failed to read the root certificate store.",
+      "DATA_R21 checks=7493 failures=0 composition=1028 stats=700 exploration=300"
+    ]
+  },
+  {
+    "command": [
+      "C:\\Users\\asone\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+      "tools/godot_r17.py",
+      "--headless",
+      "--script",
+      "res://tests/enemy_action_r21_test.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 77.82,
+    "log": "fresh-07.log",
+    "summary": [
+      "",
+      "ERROR: Failed to read the root certificate store.",
+      "ENEMY_ACTION_R21 {\"checks\":2878,\"continuous_matched\":1221,\"enemies\":100,\"failures\":0,\"gear_samples\":120,\"matched\":1221,\"samples\":1221,\"silence_samples\":200}"
+    ]
+  },
+  {
+    "command": [
+      "C:\\Users\\asone\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+      "tools/godot_r17.py",
+      "--headless",
+      "--script",
+      "res://tests/enemy_review_r21_test.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 6.11,
+    "log": "fresh-08.log",
+    "summary": [
+      "",
+      "ERROR: Failed to read the root certificate store.",
+      "ENEMY_REVIEW_R21 {\"checks\":148,\"evidence\":{\"initial_target\":\"neutral_0\",\"loaded_target\":\"neutral_1\",\"saved_target\":\"neutral_1\",\"turn_count\":3},\"failures\":[]}"
+    ]
+  },
+  {
+    "command": [
+      "C:\\Users\\asone\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+      "tools/godot_r17.py",
+      "--headless",
+      "--script",
+      "res://tests/town_r21_test.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 1.54,
+    "log": "fresh-09.log",
+    "summary": [
+      "",
+      "TOWN R21 CHECKS 2675 FAILURES 0 LUA SAMPLES 2544",
+      "ERROR: Failed to read the root certificate store."
+    ]
+  },
+  {
+    "command": [
+      "C:\\Users\\asone\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+      "tools/godot_r17.py",
+      "--headless",
+      "--script",
+      "res://tests/town_commerce_r21_test.gd"
+    ],
+    "exit_code": 0,
+    "seconds": 1.46,
+    "log": "fresh-10.log",
+    "summary": [
+      "",
+      "ERROR: Failed to read the root certificate store.",
+      "TOWN COMMERCE R21 CHECKS 14714 FAILURES 0 LUA 8520 / 8520"
+    ]
+  }
+]
