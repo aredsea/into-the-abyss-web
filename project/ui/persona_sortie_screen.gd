@@ -22,10 +22,14 @@ func build(owner_screen) -> void:
 	var fronts=w.sortie_ids().filter(func(id):return w.person(id).row=="전열").size()
 	if not w.sortie_ids().is_empty() and fronts==0:text("앞에서 막을 사람이 없습니다. 전열이 한 명도 없으면 후열이 바로 맞습니다.",14,T.RED)
 	text("탐사 지역",21)
-	var pick=OptionButton.new();body.add_child(pick);pick.custom_minimum_size.y=48
-	for f in range(1,w.dungeon_max()+1):
-		var info=w.dungeon_rules.floor_info(f);pick.add_item("%d층 · %s"%[f,w.dungeon_rules.zones[info.zone].name])
-	pick.select(w.selected_floor-1);pick.item_selected.connect(func(i):w.selected_floor=i+1;s.dungeon_r21.sel=i+1;host._save());host.controls.dungeon_floor=pick
+	if w.has_method("floor_page"):
+		preload("res://ui/expedition_floor_picker_r22.gd").build(self)
+	else:
+		var pick=OptionButton.new();body.add_child(pick);pick.custom_minimum_size.y=48
+		for f in range(1,w.dungeon_max()+1):
+			var info=w.dungeon_rules.floor_info(f);pick.add_item("%d층 · %s"%[f,w.dungeon_rules.zones[info.zone].name])
+		pick.select(w.selected_floor-1);pick.item_selected.connect(func(i):w.selected_floor=i+1;s.dungeon_r21.sel=i+1;host._save());host.controls.dungeon_floor=pick
+
 	text("출발 시 HP·MP를 모두 회복합니다.",14,T.MUTED)
 	button("start_run","선택한 층으로 출발",func():host._act(w.depart_dungeon.bind(w.selected_floor),"");host.go("explore"),true,w.sortie_ids().is_empty() or w.active(),footer)
 	if not s.quest.is_empty():button("accepted_quest","수락한 균열 의뢰로 출발",func():host._act(w.depart_accepted_quest,"");host.go("explore"),true,w.sortie_ids().is_empty() or w.active())

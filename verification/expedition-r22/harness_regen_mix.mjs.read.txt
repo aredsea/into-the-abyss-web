@@ -1,0 +1,39 @@
+// 회귀: 소렐 「시간이 약이다」 + 아델린 「플라시보 효과」 재생이 같은 칸을 써서 크래시·소실(검수 C1 · 10-08). node harness_regen_mix.mjs
+import fs from 'node:fs'
+import { pathToFileURL } from 'node:url'
+const { RisuSim } = await import(pathToFileURL('C:/Clauede Code/rental-ningen/harness/risu.mjs').href)
+const LUA = fs.readFileSync('dist/bot.lua', 'utf8')
+let fails = 0
+const check = (ok, m) => { console.log((ok ? 'OK   ' : 'FAIL ') + m); if (!ok) fails++ }
+// 개인 스킬 번호 = 2 + 직업 스킬 수(10-10 [공격, 직업…, 개인, 방어]): 소렐(연금술사 3개) = 5 · 아델린(사제 2개) = 4
+const PSLOT = { 1: 5, 2: 4 }
+async function run(order) {
+  const party = ['sorel', 'adeline', 'marceline', 'haldric']
+  const sim = new RisuSim(LUA, { firstMessage: 'x' }); await sim.init()
+  sim.chat.message = [{ role: 'char', data: 'x' }]
+  const lvl = {}; party.forEach(c => lvl[c] = 20)
+  sim.setVar('dk_game', JSON.stringify({ scene: 'sortie', roster: party, party, lvl, persona: { cls: '사제', fight: 0, lv: 20 },
+    town: { bn: 3, day: 1, acts: {}, rr: 0 }, guild: { quests: [{ id: 'q1', rift: 'x', stars: 1, gold: 100, lv: 20 }], active: 'q1' } }))
+  await sim.run('onButtonClick', 'so_go')
+  const used = new Set(); let adHeal = 0
+  for (let k = 0; k < 400; k++) {
+    const s = JSON.parse(sim.getVar('dk_battle')); if (s.over) break
+    const cur = s.cur
+    const want = order[used.size]
+    let btn
+    if (want === cur && !used.has(cur)) { btn = 'sk_' + PSLOT[cur]; used.add(cur) }
+    else { const foe = [5, 6, 7, 8].find(i => s.u[i - 1].al === 1); btn = null; await sim.run('onButtonClick', 'sk_1'); await sim.run('onButtonClick', 'tg_' + foe); continue }
+    await sim.run('onButtonClick', btn)
+    if (used.size === 2 && k > 0) { /* 계속 진행 */ }
+  }
+  const log = JSON.parse(sim.getVar('dk_battle')).log.map(l => l.h).join('\n')
+  const errs = sim.errors.slice(); sim.close()
+  return { errs, used: used.size }
+}
+for (const order of [[1, 2], [2, 1]]) {
+  const r = await run(order)
+  check(r.used === 2, `순서 ${order.join('→')}: 두 스킬 모두 사용`)
+  check(r.errs.length === 0, `순서 ${order.join('→')}: Lua 오류 0 ${r.errs.slice(0, 1).map(e => e.message.slice(0, 120)).join('')}`)
+}
+console.log(fails ? `실패 ${fails}건` : '전부 통과')
+process.exit(0)

@@ -1,0 +1,791 @@
+// 적 100종 · 조합기 · 레이드 전투 · 대던전 층 흐름 하네스 — rental-ningen 의 RisuSim(wasmoon)을 읽기 전용으로 빌려 쓴다.
+//   node harness_raid.mjs        (먼저 python build.py — dist/bot.lua 를 읽는다)
+// 확인: 데이터(적 100 · 계열 30 · 구역 · 균열 · 행동 종류 · 속성) · 모든 적이 어떤 조합에서든 나온다 · 조합 규칙(구역·종류마다 씨앗 200) ·
+//       단계 전환 · 분노 · 장기전 · 레이드 감경 · 충전 끊김 · 소환 한도 · 보호 대신 맞기 · 같은 씨앗 = 같은 전투 · 저장 왕복 · 옛 저장 이전 ·
+//       화면(nil · NaN · undefined 없음 · 버튼 값 형식 · 메달 · 레이드 패널) · 층 진행(고르기 · 지름길 · 두 단계 · 정산 · 기록) · 균열 의뢰 끝에 핵 ·
+//       층이 깊어질수록 줄지 않는 배수(★ 표 · tune.star · 심층)
+// ⚠️ DOMPurify·CSS 는 안 거친다 — 그건 Playwright 사진(shots_raid.py)과 실기의 몫이다.
+import fs from 'node:fs'
+import { fileURLToPath } from 'node:url'
+import { mkSim } from './lua_sim.mjs'
+
+const DATA = JSON.parse(fs.readFileSync(new URL('../design/enemies.json', import.meta.url), 'utf8'))
+let fails = 0, passes = 0
+const check = (ok, msg) => { console.log(`${ok ? 'OK  ' : 'FAIL'} ${msg}`); ok ? passes++ : fails++ }
+const { sim, L } = await mkSim()
+const SEEDS = +(process.env.SEEDS || 200)
+
+// ---------------------------------------------------------------- 1. 데이터
+console.log('=== 1. 데이터 ===')
+const E = DATA.enemies
+const byId = Object.fromEntries(E.map(e => [e.id, e]))
+check(E.length === 100, `적 ${E.length}종 (100)`)
+check(new Set(E.map(e => e.id)).size === E.length && E.every(e => /^[a-z][a-z0-9_]*$/.test(e.id)), '적 id 는 ascii snake · 중복 없음')
+check(new Set(E.map(e => e.family)).size === 30 && DATA.families.length === 30, '계열 30 전부 쓰인다')
+check(DATA.zones.filter(z => z.kind === 'dungeon').length === 9 && DATA.rifts.length === 6, '대던전 구역 9 · 균열 6')
+const KINDS = new Set(DATA.kinds), ELEMS = new Set(DATA.elements)
+let badAct = 0, badEl = 0
+for (const e of E) {
+  for (const a of [...e.acts, ...(e.phase2 ? e.phase2.acts : []), ...(e.phase2 && e.phase2.entry ? [e.phase2.entry] : [])]) if (!KINDS.has(a.kind) || !a.id || !a.name) badAct++
+  for (const w of [...e.weak, ...((e.phase2 || {}).weak || [])]) if (!ELEMS.has(w)) badEl++
+}
+check(badAct === 0 && badEl === 0, `행동 종류 · 이름 · id 와 속성이 전부 올바르다 (잘못 ${badAct}/${badEl})`)
+check(E.filter(e => e.grade === 'boss').length === 9 && E.filter(e => e.grade === 'core').length === 6 && E.filter(e => e.grade === 'elite').length === 23, '보스 9 · 핵 6 · 정예 23')
+const lua = await L(`local n, f = 0, {} for _, id in ipairs(B.FOE_ORDER) do n = n + 1; f[B.FOES[id].fam] = true end local nf = 0 for _ in pairs(f) do nf = nf + 1 end return { n = n, nf = nf, fams = #B.FAMS }`)
+check(lua.n === 100 && lua.nf === 30 && lua.fams === 30, `Lua B.FOES ${lua.n}종 · 계열 ${lua.nf} (빌드가 JSON 을 그대로 옮겼다)`)
+// 빌드 검증: 모르는 행동 종류 · 속성은 빌드를 실패시킨다(build.py gen_foes) — 별도 프로세스로 확인
+{
+  const { spawnSync } = await import('node:child_process')
+  const bad = JSON.parse(JSON.stringify(DATA))
+  bad.enemies[3].acts[0].kind = 'nonsense'
+  const tmp = new URL('./_bad_enemies.json', import.meta.url)
+  fs.writeFileSync(tmp, JSON.stringify(bad))
+  const py = `import sys; sys.path.insert(0, "."); import build; build.ENEMIES_JSON = "_bad_enemies.json"
+try:
+    build.gen_foes(); print("NOFAIL")
+except ValueError as e:
+    print("FAIL", e)`
+  const HERE = fileURLToPath(new URL('./', import.meta.url))
+  const r = spawnSync('python', ['-c', py], { cwd: HERE, encoding: 'utf8', env: { ...process.env, PYTHONIOENCODING: 'utf-8' } })
+  const bad2 = JSON.parse(JSON.stringify(DATA)); bad2.enemies[3].weak = ['plasma']
+  fs.writeFileSync(tmp, JSON.stringify(bad2))
+  const r2 = spawnSync('python', ['-c', py], { cwd: HERE, encoding: 'utf8', env: { ...process.env, PYTHONIOENCODING: 'utf-8' } })
+  fs.rmSync(tmp)
+  check(/^FAIL/.test(r.stdout.trim()) && /^FAIL/.test(r2.stdout.trim()), '모르는 행동 종류 · 속성은 빌드를 실패시킨다')
+}
+
+// ---------------------------------------------------------------- 2. 조합기
+console.log('=== 2. 조합 규칙 (구역 · 종류마다 씨앗 ' + SEEDS + ') ===')
+const comp = await L(`
+  local rep = { bad = {}, reach = {}, n = 0, raidbad = {} }
+  local function note(tag, why) rep.bad[tag] = rep.bad[tag] or {}; rep.bad[tag][why] = (rep.bad[tag][why] or 0) + 1 end
+  local function mark(fl) for _, id in ipairs(fl) do rep.reach[id] = true; local f = B.FOES[id]; for _, a in ipairs(f.acts) do if a.kind == "summon" then rep.reach[a.enemy] = true end end
+    if f.ph2 then for _, a in ipairs(f.ph2.acts) do if a.kind == "summon" then rep.reach[a.enemy] = true end end if f.ph2.entry then rep.reach[f.ph2.entry.enemy] = true end end end end
+  local function run(ctxs)
+    for _, c in ipairs(ctxs) do
+      for s = 1, ${SEEDS} do
+        local ctx = {}
+        for k, v in pairs(c) do ctx[k] = v end
+        ctx.party_n = 1 + (s % 4)
+        local r = B.compose(s * 7919 + 13, ctx)
+        rep.n = rep.n + 1
+        mark(r.fl)
+        local tag = (c.zone or c.rift_id) .. "/" .. c.kind
+        if c.kind == "battle" or c.kind == "elite" then
+          local bad = B.check_comp(r.fl, r.fg, { union = true, umin = r.relaxed and 3 or 4, limit = B.threat_limit(r.order, c.kind == "elite") })
+          for _, w in ipairs(bad) do note(tag, w) end
+          if r.relaxed then rep.relaxed = (rep.relaxed or 0) + 1; if #r.fl > 2 then note(tag, "완화는 적 둘일 때만") end end
+          if c.kind == "elite" then
+            local ne = 0
+            for k, id in ipairs(r.fl) do if B.FOES[id].grade == "elite" then ne = ne + 1 end end
+            if ne ~= 1 then note(tag, "정예가 " .. ne) end
+          end
+          if #r.fl < 2 or #r.fl > 5 then note(tag, "적 수 " .. #r.fl) end
+        else
+          local lead = B.FOES[r.fl[1]]
+          local want = ({ chief = "elite", boss = "boss", rift_core = "core" })[c.kind]
+          if lead.grade ~= want then note(tag, "대표가 " .. lead.grade) end
+          if #r.fl > 3 then note(tag, "호위 " .. #r.fl) end
+          if c.kind == "boss" and #r.fl ~= 1 then note(tag, "보스 혼자가 아니다") end
+          if not r.raid then note(tag, "raid 표식 없음") end
+        end
+        -- 결정론: 같은 씨앗·같은 ctx = 같은 편성
+        if s <= 5 then
+          local r2 = B.compose(s * 7919 + 13, ctx)
+          if table.concat(r.fl, ",") ~= table.concat(r2.fl, ",") then note(tag, "결정론") end
+        end
+      end
+    end
+  end
+  local list = {}
+  for _, z in ipairs(B.ZONE_ORDER) do
+    for _, k in ipairs({ "battle", "elite", "chief", "boss" }) do for o = 1, 3 do list[#list + 1] = { zone = z, kind = k, order = o } end end
+  end
+  run(list)
+  list = {}
+  for _, rid in ipairs(B.RIFT_ORDER) do
+    list[#list + 1] = { rift_id = rid, kind = "battle", stars = 1 }
+    list[#list + 1] = { rift_id = rid, kind = "battle", stars = 2 }
+    list[#list + 1] = { rift_id = rid, kind = "elite", stars = 2 }
+    list[#list + 1] = { rift_id = rid, kind = "elite", stars = 3 }
+    list[#list + 1] = { rift_id = rid, kind = "rift_core", stars = 3 }
+  end
+  run(list)
+  local reach = 0
+  local miss = {}
+  for _, id in ipairs(B.FOE_ORDER) do if rep.reach[id] then reach = reach + 1 else miss[#miss + 1] = id end end
+  return { n = rep.n, bad = rep.bad, reach = reach, miss = miss, relaxed = rep.relaxed or 0 }`)
+const badTags = Object.entries(comp.bad || {})
+check(badTags.length === 0, `조합 ${comp.n}개: 전열 ≥ 1 · 지원 ≤ 1 · 소환 ≤ 1 · 같은 적 ≤ 3(무리 제외) · 충전 ≤ 1 · 공통 ≤ 1 · 약점 합집합 ≥ 4 · 위협 한도 · 적 수 2~5 · 정예 1 · 보스 구성 · 결정론` +
+  (badTags.length ? ' — ' + badTags.slice(0, 6).map(([t, w]) => t + ':' + JSON.stringify(w)).join(' | ') : ''))
+console.log(`  (약점 합집합 4가지를 못 지키는 적 둘짜리 편성 ${comp.relaxed}개는 3가지로 완화 — 소규모 파티 · 좁은 풀)`)
+check(comp.reach === 100, `모든 적 100종이 어떤 조합(소환 포함)에서든 나온다 (${comp.reach}/100${comp.miss && comp.miss.length ? ' · 빠진 것 ' + comp.miss.join(',') : ''})`)
+
+// ---------------------------------------------------------------- 3. 엔진 규칙
+console.log('=== 3. 레이드 규칙 · 행동 ===')
+const PRE = `
+local function party(L) return ZZ.party("A", L or 20) end
+local function mkraid(floor, stage, L, seed)
+  local plan = B.floor_plan(floor, L, 4, stage, seed or 7)
+  local st = B.fresh(seed or 7, nil, { pm = party(L), el = plan.el, enc = plan.enc })
+  B.begin_ev(st)
+  return st
+end
+local function nof(st, i) return B.DEF[i].name end
+`
+const R = async (code) => L(PRE + code)
+
+// 단계 전환
+const ph = await R(`
+  local st = mkraid(3, 2, 8, 5)
+  local u = st.u[5]
+  local before = { wk = table.concat(B.DEF[5].wk, ","), acts = #B.DEF[5].acts, name = B.DEF[5].acts[1].name }
+  u.hp = math.floor(u.mhp * 0.49)
+  B.after_action(st)
+  local alive = 0
+  for j = 6, #st.u do if st.u[j].al == 1 and st.u[j].add == 1 then alive = alive + 1 end end
+  return { ph = u.ph, wk = table.concat(B.DEF[5].wk, ","), before = before, name2 = B.DEF[5].acts[1].name, ia = u.ia, g = u.g, alive = alive, adds = st.fl[2] .. "," .. st.fl[3], cq = u.cq }`)
+check(ph.ph === 2 && ph.wk !== ph.before.wk && ph.name2 === '기말 시험' && ph.ia === 1, `단계 전환(HP 50%): 약점 ${ph.before.wk} → ${ph.wk} · 행동 목록 교체(${ph.name2}) · 행동 순서 처음으로`)
+check(ph.alive === 2 && ph.adds === 'apprentice_doll,apprentice_doll' && ph.g === 10000, `단계 전환: 들어서며 견습 인형 둘 소환(${ph.alive}) · 보스 행동 게이지 초기화(${ph.g})`)
+// 한 번만 전환
+const ph2 = await R(`
+  local st = mkraid(3, 2, 8, 5)
+  local u = st.u[5]
+  u.hp = math.floor(u.mhp * 0.49); B.after_action(st)
+  local nev = #st.ev.list
+  u.hp = math.floor(u.mhp * 0.2); B.after_action(st)
+  return { same = (#st.ev.list == nev), ph = u.ph }`)
+check(ph2.same && ph2.ph === 2, '단계 전환은 한 번만 일어난다')
+// 우두머리 분노 · 장기전
+const rg = await R(`
+  local st = mkraid(1, 2, 3, 5)
+  local u = st.u[5]
+  local m0 = B.foe_atk_mul(st, 5)
+  u.hp = math.floor(u.mhp * 0.29)
+  local m1 = B.foe_atk_mul(st, 5)
+  u.hp = u.mhp
+  st.rd = 20; local e20 = B.foe_atk_mul(st, 5)
+  st.rd = 25; local e25 = B.foe_atk_mul(st, 5)
+  st.rd = 40; local e40 = B.foe_atk_mul(st, 5)
+  return { m0 = m0, m1 = m1, e20 = e20, e25 = e25, e40 = e40, grade = B.DEF[5].grade }`)
+check(rg.grade === 'chief' && rg.m0 === 1 && Math.abs(rg.m1 - 1.2) < 1e-9, `우두머리 분노: HP 30% 아래 공격 ×${rg.m1} (1.2)`)
+check(rg.e20 === 1 && Math.abs(rg.e25 - 1.5) < 1e-9 && Math.abs(rg.e40 - 2) < 1e-9, `장기전: 20라운드까지 ×${rg.e20} · 25라운드 ×${rg.e25} · 40라운드 ×${rg.e40} (+10%/라운드, 최대 +100%)`)
+// 레이드 감경: 구역 보스만 효과를 절반으로
+const rd = await R(`
+  local st = mkraid(3, 2, 8, 5)
+  local bu = st.u[5]
+  B.badd(bu, "adn", 0.2, 2)
+  local a = bu.bf.adn.v
+  local g0 = bu.g; bu.g = 0; local dly = 10000 * B.rdm(bu)
+  local st2 = mkraid(1, 2, 3, 5)
+  local cu = st2.u[5]
+  B.badd(cu, "adn", 0.2, 2)
+  local ev = { { b = bu.rd, bossv = a }, { c = cu.rd, chiefv = cu.bf.adn.v, rdm = B.rdm(cu) } }
+  return { bossrd = bu.rd, bossv = a, dly = dly, chiefrd = cu.rd, chiefv = cu.bf.adn.v }`)
+check(rd.bossrd === 1 && Math.abs(rd.bossv - 0.1) < 1e-9 && rd.dly === 5000, `레이드 감경(구역 보스): 약화 20% → ${rd.bossv * 100}% · 지연 10000 → ${rd.dly}`)
+check(rd.chiefrd === 0 && Math.abs(rd.chiefv - 0.2) < 1e-9, `우두머리는 감경하지 않는다 (약화 ${rd.chiefv * 100}%)`)
+// 충전 → 심연 고갈로 끊기 · 큰 기술
+const cc = await R(`
+  local st = mkraid(1, 2, 8, 11)    -- 마도 집행 인형 또는 수석 조교
+  local e = nil
+  for seed = 1, 60 do
+    local s2 = mkraid(1, 2, 8, seed)
+    if B.FOES[s2.fl[1]].id == "magic_enforcer" then st = s2; e = true; break end
+  end
+  local u, d = st.u[5], B.DEF[5]
+  -- 다음 행동이 「과열(충전)」이 되게 하고, 적 차례를 직접 돌려 충전 → 큰 기술
+  u.ia = 2
+  B.begin_ev(st)
+  B.rbegin(st)
+  local hp0 = {}
+  for i = 1, 4 do hp0[i] = st.u[i].hp end
+  B.enemy_turn(st, 5)           -- 과열(충전)
+  local cq1, ia1 = u.cq, u.ia
+  u.ia = 3                      -- (enemy_turn 이 ia 를 3 으로 올렸다)
+  local dmg0 = 0
+  for i = 1, 4 do dmg0 = dmg0 + (hp0[i] - st.u[i].hp) end
+  -- 충전 중 심연을 0 으로 깎는다
+  B.setf(st, 5, "ay", 1, st.ev.T)
+  B.abyss(st, 1, 5, 99, "none", st.ev.T)
+  local dr = u.dr
+  B.lost_turn(st, 5)
+  local dmg1 = 0
+  for i = 1, 4 do dmg1 = dmg1 + (hp0[i] - st.u[i].hp) end
+  return { found = e, cq1 = cq1, name = B.DEF[5].acts[ia1].name, dr = dr, cq2 = u.cq, ia2 = u.ia, dmg0 = dmg0, dmg1 = dmg1, hp = u.hp, mhp = u.mhp, cut = (function() for _, x in ipairs(st.log) do if x.h:find("끊겼다", 1, true) then return true end end return false end)() }`)
+check(cc.found && cc.cq1 === 1 && cc.name === '증기 분출', `충전: 과열 뒤 다음 행동이 큰 기술(${cc.name}) · 충전 표식 ${cc.cq1}`)
+check(cc.dr === 1 && cc.cq2 === 0 && cc.ia2 === 4 && cc.dmg1 === cc.dmg0 && cc.cut, `충전 끊김: 심연 0 → 고갈 · 큰 기술 취소(행동 ${cc.ia2}번으로) · 아군 피해 증가 없음 · 과열 풀려 스스로 피해(HP ${cc.hp}/${cc.mhp})`)
+const bigno = await R(`
+  local st
+  for seed = 1, 60 do
+    local s2 = mkraid(1, 2, 8, seed)
+    if B.FOES[s2.fl[1]].id == "magic_enforcer" then st = s2; break end
+  end
+  local u = st.u[5]
+  u.ia = 2; B.begin_ev(st); B.rbegin(st)
+  local hp0 = 0
+  for i = 1, 4 do hp0 = hp0 + st.u[i].hp end
+  B.enemy_turn(st, 5)   -- 충전
+  B.enemy_turn(st, 5)   -- 큰 기술(전체)
+  local hp1 = 0
+  local hit = 0
+  for i = 1, 4 do hp1 = hp1 + st.u[i].hp; if st.u[i].hp < st.u[i].mhp then hit = hit + 1 end end
+  return { dmg = hp0 - hp1, hit = hit, cq = u.cq }`)
+check(bigno.dmg > 0 && bigno.hit >= 3 && bigno.cq === 0, `충전을 끊지 않으면 큰 기술이 전체에 들어간다 (피해 ${bigno.dmg}, ${bigno.hit}명)`)
+// 소환 한도
+const sm = await R(`
+  local st = mkraid(3, 2, 8, 5)
+  local made = 0
+  for k = 1, 6 do if B.summon_one(st, 5, "apprentice_doll") then made = made + 1 end end
+  local adds = 0
+  for j = 6, #st.u do if st.u[j].al == 1 and st.u[j].add == 1 then adds = adds + 1 end end
+  -- 하나가 쓰러지면 다시 소환할 수 있다(칸 재사용)
+  st.u[6].al = 0; st.u[6].hp = 0
+  local again = B.summon_one(st, 5, "gate_statue")
+  local hpfrac = st.u[7].mhp / st.u[5].mhp
+  return { made = made, adds = adds, again = again and true or false, role = B.DEF[7].srole, grade = B.DEF[7].grade, hpfrac = hpfrac }`)
+check(sm.made === 2 && sm.adds === 2 && sm.again, `소환 한도: 하수인 최대 2 (여섯 번 시도 → ${sm.made}) · 하나 쓰러지면 다시 가능`)
+check(sm.grade === 'minion' && sm.role === '하수인' && sm.hpfrac < 0.15, `하수인: 등급 minion · 역할 배수 하수인 · 보스 HP 의 ${(sm.hpfrac * 100).toFixed(1)}%`)
+// 보호 대신 맞기
+const pr = await R(`
+  local st
+  for seed = 1, 80 do
+    local s2 = mkraid(5, 1, 12, seed)
+    local has = false
+    for _, id in ipairs(s2.fl) do if B.FOES[id].acts[1].kind == "protect" then has = true end end
+    if has and #s2.fl >= 3 then st = s2; break end
+  end
+  if not st then return { found = false } end
+  local p, t
+  for j = 5, #st.u do if st.u[j].empty ~= 1 and B.DEF[j].acts[1].kind == "protect" then p = j end end
+  for j = 5, #st.u do if st.u[j].empty ~= 1 and j ~= p then t = j; break end end
+  st.u[p].pt = t
+  st.u[p].sh = 0; st.u[t].sh = 0   -- 보호막 없이 시작(첫 차례 순서가 바뀌면 보호하는 적이 먼저 자기 보호막을 칠 수 있다 — 아군 속도 보너스 수치에 흔들리지 않게)
+  local php, thp = st.u[p].hp, st.u[t].hp
+  B.begin_ev(st)
+  local res = B.attack(st, 1, t, { m = 1.0, brk = 0, name = "일반 공격", vb = "베었다", hit = 0.4 })
+  return { found = true, redirected = (res.i == p), pdmg = php - st.u[p].hp, tdmg = thp - st.u[t].hp }`)
+check(pr.found && pr.redirected && pr.pdmg > 0 && pr.tdmg === 0, `보호: 보호 중인 적이 대신 맞는다 (보호자 피해 ${pr.pdmg} · 표적 피해 ${pr.tdmg})`)
+// 같은 씨앗 = 같은 전투 · 저장 왕복
+const det = await R(`
+  local function fight() return ZZ.floor_fight({ mix = "A", L = 9, floor = 6, stage = 2, seed = 4242, mode = "smart" }) end
+  local a, b = fight(), fight()
+  local st1 = mkraid(6, 2, 9, 31); ZZ.play(st1, "smart", 40)
+  local st2 = mkraid(6, 2, 9, 31); ZZ.play(st2, "smart", 40)
+  return { same = (a.win == b.win and a.rd == b.rd and a.n == b.n and a.hp == b.hp), e1 = json.encode(st1), e2 = json.encode(st2), n = st1.n }`)
+const canon0 = (v) => JSON.stringify(v, (k, x) => (x && typeof x === 'object' && !Array.isArray(x)) ? Object.fromEntries(Object.keys(x).sort().map(y => [y, x[y]])) : x)
+det.stsame = canon0(JSON.parse(det.e1)) === canon0(JSON.parse(det.e2))
+check(det.same && det.stsame, `결정론: 같은 씨앗 · 같은 파티 → 같은 결과(행동 ${det.n}번까지 상태 JSON 이 키 순서만 빼고 같다)`)
+const rt = await R(`
+  local st = mkraid(3, 2, 8, 5)
+  ZZ.play(st, "smart", 25)
+  B.save("key", st)
+  local lo = B.load("key")
+  local ea, eb = json.encode(lo), json.encode(st)
+  local mixed = false
+  local function scan(t, path)
+    if type(t) ~= "table" then return end
+    local hasN, hasS = false, false
+    for k, _ in pairs(t) do if type(k) == "number" then hasN = true else hasS = true end end
+    if hasN and hasS then mixed = path end
+    for k, v in pairs(t) do scan(v, path .. "." .. tostring(k)) end
+  end
+  scan(lo, "st")
+  return { ea = ea, eb = eb, mixed = mixed, ver = lo.ver, raid = lo.raid, ph = lo.u[5].ph, bound = (B.DEF[5] and B.DEF[5].name) or "" }`)
+const canon = (v) => JSON.stringify(v, (k, x) => (x && typeof x === 'object' && !Array.isArray(x)) ? Object.fromEntries(Object.keys(x).sort().map(y => [y, x[y]])) : x)
+rt.ok = canon(JSON.parse(rt.ea)) === canon(JSON.parse(rt.eb))
+check(rt.ok && !rt.mixed && rt.raid === 1 && rt.bound !== '', `저장 왕복: JSON 으로 저장 → 불러와도 같다 · 숫자·문자열 키가 섞인 표 없음(${rt.mixed || '없음'}) · VER ${rt.ver}`)
+// 옛 저장(VER 2) 이전: 표식 없는 아군 + 옛 4칸 적
+const mig = await R(`
+  local st = B.fresh(0, nil, { pm = ZZ.party("A", 20), el = 20, star = 1, foe = { 1, 2, 3, 4 } })
+  st.ver = 2
+  for i = 1, 4 do st.u[i].rc = nil; st.u[i].ln = nil; st.u[i].na = nil end
+  local raw = json.encode(st)
+  local old = json.decode(raw)
+  B.migrate(old)
+  local marks = {}
+  for i = 1, 4 do marks[#marks + 1] = tostring(old.u[i].rc) .. "/" .. tostring(old.u[i].na) end
+  setChatVar("key", B.KEY, raw)
+  local lo = B.load("key")
+  local cnt = B.tlv and 1 or 0
+  local okbtn = pcall(function() return B.syn(lo) end)
+  return { ver = lo.ver, marks = table.concat(marks, ","), u = #lo.u, fl = lo.fl == nil, syn = okbtn }`)
+check(mig.ver === 3 && mig.u === 8 && mig.fl && mig.syn && !/nil/.test(mig.marks), `옛 전투 저장(VER 2) 이전: VER 3 · 아군 표식 복원(${mig.marks}) · 옛 4칸 적 그대로 · 시너지 집계 오류 없음`)
+const cntstr = await R(`
+  local st = mkraid(1, 1, 8, 3)
+  st.u[1].rc = 5; st.u[2].na = {}; st.u[3].rc = nil
+  local ok, c = pcall(B.syn, st)
+  return { ok = ok }`)
+check(cntstr.ok, '시너지 집계는 문자열 표식만 센다(숫자·표·nil 이 끼어도 오류 없음)')
+
+// ---------------------------------------------------------------- 4. 수치 · 층 규칙
+console.log('=== 4. 수치 · 층 규칙 ===')
+const fm = await L(`
+  local out = { dec = {}, rows = {} }
+  local prev
+  for f = 1, 420 do
+    local m = B.floor_mult(f)
+    if prev and (m.hp < prev.hp - 1e-9 or m.atk < prev.atk - 1e-9 or m.reward < prev.reward - 1e-9) then out.dec[#out.dec + 1] = f end
+    prev = m
+    if f == 1 or f == 27 or f == 28 or f == 54 or f == 55 or f == 81 then out.rows[#out.rows + 1] = { f, m.hp, m.atk, m.reward } end
+  end
+  -- 심층 규칙
+  local i28, i54, i55 = B.floor_info(28), B.floor_info(54), B.floor_info(55)
+  out.info = { z28 = i28.zone, dk28 = i28.dk, dc28 = i28.dc, z54 = i54.zone, dk54 = i54.dk, dc54 = i54.dc, z55 = i55.zone, dc55 = i55.dc, dk55 = i55.dk }
+  return out`)
+check(fm.dec.length === 0, `층 배수(★ 표 × tune.star · 심층) HP · 공격 · 보상이 1~420층에서 한 번도 줄지 않는다${fm.dec.length ? ' — 줄어든 층 ' + fm.dec.slice(0, 5) : ''}`)
+const smooth = await L(`local bad = 0; local maxjump = 0; for f = 2, 28 do local a, b = B.floor_mult(f-1).reward, B.floor_mult(f).reward; if b <= a then bad = bad + 1 end; maxjump = math.max(maxjump, b/a) end; return { bad = bad, jump = maxjump, chief = B.dn_gold(5, "chief"), battle = B.dn_gold(5, "battle"), boss = B.dn_gold(6, "boss"), battle6 = B.dn_gold(6, "battle") }`)
+check(smooth.bad === 0 && smooth.jump < 1.2, `층 보상은 1~28층에서 매 층 증가하고 한 층 도약은 20% 미만 (${smooth.bad} / ×${smooth.jump.toFixed(3)})`)
+check(smooth.chief >= smooth.battle * 2.4 && smooth.boss >= smooth.battle6 * 3.9, '층 보스 금화는 같은 층 일반 전투보다 확실히 높다')
+const r28 = fm.rows.find(r => r[0] === 28), r27 = fm.rows.find(r => r[0] === 27), r54 = fm.rows.find(r => r[0] === 54)
+check(r28[1] > r27[1] && r54[1] > r28[1] && fm.info.z28 === 'academy_upper' && fm.info.dk28 === 1 && fm.info.dc28 === 1 && fm.info.z54 === 'the_bottom' && fm.info.dk54 === 9 && fm.info.z55 === 'academy_upper' && fm.info.dc55 === 2 && fm.info.dk55 === 10,
+  `심층 규칙: 28층 = 구역 1 심층 1 · 54층 = 구역 9 k=9 · 55층 = 구역 1 심층 2 (HP 배수 27층 ${r27[1].toFixed(2)} → 28층 ${r28[1].toFixed(2)} → 54층 ${r54[1].toFixed(2)})`)
+const dmul = await L(`
+  local D = B.DEEP
+  local k1 = B.star_mult({ dk = 1 }); local k9 = B.star_mult({ dk = 9 })
+  local tu = B.TUNE_FLOOR[9]
+  return { hp1 = k1.hp / tu.hp, hp9 = k9.hp / tu.hp, atk1 = k1.atk / tu.atk, rw1 = k1.reward, rw9 = k9.reward, hp0 = D.hp0, hpk = D.hpk, atk0 = D.atk0, atk1k = D.atk1, reward0 = D.reward0 }`)
+check(Math.abs(dmul.hp1 - dmul.hp0 * dmul.hpk) < 1e-9 && Math.abs(dmul.hp9 - dmul.hp0 * dmul.hpk ** 9) < 1e-6 && Math.abs(dmul.rw1 - 16 * 1.1) < 1e-9,
+  `심층 배수 식: HP ×${dmul.hp0}·${dmul.hpk}^k · 공격 ×${dmul.atk0}·${DATA.tune.deep.atk1}^k · 보상 ×16·1.10^k (k=1 → ${dmul.hp1.toFixed(2)} / k=9 → ${dmul.hp9.toFixed(2)})`)
+// 적 수치 식: 같은 레벨 표준 적 × 역할 × 등급 × ★ × tune
+const stat = await L(`
+  local st = B.fresh(1, nil, { pm = ZZ.party("A", 10), el = 10, enc = B.compose(5, { kind = "battle", zone = "academy_upper", order = 1, party_n = 4 }) })
+  local d = B.DEF[5]
+  local s = B.foe_stats(st, d)
+  local fa = B.fc("atk", 10)
+  local r = B.ROLES[d.srole]
+  local sm = B.star_mult(st)
+  local zt = B.zone_tune(st)
+  local want = B.ENEMY_STD.hp * fa * r.hp * B.GRADES[d.grade].hp * sm.hp * zt.hp
+  return { hp = s.hp, want = want, ay = s.ay, role = d.srole, g = d.grade }`)
+check(Math.abs(stat.hp - stat.want) < 1e-6, `적 HP = 표준 HP(레벨) × 역할(${stat.role}) × 등급(${stat.g}) × ★ × tune × 구역 보정 (${stat.hp.toFixed(1)})`)
+
+// ---------------------------------------------------------------- 5. 화면
+console.log('=== 5. 화면 ===')
+const SHOTS = [
+  ['일반(구역 1)', 'B.floor_plan(2, 8, 4, 1, 3)', 'ZZ.party("A", 8)', false],
+  ['정예 전투', '{ enc = B.compose(21, { kind = "elite", floor = 9, party_n = 4 }), el = 14 }', 'ZZ.party("A", 14)', false],
+  ['우두머리', 'B.floor_plan(1, 3, 4, 2, 5)', 'ZZ.party("A", 3)', true],
+  ['구역 보스', 'B.floor_plan(3, 8, 4, 2, 7)', 'ZZ.party("A", 8)', true],
+  ['심층 보스', 'B.floor_plan(30, 40, 4, 2, 9)', 'ZZ.party("A", 40)', true],
+  ['균열 핵', '{ enc = B.compose(5, { kind = "rift_core", rift_id = "sw_snow", stars = 3, party_n = 4 }), el = 12 }', 'ZZ.party("A", 12)', true],
+]
+sim.setVar('dk_game', JSON.stringify({ scene: 'battle', gold: 10 }))
+const display = async () => { let k = sim.chat.message.length - 1; while (k > 0 && sim.chat.message[k].role !== 'char') k--; return await sim.run('editDisplay', sim.chat.message[k].data, { index: k }) }   // 화면은 마지막 AI 메시지(대화 잠금 흉내로 답이 붙을 수 있다)
+const btnIds = (h) => [...h.matchAll(/risu-btn="([^"]*)"/g)].map(m => m[1])
+for (const [name, planExpr, party, raid] of SHOTS) {
+  for (const steps of [0, 5, 14]) {
+    await L(`
+      local plan = ${planExpr}
+      local st = B.fresh(9, nil, { pm = ${party}, el = plan.el, enc = plan.enc })
+      for i = 1, ${steps} do if st.over == "" then ZZ.step(st) end end
+      B.save("key", st)
+      return 1`)
+    const html = await display()
+    const i = html.indexOf('<div class="bt-root"')
+    const panel = i >= 0 ? html.slice(i) : ''
+    const plain = panel.replace(/<[^>]+>/g, '')
+    const errs = []
+    if (!panel) errs.push('패널 없음')
+    if (/\n\n/.test(panel)) errs.push('빈 줄')
+    if (/<script/i.test(html)) errs.push('script')
+    if (/^ {4,}/m.test(panel)) errs.push('들여쓰기')
+    if (/undefined|NaN|nil\b/.test(plain)) errs.push('undefined/NaN/nil: ' + (plain.match(/.{0,20}(undefined|NaN|nil\b).{0,20}/) || [''])[0])
+    for (const b of btnIds(html)) if (!/^[a-z_0-9]+$/.test(b)) errs.push('버튼 값 ' + b)
+    if (!/im im-fam-\d\d/.test(panel)) errs.push('계열 메달 없음')
+    if (raid && !/class="en rdb/.test(panel)) errs.push('레이드 패널 없음')
+    if (!raid && /class="en rdb/.test(panel)) errs.push('일반 전투에 레이드 패널')
+    if (raid && !/class="pip/.test(panel) && !/grade|구역 보스|우두머리|균열 핵/.test(plain)) errs.push('보스 표시 없음')
+    if (errs.length) check(false, `화면 ${name} (+${steps}번): ${errs.join(', ')}`)
+    else passes++
+  }
+}
+console.log(`화면 ${SHOTS.length * 3}장 검사 완료(일반 · 정예 · 우두머리 · 구역 보스 · 심층 보스 · 균열 핵 × 진행 3단계)`)
+// 레이드 패널 요소: 충전 경고 · 눈금 · 단계 표시 · 보스 칸
+const rp = await L(`
+  local plan = B.floor_plan(6, 9, 4, 2, 3)
+  local st = B.fresh(3, nil, { pm = ZZ.party("A", 9), el = plan.el, enc = plan.enc })
+  st.u[5].ia = 1
+  -- 단계 1 의 다음 행동은 소환 — 충전 경고는 단계 2 에서
+  st.u[5].hp = math.floor(st.u[5].mhp * 0.4); B.begin_ev(st); B.after_action(st)
+  st.u[5].ia = 1   -- 마지막 장 낭독(충전)
+  B.save("key", st)
+  return 1`)
+{
+  const html = await display()
+  const panel = html.slice(html.indexOf('<div class="bt-root"'))
+  check(/class="rdi chg"/.test(panel) && /2차례 뒤 /.test(panel), '충전 예고: 「2차례 뒤 ○○」가 크게 뜬다')
+  check(/class="pip on">2</.test(panel) && !/<u class="nt"/.test(panel), '단계 표시 2단계 켜짐 · 2단계에서는 단계 눈금이 없다')
+}
+await L(`local plan = B.floor_plan(6, 9, 4, 2, 3); local st = B.fresh(3, nil, { pm = ZZ.party("A", 9), el = plan.el, enc = plan.enc }); B.save("key", st); return 1`)
+{
+  const html = await display()
+  const panel = html.slice(html.indexOf('<div class="bt-root"'))
+  check(/u class="nt" style="left:50%"/.test(panel) && /class="pip on">1</.test(panel), '구역 보스 1단계: HP 막대에 50% 눈금 · 단계 표시 1')
+}
+
+// ---------------------------------------------------------------- 6. 층 진행 · 정산 · 균열 의뢰
+console.log('=== 6. 층 진행 · 정산 · 의뢰 ===')
+const GBASE = {
+  scene: 'sortie', gold: 500, roster: ['marceline', 'naran', 'teiris'], party: ['marceline', 'naran', 'teiris'],
+  lvl: { marceline: 30, naran: 30, teiris: 30 }, persona: { cls: '전사', fight: 1, lv: 30, name: '{{user}}', race: '인간', nation: '경계도시' },
+  town: { bn: 0, day: 1, acts: {}, rr: 0 }, guild: { quests: [], active: '', done: 0, recruits: 0, tickets: 0 },
+}
+const gv = () => JSON.parse(sim.getVar('dk_game'))
+// 🔴 10-10 대화 잠금(01-game B.locked): 잠그는 장면 지시가 생기면 대화 한 턴(요청 + AI 답)을 흉내 내 풀어 준다 — 이 시험은 게임 진행을 본다.
+// 잠금 자체는 harness_expedition 「대화 잠금」 절이 rawPress 로 따로 본다.
+const rawPress = async (...ks) => { for (const k of ks) await sim.run('onButtonClick', k) }
+const settle = async () => { const g = JSON.parse(sim.getVar('dk_game') || '{}'); if (g.pending && !g.pend_soft && g.scene !== 'battle' && typeof g.pending_at !== 'number') { await sim.run('editRequest', [{ role: 'user', content: '이어서' }], {}); sim.chat.message.push({ role: 'char', data: '(AI 답)' }) } }
+const press = async (...ks) => { for (const k of ks) { await sim.run('onButtonClick', k); await settle() } }
+async function playFlow(maxSteps = 700) {
+  for (let i = 0; i < maxSteps; i++) {
+    const s = JSON.parse(sim.getVar('dk_battle'))
+    if (s.over) return s
+    const c = await L(`local st = B.load("key"); local c = ZZ.choose(st, "smart"); local t = c[2]; if t and st.u[t].al ~= 1 then t = nil end; return { c[1], t }`)
+    await press('sk_' + c[0])
+    const s2 = JSON.parse(sim.getVar('dk_battle'))
+    if (s2.pend > 0) {
+      const tg = c[1] || await L(`local st = B.load("key"); return ZZ.foes(st)[1]`)
+      await press('tg_' + tg)
+    }
+  }
+  return JSON.parse(sim.getVar('dk_battle'))
+}
+// 출정 화면: 모드 · 층 고르기 · 지름길
+sim.setVar('dk_game', JSON.stringify({ ...GBASE, dungeon: { best: 0, cleared_bosses: [], runs: 0, sel: 1, mode: 0, pg: 1 } }))
+await press('so_mode_1')
+let disp = await display()
+check(gv().dungeon.mode === 1 && /so_fl_1"/.test(disp) && !/so_fl_2"/.test(disp) && /대던전/.test(disp), '대던전 모드: 처음에는 1층만 고를 수 있다(2층은 잠김)')
+await press('so_fl_5')
+check(gv().dungeon.sel === 1, '아직 못 가는 층(5층)은 고를 수 없다')
+sim.setVar('dk_game', JSON.stringify({ ...GBASE, dungeon: { best: 3, cleared_bosses: ['academy_upper'], runs: 3, sel: 1, mode: 1, pg: 1 } }))
+await press('so_fl_4')
+check(gv().dungeon.sel === 4, '가장 깊이 간 층 + 1(4층)까지 고를 수 있다')
+const mx = await L(`return { a = B.dn_max({ dungeon = { best = 3, cleared_bosses = {"academy_upper"} } }), b = B.dn_max({ dungeon = { best = 0, cleared_bosses = {"academy_upper", "academy_library"} } }), c = B.dn_max({ dungeon = { best = 10, cleared_bosses = {} } }) }`)
+check(mx.a === 4 && mx.b === 7 && mx.c === 11, `지름길: 구역 보스를 처음 쓰러뜨리면 다음 구역 첫 층이 열린다 (best 3 → ${mx.a} · 구역 보스 둘 처치 → ${mx.b} · best 10 → ${mx.c})`)
+// 1층 도전(10-10 흐름): 입장 → 탐색 ×5(전투 · 발견) → 휴식 → 층 보스(레이드) → 정산. 흐름의 세부는 harness_expedition.mjs — 여기서는 층 기록 · 레이드 화면 · 정산이 이어지는지만 본다.
+sim.setVar('dk_game', JSON.stringify({ ...GBASE, persona: { ...GBASE.persona, lv: 6 }, lvl: { marceline: 6, naran: 6, teiris: 6 }, dungeon: { best: 0, cleared_bosses: [], runs: 0, sel: 1, mode: 1, pg: 1 } }))
+const g0 = gv().gold
+await press('so_go')
+check(gv().scene === 'dungeon' && gv().dungeon.run && gv().dungeon.run.phase === 'explore' && gv().dungeon.run.step === 0 && gv().dungeon.run.boss_name, '1층 도전 시작: 탐색 화면(전투는 아직 없다) · 층 보스가 미리 정해진다')
+{   // 전투 2 · 발견 3 쯤인 씨앗으로 맞춘다(Lv6 파티가 아이템 없이 이길 수 있는 짧은 층)
+  const sd = await L(`for s = 1, 4000 do local el, n = 0, 0 for k = 1, 5 do local r = B.ex_roll(s, 1, k, el); if r.kind == "battle" then n = n + 1 elseif r.kind == "elite" then n = n + 1; el = el + 1 end end if n == 2 then return s end end return 1`)
+  const gg = gv(); gg.dungeon.run.seed = sd; sim.setVar('dk_game', JSON.stringify(gg))
+}
+let lostRun = false
+for (let i = 0; i < 40 && !lostRun; i++) {
+  const g = gv()
+  if (g.scene === 'dungeon' && g.dungeon.run.phase === 'explore') await press('ex_go')
+  else if (g.scene === 'battle') { const s = await playFlow(); if (s.over === 'win') await press('ex_cont'); else lostRun = true }
+  else break
+}
+let g1 = gv()
+check(!lostRun && g1.dungeon.run.phase === 'rest' && g1.dungeon.run.step === 5, `탐색 5번을 마치고 휴식 단계 (Lv6 파티 · 1층${lostRun ? ' — 시험 파티가 졌다' : ''})`)
+if (g1.dungeon.run.phase === 'rest') {
+  {   // 흐름 시험이지 밸런스 시험이 아니다 — 보스 앞에서 파티를 가득 채워 둔다(밸런스는 balance_floor.mjs)
+    const gg = gv(); gg.dungeon.run.hp = gg.dungeon.run.mhp.slice(); gg.dungeon.run.mp = gg.dungeon.run.mmp.slice(); sim.setVar('dk_game', JSON.stringify(gg))
+  }
+  await press('ex_boss')
+  const s2 = JSON.parse(sim.getVar('dk_battle'))
+  check(s2.dn.kind === 'boss' && s2.raid === 1 && s2.over === '' && !s2.dn.stage, '층 보스 전투: 레이드 전투(우두머리)')
+  disp = await display()
+  check(/class="en rdb/.test(disp) && !/risu-btn="reset"/.test(disp), '레이드 화면이 그려지고 「다시 싸우기」는 없다')
+  const s3 = await playFlow()
+  if (s3.over === 'win') {
+    const hold = gv().dungeon.run.loot.gold
+    await press('tw_return')
+    const g = gv()
+    check(g.scene === 'dungeon' && g.dungeon.run.phase === 'done' && g.dungeon.best === 1 && g.dungeon.runs === 1 && g.gold === g0 + hold + s3.rg && g.dungeon.sel === 2, `정산: 정산 화면 · 가장 깊은 층 1 · 도전 1 · 금화 +${hold + s3.rg}(모은 ${hold} + 보스 ${s3.rg}) · 다음 층 선택`)
+    check(g.guild.active === '' && g.guild.done === 0, '길드 의뢰 정산은 건드리지 않는다')
+    check(g.persona.exp > 0 || g.persona.lv > 6, `경험치가 들어갔다 (페르소나 Lv ${g.persona.lv} · exp ${g.persona.exp})`)
+    await press('ex_home')
+  } else check(false, '층 보스(우두머리) 승리 — 시험 파티가 졌다: ' + s3.over)
+}
+// 정산 중복 방지 · 정산 끝난 뒤 낡은 버튼
+await press('tw_return')
+check(gv().scene === 'town', '정산이 끝난 뒤 같은 버튼을 또 눌러도 달라지지 않는다')
+// 패배 정산: 모은 것 없음 · 금화 절반 손실 · best 그대로
+sim.setVar('dk_game', JSON.stringify({ ...GBASE, gold: 400, persona: { ...GBASE.persona, lv: 1 }, lvl: { marceline: 1, naran: 1, teiris: 1 }, dungeon: { best: 20, cleared_bosses: [], runs: 5, sel: 21, mode: 1, pg: 4 } }))
+await press('so_go')
+let lost = null
+for (let i = 0; i < 40 && !lost; i++) {
+  const g = gv()
+  if (g.scene === 'dungeon' && g.dungeon.run.phase === 'explore') await press('ex_go')
+  else if (g.scene === 'battle') { const s = await playFlow(); if (s.over === 'lose') lost = s; else await press('ex_cont') }
+  else break
+}
+if (lost) {
+  await press('tw_return')
+  const g = gv()
+  check(g.scene === 'town' && !g.dungeon.run && g.dungeon.last && g.dungeon.last.result === 'defeat' && g.dungeon.best === 20 && g.gold < 400 && g.dungeon.runs === 5, `패배 정산(채팅 한 번 뒤 곧장 토르바): 가장 깊은 층 그대로 · 금화 400 → ${g.gold}`)
+  await press('ex_home')
+} else check(false, '21층 Lv1 도전은 져야 한다')
+// 균열 의뢰: ★1 일반 · ★2 정예 · ★3 균열 핵(레이드)
+const Q = (stars, kind = '구조', rift = '남서 설산 균열') => ({ id: 'q1', title: 't', rift, kind, stars, gold: 100, lv: 10, cmp: 1 })
+const quest = []
+for (const [stars, kind] of [[1, '구조'], [2, '구조'], [2, '토벌']]) {
+  sim.setVar('dk_game', JSON.stringify({ ...GBASE, town: { bn: stars, day: 1, acts: {}, rr: 0 }, guild: { quests: [Q(stars, kind)], active: 'q1', done: 0, recruits: 0, tickets: 0 } }))
+  await press('so_go')
+  const s = JSON.parse(sim.getVar('dk_battle'))
+  quest.push({ stars, raid: s.raid, lead: s.fl[0], fl: s.fl.filter(x => x), grade: s.fl.map(id => id && DATA.enemies.find(e => e.id === id)?.grade) })
+}
+check(quest[0].raid === 0 && quest[0].grade.every(g => !g || g === 'mob' || g === 'swarm'), `균열 의뢰(구조) ★1: 균열 계통 일반 전투 (${quest[0].fl.join(',')})`)
+check(quest[1].raid === 0 && quest[1].grade.includes('elite') && quest[1].fl.some(id => byId[id].zone === 'rift_sw_snow'), `균열 의뢰(구조) ★2: 정예 전투 (${quest[1].fl.join(',')})`)
+check(quest[2].raid === 1 && quest[2].lead === 'frost_contractor', `균열 의뢰(토벌): 균열 핵 「서리 계약자」가 레이드 화면에서 끝낸다 (${quest[2].fl.join(',')})`)
+{
+  const html = await display()
+  check(/class="en rdb/.test(html) && /균열 핵/.test(html.replace(/<[^>]+>/g, '')), '균열 핵 전투가 레이드 패널로 그려진다')
+}
+// 옛 의뢰(cmp 표식 없음)는 옛 고정 편성
+sim.setVar('dk_game', JSON.stringify({ ...GBASE, guild: { quests: [{ ...Q(2), cmp: undefined }], active: 'q1', done: 0, recruits: 0, tickets: 0 } }))
+await press('so_go')
+const old = JSON.parse(sim.getVar('dk_battle'))
+check(!old.fl && old.u.length === 8, '표식 없는 옛 의뢰는 옛 고정 4칸 편성(옛 시험 도구 호환)')
+
+// ---------------------------------------------------------------- 7. 6차 검수 반영(#1 · #3 · #4 · #5 · #6)
+console.log('=== 7. 6차 검수 반영 ===')
+const PM = (ids) => `{ ${ids.map((c, k) => k === 0 && c === 'persona' ? '{ id = "persona", cls = "warrior", L = 20, race = "인간", lin = "", nat = "경계도시" }' : `{ id = "${c}", cls = B.cls_of(B.CAST["${c}"].cls).id, L = 20 }`).join(', ')} }`
+const mk6 = (ids, extra = '') => `
+  local pm = ${PM(ids)}
+  while #pm < 4 do pm[#pm + 1] = { id = "", cls = "", L = 1 } end
+  local st = B.fresh(3, nil, { pm = pm, el = 20, star = 1, foe = { 1, 2, 3, 4 } })
+  B.begin_ev(st)
+  ${extra}`
+// #3: 지속 피해로 처치해도 악마 시너지(피의 대가)가 돈다
+const d3 = await L(mk6(['saya', 'zahar', 'marceline', 'naran'], `
+  local u = st.u[1]
+  u.hp = math.floor(u.mhp * 0.5)
+  local hp0 = u.hp
+  local e = st.u[5]
+  e.hp = 1
+  e.dot = { { d = 50, n = 1, k = 1, by = 1 } }
+  B.dot_tick(st, 5)
+  return { dead = e.al == 0, healed = u.hp - hp0, want = math.floor(u.mhp * B.TXN.demon.heal2 + 0.5) }`))
+check(d3.dead && d3.healed > 0 && Math.abs(d3.healed - d3.want) <= 1, `#3 지속 피해 처치도 악마 시너지: 처치 → HP +${d3.healed} (악마 둘 = 최대 HP ${Math.round((await L('return B.TXN.demon.heal2')) * 100)}% ${d3.want})`)
+// #4: 모르가스 3명 시너지가 풀리면 직업 지속 피해 줄을 한도(5)까지 줄인다
+const d4 = await L(mk6(['saya', 'levia', 'zahar', 'marceline'], `
+  local e = st.u[5]
+  e.dot = {}
+  for k = 1, 6 do e.dot[#e.dot + 1] = { d = 3, n = 3, k = 1 } end
+  e.dot[#e.dot + 1] = { d = 7, n = 3, bld = 1 }     -- 다른 사람의 출혈 줄은 건드리지 않는다
+  local cap_on = B.GH.dotcap(st)
+  B.strike(st, 2, 1e9, 0)                           -- 모르가스 한 명이 쓰러진다
+  local n1, other = 0, 0
+  for _, x in ipairs(e.dot) do if x.k == 1 then n1 = n1 + 1 else other = other + 1 end end
+  return { cap_on = cap_on, cap_off = B.GH.dotcap(st), n1 = n1, other = other }`))
+check(d4.cap_on === 6 && d4.cap_off === 5 && d4.n1 === 5 && d4.other === 1, `#4 모르가스 3명 시너지가 풀리면 직업 지속 피해 줄 ${d4.cap_on}→${d4.n1} (한도 ${d4.cap_off}) · 출혈 줄 ${d4.other} 유지`)
+// #5: 사제 이탈 방지 후보 — 현재 / 파티 공용 2회 / 회복 30%
+const pri = async (vars) => L(`
+  B.VAR.priest_cap, B.VAR.priest_heal = ${vars[0]}, ${vars[1]}
+  local pm = ZZ.party("A", 20)
+  local st = B.fresh(3, nil, { pm = pm, el = 20, star = 1, foe = { 1, 2, 3, 4 } })
+  B.begin_ev(st)
+  local saved, hp = 0, {}
+  for _, t in ipairs({ 2, 3, 4 }) do
+    st.u[t].hp = st.u[t].mhp
+    B.strike(st, t, 1e8, 0, nil, "fixed")
+    if st.u[t].al == 1 then saved = saved + 1; hp[#hp + 1] = st.u[t].hp / st.u[t].mhp end
+  end
+  B.VAR.priest_cap, B.VAR.priest_heal = 0, 0.5
+  return { saved = saved, hp = hp[1] }`)
+const p0 = await pri([0, 0.5]), p2 = await pri([2, 0.5]), p3 = await pri([0, 0.3])
+check(p0.saved === 3 && Math.abs(p0.hp - 0.5) < 0.01, `#5 사제 이탈 방지 — 지금: 파티원마다 한 번(3명 모두 버틴다 · HP ${(p0.hp * 100).toFixed(0)}%)`)
+check(p2.saved === 2, `#5 후보 B(파티 공용 2회): 셋째는 쓰러진다 (버틴 ${p2.saved}명)`)
+check(p3.saved === 3 && Math.abs(p3.hp - 0.3) < 0.01, `#5 후보 C(회복 30%): HP ${(p3.hp * 100).toFixed(0)}%로 버틴다`)
+const sw = await L(`return { cap = B.VAR.priest_cap, heal = B.VAR.priest_heal }`)
+check(sw.cap === 0 && sw.heal === 0.5, '후보 스위치의 기본값은 지금 값이다(사제 상한 없음 · 회복 50%)')
+
+// ---------------------------------------------------------------- 8. 7차 검수 반영
+console.log('=== 8. 7차 검수 반영 ===')
+// #1 한 방에 쓰러뜨려도 2단계를 본다
+const os = await R(`
+  local st = mkraid(3, 2, 8, 5)
+  local u = st.u[5]
+  local r1 = B.strike(st, 5, u.mhp * 3, 1.0)
+  local r2 = B.strike(st, 5, u.mhp * 3, 1.1)   -- 같은 행동의 둘째 타격도 못 죽인다
+  local hp1, al1, ph1 = u.hp, u.al, u.ph
+  local n = B.phase_check(st)
+  return { k1 = r1.kill, k2 = r2.kill, hp = hp1, mhp = u.mhp, al = al1, ph1 = ph1, ph = u.ph, n = n, over = st.over, cap = math.floor(u.mhp * 0.5) - 1 }`)
+check(os.k1 === 0 && os.k2 === 0 && os.al === 1 && os.hp >= 1 && os.hp <= os.mhp * 0.5 && os.hp === os.cap && os.ph1 === 1 && os.ph === 2 && os.n === 1,
+  `#1 일격으로 HP 100% → 0 이어도 쓰러지지 않는다: HP ${os.hp}/${os.mhp}(문턱−1 = ${os.cap}) · 2단계 진입(${os.ph})`)
+const os2 = await R(`
+  local st = mkraid(3, 2, 8, 5)
+  local u = st.u[5]
+  B.strike(st, 5, u.mhp * 3, 1.0)
+  B.phase_check(st)
+  local kinds = {}
+  for _, e in ipairs(st.ev.list) do kinds[#kinds + 1] = e.k end
+  return { kinds = table.concat(kinds, ","), over = st.over }`)
+check(/phase/.test(os2.kinds) && os2.over === '', '#1 단계 전환 사건(phase)이 남고 전투는 끝나지 않았다')
+// 2단계 없는 보스(우두머리)는 일격으로 쓰러진다(회귀)
+const os3 = await R(`
+  local st = mkraid(1, 2, 3, 5)
+  local r = B.strike(st, 5, st.u[5].mhp * 3, 1.0)
+  return { kill = r.kill, al = st.u[5].al }`)
+check(os3.kill === 1 && os3.al === 0, '#1 2단계 없는 우두머리는 그대로 쓰러진다')
+// #3 지속 피해로 문턱을 넘으면 1단계 행동 전에 전환
+const dt = await R(`
+  local st = mkraid(3, 2, 8, 5)
+  local u = st.u[5]
+  u.hp = math.floor(u.mhp * 0.5) + 2
+  u.dot = { { d = 5, n = 2, k = 1 } }
+  for a = 1, 4 do st.u[a].g = 5000 end
+  u.g = 0
+  B.begin_ev(st)
+  B.run(st)
+  local kinds = {}
+  for _, e in ipairs(st.ev.list) do kinds[#kinds + 1] = e.k end
+  local n = 0
+  for _, k in ipairs(kinds) do if k == "echg" then n = n + 1 end end
+  return { kinds = kinds, ph = u.ph, echg = n }`)
+{
+  const k = dt.kinds, iDot = k.indexOf('dot'), iPh = k.indexOf('phase'), iAtk = k.findIndex(x => x === 'eatk' || x === 'eall')
+  check(iDot >= 0 && iPh > iDot && (iAtk < 0 || iAtk > iPh) && dt.ph === 2, `#3 지속 피해 → 단계 전환 → 그다음 행동 (사건 순서 ${k.slice(0, 6).join(' → ')})`)
+  check(dt.echg === 1, '#3 전환 뒤 보스의 첫 행동은 2단계 첫 행동(충전)이다')
+}
+// #4 단계 전환마다 심연 가득 · 고갈 해제
+const gg = await R(`
+  local st = mkraid(3, 2, 8, 5)
+  local u = st.u[5]
+  u.ay = 10; u.hp = math.floor(u.mhp * 0.4)
+  B.phase_check(st)
+  local a = { ay = u.ay, ym = u.ym, dr = u.dr }
+  local st2 = mkraid(3, 2, 8, 5)
+  local v = st2.u[5]
+  v.ay = 0; v.dr = 1; v.hp = math.floor(v.mhp * 0.4)
+  B.phase_check(st2)
+  return { a = a, b = { ay = v.ay, ym = v.ym, dr = v.dr } }`)
+check(gg.a.ay === gg.a.ym && gg.a.dr === 0 && gg.b.ay === gg.b.ym && gg.b.dr === 0, `#4 단계 전환: 심연 10/${gg.a.ym} → ${gg.a.ay}/${gg.a.ym} · 고갈 상태였어도 풀리고 가득`)
+// #7 장기전은 우두머리 · 보스 · 핵만
+const en = await R(`
+  local st = mkraid(1, 2, 3, 5)
+  st.rd = 40
+  local out = { lead = B.foe_atk_mul(st, 5) }
+  out.esc = {}
+  for j = 6, #st.u do if st.u[j].empty ~= 1 and st.u[j].al == 1 then out.esc[#out.esc + 1] = B.foe_atk_mul(st, j) end end
+  local stb = mkraid(3, 2, 8, 5)
+  stb.rd = 40
+  out.boss = B.foe_atk_mul(stb, 5)
+  local sj = B.summon_one(stb, 5, "apprentice_doll")
+  out.add = B.foe_atk_mul(stb, sj)
+  local core = B.fresh(1, nil, { pm = ZZ.party("A", 10), el = 10, enc = B.compose(5, { kind = "rift_core", rift_id = "sw_snow", stars = 2, party_n = 4 }) })
+  core.rd = 40
+  out.core = B.foe_atk_mul(core, 5)
+  return out`)
+check(Math.abs(en.lead - 2) < 1e-9 && en.esc.length >= 1 && en.esc.every(x => x === 1) && Math.abs(en.boss - 2) < 1e-9 && en.add === 1 && Math.abs(en.core - 2) < 1e-9,
+  `#7 장기전 +100%: 우두머리 ×${en.lead} · 구역 보스 ×${en.boss} · 균열 핵 ×${en.core} / 호위 ×${en.esc.join(',')} · 하수인 ×${en.add}`)
+// #8 층 최종 배율(★/심층 × 구역 보정 × 층 끝 보스 손잡이)이 줄지 않는다
+const fin = await L(`
+  local out = { dec = {}, clamp = {}, ex = {} }
+  for _, kind in ipairs({ "normal", "chief", "boss" }) do
+    local ph, pa = 0, 0
+    out.dec[kind] = {}
+    for f = 1, 420 do
+      local h, a, cl = B.floor_final(f, kind)
+      local info = B.floor_info(f)
+      local mine = (kind == "normal") or (kind == B.floor_boss_kind(info))
+      if mine then
+        if h < ph - 1e-9 or a < pa - 1e-9 then out.dec[kind][#out.dec[kind] + 1] = f end
+        ph, pa = h, a
+        if cl then out.clamp[#out.clamp + 1] = kind .. ":" .. f end
+      end
+    end
+  end
+  local h27, a27 = B.floor_final(27, "normal"); local h28, a28 = B.floor_final(28, "normal")
+  out.ex = { h27, h28, a27, a28 }
+  -- 실제 전투 수치도 따라간다: 27층과 28층 일반 적(같은 레벨 · 같은 역할 · 등급으로 나눈 배율)
+  local function hp(f)
+    local plan = B.floor_plan(f, 40, 4, 1, 11)
+    local st = B.fresh(1, nil, { pm = ZZ.party("A", 40), el = 40, enc = plan.enc })
+    local d = B.DEF[5]
+    local s = B.foe_stats(st, d)
+    return s.hp / (B.ENEMY_STD.hp * B.fc("atk", 40) * B.ROLES[d.srole].hp * B.GRADES[d.grade].hp)
+  end
+  out.h = { hp(27), hp(28) }
+  return out`)
+check(['normal', 'chief', 'boss'].every(k => fin.dec[k].length === 0), `#8 최종 배율(HP · 공격)이 1~420층에서 일반 · 우두머리 · 구역 보스 모두 줄지 않는다`)
+check(fin.clamp.length === 0, `#8 층 곡선(tune.curve)이 처음부터 단조라 B.floor_final 의 클램프가 1~420층에서 한 번도 값을 올리지 않는다 (올린 층 ${fin.clamp.length}곳: ${fin.clamp.slice(0, 6).join(' ')})`)
+check(fin.ex[1] >= fin.ex[0] - 1e-9 && fin.ex[3] >= fin.ex[2] - 1e-9 && fin.h[1] >= fin.h[0] - 1e-9, `#8 27층 → 28층 일반 적 HP 배율 ${fin.ex[0].toFixed(2)} → ${fin.ex[1].toFixed(2)} · 공격 ${fin.ex[2].toFixed(2)} → ${fin.ex[3].toFixed(2)} · 실제 전투 적 ${fin.h[0].toFixed(2)} → ${fin.h[1].toFixed(2)}`)
+// #8b 보스별 심층 계수(enemies.json boss.deep): 심층(28층~)의 구역 보스에만 곱하고, 곡선(B.floor_final) 자체는 그대로 단조라 위 클램프 검사가 그대로 선다.
+//   같은 보스는 순환(27층 간격)이 돌 때마다 곡선 × 같은 계수라 줄지 않는다 — 보스끼리의 모양은 행동이 달라서 일부러 계수만큼 어긋난다(ENEMIES.md 「밸런스 시뮬 표」).
+const dp = await L(`
+  local out = { bad = {}, rows = {}, n = 0 }
+  for i, z in ipairs(B.ZONE_ORDER) do
+    local bid = B.ZONES[z].boss
+    local dpf = B.FOES[bid].deep
+    local last = 0
+    for c = 0, 5 do
+      local f = 3 * i + (c == 0 and 0 or 27 * c)
+      if c >= 1 then f = 27 + 3 * i + 27 * (c - 1) end
+      local plan = B.floor_plan(f, 40, 1, 2, 11)
+      local st = B.fresh(1, nil, { pm = ZZ.party("A", 40), el = 40, enc = plan.enc })
+      local d = B.DEF[5]
+      local s = B.foe_stats(st, d)
+      local mh = s.hp / (B.ENEMY_STD.hp * B.fc("atk", 40) * B.ROLES[d.srole].hp * B.GRADES[d.grade].hp)
+      local fh = B.floor_final(f, "boss")
+      local want = fh * ((f > 27) and ((dpf and dpf.hp) or 1) or (B.ZONES[z].tune.boss_hp or 1))   -- 1~27층은 구역 보정 boss_hp(10-10 흐름 재튜닝) · 심층은 보스별 계수
+      local ea = B.EX.EARLY
+      if ea and f < ea.to then want = want * ea.hp ^ (1 - ((f - 1) / (ea.to - 1)) ^ (ea.curve or 1)) end   -- 입문 구간(7층 전) 보정
+      out.n = out.n + 1
+      if d.foe ~= bid then out.bad[#out.bad + 1] = bid .. " " .. f .. "층 보스가 아님 " .. tostring(d.foe) end
+      if math.abs(mh - want) > 1e-6 * want then out.bad[#out.bad + 1] = bid .. " " .. f .. "층 HP 배율 " .. mh .. " ≠ " .. want end
+      if c >= 1 then
+        if mh < last - 1e-9 then out.bad[#out.bad + 1] = bid .. " " .. f .. "층 순환 간 HP 배율이 줄었다" end
+        last = mh
+      end
+    end
+  end
+  for id, f in pairs(B.FOES) do
+    if f.deep and f.grade ~= "boss" then out.bad[#out.bad + 1] = id .. " deep 은 구역 보스만" end
+    if f.deep and ((f.deep.hp or 1) < 0.3 or (f.deep.hp or 1) > 3 or (f.deep.atk or 1) < 0.3 or (f.deep.atk or 1) > 3) then out.bad[#out.bad + 1] = id .. " deep 범위" end
+  end
+  return out`)
+check(dp.bad.length === 0, `#8b 보스별 심층 계수: 구역 보스 9명 × (본 구역 · 심층 5 순환 표본) ${dp.n}곳에서 최종 HP 배율 = 곡선 × (1~27층 구역 보정 · 심층 보스별) 계수 · 같은 보스는 순환마다 줄지 않는다 · 구역 보스 아닌 적에는 없다${dp.bad.length ? ' — ' + dp.bad.slice(0, 3).join(' / ') : ''}`)
+// #2 · #6 균열 의뢰: 종류가 전투를 정하고 ★ 는 균열 범위 안
+const gq = await L(`
+  local out = { bad = {}, seen = {}, n = 0 }
+  for done = 0, 6, 3 do
+    for k = 1, 150 do
+      local G = { seed = (k * 48271 + done * 7919 + 12345) % 2147483646, n = 0, persona = { lv = 8 }, guild = { quests = {}, done = done, active = "" }, town = {} }   -- 판마다 다른 씨앗(코어 G_rnd 는 씨앗이 달라야 퍼진다)
+      local q = B.gd_new(G)
+      out.n = out.n + 1
+      local rid = B.rift_id_of(q.rift)
+      local R = B.RIFTS[rid]
+      local key = q.rift .. "|" .. q.kind .. "|" .. q.stars
+      out.seen[key] = true
+      if q.stars < R.star_min or q.stars > R.star_max then out.bad[#out.bad + 1] = "범위 밖 " .. key end
+      if q.kind == "토벌" and q.stars ~= R.star_max then out.bad[#out.bad + 1] = "핵이 최고 ★ 아님 " .. key end
+    end
+  end
+  return out`)
+const keys = Object.keys(gq.seen)
+const tiers = await L(`local G = B.G_new(); G.persona.lv = 12; G.roster = { "levia" }; G.lvl = { levia = 15 }; G.guild.quests = {}; B.gd_fill(G); local o = { ds = {}, ls = {}, gs = {} }; for _, q in ipairs(G.guild.quests) do local d = B.gd_difficulty(q); o.ds[d] = (o.ds[d] or 0) + 1; o.ls[d] = B.gd_qlv(G,q); o.gs[d] = B.gd_gold(G,q) end; return o`)
+check(tiers.ds['낮음'] === 1 && tiers.ds['중간'] === 1 && tiers.ds['높음'] === 1 && tiers.ls['낮음'] === 12 && tiers.ls['중간'] === 15 && tiers.ls['높음'] === 18, '의뢰판 난이도 3종 · 영입 동료 최고 레벨 기준 ±3')
+check(tiers.gs['높음'] > tiers.gs['중간'] && tiers.gs['중간'] > tiers.gs['낮음'], '의뢰 금화는 높음 > 중간 > 낮음')
+const tierExp = await L(`local old = B.DEF[5]; B.DEF[5] = { lvn = 15, kind = "mob" }; local st = { u = { {}, {}, {}, {}, { empty = 0 } }, el = 15, star = 1 }; local out = {}; for _,d in ipairs({ "낮음", "중간", "높음" }) do st.qmult = B.GD_DIFFICULTY[d].reward; out[d] = B.exp_reward(st) end; B.DEF[5] = old; return out`)
+check(tierExp['높음'] > tierExp['중간'] && tierExp['중간'] > tierExp['낮음'], `의뢰 경험치도 높음 > 중간 > 낮음 (${tierExp['낮음']}/${tierExp['중간']}/${tierExp['높음']})`)
+const reroll = await L(`local G = B.G_new(); B.gd_fill(G); local keep = G.guild.quests[1]; G.guild.quests = { keep }; B.gd_fill(G); local o = {}; for _,q in ipairs(G.guild.quests) do o[B.gd_difficulty(q)] = (o[B.gd_difficulty(q)] or 0) + 1 end; return o`)
+check(reroll['낮음'] === 1 && reroll['중간'] === 1 && reroll['높음'] === 1, '의뢰판 리롤에서 남은 난이도를 먼저 채운다')
+check(gq.bad.length === 0, `#6 의뢰 ★ 는 균열 범위 안 · 핵 토벌은 그 균열 최고 ★ 에서만 (${gq.n}개 생성, 위반 ${gq.bad.length}${gq.bad.length ? ': ' + gq.bad.slice(0, 3) : ''})`)
+check(keys.some(k => k.startsWith('남서 설산 균열|토벌|2')) && keys.some(k => k.startsWith('남동 숲 균열|토벌|2')) && keys.some(k => k.startsWith('남서 설산 균열|') && k.endsWith('|1')) && !keys.some(k => /^남동 숲 균열\|.*\|[13]$/.test(k)) && !keys.some(k => /^남서 설산 균열\|.*\|3$/.test(k)),
+  `#6 남서 설산 ★1~2 · 남동 숲 ★2 만 나온다: ${keys.sort().join(' / ')}`)
+// #2 토벌 = 항상 균열 핵, 구조 · 회수 = 조합 전투
+const qk = []
+for (const rift of ['남서 설산 균열', '남동 숲 균열'])
+  for (const [stars, kind] of [[1, '토벌'], [2, '토벌'], [3, '토벌'], [1, '구조'], [2, '회수']]) {
+    sim.setVar('dk_game', JSON.stringify({ ...GBASE, town: { bn: 3 + qk.length, day: 1, acts: {}, rr: 0 }, guild: { quests: [Q(stars, kind, rift)], active: 'q1', done: 0, recruits: 0, tickets: 0 } }))
+    await press('so_go')
+    const s = JSON.parse(sim.getVar('dk_battle'))
+    const gr = s.fl.filter(x => x).map(id => byId[id].grade)
+    qk.push({ rift, stars, kind, raid: s.raid, grades: gr, lead: s.fl[0] })
+  }
+check(qk.filter(x => x.kind === '토벌').every(x => x.raid === 1 && ['frost_contractor', 'corroded_reliquary'].includes(x.lead) && x.grades[0] === 'core'), '#2 토벌 의뢰는 ★ 와 무관하게 늘 균열 핵 레이드(핵 + 호위)')
+check(qk.filter(x => x.kind !== '토벌').every(x => x.raid === 0 && !x.grades.includes('core') && (x.stars === 1 ? !x.grades.includes('elite') : x.grades.includes('elite'))), '#2 구조 · 회수 의뢰는 조합 전투(★1 일반 · ★2 이상 정예)이고 핵이 없다')
+{
+  const t = await L(`return { a = B.GD_FIGHT_TAG[B.gd_fight({ kind = "토벌", stars = 1 })], b = B.GD_FIGHT_TAG[B.gd_fight({ kind = "구조", stars = 1 })], c = B.GD_FIGHT_TAG[B.gd_fight({ kind = "회수", stars = 2 })] }`)
+  check(t.a === '균열 핵 레이드' && t.b === '일반 전투' && t.c === '정예 전투', '#2 의뢰판 표시와 실제 전투가 같은 함수(gd_fight)를 읽는다')
+}
+// ---------------------------------------------------------------- 마무리
+check(sim.errors.length === 0, `Lua 오류 0 (${sim.errors.length}${sim.errors.length ? ': ' + sim.errors.slice(0, 3).map(e => e.message.slice(0, 200)).join(' | ') : ''})`)
+console.log(`\n${fails === 0 ? '전부 통과' : '실패 ' + fails + '건'} (통과 ${passes})`)
+sim.close()
+process.exit(fails ? 1 : 0)

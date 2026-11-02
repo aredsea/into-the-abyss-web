@@ -1,7 +1,8 @@
 extends Control
 
 const RouteMap=preload("res://ui/route_map.gd")
-const World=preload("res://game/persona_world.gd")
+const World=preload("res://game/expedition_world_r22.gd")
+const ExpeditionScreen=preload("res://ui/expedition_screen_r22.gd")
 const CreateScreen=preload("res://ui/create_screen.gd")
 const PersonaSortieScreen=preload("res://ui/persona_sortie_screen.gd")
 const TownScreen=preload("res://ui/town_screen_r21.gd")
@@ -88,7 +89,7 @@ func _draw_screen() -> void:
 		for c in get_children():
 			if c==cloud:continue
 			remove_child(c); c.queue_free()
-		battle=BattleScreen.new()
+		battle=preload("res://ui/expedition_supply_screen_r22.gd").new() if model.has_method("expedition") and model.expedition() else BattleScreen.new()
 		if model.s.has("persona"):preload("res://ui/persona_visual_adapter.gd").prepare()
 		battle.session_data=model.battle_data()
 		battle.session_snapshot=model.s.run.battle
@@ -110,9 +111,10 @@ func _draw_screen() -> void:
 		town_view=CreateScreen.new();add_child(town_view);town_view.build(self);return
 	if model.s.has("persona") and screen in ["formation","depart"]:
 		town_view=PersonaSortieScreen.new();add_child(town_view);town_view.build(self);return
-	var finished_town=screen in ["town","party","member","skills","cards","depart","bag","formation","journal","summary","inn","shop","guild","recruit","equipment","smithy","research"] or (screen=="explore" and (model.r21() or model.s.run.get("event","")=="sealed"))
+	var finished_town=screen in ["town","party","member","skills","cards","depart","bag","formation","journal","summary","inn","shop","guild","recruit","equipment","smithy","research","expedition_log"] or (screen=="explore" and (model.r21() or model.s.run.get("event","")=="sealed"))
 	if (finished_town or dialogue_open or journey_open) and (confirm.is_empty() or (screen=="explore" and model.r21())):
-		town_view=TownScreen.new(); add_child(town_view); town_view.build(self)
+		var p5=model.has_method("expedition") and model.expedition() and screen in ["explore","expedition_log","summary","bag","equipment"]
+		town_view=ExpeditionScreen.new() if p5 else TownScreen.new(); add_child(town_view); town_view.build(self)
 		last_drawn_screen=screen; call_deferred("_publish"); return
 	var width=minf(size.x,440); var height=size.y
 	var base=Control.new(); add_child(base); base.position=Vector2((size.x-width)/2,0); base.size=Vector2(width,height)
