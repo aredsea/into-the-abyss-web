@@ -3,31 +3,58 @@
   "basis": "r21-expe-brief.md / r21-common.md; 109 items from audit-r22b.json remaining_work[7]",
   "summary": {
     "reviewed_rows": 109,
-    "promoted_same": 18,
-    "fixed_rows": 18,
-    "fixed_still_remaining": 10,
-    "remaining_rows": 91,
-    "oracle_checks": 16265,
+    "promoted_same": 34,
+    "fixed_rows": 31,
+    "fixed_still_remaining": 11,
+    "remaining_rows": 75,
+    "oracle_checks": 37207,
     "core_oracle_checks": 2310,
     "supply_oracle_checks": 7384,
     "level_oracle_checks": 6571,
     "oracle_failures": 0,
-    "regression_groups": 85,
+    "regression_groups": 87,
     "failed_groups": [],
     "protected_snapshot_files": 1007,
     "changed_existing_files": [
       "project/game/dungeon_world_r21.gd",
       "project/game/expedition_supply_r22.gd",
       "project/game/expedition_world_r22.gd",
-      "project/ui/persona_sortie_screen.gd",
-      "project/tests/ui_expedition_r22_test.gd"
+      "project/tests/ui_expedition_r22_test.gd",
+      "project/ui/expedition_screen_r22.gd",
+      "project/ui/persona_sortie_screen.gd"
     ],
     "outside_allowed_changed": [],
     "assets_checked": 96,
     "asset_changes": [],
     "trace_battles": 6320,
     "trace_equal_battles": 6320,
-    "trace_records": 219785
+    "trace_records": 219785,
+    "pass2": {
+      "reviewed_rows": 91,
+      "promoted_same": 16,
+      "fixed_rows": 15,
+      "remaining_rows": 75,
+      "oracle_checks": 20942,
+      "oracle_failures": 0,
+      "ui_checks": 210,
+      "ui_failures": 0,
+      "ui_captures": 10,
+      "regression_groups": 87,
+      "failed_groups": [],
+      "protected_snapshot_files": 2811,
+      "changed_existing_files": [
+        "project/game/dungeon_world_r21.gd",
+        "project/game/expedition_world_r22.gd",
+        "project/ui/expedition_screen_r22.gd",
+        "project/ui/persona_sortie_screen.gd"
+      ],
+      "outside_allowed_changed": [],
+      "assets_checked": 96,
+      "asset_changes": [],
+      "trace_battles": 6320,
+      "trace_equal_battles": 6320,
+      "trace_records": 219785
+    }
   },
   "rows": [
     {
@@ -47,7 +74,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "52f4c74975932ac7c2b70fcd3bd67ded268ecbf56ee2a9aed33f3f1f9cba3a8d",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      }
     },
     {
       "id": "P2749",
@@ -66,7 +104,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "950d4c059f2a765b742cba37f5fb41754c613bbfad7b3924d0f397e29561165c",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      }
     },
     {
       "id": "P2750",
@@ -85,7 +134,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "141f9c88714dfee5eca55c038737ade6f83c1dd07965a29275202037901bbb8d",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      }
     },
     {
       "id": "P2751",
@@ -104,7 +164,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "f35467016bfd6a1779439555431995e8bce142688604af00c356a1ed53d53b55",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      }
     },
     {
       "id": "P2752",
@@ -123,7 +194,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "9219fb8dbbd937bf8b32ce62b2a50ca342525fd68541e3f14ce835348adb00f1",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      }
     },
     {
       "id": "P2753",
@@ -142,7 +224,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "5b28c2da6bf6257c4dc444732ade0fccb67965c38ffef7251fbd7a87098e743a",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      }
     },
     {
       "id": "P2754",
@@ -161,7 +254,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "87f325ea68650f55c8d82ba849cf65b1d6d019884abf2efbede42c6cc95633f0",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      }
     },
     {
       "id": "P2755",
@@ -180,7 +284,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "5e29a45c75a4e76af6a01980363def0c59ae4812e46aecbd4a3d22dae2fa5a79",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      }
     },
     {
       "id": "P2756",
@@ -199,7 +314,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "2380f208de92260483cfd56602da90d6f446e3524e0e23f401a2451342075d88",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      }
     },
     {
       "id": "P2757",
@@ -218,7 +344,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "e304676d26a78360052ef1150665531feb05c8747d38b2b81a9952a187c9e285",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      }
     },
     {
       "id": "P2758",
@@ -237,7 +374,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "8362a7f299bb16c8f45769c5b9ddde0a4a522ecf5bcbd976aaa084dd530d4fc4",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      }
     },
     {
       "id": "P2784",
@@ -256,7 +404,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "b14e0cc47f8ababae99ddc9bb47317caed55e617e5ac851282edc5717ce83c54",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      }
     },
     {
       "id": "P2792",
@@ -275,7 +434,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "9a116a4e22556ab177dfb231730ab7d87494fd4b2c1770373999947d4307909c",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      }
     },
     {
       "id": "P2794",
@@ -294,7 +464,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "a1e6f1a400a4c74e5ffd4aeedc9c51ebe65df2a0943eb9206a2a9505efb7adae",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      }
     },
     {
       "id": "P2991",
@@ -356,12 +537,30 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
       "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다."
+      "tests": [
+        "expe_pass2_r23_test::level_who (165 checks)"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:41"
+      ],
+      "remaining_reason": "",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "equality_domain": "원본 문자열 ID/유효한 native 상태 투영. m 슬롯·nil·레벨/재고 별칭을 명시적으로 매핑하며 HTML/호스트는 이 행의 계약에 포함되지 않는다.",
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "59b18059453c5f17c8ac94bdd5222e3099ccf33a0a04c116d579cd2a9f78b9d3",
+        "source_excerpt_sha256": "eb6c279baa68c543f49bdb4f0c089a701bf3b82b3a2fb342d863892d256af916",
+        "groups": [
+          "level_who"
+        ],
+        "direct_function_comparison": true,
+        "execution_scope": "direct mapped function",
+        "detail": "문자열 인물 ID, 미상/빈 ID 및 동료 30인 전체와 이름 5종을 원본 who로 실행했다. native 표시 이름 어댑터로 직접 대조했다."
+      }
     },
     {
       "id": "P3003",
@@ -380,7 +579,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다."
+      "remaining_reason": "레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "59b18059453c5f17c8ac94bdd5222e3099ccf33a0a04c116d579cd2a9f78b9d3",
+        "source_excerpt_sha256": "a61bc0b41cb86555781ad3d50ad971d964a14891e6f01fb5c6abc80fbb85ab69",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다."
+      }
     },
     {
       "id": "P3004",
@@ -399,7 +609,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다."
+      "remaining_reason": "레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "59b18059453c5f17c8ac94bdd5222e3099ccf33a0a04c116d579cd2a9f78b9d3",
+        "source_excerpt_sha256": "8f5931394556a7e78506573ea14b9d4d15278c410aab8005fc456cac82b41990",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다."
+      }
     },
     {
       "id": "P3013",
@@ -413,12 +634,30 @@
       },
       "unverified_branches": [],
       "prior_status": "일부",
-      "status": "일부",
+      "status": "같음",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      "fixed": true,
+      "tests": [
+        "expe_pass2_r23_test::pname (5 checks)"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:41"
+      ],
+      "remaining_reason": "",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "equality_domain": "원본 문자열 ID/유효한 native 상태 투영. m 슬롯·nil·레벨/재고 별칭을 명시적으로 매핑하며 HTML/호스트는 이 행의 계약에 포함되지 않는다.",
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "47df0d14e3163509c29a91ebbbe5739146c105e0f8da41d2b3cf0146d5b6a58e",
+        "groups": [
+          "pname"
+        ],
+        "direct_function_comparison": true,
+        "execution_scope": "direct mapped function",
+        "detail": "빈 이름/일반 이름/HTML 문자/공백/{{user}}를 원문 그대로 반환한다. 빈 이름만 당신으로 바꾼다."
+      }
     },
     {
       "id": "P3014",
@@ -432,12 +671,30 @@
       },
       "unverified_branches": [],
       "prior_status": "일부",
-      "status": "일부",
+      "status": "같음",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      "fixed": true,
+      "tests": [
+        "expe_pass2_r23_test::prow (96 checks)"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:52"
+      ],
+      "remaining_reason": "",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "equality_domain": "원본 문자열 ID/유효한 native 상태 투영. m 슬롯·nil·레벨/재고 별칭을 명시적으로 매핑하며 HTML/호스트는 이 행의 계약에 포함되지 않는다.",
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "3352d319be772fa5fd708c12ab9e7f36d0e3894053e09b71f6584a1d6823dfd4",
+        "groups": [
+          "prow"
+        ],
+        "direct_function_comparison": true,
+        "execution_scope": "direct mapped function",
+        "detail": "10직업과 미상/빈 직업의 row·cls 두 반환값을 native 레코드로 대조했다. 없는 직업의 row는 빈 문자열이다."
+      }
     },
     {
       "id": "P3015",
@@ -451,12 +708,30 @@
       },
       "unverified_branches": [],
       "prior_status": "일부",
-      "status": "일부",
+      "status": "같음",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      "fixed": true,
+      "tests": [
+        "expe_pass2_r23_test::members (192 checks)"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:55"
+      ],
+      "remaining_reason": "",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "equality_domain": "원본 문자열 ID/유효한 native 상태 투영. m 슬롯·nil·레벨/재고 별칭을 명시적으로 매핑하며 HTML/호스트는 이 행의 계약에 포함되지 않는다.",
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "68146a235d49defddec08ea1c6923723847f23994a9da18032024a80e7225f02",
+        "groups": [
+          "members"
+        ],
+        "direct_function_comparison": true,
+        "execution_scope": "direct mapped function",
+        "detail": "12직업 입력×참전/지휘×4편성. 중복/미영입/미상 ID 제거 및 cap 정리 부작용과 id/name/cls/row/lv 전체를 대조했다."
+      }
     },
     {
       "id": "P3016",
@@ -475,7 +750,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "1bba0936ae056eeecf5a56c7da26bbe92a0ae0e54fe2bcd1f5c5e01970578e75",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      }
     },
     {
       "id": "P3017",
@@ -494,7 +780,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "8d7285e0f62c1aa3af151f933571d8e62ac60cf396f6cd633520ec1adaeefde5",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      }
     },
     {
       "id": "P3018",
@@ -513,7 +810,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "4e00b33883b028437aca971f83d1b8c96a63353adeba51970673d3f088844dc6",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      }
     },
     {
       "id": "P3020",
@@ -532,7 +840,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "60229c5ae954ed797a37ffc55bf48d296217045db605c8faba1db9df30b4f65c",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      }
     },
     {
       "id": "P3023",
@@ -570,16 +889,32 @@
       },
       "unverified_branches": [],
       "prior_status": "일부",
-      "status": "일부",
+      "status": "같음",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
       "fixed": true,
       "tests": [
-        "expe_r23_test::sortie_order"
+        "expe_r23_test::sortie_order",
+        "expe_pass2_r23_test::ordered (15 checks)"
       ],
       "implementation": [
-        "project/game/expedition_world_r22.gd:35"
+        "project/game/expedition_world_r22.gd:35",
+        "project/game/expedition_world_r22.gd:94"
       ],
-      "remaining_reason": "후보 ID 순서·유효/무효 필터는 대조했다. 원본 반환의 cid/on/lv/i 레코드 전체와 native UI 카드 계약을 같음으로 확대하지 않는다."
+      "remaining_reason": "",
+      "pass1_status": "일부",
+      "pass1_fixed": true,
+      "equality_domain": "원본 문자열 ID/유효한 native 상태 투영. m 슬롯·nil·레벨/재고 별칭을 명시적으로 매핑하며 HTML/호스트는 이 행의 계약에 포함되지 않는다.",
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "90c16228ab5156555417fe41d471e9d089d9ba00e87d102d8378a9f16acca472",
+        "groups": [
+          "ordered"
+        ],
+        "direct_function_comparison": true,
+        "execution_scope": "direct mapped function",
+        "detail": "cid/on/lv/i 전체 레코드, 원본 인물 순서의 1기준 i, 유효/무효 필터와 선택 우선 정렬을 직접 대조했다."
+      }
     },
     {
       "id": "P3025",
@@ -622,7 +957,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "0141c42149320a39fb296780a3dc1743f2ff61e6d8c88738ea190a2c46a18566",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      }
     },
     {
       "id": "P3028",
@@ -641,7 +987,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "6b75b92334ed94859eed3199d6bc3cbaa1d8f184aee0bbf32c3b2a58b5b56913",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      }
     },
     {
       "id": "P3030",
@@ -655,16 +1012,32 @@
       },
       "unverified_branches": [],
       "prior_status": "일부",
-      "status": "일부",
+      "status": "같음",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
       "fixed": true,
       "tests": [
-        "expe_r23_test::sortie_summary"
+        "expe_r23_test::sortie_summary",
+        "expe_pass2_r23_test::summary (168 checks)"
       ],
       "implementation": [
-        "project/game/expedition_world_r22.gd:41"
+        "project/game/expedition_world_r22.gd:41",
+        "project/game/expedition_world_r22.gd:121"
       ],
-      "remaining_reason": "이미 해석된 적 레벨을 입력한 n/avg/elv/front/warns는 일치한다. 원본 q 전체와 gd_qlv 의 의뢰별 해석까지 이 함수의 native 출정 흐름에서 대조한 것은 아니다."
+      "remaining_reason": "",
+      "pass1_status": "일부",
+      "pass1_fixed": true,
+      "equality_domain": "원본 문자열 ID/유효한 native 상태 투영. m 슬롯·nil·레벨/재고 별칭을 명시적으로 매핑하며 HTML/호스트는 이 행의 계약에 포함되지 않는다.",
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "1a139545faac4a50d312b0de54c41e6485e869d393c4feac138919f114f4545b",
+        "groups": [
+          "summary"
+        ],
+        "direct_function_comparison": true,
+        "execution_scope": "direct mapped function",
+        "detail": "실제 72-guild.gd_qlv를 로드한 의뢰 없음/빈 의뢰/숫자 문자열/소수/상하한/손상 lv/4난이도/별 fallback의 한·영 168입력. native 출정 경고와 수락 의뢰 버튼에 연결했다."
+      }
     },
     {
       "id": "P3031",
@@ -688,7 +1061,18 @@
       "implementation": [
         "project/ui/persona_sortie_screen.gd:3"
       ],
-      "remaining_reason": "경고를 출정 화면에 연결했다. 원본 summary_card HTML 전체 반환은 native 캔버스와 다르다."
+      "remaining_reason": "경고를 출정 화면에 연결했다. 원본 summary_card HTML 전체 반환은 native 캔버스와 다르다.",
+      "pass1_status": "일부",
+      "pass1_fixed": true,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "6f4131fa5023abc07fb40f4c7c067cf24ad233f43b3455f41e130a3bcd28dca1",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "경고를 출정 화면에 연결했다. 원본 summary_card HTML 전체 반환은 native 캔버스와 다르다."
+      }
     },
     {
       "id": "P3032",
@@ -707,7 +1091,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "5f772ac3ddc16ed9d260a93e058bcb2792ea1b1f65ac7b4fa35d107d362fc1ed",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      }
     },
     {
       "id": "P3037",
@@ -726,7 +1121,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "c451dfb50f27b725091c75f9802b1213163847429a14ee94f43fa17c159c13f3",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      }
     },
     {
       "id": "P3041",
@@ -745,7 +1151,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "7c59434c539fa77cac20a234ae1c5df420b292c5606a8e0b89f3acbb444a7e10",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      }
     },
     {
       "id": "P3061",
@@ -764,7 +1181,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 dn_G는 손상/누락 필드를 제자리 정규화한다. native는 자체 저장 스키마를 검증/거부하므로 손상 G 전체 계약이 다르다."
+      "remaining_reason": "원본 dn_G는 손상/누락 필드를 제자리 정규화한다. native는 자체 저장 스키마를 검증/거부하므로 손상 G 전체 계약이 다르다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "dd8363226766b6701f6df95fa89ac57ee412dc89082aaddc64fa52e9e511b19e",
+        "source_excerpt_sha256": "65eec49bc6b1ffee52727e212c5a2dcd97cca3849b37f703c890a38202b1971c",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 dn_G는 손상/누락 필드를 제자리 정규화한다. native는 자체 저장 스키마를 검증/거부하므로 손상 G 전체 계약이 다르다."
+      }
     },
     {
       "id": "P3070",
@@ -835,7 +1263,18 @@
       "implementation": [
         "project/game/persona_world.gd:132"
       ],
-      "remaining_reason": "1~4인·세 레벨 편성은 실행했다. pm 전체(장비·스킬 스냅샷), 빈/손상된 원본 G의 전체 dn_party 반환 계약은 별도 대조가 남았다."
+      "remaining_reason": "1~4인·세 레벨 편성은 실행했다. pm 전체(장비·스킬 스냅샷), 빈/손상된 원본 G의 전체 dn_party 반환 계약은 별도 대조가 남았다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "dd8363226766b6701f6df95fa89ac57ee412dc89082aaddc64fa52e9e511b19e",
+        "source_excerpt_sha256": "2b201abce381f8b0b15a74770f90b4d8364af5076e2838aaa20dd00e6a4166c1",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "1~4인·세 레벨 편성은 실행했다. pm 전체(장비·스킬 스냅샷), 빈/손상된 원본 G의 전체 dn_party 반환 계약은 별도 대조가 남았다."
+      }
     },
     {
       "id": "P3074",
@@ -873,12 +1312,30 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "zone_title은 번역/HTML 탈출 전 표시 문자열이다. native는 zone.name과 별도 캔버스 라벨을 쓰며 심층 제목 원문 전체의 직접 반환 비교가 없다."
+      "fixed": true,
+      "tests": [
+        "expe_pass2_r23_test::zone_title (840 checks)"
+      ],
+      "implementation": [
+        "project/game/dungeon_world_r21.gd:74"
+      ],
+      "remaining_reason": "",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "equality_domain": "원본 문자열 ID/유효한 native 상태 투영. m 슬롯·nil·레벨/재고 별칭을 명시적으로 매핑하며 HTML/호스트는 이 행의 계약에 포함되지 않는다.",
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "dd8363226766b6701f6df95fa89ac57ee412dc89082aaddc64fa52e9e511b19e",
+        "source_excerpt_sha256": "a433f579a0ad34adaca1c0c584839dcc1ba0797e0763c081e1fa289b3ccf83a9",
+        "groups": [
+          "zone_title"
+        ],
+        "direct_function_comparison": true,
+        "execution_scope": "direct mapped function",
+        "detail": "1~420층, ko/en 원문 제목 840건. 심층/구역 순환/번역을 실제 dungeon_title에서 사용한다."
+      }
     },
     {
       "id": "P3079",
@@ -902,7 +1359,18 @@
       "implementation": [
         "project/ui/persona_sortie_screen.gd:3"
       ],
-      "remaining_reason": "층 정보 77건과 실제 페이지/경고 화면을 확인했다. dn_card HTML 전체·페이지 초과값의 정규화까지 동일하다고 세지 않는다."
+      "remaining_reason": "층 정보 77건과 실제 페이지/경고 화면을 확인했다. dn_card HTML 전체·페이지 초과값의 정규화까지 동일하다고 세지 않는다.",
+      "pass1_status": "일부",
+      "pass1_fixed": true,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "dd8363226766b6701f6df95fa89ac57ee412dc89082aaddc64fa52e9e511b19e",
+        "source_excerpt_sha256": "1eb34289ef67eb7e1fe863db326941a7364af983d0e8f0b600e10c87e8cb6d7c",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "층 정보 77건과 실제 페이지/경고 화면을 확인했다. dn_card HTML 전체·페이지 초과값의 정규화까지 동일하다고 세지 않는다."
+      }
     },
     {
       "id": "P3119",
@@ -921,7 +1389,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "기존 ex_roll 표본은 유지했다. 내부 wt의 모든 item_from/item_w 누락·경계 입력에 대한 독립 직접 반환 fixture는 없다."
+      "remaining_reason": "기존 ex_roll 표본은 유지했다. 내부 wt의 모든 item_from/item_w 누락·경계 입력에 대한 독립 직접 반환 fixture는 없다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "fe4b8a7212147930ada8fabe439bdff88b1de8c5c6cfb099a6c0aa728d00e88c",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "기존 ex_roll 표본은 유지했다. 내부 wt의 모든 item_from/item_w 누락·경계 입력에 대한 독립 직접 반환 fixture는 없다."
+      }
     },
     {
       "id": "P3120",
@@ -940,7 +1419,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 ex_run은 dn_G를 호출하면서 원본 dungeon 구조도 정규화한다. native run 접근과 손상 상태의 부작용까지 같은 계약이 아니다."
+      "remaining_reason": "원본 ex_run은 dn_G를 호출하면서 원본 dungeon 구조도 정규화한다. native run 접근과 손상 상태의 부작용까지 같은 계약이 아니다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "4f0626ada394142583e34a23c188eee184b56bea2ad0f3f87f0279237ab9bbc6",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 ex_run은 dn_G를 호출하면서 원본 dungeon 구조도 정규화한다. native run 접근과 손상 상태의 부작용까지 같은 계약이 아니다."
+      }
     },
     {
       "id": "P3121",
@@ -954,12 +1444,32 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본 번역/희귀도/Lv/알 수 없는 장비 문자열 전체와 native 코드↔UID 표시를 직접 비교하지 않았다. 장비 규칙 파일은 수정 금지다."
+      "fixed": true,
+      "tests": [
+        "expe_pass2_r23_test::gear_label (3142 checks)",
+        "expe_pass2_r23_test::gear_label_ui_en (3142 checks)"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:22"
+      ],
+      "remaining_reason": "",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "equality_domain": "원본 문자열 ID/유효한 native 상태 투영. m 슬롯·nil·레벨/재고 별칭을 명시적으로 매핑하며 HTML/호스트는 이 행의 계약에 포함되지 않는다.",
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "e757ddadacc7a7f7be6eebf628a312cd8677314cf4d8f7dc148753be5f6cc883",
+        "groups": [
+          "gear_label",
+          "gear_label_ui_en"
+        ],
+        "direct_function_comparison": true,
+        "execution_scope": "direct mapped function",
+        "detail": "1,030종×3씨앗, 원본 ITEMS 전체 38개, 잘못된 코드/미상 입력을 포함한 3,142건의 한국어/영어 UI 장비명/희귀도/Lv/미상 반환을 대조했다. 실제 주머니·정산 표시에서 사용한다."
+      }
     },
     {
       "id": "P3122",
@@ -973,12 +1483,32 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "영문 장비명/희귀도 번역 C1_en 전체 반환은 native 표시와 아직 대조되지 않았다. 장비/번역 범위를 임의로 확대하지 않았다."
+      "fixed": true,
+      "tests": [
+        "expe_pass2_r23_test::gear_label_en (3142 checks)",
+        "expe_pass2_r23_test::gear_label_en_ko (3142 checks)"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:22"
+      ],
+      "remaining_reason": "",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "equality_domain": "원본 문자열 ID/유효한 native 상태 투영. m 슬롯·nil·레벨/재고 별칭을 명시적으로 매핑하며 HTML/호스트는 이 행의 계약에 포함되지 않는다.",
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "5058e98cbc822729eefe53e7397d9ea32b4e3ab2db2809e23b821400379cb4cc",
+        "groups": [
+          "gear_label_en",
+          "gear_label_en_ko"
+        ],
+        "direct_function_comparison": true,
+        "execution_scope": "direct mapped function",
+        "detail": "동일 3,142코드/ID의 C1_en 영문명과 희귀도·미상 반환을 한·영 UI 상태에서 모두 대조했다. native 영문 표시에서 사용한다."
+      }
     },
     {
       "id": "P3123",
@@ -997,7 +1527,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "zero4는 원본 고정 4슬롯 배열이며 native는 인물 ID 딕셔너리다. 입장 자원 투영의 일치를 이 내부 반환 배열 함수로 전파하지 않는다."
+      "remaining_reason": "zero4는 원본 고정 4슬롯 배열이며 native는 인물 ID 딕셔너리다. 입장 자원 투영의 일치를 이 내부 반환 배열 함수로 전파하지 않는다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "72e0fe9a5baa47ea6bda24116dc229d6e26614e60fffd41fc471c0b6e6afc92e",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "zero4는 원본 고정 4슬롯 배열이며 native는 인물 ID 딕셔너리다. 입장 자원 투영의 일치를 이 내부 반환 배열 함수로 전파하지 않는다."
+      }
     },
     {
       "id": "P3124",
@@ -1020,7 +1561,18 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:57"
       ],
-      "remaining_reason": "입장 자원 24건을 고쳤다. 원본 G_rnd의 소비 상태·sid·boss_name·pm 전체·빈 슬롯 전체를 포함한 ex_new 반환 전부는 같은 저장 ABI가 아니다."
+      "remaining_reason": "입장 자원 24건을 고쳤다. 원본 G_rnd의 소비 상태·sid·boss_name·pm 전체·빈 슬롯 전체를 포함한 ex_new 반환 전부는 같은 저장 ABI가 아니다.",
+      "pass1_status": "일부",
+      "pass1_fixed": true,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "15191030b96d16fe935b7822d18e14b0f734987cab9373cbf98679c067d3b617",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "입장 자원 24건을 고쳤다. 원본 G_rnd의 소비 상태·sid·boss_name·pm 전체·빈 슬롯 전체를 포함한 ex_new 반환 전부는 같은 저장 ABI가 아니다."
+      }
     },
     {
       "id": "P3129",
@@ -1034,12 +1586,30 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "빈 이름/일반 이름 및 {{user}} 표시에 native의 별도 자리표시자 규칙이 있다. 함수 전체 문자열을 직접 대조하지 않았다."
+      "fixed": true,
+      "tests": [
+        "expe_pass2_r23_test::explore_pname (5 checks)"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:41"
+      ],
+      "remaining_reason": "",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "equality_domain": "원본 문자열 ID/유효한 native 상태 투영. m 슬롯·nil·레벨/재고 별칭을 명시적으로 매핑하며 HTML/호스트는 이 행의 계약에 포함되지 않는다.",
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "9579defc88105ddc1145024660d414e496dc0472c87a91a99f3a71121738644d",
+        "groups": [
+          "explore_pname"
+        ],
+        "direct_function_comparison": true,
+        "execution_scope": "direct mapped function",
+        "detail": "출정 pname과 별도로 원본 탐색 pname도 노출하여 이름 5종을 대조했다."
+      }
     },
     {
       "id": "P3130",
@@ -1053,12 +1623,30 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
       "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본은 알 수 없는 cid를 cid 그대로 돌려준다. native person 조회의 유효 인물 제약/이름 fallback 전체 직접 대조가 남는다."
+      "tests": [
+        "expe_pass2_r23_test::member_name (165 checks)"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:41"
+      ],
+      "remaining_reason": "",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "equality_domain": "원본 문자열 ID/유효한 native 상태 투영. m 슬롯·nil·레벨/재고 별칭을 명시적으로 매핑하며 HTML/호스트는 이 행의 계약에 포함되지 않는다.",
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "0b660e6dab33ab656128ab1229d89c04e0f78c85f7617774c21da8eb7d002c63",
+        "groups": [
+          "member_name"
+        ],
+        "direct_function_comparison": true,
+        "execution_scope": "direct mapped function",
+        "detail": "동료 전체 30인, 페르소나 이름 5종, 미상/빈 ID fallback을 직접 대조했다."
+      }
     },
     {
       "id": "P3131",
@@ -1072,12 +1660,30 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
       "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본 members는 빈 자리 포함 pm에서 {slot,m} 배열을 만든다. native expedition_ids의 ID 배열만으로 레코드/누락 슬롯 전체 같음을 세지 않는다."
+      "tests": [
+        "expe_pass2_r23_test::run_members (16 checks)"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:32"
+      ],
+      "remaining_reason": "",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "equality_domain": "원본 문자열 ID/유효한 native 상태 투영. m 슬롯·nil·레벨/재고 별칭을 명시적으로 매핑하며 HTML/호스트는 이 행의 계약에 포함되지 않는다.",
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "2af6b1a1e95123e2b662516598830c2cb9dc10f2d12f492b776089a64741ca4d",
+        "groups": [
+          "run_members"
+        ],
+        "direct_function_comparison": true,
+        "execution_scope": "direct mapped function",
+        "detail": "4슬롯의 점유/빈 자리 16조합에서 slot/m 레코드 전체와 추가 snapshot 필드 보존을 대조했다. 활성 원정 인물 순서가 이 함수를 사용한다."
+      }
     },
     {
       "id": "P3132",
@@ -1115,12 +1721,27 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "일부",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
+      "fixed": true,
+      "tests": [
+        "expe_pass2_r23_test::itname (3141 checks)"
+      ],
       "implementation": [],
-      "remaining_reason": "원본 itname은 장비 코드와 소모품 및 알 수 없는 ID를 모두 처리한다. native 이름/UID/코드 fallback 전체 직접 대조가 없다."
+      "remaining_reason": "원본 ITEMS 전수를 열거해 귀환 두루마리/레벨업 스크롤의 표시 이름까지 보강했다(효과/상점 규칙 추가 없음). 79-sex 전용 charm_potion(매혹의 비약)은 지시대로 목록만 남기고 이름/장면을 이식하지 않았으므로 이 함수 전체는 일부로 남긴다. 이 1입력은 이름 같음 단언에서 명시적으로 제외하며 나머지 3,141입력은 직접 일치한다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "528622143c4ba2aff112f5a25c1b247b47399317ebdd7fa0837b400c16a4bad1",
+        "groups": [
+          "itname"
+        ],
+        "direct_function_comparison": false,
+        "execution_scope": "dependency/partial flow only",
+        "detail": "원본 ITEMS 전수를 열거해 귀환 두루마리/레벨업 스크롤의 표시 이름까지 보강했다(효과/상점 규칙 추가 없음). 79-sex 전용 charm_potion(매혹의 비약)은 지시대로 목록만 남기고 이름/장면을 이식하지 않았으므로 이 함수 전체는 일부로 남긴다. 이 1입력은 이름 같음 단언에서 명시적으로 제외하며 나머지 3,141입력은 직접 일치한다."
+      }
     },
     {
       "id": "P3135",
@@ -1134,12 +1755,30 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본 rar_of의 장비 코드/일반 품목/누락 ID 반환 전체는 장비 표시 규칙 영역에 걸리며 독립 fixture가 없다."
+      "fixed": true,
+      "tests": [
+        "expe_pass2_r23_test::rar_of (3142 checks)"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:19"
+      ],
+      "remaining_reason": "",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "equality_domain": "원본 문자열 ID/유효한 native 상태 투영. m 슬롯·nil·레벨/재고 별칭을 명시적으로 매핑하며 HTML/호스트는 이 행의 계약에 포함되지 않는다.",
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "90f507f4dcebc383818eb76df36c77d85a76a207d6f74cc5b56411d697bd00ec",
+        "groups": [
+          "rar_of"
+        ],
+        "direct_function_comparison": true,
+        "execution_scope": "direct mapped function",
+        "detail": "동일 3,142입력의 rarity 또는 nil을 직접 대조했다(nil은 native null). 장비 생성·가방 규칙은 바꾸지 않았다."
+      }
     },
     {
       "id": "P3138",
@@ -1158,7 +1797,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "floor_label은 영문 AI 장면 지시용 문구다. native 제목은 별도 캔버스 문자열이며 원문을 임의로 같음/제외로 승격하지 않는다."
+      "remaining_reason": "floor_label은 영문 AI 장면 지시용 문구다. native 제목은 별도 캔버스 문자열이며 원문을 임의로 같음/제외로 승격하지 않는다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "4b67fb9b56d926d82c730c4e6a71cc8c5b2df8569f6af8b2b6ab79036dbdf2e1",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "floor_label은 영문 AI 장면 지시용 문구다. native 제목은 별도 캔버스 문자열이며 원문을 임의로 같음/제외로 승격하지 않는다."
+      }
     },
     {
       "id": "P3140",
@@ -1181,7 +1831,18 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:57"
       ],
-      "remaining_reason": "출발 상태는 대조했으나 이전 층 prev 목록·RisuAI pend_hard·메시지/장면 계약은 남는다."
+      "remaining_reason": "출발 상태는 대조했으나 이전 층 prev 목록·RisuAI pend_hard·메시지/장면 계약은 남는다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "e3732314ef50308613e1e66b417d9d8fe45454303f499539a5010cedac67f02e",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "출발 상태는 대조했으나 이전 층 prev 목록·RisuAI pend_hard·메시지/장면 계약은 남는다."
+      }
     },
     {
       "id": "P3145",
@@ -1204,7 +1865,18 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:123"
       ],
-      "remaining_reason": "첫 전투 전 자원 24건을 대조했다(B.run을 잠시 막아 전투 시작 뒤 적 행동과 분리). 전투 저장 매체·st 전부·원본 호스트 장면 전환의 동등성 증거는 아니다."
+      "remaining_reason": "첫 전투 전 자원 24건을 대조했다(B.run을 잠시 막아 전투 시작 뒤 적 행동과 분리). 전투 저장 매체·st 전부·원본 호스트 장면 전환의 동등성 증거는 아니다.",
+      "pass1_status": "일부",
+      "pass1_fixed": true,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "a28c85a8b9ab0ae3a75de93f9b6f91ce1ed7290bd822a8f8136bd859a336a4ea",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "첫 전투 전 자원 24건을 대조했다(B.run을 잠시 막아 전투 시작 뒤 적 행동과 분리). 전투 저장 매체·st 전부·원본 호스트 장면 전환의 동등성 증거는 아니다."
+      }
     },
     {
       "id": "P3159",
@@ -1220,14 +1892,28 @@
       "prior_status": "일부",
       "status": "일부",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "fixed": false,
+      "fixed": true,
       "tests": [
-        "expedition_r22_test::rest"
+        "expedition_r22_test::rest",
+        "expe_pass2_r23_test::rest_text (16 checks)"
       ],
       "implementation": [
         "project/game/expedition_world_r22.gd:103"
       ],
-      "remaining_reason": "기존 원본 휴식 120건과 native 반복 입력 검사를 유지했다. native는 rested로 중복 회복을 차단하며 원본 enter_rest 직접 재호출·sx0/장면 지시/전체 로그는 다르다."
+      "remaining_reason": "휴식 자원·R.last·로그 원문 16입력을 추가로 일치시켰다. 원본 직접 재호출의 반복 회복과 native rested 중복 방지, 호스트 pend 및 이번 이식 제외 대상의 sx0 필드는 남는다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "163854781e911b4bb86294af165efa5f69c199e6365ef8304d6f4bb7a0b0f460",
+        "groups": [
+          "rest_text"
+        ],
+        "direct_function_comparison": false,
+        "execution_scope": "dependency/partial flow only",
+        "detail": "휴식 자원·R.last·로그 원문 16입력을 추가로 일치시켰다. 원본 직접 재호출의 반복 회복과 native rested 중복 방지, 호스트 pend 및 이번 이식 제외 대상의 sx0 필드는 남는다."
+      }
     },
     {
       "id": "P3168",
@@ -1243,14 +1929,28 @@
       "prior_status": "일부",
       "status": "일부",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "fixed": false,
+      "fixed": true,
       "tests": [
-        "expe_r23_test::discovery"
+        "expe_r23_test::discovery",
+        "expe_pass2_r23_test::discovery_text (200 checks)"
       ],
       "implementation": [
         "project/game/expedition_world_r22.gd:84"
       ],
-      "remaining_reason": "실제 탐색 이벤트 9건과 기존 2100 roll/440 발견 보정 표본을 대조했다. R.last·로그 원문·pend 및 전투 진입 전체 저장 계약은 아직 일부다."
+      "remaining_reason": "200개의 실제 원본 H.ex(go)를 실행해 phase/step/elites/last/log/금화/아이템/장비/HP/MP 전체 투영이 같아졌다. 전투 초기화를 관찰할 때 B.run만 멈췄다. AI pending 누적·Risu 호스트 저장은 native에 없어 일부로 유지한다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "1d668ef7c3d2bec0fd65679aa3275e5db4cd100dd28bdda14ab576285d6716a2",
+        "groups": [
+          "discovery_text"
+        ],
+        "direct_function_comparison": false,
+        "execution_scope": "dependency/partial flow only",
+        "detail": "200개의 실제 원본 H.ex(go)를 실행해 phase/step/elites/last/log/금화/아이템/장비/HP/MP 전체 투영이 같아졌다. 전투 초기화를 관찰할 때 B.run만 멈췄다. AI pending 누적·Risu 호스트 저장은 native에 없어 일부로 유지한다."
+      }
     },
     {
       "id": "P3176",
@@ -1273,7 +1973,18 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:184"
       ],
-      "remaining_reason": "생존/사망·소수 HP/MP·최대치 내림을 대조했다. 원본 al/empty/real 배열 ABI와 native HP 기반 생사·wins 기반 이월 전체의 동일성을 주장하지 않는다."
+      "remaining_reason": "생존/사망·소수 HP/MP·최대치 내림을 대조했다. 원본 al/empty/real 배열 ABI와 native HP 기반 생사·wins 기반 이월 전체의 동일성을 주장하지 않는다.",
+      "pass1_status": "일부",
+      "pass1_fixed": true,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "7a877bdb370156098e06e03b6bf468ccf55bcbffaf4125f53757905901702441",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "생존/사망·소수 HP/MP·최대치 내림을 대조했다. 원본 al/empty/real 배열 ABI와 native HP 기반 생사·wins 기반 이월 전체의 동일성을 주장하지 않는다."
+      }
     },
     {
       "id": "P3182",
@@ -1292,7 +2003,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "do_cont의 sid/bn/over/dn 무효 입력·적 이름 중복 제거·정예 로그/호스트 전환 전체를 native 스냅샷 continuation과 직접 비교하지 못했다."
+      "remaining_reason": "do_cont의 sid/bn/over/dn 무효 입력·적 이름 중복 제거·정예 로그/호스트 전환 전체를 native 스냅샷 continuation과 직접 비교하지 못했다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "8d192674a8a152a3f9879ef49d1fb9865dbdb80dd3dd11db12cf3ec808109bf2",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "do_cont의 sid/bn/over/dn 무효 입력·적 이름 중복 제거·정예 로그/호스트 전환 전체를 native 스냅샷 continuation과 직접 비교하지 못했다."
+      }
     },
     {
       "id": "P3189",
@@ -1315,7 +2037,18 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:116"
       ],
-      "remaining_reason": "퇴각 확인 중에도 보스를 시작하고 ask를 지우도록 수정했다. B.ex_battle의 호스트 저장·메시지 전체가 native 버튼 경계와 같지는 않다."
+      "remaining_reason": "퇴각 확인 중에도 보스를 시작하고 ask를 지우도록 수정했다. B.ex_battle의 호스트 저장·메시지 전체가 native 버튼 경계와 같지는 않다.",
+      "pass1_status": "일부",
+      "pass1_fixed": true,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "475cbe1e2cabf33702d1944144770456fb76e2d4b9b90f5c6c198790699e7d20",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "퇴각 확인 중에도 보스를 시작하고 ask를 지우도록 수정했다. B.ex_battle의 호스트 저장·메시지 전체가 native 버튼 경계와 같지는 않다."
+      }
     },
     {
       "id": "P3191",
@@ -1382,7 +2115,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "가방 포화 시 원본은 버린다. native는 사용자 저장 보존을 위해 overflow에 코드를 남긴다. 장비 가방 규칙은 이번 수정 금지다."
+      "remaining_reason": "가방 포화 시 원본은 버린다. native는 사용자 저장 보존을 위해 overflow에 코드를 남긴다. 장비 가방 규칙은 이번 수정 금지다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "81b01cd65b774d2629f91be31667c6b4e2d79678e408edebb46a51cef8c10d15",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "가방 포화 시 원본은 버린다. native는 사용자 저장 보존을 위해 overflow에 코드를 남긴다. 장비 가방 규칙은 이번 수정 금지다."
+      }
     },
     {
       "id": "P3196",
@@ -1425,7 +2169,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "exp_note의 award_exp 부재/예외/비표 반환에 대한 pcall fallback 및 전체 sum.lv 문자열 대조가 남는다. 레벨 모듈은 허용 파일 밖이다."
+      "remaining_reason": "exp_note의 award_exp 부재/예외/비표 반환에 대한 pcall fallback 및 전체 sum.lv 문자열 대조가 남는다. 레벨 모듈은 허용 파일 밖이다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "c64783dd80eefce3670519e81199cc46bfd846f337e7692e15c79c7074ad7188",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "exp_note의 award_exp 부재/예외/비표 반환에 대한 pcall fallback 및 전체 sum.lv 문자열 대조가 남는다. 레벨 모듈은 허용 파일 밖이다."
+      }
     },
     {
       "id": "P3201",
@@ -1444,7 +2199,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본은 인물 이름+호감 문자열 배열, native는 ID별 증가량 딕셔너리를 저장한다. 유효 정산 숫자만으로 전체 반환을 같음으로 세지 않는다."
+      "remaining_reason": "원본은 인물 이름+호감 문자열 배열, native는 ID별 증가량 딕셔너리를 저장한다. 유효 정산 숫자만으로 전체 반환을 같음으로 세지 않는다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "a4157425a2903304e38a188871866afc8ff9a84b0076a33df9c34e16c96bf4e4",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본은 인물 이름+호감 문자열 배열, native는 ID별 증가량 딕셔너리를 저장한다. 유효 정산 숫자만으로 전체 반환을 같음으로 세지 않는다."
+      }
     },
     {
       "id": "P3202",
@@ -1467,7 +2233,18 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:235"
       ],
-      "remaining_reason": "클리어/퇴각/패배 기존 9 Lua 정산과 native 45씨앗을 재검사했다. defeat 뒤 원본 run 제거/거점 이동과 native 완료 run 보관, 요약 필드·문구·호스트 계약 차이가 남는다."
+      "remaining_reason": "클리어/퇴각/패배 기존 9 Lua 정산과 native 45씨앗을 재검사했다. defeat 뒤 원본 run 제거/거점 이동과 native 완료 run 보관, 요약 필드·문구·호스트 계약 차이가 남는다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "3fc1c905c38b1d9c64ddeb945308c75eca8f1157f45b9459f6146f5b74e42127",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "클리어/퇴각/패배 기존 9 Lua 정산과 native 45씨앗을 재검사했다. defeat 뒤 원본 run 제거/거점 이동과 native 완료 run 보관, 요약 필드·문구·호스트 계약 차이가 남는다."
+      }
     },
     {
       "id": "P3223",
@@ -1490,7 +2267,18 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:158"
       ],
-      "remaining_reason": "native는 스냅샷 build/상태 검증을 사용한다. 원본 sid/bn 불일치 시 거점 복귀·메시지·legacy 분기 전체에 대한 함수 단위 일치는 미확정이다."
+      "remaining_reason": "native는 스냅샷 build/상태 검증을 사용한다. 원본 sid/bn 불일치 시 거점 복귀·메시지·legacy 분기 전체에 대한 함수 단위 일치는 미확정이다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "824e6cfd7cf4f0a1a2aba92021c748968814846ee123ce26ba45ecf64f3c5d00",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "native는 스냅샷 build/상태 검증을 사용한다. 원본 sid/bn 불일치 시 거점 복귀·메시지·legacy 분기 전체에 대한 함수 단위 일치는 미확정이다."
+      }
     },
     {
       "id": "P3225",
@@ -1509,7 +2297,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "실제 옛 native 저장 11개를 보존해 불러오지만, 원본 st.dn.stage 1/2 저장을 직접 읽어 정산하는 전체 legacy ABI는 별개로 남는다."
+      "remaining_reason": "실제 옛 native 저장 11개를 보존해 불러오지만, 원본 st.dn.stage 1/2 저장을 직접 읽어 정산하는 전체 legacy ABI는 별개로 남는다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "bbae303a0b40e3e3ec370100dfb2334b414a170601842dc965acf51c50c0cc8e",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "실제 옛 native 저장 11개를 보존해 불러오지만, 원본 st.dn.stage 1/2 저장을 직접 읽어 정산하는 전체 legacy ABI는 별개로 남는다."
+      }
     },
     {
       "id": "P3233",
@@ -1523,12 +2322,30 @@
       },
       "unverified_branches": [],
       "prior_status": "일부",
-      "status": "일부",
+      "status": "같음",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본은 R.ask가 있는 retreat_yes만 정산한다. native 확인은 상속 화면의 confirm 객체에 있어 저장된 ask/취소/낡은 버튼 전체 상태 계약이 다르다."
+      "fixed": true,
+      "tests": [
+        "expe_pass2_r23_test::retreat (24 checks)"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:418"
+      ],
+      "remaining_reason": "",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "equality_domain": "원본 문자열 ID/유효한 native 상태 투영. m 슬롯·nil·레벨/재고 별칭을 명시적으로 매핑하며 HTML/호스트는 이 행의 계약에 포함되지 않는다.",
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "2c293ec58deb329d879556b9b8b722a0eef20809fb08e01ed4db1cc14271b5e8",
+        "groups": [
+          "retreat"
+        ],
+        "direct_function_comparison": true,
+        "execution_scope": "direct mapped function",
+        "detail": "원본 do_retreat의 4phase×ask×요청/취소/확인 24전이를 대조했다. 확인 없는 yes·낡은 phase를 거부하고 ask를 저장/복구한다. 정산의 별도 함수 finish_run 전체 동등성으로 확대하지 않는다."
+      }
     },
     {
       "id": "P3241",
@@ -1566,16 +2383,32 @@
       },
       "unverified_branches": [],
       "prior_status": "일부",
-      "status": "일부",
+      "status": "같음",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "fixed": false,
+      "fixed": true,
       "tests": [
-        "expe_r23_test::outside_use"
+        "expe_r23_test::outside_use",
+        "expe_pass2_r23_test::use_text (72 checks)"
       ],
       "implementation": [
-        "project/game/expedition_world_r22.gd:313"
+        "project/game/expedition_world_r22.gd:313",
+        "project/game/expedition_world_r22.gd:402"
       ],
-      "remaining_reason": "레벨 1/14/15/29/30/40·11품목·6상태·출신 2종 792건의 HP/MP/거점/주머니는 일치한다. R.last 원문·로그/호스트 장면 필드까지 같은 함수는 아니다."
+      "remaining_reason": "",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "equality_domain": "원본 문자열 ID/유효한 native 상태 투영. m 슬롯·nil·레벨/재고 별칭을 명시적으로 매핑하며 HTML/호스트는 이 행의 계약에 포함되지 않는다.",
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "a320667a729685ff2040067078cf3cb12ca847d8196950021fa33d272e730c74",
+        "groups": [
+          "use_text"
+        ],
+        "direct_function_comparison": true,
+        "execution_scope": "direct mapped function",
+        "detail": "기존 792자원 표본에 72품목/phase/생사 표본을 추가. 자원·재고·last·로그 불변까지 같다. native done/town 일반 사용과 별개인 실제 활성 원정 호출 경계 use_expedition_item을 대조했다."
+      }
     },
     {
       "id": "P3248",
@@ -1589,12 +2422,30 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
       "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본 equip_key는 pm 슬롯의 id 또는 nil을 반환한다. native는 인물 ID/UID 기반이며 빈/손상 pm 슬롯의 독립 반환 비교가 없다."
+      "tests": [
+        "expe_pass2_r23_test::equip_key (96 checks)"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:37"
+      ],
+      "remaining_reason": "",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "equality_domain": "원본 문자열 ID/유효한 native 상태 투영. m 슬롯·nil·레벨/재고 별칭을 명시적으로 매핑하며 HTML/호스트는 이 행의 계약에 포함되지 않는다.",
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "252f7b2904cefebea541c8930bb9cb769aac303e9c5b5e6e655f3076594d2de9",
+        "groups": [
+          "equip_key"
+        ],
+        "direct_function_comparison": true,
+        "execution_scope": "direct mapped function",
+        "detail": "0~5슬롯 및 16점유 조합의 원본 id/nil을 native id/빈 문자열로 정규화해 96건 대조했다. 휴식 장착 가능 판정의 실제 호출 경로에 연결했다."
+      }
     },
     {
       "id": "P3249",
@@ -1613,7 +2464,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "휴식 정비의 유효 동작은 기존 검사로 보존했다. 원본 장비 코드 버튼 인코딩·잘못된 슬롯·why 문자열·다른 소유자 장비 전체 분기는 장비 규칙 담당 범위다."
+      "remaining_reason": "휴식 정비의 유효 동작은 기존 검사로 보존했다. 원본 장비 코드 버튼 인코딩·잘못된 슬롯·why 문자열·다른 소유자 장비 전체 분기는 장비 규칙 담당 범위다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "495460e95f3c6af3e690ac13f247fa4449a785dce71f017e627e2984229126c2",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "휴식 정비의 유효 동작은 기존 검사로 보존했다. 원본 장비 코드 버튼 인코딩·잘못된 슬롯·why 문자열·다른 소유자 장비 전체 분기는 장비 규칙 담당 범위다."
+      }
     },
     {
       "id": "P3251",
@@ -1630,9 +2492,28 @@
       "status": "일부",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
       "fixed": false,
-      "tests": [],
+      "tests": [
+        "expe_pass2_r23_test::retreat (24 checks)",
+        "expe_pass2_r23_test::use_text (72 checks)",
+        "expe_pass2_r23_test::equip_key (96 checks)"
+      ],
       "implementation": [],
-      "remaining_reason": "개별 탐색/아이템/보스 분기는 보강했다. H.ex 전체는 cont/next/home/선택 슬롯/장비 버튼·장면 지시를 포함하며 일부 host/UI 저장 계약이 남는다."
+      "remaining_reason": "퇴각 요청/취소/저장 재개와 아이템·슬롯 경계를 보강했다. cont/next/home의 Risu 메시지·note·장면 및 전체 버튼 문자열 ABI는 남는다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "fa8ba23fac4bc70250a31f2013ebf3e68ba7ca9207a7c8f805ae26412fa8ecc1",
+        "groups": [
+          "retreat",
+          "use_text",
+          "equip_key"
+        ],
+        "direct_function_comparison": false,
+        "execution_scope": "dependency/partial flow only",
+        "detail": "퇴각 요청/취소/저장 재개와 아이템·슬롯 경계를 보강했다. cont/next/home의 Risu 메시지·note·장면 및 전체 버튼 문자열 ABI는 남는다."
+      }
     },
     {
       "id": "P3273",
@@ -1651,7 +2532,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "870bf5331e9c7b1d2ef4ecff82b4543b5d616f97b0b56972831f799e42737475",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      }
     },
     {
       "id": "P3274",
@@ -1670,7 +2562,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "1db4ba9ac186108d5a4164bea39e4a2db4369255ac12b38e22d5a224e7623534",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      }
     },
     {
       "id": "P3275",
@@ -1689,7 +2592,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "d66c67911f088bc39b0578c7b6ad7e1ec1988c530d5a34fa5424f890c484b843",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      }
     },
     {
       "id": "P3277",
@@ -1706,9 +2620,28 @@
       "status": "미확인",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
       "fixed": false,
-      "tests": [],
+      "tests": [
+        "expe_pass2_r23_test::discovery_text (200 checks)",
+        "expe_pass2_r23_test::rest_text (16 checks)",
+        "expe_pass2_r23_test::use_text (72 checks)"
+      ],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      "remaining_reason": "R.last 자체는 발견/휴식/아이템 288입력에서 원본 문구를 일치시켰다. last_card의 빈 문자열/HTML 탈출·태그 전체 반환은 native 캔버스와 다르다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "44a211248474bad130bfed148dad3d52cae0701f4f561ab1a05acecab8ee5cce",
+        "groups": [
+          "discovery_text",
+          "rest_text",
+          "use_text"
+        ],
+        "direct_function_comparison": false,
+        "execution_scope": "dependency/partial flow only",
+        "detail": "R.last 자체는 발견/휴식/아이템 288입력에서 원본 문구를 일치시켰다. last_card의 빈 문자열/HTML 탈출·태그 전체 반환은 native 캔버스와 다르다."
+      }
     },
     {
       "id": "P3278",
@@ -1727,7 +2660,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "025884ab33b7802c19699c39142b84a31b263f8eecd08025b8b4c7a67bfebbdc",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      }
     },
     {
       "id": "P3280",
@@ -1746,7 +2690,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "79e28e3effb828ba0bafeccc4daaad362593085d5e383637b249a00d8d99a9db",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      }
     },
     {
       "id": "P3281",
@@ -1765,7 +2720,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "cd0acba6159bb1829ff3c77aba885c6c4feb75e4c81631f94c163736faf3f07c",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      }
     },
     {
       "id": "P3282",
@@ -1782,9 +2748,24 @@
       "status": "미확인",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
       "fixed": false,
-      "tests": [],
+      "tests": [
+        "expe_pass2_r23_test::retreat_resume (16 checks)"
+      ],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      "remaining_reason": "퇴각 확인의 실제 입력/저장 재개/취소/중복 거부는 5크기 UI 210검사에서 통과했다. 원본 HTML 안내/버튼 반환 계약은 남는다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "8279270900ae05b9e8fd1493e0380ec3397d2bd1397f8f58ab336fc7a9a17525",
+        "groups": [
+          "retreat_resume"
+        ],
+        "direct_function_comparison": false,
+        "execution_scope": "dependency/partial flow only",
+        "detail": "퇴각 확인의 실제 입력/저장 재개/취소/중복 거부는 5크기 UI 210검사에서 통과했다. 원본 HTML 안내/버튼 반환 계약은 남는다."
+      }
     },
     {
       "id": "P3287",
@@ -1803,7 +2784,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "01aa1a6fce878a21d8ed5fba9f5d877fe380dd21d5049b3ec6f631bfa7858e15",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      }
     },
     {
       "id": "P3290",
@@ -1822,7 +2814,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "c2e943b51141a95675fd94d6401cb0d231d87ebdffe12ab8ca1a3fda82c45ed2",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      }
     },
     {
       "id": "P3293",
@@ -1839,9 +2842,26 @@
       "status": "미확인",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
       "fixed": false,
-      "tests": [],
+      "tests": [
+        "expe_pass2_r23_test::equip_key (96 checks)",
+        "expe_pass2_r23_test::gear_label (3142 checks)"
+      ],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      "remaining_reason": "정비 슬롯과 장비 라벨의 직접 대조를 추가했다. gear_card의 R.sel 정규화·HTML 전체와 원본 장비 버튼 후보 반환은 별도 경계다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "aca4b451227ad26e7a3939f5df4829f807c0d6dd63f34ebe52d36b11207167ce",
+        "groups": [
+          "equip_key",
+          "gear_label"
+        ],
+        "direct_function_comparison": false,
+        "execution_scope": "dependency/partial flow only",
+        "detail": "정비 슬롯과 장비 라벨의 직접 대조를 추가했다. gear_card의 R.sel 정규화·HTML 전체와 원본 장비 버튼 후보 반환은 별도 경계다."
+      }
     },
     {
       "id": "P3296",
@@ -1860,7 +2880,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "eb440124bc437980758b077aa11ce07b6e8b7ace9849813d55484f89afc0432b",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      }
     },
     {
       "id": "P3299",
@@ -1879,7 +2910,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "807d6f8d1403dc95da612579f618f3271c7d4e14ff24b981780ade94635118cd",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      }
     },
     {
       "id": "P3303",
@@ -1896,9 +2938,24 @@
       "status": "미확인",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
       "fixed": false,
-      "tests": [],
+      "tests": [
+        "expe_pass2_r23_test::retreat (24 checks)"
+      ],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      "remaining_reason": "원정 정산과 이름/장비 표시를 보강했다. done_screen의 전체 HTML·정렬/보존/유실 표시 및 native summary 배열/사전 ABI가 다르다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "74efd554bf13e2b92eb0a5cd876325bf6f26bfbe6249bd6b2d27c8926e154722",
+        "groups": [
+          "retreat"
+        ],
+        "direct_function_comparison": false,
+        "execution_scope": "dependency/partial flow only",
+        "detail": "원정 정산과 이름/장비 표시를 보강했다. done_screen의 전체 HTML·정렬/보존/유실 표시 및 native summary 배열/사전 ABI가 다르다."
+      }
     },
     {
       "id": "P3304",
@@ -1917,7 +2974,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "68976a145a246837bf2db733f5d644998637517d984edc21784f181af3282f89",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      }
     },
     {
       "id": "P3305",
@@ -1936,7 +3004,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "8fdc9ead919e2097e3560417a584fffc023c1157b3e5d023bc92d79dbea0a18d",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      }
     },
     {
       "id": "P3307",
@@ -1955,7 +3034,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "ex_label의 run 없음/잘못된 값 및 번역 언어별 전체 반환과 native 제목 문자열의 직접 비교가 없다."
+      "remaining_reason": "ex_label의 run 없음/잘못된 값 및 번역 언어별 전체 반환과 native 제목 문자열의 직접 비교가 없다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "88a5ebc831609c2157db1e1fb95d7e970b4df609111360b532e947e714b384f0",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "ex_label의 run 없음/잘못된 값 및 번역 언어별 전체 반환과 native 제목 문자열의 직접 비교가 없다."
+      }
     },
     {
       "id": "P3309",
@@ -1978,7 +3068,18 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:380"
       ],
-      "remaining_reason": "거점/주머니의 potion/mana 합산·숫자 문자열·반복/JSON·입력 불변을 고쳤다. 음수/소수 등 원본이 산술적으로 받아들이는 값은 기존 native 저장 검증에서 원자적으로 거부한다."
+      "remaining_reason": "거점/주머니의 potion/mana 합산·숫자 문자열·반복/JSON·입력 불변을 고쳤다. 음수/소수 등 원본이 산술적으로 받아들이는 값은 기존 native 저장 검증에서 원자적으로 거부한다.",
+      "pass1_status": "일부",
+      "pass1_fixed": true,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "20bbdcbab60bd8ebc1f8ee03bcb89986c8ae2c80009851cdb98df00d134502d5",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "거점/주머니의 potion/mana 합산·숫자 문자열·반복/JSON·입력 불변을 고쳤다. 음수/소수 등 원본이 산술적으로 받아들이는 값은 기존 native 저장 검증에서 원자적으로 거부한다."
+      }
     },
     {
       "id": "P3311",
@@ -2001,7 +3102,18 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:348"
       ],
-      "remaining_reason": "별칭 이관은 보강했다. prev_migrate 전체 원본 저장 스키마 및 canonical G를 native 저장으로 직접 읽는 범용 이관은 미구현이며, 기존 native 저장 이관을 보존했다."
+      "remaining_reason": "별칭 이관은 보강했다. prev_migrate 전체 원본 저장 스키마 및 canonical G를 native 저장으로 직접 읽는 범용 이관은 미구현이며, 기존 native 저장 이관을 보존했다.",
+      "pass1_status": "일부",
+      "pass1_fixed": true,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "8a12e18a52c874343f3f66c4ee575f4cf0322f9c90fea0de95abc10713c378cb",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "별칭 이관은 보강했다. prev_migrate 전체 원본 저장 스키마 및 canonical G를 native 저장으로 직접 읽는 범용 이관은 미구현이며, 기존 native 저장 이관을 보존했다."
+      }
     },
     {
       "id": "P3319",
@@ -2164,7 +3276,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+        "source_excerpt_sha256": "4ee30c0eda66cf5f1e4a202d240c6721c5796604c33b447b17fc4602775ba9ca",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+      }
     },
     {
       "id": "P3332",
@@ -2183,7 +3306,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+        "source_excerpt_sha256": "2937ba311fbfb45642aa4a1923f7ab75c374a317eb35742d0b9d873ea42d47dc",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+      }
     },
     {
       "id": "P3337",
@@ -2202,7 +3336,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+        "source_excerpt_sha256": "7242e313735167c6253317f152054be06f70723e054af35302997e152196986d",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+      }
     },
     {
       "id": "P3338",
@@ -2221,7 +3366,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+        "source_excerpt_sha256": "e5e8a40137e5042f4a948f35f226dbc993f777ea27ac6f0378b4a100d829d16c",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+      }
     },
     {
       "id": "P3340",
@@ -2240,7 +3396,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다.",
+      "pass1_status": "미확인",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+        "source_excerpt_sha256": "6321795d09909c70dfc0891ed75bbc7fc88607438088ec2720dc3cdc44db9750",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+      }
     },
     {
       "id": "P3344",
@@ -2259,7 +3426,18 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다.",
+      "pass1_status": "일부",
+      "pass1_fixed": false,
+      "pass2_evidence": {
+        "source_review": true,
+        "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+        "source_excerpt_sha256": "7615e05c476b018997e79ea7c06991808bb2f6743ba4409145837b850b3cb19b",
+        "groups": [],
+        "direct_function_comparison": false,
+        "execution_scope": "source review only; unresolved",
+        "detail": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+      }
     }
   ],
   "checks": [
@@ -2268,7 +3446,7 @@
       "exit": 0,
       "errors": [],
       "summary": [],
-      "seconds": 4.44,
+      "seconds": 4.89,
       "passed": true
     },
     {
@@ -2286,7 +3464,7 @@
       "exit": 0,
       "errors": [],
       "summary": [],
-      "seconds": 1.34,
+      "seconds": 1.17,
       "passed": true
     },
     {
@@ -2296,30 +3474,28 @@
       "summary": [
         "CHRONICLE R22 CHECKS 7911 FAILURES 0"
       ],
-      "seconds": 3.52,
+      "seconds": 3.48,
       "passed": true
     },
     {
       "test": "cloud_archive_r22_test",
       "exit": 0,
       "errors": [],
-      "passed": true,
       "summary": [
         "CLOUD ARCHIVE R22 CHECKS 5 FAILURES 0"
       ],
-      "harness": "node server/abyss-save/test/godot-r14.mjs cloud_r22_test cloud_archive_r22_test",
-      "log": "verification/town-r21/round14/cloud_archive_r22_test.log"
+      "seconds": 1.53,
+      "passed": true
     },
     {
       "test": "cloud_r22_test",
       "exit": 0,
       "errors": [],
-      "passed": true,
       "summary": [
         "CLOUD R22 CHECKS 27 FAILURES 0"
       ],
-      "harness": "node server/abyss-save/test/godot-r14.mjs cloud_r22_test cloud_archive_r22_test",
-      "log": "verification/town-r21/round14/cloud_r22_test.log"
+      "seconds": 15.39,
+      "passed": true
     },
     {
       "test": "combat_a6_r22_test",
@@ -2328,7 +3504,7 @@
       "summary": [
         "A6 251 checks / failures 0 []"
       ],
-      "seconds": 16.8,
+      "seconds": 17.86,
       "passed": true
     },
     {
@@ -2338,7 +3514,7 @@
       "summary": [
         "A7 flow 15 / failures 0 []"
       ],
-      "seconds": 1.22,
+      "seconds": 1.47,
       "passed": true
     },
     {
@@ -2348,7 +3524,7 @@
       "summary": [
         "A7 part 1 9 checks / failures 0"
       ],
-      "seconds": 1.92,
+      "seconds": 1.59,
       "passed": true
     },
     {
@@ -2358,7 +3534,7 @@
       "summary": [
         "A9 targeted 31 checks / failures 0"
       ],
-      "seconds": 1.92,
+      "seconds": 1.62,
       "passed": true
     },
     {
@@ -2368,7 +3544,7 @@
       "summary": [
         "P2 789 checks / failures 0"
       ],
-      "seconds": 34.36,
+      "seconds": 36.61,
       "passed": true
     },
     {
@@ -2378,7 +3554,7 @@
       "summary": [
         "P3 84736 checks / failures 0 []"
       ],
-      "seconds": 69.42,
+      "seconds": 74.09,
       "passed": true
     },
     {
@@ -2388,7 +3564,7 @@
       "summary": [
         "DATA_R21 checks=7493 failures=0 composition=1028 stats=700 exploration=300"
       ],
-      "seconds": 1.38,
+      "seconds": 1.27,
       "passed": true
     },
     {
@@ -2398,7 +3574,7 @@
       "summary": [
         "DIALOGUE PLAYER R21 CHECKS 34229 FAILURES 0"
       ],
-      "seconds": 263.28,
+      "seconds": 230.17,
       "passed": true
     },
     {
@@ -2408,7 +3584,7 @@
       "summary": [
         "DIALOGUE ROSTER CHECKS 17670 FAILURES 0"
       ],
-      "seconds": 16.23,
+      "seconds": 14.22,
       "passed": true
     },
     {
@@ -2418,7 +3594,7 @@
       "summary": [
         "DUNGEON_R21 {\"art_fallbacks\":0,\"checks\":3008,\"details\":[],\"enemies\":100,\"failures\":0,\"floors\":420,\"outcomes\":{\"defeat\":420,\"natural_defeat\":53,\"natural_victory\":136,\"victory\":420}}"
       ],
-      "seconds": 139.25,
+      "seconds": 111.31,
       "passed": true
     },
     {
@@ -2428,7 +3604,7 @@
       "summary": [
         "ENEMY_ACTION_R21 {\"checks\":2878,\"continuous_matched\":1221,\"enemies\":100,\"failures\":0,\"gear_samples\":120,\"matched\":1221,\"samples\":1221,\"silence_samples\":200}"
       ],
-      "seconds": 130.98,
+      "seconds": 99.92,
       "passed": true
     },
     {
@@ -2438,7 +3614,7 @@
       "summary": [
         "ENEMY_REGRESSION_R21 {\"checks\":30,\"failures\":[]}"
       ],
-      "seconds": 2.22,
+      "seconds": 1.98,
       "passed": true
     },
     {
@@ -2448,7 +3624,7 @@
       "summary": [
         "ENEMY_REVIEW_R21 {\"checks\":497,\"evidence\":{\"fifth\":{\"class_stack_probe\":{\"amount\":504.0,\"effect\":{\"amount\":504.0,\"bursts\":[0,0,0,0,0,0],\"initial_turns\":[3,3,3,3,3,3],\"lifetimes\":[3,3,3,3,3,3],\"orders\":[1,2,3,4,5,6],\"owners\":[\"neutral_1\",\"neutral_1\",\"neutral_1\",\"neutral_1\",\"neutral_1\",\"neutral_1\"],\"stacks\":[24.0,48.0,72.0,96.0,120.0,144.0],\"turns\":3},\"hp\":19,\"stacks\":6},\"death\":[{\"actual\":{\"charging\":0,\"cover\":0,\"hp\":0,\"kept\":5,\"removed\":5,\"taunt\":0},\"input\":{\"charging\":0.0,\"cid\":\"neutral\",\"cover\":0.0,\"fixed\":true,\"hp\":0.0,\"kept\":5.0,\"removed\":5.0,\"taunt\":0.0}},{\"actual\":{\"charging\":0,\"cover\":0,\"hp\":0,\"kept\":5,\"removed\":5,\"taunt\":0},\"input\":{\"charging\":0.0,\"cid\":\"haldric\",\"cover\":0.0,\"fixed\":true,\"hp\":0.0,\"kept\":5.0,\"removed\":5.0,\"taunt\":0.0}},{\"actual\":{\"charging\":0,\"cover\":0,\"hp\":0,\"kept\""
       ],
-      "seconds": 26.31,
+      "seconds": 23.08,
       "passed": true
     },
     {
@@ -2458,642 +3634,7 @@
       "summary": [
         "EXPANSION CHECKS 3350 FAILURES 0"
       ],
-      "seconds": 2.05,
-      "passed": true
-    },
-    {
-      "test": "expe_r23_test",
-      "exit": 0,
-      "errors": [],
-      "passed": true,
-      "summary": [
-        "EXPE R23 CHECKS 2310 FAILURES 0 GROUPS { \"sortie_order\": { \"checks\": 90, \"failures\": 0 }, \"sortie_filter\": { \"checks\": 90, \"failures\": 0 }, \"sortie_summary\": { \"checks\": 450, \"failures\": 0 }, \"floor_access\": { \"checks\": 420, \"failures\": 0 }, \"floor_view\": { \"checks\": 77, \"failures\": 0 }, \"initial_vitals\": { \"checks\": 24, \"failures\": 0 }, \"first_battle\": { \"checks\": 24, \"failures\": 0 }, \"outside_use\": { \"checks\": 792, \"failures\": 0 }, \"boss_guard\": { \"checks\": 8, \"failures\": 0 }, \"log\": { \"checks\": 13, \"failures\": 0 }, \"snapshot\": { \"checks\": 9, \"failures\": 0 }, \"bank_items\": { \"checks\": 3, \"failures\": 0 }, \"gear_roll\": { \"checks\": 240, \"failures\": 0 }, \"outside_multiplier\": { \"checks\": 15, \"failures\": 0 }, \"gear_add\": { \"checks\": 2, \"failures\": 0 }, \"bag\": { \"checks\": 4, \"failures\": 0 }, \"discovery\": { \"checks\": 9, \"failures\": 0 }, \"migration\": { \"checks\": 35, \"failures\": 0 }, \"invalid\": { \"checks\": 5, \"failures\": 0 } }"
-      ],
-      "log": "verification/parity-r23/expe-final.log"
-    },
-    {
-      "test": "expedition_r22_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "EXPEDITION R22 CHECKS 4786 FAILURES 0"
-      ],
-      "seconds": 36.86,
-      "passed": true
-    },
-    {
-      "test": "export_licenses",
-      "exit": 0,
-      "errors": [],
-      "summary": [],
-      "seconds": 0.5,
-      "passed": true
-    },
-    {
-      "test": "facilities_r22_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "FACILITIES R22 CHECKS 4406 FAILURES 0 LUA 4093"
-      ],
-      "seconds": 21.75,
-      "passed": true
-    },
-    {
-      "test": "gear_boundary_r22_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "GEAR BOUNDARY R22 CHECKS 27894 FAILURES 0"
-      ],
-      "seconds": 5.92,
-      "passed": true
-    },
-    {
-      "test": "gear_hooks_r22_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "GEAR HOOKS R22 CHECKS 21267 FAILURES 0"
-      ],
-      "seconds": 9.55,
-      "passed": true
-    },
-    {
-      "test": "gear_r22_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "GEAR R22 CHECKS 122798 FAILURES 0"
-      ],
-      "seconds": 9.56,
-      "passed": true
-    },
-    {
-      "test": "motion_asset_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [],
-      "seconds": 0.97,
-      "passed": true
-    },
-    {
-      "test": "motion_r18_integration",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "R18 STATE INTEGRATION: 3540 checks / 0 failures"
-      ],
-      "seconds": 73.44,
-      "passed": true
-    },
-    {
-      "test": "motion_r9_integration",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "R9 INTEGRATION: 944 checks / 0 failures"
-      ],
-      "seconds": 8.8,
-      "passed": true
-    },
-    {
-      "test": "motion_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [],
-      "seconds": 0.48,
-      "passed": true
-    },
-    {
-      "test": "panels_r22_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "PANELS R22 CHECKS 7345 FAILURES 0"
-      ],
-      "seconds": 2.78,
-      "passed": true
-    },
-    {
-      "test": "persona_combat_a8_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "PERSONA COMBAT A8 CHECKS 34800 FAILURES 0"
-      ],
-      "seconds": 168.41,
-      "passed": true
-    },
-    {
-      "test": "persona_r22_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "PERSONA R22 CHECKS 4005 FAILURES 0"
-      ],
-      "seconds": 8.75,
-      "passed": true
-    },
-    {
-      "test": "persona_research_r21_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "PERSONA RESEARCH R21 CHECKS 13889 FAILURES 0 LUA 13843 / 13843"
-      ],
-      "seconds": 5.14,
-      "passed": true
-    },
-    {
-      "test": "persona_save_a8_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "PERSONA SAVE A8 CHECKS 385 FAILURES 0"
-      ],
-      "seconds": 5.3,
-      "passed": true
-    },
-    {
-      "test": "persona_town_r21_round8_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "PERSONA TOWN ROUND8 CHECKS 1037 FAILURES 0"
-      ],
-      "seconds": 40.73,
-      "passed": true
-    },
-    {
-      "test": "recruit_r21_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "RECRUIT R21 CHECKS 14991 FAILURES 0 LUA 2496"
-      ],
-      "seconds": 1.72,
-      "passed": true
-    },
-    {
-      "test": "route_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "ROUTE TESTS: 41 checks, 0 failures"
-      ],
-      "seconds": 0.56,
-      "passed": true
-    },
-    {
-      "test": "settings_r22_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "SETTINGS R22 CHECKS 205243 FAILURES 0"
-      ],
-      "seconds": 6.5,
-      "passed": true
-    },
-    {
-      "test": "state_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "COMBAT CHECKS: 54; FAILURES: 0"
-      ],
-      "seconds": 1.52,
-      "passed": true
-    },
-    {
-      "test": "town_combat_r21_round14_test",
-      "exit": 0,
-      "errors": [],
-      "passed": true,
-      "summary": [
-        "TOWN COMBAT ROUND14 CHECKS 576 FAILURES 0"
-      ],
-      "harness": "node server/abyss-save/test/godot-r14.mjs town_combat_r21_round14_test",
-      "log": "verification/town-r21/round14/town_combat_r21_round14_test.log"
-    },
-    {
-      "test": "town_commerce_r21_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "TOWN COMMERCE R21 CHECKS 14714 FAILURES 0 LUA 8520 / 8520"
-      ],
-      "seconds": 2.7,
-      "passed": true
-    },
-    {
-      "test": "town_r21_round10_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "TOWN ROUND10 CHECKS 218 FAILURES 0 LEGACY 11"
-      ],
-      "seconds": 7.16,
-      "passed": true
-    },
-    {
-      "test": "town_r21_round11_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "TOWN ROUND11 CHECKS 148 FAILURES 0 LEGACY 11 SAMPLES 23"
-      ],
-      "seconds": 9.02,
-      "passed": true
-    },
-    {
-      "test": "town_r21_round9_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "TOWN ROUND9 CHECKS 1573 FAILURES 0 DIALOGUE 153 LEGACY 11"
-      ],
-      "seconds": 46.98,
-      "passed": true
-    },
-    {
-      "test": "town_r21_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "TOWN R21 CHECKS 2675 FAILURES 0 LUA SAMPLES 2544"
-      ],
-      "seconds": 2.95,
-      "passed": true
-    },
-    {
-      "test": "ui_battle_r17_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "R17 BATTLE UI 6085 CHECKS / 0 FAILURES"
-      ],
-      "seconds": 64.62,
-      "passed": true
-    },
-    {
-      "test": "ui_battle_r18_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "R18: 4592 checks / 0 failures; 30 distinct effect hashes"
-      ],
-      "seconds": 52.58,
-      "passed": true
-    },
-    {
-      "test": "ui_battle_r19_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "R19: 859 checks / 0 failures"
-      ],
-      "seconds": 11.66,
-      "passed": true
-    },
-    {
-      "test": "ui_battle_r20_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "R20: 1659 checks / 0 failures"
-      ],
-      "seconds": 18.48,
-      "passed": true
-    },
-    {
-      "test": "ui_chronicle_r22_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "CHRONICLE UI R22 CHECKS 3628 FAILURES 0 CAPTURES 75"
-      ],
-      "seconds": 10.14,
-      "passed": true
-    },
-    {
-      "test": "ui_cloud_r22_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "CLOUD UI R22 CHECKS 700 FAILURES 0 CAPTURES 35"
-      ],
-      "seconds": 4.92,
-      "passed": true
-    },
-    {
-      "test": "ui_combat_a8_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "COMBAT A8 UI CHECKS 38929 FAILURES 0 OVERFLOW 0 CAPTURES 261"
-      ],
-      "seconds": 57.94,
-      "passed": true
-    },
-    {
-      "test": "ui_data_r21_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "UI_DATA_R21 checks=9608 failures=0 nameplates=3200 overflow=0"
-      ],
-      "seconds": 29.81,
-      "passed": true
-    },
-    {
-      "test": "ui_dialogue_journey_roster_r21_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "DIALOGUE JOURNEY UI CHECKS 92404 FAILURES 0 OVERFLOW 0"
-      ],
-      "seconds": 70.45,
-      "passed": true
-    },
-    {
-      "test": "ui_dialogue_r21_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "DIALOGUE UI R21 CHECKS 9078 FAILURES 0"
-      ],
-      "seconds": 32.58,
-      "passed": true
-    },
-    {
-      "test": "ui_dialogue_roster_r21_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "DIALOGUE ROSTER UI CHECKS 519964 FAILURES 0 OVERFLOW 0"
-      ],
-      "seconds": 146.27,
-      "passed": true
-    },
-    {
-      "test": "ui_expedition_r22_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "EXPEDITION UI R22 CHECKS 1920 FAILURES 0 CAPTURES 70"
-      ],
-      "seconds": 23.2,
-      "passed": true
-    },
-    {
-      "test": "ui_facilities_r22_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "FACILITIES UI R22 CHECKS 1940 FAILURES 0 CAPTURES 65"
-      ],
-      "seconds": 18.08,
-      "passed": true
-    },
-    {
-      "test": "ui_panels_r22_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "PANELS UI R22 CHECKS 12959 FAILURES 0 CAPTURES 75"
-      ],
-      "seconds": 24.44,
-      "passed": true
-    },
-    {
-      "test": "ui_persona_r22_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "PERSONA UI R22 CHECKS 1463 FAILURES 0 CAPTURES 60"
-      ],
-      "seconds": 11.75,
-      "passed": true
-    },
-    {
-      "test": "ui_persona_town_round8_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "PERSONA TOWN UI ROUND8 CHECKS 5660 FAILURES 0 CAPTURES 45"
-      ],
-      "seconds": 16.59,
-      "passed": true
-    },
-    {
-      "test": "ui_settings_r22_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "SETTINGS UI R22 CHECKS 3645 FAILURES 0 CAPTURES 95"
-      ],
-      "seconds": 12.75,
-      "passed": true
-    },
-    {
-      "test": "ui_town_r21_round10_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "TOWN UI ROUND10 CHECKS 4165 FAILURES 0 CAPTURES 150"
-      ],
-      "seconds": 23.03,
-      "passed": true
-    },
-    {
-      "test": "ui_town_r21_round11_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "TOWN UI ROUND11 CHECKS 5380 FAILURES 0 CAPTURES 170"
-      ],
-      "seconds": 25.7,
-      "passed": true
-    },
-    {
-      "test": "ui_town_r21_round2_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "TOWN ROUND2 UI CHECKS 4458 FAILURES 0"
-      ],
-      "seconds": 13.28,
-      "passed": true
-    },
-    {
-      "test": "ui_town_r21_round3_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "TOWN ROUND3 UI CHECKS 8445 FAILURES 0 PORTRAIT SLOTS 300 ENEMY FALLBACKS 0"
-      ],
-      "seconds": 23.52,
-      "passed": true
-    },
-    {
-      "test": "ui_town_r21_round4_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "TOWN ROUND4 UI CHECKS 10558 FAILURES 0"
-      ],
-      "seconds": 24.73,
-      "passed": true
-    },
-    {
-      "test": "ui_town_r21_round5_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "TOWN ROUND5 UI CHECKS 2270 FAILURES 0"
-      ],
-      "seconds": 8.2,
-      "passed": true
-    },
-    {
-      "test": "ui_town_r21_round9_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "TOWN UI ROUND9 CHECKS 7305 FAILURES 0 CAPTURES 55"
-      ],
-      "seconds": 16.38,
-      "passed": true
-    },
-    {
-      "test": "ui_town_r21_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "TOWN UI R21 CHECKS 1697 FAILURES 0 OVERFLOW 0"
-      ],
-      "seconds": 9.44,
-      "passed": true
-    },
-    {
-      "test": "ui_town_result_r21_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "TOWN RESULT R21 CHECKS 235 FAILURES 0"
-      ],
-      "seconds": 12.11,
-      "passed": true
-    },
-    {
-      "test": "world_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "WORLD TESTS: 44 checks, 0 failures"
-      ],
-      "seconds": 0.77,
-      "passed": true
-    },
-    {
-      "test": "combat_p2_r22_trace",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "P2 full battles 48 / actions 1468 / matched 1468 / differences {  }"
-      ],
-      "seconds": 10.3,
-      "passed": true
-    },
-    {
-      "test": "combat_a6_mixed_audit",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "A6 mixed parity 48 battles / source 2537 / actual 2537 / equal battles 48 / matched actions 2537"
-      ],
-      "seconds": 12.84,
-      "passed": true
-    },
-    {
-      "test": "combat_p3_mixed_audit",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "P3 mixed parity 128 battles / source 4929 / actual 4929 / equal battles 128 / matched actions 4929"
-      ],
-      "seconds": 24.83,
-      "passed": true
-    },
-    {
-      "test": "combat_a7_gear_audit",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "A7 gear parity 176 battles / source 2932 / actual 2932 / equal battles 176 / matched actions 2932"
-      ],
-      "seconds": 25.91,
-      "passed": true
-    },
-    {
-      "test": "combat_a7_gear_balanced",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "A7 gear parity 176 battles / source 6279 / actual 6279 / equal battles 176 / matched actions 6279"
-      ],
-      "seconds": 33.55,
-      "passed": true
-    },
-    {
-      "test": "combat_a8_audit",
-      "exit": 0,
-      "errors": [],
-      "passed": true,
-      "summary": [
-        "A8 exact prefix+suffix: 5120/5120 battles, 186707 records"
-      ],
-      "log": "verification/parity-r23/combat_a8_audit.log",
-      "evidence": "verification/parity-r23/a8-composed.json",
-      "continuation": "Original strict audit zero-gap prefix + identical comparison code on remaining row slice. Timed-out full-run log retained."
-    },
-    {
-      "test": "combat_a9_native_10_audit",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "A9 native 10 parity 312 battles / source 4806 / actual 4806 / equal battles 312 / matched actions 4806"
-      ],
-      "seconds": 42.84,
-      "passed": true
-    },
-    {
-      "test": "combat_a9_native_40_audit",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "A9 native 40 parity 312 battles / source 10127 / actual 10127 / equal battles 312 / matched actions 10127"
-      ],
-      "seconds": 57.59,
-      "passed": true
-    },
-    {
-      "test": "balance_probe",
-      "exit": 0,
-      "errors": [],
-      "summary": [],
-      "seconds": 10.67,
-      "passed": true
-    },
-    {
-      "test": "expe_supply_r23_test",
-      "exit": 0,
-      "errors": [],
-      "summary": [
-        "EXPE SUPPLY R23 CHECKS 7384 FAILURES 0"
-      ],
-      "seconds": 1.84,
+      "seconds": 1.83,
       "passed": true
     },
     {
@@ -3103,71 +3644,723 @@
       "summary": [
         "EXPE LEVEL R23 CHECKS 6571 FAILURES 0"
       ],
-      "seconds": 1.97,
+      "seconds": 1.53,
+      "passed": true
+    },
+    {
+      "test": "expe_pass2_r23_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "EXPE PASS2 R23 CHECKS 20942 FAILURES 0 GROUPS { \"pname\": { \"checks\": 5, \"failures\": 0 }, \"explore_pname\": { \"checks\": 5, \"failures\": 0 }, \"member_name\": { \"checks\": 165, \"failures\": 0 }, \"level_who\": { \"checks\": 165, \"failures\": 0 }, \"zone_title\": { \"checks\": 840, \"failures\": 0 }, \"itname\": { \"checks\": 3141, \"failures\": 0 }, \"rar_of\": { \"checks\": 3142, \"failures\": 0 }, \"gear_label\": { \"checks\": 3142, \"failures\": 0 }, \"gear_label_en\": { \"checks\": 3142, \"failures\": 0 }, \"gear_label_ui_en\": { \"checks\": 3142, \"failures\": 0 }, \"gear_label_en_ko\": { \"checks\": 3142, \"failures\": 0 }, \"members\": { \"checks\": 192, \"failures\": 0 }, \"prow\": { \"checks\": 96, \"failures\": 0 }, \"ordered\": { \"checks\": 15, \"failures\": 0 }, \"summary\": { \"checks\": 168, \"failures\": 0 }, \"run_members\": { \"checks\": 16, \"failures\":"
+      ],
+      "seconds": 28.14,
+      "passed": true
+    },
+    {
+      "test": "expe_r23_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "EXPE R23 CHECKS 2310 FAILURES 0 GROUPS { \"sortie_order\": { \"checks\": 90, \"failures\": 0 }, \"sortie_filter\": { \"checks\": 90, \"failures\": 0 }, \"sortie_summary\": { \"checks\": 450, \"failures\": 0 }, \"floor_access\": { \"checks\": 420, \"failures\": 0 }, \"floor_view\": { \"checks\": 77, \"failures\": 0 }, \"initial_vitals\": { \"checks\": 24, \"failures\": 0 }, \"first_battle\": { \"checks\": 24, \"failures\": 0 }, \"outside_use\": { \"checks\": 792, \"failures\": 0 }, \"boss_guard\": { \"checks\": 8, \"failures\": 0 }, \"log\": { \"checks\": 13, \"failures\": 0 }, \"snapshot\": { \"checks\": 9, \"failures\": 0 }, \"bank_items\": { \"checks\": 3, \"failures\": 0 }, \"gear_roll\": { \"checks\": 240, \"failures\": 0 }, \"outside_multiplier\": { \"checks\": 15, \"failures\": 0 }, \"gear_add\": { \"checks\": 2, \"failures\": 0 }, \"bag\": { \"checks\": 4, \"failures\": 0 }, \""
+      ],
+      "seconds": 49.28,
+      "passed": true
+    },
+    {
+      "test": "expe_supply_r23_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "EXPE SUPPLY R23 CHECKS 7384 FAILURES 0"
+      ],
+      "seconds": 1.27,
+      "passed": true
+    },
+    {
+      "test": "expedition_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "EXPEDITION R22 CHECKS 4786 FAILURES 0"
+      ],
+      "seconds": 30.28,
+      "passed": true
+    },
+    {
+      "test": "export_licenses",
+      "exit": 0,
+      "errors": [],
+      "summary": [],
+      "seconds": 0.41,
+      "passed": true
+    },
+    {
+      "test": "facilities_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "FACILITIES R22 CHECKS 4406 FAILURES 0 LUA 4093"
+      ],
+      "seconds": 19.86,
+      "passed": true
+    },
+    {
+      "test": "gear_boundary_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "GEAR BOUNDARY R22 CHECKS 27894 FAILURES 0"
+      ],
+      "seconds": 4.98,
+      "passed": true
+    },
+    {
+      "test": "gear_hooks_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "GEAR HOOKS R22 CHECKS 21267 FAILURES 0"
+      ],
+      "seconds": 7.05,
+      "passed": true
+    },
+    {
+      "test": "gear_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "GEAR R22 CHECKS 122798 FAILURES 0"
+      ],
+      "seconds": 7.69,
+      "passed": true
+    },
+    {
+      "test": "motion_asset_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [],
+      "seconds": 0.67,
+      "passed": true
+    },
+    {
+      "test": "motion_r18_integration",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "R18 STATE INTEGRATION: 3540 checks / 0 failures"
+      ],
+      "seconds": 63.92,
+      "passed": true
+    },
+    {
+      "test": "motion_r9_integration",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "R9 INTEGRATION: 944 checks / 0 failures"
+      ],
+      "seconds": 7.81,
+      "passed": true
+    },
+    {
+      "test": "motion_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [],
+      "seconds": 0.38,
+      "passed": true
+    },
+    {
+      "test": "panels_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "PANELS R22 CHECKS 7345 FAILURES 0"
+      ],
+      "seconds": 2.12,
+      "passed": true
+    },
+    {
+      "test": "persona_combat_a8_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "PERSONA COMBAT A8 CHECKS 34800 FAILURES 0"
+      ],
+      "seconds": 134.7,
+      "passed": true
+    },
+    {
+      "test": "persona_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "PERSONA R22 CHECKS 4005 FAILURES 0"
+      ],
+      "seconds": 7.26,
+      "passed": true
+    },
+    {
+      "test": "persona_research_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "PERSONA RESEARCH R21 CHECKS 13889 FAILURES 0 LUA 13843 / 13843"
+      ],
+      "seconds": 4.41,
+      "passed": true
+    },
+    {
+      "test": "persona_save_a8_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "PERSONA SAVE A8 CHECKS 385 FAILURES 0"
+      ],
+      "seconds": 4.33,
+      "passed": true
+    },
+    {
+      "test": "persona_town_r21_round8_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "PERSONA TOWN ROUND8 CHECKS 1037 FAILURES 0"
+      ],
+      "seconds": 33.44,
+      "passed": true
+    },
+    {
+      "test": "recruit_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "RECRUIT R21 CHECKS 14991 FAILURES 0 LUA 2496"
+      ],
+      "seconds": 1.58,
+      "passed": true
+    },
+    {
+      "test": "route_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "ROUTE TESTS: 41 checks, 0 failures"
+      ],
+      "seconds": 0.52,
+      "passed": true
+    },
+    {
+      "test": "settings_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "SETTINGS R22 CHECKS 205243 FAILURES 0"
+      ],
+      "seconds": 5.28,
+      "passed": true
+    },
+    {
+      "test": "state_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "COMBAT CHECKS: 54; FAILURES: 0"
+      ],
+      "seconds": 1.38,
+      "passed": true
+    },
+    {
+      "test": "town_combat_r21_round14_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN COMBAT ROUND14 CHECKS 576 FAILURES 0"
+      ],
+      "seconds": 24.42,
+      "passed": true
+    },
+    {
+      "test": "town_commerce_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN COMMERCE R21 CHECKS 14714 FAILURES 0 LUA 8520 / 8520"
+      ],
+      "seconds": 2.56,
+      "passed": true
+    },
+    {
+      "test": "town_r21_round10_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN ROUND10 CHECKS 218 FAILURES 0 LEGACY 11"
+      ],
+      "seconds": 6.61,
+      "passed": true
+    },
+    {
+      "test": "town_r21_round11_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN ROUND11 CHECKS 148 FAILURES 0 LEGACY 11 SAMPLES 23"
+      ],
+      "seconds": 8.31,
+      "passed": true
+    },
+    {
+      "test": "town_r21_round9_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN ROUND9 CHECKS 1573 FAILURES 0 DIALOGUE 153 LEGACY 11"
+      ],
+      "seconds": 40.02,
+      "passed": true
+    },
+    {
+      "test": "town_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN R21 CHECKS 2675 FAILURES 0 LUA SAMPLES 2544"
+      ],
+      "seconds": 2.5,
+      "passed": true
+    },
+    {
+      "test": "ui_battle_r17_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "R17 BATTLE UI 6085 CHECKS / 0 FAILURES"
+      ],
+      "seconds": 54.42,
+      "passed": true
+    },
+    {
+      "test": "ui_battle_r18_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "R18: 4592 checks / 0 failures; 30 distinct effect hashes"
+      ],
+      "seconds": 45.88,
+      "passed": true
+    },
+    {
+      "test": "ui_battle_r19_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "R19: 859 checks / 0 failures"
+      ],
+      "seconds": 9.98,
+      "passed": true
+    },
+    {
+      "test": "ui_battle_r20_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "R20: 1659 checks / 0 failures"
+      ],
+      "seconds": 16.45,
+      "passed": true
+    },
+    {
+      "test": "ui_chronicle_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "CHRONICLE UI R22 CHECKS 3628 FAILURES 0 CAPTURES 75"
+      ],
+      "seconds": 10.2,
+      "passed": true
+    },
+    {
+      "test": "ui_cloud_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "CLOUD UI R22 CHECKS 700 FAILURES 0 CAPTURES 35"
+      ],
+      "seconds": 4.47,
+      "passed": true
+    },
+    {
+      "test": "ui_combat_a8_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "COMBAT A8 UI CHECKS 38929 FAILURES 0 OVERFLOW 0 CAPTURES 261"
+      ],
+      "seconds": 49.98,
+      "passed": true
+    },
+    {
+      "test": "ui_data_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "UI_DATA_R21 checks=9608 failures=0 nameplates=3200 overflow=0"
+      ],
+      "seconds": 24.52,
+      "passed": true
+    },
+    {
+      "test": "ui_dialogue_journey_roster_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "DIALOGUE JOURNEY UI CHECKS 92404 FAILURES 0 OVERFLOW 0"
+      ],
+      "seconds": 68.98,
+      "passed": true
+    },
+    {
+      "test": "ui_dialogue_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "DIALOGUE UI R21 CHECKS 9078 FAILURES 0"
+      ],
+      "seconds": 29.62,
+      "passed": true
+    },
+    {
+      "test": "ui_dialogue_roster_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "DIALOGUE ROSTER UI CHECKS 519964 FAILURES 0 OVERFLOW 0"
+      ],
+      "seconds": 133.94,
+      "passed": true
+    },
+    {
+      "test": "ui_expe_pass2_r23_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "EXPE PASS2 UI CHECKS 210 FAILURES 0 CAPTURES 10"
+      ],
+      "seconds": 5.48,
+      "passed": true
+    },
+    {
+      "test": "ui_expedition_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "EXPEDITION UI R22 CHECKS 1920 FAILURES 0 CAPTURES 70"
+      ],
+      "seconds": 19.67,
+      "passed": true
+    },
+    {
+      "test": "ui_facilities_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "FACILITIES UI R22 CHECKS 1940 FAILURES 0 CAPTURES 65"
+      ],
+      "seconds": 14.17,
+      "passed": true
+    },
+    {
+      "test": "ui_panels_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "PANELS UI R22 CHECKS 12959 FAILURES 0 CAPTURES 75"
+      ],
+      "seconds": 19.58,
+      "passed": true
+    },
+    {
+      "test": "ui_persona_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "PERSONA UI R22 CHECKS 1463 FAILURES 0 CAPTURES 60"
+      ],
+      "seconds": 10.95,
+      "passed": true
+    },
+    {
+      "test": "ui_persona_town_round8_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "PERSONA TOWN UI ROUND8 CHECKS 5660 FAILURES 0 CAPTURES 45"
+      ],
+      "seconds": 14.45,
+      "passed": true
+    },
+    {
+      "test": "ui_settings_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "SETTINGS UI R22 CHECKS 3645 FAILURES 0 CAPTURES 95"
+      ],
+      "seconds": 11.62,
+      "passed": true
+    },
+    {
+      "test": "ui_town_r21_round10_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN UI ROUND10 CHECKS 4165 FAILURES 0 CAPTURES 150"
+      ],
+      "seconds": 21.11,
+      "passed": true
+    },
+    {
+      "test": "ui_town_r21_round11_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN UI ROUND11 CHECKS 5380 FAILURES 0 CAPTURES 170"
+      ],
+      "seconds": 22.22,
+      "passed": true
+    },
+    {
+      "test": "ui_town_r21_round2_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN ROUND2 UI CHECKS 4458 FAILURES 0"
+      ],
+      "seconds": 12.08,
+      "passed": true
+    },
+    {
+      "test": "ui_town_r21_round3_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN ROUND3 UI CHECKS 8445 FAILURES 0 PORTRAIT SLOTS 300 ENEMY FALLBACKS 0"
+      ],
+      "seconds": 19.69,
+      "passed": true
+    },
+    {
+      "test": "ui_town_r21_round4_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN ROUND4 UI CHECKS 10558 FAILURES 0"
+      ],
+      "seconds": 22.06,
+      "passed": true
+    },
+    {
+      "test": "ui_town_r21_round5_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN ROUND5 UI CHECKS 2270 FAILURES 0"
+      ],
+      "seconds": 6.72,
+      "passed": true
+    },
+    {
+      "test": "ui_town_r21_round9_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN UI ROUND9 CHECKS 7305 FAILURES 0 CAPTURES 55"
+      ],
+      "seconds": 14.19,
+      "passed": true
+    },
+    {
+      "test": "ui_town_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN UI R21 CHECKS 1697 FAILURES 0 OVERFLOW 0"
+      ],
+      "seconds": 8.22,
+      "passed": true
+    },
+    {
+      "test": "ui_town_result_r21_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "TOWN RESULT R21 CHECKS 235 FAILURES 0"
+      ],
+      "seconds": 9.52,
+      "passed": true
+    },
+    {
+      "test": "world_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "WORLD TESTS: 44 checks, 0 failures"
+      ],
+      "seconds": 0.47,
+      "passed": true
+    },
+    {
+      "test": "combat_p2_r22_trace",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "P2 full battles 48 / actions 1468 / matched 1468 / differences {  }"
+      ],
+      "seconds": 7.81,
+      "passed": true
+    },
+    {
+      "test": "combat_a6_mixed_audit",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "A6 mixed parity 48 battles / source 2537 / actual 2537 / equal battles 48 / matched actions 2537"
+      ],
+      "seconds": 10.17,
+      "passed": true
+    },
+    {
+      "test": "combat_p3_mixed_audit",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "P3 mixed parity 128 battles / source 4929 / actual 4929 / equal battles 128 / matched actions 4929"
+      ],
+      "seconds": 19.31,
+      "passed": true
+    },
+    {
+      "test": "combat_a7_gear_audit",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "A7 gear parity 176 battles / source 2932 / actual 2932 / equal battles 176 / matched actions 2932"
+      ],
+      "seconds": 20.67,
+      "passed": true
+    },
+    {
+      "test": "combat_a7_gear_balanced",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "A7 gear parity 176 battles / source 6279 / actual 6279 / equal battles 176 / matched actions 6279"
+      ],
+      "seconds": 27.86,
+      "passed": true
+    },
+    {
+      "test": "combat_a8_audit",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "A8 persona parity 5120 battles / source 186707 / actual 186707 / equal battles 5120 / matched actions 186707"
+      ],
+      "seconds": 594.41,
+      "passed": true
+    },
+    {
+      "test": "combat_a9_native_10_audit",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "A9 native 10 parity 312 battles / source 4806 / actual 4806 / equal battles 312 / matched actions 4806"
+      ],
+      "seconds": 38.23,
+      "passed": true
+    },
+    {
+      "test": "combat_a9_native_40_audit",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "A9 native 40 parity 312 battles / source 10127 / actual 10127 / equal battles 312 / matched actions 10127"
+      ],
+      "seconds": 50.2,
+      "passed": true
+    },
+    {
+      "test": "balance_probe",
+      "exit": 0,
+      "errors": [],
+      "summary": [],
+      "seconds": 9.36,
       "passed": true
     }
   ],
   "trace_reports": [
     {
+      "test": "combat_p2_r22_trace",
       "file": "verification/data-r21/p2-full-battles.json",
-      "fresh_test": "combat_p2_r22_trace",
-      "fresh_passed": true,
+      "sha256": "b97085c72507615b7e37d5bd783b77989093a79eca8c51cde7512162a6837c1a",
       "battles": 48,
       "equal": 48,
       "records": 1468
     },
     {
+      "test": "combat_a6_mixed_audit",
       "file": "verification/data-r21/a6-mixed-audit.json",
-      "fresh_test": "combat_a6_mixed_audit",
-      "fresh_passed": true,
+      "sha256": "46e0238f5780ccdd594312b4d319732054f30a53f9b13b8531ed9a46edd2f933",
       "battles": 48,
       "equal": 48,
       "records": 2537
     },
     {
+      "test": "combat_p3_mixed_audit",
       "file": "verification/data-r21/p3-mixed-audit.json",
-      "fresh_test": "combat_p3_mixed_audit",
-      "fresh_passed": true,
+      "sha256": "4b0e695953b9098a96406afb1d592bf7fa62c044c12d623b095c7fd80d5739fe",
       "battles": 128,
       "equal": 128,
       "records": 4929
     },
     {
+      "test": "combat_a7_gear_audit",
       "file": "verification/data-r21/a7-gear-audit.json",
-      "fresh_test": "combat_a7_gear_audit",
-      "fresh_passed": true,
+      "sha256": "fcab4f2eb5eb8d32c1d110cc53acc2e693e9eab42dc54a0226806c0bc8a3e1fe",
       "battles": 176,
       "equal": 176,
       "records": 2932
     },
     {
+      "test": "combat_a7_gear_balanced",
       "file": "verification/data-r21/a7-gear-balanced-audit.json",
-      "fresh_test": "combat_a7_gear_balanced",
-      "fresh_passed": true,
+      "sha256": "a1a04a68a771ff0bdd7a582350b04c713fead7d09315dcebf41c5a931315191b",
       "battles": 176,
       "equal": 176,
       "records": 6279
     },
     {
-      "file": "verification/parity-r23/a8-composed.json",
-      "fresh_test": "combat_a8_audit",
-      "fresh_passed": true,
+      "test": "combat_a8_audit",
+      "file": "verification/data-r21/a8-audit.json",
+      "sha256": "3c174f75e24c70265167a0aa3b8910c08271b0079a23f210490d39a22fcdcde9",
       "battles": 5120,
       "equal": 5120,
       "records": 186707
     },
     {
+      "test": "combat_a9_native_10_audit",
       "file": "verification/data-r21/a9-native-10-audit.json",
-      "fresh_test": "combat_a9_native_10_audit",
-      "fresh_passed": true,
+      "sha256": "1e60ed7de51a94ce3642ad2a7a74432aff5b055f68d203bceaa31c087ef1ed40",
       "battles": 312,
       "equal": 312,
       "records": 4806
     },
     {
+      "test": "combat_a9_native_40_audit",
       "file": "verification/data-r21/a9-native-40-audit.json",
-      "fresh_test": "combat_a9_native_40_audit",
-      "fresh_passed": true,
+      "sha256": "cadccb4ba193e011adbe2927c42e8f6f4f14d1bb4768c6a7f1ad0ea33614c645",
       "battles": 312,
       "equal": 312,
       "records": 10127
@@ -3177,5 +4370,89 @@
     "Some pure native functions use a normalized ID/slot ABI; claims are limited to the stated valid state projection.",
     "First-battle initialization oracle suppresses B.run only to observe setup before automatic enemy actions.",
     "No source bot, protected combat files, gear/facility rules, server, docs or Web export writes. Only the explicitly allowed supply adapter changed. No commits."
-  ]
+  ],
+  "passes": [
+    {
+      "pass": 1,
+      "summary": {
+        "reviewed_rows": 109,
+        "promoted_same": 18,
+        "fixed_rows": 18,
+        "fixed_still_remaining": 10,
+        "remaining_rows": 91,
+        "oracle_checks": 16265,
+        "core_oracle_checks": 2310,
+        "supply_oracle_checks": 7384,
+        "level_oracle_checks": 6571,
+        "oracle_failures": 0,
+        "regression_groups": 85,
+        "failed_groups": [],
+        "protected_snapshot_files": 1007,
+        "changed_existing_files": [
+          "project/game/dungeon_world_r21.gd",
+          "project/game/expedition_supply_r22.gd",
+          "project/game/expedition_world_r22.gd",
+          "project/ui/persona_sortie_screen.gd",
+          "project/tests/ui_expedition_r22_test.gd"
+        ],
+        "outside_allowed_changed": [],
+        "assets_checked": 96,
+        "asset_changes": [],
+        "trace_battles": 6320,
+        "trace_equal_battles": 6320,
+        "trace_records": 219785
+      },
+      "ledger": "verification/parity-r23/expe-pass1-ledger.json"
+    },
+    {
+      "pass": 2,
+      "summary": {
+        "reviewed_rows": 91,
+        "promoted_same": 16,
+        "fixed_rows": 15,
+        "remaining_rows": 75,
+        "oracle_checks": 20942,
+        "oracle_failures": 0,
+        "ui_checks": 210,
+        "ui_failures": 0,
+        "ui_captures": 10,
+        "regression_groups": 87,
+        "failed_groups": [],
+        "protected_snapshot_files": 2811,
+        "changed_existing_files": [
+          "project/game/dungeon_world_r21.gd",
+          "project/game/expedition_world_r22.gd",
+          "project/ui/expedition_screen_r22.gd",
+          "project/ui/persona_sortie_screen.gd"
+        ],
+        "outside_allowed_changed": [],
+        "assets_checked": 96,
+        "asset_changes": [],
+        "trace_battles": 6320,
+        "trace_equal_battles": 6320,
+        "trace_records": 219785
+      },
+      "row_review": "verification/parity-r23/expe-pass2-row-audit.json"
+    }
+  ],
+  "current_implementation_lines": {
+    "P2991": "project/game/expedition_world_r22.gd:77",
+    "P2992": "project/game/expedition_world_r22.gd:87",
+    "P3023": "project/game/expedition_world_r22.gd:107",
+    "P3025": "project/game/expedition_world_r22.gd:94",
+    "P3070": "project/game/dungeon_world_r21.gd:36",
+    "P3072": "project/game/dungeon_world_r21.gd:42",
+    "P3074": "project/game/dungeon_world_r21.gd:45",
+    "P3132": "project/game/expedition_world_r22.gd:162",
+    "P3191": "project/game/expedition_world_r22.gd:290",
+    "P3194": "project/game/expedition_world_r22.gd:278",
+    "P3196": "project/game/expedition_world_r22.gd:297",
+    "P3241": "project/game/expedition_world_r22.gd:294",
+    "P3319": "project/game/expedition_supply_r22.gd:5",
+    "P3325": "project/game/expedition_supply_r22.gd:12",
+    "P3326": "project/game/expedition_supply_r22.gd:7",
+    "P3328": "project/game/expedition_supply_r22.gd:21",
+    "P3329": "project/game/expedition_supply_r22.gd:23",
+    "P3330": "project/game/expedition_supply_r22.gd:27"
+  }
 }

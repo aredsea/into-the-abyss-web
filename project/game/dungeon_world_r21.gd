@@ -70,7 +70,11 @@ func depart_dungeon(f: int,seed: int=0,rift_id: String="",stars: int=1) -> bool:
 func dungeon_title() -> String:
 	if not s.run.get("rift_id","").is_empty(): return dungeon_rules.rifts[s.run.rift_id].quest_name
 	var info=dungeon_rules.floor_info(int(s.run.get("floor",selected_floor)))
-	return dungeon_rules.zones[info.zone].name+(" 심층 %d"%info.dc if info.dk>0 else "")+" · %d층"%info.floor
+	return dungeon_zone_title(info)+" · %d층"%info.floor
+func dungeon_zone_title(info: Dictionary) -> String:
+	var text=preload("res://game/localization_r22.gd");var lang=text.language(s)
+	var suffix=(" Depth %d"%info.dc if lang=="en" else text.u(" 심층 {n}",{"n":info.dc})) if info.dk>0 else ""
+	return text.t(dungeon_rules.zones[info.zone].name,lang)+suffix
 
 func party_classes() -> Array: return s.party.map(func(id):return class_def(id).id)
 func average_level() -> float:

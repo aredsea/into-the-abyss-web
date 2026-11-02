@@ -43,7 +43,7 @@ func build(owner_screen) -> void:
 	var self_button=action("so_fight_1","자기 참전 · 동료 3명",Rect2(18,277,174,56),func():w.set_fight(1);host._save();host._draw_screen(),s.persona.fight==1,w.active() or not w.can_persona_fight());self_button.add_theme_font_size_override("font_size",13)
 	if not w.can_persona_fight():self_button.tooltip_text="모험가 생성 정보가 없는 옛 저장입니다. 기존 동료 편성을 유지하고 지휘로 출발합니다."
 	action("so_fight_0","지휘 · 동료 4명",Rect2(198,277,174,56),func():w.set_fight(0);host._save();host._draw_screen(),s.persona.fight==0,w.active()).add_theme_font_size_override("font_size",13)
-	var ids=w.sortie_ids()
+	var ids=w.sortie_members().map(func(m):return m.id) if w.has_method("sortie_members") else w.sortie_ids()
 	for i in range(2):
 		var row="전열" if i==0 else "후열"
 		var group=ids.filter(func(id):return w.person(id).row==row)
@@ -65,7 +65,7 @@ func build(owner_screen) -> void:
 	if candidates.is_empty():label("이 열의 대기 동료가 없습니다.",Rect2(0,0,340,48),14,T.MUTED)
 	stage=previous
 	var fronts=ids.filter(func(id):return w.person(id).row=="전열").size()
-	var summary_data=w.sortie_summary(int(floor_view.el)) if w.has_method("sortie_summary") else {}
+	var summary_data=w.sortie_quest_summary({"lv":floor_view.el}) if w.has_method("sortie_quest_summary") else {}
 	var danger=not summary_data.is_empty() and summary_data.n>0 and summary_data.elv-summary_data.avg>=5
 	var caption="옛 저장은 지휘로 출발 · 초상을 눌러 편성 해제" if not w.can_persona_fight() else "출전할 사람을 골라 주세요." if ids.is_empty() else "전열 없음 · 초상을 눌러 편성 해제" if fronts==0 else "출전 %d / 4 · 초상을 눌러 편성 해제"%ids.size()
 	if danger:caption="위험 · 적 Lv.%d / 파티 평균 Lv.%d%s"%[summary_data.elv,summary_data.avg," · 전열 없음" if fronts==0 else ""]
@@ -78,7 +78,8 @@ func build(owner_screen) -> void:
 			mark("route_picture:"+str(i),boxes["background:"+["explore","rest","departure"][i]])
 			label(["탐색 5회","휴식","층 보스"][i],Rect2(x,706,114,24),12,T.INK,T.BOLD).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 	elif not s.quest.is_empty() and host.save_error==OK:
-		action("accepted_quest","수락한 균열 의뢰로 출발",Rect2(18,667,354,56),func():host._act(w.depart_accepted_quest,"");host.go("explore"),true,ids.is_empty() or w.active())
+			var quest_button=action("accepted_quest","수락한 균열 의뢰로 출발",Rect2(18,667,354,56),func():host._act(w.depart_accepted_quest,"");host.go("explore"),true,ids.is_empty() or w.active())
+			if w.has_method("sortie_quest_summary"):quest_button.tooltip_text="\n".join(w.sortie_quest_summary(s.quest).warns)
 	var start_button=action("start_run","선택한 층으로 출발 →",Rect2(18,736,354,56),func():host._act(w.depart_dungeon.bind(w.selected_floor),"");host.go("explore"),true,ids.is_empty() or w.active())
 	if not summary_data.is_empty():start_button.tooltip_text="\n".join(summary_data.warns)
 	navigation()

@@ -2,9 +2,66 @@ extends "res://game/persona_world.gd"
 ## P5 facade. Old runs retain their original payment contract; new floors use P5.
 const ExpeditionRules=preload("res://game/expedition_rules_r22.gd")
 var expedition_rules=ExpeditionRules.new()
+const ExpeditionText=preload("res://game/localization_r22.gd")
+# 10-data.lua ITEMS names; the older native bag captions abbreviate these.
+const EXPEDITION_ITEM_NAMES={"hp_s":"소형 회복약","hp_m":"중형 회복약","hp_l":"대형 회복약","mp_s":"소형 마나 물약","mp_m":"중형 마나 물약","mp_l":"대형 마나 물약","sh_s":"소형 보호막 물약","sh_m":"중형 보호막 물약","sh_l":"대형 보호막 물약","antidote":"해독약","bandage":"붕대","scroll":"귀환 두루마리","level_scroll":"레벨업 스크롤"}
+# Original EQUIP_ORDER labels registered in ITEMS by 77-explore.lua. Display
+# metadata only; these do not create equipment or alter the native bag schema.
+const EXPEDITION_LEGACY_LABELS={
+	"eq_w_iron_sword":["철제 장검","common"],"eq_w_hunter_bow":["사냥꾼의 활","common"],"eq_w_verdigris_blade":["녹청 단검","fine"],"eq_w_scribe_staff":["필사생의 지팡이","fine"],"eq_w_blue_spear":["푸른 창","rare"],"eq_w_oath_mace":["서약의 철퇴","rare"],"eq_w_amethyst_wand":["자수정 마장","epic"],"eq_w_faded_gold_blade":["바랜 금 대검","legend"],
+	"eq_a_leather_coat":["가죽 외투","common"],"eq_a_chain_vest":["쇠사슬 조끼","common"],"eq_a_verdigris_plate":["녹청 흉갑","fine"],"eq_a_scholar_robe":["학술원 로브","fine"],"eq_a_blue_mail":["청강 갑옷","rare"],"eq_a_guard_cloak":["근위대의 망토","rare"],"eq_a_amethyst_plate":["자수정 판금","epic"],"eq_a_faded_gold_armor":["바랜 금 갑주","legend"],
+	"eq_c_iron_ring":["철 반지","common"],"eq_c_bone_charm":["뼈 부적","common"],"eq_c_verdigris_pin":["녹청 브로치","fine"],"eq_c_ink_pendant":["잉크 결정 목걸이","fine"],"eq_c_blue_earring":["청옥 귀걸이","rare"],"eq_c_lamp_locket":["등불 로켓","rare"],"eq_c_amethyst_crown":["자수정 관","epic"],"eq_c_faded_gold_seal":["바랜 금 인장","legend"]}
+func expedition_item_name(id: String) -> String:
+	var roll=combat_gear_rules.gear_roll(id)
+	if not roll.is_empty():return roll.item.name
+	if EXPEDITION_LEGACY_LABELS.has(id):return EXPEDITION_LEGACY_LABELS[id][0]
+	return EXPEDITION_ITEM_NAMES.get(source_item_id(id),id)
+func expedition_item_rarity(id: String) -> Variant:
+	var roll=combat_gear_rules.gear_roll(id)
+	return roll.rarity if not roll.is_empty() else EXPEDITION_LEGACY_LABELS[id][1] if EXPEDITION_LEGACY_LABELS.has(id) else null
+func expedition_gear_label(code: String,english_scene: bool=false) -> String:
+	var lang="en" if english_scene else ExpeditionText.language(s);var roll=combat_gear_rules.gear_roll(code)
+	if roll.is_empty():return "Unknown equipment" if lang=="en" else "알 수 없는 장비"
+	var key=expedition_item_rarity(code)
+	var rarity={"common":"Common","fine":"Uncommon","rare":"Rare","epic":"Epic","legend":"Legendary"}[key] if lang=="en" else combat_gear_rules.RARITY[key]
+	return ExpeditionText.u("{item} ({rarity}, Lv {lv})",{"item":roll.item.name,"rarity":rarity,"lv":roll.lv},lang)
 
 func expedition() -> bool:return r21() and s.run.get("expedition_version",0)==22
-func expedition_ids() -> Array:return s.run.get("persona_party",s.party).duplicate() if active() else sortie_ids()
+func expedition_ids() -> Array:
+	return expedition_members().map(func(e):return e.m.id) if active() and s.run.has("persona_pm") else sortie_ids()
+func expedition_members() -> Array:
+	var out=[];var pm=s.run.get("persona_pm",[])
+	for i in range(mini(4,pm.size())):
+		if pm[i] is Dictionary and pm[i].get("id","")!="":out.append({"slot":i+1,"m":pm[i]})
+	return out
+func expedition_equip_key(slot: int) -> String:
+	for e in expedition_members():
+		if e.slot==slot:return e.m.id
+	return ""
+func expedition_member_name(id: String) -> String:
+	if id=="persona":
+		var p=s.get("persona",{});var name=p.get("name","") if p is Dictionary else ""
+		return name if name!="" else "당신"
+	for c in config.companions:
+		if c.id==id:return c.name
+	return id
+func person(id: String) -> Dictionary:
+	var value=super(id)
+	if id=="persona" and not value.is_empty():value.name=expedition_member_name(id)
+	return value
+func sortie_persona_role() -> Dictionary:
+	var name=s.get("persona",{}).get("cls","");var c=persona_rules.cls(name)
+	return {"row":c.get("row",""),"cls":c.get("name",name)}
+func sortie_members() -> Array:
+	s.party=persona_rules.clean(s.party,s.owned,int(s.persona.fight),config.companions.map(func(c):return c.id))
+	var out=[]
+	if s.persona.fight==1:
+		var role=sortie_persona_role()
+		out.append({"id":"persona","name":expedition_member_name("persona"),"cls":role.cls,"row":role.row,"lv":expedition_level("persona")})
+	for id in s.party:
+		var c=person(id)
+		out.append({"id":id,"name":c.name,"cls":c["class"],"row":c.row,"lv":expedition_level(id)})
+	return out
 func expedition_mods() -> Dictionary:return expedition_rules.modifiers(s.run.get("persona_pm",source_pm()),config.companions)
 func supplies(id: String) -> int:
 	return int(s.items.get(id,0))+int(s.run.get("loot_items",{}).get(source_item_id(id),0)) if expedition() and active() else int(s.items.get(id,0))
@@ -33,20 +90,45 @@ func expedition_experience(who: String) -> int:
 	return maxi(0,int(floor(value))) if value!=null else 0
 
 func sortie_candidates(filter="") -> Array:
-	return super(sortie_filter(filter))
+	return sortie_candidate_records(filter).map(func(e):return e.cid)
+func sortie_candidate_records(filter: String="") -> Array:
+	var out=[];var order=config.companions.map(func(c):return c.id);var f=sortie_filter(filter)
+	for id in s.owned:
+		if id not in order:continue
+		var c=person(id)
+		if f!="" and c.row!=("전열" if f=="front" else "후열"):continue
+		out.append({"cid":id,"on":id in s.party,"lv":expedition_level(id),"i":order.find(id)+1})
+	out.sort_custom(func(a,b):
+		if a.on!=b.on:return a.on
+		if a.lv!=b.lv:return a.lv>b.lv
+		return a.i<b.i)
+	return out
 
 func sortie_filter(filter: String) -> String:
 	return filter if filter in ["front","back"] else ""
 
 func sortie_summary(enemy_level: int=0) -> Dictionary:
-	var ids=sortie_ids();var total=0;var front=0;var warns=[]
-	for id in ids:
-		total+=int(s.members[id].level)
-		if person(id).row=="전열":front+=1
-	var avg=int(floor(float(total)/ids.size())) if not ids.is_empty() else 0
-	if not ids.is_empty() and front==0:warns.append("앞에서 막을 사람이 없습니다. 전열이 한 명도 없으면 후열이 바로 맞습니다.")
-	if not ids.is_empty() and enemy_level-avg>=5:warns.append("위험합니다. 적이 파티 평균보다 %d레벨 높습니다."%(enemy_level-avg))
-	return {"n":ids.size(),"avg":avg,"elv":enemy_level,"front":front,"warns":warns}
+	var members=sortie_members();var total=0;var front=0;var warns=[]
+	for m in members:
+		total+=m.lv
+		if m.row=="전열":front+=1
+	var avg=int(floor(float(total)/members.size())) if not members.is_empty() else 0
+	var lang=ExpeditionText.language(s)
+	# These two original UI templates are absent from the older native pack.
+	if not members.is_empty() and front==0:warns.append("No one can hold the front. Without a front-line fighter, the back row is exposed." if lang=="en" else "앞에서 막을 사람이 없습니다. 전열이 한 명도 없으면 후열이 바로 맞습니다.")
+	if not members.is_empty() and enemy_level-avg>=5:warns.append("Danger: the enemy is %d levels above your party's average."%(enemy_level-avg) if lang=="en" else ExpeditionText.u("위험합니다. 적이 파티 평균보다 {gap}레벨 높습니다.",{"gap":enemy_level-avg}))
+	return {"n":members.size(),"avg":avg,"elv":enemy_level,"front":front,"warns":warns}
+func sortie_quest_summary(q: Variant) -> Dictionary:
+	if not q is Dictionary:return sortie_summary(0)
+	var value=expedition_numeric(q.get("lv"))
+	if value!=null:return sortie_summary(int(clampf(floor(value),1,40)))
+	var base=expedition_level("persona")
+	for id in s.owned:base=maxi(base,expedition_level(id))
+	var difficulty=q.get("difficulty","")
+	if not dungeon_rules.config.quest_difficulty.has(difficulty):
+		var stars=expedition_numeric(q.get("stars",1))
+		difficulty="높음" if stars!=null and stars>=3 else "중간" if stars!=null and stars>=2 else "낮음"
+	return sortie_summary(clampi(base+int(dungeon_rules.config.quest_difficulty[difficulty].delta),1,40))
 
 func price(item: Dictionary) -> int:
 	var count=0
@@ -92,11 +174,13 @@ func advance() -> bool:
 		if out.kind=="elite":r.elites+=1
 		r.kind=out.kind;r.phase="battle";r.battle={};r.resolved=false
 		return true
-	if out.kind=="coin":r.gold+=out.gold;log_expedition("탐색 %d: 주화 %d닢 발견"%[r.step,out.gold])
+	if out.kind=="coin":r.gold+=out.gold;r.last="낡은 주머니에서 주화 %d닢을 찾았다."%out.gold
 	elif out.kind=="item":
 		r.loot_items[out.item]=r.loot_items.get(out.item,0)+out.count
-		log_expedition("탐색 %d: %s ×%d 발견"%[r.step,item_def(web_item_id(out.item)).name,out.count])
-	else:append_expedition_gear(out.code);log_expedition("탐색 %d: 장비 발견 · %s"%[r.step,gear.by_id[out.code.split(".")[0]].name])
+		var count=["하나","둘","셋"][out.count-1] if out.count in [1,2,3] else str(out.count)
+		r.last=ExpeditionText.u("{item} {count}{suffix} 주웠다.",{"item":expedition_item_name(out.item),"count":count,"suffix":"를" if out.count==1 else "을"})
+	else:append_expedition_gear(out.code);r.last="장비를 발견했다: %s."%expedition_gear_label(out.code)
+	append_expedition_log("탐색 %d: %s"%[r.step,r.last]);note(r.last)
 	if r.step>=5:enter_dungeon_rest()
 	return true
 
@@ -110,8 +194,10 @@ func enter_dungeon_rest():
 		var b=r.maxima[id];var m=s.members[id];var h=m.hp;var p=m.mp
 		m.hp=mini(b.hp,h+int(floor(b.hp*(dungeon_rules.config.explore.REST_HP+mods.rest_hp)+.5)))
 		m.mp=mini(b.mp,p+int(floor(b.mp*(dungeon_rules.config.explore.REST_MP+mods.rest_mp)+.5)))
-		gains.append("%s HP +%d · MP +%d"%[person(id).name,m.hp-h,m.mp-p])
-	log_expedition("휴식: "+" / ".join(gains))
+		gains.append("%s HP +%d"%[expedition_member_name(id),m.hp-h]+(", MP +%d"%(m.mp-p) if b.mp>0 else ""))
+	r.last=ExpeditionText.u("휴식. 파티 전원이 숨을 돌렸다({gain})",{"gain":" / ".join(gains)})
+	append_expedition_log("휴식: 파티 HP +%d%%"%int(floor((dungeon_rules.config.explore.REST_HP+mods.rest_hp)*100+.5)))
+	note(r.last)
 
 func final_battle() -> bool:
 	if not expedition():return super()
@@ -312,17 +398,34 @@ func item_preview(id: String,who: String) -> Dictionary:
 
 func use_item(id: String,who: String) -> bool:
 	if not expedition() or not active():return super(id,who)
+	return use_expedition_item(id,who)
+func use_expedition_item(id: String,who: String) -> bool:
+	if not expedition() or not active():return false
 	var p=item_preview(id,who)
 	if not p.usable:return false
 	if item_def(id).kind=="return":
 		if not take_supply(id):return false
 		return settle("retreat")
 	if not take_supply(id):return false
-	s.members[who]["mp" if p.resource=="MP" else "hp"]=p.after
-	log_expedition(person(who).name+" · "+item_def(id).name+" 사용")
+	var resource="mp" if p.resource=="MP" else "hp";var old=s.members[who][resource]
+	s.members[who][resource]=p.after
+	var name=expedition_member_name(who)
+	if item_def(id).kind=="revive":
+		s.run.last=ExpeditionText.u("{name:을를} 붕대로 일으켰다. HP {hp}",{"name":name,"hp":p.after})
+	else:s.run.last=ExpeditionText.u("{name}에게 {item}: "+p.resource+" +{n}",{"name":name,"item":expedition_item_name(id),"n":p.after-old})
 	return true
 
-func can_expedition_equip(who: String) -> bool:return expedition() and active() and s.run.phase=="rest" and who in expedition_ids()
+func expedition_retreat(arg: String) -> bool:
+	if not expedition() or not active() or s.run.phase not in ["explore","rest"]:return false
+	if arg=="retreat":s.run.ask=true;return true
+	if arg=="retreat_no":s.run.ask=false;return true
+	if arg=="retreat_yes" and s.run.ask:return settle("retreat")
+	return false
+func can_expedition_equip(who: String) -> bool:
+	if not expedition() or not active() or s.run.phase!="rest":return false
+	for e in expedition_members():
+		if expedition_equip_key(e.slot)==who:return true
+	return false
 func equip(who: String,uid: int) -> bool:
 	if not can_expedition_equip(who):return super(who,uid)
 	var e=gear_entry(uid)
