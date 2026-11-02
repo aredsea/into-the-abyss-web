@@ -19,7 +19,7 @@ func run():
 				else:b.automatic_turn()
 				turns+=1
 			check(b.result==outcome,"natural result fixture "+outcome);w.record_battle(b.snapshot())
-			var s=Screen.new();s.size=dim;s.storage.path="user://round3-results-fixture.json";root.add_child(s);s.model=w;s.motion_reduced=true;s._draw_screen()
+			var s=Screen.new();s.model=preload("res://game/town_world_r21.gd").new();s.size=dim;s.storage.path="user://round3-results-fixture.json";root.add_child(s);s.model=w;s.motion_reduced=true;s._draw_screen()
 			await process_frame;await process_frame;await process_frame
 			s._process(.21);await process_frame
 			check(is_instance_valid(s.result_view),"town result shell "+outcome)

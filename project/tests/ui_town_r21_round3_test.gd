@@ -58,7 +58,7 @@ func run():
 		if art.fallback:fallback+=1
 	for dim in [Vector2i(390,844),Vector2i(360,780),Vector2i(390,664),Vector2i(1280,800),Vector2i(430,932)]:
 		root.content_scale_size=dim;root.size=dim
-		var s=Screen.new();s.size=dim;s.storage.path="user://round3-ui-fixture.json";root.add_child(s);s.model=World.new();s.motion_reduced=true
+		var s=Screen.new();s.model=preload("res://game/town_world_r21.gd").new();s.size=dim;s.storage.path="user://round3-ui-fixture.json";root.add_child(s);s.model=World.new();s.motion_reduced=true
 		check(not s.town_r21_preview,"no flag on default route")
 		for page in ["town","party","member","skills","equipment","guild","recruit","inn","shop","smithy"]:
 			s.go(page);await capture(s,page,str(dim.x)+("x664" if dim.y==664 else ""))

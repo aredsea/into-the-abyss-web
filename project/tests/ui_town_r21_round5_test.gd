@@ -36,7 +36,7 @@ func run():
 	DirAccess.make_dir_recursive_absolute(folder+"/render")
 	for dim in [Vector2i(390,844),Vector2i(360,780),Vector2i(390,664),Vector2i(1280,800),Vector2i(430,932)]:
 		root.content_scale_size=dim;root.size=dim
-		var s=Screen.new();s.size=dim;s.storage.path="user://round5-ui-fixture.json";root.add_child(s);s.model=World.new();s.model.s.gold=100000;s.motion_reduced=true
+		var s=Screen.new();s.model=preload("res://game/town_world_r21.gd").new();s.size=dim;s.storage.path="user://round5-ui-fixture.json";root.add_child(s);s.model=World.new();s.model.s.gold=100000;s.motion_reduced=true
 		s.go("research");await click(s,"research_editor");await capture(s,"research-empty",dim)
 		check(s.controls.ps_save.disabled and s.controls["ps_part:suffixes"].disabled,"incomplete composition cannot save")
 		s.controls["ps_part:prefixes"].item_selected.emit(1);await process_frame;await process_frame

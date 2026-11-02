@@ -185,13 +185,14 @@ func home() -> void:
 	var zone=host.model.dungeon_rules.floor_info(host.model.selected_floor)
 	label(host.model.dungeon_rules.zones[zone.zone].name+"\n%d층"%host.model.selected_floor,Rect2(332,211,58,40),9).autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	metrics[-1].available=1000
-	picture(host.model.s.party[0],Rect2(50,103,340,428),"town-main")
+	var lead=host.model.s.party[0] if not host.model.s.party.is_empty() else host.model.s.owned[0]
+	picture(lead,Rect2(50,103,340,428),"town-main")
 	fill("hero_caption",Rect2(14,460,277,71),Color(0.067,.09,.08,.85))
 	label("주요 동료",Rect2(22,460,160,17),9,T.PAPER)
-	display(host.model.person(host.model.s.party[0]).name,Rect2(22,473,225,40),T.PAPER,37)
-	label(host.model.person(host.model.s.party[0])["class"],Rect2(255,493,42,23),13,T.PAPER,T.BOLD)
+	display(host.model.person(lead).name,Rect2(22,473,225,40),T.PAPER,37)
+	label(host.model.person(lead)["class"],Rect2(255,493,42,23),13,T.PAPER,T.BOLD)
 	label("출전 파티",Rect2(14,532,150,16),9,T.INK,T.BOLD)
-	for i in range(4):
+	for i in range(host.model.s.party.size()):
 		var id=host.model.s.party[i]; var x=14+i*92
 		fill("party_frame"+str(i),Rect2(x+2,548,84,62),T.INK)
 		picture(id,Rect2(x+2,550,83,58),"town-party-face")
@@ -213,6 +214,7 @@ func roster() -> void:
 	label("보유 %d명 / 전체 30명" % host.model.s.owned.size(),Rect2(194,20,140,24),11,T.INK,T.BOLD)
 	action("roster_all","전체" if not host.catalog_all else "보유",Rect2(337,13,44,38),func():host.catalog_all=not host.catalog_all;host._draw_screen())
 	var ids=host.model.IDS.duplicate()
+	if host.model.s.has("persona"):ids=host.model.s.owned.duplicate()
 	for p in host.model.config.companions:
 		if p.id not in ids and (host.catalog_all or p.id in host.model.s.owned): ids.append(p.id)
 	# More than four companions get a scrolling spread. No new geometry is
@@ -262,7 +264,7 @@ func scroll_page(y: float,height: float,minimum: float) -> Control:
 	return page
 
 func small_party(y: float,tall=false) -> void:
-	for i in range(4):
+	for i in range(host.model.s.party.size()):
 		var id=host.model.s.party[i]; var m=host.model.s.members[id]; var stats=host.model.stats(id,m.level); var x=18+i*91
 		picture(id,Rect2(x,y,86,181 if tall else 64),"party-tall" if tall else "town-party-face")
 		if tall:
@@ -337,7 +339,7 @@ func target_item() -> void:
 	paragraph(host._item_text(it),Rect2(103,99,210,47),12)
 	label("× %d"%w.s.items[it.id],Rect2(324,110,62,36),24,T.INK,T.BOLD)
 	rule(154,3,372);label("대상 선택" if host.message.is_empty() else host.message,Rect2(3,165,372,27),15,T.INK,T.BOLD)
-	for i in range(4):
+	for i in range(w.s.party.size()):
 		var id=w.s.party[i]; var y=199+i*109; var m=w.s.members[id]; var p=w.item_preview(it.id,id)
 		var selected=host.selected_target==id
 		var b=action("target:"+id,"",Rect2(3,y,372,99),func():host.selected_target=id;host._draw_screen(),false,not p.usable)
@@ -378,7 +380,7 @@ func exploration() -> void:
 	if r.phase=="rest":
 		traced_title("rest",Rect2(18,39,216,54))
 		# Reuse the unmodified C portrait crops; never redraw the source party.
-		for i in range(4):picture(w.s.party[i],Rect2(12+i*94,273,94,171),"party-tall")
+		for i in range(w.s.party.size()):picture(w.s.party[i],Rect2(12+i*94,273,94,171),"party-tall")
 	else:
 		traced_title("explore",Rect2(18,0,186,66))
 		var map=preload("res://ui/town_map_r21.gd").new();stage.add_child(map);map.position=Vector2(18,119);map.size=Vector2(354,338);map.configure(r,int(w.dungeon_rules.config.explore.STEPS))
@@ -398,7 +400,7 @@ func exploration() -> void:
 
 func cards() -> void:
 	header("탐색 카드","explore" if host.model.active() else "bag")
-	picture(host.model.s.party[0],Rect2(160,53,230,275 if not host.model.s.hand.is_empty() else 382),"town-main")
+	picture(host.model.s.party[0] if not host.model.s.party.is_empty() else host.model.s.owned[0],Rect2(160,53,230,275 if not host.model.s.hand.is_empty() else 382),"town-main")
 	if host.model.s.hand.is_empty():
 		display("보유 중인 카드가 없습니다",Rect2(18,449,354,45),T.INK,25)
 		paragraph("카드를 얻으면 이곳에서 확인할 수 있습니다.",Rect2(18,503,354,48),14)
@@ -542,7 +544,7 @@ func feedback(y=715.0) -> void:
 	if not host.message.is_empty(): paragraph(host.message,Rect2(18,y,354,40),12)
 
 func member_choice(r: Rect2) -> void:
-	if host.who not in host.model.s.owned:host.who=host.model.s.party[0]
+	if host.who not in host.model.s.owned:host.who=host.model.s.owned[0]
 	var pick=OptionButton.new();stage.add_child(pick);pick.position=r.position;pick.size=r.size
 	pick.fit_to_longest_item=false;pick.clip_text=true
 	for id in host.model.s.owned:pick.add_item(host.model.person(id).name+" · "+host.model.person(id)["class"])

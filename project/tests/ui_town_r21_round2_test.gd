@@ -44,7 +44,7 @@ func capture(s,name,width):
 func run():
 	for dim in [Vector2i(390,844),Vector2i(360,780),Vector2i(1280,800)]:
 		root.content_scale_size=dim;root.size=dim
-		var s=Screen.new();s.size=dim;s.storage.path="user://round2-ui-fixture.json";root.add_child(s);s.model=World.new();s.motion_reduced=true
+		var s=Screen.new();s.model=preload("res://game/town_world_r21.gd").new();s.size=dim;s.storage.path="user://round2-ui-fixture.json";root.add_child(s);s.model=World.new();s.motion_reduced=true
 		for page in ["depart","formation","bag","journal"]:
 			s.go(page);check(is_instance_valid(s.town_view),"finished route default "+page)
 			await capture(s,page,dim.x)
@@ -72,7 +72,7 @@ func run():
 	# Coverage evidence includes unchanged fallback screens. These captures are
 	# labelled "legacy" in the owner sheet; they are never counted as new panels.
 	root.content_scale_size=Vector2i(390,844);root.size=Vector2i(390,844)
-	var legacy=Screen.new();legacy.size=Vector2(390,844);legacy.storage.path="user://round2-coverage-fixture.json";root.add_child(legacy);legacy.model=World.new();legacy.motion_reduced=true
+	var legacy=Screen.new();legacy.model=preload("res://game/town_world_r21.gd").new();legacy.size=Vector2(390,844);legacy.storage.path="user://round2-coverage-fixture.json";root.add_child(legacy);legacy.model=World.new();legacy.motion_reduced=true
 	for page in ["equipment","guild","research","shop","smithy","inn"]:
 		legacy.go(page);await capture(legacy,"legacy-"+page,390)
 	legacy.go("guild");await capture(legacy,"legacy-recruit",390)
