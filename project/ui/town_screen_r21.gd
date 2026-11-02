@@ -2,6 +2,7 @@ extends Control
 ## First completed delivery: measured home / roster / overview / skills.
 ## All other destinations retain their complete functional screens in world_screen.
 const T=preload("res://ui/town_theme_r21.gd")
+const L=preload("res://game/localization_r22.gd")
 const Portrait=preload("res://ui/town_portrait_r21.gd")
 const Ink=preload("res://ui/battle_ink_r17.gd")
 var host
@@ -14,6 +15,24 @@ var background_scene=""
 func build(owner_screen) -> void:
 	build_frame(owner_screen)
 	build_page()
+	finish_localization()
+
+func localized(value: String) -> String:
+	return L.render(value,L.language(host.model.s))
+
+func finish_localization() -> void:
+	if L.language(host.model.s)!="en":return
+	# Give short English words room before fitting the artwork's fixed slots.
+	for entry in [["town_settings",282,88],["roster_all",309,72]]:
+		if host.controls.has(entry[0]):
+			var b=host.controls[entry[0]];b.position.x=entry[1];b.size.x=entry[2]
+	for node in find_children("*","Control",true,false):
+		if node is Label or node is Button:
+			L.fit_box(node)
+			if node.has_meta("metric_index"):
+				var metric=metrics[node.get_meta("metric_index")]
+				metric.text=node.text;metric.font_size=node.get_theme_font_size("font_size")
+				metric.needed=node.get_theme_font("font").get_multiline_string_size(node.text,HORIZONTAL_ALIGNMENT_LEFT,node.size.x if node.autowrap_mode!=TextServer.AUTOWRAP_OFF else -1,metric.font_size).x
 
 func build_frame(owner_screen) -> void:
 	host=owner_screen; mouse_filter=MOUSE_FILTER_IGNORE
@@ -52,6 +71,7 @@ func build_page() -> void:
 	elif host.screen=="equipment": equipment()
 	elif host.screen=="smithy": smithy()
 	elif host.screen=="research": research()
+	if host.screen=="town":action("town_settings","설정",Rect2(300,68,70,44),host.open_settings_r22)
 	navigation()
 	if not host.message.is_empty() and host.screen in ["town","party","member","skills","cards","explore"]:
 		fill("notice_bg",Rect2(14,nav_top-44,362,40),T.INK)
@@ -68,15 +88,16 @@ func fill(id: String,r: Rect2,color: Color) -> ColorRect:
 
 func label(value: String,r: Rect2,fs=14,color=T.INK,font: Font=T.BODY) -> Label:
 	var l=Label.new(); stage.add_child(l); l.position=r.position; l.size=r.size
-	l.text=value; l.add_theme_font_override("font",font); l.add_theme_font_size_override("font_size",fs); l.add_theme_color_override("font_color",color)
+	l.text=localized(value); l.add_theme_font_override("font",font); l.add_theme_font_size_override("font_size",fs); l.add_theme_color_override("font_color",color)
 	l.vertical_alignment=VERTICAL_ALIGNMENT_CENTER; l.mouse_filter=MOUSE_FILTER_IGNORE
 	l.clip_text=true
 	metrics.append({"text":value,"needed":font.get_multiline_string_size(value,HORIZONTAL_ALIGNMENT_LEFT,-1,fs).x,"available":r.size.x,"font_size":fs})
+	l.set_meta("metric_index",metrics.size()-1)
 	return l
 
 func display(value: String,r: Rect2,color=T.INK,fs=64,stretch=false) -> Label:
 	var l=label(value,r,fs,color,T.DISPLAY)
-	var w=T.DISPLAY.get_string_size(value,HORIZONTAL_ALIGNMENT_LEFT,-1,fs).x
+	var w=T.DISPLAY.get_string_size(l.text,HORIZONTAL_ALIGNMENT_LEFT,-1,fs).x
 	if w>r.size.x or stretch:
 		l.size.x=w; l.scale.x=r.size.x/w
 		metrics[-1].available=w
@@ -117,7 +138,7 @@ func traced_title(name: String,r: Rect2) -> void:
 	mark("title:"+name,t)
 
 func action(id: String,value: String,r: Rect2,callback: Callable,primary=false,disabled=false) -> Button:
-	var b=Button.new(); stage.add_child(b); b.position=r.position; b.size=r.size; b.text=value; b.disabled=disabled
+	var b=Button.new(); stage.add_child(b); b.position=r.position; b.size=r.size; b.text=localized(value); b.disabled=disabled
 	b.add_theme_font_override("font",T.BOLD); b.add_theme_font_size_override("font_size",16)
 	if primary:
 		for state in ["normal","hover","pressed"]:
@@ -185,7 +206,7 @@ func home() -> void:
 	label("금화",Rect2(14,315,38,22),14,T.INK,T.BOLD)
 	display(str(int(host.model.s.gold)),Rect2(48,308,77,35),T.RED,30)
 	var zone=host.model.dungeon_rules.floor_info(host.model.selected_floor)
-	label(host.model.dungeon_rules.zones[zone.zone].name+"\n%d층"%host.model.selected_floor,Rect2(332,211,58,40),9).autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	label(host.model.dungeon_rules.zones[zone.zone].name+"\n%d층"%host.model.selected_floor,Rect2(298,211,92,64) if L.language(host.model.s)=="en" else Rect2(332,211,58,40),9).autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	metrics[-1].available=1000
 	var lead=host.model.s.party[0] if not host.model.s.party.is_empty() else host.model.s.owned[0]
 	picture(lead,Rect2(50,103,340,428),"town-main")
@@ -460,7 +481,7 @@ func research() -> void:
 		for part in w.research[kind]:
 			if index==0 or w.compatible(host.research_prefix,part.id):parts.append(part)
 		var pick=OptionButton.new();stage.add_child(pick);pick.position=Vector2(18+index*182,504);pick.size=Vector2(172,56);pick.fit_to_longest_item=false;pick.clip_text=true;pick.add_theme_font_size_override("font_size",12)
-		for part in parts:pick.add_item(part.name+" · "+part.note)
+		for part in parts:pick.add_item(localized(part.name+" · "+part.note))
 		for i in range(parts.size()):
 			if parts[i].id==(host.research_prefix if index==0 else host.research_suffix):pick.select(i)
 		pick.item_selected.connect(func(i):
@@ -499,7 +520,7 @@ func research_editor() -> void:
 		pick.add_item("몸통을 고르세요" if index==0 else "덧효과를 고르세요")
 		for i in range(parts.size()):
 			var x=parts[i];var key="prefix" if index==0 else "suffix"
-			pick.add_item(x.name+" +%d"%rules.level(v[key+"_lv"],x.id))
+			pick.add_item(localized(x.name)+" +%d"%rules.level(v[key+"_lv"],x.id))
 			if x.id==v[key]:pick.select(i+1)
 		pick.set_item_disabled(0,true)
 		pick.disabled=w.active() or (index==1 and v.prefix.is_empty())
@@ -549,7 +570,7 @@ func member_choice(r: Rect2) -> void:
 	if host.who not in host.model.s.owned:host.who=host.model.s.owned[0]
 	var pick=OptionButton.new();stage.add_child(pick);pick.position=r.position;pick.size=r.size
 	pick.fit_to_longest_item=false;pick.clip_text=true
-	for id in host.model.s.owned:pick.add_item(host.model.person(id).name+" · "+host.model.person(id)["class"])
+	for id in host.model.s.owned:pick.add_item(localized(host.model.person(id).name+" · "+host.model.person(id)["class"]))
 	pick.select(host.model.s.owned.find(host.who));pick.item_selected.connect(func(i):host.who=host.model.s.owned[i];host._draw_screen())
 	host.controls.member_choice=pick
 
@@ -756,7 +777,7 @@ func smithy() -> void:
 	paragraph("무너진 것도,\n다시 쓸 수 있으니까.",Rect2(18,212,154,52),15)
 	fill("process_paper",Rect2(18,392,354,85),T.PAPER)
 	var w=host.model;var band=w.gear.band(w.highest_level());var odds=[]
-	label("장비 가공",Rect2(26,399,150,27),19,T.INK,T.BOLD)
+	label("장비 가공",Rect2(26,399,174,27),19,T.INK,T.BOLD)
 	for r in w.gear.ORDER:
 		if band.w.get(r,0)>0:odds.append(w.Gear.RARITY[r]+" %s%%"%str(band.w[r]))
 	paragraph(" / ".join(odds),Rect2(26,433,338,38),11)

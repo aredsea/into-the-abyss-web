@@ -12,7 +12,9 @@ static func valid(s: Dictionary) -> bool:
 	for line in c.list+c.queue:
 		if not line is String or line.length()>int(DATA.limits.line):return false
 	return true
-static func english(s: String) -> String:return str(DATA.english.get(s,s))
+static func english(s: String) -> String:
+	s=preload("res://game/localization_r22.gd").canonical_names(s)
+	return str(DATA.english.get(s,s))
 static func converted(t: String) -> String:
 	var rules=[
 		["^(.*?) 첫 만남, 동료로 함께하게 되었다$","meet"],

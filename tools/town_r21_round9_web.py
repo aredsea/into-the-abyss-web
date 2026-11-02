@@ -6,7 +6,7 @@ import json,threading,os,tempfile,time,sys
 from playwright.sync_api import sync_playwright
 R=Path(__file__).resolve().parents[1]
 O=R/'verification/town-r21/web'
-BUILD='r21-d-town-20261102e'
+BUILD='r21-d-town-20261102f'
 
 def idb_files(page):
  return page.evaluate('''async()=>{
@@ -31,7 +31,7 @@ def wait_idb(page,filename):
 def run():
  O.mkdir(parents=True,exist_ok=True)
  artifact=json.loads((R/'docs/version.json').read_text(encoding='utf-8'))
- runtime=R/'verification/town-r21/round9/browser';runtime.mkdir(parents=True,exist_ok=True)
+ runtime=R/'verification/town-r21/round10/browser';runtime.mkdir(parents=True,exist_ok=True)
  tempfile.tempdir=str(runtime)
  for key in ['TEMP','TMP','TMPDIR']:os.environ[key]=str(runtime)
  class Handler(SimpleHTTPRequestHandler):
@@ -47,14 +47,21 @@ def run():
   with sync_playwright() as p:
    browser=p.chromium.launch(executable_path='C:/Program Files/Google/Chrome/Application/chrome.exe',headless=True,args=['--enable-unsafe-swiftshader'])
    template=None
-   for width,height,reduced in ([] if idb_only else [(390,844,False),(360,780,False),(360,780,True),(390,664,False),(1280,800,False),(430,932,False)]):
+   for width,height,reduced,lang in ([] if idb_only else [(360,780,False,'en'),(390,844,False,'ko'),(360,780,False,'ko'),(360,780,True,'ko'),(390,664,False,'ko'),(1280,800,False,'ko'),(430,932,False,'ko')]):
     context=browser.new_context(viewport={'width':width,'height':height},locale='ko-KR',device_scale_factor=1,reduced_motion='reduce' if reduced else 'no-preference')
-    page=context.new_page();errors=[];tag=f'{width}x{height}'+('-reduced' if reduced else '')
+    page=context.new_page();errors=[];tag=f'{width}x{height}'+('-reduced' if reduced else '')+('-en' if lang=='en' else '')
     page.on('pageerror',lambda e:errors.append(str(e)))
     page.on('console',lambda m:errors.append(m.text) if m.type=='error' else None)
     page.goto(url);page.wait_for_function('window.__abyssWorld',timeout=90000)
     def world():return page.evaluate('window.__abyssWorld')
-    def capture(name):page.screenshot(path=str(O/f'{name}-{tag}.png'))
+    capture_checks=[]
+    def capture(name):
+     report=world()
+     if lang=='en' and report['screen']!='battle':
+      overflow=[t for t in report.get('town_text',[]) if t['needed']>t['available']+1]
+      assert not overflow,(name,overflow)
+      capture_checks.append(name)
+     page.screenshot(path=str(O/f'{name}-{tag}.png'))
     def click(key,battle=False):
      report=page.evaluate('window.__abyssPreview' if battle else 'window.__abyssWorld')
      assert key in report['controls'],(key,report.get('screen'),list(report['controls']))
@@ -70,11 +77,15 @@ def run():
      raise AssertionError('cannot scroll to '+key)
     assert world()['state']['scene']=='create' and not world()['restored']
     assert world()['ui_build']==BUILD
+    if lang=='en':
+     for key in ['p8_open','p8_lang_en','p8_back']:click(key)
+     assert world()['state']['settings']['lang']=='en'
     capture('create')
     for key in ['cr_race_human','cr_next','cr_nat_border','cr_next','cr_cls_warrior','cr_next','cr_tot_20','cr_auto','cr_next','cr_done','sc_pick_teiris']:click(key)
     capture('meeting');click('sc_go')
     initial=world();assert initial['state']['owned']==['teiris'] and initial['state']['members']['teiris']['aff']==0 and initial['state']['gold']==300
     assert 'persona_progress_r21' not in initial['state']
+    capture('town')
     town_viewport=initial['viewport']
     stored=wait_idb(page,'world_v3.json');template=stored
     page.reload();page.wait_for_function('window.__abyssWorld?.restored',timeout=90000)
@@ -165,7 +176,7 @@ def run():
     assert world()['state']['chronicle_r22']==final['state']['chronicle_r22']
     text_errors=[t for t in final.get('town_text',[]) if t['needed']>t['available']+1]+battle_text_errors
     assert not errors and not text_errors,(errors,text_errors)
-    results.append({'width':width,'height':height,'reduced':reduced,'ui_build':BUILD,'pck_sha256':artifact['pck_sha256'],'new_start':True,'first_affection':0,'recruited':recruited,'battles':battles,'actions':actions,'persona_level':paid['lv'],'persona_xp':paid['exp'],'indexeddb_reload':True,'viewport_restored_after_victory':restored_viewport,'errors':errors,'text_errors':text_errors})
+    results.append({'width':width,'height':height,'reduced':reduced,'lang':lang,'capture_checks':capture_checks,'ui_build':BUILD,'pck_sha256':artifact['pck_sha256'],'new_start':True,'first_affection':0,'recruited':recruited,'battles':battles,'actions':actions,'persona_level':paid['lv'],'persona_xp':paid['exp'],'indexeddb_reload':True,'viewport_restored_after_victory':restored_viewport,'errors':errors,'text_errors':text_errors})
     context.close();print('PASS first-run',tag,battles,'battles, persona level',paid['lv'],flush=True)
    # A separate temporary browser context imports two legacy files by IDBFS.
    if template is None:
@@ -192,7 +203,7 @@ def run():
    page.goto(url)
    try:page.wait_for_function('window.__abyssWorld?.restored',timeout=15000)
    except Exception:
-    (R/'verification/town-r21/round9/indexeddb-failure.json').write_text(json.dumps({'template':template,'files':idb_files(page),'world':page.evaluate('window.__abyssWorld')},ensure_ascii=False,indent=2),encoding='utf-8');page.screenshot(path=str(O/'legacy-idb-failure.png'));raise
+    (R/'verification/town-r21/round10/indexeddb-failure.json').write_text(json.dumps({'template':template,'files':idb_files(page),'world':page.evaluate('window.__abyssWorld')},ensure_ascii=False,indent=2),encoding='utf-8');page.screenshot(path=str(O/'legacy-idb-failure.png'));raise
    migrated=page.evaluate('window.__abyssWorld');assert migrated['state']['persona']['lv']==17 and migrated['state']['persona']['exp']==2
    assert migrated['state']['persona_migration_r21']['persona']['lv']==25
    assert all(migrated['state'][k]==raw[k] for k in ['favs','panels_r22','chronicle_r22'])
@@ -215,5 +226,5 @@ def run():
  finally:
   server.shutdown();server.server_close()
   (O/'results.json').write_text(json.dumps(results,ensure_ascii=False,indent=2),encoding='utf-8')
-  (R/'verification/town-r21/round9/indexeddb-results.json').write_text(json.dumps(migration,ensure_ascii=False,indent=2),encoding='utf-8')
- assert len(results)==6 and migration
+  (R/'verification/town-r21/round10/indexeddb-results.json').write_text(json.dumps(migration,ensure_ascii=False,indent=2),encoding='utf-8')
+ assert len(results)==7 and migration

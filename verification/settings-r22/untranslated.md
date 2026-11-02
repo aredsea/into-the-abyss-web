@@ -1,0 +1,204 @@
+# 10차 영어 미대응 목록
+
+정본에 없는 문구는 한국어로 유지한다. 일부 문구는 이름·공통 필드만 영어다. 정적 후보와 직접 렌더된 관측은 별개다.
+
+관측 195종 (마을 신규 174종, P8 설정 등 60종 합집합).
+
+- 0 gold · Experience: 0 · 탐색 0/5
+- 1일
+- 2 members · 속도 +1%
+- 2 members · 첫 라운드 공격 +3%
+- 2 members · 최대 HP +4%
+- 2 members · 탐색에서 주운 물건이 30% 확률로 하나 더
+- 3 members · 속도 +1%, 모든 아군의 2회 행동 확률 +4%
+- 3 members · 처치마다 속도 +1%, 탐색에서 주운 금화 +40%
+- 3 members · 최대 HP +7%, 받는 회복 +10%
+- 3 members · 탐색에서 주운 물건이 60% 확률로 하나 더
+- 4 / 30명
+- Equip · None · 기본 방어 사용
+- Favorite companions · 최대 3명
+- Fenella / 길드 접수
+- Interpreters' Lane lived up to its name. A wooden plaque above each doorway listed the languages spoken within, and the scratch of quills drifted from every open window. 당신 had come to leave a contract for translation. At the corner apothecary, something brought them to a stop. /  / An elf stood beneath the eaves. Her ears were long and pointed, her wavy blond hair parted in the middle. A dark green robe lay over both shoulders above a white dress. She held a palm-sized leather notebook open while her pale violet eyes followed every coat, gesture, and moving mouth in the lane. /  / From inside the shop came a young half-elf's voice. "Oh, that herb? It's absolutely insane how well it works!" /  / The elf's quill darted across the page, then stopped. She tilted her head and turned to 당신. /  / "Excuse me, may I ask you something? She just said 'insane,' yet she wasn't angry. She was smiling. Is that praise, then? Humans really are... Oh, pardon me. I ought to introduce myself first." /  / She hugged the notebook to her chest and bowed with care. /  / "I'm Teiris of Naerin, an envoy bearing the Worldtree's seal. I came to see the Abyss beyond the forest, but there is so much else to see out here." /  / A silver seal glimmered beneath the edge of her robe. She opened the notebook again and offered 당신 a blank space on the page. /  / "It is a scholarly inquiry. Tell me when that word becomes a compliment, and I'll tell you something I know in return. This lane may be different a century from now. ...That is why I'm writing it down today."
+- Lv.15부터 · 최대 HP의 25% 보호막 · 3턴
+- Lv.15부터 · 최대 HP의 35% 회복
+- Lv.15부터 · 최대 MP의 25% 회복
+- Lv.1부터 · 레벨 +1 · 최대 40 · 마을에서 사용
+- Lv.1부터 · 쓰러진 동료를 HP 25%로 소생
+- Lv.1부터 · 지속 피해 해제 · 전투 중 사용
+- Lv.1부터 · 최대 HP의 15% 보호막 · 3턴
+- Lv.1부터 · 최대 HP의 20% 회복
+- Lv.1부터 · 최대 MP의 15% 회복
+- Lv.1부터 · 탐색 중 원정을 끝내고 보상 정산
+- Lv.30부터 · 최대 HP의 40% 보호막 · 3턴
+- Lv.30부터 · 최대 HP의 50% 회복
+- Lv.30부터 · 최대 MP의 40% 회복
+- No equipment to forge. / 가공하거나 상회에서 장비를 구입하세요.
+- On a spring morning, there was scarcely room to stand in the Abyssal Expedition Guild Hall. Kern mercenaries jingled their iron tokens before the job board. At the registration desk, a freckled clerk kept calling, "Three copies of the contract!" /  / 당신 stopped before a notice by the door. *Adventurers and heroes sought for a campaign into the great dungeon.* That was all. No pay, no deadline, no word of who would command it. /  / Someone had arrived first. She wore silver plate, a crimson cloak, and a large gold cross over her breast. A single long braid of light brown hair fell straight down her back. She traced each line of the notice with one finger. At the last line, she paused and started over. /  / "...No terms at all." /  / She turned toward 당신, emerald eyes briefly taking in their gear. /  / "Forgive me. Are you here to enlist? I am Marceline, a paladin of Solen. This is my first visit as well... though I do know something of the procedure. Register at that desk, bring three copies of your contract and a pair of iron tokens. The tokens must be taken from a weapon, so it would be wise to have your blade ready." /  / As she bowed, something slipped from her shoulder bag and fell to the floor: a slim book with a pink cover. In Marento script, its title read *Three Moons over the Canal, Volume Three*. /  / Marceline picked it up without changing expression and pushed it deep into her bag. /  / "...A book of doctrine." /  / The tips of her ears slowly reddened. At the desk, the clerk called for the next applicant.
+- Relationships: She records 당신's descent and softens as it deepens. She asks no questions of demon companions, merely pours another cup of tea.
+- Strangers · 호감 0
+- Strangers · 호감 0 / 200
+- 가공 · 90 gold
+- 가방과 장비 확인
+- 가방으로
+- 개요
+- 거기 서십시오. ……실례했습니다. / 통로를 비우려던 참입니다. 안쪽에 앉으시겠습니까?
+- 게시판 갱신 · 10 gold
+- 경과 일수
+- 경험치 +10%(출전한 경계도시 사람마다).
+- 경험치 0 / 28
+- 계속 탐색
+- 고립된 탐사대 구조
+- 고정 위치 없음
+- 귀환
+- 귀환 · 정산
+- 귀환 주문서
+- 균열 핵 토벌
+- 금화
+- 기록
+- 기록 켜짐 · Off
+- 기술
+- 기존 활동
+- 길드
+- 나중에 이야기하기
+- 남은 점수 5 / 5
+- 낮음 · Lv.1
+- 높음 · Lv.4
+- 누구와 마주치나요?
+- 다른 장소
+- 당신
+- 대기 동료
+- 대장간
+- 대화
+- 대화·식사·선물은 동료마다 하루 한 번. / 곁에서 쉬면 하루가 지납니다.
+- 더 날카롭게, / 더 멀리.
+- 도감에서 동료를 즐겨찾기하면 여기에 모아 볼 수 있습니다.
+- 도발 중이 아니어도 적의 단일 공격이 35% 확률로 힐데가…
+- 돌파의 · 적 1명 피해
+- 동료 상세
+- 동료별 경험치
+- 뒤로
+- 마나약 · 대
+- 마나약 · 소
+- 마나약 · 중
+- 마을
+- 마을 장소
+- 마을에서 할 일
+- 막시밀리안
+- 만들기로
+- 모든 등급
+- 모든 부위
+- 모든 직업
+- 모험 기록
+- 무너진 것도, / 다시 쓸 수 있으니까.
+- 무료
+- 미장착
+- 받는 피해 -40% (모든 직업의 기본 '방어'는 1…
+- 보급품
+- 보상은 정산되었습니다. 이 화면을 다시 열어도 중복 지급되지 않습니다.
+- 보수 금화 100
+- 보수 금화 180
+- 보수 금화 450
+- 보수 금화 70
+- 보유 4명 / 전체 30명
+- 보유 금화
+- 보유 금화 300
+- 보유 장비 확인
+- 보유 중인 카드가 없습니다
+- 보유한 직업 장비가 없습니다. / 상회에서 구입하거나 대장간을 방문하세요.
+- 보호막약 · 대
+- 보호막약 · 소
+- 보호막약 · 중
+- 봉인된 보관함을 열어 소형 회복약 1개를 얻는다.
+- 상주 인물 없음
+- 상회
+- 선택한 층으로 출발 →
+- 성장 주문서
+- 속도 +1%.
+- 신뢰까지 20
+- 아군이 직전에 친 적을 이어 치면 피해 +8%.
+- 아직 기록이 없습니다
+- 아직 동료가 아닌 사람 가운데 한 명을 / 소개받으면 바로 동료가 됩니다.
+- 안전한 야영
+- 어떤 종족으로 살아왔나요?
+- 어떻게 답할까
+- 엔진이 확정한 사건을 날짜순으로 보관합니다.
+- 엘리트 · Lv.1
+- 여관
+- 여관에서도 점호하시나요?
+- 여행자의 여정에 / 필요한 모든 것.
+- 연대기
+- 연출 보기
+- 원정
+- 원정 경로
+- 원정 정산
+- 원정 준비
+- 원정대 출발 광장과 시내
+- 의뢰 수락
+- 이 조합 장착 · 무료
+- 이곳의 인물
+- 인물 목록
+- 인물 소개
+- 일반 80.0% / 고급 20.0%
+- 일반 · Weapon · 착용 Lv.1
+- 잃어버린 유품 회수
+- 자기 참전 · 동료 3명
+- 장비 가방
+- 장비 장착하기
+- 저는 서 있어도 괜찮아요.
+- 저장 다시 시도
+- 저장하지 못했습니다.
+- 저장하지 못했습니다. 다시 시도해 주세요.
+- 적의 공격을 자신에게 끌어온다 · 위압으로 심연을 깎…
+- 전술 연구
+- 전술 해제
+- 전투 승리 0회
+- 전투에서 처음 하는 공격의 치명 확률 +15%p.
+- 조각 조합 · 편집 후 저장
+- 주요 동료
+- 중간 · Lv.1
+- 지금까지 모은 보상을 정산합니다. / 계속 탐색하려면 취소를 누르세요.
+- 지휘 · 동료 4명
+- 직업 장비
+- 직접 정하기
+- 짐부터 안쪽으로 옮길게요.
+- 첫 만남과 원정에서 확정된 사건이 여기에 남습니다.
+- 체력 118 · 마력 33
+- 최근 1개 · 최신순
+- 추가 · Teiris
+- 추격 · 약화된 적에게 피해 +40%
+- 출발 시 HP·MP 회복
+- 출전 4 / 4 · 초상을 눌러 편성 해제
+- 출전 파티
+- 층 보스
+- 층의 입구에 도착했다.
+- 카드
+- 카드 사용
+- 카드를 얻으면 이곳에서 확인할 수 있습니다.
+- 탐사 지역
+- 탐색
+- 탐색 5회
+- 탐색 중 파티 HP를 최대치의 20%만큼 회복한다.
+- 탐색 카드
+- 토르바 산책
+- 토르바 상주 아님
+- 토르바 인물
+- 토르바에서 이어질 첫 인연
+- 토르바의 사람들과 각국 지도자
+- 특성
+- 파티 HP 30% · MP 60% 회복 완료
+- 편성 · Equipment
+- 한 능력치 최대 3점 · 속도는 1점에 +2
+- 함께, 더 깊은 곳으로.
+- 함께하는 동료
+- 합류 레벨 · 당신의 Lv.1
+- 해독제
+- 현재 모험은 보관 사본으로 남습니다.
+- 현재 위치
+- 현재 있는 곳
+- 회복약 · 대
+- 회복약 · 소
+- 회복약 · 중
+- 힐데가가 여관 문 쪽 의자를 가리킨다.
+
+전투 정적 후보 97행은 untranslated.json의 battle_deferred에 보관한다. 전투 파일을 번역하거나 수정하지 않았다.
+전투 로그의 옛 힐데가르트 표기 1곳도 별도 후속 목록에 남겼다.

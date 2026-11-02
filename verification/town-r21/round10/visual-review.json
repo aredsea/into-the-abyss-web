@@ -1,0 +1,31 @@
+{
+  "mode": "Operate / existing Godot paper-brush UI preserved",
+  "native_contact_sheets_opened": [
+    "contact-360x780.jpg",
+    "contact-390x844.jpg",
+    "contact-390x664.jpg",
+    "contact-430x932.jpg",
+    "contact-1280x800.jpg"
+  ],
+  "web_360_opened": [
+    "town-360x780-en.png",
+    "participate-360x780-en.png",
+    "create-360x780-en.png"
+  ],
+  "settings_360_opened": [
+    "settings-en-360x780.png",
+    "reset-en-360x780.png"
+  ],
+  "resolved": [
+    "Settings and Codex word clipping: widen controls before fitting type.",
+    "Town floor/zone height and smithy heading width corrected.",
+    "Bare-variable auto-template falsely split unknown Korean labels; fallback regression added.",
+    "P1 selected brush keeps P8 readable red by tinting existing texture."
+  ],
+  "remaining": [
+    "Partial English only: unsupported native copy, baked Korean artwork and public dialogue remain Korean.",
+    "Some narrow P7 controls wrap long English words; full typography redesign is outside this merge.",
+    "No physical mobile device or screen-reader QA; Chromium and Godot native viewport tests only."
+  ],
+  "scope": "No full-game English, platform-accessibility, or pixel-identical mockup acceptance claimed."
+}

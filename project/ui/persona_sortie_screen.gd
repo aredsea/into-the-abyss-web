@@ -15,7 +15,7 @@ func build(owner_screen) -> void:
 	paragraph("출발 시 HP·MP 회복",Rect2(18,171,198,28),12)
 	var pick=OptionButton.new();stage.add_child(pick);pick.position=Vector2(18,212);pick.size=Vector2(190,56);pick.add_theme_font_size_override("font_size",12)
 	for f in range(1,w.dungeon_max()+1):
-		var z=w.dungeon_rules.floor_info(f);pick.add_item("%d층 · %s"%[f,w.dungeon_rules.zones[z.zone].name])
+		var z=w.dungeon_rules.floor_info(f);pick.add_item(L.u("{floor}층 {zone}",{"floor":f,"zone":w.dungeon_rules.zones[z.zone].name},L.language(s)))
 	pick.select(w.selected_floor-1)
 	pick.item_selected.connect(func(i):w.selected_floor=i+1;s.dungeon_r21.sel=i+1;host._save();host._draw_screen())
 	host.controls.dungeon_floor=pick
@@ -57,6 +57,7 @@ func build(owner_screen) -> void:
 	action("start_run","선택한 층으로 출발 →",Rect2(18,736,354,56),func():host._act(w.depart_dungeon.bind(w.selected_floor),"");host.go("explore"),true,ids.is_empty() or w.active())
 	navigation()
 	if host.save_error!=OK:action("save_retry","저장 다시 시도",Rect2(18,667,354,56),func():host._save();host._draw_screen(),true)
+	finish_localization()
 
 func formation_row(ids: Array,x: float) -> void:
 	var sc=ScrollContainer.new();stage.add_child(sc);sc.position=Vector2(x,359);sc.size=Vector2(174,122)
