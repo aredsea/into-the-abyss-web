@@ -1,5 +1,17 @@
 # LOOK-R24 · 전 화면 외형 감사 및 수정
 
+## 3차 · 하단 행과 로딩 그림 경계 수정
+
+**관련 검사 6그룹 통과, 14,365건·실패 0. 셸 30상태/크기·실패 0.** 이번에는 지시대로 관련 그룹과 셸만 재검사했다. 아래 2차의 전체 검사 수치는 이전 실행 기록이다. [3차 결과](verification/look-r24/round3/results.json), [스크롤 끝 검사](verification/look-r24/round3/bottom-results.json), [시안 00·2차·3차 비교](verification/look-r24/round3/review/approved-comparison.jpg).
+
+- **능력치:** 같은 단계의 선택·점수 증감 후 스크롤 위치와 누른 행을 유지한다. 스크롤 끝과 하단 먹 선 사이 간격을 4→16px로 늘렸다. [390×664](verification/look-r24/after/create-points-action-390x664.png) · [390×844](verification/look-r24/after/create-points-390x844.png) · [모든 크기](verification/look-r24/round3/review/create-points-action.jpg)를 직접 열어 속도·직업 추천대로·점수 비우기와 마지막 체력/마력 줄이 온전히 보임을 확인했다. 새 모험가 5단계·직접 배분·첫 만남·클라우드 연결/자격 표시/충돌/계정 전환/확인·순위도 끝까지 내려 마지막 행의 접근과 전체 경계를 검사했다. 긴 본문은 스크롤하며, 위쪽 경계에서 지나간 글자가 가려지는 동작은 유지한다.
+- **로딩:** 기존 `gesture-base`의 검정 붓 벡터를 마스크와 먹 가장자리로 재사용했다. 그림의 네모난 아래 변을 붓의 찢어진 경계로 바꾸고, 진행 띠를 포스터 아래 **8px**에 붙였다. [390×844](verification/look-r24/after/loading-loading-390x844.png) · [1280×800](verification/look-r24/after/loading-loading-1280x800.png) · [전체 크기](verification/look-r24/round3/review/loading-loading.jpg)를 직접 열었다. 시안 00의 제목·대표 초상·성곽 배치는 유지하며, 아래쪽은 로딩 정보에 이어지는 먹 붓 경계로 처리한 차이가 있다. 초상 원본·크롭 좌표·진행/팁/오류 문구는 그대로다.
+- **확인 범위:** 360×780·390×664·390×844·430×932·1280×800 및 360×780 감소 모션. look-r24 캡처 **192회 / 고유 파일 186장**을 다시 저장했고, [3차 연락 시트 9개](verification/look-r24/round3/review/)와 주요 원본을 직접 열어 검토했다. 원본 이미지 **96개 해시 불변**, 금지 경로 변경 **0개**, 게임 규칙·데이터·저장 형식 변경 **0개**. `docs/`·Web export·커밋 **0개**. 새 WASM 통합 검사는 Claude의 export 뒤 남는다. 검증 환경은 Windows Godot 네이티브 UI와 Chromium 원본 셸이며 실제 휴대폰 검사는 하지 않았다.
+
+수정 파일: `project/ui/create_screen.gd`, `project/web_shell.html`, `tools/look_r24_shell_assets.py`, `tools/look_r24_shell.py`, 신규 `project/tests/ui_look_r24_bottom_test.gd` 및 검증 산출물. 기존 검사 3,516건에 마지막 행/전체 행동의 스크롤 접근 검사 4,116건을 추가했다. 생성 UI 2,033건·생성 규칙 4,005건·클라우드 UI 695건과 import도 통과했다. 추가 검사 초안의 오류 2건은 긴 선택 목록 전체를 한 행으로 판정한 시험 오류였으며, 실제 마지막 선택지를 검사하도록 고친 최종 결과는 0건이다. 기존 게임 기대값은 바꾸지 않았다.
+
+Impeccable 경고/권고 7개는 이전과 같은 r11 DESIGN.md와 현행 r21 서체·색·크기 차이다. 승인 시안과 마을 정본을 유지했고, DESIGN.md/sidecar 동기화는 범위 밖으로 남겼다(`document`로 갱신 가능). 시작 시 지시서 읽기와 함께 `git status --short`를 1회 시도했으나 ownership 오류로 실패했으며, 이후 git 명령은 사용하지 않았다.
+
 ## 2차 · 지적된 시각 결함 수정과 직접 비교
 
 1차의 **검사 106/106 통과는 시각 승인 근거가 아니었다.** 거절된 그림은 [round1-after/](verification/look-r24/round1-after/)에 보존했다. [시안 00 · 거절된 1차 · 최종 2차 나란히 비교](verification/look-r24/review/round2-approved-comparison.png)를 직접 열었다. 아래는 승인 시안 00과 01~03, 최종 after 원본 및 전체 132장을 담은 연락 시트 11개를 직접 열어 비교한 결과다. 사용자 시각 승인은 별도다.

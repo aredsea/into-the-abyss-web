@@ -21,7 +21,7 @@ func setup(owner_screen,heading: String) -> void:
 		title=TextureRect.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x*.72,58);title.texture=load("res://assets/ui-r21/title-"+("meeting" if heading=="첫 만남" else "create")+".svg");title.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;title.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;title.mouse_filter=MOUSE_FILTER_IGNORE
 	else:
 		title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-36,58);title.text=L.render(heading,L.language(host.model.s));title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",38)
-	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,132);scroll.size=Vector2(frame.size.x-36,frame.size.y-216);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,132);scroll.size=Vector2(frame.size.x-36,frame.size.y-228);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
 	body=VBoxContainer.new();scroll.add_child(body);body.size_flags_horizontal=SIZE_EXPAND_FILL;body.add_theme_constant_override("separation",12)
 	footer=HBoxContainer.new();frame.add_child(footer);footer.position=Vector2(18,frame.size.y-68);footer.size=Vector2(frame.size.x-36,50);footer.add_theme_constant_override("separation",12)
 	T.rule(frame,frame.size.y-80,frame.size.x-36)
@@ -59,9 +59,22 @@ func step_heading(value: String) -> void:
 	text(value,23);T.heading_rule(body)
 
 func act(arg: String,kind="cr") -> void:
+	# Rebuilding a selection must not send the user back to the top of a long form.
+	var old_scene=host.model.s.scene;var old_page=int(host.model.s.ui.page);var old_scroll=scroll.scroll_vertical
+	var focus_id=""
+	for id in host.controls:
+		if host.controls[id]==get_viewport().gui_get_focus_owner():focus_id=id;break
 	host.model.create_action(arg,kind);host._save()
 	if host.model.s.scene=="town":host.who=host.model.s.owned[0];host.screen="town"
 	host._draw_screen()
+	if host.model.s.scene==old_scene and int(host.model.s.ui.page)==old_page and is_instance_valid(host.town_view) and host.town_view.has_method("restore_scroll"):
+		host.town_view.call_deferred("restore_scroll",old_scroll,focus_id)
+
+func restore_scroll(offset: int,focus_id: String) -> void:
+	scroll.scroll_vertical=offset
+	if host.controls.has(focus_id) and body.is_ancestor_of(host.controls[focus_id]):
+		var target=host.controls[focus_id]
+		scroll.ensure_control_visible(target.get_parent() if target.get_parent() is HBoxContainer else target)
 func traits(entry: Dictionary) -> void:
 	if entry.is_empty():return
 	text(entry.name,23)

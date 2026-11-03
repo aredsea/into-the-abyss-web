@@ -50,7 +50,14 @@ try:
       if(r.width && (r.left<-.5||r.right>innerWidth+.5||e.scrollWidth>e.clientWidth+1||e.scrollHeight>e.clientHeight+1))issues.push(e.id||e.tagName);
      }return issues;
     }''')
-    results.append({'file':name,'issues':issues,'errors':list(errors)})
+    layout=page.evaluate('''() => {
+     const poster=document.querySelector('.poster'),box=document.querySelector('.status-box');
+     if(!poster)return null;
+     const p=poster.getBoundingClientRect(),b=box.getBoundingClientRect();
+     return {poster_bottom:p.bottom,status_top:b.top,gap:b.top-p.bottom,mask:getComputedStyle(poster).maskImage!=='none'};
+    }''')
+    if phase=='after' and (not layout or not layout['mask'] or not 0<=layout['gap']<=9):issues.append('poster/brush/status spacing')
+    results.append({'file':name,'issues':issues,'errors':list(errors),'layout':layout})
     if state=='challenge':
      page.click('#cloud-challenge-cancel');assert not page.evaluate("document.getElementById('cloud-challenge').open")
    context.close()
