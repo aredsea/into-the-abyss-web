@@ -3,16 +3,16 @@
   "basis": "r21-expe-brief.md / r21-common.md; 109 items from audit-r22b.json remaining_work[7]",
   "summary": {
     "reviewed_rows": 109,
-    "promoted_same": 43,
-    "fixed_rows": 38,
+    "promoted_same": 44,
+    "fixed_rows": 39,
     "fixed_still_remaining": 10,
-    "remaining_rows": 66,
-    "oracle_checks": 100698,
+    "remaining_rows": 65,
+    "oracle_checks": 101173,
     "core_oracle_checks": 2310,
     "supply_oracle_checks": 7384,
     "level_oracle_checks": 6571,
     "oracle_failures": 0,
-    "regression_groups": 112,
+    "regression_groups": 116,
     "failed_groups": [],
     "protected_snapshot_files": 1007,
     "changed_existing_files": [
@@ -79,6 +79,35 @@
       "trace_battles": 6320,
       "trace_equal_battles": 6320,
       "trace_records": 219785
+    },
+    "pass4": {
+      "reviewed_rows": 66,
+      "promoted_same": 1,
+      "implementation_rows": 2,
+      "actual_bug_fixed_rows": 1,
+      "remaining_rows": 65,
+      "native_assertions": 475,
+      "native_failures": 0,
+      "source_functions_called": 66,
+      "source_explicit_entries_before": 196,
+      "source_explicit_entries_entered": 301,
+      "source_explicit_entries": 303,
+      "cumulative_explicit_entries_entered": 316,
+      "cumulative_explicit_entries": 318,
+      "new_explicit_entries": 105,
+      "excluded_sexual_entries": 2,
+      "regression_groups": 116,
+      "failed_groups": [],
+      "changed_existing_files": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "outside_allowed_changed": [],
+      "assets_checked": 96,
+      "asset_changes": [],
+      "trace_battles": 6320,
+      "trace_equal_battles": 6320,
+      "trace_records": 219785,
+      "cloud_save_specimens": 3
     }
   },
   "rows": [
@@ -99,7 +128,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 3/4 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 3/4 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 4/4, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -140,6 +169,41 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 3/4 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "battle",
+          "handler",
+          "sortie",
+          "settle",
+          "quest_settle",
+          "remaining",
+          "finish",
+          "start",
+          "continue",
+          "town",
+          "explore",
+          "award"
+        ],
+        "explicit_entries": 4,
+        "previous_entered": 3,
+        "entered": 4,
+        "new_entries": [
+          "70-town.lua:21:1001"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 4/4, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -159,7 +223,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -190,6 +254,30 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "sortie",
+          "remaining",
+          "town"
+        ],
+        "explicit_entries": 0,
+        "previous_entered": 0,
+        "entered": 0,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -209,7 +297,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 2/2 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 2/2 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 2/2, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -240,6 +328,29 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 2/2 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "remaining",
+          "town"
+        ],
+        "explicit_entries": 2,
+        "previous_entered": 2,
+        "entered": 2,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 2/2, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -259,7 +370,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -290,6 +401,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "town"
+        ],
+        "explicit_entries": 1,
+        "previous_entered": 1,
+        "entered": 1,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -309,7 +442,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 2/3 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 2/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -347,6 +480,30 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 2/3 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "town"
+        ],
+        "explicit_entries": 3,
+        "previous_entered": 2,
+        "entered": 3,
+        "new_entries": [
+          "70-town.lua:51:1914"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 3/3, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -366,7 +523,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -397,6 +554,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "remaining"
+        ],
+        "explicit_entries": 0,
+        "previous_entered": 0,
+        "entered": 0,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -416,7 +595,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -447,6 +626,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "town"
+        ],
+        "explicit_entries": 0,
+        "previous_entered": 0,
+        "entered": 0,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -466,7 +667,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -497,6 +698,29 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "remaining",
+          "town"
+        ],
+        "explicit_entries": 0,
+        "previous_entered": 0,
+        "entered": 0,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -516,7 +740,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -547,6 +771,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "remaining"
+        ],
+        "explicit_entries": 0,
+        "previous_entered": 0,
+        "entered": 0,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -566,7 +812,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 3/4 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 3/4 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 4/4, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -604,6 +850,30 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 3/4 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "town"
+        ],
+        "explicit_entries": 4,
+        "previous_entered": 3,
+        "entered": 4,
+        "new_entries": [
+          "70-town.lua:77:3305"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 4/4, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -623,7 +893,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 12/16 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 12/16 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 14/16, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음. 미도달 109/110행은 명시 제외된 장미 골목 이동/장면 경계다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -679,6 +949,44 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 12/16 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "town"
+        ],
+        "explicit_entries": 16,
+        "previous_entered": 12,
+        "entered": 14,
+        "new_entries": [
+          "70-town.lua:117:5778",
+          "70-town.lua:124:6041"
+        ],
+        "remaining_entries": [
+          {
+            "key": "70-town.lua:109:5303",
+            "line": 109,
+            "offset": 5303,
+            "token": "then"
+          },
+          {
+            "key": "70-town.lua:110:5383",
+            "line": 110,
+            "offset": 5383,
+            "token": "then"
+          }
+        ],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 14/16, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음. 미도달 109/110행은 명시 제외된 장미 골목 이동/장면 경계다."
       }
     },
     {
@@ -698,7 +1006,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 1/19 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 1/19 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 19/19, 새 진입 18; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -838,6 +1146,49 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 1/19 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "quest_settle",
+          "remaining",
+          "town"
+        ],
+        "explicit_entries": 19,
+        "previous_entered": 1,
+        "entered": 19,
+        "new_entries": [
+          "70-town.lua:134:6255",
+          "70-town.lua:135:6335",
+          "70-town.lua:140:6587",
+          "70-town.lua:144:6813",
+          "70-town.lua:147:7062",
+          "70-town.lua:149:7152",
+          "70-town.lua:154:7332",
+          "70-town.lua:156:7553",
+          "70-town.lua:158:7739",
+          "70-town.lua:160:7835",
+          "70-town.lua:162:7911",
+          "70-town.lua:166:8074",
+          "70-town.lua:173:8370",
+          "70-town.lua:175:8492",
+          "70-town.lua:177:8559",
+          "70-town.lua:183:8943",
+          "70-town.lua:185:9033",
+          "70-town.lua:190:9147"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 19/19, 새 진입 18; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -857,7 +1208,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 1/6 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 1/6 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 6/6, 새 진입 5; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -919,6 +1270,34 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 1/6 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "town"
+        ],
+        "explicit_entries": 6,
+        "previous_entered": 1,
+        "entered": 6,
+        "new_entries": [
+          "70-town.lua:199:9629",
+          "70-town.lua:201:9784",
+          "70-town.lua:202:9885",
+          "70-town.lua:205:10168",
+          "70-town.lua:207:10399"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 6/6, 새 진입 5; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -938,7 +1317,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 1/3 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 1/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -982,6 +1361,32 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 1/3 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "remaining",
+          "town"
+        ],
+        "explicit_entries": 3,
+        "previous_entered": 1,
+        "entered": 3,
+        "new_entries": [
+          "70-town.lua:213:10807",
+          "70-town.lua:215:10918"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 3/3, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -1086,7 +1491,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다. 3차: 원본 호출 및 명시 진입 14/20 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다. 3차: 원본 호출 및 명시 진입 14/20 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 20/20, 새 진입 6; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1155,6 +1560,38 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다. 3차: 원본 호출 및 명시 진입 14/20 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "settle",
+          "quest_settle",
+          "finish",
+          "award"
+        ],
+        "explicit_entries": 20,
+        "previous_entered": 14,
+        "entered": 20,
+        "new_entries": [
+          "74-level.lua:91:3198",
+          "74-level.lua:93:3293",
+          "74-level.lua:94:3393",
+          "74-level.lua:107:4147",
+          "74-level.lua:108:4180",
+          "74-level.lua:109:4244"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 20/20, 새 진입 6; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -1174,7 +1611,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1206,6 +1643,31 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "settle",
+          "quest_settle",
+          "finish",
+          "award"
+        ],
+        "explicit_entries": 1,
+        "previous_entered": 1,
+        "entered": 1,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -1336,7 +1798,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1368,6 +1830,29 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "sortie",
+          "remaining"
+        ],
+        "explicit_entries": 1,
+        "previous_entered": 1,
+        "entered": 1,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -1387,7 +1872,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1418,6 +1903,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "remaining"
+        ],
+        "explicit_entries": 1,
+        "previous_entered": 1,
+        "entered": 1,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -1437,7 +1944,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 3/3 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 3/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1468,6 +1975,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 3/3 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "remaining"
+        ],
+        "explicit_entries": 3,
+        "previous_entered": 3,
+        "entered": 3,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 3/3, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -1487,7 +2016,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1518,6 +2047,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "remaining"
+        ],
+        "explicit_entries": 0,
+        "previous_entered": 0,
+        "entered": 0,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -1624,7 +2175,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 3/4 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 3/4 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 4/4, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1663,6 +2214,31 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 3/4 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "sortie",
+          "remaining"
+        ],
+        "explicit_entries": 4,
+        "previous_entered": 3,
+        "entered": 4,
+        "new_entries": [
+          "75-sortie.lua:126:6205"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 4/4, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -1682,7 +2258,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1714,6 +2290,29 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "sortie",
+          "remaining"
+        ],
+        "explicit_entries": 0,
+        "previous_entered": 0,
+        "entered": 0,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -1777,7 +2376,7 @@
       "implementation": [
         "project/ui/persona_sortie_screen.gd:3"
       ],
-      "remaining_reason": "경고를 출정 화면에 연결했다. 원본 summary_card HTML 전체 반환은 native 캔버스와 다르다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "경고를 출정 화면에 연결했다. 원본 summary_card HTML 전체 반환은 native 캔버스와 다르다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -1808,6 +2407,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 경고를 출정 화면에 연결했다. 원본 summary_card HTML 전체 반환은 native 캔버스와 다르다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "경고를 출정 화면에 연결했다. 원본 summary_card HTML 전체 반환은 native 캔버스와 다르다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "remaining"
+        ],
+        "explicit_entries": 1,
+        "previous_entered": 1,
+        "entered": 1,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -1827,7 +2448,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1858,6 +2479,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "remaining"
+        ],
+        "explicit_entries": 1,
+        "previous_entered": 1,
+        "entered": 1,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -1877,7 +2520,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1908,6 +2551,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "sortie"
+        ],
+        "explicit_entries": 1,
+        "previous_entered": 1,
+        "entered": 1,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -1927,7 +2592,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 21/32 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 21/32 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 32/32, 새 진입 11; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -2025,6 +2690,41 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 21/32 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "sortie",
+          "remaining"
+        ],
+        "explicit_entries": 32,
+        "previous_entered": 21,
+        "entered": 32,
+        "new_entries": [
+          "75-sortie.lua:230:11128",
+          "75-sortie.lua:232:11221",
+          "75-sortie.lua:237:11374",
+          "75-sortie.lua:242:11629",
+          "75-sortie.lua:245:11766",
+          "75-sortie.lua:246:11828",
+          "75-sortie.lua:248:11893",
+          "75-sortie.lua:249:12010",
+          "75-sortie.lua:251:12118",
+          "75-sortie.lua:251:12148",
+          "75-sortie.lua:252:12209"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 32/32, 새 진입 11; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -2286,7 +2986,7 @@
       "implementation": [
         "project/ui/persona_sortie_screen.gd:3"
       ],
-      "remaining_reason": "층 정보 77건과 실제 페이지/경고 화면을 확인했다. dn_card HTML 전체·페이지 초과값의 정규화까지 동일하다고 세지 않는다. 3차: 원본 호출 및 명시 진입 5/5 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "층 정보 77건과 실제 페이지/경고 화면을 확인했다. dn_card HTML 전체·페이지 초과값의 정규화까지 동일하다고 세지 않는다. 3차: 원본 호출 및 명시 진입 5/5 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 5/5, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -2317,6 +3017,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 층 정보 77건과 실제 페이지/경고 화면을 확인했다. dn_card HTML 전체·페이지 초과값의 정규화까지 동일하다고 세지 않는다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "층 정보 77건과 실제 페이지/경고 화면을 확인했다. dn_card HTML 전체·페이지 초과값의 정규화까지 동일하다고 세지 않는다. 3차: 원본 호출 및 명시 진입 5/5 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "remaining"
+        ],
+        "explicit_entries": 5,
+        "previous_entered": 5,
+        "entered": 5,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 5/5, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -2397,7 +3119,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 ex_run은 dn_G를 호출하면서 원본 dungeon 구조도 정규화한다. native run 접근과 손상 상태의 부작용까지 같은 계약이 아니다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 ex_run은 dn_G를 호출하면서 원본 dungeon 구조도 정규화한다. native run 접근과 손상 상태의 부작용까지 같은 계약이 아니다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -2430,6 +3152,34 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 ex_run은 dn_G를 호출하면서 원본 dungeon 구조도 정규화한다. native run 접근과 손상 상태의 부작용까지 같은 계약이 아니다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 ex_run은 dn_G를 호출하면서 원본 dungeon 구조도 정규화한다. native run 접근과 손상 상태의 부작용까지 같은 계약이 아니다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "handler",
+          "settle",
+          "run_record",
+          "remaining",
+          "screens",
+          "continue",
+          "explore"
+        ],
+        "explicit_entries": 0,
+        "previous_entered": 0,
+        "entered": 0,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -2587,16 +3337,24 @@
       },
       "unverified_branches": [],
       "prior_status": "일부",
-      "status": "일부",
+      "status": "같음",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
       "fixed": true,
       "tests": [
-        "expe_r23_test::initial_vitals"
+        "expe_r23_test::initial_vitals",
+        "expe_pass4_r23_test::new",
+        "expe_pass4_r23_test::new_actual",
+        "expe_pass4_r23_test::resume_actual",
+        "expe_pass4_r23_test::integration"
       ],
       "implementation": [
-        "project/game/expedition_world_r22.gd:57"
+        "project/game/expedition_world_r22.gd:57",
+        "project/game/expedition_world_r22.gd:179",
+        "project/game/expedition_world_r22.gd:201",
+        "project/game/expedition_world_r22.gd:206",
+        "project/game/expedition_world_r22.gd:226"
       ],
-      "remaining_reason": "입장 자원 24건을 고쳤다. 원본 G_rnd의 소비 상태·sid·boss_name·pm 전체·빈 슬롯 전체를 포함한 ex_new 반환 전부는 같은 저장 ABI가 아니다. 3차: 원본 호출 및 명시 진입 3/3 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -2633,6 +3391,42 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 입장 자원 24건을 고쳤다. 원본 G_rnd의 소비 상태·sid·boss_name·pm 전체·빈 슬롯 전체를 포함한 ex_new 반환 전부는 같은 저장 ABI가 아니다."
+      },
+      "equality_domain": "Source-record/native projection ABI: complete R return, pm alias, ordered stats calls and explicit pcall success/value envelope; G.seed/n map to town_r21.seed/counter. Native/cloud save schema stays unchanged. Invalid structural inputs which cause a Lua runtime error are outside the valid record ABI.",
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "입장 자원 24건을 고쳤다. 원본 G_rnd의 소비 상태·sid·boss_name·pm 전체·빈 슬롯 전체를 포함한 ex_new 반환 전부는 같은 저장 ABI가 아니다. 3차: 원본 호출 및 명시 진입 3/3 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "battle",
+          "handler",
+          "sortie",
+          "new_actual",
+          "settle",
+          "new",
+          "remaining",
+          "finish",
+          "migration",
+          "screens",
+          "start",
+          "continue",
+          "resume_actual",
+          "explore"
+        ],
+        "explicit_entries": 3,
+        "previous_entered": 3,
+        "entered": 3,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": true,
+        "source_only_is_not_parity": true,
+        "detail": "새 층 전체 반환 120입력(5 RNG 경계×6층×정상/통계 실패/비표/빈 슬롯), pm 참조·콜백 순서, 실제 G_rnd 24입력과 저장 재개 후 다음 난수 4입력을 직접 비교했다. 원본 RNG 대조 48차이를 먼저 보존하고 성공한 출발만 town_r21.counter를 1 소비하게 수정했다. 명시 seed/거절 출발은 소비하지 않는다. 실제 출발 초기 자원도 같은 생성기를 쓴다."
       }
     },
     {
@@ -2786,10 +3580,11 @@
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
       "fixed": true,
       "tests": [
-        "expe_pass2_r23_test::itname (3141 checks)"
+        "expe_pass2_r23_test::itname (3141 checks)",
+        "expe_pass4_r23_test::names"
       ],
       "implementation": [],
-      "remaining_reason": "원본 ITEMS 전수를 열거해 귀환 두루마리/레벨업 스크롤의 표시 이름까지 보강했다(효과/상점 규칙 추가 없음). 79-sex 전용 charm_potion(매혹의 비약)은 지시대로 목록만 남기고 이름/장면을 이식하지 않았으므로 이 함수 전체는 일부로 남긴다. 이 1입력은 이름 같음 단언에서 명시적으로 제외하며 나머지 3,141입력은 직접 일치한다. 3차: 원본 호출 및 명시 진입 0/1 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 ITEMS 전수를 열거해 귀환 두루마리/레벨업 스크롤의 표시 이름까지 보강했다(효과/상점 규칙 추가 없음). 79-sex 전용 charm_potion(매혹의 비약)은 지시대로 목록만 남기고 이름/장면을 이식하지 않았으므로 이 함수 전체는 일부로 남긴다. 이 1입력은 이름 같음 단언에서 명시적으로 제외하며 나머지 3,141입력은 직접 일치한다. 3차: 원본 호출 및 명시 진입 0/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음. 유효 장비 코드 분기와 아이템·모르는 코드·빈 이름의 직접 대조 9건을 추가했다. 제외한 charm_potion은 그대로 제외하므로 전체 승격하지 않는다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -2830,6 +3625,35 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 ITEMS 전수를 열거해 귀환 두루마리/레벨업 스크롤의 표시 이름까지 보강했다(효과/상점 규칙 추가 없음). 79-sex 전용 charm_potion(매혹의 비약)은 지시대로 목록만 남기고 이름/장면을 이식하지 않았으므로 이 함수 전체는 일부로 남긴다. 이 1입력은 이름 같음 단언에서 명시적으로 제외하며 나머지 3,141입력은 직접 일치한다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "원본 ITEMS 전수를 열거해 귀환 두루마리/레벨업 스크롤의 표시 이름까지 보강했다(효과/상점 규칙 추가 없음). 79-sex 전용 charm_potion(매혹의 비약)은 지시대로 목록만 남기고 이름/장면을 이식하지 않았으므로 이 함수 전체는 일부로 남긴다. 이 1입력은 이름 같음 단언에서 명시적으로 제외하며 나머지 3,141입력은 직접 일치한다. 3차: 원본 호출 및 명시 진입 0/1 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "handler",
+          "remaining",
+          "finish",
+          "screens",
+          "names",
+          "explore"
+        ],
+        "explicit_entries": 1,
+        "previous_entered": 0,
+        "entered": 1,
+        "new_entries": [
+          "77-explore.lua:146:7683"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 1/1, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음. 유효 장비 코드 분기와 아이템·모르는 코드·빈 이름의 직접 대조 9건을 추가했다. 제외한 charm_potion은 그대로 제외하므로 전체 승격하지 않는다."
       }
     },
     {
@@ -2950,7 +3774,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:57"
       ],
-      "remaining_reason": "출발 상태는 대조했으나 이전 층 prev 목록·RisuAI pend_hard·메시지/장면 계약은 남는다. 3차: 원본 호출 및 명시 진입 0/4 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "출발 상태는 대조했으나 이전 층 prev 목록·RisuAI pend_hard·메시지/장면 계약은 남는다. 3차: 원본 호출 및 명시 진입 0/4 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 4/4, 새 진입 4; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -3006,6 +3830,35 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 출발 상태는 대조했으나 이전 층 prev 목록·RisuAI pend_hard·메시지/장면 계약은 남는다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "출발 상태는 대조했으나 이전 층 prev 목록·RisuAI pend_hard·메시지/장면 계약은 남는다. 3차: 원본 호출 및 명시 진입 0/4 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "handler",
+          "sortie",
+          "start"
+        ],
+        "explicit_entries": 4,
+        "previous_entered": 0,
+        "entered": 4,
+        "new_entries": [
+          "77-explore.lua:186:9433",
+          "77-explore.lua:188:9555",
+          "77-explore.lua:190:9634",
+          "77-explore.lua:190:9702"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 4/4, 새 진입 4; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -3029,7 +3882,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:123"
       ],
-      "remaining_reason": "첫 전투 전 자원 24건을 대조했다(B.run을 잠시 막아 전투 시작 뒤 적 행동과 분리). 전투 저장 매체·st 전부·원본 호스트 장면 전환의 동등성 증거는 아니다. 3차: 원본 호출 및 명시 진입 3/5 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "첫 전투 전 자원 24건을 대조했다(B.run을 잠시 막아 전투 시작 뒤 적 행동과 분리). 전투 저장 매체·st 전부·원본 호스트 장면 전환의 동등성 증거는 아니다. 3차: 원본 호출 및 명시 진입 3/5 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 5/5, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -3073,6 +3926,34 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 첫 전투 전 자원 24건을 대조했다(B.run을 잠시 막아 전투 시작 뒤 적 행동과 분리). 전투 저장 매체·st 전부·원본 호스트 장면 전환의 동등성 증거는 아니다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "첫 전투 전 자원 24건을 대조했다(B.run을 잠시 막아 전투 시작 뒤 적 행동과 분리). 전투 저장 매체·st 전부·원본 호스트 장면 전환의 동등성 증거는 아니다. 3차: 원본 호출 및 명시 진입 3/5 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "battle",
+          "remaining",
+          "continue",
+          "explore"
+        ],
+        "explicit_entries": 5,
+        "previous_entered": 3,
+        "entered": 5,
+        "new_entries": [
+          "77-explore.lua:227:11738",
+          "77-explore.lua:228:11767"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 5/5, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -3097,7 +3978,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:103"
       ],
-      "remaining_reason": "휴식 자원·R.last·로그 원문 16입력을 추가로 일치시켰다. 원본 직접 재호출의 반복 회복과 native rested 중복 방지, 호스트 pend 및 이번 이식 제외 대상의 sx0 필드는 남는다. 3차: 원본 호출 및 명시 진입 6/6 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "휴식 자원·R.last·로그 원문 16입력을 추가로 일치시켰다. 원본 직접 재호출의 반복 회복과 native rested 중복 방지, 호스트 pend 및 이번 이식 제외 대상의 sx0 필드는 남는다. 3차: 원본 호출 및 명시 진입 6/6 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 6/6, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -3130,6 +4011,29 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 휴식 자원·R.last·로그 원문 16입력을 추가로 일치시켰다. 원본 직접 재호출의 반복 회복과 native rested 중복 방지, 호스트 pend 및 이번 이식 제외 대상의 sx0 필드는 남는다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "휴식 자원·R.last·로그 원문 16입력을 추가로 일치시켰다. 원본 직접 재호출의 반복 회복과 native rested 중복 방지, 호스트 pend 및 이번 이식 제외 대상의 sx0 필드는 남는다. 3차: 원본 호출 및 명시 진입 6/6 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "continue",
+          "explore"
+        ],
+        "explicit_entries": 6,
+        "previous_entered": 6,
+        "entered": 6,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 6/6, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -3154,7 +4058,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:84"
       ],
-      "remaining_reason": "200개의 실제 원본 H.ex(go)를 실행해 phase/step/elites/last/log/금화/아이템/장비/HP/MP 전체 투영이 같아졌다. 전투 초기화를 관찰할 때 B.run만 멈췄다. AI pending 누적·Risu 호스트 저장은 native에 없어 일부로 유지한다. 3차: 원본 호출 및 명시 진입 7/10 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "200개의 실제 원본 H.ex(go)를 실행해 phase/step/elites/last/log/금화/아이템/장비/HP/MP 전체 투영이 같아졌다. 전투 초기화를 관찰할 때 B.run만 멈췄다. AI pending 누적·Risu 호스트 저장은 native에 없어 일부로 유지한다. 3차: 원본 호출 및 명시 진입 7/10 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 10/10, 새 진입 3; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -3206,6 +4110,32 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 200개의 실제 원본 H.ex(go)를 실행해 phase/step/elites/last/log/금화/아이템/장비/HP/MP 전체 투영이 같아졌다. 전투 초기화를 관찰할 때 B.run만 멈췄다. AI pending 누적·Risu 호스트 저장은 native에 없어 일부로 유지한다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "200개의 실제 원본 H.ex(go)를 실행해 phase/step/elites/last/log/금화/아이템/장비/HP/MP 전체 투영이 같아졌다. 전투 초기화를 관찰할 때 B.run만 멈췄다. AI pending 누적·Risu 호스트 저장은 native에 없어 일부로 유지한다. 3차: 원본 호출 및 명시 진입 7/10 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "explore"
+        ],
+        "explicit_entries": 10,
+        "previous_entered": 7,
+        "entered": 10,
+        "new_entries": [
+          "77-explore.lua:270:13737",
+          "77-explore.lua:291:14785",
+          "77-explore.lua:292:14892"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 10/10, 새 진입 3; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -3286,7 +4216,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "do_cont의 sid/bn/over/dn 무효 입력·적 이름 중복 제거·정예 로그/호스트 전환 전체를 native 스냅샷 continuation과 직접 비교하지 못했다. 3차: 원본 호출 및 명시 진입 4/6 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "do_cont의 sid/bn/over/dn 무효 입력·적 이름 중복 제거·정예 로그/호스트 전환 전체를 native 스냅샷 continuation과 직접 비교하지 못했다. 3차: 원본 호출 및 명시 진입 4/6 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 6/6, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -3330,6 +4260,32 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. do_cont의 sid/bn/over/dn 무효 입력·적 이름 중복 제거·정예 로그/호스트 전환 전체를 native 스냅샷 continuation과 직접 비교하지 못했다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "do_cont의 sid/bn/over/dn 무효 입력·적 이름 중복 제거·정예 로그/호스트 전환 전체를 native 스냅샷 continuation과 직접 비교하지 못했다. 3차: 원본 호출 및 명시 진입 4/6 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "remaining",
+          "continue"
+        ],
+        "explicit_entries": 6,
+        "previous_entered": 4,
+        "entered": 6,
+        "new_entries": [
+          "77-explore.lua:339:17238",
+          "77-explore.lua:345:17509"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 6/6, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -3353,7 +4309,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:116"
       ],
-      "remaining_reason": "퇴각 확인 중에도 보스를 시작하고 ask를 지우도록 수정했다. B.ex_battle의 호스트 저장·메시지 전체가 native 버튼 경계와 같지는 않다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "퇴각 확인 중에도 보스를 시작하고 ask를 지우도록 수정했다. B.ex_battle의 호스트 저장·메시지 전체가 native 버튼 경계와 같지는 않다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -3384,6 +4340,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 퇴각 확인 중에도 보스를 시작하고 ask를 지우도록 수정했다. B.ex_battle의 호스트 저장·메시지 전체가 native 버튼 경계와 같지는 않다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "퇴각 확인 중에도 보스를 시작하고 ask를 지우도록 수정했다. B.ex_battle의 호스트 저장·메시지 전체가 native 버튼 경계와 같지는 않다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "remaining"
+        ],
+        "explicit_entries": 1,
+        "previous_entered": 1,
+        "entered": 1,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -3448,10 +4426,17 @@
       "prior_status": "일부",
       "status": "일부",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "가방 포화 시 원본은 버린다. native는 사용자 저장 보존을 위해 overflow에 코드를 남긴다. 장비 가방 규칙은 이번 수정 금지다. 3차: 원본 호출 및 명시 진입 2/3 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "fixed": true,
+      "tests": [
+        "expe_pass4_r23_test::gear_bank",
+        "expe_pass4_r23_test::integration"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:465",
+        "project/game/expedition_world_r22.gd:468",
+        "project/game/expedition_world_r22.gd:476"
+      ],
+      "remaining_reason": "가방 포화 시 원본은 버린다. native는 사용자 저장 보존을 위해 overflow에 코드를 남긴다. 장비 가방 규칙은 이번 수정 금지다. 3차: 원본 호출 및 명시 진입 2/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음. 동일 bag_add 콜백의 전체 성공/실패/교차/빈 목록, 호출 순서·id·전체 반환은 직접 일치했다. 잘못된 코드의 입고 실패도 lost에 포함한다. 실제 native 포화 가방의 기존 overflow 보존은 원본 폐기와 달라 일부 판정을 유지한다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -3489,6 +4474,32 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 가방 포화 시 원본은 버린다. native는 사용자 저장 보존을 위해 overflow에 코드를 남긴다. 장비 가방 규칙은 이번 수정 금지다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "가방 포화 시 원본은 버린다. native는 사용자 저장 보존을 위해 overflow에 코드를 남긴다. 장비 가방 규칙은 이번 수정 금지다. 3차: 원본 호출 및 명시 진입 2/3 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "settle",
+          "gear_bank",
+          "finish"
+        ],
+        "explicit_entries": 3,
+        "previous_entered": 2,
+        "entered": 3,
+        "new_entries": [
+          "77-explore.lua:373:18579"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 3/3, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음. 동일 bag_add 콜백의 전체 성공/실패/교차/빈 목록, 호출 순서·id·전체 반환은 직접 일치했다. 잘못된 코드의 입고 실패도 lost에 포함한다. 실제 native 포화 가방의 기존 overflow 보존은 원본 폐기와 달라 일부 판정을 유지한다."
       }
     },
     {
@@ -3661,7 +4672,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:235"
       ],
-      "remaining_reason": "클리어/퇴각/패배 기존 9 Lua 정산과 native 45씨앗을 재검사했다. defeat 뒤 원본 run 제거/거점 이동과 native 완료 run 보관, 요약 필드·문구·호스트 계약 차이가 남는다. 3차: 원본 호출 및 명시 진입 19/29 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "클리어/퇴각/패배 기존 9 Lua 정산과 native 45씨앗을 재검사했다. defeat 뒤 원본 run 제거/거점 이동과 native 완료 run 보관, 요약 필드·문구·호스트 계약 차이가 남는다. 3차: 원본 호출 및 명시 진입 19/29 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 29/29, 새 진입 10; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -3753,6 +4764,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 클리어/퇴각/패배 기존 9 Lua 정산과 native 45씨앗을 재검사했다. defeat 뒤 원본 run 제거/거점 이동과 native 완료 run 보관, 요약 필드·문구·호스트 계약 차이가 남는다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "클리어/퇴각/패배 기존 9 Lua 정산과 native 45씨앗을 재검사했다. defeat 뒤 원본 run 제거/거점 이동과 native 완료 run 보관, 요약 필드·문구·호스트 계약 차이가 남는다. 3차: 원본 호출 및 명시 진입 19/29 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "settle",
+          "finish"
+        ],
+        "explicit_entries": 29,
+        "previous_entered": 19,
+        "entered": 29,
+        "new_entries": [
+          "77-explore.lua:415:20082",
+          "77-explore.lua:465:23439",
+          "77-explore.lua:473:23822",
+          "77-explore.lua:476:23956",
+          "77-explore.lua:490:24705",
+          "77-explore.lua:492:24792",
+          "77-explore.lua:494:24851",
+          "77-explore.lua:501:25063",
+          "77-explore.lua:512:25566",
+          "77-explore.lua:515:25906"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 29/29, 새 진입 10; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -3776,7 +4821,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:158"
       ],
-      "remaining_reason": "native는 스냅샷 build/상태 검증을 사용한다. 원본 sid/bn 불일치 시 거점 복귀·메시지·legacy 분기 전체에 대한 함수 단위 일치는 미확정이다. 3차: 원본 호출 및 명시 진입 1/5 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "native는 스냅샷 build/상태 검증을 사용한다. 원본 sid/bn 불일치 시 거점 복귀·메시지·legacy 분기 전체에 대한 함수 단위 일치는 미확정이다. 3차: 원본 호출 및 명시 진입 1/5 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 5/5, 새 진입 4; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -3832,6 +4877,34 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. native는 스냅샷 build/상태 검증을 사용한다. 원본 sid/bn 불일치 시 거점 복귀·메시지·legacy 분기 전체에 대한 함수 단위 일치는 미확정이다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "native는 스냅샷 build/상태 검증을 사용한다. 원본 sid/bn 불일치 시 거점 복귀·메시지·legacy 분기 전체에 대한 함수 단위 일치는 미확정이다. 3차: 원본 호출 및 명시 진입 1/5 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "settle",
+          "quest_settle"
+        ],
+        "explicit_entries": 5,
+        "previous_entered": 1,
+        "entered": 5,
+        "new_entries": [
+          "77-explore.lua:546:27626",
+          "77-explore.lua:550:27770",
+          "77-explore.lua:554:27885",
+          "77-explore.lua:555:27926"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 5/5, 새 진입 4; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -3851,7 +4924,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "실제 옛 native 저장 11개를 보존해 불러오지만, 원본 st.dn.stage 1/2 저장을 직접 읽어 정산하는 전체 legacy ABI는 별개로 남는다. 3차: 원본 호출 및 명시 진입 5/5 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "실제 옛 native 저장 11개를 보존해 불러오지만, 원본 st.dn.stage 1/2 저장을 직접 읽어 정산하는 전체 legacy ABI는 별개로 남는다. 3차: 원본 호출 및 명시 진입 5/5 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 5/5, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -3882,6 +4955,29 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 실제 옛 native 저장 11개를 보존해 불러오지만, 원본 st.dn.stage 1/2 저장을 직접 읽어 정산하는 전체 legacy ABI는 별개로 남는다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "실제 옛 native 저장 11개를 보존해 불러오지만, 원본 st.dn.stage 1/2 저장을 직접 읽어 정산하는 전체 legacy ABI는 별개로 남는다. 3차: 원본 호출 및 명시 진입 5/5 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "settle",
+          "quest_settle"
+        ],
+        "explicit_entries": 5,
+        "previous_entered": 5,
+        "entered": 5,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 5/5, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -4038,7 +5134,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "휴식 정비의 유효 동작은 기존 검사로 보존했다. 원본 장비 코드 버튼 인코딩·잘못된 슬롯·why 문자열·다른 소유자 장비 전체 분기는 장비 규칙 담당 범위다. 3차: 원본 호출 및 명시 진입 6/6 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "휴식 정비의 유효 동작은 기존 검사로 보존했다. 원본 장비 코드 버튼 인코딩·잘못된 슬롯·why 문자열·다른 소유자 장비 전체 분기는 장비 규칙 담당 범위다. 3차: 원본 호출 및 명시 진입 6/6 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 6/6, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4069,6 +5165,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 휴식 정비의 유효 동작은 기존 검사로 보존했다. 원본 장비 코드 버튼 인코딩·잘못된 슬롯·why 문자열·다른 소유자 장비 전체 분기는 장비 규칙 담당 범위다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "휴식 정비의 유효 동작은 기존 검사로 보존했다. 원본 장비 코드 버튼 인코딩·잘못된 슬롯·why 문자열·다른 소유자 장비 전체 분기는 장비 규칙 담당 범위다. 3차: 원본 호출 및 명시 진입 6/6 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "handler"
+        ],
+        "explicit_entries": 6,
+        "previous_entered": 6,
+        "entered": 6,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 6/6, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -4092,7 +5210,7 @@
         "expe_pass2_r23_test::equip_key (96 checks)"
       ],
       "implementation": [],
-      "remaining_reason": "퇴각 요청/취소/저장 재개와 아이템·슬롯 경계를 보강했다. cont/next/home의 Risu 메시지·note·장면 및 전체 버튼 문자열 ABI는 남는다. 3차: 원본 호출 및 명시 진입 11/17 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "퇴각 요청/취소/저장 재개와 아이템·슬롯 경계를 보강했다. cont/next/home의 Risu 메시지·note·장면 및 전체 버튼 문자열 ABI는 남는다. 3차: 원본 호출 및 명시 진입 11/17 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 17/17, 새 진입 6; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4164,6 +5282,36 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 퇴각 요청/취소/저장 재개와 아이템·슬롯 경계를 보강했다. cont/next/home의 Risu 메시지·note·장면 및 전체 버튼 문자열 ABI는 남는다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "퇴각 요청/취소/저장 재개와 아이템·슬롯 경계를 보강했다. cont/next/home의 Risu 메시지·note·장면 및 전체 버튼 문자열 ABI는 남는다. 3차: 원본 호출 및 명시 진입 11/17 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "handler",
+          "remaining"
+        ],
+        "explicit_entries": 17,
+        "previous_entered": 11,
+        "entered": 17,
+        "new_entries": [
+          "77-explore.lua:668:32038",
+          "77-explore.lua:669:32131",
+          "77-explore.lua:674:32398",
+          "77-explore.lua:683:32958",
+          "77-explore.lua:685:33064",
+          "77-explore.lua:696:33570"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 17/17, 새 진입 6; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -4183,7 +5331,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4214,6 +5362,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "screens"
+        ],
+        "explicit_entries": 0,
+        "previous_entered": 0,
+        "entered": 0,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -4233,7 +5403,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4264,6 +5434,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "screens"
+        ],
+        "explicit_entries": 1,
+        "previous_entered": 1,
+        "entered": 1,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -4283,7 +5475,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4314,6 +5506,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "screens"
+        ],
+        "explicit_entries": 1,
+        "previous_entered": 1,
+        "entered": 1,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -4337,7 +5551,7 @@
         "expe_pass2_r23_test::use_text (72 checks)"
       ],
       "implementation": [],
-      "remaining_reason": "R.last 자체는 발견/휴식/아이템 288입력에서 원본 문구를 일치시켰다. last_card의 빈 문자열/HTML 탈출·태그 전체 반환은 native 캔버스와 다르다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "R.last 자체는 발견/휴식/아이템 288입력에서 원본 문구를 일치시켰다. last_card의 빈 문자열/HTML 탈출·태그 전체 반환은 native 캔버스와 다르다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4372,6 +5586,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. R.last 자체는 발견/휴식/아이템 288입력에서 원본 문구를 일치시켰다. last_card의 빈 문자열/HTML 탈출·태그 전체 반환은 native 캔버스와 다르다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "R.last 자체는 발견/휴식/아이템 288입력에서 원본 문구를 일치시켰다. last_card의 빈 문자열/HTML 탈출·태그 전체 반환은 native 캔버스와 다르다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "screens"
+        ],
+        "explicit_entries": 1,
+        "previous_entered": 1,
+        "entered": 1,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -4391,7 +5627,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/1 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4429,6 +5665,30 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/1 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "screens"
+        ],
+        "explicit_entries": 1,
+        "previous_entered": 0,
+        "entered": 1,
+        "new_entries": [
+          "77-explore.lua:747:36435"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 1/1, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -4448,7 +5708,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 3/5 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 3/5 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 5/5, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4492,6 +5752,31 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 3/5 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "screens"
+        ],
+        "explicit_entries": 5,
+        "previous_entered": 3,
+        "entered": 5,
+        "new_entries": [
+          "77-explore.lua:758:37060",
+          "77-explore.lua:762:37299"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 5/5, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -4511,7 +5796,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 2/2 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 2/2 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 2/2, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4542,6 +5827,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 2/2 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "screens"
+        ],
+        "explicit_entries": 2,
+        "previous_entered": 2,
+        "entered": 2,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 2/2, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -4563,7 +5870,7 @@
         "expe_pass2_r23_test::retreat_resume (16 checks)"
       ],
       "implementation": [],
-      "remaining_reason": "퇴각 확인의 실제 입력/저장 재개/취소/중복 거부는 5크기 UI 210검사에서 통과했다. 원본 HTML 안내/버튼 반환 계약은 남는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "퇴각 확인의 실제 입력/저장 재개/취소/중복 거부는 5크기 UI 210검사에서 통과했다. 원본 HTML 안내/버튼 반환 계약은 남는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4596,6 +5903,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 퇴각 확인의 실제 입력/저장 재개/취소/중복 거부는 5크기 UI 210검사에서 통과했다. 원본 HTML 안내/버튼 반환 계약은 남는다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "퇴각 확인의 실제 입력/저장 재개/취소/중복 거부는 5크기 UI 210검사에서 통과했다. 원본 HTML 안내/버튼 반환 계약은 남는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "screens"
+        ],
+        "explicit_entries": 1,
+        "previous_entered": 1,
+        "entered": 1,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -4615,7 +5944,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4646,6 +5975,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "screens"
+        ],
+        "explicit_entries": 0,
+        "previous_entered": 0,
+        "entered": 0,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -4665,7 +6016,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 1/3 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 1/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4709,6 +6060,32 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 1/3 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "remaining",
+          "screens"
+        ],
+        "explicit_entries": 3,
+        "previous_entered": 1,
+        "entered": 3,
+        "new_entries": [
+          "77-explore.lua:808:40306",
+          "77-explore.lua:809:40423"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 3/3, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -4731,7 +6108,7 @@
         "expe_pass2_r23_test::gear_label (3142 checks)"
       ],
       "implementation": [],
-      "remaining_reason": "정비 슬롯과 장비 라벨의 직접 대조를 추가했다. gear_card의 R.sel 정규화·HTML 전체와 원본 장비 버튼 후보 반환은 별도 경계다. 3차: 원본 호출 및 명시 진입 1/2 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "정비 슬롯과 장비 라벨의 직접 대조를 추가했다. gear_card의 R.sel 정규화·HTML 전체와 원본 장비 버튼 후보 반환은 별도 경계다. 3차: 원본 호출 및 명시 진입 1/2 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 2/2, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4772,6 +6149,30 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 정비 슬롯과 장비 라벨의 직접 대조를 추가했다. gear_card의 R.sel 정규화·HTML 전체와 원본 장비 버튼 후보 반환은 별도 경계다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "정비 슬롯과 장비 라벨의 직접 대조를 추가했다. gear_card의 R.sel 정규화·HTML 전체와 원본 장비 버튼 후보 반환은 별도 경계다. 3차: 원본 호출 및 명시 진입 1/2 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "screens"
+        ],
+        "explicit_entries": 2,
+        "previous_entered": 1,
+        "entered": 2,
+        "new_entries": [
+          "77-explore.lua:824:40965"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 2/2, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -4791,7 +6192,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4822,6 +6223,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "screens"
+        ],
+        "explicit_entries": 0,
+        "previous_entered": 0,
+        "entered": 0,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -4841,7 +6264,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/1 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4879,6 +6302,30 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/1 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "screens"
+        ],
+        "explicit_entries": 1,
+        "previous_entered": 0,
+        "entered": 1,
+        "new_entries": [
+          "77-explore.lua:838:42011"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 1/1, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -4900,7 +6347,7 @@
         "expe_pass2_r23_test::retreat (24 checks)"
       ],
       "implementation": [],
-      "remaining_reason": "원정 정산과 이름/장비 표시를 보강했다. done_screen의 전체 HTML·정렬/보존/유실 표시 및 native summary 배열/사전 ABI가 다르다. 3차: 원본 호출 및 명시 진입 3/11 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원정 정산과 이름/장비 표시를 보강했다. done_screen의 전체 HTML·정렬/보존/유실 표시 및 native summary 배열/사전 ABI가 다르다. 3차: 원본 호출 및 명시 진입 3/11 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 11/11, 새 진입 8; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4982,6 +6429,37 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원정 정산과 이름/장비 표시를 보강했다. done_screen의 전체 HTML·정렬/보존/유실 표시 및 native summary 배열/사전 ABI가 다르다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원정 정산과 이름/장비 표시를 보강했다. done_screen의 전체 HTML·정렬/보존/유실 표시 및 native summary 배열/사전 ABI가 다르다. 3차: 원본 호출 및 명시 진입 3/11 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "screens"
+        ],
+        "explicit_entries": 11,
+        "previous_entered": 3,
+        "entered": 11,
+        "new_entries": [
+          "77-explore.lua:860:43301",
+          "77-explore.lua:862:43349",
+          "77-explore.lua:864:43518",
+          "77-explore.lua:866:43778",
+          "77-explore.lua:867:43871",
+          "77-explore.lua:869:44047",
+          "77-explore.lua:871:44094",
+          "77-explore.lua:873:44266"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 11/11, 새 진입 8; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -5001,7 +6479,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5032,6 +6510,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "screens"
+        ],
+        "explicit_entries": 0,
+        "previous_entered": 0,
+        "entered": 0,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -5051,7 +6551,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 2/3 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 2/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5089,6 +6589,30 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 2/3 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "screens"
+        ],
+        "explicit_entries": 3,
+        "previous_entered": 2,
+        "entered": 3,
+        "new_entries": [
+          "77-explore.lua:884:45141"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 3/3, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -5170,7 +6694,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:380"
       ],
-      "remaining_reason": "거점/주머니의 potion/mana 합산·숫자 문자열·반복/JSON·입력 불변을 고쳤다. 음수/소수 등 원본이 산술적으로 받아들이는 값은 기존 native 저장 검증에서 원자적으로 거부한다. 3차: 원본 호출 및 명시 진입 3/3 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "거점/주머니의 potion/mana 합산·숫자 문자열·반복/JSON·입력 불변을 고쳤다. 음수/소수 등 원본이 산술적으로 받아들이는 값은 기존 native 저장 검증에서 원자적으로 거부한다. 3차: 원본 호출 및 명시 진입 3/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -5202,6 +6726,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 거점/주머니의 potion/mana 합산·숫자 문자열·반복/JSON·입력 불변을 고쳤다. 음수/소수 등 원본이 산술적으로 받아들이는 값은 기존 native 저장 검증에서 원자적으로 거부한다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "거점/주머니의 potion/mana 합산·숫자 문자열·반복/JSON·입력 불변을 고쳤다. 음수/소수 등 원본이 산술적으로 받아들이는 값은 기존 native 저장 검증에서 원자적으로 거부한다. 3차: 원본 호출 및 명시 진입 3/3 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "migration"
+        ],
+        "explicit_entries": 3,
+        "previous_entered": 3,
+        "entered": 3,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 3/3, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -5225,7 +6771,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:348"
       ],
-      "remaining_reason": "별칭 이관은 보강했다. prev_migrate 전체 원본 저장 스키마 및 canonical G를 native 저장으로 직접 읽는 범용 이관은 미구현이며, 기존 native 저장 이관을 보존했다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "별칭 이관은 보강했다. prev_migrate 전체 원본 저장 스키마 및 canonical G를 native 저장으로 직접 읽는 범용 이관은 미구현이며, 기존 native 저장 이관을 보존했다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -5256,6 +6802,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 별칭 이관은 보강했다. prev_migrate 전체 원본 저장 스키마 및 canonical G를 native 저장으로 직접 읽는 범용 이관은 미구현이며, 기존 native 저장 이관을 보존했다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "별칭 이관은 보강했다. prev_migrate 전체 원본 저장 스키마 및 canonical G를 native 저장으로 직접 읽는 범용 이관은 미구현이며, 기존 native 저장 이관을 보존했다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "migration"
+        ],
+        "explicit_entries": 1,
+        "previous_entered": 1,
+        "entered": 1,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -5419,7 +6987,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음. cur_i는 원본에서 호출처가 없는 local이며 별도 노출해 호출했다. 이를 전투 전체 같음으로 확대하지 않는다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5450,6 +7018,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "remaining"
+        ],
+        "explicit_entries": 0,
+        "previous_entered": 0,
+        "entered": 0,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음. cur_i는 원본에서 호출처가 없는 local이며 별도 노출해 호출했다. 이를 전투 전체 같음으로 확대하지 않는다."
       }
     },
     {
@@ -5469,7 +7059,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 12/12 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 12/12 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 12/12, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5500,6 +7090,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 12/12 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "items"
+        ],
+        "explicit_entries": 12,
+        "previous_entered": 12,
+        "entered": 12,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 12/12, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -5519,7 +7131,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5550,6 +7162,28 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "remaining"
+        ],
+        "explicit_entries": 0,
+        "previous_entered": 0,
+        "entered": 0,
+        "new_entries": [],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -5569,7 +7203,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 3/4 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 3/4 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 4/4, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5607,6 +7241,30 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 3/4 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "items"
+        ],
+        "explicit_entries": 4,
+        "previous_entered": 3,
+        "entered": 4,
+        "new_entries": [
+          "78-battle-item.lua:139:5621"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 4/4, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -5626,7 +7284,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 5/6 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 5/6 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 6/6, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5664,6 +7322,30 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 5/6 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "items"
+        ],
+        "explicit_entries": 6,
+        "previous_entered": 5,
+        "entered": 6,
+        "new_entries": [
+          "78-battle-item.lua:173:7576"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 6/6, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     },
     {
@@ -5683,7 +7365,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 10/16 확인. 계측 실행만으로 같음 승격하지 않음.",
+      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 10/16 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 16/16, 새 진입 6; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5751,6 +7433,36 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "원본 함수 실행/분기 계측을 추가했으나 native 전체 반환·부작용 직접 비교가 미완료. 전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다."
+      },
+      "pass4_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 10/16 확인. 계측 실행만으로 같음 승격하지 않음."
+        },
+        "source_review": true,
+        "called": true,
+        "source_groups": [
+          "remaining",
+          "items"
+        ],
+        "explicit_entries": 16,
+        "previous_entered": 10,
+        "entered": 16,
+        "new_entries": [
+          "78-battle-item.lua:183:8327",
+          "78-battle-item.lua:185:8441",
+          "78-battle-item.lua:189:8607",
+          "78-battle-item.lua:193:8752",
+          "78-battle-item.lua:200:9094",
+          "78-battle-item.lua:205:9321"
+        ],
+        "remaining_entries": [],
+        "coverage_file": "verification/parity-r23/expe-pass4-coverage.json",
+        "instrumented_output_equal": true,
+        "direct_native_contract": false,
+        "source_only_is_not_parity": true,
+        "detail": "4차: 명시 진입 16/16, 새 진입 6; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
       }
     }
   ],
@@ -5759,371 +7471,385 @@
       "test": "affection_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 0.41,
+      "seconds": 0.78,
       "passed": true
     },
     {
       "test": "art_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.2,
+      "seconds": 1.7,
       "passed": true
     },
     {
       "test": "balance_probe",
       "exit": 0,
       "errors": [],
-      "seconds": 8.39,
+      "seconds": 11.86,
       "passed": true
     },
     {
       "test": "battle_r23_batch_test",
       "exit": 0,
       "errors": [],
-      "seconds": 8.73,
+      "seconds": 14.67,
       "passed": true
     },
     {
       "test": "battle_r23_clock_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.05,
+      "seconds": 1.47,
       "passed": true
     },
     {
       "test": "battle_r23_compose_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.3,
+      "seconds": 2.06,
       "passed": true
     },
     {
       "test": "battle_r23_display_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.19,
+      "seconds": 1.8,
       "passed": true
     },
     {
       "test": "battle_r23_enemy_test",
       "exit": 0,
       "errors": [],
-      "seconds": 7.52,
+      "seconds": 10.47,
       "passed": true
     },
     {
       "test": "battle_r23_round3_test",
       "exit": 0,
       "errors": [],
-      "seconds": 10.91,
+      "seconds": 20.56,
       "passed": true
     },
     {
       "test": "battle_r23_round4_test",
       "exit": 0,
       "errors": [],
-      "seconds": 98.48,
+      "seconds": 161.92,
+      "passed": true
+    },
+    {
+      "test": "battle_r23_round5_test",
+      "exit": 0,
+      "errors": [],
+      "seconds": 48.89,
       "passed": true
     },
     {
       "test": "battle_r23_state_test",
       "exit": 0,
       "errors": [],
-      "seconds": 5.22,
+      "seconds": 7.22,
       "passed": true
     },
     {
       "test": "battle_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 31.03,
+      "seconds": 47.23,
       "passed": true
     },
     {
       "test": "chronicle_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 3.61,
+      "seconds": 4.52,
       "passed": true
     },
     {
       "test": "cloud_archive_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.44,
+      "seconds": 2.55,
       "passed": true
     },
     {
       "test": "cloud_compat_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.52,
+      "seconds": 1.95,
       "passed": true
     },
     {
       "test": "cloud_journey_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.89,
+      "seconds": 2.7,
       "passed": true
     },
     {
       "test": "cloud_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 15.39,
+      "seconds": 16.81,
       "passed": true
     },
     {
       "test": "combat_a6_mixed_audit",
       "exit": 0,
       "errors": [],
-      "seconds": 10.88,
+      "seconds": 12.58,
       "passed": true
     },
     {
       "test": "combat_a6_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 20.36,
+      "seconds": 23.59,
       "passed": true
     },
     {
       "test": "combat_a7_flow_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.52,
+      "seconds": 2.28,
       "passed": true
     },
     {
       "test": "combat_a7_gear_audit",
       "exit": 0,
       "errors": [],
-      "seconds": 21.44,
+      "seconds": 26.08,
       "passed": true
     },
     {
       "test": "combat_a7_gear_balanced",
       "exit": 0,
       "errors": [],
-      "seconds": 29.22,
+      "seconds": 37.77,
       "passed": true
     },
     {
       "test": "combat_a7_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.88,
+      "seconds": 2.11,
       "passed": true
     },
     {
       "test": "combat_a8_audit",
       "exit": 0,
       "errors": [],
-      "seconds": 792.38,
+      "seconds": 846.36,
       "passed": true
     },
     {
       "test": "combat_a9_native_10_audit",
       "exit": 0,
       "errors": [],
-      "seconds": 35.97,
+      "seconds": 45.91,
       "passed": true
     },
     {
       "test": "combat_a9_native_40_audit",
       "exit": 0,
       "errors": [],
-      "seconds": 47.51,
+      "seconds": 65.0,
       "passed": true
     },
     {
       "test": "combat_a9_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.94,
+      "seconds": 2.03,
       "passed": true
     },
     {
       "test": "combat_p2_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 35.83,
+      "seconds": 52.66,
       "passed": true
     },
     {
       "test": "combat_p2_r22_trace",
       "exit": 0,
       "errors": [],
-      "seconds": 8.94,
+      "seconds": 10.5,
       "passed": true
     },
     {
       "test": "combat_p3_mixed_audit",
       "exit": 0,
       "errors": [],
-      "seconds": 18.59,
+      "seconds": 29.5,
       "passed": true
     },
     {
       "test": "combat_p3_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 67.86,
+      "seconds": 96.05,
       "passed": true
     },
     {
       "test": "data_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.47,
+      "seconds": 1.55,
       "passed": true
     },
     {
       "test": "dialogue_player_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 258.92,
+      "seconds": 306.61,
       "passed": true
     },
     {
       "test": "dialogue_roster_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 14.98,
+      "seconds": 18.64,
       "passed": true
     },
     {
       "test": "dungeon_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 118.83,
+      "seconds": 164.61,
       "passed": true
     },
     {
       "test": "enemy_action_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 143.69,
+      "seconds": 146.61,
       "passed": true
     },
     {
       "test": "enemy_regression_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.98,
+      "seconds": 2.39,
       "passed": true
     },
     {
       "test": "enemy_review_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 21.03,
+      "seconds": 28.45,
       "passed": true
     },
     {
       "test": "expansion_test",
       "exit": 0,
       "errors": [],
-      "seconds": 3.25,
+      "seconds": 2.59,
       "passed": true
     },
     {
       "test": "expe_format_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.33,
+      "seconds": 2.08,
       "passed": true
     },
     {
       "test": "expe_level_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.74,
+      "seconds": 2.31,
       "passed": true
     },
     {
       "test": "expe_pass2_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 23.95,
+      "seconds": 30.23,
       "passed": true
     },
     {
       "test": "expe_pass3_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 16.12,
+      "seconds": 23.02,
+      "passed": true
+    },
+    {
+      "test": "expe_pass4_r23_test",
+      "exit": 0,
+      "errors": [],
+      "seconds": 8.28,
       "passed": true
     },
     {
       "test": "expe_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 55.06,
+      "seconds": 59.89,
       "passed": true
     },
     {
       "test": "expe_supply_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.2,
+      "seconds": 1.86,
       "passed": true
     },
     {
       "test": "expedition_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 32.03,
+      "seconds": 38.64,
       "passed": true
     },
     {
       "test": "export_licenses",
       "exit": 0,
       "errors": [],
-      "seconds": 0.62,
+      "seconds": 0.61,
       "passed": true
     },
     {
       "test": "facilities_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 19.2,
+      "seconds": 23.45,
       "passed": true
     },
     {
       "test": "gear_boundary_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 6.2,
+      "seconds": 6.25,
       "passed": true
     },
     {
       "test": "gear_hooks_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 10.75,
+      "seconds": 9.62,
       "passed": true
     },
     {
       "test": "gear_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 7.06,
+      "seconds": 9.67,
       "passed": true
     },
     {
       "test": "gear_r23_bonus_resume_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.41,
+      "seconds": 1.78,
       "passed": true
     },
     {
       "test": "gear_r23_facilities_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.92,
+      "seconds": 3.0,
       "passed": true
     },
     {
@@ -6137,406 +7863,420 @@
       "test": "gear_r23_predecessors_test",
       "exit": 0,
       "errors": [],
-      "seconds": 0.56,
+      "seconds": 0.73,
       "passed": true
     },
     {
       "test": "gear_r23_round2_test",
       "exit": 0,
       "errors": [],
-      "seconds": 7.33,
+      "seconds": 10.48,
+      "passed": true
+    },
+    {
+      "test": "gear_r23_round3_test",
+      "exit": 0,
+      "errors": [],
+      "seconds": 4.58,
       "passed": true
     },
     {
       "test": "gear_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 12.84,
+      "seconds": 18.25,
       "passed": true
     },
     {
       "test": "import",
       "exit": 0,
       "errors": [],
-      "seconds": 3.94,
+      "seconds": 5.38,
       "passed": true
     },
     {
       "test": "motion_asset_test",
       "exit": 0,
       "errors": [],
-      "seconds": 0.8,
+      "seconds": 0.67,
       "passed": true
     },
     {
       "test": "motion_r18_integration",
       "exit": 0,
       "errors": [],
-      "seconds": 65.02,
+      "seconds": 74.22,
       "passed": true
     },
     {
       "test": "motion_r9_integration",
       "exit": 0,
       "errors": [],
-      "seconds": 8.42,
+      "seconds": 9.45,
       "passed": true
     },
     {
       "test": "motion_test",
       "exit": 0,
       "errors": [],
-      "seconds": 0.41,
+      "seconds": 0.53,
       "passed": true
     },
     {
       "test": "panel_messages_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.69,
+      "seconds": 3.8,
       "passed": true
     },
     {
       "test": "panels_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 3.25,
+      "seconds": 3.42,
       "passed": true
     },
     {
       "test": "persona_combat_a8_test",
       "exit": 0,
       "errors": [],
-      "seconds": 120.77,
+      "seconds": 156.28,
       "passed": true
     },
     {
       "test": "persona_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 5.16,
+      "seconds": 8.44,
       "passed": true
     },
     {
       "test": "persona_research_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 5.91,
+      "seconds": 4.48,
       "passed": true
     },
     {
       "test": "persona_save_a8_test",
       "exit": 0,
       "errors": [],
-      "seconds": 3.14,
+      "seconds": 5.02,
       "passed": true
     },
     {
       "test": "persona_town_r21_round8_test",
       "exit": 0,
       "errors": [],
-      "seconds": 45.25,
+      "seconds": 37.17,
       "passed": true
     },
     {
       "test": "recruit_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.92,
+      "seconds": 2.09,
       "passed": true
     },
     {
       "test": "route_test",
       "exit": 0,
       "errors": [],
-      "seconds": 0.75,
+      "seconds": 0.69,
       "passed": true
     },
     {
       "test": "settings_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 5.25,
+      "seconds": 5.83,
       "passed": true
     },
     {
       "test": "state_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.62,
+      "seconds": 1.69,
       "passed": true
     },
     {
       "test": "town_combat_r21_round14_test",
       "exit": 0,
       "errors": [],
-      "seconds": 25.48,
+      "seconds": 31.75,
       "passed": true
     },
     {
       "test": "town_commerce_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 3.38,
+      "seconds": 2.88,
       "passed": true
     },
     {
       "test": "town_r21_round10_test",
       "exit": 0,
       "errors": [],
-      "seconds": 4.31,
+      "seconds": 6.66,
       "passed": true
     },
     {
       "test": "town_r21_round11_test",
       "exit": 0,
       "errors": [],
-      "seconds": 6.7,
+      "seconds": 9.98,
       "passed": true
     },
     {
       "test": "town_r21_round9_test",
       "exit": 0,
       "errors": [],
-      "seconds": 50.02,
+      "seconds": 47.25,
       "passed": true
     },
     {
       "test": "town_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.75,
+      "seconds": 2.19,
       "passed": true
     },
     {
       "test": "ui_battle_r17_test",
       "exit": 0,
       "errors": [],
-      "seconds": 60.56,
+      "seconds": 65.11,
       "passed": true
     },
     {
       "test": "ui_battle_r18_test",
       "exit": 0,
       "errors": [],
-      "seconds": 40.36,
+      "seconds": 53.39,
       "passed": true
     },
     {
       "test": "ui_battle_r19_test",
       "exit": 0,
       "errors": [],
-      "seconds": 11.66,
+      "seconds": 13.62,
       "passed": true
     },
     {
       "test": "ui_battle_r20_test",
       "exit": 0,
       "errors": [],
-      "seconds": 17.25,
+      "seconds": 20.09,
       "passed": true
     },
     {
       "test": "ui_chronicle_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 8.45,
+      "seconds": 13.97,
       "passed": true
     },
     {
       "test": "ui_cloud_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 3.64,
+      "seconds": 6.31,
       "passed": true
     },
     {
       "test": "ui_combat_a8_test",
       "exit": 0,
       "errors": [],
-      "seconds": 41.97,
+      "seconds": 67.53,
       "passed": true
     },
     {
       "test": "ui_data_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 18.73,
+      "seconds": 32.91,
       "passed": true
     },
     {
       "test": "ui_dialogue_journey_roster_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 67.72,
+      "seconds": 70.92,
       "passed": true
     },
     {
       "test": "ui_dialogue_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 25.08,
+      "seconds": 34.44,
       "passed": true
     },
     {
       "test": "ui_dialogue_roster_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 127.23,
+      "seconds": 159.09,
       "passed": true
     },
     {
       "test": "ui_expe_pass2_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 5.27,
+      "seconds": 7.05,
       "passed": true
     },
     {
       "test": "ui_expedition_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 18.22,
+      "seconds": 20.45,
       "passed": true
     },
     {
       "test": "ui_facilities_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 11.92,
+      "seconds": 16.23,
+      "passed": true
+    },
+    {
+      "test": "ui_gear_r23_round3_test",
+      "exit": 0,
+      "errors": [],
+      "seconds": 4.2,
       "passed": true
     },
     {
       "test": "ui_gear_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 3.03,
+      "seconds": 4.33,
       "passed": true
     },
     {
       "test": "ui_panels_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 16.08,
+      "seconds": 21.47,
       "passed": true
     },
     {
       "test": "ui_parity_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 5.31,
+      "seconds": 7.08,
       "passed": true
     },
     {
       "test": "ui_persona_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 7.75,
+      "seconds": 9.58,
       "passed": true
     },
     {
       "test": "ui_persona_town_round8_test",
       "exit": 0,
       "errors": [],
-      "seconds": 10.5,
+      "seconds": 14.64,
       "passed": true
     },
     {
       "test": "ui_remaining_native_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 7.3,
+      "seconds": 10.27,
       "passed": true
     },
     {
       "test": "ui_remaining_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.23,
+      "seconds": 2.12,
       "passed": true
     },
     {
       "test": "ui_rules_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 6.69,
+      "seconds": 6.58,
       "passed": true
     },
     {
       "test": "ui_settings_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 9.31,
+      "seconds": 12.7,
       "passed": true
     },
     {
       "test": "ui_town_r21_round10_test",
       "exit": 0,
       "errors": [],
-      "seconds": 16.89,
+      "seconds": 22.74,
       "passed": true
     },
     {
       "test": "ui_town_r21_round11_test",
       "exit": 0,
       "errors": [],
-      "seconds": 18.55,
+      "seconds": 23.88,
       "passed": true
     },
     {
       "test": "ui_town_r21_round2_test",
       "exit": 0,
       "errors": [],
-      "seconds": 9.2,
+      "seconds": 12.23,
       "passed": true
     },
     {
       "test": "ui_town_r21_round3_test",
       "exit": 0,
       "errors": [],
-      "seconds": 16.17,
+      "seconds": 19.39,
       "passed": true
     },
     {
       "test": "ui_town_r21_round4_test",
       "exit": 0,
       "errors": [],
-      "seconds": 17.25,
+      "seconds": 23.78,
       "passed": true
     },
     {
       "test": "ui_town_r21_round5_test",
       "exit": 0,
       "errors": [],
-      "seconds": 5.52,
+      "seconds": 7.72,
       "passed": true
     },
     {
       "test": "ui_town_r21_round9_test",
       "exit": 0,
       "errors": [],
-      "seconds": 10.69,
+      "seconds": 15.31,
       "passed": true
     },
     {
       "test": "ui_town_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 6.38,
+      "seconds": 8.59,
       "passed": true
     },
     {
       "test": "ui_town_result_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 7.88,
+      "seconds": 10.28,
       "passed": true
     },
     {
       "test": "world_test",
       "exit": 0,
       "errors": [],
-      "seconds": 0.67,
+      "seconds": 0.47,
       "passed": true
     }
   ],
@@ -6702,6 +8442,39 @@
         "trace_records": 219785
       },
       "row_review": "verification/parity-r23/expe-pass3-row-audit.json"
+    },
+    {
+      "pass": 4,
+      "summary": {
+        "reviewed_rows": 66,
+        "promoted_same": 1,
+        "implementation_rows": 2,
+        "actual_bug_fixed_rows": 1,
+        "remaining_rows": 65,
+        "native_assertions": 475,
+        "native_failures": 0,
+        "source_functions_called": 66,
+        "source_explicit_entries_before": 196,
+        "source_explicit_entries_entered": 301,
+        "source_explicit_entries": 303,
+        "cumulative_explicit_entries_entered": 316,
+        "cumulative_explicit_entries": 318,
+        "new_explicit_entries": 105,
+        "excluded_sexual_entries": 2,
+        "regression_groups": 116,
+        "failed_groups": [],
+        "changed_existing_files": [
+          "project/game/expedition_world_r22.gd"
+        ],
+        "outside_allowed_changed": [],
+        "assets_checked": 96,
+        "asset_changes": [],
+        "trace_battles": 6320,
+        "trace_equal_battles": 6320,
+        "trace_records": 219785,
+        "cloud_save_specimens": 3
+      },
+      "row_review": "verification/parity-r23/expe-pass4-row-audit.json"
     }
   ],
   "current_implementation_lines": {
@@ -6731,6 +8504,8 @@
     "P3176": "project/game/expedition_world_r22.gd:338",
     "P3199": "project/game/expedition_world_r22.gd:348",
     "P3201": "project/game/expedition_world_r22.gd:365",
-    "P3307": "project/game/expedition_world_r22.gd:63"
+    "P3307": "project/game/expedition_world_r22.gd:63",
+    "P3124": "project/game/expedition_world_r22.gd:201",
+    "P3195": "project/game/expedition_world_r22.gd:468"
   }
 }

@@ -177,20 +177,59 @@ func price(item: Dictionary) -> int:
 	return TOWN_RULES.shop_price(float(item.price),count)
 
 func depart_dungeon(f: int,seed: int=0,rift_id: String="",stars: int=1) -> bool:
-	if not super(f,seed,rift_id,stars):return false
+	# G_rnd shares the guild's saved seed/counter. Consume one draw only after
+	# departure succeeds; explicit deterministic seeds do not consume a draw.
+	var draw=rift_id.is_empty() and seed<=0
+	var next_counter=int(s.town_r21.counter)+1
+	var chosen=int(floor(RulesR21.mix(int(s.town_r21.seed),next_counter,0,0)*2147483646))+1 if draw else seed
+	if not super(f,chosen,rift_id,stars):return false
+	if draw:s.town_r21.counter=next_counter
 	if rift_id.is_empty():
 		s.run.merge({"expedition_version":22,"log":[],"fell":false,"ask":false,"next_available":false,"maxima":{}})
-		for member in expedition_party().pm:
+		var party=expedition_party()
+		var record=expedition_record_with_seed(f,party.pm,party.n,party.avg,int(s.run.id),int(s.run.seed))
+		for i in range(party.pm.size()):
+			var member=party.pm[i]
 			var id=member.id
 			if id=="":continue
 			# ex_new uses party_stats before race, persona allocation, equipment,
 			# and party synergies; the first battle builds its full stats afresh.
-			var b=initial_expedition_vitals(id,int(s.members[id].level))
-			s.run.maxima[id]=b;s.members[id].hp=b.hp;s.members[id].mp=b.mp
+			s.run.maxima[id]={"hp":record.mhp[i],"mp":record.mmp[i]}
+			s.members[id].hp=record.hp[i];s.members[id].mp=record.mp[i]
 	return true
 
+func new_expedition_record(f: int,pm: Array,n: int,avg: float,sid: int,random: Callable,stats_provider: Callable=Callable()) -> Dictionary:
+	# The caller owns RNG storage. One draw is shared with the source constructor.
+	var seed=int(floor(float(random.call())*2147483646))+1
+	return expedition_record_with_seed(f,pm,n,avg,sid,seed,stats_provider)
+
+func expedition_record_with_seed(f: int,pm: Array,n: int,avg: float,sid: int,seed: int,stats_provider: Callable=Callable()) -> Dictionary:
+	var hp=expedition_zero4();var mp=expedition_zero4();var mhp=expedition_zero4();var mmp=expedition_zero4()
+	for i in range(mini(4,pm.size())):
+		var m=pm[i]
+		if not m is Dictionary or m.get("id","")=="":continue
+		var id=m.id
+		# An explicit envelope maps Lua's pcall success/type checks.
+		var response=stats_provider.call(m.cls,m.L,false if id=="persona" else id) if stats_provider.is_valid() else {"ok":true,"value":initial_expedition_stats(m.cls,int(m.L),false if id=="persona" else id)}
+		if response.get("ok",false) and response.get("value") is Dictionary and not response.value.is_empty():
+			var value=response.value
+			mhp[i]=int(floor(value.hp+.5));mmp[i]=int(floor(value.mp+.5));hp[i]=mhp[i];mp[i]=mmp[i]
+	var boss_seed=dungeon_rules.battle_seed(seed,f,99,true)
+	var plan=dungeon_rules.floor_enc(f,avg,n,"boss",boss_seed)
+	return {"v":1,"floor":f,"step":0,"phase":"explore","seed":seed,"sid":sid,"pm":pm,"n":n,"avg":avg,
+		"loot":{"gold":0,"items":{},"gear":[]},"exp":0,"elites":0,"wins":0,"hp":hp,"mp":mp,"mhp":mhp,"mmp":mmp,"real":false,
+		"log":[],"last":"","sel":1,"ask":false,"boss_seed":boss_seed,"boss_name":dungeon_rules.foes[plan.enc.fl[0]].name,"boss_kind":plan.enc.kind}
+
 func initial_expedition_vitals(id: String,level: int) -> Dictionary:
-	var c=class_def(id);var mod={} if id=="persona" else person(id).mod
+	return initial_expedition_stats(class_def(id).id,level,false if id=="persona" else id)
+
+func initial_expedition_stats(cls: String,level: int,id: Variant=false) -> Dictionary:
+	var c={};var mod={}
+	for candidate in config.classes:
+		if candidate.id==cls or candidate.name==cls:c=candidate;break
+	if c.is_empty():return {}
+	for companion in config.companions:
+		if id is String and companion.id==id:mod=companion.mod;break
 	var out={};var x=clampi(level,1,40)-1
 	for key in ["hp","mp"]:
 		var curve=config.curves[key]
@@ -424,19 +463,28 @@ func bank_expedition_items(items: Dictionary) -> Array:
 	return ids
 
 func bank_expedition_gear(codes: Array) -> Dictionary:
+	return bank_expedition_record(codes)
+
+func bank_expedition_record(codes: Array,provider: Callable=Callable(),request_id: String="") -> Dictionary:
 	var out=[];var lost=0
 	for code in codes:
-		var entry=combat_gear_adapter.source_drop({"code":code},int(s.serial)+1)
-		if entry.is_empty():continue
-		var worn=[]
-		for eq in s.equipment.values():worn.append_array(eq.values())
-		if s.gear.filter(func(e):return e.uid not in worn).size()>=2000:
-			if not s.has("gear_r22"):s.gear_r22={}
-			if not s.gear_r22.has("overflow"):s.gear_r22.overflow=[]
-			s.gear_r22.overflow.append({"code":code,"forge":{"lv":0,"tries":0}})
-			lost+=1;continue
-		s.serial+=1;s.gear.append(entry);out.append(code)
+		var added=provider.call(request_id,code) if provider.is_valid() else bank_expedition_code(code)
+		if added:out.append(code)
+		else:lost+=1
 	return {"gear":out,"lost":lost}
+
+func bank_expedition_code(code: String) -> bool:
+	var entry=combat_gear_adapter.source_drop({"code":code},int(s.serial)+1)
+	if entry.is_empty():return false
+	var worn=[]
+	for eq in s.equipment.values():worn.append_array(eq.values())
+	if s.gear.filter(func(e):return e.uid not in worn).size()>=2000:
+		if not s.has("gear_r22"):s.gear_r22={}
+		if not s.gear_r22.has("overflow"):s.gear_r22.overflow=[]
+		s.gear_r22.overflow.append({"code":code,"forge":{"lv":0,"tries":0}})
+		return false
+	s.serial+=1;s.gear.append(entry)
+	return true
 
 func settle(result: String) -> bool:
 	if not expedition():return super(result)
