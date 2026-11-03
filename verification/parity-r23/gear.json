@@ -1,23 +1,26 @@
 {
   "summary": {
     "assigned": 77,
-    "round3_reviewed": 40,
-    "round3_promoted_same": 3,
-    "round3_fixed_rows": 5,
-    "round3_new_fixed_rows": 4,
-    "promoted_same": 40,
-    "fixed_rows": 29,
-    "remaining": 37,
-    "suite_groups": 112,
+    "round4_reviewed": 37,
+    "round4_promoted_same": 21,
+    "round4_excluded": 2,
+    "round4_fixed_rows": 10,
+    "round4_new_fixed_rows": 9,
+    "same": 61,
+    "fixed_rows": 38,
+    "excluded": 2,
+    "remaining": 14,
+    "suite_groups": 121,
     "suite_failed": 0,
-    "suite_failed_assertions": 0,
-    "round3_direct_checks": 2412,
-    "round3_ui_checks": 116,
-    "round3_new_checks": 2528,
-    "round3_failures": 0,
-    "new_checks": 13538,
+    "round4_direct_checks": 1056,
+    "round4_action_checks": 819,
+    "round4_ui_checks": 3605,
+    "round4_checks": 5480,
+    "new_checks": 19018,
+    "failures": 0,
     "npm_checks": 12932,
-    "npm_failures": 0,
+    "npm_initial_exit": 1,
+    "npm_retry_exit": 0,
     "battle_count": 6320,
     "equal_battles": 6320,
     "matched_actions": 219785,
@@ -71,37 +74,22 @@
         "matched_actions": 10127
       }
     ],
-    "coverage": {
-      "method": "Boolean source function/then/else/do entries. Output equality is mandatory. Not full condition-combination coverage or native parity. Parent coverage does not promote children.",
-      "functions": 77,
-      "called": 77,
-      "explicit_entries": 320,
-      "entered": 314,
-      "baseline_missing": 43,
-      "newly_entered_baseline": 43
-    },
     "changed_existing_files": [
       "project/game/facilities_world_r22.gd",
-      "project/game/gear_rules_r22.gd",
-      "project/game/smithy_rules_r22.gd",
-      "project/game/town_rules_r21.gd",
-      "project/game/town_world_r21.gd",
-      "project/ui/facilities_screen_r22.gd",
-      "project/ui/town_screen_r21.gd",
-      "project/tests/gear_r23_round2_test.gd",
-      "project/tests/gear_r23_test.gd",
-      "tools/gear_r23_oracle.mjs",
-      "tools/gear_r23_report_round2.py",
-      "tools/gear_r23_round2.mjs"
+      "project/tests/ui_facilities_r22_test.gd",
+      "project/ui/facilities_screen_r22.gd"
+    ],
+    "new_product_files": [
+      "project/game/gear_locale_r23.gd"
     ],
     "protected_changes": [],
     "asset_hashes": {
       "checked": 96,
-      "matched": 96,
-      "mismatches": []
+      "matched": 96
     },
-    "code_lock_unchanged": true,
-    "full_original_parity_complete": false
+    "code_lock_unchanged": false,
+    "full_original_parity_complete": false,
+    "final_delta_verified": true
   },
   "baseline": {
     "file": "../r21-parity/verification/parity-r21/audit-r22b.json",
@@ -146,7 +134,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3514",
@@ -185,7 +174,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3515",
@@ -239,7 +229,8 @@
             "token": "then"
           }
         ]
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3522",
@@ -293,7 +284,8 @@
             "token": "then"
           }
         ]
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3524",
@@ -360,7 +352,8 @@
             "token": "then"
           }
         ]
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3532",
@@ -373,7 +366,7 @@
       },
       "previous_status": "일부",
       "previous_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "new_status": "일부",
+      "new_status": "같음",
       "fixed": false,
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::bag_load / bag_reload",
@@ -385,10 +378,15 @@
         "verification/parity-r23/round2-provenance.json",
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
-        "verification/parity-r23/round2-oracle.json::bag_host"
+        "verification/parity-r23/round2-oracle.json::bag_host",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3532",
+        "project/tests/gear_r23_round4_test.gd::native_observable / file_roundtrip / next_action / migration_active / migration_again",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag_load / bag_save / bag_result / migrate_active"
       ],
       "source_observation": "verification/parity-r23/gear-oracle.json",
-      "remaining_reason": "dk_bag 채팅 변수 읽기와 native UID 저장/가져오기 매체는 다르다. 문자열 필터 결과만 직접 일치; 호스트 getChatVar 실패/저장 재개 전체 계약은 동일 판정하지 않음. 2차 원본 실행에서 getChatVar 예외는 빈 목록, setChatVar 예외는 호출자 전파임을 관측. native에는 이 호스트 API가 없어 전체 일치는 아님.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -425,7 +423,17 @@
         "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3532",
+        "project/tests/gear_r23_round4_test.gd::native_observable / file_roundtrip / next_action / migration_active / migration_again",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag_load / bag_save / bag_result / migrate_active"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P3533",
@@ -438,7 +446,7 @@
       },
       "previous_status": "일부",
       "previous_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "new_status": "일부",
+      "new_status": "같음",
       "fixed": false,
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::bag_save",
@@ -450,10 +458,15 @@
         "verification/parity-r23/round2-provenance.json",
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
-        "verification/parity-r23/round2-oracle.json::bag_host"
+        "verification/parity-r23/round2-oracle.json::bag_host",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3533",
+        "project/tests/gear_r23_round4_test.gd::native_observable / file_roundtrip / next_action / migration_active / migration_again",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag_load / bag_save / bag_result / migrate_active"
       ],
       "source_observation": "verification/parity-r23/gear-oracle.json",
-      "remaining_reason": "문자열 직렬화는 일치. native 저장은 world_store의 전체 JSON과 UID를 쓰므로 setChatVar 부작용/저장 매체 전체 계약은 다름. 2차 원본 실행에서 getChatVar 예외는 빈 목록, setChatVar 예외는 호출자 전파임을 관측. native에는 이 호스트 API가 없어 전체 일치는 아님.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -490,7 +503,17 @@
         "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3533",
+        "project/tests/gear_r23_round4_test.gd::native_observable / file_roundtrip / next_action / migration_active / migration_again",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag_load / bag_save / bag_result / migrate_active"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P3536",
@@ -503,7 +526,7 @@
       },
       "previous_status": "일부",
       "previous_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "new_status": "일부",
+      "new_status": "같음",
       "fixed": false,
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::bag_result / bag_reload",
@@ -515,10 +538,15 @@
         "verification/parity-r23/round2-provenance.json",
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
-        "verification/parity-r23/round2-oracle.json::bag_host"
+        "verification/parity-r23/round2-oracle.json::bag_host",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3536",
+        "project/tests/gear_r23_round4_test.gd::native_observable / file_roundtrip / next_action / migration_active / migration_again",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag_load / bag_save / bag_result / migrate_active"
       ],
       "source_observation": "verification/parity-r23/gear-oracle.json",
-      "remaining_reason": "코드 배열 연산은 일치. native는 UID 및 overflow 보존 경로를 쓰고 알 수 없는 원본 토큰도 이관 기록에 남겨 전체 저장 계약은 다름.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -555,7 +583,17 @@
         "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3536",
+        "project/tests/gear_r23_round4_test.gd::native_observable / file_roundtrip / next_action / migration_active / migration_again",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag_load / bag_save / bag_result / migrate_active"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P3537",
@@ -568,7 +606,7 @@
       },
       "previous_status": "일부",
       "previous_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "new_status": "일부",
+      "new_status": "같음",
       "fixed": false,
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::bag_result / bag_reload",
@@ -580,10 +618,15 @@
         "verification/parity-r23/round2-provenance.json",
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
-        "verification/parity-r23/round2-oracle.json::bag_host"
+        "verification/parity-r23/round2-oracle.json::bag_host",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3537",
+        "project/tests/gear_r23_round4_test.gd::native_observable / file_roundtrip / next_action / migration_active / migration_again",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag_load / bag_save / bag_result / migrate_active"
       ],
       "source_observation": "verification/parity-r23/gear-oracle.json",
-      "remaining_reason": "첫 동일 코드 제거는 일치. native의 개별 UID 선택·중복 코드 정체성 및 실제 영구 저장 부작용은 원본 dk_bag 계약과 구분해야 함.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -620,7 +663,17 @@
         "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3537",
+        "project/tests/gear_r23_round4_test.gd::native_observable / file_roundtrip / next_action / migration_active / migration_again",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag_load / bag_save / bag_result / migrate_active"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P3540",
@@ -642,10 +695,14 @@
         "verification/parity-r23/gear-round2-oracle.json::bag_host",
         "verification/parity-r23/gear-coverage-round3.json::P3540",
         "verification/parity-r23/gear-round3-oracle.json",
-        "project/tests/gear_r23_round3_test.gd::restrict_return / restrict_state / restrict_written_raw / restrict_bag"
+        "project/tests/gear_r23_round3_test.gd::restrict_return / restrict_state / restrict_written_raw / restrict_bag",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3540",
+        "verification/parity-r23/gear-round4-restriction-gaps.json",
+        "project/tests/gear_r23_round4_test.gd::restriction probe"
       ],
       "source_observation": "verification/parity-r23/gear-round3-oracle.json",
-      "remaining_reason": "무효 장착 테이블의 반환 false→nil을 원본처럼 수정. 원본 raw 쓰기와 재조회 필터를 분리해 비교했다. native UID 저장의 부적합 장착 검증/가방 회수 전체 계약은 여전히 다름.",
+      "remaining_reason": "2,000개 가방에서 부적합한 유효 장비를 착용 중인 손상·옛 입력: 원본 gear_restrict는 가방 반환에 실패해 장착을 유지하지만 native 가져오기는 장착을 해제하고 overflow에 보존한다. 6개 실제 source/native probe 중 4개 일치·2개 차이. 정상·1,999개는 일치. 단순 저장 매체 차이가 아니다. native 복구/전투 적용 경계는 별도 검토가 필요하다.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -681,7 +738,16 @@
       ],
       "round3_fix_location": "project/game/gear_rules_r22.gd:202",
       "fix_location": "project/game/gear_rules_r22.gd:202",
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3540",
+        "verification/parity-r23/gear-round4-restriction-gaps.json",
+        "project/tests/gear_r23_round4_test.gd::restriction probe"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P3544",
@@ -735,7 +801,8 @@
             "token": "then"
           }
         ]
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3549",
@@ -748,7 +815,7 @@
       },
       "previous_status": "일부",
       "previous_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "new_status": "일부",
+      "new_status": "같음",
       "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::transaction_result / transaction_state / transaction_bag",
@@ -760,10 +827,15 @@
         "verification/parity-r23/round2-provenance.json",
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
-        "verification/parity-r23/round2-oracle.json::bag_host"
+        "verification/parity-r23/round2-oracle.json::bag_host",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3549",
+        "project/tests/gear_r23_round4_test.gd::native_observable / file_roundtrip / next_action / migration_active / migration_again",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag_load / bag_save / bag_result / migrate_active"
       ],
       "source_observation": "verification/parity-r23/gear-oracle.json",
-      "remaining_reason": "가방에 없는 장착 UID의 재장착/다른 소유자에게 이전을 원본처럼 거부하도록 수정. bag/self/other/duplicate·JSON 재개는 대조. 코드 기반 반환·dk_bag 쓰기와 native UID 선택/저장 매체는 다름.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -801,7 +873,17 @@
         "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3549",
+        "project/tests/gear_r23_round4_test.gd::native_observable / file_roundtrip / next_action / migration_active / migration_again",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag_load / bag_save / bag_result / migrate_active"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P3552",
@@ -814,7 +896,7 @@
       },
       "previous_status": "일부",
       "previous_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "new_status": "일부",
+      "new_status": "같음",
       "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::transaction_result / transaction_state / transaction_bag",
@@ -826,10 +908,15 @@
         "verification/parity-r23/round2-provenance.json",
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
-        "verification/parity-r23/round2-oracle.json::bag_host"
+        "verification/parity-r23/round2-oracle.json::bag_host",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3552",
+        "project/tests/gear_r23_round4_test.gd::native_observable / file_roundtrip / next_action / migration_active / migration_again",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag_load / bag_save / bag_result / migrate_active"
       ],
       "source_observation": "verification/parity-r23/gear-oracle.json",
-      "remaining_reason": "JSON 재개 후 UID int/float 차이로 장착품이 가방에 중복 노출되던 wearer를 수정. 0/1999/2000 경계·해제·재개는 대조. 코드 기반 반환/채팅 변수와 native UID 저장은 다름.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -867,7 +954,17 @@
         "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3552",
+        "project/tests/gear_r23_round4_test.gd::native_observable / file_roundtrip / next_action / migration_active / migration_again",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag_load / bag_save / bag_result / migrate_active"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P3553",
@@ -880,7 +977,7 @@
       },
       "previous_status": "일부",
       "previous_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "new_status": "일부",
+      "new_status": "같음",
       "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::transaction_result / transaction_state / transaction_bag",
@@ -892,10 +989,15 @@
         "verification/parity-r23/round2-provenance.json",
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
-        "verification/parity-r23/round2-oracle.json::bag_host"
+        "verification/parity-r23/round2-oracle.json::bag_host",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3553",
+        "project/tests/gear_r23_round4_test.gd::native_observable / file_roundtrip / next_action / migration_active / migration_again",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag_load / bag_save / bag_result / migrate_active"
       ],
       "source_observation": "verification/parity-r23/gear-oracle.json",
-      "remaining_reason": "재개 후 장착품을 미장착으로 오인하는 wearer를 수정. 판매·재시도·JSON 재개는 대조. 원본 코드 선택/반환·채팅 변수 쓰기와 native UID 저장은 다름.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -933,7 +1035,17 @@
         "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3553",
+        "project/tests/gear_r23_round4_test.gd::native_observable / file_roundtrip / next_action / migration_active / migration_again",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag_load / bag_save / bag_result / migrate_active"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P3554",
@@ -946,7 +1058,7 @@
       },
       "previous_status": "일부",
       "previous_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "new_status": "일부",
+      "new_status": "같음",
       "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::transaction_result / transaction_state / transaction_bag",
@@ -958,10 +1070,15 @@
         "verification/parity-r23/round2-provenance.json",
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
-        "verification/parity-r23/round2-oracle.json::bag_host"
+        "verification/parity-r23/round2-oracle.json::bag_host",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3554",
+        "project/tests/gear_r23_round4_test.gd::native_observable / file_roundtrip / next_action / migration_active / migration_again",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag_load / bag_save / bag_result / migrate_active"
       ],
       "source_observation": "verification/parity-r23/gear-oracle.json",
-      "remaining_reason": "재개 후 일반 장착품을 판매 대상으로 읽는 wearer를 수정. 0/1999/2000개 일괄판매·금화·가방·장착/재개는 대조. legacy 보존·코드↔UID 저장은 별도 계약.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -999,7 +1116,17 @@
         "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3554",
+        "project/tests/gear_r23_round4_test.gd::native_observable / file_roundtrip / next_action / migration_active / migration_again",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag_load / bag_save / bag_result / migrate_active"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P3555",
@@ -1012,7 +1139,7 @@
       },
       "previous_status": "일부",
       "previous_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "new_status": "일부",
+      "new_status": "같음",
       "fixed": false,
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::migrate_result / migrate_active",
@@ -1024,10 +1151,15 @@
         "verification/parity-r23/round2-provenance.json",
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
-        "verification/parity-r23/round2-oracle.json::bag_host"
+        "verification/parity-r23/round2-oracle.json::bag_host",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3555",
+        "project/tests/gear_r23_round4_test.gd::native_observable / file_roundtrip / next_action / migration_active / migration_again",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag_load / bag_save / bag_result / migrate_active"
       ],
       "source_observation": "verification/parity-r23/gear-oracle.json",
-      "remaining_reason": "원본 활성 equip/items 정리와 1회 이관은 일치. 삭제될 시제품을 gear_r22_prototypes에 추가 보관하므로 전체 저장 JSON은 의도적으로 다름(사용자 저장 보존).",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -1064,7 +1196,17 @@
         "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3555",
+        "project/tests/gear_r23_round4_test.gd::native_observable / file_roundtrip / next_action / migration_active / migration_again",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag_load / bag_save / bag_result / migrate_active"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P3566",
@@ -1104,7 +1246,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3567",
@@ -1144,7 +1287,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3571",
@@ -1198,7 +1342,8 @@
             "token": "then"
           }
         ]
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3599",
@@ -1252,7 +1397,8 @@
             "token": "then"
           }
         ]
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3603",
@@ -1306,7 +1452,8 @@
             "token": "then"
           }
         ]
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3605",
@@ -1360,7 +1507,8 @@
             "token": "then"
           }
         ]
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3639",
@@ -1384,10 +1532,18 @@
         "verification/parity-r23/gear-round3-oracle.json",
         "verification/parity-r23/round2-provenance.json",
         "tools/gear_r23_predecessors.mjs",
+        "project/tests/gear_r23_predecessors_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3639",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P3639",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "tools/gear_r23_predecessors.mjs",
         "project/tests/gear_r23_predecessors_test.gd"
       ],
       "source_observation": "verification/parity-r23/hooks.json",
-      "remaining_reason": "선행 GH 콜백의 무변경/상태 변경/사망·고갈 분기를 원본 래퍼에서 실제 호출하고 경계 이후 native 장비 효과/호출 순서를 대조했다. native 실행은 기록한 선행 콜백 직후부터 시작하므로 임의 GH 콜백 ABI/전체 소유자 합성 계약을 같음으로 세지 않음.",
+      "remaining_reason": "선행 damaged 후 장비 효과의 상태·호출 순서는 기존 checkpoint 대조와 전체 전투로 확인. 임의 선행 콜백이 포함된 native 실제 호출 전체를 새 직접 대조하지 못했으므로 일부 유지. 전투 소유자 파일은 이번 수정 금지.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [
         {
@@ -1436,7 +1592,20 @@
         "tools/gear_r23_predecessors.mjs",
         "project/tests/gear_r23_predecessors_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3639",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P3639",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "tools/gear_r23_predecessors.mjs",
+        "project/tests/gear_r23_predecessors_test.gd"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P3644",
@@ -1460,10 +1629,18 @@
         "verification/parity-r23/gear-round3-oracle.json",
         "verification/parity-r23/round2-provenance.json",
         "tools/gear_r23_predecessors.mjs",
+        "project/tests/gear_r23_predecessors_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3644",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P3644",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "tools/gear_r23_predecessors.mjs",
         "project/tests/gear_r23_predecessors_test.gd"
       ],
       "source_observation": "verification/parity-r23/hooks.json",
-      "remaining_reason": "선행 GH 콜백의 무변경/상태 변경/사망·고갈 분기를 원본 래퍼에서 실제 호출하고 경계 이후 native 장비 효과/호출 순서를 대조했다. native 실행은 기록한 선행 콜백 직후부터 시작하므로 임의 GH 콜백 ABI/전체 소유자 합성 계약을 같음으로 세지 않음.",
+      "remaining_reason": "선행 attacked 후 장비 효과의 상태·호출 순서는 기존 checkpoint 대조와 전체 전투로 확인. 임의 선행 콜백이 포함된 native 실제 호출 전체를 새 직접 대조하지 못했으므로 일부 유지. 전투 소유자 파일은 이번 수정 금지.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [
         {
@@ -1512,7 +1689,20 @@
         "tools/gear_r23_predecessors.mjs",
         "project/tests/gear_r23_predecessors_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3644",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P3644",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "tools/gear_r23_predecessors.mjs",
+        "project/tests/gear_r23_predecessors_test.gd"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P3647",
@@ -1536,10 +1726,18 @@
         "verification/parity-r23/gear-round3-oracle.json",
         "verification/parity-r23/round2-provenance.json",
         "tools/gear_r23_predecessors.mjs",
+        "project/tests/gear_r23_predecessors_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3647",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P3647",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "tools/gear_r23_predecessors.mjs",
         "project/tests/gear_r23_predecessors_test.gd"
       ],
       "source_observation": "verification/parity-r23/hooks.json",
-      "remaining_reason": "선행 GH 콜백의 무변경/상태 변경/사망·고갈 분기를 원본 래퍼에서 실제 호출하고 경계 이후 native 장비 효과/호출 순서를 대조했다. native 실행은 기록한 선행 콜백 직후부터 시작하므로 임의 GH 콜백 ABI/전체 소유자 합성 계약을 같음으로 세지 않음.",
+      "remaining_reason": "선행 turn_end 후 장비 효과의 상태·호출 순서는 기존 checkpoint 대조와 전체 전투로 확인. 임의 선행 콜백이 포함된 native 실제 호출 전체를 새 직접 대조하지 못했으므로 일부 유지. 전투 소유자 파일은 이번 수정 금지.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [
         {
@@ -1588,7 +1786,20 @@
         "tools/gear_r23_predecessors.mjs",
         "project/tests/gear_r23_predecessors_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3647",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P3647",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "tools/gear_r23_predecessors.mjs",
+        "project/tests/gear_r23_predecessors_test.gd"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P3659",
@@ -1612,10 +1823,18 @@
         "verification/parity-r23/gear-round3-oracle.json",
         "verification/parity-r23/round2-provenance.json",
         "tools/gear_r23_predecessors.mjs",
+        "project/tests/gear_r23_predecessors_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3659",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P3659",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "tools/gear_r23_predecessors.mjs",
         "project/tests/gear_r23_predecessors_test.gd"
       ],
       "source_observation": "verification/parity-r23/hooks.json",
-      "remaining_reason": "선행 GH 콜백의 무변경/상태 변경/사망·고갈 분기를 원본 래퍼에서 실제 호출하고 경계 이후 native 장비 효과/호출 순서를 대조했다. native 실행은 기록한 선행 콜백 직후부터 시작하므로 임의 GH 콜백 ABI/전체 소유자 합성 계약을 같음으로 세지 않음.",
+      "remaining_reason": "선행 abyss_after 후 장비 효과의 상태·호출 순서는 기존 checkpoint 대조와 전체 전투로 확인. 임의 선행 콜백이 포함된 native 실제 호출 전체를 새 직접 대조하지 못했으므로 일부 유지. 전투 소유자 파일은 이번 수정 금지.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [
         {
@@ -1664,7 +1883,20 @@
         "tools/gear_r23_predecessors.mjs",
         "project/tests/gear_r23_predecessors_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3659",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P3659",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "tools/gear_r23_predecessors.mjs",
+        "project/tests/gear_r23_predecessors_test.gd"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P3666",
@@ -1703,7 +1935,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3667",
@@ -1780,7 +2013,8 @@
             "token": "then"
           }
         ]
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3670",
@@ -1870,7 +2104,8 @@
             "token": "then"
           }
         ]
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3674",
@@ -1909,7 +2144,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3677",
@@ -1948,7 +2184,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3678",
@@ -1987,7 +2224,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3680",
@@ -2026,7 +2264,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3681",
@@ -2065,7 +2304,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3683",
@@ -2113,7 +2353,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3684",
@@ -2179,7 +2420,8 @@
         "project/tests/ui_gear_r23_round3_test.gd"
       ],
       "round3_fix_location": "project/game/smithy_rules_r22.gd:18",
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3686",
@@ -2245,7 +2487,8 @@
       ],
       "round3_fix_location": "project/game/smithy_rules_r22.gd:31",
       "fix_location": "project/game/smithy_rules_r22.gd:31",
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3687",
@@ -2258,8 +2501,8 @@
       },
       "previous_status": "일부",
       "previous_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "new_status": "일부",
-      "fixed": false,
+      "new_status": "같음",
+      "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
@@ -2273,10 +2516,14 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
-        "project/tests/ui_gear_r23_test.gd"
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3687",
+        "project/tests/ui_gear_r23_round4_test.gd::smithy_forge / forge:",
+        "verification/parity-r23/gear-round4-semantics.json"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "원본 빈 장비/+10/성공/실패 제련 탭 HTML을 수집. native 제련 카드 전체 문자열/반환은 다름.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -2315,7 +2562,18 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3687",
+        "project/tests/ui_gear_r23_round4_test.gd::smithy_forge / forge:",
+        "verification/parity-r23/gear-round4-semantics.json"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음.",
+      "round4_fix_location": "project/ui/facilities_screen_r22.gd:28",
+      "fix_location": "project/ui/facilities_screen_r22.gd:28"
     },
     {
       "id": "P3689",
@@ -2328,8 +2586,8 @@
       },
       "previous_status": "일부",
       "previous_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "new_status": "일부",
-      "fixed": false,
+      "new_status": "같음",
+      "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
@@ -2343,10 +2601,14 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
-        "project/tests/ui_gear_r23_test.gd"
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3689",
+        "project/tests/ui_gear_r23_round4_test.gd::smithy_process / process: / 2,060 source equipment cards",
+        "verification/parity-r23/gear-round4-semantics.json"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "원본 레벨·가공 확률·비용·결과 HTML을 수집. native 탭 전체 반환/아이템 카드/문구 계약은 다름.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -2385,7 +2647,18 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3689",
+        "project/tests/ui_gear_r23_round4_test.gd::smithy_process / process: / 2,060 source equipment cards",
+        "verification/parity-r23/gear-round4-semantics.json"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음.",
+      "round4_fix_location": "project/ui/facilities_screen_r22.gd:74",
+      "fix_location": "project/ui/facilities_screen_r22.gd:74"
     },
     {
       "id": "P3691",
@@ -2413,10 +2686,20 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3691",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P3691",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "제련/가공/작업 있음·없음 화면과 실제 native 버튼 검사를 수행. 원본 HTML 반환 및 AI 완료 안내와 native 영수증은 다름.",
+      "remaining_reason": "제련·가공 본문/탭/실행은 직접 일치. 전체 화면에는 원본 장소 설명·NPC 역할·완료/귀환 버튼의 보조 문구가 빠져 있고, native의 장비 장착하기 선택지가 추가된다. AI 장면 자체는 제외하며 이 표시/선택 차이만 남긴다.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -2455,7 +2738,22 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3691",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P3691",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P3693",
@@ -2468,8 +2766,8 @@
       },
       "previous_status": "미확인",
       "previous_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "new_status": "일부",
-      "fixed": false,
+      "new_status": "같음",
+      "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
@@ -2483,10 +2781,14 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
-        "project/tests/ui_gear_r23_test.gd"
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3693",
+        "project/tests/ui_gear_r23_round4_test.gd::smithy_tabs / selected / labels",
+        "verification/parity-r23/gear-round4-semantics.json"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "원본 선택 탭 CSS/HTML 헬퍼를 화면 fixture로 실행. native 버튼 반환은 다름.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -2525,7 +2827,18 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3693",
+        "project/tests/ui_gear_r23_round4_test.gd::smithy_tabs / selected / labels",
+        "verification/parity-r23/gear-round4-semantics.json"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음.",
+      "round4_fix_location": "project/ui/facilities_screen_r22.gd:22",
+      "fix_location": "project/ui/facilities_screen_r22.gd:22"
     },
     {
       "id": "P3697",
@@ -2573,7 +2886,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3698",
@@ -2621,7 +2935,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3699",
@@ -2669,7 +2984,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3700",
@@ -2717,7 +3033,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P3701",
@@ -2730,7 +3047,7 @@
       },
       "previous_status": "일부",
       "previous_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "new_status": "일부",
+      "new_status": "같음",
       "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
@@ -2745,13 +3062,17 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
-        "project/tests/ui_gear_r23_test.gd"
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3701",
+        "project/tests/gear_r23_round4_actions_test.gd::smithy_* / smithy_persisted",
+        "project/tests/ui_facilities_r22_test.gd::pointer forge / process / completion"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "가공·완료·거절/잘못된 인덱스·탭·퇴장 이펙트의 상태를 비교/수정. 원본 sm_work/pend_hard 전체 문구와 native 영수증·UID 저장은 다름.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
-      "fix_location": "project/game/facilities_world_r22.gd:209",
+      "fix_location": "project/game/facilities_world_r22.gd:167",
       "round2_previous_status": "일부",
       "round2_reviewed": true,
       "round2_evidence": [
@@ -2788,7 +3109,17 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P3701",
+        "project/tests/gear_r23_round4_actions_test.gd::smithy_* / smithy_persisted",
+        "project/tests/ui_facilities_r22_test.gd::pointer forge / process / completion"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음.",
+      "round4_fix_location": "project/game/facilities_world_r22.gd:167"
     },
     {
       "id": "P2826",
@@ -2816,10 +3147,20 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2826",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P2826",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "원본은 portrait 함수 부재/문자열 유효성에 따라 HTML 카드 자체를 생략한다. native는 자산 기반 NPC 카드이며 원본 HTML 반환·NPC_G 호스트 문맥과 같은 계약은 아님.",
+      "remaining_reason": "native NPC 영웅 그림은 표시되지만, 원본 tw_npcs의 그림 없음/잘못된 그림이면 해당 행 생략 및 NPC_G가 있을 때 역할 끝 호감 표시를 같은 helper 계약으로 검증·연결하지 못했다. HTML 태그 모양은 사유에서 제외.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -2858,7 +3199,22 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2826",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P2826",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P2828",
@@ -2887,10 +3243,20 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2828",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P2828",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "구입 규칙·스크롤·품절과 보유한 비매품 표시를 검증. 원본 HTML 전체 문구/필터/반환을 native 화면과 동일 판정하지 않음.",
+      "remaining_reason": "원본 스크롤 대상은 Lv.40 미만만 노출하지만 native 대상 화면은 Lv.40도 사용 불가로 노출한다. 상품 상세 문구·원본의 단일 상품→장비 순서와 native 분리 탭의 순서도 남아 있다. 비매품의 성인 사용 장면은 이식 범위에서 제외.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -2929,7 +3295,22 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2828",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P2828",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P2836",
@@ -3020,7 +3401,8 @@
             "token": "then"
           }
         ]
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P2841",
@@ -3047,10 +3429,20 @@
         "server/abyss-save/test/gear-r23.mjs",
         "verification/parity-r23/cloud-boundary.json",
         "project/tests/gear_r23_test.gd::shop_bonus / shop_resume",
+        "project/tests/gear_r23_bonus_resume_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2841",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P2841",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "server/abyss-save/test/gear-r23.mjs",
+        "verification/parity-r23/cloud-boundary.json",
+        "project/tests/gear_r23_test.gd::shop_bonus / shop_resume",
         "project/tests/gear_r23_bonus_resume_test.gd"
       ],
       "source_observation": "verification/parity-r23/gear-oracle.json",
-      "remaining_reason": "새 상점 필드의 서버 저장은 해결. 접두 버튼 전체 메시지·pend_hard/addChat과 native 영수증의 계약 차이는 남음.",
+      "remaining_reason": "구입·스크롤·장비·할인·덤·영구 저장은 시험됨. 원본 접두 버튼의 전체 잘못된 선택/피드백을 native의 선택 위젯과 직접 같은 dispatcher로 대조하지 못했다. pend_hard/addChat와 저장 매체 차이는 남은 사유에서 제외.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [
         {
@@ -3356,7 +3748,22 @@
         "project/tests/gear_r23_test.gd::shop_bonus / shop_resume",
         "project/tests/gear_r23_bonus_resume_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2841",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P2841",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "server/abyss-save/test/gear-r23.mjs",
+        "verification/parity-r23/cloud-boundary.json",
+        "project/tests/gear_r23_test.gd::shop_bonus / shop_resume",
+        "project/tests/gear_r23_bonus_resume_test.gd"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P2870",
@@ -3396,7 +3803,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P2871",
@@ -3436,7 +3844,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P2872",
@@ -3475,7 +3884,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P2873",
@@ -3514,7 +3924,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P2877",
@@ -3553,7 +3964,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P2886",
@@ -3592,7 +4004,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P2890",
@@ -3631,7 +4044,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P2891",
@@ -3672,7 +4086,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P2892",
@@ -3685,8 +4100,8 @@
       },
       "previous_status": "미확인",
       "previous_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "new_status": "일부",
-      "fixed": false,
+      "new_status": "같음",
+      "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
@@ -3700,10 +4115,14 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
-        "project/tests/ui_gear_r23_test.gd"
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2892",
+        "project/tests/ui_gear_r23_round4_test.gd::guild_quest_card / quest: / button availability",
+        "verification/parity-r23/gear-round4-semantics.json"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "원본 의뢰 카드 HTML·버튼·진행 표시 반환을 보존한 source fixture는 있음. native 의뢰 카드 전체 반환은 다름.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -3742,7 +4161,18 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2892",
+        "project/tests/ui_gear_r23_round4_test.gd::guild_quest_card / quest: / button availability",
+        "verification/parity-r23/gear-round4-semantics.json"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음.",
+      "round4_fix_location": "project/ui/facilities_screen_r22.gd:151",
+      "fix_location": "project/ui/facilities_screen_r22.gd:151"
     },
     {
       "id": "P2896",
@@ -3755,8 +4185,8 @@
       },
       "previous_status": "미확인",
       "previous_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "new_status": "일부",
-      "fixed": false,
+      "new_status": "같음",
+      "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
@@ -3770,10 +4200,14 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
-        "project/tests/ui_gear_r23_test.gd"
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2896",
+        "project/tests/ui_gear_r23_round4_test.gd::guild_board / board: / empty / active / refresh",
+        "verification/parity-r23/gear-round4-semantics.json"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "의뢰판 원본 HTML과 native 의뢰판의 전체 문구/버튼/반환을 직접 동일 대조하지 않음. 경제/채우기 비교를 이 로컬 렌더 함수에 전파하지 않음.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -3812,7 +4246,18 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2896",
+        "project/tests/ui_gear_r23_round4_test.gd::guild_board / board: / empty / active / refresh",
+        "verification/parity-r23/gear-round4-semantics.json"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음.",
+      "round4_fix_location": "project/ui/facilities_screen_r22.gd:172",
+      "fix_location": "project/ui/facilities_screen_r22.gd:172"
     },
     {
       "id": "P2900",
@@ -3825,8 +4270,8 @@
       },
       "previous_status": "미확인",
       "previous_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "new_status": "일부",
-      "fixed": false,
+      "new_status": "같음",
+      "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
@@ -3840,10 +4285,14 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
-        "project/tests/ui_gear_r23_test.gd"
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2900",
+        "project/tests/ui_gear_r23_round4_test.gd::recruit_cell / cell:",
+        "verification/parity-r23/gear-round4-semantics.json"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "recruit_cell은 원본 HTML 문자열 헬퍼. native 소개 화면의 레이블/레이아웃 반환과 동일하지 않음.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -3882,7 +4331,18 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2900",
+        "project/tests/ui_gear_r23_round4_test.gd::recruit_cell / cell:",
+        "verification/parity-r23/gear-round4-semantics.json"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음.",
+      "round4_fix_location": "project/ui/facilities_screen_r22.gd:94",
+      "fix_location": "project/ui/facilities_screen_r22.gd:94"
     },
     {
       "id": "P2901",
@@ -3895,8 +4355,8 @@
       },
       "previous_status": "미확인",
       "previous_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "new_status": "일부",
-      "fixed": false,
+      "new_status": "같음",
+      "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
@@ -3910,10 +4370,14 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
-        "project/tests/ui_gear_r23_test.gd"
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2901",
+        "project/tests/ui_gear_r23_round4_test.gd::recruit_result / all 30 companions / missing id / busy / host tail excluded",
+        "verification/parity-r23/gear-round4-semantics.json"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "최근 만남·대기 상태 원본 HTML을 수집. native 최근 영입 카드·AI 보내기 안내/잠금은 전체 계약이 다름.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -3952,7 +4416,18 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2901",
+        "project/tests/ui_gear_r23_round4_test.gd::recruit_result / all 30 companions / missing id / busy / host tail excluded",
+        "verification/parity-r23/gear-round4-semantics.json"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음.",
+      "round4_fix_location": "project/ui/facilities_screen_r22.gd:115",
+      "fix_location": "project/ui/facilities_screen_r22.gd:115"
     },
     {
       "id": "P2902",
@@ -3965,8 +4440,8 @@
       },
       "previous_status": "미확인",
       "previous_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "new_status": "일부",
-      "fixed": false,
+      "new_status": "같음",
+      "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
@@ -3980,10 +4455,14 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
-        "project/tests/ui_gear_r23_test.gd"
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2902",
+        "project/tests/ui_gear_r23_round4_test.gd::recruit_roster / 0,1,2,30 companions / newest-first / codex",
+        "verification/parity-r23/gear-round4-semantics.json"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "원본 보유 동료 역순/도감/최근 표시 HTML을 수집. native 목록의 전체 순서·반환·문구 대조는 남음.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -4022,7 +4501,18 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2902",
+        "project/tests/ui_gear_r23_round4_test.gd::recruit_roster / 0,1,2,30 companions / newest-first / codex",
+        "verification/parity-r23/gear-round4-semantics.json"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음.",
+      "round4_fix_location": "project/ui/facilities_screen_r22.gd:99",
+      "fix_location": "project/ui/facilities_screen_r22.gd:99"
     },
     {
       "id": "P2904",
@@ -4050,10 +4540,20 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2904",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P2904",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "원본 빈/1인/30인/자금 부족/대기 소개 탭을 실행. native 경제 규칙과 화면 검사는 통과하나 전체 HTML/AI 대기 계약은 다름.",
+      "remaining_reason": "소개비 셀·최근 카드·명단·금화/RNG/합류는 직접 일치. 전체 소개 탭의 설명→셀→최근 결과→소개 행동→명단 표시 순서와 진행 막대, 부족/대기 보조 안내의 전체 화면 대조는 남음. AI 보내기 문구는 제외.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -4092,7 +4592,22 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2904",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P2904",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P2907",
@@ -4120,10 +4635,20 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2907",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P2907",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "원본 board/recruit/loredana 화면 반환을 수집. native 별도 페이지/잠금 방식과 전체 HTML 반환은 동일하지 않음.",
+      "remaining_reason": "의뢰판·영입 하위 helper 및 탭은 직접 일치. 전체 길드의 장소 설명·접수/길드장 두 NPC 역할·파티 선택 안내가 누락되고 native 페이지 간 헤더/귀환 동선이 다르다. HTML 반환 형식은 사유에서 제외.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -4162,7 +4687,22 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2907",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P2907",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P2909",
@@ -4175,8 +4715,8 @@
       },
       "previous_status": "미확인",
       "previous_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "new_status": "일부",
-      "fixed": false,
+      "new_status": "같음",
+      "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
@@ -4190,10 +4730,14 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
-        "project/tests/ui_gear_r23_test.gd"
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2909",
+        "project/tests/ui_gear_r23_round4_test.gd::guild_tabs / all source labels / selected / ko,en",
+        "verification/parity-r23/gear-round4-semantics.json"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "원본 탭 버튼 HTML 헬퍼. native 페이지 버튼과 반환 형식/상태 필드가 다름.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -4232,7 +4776,18 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2909",
+        "project/tests/ui_gear_r23_round4_test.gd::guild_tabs / all source labels / selected / ko,en",
+        "verification/parity-r23/gear-round4-semantics.json"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음.",
+      "round4_fix_location": "project/ui/facilities_screen_r22.gd:15",
+      "fix_location": "project/ui/facilities_screen_r22.gd:15"
     },
     {
       "id": "P2912",
@@ -4245,7 +4800,7 @@
       },
       "previous_status": "미확인",
       "previous_reason": "직접 원본 fixture의 반환·상태·콜백·RNG 비교를 현재 native 규칙/훅 시험에서 재실행. A7/A9 실제 전투 연결도 확인. 함수 호출 미관측, 명시적 분기 진입 0/0. 전체 계약은 같음으로 세지 않음. 단락 평가·조건의 모든 값 조합까지 전수 검증한 수치는 아님.",
-      "new_status": "일부",
+      "new_status": "같음",
       "fixed": false,
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
@@ -4260,10 +4815,15 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
-        "project/tests/ui_gear_r23_test.gd"
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2912",
+        "project/tests/gear_r23_round4_test.gd::recruit_observable / recruit_values / recruit_file_resume",
+        "project/tests/recruit_r21_test.gd",
+        "verification/parity-r23/gear-round4-oracle.json::host"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "실제 영입 금화·후보·RNG·레벨·호감은 일치. 원본 pending 첫 만남 지시·addChat의 보내기/실패 안내를 native 고정 대화로 대체하므로 전체 함수 계약은 다름.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -4302,7 +4862,17 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2912",
+        "project/tests/gear_r23_round4_test.gd::recruit_observable / recruit_values / recruit_file_resume",
+        "project/tests/recruit_r21_test.gd",
+        "verification/parity-r23/gear-round4-oracle.json::host"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P2921",
@@ -4315,7 +4885,7 @@
       },
       "previous_status": "일부",
       "previous_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "new_status": "일부",
+      "new_status": "제외",
       "fixed": false,
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
@@ -4330,10 +4900,13 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
-        "project/tests/ui_gear_r23_test.gd"
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2921",
+        "verification/parity-r23/gear-round4-oracle.json::host / ok,false,error"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "addChat true/false 양쪽을 원본에서 실행. native에는 이 Risu addChat 콜백이 없어 호스트 전송 반환 계약을 동일 판정하지 않음.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -4372,7 +4945,16 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2921",
+        "verification/parity-r23/gear-round4-oracle.json::host / ok,false,error"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음.",
+      "exclusion_reason": "RisuAI addChat(id, role, text)의 pcall 익명 콜백. 호스트 전용으로 제외. ok/false/exception을 원본에서 실행했고, 부모의 확정된 경제 결과가 native 저장 재개에서도 유지됨을 별도 확인."
     },
     {
       "id": "P2922",
@@ -4400,10 +4982,20 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2922",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P2922",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "수락/거절/포기/갱신/영입의 경제 시험과 새 find/remove 연결은 통과. 원본 접두 버튼 UI·AI pending/연구 전송 계약 전체는 다름.",
+      "remaining_reason": "의뢰 수락/거절/포기/갱신·영입 경제는 기존 대조 유지. 전체 버튼 해석 및 ps_* 연구 위임/저장 안 한 편집 이탈 거절의 합성, 거절 시 전체 안내 문구를 새 source/native 일괄 대조하지 못함. 연구/마을 소유자 파일은 이번 수정 금지. AI 호스트 전송은 제외.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -4442,7 +5034,22 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2922",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P2922",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P2946",
@@ -4508,7 +5115,8 @@
       ],
       "round3_fix_location": "project/game/town_rules_r21.gd:6",
       "fix_location": "project/game/town_rules_r21.gd:6",
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "같음"
     },
     {
       "id": "P2954",
@@ -4537,10 +5145,20 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2954",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P2954",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "보유 동료 없음·선택 동료·원본 gd_tier 음수 표시·현재 호감의 내림 표시를 확인/수정. HTML 전체 문구와 원본 AI 대화 동선은 native 고정 대화와 다름.",
+      "remaining_reason": "원본 초기 동료 목록→선택 화면과 native 자동 선택+드롭다운의 순서가 다르고 종족·행동 설명 일부가 빠져 있다. native의 자금 부족 비활성 조건도 원본의 하루 완료 전용 비활성 조건과 다르다. HTML 형식/AI 장면 차이는 사유에서 제외.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "fix_location": "project/ui/town_screen_r21.gd:587",
@@ -4580,7 +5198,22 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2954",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P2954",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P2961",
@@ -4608,10 +5241,20 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2961",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P2961",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "일반 행동의 비용/호감/하루 제한·재개 및 host chat 실패 후 확정은 비교. pending_at/pend_soft/AI 지시·보내기 전체 계약은 native에 없음. act_visible은 정본에서 상수 true여서 73-inn.lua:98의 거절 then은 도달 불가. 이를 인위적으로 원본을 바꿔 실행하지 않았다.",
+      "remaining_reason": "공개 native inn의 금화/날짜/호감/하루 제한과 재개는 대조됨. 실제 native 대화하기 버튼은 고정 대화 선택을 먼저 열고, 원본 일반 talk는 누르는 즉시 호감+1을 확정한다. 원본에 없는 확인 단계/화면과 거절 안내 차이가 남음. RisuAI 보내기/AI 지시는 제외.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -4657,7 +5300,22 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2961",
+        "verification/parity-r23/gear-round4-semantics.json::screens",
+        "verification/parity-r23/gear-coverage-round3.json::P2961",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P2976",
@@ -4670,7 +5328,7 @@
       },
       "previous_status": "미확인",
       "previous_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "new_status": "일부",
+      "new_status": "제외",
       "fixed": false,
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
@@ -4685,10 +5343,13 @@
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
-        "project/tests/ui_gear_r23_test.gd"
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2976",
+        "verification/parity-r23/gear-round4-oracle.json::host / ok,false,error"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "원본 일반 여관 addChat 성공/false 콜백을 실행. native 호스트에는 같은 전송 콜백/반환이 없음.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -4727,7 +5388,16 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2976",
+        "verification/parity-r23/gear-round4-oracle.json::host / ok,false,error"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음.",
+      "exclusion_reason": "RisuAI addChat(id, role, text)의 pcall 익명 콜백. 호스트 전용으로 제외. ok/false/exception을 원본에서 실행했고, 부모의 확정된 경제 결과가 native 저장 재개에서도 유지됨을 별도 확인."
     },
     {
       "id": "P2979",
@@ -4766,7 +5436,8 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P2981",
@@ -4779,7 +5450,7 @@
       },
       "previous_status": "일부",
       "previous_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "new_status": "일부",
+      "new_status": "같음",
       "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::aff_party_state + dialogue_player_r21 inn/party",
@@ -4788,10 +5459,14 @@
         "project/tests/dialogue_player_r21_test.gd",
         "verification/parity-r23/gear-coverage-round3.json::P2981",
         "verification/parity-r23/gear-round3-oracle.json",
+        "project/tests/gear_r23_round3_test.gd::aff_result / aff_state / aff_callback / native_inn_aff",
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2981",
+        "project/tests/gear_r23_round4_test.gd::aff_function_result / aff_function_state",
         "project/tests/gear_r23_round3_test.gd::aff_result / aff_state / aff_callback / native_inn_aff"
       ],
       "source_observation": "verification/parity-r23/gear-round3-oracle.json",
-      "remaining_reason": "source-shaped aff_add_source에서 잘못된 aff 테이블 초기화, 알 수 없는 cid, 16진 문자열, 선택적 chron_aff 호출 순서·동일 g 참조를 직접 비교했고 보유 동료의 실제 native 증감에도 연결했다. native 공개 aff_add의 owned 제한과 대화 전이 큐는 남아 전체 함수 같음으로 세지 않음.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -4827,7 +5502,16 @@
       ],
       "round3_fix_location": "project/game/town_rules_r21.gd:9",
       "fix_location": "project/game/town_rules_r21.gd:9",
-      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음.",
+      "round4_previous_status": "일부",
+      "round4_reviewed": true,
+      "round4_evidence": [
+        "verification/parity-r23/gear-round4-provenance.json",
+        "verification/parity-r23/gear-round4-assigned-items.json::P2981",
+        "project/tests/gear_r23_round4_test.gd::aff_function_result / aff_function_state",
+        "project/tests/gear_r23_round3_test.gd::aff_result / aff_state / aff_callback / native_inn_aff"
+      ],
+      "round4_scope": "기능 등가: 정보·수치·문구·순서·선택 조건·상태 및 저장 재개를 판정. HTML/UID/채팅 매체 형식은 비교 대상 아님. AI·RisuAI 전용 호출은 제외. 하위 함수 같음을 부모 전체 함수에 전파하지 않음."
     },
     {
       "id": "P2984",
@@ -4874,7 +5558,8 @@
         ],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     },
     {
       "id": "P2985",
@@ -4914,8 +5599,10 @@
         "remaining_entries": [],
         "baseline_missing": 0,
         "newly_entered_baseline": []
-      }
+      },
+      "round4_previous_status": "같음"
     }
   ],
-  "round2_snapshot": "verification/parity-r23/round2-gear.json"
+  "round2_snapshot": "verification/parity-r23/round2-gear.json",
+  "round3_snapshot": "verification/parity-r23/gear-round3-ledger.json"
 }

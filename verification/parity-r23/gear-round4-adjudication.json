@@ -1,0 +1,31 @@
+{
+  "project_exit": 0,
+  "npm_exit": 0,
+  "initial_failed_groups": 2,
+  "initial_failed_tests": [
+    "combat_a8_audit",
+    "ui_gear_r23_round4_test"
+  ],
+  "full_run_code_lock_unchanged": false,
+  "final_delta_verified": true,
+  "delta_file": "project/ui/facilities_screen_r22.gd",
+  "delta": [
+    "--- initial/project/ui/facilities_screen_r22.gd",
+    "+++ final/project/ui/facilities_screen_r22.gd",
+    "@@ -120,7 +120,7 @@",
+    " \tpicture(id,Rect2(0,y,82,98),\"target-face\")",
+    " \tlabel(source_t(c.full),Rect2(94,y,248,29),18,T.INK,T.BOLD,false);y+=40",
+    " \tvar race=source_u(\"{race}({lineage})\",{\"race\":c.race,\"lineage\":c.lineage}) if not c.get(\"lineage\",\"\").is_empty() else source_t(c.race)",
+    "-\tfor text in [race,source_t(c.nation),source_t(c.cls),source_t(c.row),source_t(\"무속성\" if c.el==\"none\" else PanelNumbers.DATA.els.get(c.el,\"무속성\"))]:",
+    "+\tfor text in [race,source_t(c.nation),source_t(c.cls),source_t(c.row),source_u(\"무속성\") if c.el==\"none\" else source_t(PanelNumbers.DATA.els.get(c.el,\"무속성\"))]:",
+    " \t\tlabel(text,Rect2(94,y,248,23),12,T.INK,T.BOLD,false);y+=27",
+    " \tlabel(source_u(\"호감 {stage} ({a} / {max})\",{\"stage\":w.TOWN_RULES.guild_tier(a),\"a\":a,\"max\":200}),Rect2(0,y,342,25),13,T.RED,T.BOLD,false);y+=33",
+    " \tfill(\"recruit_aff_track\",Rect2(0,y,342,5),T.LINE);fill(\"recruit_aff_value\",Rect2(0,y,342*maxf(0,a)/200,5),T.RED);y+=22"
+  ],
+  "retry_groups": 12,
+  "groups": 121,
+  "failed": 0,
+  "npm_initial_failed": true,
+  "npm_retry_checks": 12932,
+  "rationale": "The sole product delta after the full run began is the original UI-pack translation of Levia none-element text; complete affected facility/town UI tests were rerun. Original A8 repeated unchanged after process exit -1. All non-UI product/test inputs retain the original lock."
+}

@@ -2,6 +2,7 @@ extends "res://game/expedition_world_r22.gd"
 ## Town/gear facade; combat algorithms and the inherited town composition stay upstream.
 const GuildR22=preload("res://game/guild_rules_r22.gd")
 const SmithyR22=preload("res://game/smithy_rules_r22.gd")
+const GearLocale=preload("res://game/gear_locale_r23.gd")
 var facility="town"
 var facility_message=""
 var smithy_work=[]
@@ -21,6 +22,9 @@ func _init():
 
 func highest_level() -> int:
 	return maxi(super(),int(s.get("persona",{}).get("lv",1)))
+
+func facility_text(value: String,vars: Variant=null) -> String:
+	return GearLocale.u(value,vars,s.get("settings",{}).get("lang","ko"))
 
 func award_persona_exp(st: Dictionary) -> Dictionary:
 	var out=super(st)
@@ -122,16 +126,17 @@ func process_classes() -> Array:
 	return gear.classes(class_def("persona").get("id",""),s.owned.map(func(id):return class_def(id).id))
 
 func process_gear(_who: String="") -> bool:
-	if active() or bag_count()>=2000:return false
+	if active():return false
 	var amount=gear.band(highest_level()).price
-	if s.gold<amount:facility_message="금화가 모자랍니다. 가공 값 %d, 가진 금화 %d"%[amount,s.gold];return false
+	if s.gold<amount:facility_message=facility_text("금화가 모자랍니다. 가공 값 {cost}, 가진 금화 {gold}",{"cost":amount,"gold":s.gold});return false
+	if bag_count()>=2000:facility_message=facility_text("가방이 가득 찼습니다.");return false
 	var next=int(s.commerce_r21.process_n)+1
 	var result=gear.process_source(s.town_r21.seed,next,process_classes(),highest_level())
-	if result.is_empty():return false
+	if result.is_empty():facility_message=facility_text("지금은 가공할 수 없습니다.");return false
 	s.gold-=amount;s.commerce_r21.process_n=next;bank_expedition_gear([result.code])
 	smithy_work.append({"kind":"process","code":result.code,"name":gear.by_id[result.id].name})
-	smithy_fx={"kind":"process","name":gear.by_id[result.id].name}
-	npc_like("hanna");note("한나의 가공 · "+gear.by_id[result.id].name);return true
+	smithy_fx={"kind":"process","name":gear.by_id[result.id].name,"code":result.code}
+	facility_message="";npc_like("hanna");note("한나의 가공 · "+gear.by_id[result.id].name);return true
 
 func forge(uid: int) -> bool:
 	var e=gear_entry(uid)
@@ -141,10 +146,10 @@ func forge(uid: int) -> bool:
 	for copy in s.gear:
 		if gear.code(copy)==code:
 			state.forge=maxi(int(state.forge),int(copy.forge));state.tries=maxi(int(state.tries),int(copy.tries))
-	if state.forge>=10:return false
+	if state.forge>=10:facility_message=facility_text("이미 +10입니다.");return false
 	var input=e.duplicate(true);input.forge=state.forge;input.tries=state.tries
 	var amount=gear.forge_cost(input)
-	if s.gold<amount:return false
+	if s.gold<amount:facility_message=facility_text("금화가 모자랍니다.");return false
 	var old=state.forge;var success=gear.forge_result(s.town_r21.seed,input)
 	s.gold-=amount;state.tries+=1
 	if success:state.forge+=1
@@ -155,7 +160,21 @@ func forge(uid: int) -> bool:
 	npc_like("hanna");note(gear.by_id[e.id].name+(" 제련 성공 +%d"%e.forge if success else " 제련 실패. 장비는 그대로입니다."))
 	smithy_work.append({"kind":"forge","code":gear.code(e),"name":gear.by_id[e.id].name,"level":e.forge,"tries":e.tries,"success":e.forge>old})
 	smithy_fx={"kind":"forge","success":e.forge>old,"name":gear.by_id[e.id].name,"level":e.forge}
+	facility_message=""
 	return true
+
+# 82-smithy's scene guard and one-based, sorted-code button index.
+func smithy_action(arg: String) -> bool:
+	if facility!="smithy":return false
+	if arg.begins_with("tab_"):return smithy_select(arg.trim_prefix("tab_"))
+	if arg=="proc":return process_gear()
+	if arg=="done":return complete_smithy()
+	if arg=="back":return facility_route("town")
+	var re=RegEx.new();re.compile("^try_([0-9]+)$");var match_index=re.search(arg)
+	if match_index:
+		var index=int(match_index.get_string(1))-1;var list=smithy_list()
+		if index>=0 and index<list.size():return forge(list[index].uid)
+	return false
 
 func bank_expedition_gear(codes: Array) -> Dictionary:
 	var out=[];var lost=[]
@@ -242,7 +261,7 @@ func facility_route(page: String) -> bool:
 	if next==facility:return true
 	if not receipt.is_empty():facility_message="먼저 거래 내역을 확인하세요.";return false
 	if facility=="smithy" and not smithy_work.is_empty():
-		facility_message="제련이나 가공을 마쳤다면 「제련 및 가공 완료」를 눌러 한나와 이야기를 나눈 뒤 돌아갈 수 있습니다.";return false
+		facility_message=facility_text("제련이나 가공을 마쳤다면 「제련 및 가공 완료」를 눌러 한나와 이야기를 나눈 뒤 돌아갈 수 있습니다.");return false
 	if facility=="guild":
 		for id in s.research_editor_r21:
 			if research_dirty(id):facility_message="먼저 저장하세요. 로레다나의 스킬 조합에 저장하지 않은 변경이 있습니다.";return false
@@ -253,7 +272,8 @@ func facility_route(page: String) -> bool:
 	return true
 
 func complete_smithy() -> bool:
-	if facility!="smithy" or smithy_work.is_empty() or not receipt.is_empty():return false
+	if facility!="smithy" or not receipt.is_empty():return false
+	if smithy_work.is_empty():facility_message=facility_text("아직 제련이나 가공을 하지 않았습니다.");return false
 	var ledger={"forge":[],"proc":[]}
 	for row in smithy_work:
 		if row.kind=="forge":ledger.forge.append({"code":row.code,"ok":row.success,"lv":row.level})

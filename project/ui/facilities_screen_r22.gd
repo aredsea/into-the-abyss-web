@@ -1,6 +1,185 @@
 extends "res://ui/town_screen_r21.gd"
 ## P6 functional extension. D owns the inherited composition and artwork.
 var selected_class=""
+const FacilityLocale=preload("res://game/gear_locale_r23.gd")
+const PanelNumbers=preload("res://game/panels_rules_r22.gd")
+const FX_ORDER=["dmg","heal","shield","buff","dr","def","stat","crit","critdmg","spd","hp","mp","mpreg","reflect","dot","abyss","elite","lowhp","shdmg","healrecv","first","killmp","evade"]
+
+func source_u(value: String,vars: Variant=null) -> String:
+	return FacilityLocale.u(value,vars,L.language(host.model.s))
+
+func source_t(value: String) -> String:
+	return FacilityLocale.WORDS.get(value,L.t(value,"en")) if L.language(host.model.s)=="en" else value
+
+# The guild and smithy tab helpers share source labels and selected-state rules.
+func guild_tabs(selected: int) -> void:
+	for i in range(3):
+		var key=["guild","recruit","research"][i]
+		var b=action("guild:"+key,source_u(["의뢰판","동료 소개","길드장 로레다나"][i]),Rect2(18+i*118,447,118,40),host.go.bind(key),selected==i,false,false)
+		b.set_meta("source_selected",selected==i)
+		b.add_theme_font_size_override("font_size",12)
+
+func smithy_tabs() -> void:
+	for i in range(2):
+		var tab=["forge","process"][i]
+		var b=action("sm_tab:"+tab,source_u(["제련","장비 가공"][i]),Rect2(18+i*177,378,177,40),func():host.model.smithy_action("tab_"+tab);host._draw_screen(),host.model.smithy_tab==tab,false,false)
+		b.set_meta("source_selected",host.model.smithy_tab==tab)
+
+func smithy_forge() -> void:
+	var w=host.model;var rows=w.smithy_list();var y=0.0
+	label(source_u("실패해도 장비는 그대로입니다."),Rect2(0,y,342,25),14,T.INK,T.BOLD,false);y+=40
+	if rows.is_empty():paragraph(source_u("제련할 장비가 없습니다."),Rect2(0,y,342,70),15,T.INK,false);y+=82
+	for e in rows:
+		var item=w.gear.by_id[e.id]
+		label(source_t(item.name)+" +%d"%e.forge,Rect2(0,y,342,28),19,T.INK,T.BOLD,false);y+=36
+		if e.forge<10:
+			var cost=w.gear.forge_cost(e);var chance=w.gear.rules.forge.success[int(e.forge)]
+			action("forge:"+str(int(e.uid)),source_u("제련"),Rect2(0,y,114,42),func():host._act(w.smithy_action.bind("try_"+str(rows.find(e)+1)),""),true,w.s.gold<cost,false)
+			label(source_u("금화 {cost} · 성공 {chance}%",{"cost":cost,"chance":chance}),Rect2(124,y,218,42),12,T.INK,T.BOLD,false)
+		else:label("+10",Rect2(0,y,342,42),15,T.INK,T.BOLD,false)
+		y+=59;rule(y,0,342);y+=16
+	if w.smithy_source_fx.has("forge_fx"):
+		var fx=w.smithy_source_fx.forge_fx
+		label(source_u("제련 성공!" if fx.get("success",fx.get("ok",false)) else "제련 실패. 장비는 그대로입니다."),Rect2(0,y,342,42),14,T.RED,T.BOLD,false);y+=54
+	stage.custom_minimum_size.y=y
+
+func smithy_effect(r: Dictionary,key: String,value: float,y: float) -> float:
+	var rules=host.model.gear.note_rules;var def=rules.source.fx.base.get(key,rules.source.fx.affix.get(key,{}))
+	var name=def.get("name",key)
+	if key=="stat":name=rules.source.classes.filter(func(c):return c.id==r.item.cls)[0].line
+	label(source_t(name),Rect2(0,y,235,25),12,T.INK,T.BOLD,false)
+	label(("+" if value>=0 else "")+PanelNumbers.fnum(value)+def.get("unit",""),Rect2(244,y,98,25),13,T.RED,T.BOLD,false)
+	return y+29
+
+func smithy_result_card(code: String,level: int,y=0.0) -> float:
+	var r=host.model.gear.note_rules.gear_roll(code,level)
+	if r.is_empty():return y
+	label(source_t(r.item.name),Rect2(0,y,342,29),18,T.INK,T.BOLD,false);y+=36
+	label(source_t(host.model.Gear.RARITY[r.rarity])+" · Lv "+str(int(r.lv)),Rect2(0,y,342,25),12,T.INK,T.BOLD,false);y+=34
+	if not r.item.base.is_empty():
+		label(source_u("기본 효과"),Rect2(0,y,342,25),14,T.INK,T.BOLD,false);y+=29
+		for key in FX_ORDER:
+			if r.item.base.has(key):y=smithy_effect(r,key,r.fx.get(key,r.item.base[key]),y)
+	if not r.affix.is_empty():
+		label(source_u("무작위 옵션"),Rect2(0,y,342,25),14,T.INK,T.BOLD,false);y+=29
+		for a in r.affix:y=smithy_effect(r,a[0],a[1],y)
+	if r.has("unique"):
+		label(source_u("고유 효과"),Rect2(0,y,342,25),14,T.INK,T.BOLD,false);y+=29
+		label(source_t(r.unique.name),Rect2(0,y,342,26),14,T.RED,T.BOLD,false);y+=31
+		var text=source_t(r.unique.text)
+		var height=maxf(60,ceil(text.length()/28.0)*21)
+		paragraph(text,Rect2(0,y,342,height),12,T.INK,false);y+=height+10
+	return y
+
+func smithy_process() -> void:
+	var w=host.model;var level=w.highest_level();var band=w.gear.band(level);var y=0.0
+	paragraph(source_u("금화를 내면 대장간이 쇳덩이를 가공해 장비 한 점을 내어 준다. 어떤 장비가 나올지는 누르기 전에 이미 정해져 있어서, 되돌리거나 다시 불러와도 같은 차례에는 같은 장비가 나온다."),Rect2(0,y,342,132),13,T.INK,false);y+=144
+	for text in [source_u("기준 Lv {lv}",{"lv":level}),source_u("가공 1회 금화 {n}",{"n":band.price}),source_u("지금까지 {n}회",{"n":w.s.commerce_r21.process_n})]:
+		label(text,Rect2(0,y,342,25),14,T.INK,T.BOLD,false);y+=31
+	label(source_u("등급별 확률"),Rect2(0,y,342,26),18,T.INK,T.BOLD,false);y+=35
+	for rarity in w.gear.ORDER:
+		label(source_t(w.Gear.RARITY[rarity]),Rect2(0,y,175,23),13,T.INK,T.BOLD,false)
+		label(w.gear.pct(band.w.get(rarity,0))+"%",Rect2(220,y,122,23),13,T.RED,T.BOLD,false);y+=29
+	paragraph(source_u("Lv {from}~{to} 구간 · 확률은 바뀔 수 있습니다.",{"from":band.from,"to":band.to}),Rect2(0,y,342,44),11,T.INK,false);y+=50
+	paragraph(source_u("출전할 수 있는 동료 가운데 가장 높은 레벨이 기준이고, 나오는 장비는 지금 모험가들의 직업에서 정해진다."),Rect2(0,y,342,66),12,T.INK,false);y+=76
+	var short=band.price-w.s.gold
+	action("process_gear",source_u("장비 가공"),Rect2(0,y,165,42),func():host._act(w.smithy_action.bind("proc"),""),true,short>0,false)
+	label(source_u("금화 {n} 모자란다",{"n":short}) if short>0 else source_u("금화 {n}",{"n":band.price}),Rect2(178,y,164,42),12,T.INK,T.BOLD,false);y+=58
+	var code=w.smithy_source_fx.get("proc_fx",{}).get("code","");var r=w.gear.note_rules.gear_roll(code,level)
+	if not r.is_empty():
+		label(source_t(r.item.name),Rect2(0,y,342,28),19,T.RED,T.BOLD,false);y+=36
+		y=smithy_result_card(code,level,y)
+	stage.custom_minimum_size.y=y
+
+func recruit_cell(title: String,value: String,sub: String,r: Rect2) -> void:
+	label(source_u(title),Rect2(r.position,Vector2(r.size.x,22)),12,T.INK,T.BOLD,false)
+	label(value,Rect2(r.position+Vector2(0,25),Vector2(r.size.x,27)),17,T.RED,T.BOLD,false)
+	if not sub.is_empty():paragraph(sub,Rect2(r.position+Vector2(0,55),Vector2(r.size.x,44)),11,T.INK,false)
+
+func recruit_roster(y: float) -> float:
+	var w=host.model;var total=w.config.companions.size();var left=total-w.s.owned.size()
+	label(source_u("만난 동료"),Rect2(0,y,230,25),18,T.INK,T.BOLD,false)
+	label("%d / %d"%[w.s.owned.size(),total],Rect2(244,y,98,25),14,T.INK,T.BOLD,false);y+=38
+	if w.s.owned.is_empty():paragraph(source_u("아직 만난 동료가 없다."),Rect2(0,y,342,38),13,T.INK,false);y+=48
+	for i in range(w.s.owned.size()-1,-1,-1):
+		var id=w.s.owned[i];var p=w.person(id)
+		picture(id,Rect2(0,y,48,59),"target-face")
+		if w.s.town_r21.get("meet","")==id:fill("recruit_latest:"+id,Rect2(56,y,286,60),T.PALE)
+		label(L.t(p.name,L.language(w.s)),Rect2(64,y,275,25),16,T.INK,T.BOLD,false)
+		label(source_u("{cls}, Lv {lv}",{"cls":p["class"],"lv":w.s.members[id].level}),Rect2(64,y+29,275,24),12,T.INK,T.BOLD,false);y+=72
+	var hint=source_u("아직 만나지 못한 {n}명은 도감에 흐리게 보인다.",{"n":left}) if left>0 else source_u("길드 장부의 모험가를 모두 만났다.")
+	paragraph(hint,Rect2(0,y,342,48),12,T.INK,false);y+=54
+	action("recruit_codex",source_u("도감에서 보기"),Rect2(0,y,342,42),host.go.bind("codex"),false,false,false)
+	return y+54
+
+func recruit_result(y: float,busy=false) -> float:
+	var w=host.model;var id=w.s.town_r21.get("meet","")
+	if id not in w.s.owned or not PanelNumbers.DATA.cast.has(id):return y
+	var c=PanelNumbers.DATA.cast[id];var a=floor(w.s.members[id].aff)
+	label(source_u("방금 이어진 사람" if busy else "가장 최근에 소개받은 사람"),Rect2(0,y,342,25),12,T.INK,T.BOLD,false);y+=32
+	picture(id,Rect2(0,y,82,98),"target-face")
+	label(source_t(c.full),Rect2(94,y,248,29),18,T.INK,T.BOLD,false);y+=40
+	var race=source_u("{race}({lineage})",{"race":c.race,"lineage":c.lineage}) if not c.get("lineage","").is_empty() else source_t(c.race)
+	for text in [race,source_t(c.nation),source_t(c.cls),source_t(c.row),source_u("무속성") if c.el=="none" else source_t(PanelNumbers.DATA.els.get(c.el,"무속성"))]:
+		label(text,Rect2(94,y,248,23),12,T.INK,T.BOLD,false);y+=27
+	label(source_u("호감 {stage} ({a} / {max})",{"stage":w.TOWN_RULES.guild_tier(a),"a":a,"max":200}),Rect2(0,y,342,25),13,T.RED,T.BOLD,false);y+=33
+	fill("recruit_aff_track",Rect2(0,y,342,5),T.LINE);fill("recruit_aff_value",Rect2(0,y,342*maxf(0,a)/200,5),T.RED);y+=22
+	for text in [source_u("개인 스킬"),source_u("액티브"),source_t(c.skill),source_u("개인 특성"),source_u("패시브"),source_t(c.trait)]:
+		label(text,Rect2(0,y,342,25),13,T.INK,T.BOLD,false);y+=31
+	return y+18
+
+func recruit() -> void:
+	header("연합 길드 본관","guild");npc_hero("fenella","동료\n소개","페넬라\n소개 창구",430);guild_tabs(1)
+	var w=host.model;var cost=w.recruit_fee();var total=w.config.companions.size();var left=total-w.s.owned.size();var short=cost-w.s.gold
+	var previous=stage;stage=scroll_page(503,196,600+w.s.owned.size()*72)
+	recruit_cell("소개비",source_u("금화 {n}",{"n":cost}),source_u("한 명 늘 때마다 +20"),Rect2(0,0,114,106))
+	recruit_cell("가진 금화",str(int(w.s.gold)),source_u("금화 {n} 모자라다",{"n":short}) if short>0 and left>0 else "",Rect2(122,0,106,106))
+	recruit_cell("동료","%d / %d"%[w.s.owned.size(),total],"",Rect2(236,0,106,106))
+	var next=source_u(" (이번 뒤에는 {cost})",{"cost":cost+20}) if left>0 else ""
+	paragraph(source_u("소개비는 100 → 120 → 140 … 만난 사람이 늘수록 20씩 오른다{next}.",{"next":next}),Rect2(0,110,342,66),12,T.INK,false)
+	paragraph(source_u("길드가 모험가에게 사람을 이어 준다. 누구를 만날지는 길드도 모른다. 아직 동료가 아닌 사람 가운데 한 명이 나오고, 만나면 곧 동료가 된다. 등급도 확률표도 없다."),Rect2(0,185,342,108),13,T.INK,false)
+	var y=304
+	y=recruit_result(y,not w.s.dialogue_r21.pending.is_empty())
+	if left==0:paragraph(source_u("더 이을 사람이 없다. 길드 장부에 오른 모험가는 모두 당신의 동료다."),Rect2(0,y,342,65),13,T.INK,false);y+=77
+	# The latest id and newest-first list use the existing saved town.meet field.
+	y=recruit_roster(y);stage.custom_minimum_size.y=y;stage=previous
+	if left>0:
+		var busy=not w.s.dialogue_r21.pending.is_empty() or not w.s.dialogue_r21.response.is_empty()
+		action("recruit",source_u("소개받기")+" · "+source_u("금화 {n}",{"n":cost}),Rect2(18,705,354,44),func():host._act(w.recruit,"");host.message=w.s.log[-1];host._draw_screen(),true,busy or short>0,false)
+	feedback(752)
+
+func guild_quest_card(q: Dictionary,accepted: bool,y: float) -> float:
+	var w=host.model;var c=w.quest_contract(q);var lang=L.language(w.s)
+	paragraph(w.GuildR22.title(c,lang),Rect2(0,y,342,49),18,T.INK,false);y+=56
+	label("★".repeat(int(c.stars)),Rect2(0,y,342,24),13,T.RED,T.BOLD,false);y+=29
+	paragraph(source_t(c.get("d","")),Rect2(0,y,342,55),12,T.INK,false);y+=61
+	label(source_u("난이도 {difficulty}",{"difficulty":source_u(c.difficulty)}),Rect2(0,y,342,23),12,T.INK,T.BOLD,false);y+=26
+	label(source_u(c.kind),Rect2(0,y,342,23),12,T.INK,T.BOLD,false);y+=26
+	label(source_u({"core":"균열 핵 레이드","elite":"정예 전투","battle":"일반 전투"}[w.GuildR22.fight(c)]),Rect2(0,y,342,23),12,T.INK,T.BOLD,false);y+=26
+	label(source_u("보상 금화 {gold}",{"gold":w.dungeon_rules.quest_gold(c,c.lv)}),Rect2(0,y,342,23),13,T.RED,T.BOLD,false);y+=26
+	label(source_u("적 Lv {lv}",{"lv":c.lv}),Rect2(0,y,342,23),12,T.INK,T.BOLD,false);y+=26
+	if c.has("strength"):
+		label(source_u("적 강도 ×{n}",{"n":"%.1f"%c.strength}),Rect2(0,y,342,23),12,T.INK,T.BOLD,false);y+=26
+		label(source_u("장비 1~2개 확정"),Rect2(0,y,342,23),12,T.INK,T.BOLD,false);y+=26
+	if accepted:
+		label(source_u("진행 중"),Rect2(0,y,164,42),13,T.RED,T.BOLD,false)
+		action("quest_abandon",source_u("포기"),Rect2(178,y,164,42),func():host._act(w.abandon_quest,""),false,false,false)
+	else:
+		action("quest:"+str(int(q.id)),source_u("수락"),Rect2(0,y,166,42),func():host._act(w.accept_quest.bind(q.id),"의뢰를 수락했습니다."),true,false,false)
+		action("quest_reject:"+str(int(q.id)),source_u("거절"),Rect2(178,y,164,42),func():host._act(w.reject_quest.bind(q.id),"의뢰 하나를 거절했다. 판에 새 의뢰가 걸렸다."),false,false,false)
+	y+=55;rule(y,0,342);return y+14
+
+func guild_board() -> void:
+	var w=host.model;var y=0.0
+	if w.s.board.is_empty():
+		paragraph(source_u("의뢰판이 비어 있다."),Rect2(0,y,342,38),14,T.INK,false);y+=48
+		action("fill_board",source_u("의뢰판 살펴보기"),Rect2(0,y,342,42),func():host._act(w.fill_source_board,""),false,false,false);y+=54
+	else:
+		for q in w.s.board:y=guild_quest_card(q,w.s.quest.get("id",-1)==q.id,y)
+		action("refresh_board",source_u("의뢰판 새로 걸기"),Rect2(0,y,218,42),func():host._act(w.refresh_board,"의뢰판을 새로 걸었다."),true,false,false)
+		label(source_u("금화 {n}",{"n":w.refresh_fee()}),Rect2(230,y,112,42),12,T.INK,T.BOLD,false);y+=54
+		paragraph(source_u("받은 의뢰는 그대로 두고 나머지를 바꾼다"),Rect2(0,y,342,44),12,T.INK,false);y+=52
+	stage.custom_minimum_size.y=y
 
 func picture(id: String,r: Rect2,slot="bust") -> Control:
 	if id!="persona":return super(id,r,slot)
@@ -80,64 +259,25 @@ func guild() -> void:
 	if not host.model.has_method("reject_quest"):super();return
 	header("연합 길드 본관");npc_hero("fenella","의뢰","페넬라\n길드 접수",430);guild_tabs(0)
 	var w=host.model;var board=w.s.board
-	var previous=stage;stage=scroll_page(503,196,board.size()*228)
-	for i in range(board.size()):
-		var q=board[i];var c=w.quest_contract(q);var y=i*228;var accepted=w.s.quest.get("id",-1)==q.id
-		label(("진행 중 · " if accepted else "")+c.difficulty+" · 적 Lv.%d"%c.lv,Rect2(0,y,342,22),12,T.RED,T.BOLD)
-		display(q.name,Rect2(0,y+26,342,30),T.INK,23)
-		label(q.rift+" · "+{"core":"균열 핵 레이드","elite":"정예 전투","battle":"일반 전투"}[w.GuildR22.fight(c)],Rect2(0,y+61,342,22),12)
-		paragraph(c.get("d",""),Rect2(0,y+88,342,40),12)
-		label("보상 금화 %d"%w.dungeon_rules.quest_gold(c,c.lv)+( " · 장비 1~2개 확정" if c.difficulty=="엘리트" else ""),Rect2(0,y+131,342,25),13,T.RED,T.BOLD)
-		if accepted:
-			action("quest_depart","출발",Rect2(0,y+170,166,42),func():host._act(w.depart_accepted_quest,"");host.go("explore"),true)
-			action("quest_abandon","포기",Rect2(178,y+170,164,42),func():host._ask("현재 의뢰를 포기할까요?",w.abandon_quest))
-		else:
-			action("quest:"+str(int(q.id)),"수락",Rect2(0,y+170,166,42),func():host._act(w.accept_quest.bind(q.id),"의뢰를 수락했습니다."),true,not w.s.quest.is_empty()).tooltip_text=w.GuildR22.title_en(c) if w.s.get("settings",{}).get("lang","")=="en" else w.GuildR22.title(c)
-			action("quest_reject:"+str(int(q.id)),"거절",Rect2(178,y+170,164,42),func():host._act(w.reject_quest.bind(q.id),"의뢰 하나를 거절했다. 판에 새 의뢰가 걸렸다."))
-		rule(y+225,0,342)
+	var previous=stage;stage=scroll_page(503,245,board.size()*228);guild_board()
 	stage=previous
-	action("refresh_board","의뢰판 새로 걸기 · 금화 %d"%w.refresh_fee(),Rect2(18,709,354,40),func():host._act(w.refresh_board,"의뢰판을 새로 걸었다."),true,w.s.gold<w.refresh_fee())
 
 func smithy() -> void:
 	if not host.model.has_method("smithy_list"):super();return
 	var w=host.model
 	header("한나의 대장간");npc_hero("hanna","한나의\n대장간","",365)
-	for i in range(2):
-		var tab=["forge","process"][i]
-		action("sm_tab:"+tab,["제련","장비 가공"][i],Rect2(18+i*177,378,177,40),func():w.smithy_select(tab);host._draw_screen(),w.smithy_tab==tab)
+	smithy_tabs()
 	fill("smithy_body",Rect2(0,418,390,282),T.PAPER)
 	var previous=stage
 	if w.smithy_tab=="process":
-		var band=w.gear.band(w.highest_level())
-		label("기준 Lv.%d · 지금까지 %d회"%[w.highest_level(),w.s.commerce_r21.process_n],Rect2(18,431,354,25),15,T.INK,T.BOLD)
-		label("등급별 확률",Rect2(18,472,354,26),18,T.INK,T.BOLD)
-		for i in range(w.gear.ORDER.size()):
-			var rarity=w.gear.ORDER[i]
-			label(w.Gear.RARITY[rarity],Rect2(18,510+i*27,175,23),13)
-			label(w.gear.pct(band.w.get(rarity,0))+"%",Rect2(220,510+i*27,152,23),13,T.RED,T.BOLD)
-		paragraph("Lv.%d~%d 구간 · 확률은 바뀔 수 있습니다.\n같은 씨앗과 가공 회차에는 같은 장비가 나옵니다."%[band.from,band.to],Rect2(18,655,354,42),11)
-		action("process_gear","장비 가공 · 금화 %d"%band.price,Rect2(18,706,354,42),func():host._act(w.process_gear.bind(host.who),""),true,w.s.gold<band.price)
+		stage=scroll_page(431,267,90);smithy_process();stage=previous
 	else:
-		var rows=w.smithy_list();label("실패해도 장비는 그대로입니다.",Rect2(18,431,354,25),14)
-		stage=scroll_page(469,216,maxi(90,rows.size()*130))
-		if rows.is_empty():paragraph("제련할 장비가 없습니다.\n장비 가공 탭에서 장비를 만들 수 있습니다.",Rect2(0,12,342,70),15)
-		for i in range(rows.size()):
-			var e=rows[i];var item=w.gear.by_id[e.id];var y=i*130
-			display(item.name+" +%d"%e.forge,Rect2(0,y,342,30),T.INK,22)
-			if e.forge<10:
-				label("성공 %d%% · 실패 시 단계 유지"%w.gear.rules.forge.success[int(e.forge)],Rect2(0,y+36,342,25),12)
-				var cost=w.gear.forge_cost(e)
-				action("forge:"+str(int(e.uid)),"제련 · 금화 %d"%cost,Rect2(0,y+72,342,42),func():host._ask(item.name+" 제련 시도?\n실패해도 비용은 소모됩니다.",w.forge.bind(e.uid)),true,w.s.gold<cost)
-			else:label("이미 +10입니다.",Rect2(0,y+69,342,30),15)
-			rule(y+127,0,342)
+		stage=scroll_page(431,254,90);smithy_forge()
 		stage=previous
 		if not w.smithy_work.is_empty():action("smithy_done","제련 및 가공 완료",Rect2(18,706,354,42),func():w.complete_smithy();host._draw_screen(),true)
 		else:action("smith_equipment","장비 장착하기",Rect2(18,706,354,42),host.go.bind("equipment"))
 	if w.smithy_tab=="process" and not w.smithy_work.is_empty():
 		action("smithy_done","제련 및 가공 완료",Rect2(18,314,354,43),func():w.complete_smithy();host._draw_screen(),true)
-	if not w.smithy_fx.is_empty():
-		var fx=w.smithy_fx;var text="가공 완료 · "+fx.name if fx.kind=="process" else "제련 성공!" if fx.success else "제련 실패. 장비는 그대로입니다."
-		fill("smithy_result",Rect2(14,265,362,42),T.PAPER);label(text,Rect2(22,272,346,28),14,T.RED,T.BOLD)
 
 func scroll_page_targets() -> void:
 	header("레벨업 스크롤","shop")

@@ -1,0 +1,39 @@
+{
+  "verifier_exit": 1,
+  "groups": 121,
+  "failed": [
+    {
+      "test": "combat_a8_audit",
+      "exit": 4294967295,
+      "errors": [],
+      "seconds": 585.42,
+      "passed": false
+    },
+    {
+      "test": "ui_gear_r23_round4_test",
+      "exit": 1,
+      "errors": [
+        "ERROR: source visible text/order recruit_result:enleviafalse",
+        "ERROR: source visible text/order recruit_result:enleviatrue"
+      ],
+      "seconds": 24.33,
+      "passed": false
+    }
+  ],
+  "group_exits": [
+    1,
+    1,
+    0,
+    0
+  ],
+  "lock_changed": [
+    "project/ui/facilities_screen_r22.gd"
+  ],
+  "verifier_stop": "AssertionError: Code changed after final verification started",
+  "local_server": {
+    "pid": 17572,
+    "port": 56340,
+    "exit": 0,
+    "control": "gear-cloud-round4-e697bc88"
+  }
+}

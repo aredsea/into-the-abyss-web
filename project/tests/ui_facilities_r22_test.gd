@@ -57,14 +57,14 @@ func run():
 		# A blocked navigation notice must not cover the recovery control.
 		await click(s,"smithy_done");await capture(s,"smithy-receipt",dim)
 		await click(s,"receipt_done");await click(s,"sm_tab:forge");var uid=s.model.s.gear[0].uid
-		await click(s,"forge:"+str(int(uid)));await click(s,"accept");check(s.model.gear_entry(uid).tries==1,"pointer forge spends one attempt")
+		await click(s,"forge:"+str(int(uid)));check(s.model.gear_entry(uid).tries==1,"pointer forge spends one attempt directly, as source sm_try")
 		await click(s,"smithy_done");await click(s,"receipt_done");await click(s,"back")
 		s.go("guild");await capture(s,"guild",dim)
 		var first=s.model.s.board[0].id;await click(s,"quest:"+str(int(first)))
 		check(s.model.s.quest.id==first,"pointer accept quest")
 		var rejected=s.model.s.board[1].id;await click(s,"quest_reject:"+str(int(rejected)));check(not s.model.s.board.any(func(q):return q.id==rejected),"pointer reject quest while another active")
 		await capture(s,"guild-active",dim)
-		await click(s,"quest_abandon");await click(s,"accept");check(s.model.s.quest.is_empty(),"pointer abandon and refill")
+		await click(s,"quest_abandon");check(s.model.s.quest.is_empty(),"pointer abandon and refill directly, as source gd_drop")
 		s.go("inn");await capture(s,"inn",dim)
 		s.go("town");s.model.s.owned=[];s.model.s.party=[];s.go("inn");await capture(s,"inn-empty",dim)
 		root.remove_child(s);s.queue_free();await process_frame
