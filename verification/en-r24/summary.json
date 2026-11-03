@@ -1,29 +1,99 @@
 {
   "status": "incomplete",
-  "characters_complete": 3,
+  "characters_complete": 12,
   "characters_total": 30,
   "fields": 14216,
-  "translated": 1398,
-  "untranslated": 12818,
-  "batch_untranslated": 0,
+  "translated": 5636,
+  "untranslated": 8580,
+  "round2_characters_added": 9,
+  "round2_fields_added": 4238,
   "regression_runs": 20,
   "regression_failed": 0,
-  "counted_checks": 94081,
-  "ui_scenes": 168,
-  "ui_checks": 15390,
+  "counted_checks": 160221,
+  "checks_by_test": [
+    {
+      "test": "en_r24_test",
+      "checks": 22666
+    },
+    {
+      "test": "dialogue_player_r21_test",
+      "checks": 34229
+    },
+    {
+      "test": "dialogue_roster_r21_test",
+      "checks": 17670
+    },
+    {
+      "test": "world_test",
+      "checks": 44
+    },
+    {
+      "test": "state_test",
+      "checks": 54
+    },
+    {
+      "test": "route_test",
+      "checks": 41
+    },
+    {
+      "test": "expansion_test",
+      "checks": 3350
+    },
+    {
+      "test": "ui_battle_r17_test",
+      "checks": 6085
+    },
+    {
+      "test": "ui_battle_r18_test",
+      "checks": 4592
+    },
+    {
+      "test": "ui_battle_r19_test",
+      "checks": 859
+    },
+    {
+      "test": "ui_battle_r20_test",
+      "checks": 1659
+    },
+    {
+      "test": "motion_r9_integration",
+      "checks": 944
+    },
+    {
+      "test": "motion_r18_integration",
+      "checks": 3540
+    },
+    {
+      "test": "ui_en_r24_test",
+      "checks": 64488
+    }
+  ],
+  "ui_scenes": 672,
+  "ui_checks": 64488,
   "ui_failures": 0,
   "sample_rows": 300,
   "sample_scope": [
     "adeline",
     "altan",
-    "bargut"
+    "bargut",
+    "berenga",
+    "bianca",
+    "colette",
+    "erdene",
+    "felice",
+    "gerda",
+    "gunhild",
+    "haldric",
+    "hedwig"
   ],
+  "sample_seed": 20261104,
   "protected_files": 2481,
   "protected_changes": [],
   "asset_hash_entries": 96,
   "asset_hash_changes": [],
   "save_format_changed": false,
   "release_language_gate_passed": false,
-  "visual_captures_reviewed": 15,
-  "runtime_slots_cleaned": true
+  "external_translation_services_used": false,
+  "runtime_slots_cleaned": true,
+  "visual_captures_reviewed": 60
 }

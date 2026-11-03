@@ -1,56 +1,50 @@
-**EN-R24 — 미완료 / 첫 3명 번역 및 표시 연결**
+**EN-R24 — 미완료 / 누적 12명 번역 및 검증**
 
-전체 30명·14,216개 중 아델린·알탄·바르굿 3명의 1,398개를 직접 번역했다. **나머지 27명·12,818개는 아직 한국어 원문으로 표시된다.** 전체 영어화 완료로 보고하지 않는다.
-
-각 캐릭터 JSON 끝에 `en.display`(원래 필드 경로 → 영어 문구), `en.speech`(영어 말투·호칭·관계 진행 지침)를 추가했다. 기존 키, 한국어 문자열, id, 선택지 순서, 호감 수치, 장면 구조와 저장 형식은 바꾸지 않았다. 새 영어 필드를 제거하면 세 파일의 원본 바이트 해시가 정확히 복원된다. 나머지 27개 JSON은 원본 그대로다.
-
-영어 설정의 `authored_display`가 같은 JSON의 영어 문구를 찾아 표시한다. 저장된 응답·전환·탐색 대사는 계속 한국어이며, 불러온 뒤에도 표시 단계에서 영어로 바뀐다. 번역이 없는 문구는 원문을 그대로 남겨 감사에서 검출한다. 일반 UI 템플릿으로 대사를 대체하지 않는다. 영어 줄 길이로 본문·선택지 높이를 계산하고, 대화 제목이 초상화와 겹치지 않게 영어 제목 폭만 조정했다. UI 제목 3개와 관계 단계 제목도 영어로 표시한다.
-
-아델린은 정중한 부탁·감사와 승부 앞의 짧고 빠른 문장, 알탄은 격식 있는 업무 어휘와 축약을 피한 문장, 바르굿은 짧은 구어와 축약형으로 구별했다. Adeline de Arcas, Altan, Bargut, Marceline, Gunhild, Urda, Leopard Banner 등은 기존 `localization-r22` 및 `ui-source-locale-r23` 사전의 표기를 참조했다. 새 고유명사와 성적 장면은 추가하지 않았다.
+이번 실행에서 베렌가·비앙카·콜레트·에르데네·펠리스·게르다·군힐트·할드리크·헤드비히 **9명·4,238개 문구**를 직접 번역했다. 기존 3명·1,398개를 합쳐 **12명·5,636개**다. **남은 18명·8,580개는 번역하지 못했다. 지시된 27명 전체 번역을 완료하지 못했으며 배포 언어 게이트는 미통과다.**
 
 | 항목 | 결과 |
-| --- | --- |
-| 완료 캐릭터 | 3 / 30 |
-| 번역 문구 | 1,398 / 14,216 |
-| 전체 실제 표시 언어 감사의 한국어 잔존 | 12,818 |
-| 첫 3명만 재검사한 한국어 잔존 | 0 / 1,398 |
-| 회귀 검사 | 20개 실행, 실패 0 |
-| 로그에서 집계 가능한 검사 | 94,081개, 실패 0 |
-| 영어 UI | 168개 대화 화면, 15,390개 검사, 실패 0 |
+| --- | ---: |
+| 완료 캐릭터 | 12 / 30 |
+| 번역 문구 | 5,636 / 14,216 |
+| 실제 영어 표시 감사의 한국어 잔존 | 8,580 |
+| 각 신규 3명 묶음의 한국어 잔존 | 0 |
+| 전체 회귀 검사 | 20개 실행, 실패 0 |
+| 로그에서 집계한 검사 | 160,221개, 실패 0 |
+| 영어 UI 장면 | 672개 |
+| 영어 UI 검사 | 64,488개, 실패 0 |
 | 보호 파일 | 2,481개, 변경 0 |
-| ASSET-HASHES 원본 | 96개, 불일치 0 |
-| 영어화 배포 게이트 | 미통과: 미번역 12,818개 |
+| 원본 자산 해시 | 96개, 불일치 0 |
 
-필수 import, world/state/route/expansion/motion/motion_asset/art/export_licenses, ui_battle_r17/r18/r19/r20, motion_r9/r18 검사를 모두 직접 실행했다. 추가로 dialogue_player 34,229개, dialogue_roster 17,670개, 영어 표시·저장 보존 5,624개 검사도 실패 0이다. 루트 인증서 저장소를 읽지 못하는 환경 메시지는 로그에 따로 남아 있으며, 이를 제외한 스크립트 오류는 0이다. 검사 기대값은 낮추지 않았다. 언어 감사 스크립트의 정상 종료를 영어화 완료로 해석하지 않는다.
+대사 데이터 변경은 `project/data/dialogue-r21/{berenga,bianca,colette,erdene,felice,gerda,gunhild,haldric,hedwig}.json` 9개에 `en.display`와 `en.speech`를 추가한 것이다. 기존 표시 연결을 그대로 사용한다. **30개 파일 모두 영어 필드를 제거하면 최초 한국어 원본 바이트의 SHA-256이 정확히 복원된다.** 한국어 문자열·장면 구조·id·선택지 순서·호감 수치와 저장 형식은 바꾸지 않았다. 기존 3명과 미번역 18명의 제품 JSON은 이번에 수정하지 않았다.
 
-300줄 표본은 [sample.md](verification/en-r24/sample.md)에 있다. seed 20261104, 중복 없는 무작위 추출이며, **현재 번역한 3명·1,398개만 모집단**이다. 30명 전체 표본은 전체 번역 후 다시 추출해야 한다. 표본 300줄을 한국어와 대조해 검토하고 어색한 직역·축약형을 수정했다. 영어 360/430px 화면 및 하단 선택지 스크롤 캡처 15개를 직접 열어 확인했다. 긴 본문과 선택지는 스크롤로 이어지며, 하단 선택지까지 읽을 수 있음을 확인했다.
+`project/ui/town_screen_r21.gd`의 탐색 대사 표시에서는 영어 본문을 먼저 해석한 뒤 길이에 맞춰 행 높이와 스크롤 내용 높이를 계산하고 라벨 줄 간격도 반영하도록 수정했다. 캡처에서 베렌가의 긴 전환 문구 끝이 잘리는 것을 확인한 데 따른 표시 수정이며, 한국어의 기존 행 높이와 게임 규칙은 그대로다. 영어 UI 시험에 본문 전체가 라벨과 스크롤 내용 영역에 포함되는지도 추가했다. 보이는 줄 수 검사에서 최초 148건을 검출했고 수정 후 0건으로 재검사했다. 수정 전 근거는 `verification/en-r24/ui-test-before-line-spacing-fix.json`에 남겼다.
 
-바뀐 제품 파일:
+베렌가는 따뜻하고 수다스러운 존대, 비앙카는 우아한 질문과 거래 어휘, 콜레트는 간결한 격식체, 에르데네는 큰 목소리의 직설적인 구어, 펠리스는 빠른 안내와 수다, 게르다는 냉소와 징조 앞의 진지함, 군힐트는 호령과 칭찬 앞의 머뭇거림, 할드리크는 건조한 계약 문장, 헤드비히는 정확한 선언체를 옮겼다. 가까워져도 각자의 거절·두려움·믿음·이름과 이해관계가 지워지지 않게 했다. 고유명사는 기존 사전의 Gunhild von Halen, Graben, Colette de Cadell, Felice da Torva, Interpreters' Lane, Murena Isle, Alt Valley, Golden Register, Council of Ten 등을 확인해 사용했다. 고립의 해는 사전의 기존 설명 문장에 쓰인 Year of Isolation을 따랐다. 새 인물·설정·성적 장면을 추가하지 않았다. 외부 번역 서비스·API와 보조 에이전트는 사용하지 않았다.
 
-- `project/data/dialogue-r21/{adeline,altan,bargut}.json` — 영어 필드 추가.
-- `project/game/dialogue_locale_r24.gd` — 저장 데이터를 변경하지 않는 영어 표시 인덱스.
-- `project/game/localization_r22.gd` — `authored_display` 연결.
-- `project/ui/town_screen_r21.gd` — 번역 길이 측정, 제목 폭, 관계 단계 표시.
-- `project/data/native-locale-r24.json` — 대화 화면 제목 3개 번역 추가.
+검사는 베렌가/비앙카/콜레트, 에르데네/펠리스/게르다, 군힐트/할드리크/헤드비히의 3명 묶음마다 실제 영어 표시 언어 스캔과 영어 선택·원문 보존·저장 왕복 시험, dialogue_player 및 dialogue_roster 시험을 실행했다. 각 묶음에서 한국어 잔존과 시험 실패는 모두 0이다. 표현을 다듬은 뒤 전체 회귀 검사를 다시 실행했다.
 
-검사·도구 파일은 `project/tests/en_r24_test.gd`, `project/tests/ui_en_r24_test.gd`, `project/tests/finish_locale_data_audit.gd`(캐릭터 필터와 감사 범위 설명), `tools/en_r24.py`, `tools/en_r24_verify.py` 및 생성된 UID다. 근거는 `verification/en-r24/summary.json`, `regression.json`, `dialogue-test.json`, `ui-test.json`, `batch-language-audit.json`, `baseline.json`에 있다. 전체 실제 표시 감사는 `verification/finish-r24/authored-language-audit.json`에도 갱신했다.
+`project/tests/en_r24_test.gd`와 `ui_en_r24_test.gd`는 기존 3명만 검사하던 기본 목록을 영어 필드가 있는 모든 인물을 검사하도록 넓혔다. 기대값을 낮추거나 미번역을 영어로 간주하지 않았다. import, world/state/route/expansion/motion/motion_asset/art/export_licenses, ui_battle_r17/r18/r19/r20, motion_r9/r18, 영어 대사 및 화면 시험을 직접 재실행했다. 루트 인증서 저장소를 읽지 못한다는 환경 메시지는 로그에 남았으며, 별도로 집계한 스크립트 오류는 0이다. 언어 감사 프로세스의 정상 종료를 전체 영어화 성공으로 해석하지 않는다.
 
-아래 미번역 항목은 아직 직접 번역하지 않은 원문이다. 외부 번역용 fal 모델 호출은 자동 승인 검토에서 `MCP tool call requires approval, but approval policy is never`로 거절되어 실행되지 않았다. 보조 에이전트는 명시적 허용을 받지 않아 사용하지 않았다. 남은 문구를 영어로 가장하거나 범용 문장으로 덮지 않고 실제 잔존 수를 기록한다.
+[300줄 한·영 표본](verification/en-r24/sample.md)은 seed 20261104, 중복 없는 무작위 추출이다. **모집단은 번역된 12명·5,636개 문구만**이다. 300줄을 원문과 직접 대조했고 어색한 표현을 수정한 뒤 같은 seed로 다시 생성했다. 30명 전체의 최종 표본은 아직 만들 수 없다.
+
+영어 360/430px 장면 캡처 60개를 인물별 원래 해상도 대조 이미지로 열어 확인했다. 대화 제목과 초상화가 겹치지 않고, 긴 선택지는 줄바꿈된다. 처음 화면 아래에 놓인 선택지는 스크롤한 캡처에서 끝까지 보인다. 베렌가의 탐색 전환 마지막 문구와 펠리스의 응답 전환 마지막 단어가 잘리던 현상은 수정 후 끝까지 표시된다. 본문은 필요할 때 스크롤로 이어지며, 조작 버튼은 본문 영역과 분리되어 있다. 30명 전체의 화면 검토는 아니며 미번역 18명은 이 검토 대상에 포함하지 않았다.
+
+근거: [summary.json](verification/en-r24/summary.json), [regression.json](verification/en-r24/regression.json), [원문 보존·번역 감사](verification/en-r24/authored-language-audit.json), [실제 표시 감사](verification/finish-r24/authored-language-audit.json), [dialogue-test.json](verification/en-r24/dialogue-test.json), [ui-test.json](verification/en-r24/ui-test.json), [표본 검토](verification/en-r24/sample-review-round2.json). 묶음별 근거는 `verification/en-r24/batch-*-results.json` 및 해당 로그에 있다.
 
 | 캐릭터 | 표시 문구 | 번역 | 미번역 |
 | --- | ---: | ---: | ---: |
 | adeline | 462 | 462 | 0 |
 | altan | 468 | 468 | 0 |
 | bargut | 468 | 468 | 0 |
-| berenga | 468 | 0 | 468 |
-| bianca | 475 | 0 | 475 |
-| colette | 462 | 0 | 462 |
-| erdene | 481 | 0 | 481 |
-| felice | 468 | 0 | 468 |
-| gerda | 470 | 0 | 470 |
-| gunhild | 468 | 0 | 468 |
-| haldric | 478 | 0 | 478 |
-| hedwig | 468 | 0 | 468 |
+| berenga | 468 | 468 | 0 |
+| bianca | 475 | 475 | 0 |
+| colette | 462 | 462 | 0 |
+| erdene | 481 | 481 | 0 |
+| felice | 468 | 468 | 0 |
+| gerda | 470 | 470 | 0 |
+| gunhild | 468 | 468 | 0 |
+| haldric | 478 | 478 | 0 |
+| hedwig | 468 | 468 | 0 |
 | hildegard | 518 | 0 | 518 |
 | jorund | 462 | 0 | 462 |
 | judith | 477 | 0 | 477 |
@@ -70,13 +64,12 @@
 | urda | 472 | 0 | 472 |
 | zahar | 462 | 0 | 462 |
 
-재검사 명령:
+재검사:
 
 ```powershell
-python tools/en_r24.py audit adeline altan bargut
-python tools/en_r24.py audit  # 현재 12,818개 미번역으로 종료 코드 1
+python tools/en_r24.py audit
 python tools/en_r24.py sample
 python tools/en_r24_verify.py
 ```
 
-Web export는 실행하지 않았으며 `docs/`, 다른 작업 공간, 사용자 저장 파일은 수정하지 않았다. 이번에 만든 Godot runtime 슬롯은 검사가 끝난 뒤 정리했다.
+`audit`는 남은 8,580개 때문에 종료 코드 1이 정상적인 현재 결과다. 다음 번역 대상은 `hildegard.json`이며 이후 표의 미번역 18명을 이어가야 한다. 이번에 만든 runtime-en-r24, runtime-local-en-r24, tmp-en-r24 슬롯은 정리했다. Web export·`docs/`·다른 작업 공간·사용자 저장 파일은 수정하지 않았다.

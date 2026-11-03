@@ -15,7 +15,14 @@ func run():
 	var en={"settings":{"lang":"en"},"persona":{"name":"Traveler"}}
 	var ko={"settings":{"lang":"ko"},"persona":{"name":"Traveler"}}
 	var args=OS.get_cmdline_user_args()
-	var ids=Array(args[0].split(",")) if not args.is_empty() else ["adeline","altan","bargut"]
+	var ids=[]
+	if not args.is_empty():
+		ids=Array(args[0].split(","))
+	else:
+		for filename in DirAccess.get_files_at("res://data/dialogue-r21"):
+			if not filename.ends_with(".json"):continue
+			var data=JSON.parse_string(FileAccess.get_file_as_string("res://data/dialogue-r21/"+filename))
+			if data.get("en",{}).has("display"):ids.append(filename.get_basename())
 	var fields=0
 	for id in ids:
 		var data=JSON.parse_string(FileAccess.get_file_as_string("res://data/dialogue-r21/"+id+".json"))

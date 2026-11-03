@@ -5,16 +5,26 @@ func language_check(s):
 	for node in s.town_view.find_children("*","Control",true,false):
 		if node is Label or node is Button:
 			check(hangul24.search(node.text)==null,"English UI has no Korean: "+node.text)
+		if node is Label and node.get_meta("authored_copy",false):
+			check(node.get_visible_line_count()>=node.get_line_count(),"all authored lines fit label: "+node.text)
+			var sc=ScrollUI.scroller(node)
+			if sc:
+				check(sc.get_child(0).get_global_rect().grow(1).encloses(node.get_global_rect()),"complete authored text inside scroll content: "+node.text)
 func run():
 	folder=ProjectSettings.globalize_path("res://../verification/en-r24/render")
 	DirAccess.make_dir_recursive_absolute(folder)
 	hangul24.compile("[가-힣ㄱ-ㅎㅏ-ㅣ]")
 	var scenes=0
+	var ids=[]
+	for filename in DirAccess.get_files_at("res://data/dialogue-r21"):
+		if not filename.ends_with(".json"):continue
+		var data=JSON.parse_string(FileAccess.get_file_as_string("res://data/dialogue-r21/"+filename))
+		if data.get("en",{}).has("display"):ids.append(filename.get_basename())
 	for dim in [Vector2i(360,780),Vector2i(430,932)]:
 		root.content_scale_size=dim;root.size=dim
 		var s=Screen.new();s.size=dim;s.storage.path="user://en-r24-ui-fixture.json";root.add_child(s);s.model=World.new();s.motion_reduced=true
 		s.model.s.settings={"lang":"en"};var base=s.model.s.duplicate(true)
-		for id in ["adeline","altan","bargut"]:
+		for id in ids:
 			for row in s.model.dialogue.data(id).inn:
 				s.model.s=base.duplicate(true)
 				if id not in s.model.s.owned:s.model.s.owned.append(id)
