@@ -2,7 +2,7 @@ extends Control
 ## Native, mobile-first P1 form. Inherits the r21 paper / brush / vermilion system.
 const L=preload("res://game/localization_r22.gd")
 const T=preload("res://ui/town_theme_r21.gd")
-const READABLE_RED=Color("#c62b15")
+const READABLE_RED=T.ACTION_RED
 var host
 var rules
 var body: VBoxContainer
@@ -17,7 +17,7 @@ func setup(owner_screen,heading: String) -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var bg=ColorRect.new();add_child(bg);bg.color=T.PAPER;bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);bg.mouse_filter=MOUSE_FILTER_IGNORE
 	frame=Control.new();add_child(frame);frame.size=Vector2(minf(host.size.x,430),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
-	var landscape=TextureRect.new();frame.add_child(landscape);landscape.texture=load("res://assets/ui-r21/bg-town.webp");landscape.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;landscape.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_COVERED;landscape.position=Vector2(frame.size.x*.48,0);landscape.size=Vector2(frame.size.x*.52,130);landscape.modulate.a=.28;landscape.mouse_filter=MOUSE_FILTER_IGNORE
+	T.city(frame,Rect2(frame.size.x*.48,0,frame.size.x*.52,130))
 	if L.language(host.model.s)=="ko":
 		title=TextureRect.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x*.72,58);title.texture=load("res://assets/ui-r21/title-"+("meeting" if heading=="첫 만남" else "create")+".svg");title.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;title.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;title.mouse_filter=MOUSE_FILTER_IGNORE
 	else:
@@ -25,16 +25,15 @@ func setup(owner_screen,heading: String) -> void:
 	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,132);scroll.size=Vector2(frame.size.x-36,frame.size.y-216);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
 	body=VBoxContainer.new();scroll.add_child(body);body.size_flags_horizontal=SIZE_EXPAND_FILL;body.add_theme_constant_override("separation",12)
 	footer=HBoxContainer.new();frame.add_child(footer);footer.position=Vector2(18,frame.size.y-68);footer.size=Vector2(frame.size.x-36,50);footer.add_theme_constant_override("separation",12)
+	T.rule(frame,frame.size.y-80,frame.size.x-36)
 
 func text(value: String,fs=15,color=T.INK,parent: Node=null) -> Label:
 	var l=Label.new();(parent if parent else body).add_child(l);l.text=L.render(value,L.language(host.model.s)).replace("{{user}}","당신");l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;l.size_flags_horizontal=SIZE_EXPAND_FILL;l.add_theme_font_size_override("font_size",fs);l.add_theme_color_override("font_color",READABLE_RED if color==T.RED else color)
+	if fs>=20:l.add_theme_font_override("font",T.DISPLAY)
 	return l
 func button(id: String,value: String,fn: Callable,selected=false,disabled=false,parent: Node=null) -> Button:
 	var b=Button.new();(parent if parent else body).add_child(b);b.text=L.render(value,L.language(host.model.s));b.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;b.custom_minimum_size=Vector2(44,48);b.size_flags_horizontal=SIZE_EXPAND_FILL;b.disabled=disabled;b.add_theme_font_size_override("font_size",15)
-	if selected:
-		for state in ["normal","hover","pressed"]:
-			var p=StyleBoxTexture.new();p.texture=load("res://assets/ui-r21/button-ink.svg");p.modulate_color=Color(READABLE_RED.r/T.RED.r,READABLE_RED.g/T.RED.g,READABLE_RED.b/T.RED.b);p.content_margin_left=12;p.content_margin_right=12;p.content_margin_top=10;p.content_margin_bottom=10;b.add_theme_stylebox_override(state,p)
-		for state in ["font_color","font_hover_color","font_pressed_color"]:b.add_theme_color_override(state,T.PAPER)
+	T.dress_button(b,selected)
 	b.pressed.connect(fn);host.controls[id]=b;return b
 func row() -> HBoxContainer:
 	var h=HBoxContainer.new();body.add_child(h);h.add_theme_constant_override("separation",8);return h
@@ -53,8 +52,8 @@ func build(owner_screen) -> void:
 	var s=owner_screen.model.s;var page=int(s.ui.page)
 	setup(owner_screen,"첫 만남" if s.scene=="scenario" else "새 모험가")
 	var p=rules.view(s)
-	var options=button("p8_open","설정",func():host.open_settings_r22(),false,false,frame);options.position=Vector2(frame.size.x-102,20);options.size=Vector2(84,44)
-	title.size.x=frame.size.x-126
+	var options=button("p8_open","설정",func():host.open_settings_r22(),false,false,frame);options.position=Vector2(frame.size.x-114,20);options.size=Vector2(96,44)
+	title.size.x=frame.size.x-144
 	if title is Label:L.fit_title(title,30)
 	if s.scene=="scenario":scenario();return
 	var steps=HBoxContainer.new();frame.add_child(steps);steps.position=Vector2(18,77);steps.size=Vector2(frame.size.x-36,44);steps.add_theme_constant_override("separation",4)
