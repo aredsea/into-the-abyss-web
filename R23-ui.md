@@ -1,42 +1,46 @@
-# R23-ui · 2차 이어하기
+# R23-ui · 3차 기능 등가 재판정
 
-**2차: 잔여 109행 중 같음 +10행, 수정·구현 17행, 미확인→일부 1행. 잔여 99행.**
-누적 **같음 45/144행**, 수정·구현 30행(같음과 중복), 잔여 {'없음': 2, '일부': 89, '미확인': 8}다. 전체 기능 이식 완료로 판정하지 않았다.
+3차 잔여 99행 검토: **같음 +20, 수정·보완 25행(같음과 중복), 대체 21, 호스트 제외 4, 잔여 54행**.
+누적 **같음 65/144 · 대체 21 · 제외 4 · 남음 54**. 전체 이식 완료는 아니다. 기존 같음 45행은 판정/근거를 변경하지 않았다.
 
-행별 id·정본 위치·기존 사유·새 시험/파일:줄·잔여 이유는 `verification/parity-r23/ui.json`이다. 2차 109행 검토 결과만은 `verification/parity-r23/phase2/row-review.json`, 1차 보고서 원문은 `verification/parity-r23/phase2/report-before.md`에 보존했다. 완료된 1차 35행의 판정을 다시 수행하지 않았다.
+행별 기존 상태·정본 위치·새 시험·대응 기능·구체적인 잔여 이유는 [ui.json](verification/parity-r23/ui.json), 이번 99행만은 [ui-row-review.json](verification/parity-r23/ui-phase3/ui-row-review.json). 이전 보고서는 ui-phase3/ui-report-before.md에 보존했다.
 
-## 2차 변경
+## 구현과 직접 대조
 
-- 생성의 `tot_1e1`, `tot_5.0`, `go_1e0`, 소수 페이지 및 영어 실패 알림을 Lua에 맞췄다. 기존 저장의 알 수 없는 필드·수치·진행 난수열은 유지한다.
-- 번역 팩의 JSON 오류/스칼라/배열/미지정 언어/반복 호출 캐시, 문자열만 번역하는 경계를 추가했다. 공개 표시 문자열만 정본에서 추출했다. 전체 사전 5행은 일부를 유지했다.
-- 종족·계통·국가 시너지의 원문 변수 치환을 생성 화면에 연결했다. 참조 상수도 `34-traits.lua`를 직접 실행해 현재 제품 데이터와 같음을 확인했다(`phase2/dependencies.json`). 가방의 페르소나 빈 이름·전 동료 이름·영어 장착 문구·특수 문자를 원본대로 처리했다.
-- HUD 패널 전환/닫기와 상태 탭 함수를 실제 화면 전환에 연결하고 선택·탭 저장 재개를 확인했다. 기존 패널의 알 수 없는 필드를 잃는 문제는 실제 저장/재개 6개 실패를 먼저 확인한 뒤, 알려진 칸만 병합해 보존하도록 고쳤다(`phase2/save-preservation-baseline.json`).
-- 원정 규칙을 건드리지 않고 장소 이름의 탐색 표시 위임을 대조했다. 함수 반환은 원정 표시 미등록/층 0/음수/문자/빈 값까지 비교했다.
-- 저장 복원 뒤 여관 회상 지시문 생성 함수를 구현했다. 레벨→출전→경험치 가중 합, 동점/역전, 호감도, 원본 이름과 보스 사실을 그대로 쓴다. 정상·옛 버전 복원 시에만 메모리의 `recap_context`를 갱신하며, 쓰기 실패/무효 저장은 기존 모험·회상·CAS 커서를 보존한다. **AI 호출·채팅·pending 잠금 장면은 구현하지 않았으며 P2724 등은 잔여다.**
+- 공용 표시 함수를 실제 도감/가방/상태 화면에 연결했다. 단계별 HTML을 비교하는 대신 표시 글·순서·버튼 action/선택/비활성·막대 값을 원본 Lua 실행 결과에서 추출했다.
+- 도감 하위 필터 선택 표시와 원본 ‘모두’/가방 ‘전체’ 문구, 누락 속성, 소수 능력치, 최대 레벨/현재 경험치 막대를 보완했다. 장비 기본/무작위/고유 효과의 순서·수치·한영 문구를 1,030종 실제 native 어댑터와 비교했다.
+- 정본 장비 아이콘 220개(278,882바이트)를 새 경로에 그대로 복사했다. 1,030종 전체의 아이콘 선택/리소스·등급·이름/Lv/선택지 유무·한영 장착 문구를 비교하고 가방/도감 후보/장비 카드에 연결했다. 후보는 원본처럼 슬롯당 최대 4개와 더 보기 안내로 제한한다. 아이콘을 추가한 뒤 import를 갱신하고 새 검사·실제 화면을 재확인했다.
+- 도감 구성요소는 원본처럼 전투 중에도 후보를 조회할 수 있게 하고 장착 handler는 거절 안내를 낸다. 조회만 전투 변경 가드와 분리했으며 실제 장착/해제는 기존 가드로 거절되고 장비가 보존되는지 시험했다. **실제 전투 화면에서 패널에 진입하는 전체 경로는 미검증/잔여**다. 전투 규칙은 변경하지 않았다.
+- 패시브는 정본 passives.json과 같은 원문을 사용하고 번역 뒤 변수 치환을 적용한다. 수인 dog/cat/미선택, 빈 node/미선택 직업, 2·3인 단계/준비 중 분기를 검사했다. persona_rules 파일은 읽기만 했다.
+- table-only JSON getter는 객체/배열/스칼라/오류/파일 읽기 불가를 실제 파일 저장·재읽기로 비교하고 클라우드 preferences 읽기에 연결했다. 사용자 게임 저장 형식은 바꾸지 않았다.
+- 원본 cloud_button의 취소/잘못된 코드·PIN/404/429/500/망가진 응답·저장/지원 버전/성공/통신 오류 26분기를 실행했다. native 입력/실패/복원/재개 40검사와 실제 Worker/D1 왕복·PIN 거부·읽기 전용·충돌·순위·cache 재개 시험을 ‘대체’ 근거로 썼다. 행별 대응은 ui.json의 replacement_mapping이다.
 
-## 직접 실행한 최종 검사
+## 직접 실행 결과
 
 |검사|결과|
 |---|---:|
-|프로젝트 전체 import·시험·현재 대조 entrypoint|89종 / 실패 0 / 누락 0|
-|2차 원본 Lua 함수 대조|3,220건 / 실패 0|
-|2차 native 화면·포인터·저장 재개|777건 / 실패 0 / 12캡처|
-|2차 복원/쓰기 실패/회상 재개|8건 / 실패 0|
-|1·2차 원본 규칙 대조 합계|14,069건 / 실패 0|
-|로컬 Worker/D1 서버 시험|8종 / 실패 0|
-|전투 trace|6,320/6,320판 일치|
+|새 원본/native 의미 대조 + 실제 장비 어댑터 + JSON getter|15,618 / 실패 0|
+|새 native 화면/포인터/저장 재개|1,374 / 실패 0 / 12캡처|
+|새 클라우드 대응 분기|40 / 실패 0|
+|현재 프로젝트 import·전체 시험·전투 trace|116종 / 실패 0 / 누락 0|
+|로컬 Worker/D1 전체 package 시험|9종 / 실패 0|
+|전투 대조|6,320 / 6,320판 일치|
 |보호 원본 자산|96개 / 변경 0|
 
-전체 검사는 한 번 실행하고, 발견된 생성 단계 회귀 59건을 수정해 해당 기존 4,005개 검사와 새 3,220개 대조를 다시 통과시켰다. 최초 전체 실행 이력은 `phase2/regression-full-initial.json`, 생성 회귀 원문은 `phase2/persona-numeric-baseline.log`에 보존한다. 원인은 GDScript `match`의 정수/실수 타입 구분이었으며 Lua처럼 숫자값을 비교하도록 고쳤다. 일반 클라우드 시험은 지시된 `node server/abyss-save/test/serve.mjs`를 사용했다. 만료 표본은 기존 `godot-r3.mjs` 전용 wrapper가 준비한다. Windows 인증서 저장소 진단은 기존 환경 진단으로 분리했으며 SCRIPT ERROR와 시험 실패를 숨기지 않았다. 2차 초기 불일치/미구현 검출은 `phase2/baseline.json`의 2,403건 중 422건이며 보존했다. 새 fixture에서 발견한 빈 Lua table의 JSON 배열 표현과 nil 반환도 최종 검사에 포함한다. 기존 시험 기대값은 바꾸지 않았다.
+초기 새 표시 경계 미구현 4,546실패는 ui-phase3/ui-baseline.json에 보존했다. 원본 빈 Lua table의 JSON 배열 표현은 table 등가로 처리한다. 새 fixture 개발 중 잘못된 settings fixture·동종 비교·누락된 battle 구조·존재하지 않는 host 속성 가정도 수정했고 최종 SCRIPT ERROR 0을 확인했다. 실제 전투 패널 진입은 시험했다고 주장하지 않는다.
 
-전체 검사 뒤 로컬 서버의 Windows `taskkill` 종료가 한 번 시간 초과했다. 검사 도구에만 stdin 종료 preload를 더해 원래 `serve.mjs`의 SIGINT/Miniflare dispose를 호출하도록 고쳤으며, 준비 여부도 새 자식 프로세스의 ready 출력으로 확인한다. 기존 서버 부모/자식은 작업 경로·명령·생성 시각을 확인해 정리했다(`phase2/runtime-cleanup.json`). 실제 클라우드 27개 검사와 복원 8개를 다시 통과했고 최종 서버는 요청한 SIGINT로 정상 종료했다(코드 130 포함). 강제 종료 없음·8787 포트 해제도 확인했다(`server-lifecycle.json`). 서버 제품 파일은 수정하지 않았다.
+기존 ui_parity_r23_test의 ‘도감에 후보 12개 모두 표시’ 기대값은 정본 65-codex.lua의 PX.CX_CAND=4에 맞춰 ‘4개 미리보기 + 나머지는 가방에서 접근’으로 수정했다. 4번째 미리보기와 12번째 장비를 실제 가방 페이지/포인터로 장착하고 저장 재개까지 검사한다. 변경 전 실패 로그는 ui-phase3/ui-candidate-expectation-before.log, 최초 전체 검사 집계는 ui-phase3/ui-regression-full-initial.json에 보존했다. 다른 기존 기대값은 바꾸지 않았다.
 
-## 남은 것
+전체 검사 전 첫 서버 실행은 기존 8787 리스너에 내부 proxy가 붙어 401로 종료했다. 기존 프로세스는 건드리지 않았다. tools/ui_r23_phase3_server.mjs가 **원본 serve.mjs를 실행하면서 runtime(8787)만 메모리에서 runtime()으로 바꿔** 별도 포트를 배정한다. Worker/서버/시험 원본 디스크 파일은 변경 0. TEMP도 workspace 안에 격리했다. 최종 lifecycle: ready=True, clean=True, forced=False. Windows root certificate store 진단은 별도 기록하고 SCRIPT ERROR/실패를 숨기지 않았다.
 
-남은 99행은 HTML/CBS 전체 반환, RisuAI 이미지/채팅/비동기 callback, 전체 언어 사전·설정, 전투 상태창, 원본 v1 코드 가방/장비와 native UID/schema 3의 전체 보존 계약, /s·/l·6자리 PIN과 native /v1·10자리 PIN·CAS 및 운영 순위 계약이다. 단순 Lua 실행이나 native 회귀 통과를 전체 동일성으로 승격하지 않았다. 내부 ror는 엔진 SHA 구현 위임, copy는 저장 미지정 필드 보존 정책의 차이로 없음 2행을 유지했다. 성적 장면은 제외했다. 배포·운영 HTTPS/Turnstile·물리적 두 기기 검사는 하지 않았다.
+## 남은 범위
 
-실제 화면은 360×780·390×844·430×932, 한글·영어를 검사했다. 직접 연 캡처와 관찰은 `phase2/visual-review.json`이다. 영어 모드의 일부 한국어 fallback을 포함한 전체 번역 완성도는 잔여이며, 모든 기존 회귀 캡처를 직접 검토했다는 뜻은 아니다.
+남은 54행은 원본/현재 표시 항목 차이 또는 아직 직접 대조하지 않은 구체적인 분기를 각 id에 적었다. 예: 생성 단계 번호/특성·확정 설명, 개인 특성 아이콘과 전체 장착 경계, 상세 비교의 ‘-’ 대 ‘+0%’, 즐겨찾기 속성/호감 표시, 전체 공개 번역 키, 전투 상태 패널, 원본 v1 상태의 관찰 투영. HTML/CSS 반환·저장 매체·호스트 차이만으로 남기지 않았다.
 
-전투·장비 규칙·원정 규칙·원본 프로젝트·다른 worktree·docs 쓰기, git 명령, Web export와 배포는 수행하지 않았다. 쓰기 경계는 `phase2/write-audit.json`, 1차 포함 경계는 `write-audit.json`에 있다. Impeccable 기계 검사 결과는 0건이지만 Godot의 실제 시각 검증은 캡처/포인터 시험을 근거로 한다. 디자인 보조 파일 `.impeccable/design.json`이 DESIGN.md보다 오래되었다는 기존 진단은 기록만 했다. 별도 요청 시 `document`로 갱신할 수 있다.
+수정 금지 persona_rules/persona_world/town/전투/원정 경로가 필요한 행은 해당 파일을 명시했다. **허용 UI 경로에도 미완료 표시 대조가 남아 있으며 이 차수에서 모두 고쳤다고 주장하지 않는다.** 원본 AI/채팅/아바타 수집 4행만 호스트 제외로 옮겼다. 복합 화면의 공개 기능까지 함께 제외하지 않았다. 성적 장면은 구현하지 않았다.
 
-재현: `node tools/ui_r23_phase2_oracle.mjs` → `python tools/ui_r23_phase2_data.py` → `node tools/ui_r23_phase2_dependencies.mjs` → `python tools/ui_r23_verify.py` → `python tools/ui_r23_server_tests.py` → `python tools/ui_r23_snapshot.py` → `python tools/ui_r23_phase2_report.py`.
+실제 화면은 360×780·390×844·430×932 × 한영. 직접 연 화면과 관찰은 ui-phase3/ui-visual-review.json에 있다. 장비 아이콘이 연결되어도 전체 언어/화면 이식 완성이나 사용자 시각 승인을 뜻하지 않는다. Impeccable 기계 검사는 변경 UI 3개에서 0건. 기존 .impeccable/design.json이 DESIGN.md보다 오래되었다는 진단은 기록만 했으며 `document`로 별도 갱신할 수 있다.
+
+주요 변경: game/ui_semantics_r23.gd·ui_json_r23.gd·cloud_store_r22.gd·panels_state_r22.gd, ui/panel_screen_r22.gd·codex_screen_r22.gd·inventory_screen_r22.gd, data/localization-r22.json·ui-passives-r23.json·ui-gear-icons-r23.json, assets/ui-gear-r23/ 및 새 시험/도구. 전체 경로와 경계 감사는 ui-phase3/ui-write-audit.json. git 명령·Web export·docs 쓰기·서버 디스크 변경·원본 자산 변경 없음.
+
+재현: node tools/ui_r23_phase3_oracle.mjs → python tools/ui_r23_phase3_data.py → python tools/ui_r23_verify.py → python tools/ui_r23_server_tests.py → python tools/ui_r23_phase3_report.py.

@@ -1,0 +1,249 @@
+{
+  "nations": {
+    "solen": {
+      "tier": [
+        "보호막 +{solen.shield2%}%",
+        "보호막 +{solen.shield2%}%, 휴식 때 HP 회복 +{solen.rest3%}%p, 함께 싸운 호감 +{solen.aff3%}%"
+      ],
+      "own": [
+        {
+          "text": "정예와 층 보스에게 주는 피해 +{solen.elite%}%.",
+          "name": "주신의 이름"
+        }
+      ],
+      "short": "솔렌",
+      "name": "솔렌 성왕국"
+    },
+    "seredia": {
+      "tier": [
+        "전열이 받는 피해 -{seredia.front2%}%",
+        "전열이 받는 피해 -{seredia.front2%}%, 획득 경험치 +{seredia.exp3%}%"
+      ],
+      "own": [
+        {
+          "text": "방어 +{seredia.def%}%.",
+          "name": "정통"
+        }
+      ],
+      "short": "세레디아",
+      "name": "신성 세레디아 제국"
+    },
+    "border": {
+      "tier": [
+        "탐색에서 주운 물건이 {border.dup2%}% 확률로 하나 더",
+        "탐색에서 주운 물건이 {border.dup3%}% 확률로 하나 더"
+      ],
+      "own": [
+        {
+          "text": "경험치 +{border.exp%}%(출전한 경계도시 사람마다).",
+          "name": "떠돌이"
+        }
+      ],
+      "short": "경계도시",
+      "name": "경계도시"
+    },
+    "morgas": {
+      "tier": [
+        "지속 피해 +{morgas.dot2%}%",
+        "지속 피해 +{morgas.dot2%}%, 중첩 한도 +{morgas.cap3}"
+      ],
+      "own": [
+        {
+          "text": "HP를 쓰는 스킬의 비용 -{morgas.hpc%}%.",
+          "name": "혈통 서열"
+        }
+      ],
+      "short": "모르가스",
+      "name": "모르가스 신관국"
+    },
+    "karashin": {
+      "tier": [
+        "첫 라운드 공격 +{karashin.rd1%}%",
+        "처치마다 속도 +{karashin.stack%}%, 탐색에서 주운 금화 +{karashin.find3%}%"
+      ],
+      "own": [
+        {
+          "text": "속도 +{karashin.spd%}%.",
+          "name": "부족의 선봉"
+        }
+      ],
+      "short": "카라쉰",
+      "name": "대카라쉰"
+    },
+    "kern": {
+      "tier": [
+        "패배 때 잃는 금화 -{kern.lose2%}%",
+        "공격받으면 {kern.ch3%}% 확률로 반격하고, 패배 때 잃는 금화는 -{kern.lose2%}%. 패배해도 탐색 수확의 {kern.keep3%}%는 챙긴다"
+      ],
+      "own": [
+        {
+          "text": "도발 중 받는 피해 -{kern.red%}%.",
+          "name": "계약은 지킨다"
+        }
+      ],
+      "short": "케른",
+      "name": "케른 연방"
+    },
+    "marento": {
+      "tier": [
+        "아이템 효과 +{marento.item2%}%, 상점 값 -{marento.shop2%}%",
+        "아이템 효과 +{marento.item2%}%, 상점 값 -{marento.shop3%}%"
+      ],
+      "own": [
+        {
+          "text": "전투 보상 골드 +{marento.gold%}%(출전한 마렌토 사람마다).",
+          "name": "장부"
+        }
+      ],
+      "short": "마렌토",
+      "name": "마렌토 공화국"
+    },
+    "naerin": {
+      "tier": [
+        "탐색에서 주운 회복약이 {naerin.herb2%}% 확률로 하나 더",
+        "탐색에서 주운 회복약이 하나 더, 휴식 때 MP +{naerin.rest_mp3%}%p"
+      ],
+      "own": [
+        {
+          "text": "회피 +{naerin.eva%}%.",
+          "name": "숲지기"
+        }
+      ],
+      "short": "나에린",
+      "name": "나에린"
+    }
+  },
+  "races": {
+    "halfelf": {
+      "tier": [
+        "버프 지속 +1턴",
+        "버프 지속 +1턴, 받는 피해 -{halfelf.res3%}%, 라운드마다 약화 1개 정화"
+      ],
+      "own": [
+        {
+          "text": "받는 피해 -{halfelf.res%}%.",
+          "name": "혼혈의 강인함"
+        }
+      ],
+      "short": "하프엘프",
+      "name": "하프엘프"
+    },
+    "elf": {
+      "tier": [
+        "속도 +{elf.spd2%}%",
+        "속도 +{elf.spd3%}%"
+      ],
+      "own": [
+        {
+          "text": "지능 계열 피해 +{elf.magic%}%, 최대 MP +{elf.mp}.",
+          "name": "혈통 마법"
+        }
+      ],
+      "short": "엘프",
+      "name": "엘프"
+    },
+    "human": {
+      "tier": [
+        "최대 HP +{human.hp2%}%",
+        "최대 HP +{human.hp3%}%, 받는 회복 +{human.heal3%}%"
+      ],
+      "own": [
+        {
+          "text": "받는 약화 효과가 1턴 일찍 풀린다(최소 1턴은 간다).",
+          "name": "적응"
+        }
+      ],
+      "short": "인간",
+      "name": "인간"
+    },
+    "demon": {
+      "tier": [
+        "처치 시 HP {demon.heal2%}% 회복",
+        "처치 시 HP {demon.heal3%}% 회복, 파티 MP +{demon.mp3}"
+      ],
+      "own": [
+        {
+          "text": "HP가 {demon.thr%}% 이하일 때 공격 +{demon.atk%}%.",
+          "name": "피의 계약"
+        }
+      ],
+      "short": "악마",
+      "name": "악마"
+    },
+    "beast": {
+      "short": "수인",
+      "lin": {
+        "cat": {
+          "text": "전투에서 처음 하는 공격의 치명 확률 +{beast.ambush}%p.",
+          "name": "기습"
+        },
+        "dog": {
+          "text": "아군이 직전에 친 적을 이어 치면 피해 +{beast.pack%}%.",
+          "name": "무리 사냥"
+        }
+      },
+      "own": [],
+      "tier": [
+        "속도 +{beast.spd2%}%",
+        "속도 +{beast.spd3%}%, 모든 아군의 2회 행동 확률 +{beast.dbl3%}%"
+      ],
+      "name": "수인"
+    },
+    "nox": {
+      "tier": [
+        "받는 피해 -{nox.red2%}%",
+        "받는 피해 -{nox.red3%}%, 도발 중인 아군은 -{nox.tau3%}% 더"
+      ],
+      "own": [
+        {
+          "text": "받는 약화 효과가 {nox.deb%}% 약해진다.",
+          "name": "타고난 내성"
+        }
+      ],
+      "short": "녹스",
+      "name": "녹스"
+    }
+  },
+  "classes": {
+    "sanctioned": {
+      "text": "일반 공격과 마력 폭발에 맞은 적의 차례가 {sanctioned.delay%}% 늦어진다.",
+      "name": "상대 차례 지연"
+    },
+    "assassin": {
+      "text": "치명타 확률이 {assassin.crit}%p 높다. 공격할 때 {assassin.extra%}% 확률로 같은 대상을 한 번 더 친다(차례는 늘지 않는다).",
+      "name": "치명타 강화, 추가 공격"
+    },
+    "unsanctioned": {
+      "text": "일반 공격마다 3턴짜리 지속 피해가 한 줄씩 쌓인다. 한 적에게 최대 {unsanctioned.cap}줄까지 쌓인다.",
+      "name": "지속 피해 중첩"
+    },
+    "warrior": {
+      "text": "도발과 방어 같은 직업 스킬로 싸운다.",
+      "name": "없음"
+    },
+    "archer": {
+      "text": "일발필살 같은 직업 스킬로 싸운다.",
+      "name": "없음"
+    },
+    "paladin": {
+      "text": "파티 보호막과 도발 같은 직업 스킬로 싸운다.",
+      "name": "없음"
+    },
+    "gladiator": {
+      "text": "남은 체력이 많을수록 강하다. 체력이 가득 찼을 때는 공격 +{gladiator.atk%}%, 받는 피해 -{gladiator.def%}%, 속도 +{gladiator.spd%}%, 치명 확률 +{gladiator.crit}%p.",
+      "name": "체력 비례 강화"
+    },
+    "chaos": {
+      "text": "심연이 바닥나 고갈된 적에게는 피해를 ×2.5로 준다. 다른 직업은 ×1.5다.",
+      "name": "고갈 공명"
+    },
+    "alchemist": {
+      "text": "다른 아군의 속도가 {alchemist.spd%}% 빨라진다.",
+      "name": "아군 차례 단축"
+    },
+    "priest": {
+      "text": "파티원마다 전투당 한 번, 사제가 살아 있으면 쓰러질 일격을 받아도 HP {var.priest_heal%}%로 버틴다.",
+      "name": "이탈 방지"
+    }
+  }
+}

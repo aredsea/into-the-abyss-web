@@ -28,7 +28,7 @@ func _ready() -> void:
 	if OS.has_feature("web"):
 		raw=str(JavaScriptBridge.eval("localStorage.getItem('abyss.cloud.r22') || ''",true))
 	elif FileAccess.file_exists(PREFS):raw=FileAccess.get_file_as_string(PREFS)
-	var saved=JSON.parse_string(raw) if not raw.is_empty() else null
+	var saved=preload("res://game/ui_json_r23.gd").table(raw)
 	if saved is Dictionary:
 		for key in account:
 			if saved.has(key) and typeof(saved[key])==typeof(account[key]):account[key]=saved[key]

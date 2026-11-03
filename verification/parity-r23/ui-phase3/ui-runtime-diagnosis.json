@@ -1,0 +1,12 @@
+{
+  "failed_start_attempts": 2,
+  "initial_entry": "node --import ./tools/ui_r23_server_shutdown.mjs server/abyss-save/test/serve.mjs",
+  "observed_internal_response": 401,
+  "existing_listener_port": 8787,
+  "observed_existing_listener_pid": 43868,
+  "existing_listener_untouched": true,
+  "debug_loader": "tools/ui_r23_phase3_runtime_debug.mjs",
+  "resolution": "private ephemeral port via in-memory replacement runtime(8787) -> runtime(); original serve/Worker/D1 files unchanged",
+  "workspace_temp": ".p6tmp",
+  "final_lifecycle": "verification/parity-r23/server-lifecycle.json"
+}

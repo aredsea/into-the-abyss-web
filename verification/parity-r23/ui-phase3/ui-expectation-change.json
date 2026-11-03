@@ -1,0 +1,11 @@
+{
+  "test": "project/tests/ui_parity_r23_test.gd",
+  "source": "C:\\Clauede Code\\dungeon-bot\\bot\\src\\65-codex.lua",
+  "source_line": 312,
+  "source_text": "PX.CX_CAND = 4",
+  "sha256": "19c193f893db0816afa559982c43d059ea8ba14145f66e29ca2fdca7e5f9f743",
+  "before": "all 12 eligible items are directly visible in codex",
+  "after": "first 4 previews in codex; item 12 reached by actual bag UI and pointer, then persisted/reloaded",
+  "preserved_baseline": "ui-candidate-expectation-before.log",
+  "other_existing_expectations_changed": false
+}

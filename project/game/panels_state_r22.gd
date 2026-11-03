@@ -55,8 +55,8 @@ func members(item_class: String) -> Array:
 		if id in model.s.owned and id not in ids and R.member_class(model.s,id)==item_class:ids.append(id)
 	for id in ids:out.append({"id":id,"same":R.member_class(model.s,id)==item_class})
 	return out
-func can_equip(id: String,e: Dictionary) -> String:
-	if in_battle():return "전투 중에는 장비를 바꿀 수 없습니다."
+func can_equip(id: String,e: Dictionary,preview=false) -> String:
+	if in_battle() and not preview:return "전투 중에는 장비를 바꿀 수 없습니다."
 	if e.is_empty():return "가방에 없는 장비입니다."
 	if id!="persona" and id not in model.s.owned:return "보유한 동료를 선택하세요."
 	var c=model.class_def(id)
@@ -90,7 +90,7 @@ func candidates(id: String,slot: String) -> Array:
 	var lv=int(model.s.members[id].level)
 	for e in entries():
 		var it=model.gear.by_id[e.id]
-		if it.slot==slot and it.cls==job and it.lv<=lv and can_equip(id,e)=="":out.append(e)
+		if it.slot==slot and it.cls==job and it.lv<=lv and can_equip(id,e,true)=="":out.append(e)
 	out.sort_custom(func(a,b):
 		var x=model.gear.by_id[a.id].lv;var y=model.gear.by_id[b.id].lv
 		return a.code<b.code if x==y else x>y)

@@ -1,6 +1,6 @@
 """Full current-project test suite and local cloud service; no git or exports."""
 from pathlib import Path
-import subprocess,sys,json,time,re,os,socket
+import subprocess,sys,json,time,re,os,socket,urllib.parse
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'verification/parity-r23';OUT.mkdir(exist_ok=True)
 sys.stdout.reconfigure(encoding='utf-8')
 AUDITS=['combat_p2_r22_trace','combat_a6_mixed_audit','combat_p3_mixed_audit','combat_a7_gear_audit','combat_a7_gear_balanced','combat_a8_audit','combat_a9_native_10_audit','combat_a9_native_40_audit']
@@ -11,18 +11,23 @@ if selected==['list']:
 names=[n for n in tests if not selected or n in selected]
 results=json.loads((OUT/'regression.json').read_text(encoding='utf-8')) if selected and (OUT/'regression.json').exists() else []
 env={**os.environ,'PYTHONIOENCODING':'utf-8','ABYSS_TEST_SERVER':'http://127.0.0.1:8787'}
+# Miniflare's SQLite/IPC files must stay in the authorized workspace.
+temp=ROOT/'.p6tmp';temp.mkdir(exist_ok=True)
+env.update({key:str(temp) for key in ['TEMP','TMP','TMPDIR']})
 server=None
 try:
     if any('cloud' in n for n in names):
         server_log=(OUT/'local-server.log').open('wb')
-        server=subprocess.Popen(['node','--import','./tools/ui_r23_server_shutdown.mjs','server/abyss-save/test/serve.mjs'],cwd=ROOT,env=env,stdin=subprocess.PIPE,stdout=server_log,stderr=subprocess.STDOUT,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
+        server=subprocess.Popen(['node','--import','./tools/ui_r23_phase3_server.mjs','server/abyss-save/test/serve.mjs'],cwd=ROOT,env=env,stdin=subprocess.PIPE,stdout=server_log,stderr=subprocess.STDOUT,creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))
         ready=False
         for _ in range(300):
             if server.poll() is not None:break
             # Wait for this child's ready marker, never an unrelated existing listener.
-            if b'Local D1 worker' in (OUT/'local-server.log').read_bytes():
+            match=re.search(r'Local D1 worker (http://[^\s]+)',(OUT/'local-server.log').read_text(encoding='utf-8',errors='replace'))
+            if match:
+                env['ABYSS_TEST_SERVER']=match[1].rstrip('/');address=urllib.parse.urlparse(env['ABYSS_TEST_SERVER'])
                 try:
-                    with socket.create_connection(('127.0.0.1',8787),timeout=.2):ready=True;break
+                    with socket.create_connection((address.hostname,address.port),timeout=.2):ready=True;break
                 except OSError:pass
             time.sleep(.1)
         if not ready:raise RuntimeError('Local server did not become ready; see local-server.log')
@@ -60,6 +65,6 @@ finally:
             forced=True;server.kill();server.wait(timeout=5)
         server_log.close()
         clean=not forced and (server.returncode==0 or (stop_sent and server.returncode==130))
-        (OUT/'server-lifecycle.json').write_text(json.dumps({'pid':server.pid,'ready':ready,'exit':server.returncode,'forced_shutdown':forced,'stop_requested':stop_sent,'clean_shutdown':clean,'main':'server/abyss-save/test/serve.mjs','shutdown':'private stdin to existing SIGINT disposal handler; 130 is the requested SIGINT exit'},indent=2)+'\n',encoding='utf-8')
+        (OUT/'server-lifecycle.json').write_text(json.dumps({'pid':server.pid,'ready':ready,'url':env['ABYSS_TEST_SERVER'],'exit':server.returncode,'forced_shutdown':forced,'stop_requested':stop_sent,'clean_shutdown':clean,'main':'server/abyss-save/test/serve.mjs','adapter':'tools/ui_r23_phase3_server.mjs: runtime(8787) -> runtime() in memory only; existing 8787 listener untouched','shutdown':'private stdin to existing SIGINT disposal handler; 130 is the requested SIGINT exit'},indent=2)+'\n',encoding='utf-8')
         if not clean:raise RuntimeError('Local server did not dispose cleanly; see server-lifecycle.json')
 sys.exit(0 if all(r['passed'] for r in results) else 1)

@@ -3,7 +3,7 @@
     "test": "integration",
     "command": "node test/integration.mjs",
     "exit": 0,
-    "seconds": 7.8,
+    "seconds": 19.09,
     "summary": [
       "PASS account and IP per-minute limits",
       "PASS authenticated deletion cascades revisions and ranks",
@@ -16,7 +16,7 @@
     "test": "security",
     "command": "node test/security.mjs",
     "exit": 0,
-    "seconds": 11.64,
+    "seconds": 18.33,
     "summary": [
       "PASS P2 deletion preserves cache and concurrent expiry has one generation",
       "PASS P2 malformed URL encoding, hex revision, production localhost denied",
@@ -29,7 +29,7 @@
     "test": "turnstile",
     "command": "node test/turnstile.mjs",
     "exit": 0,
-    "seconds": 1.11,
+    "seconds": 1.27,
     "summary": [
       "SITEVERIFY CHECKS 7 FAILURES 0"
     ]
@@ -38,7 +38,7 @@
     "test": "security-r2",
     "command": "node test/security-r2.mjs",
     "exit": 0,
-    "seconds": 7.78,
+    "seconds": 14.34,
     "summary": [
       "PASS 6 rank elapsed capped at 24h for aged and migrated baselines",
       "PASS 7 archived PIN verification, 410 response and owner erasure",
@@ -51,7 +51,7 @@
     "test": "security-r3",
     "command": "node test/security-r3.mjs",
     "exit": 0,
-    "seconds": 5.49,
+    "seconds": 10.16,
     "summary": [
       "PASS global daily signup cap survives rotating IP and minute buckets, rejection is atomic",
       "PASS global daily new-save byte cap exact boundary and rotating IP",
@@ -64,7 +64,7 @@
     "test": "deployment",
     "command": "node test/deployment.mjs",
     "exit": 0,
-    "seconds": 2.55,
+    "seconds": 4.06,
     "summary": [
       "DEPLOYMENT CHECKS 22 FAILURES 0"
     ]
@@ -73,7 +73,7 @@
     "test": "combat-r14",
     "command": "node test/combat-r14.mjs",
     "exit": 0,
-    "seconds": 8.47,
+    "seconds": 17.97,
     "summary": [
       "{\"checks\":3562,\"failures\":0,\"samples\":119,\"mutations\":2450,\"fields\":{\"effects\":[\"adeline_guard\",\"adeline_guard.amount\",\"adeline_guard.source\",\"adeline_guard.turns\",\"attack_down\",\"attack_down.amount\",\"attack_down.turns\",\"attack_up\",\"attack_up.amount\",\"attack_up.turns\",\"contract\",\"contract.amount\",\"contract.source\",\"contract.turns\",\"corrosion\",\"corrosion.amount\",\"corrosion.by\",\"corrosion.order\",\"corrosion.turns\",\"defense_down\",\"defense_down.amount\",\"defense_down.turns\",\"defense_up\",\"defense_up.amount\",\"defense_up.turns\",\"duty\",\"duty.amount\",\"duty.turns\",\"haste\",\"haste.amount\",\"haste.r21\",\"haste.turns\",\"mark\",\"mark.amount\",\"mark.turns\",\"regen\",\"regen.amount\",\"regen.heals\",\"regen.source\",\"regen.turns\",\"rift_charge\",\"rift_charge.amount\",\"rift_charge.turns\",\"shield\",\"shield.amount\",\"shield.turns\",\"sorel_regen\",\"sorel_regen.amount\",\"sorel_regen.turns\",\"taunt\",\"taunt.amount\",\"taunt.turns\",\"zdn\",\"zdn.amount\",\"zdn.turns\"],\"extra\":[\"ch\",\"chk\",\"cor\",\"cover\",\"cover_turns\",\"dot_order\",\"dot_stacks\",\"enc\",\"f1\",\"first_attack_action\",\"foe_turns\",\"free\",\"fzn\",\"fzr\",\"fzx\",\"haste_done\",\"hg_index\",\"hh\",\"hidden\",\"inch\",\"jd\",\"judith_sp0\",\"judith_until\",\"last_attacker\",\"last_target\",\"lmc\",\"mamp\",\"overheal\",\"penetrating\",\"personal_pull\",\"prevented\",\"protect\",\"pull\",\"source_rng\",\"streak\",\"streak_action\"]}}"
     ]
@@ -82,9 +82,18 @@
     "test": "p2-r15",
     "command": "node test/p2-r15.mjs",
     "exit": 0,
-    "seconds": 2.86,
+    "seconds": 5.61,
     "summary": [
       "{\"checks\":1131,\"failures\":0,\"normal_samples\":393,\"cases\":49,\"failed_cases\":[]}"
+    ]
+  },
+  {
+    "test": "gear-r23",
+    "command": "node test/gear-r23.mjs",
+    "exit": 0,
+    "seconds": 3.72,
+    "summary": [
+      "GEAR R23 SERVER {\"checks\":259,\"failures\":0,\"cases\":36}"
     ]
   }
 ]

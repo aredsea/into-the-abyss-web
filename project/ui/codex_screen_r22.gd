@@ -6,18 +6,20 @@ func build(owner_screen) -> void:
 	if id in host.model.s.owned and R.DATA.cast.has(id):detail(id);return
 	text("영입 %d / %d"%[host.model.s.owned.size(),R.DATA.order.size()],14,T.MUTED)
 	var tabs=row()
-	for e in [["all","전체"],["rec","영입"],["el","속성"],["cls","직업"]]:
-		var filter_button=button("p7_filter_"+e[0],e[1],cx.bind("f_"+e[0]),state.ui.tab==e[0] or (e[0]=="all" and state.ui.tab==""),false,tabs)
+	var tab_specs=View.tabs(state.ui.tab,L.language(host.model.s))
+	for e in tab_specs.slice(0,4):
+		var action=e.action.trim_prefix("cx_")
+		var filter_button=button("p7_filter_"+action.trim_prefix("f_"),e.text,cx.bind(action),e.selected,false,tabs)
 		if L.language(host.model.s)=="en":filter_button.add_theme_font_size_override("font_size",12)
 		filter_button.autowrap_mode=TextServer.AUTOWRAP_OFF
 		filter_button.size_flags_horizontal=SIZE_EXPAND_FILL
-	if state.ui.tab.begins_with("el"):
-		var values=[["el","모든 속성"]]
-		for e in R.DATA.el_order:values.append(["el_"+e,R.DATA.els[e]])
+	if tab_specs.size()>4 and tab_specs[4].action=="cx_f_el":
+		var values=[]
+		for e in tab_specs.slice(4):values.append([e.action.trim_prefix("cx_f_"),e.text])
 		choose("p7_filter_sub",values,state.ui.tab,func(v):cx("f_"+v))
-	elif state.ui.tab.begins_with("cls"):
-		var values=[["cls","모든 직업"]]
-		for c in R.DATA.classes:values.append(["cls_"+c.id,c.name])
+	elif tab_specs.size()>4 and tab_specs[4].action=="cx_f_cls":
+		var values=[]
+		for e in tab_specs.slice(4):values.append([e.action.trim_prefix("cx_f_"),e.text])
 		choose("p7_filter_sub",values,state.ui.tab,func(v):cx("f_"+v))
 	button("p7_me","페르소나의 고유 스킬 보기",cx.bind("me"))
 	var list=R.codex_list(host.model.s.owned,state.ui.tab);var page=R.page(list,int(state.ui.page))
@@ -29,7 +31,7 @@ func build(owner_screen) -> void:
 		var p=portrait(cid,tile,Vector2(0,138));p.size_flags_horizontal=SIZE_EXPAND_FILL
 		if not owned:p.modulate.a=.38
 		button("p7_select_"+cid,c.name,cx.bind("sel_"+cid),false,not owned,tile)
-		text("%s · Lv %d%s"%[c.cls,state.level(cid)," · 즐겨찾기" if cid in state.favs() else ""] if owned else "아직 만나지 못한 동료",12,T.MUTED,tile)
+		text("%s · %s · Lv %d%s"%[c.cls,View.element(c.el,L.language(host.model.s)),state.level(cid)," · 즐겨찾기" if cid in state.favs() else ""] if owned else "아직 만나지 못한 동료",12,T.MUTED,tile)
 	if page.pages>1:pager(list,int(state.ui.page),R.PAGE,"cx")
 func detail(id: String) -> void:
 	var c=R.DATA.cast[id];var m=host.model.s.members[id];var h=row()
@@ -40,13 +42,17 @@ func detail(id: String) -> void:
 	var heading=text(full,27,T.INK,copy);heading.autowrap_mode=TextServer.AUTOWRAP_ARBITRARY
 	text(c.race+(" · "+c.lineage if c.lineage!="" else "")+"\n"+c.nation+"\n"+c.cls+" · "+c.row+"\n"+R.DATA.els.get(c.el,"무"),14,T.MUTED,copy)
 	section("호감도");affection(m.aff);stats(R.companion_stats(id,state.level(id)),state.level(id),int(m.xp))
-	section("개인 스킬 · 액티브");text(c.skill,19);text(c.skill_d);section("개인 특성 · 패시브");text(c.trait,19);text(c.trait_d)
+	section("개인 스킬 · "+View.kind(true,L.language(host.model.s)));text(c.skill,19);text(c.skill_d);section("개인 특성 · "+View.kind(false,L.language(host.model.s)));text(c.trait,19);text(c.trait_d)
 	passives(c.cls,c.race,c.lineage,c.nation);section("장비")
+	var more=false
 	for slot in R.DATA.slots:
 		text(slot[1],19);var uid=host.model.s.equipment.get(id,{}).get(slot[0],0);var e=host.model.gear_entry(int(uid))
 		if not e.is_empty():
-			gear_card(e,-1);button("p7_un_"+slot[0],"해제",func():state.unequip(id,slot[0]);host._save();host._draw_screen(),false,state.in_battle())
+			gear_card(e,-1);button("p7_un_"+slot[0],"해제",func():state.unequip(id,slot[0]);host._save();host._draw_screen())
 		else:text("비어 있음",14,T.MUTED)
 		var candidates=state.candidates(id,slot[0])
-		for entry in candidates:button("p7_cand_"+str(int(entry.uid)),host.model.gear.by_id[entry.id].name+" · 장착",func():state.equip(id,entry);state.persist();host._save();host._draw_screen(),false,state.in_battle())
-	button("p7_cx_bag","가방 열기",cx.bind("bag"),true,state.in_battle())
+		if not candidates.is_empty():text("낄 수 있는 장비",14,T.MUTED)
+		for entry in candidates.slice(0,4):gear_tile("p7_cand_"+str(int(entry.uid)),host.model.gear.by_id[entry.id],func():state.equip(id,entry);state.persist();host._save();host._draw_screen(),"장착")
+		if candidates.size()>4:more=true
+	button("p7_cx_bag","가방 열기",cx.bind("bag"),true)
+	if more:text("더 낄 수 있는 장비는 가방에서 볼 수 있습니다.",14,T.MUTED)

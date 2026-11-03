@@ -3,19 +3,20 @@ func build(owner_screen) -> void:
 	setup(owner_screen,"장비 가방")
 	if not state.selected().is_empty():detail(state.selected());return
 	text("%d / 2000 · 금화 %d"%[state.entries().size(),host.model.s.gold],14,T.MUTED)
-	var jobs=[["","모든 직업"]]
-	for c in R.DATA.classes:jobs.append([c.id,c.name])
+	text("직업",14,T.MUTED)
+	var jobs=[["",View.chip("cls","","전체",state.bg.cls,L.language(host.model.s)).text]]
+	for c in R.DATA.classes:jobs.append([c.id,View.chip("cls",c.id,L.t(c.name,L.language(host.model.s)),state.bg.cls,L.language(host.model.s)).text])
 	choose("p7_bg_cls",jobs,state.bg.cls,func(v):bg("f_cls_"+("all" if v=="" else v)))
-	var h=row();var slots=[["","모든 부위"]];var rarities=[["","모든 등급"]]
-	for e in R.DATA.slots:slots.append(e)
-	for k in ["common","fine","rare","epic","legend"]:rarities.append([k,host.model.Gear.RARITY[k]])
+	text("부위 · 등급",14,T.MUTED)
+	var h=row();var slots=[["",View.chip("slot","","전체",state.bg.slot,L.language(host.model.s)).text]];var rarities=[["",View.chip("rar","","전체",state.bg.rar,L.language(host.model.s)).text]]
+	for e in R.DATA.slots:slots.append([e[0],View.chip("slot",e[0],e[1],state.bg.slot,L.language(host.model.s)).text])
+	for k in ["common","fine","rare","epic","legend"]:rarities.append([k,View.chip("rar",k,L.t(host.model.Gear.RARITY[k],L.language(host.model.s)),state.bg.rar,L.language(host.model.s)).text])
 	choose("p7_bg_slot",slots,state.bg.slot,func(v):bg("f_slot_"+("all" if v=="" else v)),h);choose("p7_bg_rar",rarities,state.bg.rar,func(v):bg("f_rar_"+("all" if v=="" else v)),h)
 	var list=state.listing();var page=R.page(list,int(state.bg.pg),R.BAG_PAGE)
 	state.bg.pg=page.page
 	if list.is_empty():text("가방이 비어 있습니다. 던전에서 장비를 얻으면 여기에 쌓입니다." if state.entries().is_empty() else "조건에 맞는 장비가 없습니다.",16,T.MUTED)
 	for i in range(page.items.size()):
-		var e=page.items[i];var it=host.model.gear.by_id[e.id];var hrow=row();var b=button("p7_bg_sel_"+str(i+1),it.name,bg.bind("sel_"+str(i+1)),false,false,hrow);b.alignment=HORIZONTAL_ALIGNMENT_LEFT
-		text("%s · Lv %d"%[host.model.Gear.RARITY[it.rarity],host.model.gear.rules.equip_lv[it.rarity]],13,T.MUTED)
+		var e=page.items[i];var it=host.model.gear.by_id[e.id];gear_tile("p7_bg_sel_"+str(i+1),it,bg.bind("sel_"+str(i+1)))
 	if page.pages>1:pager(list,int(state.bg.pg),R.BAG_PAGE,"bg")
 	var bulk=state.bulk()
 	if bulk.count>0:button("p7_bg_sellc","일반 %d개 일괄 판매 · 금화 %d"%[bulk.count,bulk.gold],bg.bind("sellc"),false,state.in_battle())
@@ -23,7 +24,11 @@ func detail(e: Dictionary) -> void:
 	button("p7_bg_back","목록으로",bg.bind("back"));var it=host.model.gear.by_id[e.id];var same=state.members(it.cls).filter(func(m):return m.same);var id=""
 	for m in same:
 		if id=="" or m.id==state.bg.cmp:id=m.id
-	var level=int(host.model.s.members[id].level) if id!="" else int(it.lv);gear_card(e,level);section("지금 낀 것과 비교")
+	var level=int(host.model.s.members[id].level) if id!="" else int(it.lv);gear_card(e,level)
+	text(L.t(R.cls(it.cls).get("name",it.cls),L.language(host.model.s))+" · "+L.u(host.model.Gear.SLOT[it.slot],{},L.language(host.model.s)),14,T.MUTED)
+	if e.forge>0:text("+%d"%e.forge,14,T.MUTED)
+	if it.get("flavor","")!="":text(L.t(it.flavor,L.language(host.model.s)),14,T.MUTED)
+	section("지금 낀 것과 비교")
 	if id=="":text("이 직업의 동료가 없어 비교할 대상이 없습니다.",15,T.MUTED)
 	else:
 		var values=[]
