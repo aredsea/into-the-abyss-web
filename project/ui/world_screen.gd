@@ -98,6 +98,7 @@ func go(page: String,remember_entry=true) -> void:
 
 func _draw_screen() -> void:
 	if not is_inside_tree(): return
+	call_deferred("_finish_display_r24")
 	if is_instance_valid(cloud):cloud.model=model
 	var dialogue_state=model.s.get("dialogue_r21",{"pending":{},"response":{},"queue":[]})
 	var dialogue_open=not dialogue_state.pending.is_empty() or not dialogue_state.response.is_empty()
@@ -197,13 +198,37 @@ func _title() -> String:
 	if screen=="research": return "로레다나의 전술 연구"
 	return {"guild":"연합 길드 본관","smithy":"한나의 대장간","equipment":"장비 보관함","town":"토르바","party":"함께하는 동료","member":model.person(who).name,"depart":"원정 준비","explore":"학술원 폐허 상층","cards":"탐색 카드","bag":"공용 가방","shop":"마렌토 상회","inn":"아랫마을 여관","summary":"원정 정산","journal":"모험 기록"}.get(screen,"토르바")
 
+func _finish_display_r24() -> void:
+	var locale=preload("res://game/localization_r22.gd")
+	for node in find_children("*","Control",true,false):
+		if node is Label or node is Button or node is RichTextLabel:
+			node.text=locale.authored_display(node.text,model.s) if node.get_meta("authored_copy",false) else locale.display(node.text,model.s)
+		if node is OptionButton:
+			for i in node.item_count:node.set_item_text(i,locale.display(node.get_item_text(i),model.s))
+		if node is LineEdit:node.placeholder_text=locale.display(node.placeholder_text,model.s)
+		if node.tooltip_text!="":node.tooltip_text=locale.display(node.tooltip_text,model.s)
+	# Let containers allocate their text before measuring. Fluid body labels keep
+	# their authored size and expand vertically; only fixed slots need fitting.
+	call_deferred("_fit_display_r24")
+
+func _fit_display_r24() -> void:
+	var locale=preload("res://game/localization_r22.gd")
+	for node in find_children("*","Control",true,false):
+		if not (node is Label or node is Button):continue
+		if node is Button or node.has_meta("metric_index"):locale.fit_box(node)
+		if node.has_meta("metric_index") and is_instance_valid(town_view):
+			var metrics=town_view.get("metrics");var index=int(node.get_meta("metric_index"))
+			if metrics is Array and index<metrics.size():
+				var fs=node.get_theme_font_size("font_size");metrics[index].text=node.text;metrics[index].font_size=fs
+				metrics[index].needed=node.get_theme_font("font").get_multiline_string_size(node.text,HORIZONTAL_ALIGNMENT_LEFT,node.size.x if node.autowrap_mode!=TextServer.AUTOWRAP_OFF else -1,fs).x
+
 func number(value: float) -> String:
 	return str(int(value)) if value==int(value) else str(snappedf(value,0.01))
 
 func text(value: String, fs=14, color=INK, parent: Node=null) -> Label:
 	var label=Label.new(); (parent if parent else content).add_child(label)
 	if fs>=17: label.add_theme_font_override("font",UI.TITLE)
-	label.text=value.replace("−","-"); label.add_theme_font_size_override("font_size",fs); label.add_theme_color_override("font_color",UI.ACTION_RED if color==GOLD else color)
+	label.text=preload("res://game/localization_r22.gd").display(value,model.s).replace("−","-"); label.add_theme_font_size_override("font_size",fs); label.add_theme_color_override("font_color",UI.ACTION_RED if color==GOLD else color)
 	label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; label.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	label.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	return label
@@ -220,7 +245,7 @@ func box() -> VBoxContainer:
 
 func button(id: String, value: String, callback: Callable, disabled=false, parent: Node=null) -> Button:
 	var b=Button.new(); (parent if parent else content).add_child(b)
-	b.text=value; b.custom_minimum_size.y=54; b.size_flags_horizontal=Control.SIZE_EXPAND_FILL; b.disabled=disabled
+	b.text=preload("res://game/localization_r22.gd").display(value,model.s); b.custom_minimum_size.y=54; b.size_flags_horizontal=Control.SIZE_EXPAND_FILL; b.disabled=disabled
 	b.mouse_filter=Control.MOUSE_FILTER_PASS
 	UI.dress_button(b);b.alignment=HORIZONTAL_ALIGNMENT_LEFT
 	b.pressed.connect(callback); controls[id]=b

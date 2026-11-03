@@ -4,6 +4,7 @@ const PersonaRules=preload("res://game/persona_rules.gd")
 const Adapter=preload("res://game/persona_save_adapter.gd")
 const LegacyWorld=preload("res://game/town_world_r21.gd")
 var persona_rules=PersonaRules.new()
+var seed_source: Callable
 
 func _init() -> void:
 	super()
@@ -52,8 +53,7 @@ func create_action(arg: String,kind="cr") -> bool:
 			s.members[id].level=s.persona.lv;s.members[id].xp=0;s.members[id].aff=0.0
 			var b=stats(id,int(s.persona.lv));s.members[id].hp=b.hp;s.members[id].mp=b.mp
 		var b=stats("persona",int(s.persona.lv));s.members.persona.hp=b.hp;s.members.persona.mp=b.mp
-		# The native client has no RisuAI host seed; use a new local world seed.
-		s.rng=randi_range(1,2147483646);s.town_r21.seed=s.rng;s.town_r21.counter=0;s.town_r21.qn=0;refill_board()
+		s.rng=seed_source.call() if seed_source.is_valid() else persona_rules.new_seed(int(floor(Time.get_unix_time_from_system())),Time.get_ticks_usec(),randi_range(1,2147483646));s.town_r21.seed=s.rng;s.town_r21.counter=0;s.town_r21.qn=0;refill_board()
 	return true
 
 func person(id: String) -> Dictionary:

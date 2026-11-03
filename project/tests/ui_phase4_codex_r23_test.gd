@@ -5,6 +5,7 @@ func run():
 		s.model=fixture();s.model.s.settings={"lang":c.lang};s.model.s.owned=c.g.roster.duplicate();s.model.s.party=[];s.model.s.favs=c.g.favs.duplicate();s.model.s.persona.lv=1;s.model.s.members.persona.level=1
 		for id in s.model.s.owned:s.model.s.members[id].level=1;s.model.s.members[id].aff=c.g.aff.get(id,0)
 		s.panels_r22=State.new(s.model);s.panels_r22.ui.tab=c.g.ui.tab;s.panels_r22.ui.page=int(c.g.ui.page);s.screen="codex";s._draw_screen();await settle()
-		var got=L.u("캐릭터 도감",{},c.lang)+" "+body_words(s);check(got==c.expected.text,"P2523 "+c.lang+" "+str(c.g.roster.size())+" "+c.g.ui.tab+" "+str(c.g.ui.page)+" got="+got+" expected="+c.expected.text)
+		var expected=preload("res://tests/source_locale_r24.gd").text(c.expected.text,c.lang)
+		var got=L.u("캐릭터 도감",{},c.lang)+" "+body_words(s);check(got==expected,"P2523 "+c.lang+" "+str(c.g.roster.size())+" "+c.g.ui.tab+" "+str(c.g.ui.page)+" got="+got+" expected="+expected)
 		var observed=observation(s.town_view.body);check(observed.bars==c.expected.bars,"P2523 list bars")
 	FileAccess.open("res://../verification/parity-r23/ui-phase4/ui-codex-results.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failures":failures},"\t"));print("UI PHASE4 CODEX CHECKS ",checks," FAILURES ",failures.size());quit(0 if failures.is_empty() else 1)

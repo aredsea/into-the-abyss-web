@@ -29,7 +29,8 @@ func run():
 			for n in s.town_view.find_children("*","VBoxContainer",true,false):
 				if n.get_meta("favorite_id","")==id:card=n;break
 		if card==null:check(false,c.id+" actual card missing "+id);continue
-		var got=observation(card);check(got.text==c.expected.text,c.id+" "+id+" "+c.lang+" text: "+got.text+" expected "+c.expected.text)
+		var expected=preload("res://tests/source_locale_r24.gd").text(c.expected.text,c.lang)
+		var got=observation(card);check(got.text==expected,c.id+" "+id+" "+c.lang+" text: "+got.text+" expected "+expected)
 		check(got.bars==c.expected.bars,c.id+" "+id+" bars "+str(got.bars)+" expected "+str(c.expected.bars))
 		check(got.favorite==c.expected.favorite,c.id+" favorite marker "+id)
 		check(got.buttons.size()==c.expected.buttons.size(),c.id+" selectable actions "+id)

@@ -18,7 +18,7 @@ func build(owner_screen) -> void:
 	finish_localization()
 
 func localized(value: String) -> String:
-	return L.render(value,L.language(host.model.s))
+	return L.display(value,host.model.s)
 
 func finish_localization() -> void:
 	if L.language(host.model.s)!="en":return
@@ -134,7 +134,11 @@ func page_background() -> void:
 
 func traced_title(name: String,r: Rect2) -> void:
 	var path="res://assets/ui-r21/title-"+name+".svg"
-	if L.language(host.model.s)=="en" and ResourceLoader.exists("res://assets/ui-r21/title-"+name+"-en.svg"):path="res://assets/ui-r21/title-"+name+"-en.svg"
+	if L.language(host.model.s)=="en":
+		if ResourceLoader.exists("res://assets/ui-r21/title-"+name+"-en.svg"):path="res://assets/ui-r21/title-"+name+"-en.svg"
+		else:
+			var titles={"home":"Torva","formation":"Formation","rest":"Rest","explore":"Explore","retreat":"Retreat","guild":"Quests","inn":"Inn","research":"Research","equipment":"Equipment","journal":"Journal","summary":"Summary","victory":"Victory","defeat":"Defeat","art":"Skill preview","cache":"Sealed cache"}
+			var label=display(titles.get(name,name.capitalize()),r,T.INK,64);mark("title:"+name,label);return
 	var t=TextureRect.new();stage.add_child(t);t.texture=load(path)
 	t.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;t.stretch_mode=TextureRect.STRETCH_SCALE;t.position=r.position;t.size=r.size;t.mouse_filter=MOUSE_FILTER_IGNORE
 	mark("title:"+name,t)
@@ -161,7 +165,8 @@ func picture(id: String,r: Rect2,slot="bust") -> Control:
 	if host.model.has_method("source_portrait_record") and Portrait.preferred_path(id,slot).is_empty():
 		var face=host.model.source_portrait_record(id)
 		var box=fill("portrait_fallback:"+id,r,T.PALE)
-		var glyph=label(face.fallback,r,22,T.INK,T.BOLD,false);glyph.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+		var initial=L.persona_name(host.model.s).left(1) if id=="persona" else face.fallback
+		var glyph=label(initial,r,22,T.INK,T.BOLD,false);glyph.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 		return box
 	var p=Portrait.new(); stage.add_child(p); p.position=r.position; p.size=r.size; p.configure(id,slot)
 	mark("portrait:"+id+":"+slot,p); return p
@@ -233,7 +238,7 @@ func home() -> void:
 		fill("party_frame"+str(i),Rect2(x+2,548,84,62),T.INK)
 		if id=="persona":
 			fill("town_persona_face",Rect2(x+2,550,83,58),T.PALE)
-			label(source_party[i].left(1),Rect2(x+2,550,83,58),22,T.INK,T.BOLD)
+			label(localized(source_party[i]).left(1),Rect2(x+2,550,83,58),22,T.INK,T.BOLD)
 		else:picture(id,Rect2(x+2,550,83,58),"town-party-face")
 		var l=label(source_party[i],Rect2(x,610,87,16),9); l.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 		hit("town_member:"+id,Rect2(x,548,87,78),func():host.who=id;host.go("member"))
@@ -726,6 +731,7 @@ func inn_dialogue() -> void:
 			var c=row.choices[i]
 			var height=maxf(58,T.BOLD.get_multiline_string_size(c.text,HORIZONTAL_ALIGNMENT_LEFT,288,15).y+24)
 			var b=action("dialogue_choice:"+c.id,c.text,Rect2(0,y,342,height),func():host._act(host.model.choose_dialogue.bind(c.id),""),false,false,false)
+			b.set_meta("authored_copy",true)
 			b.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;b.add_theme_font_size_override("font_size",15)
 			T.dress_button(b);b.alignment=HORIZONTAL_ALIGNMENT_LEFT;T.row_arrow(b);y+=height+8
 		content.custom_minimum_size.y=maxf(351,y+16);stage=previous
@@ -736,7 +742,8 @@ func inn_dialogue() -> void:
 func reading_line(value: String,y: float,fs=15,color=T.INK,translate=true) -> float:
 	var copy=localized(value) if translate else value
 	var height=T.BODY.get_multiline_string_size(copy,HORIZONTAL_ALIGNMENT_LEFT,342,fs).y+10
-	paragraph(value,Rect2(0,y,342,height),fs,color,translate)
+	var line=paragraph(value,Rect2(0,y,342,height),fs,color,translate)
+	if not translate:line.set_meta("authored_copy",true)
 	return y+height+12
 
 func journey_dialogue() -> void:
@@ -750,7 +757,7 @@ func journey_dialogue() -> void:
 		label(host.model.person(row.who).name,Rect2(93,y,248,26),18,T.INK,T.BOLD)
 		var text="\n".join(row.lines)
 		if row.kind=="transition":text=row.from+" → "+row.to+"\n"+row.situation+"\n"+text
-		paragraph(text,Rect2(93,y+32,248,133),15,T.INK,false)
+		paragraph(text,Rect2(93,y+32,248,133),15,T.INK,false).set_meta("authored_copy",true)
 	stage=previous
 	action("dialogue_continue","계속",Rect2(18,748,354,58),func():host.model.dismiss_dialogue_queue();host._save();host._draw_screen(),true)
 
@@ -945,7 +952,7 @@ func overview() -> void:
 	if host.who=="hildegard": plate("trait-penguin",Rect2(24,690,99,64))
 	else: icon("shield",Rect2(34,701,54,46))
 	display(p.trait.name,Rect2(137,690,233,29),T.INK,21)
-	var teaser=p.trait.note.left(32)+("…" if p.trait.note.length()>32 else "")
+	var note=localized(p.trait.note);var teaser=note.left(32)+("…" if note.length()>32 else "")
 	var l=label(teaser,Rect2(137,719,233,38),11); l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	metrics[-1].available=1000 # measured as wrapped text by the UI test
 	hit("member_details",Rect2(18,681,354,78),host.go.bind("member_details")).tooltip_text="특성·경험치·기술 상세 보기"
@@ -961,7 +968,7 @@ func skills() -> void:
 		icon("shield",Rect2(58,389,60,69),T.INK)
 	var title=display(sk.name,Rect2(169,333,134,34),T.INK,25,true); mark("skill_title",title)
 	label("MP %d · %s" % [sk.mp,sk.target],Rect2(170,370,203,25),13,T.INK,T.BOLD)
-	var teaser=sk.note.left(48)+("…" if sk.note.length()>48 else "")
+	var skill_note24=localized(sk.note);var teaser=skill_note24.left(48)+("…" if skill_note24.length()>48 else "")
 	var l=label(teaser,Rect2(170,400,204,63),12); l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	metrics[-1].available=1000
 	hit("personal_detail",Rect2(170,395,204,67),host.go.bind("member_details")).tooltip_text="기술 설명 전체 보기"
@@ -979,7 +986,7 @@ func skills() -> void:
 		plate("skill-"+("attack" if entry.id=="atk" else "guard" if entry.id=="guard" else "taunt"),Rect2(6,y+8,61,57))
 		display(entry.name,Rect2(73,y+2,270,28),T.INK,21)
 		label("MP %d" % entry.mp,Rect2(74,y+32,55,21),12,Color("197ab7"),T.BOLD)
-		var excerpt=entry.note.left(29)+("…" if entry.note.length()>29 else "")
+		var description24=localized(entry.note);var excerpt=description24.left(29)+("…" if description24.length()>29 else "")
 		var note=label(excerpt,Rect2(130,y+32,212,40),12); note.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 		metrics[-1].available=1000
 		fill("skill_rule"+str(index),Rect2(2,y+77,340,1),T.LINE)

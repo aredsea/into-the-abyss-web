@@ -85,7 +85,8 @@ func run():
 		for i in range(2000):
 			var entry=template.duplicate(true);entry.uid=i+1;w.s.gear.append(entry)
 		w.s.serial=2000
-		check(w.bank_expedition_gear(["wa01.1.1"])=={"gear":[],"lost":1} and w.s.gear.size()==2000 and w.s.gear_r22.overflow[-1].code=="wa01.1.1","full bag keeps existing overflow archive","integration")
+		w.s.gear_r22={"overflow":[{"code":"wa01.9.1","forge":{"lv":0,"tries":0}}]}
+		check(w.bank_expedition_gear(["wa01.1.1"])=={"gear":[],"lost":1} and w.s.gear.size()==2000 and w.s.gear_r22.overflow==[{"code":"wa01.9.1","forge":{"lv":0,"tries":0}}],"full bag discards new gear and preserves existing overflow archive","integration")
 	FileAccess.open("res://../verification/parity-r23/expe-pass4-results.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failures":failures,"groups":groups},"  "))
 	print("EXPE PASS4 CHECKS ",checks," FAILURES ",failures.size())
 	helper.helper.free();helper.free();quit(0 if failures.is_empty() else 1)

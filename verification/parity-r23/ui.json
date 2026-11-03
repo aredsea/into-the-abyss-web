@@ -67,6 +67,20 @@
       "server_groups": 9,
       "combat_battles": 6320,
       "original_trait_icons": 4
+    },
+    "finish": {
+      "ledger": "ui",
+      "reviewed": 35,
+      "promoted_same": 8,
+      "modified": 13,
+      "remaining": 27,
+      "battle_handoff": 3,
+      "statuses": {
+        "같음": 92,
+        "대체": 21,
+        "일부": 27,
+        "제외": 4
+      }
     }
   },
   "rows": [
@@ -1768,12 +1782,23 @@
         "surrounding": 36
       },
       "modified": null,
-      "remaining_reason": "원본 G_new의 관찰 투영(빈 생성·아이템·진행·난수 초기화)을 native 전체 초기 상태와 연결하는 시험이 더 필요하다. 기본 생성과 기본 재화 회귀는 통과. 초기화 연결은 수정 금지 persona_world.gd/town_world_r21.gd에 있다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 persona_world.gd·town_world_r21.gd·gear_*에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "native 초기 생성에는 선생성 의뢰·다른 초기 RNG와 출정 기본 모드가 남아 있다. 빈 원본 G_new 전체 관찰 투영은 같지 않다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 64,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 86,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 G_new의 관찰 투영(빈 생성·아이템·진행·난수 초기화)을 native 전체 초기 상태와 연결하는 시험이 더 필요하다. 기본 생성과 기본 재화 회귀는 통과. 초기화 연결은 수정 금지 persona_world.gd/town_world_r21.gd에 있다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 persona_world.gd·town_world_r21.gd·gear_*에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+        "excerpt_sha256": "82df4dbf723fa2f4f620f623a20eff8747bd67cbd9079a3ec2141fea45425b94",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "native 초기 생성에는 선생성 의뢰·다른 초기 RNG와 출정 기본 모드가 남아 있다. 빈 원본 G_new 전체 관찰 투영은 같지 않다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
+      }
     },
     {
       "id": "P0084",
@@ -1815,12 +1840,23 @@
         "surrounding": 30
       },
       "modified": null,
-      "remaining_reason": "원본 G_migrate는 누락 필드를 채우지만 native는 schema 없는 원본 G와 잘못된 타입을 전체 거절한다. 기존 native schema 1/2 보존 시험만으로 원본 v1 이관까지 같음으로 올리지 않는다. 연결은 수정 금지 persona_world/상위 world 경로. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 persona_world.gd·town_world_r21.gd·gear_*에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "native schema 1/2는 보존하지만 schema 없는 원본 v1 G 전체와 잘못된 타입을 원본처럼 보충해 읽는 경로가 없다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 54,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 G_migrate는 누락 필드를 채우지만 native는 schema 없는 원본 G와 잘못된 타입을 전체 거절한다. 기존 native schema 1/2 보존 시험만으로 원본 v1 이관까지 같음으로 올리지 않는다. 연결은 수정 금지 persona_world/상위 world 경로. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 persona_world.gd·town_world_r21.gd·gear_*에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+        "excerpt_sha256": "ca01fd19cf442557ef400309b4f282d6f14401e6cc9292d2dc2a4d0fce9d3a6b",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "native schema 1/2는 보존하지만 schema 없는 원본 v1 G 전체와 잘못된 타입을 원본처럼 보충해 읽는 경로가 없다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
+      }
     },
     {
       "id": "P0085",
@@ -1862,12 +1898,23 @@
         "surrounding": 25
       },
       "modified": null,
-      "remaining_reason": "원본 load의 초과 경험치 정산·잘못된 장착 환원과 native restore의 전체 관찰 투영 대조가 남았다. 기존 저장 보존은 통과하나 수정 금지 persona_world/원정·장비 연결을 변경하지 않았다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 persona_world.gd·town_world_r21.gd·gear_*에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "원본 v1 load의 초과 경험치 정산·코드 장착 환원·전체 진행을 native restore로 읽는 통합 입력 경로는 없다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 51,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 load의 초과 경험치 정산·잘못된 장착 환원과 native restore의 전체 관찰 투영 대조가 남았다. 기존 저장 보존은 통과하나 수정 금지 persona_world/원정·장비 연결을 변경하지 않았다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 persona_world.gd·town_world_r21.gd·gear_*에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+        "excerpt_sha256": "3078944e2957a4765d941d934905f4a3abf234cc9c0e62c1d999dec8ace049ad",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "원본 v1 load의 초과 경험치 정산·코드 장착 환원·전체 진행을 native restore로 읽는 통합 입력 경로는 없다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
+      }
     },
     {
       "id": "P0089",
@@ -2304,12 +2351,23 @@
         "surrounding": 25
       },
       "modified": null,
-      "remaining_reason": "로컬 atomic write/백업/재개와 연대기 flush는 기존 회귀 통과. 원본 v1에서 저장 뒤 관찰할 전체 값(코드 장비·상태·진행)을 native UID에 투영하는 대조가 남았다. 저장 매체 차이만을 사유로 남기지 않는다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 persona_world.gd·town_world_r21.gd·gear_*에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "native 파일 왕복은 통과. 원본 v1 코드 장비·상태·진행 전체를 UID로 투영하는 저장/재개 대조는 남는다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 49,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "로컬 atomic write/백업/재개와 연대기 flush는 기존 회귀 통과. 원본 v1에서 저장 뒤 관찰할 전체 값(코드 장비·상태·진행)을 native UID에 투영하는 대조가 남았다. 저장 매체 차이만을 사유로 남기지 않는다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 persona_world.gd·town_world_r21.gd·gear_*에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+        "excerpt_sha256": "550c2b01809fa5c626f3c4fe4a6c95bd10f7ed1a3ce51d106b656a1414d83a6c",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "native 파일 왕복은 통과. 원본 v1 코드 장비·상태·진행 전체를 UID로 투영하는 저장/재개 대조는 남는다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
+      }
     },
     {
       "id": "P0101",
@@ -2321,7 +2379,7 @@
         "end": 157,
         "symbol": "B.new_seed"
       },
-      "status": "미확인",
+      "status": "같음",
       "unverified_branches": [],
       "previous_status": "미확인",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
@@ -2348,12 +2406,34 @@
         "surrounding": 2
       },
       "modified": null,
-      "remaining_reason": "원본은 time/clock/random을 결합하나 native는 생성 확정 뒤 randi_range로 seed를 고른다. 같은 시간/난수 입력에서 같은 seed/소비 횟수가 되지 않는다. 수정 금지 persona_world.gd의 create_action 연결이 필요. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 persona_world.gd·town_world_r21.gd·gear_*에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "",
       "phase2_previous_status": "미확인",
       "source_calls_phase2": 0,
       "phase3_previous_status": "미확인",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "미확인"
+      "phase4_previous_status": "미확인",
+      "fixed": true,
+      "finish": {
+        "stage": "finish",
+        "previous_status": "미확인",
+        "previous_remaining_reason": "원본은 time/clock/random을 결합하나 native는 생성 확정 뒤 randi_range로 seed를 고른다. 같은 시간/난수 입력에서 같은 seed/소비 횟수가 되지 않는다. 수정 금지 persona_world.gd의 create_action 연결이 필요. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 persona_world.gd·town_world_r21.gd·gear_*에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+        "excerpt_sha256": "31eef08d31c2e9f33bbaa4a49370fd407d7dd5937c73a4c3323f4f907609a045",
+        "fixed": true,
+        "disposition": "같음 승격",
+        "comparison": "canonical Lua execution vs native functional observation",
+        "group": "P0101.seed",
+        "detail": "time/clock/random의 정본 산식 27개와 실제 생성 진입점의 1회 호출을 직접 비교.",
+        "tests": [
+          "project/tests/finish_r24_test.gd",
+          "project/tests/ui_finish_r24_test.gd"
+        ],
+        "results": [
+          "verification/finish-r24/unit-results.json",
+          "verification/finish-r24/ui-results.json"
+        ],
+        "implementation": "project/game/persona_rules.gd:32"
+      }
     },
     {
       "id": "P0102",
@@ -2535,12 +2615,23 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "원본 HUD의 장소·금화·즐겨찾기 얼굴·상태/도감/저장/설정 순서와 현재 native 상단/하단에 분산된 동작을 전수 대조하지 않았다. 일부 HUD 연결은 수정 금지 town_screen_r21.gd. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 town_screen_r21.gd·world_screen.gd에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "원본 HUD 장소·금화·최대 3명 즐겨찾기 얼굴·메뉴 버튼 순서와 native 분산된 상/하단 진입은 전체 대조하지 못했다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 HUD의 장소·금화·즐겨찾기 얼굴·상태/도감/저장/설정 순서와 현재 native 상단/하단에 분산된 동작을 전수 대조하지 않았다. 일부 HUD 연결은 수정 금지 town_screen_r21.gd. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 town_screen_r21.gd·world_screen.gd에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+        "excerpt_sha256": "21d97b72bc7585127514114e28bc3f7ce682e4d4e8e0c0c4544d0b137896ad4d",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "원본 HUD 장소·금화·최대 3명 즐겨찾기 얼굴·메뉴 버튼 순서와 native 분산된 상/하단 진입은 전체 대조하지 못했다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
+      }
     },
     {
       "id": "P0110",
@@ -2833,12 +2924,23 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "생성/첫 만남/패널 조립은 회귀 통과. 알 수 없는 scene과 화면 함수 오류의 사용자 표시 및 override 분기의 native 대응을 아직 원본과 직접 비교하지 않았다. 호스트 잠금/성인 override 자체는 제외 범위. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 world_screen.gd에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "알 수 없는 scene·화면 함수 오류·공개 override의 최상위 native 표시 전체를 원본과 직접 비교하지 못했다. 성인 override는 제외다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "생성/첫 만남/패널 조립은 회귀 통과. 알 수 없는 scene과 화면 함수 오류의 사용자 표시 및 override 분기의 native 대응을 아직 원본과 직접 비교하지 않았다. 호스트 잠금/성인 override 자체는 제외 범위. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 world_screen.gd에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+        "excerpt_sha256": "a18eeff5ba5e55fc8a21bc3abda3736551ed0ffc9a79f239d2fa73245215f7fa",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "알 수 없는 scene·화면 함수 오류·공개 override의 최상위 native 표시 전체를 원본과 직접 비교하지 못했다. 성인 override는 제외다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
+      }
     },
     {
       "id": "P0133",
@@ -2877,12 +2979,23 @@
         "surrounding": 1
       },
       "modified": null,
-      "remaining_reason": "원본 route의 무효 접두/중복 버튼/저장 실패 뒤 부수효과 경계와 native world_screen 전체 경로의 직접 대조가 남았다. 상태 탭 등 개별 handler 같음은 유지. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 world_screen.gd에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "무효 접두·중복 버튼·저장 실패 뒤 부수효과를 포함한 world_screen 최상위 라우터 전체 대조가 남는다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 route의 무효 접두/중복 버튼/저장 실패 뒤 부수효과 경계와 native world_screen 전체 경로의 직접 대조가 남았다. 상태 탭 등 개별 handler 같음은 유지. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 world_screen.gd에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+        "excerpt_sha256": "bf7fec4e1a1fc81ecfb7f3199d6e11e1b078ace2ff4776fe2cc56f445ce446dc",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "무효 접두·중복 버튼·저장 실패 뒤 부수효과를 포함한 world_screen 최상위 라우터 전체 대조가 남는다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
+      }
     },
     {
       "id": "P2370",
@@ -3147,7 +3260,7 @@
         "end": 275,
         "symbol": "B.CR.trait_row"
       },
-      "status": "일부",
+      "status": "같음",
       "unverified_branches": [],
       "previous_status": "일부",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
@@ -3176,12 +3289,34 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "생성 특성 행은 원본 영어 te_raw→번역→ptx 순서를 쓰나 native create_screen.traits는 사전 보간된 te와 별도 syn_text를 섞는다. 설명/라벨/2·3인 수치의 전수 직접 대조가 필요. persona_rules는 이번 수정 금지. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "fixed": true,
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "생성 특성 행은 원본 영어 te_raw→번역→ptx 순서를 쓰나 native create_screen.traits는 사전 보간된 te와 별도 syn_text를 섞는다. 설명/라벨/2·3인 수치의 전수 직접 대조가 필요. persona_rules는 이번 수정 금지. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+        "excerpt_sha256": "4181e78452e2f84283962e7b0bf8eb560a5d36c75e784997c523c29d79b4f16a",
+        "fixed": true,
+        "disposition": "같음 승격",
+        "comparison": "canonical Lua execution vs native functional observation",
+        "group": "P2416.trait",
+        "detail": "종족·계통·국가·계열 38개 한영 특성: 원문 번역→매개변수 치환과 2·3인 설명을 직접 비교.",
+        "tests": [
+          "project/tests/finish_r24_test.gd",
+          "project/tests/ui_finish_r24_test.gd"
+        ],
+        "results": [
+          "verification/finish-r24/unit-results.json",
+          "verification/finish-r24/ui-results.json"
+        ],
+        "implementation": "project/game/create_display_r24.gd:7"
+      }
     },
     {
       "id": "P2417",
@@ -3193,7 +3328,7 @@
         "end": 280,
         "symbol": "B.CR.opt"
       },
-      "status": "일부",
+      "status": "같음",
       "unverified_branches": [],
       "previous_status": "일부",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
@@ -3222,12 +3357,34 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "원본 opt는 선택/차단 선택지에도 원래 name/sub를 표시한다. native 국가 옵션은 차단 시 선택 불가 문구를 추가하고 일부 tag를 생략한다. 생성 화면의 선택지 문구/순서 대조가 미완료. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "fixed": true,
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 opt는 선택/차단 선택지에도 원래 name/sub를 표시한다. native 국가 옵션은 차단 시 선택 불가 문구를 추가하고 일부 tag를 생략한다. 생성 화면의 선택지 문구/순서 대조가 미완료. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+        "excerpt_sha256": "5e6e4c021d779f86645fafe2369a7fd029ac8d11cc8f865bf193af245b6c572e",
+        "fixed": true,
+        "disposition": "같음 승격",
+        "comparison": "canonical Lua execution vs native functional observation",
+        "group": "P2417.option",
+        "detail": "선택/차단 8조합의 이름·보조 문구·선택·활성 조건을 원본 버튼과 비교. 차단 선택지도 눌러 사유를 받는 계약 유지.",
+        "tests": [
+          "project/tests/finish_r24_test.gd",
+          "project/tests/ui_finish_r24_test.gd"
+        ],
+        "results": [
+          "verification/finish-r24/unit-results.json",
+          "verification/finish-r24/ui-results.json"
+        ],
+        "implementation": "project/game/create_display_r24.gd:5"
+      }
     },
     {
       "id": "P2418",
@@ -3239,7 +3396,7 @@
         "end": 283,
         "symbol": "B.CR.head"
       },
-      "status": "일부",
+      "status": "같음",
       "unverified_branches": [],
       "previous_status": "일부",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
@@ -3268,12 +3425,34 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "원본 단계 머리의 n / 5·단계 이름·설명 세 항목 중 native는 별도 머리/질문으로 나누며 n / 5가 없다. 단순 HTML 차이가 아니라 표시 항목 차이. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "fixed": true,
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 단계 머리의 n / 5·단계 이름·설명 세 항목 중 native는 별도 머리/질문으로 나누며 n / 5가 없다. 단순 HTML 차이가 아니라 표시 항목 차이. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+        "excerpt_sha256": "28c21c6bdfa2507bcc4dfd32c0fb2f371c1a1b0c02f685a0a4c1d99a7d2f905d",
+        "fixed": true,
+        "disposition": "같음 승격",
+        "comparison": "canonical Lua execution vs native functional observation",
+        "group": "P2418.head",
+        "detail": "5단계 머리와 총량 0/5/10/20/99의 18개 한영 표시를 직접 비교.",
+        "tests": [
+          "project/tests/finish_r24_test.gd",
+          "project/tests/ui_finish_r24_test.gd"
+        ],
+        "results": [
+          "verification/finish-r24/unit-results.json",
+          "verification/finish-r24/ui-results.json"
+        ],
+        "implementation": "project/game/create_display_r24.gd:18"
+      }
     },
     {
       "id": "P2419",
@@ -3285,7 +3464,7 @@
         "end": 291,
         "symbol": "B.CR.steps"
       },
-      "status": "일부",
+      "status": "같음",
       "unverified_branches": [],
       "previous_status": "일부",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
@@ -3314,12 +3493,34 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "원본 단계 버튼에는 번호와 단계명이 함께 있다. native는 이름만 그리며 비활성 조건은 기존 규칙 시험 통과. 번호/순서를 포함한 화면 직접 대조가 남았다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "fixed": true,
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 단계 버튼에는 번호와 단계명이 함께 있다. native는 이름만 그리며 비활성 조건은 기존 규칙 시험 통과. 번호/순서를 포함한 화면 직접 대조가 남았다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+        "excerpt_sha256": "f8916a9babc2e6d97815071fcfda027f162e9e28b08af13e2da39b2034e2e65a",
+        "fixed": true,
+        "disposition": "같음 승격",
+        "comparison": "canonical Lua execution vs native functional observation",
+        "group": "P2419.steps",
+        "detail": "720개 원본 단계 줄의 버튼 3,600개를 번호·이름·순서·선택·활성으로 직접 비교.",
+        "tests": [
+          "project/tests/finish_r24_test.gd",
+          "project/tests/ui_finish_r24_test.gd"
+        ],
+        "results": [
+          "verification/finish-r24/unit-results.json",
+          "verification/finish-r24/ui-results.json"
+        ],
+        "implementation": "project/ui/create_screen.gd:87"
+      }
     },
     {
       "id": "P2421",
@@ -3331,7 +3532,7 @@
         "end": 302,
         "symbol": "B.CR.nav"
       },
-      "status": "일부",
+      "status": "같음",
       "unverified_branches": [],
       "previous_status": "일부",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
@@ -3360,12 +3561,34 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "원본 뒤로/다음 레이블의 삼각형과 native 레이블이 다르고, 마지막 확정 버튼의 모든 불완전 입력 조합을 현재 포인터 시험과 연결하지 않았다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "fixed": true,
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 뒤로/다음 레이블의 삼각형과 native 레이블이 다르고, 마지막 확정 버튼의 모든 불완전 입력 조합을 현재 포인터 시험과 연결하지 않았다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+        "excerpt_sha256": "c8e877277e94ffb0d3d0b4402ea244d0443de46163c97771ee0dea7bbfd47a38",
+        "fixed": true,
+        "disposition": "같음 승격",
+        "comparison": "canonical Lua execution vs native functional observation",
+        "group": "P2421.nav",
+        "detail": "미완성 종족/국가/직업/배분 조합의 720개 원본 뒤로/다음/확정 줄을 문구·활성 조건으로 비교.",
+        "tests": [
+          "project/tests/finish_r24_test.gd",
+          "project/tests/ui_finish_r24_test.gd"
+        ],
+        "results": [
+          "verification/finish-r24/unit-results.json",
+          "verification/finish-r24/ui-results.json"
+        ],
+        "implementation": "project/game/create_display_r24.gd:21"
+      }
     },
     {
       "id": "P2425",
@@ -3406,12 +3629,23 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "원본 종족 미선택 안내·수인 계통 tag/선택별 개인 효과와 native traits 중복/표시 항목 차이를 아직 전부 메우지 못했다. 규칙 경계 수정은 금지 persona_rules 경로. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "개인/시너지 표시는 보강했다. 종족/계통 미선택 안내와 원본 pg_race 전체 정보·순서의 직접 대조는 남는다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 종족 미선택 안내·수인 계통 tag/선택별 개인 효과와 native traits 중복/표시 항목 차이를 아직 전부 메우지 못했다. 규칙 경계 수정은 금지 persona_rules 경로. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+        "excerpt_sha256": "54d01a2c61aa43f28f034b3963b6cb48d21e04fe35bc3824d5bd1220be5d7fc3",
+        "fixed": true,
+        "disposition": "수정·남음",
+        "detail": "개인/시너지 표시는 보강했다. 종족/계통 미선택 안내와 원본 pg_race 전체 정보·순서의 직접 대조는 남는다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
+      }
     },
     {
       "id": "P2426",
@@ -3452,12 +3686,23 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "국가 선택의 전체 tag·차단 사유 표시/선택 유지와 native의 선택 불가 덧붙임/tooltip을 직접 대조해야 한다. 원본과 다른 문구가 남아 있어 잔여. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "차단 이름 덧붙임을 제거하고 원본 bl.s/note/tag로 수정했다. 전체 pg_nation의 설명·순서·선택 유지 합성은 미대조다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "국가 선택의 전체 tag·차단 사유 표시/선택 유지와 native의 선택 불가 덧붙임/tooltip을 직접 대조해야 한다. 원본과 다른 문구가 남아 있어 잔여. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+        "excerpt_sha256": "8baaec21dee4305feb67bc46ed455437ce71e201893f775e64b9238d7a98efeb",
+        "fixed": true,
+        "disposition": "수정·남음",
+        "detail": "차단 이름 덧붙임을 제거하고 원본 bl.s/note/tag로 수정했다. 전체 pg_nation의 설명·순서·선택 유지 합성은 미대조다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
+      }
     },
     {
       "id": "P2427",
@@ -3498,12 +3743,23 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "원본 직업의 수치/스킬/출신 주의 문구와 native 요약이 모든 직업에서 동일한 순서·내용인지 직접 대조하지 못했다. 규칙 파일은 이번 수정 금지. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "계열 개인/시너지를 추가했다. 모든 직업의 기본 수치·스킬·출신 주의문을 포함한 전체 순서 직접 대조는 남는다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 직업의 수치/스킬/출신 주의 문구와 native 요약이 모든 직업에서 동일한 순서·내용인지 직접 대조하지 못했다. 규칙 파일은 이번 수정 금지. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+        "excerpt_sha256": "8514d10daae4b94bb7a778db80210d6d96487bc512f8b92a2b7e96b1e218e512",
+        "fixed": true,
+        "disposition": "수정·남음",
+        "detail": "계열 개인/시너지를 추가했다. 모든 직업의 기본 수치·스킬·출신 주의문을 포함한 전체 순서 직접 대조는 남는다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
+      }
     },
     {
       "id": "P2428",
@@ -3544,12 +3800,23 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "원본 총량 프리셋 설명·직접 모드 ±1/±5 및 native 표시의 일부 문구/설명이 다르다. 총량 수치/경계 기존 시험 통과와 화면 전체 같음은 구별했다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "총량 프리셋의 설명·직접 모드 보조 문구 전체는 아직 원본과 다르다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 총량 프리셋 설명·직접 모드 ±1/±5 및 native 표시의 일부 문구/설명이 다르다. 총량 수치/경계 기존 시험 통과와 화면 전체 같음은 구별했다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+        "excerpt_sha256": "772797594391b8e5a1677c4e3c64edd1c206c5b69d10b51e6a620f7acc36b162",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "총량 프리셋의 설명·직접 모드 보조 문구 전체는 아직 원본과 다르다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
+      }
     },
     {
       "id": "P2434",
@@ -3590,12 +3857,23 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "원본 능력치 단계의 추천·초기화·증감/상한/HP·MP 설명 전체와 native 화면의 문구/순서를 직접 대조하지 못했다. 규칙 경계는 수정 금지 persona_rules. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "원본 능력치 막대·HP/MP·추천/초기화·상한 설명의 전체 화면 정보와 순서를 직접 모두 맞추지 못했다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 능력치 단계의 추천·초기화·증감/상한/HP·MP 설명 전체와 native 화면의 문구/순서를 직접 대조하지 못했다. 규칙 경계는 수정 금지 persona_rules. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+        "excerpt_sha256": "1ba69bf71e8f083541aecd198e32dd24f2bd9fe91f1b1a5775d3aacebc594efa",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "원본 능력치 막대·HP/MP·추천/초기화·상한 설명의 전체 화면 정보와 순서를 직접 모두 맞추지 못했다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
+      }
     },
     {
       "id": "P2439",
@@ -3607,7 +3885,7 @@
         "end": 444,
         "symbol": "B.CR.pg_confirm"
       },
-      "status": "일부",
+      "status": "같음",
       "unverified_branches": [],
       "previous_status": "일부",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
@@ -3636,12 +3914,34 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "원본 확정 화면의 종족/국가 개인 특성과 시너지 요약에 비해 native는 이름/능력치 중심 요약이다. 실제로 빠진 항목이 있어 잔여. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "fixed": true,
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 확정 화면의 종족/국가 개인 특성과 시너지 요약에 비해 native는 이름/능력치 중심 요약이다. 실제로 빠진 항목이 있어 잔여. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+        "excerpt_sha256": "37dc7de28f3289e84426b8acf60fee5289694432f3956107a18a55f17bef75bc",
+        "fixed": true,
+        "disposition": "같음 승격",
+        "comparison": "canonical Lua execution vs native functional observation",
+        "group": "P2439.confirm",
+        "detail": "12개 원본 확정 요약의 이름·출신·직업·능력치·개인/시너지 항목과 순서를 비교하고 같은 presenter를 제품에 연결.",
+        "tests": [
+          "project/tests/finish_r24_test.gd",
+          "project/tests/ui_finish_r24_test.gd"
+        ],
+        "results": [
+          "verification/finish-r24/unit-results.json",
+          "verification/finish-r24/ui-results.json"
+        ],
+        "implementation": "project/game/create_display_r24.gd:26"
+      }
     },
     {
       "id": "P2441",
@@ -3653,7 +3953,7 @@
         "end": 450,
         "symbol": "B.CR.SUB.익명 함수@450"
       },
-      "status": "일부",
+      "status": "같음",
       "unverified_branches": [],
       "previous_status": "일부",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
@@ -3682,12 +3982,34 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "원본 SUB[5] callback은 pg_confirm을 호출한다. 별도 호스트 전용 함수가 아니며 위 P2439 확정 표시 차이가 그대로 남는다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "fixed": true,
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 SUB[5] callback은 pg_confirm을 호출한다. 별도 호스트 전용 함수가 아니며 위 P2439 확정 표시 차이가 그대로 남는다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+        "excerpt_sha256": "30198795ae790938e7b874b259f07504a790ab5f7dd7ba8b63b0be722a8f198c",
+        "fixed": true,
+        "disposition": "같음 승격",
+        "comparison": "canonical Lua execution vs native functional observation",
+        "group": "P2418.head",
+        "detail": "원본 450행은 SUB[4]의 총량 설명 callback이다. 이전 기록의 SUB[5]/확정 표시 설명을 바로잡고 총량별 원문 반환을 비교.",
+        "tests": [
+          "project/tests/finish_r24_test.gd",
+          "project/tests/ui_finish_r24_test.gd"
+        ],
+        "results": [
+          "verification/finish-r24/unit-results.json",
+          "verification/finish-r24/ui-results.json"
+        ],
+        "implementation": "project/game/create_display_r24.gd:18"
+      }
     },
     {
       "id": "P2442",
@@ -3728,12 +4050,23 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "원본 create 합성의 단계 머리/특성/확정 설명 누락은 P2418/P2425/P2439와 연결된다. 원본 전체 HTML 문자열 차이를 잔여 이유로 사용하지 않는다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "단계 머리/특성/확정/내비게이션 helper는 승격했다. 첫 단계의 원본 언어 선택 버튼·클라우드 설명 및 페이지 전체 합성 순서 차이는 남는다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 create 합성의 단계 머리/특성/확정 설명 누락은 P2418/P2425/P2439와 연결된다. 원본 전체 HTML 문자열 차이를 잔여 이유로 사용하지 않는다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+        "excerpt_sha256": "ca81ad3fb407e84b2c512b5743c32dbc6896235a62cc9443715cec661f43eb5c",
+        "fixed": true,
+        "disposition": "수정·남음",
+        "detail": "단계 머리/특성/확정/내비게이션 helper는 승격했다. 첫 단계의 원본 언어 선택 버튼·클라우드 설명 및 페이지 전체 합성 순서 차이는 남는다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
+      }
     },
     {
       "id": "P2446",
@@ -3842,12 +4175,23 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "원본 CR.face는 페르소나 호스트 아바타와 동료 초상/이니셜을 고른다. 호스트 부분은 제외하지만 첫 만남의 없는 초상 fallback은 아직 직접 대조하지 않았다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "호스트 아바타는 제외. 첫 만남에서 그림 provider 없음·실패 시 초상/이니셜 전체를 CR.face와 별도로 직접 비교하지 못했다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 CR.face는 페르소나 호스트 아바타와 동료 초상/이니셜을 고른다. 호스트 부분은 제외하지만 첫 만남의 없는 초상 fallback은 아직 직접 대조하지 않았다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+        "excerpt_sha256": "0c5c51507daad7087e7b9a891938eab6d4b114ae274ec4f1bcf3308873b53283",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "호스트 아바타는 제외. 첫 만남에서 그림 provider 없음·실패 시 초상/이니셜 전체를 CR.face와 별도로 직접 비교하지 못했다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
+      }
     },
     {
       "id": "P2463",
@@ -3888,12 +4232,23 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "원본 첫 만남 선택지의 장소/상황 설명과 native 선택 버튼은 companion 이름 위주로 다르다. 선택한 동료의 미리보기 외 모든 선택지 정보/순서를 비교해야 한다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "원본 각 선택지의 직업/종족/속성·장소/teaser와 목록→미리보기 순서가 native와 다르다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 첫 만남 선택지의 장소/상황 설명과 native 선택 버튼은 companion 이름 위주로 다르다. 선택한 동료의 미리보기 외 모든 선택지 정보/순서를 비교해야 한다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+        "excerpt_sha256": "eec5e848bd61932a4007684921003a7f0e6f4186d9023494aaea1f18570fa7e2",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "원본 각 선택지의 직업/종족/속성·장소/teaser와 목록→미리보기 순서가 native와 다르다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
+      }
     },
     {
       "id": "P2467",
@@ -3934,12 +4289,23 @@
         "surrounding": 2
       },
       "modified": null,
-      "remaining_reason": "원본 첫 만남 시작은 seed 설정·동료/호감/아이템·서술 지시를 함께 바꾼다. AI 지시는 제외하지만 native seed 소비 및 출발 상태 관찰 대조가 남으며 persona_world/persona_rules 수정 금지. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "seed 산식·1회 생성 진입은 수정·대조했다. 첫 만남의 전체 초기 상태·아이템·난수 소비와 생성 의뢰를 합친 관찰은 아직 미일치다. AI 지시는 제외다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 첫 만남 시작은 seed 설정·동료/호감/아이템·서술 지시를 함께 바꾼다. AI 지시는 제외하지만 native seed 소비 및 출발 상태 관찰 대조가 남으며 persona_world/persona_rules 수정 금지. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+        "excerpt_sha256": "ae3abbc7ea6db5d6d9bbb0b60fb9a53f68e2cf0795a750d6163ef24db3339ccc",
+        "fixed": true,
+        "disposition": "수정·남음",
+        "detail": "seed 산식·1회 생성 진입은 수정·대조했다. 첫 만남의 전체 초기 상태·아이템·난수 소비와 생성 의뢰를 합친 관찰은 아직 미일치다. AI 지시는 제외다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
+      }
     },
     {
       "id": "P2480",
@@ -5519,7 +5885,7 @@
         "file": "project/ui/codex_screen_r22.gd:48",
         "change": "누락 속성·장비 후보 최대 4개/더 보기·아이콘/Lv·상세 부가 정보 위치를 보완; 전체 함수 판정은 일부 유지"
       },
-      "remaining_reason": "표시 순서·장비 해제의 빈 칸/1999/2000칸·중복 코드 장착·저장 재개는 새 대조 통과. 실제 전투에서 도감 패널을 여는 전체 경로는 world_screen.gd/전투 파일 동결로 연결하지 못했다. 원본의 옛 아이템 문자열이 든 장착 저장을 UID 모델로 옮기는 전체 경로는 gear_*·persona_world 동결 범위다.",
+      "remaining_reason": "원본 코드 장착 저장의 전체 UID 이관과 실제 전투 중 패널 진입의 통합 경계가 남는다. 평시 0/1999/2000칸 직접 대조는 기존 통과다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
@@ -5532,6 +5898,17 @@
       "phase4_modified": {
         "file": "project/ui/codex_screen_r22.gd:60",
         "scope": "source-backed public presentation / adapter edge; no protected rule edits"
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "표시 순서·장비 해제의 빈 칸/1999/2000칸·중복 코드 장착·저장 재개는 새 대조 통과. 실제 전투에서 도감 패널을 여는 전체 경로는 world_screen.gd/전투 파일 동결로 연결하지 못했다. 원본의 옛 아이템 문자열이 든 장착 저장을 UID 모델로 옮기는 전체 경로는 gear_*·persona_world 동결 범위다.",
+        "source_sha256": "19c193f893db0816afa559982c43d059ea8ba14145f66e29ca2fdca7e5f9f743",
+        "excerpt_sha256": "a9c95bd0eda1be04dbf0baee03ef9bd83fada5617b1eb992467ba02efd832a3d",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "원본 코드 장착 저장의 전체 UID 이관과 실제 전투 중 패널 진입의 통합 경계가 남는다. 평시 0/1999/2000칸 직접 대조는 기존 통과다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -5777,7 +6154,7 @@
         "file": "project/ui/codex_screen_r22.gd:36",
         "change": "누락 속성·장비 후보 최대 4개/더 보기·아이콘/Lv·상세 부가 정보 위치를 보완; 전체 함수 판정은 일부 유지"
       },
-      "remaining_reason": "30명×한영의 전체 공개 상세 정보/문구/순서/막대, 실제 원본 특성 아이콘 4개와 여우/늑대/표범 계통 패시브까지 직접 대조 통과. 장착·해제와 옛 장착 저장 및 실제 전투 진입의 복합 경계 P2528이 남아 전체 승격은 보류.",
+      "remaining_reason": "30명 한영 상세는 기존 직접 비교 통과. P2528의 원본 옛 장착 저장·전투 연결을 상속하므로 전체 함수 승격은 보류한다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
@@ -5790,6 +6167,17 @@
       "phase4_modified": {
         "file": "project/ui/codex_screen_r22.gd:42",
         "scope": "source-backed public presentation / adapter edge; no protected rule edits"
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "30명×한영의 전체 공개 상세 정보/문구/순서/막대, 실제 원본 특성 아이콘 4개와 여우/늑대/표범 계통 패시브까지 직접 대조 통과. 장착·해제와 옛 장착 저장 및 실제 전투 진입의 복합 경계 P2528이 남아 전체 승격은 보류.",
+        "source_sha256": "19c193f893db0816afa559982c43d059ea8ba14145f66e29ca2fdca7e5f9f743",
+        "excerpt_sha256": "290a5e64ec461c4afd0b2c91e037af91c09bfb3e9ddf5f8b4da0ae99c8a31e54",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "30명 한영 상세는 기존 직접 비교 통과. P2528의 원본 옛 장착 저장·전투 연결을 상속하므로 전체 함수 승격은 보류한다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -5844,7 +6232,7 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "목록·미영입·전체 동료 상세와 페르소나에서 불필요한 패시브를 보이는 차이는 보완했다. 전체 패널은 P2528/P2534의 옛 저장·전투 연결 경계를 상속한다. 동결 대상 world_screen.gd/gear_*/persona_world.",
+      "remaining_reason": "도감 전체는 P2528/P2534의 원본 장착 이관·전투 연결 경계가 남는다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
@@ -5853,6 +6241,17 @@
       "phase4_modified": {
         "file": "project/ui/codex_screen_r22.gd:5",
         "scope": "source-backed public presentation / adapter edge; no protected rule edits"
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "목록·미영입·전체 동료 상세와 페르소나에서 불필요한 패시브를 보이는 차이는 보완했다. 전체 패널은 P2528/P2534의 옛 저장·전투 연결 경계를 상속한다. 동결 대상 world_screen.gd/gear_*/persona_world.",
+        "source_sha256": "19c193f893db0816afa559982c43d059ea8ba14145f66e29ca2fdca7e5f9f743",
+        "excerpt_sha256": "e185c7cf876c62ab4e8b16c2e6993ab4a4e32413b7a3758991159f10dc92acad",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "도감 전체는 P2528/P2534의 원본 장착 이관·전투 연결 경계가 남는다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -5918,7 +6317,7 @@
         "file": "project/game/panels_rules_r22.gd:115",
         "change": "즐겨찾기 중복·상한과 언어별 알림; 기존 un/eq 규칙 보존"
       },
-      "remaining_reason": "새 8개 실제 상태 대조에서 2000칸 교환, 1999/2000칸 해제, 중복 코드·장착 UID·저장 재개와 오류 알림은 일치. 원본 버튼 코드→native UID의 잘못된 코드/옛 장착 입력 및 실제 전투 라우터를 잇는 전체 관찰은 동결 world_screen.gd/gear_* 경계로 남긴다.",
+      "remaining_reason": "무효 코드·원본 옛 장착 입력→UID·실제 전투 라우터까지의 handler 전체 관찰은 미대조다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 312,
       "phase2_modified": {
@@ -5935,6 +6334,17 @@
       "phase4_modified": {
         "file": "project/game/panels_state_r22.gd:81",
         "scope": "source-backed public presentation / adapter edge; no protected rule edits"
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "새 8개 실제 상태 대조에서 2000칸 교환, 1999/2000칸 해제, 중복 코드·장착 UID·저장 재개와 오류 알림은 일치. 원본 버튼 코드→native UID의 잘못된 코드/옛 장착 입력 및 실제 전투 라우터를 잇는 전체 관찰은 동결 world_screen.gd/gear_* 경계로 남긴다.",
+        "source_sha256": "19c193f893db0816afa559982c43d059ea8ba14145f66e29ca2fdca7e5f9f743",
+        "excerpt_sha256": "60d28a8d731839d460cfb11e279c61883e2c106a037a48dad6d0fb1ddc8f6391",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "무효 코드·원본 옛 장착 입력→UID·실제 전투 라우터까지의 handler 전체 관찰은 미대조다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -6101,12 +6511,22 @@
         "surrounding": 8
       },
       "modified": null,
-      "remaining_reason": "전투 상태창 단위의 아군 MP/적 심연/상태칩/사망 표시와 native 전투 inspector를 원본 st_unit 출력에 직접 대조하지 않았다. 전투 파일은 이번 수정 금지. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 world_screen.gd·battle_screen.gd·전투 규칙에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "전투 상태창 단위의 아군 MP/적 심연/상태칩/사망 표시와 native 전투 inspector를 원본 st_unit 출력에 직접 대조하지 않았다. 전투 파일은 이번 수정 금지. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 world_screen.gd·battle_screen.gd·전투 규칙에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "7003999b4765a0c84255b31361f82ccb88dd7c235267f410da1beec881505f5e",
+        "excerpt_sha256": "c2e11409be2d5fe49dc8adf9a8a7a3f27e594ba64ea3b8c196979d7ad0693227",
+        "fixed": false,
+        "disposition": "battle 이관",
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
+      }
     },
     {
       "id": "P2568",
@@ -6147,12 +6567,22 @@
         "surrounding": 1
       },
       "modified": null,
-      "remaining_reason": "전투 승리/패배 표지·아군→적 순서·redo 초기화와 native 상태 패널의 직접 대조가 남았다. 전투 파일 수정 금지로 다음 차수에 남긴다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 world_screen.gd·battle_screen.gd·전투 규칙에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "전투 승리/패배 표지·아군→적 순서·redo 초기화와 native 상태 패널의 직접 대조가 남았다. 전투 파일 수정 금지로 다음 차수에 남긴다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 world_screen.gd·battle_screen.gd·전투 규칙에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "7003999b4765a0c84255b31361f82ccb88dd7c235267f410da1beec881505f5e",
+        "excerpt_sha256": "b1d975cdb1f9b72f039fd9caf1f7e00beca3c82d90a4ae4abd1e0d87ba416f69",
+        "fixed": false,
+        "disposition": "battle 이관",
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
+      }
     },
     {
       "id": "P2571",
@@ -6668,7 +7098,7 @@
         "file": "project/game/panels_state_r22.gd:114",
         "change": "메시지 보존과 장착·판매·일괄 판매 원문/조사 복구; 페이지 변환"
       },
-      "remaining_reason": "판매된 선택의 판매/장착, 중복 장비, 가방 2000칸 교환 및 저장 재개는 실제 native 어댑터와 직접 일치. 전투 중 남은 버튼 요청을 공통 라우터에서 거절하는 전체 경로 및 옛 장착 저장 입력은 world_screen.gd/gear_* 동결 범위라 함수 전체는 일부 유지.",
+      "remaining_reason": "평시 판매/장착/교환/재개는 기존 직접 일치. 전투 중 잔여 버튼 거절과 원본 옛 장착 입력을 합친 전체 경계가 남는다.",
       "phase1_modified": {
         "file": "project/game/panels_state_r22.gd:108",
         "change": "메시지 보존과 장착·판매·일괄 판매 원문/조사 복구; 페이지 변환"
@@ -6681,6 +7111,17 @@
       "phase4_modified": {
         "file": "project/game/panels_state_r22.gd:129",
         "scope": "source-backed public presentation / adapter edge; no protected rule edits"
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "판매된 선택의 판매/장착, 중복 장비, 가방 2000칸 교환 및 저장 재개는 실제 native 어댑터와 직접 일치. 전투 중 남은 버튼 요청을 공통 라우터에서 거절하는 전체 경로 및 옛 장착 저장 입력은 world_screen.gd/gear_* 동결 범위라 함수 전체는 일부 유지.",
+        "source_sha256": "7003999b4765a0c84255b31361f82ccb88dd7c235267f410da1beec881505f5e",
+        "excerpt_sha256": "eb4feb8f0f9e7d40b9072f214c5da9f6ef13e6acf97bd49e1fd398dcda395b8a",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "평시 판매/장착/교환/재개는 기존 직접 일치. 전투 중 잔여 버튼 거절과 원본 옛 장착 입력을 합친 전체 경계가 남는다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -6735,7 +7176,7 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "평시 persona/즐겨찾기와 가방 표시, 전투 상태를 가진 패널 구성요소에서 가방 진입 숨김은 검사했다. 실제 전투 화면은 world_screen.gd가 먼저 전투로 강제 전환하며, source st_unit/st_battle의 동작·탭·복귀를 잇는 전투 파일은 동결이다.",
+      "remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
@@ -6744,6 +7185,16 @@
       "phase4_modified": {
         "file": "project/ui/panel_screen_r22.gd:24",
         "scope": "source-backed public presentation / adapter edge; no protected rule edits"
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "평시 persona/즐겨찾기와 가방 표시, 전투 상태를 가진 패널 구성요소에서 가방 진입 숨김은 검사했다. 실제 전투 화면은 world_screen.gd가 먼저 전투로 강제 전환하며, source st_unit/st_battle의 동작·탭·복귀를 잇는 전투 파일은 동결이다.",
+        "source_sha256": "7003999b4765a0c84255b31361f82ccb88dd7c235267f410da1beec881505f5e",
+        "excerpt_sha256": "6c4c198f097a62cad78c7e6b074cbe649fd90b6fb79c69c27fd5d0e1e6b05009",
+        "fixed": false,
+        "disposition": "battle 이관",
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
       }
     },
     {
@@ -6845,12 +7296,23 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "원본 HUD 즐겨찾기 최대 3명 얼굴·선택 버튼과 native HUD의 실제 진입/배치 대응을 직접 대조하지 않았다. 연결 대상 town_screen_r21.gd는 수정 금지. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 town_screen_r21.gd·world_screen.gd에 의존하므로 파일을 바꾸지 않았다.",
+      "remaining_reason": "즐겨찾기 최대 3명 얼굴·선택 버튼을 실제 HUD 진입/순서와 연결한 직접 대조가 없다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
       "source_calls_phase3": 0,
-      "phase4_previous_status": "일부"
+      "phase4_previous_status": "일부",
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 HUD 즐겨찾기 최대 3명 얼굴·선택 버튼과 native HUD의 실제 진입/배치 대응을 직접 대조하지 않았다. 연결 대상 town_screen_r21.gd는 수정 금지. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 town_screen_r21.gd·world_screen.gd에 의존하므로 파일을 바꾸지 않았다.",
+        "source_sha256": "7003999b4765a0c84255b31361f82ccb88dd7c235267f410da1beec881505f5e",
+        "excerpt_sha256": "956716183e69f5117b1db27da1b580f39659773b30770b750fc8f0811e070512",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "즐겨찾기 최대 3명 얼굴·선택 버튼을 실제 HUD 진입/순서와 연결한 직접 대조가 없다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
+      }
     },
     {
       "id": "P2622",
@@ -7029,7 +7491,7 @@
         "surrounding": 0
       },
       "modified": null,
-      "remaining_reason": "공개 선택지 32개 상태의 레이블/선택·설명, 초기화 확인 중 나머지 설정 유지, 클라우드 대체 화면 진입을 검사했다. 전체 초기화 뒤 원본 G_new 관찰은 P2637에 남고, 별도 계정 화면의 복귀/전체 합성은 동결 cloud_screen_r22.gd·world_screen.gd를 포함한다.",
+      "remaining_reason": "선택지/설명 및 클라우드 대체 기능은 기존 시험 통과. 전체 초기화 뒤 G_new 차이와 계정 화면 복귀/전체 합성은 남는다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
@@ -7038,6 +7500,17 @@
       "phase4_modified": {
         "file": "project/ui/settings_screen_r22.gd:5",
         "scope": "source-backed public presentation / adapter edge; no protected rule edits"
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "공개 선택지 32개 상태의 레이블/선택·설명, 초기화 확인 중 나머지 설정 유지, 클라우드 대체 화면 진입을 검사했다. 전체 초기화 뒤 원본 G_new 관찰은 P2637에 남고, 별도 계정 화면의 복귀/전체 합성은 동결 cloud_screen_r22.gd·world_screen.gd를 포함한다.",
+        "source_sha256": "ff7887a4f0bdfa53273bc10942052c9bb4faddd07b8cf8ee5ebaa64ba8874d6e",
+        "excerpt_sha256": "2e3e5273dbc5ff1a842e0ed58cc752dc29521a17d72a9b5eee740bb789491df5",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "선택지/설명 및 클라우드 대체 기능은 기존 시험 통과. 전체 초기화 뒤 G_new 차이와 계정 화면 복귀/전체 합성은 남는다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -7218,7 +7691,7 @@
         "surrounding": 7
       },
       "modified": null,
-      "remaining_reason": "실제 포인터로 난이도 변경 시 초기화 확인 해제 및 저장/재개 경로를 보완했다. 초기화 후 전체 초기 관찰(난수·진행·장비·동료)의 원본 G_new 투영은 persona_world/gear_*/town_world 동결 경계라 보류.",
+      "remaining_reason": "설정 선택/저장/재개는 기존 통과. 초기화 뒤 원본 G_new의 난수·의뢰·진행 전체 투영 차이가 남는다.",
       "phase2_previous_status": "일부",
       "source_calls_phase2": 0,
       "phase3_previous_status": "일부",
@@ -7227,6 +7700,17 @@
       "phase4_modified": {
         "file": "project/ui/settings_screen_r22.gd:50",
         "scope": "source-backed public presentation / adapter edge; no protected rule edits"
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "실제 포인터로 난이도 변경 시 초기화 확인 해제 및 저장/재개 경로를 보완했다. 초기화 후 전체 초기 관찰(난수·진행·장비·동료)의 원본 G_new 투영은 persona_world/gear_*/town_world 동결 경계라 보류.",
+        "source_sha256": "ff7887a4f0bdfa53273bc10942052c9bb4faddd07b8cf8ee5ebaa64ba8874d6e",
+        "excerpt_sha256": "d073913c3065bed072c067d900285de9a29613c3208b0a8f84fa5cda92d42e2e",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "설정 선택/저장/재개는 기존 통과. 초기화 뒤 원본 G_new의 난수·의뢰·진행 전체 투영 차이가 남는다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -7651,5 +8135,21 @@
         "change": "공개 표시/저장 getter의 기능 등가를 원본 실행 fixture로 고정하고 실제 native 화면/저장 경로에 연결"
       }
     }
-  ]
+  ],
+  "finish": {
+    "ledger": "ui",
+    "reviewed": 35,
+    "promoted_same": 8,
+    "modified": 13,
+    "remaining": 27,
+    "battle_handoff": 3,
+    "statuses": {
+      "같음": 92,
+      "대체": 21,
+      "일부": 27,
+      "제외": 4
+    },
+    "evidence": "verification/finish-r24/row-audit.json",
+    "rule": "r21-common.md 기능 등가; 실제 차이는 남김, 호스트와 매체 형식만을 차이로 세지 않음"
+  }
 }

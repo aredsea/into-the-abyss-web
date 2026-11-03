@@ -42,8 +42,9 @@ func capture(s,tag,dim):
 	for id in s.controls:
 		var b=s.controls[id]
 		if b is Button and b.text!="":
-			var needed=b.get_theme_font("font").get_string_size(b.text,HORIZONTAL_ALIGNMENT_LEFT,-1,b.get_theme_font_size("font_size"))
-			check(needed.x+8<=b.size.x,"button fits "+name+id)
+			var style=b.get_theme_stylebox("normal");var inset=Vector2(style.get_content_margin(SIDE_LEFT)+style.get_content_margin(SIDE_RIGHT),style.get_content_margin(SIDE_TOP)+style.get_content_margin(SIDE_BOTTOM))
+			var room=b.size-inset;var needed=b.get_theme_font("font").get_multiline_string_size(b.text,HORIZONTAL_ALIGNMENT_LEFT,room.x if b.autowrap_mode!=TextServer.AUTOWRAP_OFF else -1,b.get_theme_font_size("font_size"))
+			check(needed.x<=room.x+1 and needed.y<=room.y+1,"button fits "+name+id)
 func force_clear(w):
 	w.s.run.phase="battle";w.s.run.final=true;w.s.run.kind="boss"
 	var b=w.ModernBattle.new(w.battle_data())

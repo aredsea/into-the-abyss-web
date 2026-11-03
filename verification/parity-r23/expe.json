@@ -184,6 +184,20 @@
       "cloud_save_specimens": 6,
       "ui_captures": 24,
       "new_comparison_max_bytes": 1137776
+    },
+    "finish": {
+      "ledger": "expe",
+      "reviewed": 31,
+      "promoted_same": 0,
+      "modified": 2,
+      "remaining": 31,
+      "battle_handoff": 8,
+      "statuses": {
+        "같음": 77,
+        "일부": 22,
+        "미확인": 9,
+        "제외": 1
+      }
     }
   },
   "rows": [
@@ -1336,7 +1350,7 @@
       "implementation": [
         "project/ui/town_screen_r21.gd:206"
       ],
-      "remaining_reason": "마을 본문·전체 시설 설명·수락 의뢰/최고층 안내를 기존 하단 영역의 스크롤에 추가했다. 출전자 없음 안내, place_id에 따른 장소별 hero 제목/본문, 원본 전체 버튼 순서는 아직 직접 일치하지 않는다. 고정 시안의 기존 바로가기도 유지했으므로 전체 화면은 승격하지 않는다.",
+      "remaining_reason": "장소별 제목/본문, 출전자 없음, 원본 전체 시설 버튼 순서와 고정 마을 바로가기의 정보·순서가 아직 다르다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1448,6 +1462,17 @@
             "function": "home"
           }
         ]
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "마을 본문·전체 시설 설명·수락 의뢰/최고층 안내를 기존 하단 영역의 스크롤에 추가했다. 출전자 없음 안내, place_id에 따른 장소별 hero 제목/본문, 원본 전체 버튼 순서는 아직 직접 일치하지 않는다. 고정 시안의 기존 바로가기도 유지했으므로 전체 화면은 승격하지 않는다.",
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "excerpt_sha256": "e304676d26a78360052ef1150665531feb05c8747d38b2b81a9952a187c9e285",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "장소별 제목/본문, 출전자 없음, 원본 전체 시설 버튼 순서와 고정 마을 바로가기의 정보·순서가 아직 다르다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -1467,7 +1492,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을의 새 의뢰/대던전 버튼은 실제 모드 선택으로 연결했다. 전체 이동의 ui.tab 초기화·잘못된 scene·의뢰 없음 메시지 및 거래 영수증 경계는 facilities_world_r22.facility_route와 world_screen.go에 걸친다. 시설 파일 수정 금지이며 전체 handler 직접 대조는 남는다.",
+      "remaining_reason": "시설 이동·영수증·없는 의뢰·무효 scene을 함께 처리하는 최상위 handler의 전체 직접 대조가 남는다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1602,6 +1627,17 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "미확인",
+        "previous_remaining_reason": "마을의 새 의뢰/대던전 버튼은 실제 모드 선택으로 연결했다. 전체 이동의 ui.tab 초기화·잘못된 scene·의뢰 없음 메시지 및 거래 영수증 경계는 facilities_world_r22.facility_route와 world_screen.go에 걸친다. 시설 파일 수정 금지이며 전체 handler 직접 대조는 남는다.",
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "excerpt_sha256": "8362a7f299bb16c8f45769c5b9ddde0a4a522ecf5bcbd976aaa084dd530d4fc4",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "시설 이동·영수증·없는 의뢰·무효 scene을 함께 처리하는 최상위 handler의 전체 직접 대조가 남는다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -1621,7 +1657,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "실제품 의뢰 정산은 수정 금지인 facilities_world_r22.settle이 override한다. st.rg 우선/의뢰 fallback, 미종료 전투, 엘리트 입고, 재정산, 원문 메시지의 단일 진입점 직접 대조가 남는다. 허용된 town_world만 바꿔도 제품 경로에는 반영되지 않는다.",
+      "remaining_reason": "의뢰 정산의 st.rg 우선/의뢰 fallback·미종료 전투·엘리트 입고·재정산을 실제 단일 진입점으로 모두 대조하지 못했다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1845,6 +1881,17 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "실제품 의뢰 정산은 수정 금지인 facilities_world_r22.settle이 override한다. st.rg 우선/의뢰 fallback, 미종료 전투, 엘리트 입고, 재정산, 원문 메시지의 단일 진입점 직접 대조가 남는다. 허용된 town_world만 바꿔도 제품 경로에는 반영되지 않는다.",
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "excerpt_sha256": "b14e0cc47f8ababae99ddc9bb47317caed55e617e5ac851282edc5717ce83c54",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "의뢰 정산의 st.rg 우선/의뢰 fallback·미종료 전투·엘리트 입고·재정산을 실제 단일 진입점으로 모두 대조하지 못했다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -1864,7 +1911,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 battle HUD의 id/load/bn 실패·탐색 승리 제외와 귀환/층 정산 label/subtitle은 현재 battle 화면 파일에 있다. 이번에 고친 패배 후 마을 경로만으로 전체 HUD의 같음을 주장하지 않는다. 전투 화면/규칙 수정 금지.",
+      "remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1995,6 +2042,16 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "미확인",
+        "previous_remaining_reason": "원본 battle HUD의 id/load/bn 실패·탐색 승리 제외와 귀환/층 정산 label/subtitle은 현재 battle 화면 파일에 있다. 이번에 고친 패배 후 마을 경로만으로 전체 HUD의 같음을 주장하지 않는다. 전투 화면/규칙 수정 금지.",
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "excerpt_sha256": "9a116a4e22556ab177dfb231730ab7d87494fd4b2c1770373999947d4307909c",
+        "fixed": false,
+        "disposition": "battle 이관",
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
       }
     },
     {
@@ -2594,7 +2651,7 @@
         "project/ui/expedition_screen_r22.gd:4",
         "project/ui/town_screen_r21.gd:160"
       ],
-      "remaining_reason": "동료의 원본 초상과 새 번역 첫 글자 fallback은 유지·보강했다. SO.face의 persona pimg(호스트 사용자 아바타/실루엣)와 PX.face의 nonempty plain-string provider 반환 경계는 town tw_face와 다른 계약이다. native persona 표시는 이 전체 분기와 아직 같지 않다. 호스트 아바타 부분은 호스트 전용 범위로 별도 기록한다.",
+      "remaining_reason": "SO.face의 사용자 아바타는 호스트 제외. 일반 문자열 provider의 표시와 native Texture provider의 fallback 전체는 미대조다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -2704,6 +2761,17 @@
             "function": "picture"
           }
         ]
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "동료의 원본 초상과 새 번역 첫 글자 fallback은 유지·보강했다. SO.face의 persona pimg(호스트 사용자 아바타/실루엣)와 PX.face의 nonempty plain-string provider 반환 경계는 town tw_face와 다른 계약이다. native persona 표시는 이 전체 분기와 아직 같지 않다. 호스트 아바타 부분은 호스트 전용 범위로 별도 기록한다.",
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "excerpt_sha256": "1bba0936ae056eeecf5a56c7da26bbe92a0ae0e54fe2bcd1f5c5e01970578e75",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "SO.face의 사용자 아바타는 호스트 제외. 일반 문자열 provider의 표시와 native Texture provider의 fallback 전체는 미대조다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -2983,7 +3051,7 @@
       "implementation": [
         "project/game/expedition_ui_r23.gd:72"
       ],
-      "remaining_reason": "persona 이름·직접 싸운다/지휘만 한다 문구·3/4명 설명·선택 표시를 직접 대조하고 UI에 연결했다. 클래스 정보가 없는 옛 native 저장에서는 직접 참전 버튼을 비활성화하는 기존 보존 처리가 남아 원본의 무조건 활성 버튼과 다르므로 전체 승격하지 않는다.",
+      "remaining_reason": "클래스 정보 없는 옛 저장에서 native는 참전 버튼을 막는다. 원본의 활성 버튼과 실제 차이가 남는다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -3088,6 +3156,17 @@
             "function": "fight"
           }
         ]
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "persona 이름·직접 싸운다/지휘만 한다 문구·3/4명 설명·선택 표시를 직접 대조하고 UI에 연결했다. 클래스 정보가 없는 옛 native 저장에서는 직접 참전 버튼을 비활성화하는 기존 보존 처리가 남아 원본의 무조건 활성 버튼과 다르므로 전체 승격하지 않는다.",
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "excerpt_sha256": "60229c5ae954ed797a37ffc55bf48d296217045db605c8faba1db9df30b4f65c",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "클래스 정보 없는 옛 저장에서 native는 참전 버튼을 막는다. 원본의 활성 버튼과 실제 차이가 남는다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -3589,7 +3668,7 @@
         "project/ui/persona_sortie_screen.gd:4",
         "project/ui/town_screen_r21.gd:15"
       ],
-      "remaining_reason": "의뢰/대던전 모드·의뢰 카드·4슬롯·persona 설명·출발 문구를 추가했다. 기존 시안의 hero/picker·고정 슬롯·스크롤 구성과 의뢰 직접 출발 보조 버튼을 유지했다. 원본 전체 화면의 정보/버튼 순서, 옛 저장 참전 활성 경계는 아직 같지 않다.",
+      "remaining_reason": "출정 전체의 picker/고정 슬롯/별도 스크롤과 보조 출발 버튼이 원본의 전체 정보·버튼 순서와 다르다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -3708,6 +3787,17 @@
             "function": "build"
           }
         ]
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "의뢰/대던전 모드·의뢰 카드·4슬롯·persona 설명·출발 문구를 추가했다. 기존 시안의 hero/picker·고정 슬롯·스크롤 구성과 의뢰 직접 출발 보조 버튼을 유지했다. 원본 전체 화면의 정보/버튼 순서, 옛 저장 참전 활성 경계는 아직 같지 않다.",
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "excerpt_sha256": "5f772ac3ddc16ed9d260a93e058bcb2792ea1b1f65ac7b4fa35d107d362fc1ed",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "출정 전체의 picker/고정 슬롯/별도 스크롤과 보조 출발 버튼이 원본의 전체 정보·버튼 순서와 다르다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -3727,7 +3817,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "현재 전투 엔진이 없는 원본 환경의 fresh(T.bn) 옛 전투 생성 fallback은 native의 옛 저장 재개와 별개의 기능이다. canonical legacy 출정 상태 생성/이관 ABI가 아직 없으며 이번 화면 fixture로 대체하지 않았다.",
+      "remaining_reason": "원본의 새 전투 엔진 부재 fresh(T.bn) fallback 입력을 native에서 만드는 경로가 없다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -3821,6 +3911,17 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "미확인",
+        "previous_remaining_reason": "현재 전투 엔진이 없는 원본 환경의 fresh(T.bn) 옛 전투 생성 fallback은 native의 옛 저장 재개와 별개의 기능이다. canonical legacy 출정 상태 생성/이관 ABI가 아직 없으며 이번 화면 fixture로 대체하지 않았다.",
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "excerpt_sha256": "c451dfb50f27b725091c75f9802b1213163847429a14ee94f43fa17c159c13f3",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "원본의 새 전투 엔진 부재 fresh(T.bn) fallback 입력을 native에서 만드는 경로가 없다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -3843,7 +3944,7 @@
         "project/ui/expedition_screen_r22.gd:80",
         "project/ui/persona_sortie_screen.gd:78"
       ],
-      "remaining_reason": "실제 슬롯 제거·persona 지휘 전환·mode/filter/floor/page를 연결했고 중복 rm이 재등록하지 않도록 했다. 참전 전환의 마지막 동료 대기/만석 메시지를 보강했다. source go/back의 모든 scene·무효 입력과 legacy engine-absent 분기를 하나의 handler로 직접 대조하는 것은 남는다.",
+      "remaining_reason": "go/back의 모든 scene·무효 입력·engine 부재를 합친 handler의 전체 관찰 대조가 남는다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4034,6 +4135,17 @@
             "function": "source_action"
           }
         ]
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "실제 슬롯 제거·persona 지휘 전환·mode/filter/floor/page를 연결했고 중복 rm이 재등록하지 않도록 했다. 참전 전환의 마지막 동료 대기/만석 메시지를 보강했다. source go/back의 모든 scene·무효 입력과 legacy engine-absent 분기를 하나의 handler로 직접 대조하는 것은 남는다.",
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "excerpt_sha256": "7c59434c539fa77cac20a234ae1c5df420b292c5606a8e0b89f3acbb444a7e10",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "go/back의 모든 scene·무효 입력·engine 부재를 합친 handler의 전체 관찰 대조가 남는다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -4296,7 +4408,7 @@
         "project/ui/persona_sortie_screen.gd:3",
         "project/game/expedition_ui_r23.gd:79"
       ],
-      "remaining_reason": "0/2/8/27/54/419 최고층과 1/2/99쪽의 목록·잠김·돌파/추천·보스/일반 금화·적 레벨·4인 안내 36건의 직접 대조를 추가했다. rank_head의 cached percentile은 원본처럼 카드 안에 표시하지 않고 별도 native 순위 화면으로 연결한다. 명시적 클라우드 대체의 순위 기능은 기존 시험으로 유지하지만 전체 카드의 cached 상태 표시까지 같음으로 올리지는 않는다.",
+      "remaining_reason": "원본 카드 안 cached percentile 표시와 native 별도 순위 화면 진입의 정보 위치·상태가 다르다.",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -4401,6 +4513,17 @@
             "function": "dungeon_card"
           }
         ]
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "0/2/8/27/54/419 최고층과 1/2/99쪽의 목록·잠김·돌파/추천·보스/일반 금화·적 레벨·4인 안내 36건의 직접 대조를 추가했다. rank_head의 cached percentile은 원본처럼 카드 안에 표시하지 않고 별도 native 순위 화면으로 연결한다. 명시적 클라우드 대체의 순위 기능은 기존 시험으로 유지하지만 전체 카드의 cached 상태 표시까지 같음으로 올리지는 않는다.",
+        "source_sha256": "dd8363226766b6701f6df95fa89ac57ee412dc89082aaddc64fa52e9e511b19e",
+        "excerpt_sha256": "1eb34289ef67eb7e1fe863db326941a7364af983d0e8f0b600e10c87e8cb6d7c",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "원본 카드 안 cached percentile 표시와 native 별도 순위 화면 진입의 정보 위치·상태가 다르다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -5362,7 +5485,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:123"
       ],
-      "remaining_reason": "전투 진입 자원·탐색 투영은 기존 대조를 유지한다. 원본 sid/bn/dn/carry 전부와 native battle snapshot의 전체 경계 동등성은 아직 직접 확정하지 못했다. 전투 규칙 수정 금지.",
+      "remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -5475,6 +5598,16 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "전투 진입 자원·탐색 투영은 기존 대조를 유지한다. 원본 sid/bn/dn/carry 전부와 native battle snapshot의 전체 경계 동등성은 아직 직접 확정하지 못했다. 전투 규칙 수정 금지.",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "excerpt_sha256": "a28c85a8b9ab0ae3a75de93f9b6f91ce1ed7290bd822a8f8136bd859a336a4ea",
+        "fixed": false,
+        "disposition": "battle 이관",
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
       }
     },
     {
@@ -5831,7 +5964,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "수치 투영·스냅샷 회귀는 유지했다. native continuation의 적 이름 중복 제거 last/log·정예 장비 log와 source sid/bn/over/dn 불일치 분기 전체는 아직 직접 비교/수정하지 않았다.",
+      "remaining_reason": "연속 전투의 적 이름 중복 제거 last/log·정예 장비 log 및 sid/bn/over/dn 불일치 전체 입력은 미대조다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5942,6 +6075,17 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "수치 투영·스냅샷 회귀는 유지했다. native continuation의 적 이름 중복 제거 last/log·정예 장비 log와 source sid/bn/over/dn 불일치 분기 전체는 아직 직접 비교/수정하지 않았다.",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "excerpt_sha256": "8d192674a8a152a3f9879ef49d1fb9865dbdb80dd3dd11db12cf3ec808109bf2",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "연속 전투의 적 이름 중복 제거 last/log·정예 장비 log 및 sid/bn/over/dn 불일치 전체 입력은 미대조다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -6133,7 +6277,7 @@
         "project/game/expedition_world_r22.gd:468",
         "project/game/expedition_world_r22.gd:476"
       ],
-      "remaining_reason": "포화 가방의 원본 장비 버림과 native overflow 보존은 실제 정책 차이다. 사용자 저장 보존 규칙과 장비 규칙 수정 금지를 유지했다. 현재 bank_expedition_gear의 반환 개수만 같다고 승격하지 않는다.",
+      "remaining_reason": "정상 장비의 0/1999/2000/2001칸 삽입·버림·옛 overflow 재개는 수정·직접 일치. 추가 probe에서 원본은 구문 유효한 미등록 코드 zz99.1.1을 성공 목록으로 반환하지만 native는 거절하므로 전체 승격하지 않는다(known-code-gaps.json).",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -6238,6 +6382,25 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "포화 가방의 원본 장비 버림과 native overflow 보존은 실제 정책 차이다. 사용자 저장 보존 규칙과 장비 규칙 수정 금지를 유지했다. 현재 bank_expedition_gear의 반환 개수만 같다고 승격하지 않는다.",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "excerpt_sha256": "81b01cd65b774d2629f91be31667c6b4e2d79678e408edebb46a51cef8c10d15",
+        "fixed": true,
+        "disposition": "수정·남음",
+        "detail": "정상 장비의 0/1999/2000/2001칸 삽입·버림·옛 overflow 재개는 수정·직접 일치. 추가 probe에서 원본은 구문 유효한 미등록 코드 zz99.1.1을 성공 목록으로 반환하지만 native는 거절하므로 전체 승격하지 않는다(known-code-gaps.json).",
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "partial_direct_tests": [
+          "project/tests/finish_r24_test.gd",
+          "project/tests/finish_known_gaps_r24.gd"
+        ],
+        "results": [
+          "verification/finish-r24/unit-results.json",
+          "verification/finish-r24/known-code-gaps.json"
+        ]
       }
     },
     {
@@ -6412,7 +6575,7 @@
         "project/game/expedition_world_r22.gd:543",
         "project/game/persona_world.gd:195"
       ],
-      "remaining_reason": "패배 후 live run 제거·마을 이동·ui.sel/tab 초기화·원문 손실 알림·D.last 보존을 수정했다. 승리/퇴각/패배·케른 유지·재호출·native 저장 재개를 12개 실제 Lua fixture로 대조했다. 포화 가방 overflow 정책과 전체 장비/보상 조합은 남아 있으므로 함수 전체 승격은 보류한다.",
+      "remaining_reason": "만석 신규 장비 버림은 수정·대조했다. 전체 승리/퇴각/패배 보상 조합과 원본 canonical stage 저장 입력까지의 함수 전체 대조는 남는다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -6595,6 +6758,17 @@
             "function": "settle"
           }
         ]
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "패배 후 live run 제거·마을 이동·ui.sel/tab 초기화·원문 손실 알림·D.last 보존을 수정했다. 승리/퇴각/패배·케른 유지·재호출·native 저장 재개를 12개 실제 Lua fixture로 대조했다. 포화 가방 overflow 정책과 전체 장비/보상 조합은 남아 있으므로 함수 전체 승격은 보류한다.",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "excerpt_sha256": "3fc1c905c38b1d9c64ddeb945308c75eca8f1157f45b9459f6146f5b74e42127",
+        "fixed": true,
+        "disposition": "수정·남음",
+        "detail": "만석 신규 장비 버림은 수정·대조했다. 전체 승리/퇴각/패배 보상 조합과 원본 canonical stage 저장 입력까지의 함수 전체 대조는 남는다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -6618,7 +6792,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:158"
       ],
-      "remaining_reason": "원본 sid/bn 불일치 시 거점 복귀와 legacy stage 분기, native snapshot 검증을 통합한 정산 경계의 직접 대조가 미완료다. 패배의 정상 경로 수정만으로 무효 입력까지 승격하지 않는다.",
+      "remaining_reason": "sid/bn 불일치·legacy stage·snapshot 검증을 합친 정산 경계 전체는 미대조다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -6743,6 +6917,17 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "원본 sid/bn 불일치 시 거점 복귀와 legacy stage 분기, native snapshot 검증을 통합한 정산 경계의 직접 대조가 미완료다. 패배의 정상 경로 수정만으로 무효 입력까지 승격하지 않는다.",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "excerpt_sha256": "824e6cfd7cf4f0a1a2aba92021c748968814846ee123ce26ba45ecf64f3c5d00",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "sid/bn 불일치·legacy stage·snapshot 검증을 합친 정산 경계 전체는 미대조다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -6762,7 +6947,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "옛 native 저장 재개 회귀는 유지했다. canonical 원본 st.dn.stage 1/2 저장을 읽어 정산하는 입력 ABI가 아직 없다. 매체 차이가 아니라 미지원 구체 입력 경로로 남긴다.",
+      "remaining_reason": "원본 st.dn.stage 1/2 저장을 직접 읽는 ABI가 없다. native 옛 저장 재개와 별개의 미지원 입력이다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -6857,6 +7042,17 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "옛 native 저장 재개 회귀는 유지했다. canonical 원본 st.dn.stage 1/2 저장을 읽어 정산하는 입력 ABI가 아직 없다. 매체 차이가 아니라 미지원 구체 입력 경로로 남긴다.",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "excerpt_sha256": "bbae303a0b40e3e3ec370100dfb2334b414a170601842dc965acf51c50c0cc8e",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "원본 st.dn.stage 1/2 저장을 직접 읽는 ABI가 없다. native 옛 저장 재개와 별개의 미지원 입력이다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -7013,7 +7209,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "휴식 장착/해제의 기존 정상 경로는 유지했다. source gear code 버튼 해독·잘못된 슬롯·다른 소유자 장비·거절 메시지의 전체 직접 대조는 장비 규칙에 걸려 남는다. 해당 파일 수정 금지.",
+      "remaining_reason": "휴식 장착은 동작하지만 code 버튼 해독·잘못된 슬롯·다른 소유자·거절 문구를 한 진입점으로 모두 대조하지 못했다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -7107,6 +7303,17 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "휴식 장착/해제의 기존 정상 경로는 유지했다. source gear code 버튼 해독·잘못된 슬롯·다른 소유자 장비·거절 메시지의 전체 직접 대조는 장비 규칙에 걸려 남는다. 해당 파일 수정 금지.",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "excerpt_sha256": "495460e95f3c6af3e690ac13f247fa4449a785dce71f017e627e2984229126c2",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "휴식 장착은 동작하지만 code 버튼 해독·잘못된 슬롯·다른 소유자·거절 문구를 한 진입점으로 모두 대조하지 못했다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -7130,7 +7337,7 @@
         "expe_pass2_r23_test::equip_key (96 checks)"
       ],
       "implementation": [],
-      "remaining_reason": "탐색·물약·퇴각 요청/취소/확정의 기존 대조와 새 확인 화면 정보를 유지했다. cont/next/home의 무효 전투 상태 및 모든 장비 버튼을 합친 전체 handler 직접 대조는 남는다.",
+      "remaining_reason": "탐색 handler의 cont/next/home 무효 전투 상태 및 모든 장비 접두 요청을 합친 전체 대조가 남는다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -7273,6 +7480,17 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "탐색·물약·퇴각 요청/취소/확정의 기존 대조와 새 확인 화면 정보를 유지했다. cont/next/home의 무효 전투 상태 및 모든 장비 버튼을 합친 전체 handler 직접 대조는 남는다.",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "excerpt_sha256": "fa8ba23fac4bc70250a31f2013ebf3e68ba7ca9207a7c8f805ae26412fa8ecc1",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "탐색 handler의 cont/next/home 무효 전투 상태 및 모든 장비 접두 요청을 합친 전체 대조가 남는다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -8239,7 +8457,7 @@
         "project/ui/expedition_screen_r22.gd:102",
         "project/ui/town_screen_r21.gd:497"
       ],
-      "remaining_reason": "ask에도 head/last/party/물약 정보를 함께 남기도록 수정하고 실제 UI에서 확인했다. 원본 전체 explore 화면의 버튼 종류/순서와 시안의 지도·기록·카드·보급품 이동 차이는 남아 전체 승격하지 않는다.",
+      "remaining_reason": "원본 전체 explore의 버튼 순서와 native 지도·기록·보급품 별도 이동이 다르다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -8352,6 +8570,17 @@
             "function": "retreat"
           }
         ]
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "ask에도 head/last/party/물약 정보를 함께 남기도록 수정하고 실제 UI에서 확인했다. 원본 전체 explore 화면의 버튼 종류/순서와 시안의 지도·기록·카드·보급품 이동 차이는 남아 전체 승격하지 않는다.",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "excerpt_sha256": "01aa1a6fce878a21d8ed5fba9f5d877fe380dd21d5049b3ec6f631bfa7858e15",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "원본 전체 explore의 버튼 순서와 native 지도·기록·보급품 별도 이동이 다르다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -8371,7 +8600,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "같은 휴식 화면에 source 슬롯별 장비 후보·해제·장착 순서를 표시하는 기능이 남는다. native는 별도 정비 페이지를 쓰며 후보/소유자/레벨 판정은 장비 갈래 소유다. 장비 규칙 파일 수정 금지.",
+      "remaining_reason": "원본 휴식 안 슬롯별 후보/해제/장착 줄 대신 native는 별도 정비 화면을 쓴다. 후보·소유자·레벨 전체 대조가 남는다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -8482,6 +8711,17 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "미확인",
+        "previous_remaining_reason": "같은 휴식 화면에 source 슬롯별 장비 후보·해제·장착 순서를 표시하는 기능이 남는다. native는 별도 정비 페이지를 쓰며 후보/소유자/레벨 판정은 장비 갈래 소유다. 장비 규칙 파일 수정 금지.",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "excerpt_sha256": "c2e943b51141a95675fd94d6401cb0d231d87ebdffe12ab8ca1a3fda82c45ed2",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "원본 휴식 안 슬롯별 후보/해제/장착 줄 대신 native는 별도 정비 화면을 쓴다. 후보·소유자·레벨 전체 대조가 남는다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -8504,7 +8744,7 @@
         "expe_pass2_r23_test::gear_label (3142 checks)"
       ],
       "implementation": [],
-      "remaining_reason": "원본 R.sel의 무효 슬롯 정규화와 슬롯별 후보 전체가 native의 별도 정비 대상 선택과 아직 다르다. gear_card를 이식하려면 장비 갈래의 후보/소유자 경계 근거가 필요하다.",
+      "remaining_reason": "R.sel 무효 슬롯 정규화·슬롯별 후보 카드 전체가 별도 정비 대상 선택과 다르다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -8610,6 +8850,17 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "미확인",
+        "previous_remaining_reason": "원본 R.sel의 무효 슬롯 정규화와 슬롯별 후보 전체가 native의 별도 정비 대상 선택과 아직 다르다. gear_card를 이식하려면 장비 갈래의 후보/소유자 경계 근거가 필요하다.",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "excerpt_sha256": "aca4b451227ad26e7a3939f5df4829f807c0d6dd63f34ebe52d36b11207167ce",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "R.sel 무효 슬롯 정규화·슬롯별 후보 카드 전체가 별도 정비 대상 선택과 다르다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -8633,7 +8884,7 @@
         "project/ui/expedition_screen_r22.gd:102",
         "project/ui/town_screen_r21.gd:497"
       ],
-      "remaining_reason": "휴식 중 ask에도 기존 파티 정보를 보존하도록 수정했다. 원본은 gear_card를 같은 휴식 화면에 두고 native는 별도 장비 정비로 이동한다. 후보/슬롯 차이가 남는다. 성적 휴식 카드는 제외하며 추가하지 않았다.",
+      "remaining_reason": "파티/귀환 확인은 유지하나 원본 inline gear_card와 native 별도 정비의 정보·선택 순서가 다르다. 성인 카드는 제외다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -8746,6 +8997,17 @@
             "function": "retreat"
           }
         ]
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "휴식 중 ask에도 기존 파티 정보를 보존하도록 수정했다. 원본은 gear_card를 같은 휴식 화면에 두고 native는 별도 장비 정비로 이동한다. 후보/슬롯 차이가 남는다. 성적 휴식 카드는 제외하며 추가하지 않았다.",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "excerpt_sha256": "eb440124bc437980758b077aa11ce07b6e8b7ace9849813d55484f89afc0432b",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "파티/귀환 확인은 유지하나 원본 inline gear_card와 native 별도 정비의 정보·선택 순서가 다르다. 성인 카드는 제외다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -9173,7 +9435,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:599"
       ],
-      "remaining_reason": "ask의 기존 파티 정보와 패배 후 마을 이동·live run 제거를 보강했다. run 없음 안내/귀환, inline gear_card, 전체 phase별 버튼 구성의 직접 대조가 남는다. 구성 조각의 통과만으로 전체 화면을 승격하지 않는다.",
+      "remaining_reason": "run 없음 안내/귀환·inline gear_card·phase별 전체 버튼 구성을 직접 같게 확인하지 못했다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -9285,6 +9547,17 @@
             "function": "expedition_defeat_home"
           }
         ]
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "ask의 기존 파티 정보와 패배 후 마을 이동·live run 제거를 보강했다. run 없음 안내/귀환, inline gear_card, 전체 phase별 버튼 구성의 직접 대조가 남는다. 구성 조각의 통과만으로 전체 화면을 승격하지 않는다.",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "excerpt_sha256": "8fdc9ead919e2097e3560417a584fffc023c1157b3e5d023bc92d79dbea0a18d",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "run 없음 안내/귀환·inline gear_card·phase별 전체 버튼 구성을 직접 같게 확인하지 못했다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -9366,7 +9639,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:380"
       ],
-      "remaining_reason": "potion/mana의 유효 옛 저장 합산은 유지했다. 원본 음수/소수 합산과 native 원자적 거부는 실제 허용 입력 차이로 남는다. 저장 검증을 약화하거나 손상 데이터를 조용히 버리지 않았다.",
+      "remaining_reason": "원본은 음수·소수 옛 물약 수도 합산한다. native 저장은 이를 원자적으로 거부한다. 이 손상 입력 차이는 남는다.",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -9461,6 +9734,17 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "potion/mana의 유효 옛 저장 합산은 유지했다. 원본 음수/소수 합산과 native 원자적 거부는 실제 허용 입력 차이로 남는다. 저장 검증을 약화하거나 손상 데이터를 조용히 버리지 않았다.",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "excerpt_sha256": "20bbdcbab60bd8ebc1f8ee03bcb89986c8ae2c80009851cdb98df00d134502d5",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "원본은 음수·소수 옛 물약 수도 합산한다. native 저장은 이를 원자적으로 거부한다. 이 손상 입력 차이는 남는다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -9484,7 +9768,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:348"
       ],
-      "remaining_reason": "이번 local mode 필드의 손실 없는 이관·왕복 시험은 추가했다. 원본 canonical G 전체/옛 stage 저장을 native로 읽는 범용 이관은 아직 없다. 이 추가 이관을 전체 G_migrate 근거로 쓰지 않는다.",
+      "remaining_reason": "원본 canonical G 전체 및 stage 저장을 native로 읽는 범용 이관 ABI가 없다.",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -9578,6 +9862,17 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "이번 local mode 필드의 손실 없는 이관·왕복 시험은 추가했다. 원본 canonical G 전체/옛 stage 저장을 native로 읽는 범용 이관은 아직 없다. 이 추가 이관을 전체 G_migrate 근거로 쓰지 않는다.",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "excerpt_sha256": "8a12e18a52c874343f3f66c4ee575f4cf0322f9c90fea0de95abc10713c378cb",
+        "fixed": false,
+        "disposition": "남음",
+        "detail": "원본 canonical G 전체 및 stage 저장을 native로 읽는 범용 이관 ABI가 없다.",
+        "comparison": "source boundary reviewed; whole-function parity is not established"
       }
     },
     {
@@ -9741,7 +10036,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "현재 행동자 인덱스의 source cur_i와 native 실행 행동자를 함수 단위로 연결한 직접 시험은 여전히 없다. 전투 파일 수정 금지.",
+      "remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -9835,6 +10130,16 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "미확인",
+        "previous_remaining_reason": "현재 행동자 인덱스의 source cur_i와 native 실행 행동자를 함수 단위로 연결한 직접 시험은 여전히 없다. 전투 파일 수정 금지.",
+        "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+        "excerpt_sha256": "4ee30c0eda66cf5f1e4a202d240c6721c5796604c33b447b17fc4602775ba9ca",
+        "fixed": false,
+        "disposition": "battle 이관",
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
       }
     },
     {
@@ -9854,7 +10159,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "44개 효과의 기존 대조는 유지했다. 무재고·무효 대상·현재 행동자·이벤트/타이머·메뉴 저장 재개·원문 메시지의 전체 직접 대조는 남는다. 전투 파일 수정 금지.",
+      "remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -9948,6 +10253,16 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "44개 효과의 기존 대조는 유지했다. 무재고·무효 대상·현재 행동자·이벤트/타이머·메뉴 저장 재개·원문 메시지의 전체 직접 대조는 남는다. 전투 파일 수정 금지.",
+        "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+        "excerpt_sha256": "2937ba311fbfb45642aa4a1923f7ab75c374a317eb35742d0b9d873ea42d47dc",
+        "fixed": false,
+        "disposition": "battle 이관",
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
       }
     },
     {
@@ -9967,7 +10282,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "탐색 아이템 이름 helper의 기존 같음을 전투 메뉴 이름에 전파하지 않았다. 전투가 실제 사용하는 표시 이름과 unknown fallback의 별도 직접 대조가 남는다. 전투 파일 수정 금지.",
+      "remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -10061,6 +10376,16 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "미확인",
+        "previous_remaining_reason": "탐색 아이템 이름 helper의 기존 같음을 전투 메뉴 이름에 전파하지 않았다. 전투가 실제 사용하는 표시 이름과 unknown fallback의 별도 직접 대조가 남는다. 전투 파일 수정 금지.",
+        "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+        "excerpt_sha256": "7242e313735167c6253317f152054be06f70723e054af35302997e152196986d",
+        "fixed": false,
+        "disposition": "battle 이관",
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
       }
     },
     {
@@ -10080,7 +10405,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템 버튼의 무재고/불가 이유·대상·활성·클릭 후 상태 전체 직접 대조가 남는다. 전투 파일 수정 금지.",
+      "remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -10183,6 +10508,16 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "미확인",
+        "previous_remaining_reason": "전투 아이템 버튼의 무재고/불가 이유·대상·활성·클릭 후 상태 전체 직접 대조가 남는다. 전투 파일 수정 금지.",
+        "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+        "excerpt_sha256": "e5e8a40137e5042f4a948f35f226dbc993f777ea27ac6f0378b4a100d829d16c",
+        "fixed": false,
+        "disposition": "battle 이관",
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
       }
     },
     {
@@ -10202,7 +10537,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템 목록의 순서·수량·빈 안내·활성 조건·메뉴 저장 재개의 전체 직접 대조가 남는다. 전투 파일 수정 금지.",
+      "remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -10305,6 +10640,16 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "미확인",
+        "previous_remaining_reason": "전투 아이템 목록의 순서·수량·빈 안내·활성 조건·메뉴 저장 재개의 전체 직접 대조가 남는다. 전투 파일 수정 금지.",
+        "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+        "excerpt_sha256": "6321795d09909c70dfc0891ed75bbc7fc88607438088ec2720dc3cdc44db9750",
+        "fixed": false,
+        "disposition": "battle 이관",
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
       }
     },
     {
@@ -10324,7 +10669,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템 handler의 scene/menu/target·취소·중복·타이머·저장 재개·원문 메시지 전체 직접 대조가 남는다. 전투 파일 수정 금지.",
+      "remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -10463,6 +10808,16 @@
         "results": "verification/parity-r23/expe-pass6-after-results.json",
         "painted_source_comparison": null,
         "native_locations": []
+      },
+      "finish": {
+        "stage": "finish",
+        "previous_status": "일부",
+        "previous_remaining_reason": "전투 아이템 handler의 scene/menu/target·취소·중복·타이머·저장 재개·원문 메시지 전체 직접 대조가 남는다. 전투 파일 수정 금지.",
+        "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+        "excerpt_sha256": "7615e05c476b018997e79ea7c06991808bb2f6743ba4409145837b850b3cb19b",
+        "fixed": false,
+        "disposition": "battle 이관",
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
       }
     }
   ],
@@ -11617,5 +11972,21 @@
     "P3307": "project/game/expedition_world_r22.gd:63",
     "P3124": "project/game/expedition_world_r22.gd:201",
     "P3195": "project/game/expedition_world_r22.gd:468"
+  },
+  "finish": {
+    "ledger": "expe",
+    "reviewed": 31,
+    "promoted_same": 0,
+    "modified": 2,
+    "remaining": 31,
+    "battle_handoff": 8,
+    "statuses": {
+      "같음": 77,
+      "일부": 22,
+      "미확인": 9,
+      "제외": 1
+    },
+    "evidence": "verification/finish-r24/row-audit.json",
+    "rule": "r21-common.md 기능 등가; 실제 차이는 남김, 호스트와 매체 형식만을 차이로 세지 않음"
   }
 }

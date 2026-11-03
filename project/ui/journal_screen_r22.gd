@@ -43,9 +43,9 @@ func journal() -> void:
 		text("첫 만남과 원정에서 확정된 사건이 여기에 남습니다." if not view.legacy else "이전에 남긴 활동이 없습니다.",15,T.MUTED);return
 	text("최근 %d개 · 최신순"%lines.size(),13,T.MUTED)
 	for i in range(lines.size()-1,-1,-1):
-		var line=str(lines[i]);var re=RegEx.new();re.compile("^Day (-?[0-9]+): (.*)$");var m=re.search(line)
-		if m:text(m.get_string(1)+"일째",13,ACTION_RED);text(m.get_string(2),16)
-		else:text(line,16)
+		var entry=preload("res://game/chronicle_display_r24.gd").entry(str(lines[i]),host.model.s)
+		if entry.day!="":text(entry.day,13,ACTION_RED)
+		text(entry.text,16)
 		var divider=ColorRect.new();body.add_child(divider);divider.custom_minimum_size.y=3;divider.color=T.INK;divider.mouse_filter=MOUSE_FILTER_IGNORE
 func places() -> void:
 	var pid=view.place;var d=Places.DATA.places[pid]

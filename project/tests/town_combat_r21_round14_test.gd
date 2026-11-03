@@ -67,7 +67,7 @@ func run():
 	var full=fresh();full.s.gear=[]
 	for i in range(2000):var e=entry.duplicate(true);e.uid=i+1;full.s.gear.append(e)
 	full.s.serial=2000;bank=full.bank_expedition_gear([code])
-	check(full.s.get("gear_r22",{}).get("overflow",[]).size()==1,"P5 full bag preserves drop in overflow")
+	check(bank=={"gear":[],"lost":1} and full.s.get("gear_r22",{}).get("overflow",[]).is_empty(),"source full bag discards new drop; existing overflow has separate migration coverage")
 	# Reconstruct the public P5 double-equipment cap without changing the source rules.
 	var old_save=samples.midfight_2.duplicate(true);var old_reader=W.new();old_reader.restore(old_save)
 	var correct=old_reader.stats("persona",10);var bonus=old_reader.gear_bonus("persona",10)

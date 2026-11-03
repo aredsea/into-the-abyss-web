@@ -183,9 +183,6 @@ func bank_expedition_gear(codes: Array) -> Dictionary:
 		var state=s.commerce_r21.get("forge_codes_r22",{}).get(code,{"forge":0,"tries":0})
 		var entry=combat_gear_adapter.entry(code,int(s.serial)+1,{"lv":state.forge,"tries":state.tries})
 		if bag_count()>=2000:
-			if not s.has("gear_r22"):s.gear_r22={}
-			if not s.gear_r22.has("overflow"):s.gear_r22.overflow=[]
-			s.gear_r22.overflow.append({"code":code,"forge":{"lv":state.forge,"tries":state.tries}})
 			lost.append(code);continue
 		s.serial+=1;s.gear.append(entry);out.append(code)
 	return {"gear":out,"lost":lost.size()}
@@ -203,7 +200,7 @@ func smithy_select(tab: String) -> bool:
 	smithy_tab=tab;smithy_fx={};return true
 
 func scroll_targets() -> Array:
-	return ["persona"]+s.owned
+	return (["persona"]+s.owned).filter(func(id):return s.members.get(id,{}).get("level",40)<40)
 
 func use_item(id: String,who: String) -> bool:
 	if id!="level_scroll":return super(id,who)

@@ -3,6 +3,7 @@ extends Control
 const L=preload("res://game/localization_r22.gd")
 const T=preload("res://ui/town_theme_r21.gd")
 const READABLE_RED=T.ACTION_RED
+const Display=preload("res://game/create_display_r24.gd")
 var host
 var rules
 var body: VBoxContainer
@@ -27,7 +28,7 @@ func setup(owner_screen,heading: String) -> void:
 	T.rule(frame,frame.size.y-80,frame.size.x-36)
 
 func text(value: String,fs=15,color=T.INK,parent: Node=null) -> Label:
-	var l=Label.new();(parent if parent else body).add_child(l);l.text=L.render(value,L.language(host.model.s)).replace("{{user}}","당신");l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;l.size_flags_horizontal=SIZE_EXPAND_FILL;l.add_theme_font_size_override("font_size",fs);l.add_theme_color_override("font_color",READABLE_RED if color==T.RED else color)
+	var l=Label.new();(parent if parent else body).add_child(l);l.text=L.display(value,host.model.s);l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;l.size_flags_horizontal=SIZE_EXPAND_FILL;l.add_theme_font_size_override("font_size",fs);l.add_theme_color_override("font_color",READABLE_RED if color==T.RED else color)
 	if fs>=20:l.add_theme_font_override("font",T.DISPLAY)
 	return l
 func button(id: String,value: String,fn: Callable,selected=false,disabled=false,parent: Node=null) -> Button:
@@ -40,6 +41,7 @@ func choices() -> GridContainer:
 	var grid=GridContainer.new();body.add_child(grid);grid.columns=2 if frame.size.x>=900 else 1;grid.add_theme_constant_override("h_separation",20);grid.add_theme_constant_override("v_separation",8);return grid
 
 func choice(id: String,name_text: String,description: String,fn: Callable,selected=false,parent: Node=null) -> Button:
+	var option=Display.new().option(name_text,description,selected,L.language(host.model.s));name_text=option.name;description=option.sub
 	var b=button(id,"",fn,selected,false,parent)
 	# Keep the native button's accessible name; authored child labels carry its ink.
 	b.text=L.render(name_text,L.language(host.model.s))
@@ -75,12 +77,12 @@ func restore_scroll(offset: int,focus_id: String) -> void:
 	if host.controls.has(focus_id) and body.is_ancestor_of(host.controls[focus_id]):
 		var target=host.controls[focus_id]
 		scroll.ensure_control_visible(target.get_parent() if target.get_parent() is HBoxContainer else target)
-func traits(entry: Dictionary) -> void:
+func traits(entry: Dictionary,kind="종족",syn_entry: Dictionary={}) -> void:
 	if entry.is_empty():return
 	text(entry.name,23)
 	if entry.has("d"):text(entry.d)
-	if not entry.get("tr","").is_empty():text(entry.tr+" · "+entry.get("te",""))
-	if entry.has("syn"):text(L.u("시너지 2명이면 {effect}",{"effect":rules.syn_text(entry,L.language(host.model.s))},L.language(host.model.s)),14,T.MUTED)
+	if not entry.get("tr","").is_empty():
+		for line in Display.new().entry_trait(kind,entry,L.language(host.model.s),syn_entry):text(line,14)
 
 func build(owner_screen) -> void:
 	var s=owner_screen.model.s;var page=int(s.ui.page)
@@ -92,48 +94,51 @@ func build(owner_screen) -> void:
 	if s.scene=="scenario":scenario();return
 	var steps=HBoxContainer.new();frame.add_child(steps);steps.position=Vector2(18,77);steps.size=Vector2(frame.size.x-36,44);steps.add_theme_constant_override("separation",4)
 	for n in range(1,6):
-		var step=button("cr_go_"+str(n),rules.data.steps[n-1],act.bind("go_"+str(n)),n==page,not rules.reach(p,n),steps);step.add_theme_font_size_override("font_size",13)
+		var step=button("cr_go_"+str(n),str(n)+" "+L.u(rules.data.steps[n-1],{},L.language(s)),act.bind("go_"+str(n)),n==page,n!=page and not rules.reach(p,n),steps);step.add_theme_font_size_override("font_size",13)
 		for state in ["normal","hover","pressed","disabled","focus"]:
 			var style=step.get_theme_stylebox(state).duplicate();style.content_margin_left=4;style.content_margin_right=4;step.add_theme_stylebox_override(state,style)
 	if not s.ui.msg.is_empty():text(s.ui.msg,14,T.RED)
 	if page==1:button("cloud_open","기존 모험 불러오기",host.go.bind("cloud"))
+	var heading=Display.new().head(page,L.language(s))
+	step_heading(heading[0]+" · "+heading[1])
+	text(L.u(heading[2],{"n":rules.total(p)},L.language(s)),15,T.MUTED)
 	match page:
 		1:
-			step_heading("어떤 종족으로 살아왔나요?")
 			var grid=choices()
 			for r in rules.data.races:
 				choice("cr_race_"+r.id,r.name,r.tag,act.bind("race_"+r.id),p.race==r.name,grid)
 			if p.race=="수인":
 				text("계통",19);var h=choices()
 				for l in rules.data.lineages:choice("cr_lin_"+l.id,l.name,l.tag,act.bind("lin_"+l.id),p.lineage==l.name,h)
-				traits(rules.by(rules.data.lineages,"name",p.lineage))
-			traits(rules.by(rules.data.races,"name",p.race))
+				var race=rules.by(rules.data.races,"name",p.race)
+				text(race.name,23);text(race.d)
+				traits(rules.by(rules.data.lineages,"name",p.lineage),"종족",race)
+			else:traits(rules.by(rules.data.races,"name",p.race))
+			if p.race=="":text("종족을 고르면 특성이 보입니다.",14,T.MUTED)
 		2:
-			step_heading("어느 땅에서 왔나요?");var grid=choices()
+			var grid=choices()
 			for n in rules.data.nations:
 				var bl=rules.blocked(p.race,n.id)
-				var b=choice("cr_nat_"+n.id,n.name+(" · 선택 불가" if not bl.is_empty() else ""),n.tag,act.bind("nat_"+n.id),p.nation==n.name,grid)
+				var note=rules.note(p,n.id)
+				var b=choice("cr_nat_"+n.id,n.name,bl.s if not bl.is_empty() else note if note!="" else n.tag,act.bind("nat_"+n.id),p.nation==n.name,grid)
 				if not bl.is_empty():
 					b.tooltip_text=bl.m
 					for label in b.find_children("*","Label",true,false):label.add_theme_color_override("font_color",T.MUTED)
-			traits(rules.by(rules.data.nations,"name",p.nation));text(rules.note(p,rules.nation_id(p.nation)),14,T.MUTED)
+			traits(rules.by(rules.data.nations,"name",p.nation),"출신");text(rules.note(p,rules.nation_id(p.nation)),14,T.MUTED)
+			if p.nation=="":text("출신을 고르면 특성이 보입니다.",14,T.MUTED)
 		3:
-			step_heading("어떤 방식으로 싸우나요?");var grid=choices()
+			var grid=choices()
 			for c in rules.data.classes:choice("cr_cls_"+c.id,c.name,c.line+" / "+c.row,act.bind("cls_"+c.id),p.cls==c.name,grid)
 			var c=rules.cls(p.cls)
 			if not c.is_empty():
 				text(c.name,23);text(rules.data.descriptions[c.id]);text(" · ".join(c.skills),14)
 				text("체력 %d · 마력 %d\n힘 %d · 민첩 %d · 지능 %d · 방어 %d · 속도 %d"%[c.hp,c.mp,c.str,c.agi,c.int,c.def,c.spd],14)
+				for line in Display.new().entry_trait(L.u("계열 {line}",{"line":c.line},L.language(s)),rules.data.lines[c.line],L.language(s)):text(line,14)
 				text(rules.data.class_notes.get(rules.nation_id(p.nation),{}).get(c.id,""),14,T.MUTED)
 		4:points(p)
 		5:
-			step_heading("이 모험가로 시작할까요?")
-			text(p.race+(" · "+p.lineage if p.lineage!="" else ""),20);text(p.nation);text(p.cls,20,T.RED)
-			var b=rules.calc(p)
-			text("체력 %d · 마력 %d\n힘 %d · 민첩 %d · 지능 %d\n방어 %d · 속도 %d"%[b.hp,b.mp,b.str,b.agi,b.int,b.def,b.spd],18)
-			text("직접 싸울지는 던전에 나설 때마다 고릅니다.",14,T.MUTED)
-	if page>1:button("cr_back","뒤로",act.bind("back"),false,false,footer)
-	button("cr_done" if page==5 else "cr_next","이 모험가로 결정" if page==5 else "다음",act.bind("done" if page==5 else "next"),true,not rules.reach(p,5) if page==5 else not rules.ok(p,page),footer)
+			for line in Display.new().confirmation(p,L.language(s)):text(line,15)
+	for entry in Display.new().nav(p,page,L.language(s)):button(entry.id,entry.text,act.bind(entry.id.trim_prefix("cr_")),entry.id!="cr_back",entry.disabled,footer)
 	if host.save_error!=OK:text("저장하지 못했습니다. 다시 시도해 주세요.",14,T.RED);button("save_retry","저장 다시 시도",func():host._save();host._draw_screen())
 
 func points(p: Dictionary) -> void:

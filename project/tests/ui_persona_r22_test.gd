@@ -33,8 +33,9 @@ func capture(s,tag,dim):
 		for id in s.controls:
 			var b=s.controls[id]
 			if b is Button:
-				var font=b.get_theme_font("font");var need=font.get_multiline_string_size(b.text,HORIZONTAL_ALIGNMENT_CENTER,-1,b.get_theme_font_size("font_size"))
-				check(need.x+16<=b.size.x and need.y<=b.size.y,"button text fits "+name+id)
+				var style=b.get_theme_stylebox("normal");var inset=Vector2(style.get_content_margin(SIDE_LEFT)+style.get_content_margin(SIDE_RIGHT),style.get_content_margin(SIDE_TOP)+style.get_content_margin(SIDE_BOTTOM))
+				var room=b.size-inset;var font=b.get_theme_font("font");var need=font.get_multiline_string_size(b.text,HORIZONTAL_ALIGNMENT_CENTER,room.x if b.autowrap_mode!=TextServer.AUTOWRAP_OFF else -1,b.get_theme_font_size("font_size"))
+				check(need.x<=room.x+1 and need.y<=room.y+1,"button text fits "+name+id)
 				check(b.size.y>=44,"touch height "+id)
 func run():
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))

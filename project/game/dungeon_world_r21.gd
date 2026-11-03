@@ -264,11 +264,9 @@ func settle(result: String) -> bool:
 						n=n*36+digit
 					if valid: entry={"uid":int(s.serial)+1,"id":parts[0],"seed":n,"forge":0,"tries":0}
 			if entry.is_empty(): continue
-			if s.gear.size()>=2000:
-				if not s.has("gear_r22"): s.gear_r22={}
-				if not s.gear_r22.has("overflow"): s.gear_r22.overflow=[]
-				s.gear_r22.overflow.append({"code":code,"forge":{"lv":0,"tries":0}})
-			else: s.serial+=1; s.gear.append(entry)
+			var worn=[]
+			for eq in s.equipment.values():worn.append_array(eq.values())
+			if s.gear.filter(func(e):return e.uid not in worn).size()<2000:s.serial+=1; s.gear.append(entry)
 	s.gold+=amount
 	for id in s.party:
 		var m=s.members[id]; var before=m.level; m.xp+=xp

@@ -29,6 +29,8 @@ func by(list: Array,key: String,value: Variant) -> Dictionary:
 	return {}
 
 func cls(name: String) -> Dictionary:return by(data.classes,"name",name)
+func new_seed(seconds: int,microseconds: int,random_value: int) -> int:
+	return posmod(seconds*1000003+microseconds*7919+random_value,2147483646)+1
 func total(p: Dictionary) -> int:return clampi(Value.integer(p.get("bonus_total"),5),0,99)
 func cap(n: int) -> int:return maxi(3,int((n*3+4)/5))
 func spent(p: Dictionary) -> int:

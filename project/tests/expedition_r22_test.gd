@@ -145,7 +145,7 @@ func run():
 	w=ready_world();w.depart_dungeon(1,1);var code=w.dungeon_rules.gear_drop(117,1,"battle",w.party_classes()).code
 	for i in range(2000):w.s.serial+=1;w.s.gear.append({"id":code.split(".")[0],"uid":w.s.serial,"seed":1,"forge":0,"tries":0,"source_r21":true})
 	w.s.run.loot_gear=[code,code];check(w.settle("retreat") and w.s.summary.gear_lost==2 and w.s.gear.size()==2000,"full bag reports both pending gear")
-	check(w.s.gear_r22.overflow.size()==2,"full bag retains both original codes in overflow")
+	check(w.s.get("gear_r22",{}).get("overflow",[]).is_empty(),"source full bag discards new rewards; old overflow is tested separately")
 	w=ready_world();w.depart_dungeon(1,1);w.s.run.phase="battle";w.s.run.final=true;force_result(w,"victory");check(w.finish_battle(),"clear before home")
 	var rewarded=w.s.gold;check(w.expedition_home() and not w.next_dungeon_floor() and w.s.gold==rewarded,"home closes continuation without repeat payment")
 	# Reproducible P9 handoff specimens; the server/ and cloud_* files are protected.

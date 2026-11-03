@@ -38,7 +38,7 @@ func setup(owner_screen,heading: String) -> void:
 	if host.save_error!=OK:
 		text("저장하지 못했습니다. 다시 시도해 주세요.",14,T.RED);button("save_retry","저장 다시 시도",func():host._save();host._draw_screen())
 func text(value: String,fs=15,color=T.INK,parent: Node=null) -> Label:
-	var l=Label.new();(parent if parent else body).add_child(l);l.text=L.render(value,L.language(host.model.s)).replace("{{user}}","당신");l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;l.size_flags_horizontal=SIZE_EXPAND_FILL;l.add_theme_font_size_override("font_size",fs);l.add_theme_color_override("font_color",READABLE_RED if color==T.RED else color)
+	var l=Label.new();(parent if parent else body).add_child(l);l.text=L.display(value,host.model.s);l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;l.size_flags_horizontal=SIZE_EXPAND_FILL;l.add_theme_font_size_override("font_size",fs);l.add_theme_color_override("font_color",READABLE_RED if color==T.RED else color)
 	if fs>=18:l.add_theme_font_override("font",T.BOLD)
 	l.mouse_filter=MOUSE_FILTER_IGNORE;return l
 func button(id: String,value: String,fn: Callable,selected=false,disabled=false,parent: Node=null) -> Button:

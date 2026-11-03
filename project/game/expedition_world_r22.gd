@@ -533,9 +533,6 @@ func bank_expedition_code(code: String) -> bool:
 	var worn=[]
 	for eq in s.equipment.values():worn.append_array(eq.values())
 	if s.gear.filter(func(e):return e.uid not in worn).size()>=2000:
-		if not s.has("gear_r22"):s.gear_r22={}
-		if not s.gear_r22.has("overflow"):s.gear_r22.overflow=[]
-		s.gear_r22.overflow.append({"code":code,"forge":{"lv":0,"tries":0}})
 		return false
 	s.serial+=1;s.gear.append(entry)
 	return true

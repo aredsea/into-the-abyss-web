@@ -49,6 +49,9 @@ func import_codes(native: Dictionary,payload: Dictionary) -> Dictionary:
 		var e=entry(code,serial+1,f if f is Dictionary else {})
 		if e.is_empty():conflicts.append(item);continue
 		var can_wear=item.has("cid") and next.equipment.has(item.cid) and rules.source.items[e.id].slot==item.slot
+		# gear_restrict only removes invalid equipment when bag_add succeeds.
+		# At capacity retain the old equipped copy; never silently delete it.
+		var retain_equipped=item.has("cid") and next.equipment.has(item.cid) and bag_count>=Rules.BAG_MAX and int(next.equipment[item.cid].get(item.slot,0))==0
 		if can_wear:
 			var g={"persona":next.get("persona",{}),"lvl":{}}
 			for cid in next.get("members",{}):g.lvl[cid]=next.members[cid].get("level",1)
@@ -56,6 +59,7 @@ func import_codes(native: Dictionary,payload: Dictionary) -> Dictionary:
 		if can_wear:
 			if not next.equipment.get(item.cid) is Dictionary:next.equipment[item.cid]={}
 			can_wear=int(next.equipment[item.cid].get(item.slot,0))==0
+		can_wear=can_wear or retain_equipped
 		if not can_wear and bag_count>=Rules.BAG_MAX:overflow.append(item);continue
 		serial+=1;next.gear.append(e);added+=1;imported.append(e.uid)
 		if can_wear:next.equipment[item.cid][item.slot]=e.uid

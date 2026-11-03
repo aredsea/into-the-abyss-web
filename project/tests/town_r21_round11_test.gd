@@ -37,7 +37,7 @@ func win(w):
 	b.result="victory";w.record_battle(b.snapshot())
 	check(w.finish_battle(),"production finish_battle accepts terminal snapshot")
 func run():
-	check(L.render("추천 1층","en")=="추천 1층","numeric floor template preserves unmatched source wording")
+	check(L.render("추천 1층","en")=="Recommended 1","native floor recommendation follows selected English language")
 	check(L.render("1층","en")=="Floor 1","numeric floor template retains exact source English")
 	var w=W.new();save_sample(w,"new")
 	for arg in ["race_human","nat_border","cls_warrior","auto","done"]:check(w.create_action(arg),"create "+arg)

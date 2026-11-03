@@ -1,0 +1,417 @@
+[
+  {
+    "id": "P2757",
+    "source": {
+      "file": "bot/src/70-town.lua",
+      "start": 69,
+      "end": 94,
+      "symbol": "B.SCREENS.town"
+    },
+    "source_symbol": "B.SCREENS.town",
+    "remaining_reason": "마을 본문·전체 시설 설명·수락 의뢰/최고층 안내를 기존 하단 영역의 스크롤에 추가했다. 출전자 없음 안내, place_id에 따른 장소별 hero 제목/본문, 원본 전체 버튼 순서는 아직 직접 일치하지 않는다. 고정 시안의 기존 바로가기도 유지했으므로 전체 화면은 승격하지 않는다.",
+    "implementation": [
+      "project/ui/town_screen_r21.gd:206"
+    ]
+  },
+  {
+    "id": "P2758",
+    "source": {
+      "file": "bot/src/70-town.lua",
+      "start": 96,
+      "end": 127,
+      "symbol": "B.H.tw"
+    },
+    "source_symbol": "B.H.tw",
+    "remaining_reason": "마을의 새 의뢰/대던전 버튼은 실제 모드 선택으로 연결했다. 전체 이동의 ui.tab 초기화·잘못된 scene·의뢰 없음 메시지 및 거래 영수증 경계는 facilities_world_r22.facility_route와 world_screen.go에 걸친다. 시설 파일 수정 금지이며 전체 handler 직접 대조는 남는다.",
+    "implementation": []
+  },
+  {
+    "id": "P2784",
+    "source": {
+      "file": "bot/src/70-town.lua",
+      "start": 130,
+      "end": 194,
+      "symbol": "B.tw_settle"
+    },
+    "source_symbol": "B.tw_settle",
+    "remaining_reason": "실제품 의뢰 정산은 수정 금지인 facilities_world_r22.settle이 override한다. st.rg 우선/의뢰 fallback, 미종료 전투, 엘리트 입고, 재정산, 원문 메시지의 단일 진입점 직접 대조가 남는다. 허용된 town_world만 바꿔도 제품 경로에는 반영되지 않는다.",
+    "implementation": []
+  },
+  {
+    "id": "P2792",
+    "source": {
+      "file": "bot/src/70-town.lua",
+      "start": 197,
+      "end": 209,
+      "symbol": "B.HUD_EXTRA[#B.HUD_EXTRA + 1]"
+    },
+    "source_symbol": "B.HUD_EXTRA[#B.HUD_EXTRA + 1]",
+    "remaining_reason": "원본 battle HUD의 id/load/bn 실패·탐색 승리 제외와 귀환/층 정산 label/subtitle은 현재 battle 화면 파일에 있다. 이번에 고친 패배 후 마을 경로만으로 전체 HUD의 같음을 주장하지 않는다. 전투 화면/규칙 수정 금지.",
+    "implementation": []
+  },
+  {
+    "id": "P3016",
+    "source": {
+      "file": "bot/src/75-sortie.lua",
+      "start": 52,
+      "end": 55,
+      "symbol": "face"
+    },
+    "source_symbol": "face",
+    "remaining_reason": "동료의 원본 초상과 새 번역 첫 글자 fallback은 유지·보강했다. SO.face의 persona pimg(호스트 사용자 아바타/실루엣)와 PX.face의 nonempty plain-string provider 반환 경계는 town tw_face와 다른 계약이다. native persona 표시는 이 전체 분기와 아직 같지 않다. 호스트 아바타 부분은 호스트 전용 범위로 별도 기록한다.",
+    "implementation": [
+      "project/ui/expedition_screen_r22.gd:4",
+      "project/ui/town_screen_r21.gd:160"
+    ]
+  },
+  {
+    "id": "P3020",
+    "source": {
+      "file": "bot/src/75-sortie.lua",
+      "start": 84,
+      "end": 89,
+      "symbol": "fight_row"
+    },
+    "source_symbol": "fight_row",
+    "remaining_reason": "persona 이름·직접 싸운다/지휘만 한다 문구·3/4명 설명·선택 표시를 직접 대조하고 UI에 연결했다. 클래스 정보가 없는 옛 native 저장에서는 직접 참전 버튼을 비활성화하는 기존 보존 처리가 남아 원본의 무조건 활성 버튼과 다르므로 전체 승격하지 않는다.",
+    "implementation": [
+      "project/game/expedition_ui_r23.gd:72"
+    ]
+  },
+  {
+    "id": "P3032",
+    "source": {
+      "file": "bot/src/75-sortie.lua",
+      "start": 167,
+      "end": 183,
+      "symbol": "B.SCREENS.sortie"
+    },
+    "source_symbol": "B.SCREENS.sortie",
+    "remaining_reason": "의뢰/대던전 모드·의뢰 카드·4슬롯·persona 설명·출발 문구를 추가했다. 기존 시안의 hero/picker·고정 슬롯·스크롤 구성과 의뢰 직접 출발 보조 버튼을 유지했다. 원본 전체 화면의 정보/버튼 순서, 옛 저장 참전 활성 경계는 아직 같지 않다.",
+    "implementation": [
+      "project/game/expedition_ui_r23.gd:20",
+      "project/ui/persona_sortie_screen.gd:4",
+      "project/ui/town_screen_r21.gd:15"
+    ]
+  },
+  {
+    "id": "P3037",
+    "source": {
+      "file": "bot/src/75-sortie.lua",
+      "start": 186,
+      "end": 194,
+      "symbol": "legacy_start"
+    },
+    "source_symbol": "legacy_start",
+    "remaining_reason": "현재 전투 엔진이 없는 원본 환경의 fresh(T.bn) 옛 전투 생성 fallback은 native의 옛 저장 재개와 별개의 기능이다. canonical legacy 출정 상태 생성/이관 ABI가 아직 없으며 이번 화면 fixture로 대체하지 않았다.",
+    "implementation": []
+  },
+  {
+    "id": "P3041",
+    "source": {
+      "file": "bot/src/75-sortie.lua",
+      "start": 196,
+      "end": 254,
+      "symbol": "B.H.so"
+    },
+    "source_symbol": "B.H.so",
+    "remaining_reason": "실제 슬롯 제거·persona 지휘 전환·mode/filter/floor/page를 연결했고 중복 rm이 재등록하지 않도록 했다. 참전 전환의 마지막 동료 대기/만석 메시지를 보강했다. source go/back의 모든 scene·무효 입력과 legacy engine-absent 분기를 하나의 handler로 직접 대조하는 것은 남는다.",
+    "implementation": [
+      "project/ui/expedition_screen_r22.gd:80",
+      "project/ui/persona_sortie_screen.gd:78"
+    ]
+  },
+  {
+    "id": "P3079",
+    "source": {
+      "file": "bot/src/76-dungeon.lua",
+      "start": 75,
+      "end": 117,
+      "symbol": "B.dn_card"
+    },
+    "source_symbol": "B.dn_card",
+    "remaining_reason": "0/2/8/27/54/419 최고층과 1/2/99쪽의 목록·잠김·돌파/추천·보스/일반 금화·적 레벨·4인 안내 36건의 직접 대조를 추가했다. rank_head의 cached percentile은 원본처럼 카드 안에 표시하지 않고 별도 native 순위 화면으로 연결한다. 명시적 클라우드 대체의 순위 기능은 기존 시험으로 유지하지만 전체 카드의 cached 상태 표시까지 같음으로 올리지는 않는다.",
+    "implementation": [
+      "project/ui/persona_sortie_screen.gd:3",
+      "project/game/expedition_ui_r23.gd:79"
+    ]
+  },
+  {
+    "id": "P3145",
+    "source": {
+      "file": "bot/src/77-explore.lua",
+      "start": 201,
+      "end": 234,
+      "symbol": "B.ex_battle"
+    },
+    "source_symbol": "B.ex_battle",
+    "remaining_reason": "전투 진입 자원·탐색 투영은 기존 대조를 유지한다. 원본 sid/bn/dn/carry 전부와 native battle snapshot의 전체 경계 동등성은 아직 직접 확정하지 못했다. 전투 규칙 수정 금지.",
+    "implementation": [
+      "project/game/expedition_world_r22.gd:123"
+    ]
+  },
+  {
+    "id": "P3182",
+    "source": {
+      "file": "bot/src/77-explore.lua",
+      "start": 322,
+      "end": 346,
+      "symbol": "do_cont"
+    },
+    "source_symbol": "do_cont",
+    "remaining_reason": "수치 투영·스냅샷 회귀는 유지했다. native continuation의 적 이름 중복 제거 last/log·정예 장비 log와 source sid/bn/over/dn 불일치 분기 전체는 아직 직접 비교/수정하지 않았다.",
+    "implementation": []
+  },
+  {
+    "id": "P3195",
+    "source": {
+      "file": "bot/src/77-explore.lua",
+      "start": 370,
+      "end": 376,
+      "symbol": "B.ex_gear_bank"
+    },
+    "source_symbol": "B.ex_gear_bank",
+    "remaining_reason": "포화 가방의 원본 장비 버림과 native overflow 보존은 실제 정책 차이다. 사용자 저장 보존 규칙과 장비 규칙 수정 금지를 유지했다. 현재 bank_expedition_gear의 반환 개수만 같다고 승격하지 않는다.",
+    "implementation": [
+      "project/game/expedition_world_r22.gd:465",
+      "project/game/expedition_world_r22.gd:468",
+      "project/game/expedition_world_r22.gd:476"
+    ]
+  },
+  {
+    "id": "P3202",
+    "source": {
+      "file": "bot/src/77-explore.lua",
+      "start": 414,
+      "end": 540,
+      "symbol": "finish_run"
+    },
+    "source_symbol": "finish_run",
+    "remaining_reason": "패배 후 live run 제거·마을 이동·ui.sel/tab 초기화·원문 손실 알림·D.last 보존을 수정했다. 승리/퇴각/패배·케른 유지·재호출·native 저장 재개를 12개 실제 Lua fixture로 대조했다. 포화 가방 overflow 정책과 전체 장비/보상 조합은 남아 있으므로 함수 전체 승격은 보류한다.",
+    "implementation": [
+      "project/game/expedition_world_r22.gd:235",
+      "project/game/expedition_world_r22.gd:543",
+      "project/game/persona_world.gd:195"
+    ]
+  },
+  {
+    "id": "P3223",
+    "source": {
+      "file": "bot/src/77-explore.lua",
+      "start": 543,
+      "end": 556,
+      "symbol": "B.dn_settle"
+    },
+    "source_symbol": "B.dn_settle",
+    "remaining_reason": "원본 sid/bn 불일치 시 거점 복귀와 legacy stage 분기, native snapshot 검증을 통합한 정산 경계의 직접 대조가 미완료다. 패배의 정상 경로 수정만으로 무효 입력까지 승격하지 않는다.",
+    "implementation": [
+      "project/game/expedition_world_r22.gd:158"
+    ]
+  },
+  {
+    "id": "P3225",
+    "source": {
+      "file": "bot/src/77-explore.lua",
+      "start": 559,
+      "end": 583,
+      "symbol": "B.dn_settle_legacy"
+    },
+    "source_symbol": "B.dn_settle_legacy",
+    "remaining_reason": "옛 native 저장 재개 회귀는 유지했다. canonical 원본 st.dn.stage 1/2 저장을 읽어 정산하는 입력 ABI가 아직 없다. 매체 차이가 아니라 미지원 구체 입력 경로로 남긴다.",
+    "implementation": []
+  },
+  {
+    "id": "P3249",
+    "source": {
+      "file": "bot/src/77-explore.lua",
+      "start": 648,
+      "end": 662,
+      "symbol": "do_equip"
+    },
+    "source_symbol": "do_equip",
+    "remaining_reason": "휴식 장착/해제의 기존 정상 경로는 유지했다. source gear code 버튼 해독·잘못된 슬롯·다른 소유자 장비·거절 메시지의 전체 직접 대조는 장비 규칙에 걸려 남는다. 해당 파일 수정 금지.",
+    "implementation": []
+  },
+  {
+    "id": "P3251",
+    "source": {
+      "file": "bot/src/77-explore.lua",
+      "start": 665,
+      "end": 708,
+      "symbol": "B.H.ex"
+    },
+    "source_symbol": "B.H.ex",
+    "remaining_reason": "탐색·물약·퇴각 요청/취소/확정의 기존 대조와 새 확인 화면 정보를 유지했다. cont/next/home의 무효 전투 상태 및 모든 장비 버튼을 합친 전체 handler 직접 대조는 남는다.",
+    "implementation": []
+  },
+  {
+    "id": "P3287",
+    "source": {
+      "file": "bot/src/77-explore.lua",
+      "start": 792,
+      "end": 797,
+      "symbol": "explore_screen"
+    },
+    "source_symbol": "explore_screen",
+    "remaining_reason": "ask에도 head/last/party/물약 정보를 함께 남기도록 수정하고 실제 UI에서 확인했다. 원본 전체 explore 화면의 버튼 종류/순서와 시안의 지도·기록·카드·보급품 이동 차이는 남아 전체 승격하지 않는다.",
+    "implementation": [
+      "project/game/expedition_ui_r23.gd:159",
+      "project/ui/expedition_screen_r22.gd:102",
+      "project/ui/town_screen_r21.gd:497"
+    ]
+  },
+  {
+    "id": "P3290",
+    "source": {
+      "file": "bot/src/77-explore.lua",
+      "start": 799,
+      "end": 816,
+      "symbol": "slot_row"
+    },
+    "source_symbol": "slot_row",
+    "remaining_reason": "같은 휴식 화면에 source 슬롯별 장비 후보·해제·장착 순서를 표시하는 기능이 남는다. native는 별도 정비 페이지를 쓰며 후보/소유자/레벨 판정은 장비 갈래 소유다. 장비 규칙 파일 수정 금지.",
+    "implementation": []
+  },
+  {
+    "id": "P3293",
+    "source": {
+      "file": "bot/src/77-explore.lua",
+      "start": 818,
+      "end": 827,
+      "symbol": "gear_card"
+    },
+    "source_symbol": "gear_card",
+    "remaining_reason": "원본 R.sel의 무효 슬롯 정규화와 슬롯별 후보 전체가 native의 별도 정비 대상 선택과 아직 다르다. gear_card를 이식하려면 장비 갈래의 후보/소유자 경계 근거가 필요하다.",
+    "implementation": []
+  },
+  {
+    "id": "P3296",
+    "source": {
+      "file": "bot/src/77-explore.lua",
+      "start": 829,
+      "end": 833,
+      "symbol": "rest_screen"
+    },
+    "source_symbol": "rest_screen",
+    "remaining_reason": "휴식 중 ask에도 기존 파티 정보를 보존하도록 수정했다. 원본은 gear_card를 같은 휴식 화면에 두고 native는 별도 장비 정비로 이동한다. 후보/슬롯 차이가 남는다. 성적 휴식 카드는 제외하며 추가하지 않았다.",
+    "implementation": [
+      "project/game/expedition_ui_r23.gd:159",
+      "project/ui/expedition_screen_r22.gd:102",
+      "project/ui/town_screen_r21.gd:497"
+    ]
+  },
+  {
+    "id": "P3305",
+    "source": {
+      "file": "bot/src/77-explore.lua",
+      "start": 882,
+      "end": 891,
+      "symbol": "B.SCREENS.dungeon"
+    },
+    "source_symbol": "B.SCREENS.dungeon",
+    "remaining_reason": "ask의 기존 파티 정보와 패배 후 마을 이동·live run 제거를 보강했다. run 없음 안내/귀환, inline gear_card, 전체 phase별 버튼 구성의 직접 대조가 남는다. 구성 조각의 통과만으로 전체 화면을 승격하지 않는다.",
+    "implementation": [
+      "project/game/expedition_world_r22.gd:599"
+    ]
+  },
+  {
+    "id": "P3309",
+    "source": {
+      "file": "bot/src/77-explore.lua",
+      "start": 907,
+      "end": 915,
+      "symbol": "move_old"
+    },
+    "source_symbol": "move_old",
+    "remaining_reason": "potion/mana의 유효 옛 저장 합산은 유지했다. 원본 음수/소수 합산과 native 원자적 거부는 실제 허용 입력 차이로 남는다. 저장 검증을 약화하거나 손상 데이터를 조용히 버리지 않았다.",
+    "implementation": [
+      "project/game/expedition_world_r22.gd:380"
+    ]
+  },
+  {
+    "id": "P3311",
+    "source": {
+      "file": "bot/src/77-explore.lua",
+      "start": 917,
+      "end": 923,
+      "symbol": "B.G_migrate"
+    },
+    "source_symbol": "B.G_migrate",
+    "remaining_reason": "이번 local mode 필드의 손실 없는 이관·왕복 시험은 추가했다. 원본 canonical G 전체/옛 stage 저장을 native로 읽는 범용 이관은 아직 없다. 이 추가 이관을 전체 G_migrate 근거로 쓰지 않는다.",
+    "implementation": [
+      "project/game/expedition_world_r22.gd:348"
+    ]
+  },
+  {
+    "id": "P3331",
+    "source": {
+      "file": "bot/src/78-battle-item.lua",
+      "start": 88,
+      "end": 88,
+      "symbol": "cur_i"
+    },
+    "source_symbol": "cur_i",
+    "remaining_reason": "현재 행동자 인덱스의 source cur_i와 native 실행 행동자를 함수 단위로 연결한 직접 시험은 여전히 없다. 전투 파일 수정 금지.",
+    "implementation": []
+  },
+  {
+    "id": "P3332",
+    "source": {
+      "file": "bot/src/78-battle-item.lua",
+      "start": 89,
+      "end": 132,
+      "symbol": "B.it_apply"
+    },
+    "source_symbol": "B.it_apply",
+    "remaining_reason": "44개 효과의 기존 대조는 유지했다. 무재고·무효 대상·현재 행동자·이벤트/타이머·메뉴 저장 재개·원문 메시지의 전체 직접 대조는 남는다. 전투 파일 수정 금지.",
+    "implementation": []
+  },
+  {
+    "id": "P3337",
+    "source": {
+      "file": "bot/src/78-battle-item.lua",
+      "start": 135,
+      "end": 135,
+      "symbol": "itname"
+    },
+    "source_symbol": "itname",
+    "remaining_reason": "탐색 아이템 이름 helper의 기존 같음을 전투 메뉴 이름에 전파하지 않았다. 전투가 실제 사용하는 표시 이름과 unknown fallback의 별도 직접 대조가 남는다. 전투 파일 수정 금지.",
+    "implementation": []
+  },
+  {
+    "id": "P3338",
+    "source": {
+      "file": "bot/src/78-battle-item.lua",
+      "start": 138,
+      "end": 150,
+      "symbol": "B.it_button"
+    },
+    "source_symbol": "B.it_button",
+    "remaining_reason": "전투 아이템 버튼의 무재고/불가 이유·대상·활성·클릭 후 상태 전체 직접 대조가 남는다. 전투 파일 수정 금지.",
+    "implementation": []
+  },
+  {
+    "id": "P3340",
+    "source": {
+      "file": "bot/src/78-battle-item.lua",
+      "start": 153,
+      "end": 179,
+      "symbol": "B.r_items"
+    },
+    "source_symbol": "B.r_items",
+    "remaining_reason": "전투 아이템 목록의 순서·수량·빈 안내·활성 조건·메뉴 저장 재개의 전체 직접 대조가 남는다. 전투 파일 수정 금지.",
+    "implementation": []
+  },
+  {
+    "id": "P3344",
+    "source": {
+      "file": "bot/src/78-battle-item.lua",
+      "start": 182,
+      "end": 225,
+      "symbol": "B.H.it"
+    },
+    "source_symbol": "B.H.it",
+    "remaining_reason": "전투 아이템 handler의 scene/menu/target·취소·중복·타이머·저장 재개·원문 메시지 전체 직접 대조가 남는다. 전투 파일 수정 금지.",
+    "implementation": []
+  }
+]

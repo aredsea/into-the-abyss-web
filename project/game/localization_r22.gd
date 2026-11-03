@@ -5,9 +5,21 @@ const SOURCE=preload("res://data/ui-source-locale-r23.json").data
 const Josa=preload("res://game/josa_r22.gd")
 const Pack=preload("res://game/locale_pack_r23.gd")
 const Value=preload("res://game/ui_value_r23.gd")
+const NATIVE=preload("res://data/native-locale-r24.json").data
 static var packs=Pack.new({"en":JSON.stringify(SOURCE.ui)},JSON.stringify(SOURCE.words))
 static var patterns=[]
 static var cache={}
+static func persona_name(s: Dictionary) -> String:
+	var name=str(s.get("persona",{}).get("name",""))
+	return ("You" if language(s)=="en" else "당신") if name in ["","{{user}}"] else name
+static func display(value: String,s: Dictionary) -> String:
+	var korean=RegEx.new();korean.compile("[가-힣]")
+	# Already translated English (including authored dialogue) is final copy.
+	var translated=render(value,language(s)) if language(s)!="en" or korean.search(value)!=null else value
+	return translated.replace("{{user}}",persona_name(s))
+static func authored_display(value: String,s: Dictionary) -> String:
+	# Prose needs a complete translation, never generic UI-template substitution.
+	return value.replace("{{user}}",persona_name(s))
 static func configure_packs(raw: Variant=null,words: Variant=null) -> void:
 	packs=Pack.new({"en":JSON.stringify(SOURCE.ui)} if raw==null else raw,JSON.stringify(SOURCE.words) if words==null else words)
 	patterns=[];cache={}
@@ -41,13 +53,14 @@ static func u(src: String,vars: Variant=null,lang="ko") -> String:
 static func _patterns() -> void:
 	if not patterns.is_empty():return
 	var token=RegEx.new();token.compile("\\{([A-Za-z0-9_]+):?([^{}]*)\\}")
-	for src in DATA.ui:
+	var all=NATIVE.duplicate();all.merge(DATA.ui,false)
+	for src in all:
 		var matches=token.search_all(src)
 		if matches.is_empty():continue
 		# Already formatted Latin/numeric text has no language to infer. Generic
 		# placeholder templates can otherwise consume punctuation in HP/MP values.
 		var korean=RegEx.new();korean.compile("[가-힣]")
-		if korean.search(token.sub(src,"",true))==null:continue
+		if korean.search(token.sub(src,"",true))==null and not NATIVE.has(src):continue
 		# Variable-only templates cannot identify formatted text safely.
 		if token.sub(src,"",true).strip_edges()=="":continue
 		var expression="^";var pos=0;var keys=[]
@@ -60,12 +73,22 @@ static func _patterns() -> void:
 static func render(value: String,lang="ko") -> String:
 	value=canonical_names(value)
 	if lang!="en":return value
+	if NATIVE.has(value):return NATIVE[value]
 	if DATA.ui.has(value) and DATA.ui[value]!=value:return DATA.ui[value]
 	if SOURCE.words.has(value):return c1_en(value)
 	if DATA.words.has(value):return DATA.words[value]
 	if cache.has(value):return cache[value]
+	_patterns()
+	# Native templates can span separators (counts, potion effects and headings).
+	for item in patterns:
+		if not NATIVE.has(item.src):continue
+		var m=item.re.search(value)
+		if m:
+			var result=NATIVE[item.src]
+			for i in item.keys.size():result=result.replace("{"+item.keys[i]+"}",render(m.get_string(i+1),lang))
+			cache[value]=result;return result
 	# Join fields before generic templates; a {name} template must not swallow metadata.
-	for separator in ["\n"," · "]:
+	for separator in ["\n"," · "," / "]:
 		if value.contains(separator):
 			var pieces=[]
 			for part in value.split(separator):pieces.append(render(part,lang))
@@ -75,8 +98,12 @@ static func render(value: String,lang="ko") -> String:
 		var m=item.re.search(value)
 		if m:
 			var vars={}
-			for i in item.keys.size():vars[item.keys[i]]=m.get_string(i+1)
-			var result=u(item.src,vars,lang);cache[value]=result;return result
+			for i in item.keys.size():vars[item.keys[i]]=render(m.get_string(i+1),lang)
+			var result=u(item.src,vars,lang)
+			if NATIVE.has(item.src):
+				result=NATIVE[item.src]
+				for key in vars:result=result.replace("{"+key+"}",vars[key])
+			cache[value]=result;return result
 	return value
 static func profile(id: String,fallback: Dictionary,lang="ko") -> Dictionary:return DATA.profiles.get(id,fallback) if lang=="en" else fallback
 static func fit_title(label: Label,maximum: int) -> void:
@@ -85,7 +112,7 @@ static func fit_title(label: Label,maximum: int) -> void:
 
 static func fit_box(node: Control) -> void:
 	# Fixed artwork slots keep their geometry; wrap buttons before reducing type.
-	if node is Button:node.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+	if node is Button and not str(node.get_meta("source_action","")).begins_with("p7_filter_"):node.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	var inset=Vector2.ZERO
 	if node is Button:
 		var style=node.get_theme_stylebox("normal")

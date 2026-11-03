@@ -53,7 +53,8 @@ func run():
 	var w=W.new()
 	check(L.render("힐데가르트 · 베렝가 · 바르구트")=="힐데가 · 베렌가 · 바르굿","historical labels canonical without save mutation")
 	check(L.render("힐데가르트","en")=="Hildegard" and C.english("베렝가")=="Berenga","historical names use canonical English")
-	for text in ["개요","원정","기술","마을","추가"]:check(L.render(text,"en")==text,"bare-variable template cannot translate unknown label "+text)
+	for text in ["알 수 없는 표시값","새 단어","추가"]:check(L.render(text,"en")==text,"bare-variable template cannot translate unknown label "+text)
+	for entry in [["개요","Overview"],["원정","Explore"],["기술","Skills"],["마을","Town"]]:check(L.render(entry[0],"en")==entry[1],"native navigation has an explicit translation "+entry[0])
 	for entry in [["hildegard","힐데가","Hildegard"],["berenga","베렌가","Berenga"],["bargut","바르굿","Bargut"]]:
 		check(w.person(entry[0]).name==entry[1],"canonical model name")
 		check(preload("res://data/panels-r22.json").data.cast[entry[0]].name==entry[1],"canonical panels name")

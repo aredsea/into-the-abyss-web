@@ -1,0 +1,855 @@
+{
+  "rendered_strings": 19258,
+  "screen_language_states": 206,
+  "defects": [],
+  "language_defects": 0,
+  "placeholder_defects": 0,
+  "data_files": 63,
+  "data_strings": 75762,
+  "data_inventory": [
+    {
+      "file": "project/data/asset-hashes.json",
+      "strings": 60,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/battle_scene.json",
+      "strings": 257,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/character-art-r4.json",
+      "strings": 302,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/chronicle-r22.json",
+      "strings": 4039,
+      "host_placeholder_fields": 14
+    },
+    {
+      "file": "project/data/cloud-r22.json",
+      "strings": 2,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/cloud-recap-r23.json",
+      "strings": 289,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/combat-motion.json",
+      "strings": 118,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/adeline.json",
+      "strings": 912,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/altan.json",
+      "strings": 914,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/bargut.json",
+      "strings": 913,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/berenga.json",
+      "strings": 918,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/bianca.json",
+      "strings": 924,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/colette.json",
+      "strings": 911,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/erdene.json",
+      "strings": 929,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/felice.json",
+      "strings": 919,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/gerda.json",
+      "strings": 918,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/gunhild.json",
+      "strings": 917,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/haldric.json",
+      "strings": 926,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/hedwig.json",
+      "strings": 916,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/hildegard.json",
+      "strings": 968,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/jorund.json",
+      "strings": 910,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/judith.json",
+      "strings": 925,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/lavinia.json",
+      "strings": 914,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/levia.json",
+      "strings": 919,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/lynette.json",
+      "strings": 914,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/marceline.json",
+      "strings": 969,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/miko.json",
+      "strings": 909,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/naran.json",
+      "strings": 936,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/ornel.json",
+      "strings": 910,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/saya.json",
+      "strings": 925,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/selva.json",
+      "strings": 914,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/sorel.json",
+      "strings": 915,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/teiris.json",
+      "strings": 966,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/tika.json",
+      "strings": 915,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/tove.json",
+      "strings": 911,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/urda.json",
+      "strings": 921,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dialogue-r21/zahar.json",
+      "strings": 911,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/dungeons-r21.json",
+      "strings": 4330,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/enemies-r21.json",
+      "strings": 3120,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/enemy-scene-values.json",
+      "strings": 24,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/expansion-assets.json",
+      "strings": 117,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/expe-ui-pass6-r23.json",
+      "strings": 4725,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/expe-ui-r23.json",
+      "strings": 178,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/expedition-r22.json",
+      "strings": 8,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/face-portraits.json",
+      "strings": 20,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/gear-r22.json",
+      "strings": 9800,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/gear.json",
+      "strings": 6980,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/gear_effects.json",
+      "strings": 243,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "strings": 4365,
+      "host_placeholder_fields": 23
+    },
+    {
+      "file": "project/data/menu-portraits.json",
+      "strings": 105,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/native-locale-r24.json",
+      "strings": 220,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/panels-r22.json",
+      "strings": 740,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/persona-r22.json",
+      "strings": 328,
+      "host_placeholder_fields": 9
+    },
+    {
+      "file": "project/data/persona-text-r23.json",
+      "strings": 0,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/persona_skill.json",
+      "strings": 147,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/portrait-slots-r21.json",
+      "strings": 1200,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/shop.json",
+      "strings": 3,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/town-r21-rules.json",
+      "strings": 11,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/ui-gear-icons-r23.json",
+      "strings": 1030,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/ui-legacy-items-r23.json",
+      "strings": 180,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/ui-passives-r23.json",
+      "strings": 106,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/ui-source-locale-r23.json",
+      "strings": 4078,
+      "host_placeholder_fields": 0
+    },
+    {
+      "file": "project/data/world.json",
+      "strings": 968,
+      "host_placeholder_fields": 0
+    }
+  ],
+  "raw_data_macro_fields": [
+    {
+      "file": "project/data/chronicle-r22.json",
+      "path": "$.profiles.agnes.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/chronicle-r22.json",
+      "path": "$.profiles.dorothea.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/chronicle-r22.json",
+      "path": "$.profiles.fenella.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/chronicle-r22.json",
+      "path": "$.profiles.hanna.lines[3]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/chronicle-r22.json",
+      "path": "$.profiles.hanna.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/chronicle-r22.json",
+      "path": "$.profiles.isolde.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/chronicle-r22.json",
+      "path": "$.profiles.knut.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/chronicle-r22.json",
+      "path": "$.profiles.loredana.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/chronicle-r22.json",
+      "path": "$.profiles.muriel.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/chronicle-r22.json",
+      "path": "$.profiles.noel.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/chronicle-r22.json",
+      "path": "$.profiles.oswald.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/chronicle-r22.json",
+      "path": "$.profiles.pietro.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/chronicle-r22.json",
+      "path": "$.profiles.sven.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/chronicle-r22.json",
+      "path": "$.profiles.vittoria.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.words.봄 아침의 연합 길드 본관은 발 디딜 틈이 없었다.\n\n의뢰판 앞에서는 케른 용병들이 쇳조각을 짤랑거렸고, 접수 창구에서는 주근깨 난 접수원이 목청을 높였다.\n\n\"계약서는 세 장이에요! 세 장!\"\n\n{{user}}의 눈길이 멈춘 곳은 문 옆에 붙은 모집문이었다.\n\n대던전 토벌에 나설 모험가와 용사를 널리 모집한다.\n\n그게 전부였다. 보수도, 기한도, 누가 지휘하는지도 적혀 있지 않았다.\n\n모집문 앞에는 먼저 온 사람이 있었다.\n\n은빛 판금 갑옷에 진홍 망토, 가슴에 큼직한 금 십자. 한쪽만 길게 땋은 옅은 갈색 머리가 등 뒤로 곧게 떨어졌다. 여자는 모집문을 한 줄씩 손가락으로 짚어 가며 읽었다. 마지막 줄에서 손가락이 멈추더니, 다시 첫 줄로 돌아갔다.\n\n벌써 세 번째였다.\n\n\"……조건이 없군요.\"\n\n혼잣말처럼 중얼거린 여자가 {{user}} 쪽으로 몸을 돌렸다. 에메랄드빛 눈이 {{user}}의 차림을 한 번 훑었다.\n\n\"실례했습니다. 지원하러 오신 분이지요? 솔렌 성기사 마르셀린입니다. 저도 이곳은 처음이라…… 그래도 절차는 조금 압니다. 접수는 저 창구, 계약서는 세 벌, 쇳조각은 한 쌍. 쇳조각은 무기에서 떼어 내야 하니 칼을 미리 준비해 두시는 편이 좋습니다.\"\n\n흠잡을 데 없는 기사의 인사였다.\n\n고개를 숙이는 순간, 어깨에 멘 가방에서 무언가 툭 떨어지기 전까지는.\n\n얇은 책 한 권이었다. 분홍빛 표지에 마렌토 글씨로 『운하에 지는 달 셋째 권』.\n\n마르셀린은 얼굴빛 하나 바꾸지 않고 책을 주워 가방 깊숙이 밀어 넣었다.\n\n\"……교리서입니다.\"\n\n귀 끝이 천천히 붉어졌다.\n\n창구 쪽에서 접수원이 다음 사람을 부르는 소리가 들렸다.",
+      "tokens": [
+        "{{user}}",
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.words.점심때가 되자 아랫마을 노점 거리는 연기로 자욱해졌다.\n\n양고기 꼬치 굽는 냄새. 마렌토 말과 케른 사투리와 수인 부족 말이 한데 뒤엉킨 소리. {{user}}도 꼬치 하나를 사 들고 사람들 틈을 빠져나가려던 참이었다.\n\n\"잠깐만요. 거기, 꼬치 든 분.\"\n\n노점 차양 기둥에 등을 기댄 수인 여자가 손을 들었다.\n\n아담한 몸에 은백색 긴 생머리, 머리 위로 쫑긋 선 은백색 여우 귀. 끝만 검은 꼬리가 느긋하게 좌우로 흔들렸다. 홍백 사냥 외투에 화살통 끈을 비껴 맨 차림이었다.\n\n호박색 눈이 {{user}}를 위아래로 훑었다. 세로로 갈라진 동공이 가늘어졌다.\n\n\"맞혀 볼게요. 오늘 아침 모집문 보고 오신 분. 계약서는 아직 안 쓰셨고, 여관은 쇠방울 쪽. 그리고…….\"\n\n입꼬리가 올라갔다.\n\n\"값은 비싸 보이는데 지갑은 안 비싼 분. 맞죠?\"\n\n여자는 대답을 기다리지 않고 웃었다.\n\n\"아, 틀려도 괜찮아요. 틀리면 그게 또 값이니까요. 나란이에요. 칸국 여우 부족, 하르벤 정찰대. 서류로는요.\"\n\n꼬리가 한 번 크게 흔들렸다. 나란이 한 걸음 다가와 목소리를 낮췄다.\n\n\"그 모집문, 조건이 하나도 안 적혀 있었죠? 이상하지 않아요?\"\n\n\"안 적은 게 아니라 못 적은 거예요. 나라 넷이 아직도 누가 지휘할지 싸우는 중이거든요. 그러니까 지금 본관에 들어가면, 조건을 먼저 정하는 사람이 이기는 판이에요.\"\n\n호박색 눈이 가늘게 웃었다.\n\n\"누구한테 뭘 말해야 하는지, 저는 알아요.\"\n\n나란은 {{user}}의 꼬치를 힐끗 보더니 손가락 하나를 세웠다.\n\n\"값은 그거 한 입. 첫 거래니까 싸게 해 드리는 거예요.\"\n\n\"물론 다음부터는 공짜 아니고요.\"",
+      "tokens": [
+        "{{user}}",
+        "{{user}}",
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.words.통역 골목은 이름 그대로였다.\n\n집집마다 문 위에 다룰 줄 아는 말의 이름을 적은 나무판이 걸려 있었고, 열린 창마다 깃펜 긁는 소리가 새어 나왔다. 계약서를 맡기러 골목에 들어선 길이었다.\n\n모퉁이 약방 앞에서 {{user}}의 걸음이 멈췄다.\n\n약방 처마 밑에 엘프 하나가 서 있었다.\n\n길고 뾰족한 귀, 가운데로 가른 금발 물결머리. 흰 드레스 위에 짙은 녹색 로브를 양어깨에 걸치고, 손바닥만 한 가죽 노트를 펼쳐 든 채였다. 연보랏빛 눈이 골목을 오가는 사람들의 옷과 손짓과 입 모양을 쉬지 않고 좇았다.\n\n약방 안에서 하프엘프 아가씨의 목소리가 들렸다.\n\n\"아, 그 약초요? 진짜 미쳤어요, 효과가!\"\n\n깃펜이 번개처럼 움직이다가, 멈췄다.\n\n엘프는 고개를 갸웃하더니 마침 곁에 선 {{user}} 쪽으로 몸을 돌렸다.\n\n\"실례지만, 잠깐 여쭤도 될까요? 방금 '미쳤다'고 했잖아요. 그런데 화를 내는 얼굴이 아니었어요. 웃고 있었어요.\"\n\n\"그럼 그건 칭찬인가요? 인간들은 정말…… 아, 죄송해요. 인사가 먼저였지요.\"\n\n엘프는 노트를 가슴에 안고 정중히 고개를 숙였다.\n\n\"나에린에서 온 테이리스예요. 세계수의 인장을 받은 사절이에요. 숲 밖의 심연을 보러 왔는데, 숲 밖에는 심연 말고도 볼 게 너무 많아서요.\"\n\n로브 자락 아래로 은빛 인장이 언뜻 빛났다.\n\n테이리스가 다시 노트를 펼쳐, 빈 칸을 {{user}} 앞에 내밀었다.\n\n\"그러니까, 학술 조사예요. 이 말이 언제 칭찬이 되는지 알려 주시면, 대신 제가 아는 걸 하나 알려 드릴게요.\"\n\n연보랏빛 눈이 골목을 한 번 둘러보았다.\n\n\"백 년쯤 지나면 이 골목도 달라지겠지요.\"\n\n\"……그래서 지금 적어 두는 거예요.\"",
+      "tokens": [
+        "{{user}}",
+        "{{user}}",
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.words.잉크 냄새 나는 좁은 골목, 백마흔두 살 엘프 사절이 인간의 유행어를 노트에 받아 적고 있다. 그리고 지금, {{user}}에게 그 뜻을 묻는다.",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.words.해가 기울자 성 밖 등불 쉼터의 놋 등불들이 하나씩 켜졌다.\n\n등불 갓마다 이름이 새겨져 있었다. 심연에서 돌아오지 못한 사람들의 이름이었다.\n\n아랫마을에서 성문으로 돌아가던 길. 쉼터 앞 돌길에서 {{user}}의 걸음이 멈췄다.\n\n낯선 기척이었다.\n\n가장 큰 등불 기둥 뒤, 그림자 속에 누군가 무릎을 끌어안고 앉아 있었다. 먹빛 남색 머리를 옆으로 땋아 반만 묶어 올린 젊은 여자였다. 회백 예복 위에 붉은 숄을 두르고, 그 숄 끝을 손가락이 하얘지도록 움켜쥐고 있었다.\n\n길 저쪽에서 발소리가 났다.\n\n검은 외투를 입은 두 사람이 등불 하나하나를 들여다보며 천천히 걸어오고 있었다. 외투 깃에는 흑요석 장식이 달려 있었다.\n\n여자가 고개를 들었다.\n\n흰 얼굴에 처진 눈썹, 크고 둥근 옅은 금빛 눈. 그리고 머리 위가 비어 있었다.\n\n악마라면 있어야 할 뿔이 없었다.\n\n\"저, 저기…….\"\n\n목소리가 등불 심지 타는 소리보다 작았다.\n\n\"죄송해요. 정말 죄송한데요…… 잠깐만, 아주 잠깐만 거기 서 계셔 주실 수 있어요? 저 사람들이 지나갈 때까지만요. 아무것도 안 하셔도 돼요. 그냥, 서 계시기만…….\"\n\n발소리가 가까워졌다.\n\n여자는 숄을 머리끝까지 끌어 올리고 더 작게 몸을 웅크렸다. 떨리는 손끝에서 희미한 무언가가 일렁였다. 이를 악물자, 그것은 겨우 사그라들었다.\n\n\"제가 겁을 먹으면…… 주변이 좀 부서질지도 몰라요.\"\n\n\"그러면 안 되니까요.\"\n\n외투 차림의 두 사람이 쉼터 입구에서 멈춰 섰다. 하나가 {{user}} 쪽을 보았다.\n\n그때 쉼터 안쪽에서 지팡이 짚는 소리가 나더니, 쉼터지기의 목소리가 들렸다.\n\n\"거기 누구요? 등불에 이름 새기러 왔소?\"",
+      "tokens": [
+        "{{user}}",
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.words.해 질 녘 등불 쉼터, 놋 등불 그림자 뒤에 뿔 없는 악마가 웅크리고 있다. 누군가를 피해 숨은 채, {{user}}에게 작은 목소리로 부탁한다.",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.words.마렌토 상회는 토르바 성안에서 가장 깔끔한 건물이었다.\n\n반들반들한 대리석 계산대, 금빛 저울, 장부를 끼고 뛰어다니는 견습들. 금고에 금화를 맡기러 들어온 길이었는데, 계산대 앞에서 벌어진 광경에 {{user}}의 걸음이 느려졌다.\n\n\"스무 자루요. 한 자루에 금화 하나 반이 아니라, 하나요.\"\n\n말한 사람은 상아색 법의를 입은 하프엘프 사제였다.\n\n밝은 적동색 곱슬머리를 땋아 뒤로 두르고, 가슴에는 은 성표를 달았다. 발그레한 볼에 크고 둥근 하늘색 눈.\n\n웃는 얼굴이었다. 웃는 얼굴로, 한 걸음도 물러서지 않았다.\n\n계산대 너머의 지배인이 가는 콧수염을 매만졌다.\n\n\"사제님, 이자는 거짓말을 안 합니다. 시세도요.\"\n\n\"시세가 거짓말을 안 하는 건 알아요. 그런데 이 쌀은 운하 빈민가 아이들 저녁이 될 거예요. 그 아이들도 거짓말은 안 해요.\"\n\n\"배고프다고요.\"\n\n지배인이 저울추를 굴리며 한숨을 쉬었다.\n\n사제는 그 틈을 놓치지 않았다. 고개를 돌린 하늘색 눈이 곧장 {{user}}에게 닿았다.\n\n\"아, 마침 잘됐다. 거기 계신 분! 잠깐만 와 주시겠어요? 증인이 필요해요.\"\n\n대답할 틈도 없이 소매가 가볍게 끌려갔다. {{user}}는 어느새 계산대 앞에 서 있었다.\n\n\"리네트예요. 등불 사제고요. 지금 이분이 저한테 쌀 스무 자루를 자루당 금화 하나에 주시겠다고 약속하시려는 참이거든요. 마렌토 계약은 세 벌이지만, 저는 사람 하나면 충분해요.\"\n\n\"들으셨죠?\"\n\n\"아직 아무 약속도…….\"\n\n지배인이 말끝을 흐렸다.\n\n리네트가 {{user}} 쪽을 보며 눈을 한 번 찡긋했다. 그리고 아주 작게 덧붙였다.\n\n\"……오늘 밤엔 등불 쉼터에서 이름도 불러야 해요. 쌀 나르는 거 도와주시면, 저녁은 제가 살게요.\"\n\n\"깎아서요.\"",
+      "tokens": [
+        "{{user}}",
+        "{{user}}",
+        "{{user}}",
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.words.대리석 계산대 앞에서 등불 사제가 지배인과 쌀 스무 자루 값을 두고 맞서고 있다. 웃는 얼굴로 한 푼도 물러서지 않다가, 문득 {{user}}에게 증인이 되어 달라고 한다.",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.words.비가 내리는 저녁이었다.\n\n쇠방울 여관의 문을 밀자 머리 위에서 쇠방울이 요란하게 울렸다. 젖은 외투 냄새와 국 끓는 냄새가 한꺼번에 밀려왔다. 1층 주점은 원정에서 돌아온 사람들로 꽉 차 있었다.\n\n\"자리? 저기 하나 있소.\"\n\n앞치마를 두른 여관 주인이 국자로 벽난로 쪽을 가리켰다.\n\n\"밥부터 먹소. 무용담은 배부른 다음에.\"\n\n벽난로 바로 옆의 작은 탁자. 맞은편에는 악마 하나가 앉아 있었다.\n\n잿빛 피부, 관자놀이에서 크게 말려 내려온 굵은 검은 숫양 뿔. 은회색 긴 머리를 낮게 묶었고, 보랏빛 옷 위에 먹빛 경갑을 걸쳤다. 그리고 무릎 위에는 뜨다 만 회색 털실 목도리가 놓여 있었다.\n\n사각, 사각.\n\n뜨개바늘 두 개가 쉬지 않고 움직였다.\n\n{{user}}가 의자를 끄는 소리에도 악마는 고개를 들지 않았다. 졸린 듯 내리깐 진홍색 눈은 바늘 끝만 보고 있었다.\n\n그때였다.\n\n옆 탁자에서 케른 용병 둘이 시비 끝에 벌떡 일어섰다. 하나가 휘두른 팔에 맥주잔이 날아왔다. 곧장 {{user}}의 머리 쪽이었다.\n\n잔은 닿지 않았다.\n\n악마의 왼손이 어느새 허공에서 잔 손잡이를 쥐고 있었다. 오른손의 뜨개바늘은 여전히 움직이고 있었다.\n\n코 하나 빠뜨리지 않고.\n\n악마는 잔을 탁자에 내려놓고, 용병들 쪽으로 고개를 아주 조금 돌렸다.\n\n\"싸울 거면 마당에서요.\"\n\n용병들이 슬금슬금 자리에 앉았다. 여관 주인이 멀리서 국자를 흔들어 보였다.\n\n악마는 다시 목도리로 눈을 돌렸다. 한참 뒤, 바늘 소리 사이로 낮은 목소리가 흘러나왔다.\n\n\"……사야.\"\n\n\"잔 값은 됐어요. 대신 아까 문 열 때, 바람 들어온 거. 그거 닫아 줘서 고마웠어요.\"\n\n\"그냥, 그렇다고요.\"\n\n사야의 손끝에서 회색 털실이 또 한 코 넘어갔다.",
+      "tokens": [
+        "{{user}}",
+        "{{user}}",
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.profiles.agnes.lines[5]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.profiles.dorothea.lines[5]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.profiles.fenella.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.profiles.hanna.lines[3]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.profiles.hanna.lines[5]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.profiles.isolde.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.profiles.knut.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.profiles.loredana.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.profiles.muriel.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.profiles.noel.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.profiles.oswald.lines[5]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.profiles.pietro.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.profiles.sven.lines[5]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/localization-r22.json",
+      "path": "$.profiles.vittoria.lines[6]",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/persona-r22.json",
+      "path": "$.scenarios[0].text",
+      "tokens": [
+        "{{user}}",
+        "{{user}}",
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/persona-r22.json",
+      "path": "$.scenarios[1].text",
+      "tokens": [
+        "{{user}}",
+        "{{user}}",
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/persona-r22.json",
+      "path": "$.scenarios[2].teaser",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/persona-r22.json",
+      "path": "$.scenarios[2].text",
+      "tokens": [
+        "{{user}}",
+        "{{user}}",
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/persona-r22.json",
+      "path": "$.scenarios[3].teaser",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/persona-r22.json",
+      "path": "$.scenarios[3].text",
+      "tokens": [
+        "{{user}}",
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/persona-r22.json",
+      "path": "$.scenarios[4].teaser",
+      "tokens": [
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/persona-r22.json",
+      "path": "$.scenarios[4].text",
+      "tokens": [
+        "{{user}}",
+        "{{user}}",
+        "{{user}}",
+        "{{user}}"
+      ]
+    },
+    {
+      "file": "project/data/persona-r22.json",
+      "path": "$.scenarios[5].text",
+      "tokens": [
+        "{{user}}",
+        "{{user}}"
+      ]
+    }
+  ],
+  "unsupported_data_macros": [],
+  "ui_scripts": [
+    {
+      "file": "project/ui/battle_body_r18.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/battle_face_r17.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/battle_image_r19.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/battle_ink_r17.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/battle_screen.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/character_portrait.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/character_sprite.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/cloud_screen_r22.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/codex_screen_r22.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/combat_fx.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/combat_presentation.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/combat_timeline.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/create_screen.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/expe_sortie_legacy_r23.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/expedition_floor_picker_r22.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/expedition_screen_r22.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/expedition_supply_screen_r22.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/facilities_screen_r22.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/facility_button.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/fantasy_theme.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/forged_button.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/inventory_screen_r22.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/journal_screen_r22.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/motion_library.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/navigation_button.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/panel_screen_r22.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/persona_sortie_screen.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/persona_visual_adapter.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/pixel_brush_r18.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/portrait_card.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/portrait_rules_r22.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/route_map.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/settings_screen_r22.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/signature_fx_r18.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/signature_sequence.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/status_screen_r22.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/town_art_r21.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/town_diagonal_r21.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/town_map_r21.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/town_portrait_r21.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/town_result_r21.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/town_screen_r21.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/town_theme_r21.gd",
+      "host_tokens": []
+    },
+    {
+      "file": "project/ui/world_screen.gd",
+      "host_tokens": []
+    }
+  ],
+  "scope": "All data values and UI scripts inventoried. Bilingual dictionaries, source host contracts and templates are retained; emitted copy is checked after language/name resolution. Custom user free text is not translated. Screen coverage is listed explicitly; state combinations beyond these fixtures are not claimed exhaustive.",
+  "authored_display_fields": 14216,
+  "authored_untranslated": 14216,
+  "all_language_complete": false
+}
