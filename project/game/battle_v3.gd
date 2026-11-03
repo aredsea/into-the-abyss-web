@@ -69,7 +69,7 @@ func _personal_hit_after(h: Dictionary) -> void:
 	if a.id=="selva" and action_id=="personal" and not h.extra and h.killed: a.mp=mini(a.mmp,a.mp+6)
 	# Source volley does not run foe_hit_after or GH.extra_hit.
 	if h.volley: return
-	dungeon_enemy_r21.after_hit(a,e,h.get("element",a.element))
+	dungeon_enemy_r21.after_hit(a,e,h.get("element",a.element),h.get('hit_at',combat_events.T))
 	var extra_chance=sig(a,"as_shadow")[0]/100.0 if not sig(a,"as_shadow").is_empty() else .2
 	if gear_bridge!=null:
 		gear_bridge.pack(); extra_chance=gear_bridge.hooks.assassin_extra(gear_bridge.st.u[gear_bridge.slot(a)-1],.2)
@@ -110,8 +110,12 @@ func _sorel_aid(a: Dictionary) -> void:
 	x(o).rescue=x(o).get("rescue",0)+1; _receive_heal(a,o.base[o.line]*2)
 func combat_event_trace() -> Dictionary: return combat_events.trace()
 func combat_display_schedule(event: Dictionary) -> Array: return CombatDisplay.schedule(event)
-func combat_display_frame(source_record: Dictionary,definitions: Array,lang: String="ko",profile: Variant=null,profile_available: bool=false) -> Dictionary:
+func combat_display_frame(source_record: Dictionary,definitions: Array=[],lang: String="ko",profile: Variant=null,profile_available: bool=false) -> Dictionary:
+	if definitions.is_empty():
+		var source=preload("res://game/battle_source_state_r23.gd").new();source.lang=lang
+		source_record=source.migrate(source_record.duplicate(true));source.bind(source_record);definitions=source.definitions
 	return CombatDisplay.source_frame(source_record,definitions,lang,profile,profile_available)
+func combat_display_tile(context: Dictionary) -> String:return CombatDisplay.source_tiles(context)
 func status_chips(u: Dictionary) -> Array: return CombatDisplay.chips(self,u)
 func _begin_combat_events(id: String,a: Dictionary,e: Dictionary,t: Dictionary) -> void:
 	var log_lines=combat_events.record.log
@@ -119,13 +123,14 @@ func _begin_combat_events(id: String,a: Dictionary,e: Dictionary,t: Dictionary) 
 	combat_events.record.log=log_lines;combat_events.begin_record(self)
 	combat_events.begin(self,id,a,e,t)
 
-func _record_hit(actor: String,target: String,damage: int,shield: int,critical: bool=false) -> void:
+func _record_hit(actor: String,target: String,damage: int,shield: int,critical: bool=false,source_fields: bool=true) -> void:
 	var all=data.allies+data.enemies
 	combat_events.changed(self,unit(target))
 	var u=unit(target)
 	var hit_at=combat_events.T if combat_events.context.is_empty() else combat_events.hit_time()
-	combat_events.field(self,u,"hp",u.hp,hit_at)
-	combat_events.field(self,u,"sh",u.get("shield",fx(u,"shield")),hit_at)
+	if source_fields:
+		combat_events.field(self,u,"hp",u.hp,hit_at)
+		combat_events.field(self,u,"sh",u.get("shield",fx(u,"shield")),hit_at)
 	combat_hits.append({"actor":all.find(unit(actor))+1,"target":all.find(unit(target))+1,"damage":damage,"shield":shield,"critical":critical})
 
 func _roll(chance: float) -> bool:
@@ -591,6 +596,7 @@ func _behind(t: Dictionary) -> Dictionary:
 
 func _tick(u: Dictionary) -> void:
 	if dungeon_enemy_r21!=null:
+		if not combat_events.record.has('ev'):combat_events.begin_record(self)
 		if not u.has("base"): combat_hits=[]
 		dungeon_enemy_r21.drop_auras()
 		if u.has("base"):
@@ -603,17 +609,11 @@ func _tick(u: Dictionary) -> void:
 			u.mp=mini(u.mmp,u.mp+int(data.formula.mp_regen))
 			if gear_bridge!=null: gear_bridge.invoke("gear_begin",[gear_bridge.slot(u)])
 		if not u.has("base") and u.effects.get("guard",{}).get("r21",false): u.effects.erase("guard")
-		var dot_damage=0
+		var has_dot=false
 		for i in range(4):
 			var key="enemy_dot_%d"%i
-			if u.effects.has(key):
-				dot_damage+=int(u.effects[key].amount); u.effects[key].turns-=1
-				if u.effects[key].turns<=0: u.effects.erase(key)
-		if dot_damage>0:
-			# edot_tick uses one fixed strike: skip attack/evade, retain damage hooks.
-			_incoming_strike(u,dot_damage,{}, {"name":"지속 피해"},false,true)
-			combat_events.push("adot",combat_events.slot(self,u),combat_events.T,[combat_events.slot(self,u)]); combat_events.T+=.9
-			if u.hp<=0: return # B.run skips end_turn and every subsequent heal.
+			if u.effects.has(key):has_dot=true
+		if has_dot and dungeon_enemy_r21.tick_dot(u):return # B.run skips end_turn and every subsequent heal.
 	if dungeon_enemy_r21==null and x(u).get("reviving",false): u.hp=maxi(1,int(u.mhp*.25)); x(u).reviving=false; _event(u.name+" · 응급 소생")
 	if dungeon_enemy_r21!=null and not u.has("base"): _tick_enemy_dots(u)
 	for key in ["dot","corrosion","bleed"]:
@@ -769,6 +769,7 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 			combat_events.T+=proc_event.duration
 		if before>0 and e.hp<=0: _personal_enemy_down(e)
 		var hook={"a":a,"e":e,"power":power,"brk":brk,"extra":extra,"critical":critical,"dealt":dealt,"before":before,"shield_before":shield_before,"volley":volley_active,"killed":e.hp<=0}
+		hook.hit_at=combat_events.T if combat_events.context.is_empty() else combat_events.hit_time()
 		hook.element=proc_event.get("element",a.element)
 		hook.allow_extra=proc_event.get("allow_extra",false)
 		if volley_active: pending_hit_hooks.append(hook)
@@ -1102,23 +1103,8 @@ func _personal(a: Dictionary,e: Dictionary,t: Dictionary,sk: Dictionary) -> void
 		_: _damage(a,e,1.4 if a.id=="bianca" else 1.2,15 if a.id=="bargut" and dungeon_enemy_r21!=null else sk.brk)
 
 func _felice_scan() -> void:
-	if not has_alive("felice"): return
-	if dungeon_enemy_r21==null: return
-	var owner=ally("felice")
-	if x(owner).get("revive",false): return
-	var pick={}; var earliest=INF
-	for member in data.allies:
-		if member.id==owner.id or member.hp>0: continue
-		if not x(member).has("death_tick"): x(member).death_tick=ctb_tick
-		var ready=x(member).death_tick+ceil(maxf(0,member.remaining)/member.base.spd)
-		if ctb_tick>=ready and ready<earliest: pick=member; earliest=ready
-	if pick.is_empty(): return
-	var persistent={}
-	for key in ["sorel_regen","regen","persona_regen"]:
-		if pick.effects.has(key): persistent[key]=pick.effects[key]
-	pick.hp=maxi(1,int(floor(pick.mhp*.25))); pick.effects=persistent; pick.shield=0; pick.charging=false
-	pick.remaining=0.0; x(pick).reviving=false; x(pick).erase("death_tick"); x(owner).revive=true
-	_event(pick.name+" · 펠리체 소생")
+	if not has_alive("felice") or dungeon_enemy_r21==null:return
+	PersonalRules.felice_scan(self,ally("felice"))
 
 func _finish_turn(interval_scale: float=1) -> void:
 	if dungeon_enemy_r21!=null:
@@ -1287,11 +1273,15 @@ func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,cove
 	hit=floor(hit+.5)
 	if fx(a,"psguard")>0: hit=floor(hit*(1-fx(a,"psguard"))+.5)
 	var damage=maxi(1,int(hit)); var absorbed=mini(a.shield,damage)
-	if dungeon_enemy_r21!=null and not fixed and not e.is_empty(): _record_hit(e.id,a.id,damage,absorbed)
+	var at=sk.get('_hit_at',combat_events.T)
+	if absorbed>0:combat_events.field(self,a,'sh',a.shield-absorbed,at)
+	if dungeon_enemy_r21!=null and not fixed and not e.is_empty(): _record_hit(e.id,a.id,damage,absorbed,false,false)
 	# Lua al stays true during save hooks, even after lethal HP becomes zero.
 	var save_owners=data.allies.filter(func(member): return member.hp>0)
 	if a.hp-damage+absorbed<=0 and has_alive("felice"): PersonalRules.felice_save(self,ally("felice"),a)
 	a.shield-=absorbed; damage-=absorbed; a.hp=maxi(0,a.hp-damage)
+	var lethal=a.hp==0
+	if lethal:combat_events.field(self,a,'hp',0,at)
 	if absorbed>0 and a.shield==0: a.effects.erase("shield")
 	var echo_broken=absorbed>0 and a.shield==0
 	if echo_broken and gear_bridge!=null: gear_bridge.invoke("gear_shbreak",[gear_bridge.slot(a),absorbed,gear_bridge.slot(e) if not e.is_empty() else "fixed"])
@@ -1299,7 +1289,7 @@ func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,cove
 	if a.hp==0:
 		# Personal save hooks run in party order, then gear, then priest.
 		if a.id=="marceline" and not x(a).get("saved",false):
-			x(a).saved=true; a.hp=mini(a.mhp,1+int(a.mhp*.25)); _shield(a,a.mhp*.15,3,false)
+			PersonalRules.marceline_save(self,a,a,at)
 		elif gear_bridge!=null and gear_bridge.invoke("gear_save",[gear_bridge.slot(a),combat_events.T])==1: pass
 		else:
 			if not a.ward_used:
@@ -1313,6 +1303,8 @@ func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,cove
 			if a.hp==0 and a.id!="felice" and has_alive("felice") and not x(ally("felice")).get("revive",false):
 				x(a).reviving=true; _event("펠리체 · 다음 차례에 소생")
 		if a.hp<=0 and dungeon_enemy_r21!=null: _ally_down(a)
+	var saved=lethal and a.hp>0
+	if not saved:combat_events.field(self,a,'hp',a.hp,at)
 	a.effects.erase("mark")
 	if damage>0 and a.hp>0 and a.hp<=a.mhp*.25 and has_alive("sorel") and x(ally("sorel")).get("rescue",0)<2:
 		x(ally("sorel")).rescue=x(ally("sorel")).get("rescue",0)+1
@@ -1323,7 +1315,7 @@ func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,cove
 	if gear_bridge!=null: gear_bridge.invoke("gear_pecho",[gear_bridge.slot(a),combat_events.T])
 	# B.strike res.d includes shield absorption. Keep this hit independent of
 	# subsequent counters and gear re-entry, which append their own hit records.
-	last_enemy_hit_result={"d":damage+absorbed,"sh":absorbed}
+	last_enemy_hit_result={"i":combat_events.slot(self,a),"d":damage+absorbed,"sh":absorbed,"kill":1 if a.hp<=0 else 0,"c":0,"ls":1 if saved else 0}
 
 # Frozen legacy damage path from 72bf1b2; ongoing pre-r21 expeditions keep their rules.
 func _legacy_incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,covered=false,fixed=false) -> void:

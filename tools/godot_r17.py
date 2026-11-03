@@ -4,6 +4,9 @@ import os,subprocess,sys,shutil
 root=Path(__file__).resolve().parents[1]
 slot=os.environ.get('R23_RUNTIME_SLOT','')
 if slot and not all(c.isalnum() or c=='-' for c in slot):raise SystemExit('Invalid isolated runtime slot')
+suite=os.environ.get('R23_SUITE_NAME','')
+if suite and all(c.isalnum() or c=='-' for c in suite) and (root/'verification/parity-r23'/suite/('cancel-'+slot)).exists():
+    raise SystemExit(125)
 suffix='-'+slot if slot else ''
 exe=Path('C:/Users/asone/Documents/Codex/2026-10-18/into-the-abyss-c-clauede-code/work/godot-toolchain/Godot_v4.7.2-stable_win64_console.exe')
 # A self-contained engine writes beside its executable. Isolate even those writes

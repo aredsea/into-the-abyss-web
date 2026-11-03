@@ -3,31 +3,34 @@
   "scope": "r22b remaining_work 전투 7묶음",
   "summary": {
     "rows_reviewed": 212,
-    "newly_equal_rows": 130,
+    "newly_equal_rows": 169,
     "round2_newly_equal_rows": 26,
-    "fixed_rows": 47,
+    "fixed_rows": 61,
     "round2_fixed_rows": 9,
-    "fixed_and_equal_overlap": 39,
-    "remaining_rows": 82,
+    "fixed_and_equal_overlap": 59,
+    "remaining_rows": 40,
     "statuses": {
-      "같음": 130,
-      "일부": 44,
-      "미확인": 38
+      "같음": 169,
+      "일부": 24,
+      "미확인": 16,
+      "제외": 3
     },
-    "called_functions": 190,
+    "called_functions": 198,
     "baseline_missing_entries": 157,
-    "newly_entered_baseline_entries": 90,
+    "newly_entered_baseline_entries": 112,
     "batch_checks": 10827,
-    "new_checks": 47777,
+    "new_checks": 66268,
     "new_failures": 0,
-    "suite_groups": 92,
-    "expected_suite_groups": 92,
+    "suite_groups": 118,
+    "expected_suite_groups": 118,
     "suite_missing": [],
     "suite_failed_groups": 0,
     "suite_in_progress": [],
     "parity_battles": 6320,
     "parity_records": 219785,
     "product_files_changed": [
+      "project/game/battle_source_data_r23.gd",
+      "project/game/battle_source_state_r23.gd",
       "project/game/battle_v3.gd",
       "project/game/combat_display_r22.gd",
       "project/game/combat_events_r22.gd",
@@ -37,9 +40,11 @@
       "project/game/combat_record_r23.gd",
       "project/game/combat_source_text_r23.gd",
       "project/game/combat_text_r23.gd",
+      "project/game/combat_tiles_r23.gd",
       "project/game/dungeon_enemy_r21.gd",
       "project/game/persona_combat_r22.gd",
       "project/game/persona_research_r21.gd",
+      "project/game/persona_world.gd",
       "project/game/personal_rules_r22.gd",
       "project/game/trait_rules_r22.gd"
     ],
@@ -53,13 +58,13 @@
         "changed": []
       },
       "server": {
-        "files": 29,
+        "files": 30,
         "changed": []
       }
     },
-    "fresh_oracle_runs": 20,
-    "fixed_but_not_equal_rows": 8,
-    "neither_equal_nor_fixed_rows": 74,
+    "fresh_oracle_runs": 26,
+    "fixed_but_not_equal_rows": 2,
+    "neither_equal_nor_fixed_rows": 38,
     "round3_newly_equal_rows": 30,
     "round3_fixed_rows": 6,
     "round3_checks": 4538,
@@ -99,6 +104,33 @@
       "project/game/combat_source_text_r23.gd",
       "project/game/combat_text_r23.gd",
       "project/game/personal_rules_r22.gd"
+    ],
+    "round6_newly_equal_rows": 23,
+    "round6_fixed_rows": 8,
+    "round6_checks": 11157,
+    "suite_verification_method": "118 groups on unchanged final product code; one test-fixture prerequisite corrected and rechecked with unchanged expectations; 13-case boundary supplement",
+    "round6_product_files_changed": [
+      "project/game/battle_source_data_r23.gd",
+      "project/game/battle_source_state_r23.gd",
+      "project/game/battle_v3.gd",
+      "project/game/combat_display_r22.gd",
+      "project/game/combat_text_r23.gd",
+      "project/game/combat_tiles_r23.gd",
+      "project/game/dungeon_enemy_r21.gd",
+      "project/game/personal_rules_r22.gd"
+    ],
+    "excluded_rows": 3,
+    "round7_newly_equal_rows": 16,
+    "round7_excluded_rows": 3,
+    "round7_fixed_evidence_rows": 10,
+    "round7_new_fixed_rows": 7,
+    "round7_checks": 7334,
+    "round7_product_files_changed": [
+      "project/game/battle_v3.gd",
+      "project/game/combat_events_r22.gd",
+      "project/game/dungeon_enemy_r21.gd",
+      "project/game/persona_research_r21.gd",
+      "project/game/persona_world.gd"
     ]
   },
   "proof_policy": "진입 계측만으로 같음 승격하지 않음. 같음은 해당 행의 정규화된 native 반환 계약과 명시된 유효 입력에 한함. 상위/하위 행으로 판정을 전파하지 않음.",
@@ -177,7 +209,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1474",
@@ -254,7 +288,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1477",
@@ -331,7 +367,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1482",
@@ -408,7 +446,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1485",
@@ -485,7 +525,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1488",
@@ -497,13 +539,17 @@
         "end": 81,
         "symbol": "B.member_def"
       },
-      "status": "일부",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "전투 상태·능력치·편성",
       "prior_status": "일부",
       "fixed": false,
       "fix": null,
-      "native_evidence": null,
+      "native_evidence": {
+        "file": "project/game/battle_source_state_r23.gd",
+        "symbol": "static func member_definition",
+        "line": 25
+      },
       "new_evidence": [
         {
           "test": "battle_r23_state_test",
@@ -519,9 +565,20 @@
           "test": "combat_p2_r22_test",
           "log": "verification/parity-r23/suite-round2-final/combat_p2_r22_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_test",
+          "labels": [
+            "round6/member_def"
+          ],
+          "checks": 396,
+          "contract": "30명·persona·미지/빈 id × 12직업/미지 값. 표시명/아트/열/특성명/lv/skill를 포함한 반환 전체.",
+          "oracle": "verification/parity-r23/battle-round6-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_test.log"
         }
       ],
-      "remaining_reason": "1~4인 정의의 직업·열·속성은 비교. 표시명/아트/특성 설명 및 미지 캐릭터·직업 fallback 전체는 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1488",
         "called": true,
@@ -546,7 +603,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "같음"
     },
     {
       "id": "P1489",
@@ -558,13 +617,17 @@
         "end": 106,
         "symbol": "B.member_skills"
       },
-      "status": "일부",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "전투 상태·능력치·편성",
       "prior_status": "일부",
       "fixed": false,
       "fix": null,
-      "native_evidence": null,
+      "native_evidence": {
+        "file": "project/game/battle_source_state_r23.gd",
+        "symbol": "func member_skills",
+        "line": 36
+      },
       "new_evidence": [
         {
           "test": "battle_r23_state_test",
@@ -580,9 +643,20 @@
           "test": "combat_p2_r22_test",
           "log": "verification/parity-r23/suite-round2-final/combat_p2_r22_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_test",
+          "labels": [
+            "round6/member_skills"
+          ],
+          "checks": 472,
+          "contract": "직업·개인 기술의 전체 순서/row/아이콘/MP/설명. 페르소나의 미완성 및 모든 유효 32조합 × 0/10단계.",
+          "oracle": "verification/parity-r23/battle-round6-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_test.log"
         }
       ],
-      "remaining_reason": "기술 실행/메타데이터 회귀는 통과. 모든 직업 목록의 순서·아이콘·설명·row 전체와 빈 슬롯은 직접 비교하지 않음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1489",
         "called": true,
@@ -607,7 +681,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "같음"
     },
     {
       "id": "P1490",
@@ -619,13 +695,17 @@
         "end": 111,
         "symbol": "B.sk_slot"
       },
-      "status": "미확인",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "전투 상태·능력치·편성",
       "prior_status": "미확인",
       "fixed": false,
       "fix": null,
-      "native_evidence": null,
+      "native_evidence": {
+        "file": "project/game/battle_source_state_r23.gd",
+        "symbol": "static func skill_slot",
+        "line": 47
+      },
       "new_evidence": [
         {
           "test": "battle_r23_state_test",
@@ -641,30 +721,28 @@
           "test": "combat_p2_r22_test",
           "log": "verification/parity-r23/suite-round2-final/combat_p2_r22_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_test",
+          "labels": [
+            "round6/sk_slot"
+          ],
+          "checks": 2304,
+          "contract": "빈/유효 목록, 1~4칸, 발견/미발견 기술 id. Lua nil은 ABI에서 명시적 false로 전달.",
+          "oracle": "verification/parity-r23/battle-round6-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_test.log"
         }
       ],
-      "remaining_reason": "원본 번호 기반 SK 목록과 native 문자열 행동 id의 조회/찾지 못함 반환을 직접 비교하지 않음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1490",
-        "called": false,
+        "called": true,
         "explicit_entries": 2,
-        "entered": 0,
+        "entered": 2,
         "baseline_missing": 0,
         "baseline_missing_now_entered": [],
-        "remaining_entries": [
-          {
-            "key": "20-state.lua:109:3643",
-            "line": 109,
-            "offset": 3643,
-            "token": "do"
-          },
-          {
-            "key": "20-state.lua:109:3660",
-            "line": 109,
-            "offset": 3660,
-            "token": "then"
-          }
-        ],
+        "remaining_entries": [],
         "remaining_baseline": []
       },
       "baseline_review": "통합판 재평가: 명시적 범위 밖은 승격하지 않음",
@@ -681,7 +759,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "같음"
     },
     {
       "id": "P1491",
@@ -693,38 +773,17 @@
         "end": 131,
         "symbol": "B.bind"
       },
-      "status": "일부",
-      "unverified_branches": [
-        {
-          "key": "20-state.lua:120:3928",
-          "line": 120,
-          "offset": 3928,
-          "token": "else"
-        },
-        {
-          "key": "20-state.lua:127:4226",
-          "line": 127,
-          "offset": 4226,
-          "token": "then"
-        },
-        {
-          "key": "20-state.lua:129:4317",
-          "line": 129,
-          "offset": 4317,
-          "token": "then"
-        },
-        {
-          "key": "20-state.lua:129:4337",
-          "line": 129,
-          "offset": 4337,
-          "token": "else"
-        }
-      ],
+      "status": "같음",
+      "unverified_branches": [],
       "feature_group": "전투 상태·능력치·편성",
       "prior_status": "일부",
       "fixed": false,
       "fix": null,
-      "native_evidence": null,
+      "native_evidence": {
+        "file": "project/game/battle_source_state_r23.gd",
+        "symbol": "func bind(",
+        "line": 83
+      },
       "new_evidence": [
         {
           "test": "battle_r23_state_test",
@@ -740,14 +799,25 @@
           "test": "combat_p2_r22_test",
           "log": "verification/parity-r23/suite-round2-final/combat_p2_r22_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_test",
+          "labels": [
+            "round6/bind"
+          ],
+          "checks": 144,
+          "contract": "16칸 stale 정의 제거, 빈 칸, 0/1/4 cur, atk/df/미지/빈 pid를 통한 pend 재탐색·취소. 상태/DEF/SK 전체.",
+          "oracle": "verification/parity-r23/battle-round6-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_test.log"
         }
       ],
-      "remaining_reason": "1~4인 초기화는 비교. 저장된 pend/pid의 유지·재탐색·취소와 옛 id 없는 입력은 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1491",
         "called": true,
         "explicit_entries": 6,
-        "entered": 3,
+        "entered": 6,
         "baseline_missing": 4,
         "baseline_missing_now_entered": [
           {
@@ -755,9 +825,7 @@
             "line": 120,
             "offset": 3928,
             "token": "else"
-          }
-        ],
-        "remaining_entries": [
+          },
           {
             "key": "20-state.lua:127:4226",
             "line": 127,
@@ -777,26 +845,8 @@
             "token": "else"
           }
         ],
-        "remaining_baseline": [
-          {
-            "key": "20-state.lua:127:4226",
-            "line": 127,
-            "offset": 4226,
-            "token": "then"
-          },
-          {
-            "key": "20-state.lua:129:4317",
-            "line": 129,
-            "offset": 4317,
-            "token": "then"
-          },
-          {
-            "key": "20-state.lua:129:4337",
-            "line": 129,
-            "offset": 4337,
-            "token": "else"
-          }
-        ]
+        "remaining_entries": [],
+        "remaining_baseline": []
       },
       "baseline_review": "명시적 함수 대응/실제 실행 분기 재감사",
       "baseline_reason": "원본 Lua에 함수/then·else·do 진입 Boolean 기록만 추가해 실제 입력을 재실행. 함수 호출 확인, 명시적 분기 진입 2/6. 전체 계약은 같음으로 세지 않음. 미도달 분기는 audit-r22b.json의 해당 행에 미확인으로 기록.",
@@ -812,7 +862,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "같음"
     },
     {
       "id": "P1498",
@@ -824,26 +876,17 @@
         "end": 167,
         "symbol": "B.foe_def"
       },
-      "status": "일부",
-      "unverified_branches": [
-        {
-          "key": "20-state.lua:149:5176",
-          "line": 149,
-          "offset": 5176,
-          "token": "then"
-        },
-        {
-          "key": "20-state.lua:149:5229",
-          "line": 149,
-          "offset": 5229,
-          "token": "then"
-        }
-      ],
+      "status": "같음",
+      "unverified_branches": [],
       "feature_group": "전투 상태·능력치·편성",
       "prior_status": "일부",
       "fixed": false,
       "fix": null,
-      "native_evidence": null,
+      "native_evidence": {
+        "file": "project/game/battle_source_state_r23.gd",
+        "symbol": "func foe_definition",
+        "line": 53
+      },
       "new_evidence": [
         {
           "test": "battle_r23_state_test",
@@ -859,17 +902,27 @@
           "test": "combat_p2_r22_test",
           "log": "verification/parity-r23/suite-round2-final/combat_p2_r22_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_test",
+          "labels": [
+            "round6/foe_def"
+          ],
+          "checks": 468,
+          "contract": "미지/빈 적, chiefb/eliteb/심층/표시 레벨 경계. 모든 실제 단계 보스의 ph1/ph2·2개/1개/없는 cwk를 포함한 정의 전체.",
+          "oracle": "verification/parity-r23/battle-round6-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_test.log"
         }
       ],
-      "remaining_reason": "단계 전환 상태는 비교. chiefb/eliteb의 깊은 이름·등급/표시 레벨·모든 정의 필드의 직접 비교가 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1498",
         "called": true,
         "explicit_entries": 6,
-        "entered": 4,
+        "entered": 6,
         "baseline_missing": 2,
-        "baseline_missing_now_entered": [],
-        "remaining_entries": [
+        "baseline_missing_now_entered": [
           {
             "key": "20-state.lua:149:5176",
             "line": 149,
@@ -883,20 +936,8 @@
             "token": "then"
           }
         ],
-        "remaining_baseline": [
-          {
-            "key": "20-state.lua:149:5176",
-            "line": 149,
-            "offset": 5176,
-            "token": "then"
-          },
-          {
-            "key": "20-state.lua:149:5229",
-            "line": 149,
-            "offset": 5229,
-            "token": "then"
-          }
-        ]
+        "remaining_entries": [],
+        "remaining_baseline": []
       },
       "baseline_review": "명시적 함수 대응/실제 실행 분기 재감사",
       "baseline_reason": "원본 Lua에 함수/then·else·do 진입 Boolean 기록만 추가해 실제 입력을 재실행. 함수 호출 확인, 명시적 분기 진입 4/6. 전체 계약은 같음으로 세지 않음. 미도달 분기는 audit-r22b.json의 해당 행에 미확인으로 기록.",
@@ -912,7 +953,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "같음"
     },
     {
       "id": "P1499",
@@ -924,32 +967,17 @@
         "end": 184,
         "symbol": "B.bind_foes"
       },
-      "status": "일부",
-      "unverified_branches": [
-        {
-          "key": "20-state.lua:175:6116",
-          "line": 175,
-          "offset": 6116,
-          "token": "do"
-        },
-        {
-          "key": "20-state.lua:178:6185",
-          "line": 178,
-          "offset": 6185,
-          "token": "do"
-        },
-        {
-          "key": "20-state.lua:183:6372",
-          "line": 183,
-          "offset": 6372,
-          "token": "do"
-        }
-      ],
+      "status": "같음",
+      "unverified_branches": [],
       "feature_group": "전투 상태·능력치·편성",
       "prior_status": "일부",
       "fixed": false,
       "fix": null,
-      "native_evidence": null,
+      "native_evidence": {
+        "file": "project/game/battle_source_state_r23.gd",
+        "symbol": "func bind_foes",
+        "line": 71
+      },
       "new_evidence": [
         {
           "test": "battle_r23_state_test",
@@ -965,17 +993,28 @@
           "test": "combat_p2_r22_test",
           "log": "verification/parity-r23/suite-round2-final/combat_p2_r22_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_test",
+          "labels": [
+            "round6/bind_legacy",
+            "round6/bind"
+          ],
+          "checks": 147,
+          "contract": "옛 EDEF 4칸의 레벨/정예 표시·DEF 9~16 제거, 새 편성 2칸의 DEF 7~16 제거. bind 묶음과 함께 전 정의 비교.",
+          "oracle": "verification/parity-r23/battle-round6-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_test.log"
         }
       ],
-      "remaining_reason": "조합 편성 초기화는 실행. fl 없는 옛 EDEF 4칸과 DEF 16칸의 잔존 정의 제거는 새 fixture로 비교하지 않음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1499",
         "called": true,
         "explicit_entries": 6,
-        "entered": 3,
+        "entered": 6,
         "baseline_missing": 3,
-        "baseline_missing_now_entered": [],
-        "remaining_entries": [
+        "baseline_missing_now_entered": [
           {
             "key": "20-state.lua:175:6116",
             "line": 175,
@@ -995,26 +1034,8 @@
             "token": "do"
           }
         ],
-        "remaining_baseline": [
-          {
-            "key": "20-state.lua:175:6116",
-            "line": 175,
-            "offset": 6116,
-            "token": "do"
-          },
-          {
-            "key": "20-state.lua:178:6185",
-            "line": 178,
-            "offset": 6185,
-            "token": "do"
-          },
-          {
-            "key": "20-state.lua:183:6372",
-            "line": 183,
-            "offset": 6372,
-            "token": "do"
-          }
-        ]
+        "remaining_entries": [],
+        "remaining_baseline": []
       },
       "baseline_review": "명시적 함수 대응/실제 실행 분기 재감사",
       "baseline_reason": "원본 Lua에 함수/then·else·do 진입 Boolean 기록만 추가해 실제 입력을 재실행. 함수 호출 확인, 명시적 분기 진입 3/6. 전체 계약은 같음으로 세지 않음. 미도달 분기는 audit-r22b.json의 해당 행에 미확인으로 기록.",
@@ -1030,7 +1051,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "같음"
     },
     {
       "id": "P1500",
@@ -1042,13 +1065,17 @@
         "end": 191,
         "symbol": "unit0"
       },
-      "status": "일부",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "전투 상태·능력치·편성",
       "prior_status": "일부",
       "fixed": false,
       "fix": null,
-      "native_evidence": null,
+      "native_evidence": {
+        "file": "project/game/battle_source_state_r23.gd",
+        "symbol": "static func unit0",
+        "line": 23
+      },
       "new_evidence": [
         {
           "test": "battle_r23_state_test",
@@ -1064,9 +1091,20 @@
           "test": "combat_p2_r22_test",
           "log": "verification/parity-r23/suite-round2-final/combat_p2_r22_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_test",
+          "labels": [
+            "round6/unit0"
+          ],
+          "checks": 1,
+          "contract": "상수 생성 함수의 모든 보조 플래그·태그·bf/x를 포함한 반환 전체. blank_u/fresh 전체 완료로 전파하지 않음.",
+          "oracle": "verification/parity-r23/battle-round6-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_test.log"
         }
       ],
-      "remaining_reason": "초기 HP/MP/주 능력·방어·속도 등은 비교. unit0의 모든 보조 플래그/필드와 native 대응의 전 필드 비교는 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1500",
         "called": true,
@@ -1091,7 +1129,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "같음"
     },
     {
       "id": "P1539",
@@ -1204,7 +1244,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1542",
@@ -1265,7 +1307,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인"
     },
     {
       "id": "P1550",
@@ -1277,16 +1321,16 @@
         "end": 273,
         "symbol": "B.apply_carry"
       },
-      "status": "일부",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "전투 상태·능력치·편성",
       "prior_status": "일부",
       "fixed": true,
       "fix": "전투 사이 HP=0 carry의 대기값 10^9 유지. JSON 저장 재개와 옛 유한 대기값 보존.",
       "native_evidence": {
-        "file": "project/game/battle_v3.gd",
-        "symbol": "func _start_ctb",
-        "line": 232
+        "file": "project/game/battle_source_state_r23.gd",
+        "symbol": "static func apply_carry",
+        "line": 114
       },
       "new_evidence": [
         {
@@ -1303,9 +1347,20 @@
           "test": "combat_p2_r22_test",
           "log": "verification/parity-r23/suite-round2-final/combat_p2_r22_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_test",
+          "labels": [
+            "round6/carry"
+          ],
+          "checks": 160,
+          "contract": "빈 칸·누락/false/문자열·hex 숫자·음수/0/소수/상한 초과 HP·MP. 네 유닛의 모든 입력 필드 보존/변경 비교.",
+          "oracle": "verification/parity-r23/battle-round6-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_test.log"
         }
       ],
-      "remaining_reason": "HP=0 대기값과 저장은 수정·검증. 없는 값/문자열/상한 초과 HP·MP/빈 4슬롯의 모든 carry 반환은 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1550",
         "called": true,
@@ -1330,7 +1385,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "같음"
     },
     {
       "id": "P1553",
@@ -1358,7 +1415,7 @@
       "native_evidence": {
         "file": "project/game/battle_v3.gd",
         "symbol": "func _start_ctb",
-        "line": 232
+        "line": 237
       },
       "new_evidence": [
         {
@@ -1409,7 +1466,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1587",
@@ -1470,7 +1529,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1589",
@@ -1531,7 +1592,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1590",
@@ -1543,13 +1606,17 @@
         "end": 345,
         "symbol": "B.migrate"
       },
-      "status": "일부",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "전투 상태·능력치·편성",
       "prior_status": "일부",
       "fixed": false,
       "fix": null,
-      "native_evidence": null,
+      "native_evidence": {
+        "file": "project/game/battle_source_state_r23.gd",
+        "symbol": "static func migrate",
+        "line": 102
+      },
       "new_evidence": [
         {
           "test": "battle_r23_state_test",
@@ -1565,60 +1632,28 @@
           "test": "combat_p2_r22_test",
           "log": "verification/parity-r23/suite-round2-final/combat_p2_r22_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_test",
+          "labels": [
+            "round6/migrate"
+          ],
+          "checks": 53,
+          "contract": "VER2 8유닛·pm 조건, rc/ln/na/bx/x의 타입 조합·개인/페르소나/빈/잘못된 슬롯·다른 버전/유닛 수. 원본 기록 ABI의 전체 반환. native schema-3 저장 형식을 바꾸지 않음.",
+          "oracle": "verification/parity-r23/battle-round6-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_test.log"
         }
       ],
-      "remaining_reason": "native schema-3 이전 저장 유지 시험은 통과. 원본 VER2 8유닛의 rc/ln/na/bx/x 이관과 동일 계약은 아님.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1590",
-        "called": false,
+        "called": true,
         "explicit_entries": 7,
-        "entered": 0,
+        "entered": 7,
         "baseline_missing": 0,
         "baseline_missing_now_entered": [],
-        "remaining_entries": [
-          {
-            "key": "20-state.lua:329:12671",
-            "line": 329,
-            "offset": 12671,
-            "token": "then"
-          },
-          {
-            "key": "20-state.lua:330:12693",
-            "line": 330,
-            "offset": 12693,
-            "token": "do"
-          },
-          {
-            "key": "20-state.lua:332:12759",
-            "line": 332,
-            "offset": 12759,
-            "token": "then"
-          },
-          {
-            "key": "20-state.lua:333:12850",
-            "line": 333,
-            "offset": 12850,
-            "token": "then"
-          },
-          {
-            "key": "20-state.lua:335:12952",
-            "line": 335,
-            "offset": 12952,
-            "token": "then"
-          },
-          {
-            "key": "20-state.lua:338:13066",
-            "line": 338,
-            "offset": 13066,
-            "token": "then"
-          },
-          {
-            "key": "20-state.lua:339:13116",
-            "line": 339,
-            "offset": 13116,
-            "token": "then"
-          }
-        ],
+        "remaining_entries": [],
         "remaining_baseline": []
       },
       "baseline_review": "통합판 재평가: 명시적 범위 밖은 승격하지 않음",
@@ -1635,7 +1670,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "같음"
     },
     {
       "id": "P1594",
@@ -1671,7 +1708,7 @@
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
         }
       ],
-      "remaining_reason": "carry sentinel 및 옛 native 저장 재개는 통과. 원본 채팅 변수 JSON·VER2 이관·invalid→fresh의 계약은 별도 대조 필요.",
+      "remaining_reason": "저장 매체 차이는 사유에서 제거. 원본 VER2 기록을 native에서 불러와 같은 다음 행동/소지·장착·진행으로 재개하는 직접 왕복 대조와 손상 입력 결과 비교가 아직 없음. 원본 migrate 대조 및 native 자체 restore 통과만으로 전체 load/save 행을 승격하지 않음.",
       "branch_coverage": {
         "id": "P1594",
         "called": false,
@@ -1715,7 +1752,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1595",
@@ -1751,7 +1790,7 @@
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
         }
       ],
-      "remaining_reason": "native JSON 왕복은 검증. 원본 채팅 변수에 쓰는 상태 전체와 native snapshot 간 완전한 필드 이관은 남음.",
+      "remaining_reason": "저장 매체 차이는 사유에서 제거. 원본 VER2 기록을 native에서 불러와 같은 다음 행동/소지·장착·진행으로 재개하는 직접 왕복 대조와 손상 입력 결과 비교가 아직 없음. 원본 migrate 대조 및 native 자체 restore 통과만으로 전체 load/save 행을 승격하지 않음.",
       "branch_coverage": {
         "id": "P1595",
         "called": false,
@@ -1776,7 +1815,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1596",
@@ -1788,7 +1829,7 @@
         "end": 370,
         "symbol": "B.last_char"
       },
-      "status": "미확인",
+      "status": "제외",
       "unverified_branches": [],
       "feature_group": "전투 상태·능력치·편성",
       "prior_status": "미확인",
@@ -1810,9 +1851,19 @@
           "test": "combat_p2_r22_test",
           "log": "verification/parity-r23/suite-round2-final/combat_p2_r22_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "rule": "r21-common.md 기능 등가/호스트 전용(11-03)",
+          "source": {
+            "file": "bot/src/20-state.lua",
+            "start": 364,
+            "end": 370,
+            "symbol": "B.last_char"
+          },
+          "contract": "RisuAI 채팅 길이/role 검색. 공통 기능 등가 기준의 호스트 전용 함수."
         }
       ],
-      "remaining_reason": "채팅 길이/role을 검색하는 RisuAI 호스트 함수이며 native에서 같은 호스트 계약을 직접 재현하지 않음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1596",
         "called": false,
@@ -1856,7 +1907,10 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인",
+      "exclusion_reason": "RisuAI 채팅 길이/role 검색. 공통 기능 등가 기준의 호스트 전용 함수."
     },
     {
       "id": "P1599",
@@ -1918,7 +1972,9 @@
       "round1_status": "일부",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1600",
@@ -1979,7 +2035,9 @@
       "round1_status": "일부",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1601",
@@ -2040,7 +2098,9 @@
       "round1_status": "미확인",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1602",
@@ -2101,7 +2161,9 @@
       "round1_status": "일부",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1604",
@@ -2177,7 +2239,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1613",
@@ -2238,7 +2302,9 @@
       "round1_status": "미확인",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1616",
@@ -2330,7 +2396,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1617",
@@ -2406,7 +2474,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1618",
@@ -2482,7 +2552,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1619",
@@ -2562,7 +2634,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1620",
@@ -2648,7 +2722,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1630",
@@ -2709,7 +2785,9 @@
       "round1_status": "일부",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1631",
@@ -2770,7 +2848,9 @@
       "round1_status": "일부",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1640",
@@ -2826,7 +2906,9 @@
       "round1_status": "같음",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1641",
@@ -2882,7 +2964,9 @@
       "round1_status": "같음",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1642",
@@ -2938,7 +3022,9 @@
       "round1_status": "같음",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1645",
@@ -2999,7 +3085,9 @@
       "round1_status": "일부",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1646",
@@ -3055,7 +3143,9 @@
       "round1_status": "같음",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1647",
@@ -3116,7 +3206,9 @@
       "round1_status": "일부",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1650",
@@ -3178,7 +3270,9 @@
       "round1_status": "일부",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1651",
@@ -3239,7 +3333,9 @@
       "round1_status": "일부",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1652",
@@ -3301,7 +3397,9 @@
       "round1_status": "일부",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1653",
@@ -3362,7 +3460,9 @@
       "round1_status": "일부",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1654",
@@ -3438,7 +3538,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1655",
@@ -3514,7 +3616,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1699",
@@ -3595,7 +3699,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1702",
@@ -3616,7 +3722,7 @@
       "native_evidence": {
         "file": "project/game/personal_rules_r22.gd",
         "symbol": "static func isweak",
-        "line": 13
+        "line": 52
       },
       "new_evidence": [
         {
@@ -3656,7 +3762,9 @@
       "round1_status": "미확인",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1705",
@@ -3677,7 +3785,7 @@
       "native_evidence": {
         "file": "project/game/battle_v3.gd",
         "symbol": "func companion_id",
-        "line": 313
+        "line": 318
       },
       "new_evidence": [
         {
@@ -3717,7 +3825,9 @@
       "round1_status": "일부",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1706",
@@ -3738,7 +3848,7 @@
       "native_evidence": {
         "file": "project/game/battle_v3.gd",
         "symbol": "func slot_of",
-        "line": 316
+        "line": 321
       },
       "new_evidence": [
         {
@@ -3778,7 +3888,9 @@
       "round1_status": "미확인",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1713",
@@ -3859,7 +3971,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1715",
@@ -3887,7 +4001,7 @@
       "native_evidence": {
         "file": "project/game/dungeon_enemy_r21.gd",
         "symbol": "func tick_buffs",
-        "line": 241
+        "line": 301
       },
       "new_evidence": [
         {
@@ -3963,7 +4077,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1717",
@@ -4019,7 +4135,9 @@
       "round1_status": "같음",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1720",
@@ -4085,7 +4203,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1721",
@@ -4151,7 +4271,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1722",
@@ -4217,7 +4339,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1723",
@@ -4251,7 +4375,7 @@
       "native_evidence": {
         "file": "project/game/battle_v3.gd",
         "symbol": "func speed",
-        "line": 369
+        "line": 374
       },
       "new_evidence": [
         {
@@ -4299,7 +4423,9 @@
       "round1_status": "같음",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1724",
@@ -4380,7 +4506,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1725",
@@ -4426,7 +4554,7 @@
       "native_evidence": {
         "file": "project/game/dungeon_enemy_r21.gd",
         "symbol": "func pick_target",
-        "line": 203
+        "line": 263
       },
       "new_evidence": [
         {
@@ -4486,7 +4614,9 @@
       "round1_status": "같음",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1726",
@@ -4507,7 +4637,7 @@
       "native_evidence": {
         "file": "project/game/battle_v3.gd",
         "symbol": "func initial_enemy_count",
-        "line": 321
+        "line": 326
       },
       "new_evidence": [
         {
@@ -4547,7 +4677,9 @@
       "round1_status": "미확인",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1733",
@@ -4617,7 +4749,9 @@
       "round1_status": "같음",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1737",
@@ -4704,7 +4838,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인"
     },
     {
       "id": "P1746",
@@ -4769,16 +4905,17 @@
         "id": "P1746",
         "called": true,
         "explicit_entries": 30,
-        "entered": 27,
+        "entered": 28,
         "baseline_missing": 3,
-        "baseline_missing_now_entered": [],
-        "remaining_entries": [
+        "baseline_missing_now_entered": [
           {
             "key": "30-engine.lua:337:11823",
             "line": 337,
             "offset": 11823,
             "token": "then"
-          },
+          }
+        ],
+        "remaining_entries": [
           {
             "key": "30-engine.lua:352:12499",
             "line": 352,
@@ -4793,12 +4930,6 @@
           }
         ],
         "remaining_baseline": [
-          {
-            "key": "30-engine.lua:337:11823",
-            "line": 337,
-            "offset": 11823,
-            "token": "then"
-          },
           {
             "key": "30-engine.lua:352:12499",
             "line": 352,
@@ -4827,7 +4958,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1760",
@@ -4914,7 +5047,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1761",
@@ -4995,7 +5130,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1762",
@@ -5007,13 +5144,17 @@
         "end": 489,
         "symbol": "B.dmg_line"
       },
-      "status": "미확인",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "CTB·공격·종결·전투 버튼",
       "prior_status": "미확인",
       "fixed": false,
       "fix": null,
-      "native_evidence": null,
+      "native_evidence": {
+        "file": "project/game/battle_source_state_r23.gd",
+        "symbol": "func damage_line",
+        "line": 138
+      },
       "new_evidence": [
         {
           "test": "battle_r23_test",
@@ -5034,9 +5175,20 @@
           "test": "combat_p3_r22_test",
           "log": "verification/parity-r23/suite-round2-final/combat_p3_r22_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_test",
+          "labels": [
+            "round6/dmg_line"
+          ],
+          "checks": 896,
+          "contract": "ko/en, 연결형/비연결형/목적어 동사, 스킬·보호막·태그·심연·아군/적 처치 32조합의 HTML 전체.",
+          "oracle": "verification/parity-r23/battle-round6-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_test.log"
         }
       ],
-      "remaining_reason": "피해와 보호막 값은 비교. 약점·처치·보호막 등 모든 로그 문구/조사 조합은 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1762",
         "called": true,
@@ -5061,7 +5213,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "같음"
     },
     {
       "id": "P1772",
@@ -5073,13 +5227,17 @@
         "end": 597,
         "symbol": "cutin"
       },
-      "status": "미확인",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "CTB·공격·종결·전투 버튼",
       "prior_status": "미확인",
-      "fixed": false,
-      "fix": null,
-      "native_evidence": null,
+      "fixed": true,
+      "fix": "실제 전투 경로의 원본 기록·문구·시각/반환 계약 보완",
+      "native_evidence": {
+        "file": "project/game/combat_events_r22.gd",
+        "symbol": "func cutin",
+        "line": 11
+      },
       "new_evidence": [
         {
           "test": "battle_r23_test",
@@ -5100,9 +5258,19 @@
           "test": "combat_p3_r22_test",
           "log": "verification/parity-r23/suite-round2-final/combat_p3_r22_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round7_test",
+          "labels": [
+            "round7/cutin"
+          ],
+          "checks": 60,
+          "contract": "대사 4종/대사 없는 id/미지·빈 id, 이름 없음/있음, T=0/소수/양수. cut payload·문구·T 전체와 실제 begin 경로 연결.",
+          "oracle": "verification/parity-r23/battle-round7-oracle.json",
+          "observations": "verification/parity-r23/battle-round7-latest.json"
         }
       ],
-      "remaining_reason": "개인 기술/컷인 회귀는 통과. 해금 조건·소유자·문구 및 전 사건 payload 직접 새 대조는 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1772",
         "called": true,
@@ -5127,7 +5295,10 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인",
+      "round7_fix": "실제 전투 경로의 원본 기록·문구·시각/반환 계약 보완"
     },
     {
       "id": "P1789",
@@ -5250,7 +5421,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1806",
@@ -5386,7 +5559,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1811",
@@ -5473,7 +5648,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인"
     },
     {
       "id": "P1812",
@@ -5560,7 +5737,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인"
     },
     {
       "id": "P1813",
@@ -5647,7 +5826,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인"
     },
     {
       "id": "P1824",
@@ -5738,7 +5919,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1825",
@@ -5861,7 +6044,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인"
     },
     {
       "id": "P1830",
@@ -5948,7 +6133,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인"
     },
     {
       "id": "P1831",
@@ -6035,7 +6222,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인"
     },
     {
       "id": "P1842",
@@ -6122,7 +6311,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인"
     },
     {
       "id": "P1847",
@@ -6134,20 +6325,17 @@
         "end": 1161,
         "symbol": "B.TR.marceline.save"
       },
-      "status": "미확인",
-      "unverified_branches": [
-        {
-          "key": "30-engine.lua:1153:45436",
-          "line": 1153,
-          "offset": 45436,
-          "token": "then"
-        }
-      ],
+      "status": "같음",
+      "unverified_branches": [],
       "feature_group": "CTB·공격·종결·전투 버튼",
       "prior_status": "미확인",
-      "fixed": false,
-      "fix": null,
-      "native_evidence": null,
+      "fixed": true,
+      "fix": "구원 보호막을 고정 수치로 기록하고 HP=1→회복 시각을 보존.",
+      "native_evidence": {
+        "file": "project/game/personal_rules_r22.gd",
+        "symbol": "static func marceline_save",
+        "line": 38
+      },
       "new_evidence": [
         {
           "test": "battle_r23_test",
@@ -6168,17 +6356,27 @@
           "test": "combat_p3_r22_test",
           "log": "verification/parity-r23/suite-round2-final/combat_p3_r22_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_test",
+          "labels": [
+            "round6/marceline_full"
+          ],
+          "checks": 32,
+          "contract": "자기/타인·사용 전/소진·mhp 0/1/2/3/4/7/100/1003. HP=1→회복·보호막의 시간 이력, trait/log와 반환 전체. 실제 lethal save에 연결.",
+          "oracle": "verification/parity-r23/battle-round6-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_test.log"
         }
       ],
-      "remaining_reason": "구원 우선순위 회귀는 통과. 자기/타인·횟수 소진·소형 mhp와 HP=1→회복의 시간 이력 전체는 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1847",
         "called": true,
         "explicit_entries": 3,
-        "entered": 2,
+        "entered": 3,
         "baseline_missing": 1,
-        "baseline_missing_now_entered": [],
-        "remaining_entries": [
+        "baseline_missing_now_entered": [
           {
             "key": "30-engine.lua:1153:45436",
             "line": 1153,
@@ -6186,14 +6384,8 @@
             "token": "then"
           }
         ],
-        "remaining_baseline": [
-          {
-            "key": "30-engine.lua:1153:45436",
-            "line": 1153,
-            "offset": 45436,
-            "token": "then"
-          }
-        ]
+        "remaining_entries": [],
+        "remaining_baseline": []
       },
       "baseline_review": "명시적 함수 대응/실제 실행 분기 재감사",
       "baseline_reason": "원본 Lua에 함수/then·else·do 진입 Boolean 기록만 추가해 실제 입력을 재실행. 함수 호출 확인, 명시적 분기 진입 2/3. 전체 계약은 같음으로 세지 않음. 미도달 분기는 audit-r22b.json의 해당 행에 미확인으로 기록.",
@@ -6209,7 +6401,10 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_fix": "구원 보호막을 고정 수치로 기록하고 HP=1→회복 시각을 보존.",
+      "round6_status": "같음"
     },
     {
       "id": "P3492",
@@ -6366,7 +6561,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인"
     },
     {
       "id": "P3502",
@@ -6378,7 +6575,7 @@
         "end": 61,
         "symbol": "B.nudge::익명 함수@52"
       },
-      "status": "미확인",
+      "status": "제외",
       "unverified_branches": [],
       "feature_group": "CTB·공격·종결·전투 버튼",
       "prior_status": "미확인",
@@ -6405,9 +6602,19 @@
           "test": "combat_p3_r22_test",
           "log": "verification/parity-r23/suite-round2-final/combat_p3_r22_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "rule": "r21-common.md 기능 등가/호스트 전용(11-03)",
+          "source": {
+            "file": "bot/src/80-press.lua",
+            "start": 52,
+            "end": 61,
+            "symbol": "B.nudge::익명 함수@52"
+          },
+          "contract": "RisuAI 재렌더·메시지 갱신 callback. 공통 기준에 따라 제외."
         }
       ],
-      "remaining_reason": "호스트 재렌더/메시지 갱신 callback은 native 저장/렌더 흐름과 직접 대조하지 않음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P3502",
         "called": false,
@@ -6457,7 +6664,10 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인",
+      "exclusion_reason": "RisuAI 재렌더·메시지 갱신 callback. 공통 기준에 따라 제외."
     },
     {
       "id": "P3505",
@@ -6469,7 +6679,7 @@
         "end": 84,
         "symbol": "B.press"
       },
-      "status": "미확인",
+      "status": "제외",
       "unverified_branches": [],
       "feature_group": "CTB·공격·종결·전투 버튼",
       "prior_status": "미확인",
@@ -6496,9 +6706,19 @@
           "test": "combat_p3_r22_test",
           "log": "verification/parity-r23/suite-round2-final/combat_p3_r22_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "rule": "r21-common.md 기능 등가/호스트 전용(11-03)",
+          "source": {
+            "file": "bot/src/80-press.lua",
+            "start": 76,
+            "end": 84,
+            "symbol": "B.press"
+          },
+          "contract": "RisuAI 채팅 변수 load/bind/act/save/redraw 호스트 묶음. B.act 및 원본 저장 왕복 자체는 별도 잔여 행으로 유지."
         }
       ],
-      "remaining_reason": "native 입력 회귀는 통과. 원본 채팅 변수 load/bind/act/save/redraw를 한 버튼으로 묶은 전체 계약은 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P3505",
         "called": false,
@@ -6523,7 +6743,10 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인",
+      "exclusion_reason": "RisuAI 채팅 변수 load/bind/act/save/redraw 호스트 묶음. B.act 및 원본 저장 왕복 자체는 별도 잔여 행으로 유지."
     },
     {
       "id": "P1864",
@@ -6599,7 +6822,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1870",
@@ -6675,7 +6900,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1871",
@@ -6687,13 +6914,17 @@
         "end": 36,
         "symbol": "B.foe_line"
       },
-      "status": "미확인",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "적 방어·반격·소환·단계",
       "prior_status": "미확인",
-      "fixed": false,
-      "fix": null,
-      "native_evidence": null,
+      "fixed": true,
+      "fix": "실제 전투 경로의 원본 기록·문구·시각/반환 계약 보완",
+      "native_evidence": {
+        "file": "project/game/dungeon_enemy_r21.gd",
+        "symbol": "func foe_line",
+        "line": 199
+      },
       "new_evidence": [
         {
           "test": "battle_r23_enemy_test",
@@ -6709,9 +6940,19 @@
           "test": "enemy_action_r21_test",
           "log": "verification/parity-r23/suite-round2-final/enemy_action_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round7_test",
+          "labels": [
+            "round7/foe_line"
+          ],
+          "checks": 512,
+          "contract": "ko/en, 받침/HTML 이름, 태그 없음/다중·보호막·부상·1/4칸의 문구 반환 전체.",
+          "oracle": "verification/parity-r23/battle-round7-oracle.json",
+          "observations": "verification/parity-r23/battle-round7-latest.json"
         }
       ],
-      "remaining_reason": "적 공격 수치는 회귀에 있음. 피해·보호막·tags·부상·조사의 전체 문구는 새 비교하지 않음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1871",
         "called": true,
@@ -6736,7 +6977,10 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인",
+      "round7_fix": "실제 전투 경로의 원본 기록·문구·시각/반환 계약 보완"
     },
     {
       "id": "P1872",
@@ -6838,7 +7082,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1875",
@@ -6890,7 +7136,7 @@
       "native_evidence": {
         "file": "project/game/dungeon_enemy_r21.gd",
         "symbol": "func defense_tags",
-        "line": 134
+        "line": 173
       },
       "new_evidence": [
         {
@@ -6976,7 +7222,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1877",
@@ -6988,29 +7236,16 @@
         "end": 97,
         "symbol": "B.foe_hit_after"
       },
-      "status": "일부",
-      "unverified_branches": [
-        {
-          "key": "31-foes.lua:88:3256",
-          "line": 88,
-          "offset": 3256,
-          "token": "then"
-        },
-        {
-          "key": "31-foes.lua:92:3494",
-          "line": 92,
-          "offset": 3494,
-          "token": "then"
-        }
-      ],
+      "status": "같음",
+      "unverified_branches": [],
       "feature_group": "적 방어·반격·소환·단계",
       "prior_status": "미확인",
       "fixed": true,
-      "fix": "되치기 경로의 재진입을 전투 단위로 막고 실제 타격 속성으로 weak_hit_delay를 판정.",
+      "fix": "되치기 경로의 재진입을 전투 단위로 막고 실제 타격 속성으로 weak_hit_delay를 판정. / 실제 전투 경로의 원본 기록·문구·시각/반환 계약 보완",
       "native_evidence": {
         "file": "project/game/dungeon_enemy_r21.gd",
         "symbol": "func after_hit",
-        "line": 148
+        "line": 187
       },
       "new_evidence": [
         {
@@ -7027,9 +7262,19 @@
           "test": "enemy_action_r21_test",
           "log": "verification/parity-r23/suite-round2-final/enemy_action_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round7_test",
+          "labels": [
+            "round7/foe_hit_after"
+          ],
+          "checks": 96,
+          "contract": "32규칙/방어/보스 감경/행동자 생사 조합과 3시각. weak-hit 지연·재진입 억제·반격·로그·필드 이력·RNG. 기존 실제 적/처치 경계 대조와 결합.",
+          "oracle": "verification/parity-r23/battle-round7-oracle.json",
+          "observations": "verification/parity-r23/battle-round7-latest.json"
         }
       ],
-      "remaining_reason": "실제 속성 덮어쓰기·보스/처치 경계 36개와 되치기 진입을 수정·비교. hitT/로그·다중 재진입의 전체 사건 대조는 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1877",
         "called": true,
@@ -7067,7 +7312,10 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부",
+      "round7_fix": "실제 전투 경로의 원본 기록·문구·시각/반환 계약 보완"
     },
     {
       "id": "P1880",
@@ -7079,23 +7327,16 @@
         "end": 111,
         "symbol": "B.e_counter"
       },
-      "status": "일부",
-      "unverified_branches": [
-        {
-          "key": "31-foes.lua:106:3935",
-          "line": 106,
-          "offset": 3935,
-          "token": "then"
-        }
-      ],
+      "status": "같음",
+      "unverified_branches": [],
       "feature_group": "적 방어·반격·소환·단계",
       "prior_status": "미확인",
       "fixed": true,
-      "fix": "되치기는 회피·총대 메기·일반 공격용 강화/분노/장기전 배율을 거치지 않고 원본 e_counter 식으로 strike.",
+      "fix": "되치기는 회피·총대 메기·일반 공격용 강화/분노/장기전 배율을 거치지 않고 원본 e_counter 식으로 strike. / 실제 전투 경로의 원본 기록·문구·시각/반환 계약 보완",
       "native_evidence": {
-        "file": "project/game/battle_v3.gd",
-        "symbol": "func _enemy_hit",
-        "line": 1236
+        "file": "project/game/dungeon_enemy_r21.gd",
+        "symbol": "func counter",
+        "line": 209
       },
       "new_evidence": [
         {
@@ -7112,9 +7353,19 @@
           "test": "enemy_action_r21_test",
           "log": "verification/parity-r23/suite-round2-final/enemy_action_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round7_test",
+          "labels": [
+            "round7/counter"
+          ],
+          "checks": 288,
+          "contract": "288 HP/보호막/방어/방어 강화·공격 약화·am/0계수·3시각. strike 결과의 tags·kill·ls, 사건·로그·필드 이력·RNG. 중립/무장비 전체 부수 출력과 기존 수치·장비 회귀를 구분.",
+          "oracle": "verification/parity-r23/battle-round7-oracle.json",
+          "observations": "verification/parity-r23/battle-round7-latest.json"
         }
       ],
-      "remaining_reason": "되치기 17경계의 피해/보호막·수혜자·강화/분노 무시·회피 없음·RNG를 비교·수정. 반환 res/tags와 eatk/로그 시각 전체는 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1880",
         "called": true,
@@ -7146,7 +7397,10 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부",
+      "round7_fix": "실제 전투 경로의 원본 기록·문구·시각/반환 계약 보완"
     },
     {
       "id": "P1881",
@@ -7186,7 +7440,7 @@
       "native_evidence": {
         "file": "project/game/dungeon_enemy_r21.gd",
         "symbol": "func attack_bonus",
-        "line": 166
+        "line": 226
       },
       "new_evidence": [
         {
@@ -7271,7 +7525,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1882",
@@ -7299,7 +7555,7 @@
       "native_evidence": {
         "file": "project/game/dungeon_enemy_r21.gd",
         "symbol": "func add_dot",
-        "line": 252
+        "line": 312
       },
       "new_evidence": [
         {
@@ -7346,7 +7602,9 @@
       "round1_status": "미확인",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1885",
@@ -7358,13 +7616,17 @@
         "end": 160,
         "symbol": "B.edot_tick"
       },
-      "status": "미확인",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "적 방어·반격·소환·단계",
       "prior_status": "미확인",
-      "fixed": false,
-      "fix": null,
-      "native_evidence": null,
+      "fixed": true,
+      "fix": "실제 전투 경로의 원본 기록·문구·시각/반환 계약 보완",
+      "native_evidence": {
+        "file": "project/game/dungeon_enemy_r21.gd",
+        "symbol": "func tick_dot",
+        "line": 323
+      },
       "new_evidence": [
         {
           "test": "battle_r23_enemy_test",
@@ -7380,9 +7642,19 @@
           "test": "enemy_action_r21_test",
           "log": "verification/parity-r23/suite-round2-final/enemy_action_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round7_test",
+          "labels": [
+            "round7/edot_tick"
+          ],
+          "checks": 96,
+          "contract": "빈/1/2/4줄, 0피해 줄, 수명 -1/0/1/3, 죽음/보호막/방어. kill 반환·잔여 DOT·고정 피해·사건/로그/필드 이력/T/RNG. 실제 _tick에서 공통 경로 사용.",
+          "oracle": "verification/parity-r23/battle-round7-oracle.json",
+          "observations": "verification/parity-r23/battle-round7-latest.json"
         }
       ],
-      "remaining_reason": "DOT 사망·구원/장비 회귀는 통과. 빈/무효 DOT 목록과 반환 kill/사건·필드 이력 전체의 새 대조는 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1885",
         "called": true,
@@ -7407,7 +7679,10 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인",
+      "round7_fix": "실제 전투 경로의 원본 기록·문구·시각/반환 계약 보완"
     },
     {
       "id": "P1892",
@@ -7484,7 +7759,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1897",
@@ -7496,13 +7773,17 @@
         "end": 224,
         "symbol": "B.foe_turn_end"
       },
-      "status": "미확인",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "적 방어·반격·소환·단계",
       "prior_status": "미확인",
-      "fixed": false,
-      "fix": null,
-      "native_evidence": null,
+      "fixed": true,
+      "fix": "숨기 상태/충전 해제의 원본 종료 로그를 기록.",
+      "native_evidence": {
+        "file": "project/game/dungeon_enemy_r21.gd",
+        "symbol": "func turn_end",
+        "line": 468
+      },
       "new_evidence": [
         {
           "test": "battle_r23_enemy_test",
@@ -7518,24 +7799,28 @@
           "test": "enemy_action_r21_test",
           "log": "verification/parity-r23/suite-round2-final/enemy_action_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_enemy_test",
+          "labels": [
+            "round6/turn_end"
+          ],
+          "checks": 32,
+          "contract": "big 유무·1~4차례·hide_every 없음/2·ranged_dr 없음/0.7의 cq/hid·원본 로그/T 전체.",
+          "oracle": "verification/parity-r23/battle-round6-enemy-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-enemy-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_enemy_test.log"
         }
       ],
-      "remaining_reason": "충전·은신 주기 회귀는 통과. act.big/turns·로그와 전체 종료 상태의 직접 새 대조는 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1897",
         "called": true,
         "explicit_entries": 2,
-        "entered": 1,
+        "entered": 2,
         "baseline_missing": 0,
         "baseline_missing_now_entered": [],
-        "remaining_entries": [
-          {
-            "key": "31-foes.lua:220:8042",
-            "line": 220,
-            "offset": 8042,
-            "token": "then"
-          }
-        ],
+        "remaining_entries": [],
         "remaining_baseline": []
       },
       "baseline_review": "통합판 재평가: 명시적 범위 밖은 승격하지 않음",
@@ -7552,7 +7837,10 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_fix": "숨기 상태/충전 해제의 원본 종료 로그를 기록.",
+      "round6_status": "같음"
     },
     {
       "id": "P1901",
@@ -7564,13 +7852,17 @@
         "end": 279,
         "symbol": "B.e_buff"
       },
-      "status": "미확인",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "적 방어·반격·소환·단계",
       "prior_status": "미확인",
-      "fixed": false,
-      "fix": null,
-      "native_evidence": null,
+      "fixed": true,
+      "fix": "누락 amount·미지 stat/target·aura 지속 규칙과 전체 버프 사건을 원본과 일치.",
+      "native_evidence": {
+        "file": "project/game/dungeon_enemy_r21.gd",
+        "symbol": "func support_action",
+        "line": 415
+      },
       "new_evidence": [
         {
           "test": "battle_r23_enemy_test",
@@ -7586,72 +7878,28 @@
           "test": "enemy_action_r21_test",
           "log": "verification/parity-r23/suite-round2-final/enemy_action_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_enemy_test",
+          "labels": [
+            "round6/buff"
+          ],
+          "checks": 1536,
+          "contract": "6 stat × 4대상 × 누락/0/0.2/1.5 × 8상태 × aura. 기본 amount/turns·self scalar·99턴 aura·shield/pull·부수 기록 전체. 중립/무장비 도메인.",
+          "oracle": "verification/parity-r23/battle-round6-enemy-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-enemy-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_enemy_test.log"
         }
       ],
-      "remaining_reason": "적 buff 회귀는 통과. self/ally/allies·aura·shield/pull과 반환 사건/기록의 모든 조합 새 대조는 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1901",
         "called": true,
         "explicit_entries": 15,
-        "entered": 6,
+        "entered": 15,
         "baseline_missing": 0,
         "baseline_missing_now_entered": [],
-        "remaining_entries": [
-          {
-            "key": "31-foes.lua:244:8789",
-            "line": 244,
-            "offset": 8789,
-            "token": "then"
-          },
-          {
-            "key": "31-foes.lua:245:8818",
-            "line": 245,
-            "offset": 8818,
-            "token": "else"
-          },
-          {
-            "key": "31-foes.lua:256:9107",
-            "line": 256,
-            "offset": 9107,
-            "token": "else"
-          },
-          {
-            "key": "31-foes.lua:258:9206",
-            "line": 258,
-            "offset": 9206,
-            "token": "then"
-          },
-          {
-            "key": "31-foes.lua:262:9371",
-            "line": 262,
-            "offset": 9371,
-            "token": "then"
-          },
-          {
-            "key": "31-foes.lua:264:9433",
-            "line": 264,
-            "offset": 9433,
-            "token": "then"
-          },
-          {
-            "key": "31-foes.lua:266:9517",
-            "line": 266,
-            "offset": 9517,
-            "token": "then"
-          },
-          {
-            "key": "31-foes.lua:272:9643",
-            "line": 272,
-            "offset": 9643,
-            "token": "then"
-          },
-          {
-            "key": "31-foes.lua:273:9689",
-            "line": 273,
-            "offset": 9689,
-            "token": "then"
-          }
-        ],
+        "remaining_entries": [],
         "remaining_baseline": []
       },
       "baseline_review": "통합판 재평가: 명시적 범위 밖은 승격하지 않음",
@@ -7668,7 +7916,10 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_fix": "누락 amount·미지 stat/target·aura 지속 규칙과 전체 버프 사건을 원본과 일치.",
+      "round6_status": "같음"
     },
     {
       "id": "P1908",
@@ -7680,13 +7931,17 @@
         "end": 303,
         "symbol": "B.e_debuff"
       },
-      "status": "미확인",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "적 방어·반격·소환·단계",
       "prior_status": "미확인",
-      "fixed": false,
-      "fix": null,
-      "native_evidence": null,
+      "fixed": true,
+      "fix": "원본 debuff 사건·대상·로그를 실제 적 차례에 기록.",
+      "native_evidence": {
+        "file": "project/game/dungeon_enemy_r21.gd",
+        "symbol": "func support_action",
+        "line": 415
+      },
       "new_evidence": [
         {
           "test": "battle_r23_enemy_test",
@@ -7702,24 +7957,28 @@
           "test": "enemy_action_r21_test",
           "log": "verification/parity-r23/suite-round2-final/enemy_action_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_enemy_test",
+          "labels": [
+            "round6/debuff"
+          ],
+          "checks": 240,
+          "contract": "5 stat × 전체/단일 × 누락/0/0.3 × 8상태. delay·fallback·taunt 우선순위, bf/대상/사건/로그/T 전체. 중립/무장비 도메인.",
+          "oracle": "verification/parity-r23/battle-round6-enemy-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-enemy-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_enemy_test.log"
         }
       ],
-      "remaining_reason": "적 debuff 회귀는 통과. 모든 능력·대상·누락 amount/turns의 전 반환/기록 새 대조는 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1908",
         "called": true,
         "explicit_entries": 5,
-        "entered": 4,
+        "entered": 5,
         "baseline_missing": 0,
         "baseline_missing_now_entered": [],
-        "remaining_entries": [
-          {
-            "key": "31-foes.lua:291:10572",
-            "line": 291,
-            "offset": 10572,
-            "token": "then"
-          }
-        ],
+        "remaining_entries": [],
         "remaining_baseline": []
       },
       "baseline_review": "통합판 재평가: 명시적 범위 밖은 승격하지 않음",
@@ -7736,7 +7995,10 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_fix": "원본 debuff 사건·대상·로그를 실제 적 차례에 기록.",
+      "round6_status": "같음"
     },
     {
       "id": "P1910",
@@ -7748,13 +8010,17 @@
         "end": 319,
         "symbol": "B.e_dot"
       },
-      "status": "미확인",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "적 방어·반격·소환·단계",
       "prior_status": "미확인",
-      "fixed": false,
-      "fix": null,
-      "native_evidence": null,
+      "fixed": true,
+      "fix": "실제 전투 경로의 원본 기록·문구·시각/반환 계약 보완",
+      "native_evidence": {
+        "file": "project/game/dungeon_enemy_r21.gd",
+        "symbol": "func dot_action",
+        "line": 342
+      },
       "new_evidence": [
         {
           "test": "battle_r23_enemy_test",
@@ -7770,24 +8036,27 @@
           "test": "enemy_action_r21_test",
           "log": "verification/parity-r23/suite-round2-final/enemy_action_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round7_test",
+          "labels": [
+            "round7/e_dot"
+          ],
+          "checks": 64,
+          "contract": "회피 참/거짓, 계수/지속 누락·0·경계, 기존 0/4줄 FIFO. DOT 상태와 두 반환 경로의 전체 사건·로그·T·RNG. 회피 결과만 외부 훅 의존성으로 주입하며 실제 회피 훅은 6320판 회귀로 확인.",
+          "oracle": "verification/parity-r23/battle-round7-oracle.json",
+          "observations": "verification/parity-r23/battle-round7-latest.json"
         }
       ],
-      "remaining_reason": "적 DOT 회피 회귀는 통과. 두 반환 경로의 tg/시간·DOT 전체 저장 상태 새 대조는 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1910",
         "called": true,
         "explicit_entries": 1,
-        "entered": 0,
+        "entered": 1,
         "baseline_missing": 0,
         "baseline_missing_now_entered": [],
-        "remaining_entries": [
-          {
-            "key": "31-foes.lua:308:11243",
-            "line": 308,
-            "offset": 11243,
-            "token": "then"
-          }
-        ],
+        "remaining_entries": [],
         "remaining_baseline": []
       },
       "baseline_review": "통합판 재평가: 명시적 범위 밖은 승격하지 않음",
@@ -7804,7 +8073,10 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인",
+      "round7_fix": "실제 전투 경로의 원본 기록·문구·시각/반환 계약 보완"
     },
     {
       "id": "P1911",
@@ -7816,13 +8088,17 @@
         "end": 342,
         "symbol": "B.e_heal"
       },
-      "status": "미확인",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "적 방어·반격·소환·단계",
       "prior_status": "미확인",
-      "fixed": false,
-      "fix": null,
-      "native_evidence": null,
+      "fixed": true,
+      "fix": "회복 대상 없음/회복 시각·payload·로그를 실제 적 차례에 기록.",
+      "native_evidence": {
+        "file": "project/game/dungeon_enemy_r21.gd",
+        "symbol": "func support_action",
+        "line": 415
+      },
       "new_evidence": [
         {
           "test": "battle_r23_enemy_test",
@@ -7838,24 +8114,28 @@
           "test": "enemy_action_r21_test",
           "log": "verification/parity-r23/suite-round2-final/enemy_action_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_enemy_test",
+          "labels": [
+            "round6/heal"
+          ],
+          "checks": 96,
+          "contract": "self/일반/미지 대상 × 누락/0/0.2/2 × 8상태. 대상 없음·최저 비율·동률·죽음/상한·HP 시각·기록 전체.",
+          "oracle": "verification/parity-r23/battle-round6-enemy-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-enemy-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_enemy_test.log"
         }
       ],
-      "remaining_reason": "회복 없음/최저 HP 선택 회귀는 통과. self/일반 대상·동률·상한과 사건/문구의 새 직접 대조는 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1911",
         "called": true,
         "explicit_entries": 6,
-        "entered": 5,
+        "entered": 6,
         "baseline_missing": 0,
         "baseline_missing_now_entered": [],
-        "remaining_entries": [
-          {
-            "key": "31-foes.lua:325:12029",
-            "line": 325,
-            "offset": 12029,
-            "token": "then"
-          }
-        ],
+        "remaining_entries": [],
         "remaining_baseline": []
       },
       "baseline_review": "통합판 재평가: 명시적 범위 밖은 승격하지 않음",
@@ -7872,7 +8152,10 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_fix": "회복 대상 없음/회복 시각·payload·로그를 실제 적 차례에 기록.",
+      "round6_status": "같음"
     },
     {
       "id": "P1912",
@@ -7884,28 +8167,15 @@
         "end": 369,
         "symbol": "B.summon_one"
       },
-      "status": "일부",
-      "unverified_branches": [
-        {
-          "key": "31-foes.lua:348:13023",
-          "line": 348,
-          "offset": 13023,
-          "token": "then"
-        },
-        {
-          "key": "31-foes.lua:357:13288",
-          "line": 357,
-          "offset": 13288,
-          "token": "then"
-        }
-      ],
+      "status": "같음",
+      "unverified_branches": [],
       "feature_group": "적 방어·반격·소환·단계",
       "prior_status": "미확인",
       "fixed": true,
       "fix": "빈 칸을 먼저 선택하고 같은 사건에서 바뀐 사망 칸 재사용을 막음. 옛 mob 등급 소환 칸 호환 유지.",
       "native_evidence": {
         "file": "project/game/dungeon_enemy_r21.gd",
-        "symbol": "func summon",
+        "symbol": "func summon_one",
         "line": 81
       },
       "new_evidence": [
@@ -7923,9 +8193,19 @@
           "test": "enemy_action_r21_test",
           "log": "verification/parity-r23/suite-round2-final/enemy_action_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round7_test",
+          "labels": [
+            "round7/summon"
+          ],
+          "checks": 128,
+          "contract": "기존 25경계의 수치/정의·RNG와 새 128조합의 전체 기록을 결합. empty 우선, 죽은 minion 재사용/현재 사건 점유/생존 상한. 원본 slot/nil 반환을 e_summon의 tg·중단 결과로 직접 관측; native는 같은 칸의 unit/빈 map ABI.",
+          "oracle": "verification/parity-r23/battle-round7-oracle.json",
+          "observations": "verification/parity-r23/battle-round7-latest.json"
         }
       ],
-      "remaining_reason": "빈 칸/재사용/동일 사건·옛 저장의 배치와 RNG를 검증. 반환 칸/nil 및 전체 ev.h 필드 이력을 native와 직접 비교하는 작업은 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1912",
         "called": true,
@@ -7963,7 +8243,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1919",
@@ -7975,16 +8257,16 @@
         "end": 386,
         "symbol": "B.e_summon"
       },
-      "status": "일부",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "적 방어·반격·소환·단계",
       "prior_status": "미확인",
       "fixed": true,
-      "fix": "소환 수 0/1/2/3/9, 한도·빈 칸 우선·직전 사망의 배치/RNG 순서를 수정.",
+      "fix": "소환 수 0/1/2/3/9, 한도·빈 칸 우선·직전 사망의 배치/RNG 순서를 수정. / 실제 전투 경로의 원본 기록·문구·시각/반환 계약 보완",
       "native_evidence": {
         "file": "project/game/dungeon_enemy_r21.gd",
-        "symbol": "func summon",
-        "line": 81
+        "symbol": "func summon(",
+        "line": 105
       },
       "new_evidence": [
         {
@@ -8001,9 +8283,19 @@
           "test": "enemy_action_r21_test",
           "log": "verification/parity-r23/suite-round2-final/enemy_action_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round7_test",
+          "labels": [
+            "round7/summon"
+          ],
+          "checks": 128,
+          "contract": "32저장/사건 조합 × 0/1/3/6회. 생성 목록/tgs, 빈 소환/등장 문구, 전체 ev.h·log·T·RNG. 기존 25개의 전체 유닛 통계/정의 비교와 결합.",
+          "oracle": "verification/parity-r23/battle-round7-oracle.json",
+          "observations": "verification/parity-r23/battle-round7-latest.json"
         }
       ],
-      "remaining_reason": "소환 25경계의 상태/RNG를 비교·수정. made/tgs·빈 소환 문구·전체 기록장 반환은 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1919",
         "called": true,
@@ -8028,7 +8320,10 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부",
+      "round7_fix": "실제 전투 경로의 원본 기록·문구·시각/반환 계약 보완"
     },
     {
       "id": "P1920",
@@ -8040,13 +8335,17 @@
         "end": 397,
         "symbol": "B.e_protect"
       },
-      "status": "미확인",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "적 방어·반격·소환·단계",
       "prior_status": "미확인",
-      "fixed": false,
-      "fix": null,
-      "native_evidence": null,
+      "fixed": true,
+      "fix": "보호 대상/방어의 원본 사건·로그를 기록.",
+      "native_evidence": {
+        "file": "project/game/dungeon_enemy_r21.gd",
+        "symbol": "func support_action",
+        "line": 415
+      },
       "new_evidence": [
         {
           "test": "battle_r23_enemy_test",
@@ -8062,24 +8361,28 @@
           "test": "enemy_action_r21_test",
           "log": "verification/parity-r23/suite-round2-final/enemy_action_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_enemy_test",
+          "labels": [
+            "round6/protect"
+          ],
+          "checks": 16,
+          "contract": "guard 유무·동료 없음/후열 우선·전체 pt/df/사건/로그/T.",
+          "oracle": "verification/parity-r23/battle-round6-enemy-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-enemy-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_enemy_test.log"
         }
       ],
-      "remaining_reason": "기존 보호 우선순위 회귀는 통과. 동료 없음/후열 우선·guard의 모든 사건과 로그 새 대조는 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1920",
         "called": true,
         "explicit_entries": 2,
-        "entered": 1,
+        "entered": 2,
         "baseline_missing": 0,
         "baseline_missing_now_entered": [],
-        "remaining_entries": [
-          {
-            "key": "31-foes.lua:392:14346",
-            "line": 392,
-            "offset": 14346,
-            "token": "then"
-          }
-        ],
+        "remaining_entries": [],
         "remaining_baseline": []
       },
       "baseline_review": "통합판 재평가: 명시적 범위 밖은 승격하지 않음",
@@ -8096,7 +8399,10 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_fix": "보호 대상/방어의 원본 사건·로그를 기록.",
+      "round6_status": "같음"
     },
     {
       "id": "P1926",
@@ -8108,13 +8414,17 @@
         "end": 431,
         "symbol": "B.e_special"
       },
-      "status": "미확인",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "적 방어·반격·소환·단계",
       "prior_status": "미확인",
-      "fixed": false,
-      "fix": null,
-      "native_evidence": null,
+      "fixed": true,
+      "fix": "후보 유무에 따른 원본 침묵/무효 사건·로그·지속을 기록.",
+      "native_evidence": {
+        "file": "project/game/dungeon_enemy_r21.gd",
+        "symbol": "func support_action",
+        "line": 415
+      },
       "new_evidence": [
         {
           "test": "battle_r23_enemy_test",
@@ -8130,54 +8440,29 @@
           "test": "enemy_action_r21_test",
           "log": "verification/parity-r23/suite-round2-final/enemy_action_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_enemy_test",
+          "labels": [
+            "round6/special",
+            "round6/special_choices"
+          ],
+          "checks": 74,
+          "contract": "silence/다른 fx/빈 fx·후보 없음, 10직업 × 4실제 PM 씨앗 및 RNG=1 clamp 경계. 전체 봉인 id/기록/T와 실제 RNG 상태. RNG=1은 난수 의존성만 주입한 방어 경계이며 실제 PM 난수 범위와 구분.",
+          "oracle": "verification/parity-r23/battle-round6-enemy-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-enemy-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_enemy_test.log"
         }
       ],
-      "remaining_reason": "침묵 200개 회귀는 통과. 후보 없음·다른 fx·선택한 기술의 문자열/로그 전체 새 대조는 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1926",
         "called": true,
         "explicit_entries": 6,
-        "entered": 0,
+        "entered": 6,
         "baseline_missing": 0,
         "baseline_missing_now_entered": [],
-        "remaining_entries": [
-          {
-            "key": "31-foes.lua:409:15048",
-            "line": 409,
-            "offset": 15048,
-            "token": "then"
-          },
-          {
-            "key": "31-foes.lua:412:15132",
-            "line": 412,
-            "offset": 15132,
-            "token": "do"
-          },
-          {
-            "key": "31-foes.lua:413:15176",
-            "line": 413,
-            "offset": 15176,
-            "token": "do"
-          },
-          {
-            "key": "31-foes.lua:414:15233",
-            "line": 414,
-            "offset": 15233,
-            "token": "then"
-          },
-          {
-            "key": "31-foes.lua:417:15305",
-            "line": 417,
-            "offset": 15305,
-            "token": "then"
-          },
-          {
-            "key": "31-foes.lua:419:15376",
-            "line": 419,
-            "offset": 15376,
-            "token": "then"
-          }
-        ],
+        "remaining_entries": [],
         "remaining_baseline": []
       },
       "baseline_review": "통합판 재평가: 명시적 범위 밖은 승격하지 않음",
@@ -8194,7 +8479,10 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_fix": "후보 유무에 따른 원본 침묵/무효 사건·로그·지속을 기록.",
+      "round6_status": "같음"
     },
     {
       "id": "P1930",
@@ -8206,13 +8494,17 @@
         "end": 437,
         "symbol": "B.e_act"
       },
-      "status": "미확인",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "적 방어·반격·소환·단계",
       "prior_status": "미확인",
       "fixed": false,
       "fix": null,
-      "native_evidence": null,
+      "native_evidence": {
+        "file": "project/game/dungeon_enemy_r21.gd",
+        "symbol": "func dispatch",
+        "line": 356
+      },
       "new_evidence": [
         {
           "test": "battle_r23_enemy_test",
@@ -8228,9 +8520,19 @@
           "test": "enemy_action_r21_test",
           "log": "verification/parity-r23/suite-round2-final/enemy_action_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle-round7-boundary-test",
+          "labels": [
+            "round7/dispatch"
+          ],
+          "checks": 11,
+          "contract": "11종 dispatch(모든 지원 종류·미지/atk/guard 무동작), 주 묶음 6입력과 기존 100종 동작 회귀. 실제 dispatch의 payload·상태·기록·RNG; 상위 enemy_turn 전체 완료로 전파하지 않음.",
+          "oracle": "verification/parity-r23/battle-round7-boundary-oracle.json",
+          "observations": "verification/parity-r23/battle-round7-boundary-latest.json"
         }
       ],
-      "remaining_reason": "기존 100종 dispatch는 검증. 알려지지 않은 kind→무동작과 payload 전파를 새 독립 대조하지 않음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1930",
         "called": true,
@@ -8255,7 +8557,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인"
     },
     {
       "id": "P1931",
@@ -8267,20 +8571,17 @@
         "end": 452,
         "symbol": "B.charge_cancel"
       },
-      "status": "일부",
-      "unverified_branches": [
-        {
-          "key": "31-foes.lua:447:16496",
-          "line": 447,
-          "offset": 16496,
-          "token": "then"
-        }
-      ],
+      "status": "같음",
+      "unverified_branches": [],
       "feature_group": "적 방어·반격·소환·단계",
       "prior_status": "미확인",
-      "fixed": false,
-      "fix": null,
-      "native_evidence": null,
+      "fixed": true,
+      "fix": "실제 전투 경로의 원본 기록·문구·시각/반환 계약 보완",
+      "native_evidence": {
+        "file": "project/game/dungeon_enemy_r21.gd",
+        "symbol": "func cancel_charge",
+        "line": 143
+      },
       "new_evidence": [
         {
           "test": "battle_r23_enemy_test",
@@ -8296,9 +8597,19 @@
           "test": "enemy_action_r21_test",
           "log": "verification/parity-r23/suite-round2-final/enemy_action_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round7_test",
+          "labels": [
+            "round7/charge_cancel"
+          ],
+          "checks": 24,
+          "contract": "기본 적 및 실제 break_self 적, HP 1/2/1000·보호막·행동 index 경계. cq/ia와 HP/SH 시간 이력·로그·반환 전체, 기존 3실제 HP 경계도 유지.",
+          "oracle": "verification/parity-r23/battle-round7-oracle.json",
+          "observations": "verification/parity-r23/battle-round7-latest.json"
         }
       ],
-      "remaining_reason": "실제 break_self 적의 HP 경계별 취소 상태를 비교. ia/cq·로그·필드 시간 이력의 전체 반환은 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1931",
         "called": true,
@@ -8330,7 +8641,10 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부",
+      "round7_fix": "실제 전투 경로의 원본 기록·문구·시각/반환 계약 보완"
     },
     {
       "id": "P1934",
@@ -8342,26 +8656,17 @@
         "end": 481,
         "symbol": "B.enter_phase2"
       },
-      "status": "일부",
-      "unverified_branches": [
-        {
-          "key": "31-foes.lua:466:17133",
-          "line": 466,
-          "offset": 17133,
-          "token": "then"
-        },
-        {
-          "key": "31-foes.lua:468:17202",
-          "line": 468,
-          "offset": 17202,
-          "token": "then"
-        }
-      ],
+      "status": "같음",
+      "unverified_branches": [],
       "feature_group": "적 방어·반격·소환·단계",
       "prior_status": "미확인",
-      "fixed": false,
-      "fix": null,
-      "native_evidence": null,
+      "fixed": true,
+      "fix": "실제 전투 경로의 원본 기록·문구·시각/반환 계약 보완",
+      "native_evidence": {
+        "file": "project/game/dungeon_enemy_r21.gd",
+        "symbol": "func enter_phase2",
+        "line": 131
+      },
       "new_evidence": [
         {
           "test": "battle_r23_enemy_test",
@@ -8377,17 +8682,33 @@
           "test": "enemy_action_r21_test",
           "log": "verification/parity-r23/suite-round2-final/enemy_action_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round7_test",
+          "labels": [
+            "round7/phase"
+          ],
+          "checks": 144,
+          "contract": "9실제 단계 보스·동시 2마리, HP 문턱·ph·생사·ev 유무의 전체 전환 기록/RNG. 기존 통계/정의/약점 경계 대조와 결합. 별도 RNG=0/1 의존성 경계가 두 clamp 분기도 직접 통과.",
+          "oracle": "verification/parity-r23/battle-round7-oracle.json",
+          "observations": "verification/parity-r23/battle-round7-latest.json"
+        },
+        {
+          "test": "battle-round7-boundary-test",
+          "checks": 2,
+          "oracle": "verification/parity-r23/battle-round7-boundary-oracle.json",
+          "observations": "verification/parity-r23/battle-round7-boundary-latest.json",
+          "contract": "실제 PM의 [0,1) 영역 밖인 1은 의존성 방어 경계로 구분. canonical B.enter_phase2의 난수 clamp를 직접 실행."
         }
       ],
-      "remaining_reason": "모든 실제 2단계 적의 문턱·치명 피해·진입/약점/RNG를 비교. 사건/로그·정의 전체 반환은 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1934",
         "called": true,
         "explicit_entries": 6,
-        "entered": 4,
+        "entered": 6,
         "baseline_missing": 2,
-        "baseline_missing_now_entered": [],
-        "remaining_entries": [
+        "baseline_missing_now_entered": [
           {
             "key": "31-foes.lua:466:17133",
             "line": 466,
@@ -8401,20 +8722,8 @@
             "token": "then"
           }
         ],
-        "remaining_baseline": [
-          {
-            "key": "31-foes.lua:466:17133",
-            "line": 466,
-            "offset": 17133,
-            "token": "then"
-          },
-          {
-            "key": "31-foes.lua:468:17202",
-            "line": 468,
-            "offset": 17202,
-            "token": "then"
-          }
-        ]
+        "remaining_entries": [],
+        "remaining_baseline": []
       },
       "baseline_review": "명시적 함수 대응/실제 실행 분기 재감사",
       "baseline_reason": "원본 Lua에 함수/then·else·do 진입 Boolean 기록만 추가해 실제 입력을 재실행. 함수 호출 확인, 명시적 분기 진입 4/6. 전체 계약은 같음으로 세지 않음. 미도달 분기는 audit-r22b.json의 해당 행에 미확인으로 기록.",
@@ -8430,7 +8739,10 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부",
+      "round7_fix": "실제 전투 경로의 원본 기록·문구·시각/반환 계약 보완"
     },
     {
       "id": "P1942",
@@ -8442,20 +8754,17 @@
         "end": 497,
         "symbol": "B.phase_check"
       },
-      "status": "일부",
-      "unverified_branches": [
-        {
-          "key": "31-foes.lua:487:17989",
-          "line": 487,
-          "offset": 17989,
-          "token": "then"
-        }
-      ],
+      "status": "같음",
+      "unverified_branches": [],
       "feature_group": "적 방어·반격·소환·단계",
       "prior_status": "미확인",
-      "fixed": false,
-      "fix": null,
-      "native_evidence": null,
+      "fixed": true,
+      "fix": "실제 전투 경로의 원본 기록·문구·시각/반환 계약 보완",
+      "native_evidence": {
+        "file": "project/game/dungeon_enemy_r21.gd",
+        "symbol": "func phase_check",
+        "line": 121
+      },
       "new_evidence": [
         {
           "test": "battle_r23_enemy_test",
@@ -8471,17 +8780,26 @@
           "test": "enemy_action_r21_test",
           "log": "verification/parity-r23/suite-round2-final/enemy_action_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round7_test",
+          "labels": [
+            "round7/phase"
+          ],
+          "checks": 144,
+          "contract": "ev 없음→0, ph1/2·생사·문턱 위/동일·동시 2보스의 반환 전환 수와 전체 시간/로그/RNG. 실제 진행은 _tick이 기록장을 먼저 초기화.",
+          "oracle": "verification/parity-r23/battle-round7-oracle.json",
+          "observations": "verification/parity-r23/battle-round7-latest.json"
         }
       ],
-      "remaining_reason": "실제 2단계 적의 HP 경계를 비교. ev 없음·반환 전환 수·한번에 복수 보스의 전체 상태는 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1942",
         "called": true,
         "explicit_entries": 4,
-        "entered": 3,
+        "entered": 4,
         "baseline_missing": 1,
-        "baseline_missing_now_entered": [],
-        "remaining_entries": [
+        "baseline_missing_now_entered": [
           {
             "key": "31-foes.lua:487:17989",
             "line": 487,
@@ -8489,14 +8807,8 @@
             "token": "then"
           }
         ],
-        "remaining_baseline": [
-          {
-            "key": "31-foes.lua:487:17989",
-            "line": 487,
-            "offset": 17989,
-            "token": "then"
-          }
-        ]
+        "remaining_entries": [],
+        "remaining_baseline": []
       },
       "baseline_review": "명시적 함수 대응/실제 실행 분기 재감사",
       "baseline_reason": "원본 Lua에 함수/then·else·do 진입 Boolean 기록만 추가해 실제 입력을 재실행. 함수 호출 확인, 명시적 분기 진입 3/4. 전체 계약은 같음으로 세지 않음. 미도달 분기는 audit-r22b.json의 해당 행에 미확인으로 기록.",
@@ -8512,7 +8824,10 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부",
+      "round7_fix": "실제 전투 경로의 원본 기록·문구·시각/반환 계약 보완"
     },
     {
       "id": "P1944",
@@ -8524,13 +8839,17 @@
         "end": 518,
         "symbol": "B.result_context"
       },
-      "status": "미확인",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "적 방어·반격·소환·단계",
       "prior_status": "미확인",
       "fixed": false,
       "fix": null,
-      "native_evidence": null,
+      "native_evidence": {
+        "file": "project/game/battle_source_state_r23.gd",
+        "symbol": "func result_context",
+        "line": 125
+      },
       "new_evidence": [
         {
           "test": "battle_r23_enemy_test",
@@ -8546,36 +8865,28 @@
           "test": "enemy_action_r21_test",
           "log": "verification/parity-r23/suite-round2-final/enemy_action_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_test",
+          "labels": [
+            "round6/result_context"
+          ],
+          "checks": 42,
+          "contract": "옛 fl 없음, 중복/빈/empty 적, 장소 누락/빈/HTML, 탐색/구역/보스 단계와 ko/en의 전체 결과 문구.",
+          "oracle": "verification/parity-r23/battle-round6-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_test.log"
         }
       ],
-      "remaining_reason": "원본 정산용 장소·적·층/균열 문구를 native 정산 메타데이터와 직접 새 비교하지 않음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1944",
         "called": true,
         "explicit_entries": 5,
-        "entered": 2,
+        "entered": 5,
         "baseline_missing": 0,
         "baseline_missing_now_entered": [],
-        "remaining_entries": [
-          {
-            "key": "31-foes.lua:504:18460",
-            "line": 504,
-            "offset": 18460,
-            "token": "then"
-          },
-          {
-            "key": "31-foes.lua:511:18711",
-            "line": 511,
-            "offset": 18711,
-            "token": "then"
-          },
-          {
-            "key": "31-foes.lua:514:19010",
-            "line": 514,
-            "offset": 19010,
-            "token": "then"
-          }
-        ],
+        "remaining_entries": [],
         "remaining_baseline": []
       },
       "baseline_review": "통합판 재평가: 명시적 범위 밖은 승격하지 않음",
@@ -8592,7 +8903,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "같음"
     },
     {
       "id": "P1945",
@@ -8666,7 +8979,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인"
     },
     {
       "id": "P2363",
@@ -8752,7 +9067,9 @@
       "round2_status": "미확인",
       "round3_status": "미확인",
       "round4_status": "같음",
-      "round5_fix": "레이드도 같은 정확한 binary64 1/2자리 반올림을 사용."
+      "round5_fix": "레이드도 같은 정확한 binary64 1/2자리 반올림을 사용.",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2365",
@@ -8827,7 +9144,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2366",
@@ -8839,13 +9158,17 @@
         "end": 87,
         "symbol": "B.r_boss"
       },
-      "status": "미확인",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "적 방어·반격·소환·단계",
       "prior_status": "미확인",
       "fixed": false,
       "fix": null,
-      "native_evidence": null,
+      "native_evidence": {
+        "file": "project/game/combat_tiles_r23.gd",
+        "symbol": "func enemy_tile",
+        "line": 10
+      },
       "new_evidence": [
         {
           "test": "battle_r23_enemy_test",
@@ -8861,114 +9184,28 @@
           "test": "enemy_action_r21_test",
           "log": "verification/parity-r23/suite-round2-final/enemy_action_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_tiles_test",
+          "labels": [
+            "round6/boss_tile"
+          ],
+          "checks": 512,
+          "contract": "모든 실제 단계 보스를 순환한 512입력. ph/cwk·죽음·충전 예고·고갈·단계선·배지·전체 HTML. native scene renderer의 동치로 확대하지 않음.",
+          "oracle": "verification/parity-r23/battle-round6-tiles-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-tiles-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_tiles_test.log"
         }
       ],
-      "remaining_reason": "레이드 화면 회귀는 통과. 보스별 모든 상태/배지/예고/필드 시간의 의미상 출력 대조는 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P2366",
-        "called": false,
+        "called": true,
         "explicit_entries": 16,
-        "entered": 0,
+        "entered": 16,
         "baseline_missing": 0,
         "baseline_missing_now_entered": [],
-        "remaining_entries": [
-          {
-            "key": "51-raid.lua:36:1384",
-            "line": 36,
-            "offset": 1384,
-            "token": "then"
-          },
-          {
-            "key": "51-raid.lua:37:1399",
-            "line": 37,
-            "offset": 1399,
-            "token": "then"
-          },
-          {
-            "key": "51-raid.lua:38:1438",
-            "line": 38,
-            "offset": 1438,
-            "token": "do"
-          },
-          {
-            "key": "51-raid.lua:38:1469",
-            "line": 38,
-            "offset": 1469,
-            "token": "then"
-          },
-          {
-            "key": "51-raid.lua:43:1581",
-            "line": 43,
-            "offset": 1581,
-            "token": "then"
-          },
-          {
-            "key": "51-raid.lua:44:1651",
-            "line": 44,
-            "offset": 1651,
-            "token": "then"
-          },
-          {
-            "key": "51-raid.lua:48:1902",
-            "line": 48,
-            "offset": 1902,
-            "token": "then"
-          },
-          {
-            "key": "51-raid.lua:50:1953",
-            "line": 50,
-            "offset": 1953,
-            "token": "then"
-          },
-          {
-            "key": "51-raid.lua:52:2039",
-            "line": 52,
-            "offset": 2039,
-            "token": "else"
-          },
-          {
-            "key": "51-raid.lua:54:2108",
-            "line": 54,
-            "offset": 2108,
-            "token": "then"
-          },
-          {
-            "key": "51-raid.lua:57:2400",
-            "line": 57,
-            "offset": 2400,
-            "token": "else"
-          },
-          {
-            "key": "51-raid.lua:64:2561",
-            "line": 64,
-            "offset": 2561,
-            "token": "then"
-          },
-          {
-            "key": "51-raid.lua:65:2720",
-            "line": 65,
-            "offset": 2720,
-            "token": "then"
-          },
-          {
-            "key": "51-raid.lua:66:2741",
-            "line": 66,
-            "offset": 2741,
-            "token": "then"
-          },
-          {
-            "key": "51-raid.lua:67:2845",
-            "line": 67,
-            "offset": 2845,
-            "token": "else"
-          },
-          {
-            "key": "51-raid.lua:70:2922",
-            "line": 70,
-            "offset": 2922,
-            "token": "do"
-          }
-        ],
+        "remaining_entries": [],
         "remaining_baseline": []
       },
       "baseline_review": "통합판 재평가: 명시적 범위 밖은 승격하지 않음",
@@ -8984,7 +9221,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "같음"
     },
     {
       "id": "P2368",
@@ -8996,13 +9235,17 @@
         "end": 99,
         "symbol": "B.raid_field"
       },
-      "status": "미확인",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "적 방어·반격·소환·단계",
       "prior_status": "미확인",
       "fixed": false,
       "fix": null,
-      "native_evidence": null,
+      "native_evidence": {
+        "file": "project/game/combat_tiles_r23.gd",
+        "symbol": "func raid_field",
+        "line": 63
+      },
       "new_evidence": [
         {
           "test": "battle_r23_enemy_test",
@@ -9018,30 +9261,28 @@
           "test": "enemy_action_r21_test",
           "log": "verification/parity-r23/suite-round2-final/enemy_action_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_tiles_test",
+          "labels": [
+            "round6/raid_field"
+          ],
+          "checks": 512,
+          "contract": "보스 + 호위/하수인·빈 칸/생사·target anchor·field FX의 HTML 전체. 직접 호출과 Battle.combat_display_tile 통합 경로 모두 비교.",
+          "oracle": "verification/parity-r23/battle-round6-tiles-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-tiles-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_tiles_test.log"
         }
       ],
-      "remaining_reason": "기존 레이드 배치는 유지. 원본 raid_field와 native의 빈 칸·호위·보스별 표시 전체는 새 대조하지 않음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P2368",
-        "called": false,
+        "called": true,
         "explicit_entries": 2,
-        "entered": 0,
+        "entered": 2,
         "baseline_missing": 0,
         "baseline_missing_now_entered": [],
-        "remaining_entries": [
-          {
-            "key": "51-raid.lua:93:4389",
-            "line": 93,
-            "offset": 4389,
-            "token": "do"
-          },
-          {
-            "key": "51-raid.lua:95:4459",
-            "line": 95,
-            "offset": 4459,
-            "token": "then"
-          }
-        ],
+        "remaining_entries": [],
         "remaining_baseline": []
       },
       "baseline_review": "통합판 재평가: 명시적 범위 밖은 승격하지 않음",
@@ -9057,7 +9298,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "같음"
     },
     {
       "id": "P1948",
@@ -9078,7 +9321,7 @@
       "native_evidence": {
         "file": "project/game/battle_v3.gd",
         "symbol": "func x",
-        "line": 260
+        "line": 265
       },
       "new_evidence": [
         {
@@ -9118,7 +9361,9 @@
       "round1_status": "미확인",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1950",
@@ -9139,7 +9384,7 @@
       "native_evidence": {
         "file": "project/game/battle_v3.gd",
         "symbol": "func living",
-        "line": 304
+        "line": 309
       },
       "new_evidence": [
         {
@@ -9179,7 +9424,9 @@
       "round1_status": "미확인",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1951",
@@ -9207,7 +9454,7 @@
       "native_evidence": {
         "file": "project/game/battle_v3.gd",
         "symbol": "func _behind",
-        "line": 584
+        "line": 589
       },
       "new_evidence": [
         {
@@ -9254,7 +9501,9 @@
       "round1_status": "미확인",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1954",
@@ -9330,7 +9579,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1955",
@@ -9406,7 +9657,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1957",
@@ -9434,7 +9687,7 @@
       "native_evidence": {
         "file": "project/game/personal_rules_r22.gd",
         "symbol": "static func haldric",
-        "line": 187
+        "line": 226
       },
       "new_evidence": [
         {
@@ -9496,7 +9749,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1994",
@@ -9517,7 +9772,7 @@
       "native_evidence": {
         "file": "project/game/personal_rules_r22.gd",
         "symbol": "static func cor_live",
-        "line": 55
+        "line": 94
       },
       "new_evidence": [
         {
@@ -9557,7 +9812,9 @@
       "round1_status": "일부",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1996",
@@ -9591,7 +9848,7 @@
       "native_evidence": {
         "file": "project/game/personal_rules_r22.gd",
         "symbol": "static func corrode",
-        "line": 63
+        "line": 102
       },
       "new_evidence": [
         {
@@ -9659,7 +9916,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2004",
@@ -9741,7 +10000,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P2017",
@@ -9769,7 +10030,7 @@
       "native_evidence": {
         "file": "project/game/personal_rules_r22.gd",
         "symbol": "static func urda",
-        "line": 136
+        "line": 175
       },
       "new_evidence": [
         {
@@ -9831,7 +10092,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2020",
@@ -9852,7 +10115,7 @@
       "native_evidence": {
         "file": "project/game/personal_rules_r22.gd",
         "symbol": "static func urda_round",
-        "line": 136
+        "line": 175
       },
       "new_evidence": [
         {
@@ -9915,7 +10178,9 @@
       "round2_status": "미확인",
       "round3_status": "미확인",
       "round4_status": "미확인",
-      "round5_fix": "우르다 라운드 회복·해제의 원본 trait/log/HP 이력·T를 실제 _round_tick에 연결."
+      "round5_fix": "우르다 라운드 회복·해제의 원본 trait/log/HP 이력·T를 실제 _round_tick에 연결.",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2033",
@@ -9927,29 +10192,16 @@
         "end": 473,
         "symbol": "felice_scan"
       },
-      "status": "일부",
-      "unverified_branches": [
-        {
-          "key": "32-personal-a.lua:456:18907",
-          "line": 456,
-          "offset": 18907,
-          "token": "then"
-        },
-        {
-          "key": "32-personal-a.lua:457:18946",
-          "line": 457,
-          "offset": 18946,
-          "token": "then"
-        }
-      ],
+      "status": "같음",
+      "unverified_branches": [],
       "feature_group": "30인 개인 기술·개별 특성",
       "prior_status": "미확인",
       "fixed": true,
-      "fix": "carry 사망자를 통상 대기시간 뒤 조기 소생시키던 입력을 원본과 일치시킴.",
+      "fix": "carry 사망자를 통상 대기시간 뒤 조기 소생시키던 입력을 원본과 일치시킴. / 소생 때 보호막·DOT를 유지하고 원본 HP 이력·trait/log/T를 기록.",
       "native_evidence": {
-        "file": "project/game/battle_v3.gd",
-        "symbol": "func _felice_scan",
-        "line": 1104
+        "file": "project/game/personal_rules_r22.gd",
+        "symbol": "static func felice_scan",
+        "line": 13
       },
       "new_evidence": [
         {
@@ -9966,16 +10218,33 @@
           "test": "combat_p3_r22_test",
           "log": "verification/parity-r23/suite-round2-final/combat_p3_r22_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_test",
+          "labels": [
+            "round6/felice_full"
+          ],
+          "checks": 96,
+          "contract": "16 생사/대기 조합 × 3시각 × 소진 여부. earliest/tie·비table x·보호막/DOT 유지·bf/taunt/mark/charge 해제·HP 이력·trait/log/T 전체. 실제 _felice_scan에 연결.",
+          "oracle": "verification/parity-r23/battle-round6-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_test.log"
         }
       ],
-      "remaining_reason": "carry 대기값/조기 소생을 수정. 다수 사망자의 earliest/tie·1회 소진·각종 효과 유지의 새 직접 대조는 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P2033",
         "called": true,
         "explicit_entries": 7,
-        "entered": 6,
+        "entered": 7,
         "baseline_missing": 2,
         "baseline_missing_now_entered": [
+          {
+            "key": "32-personal-a.lua:456:18907",
+            "line": 456,
+            "offset": 18907,
+            "token": "then"
+          },
           {
             "key": "32-personal-a.lua:457:18946",
             "line": 457,
@@ -9983,22 +10252,8 @@
             "token": "then"
           }
         ],
-        "remaining_entries": [
-          {
-            "key": "32-personal-a.lua:456:18907",
-            "line": 456,
-            "offset": 18907,
-            "token": "then"
-          }
-        ],
-        "remaining_baseline": [
-          {
-            "key": "32-personal-a.lua:456:18907",
-            "line": 456,
-            "offset": 18907,
-            "token": "then"
-          }
-        ]
+        "remaining_entries": [],
+        "remaining_baseline": []
       },
       "baseline_review": "명시적 함수 대응/실제 실행 분기 재감사",
       "baseline_reason": "원본 Lua에 함수/then·else·do 진입 Boolean 기록만 추가해 실제 입력을 재실행. 함수 호출 확인, 명시적 분기 진입 5/7. 전체 계약은 같음으로 세지 않음. 미도달 분기는 audit-r22b.json의 해당 행에 미확인으로 기록.",
@@ -10014,7 +10269,10 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_fix": "소생 때 보호막·DOT를 유지하고 원본 HP 이력·trait/log/T를 기록.",
+      "round6_status": "같음"
     },
     {
       "id": "P2040",
@@ -10042,7 +10300,7 @@
       "native_evidence": {
         "file": "project/game/personal_rules_r22.gd",
         "symbol": "static func felice_save",
-        "line": 91
+        "line": 130
       },
       "new_evidence": [
         {
@@ -10104,7 +10362,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2079",
@@ -10125,7 +10385,7 @@
       "native_evidence": {
         "file": "project/game/personal_rules_r22.gd",
         "symbol": "static func hildegard_scan",
-        "line": 171
+        "line": 210
       },
       "new_evidence": [
         {
@@ -10188,7 +10448,9 @@
       "round2_status": "미확인",
       "round3_status": "미확인",
       "round4_status": "미확인",
-      "round5_fix": "행동 목록이 빈 적을 안전하게 건너뛰고 원본 표적 전환 trait payload를 실제 _hg_scan에 기록."
+      "round5_fix": "행동 목록이 빈 적을 안전하게 건너뛰고 원본 표적 전환 trait payload를 실제 _hg_scan에 기록.",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2091",
@@ -10264,7 +10526,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2092",
@@ -10340,7 +10604,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2093",
@@ -10416,7 +10682,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2094",
@@ -10492,7 +10760,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2095",
@@ -10568,7 +10838,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2096",
@@ -10589,7 +10861,7 @@
       "native_evidence": {
         "file": "project/game/personal_rules_r22.gd",
         "symbol": "static func defense_constant",
-        "line": 61
+        "line": 100
       },
       "new_evidence": [
         {
@@ -10644,7 +10916,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2107",
@@ -10672,7 +10946,7 @@
       "native_evidence": {
         "file": "project/game/personal_rules_r22.gd",
         "symbol": "static func gunhild_deal",
-        "line": 74
+        "line": 113
       },
       "new_evidence": [
         {
@@ -10734,7 +11008,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2115",
@@ -10821,7 +11097,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P2120",
@@ -10849,7 +11127,7 @@
       "native_evidence": {
         "file": "project/game/personal_rules_r22.gd",
         "symbol": "static func bargut_turn_end",
-        "line": 85
+        "line": 124
       },
       "new_evidence": [
         {
@@ -10911,7 +11189,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2132",
@@ -10986,7 +11266,9 @@
       "round1_status": "일부",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2171",
@@ -11068,7 +11350,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P2181",
@@ -11129,7 +11413,9 @@
       "round1_status": "일부",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2201",
@@ -11150,7 +11436,7 @@
       "native_evidence": {
         "file": "project/game/personal_rules_r22.gd",
         "symbol": "static func miko(",
-        "line": 155
+        "line": 194
       },
       "new_evidence": [
         {
@@ -11229,7 +11515,9 @@
       "round2_status": "일부",
       "round3_status": "일부",
       "round4_status": "일부",
-      "round5_fix": "미코 PRUN의 짧은 기술명·회복 이력·원본 shield/boost payload·두 줄 로그·T를 실제 run에 연결."
+      "round5_fix": "미코 PRUN의 짧은 기술명·회복 이력·원본 shield/boost payload·두 줄 로그·T를 실제 run에 연결.",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2205",
@@ -11269,7 +11557,7 @@
       "native_evidence": {
         "file": "project/game/personal_rules_r22.gd",
         "symbol": "static func miko_deal",
-        "line": 100
+        "line": 139
       },
       "new_evidence": [
         {
@@ -11344,7 +11632,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2207",
@@ -11378,7 +11668,7 @@
       "native_evidence": {
         "file": "project/game/personal_rules_r22.gd",
         "symbol": "static func miko_round",
-        "line": 110
+        "line": 149
       },
       "new_evidence": [
         {
@@ -11446,7 +11736,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2218",
@@ -11467,7 +11759,7 @@
       "native_evidence": {
         "file": "project/game/personal_rules_r22.gd",
         "symbol": "static func drop_caster_buffs",
-        "line": 95
+        "line": 134
       },
       "new_evidence": [
         {
@@ -11522,7 +11814,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2220",
@@ -11583,7 +11877,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인"
     },
     {
       "id": "P2235",
@@ -11659,7 +11955,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2236",
@@ -11735,7 +12033,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2239",
@@ -11811,7 +12111,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2242",
@@ -11832,7 +12134,7 @@
       "native_evidence": {
         "file": "project/game/battle_v3.gd",
         "symbol": "func x",
-        "line": 260
+        "line": 265
       },
       "new_evidence": [
         {
@@ -11872,7 +12174,9 @@
       "round1_status": "미확인",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2245",
@@ -11933,7 +12237,9 @@
       "round1_status": "일부",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2249",
@@ -12010,7 +12316,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2267",
@@ -12086,7 +12394,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2268",
@@ -12162,7 +12472,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2280",
@@ -12244,7 +12556,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인"
     },
     {
       "id": "P2287",
@@ -12320,7 +12634,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2292",
@@ -12446,7 +12762,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2300",
@@ -12536,7 +12854,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2301",
@@ -12650,7 +12970,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1660",
@@ -12720,7 +13042,9 @@
       "round1_status": "같음",
       "round2_status": "같음",
       "round3_status": "같음",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1664",
@@ -12811,7 +13135,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1666",
@@ -12888,7 +13214,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1671",
@@ -12978,7 +13306,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1672",
@@ -13068,7 +13398,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1673",
@@ -13158,7 +13490,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1674",
@@ -13257,7 +13591,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1678",
@@ -13333,7 +13669,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P1679",
@@ -13345,13 +13683,17 @@
         "end": 151,
         "symbol": "work"
       },
-      "status": "일부",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "페르소나 단일 연구 기술",
       "prior_status": "일부",
       "fixed": false,
       "fix": null,
-      "native_evidence": null,
+      "native_evidence": {
+        "file": "project/game/persona_research_r21.gd",
+        "symbol": "static func draft_work",
+        "line": 82
+      },
       "new_evidence": [
         {
           "test": "battle_r23_test",
@@ -13367,12 +13709,22 @@
           "test": "persona_research_r21_test",
           "log": "verification/parity-r23/suite-round2-final/persona_research_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round7_persona_test",
+          "labels": [
+            "round7/work"
+          ],
+          "checks": 1517,
+          "contract": "저장/편집 조합과 false·scalar·빈 table의 우선순위, 정규화 반환 전체. native research_work/transition에 공통 helper 연결.",
+          "oracle": "verification/parity-r23/battle-round7-persona-oracle.json",
+          "observations": "verification/parity-r23/battle-round7-persona-latest.json"
         }
       ],
-      "remaining_reason": "기존 편집기 회귀는 통과. 원본 ui.psd 우선순위·없는 UI/저장값 반환 전체를 새 직접 대조하지 않음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1679",
-        "called": false,
+        "called": true,
         "explicit_entries": 0,
         "entered": 0,
         "baseline_missing": 0,
@@ -13394,7 +13746,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1680",
@@ -13406,38 +13760,17 @@
         "end": 159,
         "symbol": "same"
       },
-      "status": "일부",
-      "unverified_branches": [
-        {
-          "key": "29-persona-skill.lua:153:7801",
-          "line": 153,
-          "offset": 7801,
-          "token": "then"
-        },
-        {
-          "key": "29-persona-skill.lua:154:7877",
-          "line": 154,
-          "offset": 7877,
-          "token": "do"
-        },
-        {
-          "key": "29-persona-skill.lua:156:7982",
-          "line": 156,
-          "offset": 7982,
-          "token": "do"
-        },
-        {
-          "key": "29-persona-skill.lua:156:8027",
-          "line": 156,
-          "offset": 8027,
-          "token": "then"
-        }
-      ],
+      "status": "같음",
+      "unverified_branches": [],
       "feature_group": "페르소나 단일 연구 기술",
       "prior_status": "일부",
       "fixed": false,
       "fix": null,
-      "native_evidence": null,
+      "native_evidence": {
+        "file": "project/game/persona_research_r21.gd",
+        "symbol": "static func same_parts",
+        "line": 85
+      },
       "new_evidence": [
         {
           "test": "battle_r23_test",
@@ -13453,17 +13786,26 @@
           "test": "persona_research_r21_test",
           "log": "verification/parity-r23/suite-round2-final/persona_research_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round7_persona_test",
+          "labels": [
+            "round7/same"
+          ],
+          "checks": 1379,
+          "contract": "모든 유효 32조합 및 미완성/무효 조합, 사용하지 않는 조각 강화와 음수/소수/숫자 문자열/hex/상한. prefix/suffix·전체 조각 단계의 동일 판정.",
+          "oracle": "verification/parity-r23/battle-round7-persona-oracle.json",
+          "observations": "verification/parity-r23/battle-round7-persona-latest.json"
         }
       ],
-      "remaining_reason": "기존 draft 회귀는 통과. 사용하지 않는 조각 수준 차이까지 포함한 same 반환을 새 직접 대조하지 않음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1680",
-        "called": false,
+        "called": true,
         "explicit_entries": 4,
-        "entered": 0,
+        "entered": 4,
         "baseline_missing": 4,
-        "baseline_missing_now_entered": [],
-        "remaining_entries": [
+        "baseline_missing_now_entered": [
           {
             "key": "29-persona-skill.lua:153:7801",
             "line": 153,
@@ -13489,32 +13831,8 @@
             "token": "then"
           }
         ],
-        "remaining_baseline": [
-          {
-            "key": "29-persona-skill.lua:153:7801",
-            "line": 153,
-            "offset": 7801,
-            "token": "then"
-          },
-          {
-            "key": "29-persona-skill.lua:154:7877",
-            "line": 154,
-            "offset": 7877,
-            "token": "do"
-          },
-          {
-            "key": "29-persona-skill.lua:156:7982",
-            "line": 156,
-            "offset": 7982,
-            "token": "do"
-          },
-          {
-            "key": "29-persona-skill.lua:156:8027",
-            "line": 156,
-            "offset": 8027,
-            "token": "then"
-          }
-        ]
+        "remaining_entries": [],
+        "remaining_baseline": []
       },
       "baseline_review": "명시적 함수 대응/실제 실행 분기 재감사",
       "baseline_reason": "원본 Lua에 함수/then·else·do 진입 Boolean 기록만 추가해 실제 입력을 재실행. 함수 호출 미관측, 명시적 분기 진입 0/4. 전체 계약은 같음으로 세지 않음. 미도달 분기는 audit-r22b.json의 해당 행에 미확인으로 기록.",
@@ -13530,7 +13848,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1681",
@@ -13542,13 +13862,17 @@
         "end": 162,
         "symbol": "B.ps_dirty"
       },
-      "status": "일부",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "페르소나 단일 연구 기술",
       "prior_status": "일부",
       "fixed": false,
       "fix": null,
-      "native_evidence": null,
+      "native_evidence": {
+        "file": "project/game/persona_research_r21.gd",
+        "symbol": "static func draft_dirty",
+        "line": 91
+      },
       "new_evidence": [
         {
           "test": "battle_r23_test",
@@ -13564,12 +13888,22 @@
           "test": "persona_research_r21_test",
           "log": "verification/parity-r23/suite-round2-final/persona_research_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round7_persona_test",
+          "labels": [
+            "round7/dirty"
+          ],
+          "checks": 1628,
+          "contract": "ui/psd 타입 경계와 저장/편집 조합 교차 비교. 실제 native research_dirty가 같은 helper 사용.",
+          "oracle": "verification/parity-r23/battle-round7-persona-oracle.json",
+          "observations": "verification/parity-r23/battle-round7-persona-latest.json"
         }
       ],
-      "remaining_reason": "기존 dirty/저장 회귀는 통과. 원본 type(ui)/type(psd)별 dirty의 전체 직접 새 대조는 남음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1681",
-        "called": false,
+        "called": true,
         "explicit_entries": 0,
         "entered": 0,
         "baseline_missing": 0,
@@ -13591,7 +13925,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1682",
@@ -13745,7 +14081,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1687",
@@ -13757,38 +14095,17 @@
         "end": 214,
         "symbol": "changes"
       },
-      "status": "일부",
-      "unverified_branches": [
-        {
-          "key": "29-persona-skill.lua:203:11221",
-          "line": 203,
-          "offset": 11221,
-          "token": "then"
-        },
-        {
-          "key": "29-persona-skill.lua:206:11386",
-          "line": 206,
-          "offset": 11386,
-          "token": "do"
-        },
-        {
-          "key": "29-persona-skill.lua:208:11491",
-          "line": 208,
-          "offset": 11491,
-          "token": "do"
-        },
-        {
-          "key": "29-persona-skill.lua:210:11574",
-          "line": 210,
-          "offset": 11574,
-          "token": "then"
-        }
-      ],
+      "status": "같음",
+      "unverified_branches": [],
       "feature_group": "페르소나 단일 연구 기술",
       "prior_status": "일부",
       "fixed": false,
       "fix": null,
-      "native_evidence": null,
+      "native_evidence": {
+        "file": "project/game/persona_research_r21.gd",
+        "symbol": "static func changes",
+        "line": 95
+      },
       "new_evidence": [
         {
           "test": "battle_r23_test",
@@ -13804,17 +14121,26 @@
           "test": "persona_research_r21_test",
           "log": "verification/parity-r23/suite-round2-final/persona_research_r21_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round7_persona_test",
+          "labels": [
+            "round7/changes"
+          ],
+          "checks": 1379,
+          "contract": "조합 변경과 선택/미선택 모든 조각의 강화 변경을 데이터 순서로 영어 배열 전체 비교. 장면 전달(save)의 완료로 전파하지 않음.",
+          "oracle": "verification/parity-r23/battle-round7-persona-oracle.json",
+          "observations": "verification/parity-r23/battle-round7-persona-latest.json"
         }
       ],
-      "remaining_reason": "변경 조합/강화의 영어 서술 배열을 native 대화 지시와 새 직접 비교하지 않음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P1687",
-        "called": false,
+        "called": true,
         "explicit_entries": 4,
-        "entered": 0,
+        "entered": 4,
         "baseline_missing": 4,
-        "baseline_missing_now_entered": [],
-        "remaining_entries": [
+        "baseline_missing_now_entered": [
           {
             "key": "29-persona-skill.lua:203:11221",
             "line": 203,
@@ -13840,32 +14166,8 @@
             "token": "then"
           }
         ],
-        "remaining_baseline": [
-          {
-            "key": "29-persona-skill.lua:203:11221",
-            "line": 203,
-            "offset": 11221,
-            "token": "then"
-          },
-          {
-            "key": "29-persona-skill.lua:206:11386",
-            "line": 206,
-            "offset": 11386,
-            "token": "do"
-          },
-          {
-            "key": "29-persona-skill.lua:208:11491",
-            "line": 208,
-            "offset": 11491,
-            "token": "do"
-          },
-          {
-            "key": "29-persona-skill.lua:210:11574",
-            "line": 210,
-            "offset": 11574,
-            "token": "then"
-          }
-        ]
+        "remaining_entries": [],
+        "remaining_baseline": []
       },
       "baseline_review": "명시적 함수 대응/실제 실행 분기 재감사",
       "baseline_reason": "원본 Lua에 함수/then·else·do 진입 Boolean 기록만 추가해 실제 입력을 재실행. 함수 호출 미관측, 명시적 분기 진입 0/4. 전체 계약은 같음으로 세지 않음. 미도달 분기는 audit-r22b.json의 해당 행에 미확인으로 기록.",
@@ -13881,7 +14183,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1688",
@@ -13999,7 +14303,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P1692",
@@ -14279,7 +14585,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "일부",
+      "round6_status": "일부"
     },
     {
       "id": "P2307",
@@ -14380,7 +14688,9 @@
       "round2_status": "미확인",
       "round3_status": "미확인",
       "round4_status": "같음",
-      "round5_fix": "소수 시각을 곱한 값 대신 binary64 significand로 반올림. 1.325→1.32 등 Lua/C printf와 일치."
+      "round5_fix": "소수 시각을 곱한 값 대신 binary64 significand로 반올림. 1.325→1.32 등 Lua/C printf와 일치.",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2308",
@@ -14470,7 +14780,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2309",
@@ -14560,7 +14872,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2310",
@@ -14651,7 +14965,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2311",
@@ -14742,7 +15058,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2312",
@@ -14833,7 +15151,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2316",
@@ -14923,7 +15243,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2317",
@@ -15013,7 +15335,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2318",
@@ -15118,7 +15442,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2319",
@@ -15208,7 +15534,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2320",
@@ -15298,7 +15626,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2321",
@@ -15445,7 +15775,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2322",
@@ -15536,7 +15868,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2323",
@@ -15627,7 +15961,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2324",
@@ -15746,7 +16082,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2326",
@@ -15836,7 +16174,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2327",
@@ -15926,7 +16266,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "같음"
+      "round4_status": "같음",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2328",
@@ -16027,7 +16369,9 @@
       "round2_status": "미확인",
       "round3_status": "미확인",
       "round4_status": "같음",
-      "round5_fix": "HUD도 같은 정확한 binary64 1/2자리 반올림을 사용."
+      "round5_fix": "HUD도 같은 정확한 binary64 1/2자리 반올림을 사용.",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2329",
@@ -16117,7 +16461,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2331",
@@ -16207,7 +16553,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2332",
@@ -16297,7 +16645,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2333",
@@ -16387,7 +16737,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2334",
@@ -16478,7 +16830,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2335",
@@ -16569,7 +16923,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2336",
@@ -16660,7 +17016,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2337",
@@ -16750,7 +17108,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2339",
@@ -16840,7 +17200,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2340",
@@ -16998,7 +17360,9 @@
       "round1_status": "일부",
       "round2_status": "일부",
       "round3_status": "일부",
-      "round4_status": "일부"
+      "round4_status": "일부",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2341",
@@ -17010,13 +17374,17 @@
         "end": 227,
         "symbol": "B.r_enemy"
       },
-      "status": "미확인",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "전투 사건 연출·HUD·대상·로그",
       "prior_status": "미확인",
       "fixed": false,
       "fix": null,
-      "native_evidence": null,
+      "native_evidence": {
+        "file": "project/game/combat_tiles_r23.gd",
+        "symbol": "func enemy_tile",
+        "line": 10
+      },
       "new_evidence": [
         {
           "test": "battle_r23_display_test",
@@ -17047,102 +17415,28 @@
           "test": "ui_battle_r20_test",
           "log": "verification/parity-r23/suite-round2-final/ui_battle_r20_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_tiles_test",
+          "labels": [
+            "round6/enemy_tile"
+          ],
+          "checks": 512,
+          "contract": "ko/en × 256상태. 빈 칸·사망/이력 없음/중복 사망 시각·예고 공개/고갈·정예/보스/심층/하수인·출현/피격/대상·동적 게이지의 HTML 전체.",
+          "oracle": "verification/parity-r23/battle-round6-tiles-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-tiles-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_tiles_test.log"
         }
       ],
-      "remaining_reason": "적 상태 수치는 비교. 적 타일의 weak/badges/intent/동적 HP·심연 및 빈 칸 전체는 새 의미상 대조하지 않음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P2341",
         "called": true,
         "explicit_entries": 17,
-        "entered": 3,
+        "entered": 17,
         "baseline_missing": 0,
         "baseline_missing_now_entered": [],
-        "remaining_entries": [
-          {
-            "key": "50-render.lua:179:9364",
-            "line": 179,
-            "offset": 9364,
-            "token": "then"
-          },
-          {
-            "key": "50-render.lua:183:9629",
-            "line": 183,
-            "offset": 9629,
-            "token": "then"
-          },
-          {
-            "key": "50-render.lua:184:9644",
-            "line": 184,
-            "offset": 9644,
-            "token": "then"
-          },
-          {
-            "key": "50-render.lua:185:9683",
-            "line": 185,
-            "offset": 9683,
-            "token": "do"
-          },
-          {
-            "key": "50-render.lua:185:9714",
-            "line": 185,
-            "offset": 9714,
-            "token": "then"
-          },
-          {
-            "key": "50-render.lua:190:9826",
-            "line": 190,
-            "offset": 9826,
-            "token": "then"
-          },
-          {
-            "key": "50-render.lua:191:9896",
-            "line": 191,
-            "offset": 9896,
-            "token": "then"
-          },
-          {
-            "key": "50-render.lua:192:9999",
-            "line": 192,
-            "offset": 9999,
-            "token": "then"
-          },
-          {
-            "key": "50-render.lua:198:10289",
-            "line": 198,
-            "offset": 10289,
-            "token": "then"
-          },
-          {
-            "key": "50-render.lua:200:10381",
-            "line": 200,
-            "offset": 10381,
-            "token": "then"
-          },
-          {
-            "key": "50-render.lua:208:10563",
-            "line": 208,
-            "offset": 10563,
-            "token": "then"
-          },
-          {
-            "key": "50-render.lua:209:10722",
-            "line": 209,
-            "offset": 10722,
-            "token": "then"
-          },
-          {
-            "key": "50-render.lua:210:10743",
-            "line": 210,
-            "offset": 10743,
-            "token": "then"
-          },
-          {
-            "key": "50-render.lua:211:10847",
-            "line": 211,
-            "offset": 10847,
-            "token": "else"
-          }
-        ],
+        "remaining_entries": [],
         "remaining_baseline": []
       },
       "baseline_review": "통합판 재평가: 명시적 범위 밖은 승격하지 않음",
@@ -17158,7 +17452,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "같음"
     },
     {
       "id": "P2343",
@@ -17248,7 +17544,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2344",
@@ -17260,13 +17558,17 @@
         "end": 270,
         "symbol": "B.r_ally"
       },
-      "status": "미확인",
+      "status": "같음",
       "unverified_branches": [],
       "feature_group": "전투 사건 연출·HUD·대상·로그",
       "prior_status": "미확인",
       "fixed": false,
       "fix": null,
-      "native_evidence": null,
+      "native_evidence": {
+        "file": "project/game/combat_tiles_r23.gd",
+        "symbol": "func ally_tile",
+        "line": 68
+      },
       "new_evidence": [
         {
           "test": "battle_r23_display_test",
@@ -17297,42 +17599,28 @@
           "test": "ui_battle_r20_test",
           "log": "verification/parity-r23/suite-round2-final/ui_battle_r20_test.log",
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
+        },
+        {
+          "test": "battle_r23_round6_tiles_test",
+          "labels": [
+            "round6/ally_tile"
+          ],
+          "checks": 512,
+          "contract": "ko/en × 128상태 × 1/4칸. persona/캐릭터·빈 칸·생사/충전/배지/SH·동적 필드/아이템 및 자기 대상 금지. 아이템 적합 여부는 원본 it_ok의 외부 의존 입력이며 아이템 규칙 전체를 승격하지 않음.",
+          "oracle": "verification/parity-r23/battle-round6-tiles-oracle.json",
+          "observations": "verification/parity-r23/battle-round6-tiles-latest.json",
+          "log": "verification/parity-r23/suite-round6-final/battle_r23_round6_tiles_test.log"
         }
       ],
-      "remaining_reason": "아군 수치는 비교. 아군 타일의 buff/선택/충전·부상/장비 배지 전체는 새 의미상 대조하지 않음.",
+      "remaining_reason": null,
       "branch_coverage": {
         "id": "P2344",
         "called": true,
         "explicit_entries": 4,
-        "entered": 0,
+        "entered": 4,
         "baseline_missing": 0,
         "baseline_missing_now_entered": [],
-        "remaining_entries": [
-          {
-            "key": "50-render.lua:244:12716",
-            "line": 244,
-            "offset": 12716,
-            "token": "then"
-          },
-          {
-            "key": "50-render.lua:248:13074",
-            "line": 248,
-            "offset": 13074,
-            "token": "then"
-          },
-          {
-            "key": "50-render.lua:249:13168",
-            "line": 249,
-            "offset": 13168,
-            "token": "then"
-          },
-          {
-            "key": "50-render.lua:250:13221",
-            "line": 250,
-            "offset": 13221,
-            "token": "then"
-          }
-        ],
+        "remaining_entries": [],
         "remaining_baseline": []
       },
       "baseline_review": "통합판 재평가: 명시적 범위 밖은 승격하지 않음",
@@ -17348,7 +17636,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "같음"
     },
     {
       "id": "P2347",
@@ -17438,7 +17728,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2348",
@@ -17528,7 +17820,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2349",
@@ -17618,7 +17912,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2350",
@@ -17708,7 +18004,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2351",
@@ -17802,7 +18100,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인"
     },
     {
       "id": "P2353",
@@ -17992,7 +18292,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인"
     },
     {
       "id": "P2358",
@@ -18082,7 +18384,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2359",
@@ -18248,7 +18552,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "미확인",
+      "round6_status": "미확인"
     },
     {
       "id": "P2361",
@@ -18338,7 +18644,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "같음",
+      "round6_status": "같음"
     },
     {
       "id": "P2362",
@@ -18428,7 +18736,9 @@
       "round1_status": "미확인",
       "round2_status": "미확인",
       "round3_status": "미확인",
-      "round4_status": "미확인"
+      "round4_status": "미확인",
+      "round5_status": "같음",
+      "round6_status": "같음"
     }
   ],
   "target_tests": [
@@ -18480,6 +18790,36 @@
     {
       "name": "round5-latest",
       "checks": 14418,
+      "failures": 0
+    },
+    {
+      "name": "battle-round6-latest",
+      "checks": 5067,
+      "failures": 0
+    },
+    {
+      "name": "battle-round6-tiles-latest",
+      "checks": 4096,
+      "failures": 0
+    },
+    {
+      "name": "battle-round6-enemy-latest",
+      "checks": 1994,
+      "failures": 0
+    },
+    {
+      "name": "battle-round7",
+      "checks": 1418,
+      "failures": 0
+    },
+    {
+      "name": "battle-round7-persona",
+      "checks": 5903,
+      "failures": 0
+    },
+    {
+      "name": "battle-round7-boundary",
+      "checks": 13,
       "failures": 0
     }
   ],
@@ -19285,15 +19625,30 @@
     "project/tests/battle_r23_random_fixture.gd.uid",
     "project/tests/battle_r23_round5_test.gd",
     "project/tests/battle_r23_round5_test.gd.uid",
+    "project/tests/battle_r23_round6_enemy_test.gd",
+    "project/tests/battle_r23_round6_enemy_test.gd.uid",
+    "project/tests/battle_r23_round6_test.gd",
+    "project/tests/battle_r23_round6_test.gd.uid",
+    "project/tests/battle_r23_round6_tiles_test.gd",
+    "project/tests/battle_r23_round6_tiles_test.gd.uid",
+    "project/tests/battle_r23_round7_fixture.gd",
+    "project/tests/battle_r23_round7_persona_test.gd",
+    "project/tests/battle_r23_round7_test.gd",
     "project/tests/battle_r23_state_fixture.gd",
     "project/tests/battle_r23_state_fixture.gd.uid",
     "project/tests/battle_r23_state_test.gd",
     "project/tests/battle_r23_state_test.gd.uid",
     "project/tests/battle_r23_test.gd",
     "project/tests/battle_r23_test.gd.uid",
+    "project/tests/enemy_action_r21_test.gd",
+    "project/tests/enemy_regression_r21_test.gd",
     "tools/cloud_battle_r23_preload.mjs",
     "tools/coverage_battle_r23.py",
+    "tools/diff_battle_r23_round7.py",
     "tools/finalize_battle_r23_round5.py",
+    "tools/finalize_battle_r23_round6.py",
+    "tools/finalize_battle_r23_round6_guard.py",
+    "tools/finalize_battle_r23_round7.py",
     "tools/godot_r17.py",
     "tools/oracle_battle_r23.lua",
     "tools/oracle_battle_r23.mjs",
@@ -19308,16 +19663,32 @@
     "tools/oracle_battle_r23_round5.lua",
     "tools/oracle_battle_r23_round5.mjs",
     "tools/oracle_battle_r23_round5_loader.mjs",
+    "tools/oracle_battle_r23_round6.lua",
+    "tools/oracle_battle_r23_round6_enemy.lua",
+    "tools/oracle_battle_r23_round6_enemy_loader.mjs",
+    "tools/oracle_battle_r23_round6_loader.mjs",
+    "tools/oracle_battle_r23_round6_tiles.lua",
+    "tools/oracle_battle_r23_round6_tiles_loader.mjs",
+    "tools/oracle_battle_r23_round7.lua",
+    "tools/oracle_battle_r23_round7_boundary.lua",
+    "tools/oracle_battle_r23_round7_loader.mjs",
+    "tools/oracle_battle_r23_round7_persona.lua",
     "tools/oracle_battle_r23_state.lua",
     "tools/oracle_battle_r23_state.mjs",
     "tools/prepare_battle_r23.py",
+    "tools/prepare_battle_r23_round7_before.py",
     "tools/report_battle_r23.py",
     "tools/report_battle_r23_batch.py",
     "tools/report_battle_r23_round5.py",
+    "tools/report_battle_r23_round6.py",
+    "tools/report_battle_r23_round7.py",
     "tools/run_battle_r23.py",
     "tools/run_battle_r23_parallel.py",
+    "tools/sync_battle_state_r23.py",
     "tools/sync_battle_text_r23.py",
-    "tools/verify_battle_r23_round5.py"
+    "tools/verify_battle_r23_round5.py",
+    "tools/verify_battle_r23_round6.py",
+    "tools/verify_battle_r23_round7.py"
   ],
   "source_asset_audit": {
     "enemies": 100,
@@ -19873,5 +20244,111 @@
     "original_assets_verified": 96,
     "method": "실제 원본 Lua 함수/closure의 전체 반환/부수 출력과 동일 입력 Godot를 비교. 20종 oracle 계측 전후 출력 일치. 진입 수만으로 승격하지 않음.",
     "limitations": "source-record → HTML/layer/CSS 호환 ABI. 기존 r17~r20 scene renderer 전체나 B.render/버튼/저장 재개를 승격하지 않음. 개인 훅은 명시된 중립·무장비 입력. 각 행의 계약을 상위/하위 함수로 전파하지 않음."
+  },
+  "round6": {
+    "new_equal_ids": [
+      "P1488",
+      "P1489",
+      "P1490",
+      "P1491",
+      "P1498",
+      "P1499",
+      "P1500",
+      "P1550",
+      "P1590",
+      "P1762",
+      "P1847",
+      "P1897",
+      "P1901",
+      "P1908",
+      "P1911",
+      "P1920",
+      "P1926",
+      "P1944",
+      "P2033",
+      "P2341",
+      "P2344",
+      "P2366",
+      "P2368"
+    ],
+    "fixed_ids": [
+      "P1847",
+      "P1897",
+      "P1901",
+      "P1908",
+      "P1911",
+      "P1920",
+      "P1926",
+      "P2033"
+    ],
+    "checks": 11157,
+    "before_enemy": {
+      "checks": 1984,
+      "failures": 1972,
+      "missing_amount_guards": 128,
+      "different_unit_outputs": 636,
+      "method": "이전 turn의 support 분기 추출 재생. 이전 전체 빌드 실행이라고 주장하지 않음."
+    },
+    "suite": "suite-round6-final",
+    "limitations": "원본 기록 ABI의 정의/이관/HTML 대조와 실제 native 개인/적 지원 훅 대조를 구분한다. B.load/save/press·fresh/run/finish·최상위 render/행동 패널·나머지 기술은 승격하지 않았다. 기존 native 저장을 원본 VER2 저장으로 바꾸지 않는다."
+  },
+  "round7": {
+    "new_equal_ids": [
+      "P1679",
+      "P1680",
+      "P1681",
+      "P1687",
+      "P1772",
+      "P1871",
+      "P1877",
+      "P1880",
+      "P1885",
+      "P1910",
+      "P1912",
+      "P1919",
+      "P1930",
+      "P1931",
+      "P1934",
+      "P1942"
+    ],
+    "excluded_ids": {
+      "P1596": "RisuAI 채팅 길이/role 검색. 공통 기능 등가 기준의 호스트 전용 함수.",
+      "P3502": "RisuAI 재렌더·메시지 갱신 callback. 공통 기준에 따라 제외.",
+      "P3505": "RisuAI 채팅 변수 load/bind/act/save/redraw 호스트 묶음. B.act 및 원본 저장 왕복 자체는 별도 잔여 행으로 유지."
+    },
+    "fixed_evidence_ids": [
+      "P1772",
+      "P1871",
+      "P1877",
+      "P1880",
+      "P1885",
+      "P1910",
+      "P1919",
+      "P1931",
+      "P1934",
+      "P1942"
+    ],
+    "checks": 7334,
+    "before_replay": {
+      "checks": 656,
+      "differences": 614,
+      "by_operation": {
+        "counter": 288,
+        "foe_hit_after": 54,
+        "summon": 128,
+        "phase": 144
+      },
+      "method": "작업 시작 때 보존한 battle_v3/dungeon_enemy 두 파일과 최종 동일 입력/관측 adapter로 기존 4경로를 재실행. 이전 전체 빌드라고 주장하지 않음. API 부재 guard는 이 차이 수에 포함하지 않음."
+    },
+    "suite": "suite-round7-final-v2",
+    "supplement_sha256": {
+      "verification/parity-r23/battle-round7-boundary-latest.json": "953e9842618427e490dabea2e26528d84ac45d483e8661c2de0b6f736c28cd84",
+      "verification/parity-r23/battle-round7-boundary-oracle-1.json": "b1c1c2500014a0bba1a40b4764b062bdad97f539886f9740f867ed1eb37df304",
+      "verification/parity-r23/battle-round7-boundary-oracle.json": "aa95f09e7cd42ee4e19ab8bf2846f23e0ec58b3c4c6104d944a9ff6987f14d8b",
+      "verification/parity-r23/battle-round7-boundary-run.log": "7d354a02dd9bca7c75d01e4eebab74faea2097a1c47e376a94848aafa26e6cc3",
+      "verification/parity-r23/battle-round7-boundary-test.gd": "92d22527607575013b81994fa64d4376c7d4aef7293d388a54bafa805c12ec89"
+    },
+    "functional_rule": "HTML/저장 매체 자체는 다름의 사유가 아님. 호스트 3행은 제외. 실제 수치·난수·순서·로그와 원본 저장 재개 기능은 그대로 비교.",
+    "limitations": "169행 같음은 이번 대상 212행의 함수별 근거다. 전 봇 완성도나 6320판에서 모든 문자열/시간까지 전수 비교했다는 뜻이 아니다. 40행은 시작/종결·공격 전체·훅 합성·일부 개인/페르소나 기술·행동/렌더·저장 재개 경계가 남는다."
   }
 }

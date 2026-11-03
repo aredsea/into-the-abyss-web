@@ -6,6 +6,18 @@ import {pathToFileURL} from 'node:url';
 const root=process.env.R21_BOT || 'C:/Clauede Code/dungeon-bot';
 const {mkSim:mkSimBase}=await import(pathToFileURL(path.join(root,'bot/lua_sim.mjs')).href);
 const mkSim=async(o)=>{const sim=await mkSimBase({...o,extra:'B.__r23_cov={calls={},branches={}}\n'+o.extra});const original=sim.L;return {...sim,L:async(code)=>{const pack=await original('B.__r23_cov={calls={},branches={}};local __result=(function()\n'+code+'\nend)();return {result=__result,coverage=B.__r23_cov}');fs.writeFileSync('verification/parity-r23/coverage/retained-a9-10.json',JSON.stringify(pack.coverage));return pack.result;}};};
+import {isDeepStrictEqual as __r23_equal} from 'node:util';
+const __r23_write=fs.writeFileSync.bind(fs);
+fs.writeFileSync=(file,data,...args)=>{const name=String(file).replaceAll('\\','/');
+ if((name.startsWith('verification/parity-r23/')||name.startsWith('verification/data-r21/'))&&!name.includes('/coverage/')&&name.endsWith('.json')){
+  const expected=JSON.parse(fs.readFileSync(file,'utf8')),got=JSON.parse(String(data));
+  if(expected&&typeof expected==='object')delete expected.provenance;
+  if(got&&typeof got==='object')delete got.provenance;
+  for(const value of [expected,got])if(value?.parts)for(const part of value.parts){delete part.bytes;delete part.sha256;}
+  if(!__r23_equal(expected,got))throw Error('Instrumentation changed oracle: '+name);
+  return;
+ }return __r23_write(file,data,...args);
+};
 const files=['05-gen.lua','10-data.lua','20-state.lua','24-stats.lua','27-compose.lua','30-engine.lua','29-persona-skill.lua','31-foes.lua','32-personal-a.lua','32-personal-b.lua','34-traits.lua','81-gear.lua','51-raid.lua','71-shop.lua','78-battle-item.lua'];
 const extra=files.map(f=>`${f==='34-traits.lua'?'B.GH={}':''}\ndo\n${fs.readFileSync(path.join('C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-a-data/verification/parity-r23/coverage/instrumented',f),'utf8')}\nend`).join('\n');
 let src=fs.readFileSync('tools/oracle_combat_p2_r22.lua','utf8');
@@ -107,7 +119,7 @@ if(!['10','40'].includes(process.env.A9_ENEMY_LEVEL)) throw Error('Set A9_ENEMY_
 const {L}=await mkSim({policy:false,extra});
 const result=await L('local out={battles={},raid_battles={}}\n'+src+'\nout.no_self=B.NOSELF\nlocal gr=B.gear()\nfor _,rows in ipairs({out.battles,out.raid_battles}) do for _,row in ipairs(rows) do\n row.rarity={}; row.reflect=0; row.heal=0; row.haste=0\n for i,m in ipairs(row.pm) do\n  m.native_eq={}\n  for slot,code in pairs(m.eq) do\n   local gid,seed=B.gear_parse(code); m.native_eq[slot]={id=gid,seed=seed,code=code,source_r21=true,forge=m.forge[code].lv}\n   local rarity=gr.items[gid].rarity; row.rarity[rarity]=(row.rarity[rarity] or 0)+1\n  end\n  row.reflect=row.reflect+(row.initial[i].gq.reflect or 0)\n  row.heal=row.heal+(row.initial[i].gq.heal or 0)\n  for _,un in ipairs(row.initial[i].gu or {}) do if un.key=="heal_haste" then row.haste=row.haste+1 end end\n end\nend end\nreturn out');
 result.provenance=Object.fromEntries(files.map(f=>[f,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'bot/src',f))).digest('hex')]));
-fs.writeFileSync('verification/parity-r23/coverage/retained-a9-10-a9-native-'+process.env.A9_ENEMY_LEVEL+'-oracle.json',JSON.stringify(result)+'\n');
+fs.writeFileSync('verification/data-r21/a9-native-'+process.env.A9_ENEMY_LEVEL+'-oracle.json',JSON.stringify(result)+'\n');
 const rows=[...result.battles,...result.raid_battles], actions={};
 for(const row of rows) for(const d of row.decisions) actions[d.id]=(actions[d.id]||0)+1;
 console.log(JSON.stringify({battles:rows.length,actions:rows.reduce((n,r)=>n+r.trace.length,0),inputs:actions}));
