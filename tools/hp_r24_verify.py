@@ -3,6 +3,8 @@ from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor,as_completed
 import subprocess,os,sys,json,re,time,threading,shutil
 R=Path(__file__).resolve().parents[1];O=R/'verification/hp-r24';O.mkdir(exist_ok=True)
+round2='--round2' in sys.argv
+if round2:O=O/'round2';O.mkdir(exist_ok=True)
 sys.stdout.reconfigure(encoding='utf-8')
 extras={'export_licenses','motion_r9_integration','motion_r18_integration','balance_probe','combat_p2_r22_trace','combat_a6_mixed_audit','combat_p3_mixed_audit','combat_a7_gear_audit','combat_a7_gear_balanced','combat_a8_audit','combat_a9_native_10_audit','combat_a9_native_40_audit'}
 names=sorted(p.stem for p in (R/'project/tests').glob('*.gd') if p.stem.endswith('_test') or p.stem in extras)
@@ -10,6 +12,8 @@ cloud=[n for n in names if 'cloud' in n or n in ['town_combat_r21_round14_test',
 selected=[n for n in sys.argv[1:] if not n.startswith('--')]
 if '--cloud' in sys.argv:
     source=(R/'tools/look_r24_cloud.py').read_text(encoding='utf-8').replace('verification/look-r24/cloud','verification/hp-r24/cloud').replace('verification/look-r24/tmp','verification/hp-r24/tmp')
+    # Keep the shorter temp path: SQLite journal suffixes can exceed MAX_PATH.
+    if round2:source=source.replace('verification/hp-r24/cloud','verification/hp-r24/round2/cloud')
     source=source.replace("'tools/godot_r17.py','--headless','--script'","'tools/godot_r17.py',*(['--position','-10000,-10000'] if name.startswith('ui_') else ['--headless']),'--script'")
     sys.argv=[sys.argv[0],*(selected or cloud)]
     exec(compile(source,str(R/'tools/look_r24_cloud.py'),'exec'),{'__file__':str(R/'tools/look_r24_cloud.py'),'__name__':'__main__'})
@@ -25,6 +29,7 @@ def run(name):
         slot='hp-r24-'+str(slot_ids[ident])
     native=name.startswith('ui_') and name not in ['ui_rules_r23_test','ui_remaining_r23_test'] or name.endswith('_integration')
     args=['--headless','--editor','--import','--quit'] if name=='import' else [*(['--position','-10000,-10000'] if native else ['--headless']),'--script','res://tests/'+name+'.gd']
+    if round2 and name=='ui_hp_r24_test':args+=['--','--hp-checks-only']
     start=time.monotonic()
     with (O/(name+'.log')).open('wb') as log:
         p=subprocess.Popen([sys.executable,'tools/godot_r17.py',*args],cwd=R,env={**os.environ,'R23_RUNTIME_SLOT':slot,'PYTHONIOENCODING':'utf-8'},stdout=log,stderr=subprocess.STDOUT)

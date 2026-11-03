@@ -326,6 +326,11 @@ func _battlefield(rect: Rect2) -> void:
 	var order={"lantern":0,"apprentice":1,"orb":2}
 	small.sort_custom(func(a,b): return order.get(a.id,3)<order.get(b.id,3))
 	var sx=rect.size.x/390.0; var sy=rect.size.y/288.0
+	# The number font needs its full line box; the old 13px row was painted over.
+	var hud_h=48.0
+	var has_big=enemies.any(func(e):return e.id=="executor")
+	# On shorter fields the top row ends before the boss sprite starts.
+	var small_h=clampf(49*sy-1,38,hud_h) if has_big and not small.is_empty() else hud_h
 	var targeting=not pending_action.is_empty() and state.actions().has(pending_action) and state.actions()[pending_action].target=="적 1"
 	if targeting:
 		_ink(Rect2(240*sx,175*sy,150*sx,71*sy),"target-bloom",RED,field)
@@ -334,32 +339,59 @@ func _battlefield(rect: Rect2) -> void:
 		var big=e.id=="executor"; var index=small.find(e)
 		var hud_w=119.0*sx if big else minf(112.0*sx,rect.size.x/maxi(1,small.size())-10)
 		var left=259*sx if big else ([9.0,139.0,270.0][index]*sx if small.size()==3 else (index+.5)*rect.size.x/small.size()-hud_w/2)
-		var hud_y=minf(250*sy,rect.size.y-33) if big else 92*sy
+		var hit_w=hud_w
+		var hud_y=92*sy
+		var plate_h=hud_h if big else small_h
+		var hud_x=0.0
+		if big:
+			if small.is_empty():
+				# Above the lone boss, including the short 390x664 battlefield.
+				hud_y=maxf(0,141*sy-hud_h-4)
+			else:
+				# The gap between the actor and boss leaves both sprites unobscured.
+				hit_w+=(259-169)*sx
+				left=169*sx
+				hud_w=95*sx
+				hud_y=maxf(141*sy,92*sy+small_h+4)
 		var hit_top=128*sy if big else 0.0
-		if big and not small.is_empty(): hit_top=maxf(hit_top,92*sy+34)
-		var hit_h=rect.size.y-hit_top if big else maxf(44,hud_y+33)
-		var hit=_button("enemy:"+e.id,Rect2(left,hit_top,hud_w,hit_h),_enemy_pressed.bind(e.id),false,field,true)
+		if big and not small.is_empty(): hit_top=maxf(hit_top,92*sy+small_h)
+		# Include a raised plate in the same enemy selection target.
+		if big:hit_top=minf(hit_top,hud_y)
+		var hit_h=rect.size.y-hit_top if big else maxf(44,hud_y+plate_h)
+		var hit=_button("enemy:"+e.id,Rect2(left,hit_top,hit_w,hit_h),_enemy_pressed.bind(e.id),false,field,true)
 		var body: Rect2=positions.get(e.id,Rect2(45,14,46,72))
 		body=Rect2(body.position*Vector2(sx,sy)-Vector2(left,hit_top),body.size*Vector2(sx,sy))
 		if not big and small.size()!=3: body.position.x=(hud_w-body.size.x)/2
 		if targeting and state.selected_enemy==e.id:
-			var target_rect=Rect2(-6,141*sy-hit_top,hud_w+12,111*sy) if big else Rect2(body.position-Vector2(6,0),body.size+Vector2(12,8))
+			var target_rect=Rect2(-6,141*sy-hit_top,hit_w+12,111*sy) if big else Rect2(body.position-Vector2(6,0),body.size+Vector2(12,8))
 			var outline=_picture("res://assets/ui-r20/target-outline.svg",Rect2(253*sx-left,141*sy-hit_top,126,110) if big else target_rect,hit)
 			outline.z_as_relative=false; outline.z_index=4
 		var art=_enemy_art(e,body,hit,false); art.z_as_relative=false; art.z_index=3; _mark("enemy-art:"+e.id,art)
 		enemy_visuals[e.id]={"node":art,"home":art.position}; shown_hp[e.id]=e.hp
-		var hud=_color(Rect2(0,hud_y-hit_top,hud_w,33),PAPER,hit); _mark("enemy-hud:"+e.id,hud)
+		var hud=_color(Rect2(hud_x,hud_y-hit_top,hud_w,plate_h),PAPER,hit); _mark("enemy-hud:"+e.id,hud)
 		hud.z_as_relative=false; hud.z_index=25; enemy_visuals[e.id]["hud"]=hud
 		var phased=not _phase_thresholds(e).is_empty()
 		_enemy_name(e.name,Rect2(3,0,hud_w-6-(30 if phased else 0),13),hud)
 		if phased:_strong("%d단계"%int(e.get("phase",1)),Rect2(hud_w-32,0,29,13),10,ResourceGauge.RED,hud,HORIZONTAL_ALIGNMENT_RIGHT)
-		_resource_numbers(e,Rect2(3,11,hud_w-6,13),hud,true,16)
-		_resource(e,Rect2(3,24,hud_w-6,9),hud)
+		var compact=plate_h<hud_h
+		var number_y=25.0 if compact else 27.0
+		_resource(e,Rect2(3,14 if compact else 16,hud_w-6,9),hud)
+		var numbers=_resource_numbers(e,Rect2(3,number_y,hud_w-6,plate_h-number_y),hud,true,mini(16,int(plate_h-number_y)))
+		if compact:
+			# Match _type's tight line box without clipping or vertically scaling glyphs.
+			for label in numbers.get_children():
+				var face=label.get_theme_font("font");var fs=label.get_theme_font_size("font_size")
+				var excess=maxi(0,ceili(face.get_height(fs)-numbers.size.y))
+				if excess>0:
+					var tight=FontVariation.new();tight.base_font=face;tight.spacing_top=-ceili(excess/2.0);tight.spacing_bottom=-floori(excess/2.0)
+					label.add_theme_font_override("font",tight);label.size.y=numbers.size.y
 		if big:
 			var diamond=Polygon2D.new(); diamond.polygon=PackedVector2Array([Vector2(0,-5.66),Vector2(5.66,0),Vector2(0,5.66),Vector2(-5.66,0)])
-			diamond.color=RED if targeting else PAPER; hit.add_child(diamond); diamond.position=Vector2(317*sx-left,4*sy); diamond.z_index=26
+			diamond.color=RED if targeting else PAPER; hit.add_child(diamond); diamond.position=Vector2(317*sx-left,132*sy-hit_top); diamond.z_index=26
 	if not pending_action.is_empty() and state.actions().has(pending_action) and state.actions()[pending_action].target=="적 1":
-		var caption=_color(Rect2(136*sx,maxf(131*sy,92*sy+35),130,23),PAPER,field); caption.z_index=26
+		var caption_y=maxf(131*sy,92*sy+small_h+4)
+		if has_big and not small.is_empty():caption_y=maxf(141*sy,92*sy+small_h+4)+hud_h+4
+		var caption=_color(Rect2(136*sx,minf(caption_y,rect.size.y-23),130,23),PAPER,field); caption.z_index=26
 		_mark("target-instruction",_label("공격할 적을 선택하세요",Rect2(6,3,118,17),12,INK,caption))
 	actor=CharacterSprite.new(); actor.battle_pixels=false; actor.idle_enabled=false; _actor_texture(false)
 	var teiris=actor.character_id=="teiris"

@@ -8,7 +8,10 @@ var checks=0
 var failures=[]
 var captures=[]
 var readings=[]
+var take_captures=true
 func _initialize():
+	if OS.get_cmdline_user_args().has("--hp-checks-only"):
+		take_captures=false;folder+="/round2"
 	create_timer(180).timeout.connect(func():push_error("HP test watchdog");quit(98));call_deferred("run")
 func check(ok: bool,message: String):
 	checks+=1
@@ -16,6 +19,7 @@ func check(ok: bool,message: String):
 func settle():await process_frame;await process_frame
 func capture(tag: String):
 	await settle();await RenderingServer.frame_post_draw
+	if not take_captures:return
 	check(root.get_texture().get_image().save_png(folder+"/"+tag+".png")==OK,"capture "+tag);captures.append(tag+".png")
 func fixture():
 	var world=World.new();world.depart_dungeon(1,123);world.s.run.phase="battle"
@@ -97,7 +101,8 @@ func run():
 		await RenderingServer.frame_post_draw
 		var elapsed=Gauge.now()-started
 		var filename="live-trail-%.1f.png"%sample
-		check(root.get_texture().get_image().save_png(folder+"/"+filename)==OK,"live trail frame "+filename);captures.append(filename)
+		if take_captures:
+			check(root.get_texture().get_image().save_png(folder+"/"+filename)==OK,"live trail frame "+filename);captures.append(filename)
 		readings.append({"live_requested_seconds":sample,"actual_seconds":elapsed,"current":62,"trail":Gauge.trail_at(s.resource_history.hildegard,started+elapsed)})
 	root.remove_child(s);s.queue_free();await settle()
 	# Cover all existing town resource surfaces, preserving real stored values.
