@@ -6,6 +6,7 @@ const Josa=preload("res://game/josa_r22.gd")
 const Pack=preload("res://game/locale_pack_r23.gd")
 const Value=preload("res://game/ui_value_r23.gd")
 const NATIVE=preload("res://data/native-locale-r24.json").data
+const DialogueLocale=preload("res://game/dialogue_locale_r24.gd")
 static var packs=Pack.new({"en":JSON.stringify(SOURCE.ui)},JSON.stringify(SOURCE.words))
 static var patterns=[]
 static var cache={}
@@ -19,7 +20,8 @@ static func display(value: String,s: Dictionary) -> String:
 	return translated.replace("{{user}}",persona_name(s))
 static func authored_display(value: String,s: Dictionary) -> String:
 	# Prose needs a complete translation, never generic UI-template substitution.
-	return value.replace("{{user}}",persona_name(s))
+	var prose=DialogueLocale.render(value) if language(s)=="en" else value
+	return prose.replace("{{user}}",persona_name(s))
 static func configure_packs(raw: Variant=null,words: Variant=null) -> void:
 	packs=Pack.new({"en":JSON.stringify(SOURCE.ui)} if raw==null else raw,JSON.stringify(SOURCE.words) if words==null else words)
 	patterns=[];cache={}
