@@ -189,27 +189,55 @@ func give(level: int,xp: int,amount: int) -> Dictionary:
 	level=clampi(level,1,40);xp=maxi(0,xp)+amount
 	while level<40 and xp>=need(level):xp-=need(level);level+=1
 	return {"level":level,"xp":0 if level==40 else xp}
-func award(g: Dictionary,st: Dictionary) -> Dictionary:
-	var gains={};var xp=int(floor(float(st.get("exp",0))))
-	if xp<=0:return gains
-	var key=st.get("sid",g.get("town",{}).get("bn",st.get("bn")))
-	if key!=null and g.town.get("xp_bn")==key:return gains
-	var ids=[]
-	if not st.get("pm",[]).is_empty():
-		for m in st.pm:
-			var id=m.id if m is Dictionary else m
-			if id!="" and id not in ids:ids.append(id)
+func award(g: Dictionary,st: Variant) -> Dictionary:
+	return award_result(g,st).gains
+
+func award_result(g: Dictionary,st: Variant,lang: String="ko",names: Dictionary={}) -> Dictionary:
+	var out={"gains":{},"lines":[],"chron":[]};var gains=out.gains
+	if not st is Dictionary:return out
+	var xp=Value.integer(st.get("exp"))
+	if xp<=0 or not g.get("persona") is Dictionary:return out
+	var town=preload("res://game/town_rules_r21.gd").source_town(g)
+	var key=st.get("sid")
+	if not Value.truth(key):key=town.bn if town.bn is int or town.bn is float else st.get("bn")
+	var numbered=key is int or key is float
+	# Lua compares numeric keys only. A string sid never suppresses an award.
+	if numbered and (town.get("xp_bn") is int or town.get("xp_bn") is float) and town.xp_bn==key:return out
+	var ids=[];var pm=st.get("pm")
+	if pm is Array and not pm.is_empty():
+		for m in pm:
+			var id=m.get("id") if m is Dictionary else m
+			if Value.truth(id) and id!="" and id not in ids:ids.append(id)
 	else:
-		if g.persona.fight==1:ids.append("persona")
-		for id in g.party:
-			if id not in ids:ids.append(id)
+		if Value.equal_number(g.persona.get("fight"),1):ids.append("persona")
+		for id in g.get("party",[]):
+			if Value.truth(id) and id!="" and id not in ids:ids.append(id)
 	if "persona" not in ids:gains.persona=int(xp/2)
 	for id in ids:
-		if id=="persona" or id in g.roster:gains[id]=xp
-	for id in gains:
-		var p=g.persona if id=="persona" else {"lv":g.lvl.get(id,g.persona.lv),"exp":g.exp.get(id,0)}
-		var result=give(int(p.lv),int(p.exp),gains[id])
+		if id=="persona" or id in g.get("roster",[]):gains[id]=xp
+	var order=["persona"]
+	for id in ids:
+		if id!="persona":order.append(id)
+	for id in order:
+		if not gains.has(id):continue
+		# Missing companion levels inherit the persona's level at the instant
+		# give() runs, after the persona has received this battle's XP.
+		var raw=g.persona.get("lv")
+		if not Value.truth(raw):raw=g.get("lv")
+		var pl=clampi(Value.integer(raw,1),1,40)
+		var levels=g.get("lvl",{})
+		var l=pl if id=="persona" else clampi(Value.integer(levels.get(id) if levels is Dictionary else null,pl),1,40)
+		var x=Value.integer(g.persona.get("exp")) if id=="persona" else Value.integer(g.get("exp",{}).get(id))
+		var result=give(l,x,gains[id])
 		if id=="persona":g.persona.lv=result.level;g.persona.exp=result.xp;g.lv=result.level
-		else:g.lvl[id]=result.level;g.exp[id]=result.xp
-	if key!=null:g.town.xp_bn=key
-	return gains
+		else:
+			if not g.get("lvl") is Dictionary:g.lvl={}
+			if not g.get("exp") is Dictionary:g.exp={}
+			g.lvl[id]=result.level;g.exp[id]=result.xp
+		if result.level>l:
+			var name=g.persona.get("name","") if id=="persona" else names.get(id,id)
+			if name=="":name="당신"
+			out.lines.append(Locale.u("{name} Lv {before} → {after}",{"name":name,"before":l,"after":result.level},lang))
+	if numbered:town.xp_bn=key
+	if not out.lines.is_empty():out.chron.append("Leveled up: "+", ".join(out.lines) if lang=="en" else Locale.u("레벨이 올랐다: {lines}",{"lines":", ".join(out.lines)},lang))
+	return out

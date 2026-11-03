@@ -1,5 +1,18 @@
 extends RefCounted
 static var DATA=JSON.parse_string(FileAccess.get_file_as_string("res://data/town-r21-rules.json"))
+const SourceValue=preload("res://game/ui_value_r23.gd")
+
+static func source_town(g: Dictionary) -> Dictionary:
+	# Transient source boundary, shared by experience awards. Persisted native
+	# saves keep their existing schema and validation before they reach this code.
+	if not g.get("town") is Dictionary:g.town={}
+	var t=g.town
+	for pair in [["bn",0],["day",1],["rr",0]]:
+		if not SourceValue.truth(t.get(pair[0])):t[pair[0]]=pair[1]
+	if not (t.get("acts") is Dictionary or t.get("acts") is Array):t.acts={}
+	if not g.get("guild") is Dictionary:g.guild={"quests":[],"active":"","done":0,"recruits":0,"tickets":0}
+	if not (g.guild.get("quests") is Dictionary or g.guild.get("quests") is Array):g.guild.quests=[]
+	return t
 
 static func aff_r2(value: float) -> float:return floor(value*100+.5)/100
 

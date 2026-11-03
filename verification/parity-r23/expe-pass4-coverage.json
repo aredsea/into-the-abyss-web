@@ -1,0 +1,1479 @@
+{
+  "instrumentation_output_equal": true,
+  "method": "Cumulative actual function/then/else/do entries, not native parity or exhaustive condition coverage. Third-pass evidence preserved; only remaining rows targeted.",
+  "rows": [
+    {
+      "id": "P2746",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 13,
+        "end": 23,
+        "symbol": "B.tw_T"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "battle",
+        "handler",
+        "sortie",
+        "settle",
+        "quest_settle",
+        "remaining",
+        "finish",
+        "start",
+        "continue",
+        "town",
+        "explore",
+        "award"
+      ],
+      "entries": 4,
+      "before": 3,
+      "entered": 4,
+      "new_entries": [
+        "70-town.lua:21:1001"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P2749",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 25,
+        "end": 28,
+        "symbol": "B.tw_name"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "sortie",
+        "remaining",
+        "town"
+      ],
+      "entries": 0,
+      "before": 0,
+      "entered": 0,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P2750",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 31,
+        "end": 36,
+        "symbol": "B.tw_party"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "remaining",
+        "town"
+      ],
+      "entries": 2,
+      "before": 2,
+      "entered": 2,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P2751",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 38,
+        "end": 42,
+        "symbol": "B.tw_tags"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "town"
+      ],
+      "entries": 1,
+      "before": 1,
+      "entered": 1,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P2752",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 45,
+        "end": 53,
+        "symbol": "B.tw_face"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "town"
+      ],
+      "entries": 3,
+      "before": 2,
+      "entered": 3,
+      "new_entries": [
+        "70-town.lua:51:1914"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P2753",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 56,
+        "end": 56,
+        "symbol": "B.tw_hd"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "remaining"
+      ],
+      "entries": 0,
+      "before": 0,
+      "entered": 0,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P2754",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 59,
+        "end": 62,
+        "symbol": "B.tw_pbtn"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "town"
+      ],
+      "entries": 0,
+      "before": 0,
+      "entered": 0,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P2755",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 64,
+        "end": 64,
+        "symbol": "B.tw_stars"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "remaining",
+        "town"
+      ],
+      "entries": 0,
+      "before": 0,
+      "entered": 0,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P2756",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 67,
+        "end": 67,
+        "symbol": "B.tw_hint"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "remaining"
+      ],
+      "entries": 0,
+      "before": 0,
+      "entered": 0,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P2757",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 69,
+        "end": 94,
+        "symbol": "B.SCREENS.town"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "town"
+      ],
+      "entries": 4,
+      "before": 3,
+      "entered": 4,
+      "new_entries": [
+        "70-town.lua:77:3305"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P2758",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 96,
+        "end": 127,
+        "symbol": "B.H.tw"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "town"
+      ],
+      "entries": 16,
+      "before": 12,
+      "entered": 14,
+      "new_entries": [
+        "70-town.lua:117:5778",
+        "70-town.lua:124:6041"
+      ],
+      "remaining_entries": [
+        {
+          "key": "70-town.lua:109:5303",
+          "line": 109,
+          "offset": 5303,
+          "token": "then"
+        },
+        {
+          "key": "70-town.lua:110:5383",
+          "line": 110,
+          "offset": 5383,
+          "token": "then"
+        }
+      ]
+    },
+    {
+      "id": "P2784",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 130,
+        "end": 194,
+        "symbol": "B.tw_settle"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "quest_settle",
+        "remaining",
+        "town"
+      ],
+      "entries": 19,
+      "before": 1,
+      "entered": 19,
+      "new_entries": [
+        "70-town.lua:134:6255",
+        "70-town.lua:135:6335",
+        "70-town.lua:140:6587",
+        "70-town.lua:144:6813",
+        "70-town.lua:147:7062",
+        "70-town.lua:149:7152",
+        "70-town.lua:154:7332",
+        "70-town.lua:156:7553",
+        "70-town.lua:158:7739",
+        "70-town.lua:160:7835",
+        "70-town.lua:162:7911",
+        "70-town.lua:166:8074",
+        "70-town.lua:173:8370",
+        "70-town.lua:175:8492",
+        "70-town.lua:177:8559",
+        "70-town.lua:183:8943",
+        "70-town.lua:185:9033",
+        "70-town.lua:190:9147"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P2792",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 197,
+        "end": 209,
+        "symbol": "B.HUD_EXTRA[#B.HUD_EXTRA + 1]"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "town"
+      ],
+      "entries": 6,
+      "before": 1,
+      "entered": 6,
+      "new_entries": [
+        "70-town.lua:199:9629",
+        "70-town.lua:201:9784",
+        "70-town.lua:202:9885",
+        "70-town.lua:205:10168",
+        "70-town.lua:207:10399"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P2794",
+      "source": {
+        "file": "bot/src/70-town.lua",
+        "start": 211,
+        "end": 221,
+        "symbol": "B.CTX[\"20-town\"]"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "remaining",
+        "town"
+      ],
+      "entries": 3,
+      "before": 1,
+      "entered": 3,
+      "new_entries": [
+        "70-town.lua:213:10807",
+        "70-town.lua:215:10918"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3003",
+      "source": {
+        "file": "bot/src/74-level.lua",
+        "start": 89,
+        "end": 128,
+        "symbol": "B.award_exp"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "settle",
+        "quest_settle",
+        "finish",
+        "award"
+      ],
+      "entries": 20,
+      "before": 14,
+      "entered": 20,
+      "new_entries": [
+        "74-level.lua:91:3198",
+        "74-level.lua:93:3293",
+        "74-level.lua:94:3393",
+        "74-level.lua:107:4147",
+        "74-level.lua:108:4180",
+        "74-level.lua:109:4244"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3004",
+      "source": {
+        "file": "bot/src/74-level.lua",
+        "start": 102,
+        "end": 104,
+        "symbol": "add"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "settle",
+        "quest_settle",
+        "finish",
+        "award"
+      ],
+      "entries": 1,
+      "before": 1,
+      "entered": 1,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3016",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 52,
+        "end": 55,
+        "symbol": "face"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "sortie",
+        "remaining"
+      ],
+      "entries": 1,
+      "before": 1,
+      "entered": 1,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3017",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 58,
+        "end": 65,
+        "symbol": "quest_card"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "remaining"
+      ],
+      "entries": 1,
+      "before": 1,
+      "entered": 1,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3018",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 68,
+        "end": 81,
+        "symbol": "slots"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "remaining"
+      ],
+      "entries": 3,
+      "before": 3,
+      "entered": 3,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3020",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 84,
+        "end": 89,
+        "symbol": "fight_row"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "remaining"
+      ],
+      "entries": 0,
+      "before": 0,
+      "entered": 0,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3026",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 117,
+        "end": 142,
+        "symbol": "cards"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "sortie",
+        "remaining"
+      ],
+      "entries": 4,
+      "before": 3,
+      "entered": 4,
+      "new_entries": [
+        "75-sortie.lua:126:6205"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3028",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 120,
+        "end": 120,
+        "symbol": "ft"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "sortie",
+        "remaining"
+      ],
+      "entries": 0,
+      "before": 0,
+      "entered": 0,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3031",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 158,
+        "end": 165,
+        "symbol": "summary_card"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "remaining"
+      ],
+      "entries": 1,
+      "before": 1,
+      "entered": 1,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3032",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 167,
+        "end": 183,
+        "symbol": "B.SCREENS.sortie"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "remaining"
+      ],
+      "entries": 1,
+      "before": 1,
+      "entered": 1,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3037",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 186,
+        "end": 194,
+        "symbol": "legacy_start"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "sortie"
+      ],
+      "entries": 1,
+      "before": 1,
+      "entered": 1,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3041",
+      "source": {
+        "file": "bot/src/75-sortie.lua",
+        "start": 196,
+        "end": 254,
+        "symbol": "B.H.so"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "sortie",
+        "remaining"
+      ],
+      "entries": 32,
+      "before": 21,
+      "entered": 32,
+      "new_entries": [
+        "75-sortie.lua:230:11128",
+        "75-sortie.lua:232:11221",
+        "75-sortie.lua:237:11374",
+        "75-sortie.lua:242:11629",
+        "75-sortie.lua:245:11766",
+        "75-sortie.lua:246:11828",
+        "75-sortie.lua:248:11893",
+        "75-sortie.lua:249:12010",
+        "75-sortie.lua:251:12118",
+        "75-sortie.lua:251:12148",
+        "75-sortie.lua:252:12209"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3079",
+      "source": {
+        "file": "bot/src/76-dungeon.lua",
+        "start": 75,
+        "end": 117,
+        "symbol": "B.dn_card"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "remaining"
+      ],
+      "entries": 5,
+      "before": 5,
+      "entered": 5,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3120",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 79,
+        "end": 82,
+        "symbol": "B.ex_run"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "handler",
+        "settle",
+        "run_record",
+        "remaining",
+        "screens",
+        "continue",
+        "explore"
+      ],
+      "entries": 0,
+      "before": 0,
+      "entered": 0,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3124",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 99,
+        "end": 121,
+        "symbol": "B.ex_new"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "battle",
+        "handler",
+        "sortie",
+        "new_actual",
+        "settle",
+        "new",
+        "remaining",
+        "finish",
+        "migration",
+        "screens",
+        "start",
+        "continue",
+        "resume_actual",
+        "explore"
+      ],
+      "entries": 3,
+      "before": 3,
+      "entered": 3,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3134",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 144,
+        "end": 148,
+        "symbol": "itname"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "handler",
+        "remaining",
+        "finish",
+        "screens",
+        "names",
+        "explore"
+      ],
+      "entries": 1,
+      "before": 0,
+      "entered": 1,
+      "new_entries": [
+        "77-explore.lua:146:7683"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3140",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 182,
+        "end": 197,
+        "symbol": "B.dn_start"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "handler",
+        "sortie",
+        "start"
+      ],
+      "entries": 4,
+      "before": 0,
+      "entered": 4,
+      "new_entries": [
+        "77-explore.lua:186:9433",
+        "77-explore.lua:188:9555",
+        "77-explore.lua:190:9634",
+        "77-explore.lua:190:9702"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3145",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 201,
+        "end": 234,
+        "symbol": "B.ex_battle"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "battle",
+        "remaining",
+        "continue",
+        "explore"
+      ],
+      "entries": 5,
+      "before": 3,
+      "entered": 5,
+      "new_entries": [
+        "77-explore.lua:227:11738",
+        "77-explore.lua:228:11767"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3159",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 237,
+        "end": 263,
+        "symbol": "enter_rest"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "continue",
+        "explore"
+      ],
+      "entries": 6,
+      "before": 6,
+      "entered": 6,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3168",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 268,
+        "end": 306,
+        "symbol": "do_explore"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "explore"
+      ],
+      "entries": 10,
+      "before": 7,
+      "entered": 10,
+      "new_entries": [
+        "77-explore.lua:270:13737",
+        "77-explore.lua:291:14785",
+        "77-explore.lua:292:14892"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3182",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 322,
+        "end": 346,
+        "symbol": "do_cont"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "remaining",
+        "continue"
+      ],
+      "entries": 6,
+      "before": 4,
+      "entered": 6,
+      "new_entries": [
+        "77-explore.lua:339:17238",
+        "77-explore.lua:345:17509"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3189",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 349,
+        "end": 354,
+        "symbol": "do_boss"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "remaining"
+      ],
+      "entries": 1,
+      "before": 1,
+      "entered": 1,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3195",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 370,
+        "end": 376,
+        "symbol": "B.ex_gear_bank"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "settle",
+        "gear_bank",
+        "finish"
+      ],
+      "entries": 3,
+      "before": 2,
+      "entered": 3,
+      "new_entries": [
+        "77-explore.lua:373:18579"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3202",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 414,
+        "end": 540,
+        "symbol": "finish_run"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "settle",
+        "finish"
+      ],
+      "entries": 29,
+      "before": 19,
+      "entered": 29,
+      "new_entries": [
+        "77-explore.lua:415:20082",
+        "77-explore.lua:465:23439",
+        "77-explore.lua:473:23822",
+        "77-explore.lua:476:23956",
+        "77-explore.lua:490:24705",
+        "77-explore.lua:492:24792",
+        "77-explore.lua:494:24851",
+        "77-explore.lua:501:25063",
+        "77-explore.lua:512:25566",
+        "77-explore.lua:515:25906"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3223",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 543,
+        "end": 556,
+        "symbol": "B.dn_settle"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "settle",
+        "quest_settle"
+      ],
+      "entries": 5,
+      "before": 1,
+      "entered": 5,
+      "new_entries": [
+        "77-explore.lua:546:27626",
+        "77-explore.lua:550:27770",
+        "77-explore.lua:554:27885",
+        "77-explore.lua:555:27926"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3225",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 559,
+        "end": 583,
+        "symbol": "B.dn_settle_legacy"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "settle",
+        "quest_settle"
+      ],
+      "entries": 5,
+      "before": 5,
+      "entered": 5,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3249",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 648,
+        "end": 662,
+        "symbol": "do_equip"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "handler"
+      ],
+      "entries": 6,
+      "before": 6,
+      "entered": 6,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3251",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 665,
+        "end": 708,
+        "symbol": "B.H.ex"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "handler",
+        "remaining"
+      ],
+      "entries": 17,
+      "before": 11,
+      "entered": 17,
+      "new_entries": [
+        "77-explore.lua:668:32038",
+        "77-explore.lua:669:32131",
+        "77-explore.lua:674:32398",
+        "77-explore.lua:683:32958",
+        "77-explore.lua:685:33064",
+        "77-explore.lua:696:33570"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3273",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 711,
+        "end": 711,
+        "symbol": "bar"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "screens"
+      ],
+      "entries": 0,
+      "before": 0,
+      "entered": 0,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3274",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 713,
+        "end": 723,
+        "symbol": "pips"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "screens"
+      ],
+      "entries": 1,
+      "before": 1,
+      "entered": 1,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3275",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 725,
+        "end": 736,
+        "symbol": "head_card"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "screens"
+      ],
+      "entries": 1,
+      "before": 1,
+      "entered": 1,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3277",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 738,
+        "end": 741,
+        "symbol": "last_card"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "screens"
+      ],
+      "entries": 1,
+      "before": 1,
+      "entered": 1,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3278",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 744,
+        "end": 749,
+        "symbol": "use_btn"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "screens"
+      ],
+      "entries": 1,
+      "before": 0,
+      "entered": 1,
+      "new_entries": [
+        "77-explore.lua:747:36435"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3280",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 751,
+        "end": 764,
+        "symbol": "use_row"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "screens"
+      ],
+      "entries": 5,
+      "before": 3,
+      "entered": 5,
+      "new_entries": [
+        "77-explore.lua:758:37060",
+        "77-explore.lua:762:37299"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3281",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 766,
+        "end": 782,
+        "symbol": "party_card"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "screens"
+      ],
+      "entries": 2,
+      "before": 2,
+      "entered": 2,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3282",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 784,
+        "end": 790,
+        "symbol": "retreat_card"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "screens"
+      ],
+      "entries": 1,
+      "before": 1,
+      "entered": 1,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3287",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 792,
+        "end": 797,
+        "symbol": "explore_screen"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "screens"
+      ],
+      "entries": 0,
+      "before": 0,
+      "entered": 0,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3290",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 799,
+        "end": 816,
+        "symbol": "slot_row"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "remaining",
+        "screens"
+      ],
+      "entries": 3,
+      "before": 1,
+      "entered": 3,
+      "new_entries": [
+        "77-explore.lua:808:40306",
+        "77-explore.lua:809:40423"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3293",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 818,
+        "end": 827,
+        "symbol": "gear_card"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "screens"
+      ],
+      "entries": 2,
+      "before": 1,
+      "entered": 2,
+      "new_entries": [
+        "77-explore.lua:824:40965"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3296",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 829,
+        "end": 833,
+        "symbol": "rest_screen"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "screens"
+      ],
+      "entries": 0,
+      "before": 0,
+      "entered": 0,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3299",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 837,
+        "end": 845,
+        "symbol": "done_act"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "screens"
+      ],
+      "entries": 1,
+      "before": 0,
+      "entered": 1,
+      "new_entries": [
+        "77-explore.lua:838:42011"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3303",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 846,
+        "end": 880,
+        "symbol": "done_screen"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "screens"
+      ],
+      "entries": 11,
+      "before": 3,
+      "entered": 11,
+      "new_entries": [
+        "77-explore.lua:860:43301",
+        "77-explore.lua:862:43349",
+        "77-explore.lua:864:43518",
+        "77-explore.lua:866:43778",
+        "77-explore.lua:867:43871",
+        "77-explore.lua:869:44047",
+        "77-explore.lua:871:44094",
+        "77-explore.lua:873:44266"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3304",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 849,
+        "end": 849,
+        "symbol": "row"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "screens"
+      ],
+      "entries": 0,
+      "before": 0,
+      "entered": 0,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3305",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 882,
+        "end": 891,
+        "symbol": "B.SCREENS.dungeon"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "screens"
+      ],
+      "entries": 3,
+      "before": 2,
+      "entered": 3,
+      "new_entries": [
+        "77-explore.lua:884:45141"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3309",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 907,
+        "end": 915,
+        "symbol": "move_old"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "migration"
+      ],
+      "entries": 3,
+      "before": 3,
+      "entered": 3,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3311",
+      "source": {
+        "file": "bot/src/77-explore.lua",
+        "start": 917,
+        "end": 923,
+        "symbol": "B.G_migrate"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "migration"
+      ],
+      "entries": 1,
+      "before": 1,
+      "entered": 1,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3331",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 88,
+        "end": 88,
+        "symbol": "cur_i"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "remaining"
+      ],
+      "entries": 0,
+      "before": 0,
+      "entered": 0,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3332",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 89,
+        "end": 132,
+        "symbol": "B.it_apply"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "items"
+      ],
+      "entries": 12,
+      "before": 12,
+      "entered": 12,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3337",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 135,
+        "end": 135,
+        "symbol": "itname"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "remaining"
+      ],
+      "entries": 0,
+      "before": 0,
+      "entered": 0,
+      "new_entries": [],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3338",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 138,
+        "end": 150,
+        "symbol": "B.it_button"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "items"
+      ],
+      "entries": 4,
+      "before": 3,
+      "entered": 4,
+      "new_entries": [
+        "78-battle-item.lua:139:5621"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3340",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 153,
+        "end": 179,
+        "symbol": "B.r_items"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "items"
+      ],
+      "entries": 6,
+      "before": 5,
+      "entered": 6,
+      "new_entries": [
+        "78-battle-item.lua:173:7576"
+      ],
+      "remaining_entries": []
+    },
+    {
+      "id": "P3344",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 182,
+        "end": 225,
+        "symbol": "B.H.it"
+      },
+      "called": true,
+      "new_called": true,
+      "groups": [
+        "remaining",
+        "items"
+      ],
+      "entries": 16,
+      "before": 10,
+      "entered": 16,
+      "new_entries": [
+        "78-battle-item.lua:183:8327",
+        "78-battle-item.lua:185:8441",
+        "78-battle-item.lua:189:8607",
+        "78-battle-item.lua:193:8752",
+        "78-battle-item.lua:200:9094",
+        "78-battle-item.lua:205:9321"
+      ],
+      "remaining_entries": []
+    }
+  ],
+  "reviewed": 66,
+  "new_called": 66,
+  "entries": 303,
+  "before": 196,
+  "entered": 301
+}

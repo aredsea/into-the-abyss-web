@@ -1,0 +1,22 @@
+{
+  "opened": [
+    {
+      "file": "verification/expedition-r22/render/settlement-390x844.png",
+      "sha256": "c2b7604dad9625d022dd75b3d748cfc72af4b9f3289a43c6cfd98c748be18163"
+    },
+    {
+      "file": "verification/expedition-r22/render/log-360x780.png",
+      "sha256": "20a46497c728279dbf4fbf8abe52a142b2358c3525f3e47c82ff37f8975428ce"
+    },
+    {
+      "file": "verification/parity-r23/pass2-render/retreat-resumed-360x780.png",
+      "sha256": "24d8be8de03b5528a1d27749bc745aa9eab18668c9820d0b927bc84f7efde818"
+    }
+  ],
+  "observations": [
+    "Settlement: both next-floor/home actions visible; final notice wraps with a short final line; fixture persona placeholder is visible.",
+    "Log at 360px: event lines, loot totals and return button fit. This is a UI fixture, not proof of full source HTML equality.",
+    "Resumed retreat at 360px: 21 gold, 0 XP, continue/cancel and settlement actions visible."
+  ],
+  "limits": "Three generated native images inspected. No full image census, Web/WASM or physical device review."
+}

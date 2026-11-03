@@ -1,6 +1,9 @@
-extends "res://ui/town_screen_r21.gd"
+extends "res://ui/expedition_screen_r22.gd"
+const LegacySortie=preload("res://ui/expe_sortie_legacy_r23.gd")
 ## One portrait per companion; formation rows and the illustrated source route.
 func build(owner_screen) -> void:
+	if not owner_screen.model.has_method("source_sortie_view"):
+		var legacy=LegacySortie.new();add_child(legacy);legacy.build(owner_screen);metrics=legacy.metrics;boxes=legacy.boxes;return
 	build_frame(owner_screen)
 	nav_top=792
 	background("departure",Rect2(0,48,390,219))
@@ -30,6 +33,7 @@ func build(owner_screen) -> void:
 			if f==w.selected_floor:pick.select(pick.item_count-1);selection_on_page=true
 		if not selection_on_page:
 			pick.select(-1);pick.text="선택 %d층 · 다른 쪽"%w.selected_floor
+		elif L.language(s)=="en":pick.text="Floor %d"%pick.get_selected_id()
 		for connection in pick.item_selected.get_connections():pick.item_selected.disconnect(connection.callable)
 		pick.item_selected.connect(func(i):w.select_dungeon_floor(pick.get_item_id(i));host._save();host._draw_screen())
 		action("floor_prev","이전",Rect2(218,212,72,56),func():w.floor_page(pg-1);host._save();host._draw_screen(),false,pg<=1).add_theme_font_size_override("font_size",11)
@@ -49,42 +53,28 @@ func build(owner_screen) -> void:
 		var group=ids.filter(func(id):return w.person(id).row==row)
 		label(row+" · %d명"%group.size(),Rect2(18+i*180,335,174,24),13,T.INK,T.BOLD)
 		formation_row(group,18+i*180)
-	label("대기 동료",Rect2(18,485,140,44),14,T.INK,T.BOLD)
-	for i in range(3):
-		var entry=[["","전체"],["front","전열"],["back","후열"]][i]
-		action("so_f_"+("all" if entry[0]=="" else entry[0]),entry[1],Rect2(162+i*71,485,68,56),func():s.ui.tab=entry[0];host._save();host._draw_screen(),s.ui.get("tab","")==entry[0]).add_theme_font_size_override("font_size",12)
-	var candidates=w.sortie_candidates(s.ui.get("tab","")).filter(func(id):return id not in s.party)
-	var previous=stage
-	stage=scroll_page(545,66,maxf(66,ceil(candidates.size()/2.0)*70))
-	for i in range(candidates.size()):
-		var id=candidates[i];var x=(i%2)*172;var y=int(i/2)*70
-		picture(id,Rect2(x,y,48,66),"formation-face")
-		var full=s.party.size()>=(3 if s.persona.fight==1 else 4)
-		var b=action("so_tg_"+id,"추가 · "+w.person(id).name,Rect2(x+50,y,116,66),func():w.toggle_companion(id);host._save();host._draw_screen(),false,w.active() or full)
-		b.add_theme_font_size_override("font_size",11)
-	if candidates.is_empty():label("이 열의 대기 동료가 없습니다.",Rect2(0,0,340,48),14,T.MUTED)
-	stage=previous
-	var fronts=ids.filter(func(id):return w.person(id).row=="전열").size()
+	var previous=stage;stage=scroll_page(485,243,243)
+	var sheet=fill("source_sortie_sheet",Rect2(0,0,342,243),T.PAPER)
+	var y=source_entries(w.source_sortie_view("cards"),0)
+	y=source_entries(w.source_sortie_view("summary"),y+16)
+	if not s.quest.is_empty() and host.save_error==OK:
+		var quest_button=action("accepted_quest","수락한 균열 의뢰로 출발",Rect2(0,y,342,56),func():host._act(w.depart_accepted_quest,"");host.go("explore"),true,ids.is_empty() or w.active())
+		quest_button.tooltip_text="\n".join(w.sortie_quest_summary(s.quest).warns);y+=68
+	stage.custom_minimum_size.y=maxf(243,y+12);sheet.size.y=stage.custom_minimum_size.y;stage=previous
 	var summary_data=w.sortie_quest_summary({"lv":floor_view.el}) if w.has_method("sortie_quest_summary") else {}
-	var danger=not summary_data.is_empty() and summary_data.n>0 and summary_data.elv-summary_data.avg>=5
-	var caption="옛 저장은 지휘로 출발 · 초상을 눌러 편성 해제" if not w.can_persona_fight() else "출전할 사람을 골라 주세요." if ids.is_empty() else "전열 없음 · 초상을 눌러 편성 해제" if fronts==0 else "출전 %d / 4 · 초상을 눌러 편성 해제"%ids.size()
-	if danger:caption="위험 · 적 Lv.%d / 파티 평균 Lv.%d%s"%[summary_data.elv,summary_data.avg," · 전열 없음" if fronts==0 else ""]
-	label(caption,Rect2(18,613,354,24),12,T.RED if fronts==0 or danger else T.INK)
-	label("원정 경로",Rect2(18,637,354,22),13,T.INK,T.BOLD)
-	if s.quest.is_empty() and host.save_error==OK:
-		for i in range(3):
-			var x=18+i*120
-			background(["explore","rest","departure"][i],Rect2(x,661,114,45))
-			mark("route_picture:"+str(i),boxes["background:"+["explore","rest","departure"][i]])
-			label(["탐색 5회","휴식","층 보스"][i],Rect2(x,706,114,24),12,T.INK,T.BOLD).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-	elif not s.quest.is_empty() and host.save_error==OK:
-			var quest_button=action("accepted_quest","수락한 균열 의뢰로 출발",Rect2(18,667,354,56),func():host._act(w.depart_accepted_quest,"");host.go("explore"),true,ids.is_empty() or w.active())
-			if w.has_method("sortie_quest_summary"):quest_button.tooltip_text="\n".join(w.sortie_quest_summary(s.quest).warns)
-	var start_button=action("start_run","선택한 층으로 출발 →",Rect2(18,736,354,56),func():host._act(w.depart_dungeon.bind(w.selected_floor),"");host.go("explore"),true,ids.is_empty() or w.active())
+	var start_button=action("start_run","선택한 층으로 출발 →",Rect2(18,736,354,56),func():host._act(w.start_selected_dungeon,"");host.go("explore"),true,ids.is_empty() or w.active())
 	if not summary_data.is_empty():start_button.tooltip_text="\n".join(summary_data.warns)
 	navigation()
 	if host.save_error!=OK:action("save_retry","저장 다시 시도",Rect2(18,667,354,56),func():host._save();host._draw_screen(),true)
 	finish_localization()
+
+func source_action(id: String) -> void:
+	var w=host.model
+	if id.begins_with("so_f_"):
+		var f=id.trim_prefix("so_f_");w.s.ui.tab="" if f=="all" else f
+	elif id.begins_with("so_tg_"):w.toggle_companion(id.trim_prefix("so_tg_"))
+	else:super(id);return
+	host._save();host._draw_screen()
 
 func formation_row(ids: Array,x: float) -> void:
 	var sc=ScrollContainer.new();stage.add_child(sc);sc.position=Vector2(x,359);sc.size=Vector2(174,122)

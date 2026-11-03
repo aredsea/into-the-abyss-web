@@ -16,7 +16,28 @@ func _init():
 
 func ensure_dungeon():
 	if not s.has("dungeon_r21"): s.dungeon_r21={"best":0,"cleared_bosses":[],"runs":0,"sel":1}
+	var source={"dungeon":s.dungeon_r21.duplicate(true)}
+	var normalized=normalize_dungeon_record(source)
+	# Native/cloud saves retain their established field allowlist. Source-only
+	# defaults belong to the transient source record, not to persisted state.
+	for key in s.dungeon_r21:
+		# JSON restores numeric fields as floats. Preserve their existing type
+		# when the value is valid so exact cloud roundtrips remain unchanged.
+		if normalized.has(key) and s.dungeon_r21[key]!=normalized[key]:s.dungeon_r21[key]=normalized[key]
 	selected_floor=int(s.dungeon_r21.sel)
+
+func normalize_dungeon_record(g: Dictionary) -> Dictionary:
+	# 76-dungeon.dn_G mutates and returns the same record. Save validation still
+	# rejects invalid native saves before adoption; this never discards a save.
+	if not g.get("dungeon") is Dictionary:g.dungeon={}
+	var d=g.dungeon
+	for pair in [["best",0],["runs",0],["sel",1],["pg",1]]:
+		var n=preload("res://game/battle_stats_r23.gd").number(d.get(pair[0]),pair[1])
+		d[pair[0]]=maxi(pair[1],int(floor(n)))
+	d.mode=1 if (d.get("mode") is int or d.get("mode") is float) and d.mode==1 else 0
+	if not (d.get("cleared_bosses") is Array or d.get("cleared_bosses") is Dictionary):d.cleared_bosses=[]
+	if d.has("run") and not (d.run is Dictionary or d.run is Array):d.erase("run")
+	return d
 
 func r21() -> bool: return s.run.get("data_version",0)==21
 

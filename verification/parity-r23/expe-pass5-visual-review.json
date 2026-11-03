@@ -1,0 +1,42 @@
+{
+  "directly_opened": true,
+  "captures": [
+    {
+      "file": "verification/parity-r23/expe-pass5-render/explore-en-360x780.png",
+      "sha256": "692cd8a2e7ff7e46321cf4962d859fbd38544109bd35dcd67e3ff9e28a384210"
+    },
+    {
+      "file": "verification/parity-r23/expe-pass5-render/retreat-en-360x780.png",
+      "sha256": "84913ddd5818f367b4993f54e7f3de3e54d3ea2434739106a75618bc1572f74d"
+    },
+    {
+      "file": "verification/parity-r23/expe-pass5-render/sortie-ko-390x844.png",
+      "sha256": "adf5e53bb6d005b6622f8dcebdfa77e5c338acfc5c3375ab788f9de8b8273310"
+    },
+    {
+      "file": "verification/parity-r23/expe-pass5-render/rest-ko-390x844.png",
+      "sha256": "a526cc6530de33aa74cb0e4c29cb4fde8a42effe70b3df305e59c79eba0d637f"
+    },
+    {
+      "file": "verification/parity-r23/expe-pass5-render/done-ko-390x844.png",
+      "sha256": "250069acbadc35645fbb3fe8168776dde9287a0ee41ac37f3d35316bd96a9b19"
+    },
+    {
+      "file": "verification/parity-r23/expe-pass5-render/done-en-390x844.png",
+      "sha256": "1b00a5d9407aafea1d347649b70c6117b869582bde53414054f52ccea6999e76"
+    }
+  ],
+  "observations": [
+    "Opaque source-information panels improve text contrast on the existing artwork.",
+    "Final English retreat subtitle fits a single line after widening.",
+    "Retreat warning and Retreat/Continue order are visible.",
+    "Sortie candidate information and long party content are in native scroll containers; viewport covers only their upper portion.",
+    "Korean and English result values and return captions are readable.",
+    "Existing non-migrated shell labels and artwork in English captures still include Korean; whole-screen rows remain partial."
+  ],
+  "not_verified": [
+    "Web/WASM export",
+    "Physical devices",
+    "Every capture and all scroll positions visually"
+  ]
+}

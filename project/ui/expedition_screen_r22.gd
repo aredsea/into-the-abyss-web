@@ -19,53 +19,91 @@ func small_party(y: float,tall=false) -> void:
 		fill("party_hp:"+id,Rect2(x,y+119,86*clampf(float(m.hp)/maxf(1,b.hp),0,1),4),T.RED)
 
 func exploration() -> void:
-	super()
 	var w=host.model;var r=w.s.run
-	if w.expedition() and host.controls.has("retreat"):
-		var button=host.controls.retreat
-		for connection in button.pressed.get_connections():button.pressed.disconnect(connection.callable)
-		button.pressed.connect(func():
-			if w.expedition_retreat("retreat"):
-				host._save();host._ask("모은 보상을 정산하고 귀환할까요?",w.expedition_retreat.bind("retreat_yes")))
-	if boxes.has("source_progress_map"):
-		var map=boxes.source_progress_map
-		map.position.y=151;map.size.y=306
-		for i in range(map.points.size()):map.points[i].y*=.87
-		map.queue_redraw()
-	if r.phase=="rest":
-		# Replace the old card shortcut with source rest equipment management.
-		var old=host.controls.get("cards")
-		if is_instance_valid(old):old.queue_free();host.controls.erase("cards")
-		action("rest_equipment","장비 정비",Rect2(136,705,108,44),func():host.who=w.expedition_ids()[0];host.go("equipment"))
-	var mods=w.expedition_mods()
-	if r.phase=="rest":
-		remove_text_at(Vector2(18,458))
-		label("HP %d%% · MP %d%% 회복 완료"%[int(round((.3+mods.rest_hp)*100)),int(round((.6+mods.rest_mp)*100))],Rect2(18,458,354,24),12)
-	# Discovery text may be longer than the status strip; an explicit log opens it whole.
-	action("expedition_log","탐색 기록 · 주머니",Rect2(18,97 if r.phase!="rest" else 220,354,44),host.go.bind("expedition_log"))
+	traced_title("rest" if r.phase=="rest" else "explore",Rect2(18,0,216,66))
+	display(w.dungeon_title(),Rect2(18,69,354,26),T.INK,21)
+	action("expedition_log","탐색 기록 · 주머니",Rect2(18,97,354,44),host.go.bind("expedition_log"))
+	var previous=stage;stage=scroll_page(151,474,474)
+	var sheet=fill("source_exploration_sheet",Rect2(0,0,342,474),T.PAPER)
+	var y=source_entries(w.source_expedition_view("head"),0)
+	if r.phase=="explore":
+		var map=preload("res://ui/town_map_r21.gd").new();stage.add_child(map);map.position=Vector2(0,y);map.size=Vector2(342,338);map.configure(r,5);mark("source_progress_map",map);y+=350
+	y=source_entries(w.source_expedition_view("last"),y)
+	y=source_entries(w.source_expedition_view("party"),y+8)
+	stage.custom_minimum_size.y=y+12;sheet.size.y=y+12;stage=previous
+	var go=w.ExpeditionUI.new();go.lang=L.language(w.s)
+	action("final_battle" if r.phase=="rest" else "advance",go.u("층 보스에게 도전" if r.phase=="rest" else "탐색한다"),Rect2(18,650,354,44),func():host._act(w.final_battle if r.phase=="rest" else w.advance,""),true,false,false)
+	host.controls["ex_boss" if r.phase=="rest" else "ex_go"]=host.controls["final_battle" if r.phase=="rest" else "advance"]
+	var sub=go.u("{boss}, 레이드 전투(4인)",{"boss":w.source_expedition_state().boss_name}) if r.phase=="rest" else go.u("{next}/{total}번째 (전투 {battle}%, 발견 {find}%)",{"next":r.step+1,"total":5,"battle":70,"find":30})
+	paragraph(sub,Rect2(18,626,354,22),11,T.MUTED,false)
+	action("dungeon_bag","보급품",Rect2(18,705,108,41),host.go.bind("bag"))
+	if r.phase=="rest":action("rest_equipment","장비 정비",Rect2(136,705,108,41),func():host.who=w.expedition_ids()[0];host.go("equipment"))
+	else:action("cards","카드",Rect2(136,705,108,41),host.go.bind("cards"))
+	var entry=w.source_expedition_view("retreat")[0]
+	action("retreat",entry.text,Rect2(254,705,118,41),func():
+		if w.expedition_retreat("retreat"):host._save();host._ask("",w.expedition_retreat.bind("retreat_yes")),false,false,false)
+	host.controls.ex_retreat=host.controls.retreat
+	var retreat_sub=paragraph(entry.get("sub",""),Rect2(18,747,354,16),9,T.MUTED,false)
+	retreat_sub.horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT
+
+func source_entries(entries: Array,y: float) -> float:
+	var i=0
+	while i<entries.size():
+		var e=entries[i]
+		if e.role=="pip":
+			var x=0.0
+			while i<entries.size() and entries[i].role=="pip":
+				var p=entries[i];var width=34.0 if i+2<entries.size() and p.text.is_valid_int() else 63.0
+				fill("source_pip:"+str(i),Rect2(x,y,width-4,30),T.PALE if p.state=="" else T.INK if p.state=="done" else T.RED)
+				var node=label(p.text,Rect2(x,y,width-4,30),12,T.INK if p.state=="" else T.PAPER,T.BOLD,false);node.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;node.set_meta("expe_entry",p)
+				x+=width;i+=1
+			y+=40;continue
+		if e.role=="face":
+			picture(e.id,Rect2(0,y,72,64),"town-party-face").set_meta("expe_entry",e);y+=68
+		elif e.has("action"):
+			var node=action(e.action,e.text,Rect2(0,y,342,44),source_action.bind(e.action),e.get("selected",false),not e.enabled,false);node.set_meta("expe_entry",e);y+=46
+			if e.get("sub","")!="":paragraph(e.sub,Rect2(4,y,334,26),11,T.MUTED,false);y+=30
+		elif e.role=="bar":
+			var node=label(e.text,Rect2(0,y,342,24),12,T.INK,T.BODY,false);node.set_meta("expe_entry",e);y+=25
+			fill("source_bar_track:"+str(y),Rect2(0,y,342,5),T.PALE);fill("source_bar:"+str(y),Rect2(0,y,342*e.ratio,5),T.RED if e.kind=="hp" else T.BLUE);y+=14
+		else:
+			var fs=18 if e.role=="title" else 14;var font=T.BOLD if e.role in ["title","name"] else T.BODY
+			var height=maxf(28,font.get_multiline_string_size(e.text,HORIZONTAL_ALIGNMENT_LEFT,342,fs).y+14)
+			var node=paragraph(e.text,Rect2(0,y,342,height),fs,T.INK,false);node.add_theme_font_override("font",font);node.set_meta("expe_entry",e);y+=height+4
+		i+=1
+	return y
+
+func source_action(id: String) -> void:
+	var w=host.model
+	if id.begins_with("ex_u_"):
+		var parts=id.trim_prefix("ex_u_").rsplit("_",true,1);var who=w.expedition_equip_key(int(parts[1]))
+		host._act(w.use_expedition_item.bind(w.web_item_id(parts[0]),who),"")
 
 func build_page() -> void:
 	if host.screen=="explore" and host.model.expedition() and host.model.active() and host.model.s.run.ask and host.confirm.is_empty():
 		host.confirm={"prompt":"모은 보상을 정산하고 귀환할까요?","callback":host.model.expedition_retreat.bind("retreat_yes")}
 	if host.screen=="expedition_log":
-		page_background();header("탐색 기록 · 주머니","explore")
+		page_background();header(host.model.expedition_label(),"explore")
 		var w=host.model;var r=w.s.run;var lines=[]
 		for line in r.log:lines.append(line)
 		lines.append("미정산 금화 %d · 경험치 %d"%[r.gold,r.xp])
 		for key in r.loot_items:lines.append(w.expedition_item_name(key)+" ×%d"%r.loot_items[key])
 		for code in r.loot_gear:lines.append(w.expedition_gear_label(code,L.language(w.s)=="en"))
+		if L.language(w.s)=="en":lines.push_front(w.expedition_floor_context(int(r.floor)))
 		var prev=stage;stage=scroll_page(70,613,maxi(613,lines.size()*75))
 		for i in range(lines.size()):paragraph(lines[i],Rect2(0,i*75,342,70),14)
 		stage=prev;action("log_back","원정으로",Rect2(18,705,354,44),host.go.bind("explore"),true);navigation();return
 	super()
 
 func retreat() -> void:
-	super()
-	if not host.model.expedition():return
-	var cancel=host.controls.get("cancel")
-	if is_instance_valid(cancel):
-		for connection in cancel.pressed.get_connections():cancel.pressed.disconnect(connection.callable)
-		cancel.pressed.connect(func():host.model.expedition_retreat("retreat_no");host.confirm={};host._save();host._draw_screen())
+	if not host.model.expedition():super();return
+	header("대던전","explore")
+	fill("return_sheet",Rect2(0,389,390,371),T.PAPER);traced_title("retreat",Rect2(18,391,298,42))
+	var entries=host.model.source_expedition_view("retreat")
+	paragraph(entries[0].text,Rect2(18,445,354,190),16,T.INK,false).set_meta("expe_entry",entries[0])
+	action("accept",entries[1].text,Rect2(18,676,170,48),host._accept,true,false,false).set_meta("expe_entry",entries[1])
+	action("cancel",entries[2].text,Rect2(200,676,172,48),func():host.model.expedition_retreat("retreat_no");host.confirm={};host._save();host._draw_screen(),false,false,false).set_meta("expe_entry",entries[2])
+	host.controls.ex_retreat_yes=host.controls.accept;host.controls.ex_retreat_no=host.controls.cancel
 
 func bag() -> void:
 	if not host.selected_item.is_empty():target_item();return
@@ -120,24 +158,18 @@ func summary() -> void:
 	var w=host.model;var r=w.s.summary
 	header("원정 정산")
 	plate("preparation-ruins",Rect2(0,52,390,219))
-	display("%d층 %s"%[r.floor,{"clear":"돌파","retreat":"귀환","defeat":"도전 실패"}[r.result]],Rect2(18,68,354,60),T.RED,40)
-	label("탐색 %d/5 · 전투 승리 %d회"%[r.steps,r.wins],Rect2(18,143,354,28),16,T.INK,T.BOLD)
-	var lines=["획득 금화 %d · 경험치 %d"%[r.gold,r.xp]]
-	if r.first:lines.append("구역 보스 첫 처치 · 다음 구역 개방")
-	if r.penalty>0:lines.append("들고 간 금화 손실 %d"%r.penalty)
-	if r.kept_gold>0:lines.append("케른의 계약 · 금화 %d 보전"%r.kept_gold)
-	if r.lost>0:lines.append("잃은 미정산 금화 %d"%r.lost)
-	for key in r.items:lines.append(w.item_def(w.web_item_id(key)).name+" ×%d"%r.items[key])
-	for key in r.lost_items:lines.append("분실 · "+w.item_def(w.web_item_id(key)).name+" ×%d"%r.lost_items[key])
-	for code in r.gear:lines.append("장비 · "+w.expedition_gear_label(code,L.language(w.s)=="en"))
-	if r.gear_lost>0:lines.append("가방이 가득 차 장비 %d개 폐기"%r.gear_lost)
-	if r.lost_gear>0:lines.append("장비 %d개 분실"%r.lost_gear)
-	for g in r.gains:lines.append("%s · Lv.%d → %d"%[w.person(g.id).name,g.before,g.level])
-	for id in r.aff:lines.append("%s · 호감 +%s"%[w.person(id).name,str(r.aff[id])])
-	if r.fell:lines.append("전투 중 쓰러진 동료가 있었습니다.")
-	lines.append("보상은 지급되었습니다. 같은 정산은 다시 지급되지 않습니다.")
-	var prev=stage;stage=scroll_page(230,390,maxi(390,lines.size()*57))
-	for i in range(lines.size()):paragraph(lines[i],Rect2(0,i*57,342,52),14)
-	stage=prev
-	if w.s.run.get("next_available",false):action("summary_next","다음 층으로 내려간다",Rect2(18,640,354,48),func():host._act(w.next_dungeon_floor,"");host.go("explore"),true)
-	action("summary_home","토르바로",Rect2(18,705,354,44),func():w.expedition_home();host._save();host.go("town"),r.result!="clear")
+	var entries=w.source_expedition_view("done");var lines=entries.filter(func(e):return not e.has("action"))
+	paragraph(lines[0].text,Rect2(18,68,354,60),28,T.RED,false).set_meta("expe_entry",lines[0])
+	fill("source_summary_caption",Rect2(12,134,366,90),T.PAPER)
+	paragraph(lines[1].text,Rect2(18,140,354,78),16,T.INK,false).set_meta("expe_entry",lines[1])
+	var prev=stage;stage=scroll_page(230,390,390)
+	var sheet=fill("source_summary_sheet",Rect2(0,0,342,390),T.PAPER)
+	stage.custom_minimum_size.y=maxf(390,source_entries(lines.slice(2),0)+12);sheet.size.y=stage.custom_minimum_size.y;stage=prev
+	for entry in entries:
+		if not entry.has("action"):continue
+		if entry.action=="ex_next":
+			action("summary_next",entry.text,Rect2(18,640,354,48),func():host._act(w.next_dungeon_floor,"");host.go("explore"),true,false,false).set_meta("expe_entry",entry)
+			paragraph(entry.sub,Rect2(18,688,354,16),10,T.MUTED,false);host.controls.ex_next=host.controls.summary_next
+		else:
+			action("summary_home",entry.text,Rect2(18,705,354,44),func():w.expedition_home();host._save();host.go("town"),r.result!="clear",false,false).set_meta("expe_entry",entry)
+			paragraph(entry.sub,Rect2(18,750,354,16),10,T.MUTED,false);host.controls.ex_home=host.controls.summary_home
