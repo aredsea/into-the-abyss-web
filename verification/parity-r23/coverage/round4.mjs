@@ -49,5 +49,5 @@ for(const r of result.rows){
  if(r.op==='double_full'&&Array.isArray(r.expected.sy))r.expected.sy={};
 }
 const provenance=Object.fromEntries(files.map((f,i)=>[f,crypto.createHash('sha256').update(raw[i]).digest('hex')]));
-fs.writeFileSync('verification/parity-r23/coverage/round4-oracle.json',JSON.stringify({...result,provenance},null,2)+'\n');
+fs.writeFileSync('verification/parity-r23/coverage/round4-oracle.json',JSON.stringify({...result,provenance})+'\n');
 console.log(JSON.stringify({cases:result.rows.length,counts:result.counts}));process.exit(0);

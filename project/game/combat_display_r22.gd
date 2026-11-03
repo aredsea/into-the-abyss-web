@@ -142,3 +142,14 @@ static func chips(b,u: Dictionary) -> Array:
 	if u.get("once",false): out.append("노트 사용")
 	if x.get("saved",false): out.append("판결 사용")
 	return out
+
+## Full source-record tiles for imported/replayed battle records. Native scene
+## layout and user save serialization remain owned by the existing renderer.
+static func source_tiles(context: Dictionary) -> String:
+	var tiles=load('res://game/combat_tiles_r23.gd').new()
+	tiles.definitions=context.defs;tiles.skills=context.skills;tiles.lang=context.get('lang','ko')
+	tiles.profile=context.get('profile');tiles.profile_available=context.get('profile_available',false)
+	match context.kind:
+		'ally':return tiles.ally_tile(context.state,int(context.slot),context.L,context.K,context.get('item_ok',false))
+		'raid':return tiles.raid_field(context.state,context.L,context.K,context.visible,context.get('target',false))
+	return tiles.enemy_tile(context.state,int(context.slot),context.L,context.K,context.visible,context.kind=='boss')

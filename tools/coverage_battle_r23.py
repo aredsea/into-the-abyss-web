@@ -24,10 +24,11 @@ for p in SRC.glob('*.lua'):
  (I/p.name).write_text(s,encoding='utf-8')
  meta[p.name]={'source_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'calls':calls,'branches':branches}
 (D/'instrumentation.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2),encoding='utf-8')
-cases=['main','enemy','state','display','compose','clock','batch','round3','round4','round5'];runs=[]
+cases=['main','enemy','state','display','compose','clock','batch','round3','round4','round5','battle-round6','battle-round6-tiles','battle-round6-enemy'];runs=[]
 for key in cases:
  name='oracle_battle_r23'+('' if key=='main' else '_'+key)+'.mjs'
  if key in ['round3','round4','round5']:name='oracle_battle_r23_'+key+'_loader.mjs'
+ if key.startswith('battle-round6'):name='oracle_battle_r23_'+key.removeprefix('battle-').replace('-','_')+'_loader.mjs'
  code=(R/'tools'/name).read_text(encoding='utf-8')
  code=code.replace('const {mkSim}=await import(', 'const {mkSim:mkSimBase}=await import(',1)
  # Replace the source read used in rule loading, leaving the original-file
@@ -36,8 +37,10 @@ for key in cases:
  pos=code.index('const files=')
  wrapper=f'''const mkSim=async(o)=>{{const sim=await mkSimBase({{...o,extra:'B.__r23_cov={{calls={{}},branches={{}}}}\\n'+o.extra}});const original=sim.L;return {{...sim,L:async(code)=>{{const pack=await original('B.__r23_cov={{calls={{}},branches={{}}}};local __result=(function()\\n'+code+'\\nend)();return {{result=__result,coverage=B.__r23_cov}}');fs.writeFileSync('verification/parity-r23/coverage/{key}.json',JSON.stringify(pack.coverage));return pack.result;}}}};}};\n'''
  code=code[:pos]+wrapper+code[pos:]
- for stem in ['oracle','enemy-oracle','state-oracle','display-oracle','compose-oracle','clock-oracle','batch-oracle','round3-oracle','round4-oracle','round5-oracle']:
+ for stem in ['oracle','enemy-oracle','state-oracle','display-oracle','compose-oracle','clock-oracle','batch-oracle','round3-oracle','round4-oracle','round5-oracle','battle-round6-oracle','battle-round6-tiles-oracle','battle-round6-enemy-oracle']:
   code=code.replace(f"'verification/parity-r23/{stem}.json'",f"'verification/parity-r23/coverage/{key}-oracle.json'")
+ # Compact regenerated coverage JSON, including the pre-existing 52 MB round5 reference.
+ code=code.replace('JSON.stringify({...result,provenance},null,2)','JSON.stringify({...result,provenance})')
  script=D/(key+'.mjs');script.write_text(code,encoding='utf-8');start=time.monotonic()
  with (D/(key+'.log')).open('wb') as log:p=subprocess.run(['node',str(script)],cwd=R,stdout=log,stderr=subprocess.STDOUT)
  row={'case':key,'exit':p.returncode,'seconds':round(time.monotonic()-start,2)};runs.append(row);print(json.dumps(row),flush=True)

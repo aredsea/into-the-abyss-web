@@ -302,6 +302,73 @@ func target(e: Dictionary,a: Dictionary) -> Dictionary:
 	var forecast=b.ally(e.target_id)
 	return forecast if forecast in pool else pool[0]
 
+func source_event(e: Dictionary,tag: String,name: String,targets: Array,text: String,offset: float,duration: float) -> void:
+	var T=b.combat_events.T;var event={"k":tag,"a":b.combat_events.slot(b,e),"t":T,"nm":name}
+	if not targets.is_empty() or tag in ['ebuff','edeb']:event.tg=targets
+	b.combat_events.Record.push(b.combat_events.record,event)
+	b.combat_events.say(text,T+offset)
+	b.combat_events.push(tag,b.combat_events.slot(b,e),T,targets.map(func(t):return int(t.i)))
+	b.combat_events.T=T+duration
+
+func support_action(e: Dictionary,a: Dictionary) -> void:
+	if not b.combat_events.record.has("ev"):b.combat_events.begin_record(b)
+	var T=b.combat_events.T;var who=Text.unit_name(e);var targets=[];var name=a.name
+	match a.kind:
+		'buff':
+			var target_kind=a.get('target','self');var list=[e]
+			if target_kind=='allies':list=b.living(false)
+			elif target_kind!='self':
+				var others=b.living(false).filter(func(w):return w.id!=e.id);list=[lowest(others)] if not others.is_empty() else [e]
+			var stat=a.stat;var amt=a.get('amount',0);var turns=int(a.get('turns',3))
+			for w in list:
+				match stat:
+					'atk':
+						var own=target_kind=='self' and not a.get('until_down',false)
+						effect(w,'enemy_attack_self' if own else 'attack_up',99 if not own and a.get('until_down',false) else turns+1,amt,e.id if not own and a.get('until_down',false) else '')
+					'spd','def':effect(w,'haste' if stat=='spd' else 'defense_up',turns+1,amt)
+					'shield':
+						var value=floor(w.mhp*amt)
+						if value>b.fx(w,'shield'):b.combat_events.field(b,w,'sh',value,T+.6)
+						effect(w,'shield',3,maxf(b.fx(w,'shield'),value))
+					'pull':w.remaining=maxf(0,w.remaining-10000*amt)
+				targets.append({"i":b.combat_events.slot(b,w)})
+			var stat_name={"atk":"공격력","def":"방어","spd":"속도"}.get(stat,stat)
+			var eff='보호막을 둘렀다' if stat=='shield' else '차례가 앞당겨졌다' if stat=='pull' else stat_name+' +'+str(Text.percent(amt))+'% ('+str(turns)+'턴)'
+			var to='적 전체' if target_kind=='allies' else Text.unit_name(list[0]) if target_kind=='ally' and list[0].id!=e.id else ''
+			source_event(e,'ebuff',name,targets,'<b>'+who+'</b>의 '+name+'. '+(to+' ' if to!='' else '')+eff+(', 쓰러지거나 고갈될 때까지' if a.get('until_down',false) else ''),.5,1.2)
+		'debuff':
+			var list=allies_alive() if a.get('target')=='all' else [target(e,a)];var amt=a.get('amount',.2);var turns=int(a.get('turns',2))
+			for w in list:
+				if a.stat=='delay':w.remaining+=10000*amt
+				else:effect(w,{"atk":"attack_down","def":"defense_down","spd":"slow"}.get(a.stat,'attack_down'),turns,amt)
+				targets.append({"i":b.combat_events.slot(b,w)})
+			var eff='다음 차례가 '+str(Text.percent(amt))+'% 밀렸다' if a.stat=='delay' else {"atk":"공격력","def":"방어","spd":"속도"}.get(a.stat,a.stat)+' −'+str(Text.percent(amt))+'% ('+str(turns)+'턴)'
+			source_event(e,'edeb',name,targets,'<b>'+who+'</b>의 '+name+'. '+('아군 전체' if a.get('target')=='all' else Text.unit_name(list[0]))+' '+eff,.6,1.3)
+		'heal':
+			var list=([e] if a.get('target')=='self' else b.living(false)).filter(func(w):return w.hp<w.mhp)
+			if list.is_empty():source_event(e,'edef',name,[],'<b>'+who+'</b>의 '+name+'. 회복할 대상이 없다',.5,1.0);return
+			var w=lowest(list);var h=minf(w.mhp-w.hp,floor(w.mhp*a.get('amount',.2)))
+			w.hp+=h;b.combat_events.field(b,w,'hp',w.hp,T+.6)
+			source_event(e,'eheal',name,[{"i":b.combat_events.slot(b,w),"d":h}],'<b>'+who+'</b>의 '+name+'. '+Text.unit_name(w)+' HP <em>+'+Text.lua_string(h)+'</em>',.7,1.3)
+		'protect':
+			var list=b.living(false).filter(func(w):return w.id!=e.id);var w=lowest(list,true)
+			if a.get('guard',false):effect(e,'guard',2,.4)
+			if not w.is_empty():b.x(e).protect=w.id
+			source_event(e,'edef',name,[],'<b>'+who+'</b>의 '+name+('. '+Text.unit_name(w)+' 대신 맞는다(다음 차례까지)' if not w.is_empty() else '. 감쌀 동료가 없다')+(', 받는 피해 -40%' if a.get('guard',false) else ''),.5,1.2)
+		'special':
+			var choices=silence_choices() if a.get('fx')=='silence' else []
+			if not choices.is_empty():
+				var picked=choices[mini(choices.size()-1,int(floor(random()*choices.size())))];var w=picked[0];var id=str(picked[1])
+				b.x(w).silenced_id=id;effect(w,'silence',1)
+				source_event(e,'edeb',name,[{"i":b.combat_events.slot(b,w)}],'<b>'+who+'</b>의 '+name+'. '+Text.unit_name(w)+'의 「'+w.skills[id].get("name", "")+'」 <em>1차례 봉인</em>',.6,1.3);return
+			source_event(e,'edef',name,[],'<b>'+who+'</b>의 '+name+'. 아무 일도 일어나지 않았다',.5,1.0)
+
+func turn_end(e: Dictionary,a: Dictionary) -> void:
+	if a.get('big',a.kind in ['big_one','big_all']):e.charged=false
+	if e.rules.has('hide_every') and int(b.x(e).get('foe_turns',0))%int(e.rules.hide_every)==0:
+		b.x(e).hidden=true;var name=Text.unit_name(e)
+		b.combat_events.say('<b>'+name+'</b>'+Text.Josa.tail(name,'은는')+' 몸을 숨겼다. 다음 차례까지 사격과 주문 피해 <em>−'+str(Text.percent(e.rules.get('ranged_dr',.5)))+'%</em>',b.combat_events.T)
+
 func turn() -> bool:
 	var e=b.enemy(b.current_id)
 	if e.is_empty() or b.living(true).is_empty(): return false
@@ -324,46 +391,11 @@ func turn() -> bool:
 		match a.kind:
 			"charge": e.charged=true; b._event(e.name+" · "+a.name)
 			"guard": effect(e,"guard",2,.4); b._event(e.name+" · "+a.name)
-			"protect":
-				var list=b.living(false).filter(func(u):return u.id!=e.id)
-				if not list.is_empty(): b.x(e).protect=lowest(list,true).id
-				if a.get("guard",false): effect(e,"guard",2,.4)
-				b._event(e.name+" · "+a.name)
-			"heal":
-				var pool=([e] if a.get("target")=="self" else b.living(false)).filter(func(u):return u.hp<u.mhp)
-				if not pool.is_empty():
-					var t=lowest(pool); var h=mini(t.mhp-t.hp,int(floor(t.mhp*a.get("amount",.2))))
-					t.hp+=h; b._event(a.name+" → "+t.name+" · HP +%d"%h)
-					event_targets=[t]
-			"buff":
-				if a.get("target")=="ally":
-					var other=b.living(false).filter(func(u):return u.id!=e.id); targets=[lowest(other)] if not other.is_empty() else [e]
-				for t in targets:
-					if a.stat=="shield": effect(t,"shield",3,maxf(b.fx(t,"shield"),floor(t.mhp*a.amount)))
-					elif a.stat=="pull": t.remaining=maxf(0,t.remaining-10000*a.amount)
-					else:
-						var key="enemy_attack_self" if a.stat=="atk" and a.get("target","self")=="self" and not a.get("until_down",false) else {"atk":"attack_up","def":"defense_up","spd":"haste"}.get(a.stat,"attack_up")
-						effect(t,key,99 if a.get("until_down",false) else int(a.get("turns",3))+1,a.get("amount",0),e.id if a.get("until_down",false) else "")
-				b._event(e.name+" · "+a.name)
-				event_targets=targets
-			"debuff":
-				var list=allies_alive() if a.get("target")=="all" else [target(e,a)]
-				for t in list:
-					if a.stat=="delay": t.remaining+=10000*a.get("amount",.2)
-					else: effect(t,{"atk":"attack_down","def":"defense_down","spd":"slow"}.get(a.stat,"attack_down"),int(a.get("turns",2)),a.get("amount",.2))
-				b._event(e.name+" · "+a.name)
-				event_targets=list
+			"protect","heal","buff","debuff","special":support_action(e,a)
 			"summon":
 				var before=b.living(false).duplicate()
 				summon(e,a,false)
 				event_targets=b.living(false).filter(func(u):return u not in before)
-			"special":
-				if a.get("fx")=="silence":
-					var choices=silence_choices()
-					if not choices.is_empty():
-						var choice=choices[int(floor(random()*choices.size()))]; b.x(choice[0]).silenced_id=str(choice[1]); effect(choice[0],"silence",1)
-						event_targets=[choice[0]]
-				b._event(e.name+" · "+a.name)
 			"dot":
 				var t=target(e,a)
 				if not b._enemy_evade(e,t): add_dot(t,e,dot_per(e,t,a.get("m",1)*a.get("tick",.3)),int(a.get("turns",3)))
@@ -392,8 +424,8 @@ func turn() -> bool:
 						if b.gear_bridge!=null:
 							b.gear_bridge.invoke("attacked",[b.gear_bridge.slot(t),b.gear_bridge.slot(e),hit,b.combat_events.T])
 				if a.kind in ["big_one","big_all"]: e.charged=false
-		b.combat_events.enemy(b,e,a,event_targets)
+		if a.kind not in ["protect","heal","buff","debuff","special"]:b.combat_events.enemy(b,e,a,event_targets)
 		e.act_index=(int(e.act_index)+1)%e.acts.size()
-		if e.rules.has("hide_every") and turns%int(e.rules.hide_every)==0: b.x(e).hidden=true
+		turn_end(e,a)
 	e.target_id=pick_target(e).id
 	b._finish_turn(); return true

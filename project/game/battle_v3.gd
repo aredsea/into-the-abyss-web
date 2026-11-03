@@ -110,8 +110,12 @@ func _sorel_aid(a: Dictionary) -> void:
 	x(o).rescue=x(o).get("rescue",0)+1; _receive_heal(a,o.base[o.line]*2)
 func combat_event_trace() -> Dictionary: return combat_events.trace()
 func combat_display_schedule(event: Dictionary) -> Array: return CombatDisplay.schedule(event)
-func combat_display_frame(source_record: Dictionary,definitions: Array,lang: String="ko",profile: Variant=null,profile_available: bool=false) -> Dictionary:
+func combat_display_frame(source_record: Dictionary,definitions: Array=[],lang: String="ko",profile: Variant=null,profile_available: bool=false) -> Dictionary:
+	if definitions.is_empty():
+		var source=preload("res://game/battle_source_state_r23.gd").new();source.lang=lang
+		source_record=source.migrate(source_record.duplicate(true));source.bind(source_record);definitions=source.definitions
 	return CombatDisplay.source_frame(source_record,definitions,lang,profile,profile_available)
+func combat_display_tile(context: Dictionary) -> String:return CombatDisplay.source_tiles(context)
 func status_chips(u: Dictionary) -> Array: return CombatDisplay.chips(self,u)
 func _begin_combat_events(id: String,a: Dictionary,e: Dictionary,t: Dictionary) -> void:
 	var log_lines=combat_events.record.log
@@ -1102,23 +1106,8 @@ func _personal(a: Dictionary,e: Dictionary,t: Dictionary,sk: Dictionary) -> void
 		_: _damage(a,e,1.4 if a.id=="bianca" else 1.2,15 if a.id=="bargut" and dungeon_enemy_r21!=null else sk.brk)
 
 func _felice_scan() -> void:
-	if not has_alive("felice"): return
-	if dungeon_enemy_r21==null: return
-	var owner=ally("felice")
-	if x(owner).get("revive",false): return
-	var pick={}; var earliest=INF
-	for member in data.allies:
-		if member.id==owner.id or member.hp>0: continue
-		if not x(member).has("death_tick"): x(member).death_tick=ctb_tick
-		var ready=x(member).death_tick+ceil(maxf(0,member.remaining)/member.base.spd)
-		if ctb_tick>=ready and ready<earliest: pick=member; earliest=ready
-	if pick.is_empty(): return
-	var persistent={}
-	for key in ["sorel_regen","regen","persona_regen"]:
-		if pick.effects.has(key): persistent[key]=pick.effects[key]
-	pick.hp=maxi(1,int(floor(pick.mhp*.25))); pick.effects=persistent; pick.shield=0; pick.charging=false
-	pick.remaining=0.0; x(pick).reviving=false; x(pick).erase("death_tick"); x(owner).revive=true
-	_event(pick.name+" · 펠리체 소생")
+	if not has_alive("felice") or dungeon_enemy_r21==null:return
+	PersonalRules.felice_scan(self,ally("felice"))
 
 func _finish_turn(interval_scale: float=1) -> void:
 	if dungeon_enemy_r21!=null:
@@ -1299,7 +1288,7 @@ func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,cove
 	if a.hp==0:
 		# Personal save hooks run in party order, then gear, then priest.
 		if a.id=="marceline" and not x(a).get("saved",false):
-			x(a).saved=true; a.hp=mini(a.mhp,1+int(a.mhp*.25)); _shield(a,a.mhp*.15,3,false)
+			PersonalRules.marceline_save(self,a,a,combat_events.T)
 		elif gear_bridge!=null and gear_bridge.invoke("gear_save",[gear_bridge.slot(a),combat_events.T])==1: pass
 		else:
 			if not a.ward_used:

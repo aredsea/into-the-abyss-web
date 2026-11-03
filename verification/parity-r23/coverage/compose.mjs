@@ -38,4 +38,4 @@ out.cached_pools=H.pools()
 return out`);
 for(const row of result.fits)if(Array.isArray(row.spec)&&row.spec.length===0)row.spec={};
 const provenance=Object.fromEntries(files.map((f,i)=>[f,crypto.createHash('sha256').update(raw[i]).digest('hex')]));
-fs.writeFileSync('verification/parity-r23/coverage/compose-oracle.json',JSON.stringify({...result,provenance},null,2)+'\n');console.log(JSON.stringify(Object.fromEntries(Object.entries(result).map(([k,v])=>[k,Array.isArray(v)?v.length:'map']))));process.exit(0);
+fs.writeFileSync('verification/parity-r23/coverage/compose-oracle.json',JSON.stringify({...result,provenance})+'\n');console.log(JSON.stringify(Object.fromEntries(Object.entries(result).map(([k,v])=>[k,Array.isArray(v)?v.length:'map']))));process.exit(0);

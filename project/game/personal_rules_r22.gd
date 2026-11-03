@@ -10,6 +10,45 @@ static func casting(e: Dictionary) -> bool:
 	var acts=e.get("acts",[]);var index=int(e.get("act_index",0))
 	if index<0 or index>=acts.size():return false
 	return acts[index].get("ic","") in ["spell","weaken","summon"] or acts[index].get("kind","") in ["spell","weaken","summon"]
+static func felice_scan(b,owner: Dictionary) -> void:
+	if not b.combat_events.record.has("ev"):b.combat_events.begin_record(b)
+	if b.x(owner).get('revive',false):return
+	var pick={};var earliest=INF
+	for member in b.data.allies:
+		if member.id==owner.id or member.hp>0 or member.get('empty',false):continue
+		if not b.x(member).has('death_tick'):b.x(member).death_tick=b.ctb_tick
+		var ready=b.x(member).death_tick+ceil(maxf(0,member.remaining)/member.base.spd)
+		if b.ctb_tick>=ready and ready<earliest:pick=member;earliest=ready
+	if pick.is_empty():return
+	var T=b.combat_events.T
+	# Source clears bf/tau/df/mk/chg only. Shield, DOT and x-owned effects
+	# survive revival along with their existing lifetimes and provenance.
+	for key in pick.effects.keys():
+		if key in ['taunt','guard','mark','attack_up','defense_up','haste','attack_down','defense_down','zdn','slow','backstep','blood','fortified_guard','adeline_guard','contract','duty','psguard','bless','next_power','magic_amp','pscrit']:
+			pick.effects.erase(key)
+	pick.hp=maxi(1,int(floor(pick.mhp*.25+1e-9)));pick.charging=false;pick.remaining=0.0
+	b.x(pick).erase('death_tick');b.x(owner).revive=true
+	b.combat_events.field(b,pick,'hp',pick.hp,T+.4)
+	var name=b.CombatDisplay.unit_name(pick);var who=b.CombatDisplay.unit_name(owner)
+	b.combat_events.trait_payload(b.combat_events.slot(b,owner),'패자 부활전: '+name+' HP 25%로 일어났다',T)
+	b.combat_events.say('<b>'+who+'</b>의 <b>패자 부활전</b>. 쓰러졌던 <b>'+name+'</b>'+b.CombatDisplay.Josa.tail(name,'이가')+' HP <em>'+str(pick.hp)+'</em> 상태로 일어났다',T+.5)
+	b.combat_events.push('trait',b.combat_events.slot(b,owner),T)
+	b.combat_events.T=T+.8
+	b._event(pick.name+' · 펠리체 소생')
+static func marceline_save(b,owner: Dictionary,target: Dictionary,at: float) -> bool:
+	if not b.combat_events.record.has("ev"):b.combat_events.begin_record(b)
+	if target.id!=owner.id or b.x(owner).get('saved',false):return false
+	b.x(owner).saved=true
+	var h=mini(owner.mhp,1+int(floor(owner.mhp*.25+1e-9)))
+	owner.hp=1;b.combat_events.field(b,owner,'hp',1,at)
+	owner.hp=h;b.combat_events.field(b,owner,'hp',h,at+.4)
+	# This personal save writes a fixed shield, independent of shield multipliers.
+	owner.shield=int(floor(owner.mhp*.15+1e-9));owner.effects.shield={"amount":0,"turns":3}
+	b.combat_events.field(b,owner,'sh',owner.shield,at+.4)
+	b.combat_events.trait_payload(b.combat_events.slot(b,owner),'9회말 2아웃: HP 1로 버티고 회복, 보호막',at)
+	b.combat_events.say('<b>'+b.CombatDisplay.unit_name(owner)+'</b>의 <b>9회말 2아웃</b>. HP 1로 버티고 <em>'+str(h-1)+'</em> 회복, 보호막 '+str(owner.shield),at+.5)
+	b.combat_events.push('trait',b.combat_events.slot(b,owner),at)
+	return true
 static func isweak(e: Dictionary,element: Variant) -> bool:
 	return element is String and element in e.get("weak",[])
 static func best_double(u: Dictionary) -> String:

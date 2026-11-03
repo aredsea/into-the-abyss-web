@@ -22,5 +22,5 @@ const fresh=fs.readFileSync('tools/oracle_combat_a6_r22.lua','utf8').split('loca
 const result=await L(fresh+'\n'+fs.readFileSync('tools/oracle_battle_r23_batch.lua','utf8'));
 for(const r of result.rows){if(Array.isArray(r.input))r.input={};if(['xs','tr_xs','cor_live'].includes(r.op)&&Array.isArray(r.input.value))r.input.value={};if(r.op==='btick'&&Array.isArray(r.expected))r.expected={};if(['xs','tr_xs'].includes(r.op)&&Array.isArray(r.expected.value))r.expected.value={};}
 const provenance=Object.fromEntries(files.map((f,i)=>[f,crypto.createHash('sha256').update(raw[i]).digest('hex')]));
-fs.writeFileSync('verification/parity-r23/coverage/batch-oracle.json',JSON.stringify({...result,provenance},null,2)+'\n');console.log(JSON.stringify({cases:result.rows.length,counts:result.counts}));process.exit(0);
+fs.writeFileSync('verification/parity-r23/coverage/batch-oracle.json',JSON.stringify({...result,provenance})+'\n');console.log(JSON.stringify({cases:result.rows.length,counts:result.counts}));process.exit(0);
 
