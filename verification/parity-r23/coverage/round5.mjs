@@ -1,0 +1,61 @@
+// Access probes expose original local closures, without replacing their bodies.
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';import {pathToFileURL} from 'node:url';
+const root='C:/Clauede Code/dungeon-bot';const {mkSim:mkSimBase}=await import(pathToFileURL(path.join(root,'bot/lua_sim.mjs')).href);
+const mkSim=async(o)=>{const sim=await mkSimBase({...o,extra:'B.__r23_cov={calls={},branches={}}\n'+o.extra});const original=sim.L;return {...sim,L:async(code)=>{const pack=await original('B.__r23_cov={calls={},branches={}};local __result=(function()\n'+code+'\nend)();return {result=__result,coverage=B.__r23_cov}');fs.writeFileSync('verification/parity-r23/coverage/round5.json',JSON.stringify(pack.coverage));return pack.result;}};};
+const files=['05-gen.lua','10-data.lua','20-state.lua','24-stats.lua','26-start.lua','27-compose.lua','30-engine.lua','29-persona-skill.lua','31-foes.lua','32-personal-a.lua','32-personal-b.lua','34-traits.lua','81-gear.lua','51-raid.lua','71-shop.lua','78-battle-item.lua','40-fx.lua','50-render.lua'];
+const raw=files.map(f=>fs.readFileSync(path.join('C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-a-data/verification/parity-r23/coverage/instrumented',f),'utf8'));
+const patches={
+ '24-stats.lua':[['  local s = { str =','  B.__batch.stat=st\n  local s = { str =']],
+ '27-compose.lua':[
+  ['local FILL =','B.__batch.party_target=party_target; B.__batch.pickl=pickl\nlocal FILL ='],
+  ['  -- ---------- 레이드:', '  B.__batch.result=result\n  -- ---------- 레이드:'],
+  ['  for try = 1, 40 do','  B.__batch.build_slots=build_slots\n  for try = 1, 40 do'],
+  ['    local found\n','    B.__batch.dfs=function(seed,sl,k,fl,fg,budget,opts)\n      rng=mkrng(seed); mobs=opts.mobs; elites=opts.elites; borrowed=opts.borrowed; limit=opts.limit; umin=opts.umin\n      local ok=dfs(sl,k,fl,fg,budget); return {ok=ok,fl=fl,fg=fg,budget=budget.n,next=math.floor(rng()*2147483647+.5)}\n    end\n    B.__batch.shuffle_run=function(seed,l) rng=mkrng(seed); shuffle(l); return {list=l,next=math.floor(rng()*2147483647+.5)} end\n    local found\n']],
+ '32-personal-a.lua':[['-- ============ 할드리크:', 'B.__batch.xs=xs; B.__batch.foes=foes; B.__batch.behind=behind\n-- ============ 할드리크:'],['local function unslow(st)','B.__batch.cor_live=cor_live; B.__batch.corrode=corrode\nlocal function unslow(st)']],
+ '32-personal-b.lua':[['  local function magic_now(st, e)','  B.__batch.has_magic=has_magic\n  local function magic_now(st, e)'],['  B.PSK.lavinia =','  B.__batch.casting=casting\n  B.PSK.lavinia =']],
+ '34-traits.lua':[['-- 전투 유닛 만들기','B.__batch.lv=lv; B.__batch.tr_xs=xs\n-- 전투 유닛 만들기']]
+};
+patches['27-compose.lua'][3][1]=patches['27-compose.lua'][3][1].replace('    local found\n','    B.__batch.shuffle_roll=function(roll,l) local calls=0; rng=function() calls=calls+1;return roll end; shuffle(l); return {list=l,calls=calls} end\n    local found\n');
+patches['27-compose.lua'].push(['  table.sort(idx, function(a, b)','  local function front_before(a, b)'],['  end)\n  local f2','  end\n  B.__batch.front_before=front_before;B.__batch.front_list=fl\n  table.sort(idx,front_before)\n  local f2']);
+patches['32-personal-b.lua'].push(['  local trs = {}','  B.__batch.drop_caster_buffs=drop_caster_buffs;B.__batch.Kc=Kc\n  local trs = {}']);
+patches['32-personal-b.lua'].push(['  -- ---------- 베렌가','  B.__batch.nm_b=nm;B.__batch.sub=sub;B.__batch.bp=bp;B.__batch.short=short;B.__batch.pct_b=pct\n  -- ---------- 베렌가']);
+patches['32-personal-a.lua'].push(['-- ============ 할드리크:','B.__batch.pct_a=pct;B.__batch.sn=sn\n-- ============ 할드리크:']);
+patches['30-engine.lua']=[['local function isweak','B.__batch.nm_engine=nm\nlocal function isweak']];
+patches['31-foes.lua']=[['-- 조합 전투의 적 공격 한 줄:','B.__batch.nm_foes=nm;B.__batch.pct_foes=pct\n-- 조합 전투의 적 공격 한 줄:']];
+patches['29-persona-skill.lua']=[['  function B.ps_clean(raw)','  B.__batch.ps_lvl=lvl;B.__batch.ps_part=part\n  function B.ps_clean(raw)'],['  -- 편집 중인 조합','  B.__batch.ps_label=label\n  -- 편집 중인 조합']];
+patches['34-traits.lua'].push(['local POS =','B.__batch.pnode=pnode\nlocal POS ='],['local G = B.GH','B.__batch.refresh=refresh;B.__batch.trait=trait\nlocal G = B.GH']);
+patches['50-render.lua']=[['-- 사건 기록에서','B.__batch.hud_pct=pct;B.__batch.hud_f2=f2\n-- 사건 기록에서']];
+patches['51-raid.lua']=[['-- 다음 큰 기술','B.__batch.raid_f2=f2\n-- 다음 큰 기술']];
+patches['40-fx.lua']=[['local function put','B.__batch.fx_f2=f2;B.__batch.fx_sv=sv\nlocal function put'],['-- 판 흔들림','B.__batch.kx=kx\n-- 판 흔들림'],['-- 심연 깎기 숫자','B.__batch.tagcls=tagcls\n-- 심연 깎기 숫자']];
+
+patches['40-fx.lua'].push(['function B.fx_dn','B.__batch.fx_put=put\nfunction B.fx_dn']);
+patches['50-render.lua'].push(['-- (최상위 local','B.__batch.numspan=numspan;B.__batch.chip=chip\n-- (최상위 local']);
+patches['50-render.lua'].push(['function B.r_rail','B.__batch.tile=tile\nfunction B.r_rail']);
+patches['50-render.lua'].push(['  local p = {}','  B.__batch.bzo=bzo\n  local p = {}']);
+patches['51-raid.lua'].push(['function B.r_boss','B.__batch.pips=pips\nfunction B.r_boss']);
+const extra='B.__batch={}\n'+raw.map((s,i)=>{s=s.replaceAll('\r\n','\n');for(const [a,b] of patches[files[i]]||[]){if(!s.includes(a))throw Error('missing access marker '+a);s=s.replace(a,b);}return (files[i]==='34-traits.lua'?'B.GH={}':'')+'\ndo\n'+s+'\nend';}).join('\n');
+const {L,sim}=await mkSim({policy:false,extra});
+const fresh=fs.readFileSync('tools/oracle_combat_a6_r22.lua','utf8').split('local out=')[0];
+let result;try{result=await L(fresh+'\n'+fs.readFileSync('tools/oracle_battle_r23_round5.lua','utf8'));}catch(e){console.log(sim.errors,sim.logs);throw e;}
+
+
+
+// Schema conversion is limited to known maps. Arrays and primitive types remain exact.
+function map(v){return Array.isArray(v)&&v.length===0?{}:v;}
+function layer(v){for(const k of ['u','icwf','hit','hk','cls','vars','lun','trg','drn','spawn'])if(k in v)v[k]=map(v[k]);return v;}
+for(const r of result.rows){
+ r.input=map(r.input);
+ if(r.expected&&typeof r.expected==='object'){
+  if(r.expected.L)layer(r.expected.L);
+  if(r.op==='frame'){layer(r.expected.layers);r.expected.dynamic.K=r.expected.dynamic.K.map(map);}
+  if(['fx_event','fx_sequence','fx_cutin','fx_pcutin','fx_abyss','fx_put','bz_add','fx_result'].includes(r.op)||r.op==='fx_optional'&&!r.expected.L)layer(r.expected);
+  if(r.op==='dyn')r.expected.K=r.expected.K.map(map);
+ }
+ if(r.input.L)layer(r.input.L);
+ if(r.op==='chip_dotn')r.input.v=r.input.v.map(map);
+ if(r.op==='chips')r.input.state.u=r.input.state.u.map(v=>{if(v.bf)v.bf=map(v.bf);return v;});
+ if(r.op==='urda_round_full')r.expected.units.forEach(v=>v.bf=map(v.bf));
+}
+const provenance=Object.fromEntries(files.map((f,i)=>[f,crypto.createHash('sha256').update(raw[i]).digest('hex')]));
+fs.writeFileSync('verification/parity-r23/coverage/round5-oracle.json',JSON.stringify({...result,provenance},null,2)+'\n');
+console.log(JSON.stringify({cases:result.rows.length,counts:result.counts}));process.exit(0);

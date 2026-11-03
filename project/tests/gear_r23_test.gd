@@ -11,7 +11,7 @@ func eqcheck(group: String,a,b):
 	check(same(a,b),group+" #"+str(counts[group]))
 func nul(value):return false if value==null else value
 func run():
-	var o=JSON.parse_string(FileAccess.get_file_as_string("res://../verification/parity-r23/oracle.json"))
+	var o=JSON.parse_string(FileAccess.get_file_as_string("res://../verification/parity-r23/gear-oracle.json"))
 	var r=GearRules.new()
 	var catalog=r.source.duplicate(true);catalog.erase("cast");catalog.erase("classes")
 	eqcheck("catalog",catalog,o.catalog)

@@ -1,0 +1,83 @@
+{
+  "oracle.json": {
+    "sha256": "608f85c046460d304efd56c115407004f6bc487802afedc2bfa93df3dd42ed9e",
+    "required_key": "rows",
+    "root_keys": [
+      "provenance",
+      "rows"
+    ],
+    "count": 2508
+  },
+  "round3-oracle.json": {
+    "sha256": "959c6e325f6092be5278767b44249f67f4b00d03394bf377a567a872835727aa",
+    "required_key": "rows",
+    "root_keys": [
+      "counts",
+      "rows",
+      "provenance"
+    ],
+    "count": 4538
+  },
+  "gear-oracle.json": {
+    "sha256": "0c87abefc7d9775963efa69ef87df4652a1df382fdaaf4d4f47ed6f31be25d8f",
+    "required_key": "catalog",
+    "root_keys": [
+      "smithy",
+      "transactions",
+      "aff",
+      "refresh",
+      "bag",
+      "fmt",
+      "labels",
+      "shop",
+      "icons",
+      "drop",
+      "catalog",
+      "classes",
+      "guild",
+      "inn",
+      "aff_party",
+      "cost",
+      "context",
+      "fill",
+      "parse",
+      "party",
+      "shop_flow",
+      "migrate",
+      "roll"
+    ],
+    "count": 9
+  },
+  "gear-round2-oracle.json": {
+    "sha256": "3c0252181ef3e0a4418c865f0ae90c19b9087f92a1f80b6f6f2eb72d02e011ce",
+    "required_key": "notes",
+    "root_keys": [
+      "transactions",
+      "pct",
+      "notes",
+      "aff",
+      "cut",
+      "labels",
+      "work",
+      "bag_host",
+      "screens"
+    ],
+    "count": 6198
+  },
+  "gear-round3-oracle.json": {
+    "sha256": "6ffec32b893b3581db628e20262e77032aec25b77bba9c6be7907bca1eb7d446",
+    "required_key": "pct",
+    "root_keys": [
+      "visible",
+      "transactions",
+      "edges",
+      "presentations",
+      "aff",
+      "handlers",
+      "fx",
+      "restrict",
+      "pct"
+    ],
+    "count": 789
+  }
+}

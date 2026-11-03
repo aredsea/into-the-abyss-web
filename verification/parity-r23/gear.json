@@ -1,132 +1,107 @@
 {
   "summary": {
     "assigned": 77,
-    "round2_reviewed": 46,
-    "round2_promoted_same": 6,
-    "round2_fixed_rows": 11,
-    "round2_new_fixed_rows": 9,
-    "promoted_same": 37,
-    "fixed_rows": 25,
-    "fixed_same": 17,
-    "fixed_remaining": 8,
-    "remaining": 40,
-    "suite_groups": 89,
+    "round3_reviewed": 40,
+    "round3_promoted_same": 3,
+    "round3_fixed_rows": 5,
+    "round3_new_fixed_rows": 4,
+    "promoted_same": 40,
+    "fixed_rows": 29,
+    "remaining": 37,
+    "suite_groups": 112,
     "suite_failed": 0,
     "suite_failed_assertions": 0,
-    "new_checks": 11010,
-    "new_failures": 0,
-    "round2_checks": 7685,
+    "round3_direct_checks": 2412,
+    "round3_ui_checks": 116,
+    "round3_new_checks": 2528,
+    "round3_failures": 0,
+    "new_checks": 13538,
     "npm_checks": 12932,
     "npm_failures": 0,
-    "server_added_checks": 259,
     "battle_count": 6320,
     "equal_battles": 6320,
     "matched_actions": 219785,
     "parity": [
       {
-        "name": "P2",
+        "name": "p2-full-battles",
         "battles": 48,
         "same_battles": 48,
-        "source_actions": 1468,
-        "actual_actions": 1468,
         "matched_actions": 1468
       },
       {
-        "name": "A6",
+        "name": "a6-mixed-audit",
         "battles": 48,
         "same_battles": 48,
-        "source_actions": 2537,
-        "actual_actions": 2537,
         "matched_actions": 2537
       },
       {
-        "name": "P3",
+        "name": "p3-mixed-audit",
         "battles": 128,
         "same_battles": 128,
-        "source_actions": 4929,
-        "actual_actions": 4929,
         "matched_actions": 4929
       },
       {
-        "name": "A7",
+        "name": "a7-gear-audit",
         "battles": 176,
         "same_battles": 176,
-        "source_actions": 2932,
-        "actual_actions": 2932,
         "matched_actions": 2932
       },
       {
-        "name": "A7 balanced",
+        "name": "a7-gear-balanced-audit",
         "battles": 176,
         "same_battles": 176,
-        "source_actions": 6279,
-        "actual_actions": 6279,
         "matched_actions": 6279
       },
       {
-        "name": "A8",
+        "name": "a8-audit",
         "battles": 5120,
         "same_battles": 5120,
-        "source_actions": 186707,
-        "actual_actions": 186707,
         "matched_actions": 186707
       },
       {
-        "name": "A9 native10",
+        "name": "a9-native-10-audit",
         "battles": 312,
         "same_battles": 312,
-        "source_actions": 4806,
-        "actual_actions": 4806,
         "matched_actions": 4806
       },
       {
-        "name": "A9 native40",
+        "name": "a9-native-40-audit",
         "battles": 312,
         "same_battles": 312,
-        "source_actions": 10127,
-        "actual_actions": 10127,
         "matched_actions": 10127
       }
     ],
+    "coverage": {
+      "method": "Boolean source function/then/else/do entries. Output equality is mandatory. Not full condition-combination coverage or native parity. Parent coverage does not promote children.",
+      "functions": 77,
+      "called": 77,
+      "explicit_entries": 320,
+      "entered": 314,
+      "baseline_missing": 43,
+      "newly_entered_baseline": 43
+    },
     "changed_existing_files": [
       "project/game/facilities_world_r22.gd",
       "project/game/gear_rules_r22.gd",
-      "project/game/guild_rules_r22.gd",
       "project/game/smithy_rules_r22.gd",
       "project/game/town_rules_r21.gd",
       "project/game/town_world_r21.gd",
       "project/ui/facilities_screen_r22.gd",
       "project/ui/town_screen_r21.gd",
-      "server/abyss-save/package.json",
-      "server/abyss-save/src/validate.js"
+      "project/tests/gear_r23_round2_test.gd",
+      "project/tests/gear_r23_test.gd",
+      "tools/gear_r23_oracle.mjs",
+      "tools/gear_r23_report_round2.py",
+      "tools/gear_r23_round2.mjs"
     ],
     "protected_changes": [],
-    "cloud_boundary": {
-      "server_modified": true,
-      "allowed_fields": [
-        "items.charm_potion",
-        "commerce_r21.pietro_buys"
-      ],
-      "user_save_modified": false,
-      "rows": [
-        {
-          "name": "shop_bonus",
-          "accepted": true
-        },
-        {
-          "name": "bonus_removed_diagnostic_only",
-          "accepted": true
-        },
-        {
-          "name": "counter_removed_diagnostic_only",
-          "accepted": true
-        },
-        {
-          "name": "both_removed_diagnostic_only",
-          "accepted": true
-        }
-      ]
-    }
+    "asset_hashes": {
+      "checked": 96,
+      "matched": 96,
+      "mismatches": []
+    },
+    "code_lock_unchanged": true,
+    "full_original_parity_complete": false
   },
   "baseline": {
     "file": "../r21-parity/verification/parity-r21/audit-r22b.json",
@@ -150,11 +125,28 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::catalog"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3508",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 11,
+          "end": 58,
+          "symbol": "B.gear"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 10,
+        "entered": 10,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P3514",
@@ -172,11 +164,28 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::catalog"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3514",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 44,
+          "end": 44,
+          "symbol": "B.gear::익명 함수@44"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 0,
+        "entered": 0,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P3515",
@@ -194,7 +203,7 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::icons"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [
@@ -206,7 +215,31 @@
         }
       ],
       "fix_location": "project/game/gear_rules_r22.gd:78",
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3515",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 61,
+          "end": 65,
+          "symbol": "B.gear_icon"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 1,
+        "entered": 1,
+        "remaining_entries": [],
+        "baseline_missing": 1,
+        "newly_entered_baseline": [
+          {
+            "key": "81-gear.lua:63:3021",
+            "line": 63,
+            "offset": 3021,
+            "token": "then"
+          }
+        ]
+      }
     },
     {
       "id": "P3522",
@@ -224,7 +257,7 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::parse"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [
@@ -236,7 +269,31 @@
         }
       ],
       "fix_location": "project/game/gear_rules_r22.gd:26",
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3522",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 92,
+          "end": 99,
+          "symbol": "B.gear_parse"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 3,
+        "entered": 3,
+        "remaining_entries": [],
+        "baseline_missing": 1,
+        "newly_entered_baseline": [
+          {
+            "key": "81-gear.lua:93:3880",
+            "line": 93,
+            "offset": 3880,
+            "token": "then"
+          }
+        ]
+      }
     },
     {
       "id": "P3524",
@@ -254,7 +311,7 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::roll"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [
@@ -266,7 +323,44 @@
         }
       ],
       "fix_location": "project/game/gear_rules_r22.gd:35",
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3524",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 109,
+          "end": 164,
+          "symbol": "B.gear_roll"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 14,
+        "entered": 12,
+        "remaining_entries": [
+          {
+            "key": "81-gear.lua:150:6183",
+            "line": 150,
+            "offset": 6183,
+            "token": "then"
+          },
+          {
+            "key": "81-gear.lua:151:6254",
+            "line": 151,
+            "offset": 6254,
+            "token": "do"
+          }
+        ],
+        "baseline_missing": 1,
+        "newly_entered_baseline": [
+          {
+            "key": "81-gear.lua:114:4718",
+            "line": 114,
+            "offset": 4718,
+            "token": "then"
+          }
+        ]
+      }
     },
     {
       "id": "P3532",
@@ -285,9 +379,15 @@
         "project/tests/gear_r23_test.gd::bag_load / bag_reload",
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
+        "verification/parity-r23/gear-round2-oracle.json::bag_host",
+        "verification/parity-r23/gear-coverage-round3.json::P3532",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "dk_bag 채팅 변수 읽기와 native UID 저장/가져오기 매체는 다르다. 문자열 필터 결과만 직접 일치; 호스트 getChatVar 실패/저장 재개 전체 계약은 동일 판정하지 않음. 2차 원본 실행에서 getChatVar 예외는 빈 목록, setChatVar 예외는 호출자 전파임을 관측. native에는 이 호스트 API가 없어 전체 일치는 아님.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
@@ -298,7 +398,34 @@
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3532",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 181,
+          "end": 194,
+          "symbol": "B.bag_load"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 3,
+        "entered": 3,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3532",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag / migrate",
+        "verification/parity-r23/round2-oracle.json::bag_host"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P3533",
@@ -317,9 +444,15 @@
         "project/tests/gear_r23_test.gd::bag_save",
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
+        "verification/parity-r23/gear-round2-oracle.json::bag_host",
+        "verification/parity-r23/gear-coverage-round3.json::P3533",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "문자열 직렬화는 일치. native 저장은 world_store의 전체 JSON과 UID를 쓰므로 setChatVar 부작용/저장 매체 전체 계약은 다름. 2차 원본 실행에서 getChatVar 예외는 빈 목록, setChatVar 예외는 호출자 전파임을 관측. native에는 이 호스트 API가 없어 전체 일치는 아님.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
@@ -330,7 +463,34 @@
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3533",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 196,
+          "end": 198,
+          "symbol": "B.bag_save"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 0,
+        "entered": 0,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3533",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag / migrate",
+        "verification/parity-r23/round2-oracle.json::bag_host"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P3536",
@@ -349,9 +509,15 @@
         "project/tests/gear_r23_test.gd::bag_result / bag_reload",
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
+        "verification/parity-r23/gear-round2-oracle.json::bag_host",
+        "verification/parity-r23/gear-coverage-round3.json::P3536",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "코드 배열 연산은 일치. native는 UID 및 overflow 보존 경로를 쓰고 알 수 없는 원본 토큰도 이관 기록에 남겨 전체 저장 계약은 다름.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
@@ -362,7 +528,34 @@
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3536",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 207,
+          "end": 213,
+          "symbol": "B.bag_add"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 1,
+        "entered": 1,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3536",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag / migrate",
+        "verification/parity-r23/round2-oracle.json::bag_host"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P3537",
@@ -381,9 +574,15 @@
         "project/tests/gear_r23_test.gd::bag_result / bag_reload",
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
+        "verification/parity-r23/gear-round2-oracle.json::bag_host",
+        "verification/parity-r23/gear-coverage-round3.json::P3537",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "첫 동일 코드 제거는 일치. native의 개별 UID 선택·중복 코드 정체성 및 실제 영구 저장 부작용은 원본 dk_bag 계약과 구분해야 함.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
@@ -394,7 +593,34 @@
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3537",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 215,
+          "end": 225,
+          "symbol": "B.bag_take"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 2,
+        "entered": 2,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3537",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag / migrate",
+        "verification/parity-r23/round2-oracle.json::bag_host"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P3540",
@@ -408,15 +634,18 @@
       "previous_status": "일부",
       "previous_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
       "new_status": "일부",
-      "fixed": false,
+      "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::transaction_result / transaction_state / transaction_bag",
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
-        "verification/parity-r23/round2-oracle.json::bag_host"
+        "verification/parity-r23/gear-round2-oracle.json::bag_host",
+        "verification/parity-r23/gear-coverage-round3.json::P3540",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "project/tests/gear_r23_round3_test.gd::restrict_return / restrict_state / restrict_written_raw / restrict_bag"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
-      "remaining_reason": "코드 어댑터의 재배치/가방 가득 참 결과는 일치. 실제 native 저장 검증은 부적합 장착을 거부하는 경로도 있어 전 경로 자동 회수와 동일 판정하지 않음.",
+      "source_observation": "verification/parity-r23/gear-round3-oracle.json",
+      "remaining_reason": "무효 장착 테이블의 반환 false→nil을 원본처럼 수정. 원본 raw 쓰기와 재조회 필터를 분리해 비교했다. native UID 저장의 부적합 장착 검증/가방 회수 전체 계약은 여전히 다름.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -426,7 +655,33 @@
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3540",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 247,
+          "end": 261,
+          "symbol": "B.gear_restrict"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 6,
+        "entered": 6,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3540",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "project/tests/gear_r23_round3_test.gd::restrict_return / restrict_state / restrict_written_raw / restrict_bag"
+      ],
+      "round3_fix_location": "project/game/gear_rules_r22.gd:202",
+      "fix_location": "project/game/gear_rules_r22.gd:202",
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P3544",
@@ -444,7 +699,7 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::cost"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [
@@ -456,7 +711,31 @@
         }
       ],
       "fix_location": "project/game/gear_rules_r22.gd:126",
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3544",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 270,
+          "end": 276,
+          "symbol": "B.forge_cost"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 1,
+        "entered": 1,
+        "remaining_entries": [],
+        "baseline_missing": 1,
+        "newly_entered_baseline": [
+          {
+            "key": "81-gear.lua:274:10495",
+            "line": 274,
+            "offset": 10495,
+            "token": "then"
+          }
+        ]
+      }
     },
     {
       "id": "P3549",
@@ -475,9 +754,15 @@
         "project/tests/gear_r23_test.gd::transaction_result / transaction_state / transaction_bag",
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
+        "verification/parity-r23/gear-round2-oracle.json::bag_host",
+        "verification/parity-r23/gear-coverage-round3.json::P3549",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "가방에 없는 장착 UID의 재장착/다른 소유자에게 이전을 원본처럼 거부하도록 수정. bag/self/other/duplicate·JSON 재개는 대조. 코드 기반 반환·dk_bag 쓰기와 native UID 선택/저장 매체는 다름.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
@@ -489,7 +774,34 @@
         "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "fix_location": "project/game/facilities_world_r22.gd:46"
+      "fix_location": "project/game/facilities_world_r22.gd:46",
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3549",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 304,
+          "end": 316,
+          "symbol": "B.gear_equip"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 4,
+        "entered": 4,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3549",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag / migrate",
+        "verification/parity-r23/round2-oracle.json::bag_host"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P3552",
@@ -508,9 +820,15 @@
         "project/tests/gear_r23_test.gd::transaction_result / transaction_state / transaction_bag",
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
+        "verification/parity-r23/gear-round2-oracle.json::bag_host",
+        "verification/parity-r23/gear-coverage-round3.json::P3552",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "JSON 재개 후 UID int/float 차이로 장착품이 가방에 중복 노출되던 wearer를 수정. 0/1999/2000 경계·해제·재개는 대조. 코드 기반 반환/채팅 변수와 native UID 저장은 다름.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
@@ -522,7 +840,34 @@
         "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "fix_location": "project/game/facilities_world_r22.gd:38"
+      "fix_location": "project/game/facilities_world_r22.gd:38",
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3552",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 318,
+          "end": 325,
+          "symbol": "B.gear_unequip"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 2,
+        "entered": 2,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3552",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag / migrate",
+        "verification/parity-r23/round2-oracle.json::bag_host"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P3553",
@@ -541,9 +886,15 @@
         "project/tests/gear_r23_test.gd::transaction_result / transaction_state / transaction_bag",
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
+        "verification/parity-r23/gear-round2-oracle.json::bag_host",
+        "verification/parity-r23/gear-coverage-round3.json::P3553",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "재개 후 장착품을 미장착으로 오인하는 wearer를 수정. 판매·재시도·JSON 재개는 대조. 원본 코드 선택/반환·채팅 변수 쓰기와 native UID 저장은 다름.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
@@ -555,7 +906,34 @@
         "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "fix_location": "project/game/facilities_world_r22.gd:38"
+      "fix_location": "project/game/facilities_world_r22.gd:38",
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3553",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 327,
+          "end": 333,
+          "symbol": "B.gear_sell"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 2,
+        "entered": 2,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3553",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag / migrate",
+        "verification/parity-r23/round2-oracle.json::bag_host"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P3554",
@@ -574,9 +952,15 @@
         "project/tests/gear_r23_test.gd::transaction_result / transaction_state / transaction_bag",
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
+        "verification/parity-r23/gear-round2-oracle.json::bag_host",
+        "verification/parity-r23/gear-coverage-round3.json::P3554",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "재개 후 일반 장착품을 판매 대상으로 읽는 wearer를 수정. 0/1999/2000개 일괄판매·금화·가방·장착/재개는 대조. legacy 보존·코드↔UID 저장은 별도 계약.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
@@ -588,7 +972,34 @@
         "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "fix_location": "project/game/facilities_world_r22.gd:38"
+      "fix_location": "project/game/facilities_world_r22.gd:38",
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3554",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 336,
+          "end": 354,
+          "symbol": "B.gear_sell_common"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 4,
+        "entered": 4,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3554",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag / migrate",
+        "verification/parity-r23/round2-oracle.json::bag_host"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P3555",
@@ -607,9 +1018,15 @@
         "project/tests/gear_r23_test.gd::migrate_result / migrate_active",
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
+        "verification/parity-r23/gear-round2-oracle.json::bag_host",
+        "verification/parity-r23/gear-coverage-round3.json::P3555",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "원본 활성 equip/items 정리와 1회 이관은 일치. 삭제될 시제품을 gear_r22_prototypes에 추가 보관하므로 전체 저장 JSON은 의도적으로 다름(사용자 저장 보존).",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
@@ -620,7 +1037,34 @@
         "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
         "project/tests/gear_r23_test.gd::bag / migrate",
         "verification/parity-r23/round2-oracle.json::bag_host"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3555",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 357,
+          "end": 379,
+          "symbol": "B.gear_migrate"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 10,
+        "entered": 10,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3555",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume",
+        "project/tests/gear_r23_test.gd::bag / migrate",
+        "verification/parity-r23/round2-oracle.json::bag_host"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P3566",
@@ -638,12 +1082,29 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::eq_of"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "fix_location": "project/game/gear_rules_r22.gd:284",
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3566",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 395,
+          "end": 404,
+          "symbol": "B.gear_eq_of"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 3,
+        "entered": 3,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P3567",
@@ -661,12 +1122,29 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::refresh"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "fix_location": "project/game/gear_rules_r22.gd:294",
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3567",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 407,
+          "end": 411,
+          "symbol": "B.gear_pm_refresh"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 2,
+        "entered": 2,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P3571",
@@ -696,7 +1174,31 @@
           "token": "then"
         }
       ],
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3571",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 425,
+          "end": 470,
+          "symbol": "B.gear_init"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 18,
+        "entered": 18,
+        "remaining_entries": [],
+        "baseline_missing": 1,
+        "newly_entered_baseline": [
+          {
+            "key": "81-gear.lua:427:15888",
+            "line": 427,
+            "offset": 15888,
+            "token": "then"
+          }
+        ]
+      }
     },
     {
       "id": "P3599",
@@ -726,7 +1228,31 @@
           "token": "then"
         }
       ],
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3599",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 689,
+          "end": 713,
+          "symbol": "B.gear_dotchain"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 8,
+        "entered": 8,
+        "remaining_entries": [],
+        "baseline_missing": 1,
+        "newly_entered_baseline": [
+          {
+            "key": "81-gear.lua:703:25680",
+            "line": 703,
+            "offset": 25680,
+            "token": "then"
+          }
+        ]
+      }
     },
     {
       "id": "P3603",
@@ -756,7 +1282,31 @@
           "token": "then"
         }
       ],
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3603",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 731,
+          "end": 740,
+          "symbol": "B.gear_echo"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 2,
+        "entered": 2,
+        "remaining_entries": [],
+        "baseline_missing": 1,
+        "newly_entered_baseline": [
+          {
+            "key": "81-gear.lua:737:26981",
+            "line": 737,
+            "offset": 26981,
+            "token": "then"
+          }
+        ]
+      }
     },
     {
       "id": "P3605",
@@ -786,7 +1336,31 @@
           "token": "then"
         }
       ],
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3605",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 743,
+          "end": 750,
+          "symbol": "B.gear_dot"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 2,
+        "entered": 2,
+        "remaining_entries": [],
+        "baseline_missing": 1,
+        "newly_entered_baseline": [
+          {
+            "key": "81-gear.lua:745:27254",
+            "line": 745,
+            "offset": 27254,
+            "token": "then"
+          }
+        ]
+      }
     },
     {
       "id": "P3639",
@@ -804,6 +1378,11 @@
       "evidence_tests": [
         "project/tests/gear_r23_hooks_test.gd::damaged",
         "project/tests/gear_hooks_r22_test.gd",
+        "tools/gear_r23_predecessors.mjs",
+        "project/tests/gear_r23_predecessors_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P3639",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "tools/gear_r23_predecessors.mjs",
         "project/tests/gear_r23_predecessors_test.gd"
       ],
@@ -824,7 +1403,40 @@
         "verification/parity-r23/round2-provenance.json",
         "tools/gear_r23_predecessors.mjs",
         "project/tests/gear_r23_predecessors_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3639",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 920,
+          "end": 932,
+          "symbol": "G.damaged"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 4,
+        "entered": 4,
+        "remaining_entries": [],
+        "baseline_missing": 1,
+        "newly_entered_baseline": [
+          {
+            "key": "81-gear.lua:921:33433",
+            "line": 921,
+            "offset": 33433,
+            "token": "then"
+          }
+        ]
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3639",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "tools/gear_r23_predecessors.mjs",
+        "project/tests/gear_r23_predecessors_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P3644",
@@ -842,6 +1454,11 @@
       "evidence_tests": [
         "project/tests/gear_r23_hooks_test.gd::attacked",
         "project/tests/gear_hooks_r22_test.gd",
+        "tools/gear_r23_predecessors.mjs",
+        "project/tests/gear_r23_predecessors_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P3644",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "tools/gear_r23_predecessors.mjs",
         "project/tests/gear_r23_predecessors_test.gd"
       ],
@@ -862,7 +1479,40 @@
         "verification/parity-r23/round2-provenance.json",
         "tools/gear_r23_predecessors.mjs",
         "project/tests/gear_r23_predecessors_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3644",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 936,
+          "end": 960,
+          "symbol": "G.attacked"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 9,
+        "entered": 9,
+        "remaining_entries": [],
+        "baseline_missing": 1,
+        "newly_entered_baseline": [
+          {
+            "key": "81-gear.lua:938:34124",
+            "line": 938,
+            "offset": 34124,
+            "token": "then"
+          }
+        ]
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3644",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "tools/gear_r23_predecessors.mjs",
+        "project/tests/gear_r23_predecessors_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P3647",
@@ -880,6 +1530,11 @@
       "evidence_tests": [
         "project/tests/gear_r23_hooks_test.gd::turn_end",
         "project/tests/gear_hooks_r22_test.gd",
+        "tools/gear_r23_predecessors.mjs",
+        "project/tests/gear_r23_predecessors_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P3647",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "tools/gear_r23_predecessors.mjs",
         "project/tests/gear_r23_predecessors_test.gd"
       ],
@@ -900,7 +1555,40 @@
         "verification/parity-r23/round2-provenance.json",
         "tools/gear_r23_predecessors.mjs",
         "project/tests/gear_r23_predecessors_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3647",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 964,
+          "end": 981,
+          "symbol": "G.turn_end"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 9,
+        "entered": 9,
+        "remaining_entries": [],
+        "baseline_missing": 1,
+        "newly_entered_baseline": [
+          {
+            "key": "81-gear.lua:966:35341",
+            "line": 966,
+            "offset": 35341,
+            "token": "then"
+          }
+        ]
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3647",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "tools/gear_r23_predecessors.mjs",
+        "project/tests/gear_r23_predecessors_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P3659",
@@ -918,6 +1606,11 @@
       "evidence_tests": [
         "project/tests/gear_r23_hooks_test.gd::abyss_after",
         "project/tests/gear_hooks_r22_test.gd",
+        "tools/gear_r23_predecessors.mjs",
+        "project/tests/gear_r23_predecessors_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P3659",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "tools/gear_r23_predecessors.mjs",
         "project/tests/gear_r23_predecessors_test.gd"
       ],
@@ -938,7 +1631,40 @@
         "verification/parity-r23/round2-provenance.json",
         "tools/gear_r23_predecessors.mjs",
         "project/tests/gear_r23_predecessors_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3659",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 1009,
+          "end": 1021,
+          "symbol": "G.abyss_after"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 4,
+        "entered": 4,
+        "remaining_entries": [],
+        "baseline_missing": 1,
+        "newly_entered_baseline": [
+          {
+            "key": "81-gear.lua:1010:36763",
+            "line": 1010,
+            "offset": 36763,
+            "token": "then"
+          }
+        ]
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3659",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "tools/gear_r23_predecessors.mjs",
+        "project/tests/gear_r23_predecessors_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P3666",
@@ -956,11 +1682,28 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::process_fallback + facilities_r22 all ten classes"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3666",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 1033,
+          "end": 1042,
+          "symbol": "all_classes"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 3,
+        "entered": 3,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P3667",
@@ -978,7 +1721,7 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::party_classes"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [
@@ -1001,7 +1744,43 @@
           "token": "then"
         }
       ],
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3667",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 1045,
+          "end": 1054,
+          "symbol": "B.gear_party_cls"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 3,
+        "entered": 3,
+        "remaining_entries": [],
+        "baseline_missing": 3,
+        "newly_entered_baseline": [
+          {
+            "key": "81-gear.lua:1047:38061",
+            "line": 1047,
+            "offset": 38061,
+            "token": "do"
+          },
+          {
+            "key": "81-gear.lua:1048:38110",
+            "line": 1048,
+            "offset": 38110,
+            "token": "then"
+          },
+          {
+            "key": "81-gear.lua:1050:38181",
+            "line": 1050,
+            "offset": 38181,
+            "token": "then"
+          }
+        ]
+      }
     },
     {
       "id": "P3670",
@@ -1019,7 +1798,7 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::drop_boundaries + gear_boundary_r22 drop"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [
@@ -1042,7 +1821,56 @@
           "token": "then"
         }
       ],
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3670",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 1074,
+          "end": 1113,
+          "symbol": "B.gear_drop"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 16,
+        "entered": 14,
+        "remaining_entries": [
+          {
+            "key": "81-gear.lua:1089:39306",
+            "line": 1089,
+            "offset": 39306,
+            "token": "then"
+          },
+          {
+            "key": "81-gear.lua:1091:39398",
+            "line": 1091,
+            "offset": 39398,
+            "token": "then"
+          }
+        ],
+        "baseline_missing": 3,
+        "newly_entered_baseline": [
+          {
+            "key": "81-gear.lua:1082:39012",
+            "line": 1082,
+            "offset": 39012,
+            "token": "then"
+          },
+          {
+            "key": "81-gear.lua:1092:39493",
+            "line": 1092,
+            "offset": 39493,
+            "token": "then"
+          },
+          {
+            "key": "81-gear.lua:1098:39795",
+            "line": 1098,
+            "offset": 39795,
+            "token": "then"
+          }
+        ]
+      }
     },
     {
       "id": "P3674",
@@ -1060,11 +1888,28 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::process_fallback + gear_r22 process"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3674",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 1136,
+          "end": 1139,
+          "symbol": "add"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 1,
+        "entered": 1,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P3677",
@@ -1082,11 +1927,28 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::labels"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3677",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 1173,
+          "end": 1178,
+          "symbol": "B.gear_label"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 1,
+        "entered": 1,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P3678",
@@ -1104,11 +1966,28 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::legend_context"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3678",
+        "source": {
+          "file": "bot/src/81-gear.lua",
+          "start": 1181,
+          "end": 1204,
+          "symbol": "B.CTX[\"23-gear\"]"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 8,
+        "entered": 8,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P3680",
@@ -1126,11 +2005,28 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::smithy_list / native_smithy_list"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3680",
+        "source": {
+          "file": "bot/src/82-smithy.lua",
+          "start": 8,
+          "end": 24,
+          "symbol": "B.smithy_list"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 5,
+        "entered": 5,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P3681",
@@ -1148,11 +2044,28 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::smithy_list / native_smithy_list"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3681",
+        "source": {
+          "file": "bot/src/82-smithy.lua",
+          "start": 10,
+          "end": 15,
+          "symbol": "add"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 1,
+        "entered": 1,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P3683",
@@ -1172,7 +2085,7 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/gear_r23_round2_test.gd::work_of"
       ],
-      "source_observation": "verification/parity-r23/round2-oracle.json",
+      "source_observation": "verification/parity-r23/gear-round2-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
@@ -1183,7 +2096,24 @@
         "project/tests/gear_r23_round2_test.gd::work_of"
       ],
       "comparison_scope": "원본 local 함수 전체 반환과 실제 완료 영수증 source_note 연결. 부모 H.sm의 AI 전송 계약에는 판정을 전파하지 않음.",
-      "fix_location": "project/game/smithy_rules_r22.gd:18"
+      "fix_location": "project/game/smithy_rules_r22.gd:18",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3683",
+        "source": {
+          "file": "bot/src/82-smithy.lua",
+          "start": 28,
+          "end": 33,
+          "symbol": "work_of"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 2,
+        "entered": 2,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P3684",
@@ -1196,21 +2126,25 @@
       },
       "previous_status": "미확인",
       "previous_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "new_status": "일부",
+      "new_status": "같음",
       "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
-        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
-        "project/tests/ui_gear_r23_test.gd"
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P3684",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "project/tests/gear_r23_round3_test.gd::fx_return / fx_state / native source effect slots",
+        "project/tests/ui_gear_r23_round3_test.gd"
       ],
-      "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "탭/완료/퇴장 시 이펙트 제거를 비교하고 퇴장 누락을 수정. 원본 forge_fx/proc_fx 두 필드와 native smithy_fx 한 필드 전체 계약은 구분.",
+      "source_observation": "verification/parity-r23/gear-round3-oracle.json",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
-      "fix_location": "project/game/facilities_world_r22.gd:209",
+      "fix_location": "project/game/smithy_rules_r22.gd:18",
       "round2_previous_status": "일부",
       "round2_reviewed": true,
       "round2_evidence": [
@@ -1219,7 +2153,33 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3684",
+        "source": {
+          "file": "bot/src/82-smithy.lua",
+          "start": 35,
+          "end": 35,
+          "symbol": "fx_clear"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 0,
+        "entered": 0,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3684",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "project/tests/gear_r23_round3_test.gd::fx_return / fx_state / native source effect slots",
+        "project/tests/ui_gear_r23_round3_test.gd"
+      ],
+      "round3_fix_location": "project/game/smithy_rules_r22.gd:18",
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P3686",
@@ -1232,18 +2192,22 @@
       },
       "previous_status": "미확인",
       "previous_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "new_status": "일부",
-      "fixed": false,
+      "new_status": "같음",
+      "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
-        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
-        "project/tests/ui_gear_r23_test.gd"
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P3686",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "project/tests/gear_r23_round3_test.gd::pct (exact IEEE inputs, C %g output) / native rate labels",
+        "project/tests/ui_gear_r23_round3_test.gd"
       ],
-      "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "원본 %g 확률 문자열은 화면 fixture에 보존. native str 기반 확률 표시의 모든 정밀도/지수 표기 계약은 직접 비교하지 않음.",
+      "source_observation": "verification/parity-r23/gear-round3-oracle.json",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -1254,7 +2218,34 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3686",
+        "source": {
+          "file": "bot/src/82-smithy.lua",
+          "start": 37,
+          "end": 37,
+          "symbol": "pct"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 0,
+        "entered": 0,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3686",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "project/tests/gear_r23_round3_test.gd::pct (exact IEEE inputs, C %g output) / native rate labels",
+        "project/tests/ui_gear_r23_round3_test.gd"
+      ],
+      "round3_fix_location": "project/game/smithy_rules_r22.gd:31",
+      "fix_location": "project/game/smithy_rules_r22.gd:31",
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P3687",
@@ -1272,6 +2263,13 @@
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P3687",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
@@ -1289,7 +2287,35 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3687",
+        "source": {
+          "file": "bot/src/82-smithy.lua",
+          "start": 39,
+          "end": 55,
+          "symbol": "tab_forge"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 3,
+        "entered": 3,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3687",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P3689",
@@ -1307,6 +2333,13 @@
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P3689",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
@@ -1324,7 +2357,35 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3689",
+        "source": {
+          "file": "bot/src/82-smithy.lua",
+          "start": 57,
+          "end": 84,
+          "symbol": "tab_process"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 2,
+        "entered": 2,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3689",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P3691",
@@ -1342,6 +2403,13 @@
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P3691",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
@@ -1359,7 +2427,35 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3691",
+        "source": {
+          "file": "bot/src/82-smithy.lua",
+          "start": 86,
+          "end": 103,
+          "symbol": "B.SCREENS.smithy"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 2,
+        "entered": 2,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3691",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P3693",
@@ -1377,6 +2473,13 @@
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P3693",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
@@ -1394,7 +2497,35 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3693",
+        "source": {
+          "file": "bot/src/82-smithy.lua",
+          "start": 89,
+          "end": 89,
+          "symbol": "tb"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 0,
+        "entered": 0,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3693",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P3697",
@@ -1414,7 +2545,7 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/gear_r23_round2_test.gd::work_note"
       ],
-      "source_observation": "verification/parity-r23/round2-oracle.json",
+      "source_observation": "verification/parity-r23/gear-round2-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
@@ -1425,7 +2556,24 @@
         "project/tests/gear_r23_round2_test.gd::work_note"
       ],
       "comparison_scope": "원본 local 함수 전체 반환과 실제 완료 영수증 source_note 연결. 부모 H.sm의 AI 전송 계약에는 판정을 전파하지 않음.",
-      "fix_location": "project/game/smithy_rules_r22.gd:42"
+      "fix_location": "project/game/smithy_rules_r22.gd:42",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3697",
+        "source": {
+          "file": "bot/src/82-smithy.lua",
+          "start": 106,
+          "end": 125,
+          "symbol": "work_note"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 4,
+        "entered": 4,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P3698",
@@ -1445,7 +2593,7 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/gear_r23_round2_test.gd::work_cut"
       ],
-      "source_observation": "verification/parity-r23/round2-oracle.json",
+      "source_observation": "verification/parity-r23/gear-round2-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
@@ -1456,7 +2604,24 @@
         "project/tests/gear_r23_round2_test.gd::work_cut"
       ],
       "comparison_scope": "원본 local 함수 전체 반환과 실제 완료 영수증 source_note 연결. 부모 H.sm의 AI 전송 계약에는 판정을 전파하지 않음.",
-      "fix_location": "project/game/smithy_rules_r22.gd:35"
+      "fix_location": "project/game/smithy_rules_r22.gd:35",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3698",
+        "source": {
+          "file": "bot/src/82-smithy.lua",
+          "start": 107,
+          "end": 114,
+          "symbol": "cut"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 2,
+        "entered": 2,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P3699",
@@ -1476,7 +2641,7 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/gear_r23_round2_test.gd::work_forge_note through work_note"
       ],
-      "source_observation": "verification/parity-r23/round2-oracle.json",
+      "source_observation": "verification/parity-r23/gear-round2-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
@@ -1487,7 +2652,24 @@
         "project/tests/gear_r23_round2_test.gd::work_forge_note through work_note"
       ],
       "comparison_scope": "원본 local 함수 전체 반환과 실제 완료 영수증 source_note 연결. 부모 H.sm의 AI 전송 계약에는 판정을 전파하지 않음.",
-      "fix_location": "project/game/smithy_rules_r22.gd:30"
+      "fix_location": "project/game/smithy_rules_r22.gd:30",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3699",
+        "source": {
+          "file": "bot/src/82-smithy.lua",
+          "start": 117,
+          "end": 119,
+          "symbol": "work_note::익명 함수@117"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 0,
+        "entered": 0,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P3700",
@@ -1507,7 +2689,7 @@
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/gear_r23_round2_test.gd::work_process_note / work_gear_label"
       ],
-      "source_observation": "verification/parity-r23/round2-oracle.json",
+      "source_observation": "verification/parity-r23/gear-round2-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
@@ -1518,7 +2700,24 @@
         "project/tests/gear_r23_round2_test.gd::work_process_note / work_gear_label"
       ],
       "comparison_scope": "원본 local 함수 전체 반환과 실제 완료 영수증 source_note 연결. 부모 H.sm의 AI 전송 계약에는 판정을 전파하지 않음.",
-      "fix_location": "project/game/smithy_rules_r22.gd:33"
+      "fix_location": "project/game/smithy_rules_r22.gd:33",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P3700",
+        "source": {
+          "file": "bot/src/82-smithy.lua",
+          "start": 122,
+          "end": 122,
+          "symbol": "work_note::익명 함수@122"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 0,
+        "entered": 0,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P3701",
@@ -1536,6 +2735,13 @@
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P3701",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
@@ -1554,7 +2760,35 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P3701",
+        "source": {
+          "file": "bot/src/82-smithy.lua",
+          "start": 127,
+          "end": 189,
+          "symbol": "B.H.sm"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 18,
+        "entered": 18,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P3701",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P2826",
@@ -1572,6 +2806,13 @@
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P2826",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
@@ -1589,7 +2830,35 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P2826",
+        "source": {
+          "file": "bot/src/71-shop.lua",
+          "start": 63,
+          "end": 75,
+          "symbol": "B.tw_npcs"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 3,
+        "entered": 3,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P2826",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P2828",
@@ -1608,6 +2877,13 @@
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd::owned no-sale bonus appears in shop",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P2828",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
@@ -1625,7 +2901,35 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P2828",
+        "source": {
+          "file": "bot/src/71-shop.lua",
+          "start": 83,
+          "end": 137,
+          "symbol": "B.SCREENS.shop"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 13,
+        "entered": 13,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P2828",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P2836",
@@ -1647,7 +2951,7 @@
         "project/tests/gear_r23_test.gd::shop_bonus / shop_resume",
         "project/tests/gear_r23_bonus_resume_test.gd"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [
@@ -1680,7 +2984,43 @@
         "project/tests/gear_r23_test.gd::shop_bonus / shop_resume",
         "project/tests/gear_r23_bonus_resume_test.gd"
       ],
-      "comparison_scope": "거래 전 호감·횟수·RNG·덤 99 상한·메시지·로컬 재개·실제 서버 저장 보존. 전체 상점 HTML/호스트에는 판정을 전파하지 않음."
+      "comparison_scope": "거래 전 호감·횟수·RNG·덤 99 상한·메시지·로컬 재개·실제 서버 저장 보존. 전체 상점 HTML/호스트에는 판정을 전파하지 않음.",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P2836",
+        "source": {
+          "file": "bot/src/71-shop.lua",
+          "start": 141,
+          "end": 153,
+          "symbol": "B.shop_after_buy"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 3,
+        "entered": 3,
+        "remaining_entries": [],
+        "baseline_missing": 3,
+        "newly_entered_baseline": [
+          {
+            "key": "71-shop.lua:146:9091",
+            "line": 146,
+            "offset": 9091,
+            "token": "then"
+          },
+          {
+            "key": "71-shop.lua:147:9128",
+            "line": 147,
+            "offset": 9128,
+            "token": "then"
+          },
+          {
+            "key": "71-shop.lua:148:9209",
+            "line": 148,
+            "offset": 9209,
+            "token": "then"
+          }
+        ]
+      }
     },
     {
       "id": "P2841",
@@ -1700,9 +3040,16 @@
         "server/abyss-save/test/gear-r23.mjs",
         "verification/parity-r23/cloud-boundary.json",
         "project/tests/gear_r23_test.gd::shop_bonus / shop_resume",
+        "project/tests/gear_r23_bonus_resume_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P2841",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "server/abyss-save/test/gear-r23.mjs",
+        "verification/parity-r23/cloud-boundary.json",
+        "project/tests/gear_r23_test.gd::shop_bonus / shop_resume",
         "project/tests/gear_r23_bonus_resume_test.gd"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "새 상점 필드의 서버 저장은 해결. 접두 버튼 전체 메시지·pend_hard/addChat과 native 영수증의 계약 차이는 남음.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [
@@ -1848,7 +3195,168 @@
         "verification/parity-r23/cloud-boundary.json",
         "project/tests/gear_r23_test.gd::shop_bonus / shop_resume",
         "project/tests/gear_r23_bonus_resume_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P2841",
+        "source": {
+          "file": "bot/src/71-shop.lua",
+          "start": 155,
+          "end": 224,
+          "symbol": "B.H.sh"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 22,
+        "entered": 22,
+        "remaining_entries": [],
+        "baseline_missing": 22,
+        "newly_entered_baseline": [
+          {
+            "key": "71-shop.lua:156:9515",
+            "line": 156,
+            "offset": 9515,
+            "token": "then"
+          },
+          {
+            "key": "71-shop.lua:158:9599",
+            "line": 158,
+            "offset": 9599,
+            "token": "then"
+          },
+          {
+            "key": "71-shop.lua:160:9737",
+            "line": 160,
+            "offset": 9737,
+            "token": "then"
+          },
+          {
+            "key": "71-shop.lua:161:9794",
+            "line": 161,
+            "offset": 9794,
+            "token": "then"
+          },
+          {
+            "key": "71-shop.lua:163:9893",
+            "line": 163,
+            "offset": 9893,
+            "token": "then"
+          },
+          {
+            "key": "71-shop.lua:164:9937",
+            "line": 164,
+            "offset": 9937,
+            "token": "then"
+          },
+          {
+            "key": "71-shop.lua:165:10116",
+            "line": 165,
+            "offset": 10116,
+            "token": "then"
+          },
+          {
+            "key": "71-shop.lua:167:10197",
+            "line": 167,
+            "offset": 10197,
+            "token": "then"
+          },
+          {
+            "key": "71-shop.lua:167:10248",
+            "line": 167,
+            "offset": 10248,
+            "token": "else"
+          },
+          {
+            "key": "71-shop.lua:174:10493",
+            "line": 174,
+            "offset": 10493,
+            "token": "then"
+          },
+          {
+            "key": "71-shop.lua:178:10749",
+            "line": 178,
+            "offset": 10749,
+            "token": "then"
+          },
+          {
+            "key": "71-shop.lua:180:10906",
+            "line": 180,
+            "offset": 10906,
+            "token": "then"
+          },
+          {
+            "key": "71-shop.lua:181:10986",
+            "line": 181,
+            "offset": 10986,
+            "token": "then"
+          },
+          {
+            "key": "71-shop.lua:182:11101",
+            "line": 182,
+            "offset": 11101,
+            "token": "then"
+          },
+          {
+            "key": "71-shop.lua:191:11428",
+            "line": 191,
+            "offset": 11428,
+            "token": "then"
+          },
+          {
+            "key": "71-shop.lua:194:11588",
+            "line": 194,
+            "offset": 11588,
+            "token": "then"
+          },
+          {
+            "key": "71-shop.lua:196:11649",
+            "line": 196,
+            "offset": 11649,
+            "token": "do"
+          },
+          {
+            "key": "71-shop.lua:199:11751",
+            "line": 199,
+            "offset": 11751,
+            "token": "do"
+          },
+          {
+            "key": "71-shop.lua:211:12395",
+            "line": 211,
+            "offset": 12395,
+            "token": "then"
+          },
+          {
+            "key": "71-shop.lua:213:12526",
+            "line": 213,
+            "offset": 12526,
+            "token": "then"
+          },
+          {
+            "key": "71-shop.lua:218:12720",
+            "line": 218,
+            "offset": 12720,
+            "token": "then"
+          },
+          {
+            "key": "71-shop.lua:220:12816",
+            "line": 220,
+            "offset": 12816,
+            "token": "then"
+          }
+        ]
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P2841",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "server/abyss-save/test/gear-r23.mjs",
+        "verification/parity-r23/cloud-boundary.json",
+        "project/tests/gear_r23_test.gd::shop_bonus / shop_resume",
+        "project/tests/gear_r23_bonus_resume_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P2870",
@@ -1871,7 +3379,24 @@
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "fix_location": "project/game/guild_rules_r22.gd:6",
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P2870",
+        "source": {
+          "file": "bot/src/72-guild.lua",
+          "start": 12,
+          "end": 16,
+          "symbol": "B.gd_title"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 1,
+        "entered": 1,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P2871",
@@ -1894,7 +3419,24 @@
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "fix_location": "project/game/guild_rules_r22.gd:11",
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P2871",
+        "source": {
+          "file": "bot/src/72-guild.lua",
+          "start": 17,
+          "end": 21,
+          "symbol": "B.gd_title_en"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 1,
+        "entered": 1,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P2872",
@@ -1912,11 +3454,28 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::guild_find / guild_find_missing"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P2872",
+        "source": {
+          "file": "bot/src/72-guild.lua",
+          "start": 23,
+          "end": 27,
+          "symbol": "B.gd_find"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 3,
+        "entered": 3,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P2873",
@@ -1934,11 +3493,28 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::guild_remove / guild_remove_state / guild_remove_missing"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P2873",
+        "source": {
+          "file": "bot/src/72-guild.lua",
+          "start": 29,
+          "end": 34,
+          "symbol": "B.gd_remove"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 2,
+        "entered": 2,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P2877",
@@ -1956,11 +3532,28 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::guild_base"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P2877",
+        "source": {
+          "file": "bot/src/72-guild.lua",
+          "start": 45,
+          "end": 49,
+          "symbol": "B.gd_base_lv"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 1,
+        "entered": 1,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P2886",
@@ -1978,11 +3571,28 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::guild_fill / guild_fill_counters"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P2886",
+        "source": {
+          "file": "bot/src/72-guild.lua",
+          "start": 148,
+          "end": 153,
+          "symbol": "B.gd_fill"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 1,
+        "entered": 1,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P2890",
@@ -2000,11 +3610,28 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::guild_candidates + recruit_r21 exact candidates"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P2890",
+        "source": {
+          "file": "bot/src/72-guild.lua",
+          "start": 163,
+          "end": 169,
+          "symbol": "B.gd_candidates"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 2,
+        "entered": 2,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P2891",
@@ -2023,12 +3650,29 @@
         "project/tests/gear_r23_test.gd::guild_tier + source gd_tier is used by ordinary inn",
         "project/tests/ui_gear_r23_test.gd::source gd_tier is used by ordinary inn"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "fix_location": "project/game/town_rules_r21.gd:37",
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P2891",
+        "source": {
+          "file": "bot/src/72-guild.lua",
+          "start": 172,
+          "end": 176,
+          "symbol": "B.gd_tier"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 5,
+        "entered": 5,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P2892",
@@ -2046,6 +3690,13 @@
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P2892",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
@@ -2063,7 +3714,35 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P2892",
+        "source": {
+          "file": "bot/src/72-guild.lua",
+          "start": 178,
+          "end": 189,
+          "symbol": "B.gd_quest_card"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 2,
+        "entered": 2,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P2892",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P2896",
@@ -2081,6 +3760,13 @@
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P2896",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
@@ -2098,7 +3784,35 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P2896",
+        "source": {
+          "file": "bot/src/72-guild.lua",
+          "start": 191,
+          "end": 201,
+          "symbol": "tab_board"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 2,
+        "entered": 2,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P2896",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P2900",
@@ -2116,6 +3830,13 @@
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P2900",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
@@ -2133,7 +3854,35 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P2900",
+        "source": {
+          "file": "bot/src/72-guild.lua",
+          "start": 206,
+          "end": 208,
+          "symbol": "recruit_cell"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 0,
+        "entered": 0,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P2900",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P2901",
@@ -2151,6 +3900,13 @@
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P2901",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
@@ -2168,7 +3924,35 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P2901",
+        "source": {
+          "file": "bot/src/72-guild.lua",
+          "start": 210,
+          "end": 227,
+          "symbol": "recruit_result"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 1,
+        "entered": 1,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P2901",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P2902",
@@ -2186,6 +3970,13 @@
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P2902",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
@@ -2203,7 +3994,35 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P2902",
+        "source": {
+          "file": "bot/src/72-guild.lua",
+          "start": 229,
+          "end": 246,
+          "symbol": "recruit_roster"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 2,
+        "entered": 2,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P2902",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P2904",
@@ -2221,6 +4040,13 @@
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P2904",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
@@ -2238,7 +4064,35 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P2904",
+        "source": {
+          "file": "bot/src/72-guild.lua",
+          "start": 248,
+          "end": 272,
+          "symbol": "B.gd_recruit_tab"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 4,
+        "entered": 4,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P2904",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P2907",
@@ -2256,6 +4110,13 @@
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P2907",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
@@ -2273,7 +4134,35 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P2907",
+        "source": {
+          "file": "bot/src/72-guild.lua",
+          "start": 275,
+          "end": 288,
+          "symbol": "B.SCREENS.guild"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 3,
+        "entered": 3,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P2907",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P2909",
@@ -2291,6 +4180,13 @@
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P2909",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
@@ -2308,7 +4204,35 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P2909",
+        "source": {
+          "file": "bot/src/72-guild.lua",
+          "start": 278,
+          "end": 278,
+          "symbol": "tb"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 0,
+        "entered": 0,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P2909",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P2912",
@@ -2326,6 +4250,13 @@
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P2912",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
@@ -2343,7 +4274,35 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P2912",
+        "source": {
+          "file": "bot/src/72-guild.lua",
+          "start": 291,
+          "end": 319,
+          "symbol": "meet"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 6,
+        "entered": 6,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P2912",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P2921",
@@ -2361,6 +4320,13 @@
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P2921",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
@@ -2378,7 +4344,35 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P2921",
+        "source": {
+          "file": "bot/src/72-guild.lua",
+          "start": 316,
+          "end": 316,
+          "symbol": "meet::익명 함수@316"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 0,
+        "entered": 0,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P2921",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P2922",
@@ -2396,6 +4390,13 @@
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P2922",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
@@ -2413,7 +4414,35 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P2922",
+        "source": {
+          "file": "bot/src/72-guild.lua",
+          "start": 321,
+          "end": 370,
+          "symbol": "B.H.gd"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 20,
+        "entered": 20,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P2922",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P2946",
@@ -2426,18 +4455,22 @@
       },
       "previous_status": "미확인",
       "previous_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "new_status": "일부",
-      "fixed": false,
+      "new_status": "같음",
+      "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
-        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
-        "project/tests/ui_gear_r23_test.gd"
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P2946",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "project/tests/gear_r23_round3_test.gd::act_visible / native ordinary action controls",
+        "project/tests/ui_gear_r23_round3_test.gd"
       ],
-      "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "원본 act_visible은 항상 true이며 native 일반 행동 4개가 존재한다. native 대화 선택/잠금과 원본 표시 함수의 직접 반환 대응 증거는 남음.",
+      "source_observation": "verification/parity-r23/gear-round3-oracle.json",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -2448,7 +4481,34 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P2946",
+        "source": {
+          "file": "bot/src/73-inn.lua",
+          "start": 17,
+          "end": 19,
+          "symbol": "act_visible"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 0,
+        "entered": 0,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P2946",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "project/tests/gear_r23_round3_test.gd::act_visible / native ordinary action controls",
+        "project/tests/ui_gear_r23_round3_test.gd"
+      ],
+      "round3_fix_location": "project/game/town_rules_r21.gd:6",
+      "fix_location": "project/game/town_rules_r21.gd:6",
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P2954",
@@ -2467,6 +4527,13 @@
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd::source gd_tier is used by ordinary inn",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P2954",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
@@ -2485,7 +4552,35 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P2954",
+        "source": {
+          "file": "bot/src/73-inn.lua",
+          "start": 44,
+          "end": 86,
+          "symbol": "B.SCREENS.inn"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 7,
+        "entered": 7,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P2954",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P2961",
@@ -2503,13 +4598,20 @@
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P2961",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "일반 행동의 비용/호감/하루 제한·재개 및 host chat 실패 후 확정은 비교. pending_at/pend_soft/AI 지시·보내기 전체 계약은 native에 없음.",
+      "remaining_reason": "일반 행동의 비용/호감/하루 제한·재개 및 host chat 실패 후 확정은 비교. pending_at/pend_soft/AI 지시·보내기 전체 계약은 native에 없음. act_visible은 정본에서 상수 true여서 73-inn.lua:98의 거절 then은 도달 불가. 이를 인위적으로 원본을 바꿔 실행하지 않았다.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -2520,7 +4622,42 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P2961",
+        "source": {
+          "file": "bot/src/73-inn.lua",
+          "start": 88,
+          "end": 121,
+          "symbol": "B[\"H\"][\"in\"]"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 13,
+        "entered": 12,
+        "remaining_entries": [
+          {
+            "key": "73-inn.lua:98:5731",
+            "line": 98,
+            "offset": 5731,
+            "token": "then"
+          }
+        ],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P2961",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P2976",
@@ -2538,6 +4675,13 @@
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
+        "verification/parity-r23/gear-round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P2976",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
         "verification/parity-r23/round2-oracle.json::screens / pct",
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
@@ -2555,7 +4699,35 @@
         "project/tests/gear_r23_facilities_test.gd",
         "project/tests/ui_facilities_r22_test.gd",
         "project/tests/ui_gear_r23_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P2976",
+        "source": {
+          "file": "bot/src/73-inn.lua",
+          "start": 118,
+          "end": 118,
+          "symbol": "B[\"H\"][\"in\"]::익명 함수@118"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 0,
+        "entered": 0,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P2976",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "verification/parity-r23/round2-provenance.json",
+        "verification/parity-r23/round2-oracle.json::screens / pct",
+        "project/tests/gear_r23_facilities_test.gd",
+        "project/tests/ui_facilities_r22_test.gd",
+        "project/tests/ui_gear_r23_test.gd"
+      ],
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P2979",
@@ -2573,11 +4745,28 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::aff_r2"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P2979",
+        "source": {
+          "file": "bot/src/74-affection.lua",
+          "start": 21,
+          "end": 21,
+          "symbol": "B.aff_r2"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 0,
+        "entered": 0,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P2981",
@@ -2591,15 +4780,18 @@
       "previous_status": "일부",
       "previous_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
       "new_status": "일부",
-      "fixed": false,
+      "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::aff_party_state + dialogue_player_r21 inn/party",
-        "verification/parity-r23/round2-oracle.json::aff",
+        "verification/parity-r23/gear-round2-oracle.json::aff",
         "project/tests/affection_r21_test.gd",
-        "project/tests/dialogue_player_r21_test.gd"
+        "project/tests/dialogue_player_r21_test.gd",
+        "verification/parity-r23/gear-coverage-round3.json::P2981",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "project/tests/gear_r23_round3_test.gd::aff_result / aff_state / aff_callback / native_inn_aff"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
-      "remaining_reason": "영입한 동료의 호감 증감은 직접/기존 Lua fixture와 일치. 원본은 알 수 없는 cid도 G.aff에 기록하고 chron_aff를 부르지만 native는 owned만 허용하고 고정 대화 전이 큐를 추가하므로 전체 계약이 다름.",
+      "source_observation": "verification/parity-r23/gear-round3-oracle.json",
+      "remaining_reason": "source-shaped aff_add_source에서 잘못된 aff 테이블 초기화, 알 수 없는 cid, 16진 문자열, 선택적 chron_aff 호출 순서·동일 g 참조를 직접 비교했고 보유 동료의 실제 native 증감에도 연결했다. native 공개 aff_add의 owned 제한과 대화 전이 큐는 남아 전체 함수 같음으로 세지 않음.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -2609,7 +4801,33 @@
         "verification/parity-r23/round2-oracle.json::aff",
         "project/tests/affection_r21_test.gd",
         "project/tests/dialogue_player_r21_test.gd"
-      ]
+      ],
+      "round3_previous_status": "일부",
+      "round3_coverage": {
+        "id": "P2981",
+        "source": {
+          "file": "bot/src/74-affection.lua",
+          "start": 36,
+          "end": 44,
+          "symbol": "B.aff_add"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 3,
+        "entered": 3,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      },
+      "round3_reviewed": true,
+      "round3_evidence": [
+        "verification/parity-r23/gear-coverage-round3.json::P2981",
+        "verification/parity-r23/gear-round3-oracle.json",
+        "project/tests/gear_r23_round3_test.gd::aff_result / aff_state / aff_callback / native_inn_aff"
+      ],
+      "round3_fix_location": "project/game/town_rules_r21.gd:9",
+      "fix_location": "project/game/town_rules_r21.gd:9",
+      "round3_scope": "함수 호출/명시 진입은 실행 증거. 새 판정은 해당 함수의 직접 반환·상태 비교에 한정하며 HTML/호스트/저장 계약에 전파하지 않음."
     },
     {
       "id": "P2984",
@@ -2627,12 +4845,36 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::aff_party_delta / aff_party_state + dialogue_player_r21 synergy"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "fix_location": "project/game/town_world_r21.gd:325",
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P2984",
+        "source": {
+          "file": "bot/src/74-affection.lua",
+          "start": 47,
+          "end": 58,
+          "symbol": "B.aff_party"
+        },
+        "previous_status": "일부",
+        "called": true,
+        "explicit_entries": 4,
+        "entered": 3,
+        "remaining_entries": [
+          {
+            "key": "74-affection.lua:49:2063",
+            "line": 49,
+            "offset": 2063,
+            "token": "then"
+          }
+        ],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     },
     {
       "id": "P2985",
@@ -2650,12 +4892,30 @@
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::aff_fmt / aff_fmt_invalid"
       ],
-      "source_observation": "verification/parity-r23/oracle.json",
+      "source_observation": "verification/parity-r23/gear-oracle.json",
       "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "fix_location": "project/game/town_rules_r21.gd:6",
-      "round2_previous_status": "같음"
+      "round2_previous_status": "같음",
+      "round3_previous_status": "같음",
+      "round3_coverage": {
+        "id": "P2985",
+        "source": {
+          "file": "bot/src/74-affection.lua",
+          "start": 61,
+          "end": 65,
+          "symbol": "B.aff_fmt"
+        },
+        "previous_status": "미확인",
+        "called": true,
+        "explicit_entries": 1,
+        "entered": 1,
+        "remaining_entries": [],
+        "baseline_missing": 0,
+        "newly_entered_baseline": []
+      }
     }
-  ]
+  ],
+  "round2_snapshot": "verification/parity-r23/round2-gear.json"
 }

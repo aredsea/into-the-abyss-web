@@ -114,7 +114,7 @@ func smithy() -> void:
 		for i in range(w.gear.ORDER.size()):
 			var rarity=w.gear.ORDER[i]
 			label(w.Gear.RARITY[rarity],Rect2(18,510+i*27,175,23),13)
-			label("%s%%"%str(band.w.get(rarity,0)),Rect2(220,510+i*27,152,23),13,T.RED,T.BOLD)
+			label(w.gear.pct(band.w.get(rarity,0))+"%",Rect2(220,510+i*27,152,23),13,T.RED,T.BOLD)
 		paragraph("Lv.%d~%d 구간 · 확률은 바뀔 수 있습니다.\n같은 씨앗과 가공 회차에는 같은 장비가 나옵니다."%[band.from,band.to],Rect2(18,655,354,42),11)
 		action("process_gear","장비 가공 · 금화 %d"%band.price,Rect2(18,706,354,42),func():host._act(w.process_gear.bind(host.who),""),true,w.s.gold<band.price)
 	else:

@@ -1,82 +1,100 @@
 {
-  "rows": 144,
-  "promoted_same": 45,
-  "fixed_rows": 30,
-  "fixed_and_promoted": 19,
-  "fixed_remaining_partial": 11,
-  "remaining_rows": 99,
-  "remaining_counts": {
-    "없음": 2,
-    "일부": 89,
-    "미확인": 8
+  "rows_reviewed": 212,
+  "newly_equal_rows": 130,
+  "round2_newly_equal_rows": 26,
+  "fixed_rows": 47,
+  "round2_fixed_rows": 9,
+  "fixed_and_equal_overlap": 39,
+  "remaining_rows": 82,
+  "statuses": {
+    "같음": 130,
+    "일부": 44,
+    "미확인": 38
   },
-  "rule_checks": 14069,
-  "native_ui_checks": 3813,
-  "native_ui_captures": 24,
-  "message_checks": 70,
-  "cloud_compat_checks": 10,
-  "project_groups": 89,
-  "project_failed_groups": 0,
-  "server_groups": 8,
-  "server_failed_groups": 0,
-  "combat_battles": 6320,
-  "combat_matched": 6320,
-  "assets": 96,
-  "changed_assets": [],
-  "source_render_cases": 150,
-  "source_render_failures": 0,
-  "source_rows_executed": 144,
-  "phase2": {
-    "reviewed_rows": 109,
-    "promoted_same": 10,
-    "fixed_rows": 17,
-    "unverified_to_partial": 1,
-    "remaining_rows": 99,
-    "rule_checks": 3220,
-    "native_checks": 777,
-    "native_captures": 12,
-    "cloud_checks": 8
-  },
-  "combat": [
-    {
-      "file": "p2-full-battles.json",
-      "battles": 48,
-      "matched": 48
+  "called_functions": 190,
+  "baseline_missing_entries": 157,
+  "newly_entered_baseline_entries": 90,
+  "batch_checks": 10827,
+  "new_checks": 47777,
+  "new_failures": 0,
+  "suite_groups": 92,
+  "expected_suite_groups": 92,
+  "suite_missing": [],
+  "suite_failed_groups": 0,
+  "suite_in_progress": [],
+  "parity_battles": 6320,
+  "parity_records": 219785,
+  "product_files_changed": [
+    "project/game/battle_v3.gd",
+    "project/game/combat_display_r22.gd",
+    "project/game/combat_events_r22.gd",
+    "project/game/combat_fx_r23.gd",
+    "project/game/combat_hud_r23.gd",
+    "project/game/combat_passives_r23.gd",
+    "project/game/combat_record_r23.gd",
+    "project/game/combat_source_text_r23.gd",
+    "project/game/combat_text_r23.gd",
+    "project/game/dungeon_enemy_r21.gd",
+    "project/game/persona_combat_r22.gd",
+    "project/game/persona_research_r21.gd",
+    "project/game/personal_rules_r22.gd",
+    "project/game/trait_rules_r22.gd"
+  ],
+  "protected": {
+    "docs": {
+      "files": 249,
+      "changed": []
     },
-    {
-      "file": "a6-mixed-audit.json",
-      "battles": 48,
-      "matched": 48
+    "project/assets": {
+      "files": 1784,
+      "changed": []
     },
-    {
-      "file": "p3-mixed-audit.json",
-      "battles": 128,
-      "matched": 128
-    },
-    {
-      "file": "a7-gear-audit.json",
-      "battles": 176,
-      "matched": 176
-    },
-    {
-      "file": "a7-gear-balanced-audit.json",
-      "battles": 176,
-      "matched": 176
-    },
-    {
-      "file": "a8-audit.json",
-      "battles": 5120,
-      "matched": 5120
-    },
-    {
-      "file": "a9-native-10-audit.json",
-      "battles": 312,
-      "matched": 312
-    },
-    {
-      "file": "a9-native-40-audit.json",
-      "battles": 312,
-      "matched": 312
+    "server": {
+      "files": 29,
+      "changed": []
     }
+  },
+  "fresh_oracle_runs": 20,
+  "fixed_but_not_equal_rows": 8,
+  "neither_equal_nor_fixed_rows": 74,
+  "round3_newly_equal_rows": 30,
+  "round3_fixed_rows": 6,
+  "round3_checks": 4538,
+  "round3_product_files_changed": [
+    "project/game/battle_stats_r23.gd",
+    "project/game/battle_v3.gd",
+    "project/game/combat_display_r22.gd",
+    "project/game/dungeon_enemy_r21.gd",
+    "project/game/dungeon_rules_r21.gd",
+    "project/game/personal_rules_r22.gd",
+    "project/game/trait_rules_r22.gd"
+  ],
+  "suite_final_code_complete": true,
+  "round4_newly_equal_rows": 30,
+  "round4_fixed_rows": 18,
+  "round4_checks": 9941,
+  "round4_product_files_changed": [
+    "project/game/battle_v3.gd",
+    "project/game/combat_display_r22.gd",
+    "project/game/combat_events_r22.gd",
+    "project/game/combat_passives_r23.gd",
+    "project/game/combat_record_r23.gd",
+    "project/game/dungeon_enemy_r21.gd",
+    "project/game/persona_combat_r22.gd",
+    "project/game/persona_research_r21.gd",
+    "project/game/personal_rules_r22.gd",
+    "project/game/trait_rules_r22.gd"
+  ],
+  "round5_newly_equal_rows": 35,
+  "round5_fixed_rows": 6,
+  "round5_checks": 14418,
+  "round5_product_files_changed": [
+    "project/game/battle_v3.gd",
+    "project/game/combat_display_r22.gd",
+    "project/game/combat_fx_r23.gd",
+    "project/game/combat_hud_r23.gd",
+    "project/game/combat_source_text_r23.gd",
+    "project/game/combat_text_r23.gd",
+    "project/game/personal_rules_r22.gd"
   ]
 }

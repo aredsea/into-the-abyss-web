@@ -3,6 +3,18 @@ static var DATA=JSON.parse_string(FileAccess.get_file_as_string("res://data/town
 
 static func aff_r2(value: float) -> float:return floor(value*100+.5)/100
 
+static func inn_act_visible(_g: Variant,_act: Variant,_cid: Variant) -> bool:
+	return true
+
+static func aff_add_source(g: Dictionary,cid: Variant,amount: Variant,chron_aff: Callable=Callable()) -> float:
+	if not g.get("aff") is Dictionary:g.aff={}
+	if cid==null or cid=="" or cid=="persona":return 0
+	var numeric=preload("res://game/battle_stats_r23.gd")
+	var before=numeric.number(g.aff.get(cid),0)
+	var after=aff_next(before,numeric.number(amount,0));g.aff[cid]=after
+	if chron_aff.is_valid():chron_aff.call(g,cid,before,after)
+	return aff_r2(after-before)
+
 static func aff_fmt(value: Variant) -> String:
 	var number=0.0
 	if value is int or value is float:number=float(value)

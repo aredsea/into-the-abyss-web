@@ -1,0 +1,104 @@
+{
+  "assigned": 77,
+  "round3_reviewed": 40,
+  "round3_promoted_same": 3,
+  "round3_fixed_rows": 5,
+  "round3_new_fixed_rows": 4,
+  "promoted_same": 40,
+  "fixed_rows": 29,
+  "remaining": 37,
+  "suite_groups": 112,
+  "suite_failed": 0,
+  "suite_failed_assertions": 0,
+  "round3_direct_checks": 2412,
+  "round3_ui_checks": 116,
+  "round3_new_checks": 2528,
+  "round3_failures": 0,
+  "new_checks": 13538,
+  "npm_checks": 12932,
+  "npm_failures": 0,
+  "battle_count": 6320,
+  "equal_battles": 6320,
+  "matched_actions": 219785,
+  "parity": [
+    {
+      "name": "p2-full-battles",
+      "battles": 48,
+      "same_battles": 48,
+      "matched_actions": 1468
+    },
+    {
+      "name": "a6-mixed-audit",
+      "battles": 48,
+      "same_battles": 48,
+      "matched_actions": 2537
+    },
+    {
+      "name": "p3-mixed-audit",
+      "battles": 128,
+      "same_battles": 128,
+      "matched_actions": 4929
+    },
+    {
+      "name": "a7-gear-audit",
+      "battles": 176,
+      "same_battles": 176,
+      "matched_actions": 2932
+    },
+    {
+      "name": "a7-gear-balanced-audit",
+      "battles": 176,
+      "same_battles": 176,
+      "matched_actions": 6279
+    },
+    {
+      "name": "a8-audit",
+      "battles": 5120,
+      "same_battles": 5120,
+      "matched_actions": 186707
+    },
+    {
+      "name": "a9-native-10-audit",
+      "battles": 312,
+      "same_battles": 312,
+      "matched_actions": 4806
+    },
+    {
+      "name": "a9-native-40-audit",
+      "battles": 312,
+      "same_battles": 312,
+      "matched_actions": 10127
+    }
+  ],
+  "coverage": {
+    "method": "Boolean source function/then/else/do entries. Output equality is mandatory. Not full condition-combination coverage or native parity. Parent coverage does not promote children.",
+    "functions": 77,
+    "called": 77,
+    "explicit_entries": 320,
+    "entered": 314,
+    "baseline_missing": 43,
+    "newly_entered_baseline": 43
+  },
+  "changed_existing_files": [
+    "project/game/facilities_world_r22.gd",
+    "project/game/gear_rules_r22.gd",
+    "project/game/smithy_rules_r22.gd",
+    "project/game/town_rules_r21.gd",
+    "project/game/town_world_r21.gd",
+    "project/ui/facilities_screen_r22.gd",
+    "project/ui/town_screen_r21.gd",
+    "project/tests/gear_r23_round2_test.gd",
+    "project/tests/gear_r23_test.gd",
+    "tools/gear_r23_oracle.mjs",
+    "tools/gear_r23_report_round2.py",
+    "tools/gear_r23_round2.mjs"
+  ],
+  "protected_changes": [],
+  "asset_hashes": {
+    "checked": 96,
+    "matched": 96,
+    "mismatches": []
+  },
+  "code_lock_unchanged": true,
+  "full_original_parity_complete": false
+}
