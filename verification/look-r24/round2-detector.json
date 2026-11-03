@@ -1,0 +1,83 @@
+[
+  {
+    "antipattern": "design-system-font",
+    "name": "Font outside DESIGN.md",
+    "description": "A font is used that is not declared in DESIGN.md typography. Use the documented type system or update DESIGN.md if this is an intentional brand addition.",
+    "severity": "warning",
+    "category": "quality",
+    "file": "C:\\Users\\asone\\Documents\\Codex\\2026-10-30\\into-the-abyss-handoff\\work\\r21-look\\project\\web_shell.html",
+    "line": 10,
+    "snippet": "body \"$GODOT_HEAD_INCLUDE 이 브라우저는 게임 화면을 지원하지 \" uses abyss; not declared in DESIGN.md typography",
+    "ignoreValue": "abyss"
+  },
+  {
+    "antipattern": "design-system-color",
+    "name": "Color outside DESIGN.md",
+    "description": "A literal color is outside the DESIGN.md palette and sidecar tonal ramps. This may be legitimate, but it should be an intentional design-system addition rather than drift.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\asone\\Documents\\Codex\\2026-10-30\\into-the-abyss-handoff\\work\\r21-look\\project\\web_shell.html",
+    "line": 45,
+    "snippet": "text color rgb(17, 23, 21) on body \"$GODOT_HEAD_INCLUDE 이 브라우저는 게임 화면을 지원하지 \" is outside DESIGN.md colors",
+    "advisory": true,
+    "ignoreValue": "rgb(17, 23, 21)"
+  },
+  {
+    "antipattern": "design-system-color",
+    "name": "Color outside DESIGN.md",
+    "description": "A literal color is outside the DESIGN.md palette and sidecar tonal ramps. This may be legitimate, but it should be an intentional design-system addition rather than drift.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\asone\\Documents\\Codex\\2026-10-30\\into-the-abyss-handoff\\work\\r21-look\\project\\web_shell.html",
+    "line": 0,
+    "snippet": "background rgb(230, 223, 207) on progress is outside DESIGN.md colors",
+    "advisory": true,
+    "ignoreValue": "rgb(230, 223, 207)"
+  },
+  {
+    "antipattern": "design-system-color",
+    "name": "Color outside DESIGN.md",
+    "description": "A literal color is outside the DESIGN.md palette and sidecar tonal ramps. This may be legitimate, but it should be an intentional design-system addition rather than drift.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\asone\\Documents\\Codex\\2026-10-30\\into-the-abyss-handoff\\work\\r21-look\\project\\web_shell.html",
+    "line": 0,
+    "snippet": "background rgb(198, 43, 21) on button \"취소하고 게임으로\" is outside DESIGN.md colors",
+    "advisory": true,
+    "ignoreValue": "rgb(198, 43, 21)"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\asone\\Documents\\Codex\\2026-10-30\\into-the-abyss-handoff\\work\\r21-look\\project\\web_shell.html",
+    "line": 21,
+    "snippet": "font-size: 17px is off the DESIGN.md type ramp",
+    "advisory": true,
+    "ignoreValue": "17px"
+  },
+  {
+    "antipattern": "design-system-font-size",
+    "name": "Font size outside DESIGN.md",
+    "description": "A literal font-size is off the type ramp documented in DESIGN.md typography. Use a documented size step or update the design system if the new step is intentional.",
+    "severity": "advisory",
+    "category": "quality",
+    "file": "C:\\Users\\asone\\Documents\\Codex\\2026-10-30\\into-the-abyss-handoff\\work\\r21-look\\project\\web_shell.html",
+    "line": 46,
+    "snippet": "font-size: 20px is off the DESIGN.md type ramp",
+    "advisory": true,
+    "ignoreValue": "20px"
+  },
+  {
+    "antipattern": "cream-palette",
+    "name": "Cream / beige palette",
+    "description": "A warm cream or beige page background has become the default \"tasteful\" AI surface, reached for by reflex. Choose a background that comes from a deliberate palette, not the safe warm off-white.",
+    "severity": "warning",
+    "category": "slop",
+    "file": "C:\\Users\\asone\\Documents\\Codex\\2026-10-30\\into-the-abyss-handoff\\work\\r21-look\\project\\web_shell.html",
+    "line": 0,
+    "snippet": "cream/beige page background rgb(244, 239, 227)"
+  }
+]

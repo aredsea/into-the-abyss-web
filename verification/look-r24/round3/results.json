@@ -1,0 +1,76 @@
+{
+  "round": 3,
+  "groups": [
+    {
+      "test": "import",
+      "exit": 0,
+      "errors": [],
+      "environment_diagnostics": [
+        "ERROR: Failed to read the root certificate store."
+      ],
+      "summary": [],
+      "seconds": 4.78,
+      "passed": true
+    },
+    {
+      "test": "persona_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "PERSONA R22 CHECKS 4005 FAILURES 0"
+      ],
+      "seconds": 8.19,
+      "passed": true
+    },
+    {
+      "test": "ui_persona_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "PERSONA UI R22 CHECKS 2033 FAILURES 0 CAPTURES 60"
+      ],
+      "seconds": 11.38,
+      "passed": true
+    },
+    {
+      "test": "ui_cloud_r22_test",
+      "exit": 0,
+      "errors": [],
+      "summary": [
+        "CLOUD UI R22 CHECKS 695 FAILURES 0 CAPTURES 35"
+      ],
+      "seconds": 6.42,
+      "passed": true
+    },
+    {
+      "test": "ui_look_r24_test",
+      "passed": true,
+      "checks": 3516,
+      "failures": []
+    },
+    {
+      "test": "ui_look_r24_bottom_test",
+      "passed": true,
+      "checks": 4116,
+      "failures": []
+    }
+  ],
+  "passed_groups": 6,
+  "checks": 14365,
+  "shell_states": 30,
+  "shell_failures": 0,
+  "poster_status_gaps": [
+    8
+  ],
+  "capture_events": 192,
+  "unique_captures": 186,
+  "after_total_files": 216,
+  "review_sheets": 9,
+  "original_assets": 96,
+  "asset_mismatches": [],
+  "forbidden_changed": [],
+  "exports": 0,
+  "commits": 0,
+  "new_WASM_integration": "pending Claude export, intentionally not run",
+  "direct_ui_environment": "Windows Godot native; Chromium source shell; no physical phone"
+}

@@ -10,10 +10,11 @@ func build(owner_screen) -> void:
 	host=owner_screen;service=host.cloud
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);theme=T.make_theme()
 	var ground=ColorRect.new();add_child(ground);ground.color=T.PAPER;ground.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);ground.mouse_filter=MOUSE_FILTER_IGNORE
-	var frame=Control.new();add_child(frame);var w=minf(host.size.x,480);frame.position=Vector2((host.size.x-w)/2,0);frame.size=Vector2(w,host.size.y)
-	var title=Label.new();frame.add_child(title);title.position=Vector2(18,16);title.text="토르바 · "+("순위" if host.screen=="rank" else "기록");title.add_theme_font_override("font",T.BOLD);title.add_theme_font_size_override("font_size",24)
-	var back=Button.new();frame.add_child(back);back.position=Vector2(w-78,14);back.size=Vector2(60,44);back.text="뒤로";back.pressed.connect(host.go.bind("cloud" if host.screen=="rank" else "journal"));host.controls.back=back
-	var scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,76);scroll.size=Vector2(w-36,host.size.y-92);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+	var frame=Control.new();add_child(frame);var w=minf(host.size.x,430);frame.position=Vector2((host.size.x-w)/2,0);frame.size=Vector2(w,host.size.y)
+	var title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(w-112,58);title.text="토르바 · "+("순위" if host.screen=="rank" else "기록");title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",32)
+	var back=Button.new();frame.add_child(back);back.position=Vector2(w-88,20);back.size=Vector2(70,44);back.text="뒤로";T.dress_button(back);back.pressed.connect(host.go.bind("cloud" if host.screen=="rank" else "journal"));host.controls.back=back
+	T.rule(frame,80,w-36)
+	var scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,96);scroll.size=Vector2(w-36,host.size.y-114);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
 	body=VBoxContainer.new();scroll.add_child(body);body.size_flags_horizontal=Control.SIZE_EXPAND_FILL;body.add_theme_constant_override("separation",12)
 	label("대던전 순위" if host.screen=="rank" else "클라우드 저장",24)
 	label(service.notice,14)
@@ -59,14 +60,16 @@ func build(owner_screen) -> void:
 		button("cloud_delete","클라우드 계정 삭제",func():ask("클라우드의 계정과 모든 기록(비활성 보관본 포함)을 삭제할까요? 이 작업은 되돌릴 수 없습니다. 이 기기 저장은 남습니다.",service.delete_account),service.account.pin.is_empty())
 func label(value: String,fs=15) -> void:
 	var l=Label.new();body.add_child(l);l.text=value;l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;l.add_theme_font_size_override("font_size",fs);l.mouse_filter=MOUSE_FILTER_IGNORE
-	if fs>=19:l.add_theme_font_override("font",T.BOLD)
+	if fs>=19:l.add_theme_font_override("font",T.DISPLAY)
 func button(id: String,value: String,callback: Callable,disabled=false) -> void:
 	var b=Button.new();body.add_child(b);b.text=value;b.custom_minimum_size.y=48;b.disabled=disabled or service.busy;b.pressed.connect(callback);host.controls[id]=b
-	if id in ["cloud_create","cloud_save","cloud_keep_local","cloud_confirm","rank_refresh"]:
-		b.add_theme_stylebox_override("normal",T.panel(T.INK,T.INK));b.add_theme_color_override("font_color",T.PAPER)
+	T.dress_button(b,id in ["cloud_create","cloud_save","cloud_keep_local","cloud_confirm","rank_refresh"]);b.alignment=HORIZONTAL_ALIGNMENT_LEFT
 func input(id: String,hint: String,secret: bool) -> void:
 	var field=LineEdit.new();body.add_child(field);field.placeholder_text=hint;field.secret=secret;field.custom_minimum_size.y=48;field.virtual_keyboard_type=LineEdit.KEYBOARD_TYPE_DEFAULT
-	field.add_theme_color_override("font_color",T.INK);field.add_theme_color_override("font_placeholder_color",T.MUTED);field.add_theme_stylebox_override("normal",T.panel(Color.WHITE));fields[id]=field
+	field.add_theme_color_override("font_color",T.INK);field.add_theme_color_override("font_placeholder_color",T.MUTED)
+	for key in ["normal","focus"]:
+		var style=T.panel(T.PAPER,T.ACTION_RED if key=="focus" else T.INK);style.set_border_width_all(2);style.content_margin_left=10;style.content_margin_right=10;field.add_theme_stylebox_override(key,style)
+	fields[id]=field
 func connect_values() -> void:
 	var code=fields.code.text;var pin=fields.pin.text;host.cloud_connecting=false;service.connect_account(code,pin)
 func ask(prompt: String,callback: Callable) -> void:

@@ -146,10 +146,11 @@ func _draw_screen() -> void:
 	var width=minf(size.x,440); var height=size.y
 	var base=Control.new(); add_child(base); base.position=Vector2((size.x-width)/2,0); base.size=Vector2(width,height)
 	var back=ColorRect.new(); base.add_child(back); back.size=base.size; back.color=UI.GROUND; back.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	var header=Panel.new(); base.add_child(header); header.size=Vector2(width,68); header.add_theme_stylebox_override("panel",UI.panel(UI.PAPER,UI.LINE,0)); header.mouse_filter=MOUSE_FILTER_IGNORE
-	var heading=Label.new(); base.add_child(heading); heading.position=Vector2(16,10); heading.size=Vector2(width-90,26); heading.text=_title(); heading.add_theme_font_size_override("font_size",20); heading.add_theme_font_override("font",UI.TITLE); heading.add_theme_color_override("font_color",UI.INK); heading.clip_text=true
-	var status=Label.new(); base.add_child(status); status.position=Vector2(16,40); status.text="%d일째     금화 %d" % [model.s.day,model.s.gold]; status.add_theme_font_size_override("font_size",12)
-	scroll=ScrollContainer.new(); base.add_child(scroll); scroll.position=Vector2(12,76); scroll.size=Vector2(width-24,height-152)
+	UI.rule(base,88,width-36)
+	var heading=Label.new(); base.add_child(heading); heading.position=Vector2(18,12); heading.size=Vector2(width-112,40); heading.text=_title(); heading.add_theme_font_size_override("font_size",30); heading.add_theme_font_override("font",UI.TITLE); heading.add_theme_color_override("font_color",UI.INK); heading.clip_text=true
+	preload("res://game/localization_r22.gd").fit_title(heading,30)
+	var status=Label.new(); base.add_child(status); status.position=Vector2(18,56); status.text="%d일째     금화 %d" % [model.s.day,model.s.gold]; status.add_theme_font_size_override("font_size",12)
+	scroll=ScrollContainer.new(); base.add_child(scroll); scroll.position=Vector2(18,104); scroll.size=Vector2(width-36,height-180)
 	scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
 	content=VBoxContainer.new(); scroll.add_child(content); content.size_flags_horizontal=Control.SIZE_EXPAND_FILL; content.add_theme_constant_override("separation",8 if screen=="town" else 12)
 	if not message.is_empty(): text(message,14,GOLD)
@@ -178,8 +179,10 @@ func _draw_screen() -> void:
 	for item in [["town","마을"],["party","동료"],["explore" if model.active() else "depart","원정"],["bag","가방"],["journal","기록"]]:
 		var b=Button.new(); b.text=item[1]; nav.add_child(b); b.custom_minimum_size=Vector2(0,52); b.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 		b.add_theme_font_size_override("font_size",12)
+		UI.dress_button(b,item[0]==screen or (screen=="member_details" and item[0]=="party"))
 		b.pressed.connect(go.bind(item[0])); controls["nav:"+item[0]]=b
-	var back_button=Button.new(); base.add_child(back_button); back_button.position=Vector2(width-66,12); back_button.size=Vector2(54,44); back_button.text="뒤로"
+	UI.rule(base,height-76,width-36)
+	var back_button=Button.new(); base.add_child(back_button); back_button.position=Vector2(width-88,20); back_button.size=Vector2(70,44); back_button.text="뒤로";UI.dress_button(back_button)
 	back_button.pressed.connect(go.bind(details_return if screen=="member_details" else "member" if screen=="formation" else "formation" if screen=="equipment" else "town")); controls["back"]=back_button
 	if last_drawn_screen!=screen and not motion_reduced:
 		content.modulate.a=0; create_tween().tween_property(content,"modulate:a",1,.18)
@@ -199,7 +202,7 @@ func number(value: float) -> String:
 func text(value: String, fs=14, color=INK, parent: Node=null) -> Label:
 	var label=Label.new(); (parent if parent else content).add_child(label)
 	if fs>=17: label.add_theme_font_override("font",UI.TITLE)
-	label.text=value.replace("−","-"); label.add_theme_font_size_override("font_size",fs); label.add_theme_color_override("font_color",color)
+	label.text=value.replace("−","-"); label.add_theme_font_size_override("font_size",fs); label.add_theme_color_override("font_color",UI.ACTION_RED if color==GOLD else color)
 	label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; label.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	label.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	return label
@@ -208,7 +211,8 @@ func box() -> VBoxContainer:
 	var panel=PanelContainer.new(); content.add_child(panel)
 	panel.mouse_filter=Control.MOUSE_FILTER_PASS
 	var style=UI.panel()
-	style.content_margin_left=12; style.content_margin_right=12; style.content_margin_top=12; style.content_margin_bottom=12
+	style.set_border_width_all(0);style.border_width_bottom=2;style.border_color=UI.INK
+	style.content_margin_left=0; style.content_margin_right=0; style.content_margin_top=12; style.content_margin_bottom=12
 	panel.add_theme_stylebox_override("panel",style)
 	var body=VBoxContainer.new(); panel.add_child(body); body.add_theme_constant_override("separation",8)
 	return body
@@ -217,6 +221,7 @@ func button(id: String, value: String, callback: Callable, disabled=false, paren
 	var b=Button.new(); (parent if parent else content).add_child(b)
 	b.text=value; b.custom_minimum_size.y=54; b.size_flags_horizontal=Control.SIZE_EXPAND_FILL; b.disabled=disabled
 	b.mouse_filter=Control.MOUSE_FILTER_PASS
+	UI.dress_button(b);b.alignment=HORIZONTAL_ALIGNMENT_LEFT
 	b.pressed.connect(callback); controls[id]=b
 	return b
 
