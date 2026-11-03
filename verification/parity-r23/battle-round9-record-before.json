@@ -1,0 +1,49 @@
+{
+  "files": {
+    "project/game/combat_attack_r23.gd": {
+      "snapshot": "verification/parity-r23/battle-round9-before/battle-combat_attack_r23-pre-record.gd",
+      "sha256": "3e709cd8db60490b8f363fc336214961979e23c3bf425911e6e7c01d04c606ee",
+      "lock": "verification/parity-r23/suite-round9-final-v3/final-code-lock.json"
+    },
+    "project/game/combat_events_r22.gd": {
+      "snapshot": "verification/parity-r23/battle-round9-before/battle-combat_events_r22-pre-record.gd",
+      "sha256": "a1852903f8433744e9c433ad8fc87e4100dc0cdd2102ca6348a0ba1c6920b4d1",
+      "lock": "verification/parity-r23/suite-round9-final-v3/final-code-lock.json"
+    },
+    "project/game/personal_rules_r22.gd": {
+      "snapshot": "verification/parity-r23/battle-round9-before/battle-personal_rules_r22-pre-record.gd",
+      "sha256": "ef3b08a58714d0afe5408f41b3cf6d95e5787dbabace49583cbb558596581137",
+      "lock": "verification/parity-r23/suite-round9-final-v3/final-code-lock.json"
+    },
+    "project/game/persona_combat_r22.gd": {
+      "snapshot": "verification/parity-r23/battle-round9-before/battle-persona_combat_r22-pre-record.gd",
+      "sha256": "2403b30a625c8a5c453cccff64c8830d397288bc136d8a3a7a2ea076f2fd68e2",
+      "lock": "verification/parity-r23/suite-round9-final-v3/final-code-lock.json"
+    }
+  },
+  "failures": {
+    "combat_p3_r22_test": {
+      "test": "combat_p3_r22_test",
+      "exit": 0,
+      "errors": [
+        "SCRIPT ERROR: Invalid access to property or key 'ev' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'ev' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'ev' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'ev' on a base object of type 'Dictionary'."
+      ],
+      "seconds": 96.67,
+      "passed": false
+    },
+    "enemy_review_r21_test": {
+      "test": "enemy_review_r21_test",
+      "exit": 1,
+      "errors": [
+        "SCRIPT ERROR: Invalid access to property or key 'ev' on a base object of type 'Dictionary'.",
+        "SCRIPT ERROR: Invalid access to property or key 'ev' on a base object of type 'Dictionary'."
+      ],
+      "seconds": 25.42,
+      "passed": false
+    }
+  },
+  "counts_are_existing_suite_not_new_direct_checks": true
+}

@@ -297,7 +297,8 @@ func fifth(o: Dictionary):
 		if row.kind=="wall": a.gear_special=[{"key":"wa_last","v":[20,2,30]}]
 		if row.kind=="priest": b.data.allies[1].class_id="priest"
 		if row.kind=="sorel":
-			var sorel=rename_ally(b,1,"sorel"); sorel.base.int=100; sorel.gear_fx={"heal":99}
+			# Lua supplies cs=100. Match that class stat on the native fixture.
+			var sorel=rename_ally(b,1,"sorel"); sorel.line="int"; sorel.base.int=100; sorel.gear_fx={"heal":99}
 		if row.kind=="dead_owner": b.data.allies[1].hp=0
 		b._incoming_strike(a,100,{}, {"name":"probe"},false,row.fixed)
 		observations.echo_order.append({"input":row,"hp":a.hp,"shield":a.shield})

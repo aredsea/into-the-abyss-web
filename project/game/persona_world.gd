@@ -34,7 +34,7 @@ func research_action(who: String,arg: String) -> bool:
 	if who!="persona":return super(who,arg)
 	if active():return false
 	var e=s.persona_research_r22
-	var out=PersonaResearch.transition(s.persona.skill,e.get("draft",{}),int(e.get("spent",0)),int(s.gold),arg)
+	var out=PersonaResearch.transition(s.persona.skill,e.get("draft",{}),int(e.get("spent",0)),int(s.gold),arg,false,preload('res://game/localization_r22.gd').language(s))
 	research_message=out.message
 	var changed=out.saved!=s.persona.skill or out.draft!=e.get("draft",{}) or out.gold!=s.gold
 	if not changed:return false
@@ -70,9 +70,9 @@ func stats(id: String,level: int) -> Dictionary:
 		var curve=config.curves[key if key in ["hp","mp","def"] else "atk"]
 		var base=c.base[key]*(1+c.grow.get(key,1)*(curve.a*x+curve.b*x*x))
 		if key in ["hp","mp"]:base=floor(base+.5)
-		base*=float(made.get(key,c.base[key]))/float(c.base[key]) if c.base[key]>0 else 1.0
+		base*=preload('res://game/battle_stats_r23.gd').persona_ratio(c.base[key],made.get(key))
 		out[key]=int(floor(base+.5)) if key in ["hp","mp"] else base
-	out.spd=made.get("spd",c.base.spd)+config.curves.spd.add*x;out.crit=c.base.crit
+	out.spd=preload('res://game/battle_stats_r23.gd').number(made.get('spd'),c.base.spd)+config.curves.spd.add*x;out.crit=c.base.crit
 	if p.race=="엘프":out.mp+=6
 	if p.nation=="신성 세레디아 제국":out.def*=1.04
 	var humans=party_count("race","인간")

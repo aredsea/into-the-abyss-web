@@ -7,6 +7,10 @@ const Persona=preload("res://game/persona_research_r21.gd")
 const Locale=preload("res://game/combat_source_text_r23.gd")
 const Text=preload("res://game/combat_display_r22.gd")
 const Traits=preload("res://game/trait_rules_r22.gd")
+static var dungeon=preload('res://game/dungeon_rules_r21.gd').new()
+static var gear=preload('res://game/gear_hooks_r22.gd').new()
+const TUNE={"hp":1.8,"atk":1.6}
+const TUNE_STAR=[{"hp":1,"atk":1},{"hp":1.3,"atk":1.25},{"hp":1.55,"atk":1.45},{"hp":1.8,"atk":1.6}]
 var lang="ko"
 var definitions=[]
 var skills=[]
@@ -22,6 +26,42 @@ static func cell(list: Variant,i: int) -> Variant:
 	return null
 static func unit0() -> Dictionary:
 	return {"hp":0,"mhp":1,"mp":0,"mmp":0,"sh":0,"shT":0,"g":10000,"al":1,"tau":0,"df":0,"chg":0,"oath":0,"oT":0,"mk":0,"am":1,"bt":0,"rv":0,"lf":0,"nu":0,"seal":0,"ay":0,"ym":0,"dr":0,"fx":0,"fb":0,"ia":1,"it":0,"sp":100,"cs":0,"de":0,"ag":0,"cr":0,"bf":{},"x":{},"rc":"","ln":"","na":"","bx":0}
+static func empty_unit(unit: Dictionary) -> Dictionary:
+	unit.al=0;unit.mhp=1;unit.g=1000000000;unit.empty=1;return unit
+func blank_unit(state: Dictionary,index: int) -> Dictionary:
+	var unit=unit0()
+	if index<=4:
+		var m=cell(state.pm,index)
+		if not m is Dictionary or m.get('id','')=='':return empty_unit(unit)
+		var s=Stats.persona_stats(m.cls,m.get('L',1),m.ps) if m.id=='persona' and m.get('ps') is Dictionary and truth(m.ps.get('str')) else Stats.party_stats(m.cls,m.get('L',1),m.id if m.id!='persona' else null)
+		unit.hp=s.hp;unit.mhp=s.hp;unit.mp=s.mp;unit.mmp=s.mp;unit.sp=floor(s.sp+.5+1e-9);unit.cs=s.cs;unit.de=s.de;unit.ag=s.ag;unit.cr=s.cr
+		var ids=trait_ids(m);unit.rc=ids[0];unit.ln=ids[1];unit.na=ids[2]
+		if unit.rc=='elf':unit.mmp+=6;unit.mp+=6
+		if unit.na=='seredia':unit.de*=1.04
+		var humans=0
+		for j in range(1,5):
+			var member=cell(state.pm,j)
+			if member is Dictionary and member.get('id','')!='' and trait_ids(member)[0]=='human':humans+=1
+		if humans>=2:unit.mhp=floor(unit.mhp*(1.07 if humans>=3 else 1.04)+.5+1e-9);unit.hp=unit.mhp
+		if truth(m.get('eq')):gear.gear_init(state,unit,m)
+		return unit
+	var dm=state.get('dm',{})
+	if not dm is Dictionary:dm={}
+	var definition=cell(definitions,index)
+	if truth(state.get('fl')):
+		if not definition is Dictionary or truth(definition.get('empty')):return empty_unit(unit)
+		var enc={"star":state.get('star',1),"zk":state.get('zk',''),"dk":state.get('dk',0),"dc":state.get('dc',0)}
+		if state.get('enc') is Dictionary:enc.merge(state.enc,true)
+		if state.has('dn'):enc.dn=state.dn
+		var s=dungeon.foe_stats(enc,definition,int(state.get('el',1)))
+		unit.hp=maxf(1,floor(s.hp*dm.get('hp',1)+.5+1e-9));unit.mhp=unit.hp;unit.ay=s.ay;unit.ym=s.ay;unit.sp=s.sp;unit.cs=s.atk*dm.get('atk',1);unit.de=s.de
+		unit.ph=1 if truth(definition.get('ph2')) else 0;unit.rd=1 if definition.grade=='boss' else 0;unit.add=1 if definition.grade=='minion' else 0
+		return unit
+	if state.has('foe') and not state.foe.any(func(slot):return slot==index-4):return empty_unit(unit)
+	var s=Stats.enemy_stats(definition.get('kind','mob'),state.get('el',40),state.get('star',1));var star=state.get('star',1)
+	var tune=TUNE_STAR[int(star)-1] if state.has('foe') and (star is float or star is int) and star>=1 and star<=4 and star==floor(star) else TUNE
+	unit.hp=floor(s.hp*definition.hpm*tune.hp*dm.get('hp',1)+.5+1e-9);unit.mhp=unit.hp;unit.ay=s.ay;unit.ym=s.ay;unit.sp=definition.spd;unit.cs=s.atk*definition.am*tune.atk*dm.get('atk',1);unit.de=s.de
+	return unit
 static func member_definition(m: Dictionary) -> Dictionary:
 	var c=Data.CLASSES.get(m.cls,Data.CLASSES.warrior)
 	var d={"cid":m.id,"cls":c.name,"clsid":c.id,"row":c.row,"line":c.line,"el":"none","art":"","trn":""}

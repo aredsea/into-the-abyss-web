@@ -148,6 +148,10 @@ func _ready() -> void:
 		state.restore(storage.read_snapshot())
 	history_origin=state.history.size()
 	legacy_history=state.history.duplicate()
+	if state is ModernBattle and state.dungeon_enemy_r21!=null:
+		if state.selected_action=='supply_menu':items_open=true
+		elif state.selected_action.begins_with('item:') and state.actions().has(state.selected_action):
+			items_open=true;pending_action=state.selected_action;supply_target_set=false
 	resized.connect(_rebuild)
 	busy=state.result.is_empty() and (not state.player_turn() or state.ally(state.current_id).charging)
 	_rebuild()
@@ -363,8 +367,8 @@ func _party(rect: Rect2) -> void:
 		_strong("차례" if a.id==state.current_id else "선택" if a.id==ally_open or (items_open and supply_target_set and a.id==state.selected_ally) else "",Rect2(col*.5,68,col*.5,17),12,Color("b52816"),b,HORIZONTAL_ALIGNMENT_RIGHT,W850)
 		for j in range(2):
 			var current=a.hp if j==0 else a.mp; var maximum=a.mhp if j==0 else a.mmp; var yy=85+j*25
-			_strong("HP" if j==0 else "MP",Rect2(0,yy,18,19),12,INK,b)
-			_strong("%d/%d" % [current,maximum],Rect2(18,yy,col-18,19),13,INK,b,HORIZONTAL_ALIGNMENT_RIGHT,TIGHT)
+			_strong("HP" if j==0 else "MP",Rect2(0,yy,22,19),12,INK,b)
+			_strong("%d/%d" % [current,maximum],Rect2(22,yy,col-22,19),13,INK,b,HORIZONTAL_ALIGNMENT_RIGHT,TIGHT)
 			_meter(Rect2(0,yy+19,col,3),current,maximum,j==0,b)
 
 func _detail(rect: Rect2) -> void:
@@ -428,7 +432,11 @@ func _commands(rect: Rect2) -> void:
 			var id="supplies" if i==0 else "log"
 			var b=_button(id,Rect2(pos+Vector2(i*(utility_col+8),0),Vector2(utility_col,44)),_toggle_supplies if i==0 else _toggle_log); _outline(b); _mark(id,b)
 			b.disabled=not ready or (i==0 and not state is ModernBattle)
-			var text=_tr("보급품" if i==0 else "전투 기록"); var tw=BODY_BOLD.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,14).x
+			var source_label=''
+			if i==0 and state is ModernBattle and state.dungeon_enemy_r21!=null:
+				var view=state.CombatItems.button(state.source_item_bag(),_language()).buttons[0]
+				b.disabled=b.disabled or not view.enabled;b.tooltip_text=view.description;source_label=view.label
+			var text=source_label if not source_label.is_empty() else _tr("보급품" if i==0 else "전투 기록"); var tw=BODY_BOLD.get_string_size(text,HORIZONTAL_ALIGNMENT_LEFT,-1,14).x
 			var left=(utility_col-tw-29)/2
 			_picture("res://assets/ui-r17/"+("bag" if i==0 else "log")+".svg",Rect2(left,11,19,22),b)
 			_strong(text,Rect2(left+29,0,tw+1,44),14,INK,b,HORIZONTAL_ALIGNMENT_LEFT,BODY_BOLD)
@@ -573,7 +581,9 @@ func _action_pressed(id: String) -> void:
 
 func _close_sheets() -> void:
 	if busy: return
+	if items_open and state is ModernBattle:state.selected_action='attack'
 	skills_open=false; items_open=false; ally_open=""; pending_action=""; log_open=false; _rebuild()
+	_persist()
 
 func _capture_visual_before() -> Dictionary:
 	var before={}
@@ -779,7 +789,10 @@ func _effect_feedback(before: Dictionary,source: String,action: String) -> void:
 		tween.tween_property(label,"modulate:a",0,.18)
 
 func _supplies(rect: Rect2) -> void:
-	var p=_sheet(rect,"전투 보급품","supplies")
+	var canonical=state is ModernBattle and state.dungeon_enemy_r21!=null
+	var picked=state.CombatItems.source_id(pending_action.substr(5)) if canonical and pending_action.begins_with('item:') else ''
+	var menu=state.supply_menu(_language(),picked) if canonical else {}
+	var p=_sheet(rect,menu.get('heading','전투 보급품'),"supplies")
 	var scroll=ScrollContainer.new(); _put(scroll,Rect2(12,44,rect.size.x-24,132),p); scroll.mouse_filter=Control.MOUSE_FILTER_STOP
 	scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
 	var list=VBoxContainer.new(); list.add_theme_constant_override("separation",0); scroll.add_child(list); list.size_flags_horizontal=SIZE_EXPAND_FILL
@@ -789,24 +802,32 @@ func _supplies(rect: Rect2) -> void:
 		var sk=state.actions()[id]; var amount=state.inventory.get(id.substr(5),0)
 		if amount<=0: continue
 		count+=1; var width=rect.size.x-24
-		var b=_button(id,Rect2(0,0,width,44),_select_supply.bind(id),pending_action==id,list)
-		b.custom_minimum_size=Vector2(width,44)
+		var source_view={}
+		if canonical:
+			var source_id=state.CombatItems.source_id(sk.item.id)
+			for control in state.supply_menu(_language()).buttons:
+				if control.label==state.CombatItems.t(state.CombatItems.item_name(source_id),_language()):source_view=control;break
+		var row_height=80 if canonical else 44
+		var b=_button(id,Rect2(0,0,width,row_height),_select_supply.bind(id),pending_action==id,list)
+		b.custom_minimum_size=Vector2(width,row_height)
+		if canonical and not source_view.is_empty():b.disabled=not source_view.enabled;b.tooltip_text=source_view.description
 		var style=_style(RED if pending_action==id else Color.TRANSPARENT,RED if pending_action==id else LINE); style.set_border_width_all(0); style.border_width_bottom=1; b.add_theme_stylebox_override("normal",style)
 		var tint=Color.WHITE if pending_action==id else INK
 		var icon_id="hp" if sk.item.kind=="hp" else "mp" if sk.item.kind=="mp" else "band" if sk.item.kind=="revive" else "scroll"
 		var icon=_picture("res://assets/ic_it_"+icon_id+".webp",Rect2(6,7.5,24,29),b,true); icon.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		_type(sk.name.replace(" · ","·"),Rect2(43,2,width-197,44),19,tint,b,HORIZONTAL_ALIGNMENT_LEFT,DISPLAY_PLAIN)
+		_type(source_view.get('label',sk.name).replace(" · ","·"),Rect2(43,2,width-85,25) if canonical else Rect2(43,2,width-197,44),16 if canonical else 19,tint,b,HORIZONTAL_ALIGNMENT_LEFT,DISPLAY_PLAIN)
 		var item=sk.item
 		var description="Lv.%d" % item.level
 		if item.kind in ["hp","mp","shield"]: description=("HP" if item.kind=="hp" else "MP" if item.kind=="mp" else "보호막")+" %d%%" % int(item.fraction*100)+(" 회복" if item.kind in ["hp","mp"] else "")
 		elif item.kind=="revive": description="소생 HP 25%"
 		elif item.kind=="cleanse": description="해로운 효과 해제"
-		_label(description,Rect2(width-146,2.5,108,44),12,tint,b)
+		if canonical:_label(_wrap(source_view.get('description',description),width-58,11),Rect2(43,29,width-58,48),11,tint,b)
+		else:_label(description,Rect2(width-146,2.5,108,44),12,tint,b)
 		_strong("×"+str(int(amount)),Rect2(width-31,2,25,44),14,Color.WHITE if pending_action==id else INK,b,HORIZONTAL_ALIGNMENT_RIGHT,BODY_BOLD)
 	if count==0: _label("사용할 보급품이 없습니다.",Rect2(12,80,rect.size.x-24,44),14,INK,p)
 	var a=state.ally(state.selected_ally)
 	if pending_action.is_empty() or not supply_target_set:
-		_label("아군 카드를 눌러 대상 선택",Rect2(12,181,rect.size.x-24,22),12,INK,p)
+		_label(menu.get('hint','아군 카드를 눌러 대상 선택'),Rect2(12,181,rect.size.x-24,22),11 if canonical else 12,INK,p)
 	else:
 		_label("대상 "+a.name,Rect2(12,181,110,22),14,INK,p)
 		_label("HP %d/%d · MP %d/%d" % [a.hp,a.mhp,a.mp,a.mmp],Rect2(122,181,rect.size.x-134,22),12,INK,p,HORIZONTAL_ALIGNMENT_RIGHT)
@@ -933,7 +954,9 @@ func _toggle_skills() -> void:
 
 func _toggle_supplies() -> void:
 	if not state is ModernBattle: return
+	if state.dungeon_enemy_r21!=null and not items_open and not state.CombatItems.button(state.source_item_bag()).buttons[0].enabled:return
 	items_open=not items_open; supply_target_set=false; skills_open=false; log_open=false; ally_open=""; pending_action=""; _rebuild()
+	if state.dungeon_enemy_r21!=null:state.selected_action='supply_menu' if items_open else 'attack';_persist()
 
 
 func _sheet(rect: Rect2, title: String, kind: String) -> Panel:
@@ -958,7 +981,9 @@ func _sheet(rect: Rect2, title: String, kind: String) -> Panel:
 	return p
 
 func _select_supply(id: String) -> void:
+	if state is ModernBattle and state.dungeon_enemy_r21!=null and not state.CombatItems.any_target(state,state.actions()[id].item.id):return
 	state.choose_action(id); pending_action=id; _rebuild()
+	_persist()
 
 
 
@@ -966,6 +991,7 @@ func _supply_reason() -> String:
 	if pending_action.is_empty(): return "보급품 선택"
 	var item=state.actions()[pending_action].item; var a=state.ally(state.selected_ally)
 	if a.is_empty() or not supply_target_set: return "대상 선택"
+	if state is ModernBattle and state.dungeon_enemy_r21!=null and state.CombatItems.target_ok(state,item.id,a):return ''
 	if a.level<item.level: return "레벨 %d 필요" % item.level
 	if item.kind=="revive": return "쓰러진 동료 필요" if a.hp>0 else ""
 	if a.hp<=0: return "소생이 필요합니다"

@@ -1,0 +1,13 @@
+static func abyss(b,a,e,amount: float,element: String="") -> void:
+	var value=amount*(1.5 if isweak(e,a.element if element.is_empty() else element) else 1)
+	if a.id=="levia": value*=levia_mult(b)
+	if b.gear_bridge!=null:
+		var modified=b.gear_bridge.invoke("abyss_mul",[b.gear_bridge.slot(a),b.gear_bridge.slot(e),value]); value=modified if modified!=null else value
+	value=floor(value+.5)
+	var eligible=e.hp>0 and not e.broken
+	b._break(e,value)
+	if eligible and b.gear_bridge!=null: b.gear_bridge.invoke("abyss_after",[b.gear_bridge.slot(a),b.gear_bridge.slot(e),value,b.combat_events.T,[]])
+	if eligible and a.id=="levia":
+		for other in b.living(false):
+			if other.id!=e.id: b._break(other,floor(value*.07+.5))
+

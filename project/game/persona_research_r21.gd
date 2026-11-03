@@ -101,15 +101,16 @@ static func changes(old: Dictionary,current: Dictionary) -> Array:
 			if a!=b:out.append(node.en+' reinforced +'+str(a)+' -> +'+str(b))
 	return out
 
-static func transition(saved: Variant,draft: Variant,spent: int,gold: int,arg: String,busy=false) -> Dictionary:
+static func transition(saved: Variant,draft: Variant,spent: int,gold: int,arg: String,busy=false,lang: String='ko') -> Dictionary:
+	var text=preload('res://game/combat_source_text_r23.gd')
 	var out={"saved":saved.duplicate(true),"draft":draft.duplicate(true) if draft is Dictionary else {},"spent":spent,"gold":gold,"message":""}
 	var v=draft_work(saved,{} if out.draft.is_empty() else {"psd":out.draft})
 	if arg=="ps_save":
-		if out.draft.is_empty() or same_parts(v,clean(saved)):out.message="바꾼 내용이 없습니다.";return out
-		if not ready(v):out.message="덧효과를 먼저 고르세요.";return out
-		if busy:out.message="앞의 장면이 아직 이어지지 않았습니다. 보내기를 눌러 먼저 이어 주세요.";return out
+		if out.draft.is_empty() or same_parts(v,clean(saved)):out.message=text.u('바꾼 내용이 없습니다.',{},lang);return out
+		if not ready(v):out.message=text.u('덧효과를 먼저 고르세요.',{},lang);return out
+		if busy:out.message=text.u('앞의 장면이 아직 이어지지 않았습니다. 보내기를 눌러 먼저 이어 주세요.',{},lang);return out
 		out.saved=v;out.draft={};out.spent=0
-		out.message="저장했습니다. 보내기를 누르면 로레다나와 이야기가 이어집니다."
+		out.message=text.u('저장했습니다. 보내기를 누르면 로레다나와 이야기가 이어집니다.',{},lang)
 		return out
 	var bits=arg.split("_")
 	if bits.size()!=3 or bits[0]!="ps":return out
@@ -126,12 +127,12 @@ static func transition(saved: Variant,draft: Variant,spent: int,gold: int,arg: S
 		var key="prefix" if id=="pre" else "suffix";var selected=v[key]
 		if part("prefixes" if id=="pre" else "suffixes",selected).is_empty():return out
 		var n=level(v[key+"_lv"],selected)
-		if n>=10:out.message="이미 최대 단계입니다.";return out
+		if n>=10:out.message=text.u('이미 최대 단계입니다.',{},lang);return out
 		var amount=cost(n+1)
-		if gold<amount:out.message="금화가 모자랍니다. 필요 금화 %d"%amount;return out
+		if gold<amount:out.message=text.u('금화가 모자랍니다. 필요 금화 {cost}',{"cost":amount},lang);return out
 		out.gold-=amount;out.spent+=amount;v[key+"_lv"][selected]=n+1
 	else:return out
 	out.draft=v
 	if same_parts(v,clean(saved)):out.draft={};out.spent=0
-	out.message="고유 스킬: %s. 저장하면 확정됩니다."%skill_name(v) if ready(v) else "덧효과를 고르면 스킬이 완성됩니다."
+	out.message=text.u('고유 스킬: {name}. 저장하면 확정됩니다.',{"name":skill_name(v,false,lang)},lang) if ready(v) else text.u('덧효과를 고르면 스킬이 완성됩니다.',{},lang)
 	return out

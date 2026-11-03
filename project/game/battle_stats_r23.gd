@@ -31,6 +31,18 @@ static func number(value: Variant,fallback: float=1) -> float:
 static func fc(key: String,level: float=1,mult: float=1) -> float:
 	var c=config.curves[key];var x=level-1
 	return 1+mult*(c.a*x+c.b*x*x)
+static func persona_ratio(base: Variant,value: Variant) -> float:
+	var denominator=number(base,0);var numerator=number(value,NAN)
+	return numerator/denominator if denominator>0 and not is_nan(numerator) else 1.0
+static func persona_stats(cls: Variant,level: Variant,made: Dictionary) -> Dictionary:
+	var s=party_stats(cls,level);var initial=party_stats(cls,1)
+	if s.is_empty() or not made.has('str'):return s
+	for key in ['hp','mp','str','agi','int','de']:
+		s[key]*=persona_ratio(initial[key],made.get('def' if key=='de' else key))
+		if key in ['hp','mp']:s[key]=floor(s[key]+.5)
+	s.def=s.de;s.ag=s.agi;s.sp+=number(made.get('spd'),initial.sp)-initial.sp
+	s.cs=s[{'힘':'str','민첩':'agi','지능':'int'}.get(cls_of(cls).get('line',''),'str')]
+	return s
 static func stat(c: Dictionary,mod: Dictionary,key: String,curve: String,level: float) -> float:
 	return c.base[key]*(1+mod.get(key,0)/100.0)*fc(curve,level,c.grow[key])
 static func party_stats(cls: Variant,level: Variant=1,cid: Variant=null) -> Dictionary:

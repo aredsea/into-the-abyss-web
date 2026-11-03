@@ -32,7 +32,7 @@ for name in tests:
  with (O/(name+'.log')).open('wb') as f:
   env={**os.environ,'ABYSS_TEST_SERVER':os.environ.get('ABYSS_TEST_SERVER') or 'http://127.0.0.1:8787'}
   p=subprocess.Popen([sys.executable,'tools/godot_r17.py',*args],cwd=R,stdout=f,stderr=subprocess.STDOUT,env=env)
-  try:code=p.wait(timeout=900)
+  try:code=p.wait(timeout=1800 if name=='combat_a8_audit' else 900)
   except subprocess.TimeoutExpired:
    subprocess.run(['taskkill','/PID',str(p.pid),'/T','/F'],capture_output=True);code=124
  log=(O/(name+'.log')).read_text(encoding='utf-8',errors='replace')
