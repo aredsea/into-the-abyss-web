@@ -20,6 +20,8 @@ func fixture(id: String,neutral=false):
 	var b=Battle.new(d)
 	for a in b.data.allies: a.hp=a.mhp; a.effects={}
 	b.current_id=b.data.enemies[0].id
+	# Direct phase_check has the same begin_ev prerequisite as the Lua oracle.
+	b.combat_events.begin_record(b)
 	return b
 func _init(): call_deferred("run")
 func run():

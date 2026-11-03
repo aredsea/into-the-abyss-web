@@ -78,45 +78,84 @@ func hydrate(list: Variant) -> bool:
 		if v.has("target_id"): b.data.enemies[i].target_id=v.target_id
 	return true
 
-func summon(e: Dictionary,a: Dictionary,emit_event=true):
-	var adds=0; var made=[]
+func summon_one(id: String) -> Dictionary:
+	var adds=0
 	for u in b.data.enemies:
-		if u.grade=="minion" and u.hp>0: adds+=1
-	for n in range(int(a.get("count",1))):
-		if adds>=int(rules.catalog.tune.boss.summon_cap): break
+		if u.grade=="minion" and u.hp>0:adds+=1
+	if adds>=int(rules.catalog.tune.boss.summon_cap):return {}
 		# 31-foes summon_one uses empty slots first. A fallen minion can be
 		# reused only on a later press, after its current event has finished.
-		var candidates=[]
-		for i in range(b.data.enemies.size()):
-			if b.data.enemies[i].foe_id.is_empty(): candidates.append(i)
-		for i in range(b.data.enemies.size()):
-			var u=b.data.enemies[i]
+	var candidates=[]
+	for i in range(b.data.enemies.size()):
+		if b.data.enemies[i].foe_id.is_empty(): candidates.append(i)
+	for i in range(b.data.enemies.size()):
+		var u=b.data.enemies[i]
 			# Pre-P2 schema-3 summons retained mob statistics. Their reserved
 			# slots stay reusable until this old fight ends (hydrate preserves
 			# that grade), just like new minion slots.
-			var summon_slot=u.grade=="minion" or i>=b.data.encounter_r21.enc.fl.size()
-			if not u.foe_id.is_empty() and summon_slot and u.hp<=0 and not b.combat_events.changed_slots.has(b.combat_events.slot(b,u)): candidates.append(i)
-		for i in candidates:
-			var slot=b.data.enemies[i]
-			if slot.hp<=0:
-				configure(slot,a.enemy,1,i,"minion"); slot.hp=slot.mhp; slot.gauge=float(slot.max); slot.act_index=0; slot.effects={}; slot.broken=false; slot.charged=false; slot.remaining=10000.0
-				b.extra_state[slot.id]={}; slot.target_id=pick_target(slot).id
-				adds+=1; made.append(slot); b._event(e.name+" · "+a.name+" → "+slot.name); break
+		var summon_slot=u.grade=="minion" or i>=b.data.encounter_r21.enc.fl.size()
+		if not u.foe_id.is_empty() and summon_slot and u.hp<=0 and not b.combat_events.changed_slots.has(b.combat_events.slot(b,u)): candidates.append(i)
+	for i in candidates:
+		var slot=b.data.enemies[i]
+		if slot.hp<=0:
+			configure(slot,id,1,i,"minion");slot.hp=slot.mhp;slot.gauge=float(slot.max);slot.act_index=0;slot.effects={};slot.broken=false;slot.charged=false;slot.remaining=10000.0
+			b.extra_state[slot.id]={};slot.target_id=pick_target(slot).id;return slot
+	return {}
+
+func summon(e: Dictionary,a: Dictionary,emit_event=true):
+	if emit_event and not b.combat_events.record.has('ev'):b.combat_events.begin_record(b)
+	var made=[]
+	for n in range(int(a.get('count',1))):
+		var slot=summon_one(a.enemy)
+		if slot.is_empty():break
+		made.append(slot);b._event(e.name+' · '+a.name+' → '+slot.name)
 	if emit_event:
-		var action=a.duplicate(true); action.kind="summon"
-		b.combat_events.enemy(b,e,action,made)
+		var targets=made.map(func(w):return {"i":b.combat_events.slot(b,w)})
+		var text='<b>'+Text.unit_name(e)+'</b>의 '+a.name+'. '
+		text+='이미 하수인이 가득해 아무도 나오지 못했다' if made.is_empty() else '<em>'+', '.join(made.map(func(w):return Text.unit_name(w)))+'</em> 등장'
+		var T=b.combat_events.T
+		b.combat_events.Record.push(b.combat_events.record,{"k":"esum","a":b.combat_events.slot(b,e),"t":T,"nm":a.name,"tg":targets})
+		b.combat_events.say(text,T+(.6 if made.is_empty() else .7))
+		b.combat_events.push('esum',b.combat_events.slot(b,e),T,targets.map(func(t):return t.i));b.combat_events.T=T+1.5
 
 func phase_check():
+	if not b.combat_events.record.has('ev'):return 0
+	var count=0
 	for e in b.data.enemies:
 		if e.hp<=0 or e.foe_id.is_empty() or e.get("phase",1)!=1: continue
 		var f=rules.foes[e.foe_id]
 		if f.has("phase2") and e.hp<=e.mhp*rules.catalog.tune.boss.phase_hp:
-			e.phase=2; e.acts=f.phase2.acts.duplicate(true); e.weak=f.phase2.weak.duplicate(); e.gauge=float(e.max); e.broken=false; e.act_index=0; e.charged=false; e.remaining=10000.0
-			b._event(e.name+" · 2단계")
-			b.combat_events.push("phase",b.combat_events.slot(b,e),b.combat_events.T); b.combat_events.T+=1.2
-			if f.phase2.get("weak_cycle",false): cycle(e)
-			if f.phase2.has("entry"): summon(e,f.phase2.entry)
-			e.target_id=pick_target(e).id
+			enter_phase2(e);count+=1
+	return count
+
+func enter_phase2(e: Dictionary) -> void:
+	var f=rules.foes[e.foe_id];var T=b.combat_events.T
+	e.phase=2;e.acts=f.phase2.acts.duplicate(true);e.weak=f.phase2.weak.duplicate();e.gauge=float(e.max);e.broken=false;e.act_index=0;e.charged=false;e.remaining=10000.0
+	b.combat_events.field(b,e,'ay',e.gauge,T)
+	if f.phase2.get('weak_cycle',false):cycle(e)
+	b._event(e.name+' · 2단계')
+	b.combat_events.Record.push(b.combat_events.record,{"k":"phase","a":b.combat_events.slot(b,e),"t":T,"nm":Text.unit_name(e)})
+	b.combat_events.say('<b>'+Text.unit_name(e)+'</b>: <em>2단계</em>! 약점이 바뀌고 행동 순서가 처음으로 돌아간다',T+.3)
+	b.combat_events.push('phase',b.combat_events.slot(b,e),T);b.combat_events.T=T+1.2
+	if f.phase2.has('entry'):summon(e,f.phase2.entry)
+	e.target_id=pick_target(e).id
+
+func cancel_charge(e: Dictionary) -> void:
+	if not b.combat_events.record.has('ev'):b.combat_events.begin_record(b)
+	e.charged=false;e.act_index=(int(e.act_index)+1)%e.acts.size()
+	var T=b.combat_events.T
+	b.combat_events.Record.push(b.combat_events.record,{"k":"ecut","a":b.combat_events.slot(b,e),"t":T})
+	b.combat_events.say('<b>'+Text.unit_name(e)+'</b>의 충전이 <em>끊겼다</em>. 큰 기술이 취소됐다',T+.2)
+	b.combat_events.push('ecut',b.combat_events.slot(b,e),T)
+	if e.rules.has('break_self'):
+		var amount=floor(e.mhp*e.rules.break_self)
+		# Fixed strikes bypass defensive stance and preserve phase/death hooks.
+		var shield=b.fx(e,'shield');var damage=maxi(1,int(amount));b._flat_enemy(e,amount,{},true,false)
+		if shield>0:
+			b.combat_events.field(b,e,'sh',b.fx(e,'shield'),T+.3)
+			if b.fx(e,'shield')==0:e.effects.erase('shield')
+		b.combat_events.field(b,e,'hp',e.hp,T+.3)
+		b.combat_events.say('<b>'+Text.unit_name(e)+'</b>의 과열이 풀리며 스스로 <em>'+str(damage)+'</em> 피해',T+.4)
 
 func phase_guard(e: Dictionary,before: int=-1):
 	if not e.foe_id.is_empty() and e.get("phase",1)==1 and rules.foes[e.foe_id].has("phase2") and e.hp<=0:
@@ -145,14 +184,35 @@ func defense_tags(a: Dictionary,e: Dictionary,tags: Array) -> float:
 		m*=1-R.ranged_dr;tags.append("은신 −%d%%"%Text.percent(R.ranged_dr))
 	return m # Defensive stance is floored after the raw hit, in B.strike.
 
-func after_hit(a: Dictionary,e: Dictionary,element: Variant=null):
+func after_hit(a: Dictionary,e: Dictionary,element: Variant=null,at: Variant=null):
 	if e.hp<=0: return
+	if at==null:at=b.combat_events.T if b.combat_events.context.is_empty() else b.combat_events.hit_time()
 	var attack_element=a.element if element==null else element
-	if e.rules.has("weak_hit_delay") and attack_element==e.rules.weak_hit_delay.el: e.remaining+=10000*e.rules.weak_hit_delay.amount*(rules.catalog.tune.boss.reduce if e.grade=="boss" else 1)
-	if e.rules.has("counter_when_guard") and e.effects.has("guard") and not counter_active and not b.x(e).get("counter_busy",false):
+	if e.rules.has("weak_hit_delay") and attack_element==e.rules.weak_hit_delay.el:
+		e.remaining+=10000*e.rules.weak_hit_delay.amount*(rules.catalog.tune.boss.reduce if e.grade=="boss" else 1)
+		b.combat_events.say('<b>'+Text.unit_name(e)+'</b>의 윤곽이 번진다. 다음 차례가 <em>밀렸다</em>',at+.2)
+	if e.rules.has("counter_when_guard") and e.effects.has("guard") and not counter_active and not b.x(e).get("counter_busy",false) and a in b.data.allies and a.hp>0:
 		counter_active=true; b.x(e).counter_busy=true
-		b._enemy_hit(e,a,{"name":"되치기","kind":"atk","m":e.rules.counter_when_guard.get("m",.6),"counter":true})
+		counter(e,a,e.rules.counter_when_guard,at+.3)
 		b.x(e).counter_busy=false; counter_active=false
+
+func foe_line(e: Dictionary,a: Dictionary,res: Dictionary,lang: String='ko') -> String:
+	var locale=preload('res://game/combat_source_text_r23.gd')
+	var target=(b.data.allies+b.data.enemies)[int(res.i)-1];var name=Text.unit_name(target,lang);var action=a.name
+	var text=locale.u('<b>{who}</b>의 <b>{action}</b>{particle} {target}에게 <em>{damage}</em> 피해를 입혔다',{"who":Text.unit_name(e,lang),"action":action,"particle":Text.Josa.tail(action,'이가',lang),"target":name,"damage":res.d},lang)
+	var tags=res.get('tags',[]).duplicate()
+	if res.get('sh',0)>0:tags.append(locale.u('보호막 {n} 흡수',{"n":res.sh},lang))
+	if not tags.is_empty():text+='('+', '.join(tags)+')'
+	if res.get('kill',0)==1:text+=locale.u('. <b>{target}</b>{particle} 부상으로 물러났다',{"target":name,"particle":Text.Josa.tail(name,'이가',lang)},lang)
+	return text
+
+func counter(e: Dictionary,a: Dictionary,c: Dictionary,at: float) -> void:
+	if not b.combat_events.record.has('ev'):b.combat_events.begin_record(b)
+	b._enemy_hit(e,a,{"name":"되치기","kind":"atk","m":c.get('m',.6),"counter":true,"_hit_at":at})
+	var res=b.last_enemy_hit_result.duplicate(true);res.tags=['되치기']
+	b.combat_events.Record.push(b.combat_events.record,{"k":"eatk","a":b.combat_events.slot(b,e),"t":maxf(0,at-.5),"tg":[res],"nm":"되치기","ic":"attack","shoot":0})
+	b.combat_events.say(foe_line(e,{"name":"되치기"},res),at+.1)
+	b.combat_events.push('eatk',b.combat_events.slot(b,e),maxf(0,at-.5),[b.combat_events.slot(b,a)],at)
 
 func attack_mult(e: Dictionary) -> float:
 	return attack_multiplier(e).value
@@ -259,6 +319,48 @@ func add_dot(u: Dictionary,e: Dictionary,per: int,turns: int):
 	dots.append({"turns":turns,"amount":maxi(1,per),"by":e.id})
 	for i in range(4): u.effects.erase("enemy_dot_%d"%i)
 	for i in range(dots.size()): u.effects["enemy_dot_%d"%i]=dots[i]
+
+func tick_dot(u: Dictionary) -> bool:
+	if not b.combat_events.record.has('ev'):b.combat_events.begin_record(b)
+	var sum=0;var dots=[]
+	for i in range(4):
+		var key='enemy_dot_'+str(i)
+		if not u.effects.has(key):continue
+		var d=u.effects[key];sum+=d.amount;d.turns-=1
+		if d.turns>0:dots.append(d)
+		u.effects.erase(key)
+	for i in range(dots.size()):u.effects['enemy_dot_'+str(i)]=dots[i]
+	var T=b.combat_events.T
+	b._incoming_strike(u,sum,{}, {"name":"지속 피해","_hit_at":T+.3},false,true)
+	var res=b.last_enemy_hit_result.duplicate(true);var slot=b.combat_events.slot(b,u)
+	b.combat_events.Record.push(b.combat_events.record,{"k":"adot","a":slot,"t":T,"tg":[res]})
+	var name=Text.unit_name(u)
+	b.combat_events.say('<b>'+name+'</b>'+Text.Josa.tail(name,'은는')+' 지속 피해로 <em>'+Text.lua_string(res.d)+'</em> 피해를 입었다'+('. 부상으로 물러났다' if res.kill==1 else ''),T+.4)
+	b.combat_events.push('adot',slot,T,[slot]);b.combat_events.T=T+.9
+	return res.kill==1
+
+func dot_action(e: Dictionary,a: Dictionary) -> void:
+	var T=b.combat_events.T;var t=target(e,a)
+	if b._enemy_evade(e,t):
+		var res={"i":b.combat_events.slot(b,t),"d":0,"sh":0,"kill":0,"c":0,"miss":1}
+		var ev={"k":"eatk","a":b.combat_events.slot(b,e),"t":T,"tg":[res],"nm":a.name,"shoot":1}
+		if a.has('ic'):ev.ic=a.ic
+		b.combat_events.Record.push(b.combat_events.record,ev)
+		var name=Text.unit_name(t)
+		b.combat_events.say('<b>'+Text.unit_name(e)+'</b>의 '+a.name+'. '+name+Text.Josa.tail(name,'이가')+' <em>피했다</em>',T+.7)
+		b.combat_events.push('eatk',b.combat_events.slot(b,e),T,[b.combat_events.slot(b,t)]);b.combat_events.T=T+1.4;return
+	var per=dot_per(e,t,a.get('m',1.0)*a.get('tick',.3));var turns=int(a.get('turns',3))
+	add_dot(t,e,per,turns)
+	source_event(e,'edeb',a.name,[{"i":b.combat_events.slot(b,t)}],'<b>'+Text.unit_name(e)+'</b>의 '+a.name+'. '+Text.unit_name(t)+'에게 지속 피해 <em>'+str(maxi(1,per))+'</em>씩 '+str(turns)+'턴',.6,1.3)
+
+func dispatch(e: Dictionary,a: Dictionary) -> void:
+	match a.kind:
+		'dot':dot_action(e,a)
+		'charge':
+			e.charged=true;var name=Text.unit_name(e)
+			source_event(e,'echg',a.name,[],'<b>'+name+'</b>'+Text.Josa.tail(name,'이가')+' 큰 기술 <em>'+a.name+'</em>'+Text.Josa.tail(a.name,'을를')+' 준비한다. 심연을 0으로 깎으면 끊긴다',.6,1.4)
+		'summon':summon(e,a)
+		'protect','heal','buff','debuff','special':support_action(e,a)
 
 func dot_per(e: Dictionary,t: Dictionary,coef: float) -> int:
 	var k=40*rules.fc("def",e.level)
@@ -372,6 +474,7 @@ func turn_end(e: Dictionary,a: Dictionary) -> void:
 func turn() -> bool:
 	var e=b.enemy(b.current_id)
 	if e.is_empty() or b.living(true).is_empty(): return false
+	if not b.combat_events.record.has('ev'):b.combat_events.begin_record(b)
 	if allies_alive().is_empty(): b._finish_turn(); return true
 	b.events=[]
 	b.combat_hits=[]
@@ -381,26 +484,16 @@ func turn() -> bool:
 		e.broken=false; e.gauge=float(e.max); b._event(e.name+" · 차례 상실 · 심연 회복")
 		b.combat_events.push("recover",b.combat_events.slot(b,e),b.combat_events.T); b.combat_events.T+=1.2
 		if e.charged:
-			b.combat_events.push("ecut",b.combat_events.slot(b,e),b.combat_events.T)
-			e.charged=false; e.act_index=(int(e.act_index)+1)%e.acts.size()
-			e.hp=maxi(0,e.hp-int(floor(e.mhp*e.rules.get("break_self",0))))
+			cancel_charge(e)
 	else:
 		turn_start(e);turns=int(b.x(e).foe_turns)
 		var a=e.acts[e.act_index]; var targets=b.living(false) if a.get("target")=="allies" else [e]
 		var event_targets=[]
 		match a.kind:
-			"charge": e.charged=true; b._event(e.name+" · "+a.name)
+			"charge":dispatch(e,a);b._event(e.name+' · '+a.name)
 			"guard": effect(e,"guard",2,.4); b._event(e.name+" · "+a.name)
 			"protect","heal","buff","debuff","special":support_action(e,a)
-			"summon":
-				var before=b.living(false).duplicate()
-				summon(e,a,false)
-				event_targets=b.living(false).filter(func(u):return u not in before)
-			"dot":
-				var t=target(e,a)
-				if not b._enemy_evade(e,t): add_dot(t,e,dot_per(e,t,a.get("m",1)*a.get("tick",.3)),int(a.get("turns",3)))
-				event_targets=[t]
-				b._event(e.name+" · "+a.name)
+			"summon","dot":dispatch(e,a)
 			_:
 				var list=b.data.allies if a.kind=="big_all" or a.get("target")=="all" else [target(e,a)]
 				event_targets=[]
@@ -424,7 +517,7 @@ func turn() -> bool:
 						if b.gear_bridge!=null:
 							b.gear_bridge.invoke("attacked",[b.gear_bridge.slot(t),b.gear_bridge.slot(e),hit,b.combat_events.T])
 				if a.kind in ["big_one","big_all"]: e.charged=false
-		if a.kind not in ["protect","heal","buff","debuff","special"]:b.combat_events.enemy(b,e,a,event_targets)
+		if a.kind not in ["protect","heal","buff","debuff","special","charge","summon","dot"]:b.combat_events.enemy(b,e,a,event_targets)
 		e.act_index=(int(e.act_index)+1)%e.acts.size()
 		turn_end(e,a)
 	e.target_id=pick_target(e).id

@@ -1,6 +1,18 @@
 import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';import {pathToFileURL} from 'node:url';
 const root='C:/Clauede Code/dungeon-bot';const {mkSim:mkSimBase}=await import(pathToFileURL(path.join(root,'bot/lua_sim.mjs')).href);
 const mkSim=async(o)=>{const sim=await mkSimBase({...o,extra:'B.__r23_cov={calls={},branches={}}\n'+o.extra});const original=sim.L;return {...sim,L:async(code)=>{const pack=await original('B.__r23_cov={calls={},branches={}};local __result=(function()\n'+code+'\nend)();return {result=__result,coverage=B.__r23_cov}');fs.writeFileSync('verification/parity-r23/coverage/compose.json',JSON.stringify(pack.coverage));return pack.result;}};};
+import {isDeepStrictEqual as __r23_equal} from 'node:util';
+const __r23_write=fs.writeFileSync.bind(fs);
+fs.writeFileSync=(file,data,...args)=>{const name=String(file).replaceAll('\\','/');
+ if((name.startsWith('verification/parity-r23/')||name.startsWith('verification/data-r21/'))&&!name.includes('/coverage/')&&name.endsWith('.json')){
+  const expected=JSON.parse(fs.readFileSync(file,'utf8')),got=JSON.parse(String(data));
+  if(expected&&typeof expected==='object')delete expected.provenance;
+  if(got&&typeof got==='object')delete got.provenance;
+  for(const value of [expected,got])if(value?.parts)for(const part of value.parts){delete part.bytes;delete part.sha256;}
+  if(!__r23_equal(expected,got))throw Error('Instrumentation changed oracle: '+name);
+  return;
+ }return __r23_write(file,data,...args);
+};
 const files=['05-gen.lua','10-data.lua','20-state.lua','24-stats.lua','27-compose.lua'];
 const raw=files.map(f=>fs.readFileSync(path.join('C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-a-data/verification/parity-r23/coverage/instrumented',f),'utf8'));
 const extra=raw.map((s,i)=>`do\n${s}\n${files[i]==='27-compose.lua'?'B.r23_compose_helpers={pools=pools,has_summon=has_summon,has_charge=has_charge,fits=fits,pickl=pickl}':''}\nend`).join('\n');
@@ -38,4 +50,4 @@ out.cached_pools=H.pools()
 return out`);
 for(const row of result.fits)if(Array.isArray(row.spec)&&row.spec.length===0)row.spec={};
 const provenance=Object.fromEntries(files.map((f,i)=>[f,crypto.createHash('sha256').update(raw[i]).digest('hex')]));
-fs.writeFileSync('verification/parity-r23/coverage/compose-oracle.json',JSON.stringify({...result,provenance})+'\n');console.log(JSON.stringify(Object.fromEntries(Object.entries(result).map(([k,v])=>[k,Array.isArray(v)?v.length:'map']))));process.exit(0);
+fs.writeFileSync('verification/parity-r23/compose-oracle.json',JSON.stringify({...result,provenance})+'\n');console.log(JSON.stringify(Object.fromEntries(Object.entries(result).map(([k,v])=>[k,Array.isArray(v)?v.length:'map']))));process.exit(0);

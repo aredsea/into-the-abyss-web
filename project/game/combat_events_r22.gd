@@ -7,6 +7,11 @@ var context={}
 var changed_slots={}
 const Record=preload("res://game/combat_record_r23.gd")
 var record={"u":[],"log":[],"q":[]}
+const CUT_LINES={"rev":"아깝지 않아요. 피는 쓰려고 있는 거니까.","oath":"소설 속 기사는 이렇게 막아섰죠.","mark":"표식은 달았어. 이제 웃으면서 계산할 차례.","note":"이건 노트에 적어 둬야겠어요!"}
+func cutin(actor: int,id: String,name: String) -> void:
+	var event={"k":"cut","a":actor,"t":T,"nm":name}
+	if CUT_LINES.has(id):event.line=CUT_LINES[id]
+	Record.push(record,event);push('cut',actor,T);T+=1.9 if CUT_LINES.has(id) else 1.4
 func begin_record(b) -> void:
 	record.u=[]
 	for u in b.data.allies+b.data.enemies:
@@ -32,8 +37,8 @@ func begin(b,id: String,a: Dictionary,e: Dictionary,t: Dictionary) -> void:
 	for member in b.living(true):
 		if member.id!=a.id and member.row==a.row: context.row.append(slot(b,member))
 	if id=="personal":
-		push("cut",context.actor,T)
-		T+=1.9 if a.id in ["persona","levia","marceline","naran","teiris"] else 1.4
+		if a.id!='persona':cutin(context.actor,preload('res://game/battle_source_data_r23.gd').PERSONAL.get(a.id,{}).get('id',''),a.skills.personal.get('name',''))
+		else:push('cut',context.actor,T);T+=1.9
 		if a.id=="persona" and a.skills.personal.has("persona_skill"):
 			var p=b.PersonaCombat.Research.part("prefixes",a.skills.personal.persona_skill.prefix)
 			context.persona_spec=["wave" if p.kind=="volley" else "atk",.45,1.5,"foes" if p.kind=="volley" else "enemy"] if p.kind in ["attack","volley"] else ["shield",-1,1.8,"friends" if p.kind.ends_with("_all") else "ally"]

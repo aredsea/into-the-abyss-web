@@ -23,6 +23,7 @@ env={**os.environ,'R23_SUITE_NAME':O.name}
 if subprocess.call([sys.executable,'tools/run_battle_r23.py','import'],cwd=R,env=env):raise SystemExit(1)
 runs=[];files=[]
 for i,names in enumerate(groups):
+ if not names:continue
  f=(O/f'group-{i}.log').open('wb');files.append(f)
  e={**env,'R23_RUNTIME_SLOT':f'final-{i}'}
  p=subprocess.Popen([sys.executable,'tools/run_battle_r23.py',*sorted(names)],cwd=R,env=e,stdout=f,stderr=subprocess.STDOUT)

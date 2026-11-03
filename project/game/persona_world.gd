@@ -23,11 +23,11 @@ func ensure_persona_member() -> void:
 
 func research_work(who: String) -> Dictionary:
 	if who!="persona":return super(who)
-	return PersonaResearch.clean(s.persona_research_r22.get("draft",s.persona.skill))
+	return PersonaResearch.draft_work(s.persona.skill,{"psd":s.persona_research_r22.draft} if s.persona_research_r22.has('draft') else {})
 
 func research_dirty(who: String) -> bool:
 	if who!="persona":return super(who)
-	return not s.persona_research_r22.is_empty() and research_work(who)!=PersonaResearch.clean(s.persona.skill)
+	return PersonaResearch.draft_dirty(s.persona.skill,{"psd":s.persona_research_r22.draft} if s.persona_research_r22.has('draft') else {})
 
 func research_action(who: String,arg: String) -> bool:
 	if who!="persona":return super(who,arg)

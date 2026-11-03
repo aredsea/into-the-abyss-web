@@ -24,11 +24,30 @@ for p in SRC.glob('*.lua'):
  (I/p.name).write_text(s,encoding='utf-8')
  meta[p.name]={'source_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'calls':calls,'branches':branches}
 (D/'instrumentation.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2),encoding='utf-8')
-cases=['main','enemy','state','display','compose','clock','batch','round3','round4','round5','battle-round6','battle-round6-tiles','battle-round6-enemy'];runs=[]
+cases=['main','enemy','state','display','compose','clock','batch','round3','round4','round5','battle-round6','battle-round6-tiles','battle-round6-enemy','battle-round7','battle-round7-persona','battle-round7-boundary'];runs=[]
+def read_only_outputs(code):
+ # Compare instrumented results in memory. Never persist a duplicate oracle in
+ # coverage/ or overwrite the canonical evidence; the entry maps are tiny.
+ guard="""import {isDeepStrictEqual as __r23_equal} from 'node:util';
+const __r23_write=fs.writeFileSync.bind(fs);
+fs.writeFileSync=(file,data,...args)=>{const name=String(file).replaceAll('\\\\','/');
+ if((name.startsWith('verification/parity-r23/')||name.startsWith('verification/data-r21/'))&&!name.includes('/coverage/')&&name.endsWith('.json')){
+  const expected=JSON.parse(fs.readFileSync(file,'utf8')),got=JSON.parse(String(data));
+  if(expected&&typeof expected==='object')delete expected.provenance;
+  if(got&&typeof got==='object')delete got.provenance;
+  for(const value of [expected,got])if(value?.parts)for(const part of value.parts){delete part.bytes;delete part.sha256;}
+  if(!__r23_equal(expected,got))throw Error('Instrumentation changed oracle: '+name);
+  return;
+ }return __r23_write(file,data,...args);
+};
+"""
+ pos=code.index('const files=')
+ return code[:pos]+guard+code[pos:]
 for key in cases:
  name='oracle_battle_r23'+('' if key=='main' else '_'+key)+'.mjs'
  if key in ['round3','round4','round5']:name='oracle_battle_r23_'+key+'_loader.mjs'
  if key.startswith('battle-round6'):name='oracle_battle_r23_'+key.removeprefix('battle-').replace('-','_')+'_loader.mjs'
+ if key.startswith('battle-round7'):name='oracle_battle_r23_round7_loader.mjs'
  code=(R/'tools'/name).read_text(encoding='utf-8')
  code=code.replace('const {mkSim}=await import(', 'const {mkSim:mkSimBase}=await import(',1)
  # Replace the source read used in rule loading, leaving the original-file
@@ -37,18 +56,13 @@ for key in cases:
  pos=code.index('const files=')
  wrapper=f'''const mkSim=async(o)=>{{const sim=await mkSimBase({{...o,extra:'B.__r23_cov={{calls={{}},branches={{}}}}\\n'+o.extra}});const original=sim.L;return {{...sim,L:async(code)=>{{const pack=await original('B.__r23_cov={{calls={{}},branches={{}}}};local __result=(function()\\n'+code+'\\nend)();return {{result=__result,coverage=B.__r23_cov}}');fs.writeFileSync('verification/parity-r23/coverage/{key}.json',JSON.stringify(pack.coverage));return pack.result;}}}};}};\n'''
  code=code[:pos]+wrapper+code[pos:]
- for stem in ['oracle','enemy-oracle','state-oracle','display-oracle','compose-oracle','clock-oracle','batch-oracle','round3-oracle','round4-oracle','round5-oracle','battle-round6-oracle','battle-round6-tiles-oracle','battle-round6-enemy-oracle']:
-  code=code.replace(f"'verification/parity-r23/{stem}.json'",f"'verification/parity-r23/coverage/{key}-oracle.json'")
+ code=read_only_outputs(code)
  # Compact regenerated coverage JSON, including the pre-existing 52 MB round5 reference.
  code=code.replace('JSON.stringify({...result,provenance},null,2)','JSON.stringify({...result,provenance})')
  script=D/(key+'.mjs');script.write_text(code,encoding='utf-8');start=time.monotonic()
- with (D/(key+'.log')).open('wb') as log:p=subprocess.run(['node',str(script)],cwd=R,stdout=log,stderr=subprocess.STDOUT)
+ with (D/(key+'.log')).open('wb') as log:p=subprocess.run(['node',str(script)],cwd=R,stdout=log,stderr=subprocess.STDOUT,env={**os.environ,'R23_ROUND7_PACK':key.removeprefix('battle-round7-') if key.startswith('battle-round7-') else ''})
  row={'case':key,'exit':p.returncode,'seconds':round(time.monotonic()-start,2)};runs.append(row);print(json.dumps(row),flush=True)
  if p.returncode:raise SystemExit(p.returncode)
- original=json.loads((O/('oracle.json' if key=='main' else key+'-oracle.json')).read_text(encoding='utf-8'))
- observed=json.loads((D/(key+'-oracle.json')).read_text(encoding='utf-8'))
- original.pop('provenance',None);observed.pop('provenance',None)
- if original!=observed:raise AssertionError('Instrumentation changed oracle result: '+key)
 retained=[
  ('retained-p2','oracle_combat_p2_r22.mjs','p2-oracle.json',{}),
  ('retained-a6','oracle_combat_a6_mixed.mjs','a6-mixed-oracle.json',{}),
@@ -68,15 +82,11 @@ for key,name,expected,env in retained:
  pos=code.index('const files=')
  wrapper=f'''const mkSim=async(o)=>{{const sim=await mkSimBase({{...o,extra:'B.__r23_cov={{calls={{}},branches={{}}}}\\n'+o.extra}});const original=sim.L;return {{...sim,L:async(code)=>{{const pack=await original('B.__r23_cov={{calls={{}},branches={{}}}};local __result=(function()\\n'+code+'\\nend)();return {{result=__result,coverage=B.__r23_cov}}');fs.writeFileSync('verification/parity-r23/coverage/{key}.json',JSON.stringify(pack.coverage));return pack.result;}}}};}};\n'''
  code=code[:pos]+wrapper+code[pos:]
- code=code.replace("fs.writeFileSync('verification/data-r21/",f"fs.writeFileSync('verification/parity-r23/coverage/{key}-")
+ code=read_only_outputs(code)
  script=D/(key+'.mjs');script.write_text(code,encoding='utf-8');start=time.monotonic()
  with (D/(key+'.log')).open('wb') as log:p=subprocess.run(['node',str(script)],cwd=R,stdout=log,stderr=subprocess.STDOUT,env={**os.environ,**env})
  row={'case':key,'exit':p.returncode,'seconds':round(time.monotonic()-start,2),'expected':expected};runs.append(row);print(json.dumps(row),flush=True)
  if p.returncode:raise SystemExit(p.returncode)
- original=json.loads((R/'verification/data-r21'/expected).read_text(encoding='utf-8'))
- observed=json.loads((D/(key+'-'+expected)).read_text(encoding='utf-8'))
- original.pop('provenance',None);observed.pop('provenance',None)
- if original!=observed:raise AssertionError('Fresh source output changed: '+key)
 calls={};branches={}
 for key in cases+[r[0] for r in retained]:
  v=json.loads((D/(key+'.json')).read_text(encoding='utf-8'));calls.update(v['calls'] if isinstance(v['calls'],dict) else {});branches.update(v['branches'] if isinstance(v['branches'],dict) else {})

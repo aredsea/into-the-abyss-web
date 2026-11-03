@@ -79,11 +79,33 @@ static func skill(raw: Variant,lang: String="ko") -> Dictionary:
 	var p=part("prefixes",v.prefix)
 	return {"id":"persona_skill","cid":"persona","pv":true,"row":"com","name":skill_name(v,false,lang),"mp":p.mp,"tgt":p.target,"ic":"attack" if p.kind in ["attack","volley"] else "bless","d":description(v,false,lang)}
 
+static func draft_work(saved: Variant,ui: Variant) -> Dictionary:
+	var draft=ui.get('psd') if ui is Dictionary else null
+	return clean(draft if draft is Dictionary or draft is Array else saved)
+static func same_parts(a: Dictionary,b: Dictionary) -> bool:
+	if a.get('prefix')!=b.get('prefix') or a.get('suffix')!=b.get('suffix'):return false
+	for pair in [['prefixes','prefix_lv'],['suffixes','suffix_lv']]:
+		for node in data[pair[0]]:
+			if level(a.get(pair[1]),node.id)!=level(b.get(pair[1]),node.id):return false
+	return true
+static func draft_dirty(saved: Variant,ui: Variant) -> bool:
+	if not ui is Dictionary:return false
+	var draft=ui.get('psd')
+	return (draft is Dictionary or draft is Array) and not same_parts(clean(draft),clean(saved))
+static func changes(old: Dictionary,current: Dictionary) -> Array:
+	var out=[]
+	if old.get('prefix')!=current.get('prefix') or old.get('suffix')!=current.get('suffix'):out.append('combination: '+skill_name(old,true)+' -> '+skill_name(current,true))
+	for pair in [['prefixes','prefix_lv'],['suffixes','suffix_lv']]:
+		for node in data[pair[0]]:
+			var a=level(old.get(pair[1]),node.id);var b=level(current.get(pair[1]),node.id)
+			if a!=b:out.append(node.en+' reinforced +'+str(a)+' -> +'+str(b))
+	return out
+
 static func transition(saved: Variant,draft: Variant,spent: int,gold: int,arg: String,busy=false) -> Dictionary:
 	var out={"saved":saved.duplicate(true),"draft":draft.duplicate(true) if draft is Dictionary else {},"spent":spent,"gold":gold,"message":""}
-	var v=clean(saved if out.draft.is_empty() else out.draft)
+	var v=draft_work(saved,{} if out.draft.is_empty() else {"psd":out.draft})
 	if arg=="ps_save":
-		if out.draft.is_empty() or v==clean(saved):out.message="바꾼 내용이 없습니다.";return out
+		if out.draft.is_empty() or same_parts(v,clean(saved)):out.message="바꾼 내용이 없습니다.";return out
 		if not ready(v):out.message="덧효과를 먼저 고르세요.";return out
 		if busy:out.message="앞의 장면이 아직 이어지지 않았습니다. 보내기를 눌러 먼저 이어 주세요.";return out
 		out.saved=v;out.draft={};out.spent=0
@@ -110,6 +132,6 @@ static func transition(saved: Variant,draft: Variant,spent: int,gold: int,arg: S
 		out.gold-=amount;out.spent+=amount;v[key+"_lv"][selected]=n+1
 	else:return out
 	out.draft=v
-	if v==clean(saved):out.draft={};out.spent=0
+	if same_parts(v,clean(saved)):out.draft={};out.spent=0
 	out.message="고유 스킬: %s. 저장하면 확정됩니다."%skill_name(v) if ready(v) else "덧효과를 고르면 스킬이 완성됩니다."
 	return out

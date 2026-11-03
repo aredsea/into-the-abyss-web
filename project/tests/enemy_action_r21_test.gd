@@ -52,6 +52,8 @@ func setup(w,row):
 		if not v.silence.is_empty(): u.effects.silence={"amount":0,"turns":1,"r21":true}; b.x(u).silenced_id=v.silence
 		for dot in v.dots: b.dungeon_enemy_r21.add_dot(u,slot(b,int(dot.by)),int(dot.amount),int(dot.turns))
 	b.x(b.data.enemies[0]).source_rng=int(row.rng)
+	# The Lua make() fixture calls begin_ev before these direct engine entries.
+	b.combat_events.begin_record(b)
 	return b
 func dump(b) -> Array:
 	var out=[]
