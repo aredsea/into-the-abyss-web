@@ -26,8 +26,8 @@ func build_result(owner_screen,combat) -> void:
 		var id=host.model.s.party[i];var a=combat.state.ally(id);var x=18+i*91
 		picture(id,Rect2(x,597,86,43),"town-party-face")
 		label(host.model.person(id).name,Rect2(x,640,86,19),10,T.INK,T.BOLD)
-		label("HP %d/%d"%[a.hp,a.mhp],Rect2(x,660,86,19),10)
-		fill("result_hp:"+id,Rect2(x,680,86*maxf(0,a.hp)/maxf(1,a.mhp),4),T.RED)
+		resource_numbers(Rect2(x,658,86,22),a.hp,a.mhp)
+		resource("result_hp:"+id,Rect2(x,680,86,9),a.hp,a.mhp)
 	paragraph("전투 결과를 확인하고 원정을 계속합니다." if win else "부상과 보상을 반영한 정산을 확인합니다.",Rect2(18,689,354,29),13)
 	action("result_continue","원정 계속" if win else "정산 확인",Rect2(18,729,354,49),combat._retry,true)
 	label("결과 확인 시 원정 상태에 한 번 반영됩니다.",Rect2(18,791,354,24),11)

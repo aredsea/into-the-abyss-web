@@ -1,0 +1,13 @@
+--- round2/battle_screen.gd
++++ round3/battle_screen.gd
+@@ -388,6 +388,10 @@
+ 		if big:
+ 			var diamond=Polygon2D.new(); diamond.polygon=PackedVector2Array([Vector2(0,-5.66),Vector2(5.66,0),Vector2(0,5.66),Vector2(-5.66,0)])
+ 			diamond.color=RED if targeting else PAPER; hit.add_child(diamond); diamond.position=Vector2(317*sx-left,132*sy-hit_top); diamond.z_index=26
++			if targeting:
++				# Keep the whole marker 4px clear of the expanded HP plate.
++				# A plate at the field's top has no room above; use its left margin.
++				diamond.position=Vector2(hud_x+hud_w/2,hud_y-hit_top-9.66) if small.is_empty() and hud_y>=15.32 else Vector2(hud_x-9.66,hud_y-hit_top+plate_h/2)
+ 	if not pending_action.is_empty() and state.actions().has(pending_action) and state.actions()[pending_action].target=="적 1":
+ 		var caption_y=maxf(131*sy,92*sy+small_h+4)
+ 		if has_big and not small.is_empty():caption_y=maxf(141*sy,92*sy+small_h+4)+hud_h+4

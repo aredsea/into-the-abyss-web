@@ -260,10 +260,14 @@ func image(path: String, target: Node, dims: Vector2) -> TextureRect:
 
 func bar(label: String, value: float, maximum: float, parent: Node, hp=true) -> void:
 	text("%s %d / %d" % [label,value,maximum],12,INK,parent)
-	var p=ProgressBar.new(); parent.add_child(p); p.custom_minimum_size.y=10; p.show_percentage=false; p.max_value=maximum; p.value=value
-	p.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	var bg=StyleBoxFlat.new(); bg.bg_color=UI.PALE; p.add_theme_stylebox_override("background",bg)
-	var fill=StyleBoxFlat.new(); fill.bg_color=UI.HP if hp else UI.MP; p.add_theme_stylebox_override("fill",fill)
+	if label in ["HP","MP"]:
+		var gauge=preload("res://ui/resource_gauge_r24.gd").attach(parent,Rect2(0,0,100,9 if hp else 3),value,maximum,hp)
+		gauge.custom_minimum_size=Vector2(0,9 if hp else 3);gauge.size_flags_horizontal=SIZE_EXPAND_FILL
+	else:
+		var p=ProgressBar.new();parent.add_child(p);p.custom_minimum_size.y=10;p.show_percentage=false;p.max_value=maximum;p.value=value
+		p.mouse_filter=Control.MOUSE_FILTER_IGNORE
+		var bg=StyleBoxFlat.new(); bg.bg_color=UI.PALE; p.add_theme_stylebox_override("background",bg)
+		var fill=StyleBoxFlat.new(); fill.bg_color=UI.HP if hp else UI.MP; p.add_theme_stylebox_override("fill",fill)
 
 func companion_image(id: String, target: Node, dims: Vector2) -> Control:
 	var pic=preload("res://ui/town_portrait_r21.gd").new(); pic.custom_minimum_size=dims
