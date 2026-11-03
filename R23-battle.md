@@ -1,61 +1,69 @@
-# R23-battle 7차 보고
+# R23-battle 8차 보고
 
-대상 212행: 같음 169(+16), 호스트 제외 3, 남음 40. 이번 수정 근거 10행(기존 수정 행과 중복), 누적 수정 근거 61행. 남은 40행이 있어 전 기능 완료는 아니다.
+대상 212행: 같음 179(+10), 호스트 제외 3, 남음 30(−10). 이번 수정 근거 13행(중복 포함), 신규 수정 근거 13행, 누적 수정 근거 74행. 전 기능 완료는 아니다.
 
-신규 묶음 대조 7,334개(전투 1,418 + 페르소나 5,903 + 방어 경계 13), 실패 0. 누적 신규 대조 66,268개, 실패 0. 전체 프로젝트 118/118그룹과 import/로컬 클라우드 서버 통과. 기존 6,320판·219,785기록 차이 0.
+신규 27,531개 검사 중 원본 Lua 직접 대조 27,530개와 native 저장 경계 1개, 실패 0. 누적 신규 검사 93,799개. 전체 프로젝트 121/121그룹(import 포함), 로컬 serve.mjs/D1 클라우드 시험 통과. 기존 6,320판·219,785기록 차이 0.
 
-원본 Lua 26종을 함수/then/else/do 진입 계측으로 다시 실행했다. 계측 전후 반환 결과가 같고, 기존 6,320판 원본 trace도 저장된 기준과 같았다. 함수 198/212 호출, 기준 미검증 진입 112/157 도달(6차 100). 조건 조합 전수 검증 수치는 아니다. coverage/에는 새 oracle 중복 사본을 만들지 않고 메모리에서 비교한다.
+원본 Lua 19개에 함수/then/else/do 진입 계측을 적용하고 oracle 29묶음을 실행했다. 계측 전후 결과는 같고 기존 6,320판 원본 trace도 저장된 기준과 같다. 함수 200/212 호출, 기준 미검증 진입 142/157 도달(7차 112). 진입 도달은 조건 조합 전수 증명이 아니다. coverage/에는 oracle 중복 사본 없음.
 
-반격·피격 후 지연·적 DOT·소환·충전 취소·단계 전환의 실제 전투 경로에서 원본 사건, 필드 시간 이력, 로그 문구와 T를 기록하도록 보완했다. 컷인에는 원본 skill id별 대사와 이름을 기록한다. 페르소나 연구의 임시 조합 우선순위·전체 조각 비교·dirty·변경 서술 배열을 원본과 대조하고 기존 연구 경로에 공통 helper를 연결했다. persona_world.gd는 이 연결 두 줄만 바꿨다.
+묶음별로 차례 종료 384, DOT 90, abyss 512, 기술 사용 조건 7,936, 적 단일/전체 공격 256, 주디스 42, 요르드 256, 사망 효과 정리 64, 경험치 1,440, finish/check_end 512, 연구 행동 16,038개를 실행했다. native 저장 1개는 보호막 만료 뒤 실제 snapshot 재개 여부다.
 
-실패 확인: 작업 시작 시 보존한 Battle/Enemy 파일과 최종 동일 입력으로 656개를 재생해 614개 관측 차이를 확인했다. {'counter': 288, 'foe_hit_after': 54, 'summon': 128, 'phase': 144}. 같은 경로는 수정 후 통과한다. 이는 이전 전체 빌드가 아니라 보존한 두 파일의 실제 실행이다. 새 API 부재 guard는 수치 버그 수로 세지 않았다.
+실제 공격과 개인 기술에서 원본의 심연/고갈·전염 list·부식/출혈 사건·필드 이력·시각·로그를 기록하도록 보완했다. 단일 적 공격 본문은 attacked/counter 훅보다 먼저 기록하고 전체 공격 본문은 대상별 훅 뒤에 기록한다. 차례 끝에는 침묵·서약·공격 배율·보호막을 원본 규칙으로 만료하며 native 저장에 0턴 효과를 남기지 않는다. 죽은 아델린의 재생 제거와 미등록 개인 기술 거절도 연결했다.
 
-final-v2 실행 중 enemy_regression의 직접 phase_check 시험에도 같은 begin_ev 전제 누락이 있었다. 기대값은 유지하고 시험 준비 두 줄만 보정해 30항목을 재실행했다. 제품 코드는 그 전후 SHA가 모두 같으며 다른 117그룹의 입력/코드도 불변이다. fixture-correction-audit.json에 이전 시험/로그, 유일한 변경과 재실행을 보존했다. 실행기의 최종 코드 guard는 이 시험 파일 변경을 검출해 종료 1을 반환했으며, 별도 finalize_battle_r23_round7.py가 제품 불변·유일한 fixture 변경·118그룹 결과를 검증해 최종 lock을 확정했다.
+페르소나 연구는 saved/draft/spent/gold/message core 전이만 한영 직접 비교했다. 영어 메시지 누락을 수정했고 persona_world.gd는 언어 전달 한 줄만 연결했다. 원본 pending 지시/채팅은 oracle에 별도 보존하며 native 대화 재개와 같다고 세지 않았다. 해당 2행은 남음이다.
 
-전체 검사 중 독립 _tick/DOT 호출이 기록장 없이 시작하는 오류를 확인해 초기화를 보완했다. 관련 A6 251개 통과 후 코드와 기본 입력 SHA를 다시 고정하여 suite-round7-final-v2 전체 검사를 재실행했다. 이전 중간 결과는 최종 통과 수에 섞지 않았다. Windows root certificate store 진단만 환경 메시지로 제외하고 Script error와 다른 ERROR는 실패로 셌다.
+수정 전 재생: 시작 시 보존한 battle/personal/enemy 모듈과 최종 동일 입력으로 8,324개를 실행하여 122개 차이를 확인했다: {'judith': 42, 'jorund': 64, 'can_use': 16}. 새 API 부재 guard는 수치 버그로 세지 않았다. 이는 전체 옛 빌드 재현이 아니라 보존한 모듈 조합의 실제 실행이다. 연구 메시지·새 정산 기록·저장 경계 검사는 이 차이 수에서 제외했다.
 
-검사 도구도 수정했다. 빈 병렬 실행 그룹이 전체 검사를 중복 실행하던 경로를 막고, 이미 시작한 자체 검사에는 파일 기반 중단 표식을 적용했다. 최초 로컬 서버는 긴 임시 경로에서 시작 오류가 났으나 짧은 worktree 내부 .p7tmp로 옮긴 실제 serve.mjs/D1 서버로 최종 검사를 통과했다. 서버 종료 확인은 final-v2/local-server-result.json에 있다.
+최초 전체 실행에서 손상 x=false 입력을 native에 옮기는 시험 준비가 Dictionary.has를 잘못 호출해 중단했다. 기대값은 유지하고 fixture의 타입 가드 두 곳만 고친 뒤, 새 suite-round8-final-v7에서 전체 검사를 처음부터 재실행했다. 최종 제품/시험/입력 SHA는 모두 잠겨 있다. 중간 실패·취소 실행은 최종 통과 수에 섞지 않았다. Windows root certificate store 메시지만 환경 진단으로 제외했다.
 
-기능 등가 규칙을 재적용했다. 채팅 검색(P1596), 재렌더 callback(P3502), 채팅 변수 load/bind/act/save 호스트 묶음(P3505)을 제외했다. B.act 자체는 여전히 남음이다. B.load/save는 저장 매체가 달라서 남긴 것이 아니라 원본 기록을 native에서 같은 진행으로 재개하는 직접 왕복·손상 입력 대조가 부족하여 남겼다.
+전체 회귀 중 축약 편성 정산의 4칸 경계와 전체 공격 도중 소생한 다음 아군 칸을 빠뜨리는 차이도 발견했다. 결과 projection에 빈 아군 칸을 채우고, 전체 공격은 각 칸에 도달할 때 생존 여부를 확인하도록 고쳤다. 원래 실패하던 장비 176판이 기대값 변경 없이 통과했다.
+
+기존 7차 대조의 70건은 사망 뒤 cover_turns=0을 불필요하게 남긴 차이였다. 원본처럼 제거한 뒤 1,418개가 재통과했다. expansion_test에서 옛 전투가 r21 전용 기록 객체를 부르는 오류도 확인해 보존한 기존 abyss 처리로 분리했다. 기존 3,350개 수치·저장 회귀를 통과한 뒤, 최종 코드를 다시 잠가 121그룹 전체를 실행했다.
+
+임시 combat_meta 저장 필드는 기존 서버 검증기에 422로 거절됨을 확인했다(battle-round8-cloud-meta-rejection.json). 서버를 바꾸지 않고 해당 저장 필드 증설을 제거했다. 기존 로컬/클라우드 저장 스키마를 유지하며, 정산 메타데이터의 저장 재개는 남음으로 기록한다.
+
+무효 등급이 보상 설정의 다른 키 이름과 겹치는 경계도 추가했다. v4에 잠긴 이전 정산 코드 SHA와 같은 파일을 재생하면 72개 차이가 나며, 명시적인 3종 레이드 등급만 조회하도록 수정한 뒤 전체 1,952개 정산 대조가 일치한다.
 
 | 묶음 | 같음 | 제외 | 남음 |
 | --- | ---: | ---: | ---: |
-| 30인 개인 기술·개별 특성 | 27 | 0 | 4 |
-| CTB·공격·종결·전투 버튼 | 16 | 2 | 17 |
-| 적 방어·반격·소환·단계 | 29 | 0 | 1 |
+| 30인 개인 기술·개별 특성 | 29 | 0 | 2 |
+| CTB·공격·종결·전투 버튼 | 23 | 2 | 10 |
+| 적 방어·반격·소환·단계 | 30 | 0 | 0 |
 | 전투 사건 연출·HUD·대상·로그 | 38 | 0 | 3 |
 | 전투 상태·능력치·편성 | 36 | 1 | 10 |
 | 종족·출신·직업 시너지 | 12 | 0 | 1 |
 | 페르소나 단일 연구 기술 | 11 | 0 | 4 |
 
-각 행의 원래 id·원본 위치·6차 상태·시험명·제품 파일:줄·남은 이유: verification/parity-r23/battle.json. 남은 범위는 fresh/again/redo·battle_start 전체, fire/chain 합성, strike/abyss·공격/종결/run·버튼 전체, 일부 개인/종족·페르소나 기술과 연구 행동/장면, 행동 패널/최상위 렌더, 원본 저장 재개다. 이번 중립/무장비 부수 출력 대조를 장비 혼합 전투의 전체 문자열/시간 대조로 확대하지 않는다.
+같음 승격: P1737, P1760, P1789, P1806, P1824, P1830, P1842, P1945, P2004, P2171. 각 행의 원본 id·위치·이전 상태·시험·제품 파일:줄·남은 이유는 verification/parity-r23/battle.json.
 
-원본 이미지 96개 해시 일치. 작업 시작 manifest 대비 docs/assets/server 해시 불변. 사용자 저장을 열거나 지우지 않았다. Web export·버전 갱신·git 명령 없음. r17~r20과 컷인 렌더 5장을 직접 열어 확인했고, 전수 프레임/실기기/Web/WASM은 확인하지 않았다. 새 대조 파일은 battle- 접두사이며 모두 40 MiB 미만이다.
+남은 30행: 시작/재시작·battle_pm/quest/battle_start, 원본 저장 직접 재개, 임의 훅 fire/chain/chain_at, strike·적 차례/run·버튼/행동 패널/최상위 render, 일부 개인/종족·페르소나 기술, 연구 화면/대화 연계와 native 결과 컨텍스트 전체 연결. 직접 finish 상태는 일치해도 모든 world의 rg/qmult·출처 연결은 별도로 남겼다.
+
+원본 이미지 96개 해시 일치. docs/assets/server 해시 불변. 사용자 저장은 열거나 지우지 않았으며 Web export·버전 갱신·git 명령 없음. 기존 저장 스키마를 유지한다. 정산의 nd/마지막 일격 기록을 저장 재개 뒤 복구하는 범위는 남음이다.
+
+렌더 QA는 verification/parity-r23/battle-round8-visual-review.json에 직접 연 파일·SHA·관찰을 기록한다. 전수 프레임/실기기/Web/WASM은 확인하지 않았다. 새 대조 파일은 battle- 접두, 각각 40 MiB 미만.
 
 바꾼 제품 파일:
+
 - project/game/battle_v3.gd
-- project/game/combat_events_r22.gd
+- project/game/combat_outcome_r23.gd
 - project/game/dungeon_enemy_r21.gd
+- project/game/personal_rules_r22.gd
 - project/game/persona_research_r21.gd
 - project/game/persona_world.gd
 
-재실행: oracle_battle_r23_round7_loader.mjs(기본/환경 R23_ROUND7_PACK=persona,boundary) → coverage_battle_r23.py → verify_battle_r23_round7.py → 별도 battle-round7-boundary-test.gd 및 prepare_battle_r23_round7_before.py → 렌더 확인 → report_battle_r23_round7.py.
+재실행: oracle_battle_r23_round8_loader.mjs (기본, R23_ROUND8_PACK=outcome/persona) → coverage_battle_r23.py → verify_battle_r23_round8.py (R23_FINAL_SUITE=suite-round8-final-v7) → prepare_battle_r23_round8_before.py 및 before-test.gd → 렌더 확인 → report_battle_r23_round8.py.
 
 바꾼 시험/도구:
+
 - tools/coverage_battle_r23.py
-- tools/diff_battle_r23_round7.py
-- tools/finalize_battle_r23_round7.py
-- tools/godot_r17.py
-- tools/oracle_battle_r23_round7.lua
-- tools/oracle_battle_r23_round7_boundary.lua
-- tools/oracle_battle_r23_round7_loader.mjs
-- tools/oracle_battle_r23_round7_persona.lua
-- tools/prepare_battle_r23_round7_before.py
-- tools/report_battle_r23_round7.py
-- tools/run_battle_r23_parallel.py
-- tools/verify_battle_r23_round7.py
-- project/tests/battle_r23_round7_fixture.gd
-- project/tests/battle_r23_round7_persona_test.gd
-- project/tests/battle_r23_round7_test.gd
-- project/tests/enemy_action_r21_test.gd
-- project/tests/enemy_regression_r21_test.gd
+- tools/diff_battle_r23_round8.py
+- tools/oracle_battle_r23_round8.lua
+- tools/oracle_battle_r23_round8_loader.mjs
+- tools/oracle_battle_r23_round8_outcome.lua
+- tools/oracle_battle_r23_round8_persona.lua
+- tools/prepare_battle_r23_round8_before.py
+- tools/report_battle_r23_round8.py
+- tools/verify_battle_r23_round8.py
+- project/tests/battle_r23_round8_outcome_test.gd
+- project/tests/battle_r23_round8_persona_test.gd
+- project/tests/battle_r23_round8_test.gd

@@ -75,6 +75,10 @@ static func can(b,a: Dictionary) -> bool:
 	return true
 
 static func abyss(b,a,e,amount: float,element: String="") -> void:
+	if b.dungeon_enemy_r21==null:legacy_abyss(b,a,e,amount,element);return
+	abyss_result(b,a,e,amount,element,b.combat_events.abyss_time()-.2)
+
+static func legacy_abyss(b,a,e,amount: float,element: String="") -> void:
 	var value=amount*(1.5 if isweak(e,a.element if element.is_empty() else element) else 1)
 	if a.id=="levia": value*=levia_mult(b)
 	if b.gear_bridge!=null:
@@ -86,6 +90,38 @@ static func abyss(b,a,e,amount: float,element: String="") -> void:
 	if eligible and a.id=="levia":
 		for other in b.living(false):
 			if other.id!=e.id: b._break(other,floor(value*.07+.5))
+
+static func abyss_result(b,a,e,amount: float,element: String="",at: float=0) -> Dictionary:
+	if amount<=0 or e.hp<=0 or e.broken:return {"n":0,"list":false}
+	var value=amount*(1.5 if isweak(e,a.element if element.is_empty() else element) else 1)
+	if a.id=="levia": value*=levia_mult(b)
+	if b.gear_bridge!=null:
+		var modified=b.gear_bridge.invoke("abyss_mul",[b.gear_bridge.slot(a),b.gear_bridge.slot(e),value]); value=modified if modified!=null else value
+	value=maxf(1,floor(value+.5))
+	var list=[]
+	b._break_at(e,value,at)
+	if a.id=="levia" and a.hp>0:
+		var c=floor(value*.07+.5)
+		for other in b.living(false):
+			if other.id!=e.id and not other.broken and c>=1:
+				b._break_at(other,c,at+.5);list.append({"i":b.combat_events.slot(b,other),"n":c})
+		if not list.is_empty():b.combat_events.trait_payload(b.combat_events.slot(b,a),'깨진 유리창 이론: 다른 적 심연 −'+str(int(c)),at+.4,1)
+	if b.gear_bridge!=null:b.gear_bridge.invoke('abyss_after',[b.gear_bridge.slot(a),b.gear_bridge.slot(e),value,at,list])
+	return {"n":value,"list":list}
+
+static func judith(b,a,e,sk: Dictionary) -> void:
+	var clock=b.combat_events;var T=clock.T
+	b._effect(e,'defense_down',3,.2);b._effect(e,'haste',3,.15);b._effect(e,'attack_down',3,.15)
+	if not b.x(e).has('judith_sp0'):b.x(e).judith_sp0=e.speed;e.speed=floor(e.speed*.85+.5)
+	b.x(e).judith_until=b.ctb_round+3
+	var result=abyss_result(b,a,e,3,a.element,T+.8);var c=corrode(b,a,e,1)[0]
+	var target={"i":clock.slot(b,e),"ab":result.n}
+	if result.list is Array:target.list=result.list
+	var skill_name=sk.get('name',a.get('skills',{}).get('personal',{}).get('name',''))
+	clock.Record.push(clock.record,{"k":"mark","a":clock.slot(b,a),"t":T,"tg":[target],"nm":skill_name})
+	var text=preload('res://game/combat_source_text_r23.gd')
+	clock.say(text.u('<b>{who}</b>{particle} {skill:을를} 펼쳤다. {target} 방어 <em>−{def}%</em>, 속도 <em>−{speed}%</em>, 공격 <em>−{attack}%</em> ({turns}턴), 부식 {stacks}중첩{abyss}',{"who":a.name,"particle":b.CombatDisplay.Josa.tail(a.name,'이가'),"skill":skill_name,"target":e.name,"def":b.CombatDisplay.percent(.2*(.5 if e.grade=='boss' else 1)),"speed":15,"attack":b.CombatDisplay.percent(.15*(.5 if e.grade=='boss' else 1)),"turns":3,"stacks":c,"abyss":text.u('. <i>심연 −{n}</i>',{"n":result.n}) if result.n>0 else ''}),T+.8)
+	finish_payload(b,1.7)
 
 static func levia_mult(b) -> float:
 	var n=b.initial_enemy_count(); var alive=b.living(false).size()
@@ -273,10 +309,7 @@ static func run(b,a,e,t,sk) -> void:
 			if not behind.is_empty() and behind.hp>0: b._damage(a,behind,1.3,3,true,-1,{"hit":.5,"duration":1.5})
 			b.x(a).penetrating=false
 		"judith":
-			b._effect(e,"defense_down",3,.2); b._effect(e,"haste",3,.15); b._effect(e,"attack_down",3,.15)
-			if not b.x(e).has("judith_sp0"): b.x(e).judith_sp0=e.speed; e.speed=floor(e.speed*.85+.5)
-			b.x(e).judith_until=b.ctb_round+3
-			abyss(b,a,e,3); corrode(b,a,e,1)
+			judith(b,a,e,sk)
 		"levia": a.hp-=int(floor(a.mhp*.1)) if a.get("nation")!="모르가스 신관국" else maxi(1,int(floor(floor(a.mhp*.1)*.7))); b._effect(a,"rift_charge",99,1); b._sorel_aid(a)
 		"urda":
 			urda(b,a,t,sk)
@@ -369,10 +402,19 @@ static func hit_after(b,h: Dictionary) -> void:
 				var dc=k/(k+e.defense*(1-b.fx(e,"defense_down"))); var per=a.base[a.line]*2*.2*(1-(1-dc)/2)
 				e.effects.erase("bleed")
 				var want=.05
+				var at=h.get('hit_at',b.combat_events.T);var slot=b.combat_events.slot(b,a)
 				if stacks==3:
-					b.x(e).bleed_stacks=0; b._flat_enemy(e,maxf(1,floor(9*per*1.5)),a,false,false); want=.18
+					b.x(e).bleed_stacks=0
+					var amount=maxf(1,floor(9*per*1.5));var shield_before=b.fx(e,'shield');var damage=maxi(1,int(floor(amount*.6))) if e.effects.has('guard') else int(amount)
+					b._flat_enemy(e,amount,a,false,false,false);want=.18
+					if shield_before>0:b.combat_events.field(b,e,'sh',b.fx(e,'shield'),at+.3)
+					b.combat_events.field(b,e,'hp',e.hp,at+.3)
+					b.combat_events.trait_payload(slot,'티핑 포인트: 출혈 3중첩 폭발 '+str(damage),at+.3)
+					b.combat_events.say('<b>'+a.name+'</b>의 <b>티핑 포인트</b>. '+e.name+'의 출혈이 한꺼번에 터졌다. <em>'+str(damage)+'</em> 피해를 입혔다'+('. 쓰러졌다' if e.hp<=0 else ''),at+.4)
+					if e.hp<=0:b.data.last_kill=a.name+'의 티핑 포인트';b.TraitRules.kill_credit(b,a,at+.3)
 				else:
 					b.x(e).bleed_stacks=stacks; b._effect(e,"bleed",3,maxf(1,floor(stacks*per))); e.effects.bleed.by=a.id; e.effects.bleed.order=b._next_dot_order()
+					b.combat_events.trait_payload(slot,'티핑 포인트: 출혈 '+str(stacks)+'중첩',at+.3)
 				var cur=b.x(e).get("jd",0)
 				if e.hp>0 and want>cur: e.remaining+=10000*(want-cur)*(.5 if e.grade=="boss" else 1); b.x(e).jd=want
 			"lavinia":

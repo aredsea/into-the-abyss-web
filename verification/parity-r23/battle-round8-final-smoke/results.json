@@ -1,0 +1,40 @@
+[
+  {
+    "test": "battle_r23_round8_outcome_test",
+    "exit": 0,
+    "errors": [],
+    "seconds": 3.75,
+    "passed": true
+  },
+  {
+    "test": "battle_r23_round8_test",
+    "exit": 4294967295,
+    "errors": [
+      "SCRIPT ERROR: Invalid call. Nonexistent function 'has' in base 'bool'.",
+      "SCRIPT ERROR: Invalid access to property or key 'data' on a base object of type 'Nil'."
+    ],
+    "seconds": 147.05,
+    "passed": false
+  },
+  {
+    "test": "combat_a6_r22_test",
+    "exit": 0,
+    "errors": [],
+    "seconds": 16.88,
+    "passed": true
+  },
+  {
+    "test": "combat_p2_r22_trace",
+    "exit": 0,
+    "errors": [],
+    "seconds": 7.91,
+    "passed": true
+  },
+  {
+    "test": "import",
+    "exit": 0,
+    "errors": [],
+    "seconds": 4.09,
+    "passed": true
+  }
+]

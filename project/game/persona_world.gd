@@ -33,7 +33,7 @@ func research_action(who: String,arg: String) -> bool:
 	if who!="persona":return super(who,arg)
 	if active():return false
 	var e=s.persona_research_r22
-	var out=PersonaResearch.transition(s.persona.skill,e.get("draft",{}),int(e.get("spent",0)),int(s.gold),arg)
+	var out=PersonaResearch.transition(s.persona.skill,e.get("draft",{}),int(e.get("spent",0)),int(s.gold),arg,false,preload('res://game/localization_r22.gd').language(s))
 	research_message=out.message
 	var changed=out.saved!=s.persona.skill or out.draft!=e.get("draft",{}) or out.gold!=s.gold
 	if not changed:return false
