@@ -3,16 +3,17 @@ extends RefCounted
 ## are painted by expedition_screen_r22 and compared with executed Lua HTML.
 const L=preload("res://game/localization_r22.gd")
 const SourceLocale=preload("res://data/expe-ui-r23.json")
+const PreparationLocale=preload("res://data/expe-ui-pass6-r23.json")
 var w
 var lang="ko"
 var entries=[]
 func u(text: String,values: Dictionary={}) -> String:
-	var template=SourceLocale.data.ui.get(text,text) if lang=="en" else text
+	var template=PreparationLocale.data.ui.get(text,SourceLocale.data.ui.get(text,text)) if lang=="en" else text
 	var translated=values.duplicate()
 	for key in translated:
 		if translated[key] is String:translated[key]=t(translated[key])
 	return L.u(template,translated,lang).replace("<b>","").replace("</b>","")
-func t(value: String) -> String:return SourceLocale.data.words.get(value,L.t(value,lang)) if lang=="en" else value
+func t(value: String) -> String:return PreparationLocale.data.words.get(value,SourceLocale.data.words.get(value,L.t(value,lang))) if lang=="en" else value
 func text(value: String,role: String="body") -> void:entries.append({"text":value,"role":role})
 func button(id: String,label: String,sub: String="",enabled: bool=true) -> void:
 	entries.append({"text":label,"sub":sub,"action":id,"enabled":enabled,"role":"button"})
@@ -30,6 +31,80 @@ func build(world,kind: String,g: Dictionary,r: Dictionary,extra: Dictionary={}) 
 		"done_act":done_act(g,r,r.get("summary",{}))
 		"done":done(g,r)
 	return entries
+
+func preparation(world,kind: String,extra: Dictionary={}) -> Array:
+	w=world;lang=L.language(w.s);entries=[]
+	match kind:
+		"stars":text("★".repeat(int(extra.get("n",1))))
+		"heading":text(extra.text,"title");entries[-1].icon=extra.icon
+		"hint":text(extra.text)
+		"place":
+			var p=extra.place;button("tw_"+p.scene,u(p.name),u(p.d));entries[-1].icon=p.ic
+		"quest":quest(w.s.quest)
+		"slots":slots()
+		"fight":fight()
+		"dungeon_card":dungeon_card()
+		"modes":
+			for i in range(2):
+				button("so_mode_"+str(i),u("의뢰 출정" if i==0 else "대던전 도전"));entries[-1].selected=w.sortie_mode()==i
+	return entries
+
+func quest(q: Dictionary) -> void:
+	if q.is_empty():
+		text(u("균열 입장"),"title");text(u("받아 둔 의뢰가 없습니다. 토르바로 돌아가 길드 의뢰판을 먼저 보세요."));return
+	var c=w.quest_contract(q)
+	# gd_title is already a user-facing canonical title, not a translated template.
+	text(preload("res://game/guild_rules_r22.gd").title(c,lang),"title");text("★".repeat(int(c.get("stars",1))))
+	text(t(c.get("d","")));text(u(c.get("kind","")))
+	text(u("난이도 {difficulty}",{"difficulty":u(w.dungeon_rules.quest_difficulty(c))}))
+	var lv=w.sortie_quest_summary(c).elv
+	text(u("보상 금화 {gold}",{"gold":w.dungeon_rules.quest_gold(c,lv)}));text(u("적 Lv {lv}",{"lv":lv}))
+
+func slots() -> void:
+	var members=w.sortie_members()
+	text(u("출전 인원"),"title");text(u("{n} / 4 (칸을 누르면 뺀다)",{"n":members.size()}))
+	for i in range(4):
+		if i>=members.size():text(str(i+1));text(u("비어 있음"));continue
+		var m=members[i]
+		button("so_rm_"+m.id,t(m.name),u("{cls}, {row}, Lv {lv}",{"cls":m.cls,"row":m.row,"lv":m.lv}))
+		entries[-1].portrait=m.id
+
+func fight() -> void:
+	var f=w.s.persona.fight==1
+	text(t(w.expedition_member_name("persona")),"title")
+	text(u("직접 싸운다. 동료는 최대 3명" if f else "지휘만 한다. 동료 4명으로 나선다"))
+	for i in [1,0]:
+		button("so_fight_"+str(i),u("직접 싸운다" if i==1 else "지휘만 한다"));entries[-1].selected=f==(i==1)
+
+func dungeon_card() -> void:
+	var d=w.s.dungeon_r21;var mx=w.dungeon_max();w.selected_floor=mini(w.selected_floor,mx);d.sel=w.selected_floor
+	var team=w.expedition_party();var avg=team.avg;var pn=team.n
+	var sel=w.dungeon_floor_view(w.selected_floor,avg);var rec=w.expedition_rules.recommended(avg,mx)
+	var pages=maxi(1,int(ceil((mx+1)/6.0)));d.pg=mini(int(d.get("pg",1)),pages)
+	text(u("대던전"),"title")
+	text(u("최고 도달 {best}층",{"best":d.best}));button("rk_refresh",u("순위 새로고침"))
+	text(u("{best}층까지 도달 · 구역 보스 {bosses}개 처치 · 도전 {runs}회",{"best":d.best,"bosses":d.cleared_bosses.size(),"runs":d.runs}))
+	for f in range((int(d.pg)-1)*6+1,mini(int(d.pg)*6,mx+1)+1):
+		var v=w.dungeon_floor_view(f,avg)
+		if f>mx:button("so_fl_"+str(f),u("{floor}층",{"floor":f}),u("아래층의 보스를 쓰러뜨리면 열린다"),false);continue
+		var lead=u("구역 보스 {name}",{"name":w.dungeon_rules.foes[v.zone.boss].name}) if v.boss_kind=="boss" else u("우두머리")
+		var sub=u("★{star}, 권장 Lv {rec}, 적 Lv {enemy}, 층 끝: {lead}",{"star":v.star,"rec":w.expedition_rules.rec_level(f),"enemy":v.el,"lead":lead})
+		if f==rec:sub+=u("추천")
+		if f<=d.best:sub+=u("돌파")
+		button("so_fl_"+str(f),u("{floor}층 {zone}",{"floor":f,"zone":w.dungeon_zone_title(v.info)}),sub);entries[-1].selected=f==w.selected_floor
+	button("so_pg_"+str(maxi(1,int(d.pg)-1)),u("앞 쪽"),"",d.pg>1)
+	text(u("{page} / {pages} 쪽",{"page":d.pg,"pages":pages}))
+	button("so_pg_"+str(mini(pages,int(d.pg)+1)),u("다음 쪽"),"",d.pg<pages)
+	text(u("{floor}층 {zone}",{"floor":w.selected_floor,"zone":w.dungeon_zone_title(sel.info)}),"title")
+	text(u("{boss}가 층 끝을 지킨다",{"boss":"구역 보스" if sel.boss_kind=="boss" else "우두머리"}))
+	var leadname=t(w.dungeon_rules.foes[sel.zone.boss].name) if sel.boss_kind=="boss" else u("우두머리(그 구역 정예를 키운 적)")
+	text(u("입장 → 탐색 {steps}번(전투 70%, 발견 30%) → 휴식(HP +30%, 정비) → 층 끝 레이드 전투(4인, 상대는 {boss}). 전투가 이어져도 HP와 MP는 그대로다.",{"steps":5,"boss":leadname}))
+	text(u("★{star}{deep}",{"star":sel.star,"deep":u(" 심층") if sel.info.dk>0 else ""}));text(u("적 Lv {lv}",{"lv":sel.el}))
+	text(u("보스 금화 {gold}",{"gold":w.dungeon_rules.gold(w.selected_floor,sel.boss_kind)}))
+	text(u("전투 한 번 금화 약 {gold}",{"gold":int(floor(w.dungeon_rules.gold(w.selected_floor,"battle")*w.dungeon_rules.config.explore.GOLD_BATTLE+.5))}))
+	var mark=u(" (<b>추천 층</b>)") if w.selected_floor==rec else u(" (버거울 수 있다)") if w.expedition_rules.rec_level(w.selected_floor)>avg+.0001 else ""
+	var extra=u(". 추천은 4인 파티 기준이다(지금 {n}명). {tip}",{"n":pn,"tip":u("한두 층 낮춰 보는 것이 안전하다" if w.selected_floor>1 else "길드에서 동료를 더 소개받아 4명을 채우는 것이 안전하다")}) if pn<4 else ""
+	text(u("권장 Lv {rec}, 지금 파티 평균 Lv {avg}{mark}{extra}",{"rec":w.expedition_rules.rec_level(w.selected_floor),"avg":floor(avg*10+.5)/10,"mark":mark,"extra":extra}))
 func pips(r: Dictionary) -> void:
 	for k in range(1,6):
 		entries.append({"text":str(k),"role":"pip","state":"done" if k<=r.step else "cur" if r.phase=="explore" and k==r.step+1 else ""})
@@ -119,7 +194,7 @@ func done(g: Dictionary,r: Dictionary) -> void:
 func sortie(world,kind: String) -> Array:
 	w=world;lang=L.language(w.s);entries=[]
 	if kind=="summary":
-		var q=w.sortie_quest_summary({"lv":w.dungeon_floor_view(w.selected_floor,w.average_level()).el})
+		var q=w.sortie_quest_summary({"lv":w.dungeon_floor_view(w.selected_floor,w.average_level()).el} if w.sortie_mode()==1 else w.quest_contract(w.s.quest) if not w.s.quest.is_empty() else null)
 		text(u("출전 {n}명",{"n":q.n}));text(u("평균 Lv {avg}",{"avg":q.avg}) if q.n>0 else u("평균 -"))
 		text(u("적 Lv {lv}",{"lv":q.elv}));text(u("전열 {n}명",{"n":q.front}))
 		for warning in q.warns:text(warning)

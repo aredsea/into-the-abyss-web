@@ -1,56 +1,34 @@
-# R23-expe — 5차 기능 등가 대조
+# R23-expe — 6차 기능 등가 대조
 
-남은 65행을 검토해 **같음 26행 추가, 누적 같음 70행, host 전용 제외 1행, 남음 38행**으로 기록했다. 수정·보강한 함수 행은 29행이며 이 중 5행은 전체 기능 차이가 남아 승격하지 않았다. 원본 전 기능 이식 완료는 아니다.
+남은 38행을 끝까지 재검토했다. **같음 7행 추가, 누적 같음 77행 / 제외 1행 / 남음 31행**이다. 수정·보강한 행은 17행이며 이 중 10행은 전체 차이가 남아 승격하지 않았다. 원본 기능 전체 이식은 완료하지 못했다.
 
-|항목|결과|
+|항목|이번 결과|
 |---|---:|
-|이번 검토 / 같음 승격 / 수정·보강 / 제외 / 남음|65 / 26 / 29 / 1 / 38|
-|새 native 대조 단언|2,814, 실패 0|
-|새 실제 UI 단언|1,236, 실패 0|
-|실제 표시 입력을 Lua에 재입력한 화면 대조|24/24 일치|
-|원본 실행 fixture 사례|1,704 (기본 1,464 + 경계 216 + 화면 24)|
-|전체 프로젝트 검사 최종 집계|118/118 그룹, 실패 0|
+|검토 / 같음 승격 / 수정·보강 / 남음|38 / 7 / 17 / 31|
+|새 native 단언|272, 실패 0|
+|새 실제 UI 단언|1,908, 실패 0|
+|실제 표시 입력을 정본 Lua로 재실행|44/44 일치|
+|원본 실행 fixture|228 (표시 196 + 초상 20 + 정산 12)|
+|전체 프로젝트 검사|120/120 그룹, 실패 0|
 |전투 대조|6,320판 / 219,785기록, 차이 0|
-|저장 표본의 서버 validate|4/4|
-|기존 같음 행 보존|44/44, 행 객체 변경 0|
+|서버 저장 validate|6/6|
+|기존 같음 / 제외 행 보존|70 / 1, 행 객체 변경 0|
 |보호 이미지 / 정본 Lua|96개 변경 0 / 46개 변경 0|
-|기존 전투 시험 파일 / 서버 / docs 변경|0 / 0 / 0|
-|새 대조 파일 최대 크기|4,753,796 bytes, 50MB 이하|
+|기존 변경 파일|7개, 허용 범위 밖 0|
+|새 대조 자료 최대 크기|1,137,776 bytes, 40MB 이하|
 
-행별 이전 상태·시험·수정 위치·남은 이유는 [expe.json](verification/parity-r23/expe.json)에 이어 기록했다. 이번 65행 검토는 [expe-pass5-row-audit.json](verification/parity-r23/expe-pass5-row-audit.json), 남은 38행은 [expe-pass5-remaining.json](verification/parity-r23/expe-pass5-remaining.json)이다. 4차 보고서와 ledger는 expe-pass5-start-report.md / expe-pass5-start-ledger.json에 보존했다.
+승격: P2752(초상 실패 fallback), P2753(아이콘/제목), P2754(시설 버튼 전체 이름과 설명), P2755(의뢰 별 반복), P2756(빈/임의 안내), P3017(의뢰 카드 묶음), P3018(4칸 슬롯/번호/순서/제거).
 
-## 바뀐 동작
+의뢰의 제목·설명·종류·난이도·금화·적 레벨·별을 함께 표시했다. 4칸은 persona부터 파티 순서로 표시하며 빈 칸에는 원본 번호를 붙였다. persona 칸은 지휘로 전환하고 동료 칸은 제거한다. 직접 참전/지휘 문구, 마지막 동료 대기·만석 메시지와 모드 전환을 연결했다. 층 목록은 잠김 이유·추천/돌파·쪽 수·보스/일반 금화·4인 추천 설명을 추가했다. 후보/요약과 원본 데이터·초상 바이트는 유지한다.
 
-경험치 지급을 실제 74-level.lua의 전체 상태·지급량·레벨업 문구·중복 호출·연대기 문구와 비교했다. 숫자 sid와 문자열 sid를 구분하고, pm 중복/빈 자리/알 수 없는 동료, 편성 fallback, persona 없음, 경험치 0·음수·숫자 문자열·잘못된 문자열을 다뤘다. 동료 레벨이 없는 상태에서는 persona를 먼저 레벨업한 뒤 그 시점의 persona 레벨로 동료의 누락 레벨을 정해야 했다. 실제 실패 결과 60건을 expe-pass5-branch-before-results.json에 보존했다(누락 레벨 관련 12건과 후보 호감도 표시 48건). 수정 후 전부 통과했다. source town 기본값은 transient 경계에서만 쓰며 native xp_r22에는 기존 지급 표식만 저장한다.
+마을은 기존 hero·파티·출정·시설 위치와 색·서체를 보존하고, 기존 시설 영역 안의 스크롤에 본문·전체 장소 설명·의뢰 출정·최고층 안내를 추가했다. 새 단축 버튼은 실제 이동/모드 선택에 연결한다. 퇴각 확인은 별도 안내 아래 원본처럼 층/발견/파티/물약 정보를 함께 보존한다. 패배 뒤 live run을 없애고 마을로 돌아가며, 원본 손실 알림과 D.last/native summary를 보존한다. 케른 유지·중복 정산·저장 재개도 대조했다.
 
-선택 층의 범위 정규화와 출발 직후 빈 last를 원본에 맞췄다. 탐색 문구·로그와 휴식 회복 안내에 원본 영어 언어 팩을 연결했다. 반복해서 직접 호출한 휴식은 원본처럼 다시 회복한다. 이 차이를 확인한 24개 Lua 사례를 근거로 기존 expedition_r22_test의 1회 회복 고정 기대값을 반복 호출의 회복 상한 계산으로 바꿨다. 중복 탐색·보스 출발·정산 차단은 기존 시험 그대로 통과한다.
+실패를 보존한 첫 대조는 expe-pass6-before-results.json(216/216 미구현 경계 실패)이다. 그 같은 표시/초상 216건은 최종 모두 통과하며 정산/이관 56개 단언을 더해 272개다. 모든 텍스트·버튼·활성·순서는 Lua HTML에서 추출해 native 결과와 비교했다. 실제 그린 입력 44건도 다시 Lua에 넣어 일치했다. native 렌더러의 DTO끼리만 비교한 결과를 원본 대조로 세지 않았다.
 
-마을 출전 이름에 참전 persona를 먼저 포함했다. 이름 fallback, 중복/알 수 없는 동료 이름, 번역된 tag 순서, town 기본값·동일 참조 반환을 직접 비교했다. 마을 전체 화면이나 시설 이동 handler를 이 일부 근거만으로 승격하지 않았다.
+클라우드 검사에서 source 전용 dungeon.mode를 서버가 거부했다. 첫 전체 실행(expe-pass6-suite-final)은 26그룹 통과 시점에 중단하고 완료 증거로 쓰지 않았다. ui.sel의 기존 자유 문자열 필드에 모드를 보존하도록 고쳐 native/서버 계약을 맞췄고, 먼저 생긴 local mode 저장은 복사본에서 이관한다. 서버·저장 schema·기존 검증 규칙을 바꾸지 않았다. 이후 expe-pass6-suite-verified는 로컬 node server/abyss-save/test/serve.mjs에서 전부 새로 돌렸고, 검사 중 GDScript 변경은 0이다. 기존 시험 기대값 수정은 없다.
 
-탐색·휴식 화면은 원본의 층/구역/심층/보스/적 레벨/금화/물건 수/경험치, 진행 표식, 긴 발견 문구, 파티 직업/레벨/HP/MP와 사용할 수 있는 물약을 native 노드로 표시한다. 물약의 원본 표시 이름·보유량·레벨 부족·쓰러진 대상·재고 없음 조건과 실제 버튼 사용 후 주머니 우선 소비를 확인했다. 퇴각 안내는 보스 보상/돌파 기록을 받지 못한다는 원문과 퇴각/계속 버튼 순서를 따른다. 정산은 원본의 정렬된 아이템·장비·경험치·레벨업·호감·손실 문구와 다음 층/귀환 선택지를 표시한다.
+남은 31행의 원본 위치·이전 상태·새 시험/수정 위치·이유는 [expe.json](verification/parity-r23/expe.json)과 [expe-pass6-row-audit.json](verification/parity-r23/expe-pass6-row-audit.json)에 있다. 단순 HTML/캔버스·저장 매체 차이를 남은 이유로 삼지 않았다. 시설/장비/전투 파일은 수정하지 않았다. 실제품 의뢰 정산 override, 전투 HUD와 아이템, inline 정비 후보, overflow 보존 정책은 해당 갈래 수정 금지와 연결된다. 그 외 남은 전체 화면 순서, legacy 출정/옛 stage/canonical 저장 입력, continuation 무효 경계도 아직 미완료다. 클래스가 없는 옛 저장의 참전 비활성·persona host 아바타 차이가 있어 관련 전체 행은 승격하지 않았다.
 
-출정 후보 카드에는 출전 중인 동료도 정렬 순서대로 남기고 직업·열·레벨·속성·호감도를 표시했다. 원본 PX.aff는 소수를 내린 뒤 bar에 넣으므로 99.9의 표시도 맞췄다. 세 필터의 종류/순서/선택 상태와 빈 목록 안내, 출전 수/평균/적 레벨/전열 수/경고를 비교했다. 이미 보존된 이전 persona_world 테스트 경로는 시작 시점과 SHA-256이 같은 출정 화면을 별도 파일로 보존해 연결했다.
+24장(360×780/390×844, 한국어/영어)을 직접 열어 확인했다. 렌더 결과는 expe-pass6-render/와 expe-pass6-sheet-*.png, 검수 기록은 expe-pass6-visual-review.json이다. native 합성 마우스/스크롤 시험이며 브라우저·Web/WASM·물리 기기는 확인하지 않았다. Impeccable detector는 []였다. 기존 DESIGN.md/.impeccable/design.json의 갱신 시점 차이는 유지했고, 별도 document 작업으로 동기화할 수 있다.
 
-HTML 태그·style·class 문자열은 같음 판정에 쓰지 않았다. 실제 Lua 반환에서 text/action/활성 조건/표식/게이지를 추출하고 native가 그린 Label/Button 및 상태 변화를 비교했다. 같은 native 화면 입력을 정본 Lua로 다시 실행한 24건도 일치했다. 1·3·27·28·55·420층의 보스/심층 및 다음 층 허용 여부는 추가 216사례에서 비교했다. raw source 레코드는 비교와 표시를 위한 일시적 투영이며 native 저장 스키마를 대체하지 않는다.
-
-## 검사와 보존
-
-무거운 전체 검사는 로컬 node server/abyss-save/test/serve.mjs를 띄워 한 번 실행했다. 최초 118그룹 중 116그룹 통과, 2그룹은 영어 퇴각 안내의 줄바꿈 높이 초과를 보고했다. 최초 실패와 로그는 [expe-pass5-suite-final](verification/parity-r23/expe-pass5-suite-final)에 그대로 있다. 검사 도중 제품·시험 GDScript 변경은 없었다.
-
-그 뒤 제품 변경은 expedition_screen_r22.gd의 안내 폭 118→354px 및 오른쪽 정렬 두 줄뿐이다. 원문을 유지해 한 줄에 들어가게 했고, 실패한 두 그룹을 포함한 관련 UI 6그룹을 다시 실행해 전부 통과했다. 전체 검사 반복 없이 최종 118그룹 실패 0을 집계했다. 최초 결과와 보정 실행을 구분한 근거는 [expe-pass5-final-checks.json](verification/parity-r23/expe-pass5-final-checks.json), 보정 실행은 [expe-pass5-ui-correction](verification/parity-r23/expe-pass5-ui-correction)에 있다. 전투 대조는 8개 원본 audit의 실제 새 결과를 합산했다.
-
-360×780·390×844, 한국어·영어의 실제 포인터 입력/스크롤/저장 재개/취소/확정/재정산 거부를 확인했다. 전용 캡처 20장이 expe-pass5-render/에 있다. 직접 열어 본 이미지는 expe-pass5-visual-review.json에 기록한다. 처음 발견한 배경 위 문구 대비 문제는 정보 영역에 불투명한 바탕을 넣어 고쳤다. Web/WASM 내보내기·브라우저 실기기는 확인하지 않았다.
-
-기존 파일 변경은 9개다. 게임 규칙: expedition_world_r22.gd, persona_rules.gd, persona_world.gd, town_rules_r21.gd, town_world_r21.gd. 화면: expedition_screen_r22.gd, persona_sortie_screen.gd, town_screen_r21.gd. 시험: expedition_r22_test.gd. 새 구현은 expedition_ui_r23.gd, expe-ui-r23.json과 앞서 보존한 expe_sortie_legacy_r23.gd이며, 새 시험/도구/대조 자료는 expe 접두로 추가했다. 새 번역은 정본 05-gen.lua의 언어 팩에서 해당 표시 키만 추출했다. source, 서버, 전투 코드·시험, docs, 보호 이미지 바이트를 시작 해시와 비교했다. 사용자 저장 접근/삭제, 저장 schema 변경, git 명령·커밋·Web export·버전 갱신은 없다.
-
-## 남은 38행
-
-원본별: 70-town.lua 9행, 75-sortie.lua 7행, 76-dungeon.lua 1행, 77-explore.lua 15행, 78-battle-item.lua 6행.
-
-주요 실제 차이는 마을 본문/시설 설명/의뢰 카드 누락, 출정의 모드·슬롯·문구, ask 때 기존 파티 정보를 함께 남기는 구성, 휴식 정비의 선택지/순서, 패배 뒤 run 제거와 마을 이동, 포화 가방의 overflow 보존, canonical 원본 저장/옛 stage 입력 미지원이다. 전투 아이템·전투 snapshot의 전체 경계는 여전히 수정 금지인 전투 파일에 걸친다. 수정이 허용된 화면/마을/의뢰의 나머지 기능도 아직 완료하지 못했다. 이 38행에는 단순히 HTML/native 매체가 다르다는 이유만 남긴 행이 없다.
-
-P2794는 AI에게 줄 문맥만 만드는 CTX 함수이므로 공통 기준에 따라 제외했다. P3134의 이름 비교는 명시적으로 제외한 79-sex 전용 charm_potion 분기를 빼고 같음으로 기록했으며, 해당 아이템/장면은 추가하지 않았다. 70행 같음은 이 묶음의 행 판정이며 프로젝트 전체 완성률이 아니다. 기존 316/318 명시 진입 수치를 이번 기능 대조의 전수 조합 증명으로 쓰지 않았다.
-
-재현: node tools/expe_r23_pass5_oracle.mjs → python tools/expe_r23_pass5_project.py → python tools/godot_r17.py --headless --script res://tests/expe_pass5_r23_test.gd. 실제 화면은 ui_expe_pass5_r23_test.gd 실행 후 node tools/expe_r23_pass5_ui_oracle.mjs → python tools/expe_r23_pass5_ui_verify.py. 추가 층/정산은 node tools/expe_r23_pass5_extra.mjs → python tools/expe_r23_pass5_extra_project.py → Godot의 res://../verification/parity-r23/expe-pass5-extra.gd. 전체 검사 도구는 결과 덮어쓰기를 막는다. 재실행하려면 새 EXPE_SUITE_NAME을 지정한다.
-
-도구 메모: Impeccable detector 결과는 []였다. 기존 DESIGN.md와 .impeccable/design.json의 갱신 시점 차이는 그대로 뒀으며, 필요하면 별도 document 작업으로 동기화할 수 있다.
+재현: node tools/expe_r23_pass6_oracle.mjs → python tools/expe_r23_pass6_project.py → python tools/godot_r17.py --headless --script res://tests/expe_pass6_r23_test.gd. UI는 같은 래퍼로 --position -10000,-10000 --script res://tests/ui_expe_pass6_r23_test.gd 실행 후 node tools/expe_r23_pass6_ui_oracle.mjs → python tools/expe_r23_pass6_ui_verify.py. 저장은 node tools/expe_r23_pass6_saves.mjs. 전체 검사는 새 EXPE_SUITE_NAME으로 tools/expe_r23_pass5_verify.py를 실행한다. 사용자 실제 저장 파일 접근/삭제·git 명령·commit·Web export·docs 수정·버전 갱신은 없다.

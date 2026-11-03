@@ -102,11 +102,18 @@ func can_persona_fight() -> bool:
 func set_fight(fight: int) -> bool:
 	if active() or fight not in [0,1]:return false
 	if fight==1 and not can_persona_fight():return false
-	s.persona.fight=fight;s.party=persona_rules.clean(s.party,s.owned,fight,config.companions.map(func(c):return c.id));return true
+	s.party=persona_rules.clean(s.party,s.owned,int(s.persona.fight),config.companions.map(func(c):return c.id))
+	s.persona.fight=fight
+	if fight==1 and s.party.size()>3:
+		var drop=s.party.pop_back();var ui=preload("res://game/expedition_ui_r23.gd").new();ui.lang=preload("res://game/localization_r22.gd").language(s)
+		s.ui.msg=ui.u("출전이 4명이 되어 마지막 동료 {name:은는} 대기로 돌렸습니다.",{"name":person(drop).name})
+	return true
 func toggle_companion(id: String) -> bool:
 	if active() or id not in s.owned:return false
 	if id in s.party:s.party.erase(id);return true
-	if s.party.size()>=(3 if s.persona.fight==1 else 4):return false
+	if s.party.size()>=(3 if s.persona.fight==1 else 4):
+		var ui=preload("res://game/expedition_ui_r23.gd").new();ui.lang=preload("res://game/localization_r22.gd").language(s)
+		s.ui.msg=ui.u("출전 자리가 찼습니다(최대 {cap}명). 한 명을 빼고 다시 고르세요.",{"cap":3 if s.persona.fight==1 else 4});return false
 	s.party.append(id);return true
 func sortie_candidates(filter="") -> Array:
 	var ids=s.owned.filter(func(id):return filter=="" or person(id).row==("전열" if filter=="front" else "후열"))

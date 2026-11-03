@@ -62,14 +62,18 @@ func source_entries(entries: Array,y: float) -> float:
 			picture(e.id,Rect2(0,y,72,64),"town-party-face").set_meta("expe_entry",e);y+=68
 		elif e.has("action"):
 			var node=action(e.action,e.text,Rect2(0,y,342,44),source_action.bind(e.action),e.get("selected",false),not e.enabled,false);node.set_meta("expe_entry",e);y+=46
-			if e.get("sub","")!="":paragraph(e.sub,Rect2(4,y,334,26),11,T.MUTED,false);y+=30
+			if e.get("sub","")!="":
+				var sub_height=maxf(26,T.BODY.get_multiline_string_size(e.sub,HORIZONTAL_ALIGNMENT_LEFT,334,11).y+10)
+				paragraph(e.sub,Rect2(4,y,334,sub_height),11,T.MUTED,false);y+=sub_height+4
 		elif e.role=="bar":
 			var node=label(e.text,Rect2(0,y,342,24),12,T.INK,T.BODY,false);node.set_meta("expe_entry",e);y+=25
 			fill("source_bar_track:"+str(y),Rect2(0,y,342,5),T.PALE);fill("source_bar:"+str(y),Rect2(0,y,342*e.ratio,5),T.RED if e.kind=="hp" else T.BLUE);y+=14
 		else:
 			var fs=18 if e.role=="title" else 14;var font=T.BOLD if e.role in ["title","name"] else T.BODY
 			var height=maxf(28,font.get_multiline_string_size(e.text,HORIZONTAL_ALIGNMENT_LEFT,342,fs).y+14)
-			var node=paragraph(e.text,Rect2(0,y,342,height),fs,T.INK,false);node.add_theme_font_override("font",font);node.set_meta("expe_entry",e);y+=height+4
+			var inset=36 if e.has("icon") else 0
+			if e.has("icon"):icon(e.icon.trim_prefix("pl-"),Rect2(0,y,28,28))
+			var node=paragraph(e.text,Rect2(inset,y,342-inset,height),fs,T.INK,false);node.add_theme_font_override("font",font);node.set_meta("expe_entry",e);y+=height+4
 		i+=1
 	return y
 
@@ -98,6 +102,15 @@ func build_page() -> void:
 func retreat() -> void:
 	if not host.model.expedition():super();return
 	header("대던전","explore")
+	# Confirmation keeps the same live floor/party/potion information above it.
+	var previous=stage;stage=scroll_page(64,319,319)
+	var sheet=fill("retreat_party_sheet",Rect2(0,0,342,319),T.PAPER)
+	var y=0.0
+	for section in ["head","last","party"]:
+		var before=stage.get_child_count();y=source_entries(host.model.source_expedition_view(section),y)
+		for node in stage.get_children().slice(before):
+			if node.has_meta("expe_entry"):node.set_meta("expe6_entry",node.get_meta("expe_entry"));node.remove_meta("expe_entry")
+	stage.custom_minimum_size.y=maxf(319,y+12);sheet.size.y=stage.custom_minimum_size.y;stage=previous
 	fill("return_sheet",Rect2(0,389,390,371),T.PAPER);traced_title("retreat",Rect2(18,391,298,42))
 	var entries=host.model.source_expedition_view("retreat")
 	paragraph(entries[0].text,Rect2(18,445,354,190),16,T.INK,false).set_meta("expe_entry",entries[0])
