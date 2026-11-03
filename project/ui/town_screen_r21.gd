@@ -1,6 +1,7 @@
 extends Control
 ## First completed delivery: measured home / roster / overview / skills.
 ## All other destinations retain their complete functional screens in world_screen.
+const ResourceGauge=preload("res://ui/resource_gauge_r24.gd")
 const T=preload("res://ui/town_theme_r21.gd")
 const L=preload("res://game/localization_r22.gd")
 const Portrait=preload("res://ui/town_portrait_r21.gd")
@@ -85,6 +86,13 @@ func mark(id: String,node: Control) -> void:
 func fill(id: String,r: Rect2,color: Color) -> ColorRect:
 	var c=ColorRect.new(); stage.add_child(c); c.position=r.position; c.size=r.size; c.color=color; c.mouse_filter=MOUSE_FILTER_IGNORE
 	mark(id,c); return c
+
+func resource(id: String,r: Rect2,value: float,maximum: float,hp=true) -> Control:
+	var node=ResourceGauge.attach(stage,r,value,maximum,hp)
+	mark(id,node);return node
+
+func resource_numbers(r: Rect2,value: float,maximum: float,hp=true,large=20) -> Control:
+	return ResourceGauge.numbers(stage,r,value,maximum,hp,0,large)
 
 func label(value: String,r: Rect2,fs=14,color=T.INK,font: Font=T.BODY,translate=true) -> Label:
 	var l=Label.new(); stage.add_child(l); l.position=r.position; l.size=r.size
@@ -353,9 +361,9 @@ func small_party(y: float,tall=false) -> void:
 			label("Lv.%d"%m.level,Rect2(x+4,y+163,80,17),11,T.PAPER)
 		else:
 			label(host.model.person(id).name,Rect2(x,y+64,86,18),10,T.INK,T.BOLD)
-			label("%d / %d"%[m.hp,stats.hp],Rect2(x,y+83,86,17),10)
-			fill("party_hp:"+id,Rect2(x,y+102,86*float(m.hp)/maxf(1,stats.hp),4),T.RED)
-			fill("party_mp:"+id,Rect2(x,y+109,86*float(m.mp)/maxf(1,stats.mp),3),T.MP)
+			resource_numbers(Rect2(x,y+82,86,18),m.hp,stats.hp,true,18)
+			resource("party_hp:"+id,Rect2(x,y+101,86,9),m.hp,stats.hp)
+			resource("party_mp:"+id,Rect2(x,y+113,86,3),m.mp,stats.mp,false)
 
 func departure() -> void:
 	nav_top=790
@@ -427,8 +435,12 @@ func target_item() -> void:
 		picture(id,Rect2(42,y+3,88,93),"target-face")
 		label(host.model.person(id).name,Rect2(140,y+11,180,22),17,T.INK,T.BOLD)
 		label("Lv.%d"%m.level,Rect2(290,y+12,73,20),11)
-		label("%s  %s / %s"%[p.get("resource","HP"),host.number(p.get("before",0)),host.number(p.get("maximum",0))],Rect2(142,y+45,214,21),12,T.INK,T.BOLD)
-		fill("target_meter:"+id,Rect2(143,y+72,136*float(p.get("before",0))/maxf(1,p.get("maximum",1)),6),T.RED)
+		if p.get("resource","HP") in ["HP","MP"]:
+			resource_numbers(Rect2(142,y+41,136,25),p.get("before",0),p.get("maximum",0),p.get("resource","HP")=="HP")
+			resource("target_meter:"+id,Rect2(143,y+70,136,9 if p.get("resource","HP")=="HP" else 3),p.get("before",0),p.get("maximum",0),p.get("resource","HP")=="HP")
+		else:
+			label("%s  %s / %s"%[p.get("resource","HP"),host.number(p.get("before",0)),host.number(p.get("maximum",0))],Rect2(142,y+45,214,21),12,T.INK,T.BOLD)
+			fill("target_meter:"+id,Rect2(143,y+72,136*float(p.get("before",0))/maxf(1,p.get("maximum",1)),6),T.RED)
 		label("→ "+host.number(p.get("after",0)),Rect2(292,y+59,75,24),15,T.INK,T.BOLD)
 		b.tooltip_text=p.reason if not p.usable else "이 동료 선택"
 	var p=w.item_preview(it.id,host.selected_target)
@@ -824,10 +836,10 @@ func equipment() -> void:
 	member_choice(Rect2(168,200,204,38))
 	var m=host.model.s.members[host.who];var stats=host.model.stats(host.who,m.level)
 	label("Lv.%d · %s"%[m.level,host.model.person(host.who).row],Rect2(168,247,204,23),13,T.INK,T.BOLD)
-	label("HP %d / %d"%[m.hp,stats.hp],Rect2(168,272,204,20),12)
-	fill("equipment_hp",Rect2(168,296,204*float(m.hp)/maxf(1,stats.hp),5),T.RED)
-	label("MP %d / %d"%[m.mp,stats.mp],Rect2(168,305,204,20),12)
-	fill("equipment_mp",Rect2(168,329,204*float(m.mp)/maxf(1,stats.mp),5),T.MP)
+	resource_numbers(Rect2(168,270,204,23),m.hp,stats.hp)
+	resource("equipment_hp",Rect2(168,296,204,9),m.hp,stats.hp)
+	resource_numbers(Rect2(168,306,204,20),m.mp,stats.mp,false,18)
+	resource("equipment_mp",Rect2(168,329,204,3),m.mp,stats.mp,false)
 	var w=host.model;var eq=w.s.equipment[host.who]
 	for i in range(3):
 		var slot=["weapon","armor","acc"][i];var x=168+i*68
@@ -939,9 +951,8 @@ func overview() -> void:
 	var m=host.model.s.members[host.who]; var s=host.model.stats(host.who,m.level)
 	for i in range(2):
 		var k="hp" if i==0 else "mp"; var x=28+i*182
-		label("%s   %d / %d" % [k.to_upper(),m[k],s[k]],Rect2(x,550,158,24),13,T.INK,T.BOLD)
-		fill(k+"_track",Rect2(x+1,573,151,9),T.LINE)
-		fill(k+"_fill",Rect2(x+1,573,151*float(m[k])/maxf(1,s[k]),9),T.RED if i==0 else Color("197ab7"))
+		resource_numbers(Rect2(x,547,158,26),m[k],s[k],i==0,24)
+		resource(k+"_fill",Rect2(x+1,576,151,9 if i==0 else 3),m[k],s[k],i==0)
 	for i in range(5):
 		var key=["str","agi","int","def","spd"][i]; var x=28+i*70
 		var l=label(["힘","민첩","지능","방어","속도"][i],Rect2(x,610,60,19),10); l.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER

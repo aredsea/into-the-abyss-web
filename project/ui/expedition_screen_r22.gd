@@ -14,9 +14,10 @@ func small_party(y: float,tall=false) -> void:
 		var id=ids[i];var m=w.s.members[id];var b=w.s.run.get("maxima",{}).get(id,w.stats(id,m.level));var x=18+i*91
 		picture(id,Rect2(x,y,86,64),"town-party-face")
 		label(w.person(id).name,Rect2(x,y+64,86,18),11,T.INK,T.BOLD)
-		label("HP %d/%d"%[m.hp,b.hp],Rect2(x,y+82,86,17),10)
-		label("MP %d/%d"%[m.mp,b.mp],Rect2(x,y+100,86,17),10)
-		fill("party_hp:"+id,Rect2(x,y+119,86*clampf(float(m.hp)/maxf(1,b.hp),0,1),4),T.RED)
+		resource_numbers(Rect2(x,y+81,86,22),m.hp,b.hp)
+		resource("party_hp:"+id,Rect2(x,y+104,86,9),m.hp,b.hp)
+		resource("party_mp:"+id,Rect2(x,y+116,86,3),m.mp,b.mp,false)
+		resource_numbers(Rect2(x,y+120,86,17),m.mp,b.mp,false,15)
 
 func exploration() -> void:
 	var w=host.model;var r=w.s.run
@@ -67,7 +68,11 @@ func source_entries(entries: Array,y: float) -> float:
 				paragraph(e.sub,Rect2(4,y,334,sub_height),11,T.MUTED,false);y+=sub_height+4
 		elif e.role=="bar":
 			var node=label(e.text,Rect2(0,y,342,24),12,T.INK,T.BODY,false);node.set_meta("expe_entry",e);y+=25
-			fill("source_bar_track:"+str(y),Rect2(0,y,342,5),T.PALE);fill("source_bar:"+str(y),Rect2(0,y,342*e.ratio,5),T.RED if e.kind=="hp" else T.BLUE);y+=14
+			if e.kind in ["hp","mp"]:
+				resource("source_bar:"+str(y),Rect2(0,y,342,9 if e.kind=="hp" else 3),e.ratio,1,e.kind=="hp")
+			else:
+				fill("source_bar_track:"+str(y),Rect2(0,y,342,5),T.PALE);fill("source_bar:"+str(y),Rect2(0,y,342*e.ratio,5),T.BLUE)
+			y+=14
 		else:
 			var fs=18 if e.role=="title" else 14;var font=T.BOLD if e.role in ["title","name"] else T.BODY
 			var height=maxf(28,font.get_multiline_string_size(e.text,HORIZONTAL_ALIGNMENT_LEFT,342,fs).y+14)

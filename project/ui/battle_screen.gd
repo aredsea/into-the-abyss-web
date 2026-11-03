@@ -4,6 +4,7 @@ var session_data: Dictionary={}
 var session_snapshot: Dictionary={}
 var session_save: Callable
 
+const ResourceGauge=preload("res://ui/resource_gauge_r24.gd")
 const BattleState = preload("res://game/battle_state.gd")
 const ModernBattle=preload("res://game/battle_v3.gd")
 const CharacterSprite=preload("res://ui/battle_body_r18.gd")
@@ -61,6 +62,7 @@ var field_back: Control
 var motion_hurt_ids: Array = []
 static var enemy_pixels: Dictionary = {}
 var shown_hp: Dictionary = {}
+var resource_history: Dictionary = {}
 var presenting_source = ""
 # Presentation-only journal. Old saved prose remains readable and is never parsed.
 var display_history: Array=[]
@@ -217,10 +219,27 @@ func _panel(rect: Rect2, parent: Control = self) -> Panel:
 	var panel=Panel.new(); panel.add_theme_stylebox_override("panel",_style(PAPER,LINE))
 	_put(panel,rect,parent); return panel
 
-func _meter(rect: Rect2, current: int, maximum: int, hp = true, parent: Control = self, inline_text = "") -> void:
-	_color(rect,Color("d2d1c5"),parent)
-	_color(Rect2(rect.position,Vector2(rect.size.x*clampf(float(current)/maxi(1,maximum),0,1),rect.size.y)),RED if hp else Color("32738a"),parent)
-	if not inline_text.is_empty(): _label(inline_text,rect,12,INK,parent,HORIZONTAL_ALIGNMENT_CENTER)
+func _resource(unit: Dictionary,rect: Rect2,parent: Control,hp=true) -> Control:
+	var entry=ResourceGauge.observe(resource_history,str(unit.id),unit.hp,motion_reduced) if hp else {}
+	return ResourceGauge.attach(parent,rect,unit.hp if hp else unit.mp,unit.mhp if hp else unit.mmp,hp,_resource_shield(unit) if hp else 0,entry,motion_reduced,_phase_thresholds(unit) if hp else [])
+
+func _phase_thresholds(unit: Dictionary) -> Array:
+	if state is ModernBattle and state.dungeon_enemy_r21!=null:
+		var rules=state.dungeon_enemy_r21.rules
+		if rules.foes.get(unit.get("foe_id",""),{}).has("phase2"):return [rules.catalog.tune.boss.phase_hp]
+	return []
+
+func _resource_shield(unit: Dictionary) -> float:
+	return float(unit.get("shield",unit.get("effects",{}).get("shield",{}).get("amount",0)))
+
+func _resource_numbers(unit: Dictionary,rect: Rect2,parent: Control,hp=true,large=20) -> Control:
+	return ResourceGauge.numbers(parent,rect,unit.hp if hp else unit.mp,unit.mhp if hp else unit.mmp,hp,_resource_shield(unit) if hp else 0,large)
+
+func _knockout(face: Control,parent: Control,rect: Rect2) -> void:
+	var material=ShaderMaterial.new();material.shader=preload("res://ui/resource_ko_r24.gdshader");face.material=material
+	var stamp=Control.new();_put(stamp,rect,parent);stamp.pivot_offset=rect.size/2;stamp.rotation=deg_to_rad(-8)
+	var panel=_panel(Rect2(Vector2.ZERO,rect.size),stamp);var sb=_style(Color(.96,.94,.89,.9),ResourceGauge.RED);sb.set_border_width_all(2);panel.add_theme_stylebox_override("panel",sb)
+	_strong("전투 불능",Rect2(2,0,rect.size.x-4,rect.size.y),12,ResourceGauge.RED,stamp,HORIZONTAL_ALIGNMENT_CENTER,DISPLAY_PLAIN)
 
 func _rebuild() -> void:
 	if state==null or not is_inside_tree(): return
@@ -331,9 +350,11 @@ func _battlefield(rect: Rect2) -> void:
 		enemy_visuals[e.id]={"node":art,"home":art.position}; shown_hp[e.id]=e.hp
 		var hud=_color(Rect2(0,hud_y-hit_top,hud_w,33),PAPER,hit); _mark("enemy-hud:"+e.id,hud)
 		hud.z_as_relative=false; hud.z_index=25; enemy_visuals[e.id]["hud"]=hud
-		_enemy_name(e.name,Rect2(3,0,hud_w-6,14),hud)
-		_meter(Rect2(3,15,hud_w-6,2),e.hp,e.mhp,true,hud)
-		_enemy_hp("HP %d/%d" % [e.hp,e.mhp],Rect2(3,18,hud_w-6,14),hud,HORIZONTAL_ALIGNMENT_CENTER)
+		var phased=not _phase_thresholds(e).is_empty()
+		_enemy_name(e.name,Rect2(3,0,hud_w-6-(30 if phased else 0),13),hud)
+		if phased:_strong("%d단계"%int(e.get("phase",1)),Rect2(hud_w-32,0,29,13),10,ResourceGauge.RED,hud,HORIZONTAL_ALIGNMENT_RIGHT)
+		_resource_numbers(e,Rect2(3,11,hud_w-6,13),hud,true,16)
+		_resource(e,Rect2(3,24,hud_w-6,9),hud)
 		if big:
 			var diamond=Polygon2D.new(); diamond.polygon=PackedVector2Array([Vector2(0,-5.66),Vector2(5.66,0),Vector2(0,5.66),Vector2(-5.66,0)])
 			diamond.color=RED if targeting else PAPER; hit.add_child(diamond); diamond.position=Vector2(317*sx-left,4*sy); diamond.z_index=26
@@ -362,14 +383,15 @@ func _party(rect: Rect2) -> void:
 		var face_border=_panel(Rect2(0,0,col,51),b); face_border.add_theme_stylebox_override("panel",_style(Color.TRANSPARENT,Color("9fa394")))
 		if a.id==state.current_id or a.id==ally_open or (items_open and supply_target_set and a.id==state.selected_ally):
 			var border=_panel(Rect2(0,0,col,51),b); var sb=_style(Color.TRANSPARENT,RED); sb.set_border_width_all(2); border.add_theme_stylebox_override("panel",sb)
-		_strong(a.name,Rect2(0,51,col,17),12,INK,b,HORIZONTAL_ALIGNMENT_LEFT,TIGHT)
+		_strong(a.name,Rect2(0,51,col-(22 if a.id==state.current_id else 0),17),12,INK,b,HORIZONTAL_ALIGNMENT_LEFT,TIGHT)
+		if a.id==state.current_id:_strong("차례",Rect2(col-22,51,22,17),10,ResourceGauge.RED,b,HORIZONTAL_ALIGNMENT_RIGHT,W850)
 		_label(a.row,Rect2(0,68,col*.5,17),12,Color("575f55"),b)
-		_strong("차례" if a.id==state.current_id else "선택" if a.id==ally_open or (items_open and supply_target_set and a.id==state.selected_ally) else "",Rect2(col*.5,68,col*.5,17),12,Color("b52816"),b,HORIZONTAL_ALIGNMENT_RIGHT,W850)
-		for j in range(2):
-			var current=a.hp if j==0 else a.mp; var maximum=a.mhp if j==0 else a.mmp; var yy=85+j*25
-			_strong("HP" if j==0 else "MP",Rect2(0,yy,22,19),12,INK,b)
-			_strong("%d/%d" % [current,maximum],Rect2(22,yy,col-22,19),13,INK,b,HORIZONTAL_ALIGNMENT_RIGHT,TIGHT)
-			_meter(Rect2(0,yy+19,col,3),current,maximum,j==0,b)
+		_strong("선택" if a.id==ally_open or (items_open and supply_target_set and a.id==state.selected_ally) else "",Rect2(col*.5,68,col*.5,17),12,Color("b52816"),b,HORIZONTAL_ALIGNMENT_RIGHT,W850)
+		if a.hp<=0:_knockout(face,b,Rect2(4,17,col-8,22))
+		_resource_numbers(a,Rect2(0,85,col,22),b)
+		_resource(a,Rect2(0,107,col,9),b)
+		_resource(a,Rect2(0,119,col,3),b,false)
+		_resource_numbers(a,Rect2(0,123,col,17),b,false,15)
 
 func _detail(rect: Rect2) -> void:
 	var e=state.enemy(state.selected_enemy)
@@ -378,13 +400,14 @@ func _detail(rect: Rect2) -> void:
 	if state.data.has("encounter_r21"):
 		_enemy_name(e.name+" · "+e.role,Rect2(rect.position+Vector2(0,6),Vector2(rect.size.x-100,17)),self,HORIZONTAL_ALIGNMENT_LEFT)
 	else: _strong(e.name,Rect2(rect.position+Vector2(0,6),Vector2(rect.size.x-100,17)),12)
-	_enemy_hp("HP %d/%d" % [e.hp,e.mhp],Rect2(rect.position+Vector2(rect.size.x-100,6),Vector2(100,17)),self,HORIZONTAL_ALIGNMENT_RIGHT)
+	_resource_numbers(e,Rect2(rect.position+Vector2(rect.size.x-100,2),Vector2(100,21)),self)
+	_resource(e,Rect2(rect.position+Vector2(rect.size.x-100,25),Vector2(100,9)),self)
 	var weak=[]
 	for element in e.get("weak",[]): weak.append(state.data.elements.get(element,element))
 	if not weak.is_empty(): _label("약점 "+" · ".join(weak),Rect2(rect.position+Vector2(0,22),Vector2(rect.size.x-112,17)),12)
-	if e.has("gauge"): _label("심연 %s/%d" % [str(int(e.gauge)),e.max],Rect2(rect.position+Vector2(rect.size.x-112,22),Vector2(112,17)),12,INK,self,HORIZONTAL_ALIGNMENT_RIGHT)
+	if e.has("gauge"): _label("심연 %s/%d" % [str(int(e.gauge)),e.max],Rect2(rect.position+Vector2(rect.size.x-112,36),Vector2(112,17)),12,INK,self,HORIZONTAL_ALIGNMENT_RIGHT)
 	var intent=state.intent(e).split(" / ")[0].split(" · 심연")[0]
-	_label(intent,Rect2(rect.position+Vector2(0,40),Vector2(rect.size.x,17)),12)
+	_label(intent,Rect2(rect.position+Vector2(0,40),Vector2(rect.size.x-115 if e.has("gauge") else rect.size.x,17)),12)
 
 func _commands(rect: Rect2) -> void:
 	var ready=state.player_turn() and not busy
@@ -538,18 +561,21 @@ func _close_button(rect: Rect2, parent: Control) -> void:
 
 func _ally_sheet(rect: Rect2) -> void:
 	var a=state.ally(ally_open); var p=_sheet(rect,a.name,"status")
+	var status_portrait: Control
 	if a.id in ["hildegard","bargut","teiris","berenga"]:
-		var portrait=preload("res://ui/battle_image_r19.gd").new(); portrait.picture=_texture("res://assets/portraits-r10/"+a.id+"-cutout.png"); _put(portrait,Rect2(7,52,153,192),p); _mark("status-portrait",portrait)
+		status_portrait=preload("res://ui/battle_image_r19.gd").new();status_portrait.picture=_texture("res://assets/portraits-r10/"+a.id+"-cutout.png");_put(status_portrait,Rect2(7,52,153,192),p);_mark("status-portrait",status_portrait)
 	else:
-		var portrait=preload("res://ui/character_portrait.gd").new(); portrait.configure(a.id); _put(portrait,Rect2(7,52,153,192),p)
+		status_portrait=preload("res://ui/character_portrait.gd").new();status_portrait.configure(a.id);_put(status_portrait,Rect2(7,52,153,192),p)
+	if a.hp<=0:_knockout(status_portrait,p,Rect2(24,119,117,27))
+
 	var x=174.0; var width=rect.size.x-x-12
 	_label(a.row+" · "+a.cls,Rect2(x,57,width,20),14,INK,p)
 	for j in range(2):
-		var current=a.hp if j==0 else a.mp; var maximum=a.mhp if j==0 else a.mmp; var yy=93+j*53
-		_label("HP" if j==0 else "MP",Rect2(x,yy+13,24,17),12,INK,p)
-		var value=_type("%d/%d" % [current,maximum],Rect2(x+28,yy,width-28,31),28,INK,p,HORIZONTAL_ALIGNMENT_RIGHT,DISPLAY_PLAIN)
+		var yy=93+j*53
+		var value=_resource_numbers(a,Rect2(x,yy,width,31),p,j==0,28)
 		_mark("status-value:"+str(j),value)
-		_meter(Rect2(x,yy+31,width,6),current,maximum,j==0,p)
+		_resource(a,Rect2(x,yy+34,width,9 if j==0 else 3),p,j==0)
+
 	_color(Rect2(x,199,width,1),LINE,p)
 	var effects=state.effects_text(a)
 	_label("상태 효과 없음" if a.effects.is_empty() else _wrap(effects,width,12),Rect2(x,210,width,20),13,INK,p)
@@ -715,7 +741,7 @@ func _retry() -> void:
 		return
 	playback_generation+=1; state=ModernBattle.new(scene_data) if scene_data.get("rules_version",2)==3 else BattleState.new(scene_data)
 	busy=false; pending_action=""; animation_ally=""; skills_open=false; ally_open=""; log_open=false
-	display_history.clear(); legacy_history.clear(); history_origin=0
+	resource_history.clear(); display_history.clear(); legacy_history.clear(); history_origin=0
 	_persist(); _rebuild()
 
 func _preview(id: String) -> void:
@@ -830,7 +856,11 @@ func _supplies(rect: Rect2) -> void:
 		_label(menu.get('hint','아군 카드를 눌러 대상 선택'),Rect2(12,181,rect.size.x-24,22),11 if canonical else 12,INK,p)
 	else:
 		_label("대상 "+a.name,Rect2(12,181,110,22),14,INK,p)
-		_label("HP %d/%d · MP %d/%d" % [a.hp,a.mhp,a.mp,a.mmp],Rect2(122,181,rect.size.x-134,22),12,INK,p,HORIZONTAL_ALIGNMENT_RIGHT)
+		var width=(rect.size.x-140)/2
+		_resource_numbers(a,Rect2(122,177,width,17),p,true,16)
+		_resource(a,Rect2(122,194,width,9),p)
+		_resource_numbers(a,Rect2(128+width,177,width,17),p,false,16)
+		_resource(a,Rect2(128+width,194,width,3),p,false)
 	var col=(rect.size.x-32)/2
 	var cancel=_button("cancel-action",Rect2(12,203,col,44),_close_sheets,false,p); _outline(cancel)
 	_strong("취소",Rect2(0,0,col,44),14,INK,cancel,HORIZONTAL_ALIGNMENT_CENTER,BODY_BOLD)
