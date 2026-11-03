@@ -75,6 +75,7 @@ func _ready() -> void:
 	cloud.changed.connect(func():
 		if screen in ["cloud","rank"]:_draw_screen())
 	if model.active(): screen="explore"
+	elif model.has_method("expedition_defeat_home") and model.expedition_defeat_home():screen="town"
 	elif not model.s.summary.is_empty(): screen="summary"
 	resized.connect(_draw_screen)
 	_draw_screen()
@@ -518,7 +519,7 @@ func _save_battle(snapshot: Dictionary) -> Error:
 
 func _leave_battle() -> void:
 	if not model.finish_battle(): return
-	_save(); screen="explore" if model.active() else "summary"
+	_save(); screen="town" if model.has_method("expedition_defeat_home") and model.expedition_defeat_home() else "explore" if model.active() else "summary"
 	if is_instance_valid(battle): remove_child(battle); battle.queue_free(); battle=null
 	_draw_screen()
 

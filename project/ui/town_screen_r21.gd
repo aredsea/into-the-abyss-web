@@ -158,6 +158,11 @@ func hit(id: String,r: Rect2,callback: Callable) -> Button:
 	return b
 
 func picture(id: String,r: Rect2,slot="bust") -> Control:
+	if host.model.has_method("source_portrait_record") and Portrait.preferred_path(id,slot).is_empty():
+		var face=host.model.source_portrait_record(id)
+		var box=fill("portrait_fallback:"+id,r,T.PALE)
+		var glyph=label(face.fallback,r,22,T.INK,T.BOLD,false);glyph.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+		return box
 	var p=Portrait.new(); stage.add_child(p); p.position=r.position; p.size=r.size; p.configure(id,slot)
 	mark("portrait:"+id+":"+slot,p); return p
 
@@ -213,7 +218,7 @@ func home() -> void:
 	var zone=host.model.dungeon_rules.floor_info(host.model.selected_floor)
 	label(host.model.dungeon_rules.zones[zone.zone].name+"\n%d층"%host.model.selected_floor,Rect2(298,211,92,64) if L.language(host.model.s)=="en" else Rect2(332,211,58,40),9).autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	metrics[-1].available=1000
-	var lead=host.model.s.party[0] if not host.model.s.party.is_empty() else host.model.s.owned[0]
+	var lead=host.model.s.party[0] if not host.model.s.party.is_empty() else host.model.s.owned[0] if not host.model.s.owned.is_empty() else "persona"
 	picture(lead,Rect2(50,103,340,428),"town-main")
 	fill("hero_caption",Rect2(14,460,277,71),Color(0.067,.09,.08,.85))
 	label("주요 동료",Rect2(22,460,160,17),9,T.PAPER)
@@ -235,6 +240,10 @@ func home() -> void:
 	var b=action("depart","원정 준비",Rect2(14,631,362,67),host.go.bind("depart"),true)
 	plate("town-depart",Rect2(135,631,241,67))
 	b.alignment=HORIZONTAL_ALIGNMENT_LEFT; b.add_theme_font_size_override("font_size",23)
+	var original_stage=stage
+	var town_sc=ScrollContainer.new();stage.add_child(town_sc);town_sc.position=Vector2(0,702);town_sc.size=Vector2(390,86);town_sc.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+	var town_page=Control.new();town_sc.add_child(town_page);town_page.custom_minimum_size=Vector2(378,720)
+	var town_details=Control.new();town_page.add_child(town_details);town_details.position=Vector2(0,-702);stage=town_details
 	label("마을에서 할 일",Rect2(14,702,280,17),9,T.INK,T.BOLD)
 	for i in range(4):
 		var e=[["guild","길드"],["shop","상회"],["inn","여관"],["smithy","대장간"]][i]; var x=14+i*92
@@ -242,6 +251,38 @@ func home() -> void:
 		plate("facility-"+e[0],Rect2(x,722,87,37))
 		# Keep facility text below its symbol, within one coherent hit target.
 		host.controls[e[0]].text=""; label(e[1],Rect2(x+5,752,77,21),11,T.INK,T.BOLD)
+	if host.model.has_method("source_preparation_view"):
+		var w=host.model;var y=792.0
+		var ui=w.ExpeditionUI.new();ui.lang=L.language(w.s)
+		if w.has_method("expedition_defeat_home") and w.expedition_defeat_home() and not w.s.ui.get("msg","").is_empty():
+			var message_height=T.BODY.get_multiline_string_size(w.s.ui.msg,HORIZONTAL_ALIGNMENT_LEFT,342,14).y+20
+			paragraph(w.s.ui.msg,Rect2(18,y,342,message_height),14,T.INK,false);y+=message_height+16
+		var narrative=ui.u("케른 용병단과 마렌토 상인들이 함께 다스리는 도시. 여기서는 어디서 왔는지 캐묻는 사람이 없고, 다들 계약서부터 내민다. 성문 밖으로 옛 학술원 폐허가 보인다.")
+		var height=T.BODY.get_multiline_string_size(narrative,HORIZONTAL_ALIGNMENT_LEFT,342,14).y+20
+		paragraph(narrative,Rect2(18,y,342,height),14,T.INK,false);y+=height+16
+		for p in [
+			{"scene":"guild","ic":"pl-guild","name":"연합 길드 본관","d":"의뢰판과 동료 소개 창구"},
+			{"scene":"shop","ic":"pl-shop","name":"마렌토 상회","d":"물약(체력, 마나, 보호막), 해독약, 귀환 두루마리"},
+			{"scene":"inn","ic":"pl-inn","name":"아랫마을 여관","d":"동료와 이야기하고 식사하고 쉰다"},
+			{"scene":"smithy","ic":"pl-smithy","name":"한나의 대장간","d":"장비를 제련하고 가공한다"}]:
+			var e=w.source_preparation_view("place",{"place":p})[0]
+			y=town_detail_button(e,y,host.go.bind(p.scene))
+		var q=w.quest_contract(w.s.quest);var sub=ui.u("길드 의뢰판에서 의뢰를 받으면 나설 수 있다")
+		if not q.is_empty():
+			sub=ui.u("{title} {stars}, 보상 금화 {gold}",{"title":preload("res://game/guild_rules_r22.gd").title(q,L.language(w.s)),"stars":"★".repeat(int(q.stars)),"gold":w.dungeon_rules.quest_gold(q,w.sortie_quest_summary(q).elv)})+" · "+ui.u("난이도 {difficulty}",{"difficulty":ui.u(w.dungeon_rules.quest_difficulty(q))})
+		y=town_detail_button({"text":ui.u("출정"),"sub":sub,"action":"tw_sortie","enabled":not q.is_empty()},y,func():w.set_sortie_mode(0);host._save();host.go("depart"))
+		y=town_detail_button({"text":ui.u("대던전 도전"),"sub":ui.u("{best}층까지 도달",{"best":w.s.dungeon_r21.best}),"action":"tw_dungeon","enabled":true},y,func():w.set_sortie_mode(1);host._save();host.go("depart"))
+		town_page.custom_minimum_size.y=y-702+16
+		if w.has_method("expedition_defeat_home") and w.expedition_defeat_home():town_sc.set_deferred("scroll_vertical",90)
+	stage=original_stage
+
+func town_detail_button(e: Dictionary,y: float,callback: Callable) -> float:
+	var height=maxf(32,T.BODY.get_multiline_string_size(e.sub,HORIZONTAL_ALIGNMENT_LEFT,326,12).y+12)
+	var b=action(e.action,e.text,Rect2(14,y,350,48),callback,false,not e.enabled,false);b.set_meta("expe6_entry",e)
+	if e.has("icon"):icon(e.icon.trim_prefix("pl-"),Rect2(22,y+10,28,28))
+	fill(e.action+"_description",Rect2(14,y+48,350,height),T.PAPER)
+	paragraph(e.sub,Rect2(24,y+48,326,height),12,T.INK,false)
+	return y+height+62
 
 func roster() -> void:
 	header("동료")

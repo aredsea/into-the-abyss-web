@@ -1,0 +1,17 @@
+{
+  "source_only_field": "dungeon.mode",
+  "observed_rejections": [
+    {
+      "file": "expe-pass6-ui-save-ko.json",
+      "path": "dungeon.mode",
+      "message": "invalid_save"
+    },
+    {
+      "file": "expe-pass6-ui-save-en.json",
+      "path": "dungeon.mode",
+      "message": "invalid_save"
+    }
+  ],
+  "note": "Observed by tools/expe_r23_pass6_saves.mjs before correction, recorded from tool output. Rejected specimen files were subsequently replaced by corrected captures; this record does not claim an archived rejected payload.",
+  "resolution": "Existing ui.sel string field; local mode input migrates on a copy; server unchanged."
+}

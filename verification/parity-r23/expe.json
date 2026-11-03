@@ -3,25 +3,26 @@
   "basis": "r21-expe-brief.md / r21-common.md; 109 items from audit-r22b.json remaining_work[7]",
   "summary": {
     "reviewed_rows": 109,
-    "promoted_same": 70,
-    "fixed_rows": 65,
-    "fixed_still_remaining": 10,
-    "remaining_rows": 38,
-    "oracle_checks": 103987,
+    "promoted_same": 77,
+    "fixed_rows": 76,
+    "fixed_still_remaining": 14,
+    "remaining_rows": 31,
+    "oracle_checks": 104259,
     "core_oracle_checks": 2310,
     "supply_oracle_checks": 7384,
     "level_oracle_checks": 6571,
     "oracle_failures": 0,
-    "regression_groups": 118,
+    "regression_groups": 120,
     "failed_groups": [],
     "protected_snapshot_files": 1007,
     "changed_existing_files": [
-      "project/game/dungeon_world_r21.gd",
-      "project/game/expedition_supply_r22.gd",
+      "project/game/expedition_ui_r23.gd",
       "project/game/expedition_world_r22.gd",
-      "project/tests/ui_expedition_r22_test.gd",
+      "project/game/persona_world.gd",
       "project/ui/expedition_screen_r22.gd",
-      "project/ui/persona_sortie_screen.gd"
+      "project/ui/persona_sortie_screen.gd",
+      "project/ui/town_screen_r21.gd",
+      "project/ui/world_screen.gd"
     ],
     "outside_allowed_changed": [],
     "assets_checked": 96,
@@ -146,6 +147,43 @@
       "cloud_save_specimens": 4,
       "source_files_unchanged": 46,
       "new_comparison_max_bytes": 4753796
+    },
+    "pass6": {
+      "reviewed_rows": 38,
+      "promoted_same": 7,
+      "implementation_rows": 17,
+      "fixed_still_remaining": 10,
+      "cumulative_same": 77,
+      "excluded_host_rows": 1,
+      "remaining_rows": 31,
+      "native_assertions": 272,
+      "native_failures": 0,
+      "ui_assertions": 1908,
+      "ui_failures": 0,
+      "direct_rendered_source_cases": 44,
+      "direct_rendered_source_failures": 0,
+      "source_fixture_cases": 228,
+      "regression_groups": 120,
+      "failed_groups": [],
+      "changed_existing_files": [
+        "project/game/expedition_ui_r23.gd",
+        "project/game/expedition_world_r22.gd",
+        "project/game/persona_world.gd",
+        "project/ui/expedition_screen_r22.gd",
+        "project/ui/persona_sortie_screen.gd",
+        "project/ui/town_screen_r21.gd",
+        "project/ui/world_screen.gd"
+      ],
+      "outside_allowed_changed": [],
+      "assets_checked": 96,
+      "asset_changes": [],
+      "source_files_unchanged": 46,
+      "trace_battles": 6320,
+      "trace_equal_battles": 6320,
+      "trace_records": 219785,
+      "cloud_save_specimens": 6,
+      "ui_captures": 24,
+      "new_comparison_max_bytes": 1137776
     }
   },
   "rows": [
@@ -635,12 +673,17 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "초상 provider 실패/비 HTML 반환 때 번역된 이름 첫 글자를 쓰는 fallback을 native 초상 경로와 직접 대조하지 못했다. 알려진 동료 초상 보존만으로 전체 승격하지 않았다.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass6_r23_test.gd",
+        "project/tests/ui_expe_pass6_r23_test.gd"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:39"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -719,6 +762,41 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "초상 provider 실패/비 HTML 반환 때 번역된 이름 첫 글자를 쓰는 fallback을 native 초상 경로와 직접 대조하지 못했다. 알려진 동료 초상 보존만으로 전체 승격하지 않았다."
+      },
+      "pass6_fixed": true,
+      "pass6_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "초상 provider 실패/비 HTML 반환 때 번역된 이름 첫 글자를 쓰는 fallback을 native 초상 경로와 직접 대조하지 못했다. 알려진 동료 초상 보존만으로 전체 승격하지 않았다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/70-town.lua",
+          "start": 45,
+          "end": 53,
+          "symbol": "B.tw_face"
+        },
+        "groups": [
+          "face"
+        ],
+        "direct_native_contract": true,
+        "full_function_unresolved": false,
+        "implementation_changed": true,
+        "tests": [
+          "project/tests/expe_pass6_r23_test.gd",
+          "project/tests/ui_expe_pass6_r23_test.gd"
+        ],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": "verification/parity-r23/expe-pass6-ui-source-results.json",
+        "native_locations": [
+          {
+            "file": "project/game/expedition_world_r22.gd",
+            "line": 39,
+            "function": "source_portrait_record"
+          }
+        ]
       }
     },
     {
@@ -733,12 +811,17 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "native 장소 제목의 아이콘·제목 조합을 원본 tw_hd의 각 인수와 연결한 직접 표시 시험이 없다. 기존 제목 그림만으로 전체 승격하지 않았다.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass6_r23_test.gd",
+        "project/tests/ui_expe_pass6_r23_test.gd"
+      ],
+      "implementation": [
+        "project/ui/expedition_screen_r22.gd:49"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -808,6 +891,41 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "native 장소 제목의 아이콘·제목 조합을 원본 tw_hd의 각 인수와 연결한 직접 표시 시험이 없다. 기존 제목 그림만으로 전체 승격하지 않았다."
+      },
+      "pass6_fixed": true,
+      "pass6_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "native 장소 제목의 아이콘·제목 조합을 원본 tw_hd의 각 인수와 연결한 직접 표시 시험이 없다. 기존 제목 그림만으로 전체 승격하지 않았다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/70-town.lua",
+          "start": 56,
+          "end": 56,
+          "symbol": "B.tw_hd"
+        },
+        "groups": [
+          "heading"
+        ],
+        "direct_native_contract": true,
+        "full_function_unresolved": false,
+        "implementation_changed": true,
+        "tests": [
+          "project/tests/expe_pass6_r23_test.gd",
+          "project/tests/ui_expe_pass6_r23_test.gd"
+        ],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": "verification/parity-r23/expe-pass6-ui-source-results.json",
+        "native_locations": [
+          {
+            "file": "project/ui/expedition_screen_r22.gd",
+            "line": 49,
+            "function": "source_entries"
+          }
+        ]
       }
     },
     {
@@ -822,12 +940,17 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "마을 시설 버튼은 일부 짧은 이름을 사용하고 원본의 설명 두 번째 줄을 모두 표시하지 않는다. 원본 장소 버튼의 표시 정보 차이가 남는다.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass6_r23_test.gd",
+        "project/tests/ui_expe_pass6_r23_test.gd"
+      ],
+      "implementation": [
+        "project/ui/town_screen_r21.gd:279"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -897,6 +1020,41 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "마을 시설 버튼은 일부 짧은 이름을 사용하고 원본의 설명 두 번째 줄을 모두 표시하지 않는다. 원본 장소 버튼의 표시 정보 차이가 남는다."
+      },
+      "pass6_fixed": true,
+      "pass6_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을 시설 버튼은 일부 짧은 이름을 사용하고 원본의 설명 두 번째 줄을 모두 표시하지 않는다. 원본 장소 버튼의 표시 정보 차이가 남는다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/70-town.lua",
+          "start": 59,
+          "end": 62,
+          "symbol": "B.tw_pbtn"
+        },
+        "groups": [
+          "place"
+        ],
+        "direct_native_contract": true,
+        "full_function_unresolved": false,
+        "implementation_changed": true,
+        "tests": [
+          "project/tests/expe_pass6_r23_test.gd",
+          "project/tests/ui_expe_pass6_r23_test.gd"
+        ],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": "verification/parity-r23/expe-pass6-ui-source-results.json",
+        "native_locations": [
+          {
+            "file": "project/ui/town_screen_r21.gd",
+            "line": 279,
+            "function": "town_detail_button"
+          }
+        ]
       }
     },
     {
@@ -911,12 +1069,17 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본은 의뢰 별 수만큼 별을 반복한다. native의 던전 별 숫자 표시는 이 마을/의뢰 helper의 직접 대응 증거가 아니며, accepted quest 별 표시가 남는다.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass6_r23_test.gd",
+        "project/tests/ui_expe_pass6_r23_test.gd"
+      ],
+      "implementation": [
+        "project/game/expedition_ui_r23.gd:52"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -987,6 +1150,42 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "원본은 의뢰 별 수만큼 별을 반복한다. native의 던전 별 숫자 표시는 이 마을/의뢰 helper의 직접 대응 증거가 아니며, accepted quest 별 표시가 남는다."
+      },
+      "pass6_fixed": true,
+      "pass6_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본은 의뢰 별 수만큼 별을 반복한다. native의 던전 별 숫자 표시는 이 마을/의뢰 helper의 직접 대응 증거가 아니며, accepted quest 별 표시가 남는다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/70-town.lua",
+          "start": 64,
+          "end": 64,
+          "symbol": "B.tw_stars"
+        },
+        "groups": [
+          "stars",
+          "quest"
+        ],
+        "direct_native_contract": true,
+        "full_function_unresolved": false,
+        "implementation_changed": true,
+        "tests": [
+          "project/tests/expe_pass6_r23_test.gd",
+          "project/tests/ui_expe_pass6_r23_test.gd"
+        ],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": "verification/parity-r23/expe-pass6-ui-source-results.json",
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 52,
+            "function": "quest"
+          }
+        ]
       }
     },
     {
@@ -1001,12 +1200,17 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "hint의 임의 안내 문자열·빈 문자열을 실제 시설 카드에 연결한 직접 대조가 없다. 공통 paragraph의 존재만으로 전체 승격하지 않았다.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass6_r23_test.gd",
+        "project/tests/ui_expe_pass6_r23_test.gd"
+      ],
+      "implementation": [
+        "project/ui/expedition_screen_r22.gd:49"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1076,6 +1280,41 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "hint의 임의 안내 문자열·빈 문자열을 실제 시설 카드에 연결한 직접 대조가 없다. 공통 paragraph의 존재만으로 전체 승격하지 않았다."
+      },
+      "pass6_fixed": true,
+      "pass6_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "hint의 임의 안내 문자열·빈 문자열을 실제 시설 카드에 연결한 직접 대조가 없다. 공통 paragraph의 존재만으로 전체 승격하지 않았다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/70-town.lua",
+          "start": 67,
+          "end": 67,
+          "symbol": "B.tw_hint"
+        },
+        "groups": [
+          "hint"
+        ],
+        "direct_native_contract": true,
+        "full_function_unresolved": false,
+        "implementation_changed": true,
+        "tests": [
+          "project/tests/expe_pass6_r23_test.gd",
+          "project/tests/ui_expe_pass6_r23_test.gd"
+        ],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": "verification/parity-r23/expe-pass6-ui-source-results.json",
+        "native_locations": [
+          {
+            "file": "project/ui/expedition_screen_r22.gd",
+            "line": 49,
+            "function": "source_entries"
+          }
+        ]
       }
     },
     {
@@ -1090,12 +1329,14 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "일부",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
       "fixed": true,
       "tests": [],
-      "implementation": [],
-      "remaining_reason": "페르소나를 포함한 출전 이름 순서는 고쳤다. 마을 본문 설명·수락 의뢰 출정 타일·대던전 최고층 안내·시설 설명 줄이 원본과 아직 다르다. 장미 골목은 명시적 제외다.",
+      "implementation": [
+        "project/ui/town_screen_r21.gd:206"
+      ],
+      "remaining_reason": "마을 본문·전체 시설 설명·수락 의뢰/최고층 안내를 기존 하단 영역의 스크롤에 추가했다. 출전자 없음 안내, place_id에 따른 장소별 hero 제목/본문, 원본 전체 버튼 순서는 아직 직접 일치하지 않는다. 고정 시안의 기존 바로가기도 유지했으므로 전체 화면은 승격하지 않는다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1174,6 +1415,39 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "페르소나를 포함한 출전 이름 순서는 고쳤다. 마을 본문 설명·수락 의뢰 출정 타일·대던전 최고층 안내·시설 설명 줄이 원본과 아직 다르다. 장미 골목은 명시적 제외다."
+      },
+      "pass6_fixed": true,
+      "pass6_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": true,
+          "remaining_reason": "페르소나를 포함한 출전 이름 순서는 고쳤다. 마을 본문 설명·수락 의뢰 출정 타일·대던전 최고층 안내·시설 설명 줄이 원본과 아직 다르다. 장미 골목은 명시적 제외다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/70-town.lua",
+          "start": 69,
+          "end": 94,
+          "symbol": "B.SCREENS.town"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": true,
+        "tests": [
+          "project/tests/expe_pass6_r23_test.gd",
+          "project/tests/ui_expe_pass6_r23_test.gd"
+        ],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": "verification/parity-r23/expe-pass6-ui-source-results.json",
+        "native_locations": [
+          {
+            "file": "project/ui/town_screen_r21.gd",
+            "line": 206,
+            "function": "home"
+          }
+        ]
       }
     },
     {
@@ -1193,7 +1467,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을 이동 handler의 ui.sel/tab 초기화, 잘못된 scene에서의 무반응, 의뢰 없음 메시지를 native facility_route/host.go와 함수 전체로 직접 비교하지 못했다. native 거래 영수증의 이동 차단도 별도 동작이다.",
+      "remaining_reason": "마을의 새 의뢰/대던전 버튼은 실제 모드 선택으로 연결했다. 전체 이동의 ui.tab 초기화·잘못된 scene·의뢰 없음 메시지 및 거래 영수증 경계는 facilities_world_r22.facility_route와 world_screen.go에 걸친다. 시설 파일 수정 금지이며 전체 handler 직접 대조는 남는다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1304,6 +1578,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "마을 이동 handler의 ui.sel/tab 초기화, 잘못된 scene에서의 무반응, 의뢰 없음 메시지를 native facility_route/host.go와 함수 전체로 직접 비교하지 못했다. native 거래 영수증의 이동 차단도 별도 동작이다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을 이동 handler의 ui.sel/tab 초기화, 잘못된 scene에서의 무반응, 의뢰 없음 메시지를 native facility_route/host.go와 함수 전체로 직접 비교하지 못했다. native 거래 영수증의 이동 차단도 별도 동작이다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/70-town.lua",
+          "start": 96,
+          "end": 127,
+          "symbol": "B.H.tw"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     },
     {
@@ -1323,7 +1621,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "기존 정산 수치 검사는 유지했다. st.rg 우선/의뢰 보상 fallback, 엘리트 장비 입고, 아직 끝나지 않은 전투, 반복 정산, 원문 메시지까지 합친 native 의뢰 정산 대조는 미완료다.",
+      "remaining_reason": "실제품 의뢰 정산은 수정 금지인 facilities_world_r22.settle이 override한다. st.rg 우선/의뢰 fallback, 미종료 전투, 엘리트 입고, 재정산, 원문 메시지의 단일 진입점 직접 대조가 남는다. 허용된 town_world만 바꿔도 제품 경로에는 반영되지 않는다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1523,6 +1821,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "기존 정산 수치 검사는 유지했다. st.rg 우선/의뢰 보상 fallback, 엘리트 장비 입고, 아직 끝나지 않은 전투, 반복 정산, 원문 메시지까지 합친 native 의뢰 정산 대조는 미완료다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "기존 정산 수치 검사는 유지했다. st.rg 우선/의뢰 보상 fallback, 엘리트 장비 입고, 아직 끝나지 않은 전투, 반복 정산, 원문 메시지까지 합친 native 의뢰 정산 대조는 미완료다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/70-town.lua",
+          "start": 130,
+          "end": 194,
+          "symbol": "B.tw_settle"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     },
     {
@@ -1542,7 +1864,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 HUD의 bn/id/load 실패 및 탐색 승리 제외 조건, 원본 귀환/층 정산 label/subtitle을 native 결과 화면과 전체 대조하지 못했다. 전투 파일은 수정 금지다.",
+      "remaining_reason": "원본 battle HUD의 id/load/bn 실패·탐색 승리 제외와 귀환/층 정산 label/subtitle은 현재 battle 화면 파일에 있다. 이번에 고친 패배 후 마을 경로만으로 전체 HUD의 같음을 주장하지 않는다. 전투 화면/규칙 수정 금지.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1649,6 +1971,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "전투 HUD의 bn/id/load 실패 및 탐색 승리 제외 조건, 원본 귀환/층 정산 label/subtitle을 native 결과 화면과 전체 대조하지 못했다. 전투 파일은 수정 금지다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "전투 HUD의 bn/id/load 실패 및 탐색 승리 제외 조건, 원본 귀환/층 정산 label/subtitle을 native 결과 화면과 전체 대조하지 못했다. 전투 파일은 수정 금지다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/70-town.lua",
+          "start": 197,
+          "end": 209,
+          "symbol": "B.HUD_EXTRA[#B.HUD_EXTRA + 1]"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     },
     {
@@ -2242,10 +2588,13 @@
       "prior_status": "일부",
       "status": "일부",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "fixed": false,
+      "fixed": true,
       "tests": [],
-      "implementation": [],
-      "remaining_reason": "알려진 동료 초상은 보존했다. persona의 host 사용자 초상 및 portrait 실패 시 이름 첫 글자 fallback의 전체 분기 대조는 없다.",
+      "implementation": [
+        "project/ui/expedition_screen_r22.gd:4",
+        "project/ui/town_screen_r21.gd:160"
+      ],
+      "remaining_reason": "동료의 원본 초상과 새 번역 첫 글자 fallback은 유지·보강했다. SO.face의 persona pimg(호스트 사용자 아바타/실루엣)와 PX.face의 nonempty plain-string provider 반환 경계는 town tw_face와 다른 계약이다. native persona 표시는 이 전체 분기와 아직 같지 않다. 호스트 아바타 부분은 호스트 전용 범위로 별도 기록한다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -2317,6 +2666,44 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "알려진 동료 초상은 보존했다. persona의 host 사용자 초상 및 portrait 실패 시 이름 첫 글자 fallback의 전체 분기 대조는 없다."
+      },
+      "pass6_fixed": true,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "알려진 동료 초상은 보존했다. persona의 host 사용자 초상 및 portrait 실패 시 이름 첫 글자 fallback의 전체 분기 대조는 없다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/75-sortie.lua",
+          "start": 52,
+          "end": 55,
+          "symbol": "face"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": true,
+        "tests": [
+          "project/tests/expe_pass6_r23_test.gd",
+          "project/tests/ui_expe_pass6_r23_test.gd"
+        ],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": "verification/parity-r23/expe-pass6-ui-source-results.json",
+        "native_locations": [
+          {
+            "file": "project/ui/expedition_screen_r22.gd",
+            "line": 4,
+            "function": "picture"
+          },
+          {
+            "file": "project/ui/town_screen_r21.gd",
+            "line": 160,
+            "function": "picture"
+          }
+        ]
       }
     },
     {
@@ -2331,12 +2718,17 @@
       },
       "unverified_branches": [],
       "prior_status": "일부",
-      "status": "일부",
+      "status": "같음",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "출정 준비에 원본 의뢰 카드의 제목·설명·별·종류·난이도·금화·적 레벨을 한 묶음으로 표시하는 대응이 남는다. 현재 수락 의뢰 출발 버튼만으로 같음은 아니다.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass6_r23_test.gd",
+        "project/tests/ui_expe_pass6_r23_test.gd"
+      ],
+      "implementation": [
+        "project/game/expedition_ui_r23.gd:52"
+      ],
+      "remaining_reason": "",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -2406,6 +2798,41 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "출정 준비에 원본 의뢰 카드의 제목·설명·별·종류·난이도·금화·적 레벨을 한 묶음으로 표시하는 대응이 남는다. 현재 수락 의뢰 출발 버튼만으로 같음은 아니다."
+      },
+      "pass6_fixed": true,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "출정 준비에 원본 의뢰 카드의 제목·설명·별·종류·난이도·금화·적 레벨을 한 묶음으로 표시하는 대응이 남는다. 현재 수락 의뢰 출발 버튼만으로 같음은 아니다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/75-sortie.lua",
+          "start": 58,
+          "end": 65,
+          "symbol": "quest_card"
+        },
+        "groups": [
+          "quest"
+        ],
+        "direct_native_contract": true,
+        "full_function_unresolved": false,
+        "implementation_changed": true,
+        "tests": [
+          "project/tests/expe_pass6_r23_test.gd",
+          "project/tests/ui_expe_pass6_r23_test.gd"
+        ],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": "verification/parity-r23/expe-pass6-ui-source-results.json",
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 52,
+            "function": "quest"
+          }
+        ]
       }
     },
     {
@@ -2420,12 +2847,17 @@
       },
       "unverified_branches": [],
       "prior_status": "일부",
-      "status": "일부",
+      "status": "같음",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "native는 전열/후열별 초상 배열을 쓴다. 원본 4개 슬롯의 순서·빈 칸 번호와 persona 슬롯을 눌러 지휘로 바꾸는 선택지는 아직 다르다.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass6_r23_test.gd",
+        "project/tests/ui_expe_pass6_r23_test.gd"
+      ],
+      "implementation": [
+        "project/ui/persona_sortie_screen.gd:104"
+      ],
+      "remaining_reason": "",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -2495,6 +2927,41 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "native는 전열/후열별 초상 배열을 쓴다. 원본 4개 슬롯의 순서·빈 칸 번호와 persona 슬롯을 눌러 지휘로 바꾸는 선택지는 아직 다르다."
+      },
+      "pass6_fixed": true,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "native는 전열/후열별 초상 배열을 쓴다. 원본 4개 슬롯의 순서·빈 칸 번호와 persona 슬롯을 눌러 지휘로 바꾸는 선택지는 아직 다르다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/75-sortie.lua",
+          "start": 68,
+          "end": 81,
+          "symbol": "slots"
+        },
+        "groups": [
+          "slots"
+        ],
+        "direct_native_contract": true,
+        "full_function_unresolved": false,
+        "implementation_changed": true,
+        "tests": [
+          "project/tests/expe_pass6_r23_test.gd",
+          "project/tests/ui_expe_pass6_r23_test.gd"
+        ],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": "verification/parity-r23/expe-pass6-ui-source-results.json",
+        "native_locations": [
+          {
+            "file": "project/ui/persona_sortie_screen.gd",
+            "line": 104,
+            "function": "formation_slots"
+          }
+        ]
       }
     },
     {
@@ -2511,10 +2978,12 @@
       "prior_status": "일부",
       "status": "일부",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "fixed": false,
+      "fixed": true,
       "tests": [],
-      "implementation": [],
-      "remaining_reason": "참전/지휘 토글의 상태와 3/4명 상한은 기존 시험을 통과한다. persona 이름·원본 설명 문구·버튼 문구의 표시 대조는 아직 일부다.",
+      "implementation": [
+        "project/game/expedition_ui_r23.gd:72"
+      ],
+      "remaining_reason": "persona 이름·직접 싸운다/지휘만 한다 문구·3/4명 설명·선택 표시를 직접 대조하고 UI에 연결했다. 클래스 정보가 없는 옛 native 저장에서는 직접 참전 버튼을 비활성화하는 기존 보존 처리가 남아 원본의 무조건 활성 버튼과 다르므로 전체 승격하지 않는다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -2584,6 +3053,41 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "참전/지휘 토글의 상태와 3/4명 상한은 기존 시험을 통과한다. persona 이름·원본 설명 문구·버튼 문구의 표시 대조는 아직 일부다."
+      },
+      "pass6_fixed": true,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "참전/지휘 토글의 상태와 3/4명 상한은 기존 시험을 통과한다. persona 이름·원본 설명 문구·버튼 문구의 표시 대조는 아직 일부다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/75-sortie.lua",
+          "start": 84,
+          "end": 89,
+          "symbol": "fight_row"
+        },
+        "groups": [
+          "fight"
+        ],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": true,
+        "tests": [
+          "project/tests/expe_pass6_r23_test.gd",
+          "project/tests/ui_expe_pass6_r23_test.gd"
+        ],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": "verification/parity-r23/expe-pass6-ui-source-results.json",
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 72,
+            "function": "fight"
+          }
+        ]
       }
     },
     {
@@ -3080,8 +3584,12 @@
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
       "fixed": true,
       "tests": [],
-      "implementation": [],
-      "remaining_reason": "후보 카드·필터·요약의 직접 표시 대조를 추가했다. 의뢰/대던전 모드 전환, 원본 의뢰 카드와 4개 슬롯, 전체 화면 버튼 종류·문구의 차이가 남는다.",
+      "implementation": [
+        "project/game/expedition_ui_r23.gd:20",
+        "project/ui/persona_sortie_screen.gd:4",
+        "project/ui/town_screen_r21.gd:15"
+      ],
+      "remaining_reason": "의뢰/대던전 모드·의뢰 카드·4슬롯·persona 설명·출발 문구를 추가했다. 기존 시안의 hero/picker·고정 슬롯·스크롤 구성과 의뢰 직접 출발 보조 버튼을 유지했다. 원본 전체 화면의 정보/버튼 순서, 옛 저장 참전 활성 경계는 아직 같지 않다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -3151,6 +3659,55 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "후보 카드·필터·요약의 직접 표시 대조를 추가했다. 의뢰/대던전 모드 전환, 원본 의뢰 카드와 4개 슬롯, 전체 화면 버튼 종류·문구의 차이가 남는다."
+      },
+      "pass6_fixed": true,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "후보 카드·필터·요약의 직접 표시 대조를 추가했다. 의뢰/대던전 모드 전환, 원본 의뢰 카드와 4개 슬롯, 전체 화면 버튼 종류·문구의 차이가 남는다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/75-sortie.lua",
+          "start": 167,
+          "end": 183,
+          "symbol": "B.SCREENS.sortie"
+        },
+        "groups": [
+          "quest",
+          "slots",
+          "fight",
+          "dungeon_card",
+          "mode_save"
+        ],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": true,
+        "tests": [
+          "project/tests/expe_pass6_r23_test.gd",
+          "project/tests/ui_expe_pass6_r23_test.gd"
+        ],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": "verification/parity-r23/expe-pass6-ui-source-results.json",
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 20,
+            "function": "build"
+          },
+          {
+            "file": "project/ui/persona_sortie_screen.gd",
+            "line": 4,
+            "function": "build"
+          },
+          {
+            "file": "project/ui/town_screen_r21.gd",
+            "line": 15,
+            "function": "build"
+          }
+        ]
       }
     },
     {
@@ -3170,7 +3727,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "B.battle_start가 없을 때 B.fresh(T.bn)로 여는 원본 옛 전투 생성 fallback은 native의 보존된 옛 저장 재개와 별개다. 원본 legacy 출정 상태를 직접 옮기는 ABI는 없다.",
+      "remaining_reason": "현재 전투 엔진이 없는 원본 환경의 fresh(T.bn) 옛 전투 생성 fallback은 native의 옛 저장 재개와 별개의 기능이다. canonical legacy 출정 상태 생성/이관 ABI가 아직 없으며 이번 화면 fixture로 대체하지 않았다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -3240,6 +3797,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "B.battle_start가 없을 때 B.fresh(T.bn)로 여는 원본 옛 전투 생성 fallback은 native의 보존된 옛 저장 재개와 별개다. 원본 legacy 출정 상태를 직접 옮기는 ABI는 없다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "B.battle_start가 없을 때 B.fresh(T.bn)로 여는 원본 옛 전투 생성 fallback은 native의 보존된 옛 저장 재개와 별개다. 원본 legacy 출정 상태를 직접 옮기는 ABI는 없다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/75-sortie.lua",
+          "start": 186,
+          "end": 194,
+          "symbol": "legacy_start"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     },
     {
@@ -3256,10 +3837,13 @@
       "prior_status": "일부",
       "status": "일부",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "fixed": false,
+      "fixed": true,
       "tests": [],
-      "implementation": [],
-      "remaining_reason": "후보 토글/필터 입력은 실제 native 화면에서 확인했다. scene gate, rm_persona, 꽉 찬 편성/마지막 동료 대기 메시지, mode/back/go와 legacy 전투 시작 전체를 하나의 handler로 비교하지 못했다.",
+      "implementation": [
+        "project/ui/expedition_screen_r22.gd:80",
+        "project/ui/persona_sortie_screen.gd:78"
+      ],
+      "remaining_reason": "실제 슬롯 제거·persona 지휘 전환·mode/filter/floor/page를 연결했고 중복 rm이 재등록하지 않도록 했다. 참전 전환의 마지막 동료 대기/만석 메시지를 보강했다. source go/back의 모든 scene·무효 입력과 legacy engine-absent 분기를 하나의 handler로 직접 대조하는 것은 남는다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -3409,6 +3993,47 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "후보 토글/필터 입력은 실제 native 화면에서 확인했다. scene gate, rm_persona, 꽉 찬 편성/마지막 동료 대기 메시지, mode/back/go와 legacy 전투 시작 전체를 하나의 handler로 비교하지 못했다."
+      },
+      "pass6_fixed": true,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "후보 토글/필터 입력은 실제 native 화면에서 확인했다. scene gate, rm_persona, 꽉 찬 편성/마지막 동료 대기 메시지, mode/back/go와 legacy 전투 시작 전체를 하나의 handler로 비교하지 못했다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/75-sortie.lua",
+          "start": 196,
+          "end": 254,
+          "symbol": "B.H.so"
+        },
+        "groups": [
+          "slots",
+          "mode_save"
+        ],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": true,
+        "tests": [
+          "project/tests/expe_pass6_r23_test.gd",
+          "project/tests/ui_expe_pass6_r23_test.gd"
+        ],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": "verification/parity-r23/expe-pass6-ui-source-results.json",
+        "native_locations": [
+          {
+            "file": "project/ui/expedition_screen_r22.gd",
+            "line": 80,
+            "function": "source_action"
+          },
+          {
+            "file": "project/ui/persona_sortie_screen.gd",
+            "line": 78,
+            "function": "source_action"
+          }
+        ]
       }
     },
     {
@@ -3668,9 +4293,10 @@
         "ui_expedition_r22_test::source-warning-and-paged-selection"
       ],
       "implementation": [
-        "project/ui/persona_sortie_screen.gd:3"
+        "project/ui/persona_sortie_screen.gd:3",
+        "project/game/expedition_ui_r23.gd:79"
       ],
-      "remaining_reason": "기존 층 정보 77건은 유지했다. 원본 층 목록의 잠김 설명·완료/추천 표식·쪽 수·보스/일반 전투 보상·4인 추천 안내를 native picker에 모두 표시하는 대응은 남는다.",
+      "remaining_reason": "0/2/8/27/54/419 최고층과 1/2/99쪽의 목록·잠김·돌파/추천·보스/일반 금화·적 레벨·4인 안내 36건의 직접 대조를 추가했다. rank_head의 cached percentile은 원본처럼 카드 안에 표시하지 않고 별도 native 순위 화면으로 연결한다. 명시적 클라우드 대체의 순위 기능은 기존 시험으로 유지하지만 전체 카드의 cached 상태 표시까지 같음으로 올리지는 않는다.",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -3740,6 +4366,41 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "기존 층 정보 77건은 유지했다. 원본 층 목록의 잠김 설명·완료/추천 표식·쪽 수·보스/일반 전투 보상·4인 추천 안내를 native picker에 모두 표시하는 대응은 남는다."
+      },
+      "pass6_fixed": true,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "기존 층 정보 77건은 유지했다. 원본 층 목록의 잠김 설명·완료/추천 표식·쪽 수·보스/일반 전투 보상·4인 추천 안내를 native picker에 모두 표시하는 대응은 남는다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/76-dungeon.lua",
+          "start": 75,
+          "end": 117,
+          "symbol": "B.dn_card"
+        },
+        "groups": [
+          "dungeon_card"
+        ],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": true,
+        "tests": [
+          "project/tests/expe_pass6_r23_test.gd",
+          "project/tests/ui_expe_pass6_r23_test.gd"
+        ],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": "verification/parity-r23/expe-pass6-ui-source-results.json",
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 79,
+            "function": "dungeon_card"
+          }
+        ]
       }
     },
     {
@@ -4701,7 +5362,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:123"
       ],
-      "remaining_reason": "첫 전투 자원과 탐색 전투 진입 투영은 기존 및 새 시험을 통과한다. 원본 st의 sid/bn/dn/carry 전체와 native 전투 snapshot의 전체 동등성은 아직 미확정이다. 전투 파일 수정 금지다.",
+      "remaining_reason": "전투 진입 자원·탐색 투영은 기존 대조를 유지한다. 원본 sid/bn/dn/carry 전부와 native battle snapshot의 전체 경계 동등성은 아직 직접 확정하지 못했다. 전투 규칙 수정 금지.",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -4790,6 +5451,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "첫 전투 자원과 탐색 전투 진입 투영은 기존 및 새 시험을 통과한다. 원본 st의 sid/bn/dn/carry 전체와 native 전투 snapshot의 전체 동등성은 아직 미확정이다. 전투 파일 수정 금지다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "첫 전투 자원과 탐색 전투 진입 투영은 기존 및 새 시험을 통과한다. 원본 st의 sid/bn/dn/carry 전체와 native 전투 snapshot의 전체 동등성은 아직 미확정이다. 전투 파일 수정 금지다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/77-explore.lua",
+          "start": 201,
+          "end": 234,
+          "symbol": "B.ex_battle"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     },
     {
@@ -5146,7 +5831,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "탐색 승리 뒤 수치 투영은 유지했다. 원본의 적 이름 중복 제거 last/log 및 정예 장비 log, sid/bn/over/dn 불일치의 native continuation 전체 경계는 직접 일치시키지 못했다.",
+      "remaining_reason": "수치 투영·스냅샷 회귀는 유지했다. native continuation의 적 이름 중복 제거 last/log·정예 장비 log와 source sid/bn/over/dn 불일치 분기 전체는 아직 직접 비교/수정하지 않았다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5233,6 +5918,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "탐색 승리 뒤 수치 투영은 유지했다. 원본의 적 이름 중복 제거 last/log 및 정예 장비 log, sid/bn/over/dn 불일치의 native continuation 전체 경계는 직접 일치시키지 못했다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "탐색 승리 뒤 수치 투영은 유지했다. 원본의 적 이름 중복 제거 last/log 및 정예 장비 log, sid/bn/over/dn 불일치의 native continuation 전체 경계는 직접 일치시키지 못했다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/77-explore.lua",
+          "start": 322,
+          "end": 346,
+          "symbol": "do_cont"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     },
     {
@@ -5424,7 +6133,7 @@
         "project/game/expedition_world_r22.gd:468",
         "project/game/expedition_world_r22.gd:476"
       ],
-      "remaining_reason": "가방 포화 때 원본은 장비를 버리지만 native는 사용자 저장 보존을 위해 overflow에 남긴다. 이 실제 보존 정책 차이는 그대로이며 장비 규칙 수정 금지다.",
+      "remaining_reason": "포화 가방의 원본 장비 버림과 native overflow 보존은 실제 정책 차이다. 사용자 저장 보존 규칙과 장비 규칙 수정 금지를 유지했다. 현재 bank_expedition_gear의 반환 개수만 같다고 승격하지 않는다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5505,6 +6214,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "가방 포화 때 원본은 장비를 버리지만 native는 사용자 저장 보존을 위해 overflow에 남긴다. 이 실제 보존 정책 차이는 그대로이며 장비 규칙 수정 금지다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "가방 포화 때 원본은 장비를 버리지만 native는 사용자 저장 보존을 위해 overflow에 남긴다. 이 실제 보존 정책 차이는 그대로이며 장비 규칙 수정 금지다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/77-explore.lua",
+          "start": 370,
+          "end": 376,
+          "symbol": "B.ex_gear_bank"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     },
     {
@@ -5670,14 +6403,16 @@
       "prior_status": "일부",
       "status": "일부",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "fixed": false,
+      "fixed": true,
       "tests": [
         "expedition_r22_test::settlements"
       ],
       "implementation": [
-        "project/game/expedition_world_r22.gd:235"
+        "project/game/expedition_world_r22.gd:235",
+        "project/game/expedition_world_r22.gd:543",
+        "project/game/persona_world.gd:195"
       ],
-      "remaining_reason": "보상과 요약 표시 대조를 보강했다. 패배 뒤 원본은 run을 없애고 마을로 가며 native는 완료 run과 정산 화면을 보관한다. 이 관찰 가능한 이동/저장 차이가 남는다.",
+      "remaining_reason": "패배 후 live run 제거·마을 이동·ui.sel/tab 초기화·원문 손실 알림·D.last 보존을 수정했다. 승리/퇴각/패배·케른 유지·재호출·native 저장 재개를 12개 실제 Lua fixture로 대조했다. 포화 가방 overflow 정책과 전체 장비/보상 조합은 남아 있으므로 함수 전체 승격은 보류한다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5820,6 +6555,46 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "보상과 요약 표시 대조를 보강했다. 패배 뒤 원본은 run을 없애고 마을로 가며 native는 완료 run과 정산 화면을 보관한다. 이 관찰 가능한 이동/저장 차이가 남는다."
+      },
+      "pass6_fixed": true,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "보상과 요약 표시 대조를 보강했다. 패배 뒤 원본은 run을 없애고 마을로 가며 native는 완료 run과 정산 화면을 보관한다. 이 관찰 가능한 이동/저장 차이가 남는다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/77-explore.lua",
+          "start": 414,
+          "end": 540,
+          "symbol": "finish_run"
+        },
+        "groups": [
+          "finish"
+        ],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": true,
+        "tests": [
+          "project/tests/expe_pass6_r23_test.gd",
+          "project/tests/ui_expe_pass6_r23_test.gd"
+        ],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": "verification/parity-r23/expe-pass6-ui-source-results.json",
+        "native_locations": [
+          {
+            "file": "project/game/expedition_world_r22.gd",
+            "line": 543,
+            "function": "settle"
+          },
+          {
+            "file": "project/game/persona_world.gd",
+            "line": 195,
+            "function": "settle"
+          }
+        ]
       }
     },
     {
@@ -5843,7 +6618,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:158"
       ],
-      "remaining_reason": "원본 sid/bn 불일치 시 거점 복귀와 legacy 분기, native snapshot 검증을 통합한 정산 경계 대조가 미완료다. 단순 저장 매체 차이를 남은 이유로 쓰지 않는다.",
+      "remaining_reason": "원본 sid/bn 불일치 시 거점 복귀와 legacy stage 분기, native snapshot 검증을 통합한 정산 경계의 직접 대조가 미완료다. 패배의 정상 경로 수정만으로 무효 입력까지 승격하지 않는다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5944,6 +6719,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "원본 sid/bn 불일치 시 거점 복귀와 legacy 분기, native snapshot 검증을 통합한 정산 경계 대조가 미완료다. 단순 저장 매체 차이를 남은 이유로 쓰지 않는다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "원본 sid/bn 불일치 시 거점 복귀와 legacy 분기, native snapshot 검증을 통합한 정산 경계 대조가 미완료다. 단순 저장 매체 차이를 남은 이유로 쓰지 않는다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/77-explore.lua",
+          "start": 543,
+          "end": 556,
+          "symbol": "B.dn_settle"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     },
     {
@@ -5963,7 +6762,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "옛 native 저장 재개는 회귀 통과한다. 원본 st.dn.stage 1/2 저장 자체를 읽어 정산하는 canonical legacy 입력 이관은 없다.",
+      "remaining_reason": "옛 native 저장 재개 회귀는 유지했다. canonical 원본 st.dn.stage 1/2 저장을 읽어 정산하는 입력 ABI가 아직 없다. 매체 차이가 아니라 미지원 구체 입력 경로로 남긴다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -6034,6 +6833,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "옛 native 저장 재개는 회귀 통과한다. 원본 st.dn.stage 1/2 저장 자체를 읽어 정산하는 canonical legacy 입력 이관은 없다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "옛 native 저장 재개는 회귀 통과한다. 원본 st.dn.stage 1/2 저장 자체를 읽어 정산하는 canonical legacy 입력 이관은 없다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/77-explore.lua",
+          "start": 559,
+          "end": 583,
+          "symbol": "B.dn_settle_legacy"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     },
     {
@@ -6190,7 +7013,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "정상 휴식 장비 장착/해제는 유지했다. 원본 gear code 버튼 해독·잘못된 슬롯·다른 소유자 장비·거절 이유 문자열을 포괄하는 장비 규칙 직접 대조가 남는다. 장비 규칙 수정 금지다.",
+      "remaining_reason": "휴식 장착/해제의 기존 정상 경로는 유지했다. source gear code 버튼 해독·잘못된 슬롯·다른 소유자 장비·거절 메시지의 전체 직접 대조는 장비 규칙에 걸려 남는다. 해당 파일 수정 금지.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -6260,6 +7083,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "정상 휴식 장비 장착/해제는 유지했다. 원본 gear code 버튼 해독·잘못된 슬롯·다른 소유자 장비·거절 이유 문자열을 포괄하는 장비 규칙 직접 대조가 남는다. 장비 규칙 수정 금지다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "정상 휴식 장비 장착/해제는 유지했다. 원본 gear code 버튼 해독·잘못된 슬롯·다른 소유자 장비·거절 이유 문자열을 포괄하는 장비 규칙 직접 대조가 남는다. 장비 규칙 수정 금지다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/77-explore.lua",
+          "start": 648,
+          "end": 662,
+          "symbol": "do_equip"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     },
     {
@@ -6283,7 +7130,7 @@
         "expe_pass2_r23_test::equip_key (96 checks)"
       ],
       "implementation": [],
-      "remaining_reason": "탐색·아이템·퇴각 요청/취소/확정은 직접 비교했다. cont/next/home, 잘못된 전투 상태와 모든 장비 버튼을 합친 전체 handler 경계는 아직 미확정이다.",
+      "remaining_reason": "탐색·물약·퇴각 요청/취소/확정의 기존 대조와 새 확인 화면 정보를 유지했다. cont/next/home의 무효 전투 상태 및 모든 장비 버튼을 합친 전체 handler 직접 대조는 남는다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -6402,6 +7249,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "탐색·아이템·퇴각 요청/취소/확정은 직접 비교했다. cont/next/home, 잘못된 전투 상태와 모든 장비 버튼을 합친 전체 handler 경계는 아직 미확정이다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "탐색·아이템·퇴각 요청/취소/확정은 직접 비교했다. cont/next/home, 잘못된 전투 상태와 모든 장비 버튼을 합친 전체 handler 경계는 아직 미확정이다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/77-explore.lua",
+          "start": 665,
+          "end": 708,
+          "symbol": "B.H.ex"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     },
     {
@@ -7359,12 +8230,16 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "일부",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
       "fixed": true,
       "tests": [],
-      "implementation": [],
-      "remaining_reason": "head/last/party 및 퇴각 조각은 원본 실행과 일치했다. native는 ask 때 별도 확인 화면을 써 원본처럼 기존 head/party와 퇴각 안내를 한 화면에 함께 남기지 않는다. 추가 카드/보급품 이동도 전체 버튼 대조에 남는다.",
+      "implementation": [
+        "project/game/expedition_ui_r23.gd:159",
+        "project/ui/expedition_screen_r22.gd:102",
+        "project/ui/town_screen_r21.gd:497"
+      ],
+      "remaining_reason": "ask에도 head/last/party/물약 정보를 함께 남기도록 수정하고 실제 UI에서 확인했다. 원본 전체 explore 화면의 버튼 종류/순서와 시안의 지도·기록·카드·보급품 이동 차이는 남아 전체 승격하지 않는다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -7434,6 +8309,49 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "head/last/party 및 퇴각 조각은 원본 실행과 일치했다. native는 ask 때 별도 확인 화면을 써 원본처럼 기존 head/party와 퇴각 안내를 한 화면에 함께 남기지 않는다. 추가 카드/보급품 이동도 전체 버튼 대조에 남는다."
+      },
+      "pass6_fixed": true,
+      "pass6_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": true,
+          "remaining_reason": "head/last/party 및 퇴각 조각은 원본 실행과 일치했다. native는 ask 때 별도 확인 화면을 써 원본처럼 기존 head/party와 퇴각 안내를 한 화면에 함께 남기지 않는다. 추가 카드/보급품 이동도 전체 버튼 대조에 남는다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/77-explore.lua",
+          "start": 792,
+          "end": 797,
+          "symbol": "explore_screen"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": true,
+        "tests": [
+          "project/tests/expe_pass6_r23_test.gd",
+          "project/tests/ui_expe_pass6_r23_test.gd"
+        ],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": "verification/parity-r23/expe-pass6-ui-source-results.json",
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 159,
+            "function": "retreat"
+          },
+          {
+            "file": "project/ui/expedition_screen_r22.gd",
+            "line": 102,
+            "function": "retreat"
+          },
+          {
+            "file": "project/ui/town_screen_r21.gd",
+            "line": 497,
+            "function": "retreat"
+          }
+        ]
       }
     },
     {
@@ -7453,7 +8371,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "휴식 화면은 별도 장비 정비 페이지를 쓴다. 원본의 슬롯별 장비 후보·해제·장착 버튼 종류와 순서를 같은 화면에서 직접 비교하지 못했다. 장비 규칙은 수정 금지다.",
+      "remaining_reason": "같은 휴식 화면에 source 슬롯별 장비 후보·해제·장착 순서를 표시하는 기능이 남는다. native는 별도 정비 페이지를 쓰며 후보/소유자/레벨 판정은 장비 갈래 소유다. 장비 규칙 파일 수정 금지.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -7540,6 +8458,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "휴식 화면은 별도 장비 정비 페이지를 쓴다. 원본의 슬롯별 장비 후보·해제·장착 버튼 종류와 순서를 같은 화면에서 직접 비교하지 못했다. 장비 규칙은 수정 금지다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "휴식 화면은 별도 장비 정비 페이지를 쓴다. 원본의 슬롯별 장비 후보·해제·장착 버튼 종류와 순서를 같은 화면에서 직접 비교하지 못했다. 장비 규칙은 수정 금지다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/77-explore.lua",
+          "start": 799,
+          "end": 816,
+          "symbol": "slot_row"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     },
     {
@@ -7562,7 +8504,7 @@
         "expe_pass2_r23_test::gear_label (3142 checks)"
       ],
       "implementation": [],
-      "remaining_reason": "native 정비 대상 선택과 원본 R.sel의 잘못된 슬롯 정규화, 슬롯별 장비 후보의 완전한 일치가 남는다. 버튼 문자열 자체가 아니라 선택지/대상/상태 차이를 남긴다.",
+      "remaining_reason": "원본 R.sel의 무효 슬롯 정규화와 슬롯별 후보 전체가 native의 별도 정비 대상 선택과 아직 다르다. gear_card를 이식하려면 장비 갈래의 후보/소유자 경계 근거가 필요하다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -7644,6 +8586,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "native 정비 대상 선택과 원본 R.sel의 잘못된 슬롯 정규화, 슬롯별 장비 후보의 완전한 일치가 남는다. 버튼 문자열 자체가 아니라 선택지/대상/상태 차이를 남긴다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "native 정비 대상 선택과 원본 R.sel의 잘못된 슬롯 정규화, 슬롯별 장비 후보의 완전한 일치가 남는다. 버튼 문자열 자체가 아니라 선택지/대상/상태 차이를 남긴다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/77-explore.lua",
+          "start": 818,
+          "end": 827,
+          "symbol": "gear_card"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     },
     {
@@ -7658,12 +8624,16 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "일부",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
       "fixed": true,
       "tests": [],
-      "implementation": [],
-      "remaining_reason": "휴식 head/last/party는 직접 비교했다. 원본은 gear_card를 같은 휴식 화면에 두며 native는 장비 정비로 이동한다. ask 때 함께 남는 정보도 다르다. 성적 휴식 카드는 제외다.",
+      "implementation": [
+        "project/game/expedition_ui_r23.gd:159",
+        "project/ui/expedition_screen_r22.gd:102",
+        "project/ui/town_screen_r21.gd:497"
+      ],
+      "remaining_reason": "휴식 중 ask에도 기존 파티 정보를 보존하도록 수정했다. 원본은 gear_card를 같은 휴식 화면에 두고 native는 별도 장비 정비로 이동한다. 후보/슬롯 차이가 남는다. 성적 휴식 카드는 제외하며 추가하지 않았다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -7733,6 +8703,49 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "휴식 head/last/party는 직접 비교했다. 원본은 gear_card를 같은 휴식 화면에 두며 native는 장비 정비로 이동한다. ask 때 함께 남는 정보도 다르다. 성적 휴식 카드는 제외다."
+      },
+      "pass6_fixed": true,
+      "pass6_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": true,
+          "remaining_reason": "휴식 head/last/party는 직접 비교했다. 원본은 gear_card를 같은 휴식 화면에 두며 native는 장비 정비로 이동한다. ask 때 함께 남는 정보도 다르다. 성적 휴식 카드는 제외다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/77-explore.lua",
+          "start": 829,
+          "end": 833,
+          "symbol": "rest_screen"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": true,
+        "tests": [
+          "project/tests/expe_pass6_r23_test.gd",
+          "project/tests/ui_expe_pass6_r23_test.gd"
+        ],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": "verification/parity-r23/expe-pass6-ui-source-results.json",
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 159,
+            "function": "retreat"
+          },
+          {
+            "file": "project/ui/expedition_screen_r22.gd",
+            "line": 102,
+            "function": "retreat"
+          },
+          {
+            "file": "project/ui/town_screen_r21.gd",
+            "line": 497,
+            "function": "retreat"
+          }
+        ]
       }
     },
     {
@@ -8157,8 +9170,10 @@
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
       "fixed": true,
       "tests": [],
-      "implementation": [],
-      "remaining_reason": "탐색·휴식·정산 구성 조각의 표시 대조를 추가했다. run 없음 안내와 귀환, ask의 전체 구성, 정비 페이지 및 패배 뒤 scene 이동까지 합친 분기 전체는 아직 다르다.",
+      "implementation": [
+        "project/game/expedition_world_r22.gd:599"
+      ],
+      "remaining_reason": "ask의 기존 파티 정보와 패배 후 마을 이동·live run 제거를 보강했다. run 없음 안내/귀환, inline gear_card, 전체 phase별 버튼 구성의 직접 대조가 남는다. 구성 조각의 통과만으로 전체 화면을 승격하지 않는다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -8237,6 +9252,39 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "탐색·휴식·정산 구성 조각의 표시 대조를 추가했다. run 없음 안내와 귀환, ask의 전체 구성, 정비 페이지 및 패배 뒤 scene 이동까지 합친 분기 전체는 아직 다르다."
+      },
+      "pass6_fixed": true,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "탐색·휴식·정산 구성 조각의 표시 대조를 추가했다. run 없음 안내와 귀환, ask의 전체 구성, 정비 페이지 및 패배 뒤 scene 이동까지 합친 분기 전체는 아직 다르다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/77-explore.lua",
+          "start": 882,
+          "end": 891,
+          "symbol": "B.SCREENS.dungeon"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": true,
+        "tests": [
+          "project/tests/expe_pass6_r23_test.gd",
+          "project/tests/ui_expe_pass6_r23_test.gd"
+        ],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": "verification/parity-r23/expe-pass6-ui-source-results.json",
+        "native_locations": [
+          {
+            "file": "project/game/expedition_world_r22.gd",
+            "line": 599,
+            "function": "expedition_defeat_home"
+          }
+        ]
       }
     },
     {
@@ -8318,7 +9366,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:380"
       ],
-      "remaining_reason": "기존 potion/mana 이관과 사용자 저장 보존 검사는 통과했다. 원본은 음수/소수를 산술 합산하며 native는 기존 유효 저장 규칙에 따라 원자적으로 거부한다. 실제 허용 입력 차이를 남긴다.",
+      "remaining_reason": "potion/mana의 유효 옛 저장 합산은 유지했다. 원본 음수/소수 합산과 native 원자적 거부는 실제 허용 입력 차이로 남는다. 저장 검증을 약화하거나 손상 데이터를 조용히 버리지 않았다.",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -8389,6 +9437,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "기존 potion/mana 이관과 사용자 저장 보존 검사는 통과했다. 원본은 음수/소수를 산술 합산하며 native는 기존 유효 저장 규칙에 따라 원자적으로 거부한다. 실제 허용 입력 차이를 남긴다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "기존 potion/mana 이관과 사용자 저장 보존 검사는 통과했다. 원본은 음수/소수를 산술 합산하며 native는 기존 유효 저장 규칙에 따라 원자적으로 거부한다. 실제 허용 입력 차이를 남긴다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/77-explore.lua",
+          "start": 907,
+          "end": 915,
+          "symbol": "move_old"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     },
     {
@@ -8412,7 +9484,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:348"
       ],
-      "remaining_reason": "기존 native 저장과 별칭의 재개는 유지했다. 원본 canonical G 전체를 native 저장으로 읽는 범용 이관이 없다. 매체 차이 자체가 아니라 미지원 원본 입력 스키마가 남는다.",
+      "remaining_reason": "이번 local mode 필드의 손실 없는 이관·왕복 시험은 추가했다. 원본 canonical G 전체/옛 stage 저장을 native로 읽는 범용 이관은 아직 없다. 이 추가 이관을 전체 G_migrate 근거로 쓰지 않는다.",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -8482,6 +9554,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "기존 native 저장과 별칭의 재개는 유지했다. 원본 canonical G 전체를 native 저장으로 읽는 범용 이관이 없다. 매체 차이 자체가 아니라 미지원 원본 입력 스키마가 남는다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "기존 native 저장과 별칭의 재개는 유지했다. 원본 canonical G 전체를 native 저장으로 읽는 범용 이관이 없다. 매체 차이 자체가 아니라 미지원 원본 입력 스키마가 남는다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/77-explore.lua",
+          "start": 917,
+          "end": 923,
+          "symbol": "B.G_migrate"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     },
     {
@@ -8645,7 +9741,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본에서 호출처가 없는 cur_i local의 현재 행동자 인덱스를 native 행동자와 함수 단위로 연결한 직접 대조가 없다. 전투 파일은 수정 금지다.",
+      "remaining_reason": "현재 행동자 인덱스의 source cur_i와 native 실행 행동자를 함수 단위로 연결한 직접 시험은 여전히 없다. 전투 파일 수정 금지.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -8715,6 +9811,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "원본에서 호출처가 없는 cur_i local의 현재 행동자 인덱스를 native 행동자와 함수 단위로 연결한 직접 대조가 없다. 전투 파일은 수정 금지다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본에서 호출처가 없는 cur_i local의 현재 행동자 인덱스를 native 행동자와 함수 단위로 연결한 직접 대조가 없다. 전투 파일은 수정 금지다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/78-battle-item.lua",
+          "start": 88,
+          "end": 88,
+          "symbol": "cur_i"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     },
     {
@@ -8734,7 +9854,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "기존 44개 효과 대조는 유지했다. 무재고·무효 대상·현재 행동자·이벤트/타이머·메뉴 저장 재개 및 원문 메시지를 포함한 전투 아이템 전체 대조가 남는다. 전투 파일 수정 금지다.",
+      "remaining_reason": "44개 효과의 기존 대조는 유지했다. 무재고·무효 대상·현재 행동자·이벤트/타이머·메뉴 저장 재개·원문 메시지의 전체 직접 대조는 남는다. 전투 파일 수정 금지.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -8804,6 +9924,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "기존 44개 효과 대조는 유지했다. 무재고·무효 대상·현재 행동자·이벤트/타이머·메뉴 저장 재개 및 원문 메시지를 포함한 전투 아이템 전체 대조가 남는다. 전투 파일 수정 금지다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "기존 44개 효과 대조는 유지했다. 무재고·무효 대상·현재 행동자·이벤트/타이머·메뉴 저장 재개 및 원문 메시지를 포함한 전투 아이템 전체 대조가 남는다. 전투 파일 수정 금지다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/78-battle-item.lua",
+          "start": 89,
+          "end": 132,
+          "symbol": "B.it_apply"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     },
     {
@@ -8823,7 +9967,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "탐색 이름 helper의 같음을 전투 표시 함수로 전파하지 않았다. 전투 메뉴가 쓰는 실제 아이템 이름과 fallback의 별도 직접 대조가 남는다. 전투 파일은 수정 금지다.",
+      "remaining_reason": "탐색 아이템 이름 helper의 기존 같음을 전투 메뉴 이름에 전파하지 않았다. 전투가 실제 사용하는 표시 이름과 unknown fallback의 별도 직접 대조가 남는다. 전투 파일 수정 금지.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -8893,6 +10037,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "탐색 이름 helper의 같음을 전투 표시 함수로 전파하지 않았다. 전투 메뉴가 쓰는 실제 아이템 이름과 fallback의 별도 직접 대조가 남는다. 전투 파일은 수정 금지다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "탐색 이름 helper의 같음을 전투 표시 함수로 전파하지 않았다. 전투 메뉴가 쓰는 실제 아이템 이름과 fallback의 별도 직접 대조가 남는다. 전투 파일은 수정 금지다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/78-battle-item.lua",
+          "start": 135,
+          "end": 135,
+          "symbol": "itname"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     },
     {
@@ -8912,7 +10080,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템 버튼의 무재고/사용 불가 이유·대상·활성 조건·누른 뒤 상태의 전체 대조가 남는다. 태그 차이를 이유로 남기지 않으며 전투 파일은 수정 금지다.",
+      "remaining_reason": "전투 아이템 버튼의 무재고/불가 이유·대상·활성·클릭 후 상태 전체 직접 대조가 남는다. 전투 파일 수정 금지.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -8991,6 +10159,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "전투 아이템 버튼의 무재고/사용 불가 이유·대상·활성 조건·누른 뒤 상태의 전체 대조가 남는다. 태그 차이를 이유로 남기지 않으며 전투 파일은 수정 금지다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "전투 아이템 버튼의 무재고/사용 불가 이유·대상·활성 조건·누른 뒤 상태의 전체 대조가 남는다. 태그 차이를 이유로 남기지 않으며 전투 파일은 수정 금지다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/78-battle-item.lua",
+          "start": 138,
+          "end": 150,
+          "symbol": "B.it_button"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     },
     {
@@ -9010,7 +10202,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템 목록의 순서·수량·빈 목록 안내·활성 조건·메뉴 저장 재개의 전체 대조가 남는다. 전투 파일은 수정 금지다.",
+      "remaining_reason": "전투 아이템 목록의 순서·수량·빈 안내·활성 조건·메뉴 저장 재개의 전체 직접 대조가 남는다. 전투 파일 수정 금지.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -9089,6 +10281,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "전투 아이템 목록의 순서·수량·빈 목록 안내·활성 조건·메뉴 저장 재개의 전체 대조가 남는다. 전투 파일은 수정 금지다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "전투 아이템 목록의 순서·수량·빈 목록 안내·활성 조건·메뉴 저장 재개의 전체 대조가 남는다. 전투 파일은 수정 금지다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/78-battle-item.lua",
+          "start": 153,
+          "end": 179,
+          "symbol": "B.r_items"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     },
     {
@@ -9108,7 +10324,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "아이템 handler의 잘못된 scene/메뉴/대상·취소·중복 입력·타이머·저장 재개·원문 메시지의 전체 일치가 남는다. 전투 파일은 수정 금지다.",
+      "remaining_reason": "전투 아이템 handler의 scene/menu/target·취소·중복·타이머·저장 재개·원문 메시지 전체 직접 대조가 남는다. 전투 파일 수정 금지.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -9223,6 +10439,30 @@
         "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
         "direct_native_contract": false,
         "remaining_reason": "아이템 handler의 잘못된 scene/메뉴/대상·취소·중복 입력·타이머·저장 재개·원문 메시지의 전체 일치가 남는다. 전투 파일은 수정 금지다."
+      },
+      "pass6_fixed": false,
+      "pass6_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "아이템 handler의 잘못된 scene/메뉴/대상·취소·중복 입력·타이머·저장 재개·원문 메시지의 전체 일치가 남는다. 전투 파일은 수정 금지다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source": {
+          "file": "bot/src/78-battle-item.lua",
+          "start": 182,
+          "end": 225,
+          "symbol": "B.H.it"
+        },
+        "groups": [],
+        "direct_native_contract": false,
+        "full_function_unresolved": true,
+        "implementation_changed": false,
+        "tests": [],
+        "provenance": "verification/parity-r23/expe-pass6-provenance.json",
+        "results": "verification/parity-r23/expe-pass6-after-results.json",
+        "painted_source_comparison": null,
+        "native_locations": []
       }
     }
   ],
@@ -9231,945 +10471,841 @@
       "test": "affection_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 0.53,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 0.62,
+      "passed": true
     },
     {
       "test": "art_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.2,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 1.42,
+      "passed": true
     },
     {
       "test": "balance_probe",
       "exit": 0,
       "errors": [],
-      "seconds": 8.3,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 10.74,
+      "passed": true
     },
     {
       "test": "battle_r23_batch_test",
       "exit": 0,
       "errors": [],
-      "seconds": 9.47,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 13.7,
+      "passed": true
     },
     {
       "test": "battle_r23_clock_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.05,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 1.31,
+      "passed": true
     },
     {
       "test": "battle_r23_compose_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.19,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 1.7,
+      "passed": true
     },
     {
       "test": "battle_r23_display_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.17,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 1.44,
+      "passed": true
     },
     {
       "test": "battle_r23_enemy_test",
       "exit": 0,
       "errors": [],
-      "seconds": 7.34,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 10.2,
+      "passed": true
     },
     {
       "test": "battle_r23_round3_test",
       "exit": 0,
       "errors": [],
-      "seconds": 15.55,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 20.8,
+      "passed": true
     },
     {
       "test": "battle_r23_round4_test",
       "exit": 0,
       "errors": [],
-      "seconds": 139.0,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 149.06,
+      "passed": true
     },
     {
       "test": "battle_r23_round5_test",
       "exit": 0,
       "errors": [],
-      "seconds": 45.56,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 43.92,
+      "passed": true
     },
     {
       "test": "battle_r23_state_test",
       "exit": 0,
       "errors": [],
-      "seconds": 4.95,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 6.77,
+      "passed": true
     },
     {
       "test": "battle_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 41.41,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 43.59,
+      "passed": true
     },
     {
       "test": "chronicle_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 4.2,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 4.72,
+      "passed": true
     },
     {
       "test": "cloud_archive_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.73,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 2.02,
+      "passed": true
     },
     {
       "test": "cloud_compat_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.52,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 1.97,
+      "passed": true
     },
     {
       "test": "cloud_journey_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.23,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 2.83,
+      "passed": true
     },
     {
       "test": "cloud_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 15.8,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 16.45,
+      "passed": true
     },
     {
       "test": "combat_a6_mixed_audit",
       "exit": 0,
       "errors": [],
-      "seconds": 13.11,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 13.47,
+      "passed": true
     },
     {
       "test": "combat_a6_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 21.77,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 22.26,
+      "passed": true
     },
     {
       "test": "combat_a7_flow_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.78,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 1.92,
+      "passed": true
     },
     {
       "test": "combat_a7_gear_audit",
       "exit": 0,
       "errors": [],
-      "seconds": 23.23,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 24.33,
+      "passed": true
     },
     {
       "test": "combat_a7_gear_balanced",
       "exit": 0,
       "errors": [],
-      "seconds": 32.11,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 32.84,
+      "passed": true
     },
     {
       "test": "combat_a7_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.72,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 2.06,
+      "passed": true
     },
     {
       "test": "combat_a8_audit",
       "exit": 0,
       "errors": [],
-      "seconds": 733.61,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 829.05,
+      "passed": true
     },
     {
       "test": "combat_a9_native_10_audit",
       "exit": 0,
       "errors": [],
-      "seconds": 38.81,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 44.34,
+      "passed": true
     },
     {
       "test": "combat_a9_native_40_audit",
       "exit": 0,
       "errors": [],
-      "seconds": 54.39,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 60.11,
+      "passed": true
     },
     {
       "test": "combat_a9_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.03,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 2.11,
+      "passed": true
     },
     {
       "test": "combat_p2_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 47.81,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 47.62,
+      "passed": true
     },
     {
       "test": "combat_p2_r22_trace",
       "exit": 0,
       "errors": [],
-      "seconds": 9.39,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 9.69,
+      "passed": true
     },
     {
       "test": "combat_p3_mixed_audit",
       "exit": 0,
       "errors": [],
-      "seconds": 23.23,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 25.97,
+      "passed": true
     },
     {
       "test": "combat_p3_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 85.97,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 83.69,
+      "passed": true
     },
     {
       "test": "data_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.62,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 1.47,
+      "passed": true
     },
     {
       "test": "dialogue_player_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 265.7,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 281.61,
+      "passed": true
     },
     {
       "test": "dialogue_roster_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 16.53,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 17.25,
+      "passed": true
     },
     {
       "test": "dungeon_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 136.94,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 175.06,
+      "passed": true
     },
     {
       "test": "enemy_action_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 127.09,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 159.14,
+      "passed": true
     },
     {
       "test": "enemy_regression_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.44,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 2.52,
+      "passed": true
     },
     {
       "test": "enemy_review_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 25.83,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 30.42,
+      "passed": true
     },
     {
       "test": "expansion_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.91,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 2.25,
+      "passed": true
     },
     {
       "test": "expe_format_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.83,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 2.19,
+      "passed": true
     },
     {
       "test": "expe_level_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.09,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 2.06,
+      "passed": true
     },
     {
       "test": "expe_pass2_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 29.33,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 35.77,
+      "passed": true
     },
     {
       "test": "expe_pass3_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 21.8,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 24.11,
+      "passed": true
     },
     {
       "test": "expe_pass4_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 8.03,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 10.55,
+      "passed": true
     },
     {
       "test": "expe_pass5_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 40.06,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 48.08,
+      "passed": true
+    },
+    {
+      "test": "expe_pass6_r23_test",
+      "exit": 0,
+      "errors": [],
+      "seconds": 16.02,
+      "passed": true
     },
     {
       "test": "expe_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 55.58,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 82.0,
+      "passed": true
     },
     {
       "test": "expe_supply_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.44,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 2.0,
+      "passed": true
     },
     {
       "test": "expedition_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 35.42,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 43.23,
+      "passed": true
     },
     {
       "test": "export_licenses",
       "exit": 0,
       "errors": [],
-      "seconds": 0.5,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 0.66,
+      "passed": true
     },
     {
       "test": "facilities_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 21.03,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 23.25,
+      "passed": true
     },
     {
       "test": "gear_boundary_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 5.14,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 7.09,
+      "passed": true
     },
     {
       "test": "gear_hooks_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 9.14,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 10.03,
+      "passed": true
     },
     {
       "test": "gear_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 7.66,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 9.56,
+      "passed": true
     },
     {
       "test": "gear_r23_bonus_resume_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.97,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 2.09,
+      "passed": true
     },
     {
       "test": "gear_r23_facilities_test",
       "exit": 0,
       "errors": [],
-      "seconds": 3.09,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 3.19,
+      "passed": true
     },
     {
       "test": "gear_r23_hooks_test",
       "exit": 0,
       "errors": [],
-      "seconds": 0.75,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 0.83,
+      "passed": true
     },
     {
       "test": "gear_r23_predecessors_test",
       "exit": 0,
       "errors": [],
       "seconds": 0.76,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "passed": true
     },
     {
       "test": "gear_r23_round2_test",
       "exit": 0,
       "errors": [],
-      "seconds": 9.77,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 9.73,
+      "passed": true
     },
     {
       "test": "gear_r23_round3_test",
       "exit": 0,
       "errors": [],
-      "seconds": 3.92,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 5.72,
+      "passed": true
     },
     {
       "test": "gear_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 15.89,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 21.94,
+      "passed": true
     },
     {
       "test": "import",
       "exit": 0,
       "errors": [],
-      "seconds": 4.12,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 5.72,
+      "passed": true
     },
     {
       "test": "motion_asset_test",
       "exit": 0,
       "errors": [],
-      "seconds": 0.62,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 0.73,
+      "passed": true
     },
     {
       "test": "motion_r18_integration",
       "exit": 0,
       "errors": [],
-      "seconds": 69.91,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 71.09,
+      "passed": true
     },
     {
       "test": "motion_r9_integration",
       "exit": 0,
       "errors": [],
-      "seconds": 9.0,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 9.05,
+      "passed": true
     },
     {
       "test": "motion_test",
       "exit": 0,
       "errors": [],
-      "seconds": 0.53,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 0.55,
+      "passed": true
     },
     {
       "test": "panel_messages_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.95,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 3.52,
+      "passed": true
     },
     {
       "test": "panels_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.69,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 3.61,
+      "passed": true
     },
     {
       "test": "persona_combat_a8_test",
       "exit": 0,
       "errors": [],
-      "seconds": 148.77,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 172.53,
+      "passed": true
     },
     {
       "test": "persona_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 7.0,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 9.09,
+      "passed": true
     },
     {
       "test": "persona_research_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 4.89,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 7.16,
+      "passed": true
     },
     {
       "test": "persona_save_a8_test",
       "exit": 0,
       "errors": [],
-      "seconds": 4.92,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 5.72,
+      "passed": true
     },
     {
       "test": "persona_town_r21_round8_test",
       "exit": 0,
       "errors": [],
-      "seconds": 35.58,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 53.64,
+      "passed": true
     },
     {
       "test": "recruit_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.88,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 2.19,
+      "passed": true
     },
     {
       "test": "route_test",
       "exit": 0,
       "errors": [],
-      "seconds": 0.73,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 0.77,
+      "passed": true
     },
     {
       "test": "settings_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 5.89,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 6.92,
+      "passed": true
     },
     {
       "test": "state_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.56,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 1.62,
+      "passed": true
     },
     {
       "test": "town_combat_r21_round14_test",
       "exit": 0,
       "errors": [],
-      "seconds": 28.94,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 30.42,
+      "passed": true
     },
     {
       "test": "town_commerce_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.38,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 3.12,
+      "passed": true
     },
     {
       "test": "town_r21_round10_test",
       "exit": 0,
       "errors": [],
-      "seconds": 6.88,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 7.73,
+      "passed": true
     },
     {
       "test": "town_r21_round11_test",
       "exit": 0,
       "errors": [],
-      "seconds": 8.62,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 8.81,
+      "passed": true
     },
     {
       "test": "town_r21_round9_test",
       "exit": 0,
       "errors": [],
-      "seconds": 40.36,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 46.67,
+      "passed": true
     },
     {
       "test": "town_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.39,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 3.11,
+      "passed": true
     },
     {
       "test": "ui_battle_r17_test",
       "exit": 0,
       "errors": [],
-      "seconds": 61.66,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 61.09,
+      "passed": true
     },
     {
       "test": "ui_battle_r18_test",
       "exit": 0,
       "errors": [],
-      "seconds": 50.2,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 55.11,
+      "passed": true
     },
     {
       "test": "ui_battle_r19_test",
       "exit": 0,
       "errors": [],
-      "seconds": 11.14,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 12.19,
+      "passed": true
     },
     {
       "test": "ui_battle_r20_test",
       "exit": 0,
       "errors": [],
-      "seconds": 18.36,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 19.64,
+      "passed": true
     },
     {
       "test": "ui_chronicle_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 10.7,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 11.2,
+      "passed": true
     },
     {
       "test": "ui_cloud_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 5.0,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 5.8,
+      "passed": true
     },
     {
       "test": "ui_combat_a8_test",
       "exit": 0,
       "errors": [],
-      "seconds": 61.94,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 60.42,
+      "passed": true
     },
     {
       "test": "ui_data_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 26.39,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 26.89,
+      "passed": true
     },
     {
       "test": "ui_dialogue_journey_roster_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 69.75,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 69.58,
+      "passed": true
     },
     {
       "test": "ui_dialogue_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 32.56,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 33.22,
+      "passed": true
     },
     {
       "test": "ui_dialogue_roster_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 137.66,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 163.45,
+      "passed": true
     },
     {
       "test": "ui_expe_pass2_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 7.27,
-      "passed": true,
-      "evidence_run": "expe-pass5-ui-correction"
+      "seconds": 8.25,
+      "passed": true
     },
     {
       "test": "ui_expe_pass5_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 8.42,
-      "passed": true,
-      "evidence_run": "expe-pass5-ui-correction"
+      "seconds": 9.02,
+      "passed": true
+    },
+    {
+      "test": "ui_expe_pass6_r23_test",
+      "exit": 0,
+      "errors": [],
+      "seconds": 10.39,
+      "passed": true
     },
     {
       "test": "ui_expedition_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 22.95,
-      "passed": true,
-      "evidence_run": "expe-pass5-ui-correction"
+      "seconds": 22.12,
+      "passed": true
     },
     {
       "test": "ui_facilities_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 14.62,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 15.77,
+      "passed": true
     },
     {
       "test": "ui_gear_r23_round3_test",
       "exit": 0,
       "errors": [],
-      "seconds": 4.14,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 4.58,
+      "passed": true
     },
     {
       "test": "ui_gear_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 4.34,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 5.27,
+      "passed": true
     },
     {
       "test": "ui_panels_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 20.83,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 29.38,
+      "passed": true
     },
     {
       "test": "ui_parity_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 8.06,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 10.91,
+      "passed": true
     },
     {
       "test": "ui_persona_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 10.81,
-      "passed": true,
-      "evidence_run": "expe-pass5-ui-correction"
+      "seconds": 13.34,
+      "passed": true
     },
     {
       "test": "ui_persona_town_round8_test",
       "exit": 0,
       "errors": [],
-      "seconds": 13.08,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 18.8,
+      "passed": true
     },
     {
       "test": "ui_remaining_native_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 9.44,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 10.64,
+      "passed": true
     },
     {
       "test": "ui_remaining_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.95,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 2.22,
+      "passed": true
     },
     {
       "test": "ui_rules_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 5.39,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 6.58,
+      "passed": true
     },
     {
       "test": "ui_settings_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 11.34,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 12.78,
+      "passed": true
     },
     {
       "test": "ui_town_r21_round10_test",
       "exit": 0,
       "errors": [],
-      "seconds": 24.28,
-      "passed": true,
-      "evidence_run": "expe-pass5-ui-correction"
+      "seconds": 21.45,
+      "passed": true
     },
     {
       "test": "ui_town_r21_round11_test",
       "exit": 0,
       "errors": [],
-      "seconds": 25.59,
-      "passed": true,
-      "evidence_run": "expe-pass5-ui-correction"
+      "seconds": 25.27,
+      "passed": true
     },
     {
       "test": "ui_town_r21_round2_test",
       "exit": 0,
       "errors": [],
-      "seconds": 11.89,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 13.05,
+      "passed": true
     },
     {
       "test": "ui_town_r21_round3_test",
       "exit": 0,
       "errors": [],
-      "seconds": 25.59,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 25.25,
+      "passed": true
     },
     {
       "test": "ui_town_r21_round4_test",
       "exit": 0,
       "errors": [],
-      "seconds": 24.17,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 25.06,
+      "passed": true
     },
     {
       "test": "ui_town_r21_round5_test",
       "exit": 0,
       "errors": [],
-      "seconds": 7.42,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 7.61,
+      "passed": true
     },
     {
       "test": "ui_town_r21_round9_test",
       "exit": 0,
       "errors": [],
-      "seconds": 13.91,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 15.47,
+      "passed": true
     },
     {
       "test": "ui_town_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 8.78,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 9.22,
+      "passed": true
     },
     {
       "test": "ui_town_result_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 10.62,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 10.98,
+      "passed": true
     },
     {
       "test": "world_test",
       "exit": 0,
       "errors": [],
-      "seconds": 0.7,
-      "passed": true,
-      "evidence_run": "expe-pass5-suite-final"
+      "seconds": 0.67,
+      "passed": true
     }
   ],
   "trace_reports": [
@@ -10408,6 +11544,47 @@
         "new_comparison_max_bytes": 4753796
       },
       "row_review": "verification/parity-r23/expe-pass5-row-audit.json"
+    },
+    {
+      "pass": 6,
+      "summary": {
+        "reviewed_rows": 38,
+        "promoted_same": 7,
+        "implementation_rows": 17,
+        "fixed_still_remaining": 10,
+        "cumulative_same": 77,
+        "excluded_host_rows": 1,
+        "remaining_rows": 31,
+        "native_assertions": 272,
+        "native_failures": 0,
+        "ui_assertions": 1908,
+        "ui_failures": 0,
+        "direct_rendered_source_cases": 44,
+        "direct_rendered_source_failures": 0,
+        "source_fixture_cases": 228,
+        "regression_groups": 120,
+        "failed_groups": [],
+        "changed_existing_files": [
+          "project/game/expedition_ui_r23.gd",
+          "project/game/expedition_world_r22.gd",
+          "project/game/persona_world.gd",
+          "project/ui/expedition_screen_r22.gd",
+          "project/ui/persona_sortie_screen.gd",
+          "project/ui/town_screen_r21.gd",
+          "project/ui/world_screen.gd"
+        ],
+        "outside_allowed_changed": [],
+        "assets_checked": 96,
+        "asset_changes": [],
+        "source_files_unchanged": 46,
+        "trace_battles": 6320,
+        "trace_equal_battles": 6320,
+        "trace_records": 219785,
+        "cloud_save_specimens": 6,
+        "ui_captures": 24,
+        "new_comparison_max_bytes": 1137776
+      },
+      "row_review": "verification/parity-r23/expe-pass6-row-audit.json"
     }
   ],
   "current_implementation_lines": {

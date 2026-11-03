@@ -35,6 +35,19 @@ func source_run(g: Dictionary) -> Variant:
 	return normalize_dungeon_record(g).get("run",false)
 
 func source_sortie_view(kind: String) -> Array:return ExpeditionUI.new().sortie(self,kind)
+func source_preparation_view(kind: String,extra: Dictionary={}) -> Array:return ExpeditionUI.new().preparation(self,kind,extra)
+func source_portrait_record(id: String,provided: Variant=null) -> Dictionary:
+	# A native provider succeeds only with a usable texture. Missing/invalid
+	# resources follow the same translated first-character path as tw_face.
+	if provided is Texture2D:return {"texture":provided,"fallback":""}
+	var ui=ExpeditionUI.new();ui.lang=ExpeditionText.language(s)
+	return {"texture":null,"fallback":ui.t(town_source_name(id)).left(1)}
+func sortie_mode() -> int:return 0 if s.ui.get("sel","")=="sortie:quest" else 1
+func set_sortie_mode(mode: int) -> bool:
+	if active() or mode not in [0,1]:return false
+	# ui.sel is an existing free-text native/cloud field; D.mode is source-only.
+	s.ui.sel="sortie:quest" if mode==0 else "sortie:dungeon"
+	return true
 
 func expedition_ui_text(text: String,values: Dictionary={}) -> String:
 	var ui=ExpeditionUI.new();ui.lang=ExpeditionText.language(s);return ui.u(text,values)
@@ -571,7 +584,20 @@ func settle(result: String) -> bool:
 	s.day+=1;s.refreshes=0;s.dungeon_r21.last=s.summary.duplicate(true)
 	log_expedition("%d층 %s · 금화 %d · 경험치 %d"%[r.floor,{"clear":"돌파","retreat":"퇴각","defeat":"도전 실패"}[result],amount,xp])
 	emit_bark("defeat" if result=="defeat" else "return")
+	if result=="defeat":
+		var carry=mini(s.gold-amount+penalty,100*clampi(int(encounter_plan().star),1,4))
+		var kept_ui=""
+		if keep>0 and (amount>0 or not items.is_empty() or not bank.gear.is_empty()):
+			kept_ui=expedition_ui_text(" 케른의 계약 덕에 모은 것의 일부(금화 {gold}{gear})는 챙겼다.",{"gold":amount,"gear":expedition_ui_text(", 장비 {n}개",{"n":bank.gear.size()}) if not bank.gear.is_empty() else ""})
+			if s.summary.lost_gear>0:kept_ui+=expedition_ui_text(" 장비 {n}개는 잃었다.",{"n":s.summary.lost_gear})
+		s.ui.msg=expedition_ui_text("대던전 {floor}층 도전 실패. 모은 것을 잃고, 들고 간 금화 {carry}의 {part}{loss}도 잃었다.{kept}",{"floor":r.floor,"carry":carry,"part":expedition_ui_text("일부 " if mods.loss<1 else "절반 "),"loss":penalty,"kept":kept_ui})
+		# The completed summary remains in both native summary and D.last. Only
+		# the finished live run is removed, as in 77-explore.finish_run.
+		s.run={};s.scene="town";s.ui.sel="";s.ui.tab=""
 	return true
+
+func expedition_defeat_home() -> bool:
+	return s.run.is_empty() and s.summary.get("expedition_version")==22 and s.summary.get("result")=="defeat" and s.get("scene")=="town"
 
 func expedition_summary_aff_lines() -> Array:
 	var out=[];var lang=ExpeditionText.language(s);var got=s.summary.get("aff",{})
@@ -667,6 +693,10 @@ func restore(value: Variant) -> bool:
 	# 77-explore.move_old: merge both old potion aliases before the inherited
 	# inventory validators. Work on a copy so a rejected save remains untouched.
 	value=value.duplicate(true)
+	if value.get("dungeon_r21") is Dictionary and value.dungeon_r21.has("mode"):
+		var mode=value.dungeon_r21.mode
+		if mode not in [0,1] or not value.get("ui") is Dictionary:return false
+		value.ui.sel="sortie:quest" if mode==0 else "sortie:dungeon";value.dungeon_r21.erase("mode")
 	if value.get("items") is Dictionary:
 		if not migrate_expedition_items(value.items):return false
 	if value.run.get("loot_items") is Dictionary:
