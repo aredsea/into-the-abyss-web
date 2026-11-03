@@ -27,14 +27,16 @@ var gear_bridge
 
 func _volley(a: Dictionary,power: float,brk: float) -> void:
 	volley_active=true; pending_hit_hooks=[]
+	var shared_options={}
 	for foe in living(false):
-		_damage(a,foe,power,brk)
+		_damage(a,foe,power,brk,false,-1,shared_options)
 		if action_id=="ruin" and foe.hp>0:
 			_push_class_dot(foe,floor(a.base.int),3,a.id); _effect(foe,"attack_down",3,.15)
 	var hooks=pending_hit_hooks; pending_hit_hooks=[]; volley_active=false
 	for hook in hooks: _personal_hit_after(hook)
 
 func _trait_event(a: Dictionary,label: String,duration: float=0) -> void:
+	combat_events.trait_payload(combat_events.slot(self,a),label,combat_events.T)
 	combat_events.push("trait",combat_events.slot(self,a),combat_events.T)
 	combat_events.T+=duration
 	_event(a.name+" · "+label)
@@ -110,12 +112,18 @@ func combat_event_trace() -> Dictionary: return combat_events.trace()
 func combat_display_schedule(event: Dictionary) -> Array: return CombatDisplay.schedule(event)
 func status_chips(u: Dictionary) -> Array: return CombatDisplay.chips(self,u)
 func _begin_combat_events(id: String,a: Dictionary,e: Dictionary,t: Dictionary) -> void:
+	var log_lines=combat_events.record.log
 	combat_events=CombatEvents.new()
+	combat_events.record.log=log_lines;combat_events.begin_record(self)
 	combat_events.begin(self,id,a,e,t)
 
 func _record_hit(actor: String,target: String,damage: int,shield: int,critical: bool=false) -> void:
 	var all=data.allies+data.enemies
 	combat_events.changed(self,unit(target))
+	var u=unit(target)
+	var hit_at=combat_events.T if combat_events.context.is_empty() else combat_events.hit_time()
+	combat_events.field(self,u,"hp",u.hp,hit_at)
+	combat_events.field(self,u,"sh",u.get("shield",fx(u,"shield")),hit_at)
 	combat_hits.append({"actor":all.find(unit(actor))+1,"target":all.find(unit(target))+1,"damage":damage,"shield":shield,"critical":critical})
 
 func _roll(chance: float) -> bool:
@@ -171,13 +179,8 @@ func _round_tick() -> void:
 			"jorund":
 				for e in data.enemies: x(e).jd=0
 			"hildegard": _hg_scan()
-			"miko":
-				var pick={}; var late=-1.0
-				for a in living(true):
-					if a.id==owner.id: continue
-					var wait=float(a.remaining)/speed(a)
-					if wait>late: late=wait; pick=a
-				if not pick.is_empty(): pick.remaining=maxf(0,pick.remaining-4000)
+			"miko": PersonalRules.miko_round(self,owner)
+	TraitRules.refresh(self)
 	if count_tag("race","하프엘프")>=3:
 		for a in living(true):
 			for key in ["attack_down","defense_down","zdn"]:
@@ -225,6 +228,7 @@ func _init(scene_data: Dictionary={}) -> void:
 		if a.id=="altan":
 			for m in living(true): _shield(m,a.base.int*2,3,dungeon_enemy_r21==null)
 	if dungeon_enemy_r21!=null: _start_ctb()
+	if dungeon_enemy_r21!=null: TraitRules.refresh(self)
 	refresh_forecast()
 
 func _start_ctb() -> void:
@@ -566,7 +570,7 @@ func _tick_enemy_dots(e: Dictionary) -> void:
 func _ally_down(a: Dictionary) -> void:
 	# GH.ally_down refreshes live synergies (count_tag reads HP dynamically),
 	# then dot_trim removes the oldest class stacks, never corrosion/bleed.
-	TraitRules.dot_trim(self)
+	TraitRules.refresh(self); TraitRules.dot_trim(self)
 	PersonalRules.drop_caster_buffs(self,a)
 	a.effects.erase("taunt"); a.effects.erase("shield"); a.charging=false; x(a).cover=""; a.shield=0
 	# B.drop_src(false) visits every unit and every source-tagged buff.
@@ -717,6 +721,11 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 	if a.id=="lavinia" and action_id=="personal" and not extra and PersonalRules.casting(e): mult*=1.3
 	if a.id=="bianca" and e.get("grade","") in ["boss","chief","core"]: mult*=1.3
 	if dungeon_enemy_r21!=null: mult*=PersonalRules.damage_mult(self,a)
+	if dungeon_enemy_r21!=null:
+		for owner in living(true):
+			if owner.id!="miko":continue
+			var modified=PersonalRules.miko_deal(self,owner,a,mult,[],proc_event)
+			if modified!=null:mult=modified
 	var weak=PersonalRules.isweak(e,proc_event.get("element",a.element))
 	var defense=e.defense*(1+fx(e,"defense_up")-fx(e,"defense_down")) if dungeon_enemy_r21!=null else e.defense*(1-fx(e,"defense_down"))
 	var k=BattleStats.K_of(e.level,data.formula,data.def_curve)
@@ -1519,6 +1528,7 @@ func _restore_v3(value: Variant) -> bool:
 		if x(e).has("judith_sp0"): e.speed=floor(x(e).judith_sp0*.85+.5)
 	inventory=value.inventory.duplicate(true)
 	ctb_tick=int(value.get("ctb",{}).get("tick",0)); ctb_round=int(value.get("ctb",{}).get("round",0))
+	if dungeon_enemy_r21!=null: TraitRules.refresh(self)
 	refresh_forecast(); return true
 
 func _gear_global_valid(key: String,cell: Dictionary) -> bool:

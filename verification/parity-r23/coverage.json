@@ -4,107 +4,112 @@
     {
       "case": "main",
       "exit": 0,
-      "seconds": 0.91
+      "seconds": 1.0
     },
     {
       "case": "enemy",
       "exit": 0,
-      "seconds": 0.23
+      "seconds": 0.28
     },
     {
       "case": "state",
       "exit": 0,
-      "seconds": 0.17
+      "seconds": 0.19
     },
     {
       "case": "display",
       "exit": 0,
-      "seconds": 0.2
+      "seconds": 0.24
     },
     {
       "case": "compose",
       "exit": 0,
-      "seconds": 0.27
+      "seconds": 0.3
     },
     {
       "case": "clock",
       "exit": 0,
-      "seconds": 0.22
+      "seconds": 0.23
     },
     {
       "case": "batch",
       "exit": 0,
-      "seconds": 0.59
+      "seconds": 0.64
     },
     {
       "case": "round3",
       "exit": 0,
-      "seconds": 0.5
+      "seconds": 0.62
+    },
+    {
+      "case": "round4",
+      "exit": 0,
+      "seconds": 1.5
     },
     {
       "case": "retained-p2",
       "exit": 0,
-      "seconds": 0.44,
+      "seconds": 0.55,
       "expected": "p2-oracle.json"
     },
     {
       "case": "retained-a6",
       "exit": 0,
-      "seconds": 0.62,
+      "seconds": 0.72,
       "expected": "a6-mixed-oracle.json"
     },
     {
       "case": "retained-p3",
       "exit": 0,
-      "seconds": 1.09,
+      "seconds": 1.19,
       "expected": "p3-mixed-oracle.json"
     },
     {
       "case": "retained-a7",
       "exit": 0,
-      "seconds": 0.92,
+      "seconds": 1.0,
       "expected": "a7-gear-oracle.json"
     },
     {
       "case": "retained-a7b",
       "exit": 0,
-      "seconds": 1.73,
+      "seconds": 1.94,
       "expected": "a7-gear-balanced-oracle.json"
     },
     {
       "case": "retained-a8",
       "exit": 0,
-      "seconds": 40.91,
+      "seconds": 49.23,
       "expected": "a8-oracle.json"
     },
     {
       "case": "retained-a9-10",
       "exit": 0,
-      "seconds": 2.17,
+      "seconds": 2.03,
       "expected": "a9-native-10-oracle.json"
     },
     {
       "case": "retained-a9-40",
       "exit": 0,
-      "seconds": 3.53,
+      "seconds": 3.14,
       "expected": "a9-native-40-oracle.json"
     },
     {
       "case": "retained-unit-a6",
       "exit": 0,
-      "seconds": 0.25,
+      "seconds": 0.23,
       "expected": "a6-oracle.json"
     },
     {
       "case": "retained-unit-p3",
       "exit": 0,
-      "seconds": 0.7,
+      "seconds": 0.61,
       "expected": "p3-oracle.json"
     }
   ],
-  "called_functions": 166,
+  "called_functions": 170,
   "baseline_missing_entries": 157,
-  "newly_entered_baseline_entries": 68,
+  "newly_entered_baseline_entries": 77,
   "rows": [
     {
       "id": "P1473",
@@ -2293,7 +2298,7 @@
     },
     {
       "id": "P2363",
-      "called": false,
+      "called": true,
       "explicit_entries": 0,
       "entered": 0,
       "baseline_missing": 0,
@@ -2864,10 +2869,9 @@
       "id": "P2201",
       "called": true,
       "explicit_entries": 3,
-      "entered": 1,
+      "entered": 3,
       "baseline_missing": 2,
-      "baseline_missing_now_entered": [],
-      "remaining_entries": [
+      "baseline_missing_now_entered": [
         {
           "key": "32-personal-b.lua:488:21838",
           "line": 488,
@@ -2881,29 +2885,16 @@
           "token": "then"
         }
       ],
-      "remaining_baseline": [
-        {
-          "key": "32-personal-b.lua:488:21838",
-          "line": 488,
-          "offset": 21838,
-          "token": "then"
-        },
-        {
-          "key": "32-personal-b.lua:491:22200",
-          "line": 491,
-          "offset": 22200,
-          "token": "then"
-        }
-      ]
+      "remaining_entries": [],
+      "remaining_baseline": []
     },
     {
       "id": "P2205",
       "called": true,
       "explicit_entries": 4,
-      "entered": 1,
+      "entered": 4,
       "baseline_missing": 3,
-      "baseline_missing_now_entered": [],
-      "remaining_entries": [
+      "baseline_missing_now_entered": [
         {
           "key": "32-personal-b.lua:502:22722",
           "line": 502,
@@ -2923,35 +2914,16 @@
           "token": "then"
         }
       ],
-      "remaining_baseline": [
-        {
-          "key": "32-personal-b.lua:502:22722",
-          "line": 502,
-          "offset": 22722,
-          "token": "then"
-        },
-        {
-          "key": "32-personal-b.lua:505:22812",
-          "line": 505,
-          "offset": 22812,
-          "token": "then"
-        },
-        {
-          "key": "32-personal-b.lua:507:22859",
-          "line": 507,
-          "offset": 22859,
-          "token": "then"
-        }
-      ]
+      "remaining_entries": [],
+      "remaining_baseline": []
     },
     {
       "id": "P2207",
       "called": true,
       "explicit_entries": 6,
-      "entered": 4,
+      "entered": 6,
       "baseline_missing": 2,
-      "baseline_missing_now_entered": [],
-      "remaining_entries": [
+      "baseline_missing_now_entered": [
         {
           "key": "32-personal-b.lua:512:23031",
           "line": 512,
@@ -2965,20 +2937,8 @@
           "token": "then"
         }
       ],
-      "remaining_baseline": [
-        {
-          "key": "32-personal-b.lua:512:23031",
-          "line": 512,
-          "offset": 23031,
-          "token": "then"
-        },
-        {
-          "key": "32-personal-b.lua:521:23302",
-          "line": 521,
-          "offset": 23302,
-          "token": "then"
-        }
-      ]
+      "remaining_entries": [],
+      "remaining_baseline": []
     },
     {
       "id": "P2218",
@@ -3004,34 +2964,20 @@
       "id": "P2235",
       "called": true,
       "explicit_entries": 3,
-      "entered": 2,
+      "entered": 3,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "34-traits.lua:53:3446",
-          "line": 53,
-          "offset": 3446,
-          "token": "then"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
       "id": "P2236",
       "called": true,
       "explicit_entries": 3,
-      "entered": 2,
+      "entered": 3,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "34-traits.lua:53:3446",
-          "line": 53,
-          "offset": 3446,
-          "token": "then"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
@@ -3132,9 +3078,15 @@
       "id": "P2292",
       "called": true,
       "explicit_entries": 6,
-      "entered": 5,
+      "entered": 6,
       "baseline_missing": 4,
       "baseline_missing_now_entered": [
+        {
+          "key": "34-traits.lua:377:14856",
+          "line": 377,
+          "offset": 14856,
+          "token": "then"
+        },
         {
           "key": "34-traits.lua:380:14921",
           "line": 380,
@@ -3154,31 +3106,16 @@
           "token": "then"
         }
       ],
-      "remaining_entries": [
-        {
-          "key": "34-traits.lua:377:14856",
-          "line": 377,
-          "offset": 14856,
-          "token": "then"
-        }
-      ],
-      "remaining_baseline": [
-        {
-          "key": "34-traits.lua:377:14856",
-          "line": 377,
-          "offset": 14856,
-          "token": "then"
-        }
-      ]
+      "remaining_entries": [],
+      "remaining_baseline": []
     },
     {
       "id": "P2300",
       "called": true,
       "explicit_entries": 10,
-      "entered": 9,
+      "entered": 10,
       "baseline_missing": 1,
-      "baseline_missing_now_entered": [],
-      "remaining_entries": [
+      "baseline_missing_now_entered": [
         {
           "key": "34-traits.lua:416:16491",
           "line": 416,
@@ -3186,14 +3123,8 @@
           "token": "then"
         }
       ],
-      "remaining_baseline": [
-        {
-          "key": "34-traits.lua:416:16491",
-          "line": 416,
-          "offset": 16491,
-          "token": "then"
-        }
-      ]
+      "remaining_entries": [],
+      "remaining_baseline": []
     },
     {
       "id": "P2301",
@@ -3352,7 +3283,7 @@
     },
     {
       "id": "P1678",
-      "called": false,
+      "called": true,
       "explicit_entries": 0,
       "entered": 0,
       "baseline_missing": 0,
@@ -3883,23 +3814,10 @@
       "id": "P2319",
       "called": true,
       "explicit_entries": 3,
-      "entered": 1,
+      "entered": 3,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "40-fx.lua:56:2562",
-          "line": 56,
-          "offset": 2562,
-          "token": "then"
-        },
-        {
-          "key": "40-fx.lua:57:2610",
-          "line": 57,
-          "offset": 2610,
-          "token": "then"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
@@ -4077,36 +3995,17 @@
     },
     {
       "id": "P2327",
-      "called": false,
+      "called": true,
       "explicit_entries": 3,
-      "entered": 0,
+      "entered": 3,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "50-render.lua:13:491",
-          "line": 13,
-          "offset": 491,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:15:546",
-          "line": 15,
-          "offset": 546,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:16:574",
-          "line": 16,
-          "offset": 574,
-          "token": "then"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
       "id": "P2328",
-      "called": false,
+      "called": true,
       "explicit_entries": 0,
       "entered": 0,
       "baseline_missing": 0,

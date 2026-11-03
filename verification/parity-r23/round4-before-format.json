@@ -1,0 +1,106 @@
+{
+	"checks": 16,
+	"failures": [
+		"format/-0.125",
+		"format/0.125"
+	],
+	"rows": [
+		{
+			"got": "-100.00",
+			"label": "format/-100.0",
+			"ok": true,
+			"want": "-100.00"
+		},
+		{
+			"got": "-0.88",
+			"label": "format/-0.875",
+			"ok": true,
+			"want": "-0.88"
+		},
+		{
+			"got": "-0.38",
+			"label": "format/-0.375",
+			"ok": true,
+			"want": "-0.38"
+		},
+		{
+			"got": "-0.13",
+			"label": "format/-0.125",
+			"ok": false,
+			"want": "-0.12"
+		},
+		{
+			"got": "-0.01",
+			"label": "format/-0.005",
+			"ok": true,
+			"want": "-0.01"
+		},
+		{
+			"got": "-0.00",
+			"label": "format/-0.0001",
+			"ok": true,
+			"want": "-0.00"
+		},
+		{
+			"got": "0.00",
+			"label": "format/0.0",
+			"ok": true,
+			"want": "0.00"
+		},
+		{
+			"got": "0.01",
+			"label": "format/0.005",
+			"ok": true,
+			"want": "0.01"
+		},
+		{
+			"got": "0.13",
+			"label": "format/0.125",
+			"ok": false,
+			"want": "0.12"
+		},
+		{
+			"got": "0.25",
+			"label": "format/0.25",
+			"ok": true,
+			"want": "0.25"
+		},
+		{
+			"got": "0.38",
+			"label": "format/0.375",
+			"ok": true,
+			"want": "0.38"
+		},
+		{
+			"got": "0.75",
+			"label": "format/0.75",
+			"ok": true,
+			"want": "0.75"
+		},
+		{
+			"got": "0.88",
+			"label": "format/0.875",
+			"ok": true,
+			"want": "0.88"
+		},
+		{
+			"got": "1.00",
+			"label": "format/0.9999",
+			"ok": true,
+			"want": "1.00"
+		},
+		{
+			"got": "100.00",
+			"label": "format/100.0",
+			"ok": true,
+			"want": "100.00"
+		},
+		{
+			"got": "100.12",
+			"label": "format/100.123456",
+			"ok": true,
+			"want": "100.12"
+		}
+	],
+	"scope": "Reconstruction of the first round4 formatter, not the full prior build."
+}

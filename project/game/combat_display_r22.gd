@@ -1,6 +1,23 @@
 extends RefCounted
 const Locale=preload("res://game/localization_r22.gd")
 const Josa=preload("res://game/josa_r22.gd")
+static func fixed_decimal(value: float,digits: int) -> String:
+	# C/Lua printf rounds exact halfway values to even; Godot's formatter
+	# rounds them away from zero. Decimal halves representable in binary have
+	# denominator 2^(digits+1), so do not change nearby inexact binary values.
+	var scale=pow(10,digits);var v=absf(value);var scaled=v*scale
+	if scaled-floor(scaled)==.5 and v*pow(2,digits+1)==floor(v*pow(2,digits+1)):
+		var lower=floor(scaled);value=(lower if int(lower)%2==0 else lower+1)/scale*(-1 if value<0 else 1)
+	return ("%."+str(digits)+"f")%value
+static func fixed_two(value: float) -> String:return fixed_decimal(value,2)
+static func ratio_text(value: float,maximum: float):
+	return 0 if maximum<=0 else fixed_decimal(clampf(value/maximum*100,0,100),1)
+static func tag_class(value: String) -> String:
+	for pair in [["약점","w"],["고갈","a"],["여우불","f"]]:
+		if pair[0] in value:return pair[1]
+	return ""
+static func scale_style(value: Variant) -> String:
+	return ";--k:"+lua_string(value) if (value is float or value is int) and value>1 else ""
 static func percent(value: float) -> int:return int(floor(value*100+.5+1e-9))
 static func lua_string(value: Variant) -> String:
 	if value==null:return "nil"

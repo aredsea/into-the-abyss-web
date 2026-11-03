@@ -2,6 +2,7 @@ extends RefCounted
 ## 29-persona-skill: the one persona signature skill. Legacy companion tactics
 ## keep their existing execution path and saved slots.
 const Research=preload("res://game/persona_research_r21.gd")
+static func part_label(node: Dictionary,lang: String="ko") -> String:return node.en if lang=="en" else node.name
 
 static func action(raw: Dictionary) -> Dictionary:
 	if not Research.ready(raw): return {}
@@ -23,11 +24,11 @@ static func run(b,a: Dictionary,e: Dictionary,t: Dictionary,sk: Dictionary) -> v
 		var element=Research.data.class_elements[a.class_id] if p.id=="element" else a.element
 		var targets=b.living(false) if p.kind=="volley" else [e]
 		var results=[]
+		var result={"redirected":true,"element":element,"capture_result":true}
 		if p.kind=="volley": b.volley_active=true; b.pending_hit_hooks=[]
 		for target in targets:
 			# B.attack may redirect to a protector. Suffixes follow the actual hit.
 			if p.kind!="volley": target=b.dungeon_enemy_r21.protector(target)
-			var result={"redirected":true,"element":element,"capture_result":true}
 			b._damage(a,target,power*(1+value if q.kind=="bane" and debuffed(target) else 1),p.brk,false,-1,result)
 			results.append({"target":target,"kill":result.get("primary_kill",false)})
 		if p.kind=="volley":

@@ -5,6 +5,22 @@ var events=[]
 var T=.15
 var context={}
 var changed_slots={}
+const Record=preload("res://game/combat_record_r23.gd")
+var record={"u":[],"log":[],"q":[]}
+func begin_record(b) -> void:
+	record.u=[]
+	for u in b.data.allies+b.data.enemies:
+		record.u.append({"hp":u.hp,"mp":u.get("mp",0),"sh":u.get("shield",b.fx(u,"shield")),"ay":u.get("gauge",0)})
+	record.q=[]
+	for id in b.data.get("queue",[]):record.q.append(slot(b,b.unit(id)))
+	Record.begin(record)
+func field(b,u: Dictionary,key: String,value: Variant,at: Variant=null) -> void:
+	if record.u.is_empty():return
+	Record.set_field(record,slot(b,u),key,value,T if at==null else at)
+func say(html: String,at: Variant=null) -> void:Record.say(record,html,at)
+func trait_payload(actor: int,text: String,at: Variant=null,abyss: Variant=null) -> void:
+	if not record.has("ev"):return
+	record.ev.T=T;Record.trait_line(record,actor,text,at,abyss)
 func changed(b,u: Dictionary) -> void:
 	changed_slots[slot(b,u)]=true
 func slot(b,u: Dictionary) -> int: return (b.data.allies+b.data.enemies).find(u)+1
@@ -56,6 +72,7 @@ func abyss_time(index: int=0) -> float:
 	return T+offset+.2 if offset>=0 else hit_time(index)+.3
 func finish(b) -> void:
 	if context.is_empty(): return
+	if context.has("body_start"):T=context.body_start
 	var spec=body_spec(); var actor=context.actor; var targets=[]
 	match spec[3]:
 		"enemy": targets=[context.enemy]

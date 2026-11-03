@@ -1,0 +1,34 @@
+{
+  "changed_since_round4_start": [
+    "project/game/battle_v3.gd",
+    "project/game/combat_display_r22.gd",
+    "project/game/combat_events_r22.gd",
+    "project/game/dungeon_enemy_r21.gd",
+    "project/game/personal_rules_r22.gd",
+    "project/game/persona_combat_r22.gd",
+    "project/game/persona_research_r21.gd",
+    "project/game/trait_rules_r22.gd"
+  ],
+  "created_since_round4_start": [
+    "project/game/combat_passives_r23.gd",
+    "project/game/combat_passives_r23.gd.uid",
+    "project/game/combat_record_r23.gd",
+    "project/game/combat_record_r23.gd.uid",
+    "project/tests/battle_r23_round4_test.gd",
+    "project/tests/battle_r23_round4_test.gd.uid"
+  ],
+  "minimum_shared_connection": "persona_research_r21.gd: number parsing through battle_stats and language parameters for shared combat skill text; no town screen edits.",
+  "not_run": [
+    "Web export",
+    "version update",
+    "git commands",
+    "commit",
+    "device/WASM review"
+  ],
+  "protected_names": [
+    "docs",
+    "project/assets",
+    "server"
+  ],
+  "canonical_assets": 96
+}
