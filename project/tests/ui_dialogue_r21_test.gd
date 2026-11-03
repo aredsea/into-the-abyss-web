@@ -1,6 +1,7 @@
 extends SceneTree
 const Screen=preload("res://ui/world_screen.gd")
 const World=preload("res://game/town_world_r21.gd")
+const ScrollUI=preload("res://tests/ui_scroll_r24.gd")
 var checks=0
 var failures=[]
 var captures=[]
@@ -12,6 +13,8 @@ func _initialize():call_deferred("run")
 func click(s,id):
 	check(s.controls.has(id),"pointer target "+id)
 	if not s.controls.has(id):return
+	var sc=ScrollUI.scroller(s.controls[id])
+	if sc:sc.ensure_control_visible(s.controls[id]);await process_frame;await process_frame
 	var rect=s.controls[id].get_global_rect()
 	for down in [true,false]:
 		var e=InputEventMouseButton.new();e.position=rect.get_center();e.button_index=MOUSE_BUTTON_LEFT;e.pressed=down;root.push_input(e)
@@ -25,15 +28,15 @@ func layout(s,dim):
 	var controls=[]
 	for id in s.controls:
 		var b=s.controls[id];var rect=b.get_global_rect()
-		check(Rect2(Vector2.ZERO,Vector2(dim)).grow(1).encloses(rect),"control in viewport "+id)
+		check(ScrollUI.reachable(b,Rect2(Vector2.ZERO,Vector2(dim))),"control reachable in viewport "+id)
 		if id.begins_with("dialogue_choice:"):
 			check(rect.size.y>=44,"touch choice >=44px")
 			var font=b.get_theme_font("font");var fs=b.get_theme_font_size("font_size")
 			var needed=font.get_multiline_string_size(b.text,HORIZONTAL_ALIGNMENT_LEFT,b.size.x-24,fs)
 			check(needed.y<=b.size.y-12,"choice text fits "+b.text)
-		controls.append([id,rect])
+		controls.append([id,ScrollUI.visible_rect(b)])
 	for i in range(controls.size()):
-		for j in range(i+1,controls.size()):check(not controls[i][1].grow(-1).intersects(controls[j][1].grow(-1)),"no control overlap")
+		for j in range(i+1,controls.size()):check(not ScrollUI.overlaps(controls[i][1],controls[j][1]),"no visible control overlap")
 func capture(name):
 	await RenderingServer.frame_post_draw
 	check(root.get_texture().get_image().save_png(folder+"/"+name+".png")==OK,"capture "+name);captures.append(name)
@@ -69,9 +72,9 @@ func run():
 					s.go("inn");await layout(s,dim)
 					var body=[]
 					for l in s.town_view.find_children("*","Label",true,false):
-						if l.position.y>=322:body.append(l.get_rect())
+						if ScrollUI.scroller(l)!=null and not l.get_parent() is Button:body.append(ScrollUI.visible_rect(l))
 					for i in range(body.size()):
-						for j in range(i+1,body.size()):check(not body[i].grow(-1).intersects(body[j].grow(-1)),"all scene text separation "+row.id)
+						for j in range(i+1,body.size()):check(not ScrollUI.overlaps(body[i],body[j]),"all scene text separation "+row.id)
 		# Battle prelude leaves battle source untouched and opens only after acknowledgement.
 		s.model.s=base.duplicate(true);s.model.depart_dungeon(1,123);s.go("explore")
 		await click(s,"dialogue_continue");check(s.controls.has("advance"),"departure then exploration")

@@ -16,43 +16,55 @@ var metrics=[]
 func setup(owner_screen,heading: String) -> void:
 	host=owner_screen;state=host.panels_r22;theme=T.make_theme();set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var paper=ColorRect.new();add_child(paper);paper.color=T.PAPER;paper.mouse_filter=MOUSE_FILTER_IGNORE;paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	frame=Control.new();add_child(frame);frame.size=Vector2(minf(430,host.size.x),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
+	frame=Control.new();add_child(frame);frame.size=Vector2(minf(900 if host.size.x>=900 else 430,host.size.x),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
 	var title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-112,58);title.text=L.render(heading,L.language(host.model.s));title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",38);title.clip_text=true;title.size.x=frame.size.x-112;L.fit_title(title,38)
 	var back=button("p7_back","뒤로",host.go.bind(host.panels_return,false),false,false,frame);back.position=Vector2(frame.size.x-88,20);back.size=Vector2(70,44);back.size_flags_horizontal=0
+	T.heading_rule(frame);frame.get_child(-1).position=Vector2(18,72)
 	var tabs=HBoxContainer.new();frame.add_child(tabs);tabs.position=Vector2(18,82);tabs.size=Vector2(frame.size.x-36,48);tabs.add_theme_constant_override("separation",6)
 	for e in [["codex","도감"],["status","상태"],["inventory","장비 가방"]]:
 		if e[0]=="inventory" and state.in_battle():continue
 		button("p7_tab_"+e[0],e[1],switch_panel.bind(e[0]),host.screen==e[0],false,tabs)
-	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,148);scroll.size=Vector2(frame.size.x-36,frame.size.y-226);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,148);scroll.size=Vector2(frame.size.x-36,frame.size.y-242);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
 	body=VBoxContainer.new();scroll.add_child(body);body.size_flags_horizontal=SIZE_EXPAND_FILL;body.add_theme_constant_override("separation",12)
 	var nav=HBoxContainer.new();frame.add_child(nav);nav.position=Vector2(12,frame.size.y-62);nav.size=Vector2(frame.size.x-24,50);nav.add_theme_constant_override("separation",4)
+	T.rule(frame,frame.size.y-78,frame.size.x-36)
 	for e in [["town","마을"],["party","동료"],["depart","원정"],["bag","가방"],["journal","기록"]]:
 		if e[0]=="bag" and state.in_battle():continue
 		var selected="bag" if host.screen=="inventory" else "party"
 		var b=button("nav:"+e[0],e[1],host.go.bind("explore" if e[0]=="depart" and host.model.active() else e[0]),selected==e[0],false,nav);b.add_theme_font_size_override("font_size",13)
+		T.dress_navigation(b,e[0],selected==e[0])
 	if state.ui.msg!="":
 		var notice_label=text(View.notice(state.ui.msg),14,T.RED);notice_label.text=View.notice(state.ui.msg)
 	if host.save_error!=OK:
 		text("저장하지 못했습니다. 다시 시도해 주세요.",14,T.RED);button("save_retry","저장 다시 시도",func():host._save();host._draw_screen())
 func text(value: String,fs=15,color=T.INK,parent: Node=null) -> Label:
 	var l=Label.new();(parent if parent else body).add_child(l);l.text=L.render(value,L.language(host.model.s)).replace("{{user}}","당신");l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;l.size_flags_horizontal=SIZE_EXPAND_FILL;l.add_theme_font_size_override("font_size",fs);l.add_theme_color_override("font_color",READABLE_RED if color==T.RED else color)
-	if fs>=21:l.add_theme_font_override("font",T.DISPLAY)
+	if fs>=18:l.add_theme_font_override("font",T.BOLD)
 	l.mouse_filter=MOUSE_FILTER_IGNORE;return l
 func button(id: String,value: String,fn: Callable,selected=false,disabled=false,parent: Node=null) -> Button:
 	var spec=View.button(id,L.render(value,L.language(host.model.s)),("on " if selected else "")+("off" if disabled else ""))
 	var b=Button.new();(parent if parent else body).add_child(b);b.text=spec.text;b.set_meta("source_action",id);b.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;b.custom_minimum_size=Vector2(44,48);b.size_flags_horizontal=SIZE_EXPAND_FILL;b.disabled=spec.disabled;b.add_theme_font_size_override("font_size",14)
-	if selected:
-		for s in ["normal","hover","pressed"]:b.add_theme_stylebox_override(s,T.panel(READABLE_RED,READABLE_RED))
-		for s in ["font_color","font_hover_color","font_pressed_color"]:b.add_theme_color_override(s,T.PAPER)
+	T.dress_button(b,selected)
+	if parent==null or parent is VBoxContainer:
+		b.alignment=HORIZONTAL_ALIGNMENT_LEFT
+		T.row_arrow(b,selected)
+		var lines=L.render(value,L.language(host.model.s)).split("\n",false)
+		T.row_copy(b,lines[0] if not lines.is_empty() else "","\n".join(lines.slice(1)),selected)
+	else:
+		for key in ["normal","hover","pressed","disabled","focus"]:
+			var p=b.get_theme_stylebox(key).duplicate();p.content_margin_left=4;p.content_margin_right=4;b.add_theme_stylebox_override(key,p)
 	b.pressed.connect(fn);host.controls[id]=b;return b
 func row(parent: Node=null) -> HBoxContainer:
 	var h=HBoxContainer.new();(parent if parent else body).add_child(h);h.add_theme_constant_override("separation",8);return h
 func section(name: String,parent: Node=null) -> void:
 	var gap=Control.new();(parent if parent else body).add_child(gap);gap.custom_minimum_size.y=8
 	text(name,23,T.INK,parent)
-	var line=HSeparator.new();(parent if parent else body).add_child(line)
+	T.heading_rule(parent if parent else body)
 func choose(id: String,values: Array,current: String,fn: Callable,parent: Node=null,localized=false) -> OptionButton:
 	var o=OptionButton.new();(parent if parent else body).add_child(o);o.custom_minimum_size.y=48;o.size_flags_horizontal=SIZE_EXPAND_FILL;o.fit_to_longest_item=false
+	o.add_theme_font_override("font",T.BOLD)
+	for key in ["normal","hover","pressed","disabled","focus"]:
+		var p=T.panel(T.PALE if key in ["hover","pressed"] else T.PAPER,T.INK);p.set_border_width_all(0);p.border_width_bottom=3;p.content_margin_left=12;p.content_margin_right=28;p.content_margin_top=10;p.content_margin_bottom=10;o.add_theme_stylebox_override(key,p)
 	var found=false
 	for i in range(values.size()):
 		o.add_item(values[i][1] if localized else L.render(values[i][1],L.language(host.model.s)));o.set_item_metadata(i,values[i][0])
@@ -144,7 +156,9 @@ func gear_icon(item: Dictionary,parent: Node) -> TextureRect:
 func gear_tile(id: String,item: Dictionary,fn: Callable,sub: Variant=null,disabled=false,parent: Node=null) -> Button:
 	var spec=View.tile(item,id,sub,L.language(host.model.s));var b=button(id,spec.text,fn,false,disabled,parent)
 	b.icon=load(View.icon_path(item));b.expand_icon=true;b.icon_alignment=HORIZONTAL_ALIGNMENT_LEFT;b.add_theme_constant_override("icon_max_width",44);b.custom_minimum_size.y=64;b.alignment=HORIZONTAL_ALIGNMENT_LEFT;b.set_meta("source_icon",spec.icon);b.set_meta("source_rarity",spec.rarity)
-	for key in ["normal","hover","pressed"]:b.add_theme_stylebox_override(key,T.panel(T.PAPER,View.COLORS[spec.rarity]))
+	var item_name=L.t(item.name,L.language(host.model.s));T.row_copy(b,item_name,spec.text.trim_prefix(item_name).strip_edges(),false,60)
+	for key in ["normal","hover","pressed"]:
+		var p=b.get_theme_stylebox(key).duplicate();p.border_color=View.COLORS[spec.rarity];b.add_theme_stylebox_override(key,p)
 	return b
 func fx_name(key: String,job: String) -> String:
 	return preload("res://game/panel_gear_r22.gd").effect_name(host.model.gear,key,job)

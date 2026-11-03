@@ -6,6 +6,7 @@ func collect_choices(node: Node,words: Array,o: Dictionary):
 	if node is OptionButton:
 		for i in node.item_count:words.append(node.get_item_text(i))
 	elif node is Label or node is Button:words.append(node.text.replace("\n"," "))
+	if node is Button:return
 	for child in node.get_children():collect_choices(child,words,o)
 func source_entry(model,code: String,uid: int) -> Dictionary:
 	var p=code_parser.gear_parse(code);return {"id":p.id,"seed":p.seed,"uid":uid,"forge":0,"tries":0,"source_r21":true}
@@ -19,7 +20,7 @@ func run():
 			var key=b.action.replace("op_","p8_");check(s.controls.has(key),"P2630 control "+key)
 			if not s.controls.has(key):continue
 			var control=s.controls[key];check(control.text.replace("\n"," ")==b.text,"P2630 "+key+" label "+control.text+" expected "+b.text)
-			check((control.get_theme_color("font_color")==preload("res://ui/town_theme_r21.gd").PAPER)==b.selected,"P2630 "+key+" selection")
+			check((control.get_theme_stylebox("normal") is StyleBoxTexture)==b.selected,"P2630 "+key+" brush selection")
 		for key in ["lang","chron"]:check(s.town_view.find_children("*","Label",true,false).any(func(n):return n.text==c.notes[key]),"P2631 source public explanation "+key)
 	for c in o.bags:
 		s.model=fixture();s.model.s.settings={"lang":c.lang};s.model.s.gear=[]

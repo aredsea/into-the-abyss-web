@@ -281,15 +281,17 @@ func smithy() -> void:
 
 func scroll_page_targets() -> void:
 	header("레벨업 스크롤","shop")
+	fill("scroll_title_rule",Rect2(18,65,54,4),T.RED)
 	label("대상 한 명의 레벨 +1 · 최대 Lv.40",Rect2(18,82,354,29),17,T.INK,T.BOLD)
 	label("보유 %d개"%host.model.s.items.level_scroll,Rect2(18,124,354,25),14,T.RED,T.BOLD)
 	var w=host.model;var ids=w.scroll_targets();var previous=stage;stage=scroll_page(177,510,ids.size()*103)
 	for i in range(ids.size()):
 		var id=ids[i];var p=w.item_preview("level_scroll",id);var y=i*103
-		label(w.person(id).name+(" · 페르소나" if id=="persona" else ""),Rect2(0,y,342,27),17,T.INK,T.BOLD)
+		label(w.person(id).name+(" · 페르소나" if id=="persona" else ""),Rect2(0,y,342,27),20,T.INK,T.BOLD)
 		label("Lv.%d → %d · 경험치 초기화"%[p.before,p.after],Rect2(0,y+32,342,24),13)
-		action("scroll_target:"+id,"사용" if p.usable else "사용 불가",Rect2(208,y+56,134,39),func():host._act(w.use_item.bind("level_scroll",id),"레벨이 올랐습니다."),true,not p.usable)
-		rule(y+100,0,342)
+		var use=action("scroll_target:"+id,"사용" if p.usable else "사용 불가",Rect2(208,y+56,134,39),func():host._act(w.use_item.bind("level_scroll",id),"레벨이 올랐습니다."),true,not p.usable)
+		T.dress_button(use,p.usable);use.alignment=HORIZONTAL_ALIGNMENT_LEFT;T.row_arrow(use,p.usable)
+		fill("scroll_row_rule:"+id,Rect2(0,y+100,342,3),T.INK)
 	stage=previous;action("scroll_back","상회로",Rect2(18,712,354,44),host.go.bind("shop"));navigation()
 
 func receipt_page() -> void:

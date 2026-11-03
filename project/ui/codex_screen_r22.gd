@@ -25,7 +25,7 @@ func build(owner_screen) -> void:
 	var list=R.codex_list(host.model.s.owned,state.ui.tab);var page=R.page(list,int(state.ui.page))
 	state.ui.page=page.page
 	if list.is_empty():text("조건에 맞는 동료가 없습니다.",16,T.MUTED)
-	var grid=GridContainer.new();body.add_child(grid);grid.columns=2;grid.add_theme_constant_override("h_separation",12);grid.add_theme_constant_override("v_separation",16)
+	var grid=GridContainer.new();body.add_child(grid);grid.columns=4 if frame.size.x>=900 else 2;grid.add_theme_constant_override("h_separation",20);grid.add_theme_constant_override("v_separation",16)
 	for cid in page.items:
 		var c=R.DATA.cast[cid];var owned=cid in host.model.s.owned;var tile=VBoxContainer.new();grid.add_child(tile);tile.size_flags_horizontal=SIZE_EXPAND_FILL
 		tile.set_meta("favorite",owned and cid in state.favs())

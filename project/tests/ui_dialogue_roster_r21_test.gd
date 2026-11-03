@@ -2,6 +2,7 @@ extends SceneTree
 const Screen=preload("res://ui/world_screen.gd")
 const W=preload("res://game/settings_world_r22.gd")
 const L=preload("res://game/localization_r22.gd")
+const ScrollUI=preload("res://tests/ui_scroll_r24.gd")
 const OUT="res://../verification/town-r21/round13/"
 var checks=0
 var failures=[]
@@ -30,24 +31,26 @@ func measure(s,tag,dim,expected):
 		var fits=needed.x<=room.x+1 and needed.y<=room.y+1
 		if not fits:overflow+=1
 		check(fits,"glyph overflow "+tag+" "+node.text+" needed="+str(needed)+" room="+str(room))
-		if node is Label and node.position.y>=322:rectangles.append(node.get_global_rect())
+		if node is Label and ScrollUI.scroller(node)!=null and not node.get_parent() is Button:rectangles.append(ScrollUI.visible_rect(node))
 	for text in expected:check(text in texts,"authored text remains verbatim "+tag+" "+text)
 	for id in s.controls:
 		var rect=s.controls[id].get_global_rect()
-		check(Rect2(Vector2.ZERO,Vector2(dim)).grow(1).encloses(rect),"control within viewport "+tag+id)
+		check(ScrollUI.reachable(s.controls[id],Rect2(Vector2.ZERO,Vector2(dim))),"control reachable within viewport "+tag+id)
 		check(rect.size.y>=44,"touch target >=44 "+tag+id)
-		for other in rectangles:check(not rect.grow(-1).intersects(other.grow(-1)),"text/button separation "+tag+id)
+		for other in rectangles:check(not ScrollUI.overlaps(ScrollUI.visible_rect(s.controls[id]),other),"text/button separation "+tag+id)
 	var buttons=s.controls.values()
 	for i in buttons.size():
-		for j in range(i+1,buttons.size()):check(not buttons[i].get_global_rect().grow(-1).intersects(buttons[j].get_global_rect().grow(-1)),"button separation "+tag)
+		for j in range(i+1,buttons.size()):check(not ScrollUI.overlaps(ScrollUI.visible_rect(buttons[i]),ScrollUI.visible_rect(buttons[j])),"button separation "+tag)
 	for i in rectangles.size():
-		for j in range(i+1,rectangles.size()):check(not rectangles[i].grow(-1).intersects(rectangles[j].grow(-1)),"body text separation "+tag)
+		for j in range(i+1,rectangles.size()):check(not ScrollUI.overlaps(rectangles[i],rectangles[j]),"body text separation "+tag)
 func capture(name):
 	check(root.get_texture().get_image().save_png(OUT+"render/"+name+".png")==OK,"capture "+name);captures.append(name)
 func pointer(s,key):
 	await process_frame;await process_frame
 	check(s.controls.has(key),"actual pointer target "+key)
 	if not s.controls.has(key):return
+	var sc=ScrollUI.scroller(s.controls[key])
+	if sc:sc.ensure_control_visible(s.controls[key]);await process_frame;await process_frame
 	var rect=s.controls[key].get_global_rect()
 	for down in [true,false]:
 		var e=InputEventMouseButton.new();e.position=rect.get_center();e.button_index=MOUSE_BUTTON_LEFT;e.pressed=down;root.push_input(e)

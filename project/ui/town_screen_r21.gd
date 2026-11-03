@@ -692,6 +692,7 @@ func dialogue_frame(who: String,title: String) -> void:
 	picture(who,Rect2(173,22,207,297),"detail-overview")
 	fill("dialogue_identity_paper",Rect2(10,112,164,91),T.PAPER)
 	display(title,Rect2(18,38,194,53),T.INK,36)
+	fill("dialogue_heading_rule",Rect2(18,98,54,4),T.RED)
 	display(host.model.person(who).name,Rect2(18,121,148,38),T.INK,28)
 	var a=host.model.s.members[who].aff
 	label(host.model.TOWN_RULES.aff_stage(a)+" · 호감 "+host.model.TOWN_RULES.aff_fmt(a),Rect2(18,165,148,25),13,T.INK,T.BOLD)
@@ -702,28 +703,41 @@ func inn_dialogue() -> void:
 	var p=state.response if responding else state.pending
 	var row=host.model.dialogue.scene(p.who,p.scene)
 	dialogue_frame(p.who,"대화")
+	var previous=stage;stage=scroll_page(336,351,351);var content=stage;var y=0.0
 	if row.is_empty() and not responding:
-		paragraph("이 대화의 기록을 찾을 수 없습니다.",Rect2(18,350,354,70),16)
-		action("dialogue_cancel","여관으로",Rect2(18,746,354,54),func():state.pending={};host._save();host.go("inn"),true);return
+		y=reading_line("이 대화의 기록을 찾을 수 없습니다.",y,16)
+		stage=previous;action("dialogue_cancel","여관으로",Rect2(18,699,354,56),func():state.pending={};host._save();host.go("inn"),true);navigation();return
 	if responding:
-		paragraph(p.text,Rect2(18,336,354,54),14,T.INK,false)
-		paragraph("\n".join(p.lines),Rect2(18,405,354,92),18,T.INK,false)
-		label("호감 %s → %s (%s%s)"%[host.number(p.before),host.number(p.after),"+" if p.gained>=0 else "",host.number(p.gained)],Rect2(18,504,354,28),14,T.RED,T.BOLD)
+		y=reading_line(p.text,y,14,T.INK,false)
+		y=reading_line("\n".join(p.lines),y,18,T.INK,false)
+		y=reading_line("호감 %s → %s (%s%s)"%[host.number(p.before),host.number(p.after),"+" if p.gained>=0 else "",host.number(p.gained)],y,14,T.RED)
 		var t=p.transition
 		if not t.is_empty():
-			label(t.from+" → "+t.to,Rect2(18,550,354,28),16,T.RED,T.BOLD)
-			paragraph(t.situation+"\n"+"\n".join(t.lines),Rect2(18,584,354,136),15,T.INK,false)
-		action("dialogue_done","여관으로",Rect2(18,754,354,56),func():host.model.close_dialogue();host._save();host.go("inn"),true)
+			y=reading_line(t.from+" → "+t.to,y,16,T.RED)
+			y=reading_line(t.situation+"\n"+"\n".join(t.lines),y,15,T.INK,false)
+		content.custom_minimum_size.y=maxf(351,y+16);stage=previous
+		action("dialogue_done","여관으로",Rect2(18,699,354,56),func():host.model.close_dialogue();host._save();host.go("inn"),true)
 	else:
-		paragraph(row.situation,Rect2(18,335,354,60),14,T.INK,false)
+		y=reading_line(row.situation,y,14,T.INK,false)
 		var lines=[row.seen] if state.seen.get(row.id,0)>0 else row.lines
-		paragraph("\n".join(lines),Rect2(18,397,354,132),18,T.INK,false)
-		label("어떻게 답할까",Rect2(18,535,354,26),14,T.INK,T.BOLD)
+		y=reading_line("\n".join(lines),y,18,T.INK,false)
+		y=reading_line("어떻게 답할까",y,14)
 		for i in range(row.choices.size()):
 			var c=row.choices[i]
-			var b=action("dialogue_choice:"+c.id,c.text,Rect2(18,573+i*68,354,58),func():host._act(host.model.choose_dialogue.bind(c.id),""),false,false,false)
+			var height=maxf(58,T.BOLD.get_multiline_string_size(c.text,HORIZONTAL_ALIGNMENT_LEFT,288,15).y+24)
+			var b=action("dialogue_choice:"+c.id,c.text,Rect2(0,y,342,height),func():host._act(host.model.choose_dialogue.bind(c.id),""),false,false,false)
 			b.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;b.add_theme_font_size_override("font_size",15)
-		action("dialogue_cancel","나중에 이야기하기",Rect2(18,777,354,48),func():state.pending={};host._save();host.go("inn"))
+			T.dress_button(b);b.alignment=HORIZONTAL_ALIGNMENT_LEFT;T.row_arrow(b);y+=height+8
+		content.custom_minimum_size.y=maxf(351,y+16);stage=previous
+		action("dialogue_cancel","나중에 이야기하기",Rect2(18,699,354,56),func():state.pending={};host._save();host.go("inn"))
+	navigation()
+
+## Measured reading rows for the remaining long town/expedition screens.
+func reading_line(value: String,y: float,fs=15,color=T.INK,translate=true) -> float:
+	var copy=localized(value) if translate else value
+	var height=T.BODY.get_multiline_string_size(copy,HORIZONTAL_ALIGNMENT_LEFT,342,fs).y+10
+	paragraph(value,Rect2(0,y,342,height),fs,color,translate)
+	return y+height+12
 
 func journey_dialogue() -> void:
 	var rows=host.model.s.dialogue_r21.queue

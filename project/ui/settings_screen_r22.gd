@@ -5,9 +5,10 @@ const ACTION=Color("#c62b15")
 func build(owner_screen) -> void:
 	host=owner_screen;theme=T.make_theme();set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var paper=ColorRect.new();add_child(paper);paper.color=T.PAPER;paper.mouse_filter=MOUSE_FILTER_IGNORE;paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	frame=Control.new();add_child(frame);frame.size=Vector2(minf(430,host.size.x),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
+	frame=Control.new();add_child(frame);frame.size=Vector2(minf(900 if host.size.x>=900 else 430,host.size.x),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
 	var title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-112,58);title.text=L.render("설정",L.language(host.model.s));title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",36)
 	var back=button("p8_back","뒤로",func():host.reset_r22=false;host.go(host.settings_return_r22),false,false,frame);back.position=Vector2(frame.size.x-88,20);back.size=Vector2(70,44)
+	T.heading_rule(frame);frame.get_child(-1).position=Vector2(18,72)
 	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,88);scroll.size=Vector2(frame.size.x-36,frame.size.y-112);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
 	body=VBoxContainer.new();scroll.add_child(body);body.size_flags_horizontal=SIZE_EXPAND_FILL;body.add_theme_constant_override("separation",12)
 	if host.save_error!=OK:
@@ -44,8 +45,6 @@ func build(owner_screen) -> void:
 		button("p8_reset","처음부터 다시",func():host.reset_r22=true;host._draw_screen())
 func button(id: String,value: String,fn: Callable,selected=false,disabled=false,parent: Node=null) -> Button:
 	var b=super(id,value,fn,selected,disabled,parent)
-	if selected:
-		for key in ["normal","hover","pressed"]:b.add_theme_stylebox_override(key,T.panel(ACTION,ACTION))
 	return b
 func apply(key: String,value: String) -> void:
 	if key=="diff":host.reset_r22=false

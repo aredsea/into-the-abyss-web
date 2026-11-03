@@ -1,0 +1,268 @@
+--- before/codex_screen_r22.gd
++++ after/codex_screen_r22.gd
+@@ -25,7 +25,7 @@
+ 	var list=R.codex_list(host.model.s.owned,state.ui.tab);var page=R.page(list,int(state.ui.page))
+ 	state.ui.page=page.page
+ 	if list.is_empty():text("조건에 맞는 동료가 없습니다.",16,T.MUTED)
+-	var grid=GridContainer.new();body.add_child(grid);grid.columns=2;grid.add_theme_constant_override("h_separation",12);grid.add_theme_constant_override("v_separation",16)
++	var grid=GridContainer.new();body.add_child(grid);grid.columns=4 if frame.size.x>=900 else 2;grid.add_theme_constant_override("h_separation",20);grid.add_theme_constant_override("v_separation",16)
+ 	for cid in page.items:
+ 		var c=R.DATA.cast[cid];var owned=cid in host.model.s.owned;var tile=VBoxContainer.new();grid.add_child(tile);tile.size_flags_horizontal=SIZE_EXPAND_FILL
+ 		tile.set_meta("favorite",owned and cid in state.favs())
+--- before/expedition_screen_r22.gd
++++ after/expedition_screen_r22.gd
+@@ -88,14 +88,18 @@
+ 		host.confirm={"prompt":"모은 보상을 정산하고 귀환할까요?","callback":host.model.expedition_retreat.bind("retreat_yes")}
+ 	if host.screen=="expedition_log":
+ 		page_background();header(host.model.expedition_label(),"explore")
++		fill("log_title_rule",Rect2(18,59,54,4),T.RED)
+ 		var w=host.model;var r=w.s.run;var lines=[]
+ 		for line in r.log:lines.append(line)
+ 		lines.append("미정산 금화 %d · 경험치 %d"%[r.gold,r.xp])
+ 		for key in r.loot_items:lines.append(w.expedition_item_name(key)+" ×%d"%r.loot_items[key])
+ 		for code in r.loot_gear:lines.append(w.expedition_gear_label(code,L.language(w.s)=="en"))
+ 		if L.language(w.s)=="en":lines.push_front(w.expedition_floor_context(int(r.floor)))
+-		var prev=stage;stage=scroll_page(70,613,maxi(613,lines.size()*75))
+-		for i in range(lines.size()):paragraph(lines[i],Rect2(0,i*75,342,70),14)
++		var prev=stage;stage=scroll_page(82,601,601);var content=stage;var y=0.0
++		for i in range(lines.size()):
++			y=reading_line(lines[i],y,16)
++			fill("log_row_rule:"+str(i),Rect2(0,y-6,342,3),T.INK)
++		content.custom_minimum_size.y=maxf(601,y+16)
+ 		stage=prev;action("log_back","원정으로",Rect2(18,705,354,44),host.go.bind("explore"),true);navigation();return
+ 	super()
+ 
+--- before/facilities_screen_r22.gd
++++ after/facilities_screen_r22.gd
+@@ -281,15 +281,17 @@
+ 
+ func scroll_page_targets() -> void:
+ 	header("레벨업 스크롤","shop")
++	fill("scroll_title_rule",Rect2(18,65,54,4),T.RED)
+ 	label("대상 한 명의 레벨 +1 · 최대 Lv.40",Rect2(18,82,354,29),17,T.INK,T.BOLD)
+ 	label("보유 %d개"%host.model.s.items.level_scroll,Rect2(18,124,354,25),14,T.RED,T.BOLD)
+ 	var w=host.model;var ids=w.scroll_targets();var previous=stage;stage=scroll_page(177,510,ids.size()*103)
+ 	for i in range(ids.size()):
+ 		var id=ids[i];var p=w.item_preview("level_scroll",id);var y=i*103
+-		label(w.person(id).name+(" · 페르소나" if id=="persona" else ""),Rect2(0,y,342,27),17,T.INK,T.BOLD)
++		label(w.person(id).name+(" · 페르소나" if id=="persona" else ""),Rect2(0,y,342,27),20,T.INK,T.BOLD)
+ 		label("Lv.%d → %d · 경험치 초기화"%[p.before,p.after],Rect2(0,y+32,342,24),13)
+-		action("scroll_target:"+id,"사용" if p.usable else "사용 불가",Rect2(208,y+56,134,39),func():host._act(w.use_item.bind("level_scroll",id),"레벨이 올랐습니다."),true,not p.usable)
+-		rule(y+100,0,342)
++		var use=action("scroll_target:"+id,"사용" if p.usable else "사용 불가",Rect2(208,y+56,134,39),func():host._act(w.use_item.bind("level_scroll",id),"레벨이 올랐습니다."),true,not p.usable)
++		T.dress_button(use,p.usable);use.alignment=HORIZONTAL_ALIGNMENT_LEFT;T.row_arrow(use,p.usable)
++		fill("scroll_row_rule:"+id,Rect2(0,y+100,342,3),T.INK)
+ 	stage=previous;action("scroll_back","상회로",Rect2(18,712,354,44),host.go.bind("shop"));navigation()
+ 
+ func receipt_page() -> void:
+--- before/journal_screen_r22.gd
++++ after/journal_screen_r22.gd
+@@ -6,22 +6,23 @@
+ var view
+ func button(id: String,value: String,fn: Callable,selected=false,disabled=false,parent: Node=null) -> Button:
+ 	var b=super(id,value,fn,selected,disabled,parent)
+-	if selected:
+-		for key in ["normal","hover","pressed"]:b.add_theme_stylebox_override(key,T.panel(ACTION_RED,ACTION_RED))
+ 	return b
+ func build(owner_screen) -> void:
+ 	host=owner_screen;view=host.journal_r22;theme=T.make_theme();set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ 	var paper=ColorRect.new();add_child(paper);paper.color=T.PAPER;paper.mouse_filter=MOUSE_FILTER_IGNORE;paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+-	frame=Control.new();add_child(frame);frame.size=Vector2(minf(430,host.size.x),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
++	frame=Control.new();add_child(frame);frame.size=Vector2(minf(900 if host.size.x>=900 else 430,host.size.x),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
+ 	var title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-112,58);title.text=L.render({"journal":"모험 기록","places":"토르바 산책","people":"토르바 인물"}[host.screen],L.language(host.model.s));title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",34);L.fit_title(title,34)
+ 	var back=button("p10_back","뒤로",host.go.bind(host.journal_return,false),false,false,frame);back.position=Vector2(frame.size.x-88,20);back.size=Vector2(70,44)
++	T.heading_rule(frame);frame.get_child(-1).position=Vector2(18,72)
+ 	var tabs=HBoxContainer.new();frame.add_child(tabs);tabs.position=Vector2(18,82);tabs.size=Vector2(frame.size.x-36,48);tabs.add_theme_constant_override("separation",6)
+ 	for e in [["journal","연대기"],["places","마을 장소"],["people","인물 소개"]]:button("p10_tab_"+e[0],e[1],host.go.bind(e[0]),host.screen==e[0],false,tabs)
+-	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,148);scroll.size=Vector2(frame.size.x-36,frame.size.y-226);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
++	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,148);scroll.size=Vector2(frame.size.x-36,frame.size.y-242);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+ 	body=VBoxContainer.new();scroll.add_child(body);body.size_flags_horizontal=SIZE_EXPAND_FILL;body.add_theme_constant_override("separation",12)
+ 	var nav=HBoxContainer.new();frame.add_child(nav);nav.position=Vector2(12,frame.size.y-62);nav.size=Vector2(frame.size.x-24,50);nav.add_theme_constant_override("separation",4)
++	T.rule(frame,frame.size.y-78,frame.size.x-36)
+ 	for e in [["town","마을"],["party","동료"],["depart","원정"],["bag","가방"],["journal","기록"]]:
+ 		var b=button("nav:"+e[0],e[1],host.go.bind("explore" if e[0]=="depart" and host.model.active() else e[0]),e[0]=="journal",false,nav);b.add_theme_font_size_override("font_size",13)
++		T.dress_navigation(b,e[0],e[0]=="journal")
+ 	if host.save_error!=OK:text("저장하지 못했습니다.",14,ACTION_RED);button("save_retry","저장 다시 시도",func():host._save();host._draw_screen())
+ 	match host.screen:
+ 		"journal":journal()
+@@ -45,7 +46,7 @@
+ 		var line=str(lines[i]);var re=RegEx.new();re.compile("^Day (-?[0-9]+): (.*)$");var m=re.search(line)
+ 		if m:text(m.get_string(1)+"일째",13,ACTION_RED);text(m.get_string(2),16)
+ 		else:text(line,16)
+-		body.add_child(HSeparator.new())
++		var divider=ColorRect.new();body.add_child(divider);divider.custom_minimum_size.y=3;divider.color=T.INK;divider.mouse_filter=MOUSE_FILTER_IGNORE
+ func places() -> void:
+ 	var pid=view.place;var d=Places.DATA.places[pid]
+ 	var place_label=Places.label({"scene":"smithy" if pid=="smithy" else "town","place":pid},L.language(host.model.s))
+@@ -87,5 +88,5 @@
+ 		var at=[]
+ 		for pid in Places.DATA.order:
+ 			if id in Places.residents(pid):at.append(Places.DATA.places[pid].name)
+-		button("p10_person_"+id,Places.profile(id).name,open_person.bind(id))
+-		text(" · ".join(at) if not at.is_empty() else "고정 위치 없음" if id=="knut" else "토르바 상주 아님",13,T.MUTED)
++		var entry=button("p10_person_"+id,Places.profile(id).name,open_person.bind(id))
++		T.row_copy(entry,entry.text,L.render(" · ".join(at) if not at.is_empty() else "고정 위치 없음" if id=="knut" else "토르바 상주 아님",L.language(host.model.s)))
+--- before/panel_screen_r22.gd
++++ after/panel_screen_r22.gd
+@@ -16,43 +16,55 @@
+ func setup(owner_screen,heading: String) -> void:
+ 	host=owner_screen;state=host.panels_r22;theme=T.make_theme();set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ 	var paper=ColorRect.new();add_child(paper);paper.color=T.PAPER;paper.mouse_filter=MOUSE_FILTER_IGNORE;paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+-	frame=Control.new();add_child(frame);frame.size=Vector2(minf(430,host.size.x),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
++	frame=Control.new();add_child(frame);frame.size=Vector2(minf(900 if host.size.x>=900 else 430,host.size.x),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
+ 	var title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-112,58);title.text=L.render(heading,L.language(host.model.s));title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",38);title.clip_text=true;title.size.x=frame.size.x-112;L.fit_title(title,38)
+ 	var back=button("p7_back","뒤로",host.go.bind(host.panels_return,false),false,false,frame);back.position=Vector2(frame.size.x-88,20);back.size=Vector2(70,44);back.size_flags_horizontal=0
++	T.heading_rule(frame);frame.get_child(-1).position=Vector2(18,72)
+ 	var tabs=HBoxContainer.new();frame.add_child(tabs);tabs.position=Vector2(18,82);tabs.size=Vector2(frame.size.x-36,48);tabs.add_theme_constant_override("separation",6)
+ 	for e in [["codex","도감"],["status","상태"],["inventory","장비 가방"]]:
+ 		if e[0]=="inventory" and state.in_battle():continue
+ 		button("p7_tab_"+e[0],e[1],switch_panel.bind(e[0]),host.screen==e[0],false,tabs)
+-	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,148);scroll.size=Vector2(frame.size.x-36,frame.size.y-226);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
++	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,148);scroll.size=Vector2(frame.size.x-36,frame.size.y-242);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+ 	body=VBoxContainer.new();scroll.add_child(body);body.size_flags_horizontal=SIZE_EXPAND_FILL;body.add_theme_constant_override("separation",12)
+ 	var nav=HBoxContainer.new();frame.add_child(nav);nav.position=Vector2(12,frame.size.y-62);nav.size=Vector2(frame.size.x-24,50);nav.add_theme_constant_override("separation",4)
++	T.rule(frame,frame.size.y-78,frame.size.x-36)
+ 	for e in [["town","마을"],["party","동료"],["depart","원정"],["bag","가방"],["journal","기록"]]:
+ 		if e[0]=="bag" and state.in_battle():continue
+ 		var selected="bag" if host.screen=="inventory" else "party"
+ 		var b=button("nav:"+e[0],e[1],host.go.bind("explore" if e[0]=="depart" and host.model.active() else e[0]),selected==e[0],false,nav);b.add_theme_font_size_override("font_size",13)
++		T.dress_navigation(b,e[0],selected==e[0])
+ 	if state.ui.msg!="":
+ 		var notice_label=text(View.notice(state.ui.msg),14,T.RED);notice_label.text=View.notice(state.ui.msg)
+ 	if host.save_error!=OK:
+ 		text("저장하지 못했습니다. 다시 시도해 주세요.",14,T.RED);button("save_retry","저장 다시 시도",func():host._save();host._draw_screen())
+ func text(value: String,fs=15,color=T.INK,parent: Node=null) -> Label:
+ 	var l=Label.new();(parent if parent else body).add_child(l);l.text=L.render(value,L.language(host.model.s)).replace("{{user}}","당신");l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;l.size_flags_horizontal=SIZE_EXPAND_FILL;l.add_theme_font_size_override("font_size",fs);l.add_theme_color_override("font_color",READABLE_RED if color==T.RED else color)
+-	if fs>=21:l.add_theme_font_override("font",T.DISPLAY)
++	if fs>=18:l.add_theme_font_override("font",T.BOLD)
+ 	l.mouse_filter=MOUSE_FILTER_IGNORE;return l
+ func button(id: String,value: String,fn: Callable,selected=false,disabled=false,parent: Node=null) -> Button:
+ 	var spec=View.button(id,L.render(value,L.language(host.model.s)),("on " if selected else "")+("off" if disabled else ""))
+ 	var b=Button.new();(parent if parent else body).add_child(b);b.text=spec.text;b.set_meta("source_action",id);b.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;b.custom_minimum_size=Vector2(44,48);b.size_flags_horizontal=SIZE_EXPAND_FILL;b.disabled=spec.disabled;b.add_theme_font_size_override("font_size",14)
+-	if selected:
+-		for s in ["normal","hover","pressed"]:b.add_theme_stylebox_override(s,T.panel(READABLE_RED,READABLE_RED))
+-		for s in ["font_color","font_hover_color","font_pressed_color"]:b.add_theme_color_override(s,T.PAPER)
++	T.dress_button(b,selected)
++	if parent==null or parent is VBoxContainer:
++		b.alignment=HORIZONTAL_ALIGNMENT_LEFT
++		T.row_arrow(b,selected)
++		var lines=L.render(value,L.language(host.model.s)).split("\n",false)
++		T.row_copy(b,lines[0] if not lines.is_empty() else "","\n".join(lines.slice(1)),selected)
++	else:
++		for key in ["normal","hover","pressed","disabled","focus"]:
++			var p=b.get_theme_stylebox(key).duplicate();p.content_margin_left=4;p.content_margin_right=4;b.add_theme_stylebox_override(key,p)
+ 	b.pressed.connect(fn);host.controls[id]=b;return b
+ func row(parent: Node=null) -> HBoxContainer:
+ 	var h=HBoxContainer.new();(parent if parent else body).add_child(h);h.add_theme_constant_override("separation",8);return h
+ func section(name: String,parent: Node=null) -> void:
+ 	var gap=Control.new();(parent if parent else body).add_child(gap);gap.custom_minimum_size.y=8
+ 	text(name,23,T.INK,parent)
+-	var line=HSeparator.new();(parent if parent else body).add_child(line)
++	T.heading_rule(parent if parent else body)
+ func choose(id: String,values: Array,current: String,fn: Callable,parent: Node=null,localized=false) -> OptionButton:
+ 	var o=OptionButton.new();(parent if parent else body).add_child(o);o.custom_minimum_size.y=48;o.size_flags_horizontal=SIZE_EXPAND_FILL;o.fit_to_longest_item=false
++	o.add_theme_font_override("font",T.BOLD)
++	for key in ["normal","hover","pressed","disabled","focus"]:
++		var p=T.panel(T.PALE if key in ["hover","pressed"] else T.PAPER,T.INK);p.set_border_width_all(0);p.border_width_bottom=3;p.content_margin_left=12;p.content_margin_right=28;p.content_margin_top=10;p.content_margin_bottom=10;o.add_theme_stylebox_override(key,p)
+ 	var found=false
+ 	for i in range(values.size()):
+ 		o.add_item(values[i][1] if localized else L.render(values[i][1],L.language(host.model.s)));o.set_item_metadata(i,values[i][0])
+@@ -144,7 +156,9 @@
+ func gear_tile(id: String,item: Dictionary,fn: Callable,sub: Variant=null,disabled=false,parent: Node=null) -> Button:
+ 	var spec=View.tile(item,id,sub,L.language(host.model.s));var b=button(id,spec.text,fn,false,disabled,parent)
+ 	b.icon=load(View.icon_path(item));b.expand_icon=true;b.icon_alignment=HORIZONTAL_ALIGNMENT_LEFT;b.add_theme_constant_override("icon_max_width",44);b.custom_minimum_size.y=64;b.alignment=HORIZONTAL_ALIGNMENT_LEFT;b.set_meta("source_icon",spec.icon);b.set_meta("source_rarity",spec.rarity)
+-	for key in ["normal","hover","pressed"]:b.add_theme_stylebox_override(key,T.panel(T.PAPER,View.COLORS[spec.rarity]))
++	var item_name=L.t(item.name,L.language(host.model.s));T.row_copy(b,item_name,spec.text.trim_prefix(item_name).strip_edges(),false,60)
++	for key in ["normal","hover","pressed"]:
++		var p=b.get_theme_stylebox(key).duplicate();p.border_color=View.COLORS[spec.rarity];b.add_theme_stylebox_override(key,p)
+ 	return b
+ func fx_name(key: String,job: String) -> String:
+ 	return preload("res://game/panel_gear_r22.gd").effect_name(host.model.gear,key,job)
+--- before/settings_screen_r22.gd
++++ after/settings_screen_r22.gd
+@@ -5,9 +5,10 @@
+ func build(owner_screen) -> void:
+ 	host=owner_screen;theme=T.make_theme();set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+ 	var paper=ColorRect.new();add_child(paper);paper.color=T.PAPER;paper.mouse_filter=MOUSE_FILTER_IGNORE;paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+-	frame=Control.new();add_child(frame);frame.size=Vector2(minf(430,host.size.x),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
++	frame=Control.new();add_child(frame);frame.size=Vector2(minf(900 if host.size.x>=900 else 430,host.size.x),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
+ 	var title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-112,58);title.text=L.render("설정",L.language(host.model.s));title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",36)
+ 	var back=button("p8_back","뒤로",func():host.reset_r22=false;host.go(host.settings_return_r22),false,false,frame);back.position=Vector2(frame.size.x-88,20);back.size=Vector2(70,44)
++	T.heading_rule(frame);frame.get_child(-1).position=Vector2(18,72)
+ 	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,88);scroll.size=Vector2(frame.size.x-36,frame.size.y-112);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+ 	body=VBoxContainer.new();scroll.add_child(body);body.size_flags_horizontal=SIZE_EXPAND_FILL;body.add_theme_constant_override("separation",12)
+ 	if host.save_error!=OK:
+@@ -44,8 +45,6 @@
+ 		button("p8_reset","처음부터 다시",func():host.reset_r22=true;host._draw_screen())
+ func button(id: String,value: String,fn: Callable,selected=false,disabled=false,parent: Node=null) -> Button:
+ 	var b=super(id,value,fn,selected,disabled,parent)
+-	if selected:
+-		for key in ["normal","hover","pressed"]:b.add_theme_stylebox_override(key,T.panel(ACTION,ACTION))
+ 	return b
+ func apply(key: String,value: String) -> void:
+ 	if key=="diff":host.reset_r22=false
+--- before/town_screen_r21.gd
++++ after/town_screen_r21.gd
+@@ -692,6 +692,7 @@
+ 	picture(who,Rect2(173,22,207,297),"detail-overview")
+ 	fill("dialogue_identity_paper",Rect2(10,112,164,91),T.PAPER)
+ 	display(title,Rect2(18,38,194,53),T.INK,36)
++	fill("dialogue_heading_rule",Rect2(18,98,54,4),T.RED)
+ 	display(host.model.person(who).name,Rect2(18,121,148,38),T.INK,28)
+ 	var a=host.model.s.members[who].aff
+ 	label(host.model.TOWN_RULES.aff_stage(a)+" · 호감 "+host.model.TOWN_RULES.aff_fmt(a),Rect2(18,165,148,25),13,T.INK,T.BOLD)
+@@ -702,28 +703,41 @@
+ 	var p=state.response if responding else state.pending
+ 	var row=host.model.dialogue.scene(p.who,p.scene)
+ 	dialogue_frame(p.who,"대화")
++	var previous=stage;stage=scroll_page(336,351,351);var content=stage;var y=0.0
+ 	if row.is_empty() and not responding:
+-		paragraph("이 대화의 기록을 찾을 수 없습니다.",Rect2(18,350,354,70),16)
+-		action("dialogue_cancel","여관으로",Rect2(18,746,354,54),func():state.pending={};host._save();host.go("inn"),true);return
++		y=reading_line("이 대화의 기록을 찾을 수 없습니다.",y,16)
++		stage=previous;action("dialogue_cancel","여관으로",Rect2(18,699,354,56),func():state.pending={};host._save();host.go("inn"),true);navigation();return
+ 	if responding:
+-		paragraph(p.text,Rect2(18,336,354,54),14,T.INK,false)
+-		paragraph("\n".join(p.lines),Rect2(18,405,354,92),18,T.INK,false)
+-		label("호감 %s → %s (%s%s)"%[host.number(p.before),host.number(p.after),"+" if p.gained>=0 else "",host.number(p.gained)],Rect2(18,504,354,28),14,T.RED,T.BOLD)
++		y=reading_line(p.text,y,14,T.INK,false)
++		y=reading_line("\n".join(p.lines),y,18,T.INK,false)
++		y=reading_line("호감 %s → %s (%s%s)"%[host.number(p.before),host.number(p.after),"+" if p.gained>=0 else "",host.number(p.gained)],y,14,T.RED)
+ 		var t=p.transition
+ 		if not t.is_empty():
+-			label(t.from+" → "+t.to,Rect2(18,550,354,28),16,T.RED,T.BOLD)
+-			paragraph(t.situation+"\n"+"\n".join(t.lines),Rect2(18,584,354,136),15,T.INK,false)
+-		action("dialogue_done","여관으로",Rect2(18,754,354,56),func():host.model.close_dialogue();host._save();host.go("inn"),true)
++			y=reading_line(t.from+" → "+t.to,y,16,T.RED)
++			y=reading_line(t.situation+"\n"+"\n".join(t.lines),y,15,T.INK,false)
++		content.custom_minimum_size.y=maxf(351,y+16);stage=previous
++		action("dialogue_done","여관으로",Rect2(18,699,354,56),func():host.model.close_dialogue();host._save();host.go("inn"),true)
+ 	else:
+-		paragraph(row.situation,Rect2(18,335,354,60),14,T.INK,false)
++		y=reading_line(row.situation,y,14,T.INK,false)
+ 		var lines=[row.seen] if state.seen.get(row.id,0)>0 else row.lines
+-		paragraph("\n".join(lines),Rect2(18,397,354,132),18,T.INK,false)
+-		label("어떻게 답할까",Rect2(18,535,354,26),14,T.INK,T.BOLD)
++		y=reading_line("\n".join(lines),y,18,T.INK,false)
++		y=reading_line("어떻게 답할까",y,14)
+ 		for i in range(row.choices.size()):
+ 			var c=row.choices[i]
+-			var b=action("dialogue_choice:"+c.id,c.text,Rect2(18,573+i*68,354,58),func():host._act(host.model.choose_dialogue.bind(c.id),""),false,false,false)
++			var height=maxf(58,T.BOLD.get_multiline_string_size(c.text,HORIZONTAL_ALIGNMENT_LEFT,288,15).y+24)
++			var b=action("dialogue_choice:"+c.id,c.text,Rect2(0,y,342,height),func():host._act(host.model.choose_dialogue.bind(c.id),""),false,false,false)
+ 			b.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;b.add_theme_font_size_override("font_size",15)
+-		action("dialogue_cancel","나중에 이야기하기",Rect2(18,777,354,48),func():state.pending={};host._save();host.go("inn"))
++			T.dress_button(b);b.alignment=HORIZONTAL_ALIGNMENT_LEFT;T.row_arrow(b);y+=height+8
++		content.custom_minimum_size.y=maxf(351,y+16);stage=previous
++		action("dialogue_cancel","나중에 이야기하기",Rect2(18,699,354,56),func():state.pending={};host._save();host.go("inn"))
++	navigation()
++
++## Measured reading rows for the remaining long town/expedition screens.
++func reading_line(value: String,y: float,fs=15,color=T.INK,translate=true) -> float:
++	var copy=localized(value) if translate else value
++	var height=T.BODY.get_multiline_string_size(copy,HORIZONTAL_ALIGNMENT_LEFT,342,fs).y+10
++	paragraph(value,Rect2(0,y,342,height),fs,color,translate)
++	return y+height+12
+ 
+ func journey_dialogue() -> void:
+ 	var rows=host.model.s.dialogue_r21.queue

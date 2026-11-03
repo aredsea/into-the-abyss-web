@@ -8,6 +8,9 @@ func collect(node: Node,words: Array,o: Dictionary):
 	if node is Label or node is Button:words.append(node.text.replace("\n"," "))
 	if node is ProgressBar:o.bars.append(float("%.3f"%(node.value/node.max_value)))
 	if node is Button and not node.disabled:o.buttons.append(node.get_meta("source_action",""))
+	# Native button.text is still the canonical accessible action. Its authored
+	# visual title/subtitle and arrow repeat that text without adding an action.
+	if node is Button:return
 	for child in node.get_children():collect(child,words,o)
 func run():
 	folder="res://../verification/parity-r23/ui-phase4/render";DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))

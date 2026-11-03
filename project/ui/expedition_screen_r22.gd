@@ -88,14 +88,18 @@ func build_page() -> void:
 		host.confirm={"prompt":"모은 보상을 정산하고 귀환할까요?","callback":host.model.expedition_retreat.bind("retreat_yes")}
 	if host.screen=="expedition_log":
 		page_background();header(host.model.expedition_label(),"explore")
+		fill("log_title_rule",Rect2(18,59,54,4),T.RED)
 		var w=host.model;var r=w.s.run;var lines=[]
 		for line in r.log:lines.append(line)
 		lines.append("미정산 금화 %d · 경험치 %d"%[r.gold,r.xp])
 		for key in r.loot_items:lines.append(w.expedition_item_name(key)+" ×%d"%r.loot_items[key])
 		for code in r.loot_gear:lines.append(w.expedition_gear_label(code,L.language(w.s)=="en"))
 		if L.language(w.s)=="en":lines.push_front(w.expedition_floor_context(int(r.floor)))
-		var prev=stage;stage=scroll_page(70,613,maxi(613,lines.size()*75))
-		for i in range(lines.size()):paragraph(lines[i],Rect2(0,i*75,342,70),14)
+		var prev=stage;stage=scroll_page(82,601,601);var content=stage;var y=0.0
+		for i in range(lines.size()):
+			y=reading_line(lines[i],y,16)
+			fill("log_row_rule:"+str(i),Rect2(0,y-6,342,3),T.INK)
+		content.custom_minimum_size.y=maxf(601,y+16)
 		stage=prev;action("log_back","원정으로",Rect2(18,705,354,44),host.go.bind("explore"),true);navigation();return
 	super()
 

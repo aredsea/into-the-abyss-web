@@ -6,22 +6,23 @@ const ACTION_RED=Color("#c62b15")
 var view
 func button(id: String,value: String,fn: Callable,selected=false,disabled=false,parent: Node=null) -> Button:
 	var b=super(id,value,fn,selected,disabled,parent)
-	if selected:
-		for key in ["normal","hover","pressed"]:b.add_theme_stylebox_override(key,T.panel(ACTION_RED,ACTION_RED))
 	return b
 func build(owner_screen) -> void:
 	host=owner_screen;view=host.journal_r22;theme=T.make_theme();set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	var paper=ColorRect.new();add_child(paper);paper.color=T.PAPER;paper.mouse_filter=MOUSE_FILTER_IGNORE;paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	frame=Control.new();add_child(frame);frame.size=Vector2(minf(430,host.size.x),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
+	frame=Control.new();add_child(frame);frame.size=Vector2(minf(900 if host.size.x>=900 else 430,host.size.x),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
 	var title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-112,58);title.text=L.render({"journal":"모험 기록","places":"토르바 산책","people":"토르바 인물"}[host.screen],L.language(host.model.s));title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",34);L.fit_title(title,34)
 	var back=button("p10_back","뒤로",host.go.bind(host.journal_return,false),false,false,frame);back.position=Vector2(frame.size.x-88,20);back.size=Vector2(70,44)
+	T.heading_rule(frame);frame.get_child(-1).position=Vector2(18,72)
 	var tabs=HBoxContainer.new();frame.add_child(tabs);tabs.position=Vector2(18,82);tabs.size=Vector2(frame.size.x-36,48);tabs.add_theme_constant_override("separation",6)
 	for e in [["journal","연대기"],["places","마을 장소"],["people","인물 소개"]]:button("p10_tab_"+e[0],e[1],host.go.bind(e[0]),host.screen==e[0],false,tabs)
-	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,148);scroll.size=Vector2(frame.size.x-36,frame.size.y-226);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,148);scroll.size=Vector2(frame.size.x-36,frame.size.y-242);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
 	body=VBoxContainer.new();scroll.add_child(body);body.size_flags_horizontal=SIZE_EXPAND_FILL;body.add_theme_constant_override("separation",12)
 	var nav=HBoxContainer.new();frame.add_child(nav);nav.position=Vector2(12,frame.size.y-62);nav.size=Vector2(frame.size.x-24,50);nav.add_theme_constant_override("separation",4)
+	T.rule(frame,frame.size.y-78,frame.size.x-36)
 	for e in [["town","마을"],["party","동료"],["depart","원정"],["bag","가방"],["journal","기록"]]:
 		var b=button("nav:"+e[0],e[1],host.go.bind("explore" if e[0]=="depart" and host.model.active() else e[0]),e[0]=="journal",false,nav);b.add_theme_font_size_override("font_size",13)
+		T.dress_navigation(b,e[0],e[0]=="journal")
 	if host.save_error!=OK:text("저장하지 못했습니다.",14,ACTION_RED);button("save_retry","저장 다시 시도",func():host._save();host._draw_screen())
 	match host.screen:
 		"journal":journal()
@@ -45,7 +46,7 @@ func journal() -> void:
 		var line=str(lines[i]);var re=RegEx.new();re.compile("^Day (-?[0-9]+): (.*)$");var m=re.search(line)
 		if m:text(m.get_string(1)+"일째",13,ACTION_RED);text(m.get_string(2),16)
 		else:text(line,16)
-		body.add_child(HSeparator.new())
+		var divider=ColorRect.new();body.add_child(divider);divider.custom_minimum_size.y=3;divider.color=T.INK;divider.mouse_filter=MOUSE_FILTER_IGNORE
 func places() -> void:
 	var pid=view.place;var d=Places.DATA.places[pid]
 	var place_label=Places.label({"scene":"smithy" if pid=="smithy" else "town","place":pid},L.language(host.model.s))
@@ -87,5 +88,5 @@ func people() -> void:
 		var at=[]
 		for pid in Places.DATA.order:
 			if id in Places.residents(pid):at.append(Places.DATA.places[pid].name)
-		button("p10_person_"+id,Places.profile(id).name,open_person.bind(id))
-		text(" · ".join(at) if not at.is_empty() else "고정 위치 없음" if id=="knut" else "토르바 상주 아님",13,T.MUTED)
+		var entry=button("p10_person_"+id,Places.profile(id).name,open_person.bind(id))
+		T.row_copy(entry,entry.text,L.render(" · ".join(at) if not at.is_empty() else "고정 위치 없음" if id=="knut" else "토르바 상주 아님",L.language(host.model.s)))
