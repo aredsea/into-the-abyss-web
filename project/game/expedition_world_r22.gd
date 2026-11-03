@@ -2,6 +2,47 @@ extends "res://game/persona_world.gd"
 ## P5 facade. Old runs retain their original payment contract; new floors use P5.
 const ExpeditionRules=preload("res://game/expedition_rules_r22.gd")
 var expedition_rules=ExpeditionRules.new()
+const ExpeditionUI=preload("res://game/expedition_ui_r23.gd")
+
+func source_expedition_state() -> Dictionary:
+	var r=s.run;var record={"floor":r.get("floor",1),"step":r.get("step",0),"phase":r.get("phase","explore"),"avg":expedition_party().avg,"pm":r.get("persona_pm",[]),"hp":[],"mp":[],"mhp":[],"mmp":[],"loot":{"gold":r.get("gold",0),"items":r.get("loot_items",{}),"gear":r.get("loot_gear",[])},"exp":r.get("xp",0),"real":r.get("wins",0)>0,"last":r.get("last", ""),"ask":r.get("ask",false)}
+	var count=0;var levels=0.0
+	for m in record.pm:
+		if m.get("id","")!="":count+=1;levels+=m.L
+	record.avg=levels/count if count>0 else 1.0
+	var plan=dungeon_rules.floor_enc(int(record.floor),record.avg,count,"boss",dungeon_rules.battle_seed(int(r.get("seed",1)),int(record.floor),99,true))
+	record.boss_kind=plan.enc.kind;record.boss_name=dungeon_rules.foes[plan.enc.fl[0]].name
+	for m in record.pm:
+		var id=m.get("id","");var maximum=r.get("maxima",{}).get(id,{"hp":0,"mp":0});var member=s.members.get(id,{"hp":0,"mp":0})
+		record.hp.append(member.hp);record.mp.append(member.mp);record.mhp.append(maximum.hp);record.mmp.append(maximum.mp)
+	if not s.summary.is_empty():
+		var q=s.summary
+		record.summary={"result":q.result,"floor":q.floor,"gold":q.gold,"exp":q.xp,"items":q.items,"lv":[],"aff":expedition_summary_aff_lines(),"gear":q.gear,"gear_lost":q.gear_lost,"kept_gear":q.gear,"lost_gear":q.lost_gear,"lost_gold":q.lost,"penalty":q.penalty,"first":q.first,"steps":q.steps,"wins":q.wins}
+		for gain in q.gains:
+			if gain.level>gain.before:record.summary.lv.append(ExpeditionText.u("{name} Lv {before} → {after}",{"name":expedition_member_name(gain.id),"before":gain.before,"after":gain.level},ExpeditionText.language(s)))
+		if r.get("next_available",false):record.note=true
+	return record
+
+func source_expedition_view(kind: String,g: Dictionary={},r: Dictionary={},extra: Dictionary={}) -> Array:
+	if g.is_empty():
+		var items={}
+		for id in s.items:items[source_item_id(id)]=s.items[id]
+		g={"items":items,"persona":s.persona,"dungeon":s.dungeon_r21,"lang":ExpeditionText.language(s)}
+	if r.is_empty():r=source_expedition_state()
+	return ExpeditionUI.new().build(self,kind,g,r,extra)
+
+func source_run(g: Dictionary) -> Variant:
+	return normalize_dungeon_record(g).get("run",false)
+
+func source_sortie_view(kind: String) -> Array:return ExpeditionUI.new().sortie(self,kind)
+
+func expedition_ui_text(text: String,values: Dictionary={}) -> String:
+	var ui=ExpeditionUI.new();ui.lang=ExpeditionText.language(s);return ui.u(text,values)
+
+func start_selected_dungeon() -> bool:
+	var floor_no=maxi(1,int(selected_floor))
+	if not dungeon_allowed(floor_no):floor_no=dungeon_max()
+	return depart_dungeon(floor_no)
 const ExpeditionText=preload("res://game/localization_r22.gd")
 # 10-data.lua ITEMS names; the older native bag captions abbreviate these.
 const EXPEDITION_ITEM_NAMES={"hp_s":"소형 회복약","hp_m":"중형 회복약","hp_l":"대형 회복약","mp_s":"소형 마나 물약","mp_m":"중형 마나 물약","mp_l":"대형 마나 물약","sh_s":"소형 보호막 물약","sh_m":"중형 보호막 물약","sh_l":"대형 보호막 물약","antidote":"해독약","bandage":"붕대","scroll":"귀환 두루마리","level_scroll":"레벨업 스크롤"}
@@ -185,7 +226,7 @@ func depart_dungeon(f: int,seed: int=0,rift_id: String="",stars: int=1) -> bool:
 	if not super(f,chosen,rift_id,stars):return false
 	if draw:s.town_r21.counter=next_counter
 	if rift_id.is_empty():
-		s.run.merge({"expedition_version":22,"log":[],"fell":false,"ask":false,"next_available":false,"maxima":{}})
+		s.run.merge({"expedition_version":22,"log":[],"fell":false,"ask":false,"next_available":false,"maxima":{},"last":""},true)
 		var party=expedition_party()
 		var record=expedition_record_with_seed(f,party.pm,party.n,party.avg,int(s.run.id),int(s.run.seed))
 		for i in range(party.pm.size()):
@@ -269,29 +310,29 @@ func advance() -> bool:
 		if out.kind=="elite":r.elites+=1
 		r.kind=out.kind;r.phase="battle";r.battle={};r.resolved=false
 		return true
-	if out.kind=="coin":r.gold+=out.gold;r.last="낡은 주머니에서 주화 %d닢을 찾았다."%out.gold
+	if out.kind=="coin":r.gold+=out.gold;r.last=expedition_ui_text("낡은 주머니에서 주화 {gold}닢을 찾았다.",{"gold":out.gold})
 	elif out.kind=="item":
 		r.loot_items[out.item]=r.loot_items.get(out.item,0)+out.count
 		var count=["하나","둘","셋"][out.count-1] if out.count in [1,2,3] else str(out.count)
-		r.last=ExpeditionText.u("{item} {count}{suffix} 주웠다.",{"item":expedition_item_name(out.item),"count":count,"suffix":"를" if out.count==1 else "을"})
-	else:append_expedition_gear(out.code);r.last="장비를 발견했다: %s."%expedition_gear_label(out.code)
-	append_expedition_log("탐색 %d: %s"%[r.step,r.last]);note(r.last)
+		r.last=expedition_ui_text("{item} {count}{suffix} 주웠다.",{"item":expedition_item_name(out.item),"count":count,"suffix":"를" if out.count==1 else "을"})
+	else:append_expedition_gear(out.code);r.last=expedition_ui_text("장비를 발견했다: {item}.",{"item":expedition_gear_label(out.code)})
+	append_expedition_log(expedition_ui_text("탐색 {step}: {result}",{"step":r.step,"result":r.last}));note(r.last)
 	if r.step>=5:enter_dungeon_rest()
 	return true
 
 func enter_dungeon_rest():
 	if not expedition():super();return
 	var r=s.run;r.phase="rest";r.ask=false
-	if r.rested:return
 	r.rested=true
 	var mods=expedition_mods();var gains=[]
 	for id in expedition_ids():
 		var b=r.maxima[id];var m=s.members[id];var h=m.hp;var p=m.mp
 		m.hp=mini(b.hp,h+int(floor(b.hp*(dungeon_rules.config.explore.REST_HP+mods.rest_hp)+.5)))
 		m.mp=mini(b.mp,p+int(floor(b.mp*(dungeon_rules.config.explore.REST_MP+mods.rest_mp)+.5)))
-		gains.append("%s HP +%d"%[expedition_member_name(id),m.hp-h]+(", MP +%d"%(m.mp-p) if b.mp>0 else ""))
-	r.last=ExpeditionText.u("휴식. 파티 전원이 숨을 돌렸다({gain})",{"gain":" / ".join(gains)})
-	append_expedition_log("휴식: 파티 HP +%d%%"%int(floor((dungeon_rules.config.explore.REST_HP+mods.rest_hp)*100+.5)))
+		var ui=ExpeditionUI.new();ui.lang=ExpeditionText.language(s)
+		gains.append("%s HP +%d"%[ui.t(expedition_member_name(id)),m.hp-h]+(", MP +%d"%(m.mp-p) if b.mp>0 else ""))
+	r.last=expedition_ui_text("휴식. 파티 전원이 숨을 돌렸다({gain})",{"gain":" / ".join(gains)})
+	append_expedition_log(expedition_ui_text("휴식: 파티 HP +{pct}%",{"pct":int(floor((dungeon_rules.config.explore.REST_HP+mods.rest_hp)*100+.5))}))
 	note(r.last)
 
 func final_battle() -> bool:

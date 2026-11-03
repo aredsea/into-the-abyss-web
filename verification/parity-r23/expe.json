@@ -3,16 +3,16 @@
   "basis": "r21-expe-brief.md / r21-common.md; 109 items from audit-r22b.json remaining_work[7]",
   "summary": {
     "reviewed_rows": 109,
-    "promoted_same": 44,
-    "fixed_rows": 39,
+    "promoted_same": 70,
+    "fixed_rows": 65,
     "fixed_still_remaining": 10,
-    "remaining_rows": 65,
-    "oracle_checks": 101173,
+    "remaining_rows": 38,
+    "oracle_checks": 103987,
     "core_oracle_checks": 2310,
     "supply_oracle_checks": 7384,
     "level_oracle_checks": 6571,
     "oracle_failures": 0,
-    "regression_groups": 116,
+    "regression_groups": 118,
     "failed_groups": [],
     "protected_snapshot_files": 1007,
     "changed_existing_files": [
@@ -108,6 +108,44 @@
       "trace_equal_battles": 6320,
       "trace_records": 219785,
       "cloud_save_specimens": 3
+    },
+    "excluded_host_rows": 1,
+    "pass5": {
+      "reviewed_rows": 65,
+      "promoted_same": 26,
+      "excluded_host_rows": 1,
+      "implementation_rows": 29,
+      "remaining_rows": 38,
+      "cumulative_same": 70,
+      "cumulative_excluded": 1,
+      "native_assertions": 2814,
+      "native_failures": 0,
+      "ui_assertions": 1236,
+      "ui_failures": 0,
+      "direct_rendered_source_cases": 24,
+      "direct_rendered_source_failures": 0,
+      "regression_groups": 118,
+      "failed_groups": [],
+      "changed_existing_files": [
+        "project/game/expedition_world_r22.gd",
+        "project/game/persona_rules.gd",
+        "project/game/persona_world.gd",
+        "project/game/town_rules_r21.gd",
+        "project/game/town_world_r21.gd",
+        "project/tests/expedition_r22_test.gd",
+        "project/ui/expedition_screen_r22.gd",
+        "project/ui/persona_sortie_screen.gd",
+        "project/ui/town_screen_r21.gd"
+      ],
+      "outside_allowed_changed": [],
+      "assets_checked": 96,
+      "asset_changes": [],
+      "trace_battles": 6320,
+      "trace_equal_battles": 6320,
+      "trace_records": 219785,
+      "cloud_save_specimens": 4,
+      "source_files_unchanged": 46,
+      "new_comparison_max_bytes": 4753796
     }
   },
   "rows": [
@@ -123,12 +161,18 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 3/4 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 4/4, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
+      ],
+      "implementation": [
+        "project/game/town_rules_r21.gd:5"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -204,6 +248,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 4/4, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 3/4 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 4/4, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "52f4c74975932ac7c2b70fcd3bd67ded268ecbf56ee2a9aed33f3f1f9cba3a8d",
+        "groups": [
+          "town"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/town_rules_r21.gd",
+            "line": 5,
+            "function": "source_town"
+          }
+        ]
       }
     },
     {
@@ -218,12 +296,18 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
+      ],
+      "implementation": [
+        "project/game/town_world_r21.gd:11"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -278,6 +362,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "950d4c059f2a765b742cba37f5fb41754c613bbfad7b3924d0f397e29561165c",
+        "groups": [
+          "town_name"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/town_world_r21.gd",
+            "line": 11,
+            "function": "town_source_name"
+          }
+        ]
       }
     },
     {
@@ -292,12 +410,18 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 2/2 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 2/2, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
+      ],
+      "implementation": [
+        "project/game/town_world_r21.gd:16"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -351,6 +475,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 2/2, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 2/2 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 2/2, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "141f9c88714dfee5eca55c038737ade6f83c1dd07965a29275202037901bbb8d",
+        "groups": [
+          "town_party"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/town_world_r21.gd",
+            "line": 16,
+            "function": "town_source_party"
+          }
+        ]
       }
     },
     {
@@ -365,12 +523,18 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
+      ],
+      "implementation": [
+        "project/game/town_world_r21.gd:23"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -423,6 +587,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "f35467016bfd6a1779439555431995e8bce142688604af00c356a1ed53d53b55",
+        "groups": [
+          "town_tags"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/town_world_r21.gd",
+            "line": 23,
+            "function": "town_source_tags"
+          }
+        ]
       }
     },
     {
@@ -442,7 +640,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 2/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "초상 provider 실패/비 HTML 반환 때 번역된 이름 첫 글자를 쓰는 fallback을 native 초상 경로와 직접 대조하지 못했다. 알려진 동료 초상 보존만으로 전체 승격하지 않았다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -504,6 +702,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 3/3, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 2/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "9219fb8dbbd937bf8b32ce62b2a50ca342525fd68541e3f14ce835348adb00f1",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "초상 provider 실패/비 HTML 반환 때 번역된 이름 첫 글자를 쓰는 fallback을 native 초상 경로와 직접 대조하지 못했다. 알려진 동료 초상 보존만으로 전체 승격하지 않았다."
       }
     },
     {
@@ -523,7 +738,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "native 장소 제목의 아이콘·제목 조합을 원본 tw_hd의 각 인수와 연결한 직접 표시 시험이 없다. 기존 제목 그림만으로 전체 승격하지 않았다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -576,6 +791,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "5b28c2da6bf6257c4dc444732ade0fccb67965c38ffef7251fbd7a87098e743a",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "native 장소 제목의 아이콘·제목 조합을 원본 tw_hd의 각 인수와 연결한 직접 표시 시험이 없다. 기존 제목 그림만으로 전체 승격하지 않았다."
       }
     },
     {
@@ -595,7 +827,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "마을 시설 버튼은 일부 짧은 이름을 사용하고 원본의 설명 두 번째 줄을 모두 표시하지 않는다. 원본 장소 버튼의 표시 정보 차이가 남는다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -648,6 +880,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "87f325ea68650f55c8d82ba849cf65b1d6d019884abf2efbede42c6cc95633f0",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "마을 시설 버튼은 일부 짧은 이름을 사용하고 원본의 설명 두 번째 줄을 모두 표시하지 않는다. 원본 장소 버튼의 표시 정보 차이가 남는다."
       }
     },
     {
@@ -667,7 +916,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "원본은 의뢰 별 수만큼 별을 반복한다. native의 던전 별 숫자 표시는 이 마을/의뢰 helper의 직접 대응 증거가 아니며, accepted quest 별 표시가 남는다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -721,6 +970,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "5e29a45c75a4e76af6a01980363def0c59ae4812e46aecbd4a3d22dae2fa5a79",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "원본은 의뢰 별 수만큼 별을 반복한다. native의 던전 별 숫자 표시는 이 마을/의뢰 helper의 직접 대응 증거가 아니며, accepted quest 별 표시가 남는다."
       }
     },
     {
@@ -740,7 +1006,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "hint의 임의 안내 문자열·빈 문자열을 실제 시설 카드에 연결한 직접 대조가 없다. 공통 paragraph의 존재만으로 전체 승격하지 않았다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -793,6 +1059,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "2380f208de92260483cfd56602da90d6f446e3524e0e23f401a2451342075d88",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "hint의 임의 안내 문자열·빈 문자열을 실제 시설 카드에 연결한 직접 대조가 없다. 공통 paragraph의 존재만으로 전체 승격하지 않았다."
       }
     },
     {
@@ -809,10 +1092,10 @@
       "prior_status": "미확인",
       "status": "미확인",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
+      "fixed": true,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 3/4 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 4/4, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "페르소나를 포함한 출전 이름 순서는 고쳤다. 마을 본문 설명·수락 의뢰 출정 타일·대던전 최고층 안내·시설 설명 줄이 원본과 아직 다르다. 장미 골목은 명시적 제외다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -874,6 +1157,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 4/4, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 3/4 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 4/4, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "e304676d26a78360052ef1150665531feb05c8747d38b2b81a9952a187c9e285",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "페르소나를 포함한 출전 이름 순서는 고쳤다. 마을 본문 설명·수락 의뢰 출정 타일·대던전 최고층 안내·시설 설명 줄이 원본과 아직 다르다. 장미 골목은 명시적 제외다."
       }
     },
     {
@@ -893,7 +1193,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 12/16 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 14/16, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음. 미도달 109/110행은 명시 제외된 장미 골목 이동/장면 경계다.",
+      "remaining_reason": "마을 이동 handler의 ui.sel/tab 초기화, 잘못된 scene에서의 무반응, 의뢰 없음 메시지를 native facility_route/host.go와 함수 전체로 직접 비교하지 못했다. native 거래 영수증의 이동 차단도 별도 동작이다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -987,6 +1287,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 14/16, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음. 미도달 109/110행은 명시 제외된 장미 골목 이동/장면 경계다."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 12/16 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 14/16, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음. 미도달 109/110행은 명시 제외된 장미 골목 이동/장면 경계다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "8362a7f299bb16c8f45769c5b9ddde0a4a522ecf5bcbd976aaa084dd530d4fc4",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "마을 이동 handler의 ui.sel/tab 초기화, 잘못된 scene에서의 무반응, 의뢰 없음 메시지를 native facility_route/host.go와 함수 전체로 직접 비교하지 못했다. native 거래 영수증의 이동 차단도 별도 동작이다."
       }
     },
     {
@@ -1006,7 +1323,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 1/19 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 19/19, 새 진입 18; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "기존 정산 수치 검사는 유지했다. st.rg 우선/의뢰 보상 fallback, 엘리트 장비 입고, 아직 끝나지 않은 전투, 반복 정산, 원문 메시지까지 합친 native 의뢰 정산 대조는 미완료다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1189,6 +1506,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 19/19, 새 진입 18; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 1/19 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 19/19, 새 진입 18; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "b14e0cc47f8ababae99ddc9bb47317caed55e617e5ac851282edc5717ce83c54",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "기존 정산 수치 검사는 유지했다. st.rg 우선/의뢰 보상 fallback, 엘리트 장비 입고, 아직 끝나지 않은 전투, 반복 정산, 원문 메시지까지 합친 native 의뢰 정산 대조는 미완료다."
       }
     },
     {
@@ -1208,7 +1542,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 1/6 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 6/6, 새 진입 5; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "전투 HUD의 bn/id/load 실패 및 탐색 승리 제외 조건, 원본 귀환/층 정산 label/subtitle을 native 결과 화면과 전체 대조하지 못했다. 전투 파일은 수정 금지다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1298,6 +1632,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 6/6, 새 진입 5; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 1/6 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 6/6, 새 진입 5; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "9a116a4e22556ab177dfb231730ab7d87494fd4b2c1770373999947d4307909c",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "전투 HUD의 bn/id/load 실패 및 탐색 승리 제외 조건, 원본 귀환/층 정산 label/subtitle을 native 결과 화면과 전체 대조하지 못했다. 전투 파일은 수정 금지다."
       }
     },
     {
@@ -1312,12 +1663,12 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "제외",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 1/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1387,6 +1738,22 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 3/3, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "마을/시설/의뢰/호스트 함수가 섞인 행이다. 대응 town_world_r21·facilities 및 마을 화면은 이번 허용 목록 밖이므로 수정/전체 같음 승격을 하지 않았다. 전투/시설 담당 재감사가 필요하다. 3차: 원본 호출 및 명시 진입 1/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+        "source_excerpt_sha256": "a1e6f1a400a4c74e5ffd4aeedc9c51ebe65df2a0943eb9206a2a9505efb7adae",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "exclusion_reason": "RisuAI에 제공하는 영어 AI 문맥 문자열만 만드는 host 전용 CTX 함수. 공통 기능 등가 기준에 따라 제외하며 남은 수에 넣지 않는다."
       }
     },
     {
@@ -1486,12 +1853,18 @@
       },
       "unverified_branches": [],
       "prior_status": "일부",
-      "status": "일부",
+      "status": "같음",
       "prior_reason": "원본 Lua에 함수/then·else·do 진입 Boolean 기록만 추가해 실제 입력을 재실행. 함수 호출 미관측, 명시적 분기 진입 0/0. 전체 계약은 같음으로 세지 않음. 단락 평가·조건의 모든 값 조합까지 전수 검증한 수치는 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다. 3차: 원본 호출 및 명시 진입 14/20 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 20/20, 새 진입 6; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
+      ],
+      "implementation": [
+        "project/game/persona_rules.gd:195"
+      ],
+      "remaining_reason": "",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1592,6 +1965,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 20/20, 새 진입 6; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다. 3차: 원본 호출 및 명시 진입 14/20 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 20/20, 새 진입 6; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "59b18059453c5f17c8ac94bdd5222e3099ccf33a0a04c116d579cd2a9f78b9d3",
+        "source_excerpt_sha256": "a61bc0b41cb86555781ad3d50ad971d964a14891e6f01fb5c6abc80fbb85ab69",
+        "groups": [
+          "award"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/persona_rules.gd",
+            "line": 195,
+            "function": "award_result"
+          }
+        ]
       }
     },
     {
@@ -1606,12 +2013,18 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
+      ],
+      "implementation": [
+        "project/game/persona_rules.gd:195"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1668,6 +2081,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "레벨/경험치 함수 전체는 persona_rules/persona_world 및 마을 지급/번호 표식에 걸친다. 허용 목록 밖이며 원정 정산 숫자 검사를 전체 함수 증거로 전파하지 않았다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "59b18059453c5f17c8ac94bdd5222e3099ccf33a0a04c116d579cd2a9f78b9d3",
+        "source_excerpt_sha256": "8f5931394556a7e78506573ea14b9d4d15278c410aab8005fc456cac82b41990",
+        "groups": [
+          "award"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/persona_rules.gd",
+            "line": 195,
+            "function": "award_result"
+          }
+        ]
       }
     },
     {
@@ -1798,7 +2245,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "알려진 동료 초상은 보존했다. persona의 host 사용자 초상 및 portrait 실패 시 이름 첫 글자 fallback의 전체 분기 대조는 없다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1853,6 +2300,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "1bba0936ae056eeecf5a56c7da26bbe92a0ae0e54fe2bcd1f5c5e01970578e75",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "알려진 동료 초상은 보존했다. persona의 host 사용자 초상 및 portrait 실패 시 이름 첫 글자 fallback의 전체 분기 대조는 없다."
       }
     },
     {
@@ -1872,7 +2336,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "출정 준비에 원본 의뢰 카드의 제목·설명·별·종류·난이도·금화·적 레벨을 한 묶음으로 표시하는 대응이 남는다. 현재 수락 의뢰 출발 버튼만으로 같음은 아니다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1925,6 +2389,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "8d7285e0f62c1aa3af151f933571d8e62ac60cf396f6cd633520ec1adaeefde5",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "출정 준비에 원본 의뢰 카드의 제목·설명·별·종류·난이도·금화·적 레벨을 한 묶음으로 표시하는 대응이 남는다. 현재 수락 의뢰 출발 버튼만으로 같음은 아니다."
       }
     },
     {
@@ -1944,7 +2425,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 3/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "native는 전열/후열별 초상 배열을 쓴다. 원본 4개 슬롯의 순서·빈 칸 번호와 persona 슬롯을 눌러 지휘로 바꾸는 선택지는 아직 다르다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -1997,6 +2478,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 3/3, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 3/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "4e00b33883b028437aca971f83d1b8c96a63353adeba51970673d3f088844dc6",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "native는 전열/후열별 초상 배열을 쓴다. 원본 4개 슬롯의 순서·빈 칸 번호와 persona 슬롯을 눌러 지휘로 바꾸는 선택지는 아직 다르다."
       }
     },
     {
@@ -2016,7 +2514,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "참전/지휘 토글의 상태와 3/4명 상한은 기존 시험을 통과한다. persona 이름·원본 설명 문구·버튼 문구의 표시 대조는 아직 일부다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -2069,6 +2567,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "60229c5ae954ed797a37ffc55bf48d296217045db605c8faba1db9df30b4f65c",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "참전/지휘 토글의 상태와 3/4명 상한은 기존 시험을 통과한다. persona 이름·원본 설명 문구·버튼 문구의 표시 대조는 아직 일부다."
       }
     },
     {
@@ -2170,12 +2685,18 @@
       },
       "unverified_branches": [],
       "prior_status": "일부",
-      "status": "일부",
+      "status": "같음",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 3/4 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 4/4, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
+      ],
+      "implementation": [
+        "project/game/expedition_ui_r23.gd:119"
+      ],
+      "remaining_reason": "",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -2239,6 +2760,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 4/4, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 3/4 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 4/4, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "0141c42149320a39fb296780a3dc1743f2ff61e6d8c88738ea190a2c46a18566",
+        "groups": [
+          "sortie_cards"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 119,
+            "function": "sortie"
+          }
+        ]
       }
     },
     {
@@ -2253,12 +2808,18 @@
       },
       "unverified_branches": [],
       "prior_status": "일부",
-      "status": "일부",
+      "status": "같음",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
+      ],
+      "implementation": [
+        "project/game/expedition_ui_r23.gd:119"
+      ],
+      "remaining_reason": "",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -2313,6 +2874,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "6b75b92334ed94859eed3199d6bc3cbaa1d8f184aee0bbf32c3b2a58b5b56913",
+        "groups": [
+          "sortie_cards"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 119,
+            "function": "sortie"
+          }
+        ]
       }
     },
     {
@@ -2366,17 +2961,21 @@
       },
       "unverified_branches": [],
       "prior_status": "일부",
-      "status": "일부",
+      "status": "같음",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
       "fixed": true,
       "tests": [
         "expe_r23_test::sortie_summary",
-        "ui_expedition_r22_test::source-warning-and-paged-selection"
+        "ui_expedition_r22_test::source-warning-and-paged-selection",
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
       ],
       "implementation": [
-        "project/ui/persona_sortie_screen.gd:3"
+        "project/ui/persona_sortie_screen.gd:3",
+        "project/game/expedition_ui_r23.gd:119"
       ],
-      "remaining_reason": "경고를 출정 화면에 연결했다. 원본 summary_card HTML 전체 반환은 native 캔버스와 다르다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -2429,6 +3028,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "경고를 출정 화면에 연결했다. 원본 summary_card HTML 전체 반환은 native 캔버스와 다르다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "6f4131fa5023abc07fb40f4c7c067cf24ad233f43b3455f41e130a3bcd28dca1",
+        "groups": [
+          "sortie_summary"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 119,
+            "function": "sortie"
+          }
+        ]
       }
     },
     {
@@ -2445,10 +3078,10 @@
       "prior_status": "일부",
       "status": "일부",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "fixed": false,
+      "fixed": true,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "후보 카드·필터·요약의 직접 표시 대조를 추가했다. 의뢰/대던전 모드 전환, 원본 의뢰 카드와 4개 슬롯, 전체 화면 버튼 종류·문구의 차이가 남는다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -2501,6 +3134,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "5f772ac3ddc16ed9d260a93e058bcb2792ea1b1f65ac7b4fa35d107d362fc1ed",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "후보 카드·필터·요약의 직접 표시 대조를 추가했다. 의뢰/대던전 모드 전환, 원본 의뢰 카드와 4개 슬롯, 전체 화면 버튼 종류·문구의 차이가 남는다."
       }
     },
     {
@@ -2520,7 +3170,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "B.battle_start가 없을 때 B.fresh(T.bn)로 여는 원본 옛 전투 생성 fallback은 native의 보존된 옛 저장 재개와 별개다. 원본 legacy 출정 상태를 직접 옮기는 ABI는 없다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -2573,6 +3223,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "c451dfb50f27b725091c75f9802b1213163847429a14ee94f43fa17c159c13f3",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "B.battle_start가 없을 때 B.fresh(T.bn)로 여는 원본 옛 전투 생성 fallback은 native의 보존된 옛 저장 재개와 별개다. 원본 legacy 출정 상태를 직접 옮기는 ABI는 없다."
       }
     },
     {
@@ -2592,7 +3259,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 21/32 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 32/32, 새 진입 11; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "후보 토글/필터 입력은 실제 native 화면에서 확인했다. scene gate, rm_persona, 꽉 찬 편성/마지막 동료 대기 메시지, mode/back/go와 legacy 전투 시작 전체를 하나의 handler로 비교하지 못했다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -2725,6 +3392,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 32/32, 새 진입 11; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "원본 출정 HTML/버튼/메시지 전체와 native 캔버스 및 편성 저장 계약은 다르다. 후보 정렬·위험 경고의 부분 일치만으로 이 함수 전체를 승격하지 않는다. 3차: 원본 호출 및 명시 진입 21/32 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 32/32, 새 진입 11; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+        "source_excerpt_sha256": "7c59434c539fa77cac20a234ae1c5df420b292c5606a8e0b89f3acbb444a7e10",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "후보 토글/필터 입력은 실제 native 화면에서 확인했다. scene gate, rm_persona, 꽉 찬 편성/마지막 동료 대기 메시지, mode/back/go와 legacy 전투 시작 전체를 하나의 handler로 비교하지 못했다."
       }
     },
     {
@@ -2986,7 +3670,7 @@
       "implementation": [
         "project/ui/persona_sortie_screen.gd:3"
       ],
-      "remaining_reason": "층 정보 77건과 실제 페이지/경고 화면을 확인했다. dn_card HTML 전체·페이지 초과값의 정규화까지 동일하다고 세지 않는다. 3차: 원본 호출 및 명시 진입 5/5 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 5/5, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "기존 층 정보 77건은 유지했다. 원본 층 목록의 잠김 설명·완료/추천 표식·쪽 수·보스/일반 전투 보상·4인 추천 안내를 native picker에 모두 표시하는 대응은 남는다.",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -3039,6 +3723,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 5/5, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "층 정보 77건과 실제 페이지/경고 화면을 확인했다. dn_card HTML 전체·페이지 초과값의 정규화까지 동일하다고 세지 않는다. 3차: 원본 호출 및 명시 진입 5/5 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 5/5, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "dd8363226766b6701f6df95fa89ac57ee412dc89082aaddc64fa52e9e511b19e",
+        "source_excerpt_sha256": "1eb34289ef67eb7e1fe863db326941a7364af983d0e8f0b600e10c87e8cb6d7c",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "기존 층 정보 77건은 유지했다. 원본 층 목록의 잠김 설명·완료/추천 표식·쪽 수·보스/일반 전투 보상·4인 추천 안내를 native picker에 모두 표시하는 대응은 남는다."
       }
     },
     {
@@ -3114,12 +3815,18 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본 ex_run은 dn_G를 호출하면서 원본 dungeon 구조도 정규화한다. native run 접근과 손상 상태의 부작용까지 같은 계약이 아니다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
+      ],
+      "implementation": [
+        "project/game/expedition_world_r22.gd:34"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -3180,6 +3887,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 ex_run은 dn_G를 호출하면서 원본 dungeon 구조도 정규화한다. native run 접근과 손상 상태의 부작용까지 같은 계약이 아니다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "4f0626ada394142583e34a23c188eee184b56bea2ad0f3f87f0279237ab9bbc6",
+        "groups": [
+          "run"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/expedition_world_r22.gd",
+            "line": 34,
+            "function": "source_run"
+          }
+        ]
       }
     },
     {
@@ -3576,15 +4317,19 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "일부",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
       "fixed": true,
       "tests": [
         "expe_pass2_r23_test::itname (3141 checks)",
-        "expe_pass4_r23_test::names"
+        "expe_pass4_r23_test::names",
+        "project/tests/expe_pass4_r23_test.gd",
+        "project/tests/expe_pass3_r23_test.gd"
       ],
-      "implementation": [],
-      "remaining_reason": "원본 ITEMS 전수를 열거해 귀환 두루마리/레벨업 스크롤의 표시 이름까지 보강했다(효과/상점 규칙 추가 없음). 79-sex 전용 charm_potion(매혹의 비약)은 지시대로 목록만 남기고 이름/장면을 이식하지 않았으므로 이 함수 전체는 일부로 남긴다. 이 1입력은 이름 같음 단언에서 명시적으로 제외하며 나머지 3,141입력은 직접 일치한다. 3차: 원본 호출 및 명시 진입 0/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음. 유효 장비 코드 분기와 아이템·모르는 코드·빈 이름의 직접 대조 9건을 추가했다. 제외한 charm_potion은 그대로 제외하므로 전체 승격하지 않는다.",
+      "implementation": [
+        "project/game/expedition_world_r22.gd:55"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -3654,6 +4399,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 1/1, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음. 유효 장비 코드 분기와 아이템·모르는 코드·빈 이름의 직접 대조 9건을 추가했다. 제외한 charm_potion은 그대로 제외하므로 전체 승격하지 않는다."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "원본 ITEMS 전수를 열거해 귀환 두루마리/레벨업 스크롤의 표시 이름까지 보강했다(효과/상점 규칙 추가 없음). 79-sex 전용 charm_potion(매혹의 비약)은 지시대로 목록만 남기고 이름/장면을 이식하지 않았으므로 이 함수 전체는 일부로 남긴다. 이 1입력은 이름 같음 단언에서 명시적으로 제외하며 나머지 3,141입력은 직접 일치한다. 3차: 원본 호출 및 명시 진입 0/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음. 유효 장비 코드 분기와 아이템·모르는 코드·빈 이름의 직접 대조 9건을 추가했다. 제외한 charm_potion은 그대로 제외하므로 전체 승격하지 않는다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "528622143c4ba2aff112f5a25c1b247b47399317ebdd7fa0837b400c16a4bad1",
+        "groups": [
+          "names_nonsexual_scope"
+        ],
+        "tests": [
+          "project/tests/expe_pass4_r23_test.gd",
+          "project/tests/expe_pass3_r23_test.gd"
+        ],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "scope": "78/77 item names outside the explicitly excluded 79-sex charm_potion branch; no sexual scene or potion added",
+        "native_locations": [
+          {
+            "file": "project/game/expedition_world_r22.gd",
+            "line": 55,
+            "function": "expedition_item_name"
+          }
+        ]
       }
     },
     {
@@ -3765,16 +4544,20 @@
       },
       "unverified_branches": [],
       "prior_status": "일부",
-      "status": "일부",
+      "status": "같음",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "fixed": false,
+      "fixed": true,
       "tests": [
-        "expe_r23_test::initial_vitals"
+        "expe_r23_test::initial_vitals",
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
       ],
       "implementation": [
-        "project/game/expedition_world_r22.gd:57"
+        "project/game/expedition_world_r22.gd:57",
+        "project/game/expedition_world_r22.gd:42"
       ],
-      "remaining_reason": "출발 상태는 대조했으나 이전 층 prev 목록·RisuAI pend_hard·메시지/장면 계약은 남는다. 3차: 원본 호출 및 명시 진입 0/4 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 4/4, 새 진입 4; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -3859,6 +4642,42 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 4/4, 새 진입 4; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "출발 상태는 대조했으나 이전 층 prev 목록·RisuAI pend_hard·메시지/장면 계약은 남는다. 3차: 원본 호출 및 명시 진입 0/4 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 4/4, 새 진입 4; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "e3732314ef50308613e1e66b417d9d8fe45454303f499539a5010cedac67f02e",
+        "groups": [
+          "start",
+          "step"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "scope": "selected-floor normalization, constructor/vitals/RNG/save-resume. D.prev is only for excluded sexual benched conditions; pend_hard chat excluded.",
+        "native_locations": [
+          {
+            "file": "project/game/expedition_world_r22.gd",
+            "line": 42,
+            "function": "start_selected_dungeon"
+          }
+        ]
       }
     },
     {
@@ -3882,7 +4701,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:123"
       ],
-      "remaining_reason": "첫 전투 전 자원 24건을 대조했다(B.run을 잠시 막아 전투 시작 뒤 적 행동과 분리). 전투 저장 매체·st 전부·원본 호스트 장면 전환의 동등성 증거는 아니다. 3차: 원본 호출 및 명시 진입 3/5 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 5/5, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "첫 전투 자원과 탐색 전투 진입 투영은 기존 및 새 시험을 통과한다. 원본 st의 sid/bn/dn/carry 전체와 native 전투 snapshot의 전체 동등성은 아직 미확정이다. 전투 파일 수정 금지다.",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -3954,6 +4773,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 5/5, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "첫 전투 전 자원 24건을 대조했다(B.run을 잠시 막아 전투 시작 뒤 적 행동과 분리). 전투 저장 매체·st 전부·원본 호스트 장면 전환의 동등성 증거는 아니다. 3차: 원본 호출 및 명시 진입 3/5 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 5/5, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "a28c85a8b9ab0ae3a75de93f9b6f91ce1ed7290bd822a8f8136bd859a336a4ea",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "첫 전투 자원과 탐색 전투 진입 투영은 기존 및 새 시험을 통과한다. 원본 st의 sid/bn/dn/carry 전체와 native 전투 snapshot의 전체 동등성은 아직 미확정이다. 전투 파일 수정 금지다."
       }
     },
     {
@@ -3968,17 +4804,23 @@
       },
       "unverified_branches": [],
       "prior_status": "일부",
-      "status": "일부",
+      "status": "같음",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
       "fixed": true,
       "tests": [
         "expedition_r22_test::rest",
-        "expe_pass2_r23_test::rest_text (16 checks)"
+        "expe_pass2_r23_test::rest_text (16 checks)",
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
       ],
       "implementation": [
-        "project/game/expedition_world_r22.gd:103"
+        "project/game/expedition_world_r22.gd:103",
+        "project/game/expedition_world_r22.gd:323",
+        "project/game/persona_world.gd:168",
+        "project/game/town_world_r21.gd:422"
       ],
-      "remaining_reason": "휴식 자원·R.last·로그 원문 16입력을 추가로 일치시켰다. 원본 직접 재호출의 반복 회복과 native rested 중복 방지, 호스트 pend 및 이번 이식 제외 대상의 sx0 필드는 남는다. 3차: 원본 호출 및 명시 진입 6/6 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 6/6, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4034,6 +4876,50 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 6/6, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "휴식 자원·R.last·로그 원문 16입력을 추가로 일치시켰다. 원본 직접 재호출의 반복 회복과 native rested 중복 방지, 호스트 pend 및 이번 이식 제외 대상의 sx0 필드는 남는다. 3차: 원본 호출 및 명시 진입 6/6 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 6/6, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "163854781e911b4bb86294af165efa5f69c199e6365ef8304d6f4bb7a0b0f460",
+        "groups": [
+          "rest"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/expedition_world_r22.gd",
+            "line": 323,
+            "function": "enter_dungeon_rest"
+          },
+          {
+            "file": "project/game/persona_world.gd",
+            "line": 168,
+            "function": "enter_dungeon_rest"
+          },
+          {
+            "file": "project/game/town_world_r21.gd",
+            "line": 422,
+            "function": "enter_dungeon_rest"
+          }
+        ]
       }
     },
     {
@@ -4048,17 +4934,22 @@
       },
       "unverified_branches": [],
       "prior_status": "일부",
-      "status": "일부",
+      "status": "같음",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
       "fixed": true,
       "tests": [
         "expe_r23_test::discovery",
-        "expe_pass2_r23_test::discovery_text (200 checks)"
+        "expe_pass2_r23_test::discovery_text (200 checks)",
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
       ],
       "implementation": [
-        "project/game/expedition_world_r22.gd:84"
+        "project/game/expedition_world_r22.gd:84",
+        "project/game/expedition_world_r22.gd:302",
+        "project/game/town_world_r21.gd:402"
       ],
-      "remaining_reason": "200개의 실제 원본 H.ex(go)를 실행해 phase/step/elites/last/log/금화/아이템/장비/HP/MP 전체 투영이 같아졌다. 전투 초기화를 관찰할 때 B.run만 멈췄다. AI pending 누적·Risu 호스트 저장은 native에 없어 일부로 유지한다. 3차: 원본 호출 및 명시 진입 7/10 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 10/10, 새 진입 3; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4136,6 +5027,45 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 10/10, 새 진입 3; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "200개의 실제 원본 H.ex(go)를 실행해 phase/step/elites/last/log/금화/아이템/장비/HP/MP 전체 투영이 같아졌다. 전투 초기화를 관찰할 때 B.run만 멈췄다. AI pending 누적·Risu 호스트 저장은 native에 없어 일부로 유지한다. 3차: 원본 호출 및 명시 진입 7/10 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 10/10, 새 진입 3; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "1d668ef7c3d2bec0fd65679aa3275e5db4cd100dd28bdda14ab576285d6716a2",
+        "groups": [
+          "step"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/expedition_world_r22.gd",
+            "line": 302,
+            "function": "advance"
+          },
+          {
+            "file": "project/game/town_world_r21.gd",
+            "line": 402,
+            "function": "advance"
+          }
+        ]
       }
     },
     {
@@ -4216,7 +5146,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "do_cont의 sid/bn/over/dn 무효 입력·적 이름 중복 제거·정예 로그/호스트 전환 전체를 native 스냅샷 continuation과 직접 비교하지 못했다. 3차: 원본 호출 및 명시 진입 4/6 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 6/6, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "탐색 승리 뒤 수치 투영은 유지했다. 원본의 적 이름 중복 제거 last/log 및 정예 장비 log, sid/bn/over/dn 불일치의 native continuation 전체 경계는 직접 일치시키지 못했다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4286,6 +5216,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 6/6, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "do_cont의 sid/bn/over/dn 무효 입력·적 이름 중복 제거·정예 로그/호스트 전환 전체를 native 스냅샷 continuation과 직접 비교하지 못했다. 3차: 원본 호출 및 명시 진입 4/6 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 6/6, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "8d192674a8a152a3f9879ef49d1fb9865dbdb80dd3dd11db12cf3ec808109bf2",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "탐색 승리 뒤 수치 투영은 유지했다. 원본의 적 이름 중복 제거 last/log 및 정예 장비 log, sid/bn/over/dn 불일치의 native continuation 전체 경계는 직접 일치시키지 못했다."
       }
     },
     {
@@ -4300,16 +5247,19 @@
       },
       "unverified_branches": [],
       "prior_status": "일부",
-      "status": "일부",
+      "status": "같음",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
       "fixed": true,
       "tests": [
-        "expe_r23_test::boss_guard"
+        "expe_r23_test::boss_guard",
+        "project/tests/expe_r23_test.gd"
       ],
       "implementation": [
-        "project/game/expedition_world_r22.gd:116"
+        "project/game/expedition_world_r22.gd:116",
+        "project/game/expedition_world_r22.gd:338",
+        "project/game/town_world_r21.gd:427"
       ],
-      "remaining_reason": "퇴각 확인 중에도 보스를 시작하고 ask를 지우도록 수정했다. B.ex_battle의 호스트 저장·메시지 전체가 native 버튼 경계와 같지는 않다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -4362,6 +5312,44 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "퇴각 확인 중에도 보스를 시작하고 ask를 지우도록 수정했다. B.ex_battle의 호스트 저장·메시지 전체가 native 버튼 경계와 같지는 않다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "475cbe1e2cabf33702d1944144770456fb76e2d4b9b90f5c6c198790699e7d20",
+        "groups": [
+          "boss_guard_host_excluded"
+        ],
+        "tests": [
+          "project/tests/expe_r23_test.gd"
+        ],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "scope": "source boss guard and ask transition; host save/chat excluded",
+        "native_locations": [
+          {
+            "file": "project/game/expedition_world_r22.gd",
+            "line": 338,
+            "function": "final_battle"
+          },
+          {
+            "file": "project/game/town_world_r21.gd",
+            "line": 427,
+            "function": "final_battle"
+          }
+        ]
       }
     },
     {
@@ -4436,7 +5424,7 @@
         "project/game/expedition_world_r22.gd:468",
         "project/game/expedition_world_r22.gd:476"
       ],
-      "remaining_reason": "가방 포화 시 원본은 버린다. native는 사용자 저장 보존을 위해 overflow에 코드를 남긴다. 장비 가방 규칙은 이번 수정 금지다. 3차: 원본 호출 및 명시 진입 2/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음. 동일 bag_add 콜백의 전체 성공/실패/교차/빈 목록, 호출 순서·id·전체 반환은 직접 일치했다. 잘못된 코드의 입고 실패도 lost에 포함한다. 실제 native 포화 가방의 기존 overflow 보존은 원본 폐기와 달라 일부 판정을 유지한다.",
+      "remaining_reason": "가방 포화 때 원본은 장비를 버리지만 native는 사용자 저장 보존을 위해 overflow에 남긴다. 이 실제 보존 정책 차이는 그대로이며 장비 규칙 수정 금지다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4500,6 +5488,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 3/3, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음. 동일 bag_add 콜백의 전체 성공/실패/교차/빈 목록, 호출 순서·id·전체 반환은 직접 일치했다. 잘못된 코드의 입고 실패도 lost에 포함한다. 실제 native 포화 가방의 기존 overflow 보존은 원본 폐기와 달라 일부 판정을 유지한다."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "가방 포화 시 원본은 버린다. native는 사용자 저장 보존을 위해 overflow에 코드를 남긴다. 장비 가방 규칙은 이번 수정 금지다. 3차: 원본 호출 및 명시 진입 2/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음. 동일 bag_add 콜백의 전체 성공/실패/교차/빈 목록, 호출 순서·id·전체 반환은 직접 일치했다. 잘못된 코드의 입고 실패도 lost에 포함한다. 실제 native 포화 가방의 기존 overflow 보존은 원본 폐기와 달라 일부 판정을 유지한다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "81b01cd65b774d2629f91be31667c6b4e2d79678e408edebb46a51cef8c10d15",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "가방 포화 때 원본은 장비를 버리지만 native는 사용자 저장 보존을 위해 overflow에 남긴다. 이 실제 보존 정책 차이는 그대로이며 장비 규칙 수정 금지다."
       }
     },
     {
@@ -4672,7 +5677,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:235"
       ],
-      "remaining_reason": "클리어/퇴각/패배 기존 9 Lua 정산과 native 45씨앗을 재검사했다. defeat 뒤 원본 run 제거/거점 이동과 native 완료 run 보관, 요약 필드·문구·호스트 계약 차이가 남는다. 3차: 원본 호출 및 명시 진입 19/29 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 29/29, 새 진입 10; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "보상과 요약 표시 대조를 보강했다. 패배 뒤 원본은 run을 없애고 마을로 가며 native는 완료 run과 정산 화면을 보관한다. 이 관찰 가능한 이동/저장 차이가 남는다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4798,6 +5803,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 29/29, 새 진입 10; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "클리어/퇴각/패배 기존 9 Lua 정산과 native 45씨앗을 재검사했다. defeat 뒤 원본 run 제거/거점 이동과 native 완료 run 보관, 요약 필드·문구·호스트 계약 차이가 남는다. 3차: 원본 호출 및 명시 진입 19/29 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 29/29, 새 진입 10; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "3fc1c905c38b1d9c64ddeb945308c75eca8f1157f45b9459f6146f5b74e42127",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "보상과 요약 표시 대조를 보강했다. 패배 뒤 원본은 run을 없애고 마을로 가며 native는 완료 run과 정산 화면을 보관한다. 이 관찰 가능한 이동/저장 차이가 남는다."
       }
     },
     {
@@ -4821,7 +5843,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:158"
       ],
-      "remaining_reason": "native는 스냅샷 build/상태 검증을 사용한다. 원본 sid/bn 불일치 시 거점 복귀·메시지·legacy 분기 전체에 대한 함수 단위 일치는 미확정이다. 3차: 원본 호출 및 명시 진입 1/5 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 5/5, 새 진입 4; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "원본 sid/bn 불일치 시 거점 복귀와 legacy 분기, native snapshot 검증을 통합한 정산 경계 대조가 미완료다. 단순 저장 매체 차이를 남은 이유로 쓰지 않는다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4905,6 +5927,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 5/5, 새 진입 4; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "native는 스냅샷 build/상태 검증을 사용한다. 원본 sid/bn 불일치 시 거점 복귀·메시지·legacy 분기 전체에 대한 함수 단위 일치는 미확정이다. 3차: 원본 호출 및 명시 진입 1/5 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 5/5, 새 진입 4; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "824e6cfd7cf4f0a1a2aba92021c748968814846ee123ce26ba45ecf64f3c5d00",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "원본 sid/bn 불일치 시 거점 복귀와 legacy 분기, native snapshot 검증을 통합한 정산 경계 대조가 미완료다. 단순 저장 매체 차이를 남은 이유로 쓰지 않는다."
       }
     },
     {
@@ -4924,7 +5963,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "실제 옛 native 저장 11개를 보존해 불러오지만, 원본 st.dn.stage 1/2 저장을 직접 읽어 정산하는 전체 legacy ABI는 별개로 남는다. 3차: 원본 호출 및 명시 진입 5/5 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 5/5, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "옛 native 저장 재개는 회귀 통과한다. 원본 st.dn.stage 1/2 저장 자체를 읽어 정산하는 canonical legacy 입력 이관은 없다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -4978,6 +6017,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 5/5, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "실제 옛 native 저장 11개를 보존해 불러오지만, 원본 st.dn.stage 1/2 저장을 직접 읽어 정산하는 전체 legacy ABI는 별개로 남는다. 3차: 원본 호출 및 명시 진입 5/5 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 5/5, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "bbae303a0b40e3e3ec370100dfb2334b414a170601842dc965acf51c50c0cc8e",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "옛 native 저장 재개는 회귀 통과한다. 원본 st.dn.stage 1/2 저장 자체를 읽어 정산하는 canonical legacy 입력 이관은 없다."
       }
     },
     {
@@ -5134,7 +6190,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "휴식 정비의 유효 동작은 기존 검사로 보존했다. 원본 장비 코드 버튼 인코딩·잘못된 슬롯·why 문자열·다른 소유자 장비 전체 분기는 장비 규칙 담당 범위다. 3차: 원본 호출 및 명시 진입 6/6 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 6/6, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "정상 휴식 장비 장착/해제는 유지했다. 원본 gear code 버튼 해독·잘못된 슬롯·다른 소유자 장비·거절 이유 문자열을 포괄하는 장비 규칙 직접 대조가 남는다. 장비 규칙 수정 금지다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5187,6 +6243,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 6/6, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "휴식 정비의 유효 동작은 기존 검사로 보존했다. 원본 장비 코드 버튼 인코딩·잘못된 슬롯·why 문자열·다른 소유자 장비 전체 분기는 장비 규칙 담당 범위다. 3차: 원본 호출 및 명시 진입 6/6 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 6/6, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "495460e95f3c6af3e690ac13f247fa4449a785dce71f017e627e2984229126c2",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "정상 휴식 장비 장착/해제는 유지했다. 원본 gear code 버튼 해독·잘못된 슬롯·다른 소유자 장비·거절 이유 문자열을 포괄하는 장비 규칙 직접 대조가 남는다. 장비 규칙 수정 금지다."
       }
     },
     {
@@ -5210,7 +6283,7 @@
         "expe_pass2_r23_test::equip_key (96 checks)"
       ],
       "implementation": [],
-      "remaining_reason": "퇴각 요청/취소/저장 재개와 아이템·슬롯 경계를 보강했다. cont/next/home의 Risu 메시지·note·장면 및 전체 버튼 문자열 ABI는 남는다. 3차: 원본 호출 및 명시 진입 11/17 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 17/17, 새 진입 6; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "탐색·아이템·퇴각 요청/취소/확정은 직접 비교했다. cont/next/home, 잘못된 전투 상태와 모든 장비 버튼을 합친 전체 handler 경계는 아직 미확정이다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5312,6 +6385,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 17/17, 새 진입 6; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "퇴각 요청/취소/저장 재개와 아이템·슬롯 경계를 보강했다. cont/next/home의 Risu 메시지·note·장면 및 전체 버튼 문자열 ABI는 남는다. 3차: 원본 호출 및 명시 진입 11/17 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 17/17, 새 진입 6; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "fa8ba23fac4bc70250a31f2013ebf3e68ba7ca9207a7c8f805ae26412fa8ecc1",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "탐색·아이템·퇴각 요청/취소/확정은 직접 비교했다. cont/next/home, 잘못된 전투 상태와 모든 장비 버튼을 합친 전체 handler 경계는 아직 미확정이다."
       }
     },
     {
@@ -5326,12 +6416,18 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
+      ],
+      "implementation": [
+        "project/game/expedition_ui_r23.gd:82"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5384,6 +6480,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "870bf5331e9c7b1d2ef4ecff82b4543b5d616f97b0b56972831f799e42737475",
+        "groups": [
+          "bar"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 82,
+            "function": "meter"
+          }
+        ]
       }
     },
     {
@@ -5398,12 +6528,18 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
+      ],
+      "implementation": [
+        "project/game/expedition_ui_r23.gd:33"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5456,6 +6592,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "1db4ba9ac186108d5a4164bea39e4a2db4369255ac12b38e22d5a224e7623534",
+        "groups": [
+          "pips"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 33,
+            "function": "pips"
+          }
+        ]
       }
     },
     {
@@ -5470,12 +6640,18 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
+      ],
+      "implementation": [
+        "project/game/expedition_ui_r23.gd:38"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5528,6 +6704,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "d66c67911f088bc39b0578c7b6ad7e1ec1988c530d5a34fa5424f890c484b843",
+        "groups": [
+          "head"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 38,
+            "function": "head"
+          }
+        ]
       }
     },
     {
@@ -5542,16 +6752,21 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
+      "fixed": true,
       "tests": [
         "expe_pass2_r23_test::discovery_text (200 checks)",
         "expe_pass2_r23_test::rest_text (16 checks)",
-        "expe_pass2_r23_test::use_text (72 checks)"
+        "expe_pass2_r23_test::use_text (72 checks)",
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
       ],
-      "implementation": [],
-      "remaining_reason": "R.last 자체는 발견/휴식/아이템 288입력에서 원본 문구를 일치시켰다. last_card의 빈 문자열/HTML 탈출·태그 전체 반환은 native 캔버스와 다르다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "implementation": [
+        "project/game/expedition_ui_r23.gd:50"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5608,6 +6823,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "R.last 자체는 발견/휴식/아이템 288입력에서 원본 문구를 일치시켰다. last_card의 빈 문자열/HTML 탈출·태그 전체 반환은 native 캔버스와 다르다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "44a211248474bad130bfed148dad3d52cae0701f4f561ab1a05acecab8ee5cce",
+        "groups": [
+          "last"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 50,
+            "function": "last"
+          }
+        ]
       }
     },
     {
@@ -5622,12 +6871,18 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
+      ],
+      "implementation": [
+        "project/game/expedition_ui_r23.gd:55"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5689,6 +6944,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 1/1, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "025884ab33b7802c19699c39142b84a31b263f8eecd08025b8b4c7a67bfebbdc",
+        "groups": [
+          "use_btn"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 55,
+            "function": "use_button"
+          }
+        ]
       }
     },
     {
@@ -5703,12 +6992,18 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 3/5 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 5/5, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
+      ],
+      "implementation": [
+        "project/game/expedition_ui_r23.gd:58"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5777,6 +7072,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 5/5, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 3/5 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 5/5, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "79e28e3effb828ba0bafeccc4daaad362593085d5e383637b249a00d8d99a9db",
+        "groups": [
+          "use_row"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 58,
+            "function": "use_row"
+          }
+        ]
       }
     },
     {
@@ -5791,12 +7120,18 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 2/2 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 2/2, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
+      ],
+      "implementation": [
+        "project/game/expedition_ui_r23.gd:66"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5849,6 +7184,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 2/2, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 2/2 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 2/2, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "cd0acba6159bb1829ff3c77aba885c6c4feb75e4c81631f94c163736faf3f07c",
+        "groups": [
+          "party"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 66,
+            "function": "party"
+          }
+        ]
       }
     },
     {
@@ -5863,14 +7232,21 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
+      "fixed": true,
       "tests": [
-        "expe_pass2_r23_test::retreat_resume (16 checks)"
+        "expe_pass2_r23_test::retreat_resume (16 checks)",
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
       ],
-      "implementation": [],
-      "remaining_reason": "퇴각 확인의 실제 입력/저장 재개/취소/중복 거부는 5크기 UI 210검사에서 통과했다. 원본 HTML 안내/버튼 반환 계약은 남는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "implementation": [
+        "project/game/expedition_ui_r23.gd:84",
+        "project/ui/expedition_screen_r22.gd:98",
+        "project/ui/town_screen_r21.gd:456"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5925,6 +7301,50 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "퇴각 확인의 실제 입력/저장 재개/취소/중복 거부는 5크기 UI 210검사에서 통과했다. 원본 HTML 안내/버튼 반환 계약은 남는다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "8279270900ae05b9e8fd1493e0380ec3397d2bd1397f8f58ab336fc7a9a17525",
+        "groups": [
+          "retreat"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 84,
+            "function": "retreat"
+          },
+          {
+            "file": "project/ui/expedition_screen_r22.gd",
+            "line": 98,
+            "function": "retreat"
+          },
+          {
+            "file": "project/ui/town_screen_r21.gd",
+            "line": 456,
+            "function": "retreat"
+          }
+        ]
       }
     },
     {
@@ -5941,10 +7361,10 @@
       "prior_status": "미확인",
       "status": "미확인",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
+      "fixed": true,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "head/last/party 및 퇴각 조각은 원본 실행과 일치했다. native는 ask 때 별도 확인 화면을 써 원본처럼 기존 head/party와 퇴각 안내를 한 화면에 함께 남기지 않는다. 추가 카드/보급품 이동도 전체 버튼 대조에 남는다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -5997,6 +7417,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "01aa1a6fce878a21d8ed5fba9f5d877fe380dd21d5049b3ec6f631bfa7858e15",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "head/last/party 및 퇴각 조각은 원본 실행과 일치했다. native는 ask 때 별도 확인 화면을 써 원본처럼 기존 head/party와 퇴각 안내를 한 화면에 함께 남기지 않는다. 추가 카드/보급품 이동도 전체 버튼 대조에 남는다."
       }
     },
     {
@@ -6016,7 +7453,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 1/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "휴식 화면은 별도 장비 정비 페이지를 쓴다. 원본의 슬롯별 장비 후보·해제·장착 버튼 종류와 순서를 같은 화면에서 직접 비교하지 못했다. 장비 규칙은 수정 금지다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -6086,6 +7523,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 3/3, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 1/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 2; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "c2e943b51141a95675fd94d6401cb0d231d87ebdffe12ab8ca1a3fda82c45ed2",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "휴식 화면은 별도 장비 정비 페이지를 쓴다. 원본의 슬롯별 장비 후보·해제·장착 버튼 종류와 순서를 같은 화면에서 직접 비교하지 못했다. 장비 규칙은 수정 금지다."
       }
     },
     {
@@ -6108,7 +7562,7 @@
         "expe_pass2_r23_test::gear_label (3142 checks)"
       ],
       "implementation": [],
-      "remaining_reason": "정비 슬롯과 장비 라벨의 직접 대조를 추가했다. gear_card의 R.sel 정규화·HTML 전체와 원본 장비 버튼 후보 반환은 별도 경계다. 3차: 원본 호출 및 명시 진입 1/2 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 2/2, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "native 정비 대상 선택과 원본 R.sel의 잘못된 슬롯 정규화, 슬롯별 장비 후보의 완전한 일치가 남는다. 버튼 문자열 자체가 아니라 선택지/대상/상태 차이를 남긴다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -6173,6 +7627,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 2/2, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "정비 슬롯과 장비 라벨의 직접 대조를 추가했다. gear_card의 R.sel 정규화·HTML 전체와 원본 장비 버튼 후보 반환은 별도 경계다. 3차: 원본 호출 및 명시 진입 1/2 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 2/2, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "aca4b451227ad26e7a3939f5df4829f807c0d6dd63f34ebe52d36b11207167ce",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "native 정비 대상 선택과 원본 R.sel의 잘못된 슬롯 정규화, 슬롯별 장비 후보의 완전한 일치가 남는다. 버튼 문자열 자체가 아니라 선택지/대상/상태 차이를 남긴다."
       }
     },
     {
@@ -6189,10 +7660,10 @@
       "prior_status": "미확인",
       "status": "미확인",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
+      "fixed": true,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "휴식 head/last/party는 직접 비교했다. 원본은 gear_card를 같은 휴식 화면에 두며 native는 장비 정비로 이동한다. ask 때 함께 남는 정보도 다르다. 성적 휴식 카드는 제외다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -6245,6 +7716,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "eb440124bc437980758b077aa11ce07b6e8b7ace9849813d55484f89afc0432b",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "휴식 head/last/party는 직접 비교했다. 원본은 gear_card를 같은 휴식 화면에 두며 native는 장비 정비로 이동한다. ask 때 함께 남는 정보도 다르다. 성적 휴식 카드는 제외다."
       }
     },
     {
@@ -6259,12 +7747,18 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
+      ],
+      "implementation": [
+        "project/game/expedition_ui_r23.gd:89"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -6326,6 +7820,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 1/1, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "807d6f8d1403dc95da612579f618f3271c7d4e14ff24b981780ade94635118cd",
+        "groups": [
+          "done_act"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 89,
+            "function": "done_act"
+          }
+        ]
       }
     },
     {
@@ -6340,14 +7868,19 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
+      "fixed": true,
       "tests": [
-        "expe_pass2_r23_test::retreat (24 checks)"
+        "expe_pass2_r23_test::retreat (24 checks)",
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
       ],
-      "implementation": [],
-      "remaining_reason": "원정 정산과 이름/장비 표시를 보강했다. done_screen의 전체 HTML·정렬/보존/유실 표시 및 native summary 배열/사전 ABI가 다르다. 3차: 원본 호출 및 명시 진입 3/11 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 11/11, 새 진입 8; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "implementation": [
+        "project/game/expedition_ui_r23.gd:97"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -6460,6 +7993,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 11/11, 새 진입 8; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원정 정산과 이름/장비 표시를 보강했다. done_screen의 전체 HTML·정렬/보존/유실 표시 및 native summary 배열/사전 ABI가 다르다. 3차: 원본 호출 및 명시 진입 3/11 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 11/11, 새 진입 8; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "74efd554bf13e2b92eb0a5cd876325bf6f26bfbe6249bd6b2d27c8926e154722",
+        "groups": [
+          "done"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 97,
+            "function": "done"
+          }
+        ]
       }
     },
     {
@@ -6474,12 +8041,18 @@
       },
       "unverified_branches": [],
       "prior_status": "미확인",
-      "status": "미확인",
+      "status": "같음",
       "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "fixed": false,
-      "tests": [],
-      "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "fixed": true,
+      "tests": [
+        "project/tests/expe_pass5_r23_test.gd",
+        "project/tests/ui_expe_pass5_r23_test.gd",
+        "verification/parity-r23/expe-pass5-extra.gd"
+      ],
+      "implementation": [
+        "project/game/expedition_ui_r23.gd:16"
+      ],
+      "remaining_reason": "",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -6532,6 +8105,40 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "68976a145a246837bf2db733f5d644998637517d984edc21784f181af3282f89",
+        "groups": [
+          "done"
+        ],
+        "tests": [
+          "project/tests/expe_pass5_r23_test.gd",
+          "project/tests/ui_expe_pass5_r23_test.gd",
+          "verification/parity-r23/expe-pass5-extra.gd"
+        ],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": true,
+        "results": [
+          "verification/parity-r23/expe-pass5-results.json",
+          "verification/parity-r23/expe-pass5-ui-direct-results.json",
+          "verification/parity-r23/expe-pass5-extra-results.json"
+        ],
+        "native_locations": [
+          {
+            "file": "project/game/expedition_ui_r23.gd",
+            "line": 16,
+            "function": "text"
+          }
+        ]
       }
     },
     {
@@ -6548,10 +8155,10 @@
       "prior_status": "일부",
       "status": "일부",
       "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "fixed": false,
+      "fixed": true,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 2/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "탐색·휴식·정산 구성 조각의 표시 대조를 추가했다. run 없음 안내와 귀환, ask의 전체 구성, 정비 페이지 및 패배 뒤 scene 이동까지 합친 분기 전체는 아직 다르다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -6613,6 +8220,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 3/3, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": true,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "원본 HTML 전체 반환(태그·버튼·탈출·번역·없는 값 처리)과 native 캔버스는 다르다. 실제 화면·입력 회귀 통과를 HTML 함수 전체 일치로 세지 않았다. 3차: 원본 호출 및 명시 진입 2/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "8fdc9ead919e2097e3560417a584fffc023c1157b3e5d023bc92d79dbea0a18d",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": true,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "탐색·휴식·정산 구성 조각의 표시 대조를 추가했다. run 없음 안내와 귀환, ask의 전체 구성, 정비 페이지 및 패배 뒤 scene 이동까지 합친 분기 전체는 아직 다르다."
       }
     },
     {
@@ -6694,7 +8318,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:380"
       ],
-      "remaining_reason": "거점/주머니의 potion/mana 합산·숫자 문자열·반복/JSON·입력 불변을 고쳤다. 음수/소수 등 원본이 산술적으로 받아들이는 값은 기존 native 저장 검증에서 원자적으로 거부한다. 3차: 원본 호출 및 명시 진입 3/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "기존 potion/mana 이관과 사용자 저장 보존 검사는 통과했다. 원본은 음수/소수를 산술 합산하며 native는 기존 유효 저장 규칙에 따라 원자적으로 거부한다. 실제 허용 입력 차이를 남긴다.",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -6748,6 +8372,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 3/3, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "거점/주머니의 potion/mana 합산·숫자 문자열·반복/JSON·입력 불변을 고쳤다. 음수/소수 등 원본이 산술적으로 받아들이는 값은 기존 native 저장 검증에서 원자적으로 거부한다. 3차: 원본 호출 및 명시 진입 3/3 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 3/3, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "20bbdcbab60bd8ebc1f8ee03bcb89986c8ae2c80009851cdb98df00d134502d5",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "기존 potion/mana 이관과 사용자 저장 보존 검사는 통과했다. 원본은 음수/소수를 산술 합산하며 native는 기존 유효 저장 규칙에 따라 원자적으로 거부한다. 실제 허용 입력 차이를 남긴다."
       }
     },
     {
@@ -6771,7 +8412,7 @@
       "implementation": [
         "project/game/expedition_world_r22.gd:348"
       ],
-      "remaining_reason": "별칭 이관은 보강했다. prev_migrate 전체 원본 저장 스키마 및 canonical G를 native 저장으로 직접 읽는 범용 이관은 미구현이며, 기존 native 저장 이관을 보존했다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "기존 native 저장과 별칭의 재개는 유지했다. 원본 canonical G 전체를 native 저장으로 읽는 범용 이관이 없다. 매체 차이 자체가 아니라 미지원 원본 입력 스키마가 남는다.",
       "pass1_status": "일부",
       "pass1_fixed": true,
       "pass2_evidence": {
@@ -6824,6 +8465,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": true,
+          "remaining_reason": "별칭 이관은 보강했다. prev_migrate 전체 원본 저장 스키마 및 canonical G를 native 저장으로 직접 읽는 범용 이관은 미구현이며, 기존 native 저장 이관을 보존했다. 3차: 원본 호출 및 명시 진입 1/1 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 1/1, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+        "source_excerpt_sha256": "8a12e18a52c874343f3f66c4ee575f4cf0322f9c90fea0de95abc10713c378cb",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "기존 native 저장과 별칭의 재개는 유지했다. 원본 canonical G 전체를 native 저장으로 읽는 범용 이관이 없다. 매체 차이 자체가 아니라 미지원 원본 입력 스키마가 남는다."
       }
     },
     {
@@ -6987,7 +8645,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음. cur_i는 원본에서 호출처가 없는 local이며 별도 노출해 호출했다. 이를 전투 전체 같음으로 확대하지 않는다.",
+      "remaining_reason": "원본에서 호출처가 없는 cur_i local의 현재 행동자 인덱스를 native 행동자와 함수 단위로 연결한 직접 대조가 없다. 전투 파일은 수정 금지다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -7040,6 +8698,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음. cur_i는 원본에서 호출처가 없는 local이며 별도 노출해 호출했다. 이를 전투 전체 같음으로 확대하지 않는다."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음. cur_i는 원본에서 호출처가 없는 local이며 별도 노출해 호출했다. 이를 전투 전체 같음으로 확대하지 않는다."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+        "source_excerpt_sha256": "4ee30c0eda66cf5f1e4a202d240c6721c5796604c33b447b17fc4602775ba9ca",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "원본에서 호출처가 없는 cur_i local의 현재 행동자 인덱스를 native 행동자와 함수 단위로 연결한 직접 대조가 없다. 전투 파일은 수정 금지다."
       }
     },
     {
@@ -7059,7 +8734,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 12/12 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 12/12, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "기존 44개 효과 대조는 유지했다. 무재고·무효 대상·현재 행동자·이벤트/타이머·메뉴 저장 재개 및 원문 메시지를 포함한 전투 아이템 전체 대조가 남는다. 전투 파일 수정 금지다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -7112,6 +8787,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 12/12, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 12/12 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 12/12, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+        "source_excerpt_sha256": "2937ba311fbfb45642aa4a1923f7ab75c374a317eb35742d0b9d873ea42d47dc",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "기존 44개 효과 대조는 유지했다. 무재고·무효 대상·현재 행동자·이벤트/타이머·메뉴 저장 재개 및 원문 메시지를 포함한 전투 아이템 전체 대조가 남는다. 전투 파일 수정 금지다."
       }
     },
     {
@@ -7131,7 +8823,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "탐색 이름 helper의 같음을 전투 표시 함수로 전파하지 않았다. 전투 메뉴가 쓰는 실제 아이템 이름과 fallback의 별도 직접 대조가 남는다. 전투 파일은 수정 금지다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -7184,6 +8876,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 0/0 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 0/0, 새 진입 0; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+        "source_excerpt_sha256": "7242e313735167c6253317f152054be06f70723e054af35302997e152196986d",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "탐색 이름 helper의 같음을 전투 표시 함수로 전파하지 않았다. 전투 메뉴가 쓰는 실제 아이템 이름과 fallback의 별도 직접 대조가 남는다. 전투 파일은 수정 금지다."
       }
     },
     {
@@ -7203,7 +8912,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 3/4 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 4/4, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "전투 아이템 버튼의 무재고/사용 불가 이유·대상·활성 조건·누른 뒤 상태의 전체 대조가 남는다. 태그 차이를 이유로 남기지 않으며 전투 파일은 수정 금지다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -7265,6 +8974,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 4/4, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 3/4 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 4/4, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+        "source_excerpt_sha256": "e5e8a40137e5042f4a948f35f226dbc993f777ea27ac6f0378b4a100d829d16c",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "전투 아이템 버튼의 무재고/사용 불가 이유·대상·활성 조건·누른 뒤 상태의 전체 대조가 남는다. 태그 차이를 이유로 남기지 않으며 전투 파일은 수정 금지다."
       }
     },
     {
@@ -7284,7 +9010,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 5/6 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 6/6, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "전투 아이템 목록의 순서·수량·빈 목록 안내·활성 조건·메뉴 저장 재개의 전체 대조가 남는다. 전투 파일은 수정 금지다.",
       "pass1_status": "미확인",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -7346,6 +9072,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 6/6, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "미확인",
+          "fixed": false,
+          "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 5/6 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 6/6, 새 진입 1; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+        "source_excerpt_sha256": "6321795d09909c70dfc0891ed75bbc7fc88607438088ec2720dc3cdc44db9750",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "전투 아이템 목록의 순서·수량·빈 목록 안내·활성 조건·메뉴 저장 재개의 전체 대조가 남는다. 전투 파일은 수정 금지다."
       }
     },
     {
@@ -7365,7 +9108,7 @@
       "fixed": false,
       "tests": [],
       "implementation": [],
-      "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 10/16 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 16/16, 새 진입 6; 원본 실행만으로 native 전체 같음 판정을 올리지 않음.",
+      "remaining_reason": "아이템 handler의 잘못된 scene/메뉴/대상·취소·중복 입력·타이머·저장 재개·원문 메시지의 전체 일치가 남는다. 전투 파일은 수정 금지다.",
       "pass1_status": "일부",
       "pass1_fixed": false,
       "pass2_evidence": {
@@ -7463,6 +9206,23 @@
         "direct_native_contract": false,
         "source_only_is_not_parity": true,
         "detail": "4차: 명시 진입 16/16, 새 진입 6; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+      },
+      "pass5_fixed": false,
+      "pass5_evidence": {
+        "previous": {
+          "status": "일부",
+          "fixed": false,
+          "remaining_reason": "전투 아이템의 기존 44 효과 표본은 재검사했다. 이 행의 무재고/무효 대상·메뉴 저장 재개·ev/T/pend/원문 문자열을 포함한 전체 ABI 직접 대조가 남는다. 전투 파일은 수정 금지다. 3차: 원본 호출 및 명시 진입 10/16 확인. 계측 실행만으로 같음 승격하지 않음. 4차: 명시 진입 16/16, 새 진입 6; 원본 실행만으로 native 전체 같음 판정을 올리지 않음."
+        },
+        "comparison_mode": "functional equivalence per r21-common.md 2026-11-03",
+        "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+        "source_excerpt_sha256": "7615e05c476b018997e79ea7c06991808bb2f6743ba4409145837b850b3cb19b",
+        "groups": [],
+        "tests": [],
+        "implementation_changed": false,
+        "native_locations_index": "verification/parity-r23/expe-pass5-native-locations.json",
+        "direct_native_contract": false,
+        "remaining_reason": "아이템 handler의 잘못된 scene/메뉴/대상·취소·중복 입력·타이머·저장 재개·원문 메시지의 전체 일치가 남는다. 전투 파일은 수정 금지다."
       }
     }
   ],
@@ -7471,813 +9231,945 @@
       "test": "affection_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 0.78,
-      "passed": true
+      "seconds": 0.53,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "art_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.7,
-      "passed": true
+      "seconds": 1.2,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "balance_probe",
       "exit": 0,
       "errors": [],
-      "seconds": 11.86,
-      "passed": true
+      "seconds": 8.3,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "battle_r23_batch_test",
       "exit": 0,
       "errors": [],
-      "seconds": 14.67,
-      "passed": true
+      "seconds": 9.47,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "battle_r23_clock_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.47,
-      "passed": true
+      "seconds": 1.05,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "battle_r23_compose_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.06,
-      "passed": true
+      "seconds": 1.19,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "battle_r23_display_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.8,
-      "passed": true
+      "seconds": 1.17,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "battle_r23_enemy_test",
       "exit": 0,
       "errors": [],
-      "seconds": 10.47,
-      "passed": true
+      "seconds": 7.34,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "battle_r23_round3_test",
       "exit": 0,
       "errors": [],
-      "seconds": 20.56,
-      "passed": true
+      "seconds": 15.55,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "battle_r23_round4_test",
       "exit": 0,
       "errors": [],
-      "seconds": 161.92,
-      "passed": true
+      "seconds": 139.0,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "battle_r23_round5_test",
       "exit": 0,
       "errors": [],
-      "seconds": 48.89,
-      "passed": true
+      "seconds": 45.56,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "battle_r23_state_test",
       "exit": 0,
       "errors": [],
-      "seconds": 7.22,
-      "passed": true
+      "seconds": 4.95,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "battle_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 47.23,
-      "passed": true
+      "seconds": 41.41,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "chronicle_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 4.52,
-      "passed": true
+      "seconds": 4.2,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "cloud_archive_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.55,
-      "passed": true
+      "seconds": 1.73,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "cloud_compat_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.95,
-      "passed": true
+      "seconds": 1.52,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "cloud_journey_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.7,
-      "passed": true
+      "seconds": 2.23,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "cloud_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 16.81,
-      "passed": true
+      "seconds": 15.8,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "combat_a6_mixed_audit",
       "exit": 0,
       "errors": [],
-      "seconds": 12.58,
-      "passed": true
+      "seconds": 13.11,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "combat_a6_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 23.59,
-      "passed": true
+      "seconds": 21.77,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "combat_a7_flow_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.28,
-      "passed": true
+      "seconds": 1.78,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "combat_a7_gear_audit",
       "exit": 0,
       "errors": [],
-      "seconds": 26.08,
-      "passed": true
+      "seconds": 23.23,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "combat_a7_gear_balanced",
       "exit": 0,
       "errors": [],
-      "seconds": 37.77,
-      "passed": true
+      "seconds": 32.11,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "combat_a7_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.11,
-      "passed": true
+      "seconds": 1.72,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "combat_a8_audit",
       "exit": 0,
       "errors": [],
-      "seconds": 846.36,
-      "passed": true
+      "seconds": 733.61,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "combat_a9_native_10_audit",
       "exit": 0,
       "errors": [],
-      "seconds": 45.91,
-      "passed": true
+      "seconds": 38.81,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "combat_a9_native_40_audit",
       "exit": 0,
       "errors": [],
-      "seconds": 65.0,
-      "passed": true
+      "seconds": 54.39,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "combat_a9_r22_test",
       "exit": 0,
       "errors": [],
       "seconds": 2.03,
-      "passed": true
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "combat_p2_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 52.66,
-      "passed": true
+      "seconds": 47.81,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "combat_p2_r22_trace",
       "exit": 0,
       "errors": [],
-      "seconds": 10.5,
-      "passed": true
+      "seconds": 9.39,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "combat_p3_mixed_audit",
       "exit": 0,
       "errors": [],
-      "seconds": 29.5,
-      "passed": true
+      "seconds": 23.23,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "combat_p3_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 96.05,
-      "passed": true
+      "seconds": 85.97,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "data_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.55,
-      "passed": true
+      "seconds": 1.62,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "dialogue_player_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 306.61,
-      "passed": true
+      "seconds": 265.7,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "dialogue_roster_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 18.64,
-      "passed": true
+      "seconds": 16.53,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "dungeon_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 164.61,
-      "passed": true
+      "seconds": 136.94,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "enemy_action_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 146.61,
-      "passed": true
+      "seconds": 127.09,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "enemy_regression_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.39,
-      "passed": true
+      "seconds": 2.44,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "enemy_review_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 28.45,
-      "passed": true
+      "seconds": 25.83,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "expansion_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.59,
-      "passed": true
+      "seconds": 1.91,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "expe_format_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.08,
-      "passed": true
+      "seconds": 1.83,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "expe_level_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.31,
-      "passed": true
+      "seconds": 2.09,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "expe_pass2_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 30.23,
-      "passed": true
+      "seconds": 29.33,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "expe_pass3_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 23.02,
-      "passed": true
+      "seconds": 21.8,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "expe_pass4_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 8.28,
-      "passed": true
+      "seconds": 8.03,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
+    },
+    {
+      "test": "expe_pass5_r23_test",
+      "exit": 0,
+      "errors": [],
+      "seconds": 40.06,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "expe_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 59.89,
-      "passed": true
+      "seconds": 55.58,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "expe_supply_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.86,
-      "passed": true
+      "seconds": 1.44,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "expedition_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 38.64,
-      "passed": true
+      "seconds": 35.42,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "export_licenses",
       "exit": 0,
       "errors": [],
-      "seconds": 0.61,
-      "passed": true
+      "seconds": 0.5,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "facilities_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 23.45,
-      "passed": true
+      "seconds": 21.03,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "gear_boundary_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 6.25,
-      "passed": true
+      "seconds": 5.14,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "gear_hooks_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 9.62,
-      "passed": true
+      "seconds": 9.14,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "gear_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 9.67,
-      "passed": true
+      "seconds": 7.66,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "gear_r23_bonus_resume_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.78,
-      "passed": true
+      "seconds": 1.97,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "gear_r23_facilities_test",
       "exit": 0,
       "errors": [],
-      "seconds": 3.0,
-      "passed": true
+      "seconds": 3.09,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "gear_r23_hooks_test",
       "exit": 0,
       "errors": [],
-      "seconds": 0.78,
-      "passed": true
+      "seconds": 0.75,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "gear_r23_predecessors_test",
       "exit": 0,
       "errors": [],
-      "seconds": 0.73,
-      "passed": true
+      "seconds": 0.76,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "gear_r23_round2_test",
       "exit": 0,
       "errors": [],
-      "seconds": 10.48,
-      "passed": true
+      "seconds": 9.77,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "gear_r23_round3_test",
       "exit": 0,
       "errors": [],
-      "seconds": 4.58,
-      "passed": true
+      "seconds": 3.92,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "gear_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 18.25,
-      "passed": true
+      "seconds": 15.89,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "import",
       "exit": 0,
       "errors": [],
-      "seconds": 5.38,
-      "passed": true
+      "seconds": 4.12,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "motion_asset_test",
       "exit": 0,
       "errors": [],
-      "seconds": 0.67,
-      "passed": true
+      "seconds": 0.62,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "motion_r18_integration",
       "exit": 0,
       "errors": [],
-      "seconds": 74.22,
-      "passed": true
+      "seconds": 69.91,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "motion_r9_integration",
       "exit": 0,
       "errors": [],
-      "seconds": 9.45,
-      "passed": true
+      "seconds": 9.0,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "motion_test",
       "exit": 0,
       "errors": [],
       "seconds": 0.53,
-      "passed": true
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "panel_messages_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 3.8,
-      "passed": true
+      "seconds": 2.95,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "panels_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 3.42,
-      "passed": true
+      "seconds": 2.69,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "persona_combat_a8_test",
       "exit": 0,
       "errors": [],
-      "seconds": 156.28,
-      "passed": true
+      "seconds": 148.77,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "persona_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 8.44,
-      "passed": true
+      "seconds": 7.0,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "persona_research_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 4.48,
-      "passed": true
+      "seconds": 4.89,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "persona_save_a8_test",
       "exit": 0,
       "errors": [],
-      "seconds": 5.02,
-      "passed": true
+      "seconds": 4.92,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "persona_town_r21_round8_test",
       "exit": 0,
       "errors": [],
-      "seconds": 37.17,
-      "passed": true
+      "seconds": 35.58,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "recruit_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.09,
-      "passed": true
+      "seconds": 1.88,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "route_test",
       "exit": 0,
       "errors": [],
-      "seconds": 0.69,
-      "passed": true
+      "seconds": 0.73,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "settings_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 5.83,
-      "passed": true
+      "seconds": 5.89,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "state_test",
       "exit": 0,
       "errors": [],
-      "seconds": 1.69,
-      "passed": true
+      "seconds": 1.56,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "town_combat_r21_round14_test",
       "exit": 0,
       "errors": [],
-      "seconds": 31.75,
-      "passed": true
+      "seconds": 28.94,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "town_commerce_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.88,
-      "passed": true
+      "seconds": 2.38,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "town_r21_round10_test",
       "exit": 0,
       "errors": [],
-      "seconds": 6.66,
-      "passed": true
+      "seconds": 6.88,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "town_r21_round11_test",
       "exit": 0,
       "errors": [],
-      "seconds": 9.98,
-      "passed": true
+      "seconds": 8.62,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "town_r21_round9_test",
       "exit": 0,
       "errors": [],
-      "seconds": 47.25,
-      "passed": true
+      "seconds": 40.36,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "town_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.19,
-      "passed": true
+      "seconds": 2.39,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_battle_r17_test",
       "exit": 0,
       "errors": [],
-      "seconds": 65.11,
-      "passed": true
+      "seconds": 61.66,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_battle_r18_test",
       "exit": 0,
       "errors": [],
-      "seconds": 53.39,
-      "passed": true
+      "seconds": 50.2,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_battle_r19_test",
       "exit": 0,
       "errors": [],
-      "seconds": 13.62,
-      "passed": true
+      "seconds": 11.14,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_battle_r20_test",
       "exit": 0,
       "errors": [],
-      "seconds": 20.09,
-      "passed": true
+      "seconds": 18.36,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_chronicle_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 13.97,
-      "passed": true
+      "seconds": 10.7,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_cloud_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 6.31,
-      "passed": true
+      "seconds": 5.0,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_combat_a8_test",
       "exit": 0,
       "errors": [],
-      "seconds": 67.53,
-      "passed": true
+      "seconds": 61.94,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_data_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 32.91,
-      "passed": true
+      "seconds": 26.39,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_dialogue_journey_roster_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 70.92,
-      "passed": true
+      "seconds": 69.75,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_dialogue_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 34.44,
-      "passed": true
+      "seconds": 32.56,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_dialogue_roster_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 159.09,
-      "passed": true
+      "seconds": 137.66,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_expe_pass2_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 7.05,
-      "passed": true
+      "seconds": 7.27,
+      "passed": true,
+      "evidence_run": "expe-pass5-ui-correction"
+    },
+    {
+      "test": "ui_expe_pass5_r23_test",
+      "exit": 0,
+      "errors": [],
+      "seconds": 8.42,
+      "passed": true,
+      "evidence_run": "expe-pass5-ui-correction"
     },
     {
       "test": "ui_expedition_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 20.45,
-      "passed": true
+      "seconds": 22.95,
+      "passed": true,
+      "evidence_run": "expe-pass5-ui-correction"
     },
     {
       "test": "ui_facilities_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 16.23,
-      "passed": true
+      "seconds": 14.62,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_gear_r23_round3_test",
       "exit": 0,
       "errors": [],
-      "seconds": 4.2,
-      "passed": true
+      "seconds": 4.14,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_gear_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 4.33,
-      "passed": true
+      "seconds": 4.34,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_panels_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 21.47,
-      "passed": true
+      "seconds": 20.83,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_parity_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 7.08,
-      "passed": true
+      "seconds": 8.06,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_persona_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 9.58,
-      "passed": true
+      "seconds": 10.81,
+      "passed": true,
+      "evidence_run": "expe-pass5-ui-correction"
     },
     {
       "test": "ui_persona_town_round8_test",
       "exit": 0,
       "errors": [],
-      "seconds": 14.64,
-      "passed": true
+      "seconds": 13.08,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_remaining_native_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 10.27,
-      "passed": true
+      "seconds": 9.44,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_remaining_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 2.12,
-      "passed": true
+      "seconds": 1.95,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_rules_r23_test",
       "exit": 0,
       "errors": [],
-      "seconds": 6.58,
-      "passed": true
+      "seconds": 5.39,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_settings_r22_test",
       "exit": 0,
       "errors": [],
-      "seconds": 12.7,
-      "passed": true
+      "seconds": 11.34,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_town_r21_round10_test",
       "exit": 0,
       "errors": [],
-      "seconds": 22.74,
-      "passed": true
+      "seconds": 24.28,
+      "passed": true,
+      "evidence_run": "expe-pass5-ui-correction"
     },
     {
       "test": "ui_town_r21_round11_test",
       "exit": 0,
       "errors": [],
-      "seconds": 23.88,
-      "passed": true
+      "seconds": 25.59,
+      "passed": true,
+      "evidence_run": "expe-pass5-ui-correction"
     },
     {
       "test": "ui_town_r21_round2_test",
       "exit": 0,
       "errors": [],
-      "seconds": 12.23,
-      "passed": true
+      "seconds": 11.89,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_town_r21_round3_test",
       "exit": 0,
       "errors": [],
-      "seconds": 19.39,
-      "passed": true
+      "seconds": 25.59,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_town_r21_round4_test",
       "exit": 0,
       "errors": [],
-      "seconds": 23.78,
-      "passed": true
+      "seconds": 24.17,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_town_r21_round5_test",
       "exit": 0,
       "errors": [],
-      "seconds": 7.72,
-      "passed": true
+      "seconds": 7.42,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_town_r21_round9_test",
       "exit": 0,
       "errors": [],
-      "seconds": 15.31,
-      "passed": true
+      "seconds": 13.91,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_town_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 8.59,
-      "passed": true
+      "seconds": 8.78,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "ui_town_result_r21_test",
       "exit": 0,
       "errors": [],
-      "seconds": 10.28,
-      "passed": true
+      "seconds": 10.62,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     },
     {
       "test": "world_test",
       "exit": 0,
       "errors": [],
-      "seconds": 0.47,
-      "passed": true
+      "seconds": 0.7,
+      "passed": true,
+      "evidence_run": "expe-pass5-suite-final"
     }
   ],
   "trace_reports": [
@@ -8475,6 +10367,47 @@
         "cloud_save_specimens": 3
       },
       "row_review": "verification/parity-r23/expe-pass4-row-audit.json"
+    },
+    {
+      "pass": 5,
+      "summary": {
+        "reviewed_rows": 65,
+        "promoted_same": 26,
+        "excluded_host_rows": 1,
+        "implementation_rows": 29,
+        "remaining_rows": 38,
+        "cumulative_same": 70,
+        "cumulative_excluded": 1,
+        "native_assertions": 2814,
+        "native_failures": 0,
+        "ui_assertions": 1236,
+        "ui_failures": 0,
+        "direct_rendered_source_cases": 24,
+        "direct_rendered_source_failures": 0,
+        "regression_groups": 118,
+        "failed_groups": [],
+        "changed_existing_files": [
+          "project/game/expedition_world_r22.gd",
+          "project/game/persona_rules.gd",
+          "project/game/persona_world.gd",
+          "project/game/town_rules_r21.gd",
+          "project/game/town_world_r21.gd",
+          "project/tests/expedition_r22_test.gd",
+          "project/ui/expedition_screen_r22.gd",
+          "project/ui/persona_sortie_screen.gd",
+          "project/ui/town_screen_r21.gd"
+        ],
+        "outside_allowed_changed": [],
+        "assets_checked": 96,
+        "asset_changes": [],
+        "trace_battles": 6320,
+        "trace_equal_battles": 6320,
+        "trace_records": 219785,
+        "cloud_save_specimens": 4,
+        "source_files_unchanged": 46,
+        "new_comparison_max_bytes": 4753796
+      },
+      "row_review": "verification/parity-r23/expe-pass5-row-audit.json"
     }
   ],
   "current_implementation_lines": {

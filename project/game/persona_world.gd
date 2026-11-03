@@ -174,9 +174,13 @@ func enter_dungeon_rest():
 		m.mp=mini(b.mp,m.mp+int(floor(b.mp*dungeon_rules.config.explore.REST_MP+.5)))
 
 func award_persona_exp(st: Dictionary) -> Dictionary:
-	var g={"persona":s.persona,"roster":s.owned,"party":s.party,"lvl":{},"exp":{},"town":s.xp_r22}
+	# Source town defaults are transient. xp_r22 persists only its established
+	# award marker; no source-only day/acts/bn fields enter cloud saves.
+	var town=s.xp_r22.duplicate(true);town.bn=int(s.run.get("id",0))
+	var g={"persona":s.persona,"roster":s.owned,"party":s.party,"lvl":{},"exp":{},"town":town}
 	for id in s.owned:g.lvl[id]=s.members[id].level;g.exp[id]=s.members[id].xp
 	var gains=persona_rules.award(g,st)
+	if town.has("xp_bn"):s.xp_r22.xp_bn=town.xp_bn
 	for id in s.owned:s.members[id].level=g.lvl[id];s.members[id].xp=g.exp[id]
 	s.members.persona.level=s.persona.lv;s.members.persona.xp=s.persona.exp
 	return gains

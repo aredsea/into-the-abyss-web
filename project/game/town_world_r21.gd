@@ -8,6 +8,21 @@ const Dialogue=preload("res://game/dialogue_player_r21.gd")
 var dialogue=Dialogue.new()
 var research_message=""
 
+func town_source_name(id: Variant) -> String:
+	for c in config.companions:
+		if c.id==id:return c.name
+	return "nil" if id==null else str(id)
+
+func town_source_party(g: Dictionary={}) -> Array:
+	if g.is_empty():g={"persona":s.get("persona",{}),"party":s.party}
+	var out=[];var p=g.get("persona",{})
+	if p is Dictionary and TOWN_RULES.SourceValue.equal_number(p.get("fight"),1):out.append(p.get("name","") if p.get("name","")!="" else "당신")
+	for id in g.get("party",[]):out.append(town_source_name(id))
+	return out
+
+func town_source_tags(names: Array,lang: String="ko") -> Array:
+	return names.map(func(name):return preload("res://game/localization_r22.gd").t(name,lang))
+
 func _init():
 	super()
 	gear=Commerce.new()

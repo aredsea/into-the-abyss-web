@@ -220,11 +220,17 @@ func home() -> void:
 	display(host.model.person(lead).name,Rect2(22,473,255,36),T.PAPER,37)
 	label(host.model.person(lead)["class"],Rect2(22,509,255,22),12,T.PAPER,T.BOLD)
 	label("출전 파티",Rect2(14,532,150,16),9,T.INK,T.BOLD)
-	for i in range(host.model.s.party.size()):
-		var id=host.model.s.party[i]; var x=14+i*92
+	var source_party=host.model.town_source_party() if host.model.has_method("town_source_party") else host.model.s.party.map(func(id):return host.model.person(id).name)
+	var source_ids=host.model.s.party.duplicate()
+	if host.model.s.get("persona",{}).get("fight",0)==1:source_ids.push_front("persona")
+	for i in range(mini(4,source_ids.size())):
+		var id=source_ids[i]; var x=14+i*92
 		fill("party_frame"+str(i),Rect2(x+2,548,84,62),T.INK)
-		picture(id,Rect2(x+2,550,83,58),"town-party-face")
-		var l=label(host.model.person(id).name,Rect2(x,610,87,16),9); l.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+		if id=="persona":
+			fill("town_persona_face",Rect2(x+2,550,83,58),T.PALE)
+			label(source_party[i].left(1),Rect2(x+2,550,83,58),22,T.INK,T.BOLD)
+		else:picture(id,Rect2(x+2,550,83,58),"town-party-face")
+		var l=label(source_party[i],Rect2(x,610,87,16),9); l.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 		hit("town_member:"+id,Rect2(x,548,87,78),func():host.who=id;host.go("member"))
 	var b=action("depart","원정 준비",Rect2(14,631,362,67),host.go.bind("depart"),true)
 	plate("town-depart",Rect2(135,631,241,67))
