@@ -1,0 +1,38 @@
+{
+  "rule": "r21-common.md: RisuAI chat, AI calls and lorebook host-only behavior excluded",
+  "ids": [
+    "P1688",
+    "P1692"
+  ],
+  "checks_reused": 16038,
+  "save_inputs": 594,
+  "successful_saves": 256,
+  "source_contract": "saved skill, draft/spent deletion, gold, ready/dirty/busy decisions and Korean/English message",
+  "excluded_host_calls": [
+    {
+      "file": "bot/src/01-game.lua",
+      "symbol": "B.pend_busy",
+      "line": 204,
+      "reason": "RisuAI getChatLength gates an outstanding AI conversation"
+    },
+    {
+      "file": "bot/src/01-game.lua",
+      "symbol": "B.pend_hard",
+      "line": 222,
+      "reason": "Only sets AI prompt bookkeeping and invokes RisuAI addChat"
+    },
+    {
+      "file": "bot/src/29-persona-skill.lua",
+      "symbol": "save",
+      "line": 215,
+      "reason": "AI reaction prompt and user chat injection excluded; game state and messages directly compared"
+    }
+  ],
+  "oracle": "verification/parity-r23/battle-round8-persona-oracle.json",
+  "actual": "verification/parity-r23/battle-round8-persona-latest.json",
+  "source_sha256": {
+    "01-game.lua": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+    "29-persona-skill.lua": "de2ac53a882b26c8e298fa6e4519f2b1f4f4f8b979f670fc6eb1e9823d186072"
+  },
+  "limits": "No native AI dialogue equivalence claimed. No new runtime checks added to the total."
+}

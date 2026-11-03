@@ -115,3 +115,19 @@ static func attacked(b,t,e) -> void:
 	if b._roll(.05):
 		b._trait_event(t,"계약은 지킨다: 반격",0)
 		b._damage(t,e,.7*1.1,0,true,-1,{"hit":.3,"duration":.9,"allow_extra":true})
+
+static func extra_hit(b,a: Dictionary,target: Dictionary,opt: Dictionary,res: Dictionary,at: float,attack_callback: Callable=Callable()) -> void:
+	if a.hp<=0 or opt.get('extra',false) or not a in b.data.allies or a.class_id!='assassin':return
+	if target.hp<=0 or res.get('kill',0)==1:return
+	var chance=.2
+	for entry in a.get('gear_special',[]):
+		if entry.key=='as_shadow':chance=entry.v[0]/100.0;break
+	if not b._roll(chance):return
+	b.combat_events.trait_payload(b.combat_events.slot(b,a),'추가 공격')
+	var atk=StateAttack.get(a.class_id,StateAttack.warrior)
+	var options={"m":atk.m,"brk":0,"extra":true,"name":"추가 공격","sk":"추가 공격","vb":atk.vb,"hit":.25,"dur":.8}
+	if opt.has('el'):options.el=opt.el
+	if attack_callback.is_valid():attack_callback.call(a,target,options)
+	else:b.SourceAttack.attack(b,a,target,options)
+
+const StateAttack=preload('res://game/battle_source_data_r23.gd').ATTACK

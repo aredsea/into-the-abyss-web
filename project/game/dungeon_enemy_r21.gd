@@ -507,6 +507,7 @@ func attack_action(e: Dictionary,a: Dictionary) -> void:
 	var bonus=attack_bonus(e);var tag=bonus.tags
 	for t in list:
 		if t.is_empty() or t.hp<=0:continue
+		var taunted=t.effects.has('taunt') and e.target_id!=t.id
 		var at=T+(.62 if a.get('shoot',false) or a.kind=='shoot' else .52)+(rank*.07 if all else 0);rank+=1
 		var sk=a.duplicate(true);sk.all=all;sk._hit_at=at
 		b._enemy_hit(e,t,sk)
@@ -521,7 +522,7 @@ func attack_action(e: Dictionary,a: Dictionary) -> void:
 			res.tags=[]
 			if not all:
 				if t.id!=list[0].id:res.tags.append('총대 메기 -30%')
-				elif t.effects.has('taunt') and e.target_id!=t.id:res.tags.append('도발에 이끌림')
+				elif taunted:res.tags.append('도발에 이끌림')
 			if tag is String:res.tags.append(tag)
 			parts.append(Text.unit_name(t)+' <em>'+str(int(res.d))+'</em>'+('(부상 이탈)' if res.kill==1 else ''))
 			if not all:b.combat_events.say(foe_line(e,a,res),at+.1)
@@ -539,6 +540,34 @@ func turn_end(e: Dictionary,a: Dictionary) -> void:
 		b.x(e).hidden=true;var name=Text.unit_name(e)
 		b.combat_events.say('<b>'+name+'</b>'+Text.Josa.tail(name,'은는')+' 몸을 숨겼다. 다음 차례까지 사격과 주문 피해 <em>−'+str(Text.percent(e.rules.get('ranged_dr',.5)))+'%</em>',b.combat_events.T)
 
+func perform_action_turn(e: Dictionary,action_number: int,composed: bool=true) -> void:
+	begin_random(action_number)
+	var a=e.acts[e.act_index];var T=b.combat_events.T
+	if composed:turn_start(e)
+	if a.kind=='guard':
+		effect(e,'guard',2,.4)
+		b._event(e.name+' · '+a.name)
+		source_event(e,'edef',a.name,[],'<b>'+Text.unit_name(e)+'</b>'+Text.Josa.tail(Text.unit_name(e),'이가')+' 방어 자세를 취했다. 다음 차례까지 받는 피해 -40%',.5,1.2)
+	elif a.kind=='buff' and a.has('am'):
+		e.effects.enemy_attack_self={"amount":a.am-1,"turns":4}
+		source_event(e,'ebuff',a.name,[],'<b>'+Text.unit_name(e)+'</b>'+Text.Josa.tail(Text.unit_name(e),'이가')+' '+a.vb+'. 공격력 상승 (3턴)',.5,1.2)
+		b.combat_events.record.ev.list[-1].erase('tg')
+	elif a.kind=='atk':attack_action(e,a)
+	elif composed:
+		match a.kind:
+			'charge':dispatch(e,a);b._event(e.name+' · '+a.name)
+			'protect','heal','buff','debuff','special':support_action(e,a)
+			'summon','dot':dispatch(e,a)
+			_:
+				attack_action(e,a)
+				if a.kind in ['big_one','big_all']:e.charged=false
+	if composed:turn_end(e,a)
+	e.act_index=(int(e.act_index)+1)%e.acts.size()
+	e.target_id=pick_target(e).id
+func source_enemy_turn(e: Dictionary,composed: bool=true) -> void:
+	b.turn_count+=1
+	perform_action_turn(e,b.turn_count,composed)
+
 func turn() -> bool:
 	var e=b.enemy(b.current_id)
 	if e.is_empty() or b.living(true).is_empty(): return false
@@ -547,26 +576,13 @@ func turn() -> bool:
 	b.events=[]
 	b.combat_hits=[]
 	begin_random(b.turn_count+1)
-	var turns=int(b.x(e).get("foe_turns",0))
+	var lost=e.broken
 	if e.broken:
 		e.broken=false; e.gauge=float(e.max); b._event(e.name+" · 차례 상실 · 심연 회복")
 		b.combat_events.push("recover",b.combat_events.slot(b,e),b.combat_events.T); b.combat_events.T+=1.2
 		if e.charged:
 			cancel_charge(e)
 	else:
-		turn_start(e);turns=int(b.x(e).foe_turns)
-		var a=e.acts[e.act_index]; var targets=b.living(false) if a.get("target")=="allies" else [e]
-		var event_targets=[]
-		match a.kind:
-			"charge":dispatch(e,a);b._event(e.name+' · '+a.name)
-			"guard": effect(e,"guard",2,.4); b._event(e.name+" · "+a.name)
-			"protect","heal","buff","debuff","special":support_action(e,a)
-			"summon","dot":dispatch(e,a)
-			_:
-				attack_action(e,a)
-				if a.kind in ["big_one","big_all"]:e.charged=false
-		if a.kind=="guard":b.combat_events.enemy(b,e,a,event_targets)
-		e.act_index=(int(e.act_index)+1)%e.acts.size()
-		turn_end(e,a)
-	e.target_id=pick_target(e).id
+		perform_action_turn(e,b.turn_count+1)
+	if lost:e.target_id=pick_target(e).id
 	b._finish_turn(); return true

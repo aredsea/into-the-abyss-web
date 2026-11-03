@@ -1,0 +1,25 @@
+{
+  "method": "Opened four screenshots during the resumed round9 verification. Their hashes match the 20-capture output of suite-round9-final-v4 ui_battle_r23_round9_test. Not a full-frame, hardware or Web/WASM review.",
+  "opened": [
+    {
+      "file": "verification/parity-r23/battle-round9-ui-ko-360x780-blocked.png",
+      "sha256": "145c9a0445ec0d0104833aaf147708cb1ee00c0ca9e12f400025b26d77f43498",
+      "observation": "Korean source item name, disabled-target reason, quantities and MP values visible. Scroll viewport shows a partial following row. Source menu heading and selection hint now come from the compared item semantic API."
+    },
+    {
+      "file": "verification/parity-r23/battle-round9-ui-en-390x844-target.png",
+      "sha256": "143127fc3e3795ec4ab084dd30287491cad104d2ae75aa4639199ee3f03447be",
+      "observation": "English item name and source description plus owned count visible; selected row uses existing red treatment. The existing turn heading and some empty-selection labels remain Korean; enemy names retain existing ellipsis. Source menu heading and selection hint now come from the compared item semantic API."
+    },
+    {
+      "file": "verification/parity-r23/battle-round9-ui-ko-390x664-target.png",
+      "sha256": "3df321c30047c404fd7b759d9052927be61abd27c6aed1eccc80e2d1e4617780",
+      "observation": "At shorter height, party HP/MP and cancel/target controls remain visible. Item list is scrollable with a partial second row. Source menu heading and selection hint now come from the compared item semantic API."
+    },
+    {
+      "file": "verification/parity-r23/battle-round9-ui-en-1280x800-blocked.png",
+      "sha256": "072067698bf43a0047c85753de175de7f9bca28eb94e83d8c04aaec783d9a017",
+      "observation": "Centered existing portrait layout retained. Disabled-item reason and quantity visible; the existing turn heading and empty-selection button remain Korean. Source menu heading and selection hint now come from the compared item semantic API."
+    }
+  ]
+}

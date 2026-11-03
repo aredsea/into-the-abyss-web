@@ -1,6 +1,23 @@
 extends RefCounted
 ## 30-engine / 32-personal-a/b canonical personal-skill eligibility.
 const DOUBLE_KEYS=["attack_up","defense_up","contract","duty"]
+const Definitions=preload('res://game/battle_source_data_r23.gd')
+static func sorel_damage_aid(b,owner: Dictionary,target: Dictionary,at: Variant=null) -> void:
+	if b.x(owner).get('rescue',0)>=2 or target.hp<=0 or target.hp>target.mhp*.25:return
+	var clock=b.combat_events;clock.ensure_record(b);var T=clock.T if at==null or (at is bool and not at) else float(at)
+	var h=heal_record(b,target,owner.base[owner.line]*2,T+.3)
+	b.x(owner).rescue=b.x(owner).get('rescue',0)+1
+	var count=str(int(b.x(owner).rescue));var name=target.name
+	clock.trait_payload(clock.slot(b,owner),'골든타임: '+name+' +'+str(h)+' ('+count+'/2)',T)
+	clock.push('trait',clock.slot(b,owner),T)
+	clock.say('<b>'+owner.name+'</b>의 <b>골든타임</b>. HP가 바닥난 '+name+b.CombatDisplay.Josa.tail(name,'을를')+' 즉시 치료해 <em>'+str(h)+'</em> 회복 ('+count+'/2)',T+.4)
+	clock.T=maxf(clock.T,T+.7);clock.record.ev.T=clock.T
+static func damaged_dispatch(b,target: Dictionary,_damage: float,_source: Variant=null,at: Variant=null) -> void:
+	for owner in b.data.allies:
+		var character=owner.get('character_id',owner.id)
+		if owner.hp<=0 or (not Definitions.CAST.has(character) and character!='persona'):continue
+		if character=='sorel':sorel_damage_aid(b,owner,target,at)
+		b.damaged_caster_cleanup(target)
 static func has_magic(e: Dictionary) -> bool:
 	if e.get("magic",false):return true
 	for act in e.get("acts",[]):
@@ -293,6 +310,12 @@ static func urda(b,a,t,sk: Dictionary) -> void:
 
 static func run(b,a,e,t,sk) -> void:
 	match a.id:
+		'bargut':
+			var fastest=true
+			for w in b.living(true)+b.living(false):
+				if (w.base.spd if w.has('base') else w.speed)>a.base.spd:fastest=false
+			b.SourceAttack.attack(b,a,e,{"m":1.2,"brk":15,"name":b.CombatDisplay.short_name(sk.name),"sk":b.CombatDisplay.short_name(sk.name),"vb":"먼저 찔렀다","hit":.45,"dur":1.4})
+			if not fastest:b.combat_events.say('<b>'+a.name+'</b>보다 빠른 자가 있어 기습 보너스는 받지 못했다',b.combat_events.T)
 		"marceline": b.x(a).cover=t.id; b.x(a).cover_turns=4
 		"naran": b._effect(e,"mark",99,1); abyss(b,a,e,3)
 		"teiris":
@@ -370,7 +393,9 @@ static func hit_after(b,h: Dictionary) -> void:
 		match owner.id:
 			"hildegard": b._hg_scan()
 			"bargut":
-				if a.id==owner.id and h.critical: b.x(a).personal_pull=maxf(b.x(a).get("personal_pull",0),.3)
+				if a.id==owner.id and h.critical:
+					b.x(a).personal_pull=maxf(b.x(a).get("personal_pull",0),.3)
+					b.combat_events.trait_payload(b.combat_events.slot(b,owner),'스노우볼 효과: 다음 차례 30% 당김',h.get('hit_at',b.combat_events.T)+.2)
 			"bianca":
 				if a.id==owner.id and not h.killed and e.hp>0 and e.hp<=e.mhp*.25 and e.grade not in ["boss","chief","core"]:
 					var before=e.hp; b._flat_enemy(e,before*2+1); b._record_hit(a.id,e.id,before,0); a.remaining-=5000

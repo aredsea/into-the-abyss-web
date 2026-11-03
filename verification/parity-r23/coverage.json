@@ -4,162 +4,202 @@
     {
       "case": "main",
       "exit": 0,
-      "seconds": 1.2
+      "seconds": 1.58
     },
     {
       "case": "enemy",
       "exit": 0,
-      "seconds": 0.34
+      "seconds": 0.41
     },
     {
       "case": "state",
       "exit": 0,
-      "seconds": 0.22
+      "seconds": 0.23
     },
     {
       "case": "display",
       "exit": 0,
-      "seconds": 0.27
+      "seconds": 0.31
     },
     {
       "case": "compose",
       "exit": 0,
-      "seconds": 0.36
+      "seconds": 0.42
     },
     {
       "case": "clock",
       "exit": 0,
-      "seconds": 0.25
+      "seconds": 0.3
     },
     {
       "case": "batch",
       "exit": 0,
-      "seconds": 0.77
+      "seconds": 0.92
     },
     {
       "case": "round3",
       "exit": 0,
-      "seconds": 0.69
+      "seconds": 0.76
     },
     {
       "case": "round4",
       "exit": 0,
-      "seconds": 1.72
+      "seconds": 2.28
     },
     {
       "case": "round5",
       "exit": 0,
-      "seconds": 8.22
+      "seconds": 9.81
     },
     {
       "case": "battle-round6",
       "exit": 0,
-      "seconds": 7.94
+      "seconds": 9.16
     },
     {
       "case": "battle-round6-tiles",
       "exit": 0,
-      "seconds": 5.19
+      "seconds": 6.72
     },
     {
       "case": "battle-round6-enemy",
       "exit": 0,
-      "seconds": 9.84
+      "seconds": 11.61
     },
     {
       "case": "battle-round7",
       "exit": 0,
-      "seconds": 11.73
+      "seconds": 13.48
     },
     {
       "case": "battle-round7-persona",
       "exit": 0,
-      "seconds": 1.25
+      "seconds": 1.45
     },
     {
       "case": "battle-round7-boundary",
       "exit": 0,
-      "seconds": 0.3
+      "seconds": 0.48
     },
     {
       "case": "battle-round8",
       "exit": 0,
-      "seconds": 41.53
+      "seconds": 47.58
     },
     {
       "case": "battle-round8-outcome",
       "exit": 0,
-      "seconds": 16.28
+      "seconds": 18.23
     },
     {
       "case": "battle-round8-persona",
       "exit": 0,
-      "seconds": 8.17
+      "seconds": 10.22
+    },
+    {
+      "case": "battle-round9-core",
+      "exit": 0,
+      "seconds": 8.3
+    },
+    {
+      "case": "battle-round9-items",
+      "exit": 0,
+      "seconds": 39.03
+    },
+    {
+      "case": "battle-round9-state",
+      "exit": 0,
+      "seconds": 1.89
+    },
+    {
+      "case": "battle-round9-control",
+      "exit": 0,
+      "seconds": 14.45
+    },
+    {
+      "case": "battle-round9-handlers",
+      "exit": 0,
+      "seconds": 10.0
+    },
+    {
+      "case": "battle-round9-start",
+      "exit": 0,
+      "seconds": 0.86
+    },
+    {
+      "case": "battle-round9-enemyturn",
+      "exit": 0,
+      "seconds": 5.23
+    },
+    {
+      "case": "battle-round9-damaged",
+      "exit": 0,
+      "seconds": 6.39
     },
     {
       "case": "retained-p2",
       "exit": 0,
-      "seconds": 0.75,
+      "seconds": 0.86,
       "expected": "p2-oracle.json"
     },
     {
       "case": "retained-a6",
       "exit": 0,
-      "seconds": 0.84,
+      "seconds": 0.97,
       "expected": "a6-mixed-oracle.json"
     },
     {
       "case": "retained-p3",
       "exit": 0,
-      "seconds": 1.58,
+      "seconds": 1.7,
       "expected": "p3-mixed-oracle.json"
     },
     {
       "case": "retained-a7",
       "exit": 0,
-      "seconds": 1.16,
+      "seconds": 1.39,
       "expected": "a7-gear-oracle.json"
     },
     {
       "case": "retained-a7b",
       "exit": 0,
-      "seconds": 2.22,
+      "seconds": 2.64,
       "expected": "a7-gear-balanced-oracle.json"
     },
     {
       "case": "retained-a8",
       "exit": 0,
-      "seconds": 55.36,
+      "seconds": 65.11,
       "expected": "a8-oracle.json"
     },
     {
       "case": "retained-a9-10",
       "exit": 0,
-      "seconds": 2.59,
+      "seconds": 2.39,
       "expected": "a9-native-10-oracle.json"
     },
     {
       "case": "retained-a9-40",
       "exit": 0,
-      "seconds": 4.03,
+      "seconds": 4.36,
       "expected": "a9-native-40-oracle.json"
     },
     {
       "case": "retained-unit-a6",
       "exit": 0,
-      "seconds": 0.25,
+      "seconds": 0.3,
       "expected": "a6-oracle.json"
     },
     {
       "case": "retained-unit-p3",
       "exit": 0,
-      "seconds": 0.84,
+      "seconds": 0.8,
       "expected": "p3-oracle.json"
     }
   ],
-  "called_functions": 200,
+  "called_functions": 209,
   "baseline_missing_entries": 157,
-  "newly_entered_baseline_entries": 142,
+  "newly_entered_baseline_entries": 157,
   "rows": [
     {
       "id": "P1473",
@@ -342,7 +382,7 @@
       "id": "P1539",
       "called": true,
       "explicit_entries": 9,
-      "entered": 7,
+      "entered": 9,
       "baseline_missing": 3,
       "baseline_missing_now_entered": [
         {
@@ -350,9 +390,7 @@
           "line": 197,
           "offset": 6935,
           "token": "then"
-        }
-      ],
-      "remaining_entries": [
+        },
         {
           "key": "20-state.lua:231:8626",
           "line": 231,
@@ -366,20 +404,8 @@
           "token": "then"
         }
       ],
-      "remaining_baseline": [
-        {
-          "key": "20-state.lua:231:8626",
-          "line": 231,
-          "offset": 8626,
-          "token": "then"
-        },
-        {
-          "key": "20-state.lua:240:8971",
-          "line": 240,
-          "offset": 8971,
-          "token": "then"
-        }
-      ]
+      "remaining_entries": [],
+      "remaining_baseline": []
     },
     {
       "id": "P1542",
@@ -420,7 +446,7 @@
     },
     {
       "id": "P1587",
-      "called": false,
+      "called": true,
       "explicit_entries": 0,
       "entered": 0,
       "baseline_missing": 0,
@@ -430,7 +456,7 @@
     },
     {
       "id": "P1589",
-      "called": false,
+      "called": true,
       "explicit_entries": 0,
       "entered": 0,
       "baseline_missing": 0,
@@ -450,36 +476,17 @@
     },
     {
       "id": "P1594",
-      "called": false,
+      "called": true,
       "explicit_entries": 3,
-      "entered": 0,
+      "entered": 3,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "20-state.lua:350:13319",
-          "line": 350,
-          "offset": 13319,
-          "token": "then"
-        },
-        {
-          "key": "20-state.lua:351:13479",
-          "line": 351,
-          "offset": 13479,
-          "token": "then"
-        },
-        {
-          "key": "20-state.lua:353:13505",
-          "line": 353,
-          "offset": 13505,
-          "token": "else"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
       "id": "P1595",
-      "called": false,
+      "called": true,
       "explicit_entries": 0,
       "entered": 0,
       "baseline_missing": 0,
@@ -578,43 +585,12 @@
     },
     {
       "id": "P1616",
-      "called": false,
+      "called": true,
       "explicit_entries": 5,
-      "entered": 0,
+      "entered": 5,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "26-start.lua:6:253",
-          "line": 6,
-          "offset": 253,
-          "token": "then"
-        },
-        {
-          "key": "26-start.lua:15:1012",
-          "line": 15,
-          "offset": 1012,
-          "token": "do"
-        },
-        {
-          "key": "26-start.lua:16:1031",
-          "line": 16,
-          "offset": 1031,
-          "token": "then"
-        },
-        {
-          "key": "26-start.lua:18:1106",
-          "line": 18,
-          "offset": 1106,
-          "token": "then"
-        },
-        {
-          "key": "26-start.lua:23:1343",
-          "line": 23,
-          "offset": 1343,
-          "token": "do"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
@@ -639,36 +615,17 @@
     },
     {
       "id": "P1619",
-      "called": false,
+      "called": true,
       "explicit_entries": 3,
-      "entered": 0,
+      "entered": 3,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "26-start.lua:50:2396",
-          "line": 50,
-          "offset": 2396,
-          "token": "do"
-        },
-        {
-          "key": "26-start.lua:50:2413",
-          "line": 50,
-          "offset": 2413,
-          "token": "then"
-        },
-        {
-          "key": "26-start.lua:53:2562",
-          "line": 53,
-          "offset": 2562,
-          "token": "then"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
       "id": "P1620",
-      "called": false,
+      "called": true,
       "explicit_entries": 4,
       "entered": 0,
       "baseline_missing": 0,
@@ -1064,7 +1021,7 @@
       "id": "P1746",
       "called": true,
       "explicit_entries": 30,
-      "entered": 28,
+      "entered": 30,
       "baseline_missing": 3,
       "baseline_missing_now_entered": [
         {
@@ -1072,9 +1029,7 @@
           "line": 337,
           "offset": 11823,
           "token": "then"
-        }
-      ],
-      "remaining_entries": [
+        },
         {
           "key": "30-engine.lua:352:12499",
           "line": 352,
@@ -1088,20 +1043,8 @@
           "token": "then"
         }
       ],
-      "remaining_baseline": [
-        {
-          "key": "30-engine.lua:352:12499",
-          "line": 352,
-          "offset": 12499,
-          "token": "else"
-        },
-        {
-          "key": "30-engine.lua:395:14363",
-          "line": 395,
-          "offset": 14363,
-          "token": "then"
-        }
-      ]
+      "remaining_entries": [],
+      "remaining_baseline": []
     },
     {
       "id": "P1760",
@@ -1218,10 +1161,9 @@
       "id": "P1811",
       "called": true,
       "explicit_entries": 12,
-      "entered": 11,
+      "entered": 12,
       "baseline_missing": 1,
-      "baseline_missing_now_entered": [],
-      "remaining_entries": [
+      "baseline_missing_now_entered": [
         {
           "key": "30-engine.lua:854:33249",
           "line": 854,
@@ -1229,23 +1171,16 @@
           "token": "then"
         }
       ],
-      "remaining_baseline": [
-        {
-          "key": "30-engine.lua:854:33249",
-          "line": 854,
-          "offset": 33249,
-          "token": "then"
-        }
-      ]
+      "remaining_entries": [],
+      "remaining_baseline": []
     },
     {
       "id": "P1812",
       "called": true,
       "explicit_entries": 8,
-      "entered": 7,
+      "entered": 8,
       "baseline_missing": 1,
-      "baseline_missing_now_entered": [],
-      "remaining_entries": [
+      "baseline_missing_now_entered": [
         {
           "key": "30-engine.lua:888:34761",
           "line": 888,
@@ -1253,23 +1188,16 @@
           "token": "then"
         }
       ],
-      "remaining_baseline": [
-        {
-          "key": "30-engine.lua:888:34761",
-          "line": 888,
-          "offset": 34761,
-          "token": "then"
-        }
-      ]
+      "remaining_entries": [],
+      "remaining_baseline": []
     },
     {
       "id": "P1813",
       "called": true,
       "explicit_entries": 6,
-      "entered": 5,
+      "entered": 6,
       "baseline_missing": 1,
-      "baseline_missing_now_entered": [],
-      "remaining_entries": [
+      "baseline_missing_now_entered": [
         {
           "key": "30-engine.lua:919:36154",
           "line": 919,
@@ -1277,14 +1205,8 @@
           "token": "then"
         }
       ],
-      "remaining_baseline": [
-        {
-          "key": "30-engine.lua:919:36154",
-          "line": 919,
-          "offset": 36154,
-          "token": "then"
-        }
-      ]
+      "remaining_entries": [],
+      "remaining_baseline": []
     },
     {
       "id": "P1824",
@@ -1346,10 +1268,9 @@
       "id": "P1831",
       "called": true,
       "explicit_entries": 15,
-      "entered": 14,
+      "entered": 15,
       "baseline_missing": 1,
-      "baseline_missing_now_entered": [],
-      "remaining_entries": [
+      "baseline_missing_now_entered": [
         {
           "key": "30-engine.lua:1086:42872",
           "line": 1086,
@@ -1357,14 +1278,8 @@
           "token": "then"
         }
       ],
-      "remaining_baseline": [
-        {
-          "key": "30-engine.lua:1086:42872",
-          "line": 1086,
-          "offset": 42872,
-          "token": "then"
-        }
-      ]
+      "remaining_entries": [],
+      "remaining_baseline": []
     },
     {
       "id": "P1842",
@@ -1402,103 +1317,12 @@
     },
     {
       "id": "P3492",
-      "called": false,
+      "called": true,
       "explicit_entries": 15,
-      "entered": 0,
+      "entered": 15,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "80-press.lua:6:167",
-          "line": 6,
-          "offset": 167,
-          "token": "then"
-        },
-        {
-          "key": "80-press.lua:7:186",
-          "line": 7,
-          "offset": 186,
-          "token": "then"
-        },
-        {
-          "key": "80-press.lua:10:324",
-          "line": 10,
-          "offset": 324,
-          "token": "then"
-        },
-        {
-          "key": "80-press.lua:11:362",
-          "line": 11,
-          "offset": 362,
-          "token": "then"
-        },
-        {
-          "key": "80-press.lua:12:473",
-          "line": 12,
-          "offset": 473,
-          "token": "then"
-        },
-        {
-          "key": "80-press.lua:19:648",
-          "line": 19,
-          "offset": 648,
-          "token": "then"
-        },
-        {
-          "key": "80-press.lua:22:728",
-          "line": 22,
-          "offset": 728,
-          "token": "then"
-        },
-        {
-          "key": "80-press.lua:23:779",
-          "line": 23,
-          "offset": 779,
-          "token": "then"
-        },
-        {
-          "key": "80-press.lua:24:822",
-          "line": 24,
-          "offset": 822,
-          "token": "then"
-        },
-        {
-          "key": "80-press.lua:29:913",
-          "line": 29,
-          "offset": 913,
-          "token": "else"
-        },
-        {
-          "key": "80-press.lua:34:1076",
-          "line": 34,
-          "offset": 1076,
-          "token": "then"
-        },
-        {
-          "key": "80-press.lua:36:1123",
-          "line": 36,
-          "offset": 1123,
-          "token": "then"
-        },
-        {
-          "key": "80-press.lua:39:1234",
-          "line": 39,
-          "offset": 1234,
-          "token": "then"
-        },
-        {
-          "key": "80-press.lua:40:1403",
-          "line": 40,
-          "offset": 1403,
-          "token": "then"
-        },
-        {
-          "key": "80-press.lua:41:1545",
-          "line": 41,
-          "offset": 1545,
-          "token": "then"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
@@ -2531,10 +2355,9 @@
       "id": "P2280",
       "called": true,
       "explicit_entries": 4,
-      "entered": 3,
+      "entered": 4,
       "baseline_missing": 1,
-      "baseline_missing_now_entered": [],
-      "remaining_entries": [
+      "baseline_missing_now_entered": [
         {
           "key": "34-traits.lua:291:11897",
           "line": 291,
@@ -2542,14 +2365,8 @@
           "token": "then"
         }
       ],
-      "remaining_baseline": [
-        {
-          "key": "34-traits.lua:291:11897",
-          "line": 291,
-          "offset": 11897,
-          "token": "then"
-        }
-      ]
+      "remaining_entries": [],
+      "remaining_baseline": []
     },
     {
       "id": "P2287",
@@ -2741,7 +2558,7 @@
       "id": "P1674",
       "called": true,
       "explicit_entries": 25,
-      "entered": 24,
+      "entered": 25,
       "baseline_missing": 2,
       "baseline_missing_now_entered": [
         {
@@ -2749,9 +2566,7 @@
           "line": 77,
           "offset": 4303,
           "token": "then"
-        }
-      ],
-      "remaining_entries": [
+        },
         {
           "key": "29-persona-skill.lua:106:5821",
           "line": 106,
@@ -2759,14 +2574,8 @@
           "token": "do"
         }
       ],
-      "remaining_baseline": [
-        {
-          "key": "29-persona-skill.lua:106:5821",
-          "line": 106,
-          "offset": 5821,
-          "token": "do"
-        }
-      ]
+      "remaining_entries": [],
+      "remaining_baseline": []
     },
     {
       "id": "P1678",
@@ -2835,12 +2644,11 @@
     },
     {
       "id": "P1682",
-      "called": false,
+      "called": true,
       "explicit_entries": 5,
-      "entered": 0,
+      "entered": 5,
       "baseline_missing": 5,
-      "baseline_missing_now_entered": [],
-      "remaining_entries": [
+      "baseline_missing_now_entered": [
         {
           "key": "29-persona-skill.lua:171:8993",
           "line": 171,
@@ -2872,38 +2680,8 @@
           "token": "then"
         }
       ],
-      "remaining_baseline": [
-        {
-          "key": "29-persona-skill.lua:171:8993",
-          "line": 171,
-          "offset": 8993,
-          "token": "do"
-        },
-        {
-          "key": "29-persona-skill.lua:176:9462",
-          "line": 176,
-          "offset": 9462,
-          "token": "do"
-        },
-        {
-          "key": "29-persona-skill.lua:177:9502",
-          "line": 177,
-          "offset": 9502,
-          "token": "then"
-        },
-        {
-          "key": "29-persona-skill.lua:183:9990",
-          "line": 183,
-          "offset": 9990,
-          "token": "do"
-        },
-        {
-          "key": "29-persona-skill.lua:185:10060",
-          "line": 185,
-          "offset": 10060,
-          "token": "then"
-        }
-      ]
+      "remaining_entries": [],
+      "remaining_baseline": []
     },
     {
       "id": "P1687",

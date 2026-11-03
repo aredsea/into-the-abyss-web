@@ -24,6 +24,8 @@ const TraitRules=preload("res://game/trait_rules_r22.gd")
 const GearBattle=preload("res://game/gear_battle_r22.gd")
 const PersonaCombat=preload("res://game/persona_combat_r22.gd")
 const Outcome=preload('res://game/combat_outcome_r23.gd')
+const SourceAttack=preload('res://game/combat_attack_r23.gd')
+const CombatItems=preload('res://game/combat_items_r23.gd')
 var gear_bridge
 
 func _volley(a: Dictionary,power: float,brk: float) -> void:
@@ -71,11 +73,7 @@ func _personal_hit_after(h: Dictionary) -> void:
 	# Source volley does not run foe_hit_after or GH.extra_hit.
 	if h.volley: return
 	dungeon_enemy_r21.after_hit(a,e,h.get("element",a.element),h.get('hit_at',combat_events.T))
-	var extra_chance=sig(a,"as_shadow")[0]/100.0 if not sig(a,"as_shadow").is_empty() else .2
-	if gear_bridge!=null:
-		gear_bridge.pack(); extra_chance=gear_bridge.hooks.assassin_extra(gear_bridge.st.u[gear_bridge.slot(a)-1],.2)
-	if a.hp>0 and a.class_id=="assassin" and (not h.extra or h.get("allow_extra",false)) and e.hp>0 and _roll(extra_chance):
-		_damage(a,e,a.skills.attack.power,0,true,-1,{"hit":.25,"duration":.8,"element":h.get("element",a.element)})
+	TraitRules.extra_hit(self,a,e,{"extra":h.extra and not h.get('allow_extra',false),"el":h.get('element',a.element)},{"kill":1 if h.killed else 0},h.get('hit_at',combat_events.T))
 
 func _gear_hit_after(h: Dictionary) -> void:
 	if gear_bridge!=null:
@@ -130,8 +128,12 @@ func _record_hit(actor: String,target: String,damage: int,shield: int,critical: 
 	var u=unit(target)
 	var hit_at=combat_events.T if combat_events.context.is_empty() else combat_events.hit_time()
 	if source_fields:
-		combat_events.field(self,u,"hp",u.hp,hit_at)
-		combat_events.field(self,u,"sh",u.get("shield",fx(u,"shield")),hit_at)
+		if not combat_events.context.has('source_spec'):
+			combat_events.field(self,u,"hp",u.hp,hit_at)
+			combat_events.field(self,u,"sh",u.get("shield",fx(u,"shield")),hit_at)
+		else:
+			if shield>0:combat_events.field(self,u,'sh',u.get('shield',fx(u,'shield')),hit_at)
+			combat_events.field(self,u,'hp',u.hp,hit_at)
 	combat_hits.append({"actor":all.find(unit(actor))+1,"target":all.find(unit(target))+1,"damage":damage,"shield":shield,"critical":critical})
 
 func _roll(chance: float) -> bool:
@@ -203,13 +205,14 @@ func _begin_effect_action(actor: String) -> void:
 func set_persona_regen(target: Dictionary,amount: float,rounds: int=2) -> void:
 	# P1's persona assembler can call this boundary without owning the clock.
 	_effect(target,"persona_regen",rounds,amount)
+	target.effects.persona_regen.order=turn_count
 
 func _persona_round() -> void:
 	for a in living(true):
 		if a.effects.has("persona_regen"):
 			_receive_heal(a,fx(a,"persona_regen"))
 			a.effects.persona_regen.turns-=1
-			if a.effects.persona_regen.turns<=0: a.effects.erase("persona_regen")
+			if a.effects.persona_regen.turns<=0:a.effects.erase('persona_regen')
 
 func _judith_unslow() -> void:
 	for e in data.enemies:
@@ -365,10 +368,19 @@ func actions() -> Dictionary:
 	if dungeon_enemy_r21!=null and ally(current_id).class_id=="warrior":
 		result.guard.name="굳건한 방어"
 		result.defend={"name":"방어","mp":0,"target":"자신","power":.4,"turns":1,"brk":0,"note":"다음 자기 차례까지 받는 피해 −40%"}
-	for item in data.get("item_defs",[]):
+	var item_definitions=data.get('item_defs',[]).duplicate()
+	if dungeon_enemy_r21!=null:item_definitions.sort_custom(func(a,b):return CombatItems.ItemData.ORDER.find(CombatItems.source_id(a.id))<CombatItems.ItemData.ORDER.find(CombatItems.source_id(b.id)))
+	for item in item_definitions:
 		if item.kind not in ["return","level"]:
 			result["item:"+item.id]={"name":item.name,"mp":0,"target":"아군 1","note":"동료를 선택하면 1개와 현재 차례를 소모합니다.","item":item}
 	return result
+
+func source_item_bag() -> Dictionary:
+	var bag={}
+	for id in CombatItems.ItemData.ORDER:bag[id]=inventory.get(CombatItems.native_id(id),0)
+	return bag
+func supply_menu(lang: String='ko',picked: String='') -> Dictionary:
+	return CombatItems.menu(self,source_item_bag(),CombatItems.source_id(picked),lang)
 
 func unavailable(id: String) -> String:
 	if not player_turn() or not actions().has(id): return "행동할 수 없음"
@@ -746,6 +758,7 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 	var defense=e.defense*(1+fx(e,"defense_up")-fx(e,"defense_down")) if dungeon_enemy_r21!=null else e.defense*(1-fx(e,"defense_down"))
 	var k=BattleStats.K_of(e.level,data.formula,data.def_curve)
 	var damage=a.base[a.line]*2*power*mult*k/(k+defense)*(1+fx(e,"foxflame"))
+	if proc_event.get('source_opt',{}).get('ps_bane',0)>0 and PersonaCombat.debuffed(e):damage*=1+proc_event.source_opt.ps_bane
 	if dungeon_enemy_r21!=null: damage*=dungeon_enemy_r21.defense(a,e)
 	if weak: damage*=1.3
 	if e.broken: damage*=2.5 if a.class_id=="chaos" else 1.5
@@ -764,7 +777,7 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 	if not extra:
 		if dungeon_enemy_r21==null: damage+=x(a).get("overheal",0); x(a).overheal=0
 		a.effects.erase("next_power")
-	var before=int(e.hp); var shield_before=fx(e,"shield"); var dealt=maxi(1,int(floor(damage+(1e-9 if dungeon_enemy_r21!=null else 0))))
+	var before=int(e.hp); var shield_before=fx(e,"shield");var broken_before=e.broken; var dealt=maxi(1,int(floor(damage+(1e-9 if dungeon_enemy_r21!=null else 0))))
 	if dungeon_enemy_r21!=null and e.effects.has("guard"): dealt=maxi(1,int(floor(dealt*.6+1e-9)))
 	e.hp=maxi(0,e.hp-dealt)
 	if dungeon_enemy_r21!=null:
@@ -775,7 +788,21 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 	if proc_event.get("capture_result",false):proc_event.primary_kill=e.hp<=0
 	_event("%s → %s · %d 피해%s" % [a.name,e.short,dealt," · 치명" if critical else ""])
 	if dungeon_enemy_r21!=null:
-		PersonalRules.abyss_result(self,a,e,brk,proc_event.get('element',a.element),combat_events.hit_time(maxi(0,combat_hits.size()-1))+.3 if not combat_events.context.is_empty() else combat_events.T+.3)
+		var abyss_result=PersonalRules.abyss_result(self,a,e,brk,proc_event.get('element',a.element),proc_event.source_at+.1 if proc_event.has('source_at') else combat_events.hit_time(maxi(0,combat_hits.size()-1))+.3 if not combat_events.context.is_empty() else combat_events.T+.3)
+		if proc_event.has('source_opt'):
+			var tags=[];var opt=proc_event.source_opt
+			if opt.get('ps_bane',0)>0 and PersonaCombat.debuffed(e):tags.append('약화 추가 피해')
+			if weak:tags.append('약점 ×1.3')
+			if broken_before:tags.append('고갈 공명 ×2.5' if a.class_id=='chaos' else '고갈 ×1.5')
+			if a.id=='bargut' and action_id=='personal' and not extra:
+				var fastest=true
+				for w in living(true)+living(false):
+					if (w.base.spd if w.has('base') else w.speed)>a.base.spd:fastest=false
+				if fastest:tags.append('선점 효과 +50%')
+			if critical:tags.append('치명 ×1.5')
+			proc_event.result={"i":combat_events.slot(self,e),"d":dealt,"sh":mini(dealt,int(shield_before)),"kill":1 if e.hp<=0 else 0,"c":1 if critical else 0,"ls":0,"tags":tags,"ab":abyss_result.n}
+			if abyss_result.list is Array:proc_event.result.list=abyss_result.list
+			if e.hp<=0:data.last_kill=CombatDisplay.Locale.u('{name}의 {skill}',{"name":a.name,"skill":opt.get('name','')})
 	else:
 		var abyss=brk*(1.5 if weak else 1.0)*(1+gear.get("abyss",0)/100.0)
 		if gear_bridge==null and not sig(a,"ch_rift").is_empty(): abyss*=1+sig(a,"ch_rift")[0]/100.0
@@ -891,7 +918,8 @@ func act(id: String) -> bool:
 	if not unavailable(id).is_empty(): return false
 	var a=ally(current_id); var sk=actions()[id]; var e=enemy(selected_enemy)
 	var t=ally(selected_ally)
-	if id.begins_with("item:"): return _use_supply(sk.item,t)
+	if id.begins_with("item:"):
+		return consume_supply(sk.item,t) if dungeon_enemy_r21!=null else _use_supply(sk.item,t)
 	if sk.target=="아군 1" and (t.is_empty() or t.hp<=0): return false
 	if dungeon_enemy_r21!=null and id=="personal" and a.id=="marceline" and t.id==a.id: return false
 	if sk.target.begins_with("적") and living(false).is_empty(): return false
@@ -1021,6 +1049,16 @@ func _use_supply(item: Dictionary,t: Dictionary) -> bool:
 		combat_hits=[]; dungeon_enemy_r21.begin_random(turn_count+1)
 		_begin_combat_events("supply",ally(current_id),enemy(selected_enemy),t); combat_events.finish(self)
 	_event(item.name+" → "+t.name); _finish_turn(); return true
+
+func consume_supply(item: Dictionary,target: Dictionary) -> bool:
+	if inventory.get(item.get('id',''),0)<=0 or not CombatItems.target_ok(self,item.get('id',''),target):return false
+	combat_hits=[];events=[];action_id='supply'
+	_begin_effect_action(current_id);_begin_combat_events('supply',ally(current_id),enemy(selected_enemy),target)
+	# B.rbegin resets the per-action stream even when the item effect rolls none.
+	dungeon_enemy_r21.begin_random(turn_count+1)
+	CombatItems.apply(self,item.id,target)
+	combat_events.context={};inventory[item.id]-=1
+	_event(item.name+' → '+target.name);_finish_turn();return true
 
 func _use_supply_r21(item: Dictionary,t: Dictionary) -> bool:
 	# 78-battle-item: validate before reseeding or consuming the action.
@@ -1153,7 +1191,7 @@ func end_turn_state(u: Dictionary,cost: float=10000,dispatch: bool=true) -> void
 func damaged_caster_cleanup(target: Dictionary) -> void:
 	if target.hp>0:return
 	PersonalRules.drop_caster_buffs(self,target)
-	if target.id=='adeline':
+	if target.get('character_id',target.id)=='adeline':
 		for u in data.allies:
 			x(u).erase('areg');u.effects.erase('regen')
 
@@ -1340,7 +1378,7 @@ func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,cove
 		# Personal save hooks run in party order, then gear, then priest.
 		if a.id=="marceline" and not x(a).get("saved",false):
 			PersonalRules.marceline_save(self,a,a,at)
-		elif gear_bridge!=null and gear_bridge.invoke("gear_save",[gear_bridge.slot(a),combat_events.T])==1: pass
+		elif gear_bridge!=null and gear_bridge.invoke("gear_save",[gear_bridge.slot(a),at])==1: pass
 		else:
 			if not a.ward_used:
 				for member in save_owners:
@@ -1356,14 +1394,10 @@ func _incoming_strike(a: Dictionary,hit: float,e: Dictionary,sk: Dictionary,cove
 	var saved=lethal and a.hp>0
 	if not saved:combat_events.field(self,a,'hp',a.hp,at)
 	a.effects.erase("mark")
-	if damage>0 and a.hp>0 and a.hp<=a.mhp*.25 and has_alive("sorel") and x(ally("sorel")).get("rescue",0)<2:
-		x(ally("sorel")).rescue=x(ally("sorel")).get("rescue",0)+1
-		if dungeon_enemy_r21!=null: _receive_heal(a,ally("sorel").base.int*2)
-		else: _heal(ally("sorel"),a,1)
-	if damage>0 and not living(true).is_empty():damaged_caster_cleanup(a)
-	if damage>0 and gear_bridge!=null: gear_bridge.invoke("damaged",[gear_bridge.slot(a),damage,gear_bridge.slot(e) if not e.is_empty() else "fixed",combat_events.T])
+	if damage>0:PersonalRules.damaged_dispatch(self,a,damage,e if not fixed else 'fixed',at)
+	if damage>0 and gear_bridge!=null: gear_bridge.invoke("damaged",[gear_bridge.slot(a),damage,gear_bridge.slot(e) if not e.is_empty() else "fixed",at])
 	# Both fixed and ordinary strikes run pecho after saves, death and damaged.
-	if gear_bridge!=null: gear_bridge.invoke("gear_pecho",[gear_bridge.slot(a),combat_events.T])
+	if gear_bridge!=null: gear_bridge.invoke("gear_pecho",[gear_bridge.slot(a),at])
 	# B.strike res.d includes shield absorption. Keep this hit independent of
 	# subsequent counters and gear re-entry, which append their own hit records.
 	last_enemy_hit_result={"i":combat_events.slot(self,a),"d":damage+absorbed,"sh":absorbed,"kill":1 if a.hp<=0 else 0,"c":0,"ls":1 if saved else 0}

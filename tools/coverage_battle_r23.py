@@ -24,7 +24,7 @@ for p in SRC.glob('*.lua'):
  (I/p.name).write_text(s,encoding='utf-8')
  meta[p.name]={'source_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'calls':calls,'branches':branches}
 (D/'instrumentation.json').write_text(json.dumps(meta,ensure_ascii=False,indent=2),encoding='utf-8')
-cases=['main','enemy','state','display','compose','clock','batch','round3','round4','round5','battle-round6','battle-round6-tiles','battle-round6-enemy','battle-round7','battle-round7-persona','battle-round7-boundary','battle-round8','battle-round8-outcome','battle-round8-persona'];runs=[]
+cases=['main','enemy','state','display','compose','clock','batch','round3','round4','round5','battle-round6','battle-round6-tiles','battle-round6-enemy','battle-round7','battle-round7-persona','battle-round7-boundary','battle-round8','battle-round8-outcome','battle-round8-persona','battle-round9-core','battle-round9-items','battle-round9-state','battle-round9-control','battle-round9-handlers','battle-round9-start','battle-round9-enemyturn','battle-round9-damaged'];runs=[]
 def read_only_outputs(code):
  # Compare instrumented results in memory. Never persist a duplicate oracle in
  # coverage/ or overwrite the canonical evidence; the entry maps are tiny.
@@ -49,6 +49,7 @@ for key in cases:
  if key.startswith('battle-round6'):name='oracle_battle_r23_'+key.removeprefix('battle-').replace('-','_')+'_loader.mjs'
  if key.startswith('battle-round7'):name='oracle_battle_r23_round7_loader.mjs'
  if key.startswith('battle-round8'):name='oracle_battle_r23_round8_loader.mjs'
+ if key.startswith('battle-round9'):name='oracle_battle_r23_round9_loader.mjs'
  code=(R/'tools'/name).read_text(encoding='utf-8')
  code=code.replace('const {mkSim}=await import(', 'const {mkSim:mkSimBase}=await import(',1)
  # Replace the source read used in rule loading, leaving the original-file
@@ -61,7 +62,7 @@ for key in cases:
  # Compact regenerated coverage JSON, including the pre-existing 52 MB round5 reference.
  code=code.replace('JSON.stringify({...result,provenance},null,2)','JSON.stringify({...result,provenance})')
  script=D/(key+'.mjs');script.write_text(code,encoding='utf-8');start=time.monotonic()
- with (D/(key+'.log')).open('wb') as log:p=subprocess.run(['node',str(script)],cwd=R,stdout=log,stderr=subprocess.STDOUT,env={**os.environ,'R23_ROUND7_PACK':key.removeprefix('battle-round7-') if key.startswith('battle-round7-') else '', 'R23_ROUND8_PACK':key.removeprefix('battle-round8-') if key.startswith('battle-round8-') else ''})
+ with (D/(key+'.log')).open('wb') as log:p=subprocess.run(['node',str(script)],cwd=R,stdout=log,stderr=subprocess.STDOUT,env={**os.environ,'R23_ROUND7_PACK':key.removeprefix('battle-round7-') if key.startswith('battle-round7-') else '', 'R23_ROUND8_PACK':key.removeprefix('battle-round8-') if key.startswith('battle-round8-') else '', 'R23_ROUND9_PACK':key.removeprefix('battle-round9-') if key.startswith('battle-round9-') else ''})
  row={'case':key,'exit':p.returncode,'seconds':round(time.monotonic()-start,2)};runs.append(row);print(json.dumps(row),flush=True)
  if p.returncode:raise SystemExit(p.returncode)
 retained=[

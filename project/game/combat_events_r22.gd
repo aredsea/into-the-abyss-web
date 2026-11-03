@@ -12,6 +12,8 @@ func cutin(actor: int,id: String,name: String) -> void:
 	var event={"k":"cut","a":actor,"t":T,"nm":name}
 	if CUT_LINES.has(id):event.line=CUT_LINES[id]
 	Record.push(record,event);push('cut',actor,T);T+=1.9 if CUT_LINES.has(id) else 1.4
+func ensure_record(b) -> void:
+	if not (record.get('ev') is Dictionary):begin_record(b)
 func begin_record(b) -> void:
 	record.u=[]
 	for u in b.data.allies+b.data.enemies:
@@ -38,11 +40,11 @@ func begin(b,id: String,a: Dictionary,e: Dictionary,t: Dictionary) -> void:
 		if member.id!=a.id and member.row==a.row: context.row.append(slot(b,member))
 	if id=="personal":
 		if a.id!='persona':cutin(context.actor,preload('res://game/battle_source_data_r23.gd').PERSONAL.get(a.id,{}).get('id',''),a.skills.personal.get('name',''))
-		else:push('cut',context.actor,T);T+=1.9
 		if a.id=="persona" and a.skills.personal.has("persona_skill"):
 			var p=b.PersonaCombat.Research.part("prefixes",a.skills.personal.persona_skill.prefix)
 			context.persona_spec=["wave" if p.kind=="volley" else "atk",.45,1.5,"foes" if p.kind=="volley" else "enemy"] if p.kind in ["attack","volley"] else ["shield",-1,1.8,"friends" if p.kind.ends_with("_all") else "ally"]
 func body_spec() -> Array:
+	if context.has('source_spec'):return context.source_spec
 	var id=context.id; var owner=context.owner
 	if id=="defend": return ["def",-1,1.0,"none"]
 	if id=="personal":
@@ -77,6 +79,7 @@ func abyss_time(index: int=0) -> float:
 	return T+offset+.2 if offset>=0 else hit_time(index)+.3
 func finish(b) -> void:
 	if context.is_empty(): return
+	if context.get('body_recorded',false):context={};return
 	if context.has("body_start"):T=context.body_start
 	var spec=body_spec(); var actor=context.actor; var targets=[]
 	match spec[3]:
