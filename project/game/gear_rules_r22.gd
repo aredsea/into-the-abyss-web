@@ -199,8 +199,12 @@ func gear_unequip(g: Dictionary,bag: Array,cid: String,slot: String) -> Array:
 	if not bag_add(bag,cur):return [false,"가방이 가득 찼습니다."]
 	eq[slot]="";return [true]
 
-func gear_restrict(g: Dictionary,bag: Array) -> bool:
-	if not g.get("equip") is Dictionary:return false
+func gear_restrict(g: Dictionary,bag: Array) -> Variant:
+	# Source distinguishes an absent/non-table equipment map (nil) from an
+	# equipment map for which nothing needed moving (false).
+	if not g.get("equip") is Dictionary:
+		if not (g.get("equip") is Array and g.equip.is_empty()):return null
+		return false
 	var changed=false
 	for cid in g.equip:
 		var eq=g.equip[cid]

@@ -253,6 +253,7 @@ func buy(id: String) -> bool:
 func inn(id: String,action: String) -> bool:
 	var acts=TOWN_RULES.DATA.inn
 	if active() or id not in s.owned or not acts.has(action) or not s.dialogue_r21.pending.is_empty(): return false
+	if not TOWN_RULES.inn_act_visible(s,action,id):return false
 	var def=acts[action]; var key=id+"_"+action
 	if s.gold<def.cost or (not def.day and s.acts.get(key,0)==s.day): return false
 	s.gold-=def.cost
@@ -315,12 +316,14 @@ func npc_like(id: String) -> void:
 func aff_add(id: String,amount: float) -> float:
 	if id not in s.owned:return 0
 	var before=float(s.members[id].aff)
-	var after=TOWN_RULES.aff_next(before,amount);s.members[id].aff=after
+	var source_state={"aff":{id:before}}
+	var gained=TOWN_RULES.aff_add_source(source_state,id,amount)
+	var after=source_state.aff[id];s.members[id].aff=after
 	var t=dialogue.transition(id,before,after)
 	if not t.is_empty():
 		t.who=id;t.kind="transition";s.dialogue_r21.queue.append(t)
 		note(person(id).name+" · "+TOWN_RULES.aff_stage(before)+" → "+TOWN_RULES.aff_stage(after))
-	return floor((after-before)*100+.5)/100
+	return gained
 
 func aff_party(amount: float) -> Dictionary:
 	var multiplier=1.2 if party_count("nation","솔렌 성왕국")>=3 else 1.0

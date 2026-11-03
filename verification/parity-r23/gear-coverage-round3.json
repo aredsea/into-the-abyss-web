@@ -1,0 +1,1595 @@
+{
+  "method": "Boolean source function/then/else/do entries. Output equality is mandatory. Not full condition-combination coverage or native parity. Parent coverage does not promote children.",
+  "runs": [
+    {
+      "case": "main",
+      "exit": 0,
+      "output_unchanged": true,
+      "seconds": 2.78
+    },
+    {
+      "case": "hooks",
+      "exit": 0,
+      "output_unchanged": true,
+      "seconds": 55.44
+    },
+    {
+      "case": "facilities",
+      "exit": 0,
+      "output_unchanged": true,
+      "seconds": 1.67
+    },
+    {
+      "case": "round2",
+      "exit": 0,
+      "output_unchanged": true,
+      "seconds": 2.47
+    },
+    {
+      "case": "predecessors",
+      "exit": 0,
+      "output_unchanged": true,
+      "seconds": 1.05
+    },
+    {
+      "case": "round3",
+      "exit": 0,
+      "output_unchanged": true,
+      "seconds": 3.3
+    }
+  ],
+  "functions": 77,
+  "called": 77,
+  "explicit_entries": 320,
+  "entered": 314,
+  "baseline_missing": 43,
+  "newly_entered_baseline": 43,
+  "rows": [
+    {
+      "id": "P3508",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 11,
+        "end": 58,
+        "symbol": "B.gear"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 10,
+      "entered": 10,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3514",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 44,
+        "end": 44,
+        "symbol": "B.gear::익명 함수@44"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 0,
+      "entered": 0,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3515",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 61,
+        "end": 65,
+        "symbol": "B.gear_icon"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 1,
+      "entered": 1,
+      "remaining_entries": [],
+      "baseline_missing": 1,
+      "newly_entered_baseline": [
+        {
+          "key": "81-gear.lua:63:3021",
+          "line": 63,
+          "offset": 3021,
+          "token": "then"
+        }
+      ]
+    },
+    {
+      "id": "P3522",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 92,
+        "end": 99,
+        "symbol": "B.gear_parse"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 3,
+      "entered": 3,
+      "remaining_entries": [],
+      "baseline_missing": 1,
+      "newly_entered_baseline": [
+        {
+          "key": "81-gear.lua:93:3880",
+          "line": 93,
+          "offset": 3880,
+          "token": "then"
+        }
+      ]
+    },
+    {
+      "id": "P3524",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 109,
+        "end": 164,
+        "symbol": "B.gear_roll"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 14,
+      "entered": 12,
+      "remaining_entries": [
+        {
+          "key": "81-gear.lua:150:6183",
+          "line": 150,
+          "offset": 6183,
+          "token": "then"
+        },
+        {
+          "key": "81-gear.lua:151:6254",
+          "line": 151,
+          "offset": 6254,
+          "token": "do"
+        }
+      ],
+      "baseline_missing": 1,
+      "newly_entered_baseline": [
+        {
+          "key": "81-gear.lua:114:4718",
+          "line": 114,
+          "offset": 4718,
+          "token": "then"
+        }
+      ]
+    },
+    {
+      "id": "P3532",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 181,
+        "end": 194,
+        "symbol": "B.bag_load"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 3,
+      "entered": 3,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3533",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 196,
+        "end": 198,
+        "symbol": "B.bag_save"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 0,
+      "entered": 0,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3536",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 207,
+        "end": 213,
+        "symbol": "B.bag_add"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 1,
+      "entered": 1,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3537",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 215,
+        "end": 225,
+        "symbol": "B.bag_take"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 2,
+      "entered": 2,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3540",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 247,
+        "end": 261,
+        "symbol": "B.gear_restrict"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 6,
+      "entered": 6,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3544",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 270,
+        "end": 276,
+        "symbol": "B.forge_cost"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 1,
+      "entered": 1,
+      "remaining_entries": [],
+      "baseline_missing": 1,
+      "newly_entered_baseline": [
+        {
+          "key": "81-gear.lua:274:10495",
+          "line": 274,
+          "offset": 10495,
+          "token": "then"
+        }
+      ]
+    },
+    {
+      "id": "P3549",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 304,
+        "end": 316,
+        "symbol": "B.gear_equip"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 4,
+      "entered": 4,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3552",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 318,
+        "end": 325,
+        "symbol": "B.gear_unequip"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 2,
+      "entered": 2,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3553",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 327,
+        "end": 333,
+        "symbol": "B.gear_sell"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 2,
+      "entered": 2,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3554",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 336,
+        "end": 354,
+        "symbol": "B.gear_sell_common"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 4,
+      "entered": 4,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3555",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 357,
+        "end": 379,
+        "symbol": "B.gear_migrate"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 10,
+      "entered": 10,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3566",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 395,
+        "end": 404,
+        "symbol": "B.gear_eq_of"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 3,
+      "entered": 3,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3567",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 407,
+        "end": 411,
+        "symbol": "B.gear_pm_refresh"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 2,
+      "entered": 2,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3571",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 425,
+        "end": 470,
+        "symbol": "B.gear_init"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 18,
+      "entered": 18,
+      "remaining_entries": [],
+      "baseline_missing": 1,
+      "newly_entered_baseline": [
+        {
+          "key": "81-gear.lua:427:15888",
+          "line": 427,
+          "offset": 15888,
+          "token": "then"
+        }
+      ]
+    },
+    {
+      "id": "P3599",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 689,
+        "end": 713,
+        "symbol": "B.gear_dotchain"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 8,
+      "entered": 8,
+      "remaining_entries": [],
+      "baseline_missing": 1,
+      "newly_entered_baseline": [
+        {
+          "key": "81-gear.lua:703:25680",
+          "line": 703,
+          "offset": 25680,
+          "token": "then"
+        }
+      ]
+    },
+    {
+      "id": "P3603",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 731,
+        "end": 740,
+        "symbol": "B.gear_echo"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 2,
+      "entered": 2,
+      "remaining_entries": [],
+      "baseline_missing": 1,
+      "newly_entered_baseline": [
+        {
+          "key": "81-gear.lua:737:26981",
+          "line": 737,
+          "offset": 26981,
+          "token": "then"
+        }
+      ]
+    },
+    {
+      "id": "P3605",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 743,
+        "end": 750,
+        "symbol": "B.gear_dot"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 2,
+      "entered": 2,
+      "remaining_entries": [],
+      "baseline_missing": 1,
+      "newly_entered_baseline": [
+        {
+          "key": "81-gear.lua:745:27254",
+          "line": 745,
+          "offset": 27254,
+          "token": "then"
+        }
+      ]
+    },
+    {
+      "id": "P3639",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 920,
+        "end": 932,
+        "symbol": "G.damaged"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 4,
+      "entered": 4,
+      "remaining_entries": [],
+      "baseline_missing": 1,
+      "newly_entered_baseline": [
+        {
+          "key": "81-gear.lua:921:33433",
+          "line": 921,
+          "offset": 33433,
+          "token": "then"
+        }
+      ]
+    },
+    {
+      "id": "P3644",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 936,
+        "end": 960,
+        "symbol": "G.attacked"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 9,
+      "entered": 9,
+      "remaining_entries": [],
+      "baseline_missing": 1,
+      "newly_entered_baseline": [
+        {
+          "key": "81-gear.lua:938:34124",
+          "line": 938,
+          "offset": 34124,
+          "token": "then"
+        }
+      ]
+    },
+    {
+      "id": "P3647",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 964,
+        "end": 981,
+        "symbol": "G.turn_end"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 9,
+      "entered": 9,
+      "remaining_entries": [],
+      "baseline_missing": 1,
+      "newly_entered_baseline": [
+        {
+          "key": "81-gear.lua:966:35341",
+          "line": 966,
+          "offset": 35341,
+          "token": "then"
+        }
+      ]
+    },
+    {
+      "id": "P3659",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 1009,
+        "end": 1021,
+        "symbol": "G.abyss_after"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 4,
+      "entered": 4,
+      "remaining_entries": [],
+      "baseline_missing": 1,
+      "newly_entered_baseline": [
+        {
+          "key": "81-gear.lua:1010:36763",
+          "line": 1010,
+          "offset": 36763,
+          "token": "then"
+        }
+      ]
+    },
+    {
+      "id": "P3666",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 1033,
+        "end": 1042,
+        "symbol": "all_classes"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 3,
+      "entered": 3,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3667",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 1045,
+        "end": 1054,
+        "symbol": "B.gear_party_cls"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 3,
+      "entered": 3,
+      "remaining_entries": [],
+      "baseline_missing": 3,
+      "newly_entered_baseline": [
+        {
+          "key": "81-gear.lua:1047:38061",
+          "line": 1047,
+          "offset": 38061,
+          "token": "do"
+        },
+        {
+          "key": "81-gear.lua:1048:38110",
+          "line": 1048,
+          "offset": 38110,
+          "token": "then"
+        },
+        {
+          "key": "81-gear.lua:1050:38181",
+          "line": 1050,
+          "offset": 38181,
+          "token": "then"
+        }
+      ]
+    },
+    {
+      "id": "P3670",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 1074,
+        "end": 1113,
+        "symbol": "B.gear_drop"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 16,
+      "entered": 14,
+      "remaining_entries": [
+        {
+          "key": "81-gear.lua:1089:39306",
+          "line": 1089,
+          "offset": 39306,
+          "token": "then"
+        },
+        {
+          "key": "81-gear.lua:1091:39398",
+          "line": 1091,
+          "offset": 39398,
+          "token": "then"
+        }
+      ],
+      "baseline_missing": 3,
+      "newly_entered_baseline": [
+        {
+          "key": "81-gear.lua:1082:39012",
+          "line": 1082,
+          "offset": 39012,
+          "token": "then"
+        },
+        {
+          "key": "81-gear.lua:1092:39493",
+          "line": 1092,
+          "offset": 39493,
+          "token": "then"
+        },
+        {
+          "key": "81-gear.lua:1098:39795",
+          "line": 1098,
+          "offset": 39795,
+          "token": "then"
+        }
+      ]
+    },
+    {
+      "id": "P3674",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 1136,
+        "end": 1139,
+        "symbol": "add"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 1,
+      "entered": 1,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3677",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 1173,
+        "end": 1178,
+        "symbol": "B.gear_label"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 1,
+      "entered": 1,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3678",
+      "source": {
+        "file": "bot/src/81-gear.lua",
+        "start": 1181,
+        "end": 1204,
+        "symbol": "B.CTX[\"23-gear\"]"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 8,
+      "entered": 8,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3680",
+      "source": {
+        "file": "bot/src/82-smithy.lua",
+        "start": 8,
+        "end": 24,
+        "symbol": "B.smithy_list"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 5,
+      "entered": 5,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3681",
+      "source": {
+        "file": "bot/src/82-smithy.lua",
+        "start": 10,
+        "end": 15,
+        "symbol": "add"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 1,
+      "entered": 1,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3683",
+      "source": {
+        "file": "bot/src/82-smithy.lua",
+        "start": 28,
+        "end": 33,
+        "symbol": "work_of"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 2,
+      "entered": 2,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3684",
+      "source": {
+        "file": "bot/src/82-smithy.lua",
+        "start": 35,
+        "end": 35,
+        "symbol": "fx_clear"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 0,
+      "entered": 0,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3686",
+      "source": {
+        "file": "bot/src/82-smithy.lua",
+        "start": 37,
+        "end": 37,
+        "symbol": "pct"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 0,
+      "entered": 0,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3687",
+      "source": {
+        "file": "bot/src/82-smithy.lua",
+        "start": 39,
+        "end": 55,
+        "symbol": "tab_forge"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 3,
+      "entered": 3,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3689",
+      "source": {
+        "file": "bot/src/82-smithy.lua",
+        "start": 57,
+        "end": 84,
+        "symbol": "tab_process"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 2,
+      "entered": 2,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3691",
+      "source": {
+        "file": "bot/src/82-smithy.lua",
+        "start": 86,
+        "end": 103,
+        "symbol": "B.SCREENS.smithy"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 2,
+      "entered": 2,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3693",
+      "source": {
+        "file": "bot/src/82-smithy.lua",
+        "start": 89,
+        "end": 89,
+        "symbol": "tb"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 0,
+      "entered": 0,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3697",
+      "source": {
+        "file": "bot/src/82-smithy.lua",
+        "start": 106,
+        "end": 125,
+        "symbol": "work_note"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 4,
+      "entered": 4,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3698",
+      "source": {
+        "file": "bot/src/82-smithy.lua",
+        "start": 107,
+        "end": 114,
+        "symbol": "cut"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 2,
+      "entered": 2,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3699",
+      "source": {
+        "file": "bot/src/82-smithy.lua",
+        "start": 117,
+        "end": 119,
+        "symbol": "work_note::익명 함수@117"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 0,
+      "entered": 0,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3700",
+      "source": {
+        "file": "bot/src/82-smithy.lua",
+        "start": 122,
+        "end": 122,
+        "symbol": "work_note::익명 함수@122"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 0,
+      "entered": 0,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P3701",
+      "source": {
+        "file": "bot/src/82-smithy.lua",
+        "start": 127,
+        "end": 189,
+        "symbol": "B.H.sm"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 18,
+      "entered": 18,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2826",
+      "source": {
+        "file": "bot/src/71-shop.lua",
+        "start": 63,
+        "end": 75,
+        "symbol": "B.tw_npcs"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 3,
+      "entered": 3,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2828",
+      "source": {
+        "file": "bot/src/71-shop.lua",
+        "start": 83,
+        "end": 137,
+        "symbol": "B.SCREENS.shop"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 13,
+      "entered": 13,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2836",
+      "source": {
+        "file": "bot/src/71-shop.lua",
+        "start": 141,
+        "end": 153,
+        "symbol": "B.shop_after_buy"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 3,
+      "entered": 3,
+      "remaining_entries": [],
+      "baseline_missing": 3,
+      "newly_entered_baseline": [
+        {
+          "key": "71-shop.lua:146:9091",
+          "line": 146,
+          "offset": 9091,
+          "token": "then"
+        },
+        {
+          "key": "71-shop.lua:147:9128",
+          "line": 147,
+          "offset": 9128,
+          "token": "then"
+        },
+        {
+          "key": "71-shop.lua:148:9209",
+          "line": 148,
+          "offset": 9209,
+          "token": "then"
+        }
+      ]
+    },
+    {
+      "id": "P2841",
+      "source": {
+        "file": "bot/src/71-shop.lua",
+        "start": 155,
+        "end": 224,
+        "symbol": "B.H.sh"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 22,
+      "entered": 22,
+      "remaining_entries": [],
+      "baseline_missing": 22,
+      "newly_entered_baseline": [
+        {
+          "key": "71-shop.lua:156:9515",
+          "line": 156,
+          "offset": 9515,
+          "token": "then"
+        },
+        {
+          "key": "71-shop.lua:158:9599",
+          "line": 158,
+          "offset": 9599,
+          "token": "then"
+        },
+        {
+          "key": "71-shop.lua:160:9737",
+          "line": 160,
+          "offset": 9737,
+          "token": "then"
+        },
+        {
+          "key": "71-shop.lua:161:9794",
+          "line": 161,
+          "offset": 9794,
+          "token": "then"
+        },
+        {
+          "key": "71-shop.lua:163:9893",
+          "line": 163,
+          "offset": 9893,
+          "token": "then"
+        },
+        {
+          "key": "71-shop.lua:164:9937",
+          "line": 164,
+          "offset": 9937,
+          "token": "then"
+        },
+        {
+          "key": "71-shop.lua:165:10116",
+          "line": 165,
+          "offset": 10116,
+          "token": "then"
+        },
+        {
+          "key": "71-shop.lua:167:10197",
+          "line": 167,
+          "offset": 10197,
+          "token": "then"
+        },
+        {
+          "key": "71-shop.lua:167:10248",
+          "line": 167,
+          "offset": 10248,
+          "token": "else"
+        },
+        {
+          "key": "71-shop.lua:174:10493",
+          "line": 174,
+          "offset": 10493,
+          "token": "then"
+        },
+        {
+          "key": "71-shop.lua:178:10749",
+          "line": 178,
+          "offset": 10749,
+          "token": "then"
+        },
+        {
+          "key": "71-shop.lua:180:10906",
+          "line": 180,
+          "offset": 10906,
+          "token": "then"
+        },
+        {
+          "key": "71-shop.lua:181:10986",
+          "line": 181,
+          "offset": 10986,
+          "token": "then"
+        },
+        {
+          "key": "71-shop.lua:182:11101",
+          "line": 182,
+          "offset": 11101,
+          "token": "then"
+        },
+        {
+          "key": "71-shop.lua:191:11428",
+          "line": 191,
+          "offset": 11428,
+          "token": "then"
+        },
+        {
+          "key": "71-shop.lua:194:11588",
+          "line": 194,
+          "offset": 11588,
+          "token": "then"
+        },
+        {
+          "key": "71-shop.lua:196:11649",
+          "line": 196,
+          "offset": 11649,
+          "token": "do"
+        },
+        {
+          "key": "71-shop.lua:199:11751",
+          "line": 199,
+          "offset": 11751,
+          "token": "do"
+        },
+        {
+          "key": "71-shop.lua:211:12395",
+          "line": 211,
+          "offset": 12395,
+          "token": "then"
+        },
+        {
+          "key": "71-shop.lua:213:12526",
+          "line": 213,
+          "offset": 12526,
+          "token": "then"
+        },
+        {
+          "key": "71-shop.lua:218:12720",
+          "line": 218,
+          "offset": 12720,
+          "token": "then"
+        },
+        {
+          "key": "71-shop.lua:220:12816",
+          "line": 220,
+          "offset": 12816,
+          "token": "then"
+        }
+      ]
+    },
+    {
+      "id": "P2870",
+      "source": {
+        "file": "bot/src/72-guild.lua",
+        "start": 12,
+        "end": 16,
+        "symbol": "B.gd_title"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 1,
+      "entered": 1,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2871",
+      "source": {
+        "file": "bot/src/72-guild.lua",
+        "start": 17,
+        "end": 21,
+        "symbol": "B.gd_title_en"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 1,
+      "entered": 1,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2872",
+      "source": {
+        "file": "bot/src/72-guild.lua",
+        "start": 23,
+        "end": 27,
+        "symbol": "B.gd_find"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 3,
+      "entered": 3,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2873",
+      "source": {
+        "file": "bot/src/72-guild.lua",
+        "start": 29,
+        "end": 34,
+        "symbol": "B.gd_remove"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 2,
+      "entered": 2,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2877",
+      "source": {
+        "file": "bot/src/72-guild.lua",
+        "start": 45,
+        "end": 49,
+        "symbol": "B.gd_base_lv"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 1,
+      "entered": 1,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2886",
+      "source": {
+        "file": "bot/src/72-guild.lua",
+        "start": 148,
+        "end": 153,
+        "symbol": "B.gd_fill"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 1,
+      "entered": 1,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2890",
+      "source": {
+        "file": "bot/src/72-guild.lua",
+        "start": 163,
+        "end": 169,
+        "symbol": "B.gd_candidates"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 2,
+      "entered": 2,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2891",
+      "source": {
+        "file": "bot/src/72-guild.lua",
+        "start": 172,
+        "end": 176,
+        "symbol": "B.gd_tier"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 5,
+      "entered": 5,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2892",
+      "source": {
+        "file": "bot/src/72-guild.lua",
+        "start": 178,
+        "end": 189,
+        "symbol": "B.gd_quest_card"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 2,
+      "entered": 2,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2896",
+      "source": {
+        "file": "bot/src/72-guild.lua",
+        "start": 191,
+        "end": 201,
+        "symbol": "tab_board"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 2,
+      "entered": 2,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2900",
+      "source": {
+        "file": "bot/src/72-guild.lua",
+        "start": 206,
+        "end": 208,
+        "symbol": "recruit_cell"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 0,
+      "entered": 0,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2901",
+      "source": {
+        "file": "bot/src/72-guild.lua",
+        "start": 210,
+        "end": 227,
+        "symbol": "recruit_result"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 1,
+      "entered": 1,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2902",
+      "source": {
+        "file": "bot/src/72-guild.lua",
+        "start": 229,
+        "end": 246,
+        "symbol": "recruit_roster"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 2,
+      "entered": 2,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2904",
+      "source": {
+        "file": "bot/src/72-guild.lua",
+        "start": 248,
+        "end": 272,
+        "symbol": "B.gd_recruit_tab"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 4,
+      "entered": 4,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2907",
+      "source": {
+        "file": "bot/src/72-guild.lua",
+        "start": 275,
+        "end": 288,
+        "symbol": "B.SCREENS.guild"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 3,
+      "entered": 3,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2909",
+      "source": {
+        "file": "bot/src/72-guild.lua",
+        "start": 278,
+        "end": 278,
+        "symbol": "tb"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 0,
+      "entered": 0,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2912",
+      "source": {
+        "file": "bot/src/72-guild.lua",
+        "start": 291,
+        "end": 319,
+        "symbol": "meet"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 6,
+      "entered": 6,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2921",
+      "source": {
+        "file": "bot/src/72-guild.lua",
+        "start": 316,
+        "end": 316,
+        "symbol": "meet::익명 함수@316"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 0,
+      "entered": 0,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2922",
+      "source": {
+        "file": "bot/src/72-guild.lua",
+        "start": 321,
+        "end": 370,
+        "symbol": "B.H.gd"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 20,
+      "entered": 20,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2946",
+      "source": {
+        "file": "bot/src/73-inn.lua",
+        "start": 17,
+        "end": 19,
+        "symbol": "act_visible"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 0,
+      "entered": 0,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2954",
+      "source": {
+        "file": "bot/src/73-inn.lua",
+        "start": 44,
+        "end": 86,
+        "symbol": "B.SCREENS.inn"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 7,
+      "entered": 7,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2961",
+      "source": {
+        "file": "bot/src/73-inn.lua",
+        "start": 88,
+        "end": 121,
+        "symbol": "B[\"H\"][\"in\"]"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 13,
+      "entered": 12,
+      "remaining_entries": [
+        {
+          "key": "73-inn.lua:98:5731",
+          "line": 98,
+          "offset": 5731,
+          "token": "then"
+        }
+      ],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2976",
+      "source": {
+        "file": "bot/src/73-inn.lua",
+        "start": 118,
+        "end": 118,
+        "symbol": "B[\"H\"][\"in\"]::익명 함수@118"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 0,
+      "entered": 0,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2979",
+      "source": {
+        "file": "bot/src/74-affection.lua",
+        "start": 21,
+        "end": 21,
+        "symbol": "B.aff_r2"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 0,
+      "entered": 0,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2981",
+      "source": {
+        "file": "bot/src/74-affection.lua",
+        "start": 36,
+        "end": 44,
+        "symbol": "B.aff_add"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 3,
+      "entered": 3,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2984",
+      "source": {
+        "file": "bot/src/74-affection.lua",
+        "start": 47,
+        "end": 58,
+        "symbol": "B.aff_party"
+      },
+      "previous_status": "일부",
+      "called": true,
+      "explicit_entries": 4,
+      "entered": 3,
+      "remaining_entries": [
+        {
+          "key": "74-affection.lua:49:2063",
+          "line": 49,
+          "offset": 2063,
+          "token": "then"
+        }
+      ],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    },
+    {
+      "id": "P2985",
+      "source": {
+        "file": "bot/src/74-affection.lua",
+        "start": 61,
+        "end": 65,
+        "symbol": "B.aff_fmt"
+      },
+      "previous_status": "미확인",
+      "called": true,
+      "explicit_entries": 1,
+      "entered": 1,
+      "remaining_entries": [],
+      "baseline_missing": 0,
+      "newly_entered_baseline": []
+    }
+  ]
+}

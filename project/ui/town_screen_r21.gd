@@ -601,6 +601,7 @@ func inn() -> void:
 	var acts=host.model.TOWN_RULES.DATA.inn
 	for i in range(4):
 		var key=["talk","meal","gift","rest"][i];var e=acts[key];var x=18+i*91
+		if not host.model.TOWN_RULES.inn_act_visible(host.model.s,key,host.who):continue
 		var used=not e.day and host.model.s.acts.get(host.who+"_"+key,0)==host.model.s.day
 		var callback=func():host._act(host.model.begin_dialogue.bind(host.who),"") if key=="talk" else host._ask(e.name+" · 금화 %d\n호감이 변합니다."%e.cost,host.model.inn.bind(host.who,key))
 		action("inn:"+key,"",Rect2(x,645,81,91),callback,i==0,used or host.model.s.gold<e.cost)

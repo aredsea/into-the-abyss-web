@@ -75,6 +75,6 @@ for _,scene in ipairs({'shop','guild','inn','smithy'})do for _,lang in ipairs({'
  end
 end end
 return out`);
-fs.writeFileSync(root+'/verification/parity-r23/round2-oracle.json',JSON.stringify(out)+'\n');
+fs.writeFileSync(root+'/verification/parity-r23/gear-round2-oracle.json',JSON.stringify(out)+'\n');
 fs.writeFileSync(root+'/verification/parity-r23/round2-provenance.json',JSON.stringify({sources:names.map((name,i)=>({name,sha256:crypto.createHash('sha256').update(raws[i]).digest('hex')})),observer_exports:['work_of','pct','work_note','cut'],counts:Object.fromEntries(Object.entries(out).map(([k,v])=>[k,v.length]))},null,2));
 console.log(Object.fromEntries(Object.entries(out).map(([k,v])=>[k,v.length])));sim.close();

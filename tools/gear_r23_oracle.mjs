@@ -118,6 +118,6 @@ for _,arg in ipairs({'talk_hildegard','meal_hildegard','gift_hildegard','rest_hi
 end
 return out`);
 const dir=root+'/verification/parity-r23';fs.mkdirSync(dir,{recursive:true});
-fs.writeFileSync(dir+'/oracle.json',JSON.stringify(data)+'\n');
-fs.writeFileSync(dir+'/provenance.json',JSON.stringify({method:'Canonical functions executed in Wasmoon; no formula reimplementation; host chat variables in memory.',sources:[...files,{name:'79-sex.lua (ordinary affinity helpers only)',text:npc.join('\n')}].map(f=>({file:f.name,sha256:crypto.createHash('sha256').update(f.text).digest('hex')})),source_write:false,adult_handlers_invoked:false},null,2));
+fs.writeFileSync(dir+'/gear-oracle.json',JSON.stringify(data)+'\n');
+fs.writeFileSync(dir+'/gear-provenance.json',JSON.stringify({method:'Canonical functions executed in Wasmoon; no formula reimplementation; host chat variables in memory.',sources:[...files,{name:'79-sex.lua (ordinary affinity helpers only)',text:npc.join('\n')}].map(f=>({file:f.name,sha256:crypto.createHash('sha256').update(f.text).digest('hex')})),source_write:false,adult_handlers_invoked:false},null,2));
 console.log(Object.fromEntries(Object.entries(data).map(([k,v])=>[k,Array.isArray(v)?v.length:'catalog'])));sim.close();

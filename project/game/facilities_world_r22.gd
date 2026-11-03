@@ -8,7 +8,12 @@ var smithy_work=[]
 var shop_got={}
 var receipt={}
 var smithy_tab="forge"
-var smithy_fx={}
+var smithy_source_fx={}
+var smithy_fx: Dictionary:
+	get:return smithy_source_fx.get("forge_fx",smithy_source_fx.get("proc_fx",{}))
+	set(value):
+		gear.fx_clear(smithy_source_fx)
+		if not value.is_empty():smithy_source_fx["forge_fx" if value.kind=="forge" else "proc_fx"]=value
 
 func _init():
 	super()

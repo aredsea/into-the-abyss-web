@@ -9,7 +9,7 @@ func source_equipment(w) -> Dictionary:
 func source_bag(w) -> Array:
 	return w.s.gear.filter(func(e):return w.wearer(int(e.uid))=="").map(func(e):return w.gear.code(e))
 func run():
-	var o=JSON.parse_string(FileAccess.get_file_as_string("res://../verification/parity-r23/round2-oracle.json"))
+	var o=JSON.parse_string(FileAccess.get_file_as_string("res://../verification/parity-r23/gear-round2-oracle.json"))
 	var r=GearRules.new();var smith=World.new().gear
 	for method in ["work_of","work_note","work_cut","work_gear_label"]:check(smith.has_method(method),"source helper missing: "+method)
 	if smith.has_method("work_note"):

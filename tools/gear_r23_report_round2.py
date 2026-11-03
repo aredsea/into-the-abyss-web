@@ -25,16 +25,16 @@ for row in rows:
    evidence+=['tools/gear_r23_predecessors.mjs','project/tests/gear_r23_predecessors_test.gd']
    row['remaining_reason']='선행 GH 콜백의 무변경/상태 변경/사망·고갈 분기를 원본 래퍼에서 실제 호출하고 경계 이후 native 장비 효과/호출 순서를 대조했다. native 실행은 기록한 선행 콜백 직후부터 시작하므로 임의 GH 콜백 ABI/전체 소유자 합성 계약을 같음으로 세지 않음.'
   elif rid in {'P3532','P3533','P3536','P3537','P3540','P3549','P3552','P3553','P3554','P3555'}:
-   evidence+=['project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume','project/tests/gear_r23_test.gd::bag / migrate','verification/parity-r23/round2-oracle.json::bag_host']
+   evidence+=['project/tests/gear_r23_round2_test.gd::source_transaction / native_transaction / native_transaction_resume','project/tests/gear_r23_test.gd::bag / migrate','verification/parity-r23/gear-round2-oracle.json::bag_host']
   elif rid in {'P2836','P2841'}:evidence+=['server/abyss-save/test/gear-r23.mjs','verification/parity-r23/cloud-boundary.json','project/tests/gear_r23_test.gd::shop_bonus / shop_resume','project/tests/gear_r23_bonus_resume_test.gd']
-  elif rid=='P2981':evidence+=['verification/parity-r23/round2-oracle.json::aff','project/tests/affection_r21_test.gd','project/tests/dialogue_player_r21_test.gd']
-  else:evidence+=['verification/parity-r23/round2-oracle.json::screens / pct','project/tests/gear_r23_facilities_test.gd','project/tests/ui_facilities_r22_test.gd','project/tests/ui_gear_r23_test.gd']
+  elif rid=='P2981':evidence+=['verification/parity-r23/gear-round2-oracle.json::aff','project/tests/affection_r21_test.gd','project/tests/dialogue_player_r21_test.gd']
+  else:evidence+=['verification/parity-r23/gear-round2-oracle.json::screens / pct','project/tests/gear_r23_facilities_test.gd','project/tests/ui_facilities_r22_test.gd','project/tests/ui_gear_r23_test.gd']
   row['round2_evidence']=evidence;row['evidence_tests']+=evidence[1:]
  if rid in promoted:row['new_status']='같음';row['remaining_reason']=''
  elif rid in reasons:row['remaining_reason']=reasons[rid]
  if rid in fixed_new:row['fixed']=True
  if rid in groups:
-  row['source_observation']='verification/parity-r23/round2-oracle.json'
+  row['source_observation']='verification/parity-r23/gear-round2-oracle.json'
   row['comparison_scope']='원본 local 함수 전체 반환과 실제 완료 영수증 source_note 연결. 부모 H.sm의 AI 전송 계약에는 판정을 전파하지 않음.'
  if rid in {'P3532','P3533'}:row['remaining_reason']+=' 2차 원본 실행에서 getChatVar 예외는 빈 목록, setChatVar 예외는 호출자 전파임을 관측. native에는 이 호스트 API가 없어 전체 일치는 아님.'
  if rid=='P2836':row['comparison_scope']='거래 전 호감·횟수·RNG·덤 99 상한·메시지·로컬 재개·실제 서버 저장 보존. 전체 상점 HTML/호스트에는 판정을 전파하지 않음.'

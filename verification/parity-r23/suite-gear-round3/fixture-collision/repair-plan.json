@@ -1,0 +1,16 @@
+{
+  "changed_test_files": [
+    "project/tests/gear_r23_round2_test.gd",
+    "project/tests/gear_r23_round3_test.gd",
+    "project/tests/gear_r23_test.gd"
+  ],
+  "product_code_changed": false,
+  "affected_tests": [
+    "battle_r23_test",
+    "battle_r23_round3_test",
+    "gear_r23_test",
+    "gear_r23_round2_test",
+    "gear_r23_round3_test"
+  ],
+  "reason": "Gear and battle generators shared oracle.json and round3-oracle.json. Move gear fixtures to gear-* paths and regenerate both battle fixtures from canonical Lua."
+}
