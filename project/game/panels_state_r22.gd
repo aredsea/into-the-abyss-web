@@ -2,6 +2,7 @@ extends RefCounted
 ## P7 facade. Keeps native UID/seed/forge entries intact; no gear migration.
 const R=preload("res://game/panels_rules_r22.gd")
 const L=preload("res://game/localization_r22.gd")
+static var codes=preload("res://game/gear_rules_r22.gd").new()
 var model
 var ui={"tab":"","sel":"","page":1,"msg":"","panel":"codex"}
 var bg={"pg":1,"cls":"","slot":"","rar":"","sel":"","cmp":"","conf":""}
@@ -79,9 +80,9 @@ func equip(id: String,e: Dictionary) -> bool:
 	return true
 func unequip(id: String,slot: String) -> bool:
 	if in_battle():ui.msg="전투 중에는 장비를 바꿀 수 없습니다.";return false
+	if not model.s.equipment.get(id,{}).has(slot):ui.msg="끼고 있는 장비가 없습니다.";return false
 	if entries().size()>=2000:ui.msg="가방이 가득 찼습니다.";return false
-	if not model.s.equipment.get(id,{}).has(slot):return false
-	model.s.equipment[id].erase(slot);model._clamp_members();ui.msg="장비를 해제했습니다.";persist();return true
+	model.s.equipment[id].erase(slot);model._clamp_members();persist();return true
 func candidates(id: String,slot: String) -> Array:
 	var out=[]
 	if not R.slot_ok(slot) or (id!="persona" and not R.DATA.cast.has(id)):return out
@@ -127,11 +128,20 @@ func bg_action(arg: String) -> void:
 	elif arg=="back":bg.sel="";bg.conf=""
 	elif arg.begins_with("eq_"):
 		var id=arg.substr(3);var e=selected()
-		if e.is_empty() or (id!="persona" and not R.recruited({"roster":model.s.owned},id)):return
+		if id!="persona" and not R.recruited({"roster":model.s.owned},id):return
+		if e.is_empty():
+			var parsed=codes.gear_parse(bg.sel)
+			if parsed.is_empty() or not codes.source.items.has(parsed.id):return
+			# Reuse the normal class/level checks before reporting a sold item.
+			e={"id":parsed.id,"uid":-1}
 		if equip(id,e):bg.sel="";bg.conf=""
 	elif arg=="sell":
 		var e=selected()
-		if e.is_empty():return
+		if e.is_empty():
+			var stale=codes.gear_roll(bg.sel)
+			if stale.is_empty():return
+			if stale.rarity in ["epic","legend"] and bg.conf!=bg.sel:bg.conf=bg.sel;persist();return
+			bg.sel="";bg.conf="";persist();return
 		if model.gear.by_id[e.id].rarity in ["epic","legend"] and bg.conf!=bg.sel:bg.conf=bg.sel;persist();return
 		var name=model.gear.by_id[e.id].name;var price=model.gear.sell_price(e)
 		if sell(e):ui.msg=L.u("{item:을를} 팔아 금화 {gold:을를} 받았습니다.",{"item":name,"gold":price},L.language(model.s))

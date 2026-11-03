@@ -8,6 +8,24 @@ const COLORS={"common":Color("#8D8A83"),"fine":Color("#5F8A6E"),"rare":Color("#4
 static var PASS=JSON.parse_string(FileAccess.get_file_as_string("res://data/ui-passives-r23.json"))
 static var template=preload("res://game/persona_rules.gd").new()
 static var ICONS=JSON.parse_string(FileAccess.get_file_as_string("res://data/ui-gear-icons-r23.json"))
+static var LEGACY_ITEMS=JSON.parse_string(FileAccess.get_file_as_string("res://data/ui-legacy-items-r23.json"))
+static var gear_names=preload("res://game/gear_rules_r22.gd").new()
+static func item_name(code: Variant,lang="ko") -> Variant:
+	var parsed=gear_names.gear_parse(code)
+	if not parsed.is_empty() and gear_names.source.items.has(parsed.id):return L.t(gear_names.source.items[parsed.id].name,lang)
+	return L.t(LEGACY_ITEMS[code].name,lang) if LEGACY_ITEMS.has(code) else code
+static func notice(value: String) -> String:
+	var tags=RegEx.new();tags.compile("<[^>]*>");value=tags.sub(value," ",true)
+	var numeric=RegEx.new();numeric.compile("&#(x[0-9a-fA-F]+|[0-9]+);")
+	for m in numeric.search_all(value):
+		var raw=m.get_string(1);var n=("0x"+raw.substr(1)).hex_to_int() if raw.begins_with("x") else int(raw)
+		if n>0 and n<=0x10ffff:value=value.replace(m.get_string(),String.chr(n))
+	value=value.replace("&quot;",'"').replace("&#39;","'").replace("&apos;","'").replace("&lt;","<").replace("&gt;",">").replace("&amp;","&")
+	var whitespace=RegEx.new();whitespace.compile("\\s+");return whitespace.sub(value," ",true).strip_edges()
+static func settings_note(key: String,lang="ko") -> String:
+	var source="화면과 AI 답변의 언어입니다. 바꾸면 다음 화면과 다음 답변부터 적용됩니다." if key=="lang" else "층 돌파, 동료 합류, 호감 단계 변화, 레벨업 같은 확정된 일을 한 줄씩 적어 두고, 최근 15줄을 AI에게 알려 줍니다. 끄면 기록도 멈춥니다."
+	# The chat/AI host is excluded by r21-common. Keep the public feature's note.
+	return L.u(source,{},lang).replace("과 AI 답변","").replace("과 다음 답변","").replace("두고, 최근 15줄을 AI에게 알려 줍니다.","둡니다.").replace(" and the AI's replies","").replace(" and the next reply","").replace(" The latest 15 entries are shared with the AI.","")
 static func icon(item: Dictionary) -> String:return ICONS.get(item.get("id",""),"gear-"+str(item.get("shape","")).replace("_","-"))
 static func icon_path(item: Dictionary) -> String:return "res://assets/ui-gear-r23/"+icon(item)+".webp"
 static func tile(item: Dictionary,action: Variant=null,sub: Variant=null,lang="ko") -> Dictionary:
@@ -89,7 +107,7 @@ static func observe(fn: String,args: Array,lang="ko") -> Dictionary:
 				for t in b.tiers:words.append_array(t)
 		"stats":
 			for e in stats(args[0] if args[0] is Dictionary else {},lang):words.append_array(e)
-		"notice":out.text=args[0]
+		"notice":out.text=notice(args[0])
 		"bar":out.bars=[bar(args[1],args[2])]
 		"expbar":
 			var g=args[0];var cid=args[1];var xp=g.persona.exp if cid=="persona" else g.exp.get(cid,0)

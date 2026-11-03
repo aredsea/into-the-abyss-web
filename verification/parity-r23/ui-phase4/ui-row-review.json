@@ -1,0 +1,876 @@
+[
+  {
+    "id": "P0017",
+    "feature": "영구 상태 — 함수 B.G_new",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 13,
+      "end": 42,
+      "symbol": "B.G_new"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "원본 G_new의 관찰 투영(빈 생성·아이템·진행·난수 초기화)을 native 전체 초기 상태와 연결하는 시험이 더 필요하다. 기본 생성과 기본 재화 회귀는 통과. 초기화 연결은 수정 금지 persona_world.gd/town_world_r21.gd에 있다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 persona_world.gd·town_world_r21.gd·gear_*에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P0084",
+    "feature": "영구 상태 — 함수 B.G_migrate",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 44,
+      "end": 56,
+      "symbol": "B.G_migrate"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "원본 G_migrate는 누락 필드를 채우지만 native는 schema 없는 원본 G와 잘못된 타입을 전체 거절한다. 기존 native schema 1/2 보존 시험만으로 원본 v1 이관까지 같음으로 올리지 않는다. 연결은 수정 금지 persona_world/상위 world 경로. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 persona_world.gd·town_world_r21.gd·gear_*에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P0085",
+    "feature": "영구 상태 — 함수 B.G_load",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 58,
+      "end": 69,
+      "symbol": "B.G_load"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "원본 load의 초과 경험치 정산·잘못된 장착 환원과 native restore의 전체 관찰 투영 대조가 남았다. 기존 저장 보존은 통과하나 수정 금지 persona_world/원정·장비 연결을 변경하지 않았다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 persona_world.gd·town_world_r21.gd·gear_*에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P0089",
+    "feature": "영구 상태 — 함수 B.ui_pack",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 78,
+      "end": 85,
+      "symbol": "B.ui_pack"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "같음",
+    "tests": [
+      "ui_phase4_r23_test"
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P0090",
+    "feature": "영구 상태 — 함수 B.U",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 86,
+      "end": 97,
+      "symbol": "B.U"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "같음",
+    "tests": [
+      "ui_phase4_r23_test"
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P0091",
+    "feature": "영구 상태 — 함수 B.U::익명 함수@90",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 90,
+      "end": 96,
+      "symbol": "B.U::익명 함수@90"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "같음",
+    "tests": [
+      "ui_phase4_r23_test"
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P0092",
+    "feature": "영구 상태 — 함수 B.en_dict",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 98,
+      "end": 104,
+      "symbol": "B.en_dict"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "같음",
+    "tests": [
+      "ui_phase4_r23_test"
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P0095",
+    "feature": "영구 상태 — 함수 B.T",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 122,
+      "end": 125,
+      "symbol": "B.T"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "같음",
+    "tests": [
+      "ui_phase4_r23_test"
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P0097",
+    "feature": "영구 상태 — 함수 B.G_save",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 131,
+      "end": 136,
+      "symbol": "B.G_save"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "로컬 atomic write/백업/재개와 연대기 flush는 기존 회귀 통과. 원본 v1에서 저장 뒤 관찰할 전체 값(코드 장비·상태·진행)을 native UID에 투영하는 대조가 남았다. 저장 매체 차이만을 사유로 남기지 않는다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 persona_world.gd·town_world_r21.gd·gear_*에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P0101",
+    "feature": "영구 상태 — 함수 B.new_seed",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 152,
+      "end": 157,
+      "symbol": "B.new_seed"
+    },
+    "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "before": "미확인",
+    "after": "미확인",
+    "tests": [],
+    "remaining_reason": "원본은 time/clock/random을 결합하나 native는 생성 확정 뒤 randi_range로 seed를 고른다. 같은 시간/난수 입력에서 같은 seed/소비 횟수가 되지 않는다. 수정 금지 persona_world.gd의 create_action 연결이 필요. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 persona_world.gd·town_world_r21.gd·gear_*에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P0105",
+    "feature": "영구 상태 — 함수 B.hud",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 172,
+      "end": 183,
+      "symbol": "B.hud"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "원본 HUD의 장소·금화·즐겨찾기 얼굴·상태/도감/저장/설정 순서와 현재 native 상단/하단에 분산된 동작을 전수 대조하지 않았다. 일부 HUD 연결은 수정 금지 town_screen_r21.gd. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 town_screen_r21.gd·world_screen.gd에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P0131",
+    "feature": "영구 상태 — 함수 B.view",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 291,
+      "end": 324,
+      "symbol": "B.view"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "생성/첫 만남/패널 조립은 회귀 통과. 알 수 없는 scene과 화면 함수 오류의 사용자 표시 및 override 분기의 native 대응을 아직 원본과 직접 비교하지 않았다. 호스트 잠금/성인 override 자체는 제외 범위. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 world_screen.gd에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P0133",
+    "feature": "영구 상태 — 함수 B.route",
+    "source": {
+      "file": "bot/src/01-game.lua",
+      "start": 327,
+      "end": 357,
+      "symbol": "B.route"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "원본 route의 무효 접두/중복 버튼/저장 실패 뒤 부수효과 경계와 native world_screen 전체 경로의 직접 대조가 남았다. 상태 탭 등 개별 handler 같음은 유지. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 world_screen.gd에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P2370",
+    "feature": "페르소나 생성 — 함수 B.C1_en",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 6,
+      "end": 6,
+      "symbol": "B.C1_en"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "같음",
+    "tests": [
+      "ui_phase4_r23_test"
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P2416",
+    "feature": "페르소나 생성 — 함수 B.CR.trait_row",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 268,
+      "end": 275,
+      "symbol": "B.CR.trait_row"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "생성 특성 행은 원본 영어 te_raw→번역→ptx 순서를 쓰나 native create_screen.traits는 사전 보간된 te와 별도 syn_text를 섞는다. 설명/라벨/2·3인 수치의 전수 직접 대조가 필요. persona_rules는 이번 수정 금지. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P2417",
+    "feature": "페르소나 생성 — 함수 B.CR.opt",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 276,
+      "end": 280,
+      "symbol": "B.CR.opt"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "원본 opt는 선택/차단 선택지에도 원래 name/sub를 표시한다. native 국가 옵션은 차단 시 선택 불가 문구를 추가하고 일부 tag를 생략한다. 생성 화면의 선택지 문구/순서 대조가 미완료. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P2418",
+    "feature": "페르소나 생성 — 함수 B.CR.head",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 281,
+      "end": 283,
+      "symbol": "B.CR.head"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "원본 단계 머리의 n / 5·단계 이름·설명 세 항목 중 native는 별도 머리/질문으로 나누며 n / 5가 없다. 단순 HTML 차이가 아니라 표시 항목 차이. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P2419",
+    "feature": "페르소나 생성 — 함수 B.CR.steps",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 284,
+      "end": 291,
+      "symbol": "B.CR.steps"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "원본 단계 버튼에는 번호와 단계명이 함께 있다. native는 이름만 그리며 비활성 조건은 기존 규칙 시험 통과. 번호/순서를 포함한 화면 직접 대조가 남았다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P2421",
+    "feature": "페르소나 생성 — 함수 B.CR.nav",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 292,
+      "end": 302,
+      "symbol": "B.CR.nav"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "원본 뒤로/다음 레이블의 삼각형과 native 레이블이 다르고, 마지막 확정 버튼의 모든 불완전 입력 조합을 현재 포인터 시험과 연결하지 않았다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P2425",
+    "feature": "페르소나 생성 — 함수 B.CR.pg_race",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 305,
+      "end": 328,
+      "symbol": "B.CR.pg_race"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "원본 종족 미선택 안내·수인 계통 tag/선택별 개인 효과와 native traits 중복/표시 항목 차이를 아직 전부 메우지 못했다. 규칙 경계 수정은 금지 persona_rules 경로. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P2426",
+    "feature": "페르소나 생성 — 함수 B.CR.pg_nation",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 330,
+      "end": 346,
+      "symbol": "B.CR.pg_nation"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "국가 선택의 전체 tag·차단 사유 표시/선택 유지와 native의 선택 불가 덧붙임/tooltip을 직접 대조해야 한다. 원본과 다른 문구가 남아 있어 잔여. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P2427",
+    "feature": "페르소나 생성 — 함수 B.CR.pg_cls",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 348,
+      "end": 369,
+      "symbol": "B.CR.pg_cls"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "원본 직업의 수치/스킬/출신 주의 문구와 native 요약이 모든 직업에서 동일한 순서·내용인지 직접 대조하지 못했다. 규칙 파일은 이번 수정 금지. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P2428",
+    "feature": "페르소나 생성 — 함수 B.CR.tot_ui",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 372,
+      "end": 389,
+      "symbol": "B.CR.tot_ui"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "원본 총량 프리셋 설명·직접 모드 ±1/±5 및 native 표시의 일부 문구/설명이 다르다. 총량 수치/경계 기존 시험 통과와 화면 전체 같음은 구별했다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P2434",
+    "feature": "페르소나 생성 — 함수 B.CR.pg_stats",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 391,
+      "end": 414,
+      "symbol": "B.CR.pg_stats"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "원본 능력치 단계의 추천·초기화·증감/상한/HP·MP 설명 전체와 native 화면의 문구/순서를 직접 대조하지 못했다. 규칙 경계는 수정 금지 persona_rules. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P2439",
+    "feature": "페르소나 생성 — 함수 B.CR.pg_confirm",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 417,
+      "end": 444,
+      "symbol": "B.CR.pg_confirm"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "원본 확정 화면의 종족/국가 개인 특성과 시너지 요약에 비해 native는 이름/능력치 중심 요약이다. 실제로 빠진 항목이 있어 잔여. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P2441",
+    "feature": "페르소나 생성 — 함수 B.CR.SUB.익명 함수@450",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 450,
+      "end": 450,
+      "symbol": "B.CR.SUB.익명 함수@450"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "원본 SUB[5] callback은 pg_confirm을 호출한다. 별도 호스트 전용 함수가 아니며 위 P2439 확정 표시 차이가 그대로 남는다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P2442",
+    "feature": "create 화면/패널 표시",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 454,
+      "end": 465,
+      "symbol": "B.SCREENS.create"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "원본 create 합성의 단계 머리/특성/확정 설명 누락은 P2418/P2425/P2439와 연결된다. 원본 전체 HTML 문자열 차이를 잔여 이유로 사용하지 않는다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P2462",
+    "feature": "페르소나 생성 — 함수 B.CR.face",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 555,
+      "end": 565,
+      "symbol": "B.CR.face"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "원본 CR.face는 페르소나 호스트 아바타와 동료 초상/이니셜을 고른다. 호스트 부분은 제외하지만 첫 만남의 없는 초상 fallback은 아직 직접 대조하지 않았다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P2463",
+    "feature": "scenario 화면/패널 표시",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 567,
+      "end": 591,
+      "symbol": "B.SCREENS.scenario"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "원본 첫 만남 선택지의 장소/상황 설명과 native 선택 버튼은 companion 이름 위주로 다르다. 선택한 동료의 미리보기 외 모든 선택지 정보/순서를 비교해야 한다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P2467",
+    "feature": "B.H.sc 버튼 접두 처리",
+    "source": {
+      "file": "bot/src/60-create.lua",
+      "start": 593,
+      "end": 626,
+      "symbol": "B.H.sc"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "원본 첫 만남 시작은 seed 설정·동료/호감/아이템·서술 지시를 함께 바꾼다. AI 지시는 제외하지만 native seed 소비 및 출발 상태 관찰 대조가 남으며 persona_world/persona_rules 수정 금지. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 create_screen.gd·persona_rules에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P2496",
+    "feature": "도감 — 함수 PX.face",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 99,
+      "end": 109,
+      "symbol": "PX.face"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "같음",
+    "tests": [
+      "ui_phase4_r23_test"
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P2500",
+    "feature": "도감 — 함수 PX.notice",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 123,
+      "end": 126,
+      "symbol": "PX.notice"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "같음",
+    "tests": [
+      "ui_phase4_r23_test"
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P2501",
+    "feature": "도감 — 함수 PX.item_name",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 130,
+      "end": 135,
+      "symbol": "PX.item_name"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "같음",
+    "tests": [
+      "ui_phase4_r23_test"
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P2521",
+    "feature": "도감 — 함수 PX.cx_tile",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 273,
+      "end": 285,
+      "symbol": "PX.cx_tile"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "같음",
+    "tests": [
+      "ui_phase4_native_r23_test",
+      "ui_phase4_codex_r23_test"
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P2523",
+    "feature": "도감 — 함수 PX.cx_listview",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 287,
+      "end": 308,
+      "symbol": "PX.cx_listview"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "같음",
+    "tests": [
+      "ui_phase4_codex_r23_test",
+      "ui_phase4_native_r23_test"
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P2528",
+    "feature": "도감 — 함수 PX.cx_equip",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 313,
+      "end": 344,
+      "symbol": "PX.cx_equip"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [
+      "ui_phase4_edges_r23_test",
+      "ui_phase4_detail_r23_test"
+    ],
+    "remaining_reason": "표시 순서·장비 해제의 빈 칸/1999/2000칸·중복 코드 장착·저장 재개는 새 대조 통과. 실제 전투에서 도감 패널을 여는 전체 경로는 world_screen.gd/전투 파일 동결로 연결하지 못했다. 원본의 옛 아이템 문자열이 든 장착 저장을 UID 모델로 옮기는 전체 경로는 gear_*·persona_world 동결 범위다."
+  },
+  {
+    "id": "P2534",
+    "feature": "도감 — 함수 PX.cx_detail",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 385,
+      "end": 406,
+      "symbol": "PX.cx_detail"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [
+      "ui_phase4_detail_r23_test"
+    ],
+    "remaining_reason": "30명×한영의 전체 공개 상세 정보/문구/순서/막대, 실제 원본 특성 아이콘 4개와 여우/늑대/표범 계통 패시브까지 직접 대조 통과. 장착·해제와 옛 장착 저장 및 실제 전투 진입의 복합 경계 P2528이 남아 전체 승격은 보류."
+  },
+  {
+    "id": "P2537",
+    "feature": "codex 화면/패널 표시",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 408,
+      "end": 413,
+      "symbol": "B.PANELS.codex"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [
+      "ui_phase4_detail_r23_test",
+      "ui_phase4_codex_r23_test"
+    ],
+    "remaining_reason": "목록·미영입·전체 동료 상세와 페르소나에서 불필요한 패시브를 보이는 차이는 보완했다. 전체 패널은 P2528/P2534의 옛 저장·전투 연결 경계를 상속한다. 동결 대상 world_screen.gd/gear_*/persona_world."
+  },
+  {
+    "id": "P2539",
+    "feature": "B.H.cx 버튼 접두 처리",
+    "source": {
+      "file": "bot/src/65-codex.lua",
+      "start": 415,
+      "end": 466,
+      "symbol": "B.H.cx"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [
+      "ui_phase4_edges_r23_test"
+    ],
+    "remaining_reason": "새 8개 실제 상태 대조에서 2000칸 교환, 1999/2000칸 해제, 중복 코드·장착 UID·저장 재개와 오류 알림은 일치. 원본 버튼 코드→native UID의 잘못된 코드/옛 장착 입력 및 실제 전투 라우터를 잇는 전체 관찰은 동결 world_screen.gd/gear_* 경계로 남긴다."
+  },
+  {
+    "id": "P2563",
+    "feature": "페르소나/참전 상태 — 함수 PX.st_fav",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 38,
+      "end": 46,
+      "symbol": "PX.st_fav"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "같음",
+    "tests": [
+      "ui_phase4_native_r23_test",
+      "ui_phase4_status_r23_test"
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P2565",
+    "feature": "페르소나/참전 상태 — 함수 PX.st_me",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 48,
+      "end": 61,
+      "symbol": "PX.st_me"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "같음",
+    "tests": [
+      "ui_phase4_status_r23_test"
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P2567",
+    "feature": "페르소나/참전 상태 — 함수 PX.st_unit",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 64,
+      "end": 79,
+      "symbol": "PX.st_unit"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "전투 상태창 단위의 아군 MP/적 심연/상태칩/사망 표시와 native 전투 inspector를 원본 st_unit 출력에 직접 대조하지 않았다. 전투 파일은 이번 수정 금지. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 world_screen.gd·battle_screen.gd·전투 규칙에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P2568",
+    "feature": "페르소나/참전 상태 — 함수 PX.st_battle",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 81,
+      "end": 92,
+      "symbol": "PX.st_battle"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "전투 승리/패배 표지·아군→적 순서·redo 초기화와 native 상태 패널의 직접 대조가 남았다. 전투 파일 수정 금지로 다음 차수에 남긴다. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 world_screen.gd·battle_screen.gd·전투 규칙에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P2578",
+    "feature": "페르소나/참전 상태 — 함수 PX.bg_listview",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 155,
+      "end": 185,
+      "symbol": "PX.bg_listview"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "같음",
+    "tests": [
+      "ui_phase4_screens_r23_test",
+      "ui_phase4_edges_r23_test"
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P2586",
+    "feature": "페르소나/참전 상태 — 함수 PX.bg_detail",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 230,
+      "end": 305,
+      "symbol": "PX.bg_detail"
+    },
+    "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "before": "일부",
+    "after": "같음",
+    "tests": [
+      "ui_phase4_screens_r23_test",
+      "ui_phase4_edges_r23_test"
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P2592",
+    "feature": "페르소나/참전 상태 — 함수 PX.bg_view",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 307,
+      "end": 315,
+      "symbol": "PX.bg_view"
+    },
+    "prior_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
+    "before": "미확인",
+    "after": "같음",
+    "tests": [
+      "ui_phase4_screens_r23_test",
+      "ui_phase4_edges_r23_test"
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P2593",
+    "feature": "B.H.bg 버튼 접두 처리",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 317,
+      "end": 368,
+      "symbol": "B.H.bg"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [
+      "ui_phase4_edges_r23_test"
+    ],
+    "remaining_reason": "판매된 선택의 판매/장착, 중복 장비, 가방 2000칸 교환 및 저장 재개는 실제 native 어댑터와 직접 일치. 전투 중 남은 버튼 요청을 공통 라우터에서 거절하는 전체 경로 및 옛 장착 저장 입력은 world_screen.gd/gear_* 동결 범위라 함수 전체는 일부 유지."
+  },
+  {
+    "id": "P2606",
+    "feature": "status 화면/패널 표시",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 370,
+      "end": 382,
+      "symbol": "B.PANELS.status"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [
+      "ui_phase4_native_r23_test",
+      "ui_phase4_status_r23_test"
+    ],
+    "remaining_reason": "평시 persona/즐겨찾기와 가방 표시, 전투 상태를 가진 패널 구성요소에서 가방 진입 숨김은 검사했다. 실제 전투 화면은 world_screen.gd가 먼저 전투로 강제 전환하며, source st_unit/st_battle의 동작·탭·복귀를 잇는 전투 파일은 동결이다."
+  },
+  {
+    "id": "P2617",
+    "feature": "페르소나/참전 상태 — 함수 B.HUD_EXTRA[#B.HUD_EXTRA + 1]",
+    "source": {
+      "file": "bot/src/66-status.lua",
+      "start": 389,
+      "end": 399,
+      "symbol": "B.HUD_EXTRA[#B.HUD_EXTRA + 1]"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [],
+    "remaining_reason": "원본 HUD 즐겨찾기 최대 3명 얼굴·선택 버튼과 native HUD의 실제 진입/배치 대응을 직접 대조하지 않았다. 연결 대상 town_screen_r21.gd는 수정 금지. 4차: 해당 전체 화면/초기 상태 연결은 이번 동결 대상 town_screen_r21.gd·world_screen.gd에 의존하므로 파일을 바꾸지 않았다."
+  },
+  {
+    "id": "P2629",
+    "feature": "settings 화면/패널 표시",
+    "source": {
+      "file": "bot/src/67-settings.lua",
+      "start": 38,
+      "end": 107,
+      "symbol": "B.PANELS.settings"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [
+      "ui_phase4_screens_r23_test",
+      "ui_phase4_visual_r23_test"
+    ],
+    "remaining_reason": "공개 선택지 32개 상태의 레이블/선택·설명, 초기화 확인 중 나머지 설정 유지, 클라우드 대체 화면 진입을 검사했다. 전체 초기화 뒤 원본 G_new 관찰은 P2637에 남고, 별도 계정 화면의 복귀/전체 합성은 동결 cloud_screen_r22.gd·world_screen.gd를 포함한다."
+  },
+  {
+    "id": "P2630",
+    "feature": "설정 — 함수 opt",
+    "source": {
+      "file": "bot/src/67-settings.lua",
+      "start": 48,
+      "end": 54,
+      "symbol": "opt"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "같음",
+    "tests": [
+      "ui_phase4_screens_r23_test"
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P2631",
+    "feature": "설정 — 함수 tog",
+    "source": {
+      "file": "bot/src/67-settings.lua",
+      "start": 80,
+      "end": 85,
+      "symbol": "tog"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "같음",
+    "tests": [
+      "ui_phase4_screens_r23_test"
+    ],
+    "remaining_reason": ""
+  },
+  {
+    "id": "P2637",
+    "feature": "B.H.op 버튼 접두 처리",
+    "source": {
+      "file": "bot/src/67-settings.lua",
+      "start": 109,
+      "end": 150,
+      "symbol": "B.H.op"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "일부",
+    "tests": [
+      "ui_phase4_visual_r23_test"
+    ],
+    "remaining_reason": "실제 포인터로 난이도 변경 시 초기화 확인 해제 및 저장/재개 경로를 보완했다. 초기화 후 전체 초기 관찰(난수·진행·장비·동료)의 원본 G_new 투영은 persona_world/gear_*/town_world 동결 경계라 보류."
+  },
+  {
+    "id": "P3721",
+    "feature": "초상 검증 — 함수 B.portrait",
+    "source": {
+      "file": "bot/src/85-portrait.lua",
+      "start": 42,
+      "end": 46,
+      "symbol": "B.portrait"
+    },
+    "prior_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
+    "before": "일부",
+    "after": "같음",
+    "tests": [
+      "ui_phase4_r23_test"
+    ],
+    "remaining_reason": ""
+  }
+]

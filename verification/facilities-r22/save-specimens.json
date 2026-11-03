@@ -4,38 +4,21 @@
     "board": [
       {
         "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
-        "difficulty": "높음",
-        "elite": false,
-        "gold": 100,
-        "id": 1,
-        "kind": "구조",
-        "level": 4,
-        "lv": 4,
-        "name": "고립된 탐사대 구조",
-        "reward_v": 2,
-        "rift": "남서 설산 균열",
-        "source_id": "q1",
-        "stars": 2,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
-      },
-      {
-        "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
         "difficulty": "엘리트",
         "elite": true,
         "gold": 100,
-        "id": 2,
-        "kind": "구조",
+        "id": 1,
+        "kind": "토벌",
         "level": 1,
         "lv": 1,
-        "name": "고립된 탐사대 구조",
+        "name": "균열 핵 토벌",
         "reward_v": 2,
         "rift": "남동 숲 균열",
-        "source_id": "q2",
+        "source_id": "q1",
         "stars": 2,
-        "strength": 1.7,
-        "title": "남동 숲 균열, 고립된 탐사대 구조"
+        "strength": 2.0,
+        "title": "남동 숲 균열, 균열 핵 토벌"
       },
       {
         "cmp": true,
@@ -43,33 +26,50 @@
         "difficulty": "낮음",
         "elite": false,
         "gold": 100,
-        "id": 3,
-        "kind": "회수",
-        "level": 1,
-        "lv": 1,
-        "name": "잃어버린 유품 회수",
-        "reward_v": 2,
-        "rift": "남서 설산 균열",
-        "source_id": "q3",
-        "stars": 1,
-        "title": "남서 설산 균열, 잃어버린 유품 회수"
-      },
-      {
-        "cmp": true,
-        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "중간",
-        "elite": false,
-        "gold": 100,
-        "id": 4,
+        "id": 2,
         "kind": "회수",
         "level": 1,
         "lv": 1,
         "name": "잃어버린 유품 회수",
         "reward_v": 2,
         "rift": "남동 숲 균열",
-        "source_id": "q4",
+        "source_id": "q2",
         "stars": 2,
         "title": "남동 숲 균열, 잃어버린 유품 회수"
+      },
+      {
+        "cmp": true,
+        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "difficulty": "중간",
+        "elite": false,
+        "gold": 100,
+        "id": 3,
+        "kind": "구조",
+        "level": 1,
+        "lv": 1,
+        "name": "고립된 탐사대 구조",
+        "reward_v": 2,
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
+        "stars": 2,
+        "title": "남동 숲 균열, 고립된 탐사대 구조"
+      },
+      {
+        "cmp": true,
+        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "difficulty": "높음",
+        "elite": false,
+        "gold": 100,
+        "id": 4,
+        "kind": "구조",
+        "level": 4,
+        "lv": 4,
+        "name": "고립된 탐사대 구조",
+        "reward_v": 2,
+        "rift": "남서 설산 균열",
+        "source_id": "q4",
+        "stars": 2,
+        "title": "남서 설산 균열, 고립된 탐사대 구조"
       }
     ],
     "commerce_r21": {
@@ -606,7 +606,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 1409423543,
+    "rng": 1154985641,
     "run": {},
     "runs": 0,
     "scenario": "teiris",
@@ -617,7 +617,7 @@
     "town_r21": {
       "counter": 4,
       "qn": 4,
-      "seed": 1409423543
+      "seed": 1154985641
     },
     "ui": {
       "msg": "회복약 · 소 하나를 샀습니다. (보유 10001, 남은 금화 99960)",
@@ -631,38 +631,21 @@
     "board": [
       {
         "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
-        "difficulty": "높음",
-        "elite": false,
-        "gold": 100,
-        "id": 1,
-        "kind": "구조",
-        "level": 4,
-        "lv": 4,
-        "name": "고립된 탐사대 구조",
-        "reward_v": 2,
-        "rift": "남서 설산 균열",
-        "source_id": "q1",
-        "stars": 2,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
-      },
-      {
-        "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
         "difficulty": "엘리트",
         "elite": true,
         "gold": 100,
-        "id": 2,
-        "kind": "구조",
+        "id": 1,
+        "kind": "토벌",
         "level": 1,
         "lv": 1,
-        "name": "고립된 탐사대 구조",
+        "name": "균열 핵 토벌",
         "reward_v": 2,
         "rift": "남동 숲 균열",
-        "source_id": "q2",
+        "source_id": "q1",
         "stars": 2,
-        "strength": 1.7,
-        "title": "남동 숲 균열, 고립된 탐사대 구조"
+        "strength": 2.0,
+        "title": "남동 숲 균열, 균열 핵 토벌"
       },
       {
         "cmp": true,
@@ -670,33 +653,50 @@
         "difficulty": "낮음",
         "elite": false,
         "gold": 100,
-        "id": 3,
-        "kind": "회수",
-        "level": 1,
-        "lv": 1,
-        "name": "잃어버린 유품 회수",
-        "reward_v": 2,
-        "rift": "남서 설산 균열",
-        "source_id": "q3",
-        "stars": 1,
-        "title": "남서 설산 균열, 잃어버린 유품 회수"
-      },
-      {
-        "cmp": true,
-        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "중간",
-        "elite": false,
-        "gold": 100,
-        "id": 4,
+        "id": 2,
         "kind": "회수",
         "level": 1,
         "lv": 1,
         "name": "잃어버린 유품 회수",
         "reward_v": 2,
         "rift": "남동 숲 균열",
-        "source_id": "q4",
+        "source_id": "q2",
         "stars": 2,
         "title": "남동 숲 균열, 잃어버린 유품 회수"
+      },
+      {
+        "cmp": true,
+        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "difficulty": "중간",
+        "elite": false,
+        "gold": 100,
+        "id": 3,
+        "kind": "구조",
+        "level": 1,
+        "lv": 1,
+        "name": "고립된 탐사대 구조",
+        "reward_v": 2,
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
+        "stars": 2,
+        "title": "남동 숲 균열, 고립된 탐사대 구조"
+      },
+      {
+        "cmp": true,
+        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "difficulty": "높음",
+        "elite": false,
+        "gold": 100,
+        "id": 4,
+        "kind": "구조",
+        "level": 4,
+        "lv": 4,
+        "name": "고립된 탐사대 구조",
+        "reward_v": 2,
+        "rift": "남서 설산 균열",
+        "source_id": "q4",
+        "stars": 2,
+        "title": "남서 설산 균열, 고립된 탐사대 구조"
       }
     ],
     "commerce_r21": {
@@ -1233,7 +1233,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 1409423543,
+    "rng": 1154985641,
     "run": {},
     "runs": 0,
     "scenario": "teiris",
@@ -1244,7 +1244,7 @@
     "town_r21": {
       "counter": 4,
       "qn": 4,
-      "seed": 1409423543
+      "seed": 1154985641
     },
     "ui": {
       "msg": "회복약 · 소 하나를 샀습니다. (보유 10001, 남은 금화 99960)",
@@ -1258,25 +1258,25 @@
     "board": [
       {
         "cmp": true,
-        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
+        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
         "difficulty": "높음",
         "elite": false,
         "gold": 100,
         "id": 2,
-        "kind": "토벌",
+        "kind": "구조",
         "level": 4,
         "lv": 4,
-        "name": "균열 핵 토벌",
+        "name": "고립된 탐사대 구조",
         "reward_v": 2,
         "rift": "남동 숲 균열",
         "source_id": "q2",
         "stars": 2,
-        "title": "남동 숲 균열, 균열 핵 토벌"
+        "title": "남동 숲 균열, 고립된 탐사대 구조"
       },
       {
         "cmp": true,
         "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "중간",
+        "difficulty": "낮음",
         "elite": false,
         "gold": 100,
         "id": 3,
@@ -1292,38 +1292,38 @@
       },
       {
         "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
-        "difficulty": "낮음",
+        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
+        "difficulty": "중간",
         "elite": false,
         "gold": 100,
         "id": 4,
-        "kind": "구조",
+        "kind": "회수",
         "level": 1,
         "lv": 1,
-        "name": "고립된 탐사대 구조",
+        "name": "잃어버린 유품 회수",
         "reward_v": 2,
-        "rift": "남동 숲 균열",
+        "rift": "남서 설산 균열",
         "source_id": "q4",
         "stars": 2,
-        "title": "남동 숲 균열, 고립된 탐사대 구조"
+        "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
-        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
+        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
         "difficulty": "엘리트",
         "elite": true,
         "gold": 100,
         "id": 5,
-        "kind": "회수",
+        "kind": "구조",
         "level": 5,
         "lv": 5,
-        "name": "잃어버린 유품 회수",
+        "name": "고립된 탐사대 구조",
         "reward_v": 2,
         "rift": "남서 설산 균열",
         "source_id": "q5",
         "stars": 2,
-        "strength": 1.5,
-        "title": "남서 설산 균열, 잃어버린 유품 회수"
+        "strength": 1.7,
+        "title": "남서 설산 균열, 고립된 탐사대 구조"
       }
     ],
     "commerce_r21": {
@@ -1431,10 +1431,10 @@
     },
     "gear": [
       {
-        "code": "sa60.cy0dv2uf.1",
+        "code": "sa25.bhn6d4ck.1",
         "forge": 0,
-        "id": "sa60",
-        "seed": 1014403853607,
+        "id": "sa25",
+        "seed": 900412516676,
         "source_r21": true,
         "tries": 0,
         "uid": 1
@@ -1551,7 +1551,7 @@
         "hp": 123,
         "level": 5,
         "mp": 33,
-        "xp": 62
+        "xp": 24
       },
       "jorund": {
         "aff": 0.0,
@@ -1621,7 +1621,7 @@
         "hp": 123,
         "level": 5,
         "mp": 33,
-        "xp": 62
+        "xp": 24
       },
       "saya": {
         "aff": 0.0,
@@ -1649,7 +1649,7 @@
         "hp": 80,
         "level": 5,
         "mp": 92,
-        "xp": 62
+        "xp": 24
       },
       "tika": {
         "aff": 0.0,
@@ -1702,7 +1702,7 @@
       "bonus_custom": 0,
       "bonus_total": 5,
       "cls": "전사",
-      "exp": 62,
+      "exp": 24,
       "fight": 1,
       "lineage": "",
       "lv": 5,
@@ -1727,7 +1727,7 @@
     },
     "persona_progress_r21": {
       "level": 5,
-      "xp": 62
+      "xp": 24
     },
     "persona_research_r22": {},
     "quest": {},
@@ -1923,7 +1923,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 273258700,
+    "rng": 1407624815,
     "run": {
       "battle": {},
       "data_version": 21,
@@ -1985,12 +1985,12 @@
       ],
       "phase": "done",
       "quest_level": 1,
-      "quest_seed": 273258700,
+      "quest_seed": 1407624815,
       "resolved": true,
       "rested": false,
       "rift_id": "sw_snow",
       "rules_version": 3,
-      "seed": 273258700,
+      "seed": 1407624815,
       "source_quest": {
         "cmp": true,
         "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
@@ -2006,13 +2006,13 @@
         "rift": "남서 설산 균열",
         "source_id": "q1",
         "stars": 2,
-        "strength": 1.8,
+        "strength": 1.7,
         "title": "남서 설산 균열, 고립된 탐사대 구조"
       },
       "stars": 2,
       "step": 0,
       "wins": 0,
-      "xp": 422
+      "xp": 384
     },
     "runs": 1,
     "scenario": "teiris",
@@ -2026,23 +2026,23 @@
           "before": 1,
           "id": "persona",
           "level": 5,
-          "xp": 62
+          "xp": 24
         },
         {
           "before": 1,
           "id": "hildegard",
           "level": 5,
-          "xp": 62
+          "xp": 24
         },
         {
           "before": 1,
           "id": "teiris",
           "level": 5,
-          "xp": 62
+          "xp": 24
         }
       ],
       "gear": [
-        "sa60.cy0dv2uf.1"
+        "sa25.bhn6d4ck.1"
       ],
       "gold": 450,
       "lost": 0,
@@ -2050,12 +2050,12 @@
       "result": "clear",
       "title": "남서 설산 균열, 고립된 탐사대 구조",
       "wins": 1,
-      "xp": 422
+      "xp": 384
     },
     "town_r21": {
       "counter": 5,
       "qn": 5,
-      "seed": 1482882024
+      "seed": 1606137479
     },
     "ui": {
       "msg": "",
@@ -2071,38 +2071,21 @@
     "board": [
       {
         "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
-        "difficulty": "높음",
-        "elite": false,
-        "gold": 100,
-        "id": 1,
-        "kind": "구조",
-        "level": 4,
-        "lv": 4,
-        "name": "고립된 탐사대 구조",
-        "reward_v": 2,
-        "rift": "남서 설산 균열",
-        "source_id": "q1",
-        "stars": 2,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
-      },
-      {
-        "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
         "difficulty": "엘리트",
         "elite": true,
         "gold": 100,
-        "id": 2,
-        "kind": "구조",
+        "id": 1,
+        "kind": "토벌",
         "level": 1,
         "lv": 1,
-        "name": "고립된 탐사대 구조",
+        "name": "균열 핵 토벌",
         "reward_v": 2,
         "rift": "남동 숲 균열",
-        "source_id": "q2",
+        "source_id": "q1",
         "stars": 2,
-        "strength": 1.7,
-        "title": "남동 숲 균열, 고립된 탐사대 구조"
+        "strength": 2.0,
+        "title": "남동 숲 균열, 균열 핵 토벌"
       },
       {
         "cmp": true,
@@ -2110,39 +2093,56 @@
         "difficulty": "낮음",
         "elite": false,
         "gold": 100,
-        "id": 3,
-        "kind": "회수",
-        "level": 1,
-        "lv": 1,
-        "name": "잃어버린 유품 회수",
-        "reward_v": 2,
-        "rift": "남서 설산 균열",
-        "source_id": "q3",
-        "stars": 1,
-        "title": "남서 설산 균열, 잃어버린 유품 회수"
-      },
-      {
-        "cmp": true,
-        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "중간",
-        "elite": false,
-        "gold": 100,
-        "id": 4,
+        "id": 2,
         "kind": "회수",
         "level": 1,
         "lv": 1,
         "name": "잃어버린 유품 회수",
         "reward_v": 2,
         "rift": "남동 숲 균열",
-        "source_id": "q4",
+        "source_id": "q2",
         "stars": 2,
         "title": "남동 숲 균열, 잃어버린 유품 회수"
+      },
+      {
+        "cmp": true,
+        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "difficulty": "중간",
+        "elite": false,
+        "gold": 100,
+        "id": 3,
+        "kind": "구조",
+        "level": 1,
+        "lv": 1,
+        "name": "고립된 탐사대 구조",
+        "reward_v": 2,
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
+        "stars": 2,
+        "title": "남동 숲 균열, 고립된 탐사대 구조"
+      },
+      {
+        "cmp": true,
+        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "difficulty": "높음",
+        "elite": false,
+        "gold": 100,
+        "id": 4,
+        "kind": "구조",
+        "level": 4,
+        "lv": 4,
+        "name": "고립된 탐사대 구조",
+        "reward_v": 2,
+        "rift": "남서 설산 균열",
+        "source_id": "q4",
+        "stars": 2,
+        "title": "남서 설산 균열, 고립된 탐사대 구조"
       }
     ],
     "commerce_r21": {
       "bought": {},
       "forge_codes_r22": {
-        "sa05.89cfj5l6.1": {
+        "wa44.64ugop3l.1": {
           "forge": 2,
           "tries": 2
         }
@@ -2204,19 +2204,19 @@
     },
     "gear": [
       {
-        "code": "sa05.89cfj5l6.1",
+        "code": "wa44.64ugop3l.1",
         "forge": 2,
-        "id": "sa05",
-        "seed": 647256035850,
+        "id": "wa44",
+        "seed": 480734125329,
         "source_r21": true,
         "tries": 2,
         "uid": 1
       },
       {
-        "code": "sa05.89cfj5l6.1",
+        "code": "wa44.64ugop3l.1",
         "forge": 2,
-        "id": "sa05",
-        "seed": 647256035850,
+        "id": "wa44",
+        "seed": 480734125329,
         "source_r21": true,
         "tries": 2,
         "uid": 2
@@ -2241,9 +2241,9 @@
     },
     "log": [
       "회복약 · 소 하나를 샀습니다. (보유 10001, 남은 금화 99960)",
-      "한나의 가공 · 수정 주문봉",
-      "수정 주문봉 제련 성공 +1",
-      "수정 주문봉 제련 성공 +2"
+      "한나의 가공 · 맞춘 전투 외투",
+      "맞춘 전투 외투 제련 성공 +1",
+      "맞춘 전투 외투 제련 성공 +2"
     ],
     "members": {
       "adeline": {
@@ -2702,7 +2702,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 1409423543,
+    "rng": 1154985641,
     "run": {},
     "runs": 0,
     "scenario": "teiris",
@@ -2713,7 +2713,7 @@
     "town_r21": {
       "counter": 4,
       "qn": 4,
-      "seed": 1409423543
+      "seed": 1154985641
     },
     "ui": {
       "msg": "회복약 · 소 하나를 샀습니다. (보유 10001, 남은 금화 99960)",
@@ -2728,7 +2728,7 @@
       {
         "cmp": true,
         "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "낮음",
+        "difficulty": "중간",
         "elite": false,
         "gold": 100,
         "id": 1,
@@ -2737,15 +2737,15 @@
         "lv": 1,
         "name": "잃어버린 유품 회수",
         "reward_v": 2,
-        "rift": "남서 설산 균열",
+        "rift": "남동 숲 균열",
         "source_id": "q1",
-        "stars": 1,
-        "title": "남서 설산 균열, 잃어버린 유품 회수"
+        "stars": 2,
+        "title": "남동 숲 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
         "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
-        "difficulty": "중간",
+        "difficulty": "낮음",
         "elite": false,
         "gold": 100,
         "id": 2,
@@ -2754,10 +2754,10 @@
         "lv": 1,
         "name": "고립된 탐사대 구조",
         "reward_v": 2,
-        "rift": "남동 숲 균열",
+        "rift": "남서 설산 균열",
         "source_id": "q2",
-        "stars": 2,
-        "title": "남동 숲 균열, 고립된 탐사대 구조"
+        "stars": 1,
+        "title": "남서 설산 균열, 고립된 탐사대 구조"
       },
       {
         "cmp": true,
@@ -2771,42 +2771,42 @@
         "lv": 4,
         "name": "균열 핵 토벌",
         "reward_v": 2,
-        "rift": "남서 설산 균열",
+        "rift": "남동 숲 균열",
         "source_id": "q3",
         "stars": 2,
-        "title": "남서 설산 균열, 균열 핵 토벌"
+        "title": "남동 숲 균열, 균열 핵 토벌"
       },
       {
         "cmp": true,
-        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
+        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
         "difficulty": "엘리트",
         "elite": true,
         "gold": 100,
         "id": 4,
-        "kind": "토벌",
+        "kind": "구조",
         "level": 1,
         "lv": 1,
-        "name": "균열 핵 토벌",
+        "name": "고립된 탐사대 구조",
         "reward_v": 2,
         "rift": "남동 숲 균열",
         "source_id": "q4",
         "stars": 2,
-        "strength": 1.7,
-        "title": "남동 숲 균열, 균열 핵 토벌"
+        "strength": 1.8,
+        "title": "남동 숲 균열, 고립된 탐사대 구조"
       }
     ],
     "commerce_r21": {
       "bought": {
-        "al05.3sv7pl3b.1": true,
-        "ar03.79e81wss.1": true,
-        "as06.abvictvm.1": true,
-        "ch05.2u0cved1.1": true,
-        "gl05.3sv7pl3b.1": true,
-        "pa07.x7tdcr3.1": true,
-        "pr03.79e81wss.1": true,
-        "sa04.880vwctx.1": true,
-        "un03.4a4deb16.1": true,
-        "wa07.x7tdcr3.1": true
+        "al07.jsgbwhk.1": true,
+        "ar02.blihwk9t.1": true,
+        "as04.b2di8q4e.1": true,
+        "ch10.ck8147iv.1": true,
+        "gl07.jsgbwhk.1": true,
+        "pa02.b8ikyq5c.1": true,
+        "pr02.blihwk9t.1": true,
+        "sa10.d4s8946w.1": true,
+        "un01.1fw2a1u8.1": true,
+        "wa02.b8ikyq5c.1": true
       },
       "pietro_buys": 10,
       "process_n": 1,
@@ -2865,100 +2865,100 @@
     },
     "gear": [
       {
-        "code": "wa07.x7tdcr3.1",
+        "code": "wa02.b8ikyq5c.1",
         "forge": 0,
-        "id": "wa07",
-        "seed": 72306412239,
+        "id": "wa02",
+        "seed": 880543667424,
         "source_r21": true,
         "tries": 0,
         "uid": 1
       },
       {
-        "code": "as06.abvictvm.1",
+        "code": "as04.b2di8q4e.1",
         "forge": 0,
-        "id": "as06",
-        "seed": 809491529794,
+        "id": "as04",
+        "seed": 867176070206,
         "source_r21": true,
         "tries": 0,
         "uid": 2
       },
       {
-        "code": "ar03.79e81wss.1",
+        "code": "ar02.blihwk9t.1",
         "forge": 0,
-        "id": "ar03",
-        "seed": 569000242252,
+        "id": "ar02",
+        "seed": 908836698017,
         "source_r21": true,
         "tries": 0,
         "uid": 3
       },
       {
-        "code": "sa04.880vwctx.1",
+        "code": "sa10.d4s8946w.1",
         "forge": 0,
-        "id": "sa04",
-        "seed": 644381149173,
+        "id": "sa10",
+        "seed": 1029148177784,
         "source_r21": true,
         "tries": 0,
         "uid": 4
       },
       {
-        "code": "un03.4a4deb16.1",
+        "code": "un01.1fw2a1u8.1",
         "forge": 0,
-        "id": "un03",
-        "seed": 335488846938,
+        "id": "un01",
+        "seed": 112954644944,
         "source_r21": true,
         "tries": 0,
         "uid": 5
       },
       {
-        "code": "pa07.x7tdcr3.1",
+        "code": "pa02.b8ikyq5c.1",
         "forge": 0,
-        "id": "pa07",
-        "seed": 72306412239,
+        "id": "pa02",
+        "seed": 880543667424,
         "source_r21": true,
         "tries": 0,
         "uid": 6
       },
       {
-        "code": "pr03.79e81wss.1",
+        "code": "pr02.blihwk9t.1",
         "forge": 0,
-        "id": "pr03",
-        "seed": 569000242252,
+        "id": "pr02",
+        "seed": 908836698017,
         "source_r21": true,
         "tries": 0,
         "uid": 7
       },
       {
-        "code": "al05.3sv7pl3b.1",
+        "code": "al07.jsgbwhk.1",
         "forge": 0,
-        "id": "al05",
-        "seed": 297929800199,
+        "id": "al07",
+        "seed": 43079346488,
         "source_r21": true,
         "tries": 0,
         "uid": 8
       },
       {
-        "code": "gl05.3sv7pl3b.1",
+        "code": "gl07.jsgbwhk.1",
         "forge": 0,
-        "id": "gl05",
-        "seed": 297929800199,
+        "id": "gl07",
+        "seed": 43079346488,
         "source_r21": true,
         "tries": 0,
         "uid": 9
       },
       {
-        "code": "ch05.2u0cved1.1",
+        "code": "ch10.ck8147iv.1",
         "forge": 0,
-        "id": "ch05",
-        "seed": 222053418613,
+        "id": "ch10",
+        "seed": 984391221271,
         "source_r21": true,
         "tries": 0,
         "uid": 10
       },
       {
-        "code": "wa23.cneirf3z.1",
+        "code": "wa56.5vmqlp09.1",
         "forge": 0,
-        "id": "wa23",
-        "seed": 991314001727,
+        "id": "wa56",
+        "seed": 460676010969,
         "source_r21": true,
         "tries": 0,
         "uid": 11
@@ -2982,17 +2982,17 @@
       "shield_s": 0
     },
     "log": [
-      "장비를 샀습니다: 작은 창",
-      "장비를 샀습니다: 무딘 갈고리칼",
-      "장비를 샀습니다: 참나무 복합궁",
-      "장비를 샀습니다: 느릅나무 수정봉",
-      "장비를 샀습니다: 짧은 지팡이",
-      "장비를 샀습니다: 강철 장검",
-      "장비를 샀습니다: 느릅나무 지팡이",
-      "장비를 샀습니다: 맑은 시약병",
-      "장비를 샀습니다: 무딘 전투도끼",
-      "장비를 샀습니다: 수정 공허봉",
-      "한나의 가공 · 흰빛 대검"
+      "장비를 샀습니다: 빛바랜 창",
+      "장비를 샀습니다: 강철 손쇠뇌",
+      "장비를 샀습니다: 가죽끈 단궁",
+      "장비를 샀습니다: 놋쇠 주문봉",
+      "장비를 샀습니다: 손때 묻은 주문서",
+      "장비를 샀습니다: 청동 장검",
+      "장비를 샀습니다: 참나무 성표",
+      "장비를 샀습니다: 수정 연금봉",
+      "장비를 샀습니다: 넓은 투창",
+      "장비를 샀습니다: 구리 공허봉",
+      "한나의 가공 · 호박빛 투구"
     ],
     "members": {
       "adeline": {
@@ -3451,7 +3451,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 1910538576,
+    "rng": 1265675424,
     "run": {},
     "runs": 0,
     "scenario": "teiris",
@@ -3462,10 +3462,10 @@
     "town_r21": {
       "counter": 4,
       "qn": 4,
-      "seed": 1910538576
+      "seed": 1265675424
     },
     "ui": {
-      "msg": "장비를 샀습니다: 수정 공허봉",
+      "msg": "장비를 샀습니다: 구리 공허봉",
       "page": 1,
       "sel": ""
     },
@@ -3486,33 +3486,33 @@
         "lv": 1,
         "name": "균열 핵 토벌",
         "reward_v": 2,
-        "rift": "남동 숲 균열",
+        "rift": "남서 설산 균열",
         "source_id": "q1",
         "stars": 2,
-        "strength": 1.9,
-        "title": "남동 숲 균열, 균열 핵 토벌"
-      },
-      {
-        "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
-        "difficulty": "중간",
-        "elite": false,
-        "gold": 100,
-        "id": 2,
-        "kind": "구조",
-        "level": 1,
-        "lv": 1,
-        "name": "고립된 탐사대 구조",
-        "reward_v": 2,
-        "rift": "남동 숲 균열",
-        "source_id": "q2",
-        "stars": 2,
-        "title": "남동 숲 균열, 고립된 탐사대 구조"
+        "strength": 2.0,
+        "title": "남서 설산 균열, 균열 핵 토벌"
       },
       {
         "cmp": true,
         "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "낮음",
+        "difficulty": "높음",
+        "elite": false,
+        "gold": 100,
+        "id": 2,
+        "kind": "회수",
+        "level": 4,
+        "lv": 4,
+        "name": "잃어버린 유품 회수",
+        "reward_v": 2,
+        "rift": "남서 설산 균열",
+        "source_id": "q2",
+        "stars": 2,
+        "title": "남서 설산 균열, 잃어버린 유품 회수"
+      },
+      {
+        "cmp": true,
+        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
+        "difficulty": "중간",
         "elite": false,
         "gold": 100,
         "id": 3,
@@ -3521,27 +3521,27 @@
         "lv": 1,
         "name": "잃어버린 유품 회수",
         "reward_v": 2,
-        "rift": "남서 설산 균열",
+        "rift": "남동 숲 균열",
         "source_id": "q3",
-        "stars": 1,
-        "title": "남서 설산 균열, 잃어버린 유품 회수"
+        "stars": 2,
+        "title": "남동 숲 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
-        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
-        "difficulty": "높음",
+        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "difficulty": "낮음",
         "elite": false,
         "gold": 100,
         "id": 4,
-        "kind": "토벌",
-        "level": 4,
-        "lv": 4,
-        "name": "균열 핵 토벌",
+        "kind": "구조",
+        "level": 1,
+        "lv": 1,
+        "name": "고립된 탐사대 구조",
         "reward_v": 2,
-        "rift": "남서 설산 균열",
+        "rift": "남동 숲 균열",
         "source_id": "q4",
         "stars": 2,
-        "title": "남서 설산 균열, 균열 핵 토벌"
+        "title": "남동 숲 균열, 고립된 탐사대 구조"
       }
     ],
     "commerce_r21": {
@@ -4073,7 +4073,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 992451527,
+    "rng": 1426211265,
     "run": {},
     "runs": 0,
     "scenario": "teiris",
@@ -4084,7 +4084,7 @@
     "town_r21": {
       "counter": 4,
       "qn": 4,
-      "seed": 992451527
+      "seed": 1426211265
     },
     "ui": {
       "msg": "",

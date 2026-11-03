@@ -45,10 +45,20 @@ func run():
 		var s={"settings":{"diff":2,"nsfw":1}};var parts=row.action.split("_")
 		if parts.size()==2:R.apply(s,{parts[0]:parts[1]})
 		for key in ["lang","diff","chron"]:check(s.settings.get(key)==row.settings.get(key),"source op settings "+row.action+" "+key)
-	for key in L.DATA.ui:
-		check(L.u(key,{},"en")==L.DATA.ui[key],"official UI pack "+key)
+	for key in L.SOURCE.ui:
+		check(L.u(key,{},"en")==L.SOURCE.ui[key],"official UI pack "+key)
 		check(L.u(key,{},"ko")==key,"Korean retained "+key)
-	for key in L.DATA.words:check(L.t(key,"en")==L.DATA.words[key],"official words/scenarios "+key.left(50))
+	for key in L.SOURCE.words:check(L.t(key,"en")==L.SOURCE.words[key],"official source words "+key.left(50))
+	# Native scenario/design translations extend the source build's dictionary.
+	# Keep both contracts: Lua U/T fallback and the existing native English UI.
+	for key in L.DATA.ui:
+		if L.SOURCE.ui.has(key):continue
+		check(L.u(key,{},"en")==key,"source fallback for native UI key "+key)
+		if L.DATA.ui[key]!=key:check(L.render(key,"en")==L.DATA.ui[key],"native UI extension "+key)
+	for key in L.DATA.words:
+		if L.SOURCE.words.has(key):continue
+		check(L.t(key,"en")==key,"source fallback for native scenario "+key.left(50))
+		check(L.render(key,"en")==L.DATA.words[key],"native English scenario retained "+key.left(50))
 	check(L.render("미등록 native 문구","en")=="미등록 native 문구","no invented translation")
 	check(L.render("저장 버전 12","en")==L.u("저장 버전 {n}",{"n":12},"en"),"template translation")
 	check(L.u("{a:으로} 간다",{"a":"서울"})=="서울로 간다" and L.u("{a:이가} 왔다",{"a":"집"})=="집이 왔다","template uses shared josa")
