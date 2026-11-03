@@ -158,7 +158,13 @@ func attack_mult(e: Dictionary) -> float:
 	return attack_multiplier(e).value
 
 func attack_multiplier(e: Dictionary) -> Dictionary:
-	var m=(1+b.fx(e,"enemy_attack_self"))*(1+b.fx(e,"attack_up")); var R=e.rules; var T=rules.catalog.tune.boss
+	var result=attack_bonus(e)
+	result.value*=1+b.fx(e,"enemy_attack_self")
+	return result
+
+# B.foe_atk_mul excludes u.am; callers multiply that separate scalar.
+func attack_bonus(e: Dictionary) -> Dictionary:
+	var m=1+b.fx(e,"attack_up"); var R=e.rules; var T=rules.catalog.tune.boss
 	var tags=[]
 	if R.has("hp_atk") and e.hp<=e.mhp*R.hp_atk.thr:
 		m*=1+R.hp_atk.amount;tags.append("분노 +%d%%"%Text.percent(R.hp_atk.amount))
@@ -228,6 +234,11 @@ func drop_auras():
 				if owner.is_empty() or owner.hp<=0 or (not owner.has("base") and owner.broken): u.effects.erase(key)
 
 func end_effects(u: Dictionary):
+	tick_buffs(u)
+	drop_auras()
+
+# The btick contract is independent of the subsequent caster/aura cleanup.
+func tick_buffs(u: Dictionary):
 	for key in u.effects.keys():
 		if key=="guard" and u.has("base"): continue # df is reset at begin_turn, separately from bf.g2.
 		if key.begins_with("enemy_dot_") or key in ["taunt","mark","sorel_regen","persona_regen","dot","corrosion","bleed","regen"]: continue
@@ -237,7 +248,6 @@ func end_effects(u: Dictionary):
 		if eff.turns<=0:
 			u.effects.erase(key)
 			if key=="shield" and u.has("base"): u.shield=0
-	drop_auras()
 
 func add_dot(u: Dictionary,e: Dictionary,per: int,turns: int):
 	# Flat effect records preserve old saves and existing state validation.

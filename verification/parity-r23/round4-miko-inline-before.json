@@ -1,0 +1,865 @@
+{
+	"checks": 56,
+	"failures": [
+		"round4/miko_attack/6735",
+		"round4/miko_attack/6736",
+		"round4/miko_run/9621",
+		"round4/miko_run/9622",
+		"round4/miko_run/9623",
+		"round4/miko_run/9624",
+		"round4/miko_run/9625",
+		"round4/miko_run/9626",
+		"round4/miko_run/9627",
+		"round4/miko_run/9628",
+		"round4/miko_run/9629",
+		"round4/miko_run/9630",
+		"round4/miko_run/9631",
+		"round4/miko_run/9632",
+		"round4/miko_run/9633",
+		"round4/miko_run/9634",
+		"round4/miko_run/9635",
+		"round4/miko_run/9636",
+		"round4/miko_run/9637",
+		"round4/miko_run/9638",
+		"round4/miko_run/9639",
+		"round4/miko_run/9640",
+		"round4/miko_run/9641",
+		"round4/miko_run/9642",
+		"round4/miko_run/9643",
+		"round4/miko_run/9644"
+	],
+	"rows": [
+		{
+			"got": {
+				"hp": [
+					800,
+					1000
+				],
+				"mk": 0.0,
+				"rs": 207482415
+			},
+			"label": "round4/miko_attack/6733",
+			"ok": true,
+			"want": {
+				"hp": [
+					800.0,
+					1000.0
+				],
+				"mk": 0.0,
+				"rs": 207482415.0
+			}
+		},
+		{
+			"got": {
+				"hp": [
+					800,
+					800
+				],
+				"mk": 0.0,
+				"rs": 1790989824
+			},
+			"label": "round4/miko_attack/6734",
+			"ok": true,
+			"want": {
+				"hp": [
+					800.0,
+					800.0
+				],
+				"mk": 0.0,
+				"rs": 1790989824.0
+			}
+		},
+		{
+			"got": {
+				"hp": [
+					800,
+					1000
+				],
+				"mk": 0.6,
+				"rs": 207482415
+			},
+			"label": "round4/miko_attack/6735",
+			"ok": false,
+			"want": {
+				"hp": [
+					680.0,
+					1000.0
+				],
+				"mk": 0.0,
+				"rs": 207482415.0
+			}
+		},
+		{
+			"got": {
+				"hp": [
+					800,
+					800
+				],
+				"mk": 0.6,
+				"rs": 1790989824
+			},
+			"label": "round4/miko_attack/6736",
+			"ok": false,
+			"want": {
+				"hp": [
+					680.0,
+					680.0
+				],
+				"mk": 0.0,
+				"rs": 1790989824.0
+			}
+		},
+		{
+			"got": {
+				"hp": [
+					800,
+					1000
+				],
+				"mk": 0.0,
+				"rs": 207482415
+			},
+			"label": "round4/miko_attack/6737",
+			"ok": true,
+			"want": {
+				"hp": [
+					800.0,
+					1000.0
+				],
+				"mk": 0.0,
+				"rs": 207482415.0
+			}
+		},
+		{
+			"got": {
+				"hp": [
+					800,
+					800
+				],
+				"mk": 0.0,
+				"rs": 1790989824
+			},
+			"label": "round4/miko_attack/6738",
+			"ok": true,
+			"want": {
+				"hp": [
+					800.0,
+					800.0
+				],
+				"mk": 0.0,
+				"rs": 1790989824.0
+			}
+		},
+		{
+			"got": {
+				"hp": [
+					800,
+					1000
+				],
+				"mk": 0.6,
+				"rs": 207482415
+			},
+			"label": "round4/miko_attack/6739",
+			"ok": true,
+			"want": {
+				"hp": [
+					800.0,
+					1000.0
+				],
+				"mk": 0.6,
+				"rs": 207482415.0
+			}
+		},
+		{
+			"got": {
+				"hp": [
+					800,
+					800
+				],
+				"mk": 0.6,
+				"rs": 1790989824
+			},
+			"label": "round4/miko_attack/6740",
+			"ok": true,
+			"want": {
+				"hp": [
+					800.0,
+					800.0
+				],
+				"mk": 0.6,
+				"rs": 1790989824.0
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": false
+			},
+			"label": "round4/miko_run/9621",
+			"ok": false,
+			"want": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": false
+			},
+			"label": "round4/miko_run/9622",
+			"ok": false,
+			"want": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": false
+			},
+			"label": "round4/miko_run/9623",
+			"ok": false,
+			"want": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 9000.0,
+				"hp": 0.0,
+				"mk": false
+			},
+			"label": "round4/miko_run/9624",
+			"ok": false,
+			"want": {
+				"g": 9000.0,
+				"hp": 0.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 700,
+				"mk": false
+			},
+			"label": "round4/miko_run/9625",
+			"ok": false,
+			"want": {
+				"g": 0.0,
+				"hp": 700.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 700,
+				"mk": false
+			},
+			"label": "round4/miko_run/9626",
+			"ok": false,
+			"want": {
+				"g": 0.0,
+				"hp": 700.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 700,
+				"mk": false
+			},
+			"label": "round4/miko_run/9627",
+			"ok": false,
+			"want": {
+				"g": 0.0,
+				"hp": 700.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 9000.0,
+				"hp": 700,
+				"mk": false
+			},
+			"label": "round4/miko_run/9628",
+			"ok": false,
+			"want": {
+				"g": 9000.0,
+				"hp": 700.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 1000,
+				"mk": false
+			},
+			"label": "round4/miko_run/9629",
+			"ok": false,
+			"want": {
+				"g": 0.0,
+				"hp": 1000.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 1000,
+				"mk": false
+			},
+			"label": "round4/miko_run/9630",
+			"ok": false,
+			"want": {
+				"g": 0.0,
+				"hp": 1000.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 1000,
+				"mk": false
+			},
+			"label": "round4/miko_run/9631",
+			"ok": false,
+			"want": {
+				"g": 0.0,
+				"hp": 1000.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 9000.0,
+				"hp": 1000,
+				"mk": false
+			},
+			"label": "round4/miko_run/9632",
+			"ok": false,
+			"want": {
+				"g": 9000.0,
+				"hp": 1000.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": false
+			},
+			"label": "round4/miko_run/9633",
+			"ok": false,
+			"want": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": false
+			},
+			"label": "round4/miko_run/9634",
+			"ok": false,
+			"want": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": false
+			},
+			"label": "round4/miko_run/9635",
+			"ok": false,
+			"want": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 9000.0,
+				"hp": 0.0,
+				"mk": false
+			},
+			"label": "round4/miko_run/9636",
+			"ok": false,
+			"want": {
+				"g": 9000.0,
+				"hp": 0.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 700,
+				"mk": false
+			},
+			"label": "round4/miko_run/9637",
+			"ok": false,
+			"want": {
+				"g": 0.0,
+				"hp": 700.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 700,
+				"mk": false
+			},
+			"label": "round4/miko_run/9638",
+			"ok": false,
+			"want": {
+				"g": 0.0,
+				"hp": 700.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 700,
+				"mk": false
+			},
+			"label": "round4/miko_run/9639",
+			"ok": false,
+			"want": {
+				"g": 0.0,
+				"hp": 700.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 9000.0,
+				"hp": 700,
+				"mk": false
+			},
+			"label": "round4/miko_run/9640",
+			"ok": false,
+			"want": {
+				"g": 9000.0,
+				"hp": 700.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 1000,
+				"mk": false
+			},
+			"label": "round4/miko_run/9641",
+			"ok": false,
+			"want": {
+				"g": 0.0,
+				"hp": 1000.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 1000,
+				"mk": false
+			},
+			"label": "round4/miko_run/9642",
+			"ok": false,
+			"want": {
+				"g": 0.0,
+				"hp": 1000.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 1000,
+				"mk": false
+			},
+			"label": "round4/miko_run/9643",
+			"ok": false,
+			"want": {
+				"g": 0.0,
+				"hp": 1000.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 9000.0,
+				"hp": 1000,
+				"mk": false
+			},
+			"label": "round4/miko_run/9644",
+			"ok": false,
+			"want": {
+				"g": 9000.0,
+				"hp": 1000.0,
+				"mk": 0.6
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": false
+			},
+			"label": "round4/miko_run/9645",
+			"ok": true,
+			"want": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": false
+			},
+			"label": "round4/miko_run/9646",
+			"ok": true,
+			"want": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": false
+			},
+			"label": "round4/miko_run/9647",
+			"ok": true,
+			"want": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 9000.0,
+				"hp": 0.0,
+				"mk": false
+			},
+			"label": "round4/miko_run/9648",
+			"ok": true,
+			"want": {
+				"g": 9000.0,
+				"hp": 0.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 700,
+				"mk": false
+			},
+			"label": "round4/miko_run/9649",
+			"ok": true,
+			"want": {
+				"g": 0.0,
+				"hp": 700.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 700,
+				"mk": false
+			},
+			"label": "round4/miko_run/9650",
+			"ok": true,
+			"want": {
+				"g": 0.0,
+				"hp": 700.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 700,
+				"mk": false
+			},
+			"label": "round4/miko_run/9651",
+			"ok": true,
+			"want": {
+				"g": 0.0,
+				"hp": 700.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 9000.0,
+				"hp": 700,
+				"mk": false
+			},
+			"label": "round4/miko_run/9652",
+			"ok": true,
+			"want": {
+				"g": 9000.0,
+				"hp": 700.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 1000,
+				"mk": false
+			},
+			"label": "round4/miko_run/9653",
+			"ok": true,
+			"want": {
+				"g": 0.0,
+				"hp": 1000.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 1000,
+				"mk": false
+			},
+			"label": "round4/miko_run/9654",
+			"ok": true,
+			"want": {
+				"g": 0.0,
+				"hp": 1000.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 1000,
+				"mk": false
+			},
+			"label": "round4/miko_run/9655",
+			"ok": true,
+			"want": {
+				"g": 0.0,
+				"hp": 1000.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 9000.0,
+				"hp": 1000,
+				"mk": false
+			},
+			"label": "round4/miko_run/9656",
+			"ok": true,
+			"want": {
+				"g": 9000.0,
+				"hp": 1000.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": false
+			},
+			"label": "round4/miko_run/9657",
+			"ok": true,
+			"want": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": false
+			},
+			"label": "round4/miko_run/9658",
+			"ok": true,
+			"want": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": false
+			},
+			"label": "round4/miko_run/9659",
+			"ok": true,
+			"want": {
+				"g": 0.0,
+				"hp": 0.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 9000.0,
+				"hp": 0.0,
+				"mk": false
+			},
+			"label": "round4/miko_run/9660",
+			"ok": true,
+			"want": {
+				"g": 9000.0,
+				"hp": 0.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 700,
+				"mk": false
+			},
+			"label": "round4/miko_run/9661",
+			"ok": true,
+			"want": {
+				"g": 0.0,
+				"hp": 700.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 700,
+				"mk": false
+			},
+			"label": "round4/miko_run/9662",
+			"ok": true,
+			"want": {
+				"g": 0.0,
+				"hp": 700.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 700,
+				"mk": false
+			},
+			"label": "round4/miko_run/9663",
+			"ok": true,
+			"want": {
+				"g": 0.0,
+				"hp": 700.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 9000.0,
+				"hp": 700,
+				"mk": false
+			},
+			"label": "round4/miko_run/9664",
+			"ok": true,
+			"want": {
+				"g": 9000.0,
+				"hp": 700.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 1000,
+				"mk": false
+			},
+			"label": "round4/miko_run/9665",
+			"ok": true,
+			"want": {
+				"g": 0.0,
+				"hp": 1000.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 1000,
+				"mk": false
+			},
+			"label": "round4/miko_run/9666",
+			"ok": true,
+			"want": {
+				"g": 0.0,
+				"hp": 1000.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 0.0,
+				"hp": 1000,
+				"mk": false
+			},
+			"label": "round4/miko_run/9667",
+			"ok": true,
+			"want": {
+				"g": 0.0,
+				"hp": 1000.0,
+				"mk": false
+			}
+		},
+		{
+			"got": {
+				"g": 9000.0,
+				"hp": 1000,
+				"mk": false
+			},
+			"label": "round4/miko_run/9668",
+			"ok": true,
+			"want": {
+				"g": 9000.0,
+				"hp": 1000.0,
+				"mk": false
+			}
+		}
+	]
+}

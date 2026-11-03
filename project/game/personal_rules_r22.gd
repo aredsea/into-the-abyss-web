@@ -97,6 +97,71 @@ static func drop_caster_buffs(b,caster) -> void:
 		for key in ["contract","adeline_guard"]:
 			if u.effects.get(key,{}).get("source","")==caster.id:u.effects.erase(key)
 
+static func miko_deal(b,owner,a,m: float,tags: Array,opt: Variant=null):
+	if owner.trait.p.get("variant",2)!=1:return null
+	var x=b.x(a);var v=opt.get("mkv") if opt is Dictionary else null
+	if v==null:
+		v=x.get("mk",0);x.mk=0
+		if opt is Dictionary:opt.mkv=v
+	if v<=0:return null
+	tags.append("약발 받는 한 방 +%d%%"%b.CombatDisplay.percent(v))
+	return m*(1+v)
+
+static func miko_round(b,owner) -> void:
+	if owner.trait.p.get("variant",2)!=2:return
+	var pick={};var late=-1.0
+	for a in b.living(true):
+		if a.id==owner.id:continue
+		var wait=float(a.remaining)/b.speed(a)
+		if wait>late:pick=a;late=wait
+	if pick.is_empty():return
+	var pull=owner.trait.p.get("pull",.4);pick.remaining=maxf(0,pick.remaining-10000*pull)
+	var t=b.combat_events.T;var name=b.CombatDisplay.unit_name(pick)
+	var text="러버밴드 효과: "+name+" 차례 %d%% 당김"%b.CombatDisplay.percent(pull)
+	b.combat_events.trait_payload(b.combat_events.slot(b,owner),text,t+.3)
+	b.combat_events.push("trait",b.combat_events.slot(b,owner),t+.3)
+	b.combat_events.say("<b>"+b.CombatDisplay.unit_name(owner)+"</b>의 <b>러버밴드 효과</b>. "+name+"의 다음 차례가 <em>%d%% 당겨졌다</em>"%b.CombatDisplay.percent(pull),t+.4)
+	b.combat_events.T=t+.6
+
+static func finish_payload(b,duration: float) -> void:
+	# PRUN owns its duration; the native visual finish still starts at the
+	# original body time, and reaches the same end time without adding twice.
+	if not b.combat_events.context.is_empty():b.combat_events.context.body_start=b.combat_events.T
+	b.combat_events.T+=duration
+	b.combat_events.record.ev.T=b.combat_events.T
+
+static func haldric(b,a,sk: Dictionary) -> void:
+	var clock=b.combat_events;var T=clock.T;var names=[];var first={}
+	if not clock.record.has("ev"):clock.begin_record(b)
+	b._source_effect(a,"contract",3,.2,a.id)
+	for u in b.living(true):
+		if u.id==a.id or u.row!=a.row:continue
+		b._source_effect(u,"contract",3,.2,a.id);names.append(b.CombatDisplay.unit_name(u))
+		if first.is_empty():first=u
+	var event={"k":"def" if first.is_empty() else "oath","a":clock.slot(b,a),"t":T}
+	if sk.get("name")!=null:event.nm=sk.name
+	if not first.is_empty():event.tg=[{"i":clock.slot(b,first)}]
+	clock.Record.push(clock.record,event)
+	var who="자신" if names.is_empty() else "자신과 "+", ".join(names)
+	var name=b.CombatDisplay.unit_name(a)
+	var vars={"who":name,"particle":b.CombatDisplay.Josa.tail(name,"이가"),"allies":who,"allies_particle":b.CombatDisplay.Josa.tail(who,"이가"),"red":20,"turns":3}
+	if sk.get("name")!=null:vars.skill=sk.name
+	clock.say(b.CombatDisplay.Locale.u("<b>{who}</b>{particle} {skill:을를} 읊었다. {allies}{allies_particle} 받는 피해 <em>−{red}%</em> ({turns}턴)",vars),T+.6)
+	finish_payload(b,1.4)
+
+static func urda(b,a,t,sk: Dictionary) -> void:
+	var clock=b.combat_events;var T=clock.T;var key=best_double(t)
+	if not clock.record.has("ev"):clock.begin_record(b)
+	clock.Record.push(clock.record,{"k":"oath","a":clock.slot(b,a),"t":T,"tg":[{"i":clock.slot(b,t)}],"nm":sk.name})
+	var name=b.CombatDisplay.unit_name(a);var target=b.CombatDisplay.unit_name(t)
+	if not key.is_empty():
+		var effect=t.effects[key];var old=effect.amount
+		effect.amount=minf(.7,old*2) if key in ["contract","duty"] else old*2;effect.doubled=true
+		clock.say("<b>"+name+"</b>"+b.CombatDisplay.Josa.tail(name,"이가")+" "+sk.name+b.CombatDisplay.Josa.tail(sk.name,"을를")+" 내렸다. "+target+"의 버프가 <em>%d%% → %d%%</em> (남은 %d턴 그대로)"%[b.CombatDisplay.percent(old),b.CombatDisplay.percent(effect.amount),effect.turns],T+.7)
+	else:
+		clock.say(b.CombatDisplay.Locale.u("<b>{who}</b>{particle} {skill:을를} 내렸지만 {target}에게는 두 배로 만들 버프가 없었다",{"who":name,"particle":b.CombatDisplay.Josa.tail(name,"이가"),"skill":sk.name,"target":target}),T+.7)
+	finish_payload(b,1.6)
+
 static func run(b,a,e,t,sk) -> void:
 	match a.id:
 		"marceline": b.x(a).cover=t.id; b.x(a).cover_turns=4
@@ -104,8 +169,7 @@ static func run(b,a,e,t,sk) -> void:
 		"teiris":
 			a.once=true; b._volley(a,1.9,0)
 		"haldric":
-			for u in b.living(true):
-				if u.row==a.row: b._source_effect(u,"contract",3,.2,a.id)
+			haldric(b,a,sk)
 		"erdene":
 			b._effect(a,"taunt",3); b._receive_heal(a,b.x(a).get("prevented",0)*.25); b.x(a).prevented=0
 			for foe in b.living(false): b._effect(foe,"attack_down",2,.15); abyss(b,a,foe,20)
@@ -122,10 +186,7 @@ static func run(b,a,e,t,sk) -> void:
 			abyss(b,a,e,3); corrode(b,a,e,1)
 		"levia": a.hp-=int(floor(a.mhp*.1)) if a.get("nation")!="모르가스 신관국" else maxi(1,int(floor(floor(a.mhp*.1)*.7))); b._effect(a,"rift_charge",99,1); b._sorel_aid(a)
 		"urda":
-			var key=best_double(t)
-			if not key.is_empty():
-				t.effects[key].amount=minf(.7,t.effects[key].amount*2) if key in ["contract","duty"] else t.effects[key].amount*2
-				t.effects[key].doubled=true
+			urda(b,a,t,sk)
 		"lynette":
 			for u in b.living(true): b._receive_heal(u,floor(a.base[a.line]),a); b._shield(u,floor(a.base[a.line]),3,false)
 		"felice","berenga": b._heal(a,t,.4 if a.id=="felice" else 1,true); cleanse(t)
@@ -151,7 +212,9 @@ static func run(b,a,e,t,sk) -> void:
 			weaken_all(b)
 		"zahar": b._volley(a,1.2,15); b._effect(a,"zdn",2,.2)
 		"tove": b._effect(a,"taunt",2); abyss(b,a,e,40)
-		"miko": b._heal(a,t,1,true); t.remaining=maxf(0,t.remaining-3000)
+		"miko":
+			b._heal(a,t,1,true);t.remaining=maxf(0,t.remaining-3000)
+			if a.trait.p.get("variant",2)==1:b.x(t).mk=a.trait.p.get("bonus",.6)
 		"adeline":
 			for u in b.living(true):
 				b._heal(a,u,.4,true); b._source_effect(u,"adeline_guard",2,.1,a.id); b._add_adeline_regen(u,a.base[a.line]*.16,2,a.id)

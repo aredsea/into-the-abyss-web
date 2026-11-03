@@ -12,9 +12,8 @@ static func compatible(p: Dictionary,q: Dictionary) -> bool:
 	return not p.is_empty() and not q.is_empty() and (p.kind in ["attack","volley"])!=(q.kind in ["regen","guard","crit"])
 static func level(t: Variant,id: String) -> int:
 	if not t is Dictionary:return 0
-	var n=t.get(id,0)
-	if n is String:n=float(n) if n.is_valid_float() else 0.0
-	if not (n is int or n is float) or not is_finite(float(n)):return 0
+	var n=preload("res://game/battle_stats_r23.gd").number(t.get(id,0),0)
+	if is_nan(n):return 0
 	return int(clampf(floor(float(n)),0,10))
 static func clean(raw: Variant) -> Dictionary:
 	if not raw is Dictionary:raw={}
@@ -45,14 +44,15 @@ static func num(n: float) -> String:
 	while s.ends_with("0"):s=s.left(-1)
 	return s.left(-1) if s.ends_with(".") else s
 static func pct(n: float) -> int:return int(floor(n*100+.5))
-static func skill_name(raw: Variant,en=false) -> String:
+static func skill_name(raw: Variant,en=false,lang: String="ko") -> String:
 	var v=clean(raw)
-	if not ready(v):return "아직 조합하지 않음"
+	if not ready(v):return preload("res://game/localization_r22.gd").u("아직 조합하지 않음",{},lang)
 	var p=part("prefixes",v.prefix);var q=part("suffixes",v.suffix)
-	return p.en+" "+q.en if en else p.name+" "+q.name
-static func description(raw: Variant,en=false) -> String:
+	return p.en+" "+q.en if en or lang=="en" else p.name+" "+q.name
+static func description(raw: Variant,en=false,lang: String="ko") -> String:
 	var v=clean(raw)
-	if not ready(v):return "길드장 로레다나에게서 조합할 수 있습니다."
+	if not ready(v):return preload("res://game/localization_r22.gd").u("길드장 로레다나에게서 조합할 수 있습니다.",{},lang)
+	en=en or lang=="en"
 	var p=part("prefixes",v.prefix);var q=part("suffixes",v.suffix)
 	var a=level(v.prefix_lv,p.id);var b=level(v.suffix_lv,q.id)
 	var power=p.power+p.step*a;var val=q.value+q.step*b;var body=""
@@ -73,11 +73,11 @@ static func description(raw: Variant,en=false) -> String:
 		"crit":"critical chance +%d points for 2 turns"%pct(val) if en else "치명 +%d%%p 2턴"%pct(val),
 		"abyss":"extra abyss -"+num(val) if en else "심연 추가 −"+num(val)}
 	return body+"; "+tail[q.kind]+(" (prefix +%d, suffix +%d)"%[a,b] if en else " (접두 +%d, 접미 +%d)"%[a,b])
-static func skill(raw: Variant) -> Dictionary:
+static func skill(raw: Variant,lang: String="ko") -> Dictionary:
 	var v=clean(raw)
 	if not ready(v):return {}
 	var p=part("prefixes",v.prefix)
-	return {"id":"persona_skill","cid":"persona","pv":true,"row":"com","name":skill_name(v),"mp":p.mp,"tgt":p.target,"ic":"attack" if p.kind in ["attack","volley"] else "bless","d":description(v)}
+	return {"id":"persona_skill","cid":"persona","pv":true,"row":"com","name":skill_name(v,false,lang),"mp":p.mp,"tgt":p.target,"ic":"attack" if p.kind in ["attack","volley"] else "bless","d":description(v,false,lang)}
 
 static func transition(saved: Variant,draft: Variant,spent: int,gold: int,arg: String,busy=false) -> Dictionary:
 	var out={"saved":saved.duplicate(true),"draft":draft.duplicate(true) if draft is Dictionary else {},"spent":spent,"gold":gold,"message":""}
