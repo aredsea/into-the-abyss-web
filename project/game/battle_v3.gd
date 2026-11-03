@@ -110,6 +110,8 @@ func _sorel_aid(a: Dictionary) -> void:
 	x(o).rescue=x(o).get("rescue",0)+1; _receive_heal(a,o.base[o.line]*2)
 func combat_event_trace() -> Dictionary: return combat_events.trace()
 func combat_display_schedule(event: Dictionary) -> Array: return CombatDisplay.schedule(event)
+func combat_display_frame(source_record: Dictionary,definitions: Array,lang: String="ko",profile: Variant=null,profile_available: bool=false) -> Dictionary:
+	return CombatDisplay.source_frame(source_record,definitions,lang,profile,profile_available)
 func status_chips(u: Dictionary) -> Array: return CombatDisplay.chips(self,u)
 func _begin_combat_events(id: String,a: Dictionary,e: Dictionary,t: Dictionary) -> void:
 	var log_lines=combat_events.record.log
@@ -160,11 +162,7 @@ func _round_tick() -> void:
 		if owner.hp<=0: continue
 		match owner.id:
 			"urda":
-				var target=_lowest()
-				if not target.is_empty():
-					_receive_heal(target,owner.base[owner.line]*2*.35)
-					for key in ["attack_down","defense_down"]:
-						if target.effects.has(key): target.effects.erase(key); break
+				PersonalRules.urda_round(self,owner)
 			"tove":
 				owner.shield=maxi(owner.shield,mini(int(floor(owner.mhp*.3)),owner.shield+int(floor(owner.mhp*.06+.5))))
 				_effect(owner,"shield",4)
@@ -257,14 +255,7 @@ func _check_end() -> bool:
 
 func _hg_scan() -> void:
 	if dungeon_enemy_r21==null or not has_alive("hildegard"): return
-	var taunted=not living(true).filter(func(a):return a.effects.has("taunt")).is_empty()
-	for e in living(false):
-		if x(e).get("hg_index",-1)==int(e.act_index): continue
-		x(e).hg_index=int(e.act_index); e.redirected=false
-		if e.acts[e.act_index].kind in ["atk","shoot","aimed","spell","big_one","big_all"] and not taunted:
-			var roll=dungeon_enemy_r21.random()
-			if e.target_id!="hildegard" and roll<.35:
-				e.target_id="hildegard"; e.redirected=true
+	PersonalRules.hildegard_scan(self,ally('hildegard'))
 
 func x(u: Dictionary) -> Dictionary:
 	ensure_extra_state(u)
