@@ -27,6 +27,9 @@ func shot(s,tag,dim):
 		for id in s.controls:
 			var b=s.controls[id]
 			if not b is Button:continue
+			var rect=b.get_global_rect()
+			check(rect.position.x>=-.5 and rect.end.x<=dim.x+.5,"form control viewport bounds "+name+":"+id)
+			if b.get_parent()==view.footer:check(rect.end.x<=view.frame.get_global_rect().end.x-17,"footer inset "+name+":"+id)
 			var style=b.get_theme_stylebox("normal");var inset=style.get_content_margin(SIDE_LEFT)+style.get_content_margin(SIDE_RIGHT)
 			var need=b.get_theme_font("font").get_multiline_string_size(b.text,HORIZONTAL_ALIGNMENT_CENTER,b.size.x-inset if b.autowrap_mode!=TextServer.AUTOWRAP_OFF else -1,b.get_theme_font_size("font_size"))
 			check(need.x+inset<=b.size.x+1 and need.y<=b.size.y and b.size.y>=44,"form button bounds "+name+":"+id)

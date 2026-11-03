@@ -29,7 +29,7 @@ static func dress_button(b: Button,selected=false) -> void:
 	b.add_theme_font_override("font",BOLD)
 	for state in ["normal","hover","pressed","disabled","focus"]:
 		var p=panel(PALE if state in ["hover","pressed"] else PAPER,INK)
-		p.set_border_width_all(0);p.border_width_bottom=2
+		p.set_border_width_all(0);p.border_width_bottom=3
 		p.content_margin_left=12;p.content_margin_right=12;p.content_margin_top=10;p.content_margin_bottom=10
 		if state=="focus":p.set_border_width_all(2);p.border_color=ACTION_RED
 		b.add_theme_stylebox_override(state,p)
@@ -40,9 +40,8 @@ static func dress_button(b: Button,selected=false) -> void:
 static func rule(parent: Control,y: float,width: float,x=18.0) -> void:
 	var line=ColorRect.new();parent.add_child(line);line.position=Vector2(x,y);line.size=Vector2(width,2);line.color=INK;line.mouse_filter=Control.MOUSE_FILTER_IGNORE
 
-static func city(parent: Control,rect: Rect2) -> void:
-	var art=TextureRect.new();parent.add_child(art);art.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;art.texture=preload("res://assets/ui-r21/town-city-right.svg")
-	art.position=rect.position;art.size=rect.size;art.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;art.modulate.a=.28;art.mouse_filter=Control.MOUSE_FILTER_IGNORE
+static func heading_rule(parent: Control) -> void:
+	var line=ColorRect.new();parent.add_child(line);line.custom_minimum_size=Vector2(54,4);line.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN;line.color=RED;line.mouse_filter=Control.MOUSE_FILTER_IGNORE
 
 static func panel(bg=PAPER,border=LINE,_radius=0) -> StyleBoxFlat:
 	var p=StyleBoxFlat.new(); p.bg_color=bg; p.border_color=border; p.set_border_width_all(1)

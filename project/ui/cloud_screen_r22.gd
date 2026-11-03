@@ -11,7 +11,6 @@ func build(owner_screen) -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);theme=T.make_theme()
 	var ground=ColorRect.new();add_child(ground);ground.color=T.PAPER;ground.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);ground.mouse_filter=MOUSE_FILTER_IGNORE
 	var frame=Control.new();add_child(frame);var w=minf(host.size.x,430);frame.position=Vector2((host.size.x-w)/2,0);frame.size=Vector2(w,host.size.y)
-	T.city(frame,Rect2(w-174,0,156,124))
 	var title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(w-112,58);title.text="토르바 · "+("순위" if host.screen=="rank" else "기록");title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",32)
 	var back=Button.new();frame.add_child(back);back.position=Vector2(w-88,20);back.size=Vector2(70,44);back.text="뒤로";T.dress_button(back);back.pressed.connect(host.go.bind("cloud" if host.screen=="rank" else "journal"));host.controls.back=back
 	T.rule(frame,80,w-36)
@@ -64,7 +63,7 @@ func label(value: String,fs=15) -> void:
 	if fs>=19:l.add_theme_font_override("font",T.DISPLAY)
 func button(id: String,value: String,callback: Callable,disabled=false) -> void:
 	var b=Button.new();body.add_child(b);b.text=value;b.custom_minimum_size.y=48;b.disabled=disabled or service.busy;b.pressed.connect(callback);host.controls[id]=b
-	T.dress_button(b,id in ["cloud_create","cloud_save","cloud_keep_local","cloud_confirm","rank_refresh"])
+	T.dress_button(b,id in ["cloud_create","cloud_save","cloud_keep_local","cloud_confirm","rank_refresh"]);b.alignment=HORIZONTAL_ALIGNMENT_LEFT
 func input(id: String,hint: String,secret: bool) -> void:
 	var field=LineEdit.new();body.add_child(field);field.placeholder_text=hint;field.secret=secret;field.custom_minimum_size.y=48;field.virtual_keyboard_type=LineEdit.KEYBOARD_TYPE_DEFAULT
 	field.add_theme_color_override("font_color",T.INK);field.add_theme_color_override("font_placeholder_color",T.MUTED)

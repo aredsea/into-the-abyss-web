@@ -13,3 +13,14 @@ for phase in ['before','after']:
    sheet.paste(im,(x+(284-im.width)//2,y));draw.text((x,y+385),p.stem[:34],font=font,fill='#111715')
   sheet.save(O/f'{phase}-{start//12+1:02d}.jpg',quality=90)
 print('Review sheets',len(list(O.glob('*.jpg'))))
+reference=R.parent.parent/'outputs/r13-b-all/00-town-approved-direction.png'
+if reference.exists():
+ sheet=Image.new('RGB',(1600,900),'#ddd8cd');draw=ImageDraw.Draw(sheet)
+ for i,(label,path) in enumerate([
+  ('Approved 00',reference),
+  ('Rejected round 1',O.parent/'round1-after/loading-loading-390x844.png'),
+  ('Round 2 loading',O.parent/'after/loading-loading-390x844.png'),
+  ('Round 2 creation rows',O.parent/'after/create-race-390x844.png')]):
+  im=Image.open(path).convert('RGB');im.thumbnail((390,844))
+  sheet.paste(im,(i*400+(390-im.width)//2,35));draw.text((i*400+10,8),label,font=font,fill='#111715')
+ sheet.save(O/'round2-approved-comparison.png')

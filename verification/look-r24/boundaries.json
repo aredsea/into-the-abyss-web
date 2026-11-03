@@ -1,5 +1,21 @@
 {
+  "shell_copies": [
+    {
+      "copy": "project/shell-assets/town.webp",
+      "source": "project/assets/ui-r21/bg-town.webp",
+      "same": true
+    },
+    {
+      "copy": "project/shell-assets/hildegard.webp",
+      "source": "project/assets/portraits-r21-web/masters/hildegard.webp",
+      "same": true
+    }
+  ],
   "changed": [
+    "project/shell-assets/hildegard.webp",
+    "project/shell-assets/hildegard.webp.import",
+    "project/shell-assets/town.webp",
+    "project/shell-assets/town.webp.import",
     "project/tests/capture_look_r24_extras.gd",
     "project/tests/capture_look_r24_extras.gd.uid",
     "project/tests/ui_look_r24_test.gd",

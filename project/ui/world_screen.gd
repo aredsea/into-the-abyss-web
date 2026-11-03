@@ -146,7 +146,7 @@ func _draw_screen() -> void:
 	var width=minf(size.x,440); var height=size.y
 	var base=Control.new(); add_child(base); base.position=Vector2((size.x-width)/2,0); base.size=Vector2(width,height)
 	var back=ColorRect.new(); base.add_child(back); back.size=base.size; back.color=UI.GROUND; back.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	UI.city(base,Rect2(width-174,0,156,88));UI.rule(base,88,width-36)
+	UI.rule(base,88,width-36)
 	var heading=Label.new(); base.add_child(heading); heading.position=Vector2(18,12); heading.size=Vector2(width-112,40); heading.text=_title(); heading.add_theme_font_size_override("font_size",30); heading.add_theme_font_override("font",UI.TITLE); heading.add_theme_color_override("font_color",UI.INK); heading.clip_text=true
 	preload("res://game/localization_r22.gd").fit_title(heading,30)
 	var status=Label.new(); base.add_child(status); status.position=Vector2(18,56); status.text="%d일째     금화 %d" % [model.s.day,model.s.gold]; status.add_theme_font_size_override("font_size",12)
@@ -221,7 +221,7 @@ func button(id: String, value: String, callback: Callable, disabled=false, paren
 	var b=Button.new(); (parent if parent else content).add_child(b)
 	b.text=value; b.custom_minimum_size.y=54; b.size_flags_horizontal=Control.SIZE_EXPAND_FILL; b.disabled=disabled
 	b.mouse_filter=Control.MOUSE_FILTER_PASS
-	UI.dress_button(b)
+	UI.dress_button(b);b.alignment=HORIZONTAL_ALIGNMENT_LEFT
 	b.pressed.connect(callback); controls[id]=b
 	return b
 
