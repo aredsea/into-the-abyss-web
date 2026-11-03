@@ -1,0 +1,99 @@
+[
+  {
+    "test": "integration",
+    "command": "node test/integration.mjs",
+    "exit": 0,
+    "seconds": 16.64,
+    "summary": [
+      "PASS account and IP per-minute limits",
+      "PASS authenticated deletion cascades revisions and ranks",
+      "PASS merged P5/P6/P7/P8/P10/D save specimens roundtrip through actual D1 and CAS",
+      "PASS merged extension mutations rejected without broadening opaque fields",
+      "SERVER CHECKS 6739 FAILURES 0"
+    ]
+  },
+  {
+    "test": "security",
+    "command": "node test/security.mjs",
+    "exit": 0,
+    "seconds": 16.45,
+    "summary": [
+      "PASS P2 deletion preserves cache and concurrent expiry has one generation",
+      "PASS P2 malformed URL encoding, hex revision, production localhost denied",
+      "PASS P2 configured HTTPS domain is exact and production localhost cannot be opted in accidentally",
+      "PASS P2 legitimate native dialogues, transitions, battle snapshots and settlements remain valid",
+      "SECURITY CHECKS 423 FAILED GROUPS 0"
+    ]
+  },
+  {
+    "test": "turnstile",
+    "command": "node test/turnstile.mjs",
+    "exit": 0,
+    "seconds": 1.22,
+    "summary": [
+      "SITEVERIFY CHECKS 7 FAILURES 0"
+    ]
+  },
+  {
+    "test": "security-r2",
+    "command": "node test/security-r2.mjs",
+    "exit": 0,
+    "seconds": 10.69,
+    "summary": [
+      "PASS 6 rank elapsed capped at 24h for aged and migrated baselines",
+      "PASS 7 archived PIN verification, 410 response and owner erasure",
+      "PASS Nit acts keys restrict syntax without changing field allowlists",
+      "PASS Nit 422/429 do not consume Turnstile and enabled requires challenge",
+      "R2 CHECKS 119 FAILURES 0"
+    ]
+  },
+  {
+    "test": "security-r3",
+    "command": "node test/security-r3.mjs",
+    "exit": 0,
+    "seconds": 7.47,
+    "summary": [
+      "PASS global daily signup cap survives rotating IP and minute buckets, rejection is atomic",
+      "PASS global daily new-save byte cap exact boundary and rotating IP",
+      "PASS global daily concurrent rotating networks cannot overdraw",
+      "PASS global daily denial precedes one-use Turnstile verification",
+      "R3 CHECKS 670 FAILURES 0"
+    ]
+  },
+  {
+    "test": "deployment",
+    "command": "node test/deployment.mjs",
+    "exit": 0,
+    "seconds": 2.69,
+    "summary": [
+      "DEPLOYMENT CHECKS 22 FAILURES 0"
+    ]
+  },
+  {
+    "test": "combat-r14",
+    "command": "node test/combat-r14.mjs",
+    "exit": 0,
+    "seconds": 14.33,
+    "summary": [
+      "{\"checks\":3562,\"failures\":0,\"samples\":119,\"mutations\":2450,\"fields\":{\"effects\":[\"adeline_guard\",\"adeline_guard.amount\",\"adeline_guard.source\",\"adeline_guard.turns\",\"attack_down\",\"attack_down.amount\",\"attack_down.turns\",\"attack_up\",\"attack_up.amount\",\"attack_up.turns\",\"contract\",\"contract.amount\",\"contract.source\",\"contract.turns\",\"corrosion\",\"corrosion.amount\",\"corrosion.by\",\"corrosion.order\",\"corrosion.turns\",\"defense_down\",\"defense_down.amount\",\"defense_down.turns\",\"defense_up\",\"defense_up.amount\",\"defense_up.turns\",\"duty\",\"duty.amount\",\"duty.turns\",\"haste\",\"haste.amount\",\"haste.r21\",\"haste.turns\",\"mark\",\"mark.amount\",\"mark.turns\",\"regen\",\"regen.amount\",\"regen.heals\",\"regen.source\",\"regen.turns\",\"rift_charge\",\"rift_charge.amount\",\"rift_charge.turns\",\"shield\",\"shield.amount\",\"shield.turns\",\"sorel_regen\",\"sorel_regen.amount\",\"sorel_regen.turns\",\"taunt\",\"taunt.amount\",\"taunt.turns\",\"zdn\",\"zdn.amount\",\"zdn.turns\"],\"extra\":[\"ch\",\"chk\",\"cor\",\"cover\",\"cover_turns\",\"dot_order\",\"dot_stacks\",\"enc\",\"f1\",\"first_attack_action\",\"foe_turns\",\"free\",\"fzn\",\"fzr\",\"fzx\",\"haste_done\",\"hg_index\",\"hh\",\"hidden\",\"inch\",\"jd\",\"judith_sp0\",\"judith_until\",\"last_attacker\",\"last_target\",\"lmc\",\"mamp\",\"overheal\",\"penetrating\",\"personal_pull\",\"prevented\",\"protect\",\"pull\",\"source_rng\",\"streak\",\"streak_action\"]}}"
+    ]
+  },
+  {
+    "test": "p2-r15",
+    "command": "node test/p2-r15.mjs",
+    "exit": 0,
+    "seconds": 4.62,
+    "summary": [
+      "{\"checks\":1131,\"failures\":0,\"normal_samples\":393,\"cases\":49,\"failed_cases\":[]}"
+    ]
+  },
+  {
+    "test": "gear-r23",
+    "command": "node test/gear-r23.mjs",
+    "exit": 0,
+    "seconds": 3.67,
+    "summary": [
+      "GEAR R23 SERVER {\"checks\":259,\"failures\":0,\"cases\":36}"
+    ]
+  }
+]

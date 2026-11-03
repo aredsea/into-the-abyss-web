@@ -2,6 +2,7 @@ extends Control
 ## Source name selection and local availability are separate contracts.
 const R=preload("res://game/panels_rules_r22.gd")
 const T=preload("res://ui/town_theme_r21.gd")
+const L=preload("res://game/localization_r22.gd")
 var texture: Texture2D
 var initial=""
 var selection={}
@@ -30,9 +31,14 @@ static func resolve(id: String,variant="default") -> Dictionary:
 			for candidate in ["res://assets/portraits-r21-web/slots/"+id+"-detail-overview.tres","res://assets/portraits-r21/slots/"+id+"-detail-overview.png","res://assets/portraits-r21/"+id+"-upperbody.png"]:
 				if ResourceLoader.exists(candidate):path=candidate;break
 	return {"name":name,"path":path,"fallback":name!="" and name!=id+"_portrait_default" and not path.ends_with(name+".png")}
-func configure(id: String,variant="default") -> void:
+static func face_observation(id: String,name: String,lang="ko") -> Dictionary:
+	var asset=pick(id)
+	return {"asset":asset,"initial":R.first(L.t(name,lang)) if asset=="" and id not in ["","persona"] else "","persona":asset=="" and id in ["","persona"]}
+func configure(id: String,variant="default",name: Variant=null,lang="ko") -> void:
 	selection=resolve(id,variant);texture=load(selection.path) if selection.path!="" else null
-	initial=R.first(R.DATA.cast.get(id,{}).get("name","")) if id!="persona" else ""
+	var display=R.DATA.cast.get(id,{}).get("name",id) if name==null else name
+	initial=face_observation(id,display,lang).initial
+	if texture==null and selection.name!="":initial=R.first(L.t(display,lang))
 	mouse_filter=MOUSE_FILTER_IGNORE;clip_contents=true;texture_filter=TEXTURE_FILTER_LINEAR;queue_redraw()
 func _draw() -> void:
 	if texture:

@@ -1,27 +1,30 @@
 extends RefCounted
 ## One source-backed dictionary for P1/P7/P10/settings. Never translate save values.
 const DATA=preload("res://data/localization-r22.json").data
+const SOURCE=preload("res://data/ui-source-locale-r23.json").data
 const Josa=preload("res://game/josa_r22.gd")
 const Pack=preload("res://game/locale_pack_r23.gd")
 const Value=preload("res://game/ui_value_r23.gd")
-static var packs=Pack.new({"en":JSON.stringify(DATA.ui)},JSON.stringify(DATA.words))
+static var packs=Pack.new({"en":JSON.stringify(SOURCE.ui)},JSON.stringify(SOURCE.words))
 static var patterns=[]
 static var cache={}
 static func configure_packs(raw: Variant=null,words: Variant=null) -> void:
-	packs=Pack.new({"en":JSON.stringify(DATA.ui)} if raw==null else raw,JSON.stringify(DATA.words) if words==null else words)
+	packs=Pack.new({"en":JSON.stringify(SOURCE.ui)} if raw==null else raw,JSON.stringify(SOURCE.words) if words==null else words)
 	patterns=[];cache={}
 static func change_raw_pack(lang: String,raw: String,words: String) -> void:
 	packs.raw[lang]=raw;packs.words_raw=words
 static func ui_pack(lang: String) -> Variant:return packs.pack(lang)
 static func en_dict() -> Variant:return packs.dictionary()
-static func _lookup(table: Variant,key: String,fallback: Variant) -> Variant:
+static func _lookup(table: Variant,key: Variant,fallback: Variant) -> Variant:
 	var v=table.get(key) if table is Dictionary else null
+	if table is Array and (key is int or key is float) and key==floor(key) and key>=1 and key<=table.size():v=table[int(key)-1]
 	return v if Value.truth(v) else fallback
 static func canonical_names(value: String) -> String:
 	# Presentation only: historical save/log bytes remain untouched.
 	return value.replace("힐데가르트","힐데가").replace("베렝가","베렌가").replace("바르구트","바르굿")
 static func language(s: Dictionary) -> String:return "en" if s.get("settings",{}).get("lang","")=="en" else "ko"
 static func t(value: Variant,lang="ko") -> Variant:return _lookup(en_dict(),value,value) if lang=="en" and value is String else value
+static func c1_en(value: Variant=null) -> Variant:return _lookup(en_dict(),value,value) if Value.truth(value) else ""
 static func u(src: String,vars: Variant=null,lang="ko") -> String:
 	var tpl=_lookup(ui_pack(lang),src,src) if lang!="ko" else src
 	if vars==null or not tpl.contains("{"):return tpl
@@ -41,6 +44,10 @@ static func _patterns() -> void:
 	for src in DATA.ui:
 		var matches=token.search_all(src)
 		if matches.is_empty():continue
+		# Already formatted Latin/numeric text has no language to infer. Generic
+		# placeholder templates can otherwise consume punctuation in HP/MP values.
+		var korean=RegEx.new();korean.compile("[가-힣]")
+		if korean.search(token.sub(src,"",true))==null:continue
 		# Variable-only templates cannot identify formatted text safely.
 		if token.sub(src,"",true).strip_edges()=="":continue
 		var expression="^";var pos=0;var keys=[]
@@ -53,7 +60,8 @@ static func _patterns() -> void:
 static func render(value: String,lang="ko") -> String:
 	value=canonical_names(value)
 	if lang!="en":return value
-	if DATA.ui.has(value):return DATA.ui[value]
+	if DATA.ui.has(value) and DATA.ui[value]!=value:return DATA.ui[value]
+	if SOURCE.words.has(value):return c1_en(value)
 	if DATA.words.has(value):return DATA.words[value]
 	if cache.has(value):return cache[value]
 	# Join fields before generic templates; a {name} template must not swallow metadata.
@@ -83,6 +91,16 @@ static func fit_box(node: Control) -> void:
 		var style=node.get_theme_stylebox("normal")
 		inset=Vector2(style.get_content_margin(SIDE_LEFT)+style.get_content_margin(SIDE_RIGHT),style.get_content_margin(SIDE_TOP)+style.get_content_margin(SIDE_BOTTOM))
 	var available=node.size-inset
+	# Label text can temporarily expand its minimum size before clip_text/layout
+	# settles. Existing canvas metrics retain the authored slot width.
+	if node.has_meta("metric_index"):
+		var ancestor=node.get_parent();var index=int(node.get_meta("metric_index"))
+		while ancestor!=null:
+			if ancestor.has_method("localized"):
+				var measures=ancestor.get("metrics")
+				if measures is Array and index>=0 and index<measures.size() and measures[index] is Dictionary and measures[index].has("available"):
+					available.x=minf(available.x,float(measures[index].available)-inset.x);break
+			ancestor=ancestor.get_parent()
 	var fs=node.get_theme_font_size("font_size")
 	var minimum=mini(fs,10)
 	while fs>minimum:

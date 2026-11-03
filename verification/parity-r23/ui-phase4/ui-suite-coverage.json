@@ -1,0 +1,57 @@
+{
+  "expected": 134,
+  "executed": 134,
+  "missing": [],
+  "failed": [],
+  "combat": [
+    {
+      "test": "combat_p2_r22_trace",
+      "battles": 48,
+      "passed": true,
+      "summary": "P2 full battles 48 / actions 1468 / matched 1468 / differences {  }"
+    },
+    {
+      "test": "combat_a6_mixed_audit",
+      "battles": 48,
+      "passed": true,
+      "summary": "A6 mixed parity 48 battles / source 2537 / actual 2537 / equal battles 48 / matched actions 2537"
+    },
+    {
+      "test": "combat_p3_mixed_audit",
+      "battles": 128,
+      "passed": true,
+      "summary": "P3 mixed parity 128 battles / source 4929 / actual 4929 / equal battles 128 / matched actions 4929"
+    },
+    {
+      "test": "combat_a7_gear_audit",
+      "battles": 176,
+      "passed": true,
+      "summary": "A7 gear parity 176 battles / source 2932 / actual 2932 / equal battles 176 / matched actions 2932"
+    },
+    {
+      "test": "combat_a7_gear_balanced",
+      "battles": 176,
+      "passed": true,
+      "summary": "A7 gear parity 176 battles / source 6279 / actual 6279 / equal battles 176 / matched actions 6279"
+    },
+    {
+      "test": "combat_a8_audit",
+      "battles": 5120,
+      "passed": true,
+      "summary": "A8 persona parity 5120 battles / source 186707 / actual 186707 / equal battles 5120 / matched actions 186707"
+    },
+    {
+      "test": "combat_a9_native_10_audit",
+      "battles": 312,
+      "passed": true,
+      "summary": "A9 native 10 parity 312 battles / source 4806 / actual 4806 / equal battles 312 / matched actions 4806"
+    },
+    {
+      "test": "combat_a9_native_40_audit",
+      "battles": 312,
+      "passed": true,
+      "summary": "A9 native 40 parity 312 battles / source 10127 / actual 10127 / equal battles 312 / matched actions 10127"
+    }
+  ],
+  "server_groups": 9
+}

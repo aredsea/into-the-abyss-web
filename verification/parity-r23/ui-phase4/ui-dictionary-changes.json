@@ -1,0 +1,6538 @@
+[
+  {
+    "section": "ui",
+    "key": "가장 최근에 소개받은 사람",
+    "before": null,
+    "after": "Most recently introduced"
+  },
+  {
+    "section": "ui",
+    "key": "{name}: 아직은 서로를 잘 모른다(호감 {n} 이상부터).",
+    "before": null,
+    "after": "{name}: You do not know each other well enough yet (affection {n} required)."
+  },
+  {
+    "section": "ui",
+    "key": "[전투 결과 - 승리]",
+    "before": null,
+    "after": "[Battle result — victory]"
+  },
+  {
+    "section": "ui",
+    "key": "로레다나의 스킬 조합",
+    "before": null,
+    "after": "Loredana's skill craft"
+  },
+  {
+    "section": "ui",
+    "key": "{name:와과} 첫 만남, 동료로 함께하게 되었다",
+    "before": null,
+    "after": "First met {name}, who joined as a companion"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>이 「총대 메기」 하고 나서서 {target:을를} 지킨다. 다음 적 공격을 몸으로 받는다(받는 피해 −30%)",
+    "before": null,
+    "after": "<b>{who}</b> stepped in with Take the Fall to guard {target}. The next enemy attack hits {who} instead (damage taken −30%)"
+  },
+  {
+    "section": "ui",
+    "key": "얻은 것: 경험치 {exp}, 금화 {gold} (층 정산 때 합산해 받는다. 퇴각해도 모은 것은 가져간다)",
+    "before": null,
+    "after": "Loot: {exp} XP, {gold} gold (claimed at floor settlement; collected loot remains yours even if you retreat)."
+  },
+  {
+    "section": "ui",
+    "key": "페르소나 이미지를 다시 불러옵니다. 이미지가 없으면 직업 문장으로 대신합니다.",
+    "before": null,
+    "after": "Reloading the persona image. Without one, the class emblem is used instead."
+  },
+  {
+    "section": "ui",
+    "key": " (구역 전투, 층 보스가 아직 남아 있다)",
+    "before": null,
+    "after": " (area battle; floor boss remains)"
+  },
+  {
+    "section": "ui",
+    "key": "일반 등급 한꺼번에 팔기",
+    "before": null,
+    "after": "Sell all common equipment"
+  },
+  {
+    "section": "ui",
+    "key": "만남 고르기",
+    "before": null,
+    "after": "Choose your first meeting"
+  },
+  {
+    "section": "ui",
+    "key": "먼저 직업을 골라 주세요.",
+    "before": null,
+    "after": "Choose a class first."
+  },
+  {
+    "section": "ui",
+    "key": "체력이 많이 닳았다",
+    "before": null,
+    "after": "Health is low"
+  },
+  {
+    "section": "ui",
+    "key": "다음 층으로 내려간다",
+    "before": null,
+    "after": "Descend to the next floor"
+  },
+  {
+    "section": "ui",
+    "key": "{best}층까지 도달 · 구역 보스 {bosses}개 처치 · 도전 {runs}회",
+    "before": null,
+    "after": "Deepest floor: {best}; zone bosses defeated: {bosses}; runs: {runs}"
+  },
+  {
+    "section": "ui",
+    "key": "빈 자리",
+    "before": null,
+    "after": "Empty slot"
+  },
+  {
+    "section": "ui",
+    "key": "아직 만난 동료가 없다.",
+    "before": null,
+    "after": "You have not met any companions yet."
+  },
+  {
+    "section": "ui",
+    "key": "물건 {n}개",
+    "before": null,
+    "after": "Items: {n}"
+  },
+  {
+    "section": "ui",
+    "key": " (<b>추천 층</b>)",
+    "before": null,
+    "after": " (<b>recommended floor</b>)"
+  },
+  {
+    "section": "ui",
+    "key": "확정 ",
+    "before": null,
+    "after": "Guaranteed "
+  },
+  {
+    "section": "ui",
+    "key": "탐색 {step}/{total}",
+    "before": null,
+    "after": "Exploration {step}/{total}"
+  },
+  {
+    "section": "ui",
+    "key": "함께 마시면 휴식 중 은밀한 시간을 보낼 수 있다.",
+    "before": null,
+    "after": "Share it to spend a private moment during the rest."
+  },
+  {
+    "section": "ui",
+    "key": "계정 코드와 쓰기 PIN 입력",
+    "before": null,
+    "after": "Enter account code and write PIN"
+  },
+  {
+    "section": "ui",
+    "key": "함께할 동료가 아직 없다. 길드 본관의 동료 소개 창구에서 사람을 이어 받자.",
+    "before": null,
+    "after": "You have no companions yet. Ask for an introduction at the Guild Hall."
+  },
+  {
+    "section": "ui",
+    "key": "금화가 모자랍니다. {action} 값 {cost}, 가진 금화 {gold}",
+    "before": null,
+    "after": "Not enough gold. {action} costs {cost}; you have {gold}."
+  },
+  {
+    "section": "ui",
+    "key": "자신과 {names}",
+    "before": null,
+    "after": "self and {names}"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>{particle} {skill}{target:을를} {verb}. <em>{damage}</em> 피해를 입혔다",
+    "before": null,
+    "after": "<b>{who}</b> {skill}{verb} {target}. <em>{damage}</em> damage dealt"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>{suffix} {item:을를} 썼다. <b>{target}</b> {effect}",
+    "before": null,
+    "after": "<b>{who}</b> used {item} on <b>{target}</b>. {effect}"
+  },
+  {
+    "section": "ui",
+    "key": "프롬프트 다이어트",
+    "before": null,
+    "after": "Prompt trimming"
+  },
+  {
+    "section": "ui",
+    "key": " (버거울 수 있다)",
+    "before": null,
+    "after": " (may be difficult)"
+  },
+  {
+    "section": "ui",
+    "key": "금화가 모자랍니다. 새로 거는 값 {cost}",
+    "before": null,
+    "after": "Not enough gold. Refreshing costs {cost}."
+  },
+  {
+    "section": "ui",
+    "key": "앞에서 막을 사람이 없습니다. 전열이 한 명도 없으면 후열이 바로 맞습니다.",
+    "before": null,
+    "after": "No one can hold the front. Without a front-line fighter, the back row is exposed."
+  },
+  {
+    "section": "ui",
+    "key": "부상자: {party}",
+    "before": null,
+    "after": "Injured: {party}"
+  },
+  {
+    "section": "ui",
+    "key": "출전 인원",
+    "before": null,
+    "after": "Sortie party"
+  },
+  {
+    "section": "ui",
+    "key": "가볍게",
+    "before": null,
+    "after": "Light"
+  },
+  {
+    "section": "ui",
+    "key": "{n}개, 금화 {gold}",
+    "before": null,
+    "after": "{n} items, {gold} gold"
+  },
+  {
+    "section": "ui",
+    "key": "상대성 이론: 행동 게이지가 가득 차 바로 한 번 더",
+    "before": null,
+    "after": "Theory of Relativity: gauge full; act once more immediately"
+  },
+  {
+    "section": "ui",
+    "key": ", {target}에게 <i>심연 −{n}</i>",
+    "before": null,
+    "after": "; {target}: <i>abyss −{n}</i>"
+  },
+  {
+    "section": "ui",
+    "key": "{name} 강화 +{lv}",
+    "before": null,
+    "after": "Upgrade {name} +{lv}"
+  },
+  {
+    "section": "ui",
+    "key": "{stage}, 호감 {a}",
+    "before": null,
+    "after": "{stage}, affection {a}"
+  },
+  {
+    "section": "ui",
+    "key": "체력이 넉넉하다",
+    "before": null,
+    "after": "Health is high"
+  },
+  {
+    "section": "ui",
+    "key": "{name}: 「{line}」 금화 -{price} / {tail}",
+    "before": null,
+    "after": "{name}: ‘{line}’ gold −{price} / {tail}"
+  },
+  {
+    "section": "ui",
+    "key": "내일 다시",
+    "before": null,
+    "after": "Come back tomorrow"
+  },
+  {
+    "section": "ui",
+    "key": "몸통과 덧효과를 고른 뒤 저장하면 로레다나와 이야기가 이어집니다. 바꾸기는 무료, 강화는 조각에 남습니다.",
+    "before": null,
+    "after": "Pick a body and a rider, then save to talk it over with Loredana. Swapping is free; reinforcement stays with each piece."
+  },
+  {
+    "section": "ui",
+    "key": "높음",
+    "before": null,
+    "after": "High"
+  },
+  {
+    "section": "ui",
+    "key": "높일수록 쉽고, 낮출수록 어렵습니다",
+    "before": null,
+    "after": "More points make the game easier; fewer make it harder"
+  },
+  {
+    "section": "ui",
+    "key": "접두어 · 몸통",
+    "before": null,
+    "after": "Prefix · core"
+  },
+  {
+    "section": "ui",
+    "key": "변경 사항이 있습니다. 저장하기 전에는 전투에 쓰이지 않습니다.",
+    "before": null,
+    "after": "You have unsaved changes. They are not used in battle until saved."
+  },
+  {
+    "section": "ui",
+    "key": "레벨업 스크롤",
+    "before": null,
+    "after": "Level-up scroll"
+  },
+  {
+    "section": "ui",
+    "key": ", {debuff} 해제",
+    "before": null,
+    "after": "; removed {debuff}"
+  },
+  {
+    "section": "ui",
+    "key": "대던전 {floor}층 도전 실패{boss}",
+    "before": null,
+    "after": "Failed the Great Dungeon run on floor {floor}{boss}"
+  },
+  {
+    "section": "ui",
+    "key": "소개비는 100 → 120 → 140 … 만난 사람이 늘수록 20씩 오른다{next}.",
+    "before": null,
+    "after": "The fee rises by 20 for each introduction: 100 → 120 → 140…{next}."
+  },
+  {
+    "section": "ui",
+    "key": "거절",
+    "before": null,
+    "after": "Reject"
+  },
+  {
+    "section": "ui",
+    "key": "<b>Lv {lv}부터 쓸 수 있습니다</b>. {description}",
+    "before": null,
+    "after": "<b>Usable from Lv {lv}</b>. {description}"
+  },
+  {
+    "section": "ui",
+    "key": "{boss:을를} 쓰러뜨렸다",
+    "before": null,
+    "after": "Defeated {boss}"
+  },
+  {
+    "section": "ui",
+    "key": "입장",
+    "before": null,
+    "after": "Entrance"
+  },
+  {
+    "section": "ui",
+    "key": "얻은 것: 경험치 {exp}, 금화 ",
+    "before": null,
+    "after": "Loot: {exp} XP, "
+  },
+  {
+    "section": "ui",
+    "key": "{name:이가} 소개됐습니다. {next}",
+    "before": null,
+    "after": "{name} was introduced. {next}"
+  },
+  {
+    "section": "ui",
+    "key": "{name} 준비",
+    "before": null,
+    "after": "Preparing {name}"
+  },
+  {
+    "section": "ui",
+    "key": "남은 체력: {party}",
+    "before": null,
+    "after": "HP remaining: {party}"
+  },
+  {
+    "section": "ui",
+    "key": "<b>지금은 쓸 수 없습니다</b>. {description}",
+    "before": null,
+    "after": "<b>Unavailable now</b>. {description}"
+  },
+  {
+    "section": "ui",
+    "key": "{rift}, {title}",
+    "before": null,
+    "after": "{rift}: {title}"
+  },
+  {
+    "section": "ui",
+    "key": "불러오기",
+    "before": null,
+    "after": "Load"
+  },
+  {
+    "section": "ui",
+    "key": "장비 진열",
+    "before": null,
+    "after": "Equipment for sale"
+  },
+  {
+    "section": "ui",
+    "key": "추천",
+    "before": null,
+    "after": "Recommended"
+  },
+  {
+    "section": "ui",
+    "key": "의뢰 보상 금화 {gold}",
+    "before": null,
+    "after": "Quest reward: {gold} gold"
+  },
+  {
+    "section": "ui",
+    "key": "백스텝{turns}",
+    "before": null,
+    "after": "Backstep{turns}"
+  },
+  {
+    "section": "ui",
+    "key": "(부상 이탈)",
+    "before": null,
+    "after": "(injured)"
+  },
+  {
+    "section": "ui",
+    "key": "모난 돌이 정 맞는다 +{n}%",
+    "before": null,
+    "after": "The Nail That Sticks Out +{n}%"
+  },
+  {
+    "section": "ui",
+    "key": ", 넘친 양({n})은 다음 공격에",
+    "before": null,
+    "after": "; {n} excess healing carries to the next attack"
+  },
+  {
+    "section": "ui",
+    "key": "{who}의 손절 타이밍",
+    "before": null,
+    "after": "{who}'s Cut Your Losses"
+  },
+  {
+    "section": "ui",
+    "key": "값을 치르면 하루 한 번, 한 사람과 시간을 보낼 수 있다.",
+    "before": null,
+    "after": "Pay to spend time with one person once per day."
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>이 「낙인 효과」 하고 {target}{result}{abyss}",
+    "before": null,
+    "after": "<b>{who}</b> used Branding Effect on {target}{result}{abyss}"
+  },
+  {
+    "section": "ui",
+    "key": "가방이 가득 찼습니다. 장비 {n}개는 버려졌습니다",
+    "before": null,
+    "after": "Bag full. {n} equipment items were discarded"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>의 마법이 이름값을 했다. 다음 아군 마법 피해 <em>+{bonus}%</em>",
+    "before": null,
+    "after": "<b>{who}</b> lived up to their magical name. The next allied spell deals <em>+{bonus}%</em> damage"
+  },
+  {
+    "section": "ui",
+    "key": "({name}의 제안을 정중히 거절한다)",
+    "before": null,
+    "after": "(Politely decline {name}'s proposal)"
+  },
+  {
+    "section": "ui",
+    "key": "{floor}층 {zone}{deep}",
+    "before": null,
+    "after": "Floor {floor}: {zone}{deep}"
+  },
+  {
+    "section": "ui",
+    "key": "(여관에서 {name}에게 작은 선물을 건넨다)",
+    "before": null,
+    "after": "(Give {name} a small gift at the inn)"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{name}</b>의 <b>상대성 이론</b>. 게이지가 가득 차 <em>바로 한 번 더</em> 움직인다",
+    "before": null,
+    "after": "<b>{name}</b>'s <b>Theory of Relativity</b> filled the gauge; <em>one extra action</em> immediately"
+  },
+  {
+    "section": "ui",
+    "key": "보호막 {n} 흡수",
+    "before": null,
+    "after": "Shield absorbed {n}"
+  },
+  {
+    "section": "ui",
+    "key": "얻은 것: 아직 없음 (층 보스를 쓰러뜨리면 이 구역 전투 몫까지 합산해 받는다)",
+    "before": null,
+    "after": "Loot: None yet (claimed together with this area's reward after defeating the floor boss)."
+  },
+  {
+    "section": "ui",
+    "key": "속도 −{n}%{turns}",
+    "before": null,
+    "after": "Speed −{n}%{turns}"
+  },
+  {
+    "section": "ui",
+    "key": "남은 아이템이 없다",
+    "before": null,
+    "after": "No items left"
+  },
+  {
+    "section": "ui",
+    "key": "이 결과는 확정이다. 번복하지 말고 장면으로 서술하라. 위 숫자는 화면에 이미 보이니 대사로 읊지 않는다.",
+    "before": null,
+    "after": "This result is final. Do not reverse it. Narrate the scene; the numbers are already on screen, so do not recite them in dialogue."
+  },
+  {
+    "section": "ui",
+    "key": "전투 종료",
+    "before": null,
+    "after": "Battle over"
+  },
+  {
+    "section": "ui",
+    "key": "(여관에서 {name}에게 말을 건다)",
+    "before": null,
+    "after": "(Speak to {name} at the inn)"
+  },
+  {
+    "section": "ui",
+    "key": "행동을 고르세요",
+    "before": null,
+    "after": "Choose an action"
+  },
+  {
+    "section": "ui",
+    "key": "수락",
+    "before": null,
+    "after": "Accept"
+  },
+  {
+    "section": "ui",
+    "key": "더 이을 사람이 없다. 길드 장부에 오른 모험가는 모두 당신의 동료다.",
+    "before": null,
+    "after": "No one remains to introduce. Everyone on the guild roster is your companion."
+  },
+  {
+    "section": "ui",
+    "key": "(층 보스를 쓰러뜨리고 토르바로 돌아간다)",
+    "before": null,
+    "after": "(Defeat the floor boss and return to Torva)"
+  },
+  {
+    "section": "ui",
+    "key": "혈통 마법 +{n}%",
+    "before": null,
+    "after": "Bloodline magic +{n}%"
+  },
+  {
+    "section": "ui",
+    "key": "몸통과 덧효과를 고르세요. 바꾸기는 무료, 강화는 조각에 남습니다.",
+    "before": null,
+    "after": "Choose a core and an added effect. Switching is free; upgrades stay with each piece."
+  },
+  {
+    "section": "ui",
+    "key": "누구와 시간을 보낼까.",
+    "before": null,
+    "after": "Who will you spend time with?"
+  },
+  {
+    "section": "ui",
+    "key": "금화가 모자랍니다. 소개비 {cost}, 가진 금화 {gold}",
+    "before": null,
+    "after": "Not enough gold. Introduction costs {cost}; you have {gold}."
+  },
+  {
+    "section": "ui",
+    "key": "무리 사냥 +{n}%",
+    "before": null,
+    "after": "Pack hunt +{n}%"
+  },
+  {
+    "section": "ui",
+    "key": "정말 퇴각할까요? 지금까지 모은 금화 {gold}, 물건, 경험치 {exp}는 가져가지만 <b>층 보스 보상과 돌파 기록은 받지 못합니다.</b>",
+    "before": null,
+    "after": "Retreat? You keep {gold} gold, items, and {exp} experience collected so far, but <b>lose the floor boss reward and clear record.</b>"
+  },
+  {
+    "section": "ui",
+    "key": "의뢰 「{title}」를 받았습니다. 토르바 시내에서 출정할 수 있습니다.",
+    "before": null,
+    "after": "Accepted quest: {title}. You can depart from Torva."
+  },
+  {
+    "section": "ui",
+    "key": "성벽 밖으로 넘쳐 자란 시가지 한쪽, 약방과 주점 사이에 낡은 여관이 서 있다. 저녁이면 모험가들이 아래층 식당에 모인다.",
+    "before": null,
+    "after": "An old inn stands between an apothecary and a tavern in the district spilling beyond the city walls. In the evening, adventurers gather in its ground-floor dining room."
+  },
+  {
+    "section": "ui",
+    "key": "오늘은 이미 {name:와과} 시간을 보냈습니다. 하루가 지나야 다시 만날 수 있습니다.",
+    "before": null,
+    "after": "You already spent time with {name} today. Come back tomorrow."
+  },
+  {
+    "section": "ui",
+    "key": "「{nation}」 출신은 이 종족과 맞지 않아 비웠습니다. {reason} 출신을 다시 골라 주세요.",
+    "before": null,
+    "after": "{nation} is incompatible with this race, so your origin was cleared. {reason} Choose another origin."
+  },
+  {
+    "section": "ui",
+    "key": "(대던전 {floor}층에 들어선다)",
+    "before": null,
+    "after": "(Enter floor {floor} of the Great Dungeon)"
+  },
+  {
+    "section": "ui",
+    "key": "레벨이 올랐습니다. Lv {lv}.",
+    "before": null,
+    "after": "Level increased to Lv {lv}."
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>{particle} {skill:을를} 펼쳤다. {target} 방어 <em>−{def}%</em>, 속도 <em>−{speed}%</em>, 공격 <em>−{attack}%</em> ({turns}턴), 부식 {stacks}중첩{abyss}",
+    "before": null,
+    "after": "<b>{who}</b> cast {skill} on {target}. Defense <em>−{def}%</em>, speed <em>−{speed}%</em>, attack <em>−{attack}%</em> for {turns} turns; corrosion {stacks} stack(s){abyss}"
+  },
+  {
+    "section": "ui",
+    "key": "{name} <em>피함</em>",
+    "before": null,
+    "after": "{name} <em>dodged</em>"
+  },
+  {
+    "section": "ui",
+    "key": ", 금화 {n}",
+    "before": null,
+    "after": ", {n} gold"
+  },
+  {
+    "section": "ui",
+    "key": "(길드 접수처에서 동료 소개를 부탁한다)",
+    "before": null,
+    "after": "(Ask for a companion introduction at the guild reception desk)"
+  },
+  {
+    "section": "ui",
+    "key": "먼저 저장하세요",
+    "before": null,
+    "after": "Save first"
+  },
+  {
+    "section": "ui",
+    "key": "도전 실패",
+    "before": null,
+    "after": "Run failed"
+  },
+  {
+    "section": "ui",
+    "key": "토르바로 돌아가기",
+    "before": null,
+    "after": "Return to Torva"
+  },
+  {
+    "section": "ui",
+    "key": "{cls} · {el} · Lv {lv}",
+    "before": null,
+    "after": "{cls} · {el} · Lv {lv}"
+  },
+  {
+    "section": "ui",
+    "key": " 심층 {n}",
+    "before": null,
+    "after": " Depth {n}"
+  },
+  {
+    "section": "ui",
+    "key": "레이드 전투 시작. 보스의 행동이 <b>예고</b>된다. 약점은 모두 보인다.",
+    "before": null,
+    "after": "Raid battle begins. The boss's moves are <b>foretold</b>. All weaknesses are visible."
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>가 <b>하이 리스크 하이 리턴</b>에 걸었다. HP <em>{cost}</em> 소모, 다음 균열과 혼돈 파동의 심연 깎기 ×1.5",
+    "before": null,
+    "after": "<b>{who}</b> wagered on <b>High Risk, High Return</b>. Spent <em>{cost}</em> HP; next Rift and Chaos Wave deal ×1.5 abyss damage"
+  },
+  {
+    "section": "ui",
+    "key": "{name}: 「{line}」{gain} / {tail}",
+    "before": null,
+    "after": "{name}: ‘{line}’{gain} / {tail}"
+  },
+  {
+    "section": "ui",
+    "key": "[에셋 오류] {error}",
+    "before": null,
+    "after": "[Asset error] {error}"
+  },
+  {
+    "section": "ui",
+    "key": " 경험치 {exp}.",
+    "before": null,
+    "after": " Experience {exp}."
+  },
+  {
+    "section": "ui",
+    "key": "전투 시작",
+    "before": null,
+    "after": "Battle begins"
+  },
+  {
+    "section": "ui",
+    "key": "순위 새로고침",
+    "before": null,
+    "after": "Refresh ranking"
+  },
+  {
+    "section": "ui",
+    "key": "휴식: 파티 HP +{pct}%",
+    "before": null,
+    "after": "Rest: party HP +{pct}%"
+  },
+  {
+    "section": "ui",
+    "key": "방금 거절당했다",
+    "before": null,
+    "after": "Recently refused"
+  },
+  {
+    "section": "ui",
+    "key": ". <b>{target}</b>{particle} 부상으로 물러났다",
+    "before": null,
+    "after": ". <b>{target}</b> withdrew injured"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>의 도발. 적의 공격이 {who}에게 몰린다. 위압을 받은 쪽은 {target}{abyss}",
+    "before": null,
+    "after": "<b>{who}</b> taunted the enemy. Attacks now target {who}. {target} was intimidated{abyss}"
+  },
+  {
+    "section": "ui",
+    "key": "{next}/{total}번째 (전투 {battle}%, 발견 {find}%)",
+    "before": null,
+    "after": "Step {next}/{total} (battle {battle}%, discovery {find}%)"
+  },
+  {
+    "section": "ui",
+    "key": "회수",
+    "before": null,
+    "after": "Retrieval"
+  },
+  {
+    "section": "ui",
+    "key": "화면과 AI 답변의 언어입니다. 바꾸면 다음 화면과 다음 답변부터 적용됩니다.",
+    "before": null,
+    "after": "The language of the screens and the AI's replies. Changes apply from the next screen and the next reply."
+  },
+  {
+    "section": "ui",
+    "key": "행동 순서",
+    "before": null,
+    "after": "Turn order"
+  },
+  {
+    "section": "ui",
+    "key": "화면 갱신",
+    "before": null,
+    "after": "Screen refresh"
+  },
+  {
+    "section": "ui",
+    "key": "대던전 {floor}층 돌파: 금화 {gold:을를} 받았다.",
+    "before": null,
+    "after": "Cleared Great Dungeon floor {floor}; received {gold} gold."
+  },
+  {
+    "section": "ui",
+    "key": "<b>퇴각</b>. 파티 전원이 부상으로 물러난다.",
+    "before": null,
+    "after": "<b>Retreat</b>. The whole party withdraws injured."
+  },
+  {
+    "section": "ui",
+    "key": "호감 {stage} ({a} / {max})",
+    "before": null,
+    "after": "Affection: {stage} ({a} / {max})"
+  },
+  {
+    "section": "ui",
+    "key": "호감 {n} 이상부터",
+    "before": null,
+    "after": "Requires affection {n}"
+  },
+  {
+    "section": "ui",
+    "key": "지난 층엔 쉬었다",
+    "before": null,
+    "after": "Rested on the last floor"
+  },
+  {
+    "section": "ui",
+    "key": "호감 {n}",
+    "before": null,
+    "after": "Affection {n}"
+  },
+  {
+    "section": "ui",
+    "key": "({name}의 제안을 받아들인다)",
+    "before": null,
+    "after": "(Accept {name}'s proposal)"
+  },
+  {
+    "section": "ui",
+    "key": "호감 {a}",
+    "before": null,
+    "after": "Affection {a}"
+  },
+  {
+    "section": "ui",
+    "key": "접미어 · 덧효과",
+    "before": null,
+    "after": "Suffix · added effect"
+  },
+  {
+    "section": "ui",
+    "key": "화면 오류: {error}",
+    "before": null,
+    "after": "Screen error: {error}"
+  },
+  {
+    "section": "ui",
+    "key": "행동 고르기로 돌아간다",
+    "before": null,
+    "after": "Return to actions"
+  },
+  {
+    "section": "ui",
+    "key": "{race}, {cls}",
+    "before": null,
+    "after": "{race}, {cls}"
+  },
+  {
+    "section": "ui",
+    "key": "물약(체력, 마나, 보호막), 해독약, 귀환 두루마리",
+    "before": null,
+    "after": "HP, MP, and shield potions; antidotes and return scrolls"
+  },
+  {
+    "section": "ui",
+    "key": "탐색한다",
+    "before": null,
+    "after": "Explore"
+  },
+  {
+    "section": "ui",
+    "key": "대던전 {floor}층 {zone}, 탐색 {step}/{total}{elite}",
+    "before": null,
+    "after": "Great Dungeon floor {floor}, {zone}: exploration {step}/{total}{elite}"
+  },
+  {
+    "section": "ui",
+    "key": " 구역 보스",
+    "before": null,
+    "after": " Floor boss"
+  },
+  {
+    "section": "ui",
+    "key": "받아 줄 확률, 기본 {n}%",
+    "before": null,
+    "after": "Chance of acceptance, base {n}%"
+  },
+  {
+    "section": "ui",
+    "key": "{place}, {name}",
+    "before": null,
+    "after": "{place}, {name}"
+  },
+  {
+    "section": "ui",
+    "key": "함께 마시면 휴식 중 동료와 은밀한 시간을 보낼 수 있다. 상점에서는 팔지 않는다(피에트로의 덤).",
+    "before": null,
+    "after": "Share it with a companion to spend a private moment during a rest. Not sold in shops (Pietro's bonus)."
+  },
+  {
+    "section": "ui",
+    "key": "RisuAI 페르소나에 올린 이미지를 전투 화면과 상태창에 씁니다. 이미지를 바꿨으면 다시 불러오세요.",
+    "before": null,
+    "after": "Uses the image on your RisuAI persona in battle and on the status panel. Reload after changing it."
+  },
+  {
+    "section": "ui",
+    "key": ", 장비 {n}개",
+    "before": null,
+    "after": ", {n} equipment items"
+  },
+  {
+    "section": "ui",
+    "key": "한두 층 낮춰 보는 것이 안전하다",
+    "before": null,
+    "after": "Try one or two floors lower"
+  },
+  {
+    "section": "ui",
+    "key": "구역 보스 {name}",
+    "before": null,
+    "after": "Zone boss: {name}"
+  },
+  {
+    "section": "ui",
+    "key": "균열 입장",
+    "before": null,
+    "after": "Rift entrance"
+  },
+  {
+    "section": "ui",
+    "key": "출전할 사람이 없습니다. 한 명 이상 고르세요.",
+    "before": null,
+    "after": "No one is assigned. Choose at least one person."
+  },
+  {
+    "section": "ui",
+    "key": "<b>MP가 모자랍니다</b>. {description}",
+    "before": null,
+    "after": "<b>Not enough MP</b>. {description}"
+  },
+  {
+    "section": "ui",
+    "key": "한나와 이야기를 나눈다",
+    "before": null,
+    "after": "Talk with Hanna"
+  },
+  {
+    "section": "ui",
+    "key": "한 명 늘 때마다 +20",
+    "before": null,
+    "after": "+20 for each new companion"
+  },
+  {
+    "section": "ui",
+    "key": "충전 끊김",
+    "before": null,
+    "after": "Charge interrupted"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>{particle} {skill:을를} 나눴다. 아군 전체 HP 회복(합 <em>{heal}</em>), 다음 {rounds}라운드 재생 {regen}",
+    "before": null,
+    "after": "<b>{who}</b> shared {skill}. All allies recovered <em>{heal}</em> HP and gained {regen} regeneration for {rounds} rounds"
+  },
+  {
+    "section": "ui",
+    "key": "금화 {n} 내고 시간을 보낸다",
+    "before": null,
+    "after": "Spend time together for {n} gold"
+  },
+  {
+    "section": "ui",
+    "key": "{name}: 오늘은 충분했다.",
+    "before": null,
+    "after": "{name}: Enough for today."
+  },
+  {
+    "section": "ui",
+    "key": "오늘은 이미 했습니다. 하룻밤 쉬고 나면 다시 할 수 있습니다.",
+    "before": null,
+    "after": "You have already done that today. Rest overnight to do it again."
+  },
+  {
+    "section": "ui",
+    "key": " 호감 ▲ {list}",
+    "before": null,
+    "after": " Affection ▲ {list}"
+  },
+  {
+    "section": "ui",
+    "key": "전투 시작. 적의 행동이 <b>예고</b>된다. 약점은 모두 보인다.",
+    "before": null,
+    "after": "Battle begins. Enemy moves are <b>foretold</b>. All weaknesses are visible."
+  },
+  {
+    "section": "ui",
+    "key": "출전할 수 있는 동료 가운데 가장 높은 레벨이 기준이고, 나오는 장비는 지금 모험가들의 직업에서 정해진다.",
+    "before": null,
+    "after": "The highest level among your persona and companions sets the tier, and the gear comes from the classes your adventurers have."
+  },
+  {
+    "section": "ui",
+    "key": "피의 계약 +{n}%",
+    "before": null,
+    "after": "Blood pact +{n}%"
+  },
+  {
+    "section": "ui",
+    "key": "치명타",
+    "before": null,
+    "after": "Critical hit"
+  },
+  {
+    "section": "ui",
+    "key": "{sep}{debuff} 해제",
+    "before": null,
+    "after": "{sep}{debuff} cleansed"
+  },
+  {
+    "section": "ui",
+    "key": "피에트로가 덤으로 「{item}」 하나를 슬쩍 얹어 주었다. (보유 {n})",
+    "before": null,
+    "after": "Pietro slipped in one {item} as a bonus. (Owned: {n})"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>{particle} {skill:을를} 내렸지만 {target}에게는 두 배로 만들 버프가 없었다",
+    "before": null,
+    "after": "<b>{who}</b> tried {skill}, but {target} had no buff to double"
+  },
+  {
+    "section": "ui",
+    "key": "대던전 도전",
+    "before": null,
+    "after": "Enter the Great Dungeon"
+  },
+  {
+    "section": "ui",
+    "key": "금화가 모자랍니다. {item} 값은 {price}, 가진 금화는 {gold}.",
+    "before": null,
+    "after": "Not enough gold. {item} costs {price}; you have {gold}."
+  },
+  {
+    "section": "ui",
+    "key": "{boss}, 레이드 전투(4인)",
+    "before": null,
+    "after": "{boss}, four-member raid battle"
+  },
+  {
+    "section": "ui",
+    "key": "소개비",
+    "before": null,
+    "after": "Introduction fee"
+  },
+  {
+    "section": "ui",
+    "key": " 장비: {gear}",
+    "before": null,
+    "after": " Equipment: {gear}"
+  },
+  {
+    "section": "ui",
+    "key": "심연 고갈",
+    "before": null,
+    "after": "Abyss depleted"
+  },
+  {
+    "section": "ui",
+    "key": "먼저 제안에 답해 주세요.",
+    "before": null,
+    "after": "Answer the proposal first."
+  },
+  {
+    "section": "ui",
+    "key": "먼저 「제련 및 가공 완료」를 눌러 주세요",
+    "before": null,
+    "after": "Press \"Finish Refining & Processing\" first"
+  },
+  {
+    "section": "ui",
+    "key": "평균 -",
+    "before": null,
+    "after": "Average —"
+  },
+  {
+    "section": "ui",
+    "key": "난이도 {difficulty}",
+    "before": null,
+    "after": "Difficulty: {difficulty}"
+  },
+  {
+    "section": "ui",
+    "key": "단계",
+    "before": null,
+    "after": "Phase"
+  },
+  {
+    "section": "ui",
+    "key": "{best}층까지 도달",
+    "before": null,
+    "after": "Reached floor {best}"
+  },
+  {
+    "section": "ui",
+    "key": "전투 한 번 금화 약 {gold}",
+    "before": null,
+    "after": "About {gold} gold per battle"
+  },
+  {
+    "section": "ui",
+    "key": "페르소나, 즐겨찾기",
+    "before": null,
+    "after": "Persona and favorites"
+  },
+  {
+    "section": "ui",
+    "key": ". <b>{target}</b>{particle} 쓰러졌다",
+    "before": null,
+    "after": ". <b>{target}</b> fell"
+  },
+  {
+    "section": "ui",
+    "key": "대던전 {floor}층 돌파, 보스 {boss}",
+    "before": null,
+    "after": "Cleared Great Dungeon floor {floor}; boss: {boss}"
+  },
+  {
+    "section": "ui",
+    "key": "출전 자리가 찼습니다(최대 {cap}명). 한 명을 빼고 다시 고르세요.",
+    "before": null,
+    "after": "The party is full (max {cap}). Remove someone before choosing another."
+  },
+  {
+    "section": "ui",
+    "key": "무엇을 쓸까요? 쓰면 이번 차례를 씁니다",
+    "before": null,
+    "after": "Choose an item. Using one takes this turn."
+  },
+  {
+    "section": "ui",
+    "key": "소울푸드: {target}{heal}{cleanse}",
+    "before": null,
+    "after": "Soul Food: {target}{heal}{cleanse}"
+  },
+  {
+    "section": "ui",
+    "key": "쓰러진 몸을 일으켰다. HP <em>{n}</em>",
+    "before": null,
+    "after": "Revived a fallen ally. HP <em>{n}</em>"
+  },
+  {
+    "section": "ui",
+    "key": "결과를 채팅에 넣지 못했습니다. 위 결과를 직접 적어 보내 주세요",
+    "before": null,
+    "after": "Could not add the result to chat. Please send the result above yourself."
+  },
+  {
+    "section": "ui",
+    "key": "패배",
+    "before": null,
+    "after": "Defeat"
+  },
+  {
+    "section": "ui",
+    "key": "일반 전투",
+    "before": null,
+    "after": "Standard battle"
+  },
+  {
+    "section": "ui",
+    "key": "가공 1회 금화 {n}",
+    "before": null,
+    "after": "{n} gold per processing"
+  },
+  {
+    "section": "ui",
+    "key": "지휘만 한다",
+    "before": null,
+    "after": "Command only"
+  },
+  {
+    "section": "ui",
+    "key": "보스는 상대하지 않았다. 모은 것만 가져왔다",
+    "before": null,
+    "after": "Did not face the boss; kept only what was collected"
+  },
+  {
+    "section": "ui",
+    "key": "파티는 출정할 때 균열 입장 화면에서 고른다.",
+    "before": null,
+    "after": "Choose your party at the rift entrance when departing."
+  },
+  {
+    "section": "ui",
+    "key": "파티가 버티지 못했다. 전원 부상으로 퇴각한다. 사망자는 없다. 행동 {turns}번째에 무너졌다.",
+    "before": null,
+    "after": "The party could not hold on. All retreat injured; no one died. They fell on action {turns}."
+  },
+  {
+    "section": "ui",
+    "key": "파티가 무너졌다",
+    "before": null,
+    "after": "The party was defeated"
+  },
+  {
+    "section": "ui",
+    "key": "티핑 포인트: 출혈 {n}중첩",
+    "before": null,
+    "after": "Tipping Point: {n} bleed stacks"
+  },
+  {
+    "section": "ui",
+    "key": " 균열 핵",
+    "before": null,
+    "after": " Rift core"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>의 <b>{action}</b>{particle} {target}에게 <em>{damage}</em> 피해를 입혔다",
+    "before": null,
+    "after": "<b>{who}</b> used <b>{action}</b> on {target} for <em>{damage}</em> damage"
+  },
+  {
+    "section": "ui",
+    "key": " 장비를 얻었다: {item}.",
+    "before": null,
+    "after": " Gained equipment: {item}."
+  },
+  {
+    "section": "ui",
+    "key": "동료와 이야기하고 식사하고 쉰다",
+    "before": null,
+    "after": "Talk, dine, and rest with companions"
+  },
+  {
+    "section": "ui",
+    "key": "계열 {line}",
+    "before": null,
+    "after": "Path: {line}"
+  },
+  {
+    "section": "ui",
+    "key": "제안한다",
+    "before": null,
+    "after": "Propose sex"
+  },
+  {
+    "section": "ui",
+    "key": "퇴각",
+    "before": null,
+    "after": "Retreat"
+  },
+  {
+    "section": "ui",
+    "key": "금화가 모자라다",
+    "before": null,
+    "after": "Not enough gold"
+  },
+  {
+    "section": "ui",
+    "key": "기준 (승낙 전에 필요한 것)",
+    "before": null,
+    "after": "Needs before consenting"
+  },
+  {
+    "section": "ui",
+    "key": "토르바에 막 도착한 날, 누구와 마주치나요?",
+    "before": null,
+    "after": "Who do you meet on your first day in Torva?"
+  },
+  {
+    "section": "ui",
+    "key": "토르바로 돌아간다",
+    "before": null,
+    "after": "Return to Torva"
+  },
+  {
+    "section": "ui",
+    "key": " 장비 {n}개는 잃었다.",
+    "before": null,
+    "after": " Lost {n} equipment items."
+  },
+  {
+    "section": "ui",
+    "key": "{race}({lineage})",
+    "before": null,
+    "after": "{race} ({lineage})"
+  },
+  {
+    "section": "ui",
+    "key": "[게임 화면 렌더 오류] {error}",
+    "before": null,
+    "after": "[Game screen render error] {error}"
+  },
+  {
+    "section": "ui",
+    "key": "탐색 전투를 이겼습니다. 「탐색 계속」을 누르세요. 모은 것은 층을 마칠 때 받습니다.",
+    "before": null,
+    "after": "Exploration battle won. Press Continue exploring. You receive collected loot when the floor ends."
+  },
+  {
+    "section": "ui",
+    "key": "지금은 할 수 없는 행동입니다.",
+    "before": null,
+    "after": "You cannot do that right now."
+  },
+  {
+    "section": "ui",
+    "key": "{who} {skill:을를} 베풀었다. {target} HP <em>+{heal}</em>{bonus}{cleanse}",
+    "before": null,
+    "after": "{who} used {skill} on {target}. HP <em>+{heal}</em>{bonus}{cleanse}"
+  },
+  {
+    "section": "ui",
+    "key": "탐색 {step}: 정예가 장비를 떨어뜨렸다: {item}",
+    "before": null,
+    "after": "Exploration {step}: elite dropped equipment: {item}"
+  },
+  {
+    "section": "ui",
+    "key": "대던전 {floor}층 도전 실패. 모은 것을 잃고, 들고 간 금화 {carry}의 {part}{loss}도 잃었다.{kept}",
+    "before": null,
+    "after": "Great Dungeon floor {floor} failed. Lost collected loot and {loss} of {carry} carried gold ({part}).{kept}"
+  },
+  {
+    "section": "ui",
+    "key": "아직 만나지 못한 {n}명은 도감에 흐리게 보인다.",
+    "before": null,
+    "after": "The {n} companions you have not met appear dimmed in the codex."
+  },
+  {
+    "section": "ui",
+    "key": "장면을 마무리하고 돌아간다",
+    "before": null,
+    "after": "Finish the scene and return"
+  },
+  {
+    "section": "ui",
+    "key": "탐색 {step}: {result}",
+    "before": null,
+    "after": "Exploration {step}: {result}"
+  },
+  {
+    "section": "ui",
+    "key": "탐색 {steps}번, 전투 승리 {wins}번",
+    "before": null,
+    "after": "Explorations: {steps}, battles won: {wins}"
+  },
+  {
+    "section": "ui",
+    "key": "[전투 결과 - 패배]",
+    "before": null,
+    "after": "[Battle result — defeat]"
+  },
+  {
+    "section": "ui",
+    "key": "그 의뢰는 이미 판에서 내려갔습니다.",
+    "before": null,
+    "after": "That quest is no longer on the board."
+  },
+  {
+    "section": "ui",
+    "key": "다시 싸우기",
+    "before": null,
+    "after": "Fight again"
+  },
+  {
+    "section": "ui",
+    "key": "공격 −{n}%{turns}",
+    "before": null,
+    "after": "Attack −{n}%{turns}"
+  },
+  {
+    "section": "ui",
+    "key": "의뢰판을 새로 걸었다. (금화 {cost})",
+    "before": null,
+    "after": "Refreshed the quest board. ({cost} gold)"
+  },
+  {
+    "section": "ui",
+    "key": "클라우드 서버 주소가 설정되지 않았습니다.",
+    "before": null,
+    "after": "Cloud server address is not configured."
+  },
+  {
+    "section": "ui",
+    "key": "바꾼 내용이 없습니다",
+    "before": null,
+    "after": "No changes"
+  },
+  {
+    "section": "ui",
+    "key": "{floor}층으로 곧장 들어간다. 파티는 지금 그대로",
+    "before": null,
+    "after": "Enter floor {floor} now with the same party"
+  },
+  {
+    "section": "ui",
+    "key": "길드장 로레다나",
+    "before": null,
+    "after": "Guildmaster Loredana"
+  },
+  {
+    "section": "ui",
+    "key": "진행 중인 층이 없습니다. 토르바에서 다시 출정하세요.",
+    "before": null,
+    "after": "No floor is in progress. Depart again from Torva."
+  },
+  {
+    "section": "ui",
+    "key": "이름",
+    "before": null,
+    "after": "Name"
+  },
+  {
+    "section": "ui",
+    "key": "최고 도달 {best}층 · 상위 {pct}%",
+    "before": null,
+    "after": "Deepest floor {best} · Top {pct}%"
+  },
+  {
+    "section": "ui",
+    "key": "마을 사람들",
+    "before": null,
+    "after": "Townspeople"
+  },
+  {
+    "section": "ui",
+    "key": "큰 기술 준비",
+    "before": null,
+    "after": "Preparing a major skill"
+  },
+  {
+    "section": "ui",
+    "key": "아직 없음",
+    "before": null,
+    "after": "None yet"
+  },
+  {
+    "section": "ui",
+    "key": "깊은 층",
+    "before": null,
+    "after": "Deep floor"
+  },
+  {
+    "section": "ui",
+    "key": "케른 용병단과 마렌토 상인들이 함께 다스리는 도시. 여기서는 어디서 왔는지 캐묻는 사람이 없고, 다들 계약서부터 내민다. 성문 밖으로 옛 학술원 폐허가 보인다.",
+    "before": null,
+    "after": "A city jointly ruled by Kern mercenaries and Marento merchants. No one asks where you came from; they hand you a contract first. The ruins of an old academy stand beyond the gate."
+  },
+  {
+    "section": "ui",
+    "key": "{name:을를} 붕대로 일으켰다. HP {hp}",
+    "before": null,
+    "after": "Revived {name} with a bandage. HP {hp}"
+  },
+  {
+    "section": "ui",
+    "key": "이 판은 클라우드 저장이 꺼져 있습니다(개발판).",
+    "before": null,
+    "after": "Cloud saves are disabled in this development build."
+  },
+  {
+    "section": "ui",
+    "key": "「보내기」를 누르면 {name:와과}의 첫 만남 장면이 이어집니다.",
+    "before": null,
+    "after": "Press Send to continue your first meeting with {name}."
+  },
+  {
+    "section": "ui",
+    "key": "층 정산",
+    "before": null,
+    "after": "Settle floor"
+  },
+  {
+    "section": "ui",
+    "key": "등급별 확률",
+    "before": null,
+    "after": "Odds by rarity"
+  },
+  {
+    "section": "ui",
+    "key": "클라우드에 저장",
+    "before": null,
+    "after": "Save to cloud"
+  },
+  {
+    "section": "ui",
+    "key": "층 돌파, 동료 합류, 호감 단계 변화, 레벨업 같은 확정된 일을 한 줄씩 적어 두고, 최근 15줄을 AI에게 알려 줍니다. 끄면 기록도 멈춥니다.",
+    "before": null,
+    "after": "Records confirmed events such as floor clears, new companions, affection milestones, and level ups. The latest 15 entries are shared with the AI. Turning this off stops recording."
+  },
+  {
+    "section": "ui",
+    "key": "층 돌파",
+    "before": null,
+    "after": "Floor cleared"
+  },
+  {
+    "section": "ui",
+    "key": "위의 <b>층 정산</b>을 누르면 보상을 받고 다음 길을 고릅니다",
+    "before": null,
+    "after": "Choose <b>Settle floor</b> above to claim rewards and choose the next path."
+  },
+  {
+    "section": "ui",
+    "key": "의뢰판 앞은 늘 시끄럽다. 접수대 너머에서 서기들이 계약서를 넘긴다.",
+    "before": null,
+    "after": "The quest board is always noisy. Beyond the desk, clerks leaf through contracts."
+  },
+  {
+    "section": "ui",
+    "key": "층 끝: {lead}",
+    "before": null,
+    "after": "Floor boss: {lead}"
+  },
+  {
+    "section": "ui",
+    "key": "취향",
+    "before": null,
+    "after": "Likes"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>{particle} {skill:을를} 건넸다. {target} HP <em>+{heal}</em>{cleanse}",
+    "before": null,
+    "after": "<b>{who}</b> administered {skill} to {target}. HP <em>+{heal}</em>{cleanse}"
+  },
+  {
+    "section": "ui",
+    "key": "버튼을 눌러도 화면이 바뀌지 않으면 「강제」로 바꾸세요. 「강제」는 누를 때마다 채팅 전체를 다시 그려 화면이 튈 수 있습니다.",
+    "before": null,
+    "after": "If buttons do not update the screen, choose Force. Force redraws the whole chat after each click and may cause flicker."
+  },
+  {
+    "section": "ui",
+    "key": "보상 금화 {gold}",
+    "before": null,
+    "after": "Reward: {gold} gold"
+  },
+  {
+    "section": "ui",
+    "key": "이대로 시작할까요? 결정하면 첫 만남을 고르게 됩니다.",
+    "before": null,
+    "after": "Ready to begin? Next, choose your first meeting."
+  },
+  {
+    "section": "ui",
+    "key": "출정",
+    "before": null,
+    "after": "Sortie"
+  },
+  {
+    "section": "ui",
+    "key": "굳건한 방어{turns}",
+    "before": null,
+    "after": "Steadfast guard{turns}"
+  },
+  {
+    "section": "ui",
+    "key": ", 정예",
+    "before": null,
+    "after": ", elite"
+  },
+  {
+    "section": "ui",
+    "key": "출전할 사람이 없다",
+    "before": null,
+    "after": "No one is assigned"
+  },
+  {
+    "section": "ui",
+    "key": "낡은 주머니에서 주화 {gold}닢을 찾았다.",
+    "before": null,
+    "after": "Found {gold} coins in an old pouch."
+  },
+  {
+    "section": "ui",
+    "key": "개인 패시브: {name}",
+    "before": null,
+    "after": "Personal passive: {name}"
+  },
+  {
+    "section": "ui",
+    "key": "보내기를 누르면 이어집니다.",
+    "before": null,
+    "after": "Send to continue."
+  },
+  {
+    "section": "ui",
+    "key": "출전이 4명이 되어 마지막 동료 {name:은는} 대기로 돌렸습니다.",
+    "before": null,
+    "after": "The party reached four members, so {name} was moved to the bench."
+  },
+  {
+    "section": "ui",
+    "key": "{who} 두 손을 모았다. <b>{skill}</b>: 아군 전체 HP <em>+{heal}</em>, 2턴 받는 피해 −10%, 재생 {turns}턴",
+    "before": null,
+    "after": "{who} clasped their hands for <b>{skill}</b>. All allies: HP <em>+{heal}</em>, damage taken −10% for 2 turns, regeneration for {turns} turns"
+  },
+  {
+    "section": "ui",
+    "key": "(대던전에서 물러난다)",
+    "before": null,
+    "after": "(Retreat from the Great Dungeon)"
+  },
+  {
+    "section": "ui",
+    "key": "위축 효과: 적 전체 공격 −{n}% (2턴){boss}",
+    "before": null,
+    "after": "Chilling Effect: all enemies attack −{n}% for 2 turns{boss}"
+  },
+  {
+    "section": "ui",
+    "key": "자동",
+    "before": null,
+    "after": "Auto"
+  },
+  {
+    "section": "ui",
+    "key": "{name}의 {skill}",
+    "before": null,
+    "after": "{name}'s {skill}"
+  },
+  {
+    "section": "ui",
+    "key": "대던전 {floor}층 돌파 뒤 토르바로 돌아갔다",
+    "before": null,
+    "after": "After clearing Great Dungeon floor {floor}, returned to Torva"
+  },
+  {
+    "section": "ui",
+    "key": "아랫마을의 유흥가, 창관",
+    "before": null,
+    "after": "Lower Town's pleasure district and brothel"
+  },
+  {
+    "section": "ui",
+    "key": "가진 금화",
+    "before": null,
+    "after": "Gold on hand"
+  },
+  {
+    "section": "ui",
+    "key": "결과가 채팅에 들어갔습니다. <b>보내기를 누르면 이야기가 이어집니다</b>",
+    "before": null,
+    "after": "Result added to chat. <b>Press Send to continue the story.</b>"
+  },
+  {
+    "section": "ui",
+    "key": "길드 장부의 모험가를 모두 만났다.",
+    "before": null,
+    "after": "You have met everyone on the guild's roster."
+  },
+  {
+    "section": "ui",
+    "key": "길드에서 동료를 더 소개받아 4명을 채우는 것이 안전하다",
+    "before": null,
+    "after": "Ask the guild for more companions to fill your party"
+  },
+  {
+    "section": "ui",
+    "key": "{name}의 연쇄 폭발",
+    "before": null,
+    "after": "{name}'s Chain Explosion"
+  },
+  {
+    "section": "ui",
+    "key": "약화 추가 피해",
+    "before": null,
+    "after": "Bonus vs debuffed foe"
+  },
+  {
+    "section": "ui",
+    "key": "최고 도달 {best}층",
+    "before": null,
+    "after": "Deepest floor {best}"
+  },
+  {
+    "section": "ui",
+    "key": "심연 재료를 사들이고 유물을 경매에 부치는 상관이다. 입구 쪽 진열대에는 약방에서 받아 온 보급품이 줄지어 있다.",
+    "before": null,
+    "after": "The trading house buys Abyss materials and auctions relics. Apothecary supplies line the shelves near the entrance."
+  },
+  {
+    "section": "ui",
+    "key": "속도 +{n}%{turns}",
+    "before": null,
+    "after": "Speed +{n}%{turns}"
+  },
+  {
+    "section": "ui",
+    "key": "저장이 안 되면 버튼 방식으로",
+    "before": null,
+    "after": "If saving does not work, use buttons"
+  },
+  {
+    "section": "ui",
+    "key": "피의 갈증{turns}",
+    "before": null,
+    "after": "Bloodlust{turns}"
+  },
+  {
+    "section": "ui",
+    "key": "총대 메기 -30%",
+    "before": null,
+    "after": "Take the Lead −30%"
+  },
+  {
+    "section": "ui",
+    "key": "아직 제련이나 가공을 하지 않았습니다.",
+    "before": null,
+    "after": "You haven't refined or processed anything yet."
+  },
+  {
+    "section": "ui",
+    "key": " 경험치 {xp}.",
+    "before": null,
+    "after": " Experience: {xp}."
+  },
+  {
+    "section": "ui",
+    "key": "만난 동료",
+    "before": null,
+    "after": "Companions met"
+  },
+  {
+    "section": "ui",
+    "key": "보상을 받고, 더 내려갈지 돌아갈지 고른다",
+    "before": null,
+    "after": "Claim rewards, then descend or return"
+  },
+  {
+    "section": "ui",
+    "key": "첫 만남이 시작됐습니다. <b>보내기</b>를 누르면 이야기가 이어집니다.",
+    "before": null,
+    "after": "Your first meeting has begun. Press <b>Send</b> to continue the story."
+  },
+  {
+    "section": "ui",
+    "key": "채팅에 줄을 넣지 못했습니다. 한 줄 적어 보내 주세요.",
+    "before": null,
+    "after": "Could not add a chat line. Write and send one."
+  },
+  {
+    "section": "ui",
+    "key": "동료를 감싼다",
+    "before": null,
+    "after": "Protects an ally"
+  },
+  {
+    "section": "ui",
+    "key": "첫 만남 장면이 이어졌다. 이제 {name:은는} 동료다.",
+    "before": null,
+    "after": "The first meeting has unfolded. {name} is now a companion."
+  },
+  {
+    "section": "ui",
+    "key": "고갈: 차례 상실",
+    "before": null,
+    "after": "Depleted: turn lost"
+  },
+  {
+    "section": "ui",
+    "key": "균열 핵 레이드",
+    "before": null,
+    "after": "Rift core raid"
+  },
+  {
+    "section": "ui",
+    "key": "균열로 들어간다",
+    "before": null,
+    "after": "Enter the rift"
+  },
+  {
+    "section": "ui",
+    "key": " 가방이 가득 찼습니다. 장비 {n}개는 버려졌습니다.",
+    "before": null,
+    "after": " Bag full; {n} equipment items were discarded."
+  },
+  {
+    "section": "ui",
+    "key": "{name} ▲ 호감 +{a}. {next}",
+    "before": null,
+    "after": "{name} ▲ affection +{a}. {next}"
+  },
+  {
+    "section": "ui",
+    "key": "함께 마실 동료를 고른다. 비약이 호감 문턱을 넘게 해 주지만, 동료가 하지 않는 일은 그대로 지킨다.",
+    "before": null,
+    "after": "Choose a companion to share it with. The philter eases the affection threshold, but a companion's hard limits still hold."
+  },
+  {
+    "section": "ui",
+    "key": "(여관에서 {name:와과} 함께 식사를 한다)",
+    "before": null,
+    "after": "(Share a meal with {name} at the inn)"
+  },
+  {
+    "section": "ui",
+    "key": "처리 오류: {error}",
+    "before": null,
+    "after": "Action error: {error}"
+  },
+  {
+    "section": "ui",
+    "key": "◀ 뒤로",
+    "before": null,
+    "after": "◀ Back"
+  },
+  {
+    "section": "ui",
+    "key": " 정예",
+    "before": null,
+    "after": " Elite"
+  },
+  {
+    "section": "ui",
+    "key": "챙긴 장비:",
+    "before": null,
+    "after": "Equipment kept:"
+  },
+  {
+    "section": "ui",
+    "key": "다른 동료",
+    "before": null,
+    "after": "Another companion"
+  },
+  {
+    "section": "ui",
+    "key": "창관",
+    "before": null,
+    "after": "Brothel"
+  },
+  {
+    "section": "ui",
+    "key": "진행 중",
+    "before": null,
+    "after": "Active"
+  },
+  {
+    "section": "ui",
+    "key": "호감 ▲ {list}",
+    "before": null,
+    "after": "Affection ▲ {list}"
+  },
+  {
+    "section": "ui",
+    "key": "{name} 충전 중",
+    "before": null,
+    "after": "Charging {name}"
+  },
+  {
+    "section": "ui",
+    "key": "직접 싸운다. 동료는 최대 3명",
+    "before": null,
+    "after": "Fight personally with up to three companions"
+  },
+  {
+    "section": "ui",
+    "key": "약점 ×1.3",
+    "before": null,
+    "after": "Weakness ×1.3"
+  },
+  {
+    "section": "ui",
+    "key": "고갈 ×1.5",
+    "before": null,
+    "after": "Depleted ×1.5"
+  },
+  {
+    "section": "ui",
+    "key": "보스 금화 {gold}",
+    "before": null,
+    "after": "Boss reward: {gold} gold"
+  },
+  {
+    "section": "ui",
+    "key": "직업을 고르면 스킬과 기본 능력치가 보입니다.",
+    "before": null,
+    "after": "Choose a class to see its skills and base stats."
+  },
+  {
+    "section": "ui",
+    "key": ", 호감 {n}",
+    "before": null,
+    "after": ", affection {n}"
+  },
+  {
+    "section": "ui",
+    "key": "직업 패시브: {name}",
+    "before": null,
+    "after": "Class passive: {name}"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>{particle} {verb}. 공격력 상승 (3턴)",
+    "before": null,
+    "after": "<b>{who}</b> {verb}. Attack increased for 3 turns"
+  },
+  {
+    "section": "ui",
+    "key": "(치명타)",
+    "before": null,
+    "after": "(critical)"
+  },
+  {
+    "section": "ui",
+    "key": "{cls}, {row}",
+    "before": null,
+    "after": "{cls}, {row}"
+  },
+  {
+    "section": "ui",
+    "key": "직업 스킬이 없습니다. 패시브만으로 싸웁니다",
+    "before": null,
+    "after": "No class skills. Fight using passives."
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>의 {action}. {parts}{tag}",
+    "before": null,
+    "after": "<b>{who}</b> used {action}. {parts}{tag}"
+  },
+  {
+    "section": "ui",
+    "key": "직업 기본값 위에 점수 {n}점을 나눠 주세요.",
+    "before": null,
+    "after": "Distribute {n} points on top of your class's base stats."
+  },
+  {
+    "section": "ui",
+    "key": "지휘만 한다. 동료 4명으로 나선다",
+    "before": null,
+    "after": "Command four companions without fighting"
+  },
+  {
+    "section": "ui",
+    "key": "직접 싸운다",
+    "before": null,
+    "after": "Fight personally"
+  },
+  {
+    "section": "ui",
+    "key": "{name}에게 {item}: HP +{n}",
+    "before": null,
+    "after": "Used {item} on {name}: HP +{n}"
+  },
+  {
+    "section": "ui",
+    "key": "아직 동료가 없다. 길드의 「동료 소개」 창구에서 사람을 이어 받을 수 있다.",
+    "before": null,
+    "after": "You have no companions yet. Ask for introductions at the guild."
+  },
+  {
+    "section": "ui",
+    "key": "Lv {lv} · {el}속성",
+    "before": null,
+    "after": "Lv {lv} · {el} element"
+  },
+  {
+    "section": "ui",
+    "key": "지속 상태 해제",
+    "before": null,
+    "after": "Ongoing effects removed"
+  },
+  {
+    "section": "ui",
+    "key": ", <i>심연 깎기: {targets}</i>",
+    "before": null,
+    "after": "; <i>abyss damage: {targets}</i>"
+  },
+  {
+    "section": "ui",
+    "key": "HP와 MP는 전투를 거치며 이어진다",
+    "before": null,
+    "after": "HP and MP carry over between battles"
+  },
+  {
+    "section": "ui",
+    "key": "장비 능력치는 능력치 검수 뒤에 확정한다. 지금은 자리만 바꾼다",
+    "before": null,
+    "after": "Equipment stats will be finalized after review. For now, you can rearrange equipment."
+  },
+  {
+    "section": "ui",
+    "key": "강제",
+    "before": null,
+    "after": "Force"
+  },
+  {
+    "section": "ui",
+    "key": "방어 <b>{n}</b>",
+    "before": null,
+    "after": "Defense <b>{n}</b>"
+  },
+  {
+    "section": "ui",
+    "key": "서약 → {name}",
+    "before": null,
+    "after": "Oath → {name}"
+  },
+  {
+    "section": "ui",
+    "key": "지금은 가공할 수 없습니다.",
+    "before": null,
+    "after": "Processing isn't possible right now."
+  },
+  {
+    "section": "ui",
+    "key": "지금까지 {n}회",
+    "before": null,
+    "after": "{n} so far"
+  },
+  {
+    "section": "ui",
+    "key": "지금: {name}",
+    "before": null,
+    "after": "Now: {name}"
+  },
+  {
+    "section": "ui",
+    "key": "여관에서도 청할 수 있다. 받아 주면 호감 +{n}",
+    "before": null,
+    "after": "You can ask at the inn. Acceptance grants affection +{n}."
+  },
+  {
+    "section": "ui",
+    "key": "보호 → {name}",
+    "before": null,
+    "after": "Protecting {name}"
+  },
+  {
+    "section": "ui",
+    "key": "보호막 +{n}",
+    "before": null,
+    "after": "Shield +{n}"
+  },
+  {
+    "section": "ui",
+    "key": "장비를 발견했다: {item}.",
+    "before": null,
+    "after": "Found equipment: {item}."
+  },
+  {
+    "section": "ui",
+    "key": "출전 {n}명",
+    "before": null,
+    "after": "Party: {n}"
+  },
+  {
+    "section": "ui",
+    "key": "동료 한 명의 레벨을 1 올린다. Lv40까지.",
+    "before": null,
+    "after": "Raises one companion's level by 1, up to Lv40."
+  },
+  {
+    "section": "ui",
+    "key": "동료 소개 창구",
+    "before": null,
+    "after": "Companion introductions"
+  },
+  {
+    "section": "ui",
+    "key": "중간",
+    "before": null,
+    "after": "Medium"
+  },
+  {
+    "section": "ui",
+    "key": "준비 중인 화면: {scene}",
+    "before": null,
+    "after": "Screen in preparation: {scene}"
+  },
+  {
+    "section": "ui",
+    "key": "정비",
+    "before": null,
+    "after": "Prepare equipment"
+  },
+  {
+    "section": "ui",
+    "key": "주신의 이름 +{n}%",
+    "before": null,
+    "after": "Name of the Lord +{n}%"
+  },
+  {
+    "section": "ui",
+    "key": "{name} / 아이템",
+    "before": null,
+    "after": "{name} / Items"
+  },
+  {
+    "section": "ui",
+    "key": "마력 <b>{n}</b>",
+    "before": null,
+    "after": "MP <b>{n}</b>"
+  },
+  {
+    "section": "ui",
+    "key": "입장 → 탐색 {steps}번(전투 70%, 발견 30%) → 휴식(HP +30%, 정비) → 층 끝 레이드 전투(4인, 상대는 {boss}). 전투가 이어져도 HP와 MP는 그대로다.",
+    "before": null,
+    "after": "Enter → explore {steps} times (70% battle, 30% discovery) → rest (+30% HP, prepare) → floor boss raid (four fighters vs. {boss}). HP and MP carry over between battles."
+  },
+  {
+    "section": "ui",
+    "key": "장비를 제련하고 가공한다",
+    "before": null,
+    "after": "Refine and process equipment"
+  },
+  {
+    "section": "ui",
+    "key": "제련 실패. 장비는 그대로입니다.",
+    "before": null,
+    "after": "Forging failed. Equipment is intact."
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>{particle} 방어 자세를 취했다. 다음 차례까지 받는 피해 -40%",
+    "before": null,
+    "after": "<b>{who}</b> took a guard stance. Damage taken −40% until the next turn"
+  },
+  {
+    "section": "ui",
+    "key": "장비를 샀습니다: {item}",
+    "before": null,
+    "after": "Bought equipment: {item}"
+  },
+  {
+    "section": "ui",
+    "key": "퇴각한다",
+    "before": null,
+    "after": "Retreat"
+  },
+  {
+    "section": "ui",
+    "key": "제안 {tries}회, 수락 {yes}회",
+    "before": null,
+    "after": "Proposed {tries} times, accepted {yes} times"
+  },
+  {
+    "section": "ui",
+    "key": "장비 {n}개는 잃었다",
+    "before": null,
+    "after": "Lost {n} equipment items"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>{particle} {skill:으로} {action}. {targets}",
+    "before": null,
+    "after": "<b>{who}</b> used {skill} and {action}. {targets}"
+  },
+  {
+    "section": "ui",
+    "key": "보호막 -{n}",
+    "before": null,
+    "after": "Shield -{n}"
+  },
+  {
+    "section": "ui",
+    "key": "레벨이 올랐다: {lines}",
+    "before": null,
+    "after": "Leveled up: {lines}"
+  },
+  {
+    "section": "ui",
+    "key": "받아 둔 의뢰가 없습니다. 길드 본관의 의뢰판을 먼저 보세요.",
+    "before": null,
+    "after": "You have no active quest. Check the guild board first."
+  },
+  {
+    "section": "ui",
+    "key": "제련 성공!",
+    "before": null,
+    "after": "Forging succeeded!"
+  },
+  {
+    "section": "ui",
+    "key": "제련 및 가공 완료",
+    "before": null,
+    "after": "Finish Refining & Processing"
+  },
+  {
+    "section": "ui",
+    "key": "개인 스킬: {name}",
+    "before": null,
+    "after": "Personal skill: {name}"
+  },
+  {
+    "section": "ui",
+    "key": " (구역 보스 첫 처치)",
+    "before": null,
+    "after": " (first zone boss defeat)"
+  },
+  {
+    "section": "ui",
+    "key": "제련",
+    "before": null,
+    "after": "Forge"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>의 {action}. {target:이가} <em>피했다</em>",
+    "before": null,
+    "after": "<b>{who}</b> used {action}. {target} <em>dodged</em>"
+  },
+  {
+    "section": "ui",
+    "key": "정중히 거절한다",
+    "before": null,
+    "after": "Politely decline"
+  },
+  {
+    "section": "ui",
+    "key": "정예 전투",
+    "before": null,
+    "after": "Elite battle"
+  },
+  {
+    "section": "ui",
+    "key": "정비하고 다음에 다시 출정한다",
+    "before": null,
+    "after": "Prepare and depart again later"
+  },
+  {
+    "section": "ui",
+    "key": "길드가 모험가에게 사람을 이어 준다. 누구를 만날지는 길드도 모른다. 아직 동료가 아닌 사람 가운데 한 명이 나오고, 만나면 곧 동료가 된다. 등급도 확률표도 없다.",
+    "before": null,
+    "after": "The guild introduces adventurers to one another. Even the guild cannot say whom you will meet. One person who has not joined you will be introduced and become a companion. There are no ranks or odds tables."
+  },
+  {
+    "section": "ui",
+    "key": "답변 에셋",
+    "before": null,
+    "after": "Reply assets"
+  },
+  {
+    "section": "ui",
+    "key": "정말 판매 (금화 {gold})",
+    "before": null,
+    "after": "Confirm sale ({gold} gold)"
+  },
+  {
+    "section": "ui",
+    "key": "에코 챔버: 메아리(피해 70%)",
+    "before": null,
+    "after": "Echo Chamber: echo hit at 70% damage"
+  },
+  {
+    "section": "ui",
+    "key": "보스",
+    "before": null,
+    "after": "Boss"
+  },
+  {
+    "section": "ui",
+    "key": "힘 <b>{n}</b>",
+    "before": null,
+    "after": "Strength <b>{n}</b>"
+  },
+  {
+    "section": "ui",
+    "key": "점",
+    "before": null,
+    "after": "points"
+  },
+  {
+    "section": "ui",
+    "key": "절반 ",
+    "before": null,
+    "after": "half "
+  },
+  {
+    "section": "ui",
+    "key": "{zone} 구역 보스 {boss:을를} 처음 쓰러뜨렸다",
+    "before": null,
+    "after": "First defeated {boss}, the zone boss of {zone}"
+  },
+  {
+    "section": "ui",
+    "key": "{profile}, 금화 {n}",
+    "before": null,
+    "after": "{profile}, {n} gold"
+  },
+  {
+    "section": "ui",
+    "key": " (잃은 HP 비례 +{n}%)",
+    "before": null,
+    "after": " (+{n}% based on missing HP)"
+  },
+  {
+    "section": "ui",
+    "key": "전투 승리: {names}. 금화 {gold}, 경험치 {exp:을를} 모았다.",
+    "before": null,
+    "after": "Battle won against {names}. Collected {gold} gold and {exp} experience."
+  },
+  {
+    "section": "ui",
+    "key": "체력 <b>{n}</b>",
+    "before": null,
+    "after": "HP <b>{n}</b>"
+  },
+  {
+    "section": "ui",
+    "key": "방금 이어진 사람",
+    "before": null,
+    "after": "Just introduced"
+  },
+  {
+    "section": "ui",
+    "key": "{boss}가 층 끝을 지킨다",
+    "before": null,
+    "after": "{boss} guards the end of this floor"
+  },
+  {
+    "section": "ui",
+    "key": "스노우볼 효과: 다음 차례 {n}% 당김",
+    "before": null,
+    "after": "Snowball Effect: next turn advanced {n}%"
+  },
+  {
+    "section": "ui",
+    "key": "적을 모두 물리쳤다. 마지막 일격은 {last} 행동 {turns}번 만에 끝났다. 심연 고갈 {depletions}회.",
+    "before": null,
+    "after": "All enemies defeated. Final blow: {last} Battle ended after {turns} actions; abyss depleted {depletions} times."
+  },
+  {
+    "section": "ui",
+    "key": "장소: {place}. ",
+    "before": null,
+    "after": "Place: {place}. "
+  },
+  {
+    "section": "ui",
+    "key": "<b>{target}</b> <i>심연 0, 심연 고갈!</i> 다음 차례를 잃고 받는 피해가 커진다",
+    "before": null,
+    "after": "<b>{target}</b> <i>abyss depleted!</i> Loses the next turn and takes increased damage"
+  },
+  {
+    "section": "ui",
+    "key": "장비 (무기, 방어구, 장신구)",
+    "before": null,
+    "after": "Equipment (weapons, armor, accessories)"
+  },
+  {
+    "section": "ui",
+    "key": "대상 적을 누르세요",
+    "before": null,
+    "after": "Choose an enemy"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{owner}</b>의 <b>소울푸드</b>. {target}{heal}{cleanse}",
+    "before": null,
+    "after": "<b>{owner}</b>'s <b>Soul Food</b>. {target}{heal}{cleanse}"
+  },
+  {
+    "section": "ui",
+    "key": "지연",
+    "before": null,
+    "after": "Delayed"
+  },
+  {
+    "section": "ui",
+    "key": "의뢰 「{title}」 실패. 들고 간 금화 {carry}의 절반인 {loss:을를} 잃었다.",
+    "before": null,
+    "after": "Quest failed: {title}. Lost {loss} of the {carry} gold you carried."
+  },
+  {
+    "section": "ui",
+    "key": " 우두머리",
+    "before": null,
+    "after": " Chief"
+  },
+  {
+    "section": "ui",
+    "key": "저장하면 로레다나와 이야기합니다",
+    "before": null,
+    "after": "Saving starts a talk with Loredana"
+  },
+  {
+    "section": "ui",
+    "key": "이번 전투에서 이미 썼습니다",
+    "before": null,
+    "after": "Already used in this battle"
+  },
+  {
+    "section": "ui",
+    "key": "다음 층은 출정 화면에서 고른다",
+    "before": null,
+    "after": "Choose the next floor on the sortie screen"
+  },
+  {
+    "section": "ui",
+    "key": "장이 끝날 때 보조 모델을 한 번 부릅니다. 던전에서 돌아오거나 다음 층으로 내려간 뒤 첫 답변에서 지난 장을 짧게 요약해 두고, 이후 AI에게 알려 줍니다. 보조 모델이 없거나 실패하면 조용히 건너뜁니다.",
+    "before": null,
+    "after": "At the end of a chapter, an auxiliary model briefly summarizes it in the first reply after returning from the dungeon or descending to the next floor. The summary is shared with the AI afterward. If the model is unavailable or fails, this is skipped."
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>{particle} {skill:을를} 선언했다. 받는 피해 <em>−{red}%</em> ({turns}턴), 도발{abyss}",
+    "before": null,
+    "after": "<b>{who}</b> declared {skill}. Damage taken <em>−{red}%</em> for {turns} turns; taunt{abyss}"
+  },
+  {
+    "section": "ui",
+    "key": "파티",
+    "before": null,
+    "after": "Party"
+  },
+  {
+    "section": "ui",
+    "key": "장소: {place}{kind}. ",
+    "before": null,
+    "after": "Place: {place}{kind}. "
+  },
+  {
+    "section": "ui",
+    "key": "지능 <b>{n}</b>",
+    "before": null,
+    "after": "Intelligence <b>{n}</b>"
+  },
+  {
+    "section": "ui",
+    "key": "장비를 제련한다",
+    "before": null,
+    "after": "Forge equipment"
+  },
+  {
+    "section": "ui",
+    "key": "장비:",
+    "before": null,
+    "after": "Equipment:"
+  },
+  {
+    "section": "ui",
+    "key": "장비를 찾을 수 없습니다.",
+    "before": null,
+    "after": "Equipment not found."
+  },
+  {
+    "section": "ui",
+    "key": "장비 {n}개를 받았습니다.",
+    "before": null,
+    "after": "Received {n} equipment items."
+  },
+  {
+    "section": "ui",
+    "key": "제련이나 가공을 마쳤다면 「제련 및 가공 완료」를 눌러 한나와 이야기를 나눈 뒤 돌아갈 수 있습니다.",
+    "before": null,
+    "after": "Once you are done refining or processing, press \"Finish Refining & Processing\" and talk with Hanna before you head back."
+  },
+  {
+    "section": "ui",
+    "key": "다음 ▶",
+    "before": null,
+    "after": "Next ▶"
+  },
+  {
+    "section": "ui",
+    "key": "성향",
+    "before": null,
+    "after": "Sexual profile"
+  },
+  {
+    "section": "ui",
+    "key": "장비 1~2개 확정",
+    "before": null,
+    "after": "1–2 equipment guaranteed"
+  },
+  {
+    "section": "ui",
+    "key": "장면을 채팅에 넣지 못했습니다. 다시 눌러 주세요.",
+    "before": null,
+    "after": "Could not add the scene to chat. Please try again."
+  },
+  {
+    "section": "ui",
+    "key": "의뢰 「{title}」 완료. 금화 {gold:을를} 받았다.",
+    "before": null,
+    "after": "Quest complete: {title}. Received {gold} gold."
+  },
+  {
+    "section": "ui",
+    "key": "의뢰 실패 정산",
+    "before": null,
+    "after": "Settle failed quest"
+  },
+  {
+    "section": "ui",
+    "key": "자유롭게 이어서 적는다. 이 장면은 아래 버튼을 누를 때까지 계속된다. {name:이가} 멈추자고 하면 그 자리에서 멈춘다.",
+    "before": null,
+    "after": "Continue freely. This scene lasts until you press the button below. If {name} asks to stop, stop immediately."
+  },
+  {
+    "section": "ui",
+    "key": "출전 동료 {n}, 페르소나 {status}",
+    "before": null,
+    "after": "Companions {n}, persona {status}"
+  },
+  {
+    "section": "ui",
+    "key": "민첩 <b>{n}</b>",
+    "before": null,
+    "after": "Agility <b>{n}</b>"
+  },
+  {
+    "section": "ui",
+    "key": "일부 ",
+    "before": null,
+    "after": "some "
+  },
+  {
+    "section": "ui",
+    "key": "다른 행동을 고릅니다",
+    "before": null,
+    "after": "Choose another action"
+  },
+  {
+    "section": "ui",
+    "key": "대던전 {floor}층 {zone}, {boss}",
+    "before": null,
+    "after": "Great Dungeon floor {floor}, {zone}: {boss}"
+  },
+  {
+    "section": "ui",
+    "key": "대던전 {floor}층에서 퇴각했다. 모은 것만 가져왔다(금화 {gold}).",
+    "before": null,
+    "after": "Retreated from Great Dungeon floor {floor}. Kept collected loot ({gold} gold)."
+  },
+  {
+    "section": "ui",
+    "key": "이 열에는 동료가 없다.",
+    "before": null,
+    "after": "No companions in this row."
+  },
+  {
+    "section": "ui",
+    "key": "공격 +{n}%{turns}",
+    "before": null,
+    "after": "Attack +{n}%{turns}"
+  },
+  {
+    "section": "ui",
+    "key": "이번 휴식엔 충분했다",
+    "before": null,
+    "after": "Enough for this rest"
+  },
+  {
+    "section": "ui",
+    "key": "(부상을 추스르며 토르바로 돌아간다)",
+    "before": null,
+    "after": "(Recover from injuries and return to Torva)"
+  },
+  {
+    "section": "ui",
+    "key": "보내기를 누르면 이어집니다. ",
+    "before": null,
+    "after": "Send to continue. "
+  },
+  {
+    "section": "ui",
+    "key": "{name:이가} 길드 소개로 동료가 되었다",
+    "before": null,
+    "after": "{name} joined as a companion through a guild introduction"
+  },
+  {
+    "section": "ui",
+    "key": "고유 효과. 낀 것: {old}, 이 장비: {new}",
+    "before": null,
+    "after": "Unique effect. Equipped: {old}; this item: {new}"
+  },
+  {
+    "section": "ui",
+    "key": "이미 +10입니다.",
+    "before": null,
+    "after": "Already +10."
+  },
+  {
+    "section": "ui",
+    "key": "클라우드 기록을 불러왔습니다. 이 채팅의 모험 기록을 교체했습니다.",
+    "before": null,
+    "after": "Cloud record loaded. It replaced this chat's adventure record."
+  },
+  {
+    "section": "ui",
+    "key": "이 환경에서는 클라우드 불러오기를 사용할 수 없습니다.",
+    "before": null,
+    "after": "Cloud loading is unavailable here."
+  },
+  {
+    "section": "ui",
+    "key": "이 환경에서는 입력창을 열 수 없습니다.",
+    "before": null,
+    "after": "Input dialogs are unavailable here."
+  },
+  {
+    "section": "ui",
+    "key": " 케른의 계약 덕에 모은 것의 일부(금화 {gold}{gear})는 챙겼다.",
+    "before": null,
+    "after": " The Kern pact let you keep some loot ({gold} gold{gear})."
+  },
+  {
+    "section": "ui",
+    "key": "의외성",
+    "before": null,
+    "after": "Unexpected side"
+  },
+  {
+    "section": "ui",
+    "key": "의뢰판이 비어 있다.",
+    "before": null,
+    "after": "The quest board is empty."
+  },
+  {
+    "section": "ui",
+    "key": "돌파",
+    "before": null,
+    "after": "Cleared"
+  },
+  {
+    "section": "ui",
+    "key": "(약점)",
+    "before": null,
+    "after": "(weakness)"
+  },
+  {
+    "section": "ui",
+    "key": "{cls}, Lv {lv}",
+    "before": null,
+    "after": "{cls}, Lv {lv}"
+  },
+  {
+    "section": "ui",
+    "key": "의뢰판 새로 걸기",
+    "before": null,
+    "after": "Refresh quests"
+  },
+  {
+    "section": "ui",
+    "key": "{item} ({rarity}, Lv {lv})",
+    "before": null,
+    "after": "{item} ({rarity}, Lv {lv})"
+  },
+  {
+    "section": "ui",
+    "key": "의뢰판 살펴보기",
+    "before": null,
+    "after": "Check the quest board"
+  },
+  {
+    "section": "ui",
+    "key": "모은 금화 {gold:와과} 물건을 잃었다. 들고 간 금화 {penalty:을를} 잃었다",
+    "before": null,
+    "after": "Lost {gold} collected gold and the items. Also lost {penalty} carried gold"
+  },
+  {
+    "section": "ui",
+    "key": "의뢰 하나를 거절했다. 판에 새 의뢰가 걸렸다.",
+    "before": null,
+    "after": "Rejected a quest. A new one appeared on the board."
+  },
+  {
+    "section": "ui",
+    "key": "모은 것만 가져간다",
+    "before": null,
+    "after": "Keep only what you collected"
+  },
+  {
+    "section": "ui",
+    "key": "의뢰 「{title}」를 포기했다.",
+    "before": null,
+    "after": "Abandoned quest: {title}."
+  },
+  {
+    "section": "ui",
+    "key": "장 요약",
+    "before": null,
+    "after": "Chapter summaries"
+  },
+  {
+    "section": "ui",
+    "key": "적 HP, 공격 ×{n}",
+    "before": null,
+    "after": "Enemy HP and attack ×{n}"
+  },
+  {
+    "section": "ui",
+    "key": "깊은 ",
+    "before": null,
+    "after": "Deep "
+  },
+  {
+    "section": "ui",
+    "key": "우두머리 {name}",
+    "before": null,
+    "after": "Chief: {name}"
+  },
+  {
+    "section": "ui",
+    "key": "★{star}{deep}",
+    "before": null,
+    "after": "★{star}{deep}"
+  },
+  {
+    "section": "ui",
+    "key": "선봉 +{n}%",
+    "before": null,
+    "after": "Vanguard +{n}%"
+  },
+  {
+    "section": "ui",
+    "key": " ▲ 호감 +{n}",
+    "before": null,
+    "after": " ▲ affection +{n}"
+  },
+  {
+    "section": "ui",
+    "key": "대던전",
+    "before": null,
+    "after": "Great Dungeon"
+  },
+  {
+    "section": "ui",
+    "key": "위험합니다. 적이 파티 평균보다 {gap}레벨 높습니다.",
+    "before": null,
+    "after": "Danger: the enemy is {gap} levels above your party's average."
+  },
+  {
+    "section": "ui",
+    "key": "위의 <b>토르바로 돌아가기</b>를 누르면 결과가 채팅에 들어갑니다",
+    "before": null,
+    "after": "Choose <b>Return to Torva</b> above to add the result to chat."
+  },
+  {
+    "section": "ui",
+    "key": "우두머리(그 구역 정예를 키운 적)",
+    "before": null,
+    "after": "Chief (the foe commanding this zone's elites)"
+  },
+  {
+    "section": "ui",
+    "key": ". <i>심연 −{n}</i>",
+    "before": null,
+    "after": ". <i>abyss −{n}</i>"
+  },
+  {
+    "section": "ui",
+    "key": "고갈 공명 ×2.5",
+    "before": null,
+    "after": "Depletion resonance ×2.5"
+  },
+  {
+    "section": "ui",
+    "key": "오늘은 이미 했다",
+    "before": null,
+    "after": "Already done today"
+  },
+  {
+    "section": "ui",
+    "key": "매혹의 비약",
+    "before": null,
+    "after": "Philter of Allure"
+  },
+  {
+    "section": "ui",
+    "key": "오늘은 이미 만났다",
+    "before": null,
+    "after": "Already met today"
+  },
+  {
+    "section": "ui",
+    "key": "옛 방식으로 시작한 대던전 도전은 중단됐다. 보상 없이 거점으로 돌아왔다.",
+    "before": null,
+    "after": "An older dungeon run was stopped. Returned to base without rewards."
+  },
+  {
+    "section": "ui",
+    "key": "얻은 것: 경험치 {exp}, 금화 {gold}{item}",
+    "before": null,
+    "after": "Loot: {exp} XP, {gold} gold{item}"
+  },
+  {
+    "section": "ui",
+    "key": "여우불 ×{n}",
+    "before": null,
+    "after": "Foxfire ×{n}"
+  },
+  {
+    "section": "ui",
+    "key": "약화",
+    "before": null,
+    "after": "Weakened"
+  },
+  {
+    "section": "ui",
+    "key": " 마법 공격 <em>2턴 봉인</em>",
+    "before": null,
+    "after": ": magic attacks <em>sealed for 2 turns</em>"
+  },
+  {
+    "section": "ui",
+    "key": "모델",
+    "before": null,
+    "after": "Model"
+  },
+  {
+    "section": "ui",
+    "key": "이미 하던 모험이 있나요? 클라우드에 저장한 기록을 계정 코드로 불러와 이어서 할 수 있습니다.",
+    "before": null,
+    "after": "Already on an adventure? Load your cloud save with your account code and pick up where you left off."
+  },
+  {
+    "section": "ui",
+    "key": "구역 보스를 처음 쓰러뜨렸다",
+    "before": null,
+    "after": "Defeated this zone boss for the first time"
+  },
+  {
+    "section": "ui",
+    "key": ", 부상 이탈",
+    "before": null,
+    "after": ", incapacitated"
+  },
+  {
+    "section": "ui",
+    "key": "(제련과 가공을 마치고 한나와 이야기를 나눈다)",
+    "before": null,
+    "after": "(Finishes the refining and processing and talks with Hanna)"
+  },
+  {
+    "section": "ui",
+    "key": "{n}차례 뒤 {name}",
+    "before": null,
+    "after": "{name} in {n} turns"
+  },
+  {
+    "section": "ui",
+    "key": "전투 인원",
+    "before": null,
+    "after": "Combatants"
+  },
+  {
+    "section": "ui",
+    "key": "얻은 것: 없음 (원정 물자 일부 분실)",
+    "before": null,
+    "after": "Loot: None (some expedition supplies lost)."
+  },
+  {
+    "section": "ui",
+    "key": "예고 전",
+    "before": null,
+    "after": "Not foretold yet"
+  },
+  {
+    "section": "ui",
+    "key": "던전으로 돌아갑니다. HP와 MP는 지금 그대로입니다",
+    "before": null,
+    "after": "Return to the dungeon. HP and MP stay as they are."
+  },
+  {
+    "section": "ui",
+    "key": "복리 효과: HP +{heal}{overflow}",
+    "before": null,
+    "after": "Compound Interest: HP +{heal}{overflow}"
+  },
+  {
+    "section": "ui",
+    "key": "대던전 {floor}층 돌파{first}: 금화 {gold:을를} 받았다.",
+    "before": null,
+    "after": "Cleared Great Dungeon floor {floor}{first}; received {gold} gold."
+  },
+  {
+    "section": "ui",
+    "key": "{who} {skill:을를} 돌렸다. 아군 전체 {stat} <em>+15%</em> (2턴)",
+    "before": null,
+    "after": "{who} used {skill}. All allies: {stat} <em>+15%</em> for 2 turns"
+  },
+  {
+    "section": "ui",
+    "key": "{who} {skill:을를} 펼쳤다. {target}{abyss}, 적의 공격이 {actor}에게 몰린다(2턴)",
+    "before": null,
+    "after": "{who} used {skill} on {target}{abyss}; enemy attacks focus on {actor} for 2 turns"
+  },
+  {
+    "section": "ui",
+    "key": "어느 종족으로 살아왔나요?",
+    "before": null,
+    "after": "What race are you?"
+  },
+  {
+    "section": "ui",
+    "key": "어느 나라에서 왔나요?",
+    "before": null,
+    "after": "Where are you from?"
+  },
+  {
+    "section": "ui",
+    "key": "최대 단계",
+    "before": null,
+    "after": "Maximum level"
+  },
+  {
+    "section": "ui",
+    "key": "에게는 봉인할 마법이 없다",
+    "before": null,
+    "after": ", who has no magic to seal"
+  },
+  {
+    "section": "ui",
+    "key": ", 사람마다 {n}%p",
+    "before": null,
+    "after": ", personal {n} pp"
+  },
+  {
+    "section": "ui",
+    "key": "낮음",
+    "before": null,
+    "after": "Low"
+  },
+  {
+    "section": "ui",
+    "key": "앞의 장면을 먼저 이어 주세요 (보내기)",
+    "before": null,
+    "after": "Continue the previous scene first (Send)"
+  },
+  {
+    "section": "ui",
+    "key": "앞 쪽",
+    "before": null,
+    "after": "Previous page"
+  },
+  {
+    "section": "ui",
+    "key": "더 낄 수 있는 장비는 가방에서 볼 수 있습니다.",
+    "before": null,
+    "after": "See more usable equipment in your bag."
+  },
+  {
+    "section": "ui",
+    "key": "아래층의 보스를 쓰러뜨리면 열린다",
+    "before": null,
+    "after": "Defeat the boss below to unlock"
+  },
+  {
+    "section": "ui",
+    "key": "종족을 고르면 특성이 보입니다.",
+    "before": null,
+    "after": "Choose a race to see its traits."
+  },
+  {
+    "section": "ui",
+    "key": "전투 상태",
+    "before": null,
+    "after": "Battle status"
+  },
+  {
+    "section": "ui",
+    "key": "쓰러진 동료가 없었다",
+    "before": null,
+    "after": "No ally fell"
+  },
+  {
+    "section": "ui",
+    "key": "의 마법을 봉인하지 못했다",
+    "before": null,
+    "after": ", but the magic seal failed"
+  },
+  {
+    "section": "ui",
+    "key": "금화 {cost} · 성공 {chance}%",
+    "before": null,
+    "after": "{cost} gold · {chance}% success"
+  },
+  {
+    "section": "ui",
+    "key": "(휴식 중 {name:와과} 매혹의 비약을 나눠 마신다)",
+    "before": null,
+    "after": "(Share a Philter of Allure with {name} during the rest)"
+  },
+  {
+    "section": "ui",
+    "key": "탐색 {step}: 전투 승리({names})",
+    "before": null,
+    "after": "Exploration {step}: battle won ({names})"
+  },
+  {
+    "section": "ui",
+    "key": "아이템 {n}개, 쓰면 이번 차례를 씁니다",
+    "before": null,
+    "after": "{n} items; using one takes this turn"
+  },
+  {
+    "section": "ui",
+    "key": "출신을 고르면 특성이 보입니다.",
+    "before": null,
+    "after": "Choose an origin to see its traits."
+  },
+  {
+    "section": "ui",
+    "key": "아래 버튼으로 숫자를 맞추세요",
+    "before": null,
+    "after": "Use the buttons below to set the number"
+  },
+  {
+    "section": "ui",
+    "key": "아군",
+    "before": null,
+    "after": "Allies"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>{particle} {skill}{target:을를} {verb} <em>{damage}</em> 피해를 입혔다",
+    "before": null,
+    "after": "<b>{who}</b> {skill}{verb} {target} for <em>{damage}</em> damage"
+  },
+  {
+    "section": "ui",
+    "key": "받아 둔 의뢰는 거절할 수 없습니다. 포기를 누르세요.",
+    "before": null,
+    "after": "You cannot reject an active quest. Choose Abandon."
+  },
+  {
+    "section": "ui",
+    "key": "맞선 적: {names}.",
+    "before": null,
+    "after": "Enemies faced: {names}."
+  },
+  {
+    "section": "ui",
+    "key": "{name:이가} 곁에 있다",
+    "before": null,
+    "after": "{name} is nearby"
+  },
+  {
+    "section": "ui",
+    "key": "쓰러진 아군을 누르세요",
+    "before": null,
+    "after": "Select a fallen ally"
+  },
+  {
+    "section": "ui",
+    "key": "{name}에게 {item}: MP +{n}",
+    "before": null,
+    "after": "Used {item} on {name}: MP +{n}"
+  },
+  {
+    "section": "ui",
+    "key": "심층 {n}",
+    "before": null,
+    "after": "Deep floor {n}"
+  },
+  {
+    "section": "ui",
+    "key": "{name}: 「{line}」{drop} / {tail}",
+    "before": null,
+    "after": "{name}: ‘{line}’{drop} / {tail}"
+  },
+  {
+    "section": "ui",
+    "key": "레벨을 올릴 사람",
+    "before": null,
+    "after": "Choose someone to level up"
+  },
+  {
+    "section": "ui",
+    "key": "마나가 바닥이다",
+    "before": null,
+    "after": "Mana is depleted"
+  },
+  {
+    "section": "ui",
+    "key": "평균 Lv {avg}",
+    "before": null,
+    "after": "Average Lv {avg}"
+  },
+  {
+    "section": "ui",
+    "key": "대던전 {floor}층 돌파 뒤 곧장 {next}층으로 내려갔다",
+    "before": null,
+    "after": "After clearing Great Dungeon floor {floor}, descended directly to floor {next}"
+  },
+  {
+    "section": "ui",
+    "key": "실패해도 장비는 그대로입니다.",
+    "before": null,
+    "after": "Failure leaves the equipment intact."
+  },
+  {
+    "section": "ui",
+    "key": "승리",
+    "before": null,
+    "after": "Victory"
+  },
+  {
+    "section": "ui",
+    "key": "전원 부상",
+    "before": null,
+    "after": "All injured"
+  },
+  {
+    "section": "ui",
+    "key": "{item} {count}{suffix} 주웠다.",
+    "before": null,
+    "after": "Picked up {count} {item}."
+  },
+  {
+    "section": "ui",
+    "key": "{cls}, Lv {lv}{down}",
+    "before": null,
+    "after": "{cls}, Lv {lv}{down}"
+  },
+  {
+    "section": "ui",
+    "key": "속도 <b>{n}</b>",
+    "before": null,
+    "after": "Speed <b>{n}</b>"
+  },
+  {
+    "section": "ui",
+    "key": "(의뢰를 마치고 토르바로 돌아간다)",
+    "before": null,
+    "after": "(Return to Torva after the quest)"
+  },
+  {
+    "section": "ui",
+    "key": "{name}의 제안",
+    "before": null,
+    "after": "{name}'s proposal"
+  },
+  {
+    "section": "ui",
+    "key": "(쓰러짐)",
+    "before": null,
+    "after": "(down)"
+  },
+  {
+    "section": "ui",
+    "key": "마력 폭발 - 충전",
+    "before": null,
+    "after": "Arcane burst — charging"
+  },
+  {
+    "section": "ui",
+    "key": "티핑 포인트: 출혈 3중첩 폭발 {damage}",
+    "before": null,
+    "after": "Tipping Point: 3 bleed stacks burst for {damage}"
+  },
+  {
+    "section": "ui",
+    "key": " 심층",
+    "before": null,
+    "after": " Depth"
+  },
+  {
+    "section": "ui",
+    "key": "(여관에서 {name} 곁에서 쉰다)",
+    "before": null,
+    "after": "(Rest beside {name} at the inn)"
+  },
+  {
+    "section": "ui",
+    "key": "대던전 {floor}층 정산, 층 보스 처치",
+    "before": null,
+    "after": "Settle Great Dungeon floor {floor}; boss defeated"
+  },
+  {
+    "section": "ui",
+    "key": " 함께 싸운 동료와 가까워졌다.",
+    "before": null,
+    "after": " You grew closer to the companions who fought with you."
+  },
+  {
+    "section": "ui",
+    "key": "길드 의뢰판에서 의뢰를 받으면 나설 수 있다",
+    "before": null,
+    "after": "Accept a quest at the guild board to depart"
+  },
+  {
+    "section": "ui",
+    "key": "◀ 만들기로 돌아가기",
+    "before": null,
+    "after": "◀ Back to creation"
+  },
+  {
+    "section": "ui",
+    "key": "모험 기록은 이 채팅에 자동으로 저장됩니다. 다른 기기나 새 채팅에서 이어 하려면 클라우드에 저장하세요.",
+    "before": null,
+    "after": "Your progress is saved to this chat automatically. To continue on another device or in a new chat, save to the cloud."
+  },
+  {
+    "section": "ui",
+    "key": "{who} {skill:을를} 내밀었다. {target}{result}{abyss}",
+    "before": null,
+    "after": "{who} cast {skill} on {target}{result}{abyss}"
+  },
+  {
+    "section": "ui",
+    "key": "{cls}, {row}, Lv {lv}",
+    "before": null,
+    "after": "{cls}, {row}, Lv {lv}"
+  },
+  {
+    "section": "ui",
+    "key": "엘리트",
+    "before": null,
+    "after": "Elite"
+  },
+  {
+    "section": "ui",
+    "key": "어떤 일로 먹고사나요?",
+    "before": null,
+    "after": "What is your calling?"
+  },
+  {
+    "section": "ui",
+    "key": "{name}: 「{line}」 / {tail}",
+    "before": null,
+    "after": "{name}: ‘{line}’ / {tail}"
+  },
+  {
+    "section": "ui",
+    "key": ". {target}의 <i>심연 −{n}</i>",
+    "before": null,
+    "after": ". {target}: <i>abyss −{n}</i>"
+  },
+  {
+    "section": "ui",
+    "key": "다음 차례 상실, 받는 피해 ×1.5",
+    "before": null,
+    "after": "Loses next turn; damage taken ×1.5"
+  },
+  {
+    "section": "ui",
+    "key": " ▼ 호감 -1",
+    "before": null,
+    "after": " ▼ affection -1"
+  },
+  {
+    "section": "ui",
+    "key": "(층 보스를 쓰러뜨리고 {floor}층으로 내려간다)",
+    "before": null,
+    "after": "(Defeat the floor boss and descend to floor {floor})"
+  },
+  {
+    "section": "ui",
+    "key": "보조모델",
+    "before": null,
+    "after": "Sub model"
+  },
+  {
+    "section": "ui",
+    "key": "★{star}, 권장 Lv {rec}, 적 Lv {enemy}, 층 끝: {lead}",
+    "before": null,
+    "after": "★{star}, recommended Lv {rec}, enemy Lv {enemy}, floor boss: {lead}"
+  },
+  {
+    "section": "ui",
+    "key": "(로레다나에게 새 스킬 조합을 보여 준다)",
+    "before": null,
+    "after": "(Show Loredana the new skill combination)"
+  },
+  {
+    "section": "ui",
+    "key": "동료 고르기",
+    "before": null,
+    "after": "Choose companions"
+  },
+  {
+    "section": "ui",
+    "key": "{cls}, {race}, {el}",
+    "before": null,
+    "after": "{cls}, {race}, {el}"
+  },
+  {
+    "section": "ui",
+    "key": "{name} Lv {before} → {after}",
+    "before": null,
+    "after": "{name} Lv {before} → {after}"
+  },
+  {
+    "section": "ui",
+    "key": "도감에서 동료를 즐겨찾기하면 여기에 모아 볼 수 있습니다. (최대 {max}명)",
+    "before": null,
+    "after": "Favorite companions in the codex to see them here (up to {max})."
+  },
+  {
+    "section": "ui",
+    "key": "<b>쓸 대상이 없습니다</b>. {description}",
+    "before": null,
+    "after": "<b>No valid target</b>. {description}"
+  },
+  {
+    "section": "ui",
+    "key": "손절 타이밍: 행동 게이지 {n}% 회복",
+    "before": null,
+    "after": "Cut Your Losses: action gauge +{n}%"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>의 <b>손절 타이밍</b>. {target:을를} 손절했다. <em>{damage}</em> 처형",
+    "before": null,
+    "after": "<b>{who}</b> used <b>Cut Your Losses</b> to execute {target} for <em>{damage}</em> damage"
+  },
+  {
+    "section": "ui",
+    "key": "단출한 일행",
+    "before": null,
+    "after": "Small party"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>{particle} {skill:을를} 펼쳤다. {effect}",
+    "before": null,
+    "after": "<b>{who}</b> used {skill}. {effect}"
+  },
+  {
+    "section": "ui",
+    "key": "{title} {stars}, 보상 금화 {gold}",
+    "before": null,
+    "after": "{title} {stars}, reward: {gold} gold"
+  },
+  {
+    "section": "ui",
+    "key": "대던전에 도전한다",
+    "before": null,
+    "after": "Enter the Great Dungeon"
+  },
+  {
+    "section": "ui",
+    "key": "알 수 없는 장비",
+    "before": null,
+    "after": "Unknown equipment"
+  },
+  {
+    "section": "ui",
+    "key": "클라우드 처리 중 오류가 났습니다.",
+    "before": null,
+    "after": "An error occurred while handling the cloud save."
+  },
+  {
+    "section": "ui",
+    "key": "직접 정하기…",
+    "before": null,
+    "after": "Set your own…"
+  },
+  {
+    "section": "ui",
+    "key": " (탐색 중 만난 전투, 층 보스가 아직 남아 있다)",
+    "before": null,
+    "after": " (exploration battle; floor boss remains)"
+  },
+  {
+    "section": "ui",
+    "key": "{who} 「{skill}」 하며 약을 건넸다. {target} HP <em>+{heal}</em>, 다음 차례가 <em>당겨졌다</em>",
+    "before": null,
+    "after": "{who} offered {skill} to {target}. HP <em>+{heal}</em>; next turn <em>advanced</em>"
+  },
+  {
+    "section": "ui",
+    "key": "매혹의 비약 사용",
+    "before": null,
+    "after": "Use Philter of Allure"
+  },
+  {
+    "section": "ui",
+    "key": "기준 Lv {lv}",
+    "before": null,
+    "after": "Reference Lv {lv}"
+  },
+  {
+    "section": "ui",
+    "key": "고갈: 차례 상실. 지금이 기회다",
+    "before": null,
+    "after": "Depleted: turn lost. Strike now!"
+  },
+  {
+    "section": "ui",
+    "key": "대화와 거래로 쌓인 호감",
+    "before": null,
+    "after": "Affection built through conversation and dealings"
+  },
+  {
+    "section": "ui",
+    "key": "적 Lv {lv}",
+    "before": null,
+    "after": "Enemy Lv {lv}"
+  },
+  {
+    "section": "ui",
+    "key": "금화가 모자랍니다. {name} 값 {price}, 가진 금화 {gold}",
+    "before": null,
+    "after": "Not enough gold. {name} costs {price}; you have {gold}."
+  },
+  {
+    "section": "ui",
+    "key": "{skill:으로} ",
+    "before": null,
+    "after": "using {skill} "
+  },
+  {
+    "section": "ui",
+    "key": "동료 {n} / {cap}명 (카드를 눌러 넣고 뺀다)",
+    "before": null,
+    "after": "Companions {n} / {cap} (tap cards to add or remove)"
+  },
+  {
+    "section": "ui",
+    "key": "보호막 <em>{n}</em>",
+    "before": null,
+    "after": "Shield <em>{n}</em>"
+  },
+  {
+    "section": "ui",
+    "key": "더 이을 사람이 없다.",
+    "before": null,
+    "after": "No one remains to introduce."
+  },
+  {
+    "section": "ui",
+    "key": "에게 여우불을 던졌지만 표식이 붙지 않았다",
+    "before": null,
+    "after": ", but the foxfire mark did not take hold"
+  },
+  {
+    "section": "ui",
+    "key": "<b>준비 중</b>. {description}",
+    "before": null,
+    "after": "<b>Coming soon</b>. {description}"
+  },
+  {
+    "section": "ui",
+    "key": ", 보스 {name} 앞에서 무너졌다",
+    "before": null,
+    "after": "; fell before boss {name}"
+  },
+  {
+    "section": "ui",
+    "key": "많이",
+    "before": null,
+    "after": "Many"
+  },
+  {
+    "section": "ui",
+    "key": "권장 Lv {rec}, 지금 파티 평균 Lv {avg}{mark}{extra}",
+    "before": null,
+    "after": "Recommended Lv {rec}; current party average Lv {avg}{mark}{extra}"
+  },
+  {
+    "section": "ui",
+    "key": "{name} <em>{damage}</em>{down}",
+    "before": null,
+    "after": "{name} <em>{damage}</em>{down}"
+  },
+  {
+    "section": "ui",
+    "key": "덧효과를 먼저 고르세요",
+    "before": null,
+    "after": "Pick a rider first"
+  },
+  {
+    "section": "ui",
+    "key": " (이번 뒤에는 {cost})",
+    "before": null,
+    "after": " (then {cost})"
+  },
+  {
+    "section": "ui",
+    "key": "하지 않는 것",
+    "before": null,
+    "after": "Hard limits"
+  },
+  {
+    "section": "ui",
+    "key": "남은 점수 <b>{left}</b> / {total}<small>한 능력치에 최대 {cap}점까지, 속도는 1점에 2씩 오릅니다</small>",
+    "before": null,
+    "after": "Points left <b>{left}</b> / {total}<small>Up to {cap} points per stat; each speed point adds 2</small>"
+  },
+  {
+    "section": "ui",
+    "key": "매혹의 비약을 {name:와과} 나눠 마셨다. 남은 비약 {n} / {tail}",
+    "before": null,
+    "after": "Shared a Philter of Allure with {name}. Philters left: {n} / {tail}"
+  },
+  {
+    "section": "ui",
+    "key": "오늘은 충분했다",
+    "before": null,
+    "after": "Enough for today"
+  },
+  {
+    "section": "ui",
+    "key": " <i>심연 −{n}</i>",
+    "before": null,
+    "after": " <i>abyss −{n}</i>"
+  },
+  {
+    "section": "ui",
+    "key": "낄 수 있는 장비",
+    "before": null,
+    "after": "Equipment you can use"
+  },
+  {
+    "section": "ui",
+    "key": "방어 −{n}%{turns}",
+    "before": null,
+    "after": "Defense −{n}%{turns}"
+  },
+  {
+    "section": "ui",
+    "key": "토벌",
+    "before": null,
+    "after": "Elimination"
+  },
+  {
+    "section": "ui",
+    "key": "전투가 아직 끝나지 않았습니다.",
+    "before": null,
+    "after": "The battle is still underway."
+  },
+  {
+    "section": "ui",
+    "key": "{certain}치명 ×{n}",
+    "before": null,
+    "after": "{certain}critical ×{n}"
+  },
+  {
+    "section": "ui",
+    "key": "{target}의 발목에 덫이 걸렸다. 공격 <em>−{red}%</em> (2턴)",
+    "before": null,
+    "after": "{target} stepped into a snare. Attack <em>−{red}%</em> for 2 turns"
+  },
+  {
+    "section": "ui",
+    "key": "경험치 <b>{exp}</b>{level}",
+    "before": null,
+    "after": "Experience <b>{exp}</b>{level}"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>{particle} <b>{skill}</b>에 들어간다. HP <em>{cost}</em> 소모, 다음 <em>{times}회</em> 연속 행동",
+    "before": null,
+    "after": "<b>{who}</b> entered <b>{skill}</b>. Spent <em>{cost}</em> HP; the next <em>{times}</em> attacks grant extra actions"
+  },
+  {
+    "section": "ui",
+    "key": "먼저 저장하세요. 로레다나의 스킬 조합에 저장하지 않은 변경이 있습니다.",
+    "before": null,
+    "after": "Save first. Loredana's skill combination has unsaved changes."
+  },
+  {
+    "section": "ui",
+    "key": "계속한다",
+    "before": null,
+    "after": "Continue"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>{particle} {skill}{verb} {target}에게 <em>{damage}</em> 피해를 입혔다",
+    "before": null,
+    "after": "<b>{who}</b> {skill}{verb} at {target} for <em>{damage}</em> damage"
+  },
+  {
+    "section": "ui",
+    "key": "대던전 도전 실패 정산",
+    "before": null,
+    "after": "Settle failed dungeon run"
+  },
+  {
+    "section": "ui",
+    "key": "{type} {n}: {effect}",
+    "before": null,
+    "after": "{type} {n}: {effect}"
+  },
+  {
+    "section": "ui",
+    "key": "낀 장비:",
+    "before": null,
+    "after": "Equipped:"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>{particle} {skill:을를} 읊었다. {allies}{allies_particle} 받는 피해 <em>−{red}%</em> ({turns}턴)",
+    "before": null,
+    "after": "<b>{who}</b> recited {skill}. {allies} take <em>{red}%</em> less damage for {turns} turns"
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>{particle} {skill:으로} {target}의 발목을 감았다. 다음 차례가 <em>{delay}%</em> 밀렸다{abyss}",
+    "before": null,
+    "after": "<b>{who}</b> used {skill} to bind {target}. Their next turn was delayed <em>{delay}%</em>{abyss}"
+  },
+  {
+    "section": "ui",
+    "key": "대화로 쌓인 호감",
+    "before": null,
+    "after": "Affection built through conversation"
+  },
+  {
+    "section": "ui",
+    "key": "막음 {n}",
+    "before": null,
+    "after": "Blocked {n}"
+  },
+  {
+    "section": "ui",
+    "key": "계정 코드: {code}",
+    "before": null,
+    "after": "Account code: {code}"
+  },
+  {
+    "section": "ui",
+    "key": ". 같은 자리에서 다시 청하면 확률이 줄고, 또 거절당하면 호감이 조금 깎인다",
+    "before": null,
+    "after": ". Asking again here lowers the chance, and another refusal slightly lowers affection"
+  },
+  {
+    "section": "ui",
+    "key": ". 추천은 4인 파티 기준이다(지금 {n}명). {tip}",
+    "before": null,
+    "after": ". Recommendation assumes four party members (currently {n}). {tip}"
+  },
+  {
+    "section": "ui",
+    "key": "<b>승리</b>. 전투가 끝났다.",
+    "before": null,
+    "after": "<b>Victory</b>. The battle is over."
+  },
+  {
+    "section": "ui",
+    "key": "고유 스킬: {name}",
+    "before": null,
+    "after": "Signature skill: {name}"
+  },
+  {
+    "section": "ui",
+    "key": "AI 답변을 기다리는 중입니다. 답변이 오면 다시 움직일 수 있습니다.",
+    "before": null,
+    "after": "Waiting for the AI reply. You can act again when it arrives."
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>{particle} 「{skill}」 하고 내질렀다. 적 전체 공격 <em>−{red}%</em> ({turns}턴){boss}, 도발{abyss}",
+    "before": null,
+    "after": "<b>{who}</b> invoked {skill}. All enemies: attack <em>−{red}%</em> for {turns} turns{boss}; taunt{abyss}"
+  },
+  {
+    "section": "ui",
+    "key": "{place}, {stars}<small>평균 Lv.{avg}, 적 Lv.{enemy}</small>",
+    "before": null,
+    "after": "{place}, {stars}<small>Avg. Lv.{avg}, enemy Lv.{enemy}</small>"
+  },
+  {
+    "section": "ui",
+    "key": "{who} 잔금을 마나로 받아 냈다. MP <em>+{gain}</em>",
+    "before": null,
+    "after": "{who} collected the balance in mana. MP <em>+{gain}</em>"
+  },
+  {
+    "section": "ui",
+    "key": " (층 보스 레이드 전투)",
+    "before": null,
+    "after": " (floor boss raid)"
+  },
+  {
+    "section": "ui",
+    "key": "방어 +{n}%{turns}",
+    "before": null,
+    "after": "Defense +{n}%{turns}"
+  },
+  {
+    "section": "ui",
+    "key": "{item} 하나를 샀습니다. (보유 {n}, 남은 금화 {gold})",
+    "before": null,
+    "after": "Bought one {item}. (Owned: {n}, gold left: {gold})"
+  },
+  {
+    "section": "ui",
+    "key": " 하수인",
+    "before": null,
+    "after": " Minion"
+  },
+  {
+    "section": "ui",
+    "key": "이미 받은 의뢰가 있습니다. 끝내거나 포기한 뒤에 새로 받을 수 있습니다.",
+    "before": null,
+    "after": "You already have an active quest. Finish or abandon it before accepting another."
+  },
+  {
+    "section": "ui",
+    "key": " (도발)",
+    "before": null,
+    "after": " (taunted)"
+  },
+  {
+    "section": "ui",
+    "key": "금화 {cost} · 단계마다 {gain}",
+    "before": null,
+    "after": "{cost} gold · {gain} per level"
+  },
+  {
+    "section": "ui",
+    "key": "Lv {from}~{to} 구간 · 확률은 바뀔 수 있습니다.",
+    "before": null,
+    "after": "Lv {from}-{to} tier · Odds are subject to change."
+  },
+  {
+    "section": "ui",
+    "key": "쓰러진 동료가 있었다",
+    "before": null,
+    "after": "An ally fell"
+  },
+  {
+    "section": "ui",
+    "key": "금화 <b>{gold}</b>",
+    "before": null,
+    "after": "Gold <b>{gold}</b>"
+  },
+  {
+    "section": "ui",
+    "key": "매혹의 비약이 없습니다.",
+    "before": null,
+    "after": "You have no Philter of Allure."
+  },
+  {
+    "section": "ui",
+    "key": "적게",
+    "before": null,
+    "after": "Few"
+  },
+  {
+    "section": "ui",
+    "key": "선점 효과 +50%",
+    "before": null,
+    "after": "First move +50%"
+  },
+  {
+    "section": "ui",
+    "key": "에게 여우불 표식을 새겼다. 다음 피격은 확정 치명타",
+    "before": null,
+    "after": ": foxfire marks the target. The next hit is a guaranteed critical"
+  },
+  {
+    "section": "ui",
+    "key": "{page} / {pages} 쪽",
+    "before": null,
+    "after": "Page {page} / {pages}"
+  },
+  {
+    "section": "ui",
+    "key": "금화를 내면 대장간이 쇳덩이를 가공해 장비 한 점을 내어 준다. 어떤 장비가 나올지는 누르기 전에 이미 정해져 있어서, 되돌리거나 다시 불러와도 같은 차례에는 같은 장비가 나온다.",
+    "before": null,
+    "after": "For a fee, the smithy works a lump of metal into one piece of gear. What comes out is already decided before you press the button, so going back or reloading gives the same gear for the same turn."
+  },
+  {
+    "section": "ui",
+    "key": ". 심연을 0으로 깎으면 끊긴다",
+    "before": null,
+    "after": ". Reduce the abyss to 0 to interrupt it."
+  },
+  {
+    "section": "ui",
+    "key": "구조",
+    "before": null,
+    "after": "Rescue"
+  },
+  {
+    "section": "ui",
+    "key": "크누트의 대장간",
+    "before": null,
+    "after": "Knut's Smithy"
+  },
+  {
+    "section": "ui",
+    "key": "금화 {n} 모자란다",
+    "before": null,
+    "after": "Need {n} more gold"
+  },
+  {
+    "section": "ui",
+    "key": "{name} {n}",
+    "before": null,
+    "after": "{name} {n}"
+  },
+  {
+    "section": "ui",
+    "key": " HP <em>{n}</em> 회복",
+    "before": null,
+    "after": " healed <em>{n}</em> HP"
+  },
+  {
+    "section": "ui",
+    "key": "{line}, {row}",
+    "before": null,
+    "after": "{line}, {row}"
+  },
+  {
+    "section": "ui",
+    "key": "페르소나 이미지 다시 불러오기",
+    "before": null,
+    "after": "Reload persona image"
+  },
+  {
+    "section": "ui",
+    "key": "금화 {n} 모자라다",
+    "before": null,
+    "after": "Short {n} gold"
+  },
+  {
+    "section": "ui",
+    "key": "다음 쪽",
+    "before": null,
+    "after": "Next page"
+  },
+  {
+    "section": "ui",
+    "key": "{who} <b>{target}</b>에게 계약 표식을 새겼다. 다음 연체 이자는 <em>+40%</em>",
+    "before": null,
+    "after": "{who} marked <b>{target}</b> for the contract. The next Late Fees hit deals <em>+40%</em>"
+  },
+  {
+    "section": "ui",
+    "key": "Lv {lv} 필요",
+    "before": null,
+    "after": "Requires Lv {lv}"
+  },
+  {
+    "section": "ui",
+    "key": "페르소나 이미지",
+    "before": null,
+    "after": "Persona image"
+  },
+  {
+    "section": "ui",
+    "key": "대던전 {floor}층에서 퇴각",
+    "before": null,
+    "after": "Retreated from Great Dungeon floor {floor}"
+  },
+  {
+    "section": "ui",
+    "key": "의뢰 출정",
+    "before": null,
+    "after": "Quest sortie"
+  },
+  {
+    "section": "ui",
+    "key": "이번 전투의 결과는 <b>층 정산 때</b> 한꺼번에 이야기로 넘깁니다. 탐색을 계속하세요",
+    "before": null,
+    "after": "This battle's result will enter the story <b>at floor settlement</b>. Keep exploring."
+  },
+  {
+    "section": "ui",
+    "key": "적 강도 ×{n}",
+    "before": null,
+    "after": "Enemy strength ×{n}"
+  },
+  {
+    "section": "ui",
+    "key": "대화로 이어 갈 차례입니다. 채팅에 하고 싶은 말을 적어 보내거나, 빈 칸 그대로 보내세요. AI 답변이 오면 다시 움직일 수 있습니다.",
+    "before": null,
+    "after": "Continue the conversation. Send a message, or send an empty one. You can act again after the AI replies."
+  },
+  {
+    "section": "ui",
+    "key": "{description} (보유 {n})",
+    "before": null,
+    "after": "{description} (owned: {n})"
+  },
+  {
+    "section": "ui",
+    "key": "전열 {n}명",
+    "before": null,
+    "after": "Front row: {n}"
+  },
+  {
+    "section": "ui",
+    "key": "받아들인다",
+    "before": null,
+    "after": "Accept"
+  },
+  {
+    "section": "ui",
+    "key": "출전자 없음. 출정할 때 균열 입장 화면에서 파티를 고른다",
+    "before": null,
+    "after": "No one assigned. Choose your party at the rift entrance before departing."
+  },
+  {
+    "section": "ui",
+    "key": "물약",
+    "before": null,
+    "after": "Potion"
+  },
+  {
+    "section": "ui",
+    "key": "{n} / 4 (칸을 누르면 뺀다)",
+    "before": null,
+    "after": "{n} / 4 (tap a slot to remove)"
+  },
+  {
+    "section": "ui",
+    "key": "등급",
+    "before": null,
+    "after": "Rarity"
+  },
+  {
+    "section": "ui",
+    "key": "레벨업 스크롤이 없습니다. 먼저 구입하세요.",
+    "before": null,
+    "after": "You have no Level-up Scroll. Buy one first."
+  },
+  {
+    "section": "ui",
+    "key": "0~99점 사이에서 원하는 값",
+    "before": null,
+    "after": "Choose any value from 0 to 99"
+  },
+  {
+    "section": "ui",
+    "key": "알 수 없는 동료입니다.",
+    "before": null,
+    "after": "Unknown companion."
+  },
+  {
+    "section": "ui",
+    "key": "계통을 고르면 개인 특성이 정해집니다. (시너지 2명이면 {effect})",
+    "before": null,
+    "after": "Choose a lineage to set your personal trait. (With two allies: {effect})"
+  },
+  {
+    "section": "ui",
+    "key": "큰 보스가 앞에 있다",
+    "before": null,
+    "after": "A major boss lies ahead"
+  },
+  {
+    "section": "ui",
+    "key": "그만둔다",
+    "before": null,
+    "after": "Cancel"
+  },
+  {
+    "section": "ui",
+    "key": "금화가 모자랍니다. 가공 값 {cost}, 가진 금화 {gold}",
+    "before": null,
+    "after": "Not enough gold. Processing costs {cost}; you have {gold}."
+  },
+  {
+    "section": "ui",
+    "key": "AI에게 보내는 지난 대화에서 생각 묶음, 장소 표식, 불필요한 빈 줄을 덜어 내고 옛 전투 결과는 첫 줄만 남깁니다. 응답이 빨라지고 토큰이 줄어듭니다. 화면과 저장된 글은 그대로입니다.",
+    "before": null,
+    "after": "Trims thought blocks, location markers, and extra blank lines from past messages sent to the AI, and keeps only the first line of old battle results. This saves tokens and speeds replies. Displayed and saved text stays intact."
+  },
+  {
+    "section": "ui",
+    "key": "새 전투를 시작합니다 (시험용)",
+    "before": null,
+    "after": "Start a new battle (test)"
+  },
+  {
+    "section": "ui",
+    "key": "{who} 자세가 흐트러졌다. 다음 차례까지 방어 <em>−20%</em>",
+    "before": null,
+    "after": "{who} lost their footing. Defense <em>−20%</em> until the next turn"
+  },
+  {
+    "section": "ui",
+    "key": "받아 둔 의뢰가 없습니다. 토르바로 돌아가 길드 의뢰판을 먼저 보세요.",
+    "before": null,
+    "after": "You have no active quest. Return to Torva and check the guild board."
+  },
+  {
+    "section": "ui",
+    "key": "<b>{who}</b>{particle} {skill:을를} 올렸다. 아군 전체 HP 회복(합 <em>{healed}</em>), 보호막 <em>{shield}</em>",
+    "before": null,
+    "after": "<b>{who}</b> used {skill}. All allies recovered <em>{healed}</em> HP and gained <em>{shield}</em> shield"
+  },
+  {
+    "section": "ui",
+    "key": "마렌토 출신이 편성에 있어 모든 값이 {pct}% 싸다.",
+    "before": null,
+    "after": "Marento companions in your party reduce all prices by {pct}%."
+  },
+  {
+    "section": "ui",
+    "key": "대상 아군을 누르세요",
+    "before": null,
+    "after": "Choose an ally"
+  },
+  {
+    "section": "ui",
+    "key": "모험 기록은 이 채팅에 자동으로 저장됩니다.",
+    "before": null,
+    "after": "Your adventure is saved automatically in this chat."
+  },
+  {
+    "section": "ui",
+    "key": "도발에 이끌림",
+    "before": null,
+    "after": "Drawn by taunt"
+  },
+  {
+    "section": "ui",
+    "key": "가진 금화 {gold}",
+    "before": null,
+    "after": "Gold: {gold}"
+  },
+  {
+    "section": "ui",
+    "key": "2단계",
+    "before": null,
+    "after": "Phase 2"
+  },
+  {
+    "section": "ui",
+    "key": "(마렌토 상회에서 물건을 사고 나선다)",
+    "before": null,
+    "after": "(Leave Marento Trading House after shopping)"
+  },
+  {
+    "section": "ui",
+    "key": "받은 의뢰는 그대로 두고 나머지를 바꾼다",
+    "before": null,
+    "after": "Keep your active quest and replace the others"
+  },
+  {
+    "section": "ui",
+    "key": "휴식. 파티 전원이 숨을 돌렸다({gain})",
+    "before": null,
+    "after": "Rest. The party caught its breath ({gain})"
+  },
+  {
+    "section": "ui",
+    "key": "아직 싸우지 않아 가득 차 있다",
+    "before": null,
+    "after": "Full before the first battle"
+  },
+  {
+    "section": "ui",
+    "key": "모은 금화 {gold}",
+    "before": null,
+    "after": "Gold collected: {gold}"
+  },
+  {
+    "section": "ui",
+    "key": "부위",
+    "before": null,
+    "after": "Slot"
+  },
+  {
+    "section": "ui",
+    "key": "탐색 계속",
+    "before": null,
+    "after": "Keep exploring"
+  },
+  {
+    "section": "ui",
+    "key": "모험 기록을 모두 지우고 캐릭터 만들기부터 다시 시작합니다.",
+    "before": null,
+    "after": "Erase your adventure and return to character creation."
+  },
+  {
+    "section": "words",
+    "key": "가시뿌리 울타리",
+    "before": null,
+    "after": "Thornroot Hedge"
+  },
+  {
+    "section": "words",
+    "key": "대형 보호막 물약",
+    "before": null,
+    "after": "Large shield potion"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 적 1명의 다음 차례를 40% 뒤로, <em>심연 −3</em>",
+    "before": null,
+    "after": "Unique skill: Delay one enemy by 40%; <em>abyss −3</em>"
+  },
+  {
+    "section": "words",
+    "key": "동료의 공격 속성 = 그 동료의 속성. 직업 공통 스킬도 그 동료 속성으로 나간다 [제안]. 때리지 않는 스킬(회복·보호막·버프)은 속성이 없다.",
+    "before": null,
+    "after": "A companion's attack element = their own element, including shared class skills [proposed]. Non-damaging skills (healing, shields, buffs) have no element."
+  },
+  {
+    "section": "words",
+    "key": "확률%",
+    "before": null,
+    "after": "Chance%"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 적 전체 공격 −15%, 자신은 도발(3턴), <em>심연 −20씩</em>",
+    "before": null,
+    "after": "Unique skill: All enemies: attack −15%; taunt for 3 turns; <em>abyss −20 each</em>"
+  },
+  {
+    "section": "words",
+    "key": "작은 등불 문양을 새긴 로켓.",
+    "before": null,
+    "after": "A locket etched with a tiny lantern."
+  },
+  {
+    "section": "words",
+    "key": "빚음의 때",
+    "before": null,
+    "after": "Age of Shaping"
+  },
+  {
+    "section": "words",
+    "key": "전투당 1회, 충전 없이 마력 폭발을 바로 발동, 적 전체 ×1.9",
+    "before": null,
+    "after": "Once per battle, cast Arcane Burst instantly against all enemies ×1.9"
+  },
+  {
+    "section": "words",
+    "key": "적 1명 <em>심연 −40</em>, 2턴 도발",
+    "before": null,
+    "after": "One enemy: <em>abyss −40</em>; taunt for 2 turns"
+  },
+  {
+    "section": "words",
+    "key": "고립된 탐사대 구조",
+    "before": null,
+    "after": "Rescue the stranded expedition"
+  },
+  {
+    "section": "words",
+    "key": "뼈를 깎아 만든 부적.",
+    "before": null,
+    "after": "A charm carved from bone."
+  },
+  {
+    "section": "words",
+    "key": "아르카스",
+    "before": null,
+    "after": "Arcas"
+  },
+  {
+    "section": "words",
+    "key": "적 처치 시 처치자 HP 5% 흡수",
+    "before": null,
+    "after": "On a kill, the attacker drains 5% HP"
+  },
+  {
+    "section": "words",
+    "key": "갈라",
+    "before": null,
+    "after": "rended"
+  },
+  {
+    "section": "words",
+    "key": "방어 +10%",
+    "before": null,
+    "after": "Defense +10%"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 전투당 1회, 충전 없이 마력 폭발을 바로 발동, 적 전체 ×1.9",
+    "before": null,
+    "after": "Unique skill: once per battle, cast Arcane Burst instantly against all enemies ×1.9"
+  },
+  {
+    "section": "words",
+    "key": "전체, <em>심연 −20씩</em>",
+    "before": null,
+    "after": "All enemies: <em>abyss −20 each</em>"
+  },
+  {
+    "section": "words",
+    "key": "금빛이 바랜 갑주.",
+    "before": null,
+    "after": "Armor with tarnished gold trim."
+  },
+  {
+    "section": "words",
+    "key": "타른",
+    "before": null,
+    "after": "Tarn"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: HP 10% 소모, 다음 균열과 혼돈 파동의 심연 깎기 ×1.5",
+    "before": null,
+    "after": "Unique skill: spend 10% HP; abyss damage from the next Rift and Chaos Wave ×1.5"
+  },
+  {
+    "section": "words",
+    "key": "돌과 숲의 시대",
+    "before": null,
+    "after": "Age of Stone and Forest"
+  },
+  {
+    "section": "words",
+    "key": "최대 HP의 20% 를 되살린다 (Lv 1부터)",
+    "before": null,
+    "after": "Restores 20% of max HP (Lv 1+)"
+  },
+  {
+    "section": "words",
+    "key": "같은 식탁에서 한 끼를 먹는다",
+    "before": null,
+    "after": "Share a meal at the same table"
+  },
+  {
+    "section": "words",
+    "key": "도발 중 받는 피해 -10%",
+    "before": null,
+    "after": "Damage taken while taunting −10%"
+  },
+  {
+    "section": "words",
+    "key": "사벨",
+    "before": null,
+    "after": "Savel"
+  },
+  {
+    "section": "words",
+    "key": "학술원 로브",
+    "before": null,
+    "after": "Academy Robe"
+  },
+  {
+    "section": "words",
+    "key": "내리꽂아",
+    "before": null,
+    "after": "drove a spell into"
+  },
+  {
+    "section": "words",
+    "key": "겔렌하임",
+    "before": null,
+    "after": "Gellenheim"
+  },
+  {
+    "section": "words",
+    "key": "대장간에서 흔히 만드는 장검.",
+    "before": null,
+    "after": "An ordinary longsword from the local forge."
+  },
+  {
+    "section": "words",
+    "key": "HP 30% 이하에서 공격 +20%",
+    "before": null,
+    "after": "Attack +20% below 30% HP"
+  },
+  {
+    "section": "words",
+    "key": "푸른 창",
+    "before": null,
+    "after": "Azure Spear"
+  },
+  {
+    "section": "words",
+    "key": "스킬 자원. 아군 차례 시작마다 +5 회복",
+    "before": null,
+    "after": "Skill resource. Restore +5 at the start of each allied turn."
+  },
+  {
+    "section": "words",
+    "key": "민첩 — 암살자·궁수 스킬의 계수, 치명 확률에 조금(민첩/20 %p)",
+    "before": null,
+    "after": "Agility — scales Assassin and Archer skills; slightly raises critical chance (Agility/20 %p)."
+  },
+  {
+    "section": "words",
+    "key": "카르녹",
+    "before": null,
+    "after": "Karnok"
+  },
+  {
+    "section": "words",
+    "key": "동료 한 명의 레벨을 1 올린다. Lv40까지.",
+    "before": null,
+    "after": "Raises one companion's level by 1, up to Lv40."
+  },
+  {
+    "section": "words",
+    "key": "선제후",
+    "before": null,
+    "after": "Prince-Elector"
+  },
+  {
+    "section": "words",
+    "key": "쿠룬 오르도",
+    "before": null,
+    "after": "Kurun Ordo"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 아군 1명 회복, 그 사람의 다음 차례 30% 당김",
+    "before": null,
+    "after": "Unique skill: Heal one ally and advance their next turn by 30%"
+  },
+  {
+    "section": "words",
+    "key": "무너진 황궁 보물고",
+    "before": null,
+    "after": "Collapsed Imperial Treasury"
+  },
+  {
+    "section": "words",
+    "key": "마력으로 내리쳐",
+    "before": null,
+    "after": "struck with arcane force"
+  },
+  {
+    "section": "words",
+    "key": "힘 — 전사·성기사·검투사 스킬의 계수",
+    "before": null,
+    "after": "Strength — scales Warrior, Paladin, and Gladiator skills."
+  },
+  {
+    "section": "words",
+    "key": "힘 ×1.0, <em>심연 −3</em>",
+    "before": null,
+    "after": "Strength ×1.0, <em>abyss −3</em>"
+  },
+  {
+    "section": "words",
+    "key": "힘 ×1.0, <em>심연 −12</em>",
+    "before": null,
+    "after": "Strength ×1.0, <em>abyss −12</em>"
+  },
+  {
+    "section": "words",
+    "key": "청강 갑옷",
+    "before": null,
+    "after": "Azure Steel Armor"
+  },
+  {
+    "section": "words",
+    "key": "필사생이 들고 다니던 가느다란 지팡이.",
+    "before": null,
+    "after": "A slender staff once carried by an academy scribe."
+  },
+  {
+    "section": "words",
+    "key": "전투 보상 골드 +15%",
+    "before": null,
+    "after": "Battle reward gold +15%"
+  },
+  {
+    "section": "words",
+    "key": "남쪽 황야",
+    "before": null,
+    "after": "Southern Wastes"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 아군 전체 공격 또는 방어 +15% (2턴)",
+    "before": null,
+    "after": "Unique skill: All allies: attack or defense +15% for 2 turns"
+  },
+  {
+    "section": "words",
+    "key": "청옥을 박은 귀걸이.",
+    "before": null,
+    "after": "An earring set with blue jade."
+  },
+  {
+    "section": "words",
+    "key": "휴식 중",
+    "before": null,
+    "after": "during the rest"
+  },
+  {
+    "section": "words",
+    "key": "최대 MP의 25% 를 되살린다 (Lv 15부터)",
+    "before": null,
+    "after": "Restores 25% of max MP (Lv 15+)"
+  },
+  {
+    "section": "words",
+    "key": "회피 +8%",
+    "before": null,
+    "after": "Evasion +8%"
+  },
+  {
+    "section": "words",
+    "key": "등불 로켓",
+    "before": null,
+    "after": "Lantern Locket"
+  },
+  {
+    "section": "words",
+    "key": "베르크홀트",
+    "before": null,
+    "after": "Berghold"
+  },
+  {
+    "section": "words",
+    "key": "타이겐",
+    "before": null,
+    "after": "Taigen"
+  },
+  {
+    "section": "words",
+    "key": "토르바 상점",
+    "before": null,
+    "after": "Torva Shop"
+  },
+  {
+    "section": "words",
+    "key": "변경령",
+    "before": null,
+    "after": "the March"
+  },
+  {
+    "section": "words",
+    "key": "심연 탐사단 연합",
+    "before": null,
+    "after": "Abyssal Expedition Guild"
+  },
+  {
+    "section": "words",
+    "key": "잠든 용의 땅",
+    "before": null,
+    "after": "Land of the Sleeping Dragons"
+  },
+  {
+    "section": "words",
+    "key": "하프엘프, 25세, 작은 백조",
+    "before": null,
+    "after": "Half-elf, 25, Little Swan"
+  },
+  {
+    "section": "words",
+    "key": "성전의 시대",
+    "before": null,
+    "after": "Age of Holy War"
+  },
+  {
+    "section": "words",
+    "key": "심연의 개방과 분열",
+    "before": null,
+    "after": "Opening of the Abyss and the Sundering"
+  },
+  {
+    "section": "words",
+    "key": "전투",
+    "before": null,
+    "after": "Battle"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 적 1명에게 지능 ×1.2, 다음 아군 마법 피해 +10%, <em>심연 −15</em>",
+    "before": null,
+    "after": "Unique skill: Hit one enemy for Intelligence ×1.2; next allied magic damage +10%; <em>abyss −15</em>"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 아군 1명 소량 회복(지능 ×0.4), 디버프 1개 해제",
+    "before": null,
+    "after": "Unique skill: Heal one ally (Intelligence ×0.4) and remove one debuff"
+  },
+  {
+    "section": "words",
+    "key": "대던전",
+    "before": null,
+    "after": "Great Dungeon"
+  },
+  {
+    "section": "words",
+    "key": "소설 속 기사는 이렇게 막아섰죠.",
+    "before": null,
+    "after": "This is how the knights in stories held the line."
+  },
+  {
+    "section": "words",
+    "key": "지속 피해 +25%",
+    "before": null,
+    "after": "Damage over time +25%"
+  },
+  {
+    "section": "words",
+    "key": "연합 길드 본관",
+    "before": "Abyssal Expedition Guild Hall",
+    "after": "Guild Hall"
+  },
+  {
+    "section": "words",
+    "key": "떠난 아버지",
+    "before": null,
+    "after": "Departed Father"
+  },
+  {
+    "section": "words",
+    "key": "아군 전체 회복(지능 ×1.4)",
+    "before": null,
+    "after": "Heal all allies (Intelligence ×1.4)"
+  },
+  {
+    "section": "words",
+    "key": "인간 관청",
+    "before": null,
+    "after": "Human Magistracy"
+  },
+  {
+    "section": "words",
+    "key": "헤르마고르",
+    "before": null,
+    "after": "Hermagor"
+  },
+  {
+    "section": "words",
+    "key": "「성과급 챙기기」",
+    "before": null,
+    "after": "Performance Bonus"
+  },
+  {
+    "section": "words",
+    "key": "계곡 맹약",
+    "before": null,
+    "after": "Valley Covenant"
+  },
+  {
+    "section": "words",
+    "key": "학술원 학생들이 입던 로브.",
+    "before": null,
+    "after": "A robe once worn by academy students."
+  },
+  {
+    "section": "words",
+    "key": "감시관",
+    "before": null,
+    "after": "Overseer"
+  },
+  {
+    "section": "words",
+    "key": "표적과 그 뒤의 적 1명을 ×1.3씩 꿰뚫는다, <em>심연 −3씩</em>",
+    "before": null,
+    "after": "Pierce the target and one enemy behind it for ×1.3 each; <em>abyss −3 each</em>"
+  },
+  {
+    "section": "words",
+    "key": "금빛이 바랜 대검.",
+    "before": null,
+    "after": "A greatsword whose gilding has faded."
+  },
+  {
+    "section": "words",
+    "key": "녹청이 슨 흉갑.",
+    "before": null,
+    "after": "A breastplate mottled with verdigris."
+  },
+  {
+    "section": "words",
+    "key": "삼부회",
+    "before": null,
+    "after": "Estates General"
+  },
+  {
+    "section": "words",
+    "key": "해독약",
+    "before": null,
+    "after": "Antidote"
+  },
+  {
+    "section": "words",
+    "key": "남부 황무지",
+    "before": null,
+    "after": "Southern Wastes"
+  },
+  {
+    "section": "words",
+    "key": "토르바 한나의 대장간",
+    "before": null,
+    "after": "Torva Hanna's Smithy"
+  },
+  {
+    "section": "words",
+    "key": "마력으로 내리쳤다",
+    "before": null,
+    "after": "struck with arcane force"
+  },
+  {
+    "section": "words",
+    "key": "쏘아",
+    "before": null,
+    "after": "shot"
+  },
+  {
+    "section": "words",
+    "key": "방어 −20% (3턴), <em>심연 −12</em>",
+    "before": null,
+    "after": "Defense −20% for 3 turns; <em>abyss −12</em>"
+  },
+  {
+    "section": "words",
+    "key": "2턴 동안 받는 피해 −25%, 도발, <em>심연 −15</em>",
+    "before": null,
+    "after": "Damage taken −25% and taunt for 2 turns; <em>abyss −15</em>"
+  },
+  {
+    "section": "words",
+    "key": "먼저 찔러",
+    "before": null,
+    "after": "struck first at"
+  },
+  {
+    "section": "words",
+    "key": "세 자식의 때",
+    "before": null,
+    "after": "Age of the Three Children"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 아군 전체 HP 회복 + 다음 2라운드 재생",
+    "before": null,
+    "after": "Unique skill: Heal all allies and grant regeneration for the next 2 rounds"
+  },
+  {
+    "section": "words",
+    "key": "한 번 더 내리쳐",
+    "before": null,
+    "after": "struck again at"
+  },
+  {
+    "section": "words",
+    "key": "배율",
+    "before": null,
+    "after": "Multiplier"
+  },
+  {
+    "section": "words",
+    "key": "레벨업 스크롤",
+    "before": null,
+    "after": "Level-up scroll"
+  },
+  {
+    "section": "words",
+    "key": "하르벤",
+    "before": null,
+    "after": "Harben"
+  },
+  {
+    "section": "words",
+    "key": "공격",
+    "before": null,
+    "after": "attack"
+  },
+  {
+    "section": "words",
+    "key": "소형 보호막 물약",
+    "before": null,
+    "after": "Small shield potion"
+  },
+  {
+    "section": "words",
+    "key": "흑요 신전선",
+    "before": null,
+    "after": "Obsidian Temple Line"
+  },
+  {
+    "section": "words",
+    "key": "심연 사냥개 A",
+    "before": null,
+    "after": "Abyss Hound A"
+  },
+  {
+    "section": "words",
+    "key": "프리엔",
+    "before": null,
+    "after": "Prien"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 적 1명 <em>심연 −40</em>, 2턴 도발",
+    "before": null,
+    "after": "Unique skill: One enemy: <em>abyss −40</em>; taunt for 2 turns"
+  },
+  {
+    "section": "words",
+    "key": "막시밀리안 3세",
+    "before": null,
+    "after": "Maximilian III"
+  },
+  {
+    "section": "words",
+    "key": "푸른빛이 도는 쇠로 벼린 창.",
+    "before": null,
+    "after": "A spear forged from blue-tinted iron."
+  },
+  {
+    "section": "words",
+    "key": "심연 깎기 — 로스트아크 무력화처럼 스킬마다 다르다. 사장님 결정(10-06): 아무나 심연 깎기 수치를 갖지 않는다 — 고갈 특화 직업(심연 마도사)이 가장 높고, 그다음 탱커 > 서포터 > 누커 순. 누커는 사실상 고갈을 못 시킨다. 약점을 맞히면 ×brk_weak_mult. 고갈된 적이 받는 피해 ×break_mult(심연 마도사는 ×break_mult_abyss). 레벨 1(★1) 부터 열린다 — 사장님 2026-10-07.",
+    "before": null,
+    "after": "Abyss depletion varies by skill, like stagger in Lost Ark. Owner's decision (10-06): not everyone has an Abyss depletion value — the specialist class (Abyss Mage) has the highest, followed by tanks > supports > nukers. Nukers can scarcely cause depletion. Hitting a weakness applies ×brk_weak_mult. Damage taken by depleted enemies is multiplied by ×break_mult (×break_mult_abyss for Abyss Mages). Available from level 1 (★1) — owner, 2026-10-07."
+  },
+  {
+    "section": "words",
+    "key": "대심연",
+    "before": null,
+    "after": "the Great Abyss"
+  },
+  {
+    "section": "words",
+    "key": "봉인의 창",
+    "before": null,
+    "after": "Window of the Seal"
+  },
+  {
+    "section": "words",
+    "key": "실바렌",
+    "before": null,
+    "after": "Silvaren"
+  },
+  {
+    "section": "words",
+    "key": "황금 명부",
+    "before": null,
+    "after": "Golden Register"
+  },
+  {
+    "section": "words",
+    "key": "서쪽 숲",
+    "before": null,
+    "after": "Western Forest"
+  },
+  {
+    "section": "words",
+    "key": "표범 부족",
+    "before": null,
+    "after": "Leopard Banner"
+  },
+  {
+    "section": "words",
+    "key": "종류",
+    "before": null,
+    "after": "Type"
+  },
+  {
+    "section": "words",
+    "key": "잉크가 굳어 결정이 된 목걸이.",
+    "before": null,
+    "after": "A necklace of ink hardened into crystal."
+  },
+  {
+    "section": "words",
+    "key": "쉬운 시작. 주력 능력치를 크게 키워 준다",
+    "before": null,
+    "after": "An easy start. Greatly boost your main stats."
+  },
+  {
+    "section": "words",
+    "key": "펜도르",
+    "before": null,
+    "after": "Fendor"
+  },
+  {
+    "section": "words",
+    "key": "페르소나의 속성은 직업에 따라 [미정].",
+    "before": null,
+    "after": "The persona's element depends on class [undecided]."
+  },
+  {
+    "section": "words",
+    "key": "아군 1명 소량 회복(지능 ×0.4), 디버프 1개 해제",
+    "before": null,
+    "after": "Heal one ally (Intelligence ×0.4) and remove one debuff"
+  },
+  {
+    "section": "words",
+    "key": "파티 최대 HP +8%",
+    "before": null,
+    "after": "Party max HP +8%"
+  },
+  {
+    "section": "words",
+    "key": "남동 해안",
+    "before": null,
+    "after": "Southeastern Coast"
+  },
+  {
+    "section": "words",
+    "key": "파티 속도 +6%",
+    "before": null,
+    "after": "Party speed +6%"
+  },
+  {
+    "section": "words",
+    "key": "없음 — 약점에 맞으면 더 아프고, 아니면 보통(1.0). 반감·면역 칸을 두지 않는다.",
+    "before": null,
+    "after": "None — weakness hits deal extra damage; other hits are normal (1.0). There are no resistance or immunity slots."
+  },
+  {
+    "section": "words",
+    "key": "이엘라",
+    "before": null,
+    "after": "Iela"
+  },
+  {
+    "section": "words",
+    "key": "중형 마나 물약",
+    "before": null,
+    "after": "Medium mana potion"
+  },
+  {
+    "section": "words",
+    "key": "찔러",
+    "before": null,
+    "after": "stabbed"
+  },
+  {
+    "section": "words",
+    "key": "기본 난이도. 직업 기본값을 조금 다듬는 정도",
+    "before": null,
+    "after": "Standard start. Fine-tune your class's base stats."
+  },
+  {
+    "section": "words",
+    "key": "방어↓, 속도↓, 공격↓ 3개를 차례로 걸고 부식 +1, <em>심연 −3</em>",
+    "before": null,
+    "after": "Apply defense, speed, and attack penalties, one corrosion stack; <em>abyss −3</em>"
+  },
+  {
+    "section": "words",
+    "key": "말 시장",
+    "before": null,
+    "after": "Horse Market"
+  },
+  {
+    "section": "words",
+    "key": "분열 후",
+    "before": null,
+    "after": "After the Sundering"
+  },
+  {
+    "section": "words",
+    "key": "제국 학술원 폐허",
+    "before": null,
+    "after": "Ruins of the Imperial Academy"
+  },
+  {
+    "section": "words",
+    "key": "원정 중 어느 지점에서든 거점으로 돌아온다 (원정당 1개)",
+    "before": null,
+    "after": "Return to base from anywhere during an expedition (one per expedition)"
+  },
+  {
+    "section": "words",
+    "key": "자수정 장식이 붙은 판금 갑옷.",
+    "before": null,
+    "after": "Plate armor adorned with amethyst."
+  },
+  {
+    "section": "words",
+    "key": "아군 전체 회복 + 보호막(각각 절반 효과)",
+    "before": null,
+    "after": "Heal and shield all allies, each at half strength"
+  },
+  {
+    "section": "words",
+    "key": "심연 균열",
+    "before": null,
+    "after": "Abyssal Rift"
+  },
+  {
+    "section": "words",
+    "key": "토르바 지배인",
+    "before": null,
+    "after": "Torva manager"
+  },
+  {
+    "section": "words",
+    "key": "토르바 연합 길드 본관",
+    "before": null,
+    "after": "Torva Union Guild Hall"
+  },
+  {
+    "section": "words",
+    "key": "최대 MP의 40% 를 되살린다 (Lv 30부터)",
+    "before": null,
+    "after": "Restores 40% of max MP (Lv 30+)"
+  },
+  {
+    "section": "words",
+    "key": "푸르게 녹이 슨 단검. 날은 아직 살아 있다.",
+    "before": null,
+    "after": "The hilt has gone green with age. The edge is still keen."
+  },
+  {
+    "section": "words",
+    "key": "대상",
+    "before": null,
+    "after": "Target"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 표적과 그 뒤의 적 1명을 ×1.3씩 꿰뚫는다, <em>심연 −3씩</em>",
+    "before": null,
+    "after": "Unique skill: Pierce the target and one enemy behind it for ×1.3 each; <em>abyss −3 each</em>"
+  },
+  {
+    "section": "words",
+    "key": "장벽의 시대",
+    "before": null,
+    "after": "Age of Walls"
+  },
+  {
+    "section": "words",
+    "key": "타른 계곡",
+    "before": null,
+    "after": "Tarn Valley"
+  },
+  {
+    "section": "words",
+    "key": "서해안",
+    "before": null,
+    "after": "Western Coast"
+  },
+  {
+    "section": "words",
+    "key": "최대 MP의 15% 를 되살린다 (Lv 1부터)",
+    "before": null,
+    "after": "Restores 15% of max MP (Lv 1+)"
+  },
+  {
+    "section": "words",
+    "key": "케른 막사",
+    "before": null,
+    "after": "Kern Barracks"
+  },
+  {
+    "section": "words",
+    "key": "적 전체를 힘으로 밀어붙였다",
+    "before": null,
+    "after": "overwhelmed all enemies by force"
+  },
+  {
+    "section": "words",
+    "key": "대장간에서 흔히 만드는 철 반지.",
+    "before": null,
+    "after": "An ordinary iron ring from the local forge."
+  },
+  {
+    "section": "words",
+    "key": "세계수의 여왕",
+    "before": null,
+    "after": "Queen of the Worldtree"
+  },
+  {
+    "section": "words",
+    "key": "필사생의 지팡이",
+    "before": null,
+    "after": "Scribe's Staff"
+  },
+  {
+    "section": "words",
+    "key": "녹청",
+    "before": null,
+    "after": "Verdigris"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: HP 10% 소모, 다음 2회 공격이 연속 행동",
+    "before": null,
+    "after": "Unique skill: Spend 10% HP; the next 2 attacks grant extra actions"
+  },
+  {
+    "section": "words",
+    "key": "길드장",
+    "before": null,
+    "after": "Guildmaster"
+  },
+  {
+    "section": "words",
+    "key": "치명%",
+    "before": null,
+    "after": "Crit%"
+  },
+  {
+    "section": "words",
+    "key": "치명 확률 기본값(%). 치명 피해 기본 150%",
+    "before": null,
+    "after": "Base critical chance (%). Base critical damage is 150%."
+  },
+  {
+    "section": "words",
+    "key": "치명 70%, 치명 ×2.0",
+    "before": null,
+    "after": "70% critical chance, critical damage ×2.0"
+  },
+  {
+    "section": "words",
+    "key": "루미엘",
+    "before": null,
+    "after": "Lumiel"
+  },
+  {
+    "section": "words",
+    "key": "쓰러진 동료를 최대 HP 의 25% 로 일으킨다",
+    "before": null,
+    "after": "Revives a fallen ally at 25% of max HP"
+  },
+  {
+    "section": "words",
+    "key": "추가 공격",
+    "before": null,
+    "after": "Extra attack"
+  },
+  {
+    "section": "words",
+    "key": "최대 HP의 35% 를 되살린다 (Lv 15부터)",
+    "before": null,
+    "after": "Restores 35% of max HP (Lv 15+)"
+  },
+  {
+    "section": "words",
+    "key": "최대 HP의 50% 를 되살린다 (Lv 30부터)",
+    "before": null,
+    "after": "Restores 50% of max HP (Lv 30+)"
+  },
+  {
+    "section": "words",
+    "key": "최대 HP의 40% 만큼 보호막을 두른다(3턴) (Lv 30부터)",
+    "before": null,
+    "after": "Grants a shield equal to 40% of max HP for 3 turns (Lv 30+)"
+  },
+  {
+    "section": "words",
+    "key": "최대 HP의 25% 만큼 보호막을 두른다(3턴) (Lv 15부터)",
+    "before": null,
+    "after": "Grants a shield equal to 25% of max HP for 3 turns (Lv 15+)"
+  },
+  {
+    "section": "words",
+    "key": "최대 HP의 15% 만큼 보호막을 두른다(3턴) (Lv 1부터)",
+    "before": null,
+    "after": "Grants a shield equal to 15% of max HP for 3 turns (Lv 1+)"
+  },
+  {
+    "section": "words",
+    "key": "촘촘히 엮은 쇠사슬 조끼.",
+    "before": null,
+    "after": "A vest of tightly linked iron rings."
+  },
+  {
+    "section": "words",
+    "key": "첫 라운드 파티 공격 +15%",
+    "before": null,
+    "after": "Party attack +15% in the first round"
+  },
+  {
+    "section": "words",
+    "key": "드룸",
+    "before": null,
+    "after": "Drum"
+  },
+  {
+    "section": "words",
+    "key": "체력. 0 이 되면 부상 이탈",
+    "before": null,
+    "after": "Health. At 0, the character is injured and leaves the fight."
+  },
+  {
+    "section": "words",
+    "key": "근위대가 두르던 망토.",
+    "before": null,
+    "after": "A cloak once worn by the imperial guard."
+  },
+  {
+    "section": "words",
+    "key": "청동의 시대",
+    "before": null,
+    "after": "Age of Bronze"
+  },
+  {
+    "section": "words",
+    "key": "아샤크 관문",
+    "before": null,
+    "after": "Ashak Gate"
+  },
+  {
+    "section": "words",
+    "key": "얼어붙은 옛 병영",
+    "before": null,
+    "after": "Frozen Barracks"
+  },
+  {
+    "section": "words",
+    "key": "방어 — 받는 피해를 줄임(레벨 보정 공식, 아래)",
+    "before": null,
+    "after": "Defense — reduces damage taken (see level scaling formula below)."
+  },
+  {
+    "section": "words",
+    "key": "사냥꾼의 활",
+    "before": null,
+    "after": "Hunter's Bow"
+  },
+  {
+    "section": "words",
+    "key": "아군 전체 보호막(지능 ×1.0)",
+    "before": null,
+    "after": "Shield all allies (Intelligence ×1.0)"
+  },
+  {
+    "section": "words",
+    "key": "청",
+    "before": null,
+    "after": "Azure"
+  },
+  {
+    "section": "words",
+    "key": "프리엔 학술원",
+    "before": null,
+    "after": "Prien Academy"
+  },
+  {
+    "section": "words",
+    "key": "녹청 브로치",
+    "before": null,
+    "after": "Verdigris Brooch"
+  },
+  {
+    "section": "words",
+    "key": "사냥꾼들이 쓰는 평범한 활.",
+    "before": null,
+    "after": "A plain bow favored by hunters."
+  },
+  {
+    "section": "words",
+    "key": "속성 6종 + 무속성 — 사장님 10-08 정식 채택(「레비아 같은 캐릭터는 무속성으로」). 정본 설명은 design/ELEMENTS.md. 동료 속성 배정은 [제안 — 메인 배정, 사장님 조정 가능]. 🔴 번개의 내부 키는 bolt(옛 시제품의 light 는 신성과 헷갈려 쓰지 않는다).",
+    "before": null,
+    "after": "6 elements + non-elemental — formally approved by the owner on 10-08 (\"Characters like Levia should be non-elemental\"). See design/ELEMENTS.md for the canonical description. Companion element assignments are [proposed — primary assignments; owner may adjust]. 🔴 The internal key for Lightning is bolt (the old prototype's light conflicted with Holy)."
+  },
+  {
+    "section": "words",
+    "key": "얄친 관문",
+    "before": null,
+    "after": "Yalchin Pass"
+  },
+  {
+    "section": "words",
+    "key": "철과 나라의 시대",
+    "before": null,
+    "after": "Age of Iron and Kingdoms"
+  },
+  {
+    "section": "words",
+    "key": "철 반지",
+    "before": null,
+    "after": "Iron Ring"
+  },
+  {
+    "section": "words",
+    "key": "철",
+    "before": null,
+    "after": "Iron"
+  },
+  {
+    "section": "words",
+    "key": "천막촌",
+    "before": null,
+    "after": "Tent Quarter"
+  },
+  {
+    "section": "words",
+    "key": "천막 줄",
+    "before": null,
+    "after": "Tent Line"
+  },
+  {
+    "section": "words",
+    "key": "상태이상 지속 1턴 짧음",
+    "before": null,
+    "after": "Status effects last 1 turn less"
+  },
+  {
+    "section": "words",
+    "key": "그라벤 요새",
+    "before": null,
+    "after": "Graben Fortress"
+  },
+  {
+    "section": "words",
+    "key": "꿰뚫었다",
+    "before": null,
+    "after": "pierced"
+  },
+  {
+    "section": "words",
+    "key": "마법으로 공격해",
+    "before": null,
+    "after": "cast magic at"
+  },
+  {
+    "section": "words",
+    "key": "바랜 금 대검",
+    "before": null,
+    "after": "Faded Gold Greatsword"
+  },
+  {
+    "section": "words",
+    "key": "옛 대성당 지하 묘지",
+    "before": null,
+    "after": "Old Cathedral Catacombs"
+  },
+  {
+    "section": "words",
+    "key": "전열이 받는 피해 -10%",
+    "before": null,
+    "after": "Front row damage taken −10%"
+  },
+  {
+    "section": "words",
+    "key": "주신 교단",
+    "before": null,
+    "after": "Church of the Father God"
+  },
+  {
+    "section": "words",
+    "key": "서약 문구를 새긴 묵직한 철퇴.",
+    "before": null,
+    "after": "A heavy mace engraved with the words of an oath."
+  },
+  {
+    "section": "words",
+    "key": "민첩 ×1.0, <em>심연 −3</em>",
+    "before": null,
+    "after": "Agility ×1.0, <em>abyss −3</em>"
+  },
+  {
+    "section": "words",
+    "key": "벨모르",
+    "before": null,
+    "after": "Belmor"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 적 1명에 표식을 남겨, 그 적이 받는 다음 공격은 확정 치명타. <em>심연 −3</em>",
+    "before": null,
+    "after": "Unique skill: mark one enemy. The next hit against it is a guaranteed critical; <em>abyss −3</em>"
+  },
+  {
+    "section": "words",
+    "key": "지능 — 마법사·사제·연금술사 스킬의 계수(회복·보호막 포함)",
+    "before": null,
+    "after": "Intelligence — scales Mage, Priest, and Alchemist skills, including healing and shields."
+  },
+  {
+    "section": "words",
+    "key": "지능 ×1.0, <em>심연 −8</em>",
+    "before": null,
+    "after": "Intelligence ×1.0, <em>abyss −8</em>"
+  },
+  {
+    "section": "words",
+    "key": "지능 ×1.0, <em>심연 −3</em>, 지속 피해 1중첩",
+    "before": null,
+    "after": "Intelligence ×1.0, <em>abyss −3</em>; adds one damage over time stack"
+  },
+  {
+    "section": "words",
+    "key": "꿰뚫어",
+    "before": null,
+    "after": "pierced"
+  },
+  {
+    "section": "words",
+    "key": "지능 ×1.0, <em>심연 −3</em>, 적 차례 8% 지연",
+    "before": null,
+    "after": "Intelligence ×1.0, <em>abyss −3</em>; delays the enemy 8%"
+  },
+  {
+    "section": "words",
+    "key": "중형 보호막 물약",
+    "before": null,
+    "after": "Medium shield potion"
+  },
+  {
+    "section": "words",
+    "key": "중앙 평원",
+    "before": null,
+    "after": "Central Plains"
+  },
+  {
+    "section": "words",
+    "key": "사냥개 B",
+    "before": null,
+    "after": "Hound B"
+  },
+  {
+    "section": "words",
+    "key": "주신",
+    "before": null,
+    "after": "Father God"
+  },
+  {
+    "section": "words",
+    "key": "메르벤",
+    "before": null,
+    "after": "Merven"
+  },
+  {
+    "section": "words",
+    "key": "적 전체 공격 −15%, 자신은 도발(3턴), <em>심연 −20씩</em>",
+    "before": null,
+    "after": "All enemies: attack −15%; taunt for 3 turns; <em>abyss −20 each</em>"
+  },
+  {
+    "section": "words",
+    "key": "바랜 금 인장",
+    "before": null,
+    "after": "Faded Gold Seal"
+  },
+  {
+    "section": "words",
+    "key": "종신 의장",
+    "before": null,
+    "after": "Speaker for Life"
+  },
+  {
+    "section": "words",
+    "key": "아이템 효과 +20%",
+    "before": null,
+    "after": "Item effects +20%"
+  },
+  {
+    "section": "words",
+    "key": "조금 수월한 시작. 약한 능력치를 메워 준다",
+    "before": null,
+    "after": "An easier start. Shore up weaker stats."
+  },
+  {
+    "section": "words",
+    "key": "여관에서",
+    "before": null,
+    "after": "at the inn"
+  },
+  {
+    "section": "words",
+    "key": "정예와 층 보스에게 주는 피해 +15%",
+    "before": null,
+    "after": "Damage to elites and floor bosses +15%"
+  },
+  {
+    "section": "words",
+    "key": "서쪽 세계수 숲",
+    "before": null,
+    "after": "Western Worldtree Forest"
+  },
+  {
+    "section": "words",
+    "key": "아군 1명 회복, 그 사람의 다음 차례 30% 당김",
+    "before": null,
+    "after": "Heal one ally and advance their next turn by 30%"
+  },
+  {
+    "section": "words",
+    "key": "접수",
+    "before": null,
+    "after": "Reception"
+  },
+  {
+    "section": "words",
+    "key": "가르듯 베어",
+    "before": null,
+    "after": "slashed"
+  },
+  {
+    "section": "words",
+    "key": "속도 — 행동 순서표에서 차례가 오는 빠르기(행동 간격 = 10000 / 속도)",
+    "before": null,
+    "after": "Speed — determines turn frequency on the action timeline (action interval = 10000 / Speed)."
+  },
+  {
+    "section": "words",
+    "key": "발로아",
+    "before": null,
+    "after": "Valois"
+  },
+  {
+    "section": "words",
+    "key": "전투 후 보상 선택지 +1",
+    "before": null,
+    "after": "One extra reward choice after battle"
+  },
+  {
+    "section": "words",
+    "key": "전체 ×0.6, 지속 피해 3턴, 적 공격 −15%",
+    "before": null,
+    "after": "All enemies ×0.6; damage over time for 3 turns; enemy attack −15%"
+  },
+  {
+    "section": "words",
+    "key": "토르바 아랫마을 여관",
+    "before": null,
+    "after": "Torva Lower Town Inn"
+  },
+  {
+    "section": "words",
+    "key": "자수정 관",
+    "before": null,
+    "after": "Amethyst Circlet"
+  },
+  {
+    "section": "words",
+    "key": "대장간 주인",
+    "before": null,
+    "after": "Smith"
+  },
+  {
+    "section": "words",
+    "key": "아군 1명 대신 다음 적 공격 1회를 맞고, 받는 피해 −30%",
+    "before": null,
+    "after": "Take the next enemy hit for an ally; damage taken −30%"
+  },
+  {
+    "section": "words",
+    "key": "적 한 줄",
+    "before": null,
+    "after": "One Enemy Row"
+  },
+  {
+    "section": "words",
+    "key": "적 전체를 휩쓸었다",
+    "before": null,
+    "after": "swept over all enemies"
+  },
+  {
+    "section": "words",
+    "key": "적 전체를 불태웠다",
+    "before": null,
+    "after": "scorched all enemies"
+  },
+  {
+    "section": "words",
+    "key": "적 전체 ×1.2, <em>심연 −15씩</em>, 내 방어 1턴 −20%",
+    "before": null,
+    "after": "All enemies ×1.2; <em>abyss −15 each</em>; your defense −20% for 1 turn"
+  },
+  {
+    "section": "words",
+    "key": "오르비온",
+    "before": null,
+    "after": "Orvion"
+  },
+  {
+    "section": "words",
+    "key": "몽테리아",
+    "before": null,
+    "after": "Monteria"
+  },
+  {
+    "section": "words",
+    "key": "북방 초원",
+    "before": null,
+    "after": "Northern Steppe"
+  },
+  {
+    "section": "words",
+    "key": "물어뜯어",
+    "before": null,
+    "after": "bit"
+  },
+  {
+    "section": "words",
+    "key": "적 1명에게 위력 ×1.2, 내가 가장 빠르면 피해 +50%, <em>심연 −15</em>",
+    "before": null,
+    "after": "Hit one enemy at ×1.2 power; +50% damage if you act first; <em>abyss −15</em>"
+  },
+  {
+    "section": "words",
+    "key": "적 1명에게 위력 ×1.2, <em>심연 −15</em>",
+    "before": null,
+    "after": "Hit one enemy at ×1.2 power; <em>abyss −15</em>"
+  },
+  {
+    "section": "words",
+    "key": " (보스는 절반)",
+    "before": null,
+    "after": " (half effect on bosses)"
+  },
+  {
+    "section": "words",
+    "key": "석호의 세 인장",
+    "before": null,
+    "after": "Three Seals of the Lagoon"
+  },
+  {
+    "section": "words",
+    "key": "재의 시대",
+    "before": null,
+    "after": "Age of Ash"
+  },
+  {
+    "section": "words",
+    "key": "적 1명에게 지능 ×1.2, 다음 아군 마법 피해 +10%, <em>심연 −15</em>",
+    "before": null,
+    "after": "Hit one enemy for Intelligence ×1.2; next allied magic damage +10%; <em>abyss −15</em>"
+  },
+  {
+    "section": "words",
+    "key": "장터에서 산 작은 선물을 건넨다",
+    "before": null,
+    "after": "Give a small gift bought at the market"
+  },
+  {
+    "section": "words",
+    "key": "금빛이 바랜 인장.",
+    "before": null,
+    "after": "A seal with faded gilding."
+  },
+  {
+    "section": "words",
+    "key": "잠든 용의 황야",
+    "before": null,
+    "after": "Wastes of the Sleeping Dragons"
+  },
+  {
+    "section": "words",
+    "key": "작은 백조",
+    "before": null,
+    "after": "Little Swan"
+  },
+  {
+    "section": "words",
+    "key": "자수정이 박힌 짧은 마법 지팡이.",
+    "before": null,
+    "after": "A short wand set with amethyst."
+  },
+  {
+    "section": "words",
+    "key": "자수정을 박은 가느다란 관.",
+    "before": null,
+    "after": "A slender circlet set with amethyst."
+  },
+  {
+    "section": "words",
+    "key": "자수정 판금",
+    "before": null,
+    "after": "Amethyst Plate"
+  },
+  {
+    "section": "words",
+    "key": "자수정 마장",
+    "before": null,
+    "after": "Amethyst Wand"
+  },
+  {
+    "section": "words",
+    "key": "잉크 결정 목걸이",
+    "before": null,
+    "after": "Crystallized Ink Necklace"
+  },
+  {
+    "section": "words",
+    "key": "갈랐다",
+    "before": null,
+    "after": "rended"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 아군 1명의 버프 하나를 두 배로(지속 시간 그대로)",
+    "before": null,
+    "after": "Unique skill: Double one ally buff without changing its duration"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 적 1명에게 위력 ×1.2, <em>심연 −15</em>, 계약 표식 대상 +40%",
+    "before": null,
+    "after": "Unique skill: Hit one enemy at ×1.2 power; <em>abyss −15</em>; +40% against a marked target"
+  },
+  {
+    "section": "words",
+    "key": "어느 적의 약점도 찌르지 못한다 — 피해 약점 배율(formula.weak_mult)도 심연 약점 배율(formula.brk_weak_mult)도 받지 않는다. 대신 심연 깎기가 가장 높은 자리(심연 마도사)에 둔다.",
+    "before": null,
+    "after": "Cannot exploit enemy weaknesses: neither the damage weakness multiplier (formula.weak_mult) nor the Abyss weakness multiplier (formula.brk_weak_mult) applies. In exchange, the Abyss Mage has the highest Abyss damage."
+  },
+  {
+    "section": "words",
+    "key": "잃어버린 유품 회수",
+    "before": null,
+    "after": "Recover the lost keepsake"
+  },
+  {
+    "section": "words",
+    "key": "세레디아 제국",
+    "before": null,
+    "after": "Seredia Empire"
+  },
+  {
+    "section": "words",
+    "key": "계약의 시대",
+    "before": null,
+    "after": "Age of Contracts"
+  },
+  {
+    "section": "words",
+    "key": "옛 제국 학술원",
+    "before": null,
+    "after": "Old Imperial Academy"
+  },
+  {
+    "section": "words",
+    "key": "같은 깃발 조항",
+    "before": null,
+    "after": "Same-Banner Clause"
+  },
+  {
+    "section": "words",
+    "key": "디버프 저항 30%",
+    "before": null,
+    "after": "Debuff resistance 30%"
+  },
+  {
+    "section": "words",
+    "key": "약화 약병",
+    "before": null,
+    "after": "Weakening Vial"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 아군 1명 대신 다음 적 공격 1회를 맞고, 받는 피해 −30%",
+    "before": null,
+    "after": "Unique skill: take the next enemy hit for an ally; damage taken −30%"
+  },
+  {
+    "section": "words",
+    "key": "인장 서약",
+    "before": null,
+    "after": "Seal Oath"
+  },
+  {
+    "section": "words",
+    "key": "인간, 29세, 가면의 집",
+    "before": null,
+    "after": "Human, 29, House of Masks"
+  },
+  {
+    "section": "words",
+    "key": "표식은 달았어. 이제 웃으면서 계산할 차례.",
+    "before": null,
+    "after": "Marked. Now let's settle the score with a smile."
+  },
+  {
+    "section": "words",
+    "key": "2턴 충전, 전체, 지정한 적 지연",
+    "before": null,
+    "after": "Charge for 2 turns; hit all enemies and delay the chosen target"
+  },
+  {
+    "section": "words",
+    "key": "이실리아",
+    "before": null,
+    "after": "Isilia"
+  },
+  {
+    "section": "words",
+    "key": "서약의 철퇴",
+    "before": null,
+    "after": "Oathbound Mace"
+  },
+  {
+    "section": "words",
+    "key": "대형 회복약",
+    "before": null,
+    "after": "Large healing potion"
+  },
+  {
+    "section": "words",
+    "key": "이름",
+    "before": null,
+    "after": "Name"
+  },
+  {
+    "section": "words",
+    "key": "위력 ×1.2, <em>심연 −15</em>, 덫(명중한 적의 공격 −20%, 2턴)",
+    "before": null,
+    "after": "Power ×1.2; <em>abyss −15</em>; snare reduces enemy attack by 20% for 2 turns"
+  },
+  {
+    "section": "words",
+    "key": "이단 심문소 분소",
+    "before": null,
+    "after": "Inquisition Branch"
+  },
+  {
+    "section": "words",
+    "key": "이단 심문소",
+    "before": null,
+    "after": "Inquisition"
+  },
+  {
+    "section": "words",
+    "key": "이건 노트에 적어 둬야겠어요!",
+    "before": null,
+    "after": "I have to write this in my notes!"
+  },
+  {
+    "section": "words",
+    "key": "뼈 부적",
+    "before": null,
+    "after": "Bone Charm"
+  },
+  {
+    "section": "words",
+    "key": "심연 고갈(줄여 「고갈」)",
+    "before": null,
+    "after": "Abyss Exhaustion (shortened to “Exhaustion”)"
+  },
+  {
+    "section": "words",
+    "key": "아군 1명 공격 +15% (3턴)",
+    "before": null,
+    "after": "One ally: attack +15% for 3 turns"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 방어↓, 속도↓, 공격↓ 3개를 차례로 걸고 부식 +1, <em>심연 −3</em>",
+    "before": null,
+    "after": "Unique skill: Apply defense, speed, and attack penalties, one corrosion stack; <em>abyss −3</em>"
+  },
+  {
+    "section": "words",
+    "key": "남쪽 붉은 황무지",
+    "before": null,
+    "after": "Southern Red Wastes"
+  },
+  {
+    "section": "words",
+    "key": "위압 <em>심연 −20</em>, 공격 유도 2턴",
+    "before": null,
+    "after": "Intimidate: <em>abyss −20</em>; draw attacks for 2 turns"
+  },
+  {
+    "section": "words",
+    "key": "위력 ×1.2, <em>심연 −15</em>, 주문, 약화, 소환 중 하나를 예고한 적 +30%",
+    "before": null,
+    "after": "Power ×1.2; <em>abyss −15</em>; +30% against an enemy telegraphing a spell, debuff, or summon"
+  },
+  {
+    "section": "words",
+    "key": "위력 ×1.2, <em>심연 −15</em>, 쓰러뜨리면 MP 6 회복",
+    "before": null,
+    "after": "Power ×1.2; <em>abyss −15</em>; recover 6 MP on a kill"
+  },
+  {
+    "section": "words",
+    "key": "원정대 출발 광장",
+    "before": null,
+    "after": "Expedition Square"
+  },
+  {
+    "section": "words",
+    "key": "<em>심연 −40</em>",
+    "before": null,
+    "after": "<em>Abyss −40</em>"
+  },
+  {
+    "section": "words",
+    "key": "가죽 외투",
+    "before": null,
+    "after": "Leather Coat"
+  },
+  {
+    "section": "words",
+    "key": "울겐 칸",
+    "before": null,
+    "after": "Khan Ulgen"
+  },
+  {
+    "section": "words",
+    "key": "울겐",
+    "before": null,
+    "after": "Ulgen"
+  },
+  {
+    "section": "words",
+    "key": "변경백",
+    "before": null,
+    "after": "Margrave"
+  },
+  {
+    "section": "words",
+    "key": "아베른",
+    "before": null,
+    "after": "Avern"
+  },
+  {
+    "section": "words",
+    "key": "대형 마나 물약",
+    "before": null,
+    "after": "Large mana potion"
+  },
+  {
+    "section": "words",
+    "key": "귀환의 문",
+    "before": null,
+    "after": "Gate of Return"
+  },
+  {
+    "section": "words",
+    "key": "성기사 수도회",
+    "before": null,
+    "after": "Order of Paladins"
+  },
+  {
+    "section": "words",
+    "key": "독이나 화상 같은 지속 상태를 지운다",
+    "before": null,
+    "after": "Removes ongoing effects such as poison or burns"
+  },
+  {
+    "section": "words",
+    "key": "마렌토 본섬",
+    "before": null,
+    "after": "Marento Main Isle"
+  },
+  {
+    "section": "words",
+    "key": "받아 내",
+    "before": null,
+    "after": "extracted from"
+  },
+  {
+    "section": "words",
+    "key": "예언서",
+    "before": null,
+    "after": "Book of Prophecy"
+  },
+  {
+    "section": "words",
+    "key": "여우 부족",
+    "before": null,
+    "after": "Fox Tribe"
+  },
+  {
+    "section": "words",
+    "key": "빛으로 내리쳤다",
+    "before": null,
+    "after": "struck with light"
+  },
+  {
+    "section": "words",
+    "key": "여덟 부족",
+    "before": null,
+    "after": "Eight Tribes"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 적 1명에게 위력 ×1.2, 내가 가장 빠르면 피해 +50%, <em>심연 −15</em>",
+    "before": null,
+    "after": "Unique skill: Hit one enemy at ×1.2 power; +50% damage if you act first; <em>abyss −15</em>"
+  },
+  {
+    "section": "words",
+    "key": "소형 회복약",
+    "before": null,
+    "after": "Small healing potion"
+  },
+  {
+    "section": "words",
+    "key": "자수정",
+    "before": null,
+    "after": "Amethyst"
+  },
+  {
+    "section": "words",
+    "key": "경험치 +10%",
+    "before": null,
+    "after": "Experience +10%"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 아군 전체 회복 + 보호막(각각 절반 효과)",
+    "before": null,
+    "after": "Unique skill: Heal and shield all allies, each at half strength"
+  },
+  {
+    "section": "words",
+    "key": "속성 시너지는 두지 않는다 [제안] — 시너지는 국가·종족·직업 기준.",
+    "before": null,
+    "after": "No elemental synergy [proposed] — synergies use nation, race, and class."
+  },
+  {
+    "section": "words",
+    "key": "「엎친 데 덮친 격」",
+    "before": null,
+    "after": "It Rains, It Pours"
+  },
+  {
+    "section": "words",
+    "key": "얄친",
+    "before": null,
+    "after": "Yalchin"
+  },
+  {
+    "section": "words",
+    "key": "HP 15%, 치명 +30%p (2턴), 치명 피해 +50%",
+    "before": null,
+    "after": "Spend 15% HP; critical chance +30 points and critical damage +50% for 2 turns"
+  },
+  {
+    "section": "words",
+    "key": "약병을 던져",
+    "before": null,
+    "after": "threw a vial at"
+  },
+  {
+    "section": "words",
+    "key": "알트",
+    "before": null,
+    "after": "Alt"
+  },
+  {
+    "section": "words",
+    "key": "알트 계곡",
+    "before": null,
+    "after": "Alt Valley"
+  },
+  {
+    "section": "words",
+    "key": "아샤크",
+    "before": null,
+    "after": "Ashak"
+  },
+  {
+    "section": "words",
+    "key": "아랫마을",
+    "before": null,
+    "after": "Lower Town"
+  },
+  {
+    "section": "words",
+    "key": "아깝지 않아요. 피는 쓰려고 있는 거니까.",
+    "before": null,
+    "after": "It's no waste. Blood is meant to be spent."
+  },
+  {
+    "section": "words",
+    "key": "매 라운드 HP 3% 재생",
+    "before": null,
+    "after": "Regenerate 3% HP each round"
+  },
+  {
+    "section": "words",
+    "key": "아군 전체 소량 회복, 2턴 동안 받는 피해 −10%와 재생, 쓰러지면 사라짐",
+    "before": null,
+    "after": "Heal all allies slightly; damage taken −10% and regeneration for 2 turns"
+  },
+  {
+    "section": "words",
+    "key": "아군 전체 보호막(힘 ×1.2)",
+    "before": null,
+    "after": "Shield all allies (Strength ×1.2)"
+  },
+  {
+    "section": "words",
+    "key": "아군 전체 공격, 방어 +15% (3턴)",
+    "before": null,
+    "after": "All allies: attack and defense +15% for 3 turns"
+  },
+  {
+    "section": "words",
+    "key": "아군 전체 공격 또는 방어 +15% (2턴)",
+    "before": null,
+    "after": "All allies: attack or defense +15% for 2 turns"
+  },
+  {
+    "section": "words",
+    "key": "아군 전체 HP 회복 + 다음 2라운드 재생",
+    "before": null,
+    "after": "Heal all allies and grant regeneration for the next 2 rounds"
+  },
+  {
+    "section": "words",
+    "key": "무레나 섬",
+    "before": null,
+    "after": "Murena Isle"
+  },
+  {
+    "section": "words",
+    "key": "소형 마나 물약",
+    "before": null,
+    "after": "Small mana potion"
+  },
+  {
+    "section": "words",
+    "key": "아군 1명의 버프 하나를 두 배로(지속 시간 그대로)",
+    "before": null,
+    "after": "Double one ally buff without changing its duration"
+  },
+  {
+    "section": "words",
+    "key": "균열 핵 토벌",
+    "before": null,
+    "after": "Destroy the rift core"
+  },
+  {
+    "section": "words",
+    "key": "아군 1명 회복(잃은 HP가 클수록 더 많이), 디버프 1개 해제",
+    "before": null,
+    "after": "Heal one ally more when HP is low; remove one debuff"
+  },
+  {
+    "section": "words",
+    "key": "사냥개 A",
+    "before": null,
+    "after": "Hound A"
+  },
+  {
+    "section": "words",
+    "key": "심연 사냥개 B",
+    "before": null,
+    "after": "Abyss Hound B"
+  },
+  {
+    "section": "words",
+    "key": "중형 회복약",
+    "before": null,
+    "after": "Medium healing potion"
+  },
+  {
+    "section": "words",
+    "key": "녹청 단검",
+    "before": null,
+    "after": "Verdigris Dagger"
+  },
+  {
+    "section": "words",
+    "key": "철제 장검",
+    "before": null,
+    "after": "Iron Longsword"
+  },
+  {
+    "section": "words",
+    "key": "녹청 흉갑",
+    "before": null,
+    "after": "Verdigris Breastplate"
+  },
+  {
+    "section": "words",
+    "key": "실버리프",
+    "before": null,
+    "after": "Silverleaf"
+  },
+  {
+    "section": "words",
+    "key": "대장간에서 흔히 만드는 가죽 외투.",
+    "before": null,
+    "after": "An ordinary leather coat from the local forge."
+  },
+  {
+    "section": "words",
+    "key": "바랜 금",
+    "before": null,
+    "after": "Faded Gold"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 단일 ×1.4, 디버프가 걸린 적에게 +40%",
+    "before": null,
+    "after": "Unique skill: Single target ×1.4; +40% against debuffed enemies"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 2턴 동안 받는 피해 −25%, 도발, <em>심연 −15</em>",
+    "before": null,
+    "after": "Unique skill: Damage taken −25% and taunt for 2 turns; <em>abyss −15</em>"
+  },
+  {
+    "section": "words",
+    "key": "시 참사회",
+    "before": null,
+    "after": "City Council"
+  },
+  {
+    "section": "words",
+    "key": "약병을 던졌다",
+    "before": null,
+    "after": "threw a vial at"
+  },
+  {
+    "section": "words",
+    "key": "방을 잡고 하룻밤 쉰다(하루가 지난다)",
+    "before": null,
+    "after": "Rent a room and rest overnight (one day passes)"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 자신과 같은 줄 아군 받는 피해 −20% (3턴), 쓰러지면 사라짐",
+    "before": null,
+    "after": "Unique skill: Allies in your row take −20% damage for 3 turns; ends if you fall"
+  },
+  {
+    "section": "words",
+    "key": "예언자",
+    "before": null,
+    "after": "Prophets"
+  },
+  {
+    "section": "words",
+    "key": "등불 쉼터",
+    "before": null,
+    "after": "Lantern Shelter"
+  },
+  {
+    "section": "words",
+    "key": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
+    "before": null,
+    "after": "Defeat the rift creatures guarding a fallen adventurer's keepsake."
+  },
+  {
+    "section": "words",
+    "key": "쇼르가이 칸",
+    "before": null,
+    "after": "Khan Shorgai"
+  },
+  {
+    "section": "words",
+    "key": "쇠사슬 조끼",
+    "before": null,
+    "after": "Chain Vest"
+  },
+  {
+    "section": "words",
+    "key": "능력치·스킬 검수표",
+    "before": null,
+    "after": "Stat and Skill Review Sheet"
+  },
+  {
+    "section": "words",
+    "key": "HP 10% 소모, 다음 균열과 혼돈 파동의 심연 깎기 ×1.5",
+    "before": null,
+    "after": "Spend 10% HP; abyss damage from the next Rift and Chaos Wave ×1.5"
+  },
+  {
+    "section": "words",
+    "key": "지능 ×0.7, <em>심연 −20</em>",
+    "before": null,
+    "after": "Intelligence ×0.7, <em>abyss −20</em>"
+  },
+  {
+    "section": "words",
+    "key": "십인 위원회",
+    "before": null,
+    "after": "Council of Ten"
+  },
+  {
+    "section": "words",
+    "key": "내리쳐",
+    "before": null,
+    "after": "struck"
+  },
+  {
+    "section": "words",
+    "key": "불타는 신전 터",
+    "before": null,
+    "after": "Burned Temple Ruins"
+  },
+  {
+    "section": "words",
+    "key": "빛으로 내리쳐",
+    "before": null,
+    "after": "struck with light"
+  },
+  {
+    "section": "words",
+    "key": "속도 +8%",
+    "before": null,
+    "after": "Speed +8%"
+  },
+  {
+    "section": "words",
+    "key": "제국 학술원",
+    "before": null,
+    "after": "Imperial Academy"
+  },
+  {
+    "section": "words",
+    "key": "균열 안쪽에 자리 잡은 핵을 부순다.",
+    "before": null,
+    "after": "Destroy the core deep inside the rift."
+  },
+  {
+    "section": "words",
+    "key": "가면의 집",
+    "before": null,
+    "after": "House of Masks"
+  },
+  {
+    "section": "words",
+    "key": "받는 피해 -8%",
+    "before": null,
+    "after": "Damage taken −8%"
+  },
+  {
+    "section": "words",
+    "key": "늑대 부족",
+    "before": null,
+    "after": "Wolf Tribe"
+  },
+  {
+    "section": "words",
+    "key": "곁에 앉아 이야기를 나눈다",
+    "before": null,
+    "after": "Sit together and talk"
+  },
+  {
+    "section": "words",
+    "key": "로샨",
+    "before": null,
+    "after": "Roshan"
+  },
+  {
+    "section": "words",
+    "key": "오렐린",
+    "before": null,
+    "after": "Orelin"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 아군 1명 회복(잃은 HP가 클수록 더 많이), 디버프 1개 해제",
+    "before": null,
+    "after": "Unique skill: Heal one ally more when HP is low; remove one debuff"
+  },
+  {
+    "section": "words",
+    "key": "마법 피해 +10%, 최대 MP +15",
+    "before": null,
+    "after": "Magic damage +10%, max MP +15"
+  },
+  {
+    "section": "words",
+    "key": "카델",
+    "before": null,
+    "after": "Cadell"
+  },
+  {
+    "section": "words",
+    "key": "HP 를 쓰는 스킬의 비용 -30%",
+    "before": null,
+    "after": "HP skill cost −30%"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 적 1명에게 위력 ×1.2, <em>심연 −15</em>",
+    "before": null,
+    "after": "Unique skill: Hit one enemy at ×1.2 power; <em>abyss −15</em>"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 적 전체 ×1.2, <em>심연 −15씩</em>, 내 방어 1턴 −20%",
+    "before": null,
+    "after": "Unique skill: All enemies ×1.2; <em>abyss −15 each</em>; your defense −20% for 1 turn"
+  },
+  {
+    "section": "words",
+    "key": "성주관",
+    "before": null,
+    "after": "Castellan's Hall"
+  },
+  {
+    "section": "words",
+    "key": "자신과 같은 줄 아군 받는 피해 −20% (3턴), 쓰러지면 사라짐",
+    "before": null,
+    "after": "Allies in your row take −20% damage for 3 turns; ends if you fall"
+  },
+  {
+    "section": "words",
+    "key": "녹청이 슨 브로치.",
+    "before": null,
+    "after": "A brooch stained with verdigris."
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 적 1명의 마법 공격 2턴 봉인, <em>심연 −15</em>",
+    "before": null,
+    "after": "Unique skill: Seal one enemy magic attack for 2 turns; <em>abyss −15</em>"
+  },
+  {
+    "section": "words",
+    "key": "대평의회",
+    "before": null,
+    "after": "Grand Council"
+  },
+  {
+    "section": "words",
+    "key": "HP 10% 소모, 다음 2회 공격이 연속 행동",
+    "before": null,
+    "after": "Spend 10% HP; the next 2 attacks grant extra actions"
+  },
+  {
+    "section": "words",
+    "key": "그라벤",
+    "before": null,
+    "after": "Graben"
+  },
+  {
+    "section": "words",
+    "key": "세계수",
+    "before": null,
+    "after": "Worldtree"
+  },
+  {
+    "section": "words",
+    "key": "동쪽 평야",
+    "before": null,
+    "after": "Eastern Plains"
+  },
+  {
+    "section": "words",
+    "key": "부족 병영",
+    "before": null,
+    "after": "Tribal Barracks"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 위력 ×1.2, <em>심연 −15</em>, 덫(명중한 적의 공격 −20%, 2턴)",
+    "before": null,
+    "after": "Unique skill: Power ×1.2; <em>abyss −15</em>; snare reduces enemy attack by 20% for 2 turns"
+  },
+  {
+    "section": "words",
+    "key": "적 1명의 마법 공격 2턴 봉인, <em>심연 −15</em>",
+    "before": null,
+    "after": "Seal one enemy magic attack for 2 turns; <em>abyss −15</em>"
+  },
+  {
+    "section": "words",
+    "key": "혼혈의 시대",
+    "before": null,
+    "after": "Age of Mixed Blood"
+  },
+  {
+    "section": "words",
+    "key": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+    "before": null,
+    "after": "Defeat the rift creatures blocking the path to the trapped guild expedition."
+  },
+  {
+    "section": "words",
+    "key": "적 전체에 퍼뜨렸다",
+    "before": null,
+    "after": "spread through all enemies"
+  },
+  {
+    "section": "words",
+    "key": "수치는 전부 [제안]. **모든 기준값은 레벨 1** — 레벨 L 의 값 = 기준 × 곡선 f(L). 직업마다 성장 등급(곡선 배수)이 있다. 동료 보정은 직업 기준의 %(속도·치명은 덧셈). 공식·곡선 설명은 design/FORMULA.md. 이 파일이 정본이고 검수 아카이브 「능력치」 탭에서 고친다. · 2026-10-06 동료 15 → 30명(사장님). 추가 15명은 proposed=true — 이름·종족·나라·직업·배경은 확정, 스킬/특성/수치는 제안이라 설계 검토가 필요하다.",
+    "before": null,
+    "after": "All figures are [proposed]. **All base values are for level 1** — value at level L = base × curve f(L). Each class has a growth grade (curve multiplier). Companion modifiers = % of the class base (additive for Speed·Crit). See design/FORMULA.md for formulas and curves. This file is canonical; revise it in the review archive's \"Stats\" tab. · 2026-10-06: companions 15 → 30 (owner). The additional 15 have confirmed names·races·nations·classes·backgrounds; skills/traits/stats are proposed and need design review."
+  },
+  {
+    "section": "words",
+    "key": "적 1명의 다음 차례를 40% 뒤로, <em>심연 −3</em>",
+    "before": null,
+    "after": "Delay one enemy by 40%; <em>abyss −3</em>"
+  },
+  {
+    "section": "words",
+    "key": "적 1명에게 위력 ×1.2, <em>심연 −15</em>, 계약 표식 대상 +40%",
+    "before": null,
+    "after": "Hit one enemy at ×1.2 power; <em>abyss −15</em>; +40% against a marked target"
+  },
+  {
+    "section": "words",
+    "key": "분열",
+    "before": null,
+    "after": "the Sundering"
+  },
+  {
+    "section": "words",
+    "key": "성안",
+    "before": null,
+    "after": "Inner Ward"
+  },
+  {
+    "section": "words",
+    "key": "단일 ×1.4, 디버프가 걸린 적에게 +40%",
+    "before": null,
+    "after": "Single target ×1.4; +40% against debuffed enemies"
+  },
+  {
+    "section": "words",
+    "key": "귀환 두루마리",
+    "before": null,
+    "after": "Return scroll"
+  },
+  {
+    "section": "words",
+    "key": "바랜 금 갑주",
+    "before": null,
+    "after": "Faded Gold Armor"
+  },
+  {
+    "section": "words",
+    "key": "무레나",
+    "before": null,
+    "after": "Murena"
+  },
+  {
+    "section": "words",
+    "key": "물리 저항, 마법 저항 +5%",
+    "before": null,
+    "after": "Physical and magic resistance +5%"
+  },
+  {
+    "section": "words",
+    "key": "2턴 동안 받는 피해 −40%",
+    "before": null,
+    "after": "Damage taken −40% for 2 turns"
+  },
+  {
+    "section": "words",
+    "key": "근위대의 망토",
+    "before": null,
+    "after": "Guard's Cloak"
+  },
+  {
+    "section": "words",
+    "key": "은가지 감시대",
+    "before": null,
+    "after": "Silverbough Watch"
+  },
+  {
+    "section": "words",
+    "key": "베어",
+    "before": null,
+    "after": "slashed"
+  },
+  {
+    "section": "words",
+    "key": "공격받으면 15% 확률로 반격",
+    "before": null,
+    "after": "15% chance to counterattack when hit"
+  },
+  {
+    "section": "words",
+    "key": "심연 마도사 > 탱커(전사·성기사) > 서포터(사제·연금술사) > 누커(암살자·궁수·공인/비공인 마법사·검투사)",
+    "before": null,
+    "after": "Abyss Mage > tanks (Warrior·Paladin) > supports (Priest·Alchemist) > damage dealers (Assassin·Archer·Licensed/Unlicensed Mage·Gladiator)"
+  },
+  {
+    "section": "words",
+    "key": "브린델",
+    "before": null,
+    "after": "Brindel"
+  },
+  {
+    "section": "words",
+    "key": "적 1명에 표식을 남겨, 그 적이 받는 다음 공격은 확정 치명타. <em>심연 −3</em>",
+    "before": null,
+    "after": "Mark one enemy. The next hit against it is a guaranteed critical; <em>abyss −3</em>"
+  },
+  {
+    "section": "words",
+    "key": "보호막량 +20%",
+    "before": null,
+    "after": "Shield strength +20%"
+  },
+  {
+    "section": "words",
+    "key": "일곱 숨결",
+    "before": null,
+    "after": "Seven Breaths"
+  },
+  {
+    "section": "words",
+    "key": "파티 속도 +8%",
+    "before": null,
+    "after": "Party speed +8%"
+  },
+  {
+    "section": "words",
+    "key": "마법으로 공격했다",
+    "before": null,
+    "after": "cast magic on"
+  },
+  {
+    "section": "words",
+    "key": "옛 제국 학술원 폐허",
+    "before": null,
+    "after": "Ruins of the Old Imperial Academy"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 위력 ×1.2, <em>심연 −15</em>, 쓰러뜨리면 MP 6 회복",
+    "before": null,
+    "after": "Unique skill: Power ×1.2; <em>abyss −15</em>; recover 6 MP on a kill"
+  },
+  {
+    "section": "words",
+    "key": "성 밖 등불 쉼터",
+    "before": "Lantern Shelter Outside the Walls",
+    "after": "Lantern Rest Outside the Walls"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 아군 전체 소량 회복, 2턴 동안 받는 피해 −10%와 재생, 쓰러지면 사라짐",
+    "before": null,
+    "after": "Unique skill: Heal all allies slightly; damage taken −10% and regeneration for 2 turns"
+  },
+  {
+    "section": "words",
+    "key": "푸른 기운이 도는 강철 갑옷.",
+    "before": null,
+    "after": "Steel armor with a faint blue sheen."
+  },
+  {
+    "section": "words",
+    "key": "뿌리가 뚫고 들어온 지하 정원",
+    "before": null,
+    "after": "Root-Pierced Underground Garden"
+  },
+  {
+    "section": "words",
+    "key": "청옥 귀걸이",
+    "before": null,
+    "after": "Blue Jade Earring"
+  },
+  {
+    "section": "words",
+    "key": "개인 스킬: 위력 ×1.2, <em>심연 −15</em>, 주문, 약화, 소환 중 하나를 예고한 적 +30%",
+    "before": null,
+    "after": "Unique skill: Power ×1.2; <em>abyss −15</em>; +30% against an enemy telegraphing a spell, debuff, or summon"
+  },
+  {
+    "section": "words",
+    "key": "교역 공터",
+    "before": null,
+    "after": "Trading Clearing"
+  },
+  {
+    "section": "ui",
+    "key": "처음부터 다시 시작합니다.",
+    "before": null,
+    "after": "Starting over."
+  },
+  {
+    "section": "ui",
+    "key": "「클라우드에 저장」을 누르면 저장 페이지가 열립니다. 처음 저장할 때 받은 계정 코드와 쓰기 PIN을 아래 「계정 코드와 쓰기 PIN 입력」에 넣어 두면 다음부터 같은 계정에 이어서 저장됩니다. 다른 기기에서는 「불러오기」에 계정 코드만 넣으면 됩니다.",
+    "before": null,
+    "after": "Press “Save to cloud” to open the save page. Enter the account code and write PIN from your first save under “Enter account code and write PIN” below, and later saves go to the same account. On another device, just enter the account code under “Load”."
+  },
+  {
+    "section": "ui",
+    "key": "휴식 칸에서 동료에게 청할 수 있다. 호감과 그날의 사정에 따라 받아 줄 확률이 달라진다",
+    "before": null,
+    "after": "Ask a companion during a rest. Affection and circumstances affect the chance of acceptance."
+  },
+  {
+    "section": "ui",
+    "key": "현재 모험은 보관 사본으로 남습니다.",
+    "before": null,
+    "after": "A backup of this adventure will be kept.",
+    "scope": "native storage note"
+  },
+  {
+    "section": "ui",
+    "key": "로컬 자동 저장",
+    "before": null,
+    "after": "Saved automatically on this device.",
+    "scope": "native storage note"
+  }
+]
