@@ -4,112 +4,117 @@
     {
       "case": "main",
       "exit": 0,
-      "seconds": 1.0
+      "seconds": 1.33
     },
     {
       "case": "enemy",
       "exit": 0,
-      "seconds": 0.28
+      "seconds": 0.38
     },
     {
       "case": "state",
       "exit": 0,
-      "seconds": 0.19
+      "seconds": 0.23
     },
     {
       "case": "display",
       "exit": 0,
-      "seconds": 0.24
+      "seconds": 0.34
     },
     {
       "case": "compose",
       "exit": 0,
-      "seconds": 0.3
+      "seconds": 0.44
     },
     {
       "case": "clock",
       "exit": 0,
-      "seconds": 0.23
+      "seconds": 0.31
     },
     {
       "case": "batch",
       "exit": 0,
-      "seconds": 0.64
+      "seconds": 0.89
     },
     {
       "case": "round3",
       "exit": 0,
-      "seconds": 0.62
+      "seconds": 0.72
     },
     {
       "case": "round4",
       "exit": 0,
-      "seconds": 1.5
+      "seconds": 1.83
+    },
+    {
+      "case": "round5",
+      "exit": 0,
+      "seconds": 8.58
     },
     {
       "case": "retained-p2",
       "exit": 0,
-      "seconds": 0.55,
+      "seconds": 0.66,
       "expected": "p2-oracle.json"
     },
     {
       "case": "retained-a6",
       "exit": 0,
-      "seconds": 0.72,
+      "seconds": 0.89,
       "expected": "a6-mixed-oracle.json"
     },
     {
       "case": "retained-p3",
       "exit": 0,
-      "seconds": 1.19,
+      "seconds": 1.59,
       "expected": "p3-mixed-oracle.json"
     },
     {
       "case": "retained-a7",
       "exit": 0,
-      "seconds": 1.0,
+      "seconds": 1.41,
       "expected": "a7-gear-oracle.json"
     },
     {
       "case": "retained-a7b",
       "exit": 0,
-      "seconds": 1.94,
+      "seconds": 2.09,
       "expected": "a7-gear-balanced-oracle.json"
     },
     {
       "case": "retained-a8",
       "exit": 0,
-      "seconds": 49.23,
+      "seconds": 52.89,
       "expected": "a8-oracle.json"
     },
     {
       "case": "retained-a9-10",
       "exit": 0,
-      "seconds": 2.03,
+      "seconds": 2.3,
       "expected": "a9-native-10-oracle.json"
     },
     {
       "case": "retained-a9-40",
       "exit": 0,
-      "seconds": 3.14,
+      "seconds": 3.58,
       "expected": "a9-native-40-oracle.json"
     },
     {
       "case": "retained-unit-a6",
       "exit": 0,
-      "seconds": 0.23,
+      "seconds": 0.27,
       "expected": "a6-oracle.json"
     },
     {
       "case": "retained-unit-p3",
       "exit": 0,
-      "seconds": 0.61,
+      "seconds": 0.67,
       "expected": "p3-oracle.json"
     }
   ],
-  "called_functions": 170,
+  "called_functions": 190,
   "baseline_missing_entries": 157,
-  "newly_entered_baseline_entries": 77,
+  "newly_entered_baseline_entries": 90,
   "rows": [
     {
       "id": "P1473",
@@ -2308,19 +2313,12 @@
     },
     {
       "id": "P2365",
-      "called": false,
+      "called": true,
       "explicit_entries": 1,
-      "entered": 0,
+      "entered": 1,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "51-raid.lua:26:911",
-          "line": 26,
-          "offset": 911,
-          "token": "then"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
@@ -2605,10 +2603,9 @@
       "id": "P2020",
       "called": true,
       "explicit_entries": 4,
-      "entered": 3,
+      "entered": 4,
       "baseline_missing": 1,
-      "baseline_missing_now_entered": [],
-      "remaining_entries": [
+      "baseline_missing_now_entered": [
         {
           "key": "32-personal-a.lua:375:15293",
           "line": 375,
@@ -2616,14 +2613,8 @@
           "token": "then"
         }
       ],
-      "remaining_baseline": [
-        {
-          "key": "32-personal-a.lua:375:15293",
-          "line": 375,
-          "offset": 15293,
-          "token": "then"
-        }
-      ]
+      "remaining_entries": [],
+      "remaining_baseline": []
     },
     {
       "id": "P2033",
@@ -2677,10 +2668,9 @@
       "id": "P2079",
       "called": true,
       "explicit_entries": 7,
-      "entered": 6,
+      "entered": 7,
       "baseline_missing": 1,
-      "baseline_missing_now_entered": [],
-      "remaining_entries": [
+      "baseline_missing_now_entered": [
         {
           "key": "32-personal-a.lua:642:26435",
           "line": 642,
@@ -2688,14 +2678,8 @@
           "token": "then"
         }
       ],
-      "remaining_baseline": [
-        {
-          "key": "32-personal-a.lua:642:26435",
-          "line": 642,
-          "offset": 26435,
-          "token": "then"
-        }
-      ]
+      "remaining_entries": [],
+      "remaining_baseline": []
     },
     {
       "id": "P2091",
@@ -3824,23 +3808,10 @@
       "id": "P2320",
       "called": true,
       "explicit_entries": 2,
-      "entered": 0,
+      "entered": 2,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "40-fx.lua:63:2724",
-          "line": 63,
-          "offset": 2724,
-          "token": "then"
-        },
-        {
-          "key": "40-fx.lua:66:2875",
-          "line": 66,
-          "offset": 2875,
-          "token": "do"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
@@ -3922,23 +3893,10 @@
       "id": "P2323",
       "called": true,
       "explicit_entries": 4,
-      "entered": 2,
+      "entered": 4,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "40-fx.lua:114:5154",
-          "line": 114,
-          "offset": 5154,
-          "token": "then"
-        },
-        {
-          "key": "40-fx.lua:117:5367",
-          "line": 117,
-          "offset": 5367,
-          "token": "then"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
@@ -3980,17 +3938,10 @@
       "id": "P2326",
       "called": true,
       "explicit_entries": 2,
-      "entered": 1,
+      "entered": 2,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "50-render.lua:8:370",
-          "line": 8,
-          "offset": 370,
-          "token": "then"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
@@ -4015,138 +3966,17 @@
     },
     {
       "id": "P2329",
-      "called": false,
+      "called": true,
       "explicit_entries": 20,
-      "entered": 0,
+      "entered": 20,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "50-render.lua:25:783",
-          "line": 25,
-          "offset": 783,
-          "token": "do"
-        },
-        {
-          "key": "50-render.lua:27:841",
-          "line": 27,
-          "offset": 841,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:30:914",
-          "line": 30,
-          "offset": 914,
-          "token": "do"
-        },
-        {
-          "key": "50-render.lua:32:972",
-          "line": 32,
-          "offset": 972,
-          "token": "do"
-        },
-        {
-          "key": "50-render.lua:34:1030",
-          "line": 34,
-          "offset": 1030,
-          "token": "do"
-        },
-        {
-          "key": "50-render.lua:34:1045",
-          "line": 34,
-          "offset": 1045,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:35:1094",
-          "line": 35,
-          "offset": 1094,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:44:1676",
-          "line": 44,
-          "offset": 1676,
-          "token": "do"
-        },
-        {
-          "key": "50-render.lua:46:1733",
-          "line": 46,
-          "offset": 1733,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:49:1881",
-          "line": 49,
-          "offset": 1881,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:50:1928",
-          "line": 50,
-          "offset": 1928,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:53:2152",
-          "line": 53,
-          "offset": 2152,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:55:2254",
-          "line": 55,
-          "offset": 2254,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:56:2322",
-          "line": 56,
-          "offset": 2322,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:57:2371",
-          "line": 57,
-          "offset": 2371,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:60:2582",
-          "line": 60,
-          "offset": 2582,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:63:2764",
-          "line": 63,
-          "offset": 2764,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:65:2857",
-          "line": 65,
-          "offset": 2857,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:79:3598",
-          "line": 79,
-          "offset": 3598,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:90:4140",
-          "line": 90,
-          "offset": 4140,
-          "token": "then"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
       "id": "P2331",
-      "called": false,
+      "called": true,
       "explicit_entries": 0,
       "entered": 0,
       "baseline_missing": 0,
@@ -4156,19 +3986,12 @@
     },
     {
       "id": "P2332",
-      "called": false,
+      "called": true,
       "explicit_entries": 1,
-      "entered": 0,
+      "entered": 1,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "50-render.lua:95:4264",
-          "line": 95,
-          "offset": 4264,
-          "token": "then"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
@@ -4213,24 +4036,17 @@
     },
     {
       "id": "P2337",
-      "called": false,
+      "called": true,
       "explicit_entries": 1,
-      "entered": 0,
+      "entered": 1,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "50-render.lua:143:7430",
-          "line": 143,
-          "offset": 7430,
-          "token": "then"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
       "id": "P2339",
-      "called": false,
+      "called": true,
       "explicit_entries": 0,
       "entered": 0,
       "baseline_missing": 0,
@@ -4240,12 +4056,11 @@
     },
     {
       "id": "P2340",
-      "called": false,
+      "called": true,
       "explicit_entries": 11,
-      "entered": 0,
+      "entered": 11,
       "baseline_missing": 11,
-      "baseline_missing_now_entered": [],
-      "remaining_entries": [
+      "baseline_missing_now_entered": [
         {
           "key": "50-render.lua:157:8371",
           "line": 157,
@@ -4313,80 +4128,14 @@
           "token": "then"
         }
       ],
-      "remaining_baseline": [
-        {
-          "key": "50-render.lua:157:8371",
-          "line": 157,
-          "offset": 8371,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:158:8391",
-          "line": 158,
-          "offset": 8391,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:159:8419",
-          "line": 159,
-          "offset": 8419,
-          "token": "else"
-        },
-        {
-          "key": "50-render.lua:162:8512",
-          "line": 162,
-          "offset": 8512,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:164:8701",
-          "line": 164,
-          "offset": 8701,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:167:8783",
-          "line": 167,
-          "offset": 8783,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:168:8828",
-          "line": 168,
-          "offset": 8828,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:169:8946",
-          "line": 169,
-          "offset": 8946,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:170:8990",
-          "line": 170,
-          "offset": 8990,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:171:9036",
-          "line": 171,
-          "offset": 9036,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:172:9085",
-          "line": 172,
-          "offset": 9085,
-          "token": "then"
-        }
-      ]
+      "remaining_entries": [],
+      "remaining_baseline": []
     },
     {
       "id": "P2341",
-      "called": false,
+      "called": true,
       "explicit_entries": 17,
-      "entered": 0,
+      "entered": 3,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
       "remaining_entries": [
@@ -4439,12 +4188,6 @@
           "token": "then"
         },
         {
-          "key": "50-render.lua:196:10238",
-          "line": 196,
-          "offset": 10238,
-          "token": "then"
-        },
-        {
           "key": "50-render.lua:198:10289",
           "line": 198,
           "offset": 10289,
@@ -4455,12 +4198,6 @@
           "line": 200,
           "offset": 10381,
           "token": "then"
-        },
-        {
-          "key": "50-render.lua:202:10431",
-          "line": 202,
-          "offset": 10431,
-          "token": "else"
         },
         {
           "key": "50-render.lua:208:10563",
@@ -4485,42 +4222,23 @@
           "line": 211,
           "offset": 10847,
           "token": "else"
-        },
-        {
-          "key": "50-render.lua:214:10924",
-          "line": 214,
-          "offset": 10924,
-          "token": "do"
         }
       ],
       "remaining_baseline": []
     },
     {
       "id": "P2343",
-      "called": false,
+      "called": true,
       "explicit_entries": 2,
-      "entered": 0,
+      "entered": 2,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "50-render.lua:232:12207",
-          "line": 232,
-          "offset": 12207,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:234:12283",
-          "line": 234,
-          "offset": 12283,
-          "token": "do"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
       "id": "P2344",
-      "called": false,
+      "called": true,
       "explicit_entries": 4,
       "entered": 0,
       "baseline_missing": 0,
@@ -4555,124 +4273,37 @@
     },
     {
       "id": "P2347",
-      "called": false,
+      "called": true,
       "explicit_entries": 2,
-      "entered": 0,
+      "entered": 2,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "50-render.lua:279:15589",
-          "line": 279,
-          "offset": 15589,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:280:15778",
-          "line": 280,
-          "offset": 15778,
-          "token": "else"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
       "id": "P2348",
-      "called": false,
+      "called": true,
       "explicit_entries": 8,
-      "entered": 0,
+      "entered": 8,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "50-render.lua:288:16185",
-          "line": 288,
-          "offset": 16185,
-          "token": "do"
-        },
-        {
-          "key": "50-render.lua:288:16208",
-          "line": 288,
-          "offset": 16208,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:289:16253",
-          "line": 289,
-          "offset": 16253,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:290:16290",
-          "line": 290,
-          "offset": 16290,
-          "token": "do"
-        },
-        {
-          "key": "50-render.lua:291:16337",
-          "line": 291,
-          "offset": 16337,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:292:16464",
-          "line": 292,
-          "offset": 16464,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:297:16577",
-          "line": 297,
-          "offset": 16577,
-          "token": "do"
-        },
-        {
-          "key": "50-render.lua:299:16625",
-          "line": 299,
-          "offset": 16625,
-          "token": "then"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
       "id": "P2349",
-      "called": false,
+      "called": true,
       "explicit_entries": 4,
-      "entered": 0,
+      "entered": 4,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "50-render.lua:310:17109",
-          "line": 310,
-          "offset": 17109,
-          "token": "do"
-        },
-        {
-          "key": "50-render.lua:314:17407",
-          "line": 314,
-          "offset": 17407,
-          "token": "do"
-        },
-        {
-          "key": "50-render.lua:316:17452",
-          "line": 316,
-          "offset": 17452,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:316:17515",
-          "line": 316,
-          "offset": 17515,
-          "token": "then"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
       "id": "P2350",
-      "called": false,
+      "called": true,
       "explicit_entries": 0,
       "entered": 0,
       "baseline_missing": 0,
@@ -4682,28 +4313,16 @@
     },
     {
       "id": "P2351",
-      "called": false,
+      "called": true,
       "explicit_entries": 6,
-      "entered": 0,
+      "entered": 3,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
       "remaining_entries": [
         {
-          "key": "50-render.lua:333:18625",
-          "line": 333,
-          "offset": 18625,
-          "token": "then"
-        },
-        {
           "key": "50-render.lua:334:18667",
           "line": 334,
           "offset": 18667,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:335:18760",
-          "line": 335,
-          "offset": 18760,
           "token": "then"
         },
         {
@@ -4717,21 +4336,15 @@
           "line": 337,
           "offset": 18903,
           "token": "else"
-        },
-        {
-          "key": "50-render.lua:341:19211",
-          "line": 341,
-          "offset": 19211,
-          "token": "then"
         }
       ],
       "remaining_baseline": []
     },
     {
       "id": "P2353",
-      "called": false,
+      "called": true,
       "explicit_entries": 24,
-      "entered": 0,
+      "entered": 5,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
       "remaining_entries": [
@@ -4782,24 +4395,6 @@
           "line": 371,
           "offset": 21748,
           "token": "then"
-        },
-        {
-          "key": "50-render.lua:378:22310",
-          "line": 378,
-          "offset": 22310,
-          "token": "do"
-        },
-        {
-          "key": "50-render.lua:380:22374",
-          "line": 380,
-          "offset": 22374,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:380:22397",
-          "line": 380,
-          "offset": 22397,
-          "token": "else"
         },
         {
           "key": "50-render.lua:382:22458",
@@ -4862,18 +4457,6 @@
           "token": "else"
         },
         {
-          "key": "50-render.lua:407:23773",
-          "line": 407,
-          "offset": 23773,
-          "token": "do"
-        },
-        {
-          "key": "50-render.lua:408:23789",
-          "line": 408,
-          "offset": 23789,
-          "token": "then"
-        },
-        {
           "key": "50-render.lua:415:24127",
           "line": 415,
           "offset": 24127,
@@ -4884,47 +4467,22 @@
     },
     {
       "id": "P2358",
-      "called": false,
+      "called": true,
       "explicit_entries": 3,
-      "entered": 0,
+      "entered": 3,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "50-render.lua:428:25235",
-          "line": 428,
-          "offset": 25235,
-          "token": "do"
-        },
-        {
-          "key": "50-render.lua:430:25302",
-          "line": 430,
-          "offset": 25302,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:432:25418",
-          "line": 432,
-          "offset": 25418,
-          "token": "else"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
       "id": "P2359",
-      "called": false,
+      "called": true,
       "explicit_entries": 29,
-      "entered": 0,
+      "entered": 14,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
       "remaining_entries": [
-        {
-          "key": "50-render.lua:443:25833",
-          "line": 443,
-          "offset": 25833,
-          "token": "then"
-        },
         {
           "key": "50-render.lua:444:25862",
           "line": 444,
@@ -4962,18 +4520,6 @@
           "token": "do"
         },
         {
-          "key": "50-render.lua:453:26213",
-          "line": 453,
-          "offset": 26213,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:456:26385",
-          "line": 456,
-          "offset": 26385,
-          "token": "then"
-        },
-        {
           "key": "50-render.lua:464:26934",
           "line": 464,
           "offset": 26934,
@@ -4986,34 +4532,10 @@
           "token": "then"
         },
         {
-          "key": "50-render.lua:468:27045",
-          "line": 468,
-          "offset": 27045,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:470:27142",
-          "line": 470,
-          "offset": 27142,
-          "token": "do"
-        },
-        {
-          "key": "50-render.lua:472:27216",
-          "line": 472,
-          "offset": 27216,
-          "token": "then"
-        },
-        {
           "key": "50-render.lua:474:27293",
           "line": 474,
           "offset": 27293,
           "token": "then"
-        },
-        {
-          "key": "50-render.lua:474:27318",
-          "line": 474,
-          "offset": 27318,
-          "token": "else"
         },
         {
           "key": "50-render.lua:477:27385",
@@ -5028,34 +4550,10 @@
           "token": "do"
         },
         {
-          "key": "50-render.lua:478:27525",
-          "line": 478,
-          "offset": 27525,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:478:27620",
-          "line": 478,
-          "offset": 27620,
-          "token": "do"
-        },
-        {
           "key": "50-render.lua:479:27649",
           "line": 479,
           "offset": 27649,
           "token": "else"
-        },
-        {
-          "key": "50-render.lua:487:27995",
-          "line": 487,
-          "offset": 27995,
-          "token": "do"
-        },
-        {
-          "key": "50-render.lua:488:28092",
-          "line": 488,
-          "offset": 28092,
-          "token": "then"
         },
         {
           "key": "50-render.lua:490:28190",
@@ -5070,27 +4568,9 @@
           "token": "then"
         },
         {
-          "key": "50-render.lua:494:28334",
-          "line": 494,
-          "offset": 28334,
-          "token": "then"
-        },
-        {
           "key": "50-render.lua:502:29131",
           "line": 502,
           "offset": 29131,
-          "token": "then"
-        },
-        {
-          "key": "50-render.lua:504:29264",
-          "line": 504,
-          "offset": 29264,
-          "token": "else"
-        },
-        {
-          "key": "50-render.lua:509:29793",
-          "line": 509,
-          "offset": 29793,
           "token": "then"
         }
       ],
@@ -5098,36 +4578,22 @@
     },
     {
       "id": "P2361",
-      "called": false,
+      "called": true,
       "explicit_entries": 1,
-      "entered": 0,
+      "entered": 1,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "50-render.lua:488:28092",
-          "line": 488,
-          "offset": 28092,
-          "token": "then"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     },
     {
       "id": "P2362",
-      "called": false,
+      "called": true,
       "explicit_entries": 1,
-      "entered": 0,
+      "entered": 1,
       "baseline_missing": 0,
       "baseline_missing_now_entered": [],
-      "remaining_entries": [
-        {
-          "key": "50-render.lua:494:28334",
-          "line": 494,
-          "offset": 28334,
-          "token": "then"
-        }
-      ],
+      "remaining_entries": [],
       "remaining_baseline": []
     }
   ]

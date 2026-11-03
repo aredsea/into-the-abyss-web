@@ -2,13 +2,25 @@ extends RefCounted
 const Locale=preload("res://game/localization_r22.gd")
 const Josa=preload("res://game/josa_r22.gd")
 static func fixed_decimal(value: float,digits: int) -> String:
-	# C/Lua printf rounds exact halfway values to even; Godot's formatter
-	# rounds them away from zero. Decimal halves representable in binary have
-	# denominator 2^(digits+1), so do not change nearby inexact binary values.
-	var scale=pow(10,digits);var v=absf(value);var scaled=v*scale
-	if scaled-floor(scaled)==.5 and v*pow(2,digits+1)==floor(v*pow(2,digits+1)):
-		var lower=floor(scaled);value=(lower if int(lower)%2==0 else lower+1)/scale*(-1 if value<0 else 1)
-	return ("%."+str(digits)+"f")%value
+	# C printf rounds the stored binary64 value, not value*100 (which may
+	# round a nearby binary value onto a decimal half). Keep the significand
+	# exact through integer arithmetic, including signed zero and ties to even.
+	if digits<0 or digits>2 or not is_finite(value) or absf(value)>=1e14:return ("%."+str(digits)+"f")%value
+	var bytes=PackedFloat64Array([value]).to_byte_array();var negative=(bytes[7]&128)!=0
+	var bits=PackedFloat64Array([absf(value)]).to_byte_array().decode_s64(0)
+	var exponent=(bits>>52)&2047;var mantissa=bits&0xfffffffffffff
+	if exponent!=0:mantissa|=1<<52
+	var power=(int(exponent)-1023-52 if exponent!=0 else -1074)+digits
+	var numerator=mantissa*([1,5,25][digits]);var rounded=0
+	if power>=0:rounded=numerator<<power
+	elif -power<63:
+		var shift=-power;rounded=numerator>>shift
+		var remainder=numerator-(rounded<<shift);var half=1<<(shift-1)
+		if remainder>half or (remainder==half and rounded%2==1):rounded+=1
+	var scale=[1,10,100][digits]
+	@warning_ignore("integer_division")
+	var whole=rounded/scale
+	return ('-' if negative else '')+str(whole)+('.'+str(rounded%scale).pad_zeros(digits) if digits>0 else '')
 static func fixed_two(value: float) -> String:return fixed_decimal(value,2)
 static func ratio_text(value: float,maximum: float):
 	return 0 if maximum<=0 else fixed_decimal(clampf(value/maximum*100,0,100),1)
@@ -53,6 +65,14 @@ static func boss_half(b) -> String:
 	for e in b.living(false):
 		if e.get("grade","")=="boss":return " (보스는 절반)"
 	return ""
+## Exact source-record fragments for replay/inspection. This is independent of
+## the native scene layout, and does not mutate a saved state or its event list.
+static func source_frame(state: Dictionary,definitions: Array,lang: String="ko",profile: Variant=null,profile_available: bool=false) -> Dictionary:
+	var fx=load("res://game/combat_fx_r23.gd").new();fx.definitions=definitions;fx.lang=lang;fx.profile=profile;fx.profile_available=profile_available
+	var hud=load("res://game/combat_hud_r23.gd").new();hud.definitions=definitions;hud.lang=lang
+	var events=state.get('ev',{}).get('list',[]) if state.get('ev') is Dictionary else []
+	var D=state.ev.T+.8 if state.get('ev') is Dictionary else 0
+	return {"layers":fx.render_events(state,events),"dynamic":hud.dyn(state,D),"log":hud.log_html(state)}
 ## 40-fx callback schedule; native art and animation assets are unchanged.
 static func schedule(e: Dictionary) -> Array:
 	var out=[]; var t=float(e.t); var k=e.k; var tg=e.get("tg",[])

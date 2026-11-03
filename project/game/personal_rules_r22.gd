@@ -129,6 +129,60 @@ static func finish_payload(b,duration: float) -> void:
 	if not b.combat_events.context.is_empty():b.combat_events.context.body_start=b.combat_events.T
 	b.combat_events.T+=duration
 	b.combat_events.record.ev.T=b.combat_events.T
+static func heal_record(b,target: Dictionary,amount: float,at: float,actor: Dictionary={}) -> int:
+	var h=b._receive_heal(target,amount,actor)
+	if h>0:b.combat_events.field(b,target,'hp',target.hp,at)
+	return h
+static func urda_round(b,owner: Dictionary) -> void:
+	var target={};var ratio=2.0
+	for w in b.living(true):
+		var r=float(w.hp)/w.mhp
+		if r<ratio:ratio=r;target=w
+	if target.is_empty():return
+	var clock=b.combat_events;var T=clock.T
+	if not clock.record.has('ev'):clock.begin_record(b)
+	var text=preload("res://game/combat_source_text_r23.gd")
+	var h=heal_record(b,target,owner.base[owner.line]*2*owner.trait.p.get('k',.35),T+.3)
+	var cleansed=''
+	for pair in [['attack_down','공격 약화'],['defense_down','방어 약화']]:
+		if target.effects.has(pair[0]):target.effects.erase(pair[0]);cleansed=pair[1];break
+	if h<=0 and cleansed.is_empty():return
+	var name=target.name
+	var label=text.u('소울푸드: {target}{heal}{cleanse}',{"target":name,"heal":text.u(' +{n}',{"n":h}) if h>0 else '',"cleanse":text.u(', {debuff} 해제',{"debuff":cleansed}) if not cleansed.is_empty() else ''})
+	clock.trait_payload(clock.slot(b,owner),label,T);clock.push('trait',clock.slot(b,owner),T)
+	clock.say(text.u('<b>{owner}</b>의 <b>소울푸드</b>. {target}{heal}{cleanse}',{"owner":owner.name,"target":name,"heal":text.u(' HP <em>{n}</em> 회복',{"n":h}) if h>0 else '',"cleanse":text.u('{sep}{debuff} 해제',{"sep":', ' if h>0 else ' ',"debuff":cleansed}) if not cleansed.is_empty() else ''}),T+.4)
+	clock.T=T+.6;clock.record.ev.T=clock.T
+static func miko(b,a: Dictionary,target: Dictionary,sk: Dictionary) -> void:
+	var clock=b.combat_events;var T=clock.T
+	if not clock.record.has('ev'):clock.begin_record(b)
+	var text=preload("res://game/combat_source_text_r23.gd")
+	var h=heal_record(b,target,a.base[a.line]*2,T+1,a)
+	b._event('%s → %s · HP +%d'%[a.name,target.name,h])
+	target.remaining=maxf(0,target.remaining-3000)
+	var boost=a.trait.p.get('variant',2)==1;var bonus=a.trait.p.get('bonus',.6)
+	if boost:b.x(target).mk=bonus
+	var name=b.CombatDisplay.short_name(sk.name)
+	clock.Record.push(clock.record,{"k":"shield","a":clock.slot(b,a),"t":T,"tg":[{"i":clock.slot(b,target),"d":h}],"nm":name})
+	clock.say(text.u('{who} 「{skill}」 하며 약을 건넸다. {target} HP <em>+{heal}</em>, 다음 차례가 <em>당겨졌다</em>',{"who":b.CombatDisplay.subject(a),"skill":name,"target":target.name,"heal":h}),T+1.1)
+	if boost:
+		clock.trait_payload(clock.slot(b,a),'약발 받는 한 방: '+target.name+' 다음 공격 피해 +%d%%'%b.CombatDisplay.percent(bonus),T+1.2)
+		clock.say('<b>'+a.name+'</b>의 <b>약발 받는 한 방</b>. '+target.name+b.CombatDisplay.Josa.tail(target.name,'은는')+' 약발이 올라 다음 공격 피해 <em>+%d%%</em>'%b.CombatDisplay.percent(bonus),T+1.3)
+	finish_payload(b,1.8)
+static func hildegard_scan(b,owner: Dictionary) -> void:
+	var taunted=false
+	for a in b.living(true):
+		if b.fx(a,'taunt')>0 or a.effects.get('taunt',{}).get('turns',0)>0:taunted=true
+	for e in b.living(false):
+		var x=b.x(e);var index=int(e.act_index)
+		if x.get('hg_index',-1)==index:continue
+		x.hg_index=index;e.redirected=false
+		var act=e.acts[index] if index>=0 and index<e.acts.size() else {}
+		if act.get('kind') in ['atk','shoot','aimed','spell','big_one','big_all'] and not taunted:
+			var roll=b.dungeon_enemy_r21.random()
+			if e.target_id!=owner.id and roll<owner.trait.p.get('pull',.35):
+				e.target_id=owner.id;e.redirected=true
+				if not b.combat_events.record.has('ev'):b.combat_events.begin_record(b)
+				b._trait_event(owner,'첫 번째 펭귄: '+e.name+'의 공격이 쏠린다')
 
 static func haldric(b,a,sk: Dictionary) -> void:
 	var clock=b.combat_events;var T=clock.T;var names=[];var first={}
@@ -213,8 +267,7 @@ static func run(b,a,e,t,sk) -> void:
 		"zahar": b._volley(a,1.2,15); b._effect(a,"zdn",2,.2)
 		"tove": b._effect(a,"taunt",2); abyss(b,a,e,40)
 		"miko":
-			b._heal(a,t,1,true);t.remaining=maxf(0,t.remaining-3000)
-			if a.trait.p.get("variant",2)==1:b.x(t).mk=a.trait.p.get("bonus",.6)
+			miko(b,a,t,sk)
 		"adeline":
 			for u in b.living(true):
 				b._heal(a,u,.4,true); b._source_effect(u,"adeline_guard",2,.1,a.id); b._add_adeline_regen(u,a.base[a.line]*.16,2,a.id)
