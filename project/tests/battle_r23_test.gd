@@ -36,7 +36,7 @@ func project(b):
 	return {"units":us,"rng":b.x(b.data.enemies[0]).source_rng}
 func run():
 	var input=JSON.parse_string(FileAccess.get_file_as_string("res://../verification/parity-r23/inputs.json"))
-	var oracle=JSON.parse_string(FileAccess.get_file_as_string("res://../verification/parity-r23/oracle.json"))
+	var oracle=JSON.parse_string(FileAccess.get_file_as_string("res://../verification/parity-r23/battle-oracle-r23.json"))
 	for c in input:
 		var b=clean();var a=b.data.allies[0];var e=b.data.enemies[0];var got
 		match c.op:

@@ -1,0 +1,2734 @@
+{
+  "changed_existing": [
+    "project/game/expedition_world_r22.gd",
+    "project/tests/battle_r23_test.gd"
+  ],
+  "new_tests": [
+    "expe_format_r23_test"
+  ],
+  "selected": [
+    "battle_r23_batch_test",
+    "battle_r23_round3_test",
+    "battle_r23_round4_test",
+    "battle_r23_test",
+    "cloud_archive_r22_test",
+    "cloud_compat_r23_test",
+    "cloud_journey_r23_test",
+    "cloud_r22_test",
+    "expe_format_r23_test",
+    "expe_level_r23_test",
+    "expe_pass3_r23_test",
+    "expe_supply_r23_test",
+    "expedition_r22_test",
+    "gear_r23_facilities_test",
+    "gear_r23_round2_test",
+    "gear_r23_test",
+    "settings_r22_test",
+    "town_combat_r21_round14_test",
+    "town_r21_round11_test",
+    "ui_battle_r18_test",
+    "ui_chronicle_r22_test",
+    "ui_cloud_r22_test",
+    "ui_combat_a8_test",
+    "ui_data_r21_test",
+    "ui_dialogue_journey_roster_r21_test",
+    "ui_dialogue_r21_test",
+    "ui_dialogue_roster_r21_test",
+    "ui_expe_pass2_r23_test",
+    "ui_expedition_r22_test",
+    "ui_facilities_r22_test",
+    "ui_gear_r23_test",
+    "ui_panels_r22_test",
+    "ui_parity_r23_test",
+    "ui_persona_r22_test",
+    "ui_persona_town_round8_test",
+    "ui_remaining_native_r23_test",
+    "ui_settings_r22_test",
+    "ui_town_r21_round10_test",
+    "ui_town_r21_round11_test",
+    "ui_town_r21_round2_test",
+    "ui_town_r21_round3_test",
+    "ui_town_r21_round4_test",
+    "ui_town_r21_round5_test",
+    "ui_town_r21_round9_test",
+    "ui_town_r21_test",
+    "ui_town_result_r21_test"
+  ],
+  "retained_main_groups": 65,
+  "main_suite": "verification/parity-r23/suite-expe-pass3-main",
+  "audit": [
+    {
+      "test": "affection_r21_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703211779385000,
+      "completed_row_mtime_ns": 1793703217189385000,
+      "measured_seconds": 0.41,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "art_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703212185984900,
+      "completed_row_mtime_ns": 1793703218385984900,
+      "measured_seconds": 1.2,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "balance_probe",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703211756212400,
+      "completed_row_mtime_ns": 1793703225146212400,
+      "measured_seconds": 8.39,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "battle_r23_batch_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/tests/battle_r23_test.gd"
+      ],
+      "conservative_start_ns": 1793703211787442900,
+      "completed_row_mtime_ns": 1793703226627442900,
+      "measured_seconds": 9.84,
+      "fix_mtime_ns": 1793704325673608300,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "battle_r23_clock_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703220158361800,
+      "completed_row_mtime_ns": 1793703226208361800,
+      "measured_seconds": 1.05,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "battle_r23_compose_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703221213327400,
+      "completed_row_mtime_ns": 1793703227513327400,
+      "measured_seconds": 1.3,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "battle_r23_display_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703213379752501,
+      "completed_row_mtime_ns": 1793703219569752500,
+      "measured_seconds": 1.19,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "battle_r23_enemy_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703221619694000,
+      "completed_row_mtime_ns": 1793703234139694000,
+      "measured_seconds": 7.52,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "battle_r23_round3_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/tests/battle_r23_test.gd"
+      ],
+      "conservative_start_ns": 1793703229132554500,
+      "completed_row_mtime_ns": 1793703250522554500,
+      "measured_seconds": 16.39,
+      "fix_mtime_ns": 1793704325673608300,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "battle_r23_round4_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/tests/battle_r23_test.gd"
+      ],
+      "conservative_start_ns": 1793703214572876400,
+      "completed_row_mtime_ns": 1793703342512876400,
+      "measured_seconds": 122.94,
+      "fix_mtime_ns": 1793704325673608300,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "battle_r23_state_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703222504313901,
+      "completed_row_mtime_ns": 1793703232724313900,
+      "measured_seconds": 5.22,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "battle_r23_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/tests/battle_r23_test.gd"
+      ],
+      "conservative_start_ns": 1793703337519017500,
+      "completed_row_mtime_ns": 1793704242549017500,
+      "measured_seconds": 900.03,
+      "fix_mtime_ns": 1793704325673608300,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "chronicle_r22_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703245523068100,
+      "completed_row_mtime_ns": 1793703254133068100,
+      "measured_seconds": 3.61,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "cloud_archive_r22_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703211864005600,
+      "completed_row_mtime_ns": 1793703218524005600,
+      "measured_seconds": 1.66,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "cloud_compat_r23_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703213753526700,
+      "completed_row_mtime_ns": 1793703220313526700,
+      "measured_seconds": 1.56,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "cloud_journey_r23_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703215415557300,
+      "completed_row_mtime_ns": 1793703222415557300,
+      "measured_seconds": 2.0,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "cloud_r22_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703217520068300,
+      "completed_row_mtime_ns": 1793703237990068300,
+      "measured_seconds": 15.47,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "combat_a6_mixed_audit",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703227724285500,
+      "completed_row_mtime_ns": 1793703243604285500,
+      "measured_seconds": 10.88,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "combat_a6_r22_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703249134360800,
+      "completed_row_mtime_ns": 1793703274494360800,
+      "measured_seconds": 20.36,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "combat_a7_flow_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703269485768200,
+      "completed_row_mtime_ns": 1793703276005768200,
+      "measured_seconds": 1.52,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "combat_a7_gear_audit",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703271004768400,
+      "completed_row_mtime_ns": 1793703297444768400,
+      "measured_seconds": 21.44,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "combat_a7_gear_balanced",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703292443554600,
+      "completed_row_mtime_ns": 1793703326663554600,
+      "measured_seconds": 29.22,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "combat_a7_r22_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704237546595100,
+      "completed_row_mtime_ns": 1793704244426595100,
+      "measured_seconds": 1.88,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "combat_a8_audit",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703238609450100,
+      "completed_row_mtime_ns": 1793704035989450100,
+      "measured_seconds": 792.38,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "combat_a9_native_10_audit",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704239430095900,
+      "completed_row_mtime_ns": 1793704280400095900,
+      "measured_seconds": 35.97,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "combat_a9_native_40_audit",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704275407939500,
+      "completed_row_mtime_ns": 1793704327917939500,
+      "measured_seconds": 47.51,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "combat_a9_r22_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704030999557101,
+      "completed_row_mtime_ns": 1793704037939557100,
+      "measured_seconds": 1.94,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "combat_p2_r22_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704322915955700,
+      "completed_row_mtime_ns": 1793704363745955700,
+      "measured_seconds": 35.83,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "combat_p2_r22_trace",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703321669248800,
+      "completed_row_mtime_ns": 1793703335609248800,
+      "measured_seconds": 8.94,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "combat_p3_mixed_audit",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704358746291900,
+      "completed_row_mtime_ns": 1793704382336291900,
+      "measured_seconds": 18.59,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "combat_p3_r22_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704377344701800,
+      "completed_row_mtime_ns": 1793704450204701800,
+      "measured_seconds": 67.86,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "data_r21_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704032941860400,
+      "completed_row_mtime_ns": 1793704039411860400,
+      "measured_seconds": 1.47,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "dialogue_player_r21_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703330609312400,
+      "completed_row_mtime_ns": 1793703594529312400,
+      "measured_seconds": 258.92,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "dialogue_roster_r21_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793704445205401100,
+      "completed_row_mtime_ns": 1793704465185401100,
+      "measured_seconds": 14.98,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "fresh engine started after fix"
+    },
+    {
+      "test": "dungeon_r21_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704460189151600,
+      "completed_row_mtime_ns": 1793704584019151600,
+      "measured_seconds": 118.83,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "enemy_action_r21_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703589534396800,
+      "completed_row_mtime_ns": 1793703738224396800,
+      "measured_seconds": 143.69,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "enemy_regression_r21_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704579019745100,
+      "completed_row_mtime_ns": 1793704585999745100,
+      "measured_seconds": 1.98,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "enemy_review_r21_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704580997305700,
+      "completed_row_mtime_ns": 1793704607027305700,
+      "measured_seconds": 21.03,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "expansion_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703733226565500,
+      "completed_row_mtime_ns": 1793703741476565500,
+      "measured_seconds": 3.25,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "expedition_r22_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703771164661800,
+      "completed_row_mtime_ns": 1793703825554661800,
+      "measured_seconds": 49.39,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "expe_level_r23_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703736483796500,
+      "completed_row_mtime_ns": 1793703744143796500,
+      "measured_seconds": 2.66,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "expe_pass2_r23_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793704602032546900,
+      "completed_row_mtime_ns": 1793704630982546900,
+      "measured_seconds": 23.95,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "fresh engine started after fix"
+    },
+    {
+      "test": "expe_pass3_r23_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703739137722900,
+      "completed_row_mtime_ns": 1793703773227722900,
+      "measured_seconds": 29.09,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "expe_r23_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793704625977263400,
+      "completed_row_mtime_ns": 1793704686037263400,
+      "measured_seconds": 55.06,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "fresh engine started after fix"
+    },
+    {
+      "test": "expe_supply_r23_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703768227903901,
+      "completed_row_mtime_ns": 1793703776167903900,
+      "measured_seconds": 2.94,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "export_licenses",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703820568304700,
+      "completed_row_mtime_ns": 1793703826188304700,
+      "measured_seconds": 0.62,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "facilities_r22_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793704681052153800,
+      "completed_row_mtime_ns": 1793704705252153800,
+      "measured_seconds": 19.2,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "fresh engine started after fix"
+    },
+    {
+      "test": "gear_boundary_r22_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704034425558700,
+      "completed_row_mtime_ns": 1793704045625558700,
+      "measured_seconds": 6.2,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "gear_hooks_r22_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703821192908300,
+      "completed_row_mtime_ns": 1793703836942908300,
+      "measured_seconds": 10.75,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "gear_r22_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704700250710901,
+      "completed_row_mtime_ns": 1793704712310710900,
+      "measured_seconds": 7.06,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "gear_r23_bonus_resume_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793704707303735500,
+      "completed_row_mtime_ns": 1793704713713735500,
+      "measured_seconds": 1.41,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "fresh engine started after fix"
+    },
+    {
+      "test": "gear_r23_facilities_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793704040625432300,
+      "completed_row_mtime_ns": 1793704048705432300,
+      "measured_seconds": 3.08,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "gear_r23_hooks_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703831950649700,
+      "completed_row_mtime_ns": 1793703837730649700,
+      "measured_seconds": 0.78,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "gear_r23_predecessors_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704708722527400,
+      "completed_row_mtime_ns": 1793704714282527400,
+      "measured_seconds": 0.56,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "gear_r23_round2_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793704043694897200,
+      "completed_row_mtime_ns": 1793704058834897200,
+      "measured_seconds": 10.14,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "gear_r23_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703832735146600,
+      "completed_row_mtime_ns": 1793703857185146600,
+      "measured_seconds": 19.45,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "motion_asset_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704053834607000,
+      "completed_row_mtime_ns": 1793704059634607000,
+      "measured_seconds": 0.8,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "motion_r18_integration",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703232988449500,
+      "completed_row_mtime_ns": 1793703303008449500,
+      "measured_seconds": 65.02,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "motion_r9_integration",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703298006939400,
+      "completed_row_mtime_ns": 1793703311426939400,
+      "measured_seconds": 8.42,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "motion_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704709271635600,
+      "completed_row_mtime_ns": 1793704714681635600,
+      "measured_seconds": 0.41,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "panels_r22_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704054631200200,
+      "completed_row_mtime_ns": 1793704062881200200,
+      "measured_seconds": 3.25,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "panel_messages_r23_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704709687018701,
+      "completed_row_mtime_ns": 1793704717377018700,
+      "measured_seconds": 2.69,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "persona_combat_a8_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704712363566200,
+      "completed_row_mtime_ns": 1793704838133566200,
+      "measured_seconds": 120.77,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "persona_r22_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704833130586300,
+      "completed_row_mtime_ns": 1793704843290586300,
+      "measured_seconds": 5.16,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "persona_research_r21_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703852173304300,
+      "completed_row_mtime_ns": 1793703863083304300,
+      "measured_seconds": 5.91,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "persona_save_a8_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793704838293213100,
+      "completed_row_mtime_ns": 1793704846433213100,
+      "measured_seconds": 3.14,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "fresh engine started after fix"
+    },
+    {
+      "test": "persona_town_r21_round8_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703858088080100,
+      "completed_row_mtime_ns": 1793703908338080100,
+      "measured_seconds": 45.25,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "recruit_r21_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703903349609900,
+      "completed_row_mtime_ns": 1793703910269609900,
+      "measured_seconds": 1.92,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "route_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704057886761200,
+      "completed_row_mtime_ns": 1793704063636761200,
+      "measured_seconds": 0.75,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "settings_r22_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793704058638281700,
+      "completed_row_mtime_ns": 1793704069798281700,
+      "measured_seconds": 6.16,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "state_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703905272658300,
+      "completed_row_mtime_ns": 1793703911892658300,
+      "measured_seconds": 1.62,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "town_combat_r21_round14_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703306540734100,
+      "completed_row_mtime_ns": 1793703337950734100,
+      "measured_seconds": 26.41,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "town_commerce_r21_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703906876115201,
+      "completed_row_mtime_ns": 1793703915256115200,
+      "measured_seconds": 3.38,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "town_r21_round10_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793704841437751801,
+      "completed_row_mtime_ns": 1793704850747751800,
+      "measured_seconds": 4.31,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "fresh engine started after fix"
+    },
+    {
+      "test": "town_r21_round11_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703333057248500,
+      "completed_row_mtime_ns": 1793703346617248500,
+      "measured_seconds": 8.56,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "town_r21_round9_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703910266204300,
+      "completed_row_mtime_ns": 1793703965286204300,
+      "measured_seconds": 50.02,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "town_r21_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793704845741876500,
+      "completed_row_mtime_ns": 1793704852491876500,
+      "measured_seconds": 1.75,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": false,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "ui_battle_r17_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703341631725500,
+      "completed_row_mtime_ns": 1793703407191725500,
+      "measured_seconds": 60.56,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "ui_battle_r18_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703402178278700,
+      "completed_row_mtime_ns": 1793703456428278700,
+      "measured_seconds": 49.25,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_battle_r19_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703451433389000,
+      "completed_row_mtime_ns": 1793703468093389000,
+      "measured_seconds": 11.66,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "ui_battle_r20_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703463084569600,
+      "completed_row_mtime_ns": 1793703485334569600,
+      "measured_seconds": 17.25,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "ui_chronicle_r22_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703480340719600,
+      "completed_row_mtime_ns": 1793703495700719600,
+      "measured_seconds": 10.36,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_cloud_r22_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703490813060600,
+      "completed_row_mtime_ns": 1793703500753060600,
+      "measured_seconds": 4.94,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_combat_a8_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703495743627400,
+      "completed_row_mtime_ns": 1793703557493627400,
+      "measured_seconds": 56.75,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_data_r21_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703552492359700,
+      "completed_row_mtime_ns": 1793703584242359700,
+      "measured_seconds": 26.75,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_dialogue_journey_roster_r21_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703579249569200,
+      "completed_row_mtime_ns": 1793703654579569200,
+      "measured_seconds": 70.33,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_dialogue_r21_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703649585441300,
+      "completed_row_mtime_ns": 1793703690005441300,
+      "measured_seconds": 35.42,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_dialogue_roster_r21_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703685021962100,
+      "completed_row_mtime_ns": 1793703852691962100,
+      "measured_seconds": 162.67,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_expedition_r22_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703855421218000,
+      "completed_row_mtime_ns": 1793703882721218000,
+      "measured_seconds": 22.3,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_expe_pass2_r23_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703847687973600,
+      "completed_row_mtime_ns": 1793703860417973600,
+      "measured_seconds": 7.73,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_facilities_r22_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703877714412200,
+      "completed_row_mtime_ns": 1793703900234412200,
+      "measured_seconds": 17.52,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_gear_r23_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703895230770600,
+      "completed_row_mtime_ns": 1793703905180770600,
+      "measured_seconds": 4.95,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_panels_r22_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703900190882300,
+      "completed_row_mtime_ns": 1793703929440882300,
+      "measured_seconds": 24.25,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_parity_r23_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703924432126801,
+      "completed_row_mtime_ns": 1793703936902126800,
+      "measured_seconds": 7.47,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_persona_r22_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703931907843401,
+      "completed_row_mtime_ns": 1793703948127843400,
+      "measured_seconds": 11.22,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_persona_town_round8_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703943127126000,
+      "completed_row_mtime_ns": 1793703963267126000,
+      "measured_seconds": 15.14,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_remaining_native_r23_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703958268764100,
+      "completed_row_mtime_ns": 1793703972688764100,
+      "measured_seconds": 9.42,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_remaining_r23_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703967694572900,
+      "completed_row_mtime_ns": 1793703974924572900,
+      "measured_seconds": 2.23,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "ui_rules_r23_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703969916469700,
+      "completed_row_mtime_ns": 1793703981606469700,
+      "measured_seconds": 6.69,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    },
+    {
+      "test": "ui_settings_r22_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703976606662600,
+      "completed_row_mtime_ns": 1793703994386662600,
+      "measured_seconds": 12.78,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_town_r21_round10_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793703989393702600,
+      "completed_row_mtime_ns": 1793704018513702600,
+      "measured_seconds": 24.12,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_town_r21_round11_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793704013518332600,
+      "completed_row_mtime_ns": 1793704043658332600,
+      "measured_seconds": 25.14,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_town_r21_round2_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793704038661301900,
+      "completed_row_mtime_ns": 1793704056471301900,
+      "measured_seconds": 12.81,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_town_r21_round3_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793704051474757200,
+      "completed_row_mtime_ns": 1793704078144757200,
+      "measured_seconds": 21.67,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_town_r21_round4_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793704073136415700,
+      "completed_row_mtime_ns": 1793704100776415700,
+      "measured_seconds": 22.64,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_town_r21_round5_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793704095769814800,
+      "completed_row_mtime_ns": 1793704107959814800,
+      "measured_seconds": 7.19,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_town_r21_round9_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793704102976554700,
+      "completed_row_mtime_ns": 1793704121176554700,
+      "measured_seconds": 13.2,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_town_r21_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793704116173524400,
+      "completed_row_mtime_ns": 1793704129063524400,
+      "measured_seconds": 7.89,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "ui_town_result_r21_test",
+      "loads_changed_script": true,
+      "loaded_changes": [
+        "project/game/expedition_world_r22.gd"
+      ],
+      "conservative_start_ns": 1793704124058744700,
+      "completed_row_mtime_ns": 1793704138898744700,
+      "measured_seconds": 9.84,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": true,
+      "retention_reason": "rerun"
+    },
+    {
+      "test": "world_test",
+      "loads_changed_script": false,
+      "loaded_changes": [],
+      "conservative_start_ns": 1793703960278112800,
+      "completed_row_mtime_ns": 1793703965948112800,
+      "measured_seconds": 0.67,
+      "fix_mtime_ns": 1793704136052906500,
+      "conservative_early": true,
+      "rerun": false,
+      "retention_reason": "changed script absent from complete literal GDScript dependency closure"
+    }
+  ],
+  "dependency_graph": {
+    "game/affection_r22.gd": [],
+    "game/battle_state.gd": [],
+    "game/battle_stats_r23.gd": [],
+    "game/battle_v3.gd": [
+      "game/battle_state.gd",
+      "game/battle_stats_r23.gd",
+      "game/combat_clock_r22.gd",
+      "game/combat_display_r22.gd",
+      "game/combat_events_r22.gd",
+      "game/dungeon_enemy_r21.gd",
+      "game/gear_battle_r22.gd",
+      "game/persona_combat_r22.gd",
+      "game/personal_rules_r22.gd",
+      "game/trait_rules_r22.gd"
+    ],
+    "game/chronicle_save_r22.gd": [
+      "game/chronicle_store_r22.gd",
+      "game/world_store.gd"
+    ],
+    "game/chronicle_store_r22.gd": [
+      "game/affection_r22.gd",
+      "game/localization_r22.gd",
+      "game/ui_value_r23.gd"
+    ],
+    "game/chronicle_world_r22.gd": [
+      "game/chronicle_store_r22.gd",
+      "game/persona_world.gd",
+      "game/town_places_r22.gd"
+    ],
+    "game/cloud_legacy_r23.gd": [
+      "game/ui_value_r23.gd"
+    ],
+    "game/cloud_recap_r23.gd": [
+      "game/ui_value_r23.gd"
+    ],
+    "game/cloud_store_r22.gd": [
+      "game/cloud_legacy_r23.gd",
+      "game/cloud_recap_r23.gd",
+      "game/settings_world_r22.gd"
+    ],
+    "game/combat_clock_r22.gd": [],
+    "game/combat_display_r22.gd": [
+      "game/josa_r22.gd",
+      "game/localization_r22.gd"
+    ],
+    "game/combat_events_r22.gd": [
+      "game/combat_record_r23.gd"
+    ],
+    "game/combat_passives_r23.gd": [],
+    "game/combat_record_r23.gd": [],
+    "game/commerce_rules_r21.gd": [
+      "game/dungeon_rules_r21.gd",
+      "game/gear_rules.gd"
+    ],
+    "game/dialogue_player_r21.gd": [
+      "game/town_rules_r21.gd"
+    ],
+    "game/dungeon_enemy_r21.gd": [
+      "game/combat_display_r22.gd",
+      "game/dungeon_rules_r21.gd"
+    ],
+    "game/dungeon_rules_r21.gd": [
+      "game/battle_stats_r23.gd"
+    ],
+    "game/dungeon_view_r21.gd": [],
+    "game/dungeon_world_r21.gd": [
+      "game/battle_stats_r23.gd",
+      "game/dungeon_rules_r21.gd",
+      "game/expansion_world.gd",
+      "game/gear_rules_r22.gd",
+      "game/gear_save_r22.gd",
+      "game/localization_r22.gd"
+    ],
+    "game/expansion_world.gd": [
+      "game/battle_v3.gd",
+      "game/gear_rules.gd",
+      "game/world_state.gd"
+    ],
+    "game/expedition_rules_r22.gd": [
+      "game/dungeon_rules_r21.gd"
+    ],
+    "game/expedition_supply_r22.gd": [
+      "game/battle_v3.gd"
+    ],
+    "game/expedition_world_r22.gd": [
+      "game/expedition_rules_r22.gd",
+      "game/localization_r22.gd",
+      "game/persona_world.gd"
+    ],
+    "game/facilities_world_r22.gd": [
+      "game/expedition_world_r22.gd",
+      "game/guild_rules_r22.gd",
+      "game/smithy_rules_r22.gd"
+    ],
+    "game/gear_battle_r22.gd": [
+      "game/gear_hooks_r22.gd",
+      "game/gear_rules_r22.gd"
+    ],
+    "game/gear_hooks_r22.gd": [
+      "game/gear_rules_r22.gd",
+      "game/josa_r22.gd"
+    ],
+    "game/gear_rules.gd": [],
+    "game/gear_rules_r22.gd": [
+      "game/commerce_rules_r21.gd"
+    ],
+    "game/gear_save_r22.gd": [
+      "game/gear_rules_r22.gd"
+    ],
+    "game/guild_rules_r21.gd": [
+      "game/dungeon_rules_r21.gd"
+    ],
+    "game/guild_rules_r22.gd": [
+      "game/guild_rules_r21.gd",
+      "game/localization_r22.gd"
+    ],
+    "game/josa_r22.gd": [],
+    "game/locale_pack_r23.gd": [],
+    "game/localization_r22.gd": [
+      "game/josa_r22.gd",
+      "game/locale_pack_r23.gd",
+      "game/ui_value_r23.gd"
+    ],
+    "game/panels_rules_r22.gd": [
+      "game/affection_r22.gd",
+      "game/localization_r22.gd",
+      "game/ui_value_r23.gd"
+    ],
+    "game/panels_state_r22.gd": [
+      "game/localization_r22.gd",
+      "game/panels_rules_r22.gd"
+    ],
+    "game/panel_gear_r22.gd": [
+      "game/dungeon_rules_r21.gd",
+      "game/panels_rules_r22.gd"
+    ],
+    "game/personal_rules_r22.gd": [],
+    "game/persona_combat_r22.gd": [
+      "game/persona_research_r21.gd"
+    ],
+    "game/persona_research_r21.gd": [
+      "game/battle_stats_r23.gd",
+      "game/localization_r22.gd"
+    ],
+    "game/persona_rules.gd": [
+      "game/localization_r22.gd",
+      "game/ui_value_r23.gd"
+    ],
+    "game/persona_save_adapter.gd": [
+      "game/persona_rules.gd",
+      "game/town_world_r21.gd"
+    ],
+    "game/persona_world.gd": [
+      "game/localization_r22.gd",
+      "game/persona_combat_r22.gd",
+      "game/persona_rules.gd",
+      "game/persona_save_adapter.gd",
+      "game/town_world_r21.gd"
+    ],
+    "game/route_v1.gd": [],
+    "game/save_store.gd": [],
+    "game/settings_rules_r22.gd": [
+      "game/localization_r22.gd"
+    ],
+    "game/settings_save_r22.gd": [
+      "game/chronicle_save_r22.gd",
+      "game/settings_world_r22.gd"
+    ],
+    "game/settings_world_r22.gd": [
+      "game/localization_r22.gd",
+      "game/settings_rules_r22.gd",
+      "game/town_chronicle_world_r22.gd"
+    ],
+    "game/smithy_rules_r22.gd": [
+      "game/commerce_rules_r21.gd",
+      "game/gear_rules_r22.gd",
+      "game/localization_r22.gd"
+    ],
+    "game/town_chronicle_world_r22.gd": [
+      "game/chronicle_store_r22.gd",
+      "game/facilities_world_r22.gd",
+      "game/town_places_r22.gd"
+    ],
+    "game/town_places_r22.gd": [
+      "game/localization_r22.gd",
+      "game/ui_value_r23.gd"
+    ],
+    "game/town_rules_r21.gd": [],
+    "game/town_world_r21.gd": [
+      "game/commerce_rules_r21.gd",
+      "game/dialogue_player_r21.gd",
+      "game/dungeon_world_r21.gd",
+      "game/guild_rules_r21.gd",
+      "game/persona_research_r21.gd",
+      "game/town_rules_r21.gd"
+    ],
+    "game/trait_rules_r22.gd": [
+      "game/combat_display_r22.gd",
+      "game/combat_passives_r23.gd"
+    ],
+    "game/ui_value_r23.gd": [],
+    "game/world_state.gd": [
+      "game/battle_state.gd",
+      "game/battle_stats_r23.gd",
+      "game/route_v1.gd"
+    ],
+    "game/world_store.gd": [],
+    "tests/a7_baseline_audit_helper.gd": [
+      "game/dungeon_world_r21.gd",
+      "tests/a7_baseline_trace.gd"
+    ],
+    "tests/a7_baseline_battle_v3.gd": [
+      "game/battle_state.gd",
+      "game/combat_clock_r22.gd",
+      "game/combat_display_r22.gd",
+      "game/combat_events_r22.gd",
+      "tests/a7_baseline_dungeon_enemy_r21.gd",
+      "tests/a7_baseline_personal_rules_r22.gd",
+      "tests/a7_baseline_trait_rules_r22.gd"
+    ],
+    "tests/a7_baseline_dungeon_enemy_r21.gd": [
+      "game/dungeon_rules_r21.gd"
+    ],
+    "tests/a7_baseline_fixture.gd": [
+      "tests/a7_baseline_battle_v3.gd"
+    ],
+    "tests/a7_baseline_helper.gd": [
+      "tests/a7_baseline_fixture.gd",
+      "tests/combat_a6_legacy_fixture.gd",
+      "tests/combat_p2_r22_test.gd"
+    ],
+    "tests/a7_baseline_personal_rules_r22.gd": [],
+    "tests/a7_baseline_trace.gd": [
+      "tests/a7_baseline_battle_v3.gd"
+    ],
+    "tests/a7_baseline_trait_rules_r22.gd": [],
+    "tests/affection_r21_test.gd": [
+      "game/town_rules_r21.gd"
+    ],
+    "tests/art_test.gd": [
+      "game/expansion_world.gd",
+      "ui/character_sprite.gd",
+      "ui/signature_sequence.gd"
+    ],
+    "tests/balance_probe.gd": [
+      "game/battle_v3.gd",
+      "game/expansion_world.gd"
+    ],
+    "tests/battle_r23_batch_test.gd": [
+      "game/battle_stats_r23.gd",
+      "game/dungeon_rules_r21.gd",
+      "game/trait_rules_r22.gd",
+      "tests/battle_r23_test.gd"
+    ],
+    "tests/battle_r23_clock_test.gd": [
+      "game/combat_clock_r22.gd",
+      "tests/combat_a6_r22_test.gd"
+    ],
+    "tests/battle_r23_compose_test.gd": [
+      "game/dungeon_rules_r21.gd",
+      "tests/combat_a6_r22_test.gd"
+    ],
+    "tests/battle_r23_display_test.gd": [
+      "game/combat_display_r22.gd",
+      "tests/combat_a6_r22_test.gd"
+    ],
+    "tests/battle_r23_enemy_test.gd": [
+      "tests/enemy_action_r21_test.gd"
+    ],
+    "tests/battle_r23_random_fixture.gd": [
+      "game/dungeon_enemy_r21.gd"
+    ],
+    "tests/battle_r23_round3_test.gd": [
+      "game/combat_display_r22.gd",
+      "game/expedition_rules_r22.gd",
+      "game/personal_rules_r22.gd",
+      "tests/battle_r23_batch_test.gd",
+      "tests/battle_r23_random_fixture.gd"
+    ],
+    "tests/battle_r23_round4_test.gd": [
+      "../verification/parity-r23/round4-before-miko-fixture.gd",
+      "../verification/parity-r23/round4-before-record.gd",
+      "game/combat_display_r22.gd",
+      "game/combat_record_r23.gd",
+      "game/persona_combat_r22.gd",
+      "game/persona_research_r21.gd",
+      "game/personal_rules_r22.gd",
+      "tests/battle_r23_random_fixture.gd",
+      "tests/battle_r23_round3_test.gd"
+    ],
+    "tests/battle_r23_state_fixture.gd": [
+      "game/battle_v3.gd"
+    ],
+    "tests/battle_r23_state_test.gd": [
+      "game/dungeon_world_r21.gd",
+      "tests/battle_r23_state_fixture.gd",
+      "tests/combat_a6_r22_test.gd"
+    ],
+    "tests/battle_r23_test.gd": [
+      "tests/battle_r23_random_fixture.gd",
+      "tests/combat_a6_r22_test.gd"
+    ],
+    "tests/build_ink_r20b.gd": [],
+    "tests/chronicle_r22_test.gd": [
+      "game/chronicle_save_r22.gd",
+      "game/chronicle_store_r22.gd",
+      "game/chronicle_world_r22.gd",
+      "game/town_places_r22.gd"
+    ],
+    "tests/cloud_archive_r22_test.gd": [
+      "game/cloud_store_r22.gd"
+    ],
+    "tests/cloud_compat_r23_test.gd": [
+      "game/cloud_store_r22.gd",
+      "game/settings_world_r22.gd"
+    ],
+    "tests/cloud_fixture_r22.gd": [
+      "game/persona_world.gd",
+      "game/town_world_r21.gd"
+    ],
+    "tests/cloud_journey_r23_test.gd": [
+      "game/cloud_recap_r23.gd",
+      "game/cloud_store_r22.gd",
+      "game/settings_save_r22.gd",
+      "game/settings_world_r22.gd"
+    ],
+    "tests/cloud_r22_test.gd": [
+      "game/cloud_store_r22.gd",
+      "game/persona_world.gd",
+      "game/world_store.gd"
+    ],
+    "tests/cloud_security_fixture_r22.gd": [
+      "game/battle_v3.gd",
+      "game/persona_world.gd"
+    ],
+    "tests/combat_a6_legacy_fixture.gd": [
+      "game/battle_v3.gd"
+    ],
+    "tests/combat_a6_mixed_audit.gd": [
+      "tests/combat_p2_r22_trace.gd"
+    ],
+    "tests/combat_a6_r22_fixture.gd": [
+      "game/battle_v3.gd"
+    ],
+    "tests/combat_a6_r22_test.gd": [
+      "tests/combat_a6_legacy_fixture.gd",
+      "tests/combat_a6_r22_fixture.gd",
+      "tests/combat_p2_r22_test.gd"
+    ],
+    "tests/combat_a7_baseline.gd": [
+      "tests/a7_baseline_helper.gd"
+    ],
+    "tests/combat_a7_flow_test.gd": [
+      "game/gear_save_r22.gd",
+      "game/town_world_r21.gd",
+      "tests/combat_a6_r22_test.gd"
+    ],
+    "tests/combat_a7_gear_audit.gd": [
+      "tests/combat_p2_r22_trace.gd"
+    ],
+    "tests/combat_a7_gear_balanced.gd": [
+      "tests/combat_p2_r22_trace.gd"
+    ],
+    "tests/combat_a7_gear_baseline.gd": [
+      "tests/a7_baseline_audit_helper.gd"
+    ],
+    "tests/combat_a7_r22_test.gd": [
+      "tests/combat_a6_r22_test.gd"
+    ],
+    "tests/combat_a8_audit.gd": [
+      "game/persona_world.gd",
+      "tests/combat_p2_r22_trace.gd"
+    ],
+    "tests/combat_a8_r23_tail.gd": [
+      "game/persona_world.gd",
+      "tests/combat_p2_r22_trace.gd"
+    ],
+    "tests/combat_a9_native_10_audit.gd": [
+      "tests/combat_p2_r22_trace.gd"
+    ],
+    "tests/combat_a9_native_40_audit.gd": [
+      "tests/combat_p2_r22_trace.gd"
+    ],
+    "tests/combat_a9_r22_test.gd": [
+      "tests/combat_a6_r22_test.gd"
+    ],
+    "tests/combat_p2_r22_test.gd": [
+      "game/battle_v3.gd",
+      "game/dungeon_world_r21.gd"
+    ],
+    "tests/combat_p2_r22_trace.gd": [
+      "game/dungeon_world_r21.gd",
+      "tests/combat_p2_r22_trace_fixture.gd"
+    ],
+    "tests/combat_p2_r22_trace_fixture.gd": [
+      "game/battle_v3.gd"
+    ],
+    "tests/combat_p3_mixed_audit.gd": [
+      "tests/combat_p2_r22_trace.gd"
+    ],
+    "tests/combat_p3_r22_fixture.gd": [
+      "game/battle_v3.gd"
+    ],
+    "tests/combat_p3_r22_test.gd": [
+      "tests/combat_p2_r22_trace.gd",
+      "tests/combat_p3_r22_fixture.gd"
+    ],
+    "tests/data_r21_test.gd": [
+      "game/dungeon_rules_r21.gd"
+    ],
+    "tests/dialogue_player_r21_test.gd": [
+      "game/town_world_r21.gd",
+      "game/world_state.gd"
+    ],
+    "tests/dialogue_roster_r21_test.gd": [
+      "game/chronicle_store_r22.gd",
+      "game/localization_r22.gd",
+      "game/settings_world_r22.gd"
+    ],
+    "tests/dungeon_r21_test.gd": [
+      "game/battle_v3.gd",
+      "game/dungeon_world_r21.gd",
+      "game/expansion_world.gd",
+      "game/world_state.gd"
+    ],
+    "tests/enemy_action_fixture_r21.gd": [
+      "game/battle_v3.gd"
+    ],
+    "tests/enemy_action_r21_test.gd": [
+      "game/dungeon_world_r21.gd",
+      "tests/enemy_action_fixture_r21.gd"
+    ],
+    "tests/enemy_regression_r21_test.gd": [
+      "game/battle_v3.gd",
+      "game/dungeon_world_r21.gd",
+      "tests/enemy_action_fixture_r21.gd"
+    ],
+    "tests/enemy_review_r21_test.gd": [
+      "game/battle_v3.gd",
+      "game/dungeon_world_r21.gd",
+      "tests/enemy_action_fixture_r21.gd"
+    ],
+    "tests/expansion_test.gd": [
+      "game/battle_state.gd",
+      "game/battle_v3.gd",
+      "game/expansion_world.gd",
+      "game/world_state.gd"
+    ],
+    "tests/expedition_r22_test.gd": [
+      "game/expedition_rules_r22.gd",
+      "game/expedition_supply_r22.gd",
+      "game/expedition_world_r22.gd"
+    ],
+    "tests/expe_format_r23_test.gd": [
+      "tests/expedition_r22_test.gd"
+    ],
+    "tests/expe_level_r23_test.gd": [
+      "tests/expedition_r22_test.gd"
+    ],
+    "tests/expe_pass2_r23_test.gd": [
+      "tests/expedition_r22_test.gd"
+    ],
+    "tests/expe_pass3_r23_test.gd": [
+      "tests/expedition_r22_test.gd"
+    ],
+    "tests/expe_r23_test.gd": [
+      "game/expedition_world_r22.gd",
+      "tests/expedition_r22_test.gd"
+    ],
+    "tests/expe_supply_r23_test.gd": [
+      "game/expedition_supply_r22.gd",
+      "game/expedition_world_r22.gd",
+      "tests/expedition_r22_test.gd"
+    ],
+    "tests/export_licenses.gd": [],
+    "tests/facilities_r22_test.gd": [
+      "game/facilities_world_r22.gd",
+      "game/guild_rules_r22.gd"
+    ],
+    "tests/gear_boundary_r22_test.gd": [
+      "game/gear_hooks_r22.gd",
+      "game/gear_save_r22.gd",
+      "tests/gear_r22_test.gd"
+    ],
+    "tests/gear_hooks_r22_test.gd": [
+      "game/gear_hooks_r22.gd"
+    ],
+    "tests/gear_r22_test.gd": [
+      "game/gear_rules.gd",
+      "game/gear_rules_r22.gd",
+      "game/gear_save_r22.gd",
+      "game/persona_world.gd",
+      "tests/gear_hooks_r22_test.gd"
+    ],
+    "tests/gear_r23_bonus_resume_test.gd": [
+      "tests/facilities_r22_test.gd"
+    ],
+    "tests/gear_r23_facilities_test.gd": [
+      "tests/facilities_r22_test.gd"
+    ],
+    "tests/gear_r23_hooks_test.gd": [
+      "tests/gear_hooks_r22_test.gd"
+    ],
+    "tests/gear_r23_predecessors_test.gd": [
+      "tests/gear_hooks_r22_test.gd"
+    ],
+    "tests/gear_r23_round2_test.gd": [
+      "game/panels_state_r22.gd",
+      "tests/gear_r23_test.gd"
+    ],
+    "tests/gear_r23_test.gd": [
+      "game/gear_rules_r22.gd",
+      "game/town_rules_r21.gd",
+      "tests/facilities_r22_test.gd"
+    ],
+    "tests/motion_asset_test.gd": [
+      "ui/motion_library.gd"
+    ],
+    "tests/motion_r18_integration.gd": [
+      "game/expansion_world.gd",
+      "ui/battle_screen.gd"
+    ],
+    "tests/motion_r9_integration.gd": [
+      "game/expansion_world.gd",
+      "ui/battle_screen.gd"
+    ],
+    "tests/motion_test.gd": [
+      "ui/combat_timeline.gd"
+    ],
+    "tests/panels_r22_test.gd": [
+      "game/dungeon_rules_r21.gd",
+      "game/panel_gear_r22.gd",
+      "game/panels_rules_r22.gd",
+      "game/panels_state_r22.gd",
+      "game/persona_world.gd",
+      "game/town_world_r21.gd",
+      "ui/portrait_rules_r22.gd"
+    ],
+    "tests/panel_messages_r23_test.gd": [
+      "tests/panels_r22_test.gd"
+    ],
+    "tests/persona_combat_a8_test.gd": [
+      "game/battle_v3.gd",
+      "game/persona_world.gd"
+    ],
+    "tests/persona_r22_test.gd": [
+      "game/persona_rules.gd",
+      "game/persona_world.gd",
+      "game/town_world_r21.gd",
+      "game/world_store.gd"
+    ],
+    "tests/persona_research_r21_test.gd": [
+      "game/persona_research_r21.gd",
+      "game/town_world_r21.gd"
+    ],
+    "tests/persona_save_a8_test.gd": [
+      "game/battle_v3.gd",
+      "game/settings_world_r22.gd"
+    ],
+    "tests/persona_town_r21_round8_test.gd": [
+      "game/persona_world.gd",
+      "game/town_world_r21.gd",
+      "game/world_store.gd"
+    ],
+    "tests/recruit_r21_test.gd": [
+      "game/town_world_r21.gd"
+    ],
+    "tests/route_test.gd": [
+      "game/battle_state.gd",
+      "game/world_state.gd"
+    ],
+    "tests/settings_r22_test.gd": [
+      "game/battle_v3.gd",
+      "game/chronicle_world_r22.gd",
+      "game/dungeon_enemy_r21.gd",
+      "game/josa_r22.gd",
+      "game/localization_r22.gd",
+      "game/settings_rules_r22.gd",
+      "game/settings_save_r22.gd",
+      "game/settings_world_r22.gd"
+    ],
+    "tests/state_test.gd": [
+      "game/battle_state.gd"
+    ],
+    "tests/town_combat_r21_round14_test.gd": [
+      "game/battle_v3.gd",
+      "game/persona_world.gd",
+      "tests/town_r21_round11_test.gd"
+    ],
+    "tests/town_commerce_r21_test.gd": [
+      "game/commerce_rules_r21.gd",
+      "game/gear_rules.gd",
+      "game/town_world_r21.gd"
+    ],
+    "tests/town_r21_round10_test.gd": [
+      "game/chronicle_store_r22.gd",
+      "game/josa_r22.gd",
+      "game/localization_r22.gd",
+      "game/settings_save_r22.gd",
+      "game/settings_world_r22.gd"
+    ],
+    "tests/town_r21_round11_test.gd": [
+      "game/chronicle_store_r22.gd",
+      "game/cloud_store_r22.gd",
+      "game/localization_r22.gd",
+      "game/settings_save_r22.gd",
+      "game/settings_world_r22.gd"
+    ],
+    "tests/town_r21_round9_test.gd": [
+      "game/chronicle_save_r22.gd",
+      "game/chronicle_store_r22.gd",
+      "game/chronicle_world_r22.gd",
+      "game/panels_state_r22.gd",
+      "game/world_store.gd"
+    ],
+    "tests/town_r21_test.gd": [
+      "game/guild_rules_r21.gd",
+      "game/town_rules_r21.gd",
+      "game/town_world_r21.gd",
+      "game/world_state.gd"
+    ],
+    "tests/ui_battle_r17_test.gd": [
+      "game/expansion_world.gd",
+      "ui/battle_ink_r17.gd",
+      "ui/battle_screen.gd"
+    ],
+    "tests/ui_battle_r18_test.gd": [
+      "game/expansion_world.gd",
+      "ui/battle_body_r18.gd",
+      "ui/battle_screen.gd",
+      "ui/character_sprite.gd",
+      "ui/combat_presentation.gd",
+      "ui/motion_library.gd",
+      "ui/signature_sequence.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/ui_battle_r19_test.gd": [
+      "game/expansion_world.gd",
+      "ui/battle_screen.gd"
+    ],
+    "tests/ui_battle_r20_test.gd": [
+      "game/expansion_world.gd",
+      "ui/battle_screen.gd"
+    ],
+    "tests/ui_chronicle_r22_test.gd": [
+      "game/chronicle_store_r22.gd",
+      "game/chronicle_world_r22.gd",
+      "game/town_places_r22.gd",
+      "ui/journal_screen_r22.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/ui_cloud_r22_test.gd": [
+      "ui/cloud_screen_r22.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/ui_combat_a8_test.gd": [
+      "game/settings_world_r22.gd",
+      "ui/battle_screen.gd",
+      "ui/persona_visual_adapter.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/ui_data_r21_test.gd": [
+      "game/dungeon_world_r21.gd",
+      "game/town_world_r21.gd",
+      "ui/battle_screen.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/ui_dialogue_journey_roster_r21_test.gd": [
+      "tests/ui_dialogue_roster_r21_test.gd"
+    ],
+    "tests/ui_dialogue_r21_test.gd": [
+      "game/town_world_r21.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/ui_dialogue_roster_r21_test.gd": [
+      "game/localization_r22.gd",
+      "game/settings_world_r22.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/ui_expedition_r22_test.gd": [
+      "game/expedition_supply_r22.gd",
+      "game/expedition_world_r22.gd",
+      "ui/create_screen.gd",
+      "ui/town_screen_r21.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/ui_expe_pass2_r23_test.gd": [
+      "tests/ui_expedition_r22_test.gd"
+    ],
+    "tests/ui_facilities_r22_test.gd": [
+      "game/facilities_world_r22.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/ui_gear_r23_test.gd": [
+      "tests/ui_facilities_r22_test.gd"
+    ],
+    "tests/ui_panels_r22_test.gd": [
+      "game/panels_rules_r22.gd",
+      "game/panels_state_r22.gd",
+      "game/persona_world.gd",
+      "ui/panel_screen_r22.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/ui_parity_r23_test.gd": [
+      "tests/ui_panels_r22_test.gd"
+    ],
+    "tests/ui_persona_r22_test.gd": [
+      "game/persona_world.gd",
+      "ui/create_screen.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/ui_persona_town_round8_test.gd": [
+      "game/persona_world.gd",
+      "game/town_world_r21.gd",
+      "ui/create_screen.gd",
+      "ui/persona_sortie_screen.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/ui_remaining_native_r23_test.gd": [
+      "game/localization_r22.gd",
+      "game/settings_world_r22.gd",
+      "tests/ui_panels_r22_test.gd",
+      "ui/create_screen.gd"
+    ],
+    "tests/ui_remaining_r23_test.gd": [
+      "game/cloud_recap_r23.gd",
+      "game/localization_r22.gd",
+      "game/panels_rules_r22.gd",
+      "game/persona_rules.gd",
+      "game/town_places_r22.gd"
+    ],
+    "tests/ui_rules_r23_test.gd": [
+      "game/chronicle_store_r22.gd",
+      "game/cloud_legacy_r23.gd",
+      "game/localization_r22.gd",
+      "game/panel_gear_r22.gd",
+      "game/panels_rules_r22.gd",
+      "game/panels_state_r22.gd",
+      "game/persona_research_r21.gd",
+      "game/persona_rules.gd",
+      "game/persona_world.gd",
+      "game/town_places_r22.gd",
+      "ui/portrait_rules_r22.gd"
+    ],
+    "tests/ui_settings_r22_test.gd": [
+      "game/localization_r22.gd",
+      "game/settings_world_r22.gd",
+      "ui/settings_screen_r22.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/ui_town_r21_round10_test.gd": [
+      "game/localization_r22.gd",
+      "game/settings_world_r22.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/ui_town_r21_round11_test.gd": [
+      "game/localization_r22.gd",
+      "game/settings_world_r22.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/ui_town_r21_round2_test.gd": [
+      "game/town_world_r21.gd",
+      "ui/battle_screen.gd",
+      "ui/town_screen_r21.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/ui_town_r21_round3_test.gd": [
+      "game/town_world_r21.gd",
+      "ui/town_portrait_r21.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/ui_town_r21_round4_test.gd": [
+      "game/town_world_r21.gd",
+      "ui/town_map_r21.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/ui_town_r21_round5_test.gd": [
+      "game/town_world_r21.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/ui_town_r21_round9_test.gd": [
+      "game/chronicle_world_r22.gd",
+      "tests/ui_persona_town_round8_test.gd",
+      "ui/town_portrait_r21.gd"
+    ],
+    "tests/ui_town_r21_test.gd": [
+      "game/town_world_r21.gd",
+      "ui/town_portrait_r21.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/ui_town_result_r21_test.gd": [
+      "game/town_world_r21.gd",
+      "ui/world_screen.gd"
+    ],
+    "tests/world_test.gd": [
+      "game/battle_state.gd",
+      "game/world_state.gd",
+      "game/world_store.gd"
+    ],
+    "tools/build_menu_portraits.gd": [
+      "ui/character_portrait.gd"
+    ],
+    "tools/check_ui_input.gd": [
+      "game/expansion_world.gd",
+      "ui/world_screen.gd"
+    ],
+    "tools/export_face_portraits.gd": [
+      "ui/character_portrait.gd"
+    ],
+    "tools/review_faces.gd": [
+      "game/expansion_world.gd",
+      "ui/character_portrait.gd",
+      "ui/world_screen.gd"
+    ],
+    "tools/review_faces_r17.gd": [
+      "game/expansion_world.gd",
+      "ui/battle_face_r17.gd"
+    ],
+    "tools/review_portraits.gd": [
+      "ui/character_portrait.gd"
+    ],
+    "tools/review_ui.gd": [
+      "game/expansion_world.gd",
+      "ui/battle_screen.gd",
+      "ui/world_screen.gd"
+    ],
+    "tools/review_ui_r17.gd": [
+      "tests/ui_battle_r17_test.gd"
+    ],
+    "ui/battle_body_r18.gd": [
+      "ui/character_sprite.gd"
+    ],
+    "ui/battle_face_r17.gd": [],
+    "ui/battle_image_r19.gd": [],
+    "ui/battle_ink_r17.gd": [],
+    "ui/battle_screen.gd": [
+      "assets/ui-r17/print.gd",
+      "game/battle_state.gd",
+      "game/battle_v3.gd",
+      "game/localization_r22.gd",
+      "game/save_store.gd",
+      "ui/battle_body_r18.gd",
+      "ui/battle_face_r17.gd",
+      "ui/battle_image_r19.gd",
+      "ui/battle_ink_r17.gd",
+      "ui/character_portrait.gd",
+      "ui/combat_fx.gd",
+      "ui/combat_presentation.gd",
+      "ui/fantasy_theme.gd",
+      "ui/forged_button.gd",
+      "ui/signature_sequence.gd"
+    ],
+    "ui/character_portrait.gd": [],
+    "ui/character_sprite.gd": [
+      "ui/motion_library.gd"
+    ],
+    "ui/cloud_screen_r22.gd": [
+      "ui/town_theme_r21.gd"
+    ],
+    "ui/codex_screen_r22.gd": [
+      "ui/panel_screen_r22.gd"
+    ],
+    "ui/combat_fx.gd": [
+      "ui/pixel_brush_r18.gd",
+      "ui/signature_fx_r18.gd"
+    ],
+    "ui/combat_presentation.gd": [
+      "ui/battle_body_r18.gd",
+      "ui/combat_fx.gd",
+      "ui/combat_timeline.gd",
+      "ui/motion_library.gd",
+      "ui/signature_sequence.gd"
+    ],
+    "ui/combat_timeline.gd": [],
+    "ui/create_screen.gd": [
+      "game/localization_r22.gd",
+      "ui/town_portrait_r21.gd",
+      "ui/town_theme_r21.gd"
+    ],
+    "ui/expedition_floor_picker_r22.gd": [],
+    "ui/expedition_screen_r22.gd": [
+      "ui/town_screen_r21.gd"
+    ],
+    "ui/expedition_supply_screen_r22.gd": [
+      "game/expedition_supply_r22.gd",
+      "ui/battle_screen.gd"
+    ],
+    "ui/facilities_screen_r22.gd": [
+      "ui/town_screen_r21.gd"
+    ],
+    "ui/facility_button.gd": [
+      "ui/forged_button.gd"
+    ],
+    "ui/fantasy_theme.gd": [],
+    "ui/forged_button.gd": [
+      "ui/fantasy_theme.gd"
+    ],
+    "ui/inventory_screen_r22.gd": [
+      "ui/panel_screen_r22.gd"
+    ],
+    "ui/journal_screen_r22.gd": [
+      "game/chronicle_store_r22.gd",
+      "game/town_places_r22.gd",
+      "ui/panel_screen_r22.gd"
+    ],
+    "ui/motion_library.gd": [],
+    "ui/navigation_button.gd": [
+      "ui/forged_button.gd"
+    ],
+    "ui/panel_screen_r22.gd": [
+      "game/localization_r22.gd",
+      "game/panel_gear_r22.gd",
+      "game/panels_rules_r22.gd",
+      "game/persona_research_r21.gd",
+      "ui/portrait_rules_r22.gd",
+      "ui/town_theme_r21.gd"
+    ],
+    "ui/persona_sortie_screen.gd": [
+      "ui/town_screen_r21.gd"
+    ],
+    "ui/persona_visual_adapter.gd": [
+      "ui/character_portrait.gd"
+    ],
+    "ui/pixel_brush_r18.gd": [],
+    "ui/portrait_card.gd": [
+      "ui/character_portrait.gd",
+      "ui/fantasy_theme.gd"
+    ],
+    "ui/portrait_rules_r22.gd": [
+      "game/panels_rules_r22.gd",
+      "ui/town_theme_r21.gd"
+    ],
+    "ui/route_map.gd": [
+      "game/route_v1.gd"
+    ],
+    "ui/settings_screen_r22.gd": [
+      "game/settings_rules_r22.gd",
+      "ui/panel_screen_r22.gd"
+    ],
+    "ui/signature_fx_r18.gd": [
+      "ui/pixel_brush_r18.gd"
+    ],
+    "ui/signature_sequence.gd": [
+      "game/localization_r22.gd",
+      "ui/battle_body_r18.gd",
+      "ui/battle_face_r17.gd",
+      "ui/combat_fx.gd"
+    ],
+    "ui/status_screen_r22.gd": [
+      "ui/panel_screen_r22.gd"
+    ],
+    "ui/town_art_r21.gd": [
+      "ui/town_screen_r21.gd"
+    ],
+    "ui/town_diagonal_r21.gd": [],
+    "ui/town_map_r21.gd": [
+      "ui/town_theme_r21.gd"
+    ],
+    "ui/town_portrait_r21.gd": [
+      "ui/character_portrait.gd"
+    ],
+    "ui/town_result_r21.gd": [
+      "ui/town_screen_r21.gd"
+    ],
+    "ui/town_screen_r21.gd": [
+      "game/localization_r22.gd",
+      "ui/battle_ink_r17.gd",
+      "ui/town_diagonal_r21.gd",
+      "ui/town_map_r21.gd",
+      "ui/town_portrait_r21.gd",
+      "ui/town_theme_r21.gd"
+    ],
+    "ui/town_theme_r21.gd": [],
+    "ui/world_screen.gd": [
+      "game/cloud_store_r22.gd",
+      "game/dungeon_view_r21.gd",
+      "game/panels_state_r22.gd",
+      "game/settings_save_r22.gd",
+      "game/settings_world_r22.gd",
+      "ui/battle_screen.gd",
+      "ui/character_portrait.gd",
+      "ui/character_sprite.gd",
+      "ui/cloud_screen_r22.gd",
+      "ui/create_screen.gd",
+      "ui/expedition_screen_r22.gd",
+      "ui/expedition_supply_screen_r22.gd",
+      "ui/facilities_screen_r22.gd",
+      "ui/facility_button.gd",
+      "ui/forged_button.gd",
+      "ui/journal_screen_r22.gd",
+      "ui/navigation_button.gd",
+      "ui/persona_sortie_screen.gd",
+      "ui/persona_visual_adapter.gd",
+      "ui/portrait_card.gd",
+      "ui/route_map.gd",
+      "ui/settings_screen_r22.gd",
+      "ui/signature_sequence.gd",
+      "ui/town_art_r21.gd",
+      "ui/town_portrait_r21.gd",
+      "ui/town_result_r21.gd",
+      "ui/town_theme_r21.gd"
+    ]
+  },
+  "dependency_hashes": {
+    "game/affection_r22.gd": "bf06c803acc3a10dc36663a425506ad00ce96d439b5f2c4744fef74c38f10de5",
+    "game/battle_state.gd": "345d44217c6102ed3a0bb1afd62d79e309929b7613971e89324641459f30a8d8",
+    "game/battle_stats_r23.gd": "18f2ccf5a9dd375510524a0dbd454dd0b965a6afae7328ce70d4cef8130c58c7",
+    "game/battle_v3.gd": "16ae48f96896750c956183f345636b3f49cc2a20303d4ece0115c24609d3568b",
+    "game/chronicle_save_r22.gd": "c34ba27001bdc7d81349d7e2a0ebf63da482ee6295266dcb66db82c58b4d3b21",
+    "game/chronicle_store_r22.gd": "5c4ae74d53150a1b64d138faa08d993b3309f2edbad159e27b1848c079c75ac7",
+    "game/chronicle_world_r22.gd": "cba07b62b8a196d5f08bcc03490bb210502b7071ee89a5a567ccb237e6603c6c",
+    "game/cloud_legacy_r23.gd": "734a08716a2c9103d52e61292adf66dd17d6716b9b567e7b351ad7c38f65b5aa",
+    "game/cloud_recap_r23.gd": "0377f82105a427203b51e240d92e551c15cc3c856fe9f7f7534e2bdd651c2899",
+    "game/cloud_store_r22.gd": "ae130155bb2bfb114012b453e73198d83a74017e8ef8fdbeb9588b6d7c39d13e",
+    "game/combat_clock_r22.gd": "e39abfb5f8e81552e826500af93104a4eb968b4b3c1f896e8ebe60c50dba757c",
+    "game/combat_display_r22.gd": "2046da2d7225e47c26a549d8dec9ef1e97b3ce017de1ecc1a5c280060384410f",
+    "game/combat_events_r22.gd": "8f69f2a1afa227f34654b4df0009958c15ae2aa3c7c27288332475c00074e9e1",
+    "game/combat_passives_r23.gd": "35cf5fc992d2f117928dee92db0d49c42f785aa0b7c7ad0d3ec750d27b242743",
+    "game/combat_record_r23.gd": "69ee916de69d831314409eb2e4041c6dd4d5a651178a8a9b5a3f138b02578113",
+    "game/commerce_rules_r21.gd": "d912d273a8230174f497c9dd8d6a77405aaab970c781e7deed5362ed989f6d52",
+    "game/dialogue_player_r21.gd": "a36611a3ddbf0a58c67c4d9b49565bd80958e8c7d02c7e1600059d5c7b81344a",
+    "game/dungeon_enemy_r21.gd": "f94bf39a190debe9f71fbeaf18a5135605f067696cc08fffc4b30a080f085cfe",
+    "game/dungeon_rules_r21.gd": "17f7b762e378020d586df93745d98416d981e88742456dae70052b2ea53be16e",
+    "game/dungeon_view_r21.gd": "0b21771c93a982cc986a4918876cabaa52948fd7316b89c24764a7c94da5cf52",
+    "game/dungeon_world_r21.gd": "e93b2b52fd25f996d1e46a69736b028ca9e8107151941ea538c4b00f545d5fca",
+    "game/expansion_world.gd": "cd1c10a4643cc8dd28d4147f601eea47c77e231b80d644a35a52ed00a89d8f88",
+    "game/expedition_rules_r22.gd": "5ac624a31fa8ac9072afce7ef978928dbe2f46fbdd280e835bec22ce33ddd33f",
+    "game/expedition_supply_r22.gd": "9bde254eddb82b4ee940d62776dd88de42038ba4897c70ce8f9d8864767fe75c",
+    "game/expedition_world_r22.gd": "5ffe9fc471be8d8392f8921221cd09eeb79cbd974ad2e152e86208265a4875d5",
+    "game/facilities_world_r22.gd": "85ed2158e27da0aa450e37fcdbcec3063d776663dad7635599bfe8010d83f626",
+    "game/gear_battle_r22.gd": "559b29c47d23a20dab00b81fd1868bbc7ef5878d7543fc3e4217f6c0d5008c6e",
+    "game/gear_hooks_r22.gd": "602c857eca29701017617054e7c6ac066cd7245ab91afe1dc0d47c037540e7c3",
+    "game/gear_rules.gd": "93e515d95552549a5e3350b165e633b4bfa678b130ea90694018f5f71ccac45c",
+    "game/gear_rules_r22.gd": "e42e76621689252a2b613f22dbb619863e3b2f16b799d691e64ce4bc4e733347",
+    "game/gear_save_r22.gd": "45f5a12cb5dfe42464b31d4d1d5d5f1288ebb012549911426c90720ac703c6c6",
+    "game/guild_rules_r21.gd": "ec3a0c18af76bfdda1b048672ce70b159308bbd139f318c9b4365383c5191edc",
+    "game/guild_rules_r22.gd": "10a7197a5e239c3eb347eb587d1c0287c9efa9ec5615f00185b35117649e3171",
+    "game/josa_r22.gd": "b46eae75a3f68ac93eac819e0a89d306e727d142a65a0a4fd826cb56b4e42dd3",
+    "game/locale_pack_r23.gd": "11dfcb12a82b871af7afe69a022f7c7cf4827e03aa63ac5649f55346ebc954eb",
+    "game/localization_r22.gd": "b913edfbeae5186ab8d699207b7231fe54ee5fa913998287e15048d282b68e7c",
+    "game/panels_rules_r22.gd": "da7aa40df057a025167d84ba1571dd4050e899325e5293782ec3145ea64d2ee5",
+    "game/panels_state_r22.gd": "20330f18c9c7c783e45d2e28dee8aac062faf68b6a8e607378ebe23d8e8af685",
+    "game/panel_gear_r22.gd": "b3f56f4c93131baf8c52823eb54120f07a359dc6005bc39079226f29a213f6b9",
+    "game/personal_rules_r22.gd": "1db4a3fe4a35a90502f5545336a74b2ae3c6524e1f9fb1ac8f3b6a6d5a49591d",
+    "game/persona_combat_r22.gd": "74749ea3e5a0ad615f5ae37633dd7411dcd120ec942bf3a712a519ca49a020f8",
+    "game/persona_research_r21.gd": "39e6e5b33df34601744d5a436ef35abc24036f43f059d110c99c02b5ea900eb2",
+    "game/persona_rules.gd": "03a8a4ff346da5d1e3c117d29ca0cb9009e03b1fb3a7d0848c82bbed09d10b0d",
+    "game/persona_save_adapter.gd": "73bb929a53562cb61fca4693d0c6c9b76eb6938d2510d04bd1335ed15432cda3",
+    "game/persona_world.gd": "2873b8eb82fb4b34fda34635e010e048aaf07951ad02dbea24b4e8a26ff1cef1",
+    "game/route_v1.gd": "77a406fb1d344c8060cea1649ebceb007a59452fb04ec5e8d583886976549fe6",
+    "game/save_store.gd": "06e17a50b02b3d439090c16f4698376221b5ca69783567e5a36067083493766d",
+    "game/settings_rules_r22.gd": "33644eb10d765ed6caf0e3131c87ae7e2aa4c3f798968dd7395c3a0b93e17176",
+    "game/settings_save_r22.gd": "ed9b020abb7b64ca6db57c7ff72c4b3daa9446ee02db43341d0e7eaf991f2075",
+    "game/settings_world_r22.gd": "9447c201d6fe23e07e0c9f4704173f06d5c134875844272bd29a85d3c82c585f",
+    "game/smithy_rules_r22.gd": "dd1cbae5e22cd8a2e50847c1cc0ab07dd6773708262b91fbe13e9942465a31cd",
+    "game/town_chronicle_world_r22.gd": "502be78bc1351f1c63aa91aff4c9ce2d63fb14a3dc3b3212d0bc4c29881cc0af",
+    "game/town_places_r22.gd": "de4ac1b26f65b4a74eae34ad6785483b795b44f01eccc52d1e98cab9e24eb568",
+    "game/town_rules_r21.gd": "0047ba40c02fcf0d7ddc874b4ebc50167a81509dbf6eaffdde7ab85437d3a763",
+    "game/town_world_r21.gd": "a05a34c7a10e2b5467fe8b07897ad30f0021c840c4a5f21a7039ea2b93250fc5",
+    "game/trait_rules_r22.gd": "13bb1041187cf9b5e44c61621745dc8b5e6af5e6f52ff17bbbd9bb9950f8213a",
+    "game/ui_value_r23.gd": "7063e8543ef09e3ba7e740ec7d0886443f30a17b5a76796d6c88200b52591089",
+    "game/world_state.gd": "4b5670246e17deae68d3e7fa7d3a1d478e6724f289f32086aa7458b1f86b27a0",
+    "game/world_store.gd": "4753a86e32239de51a8ce503ffaf563c460063cf7d4ae55106670d4eb9ce0fc9",
+    "tests/a7_baseline_audit_helper.gd": "48f4c11b5f7a6cd811d3e80f9bf0f1f19c0bf8ccdb8c7ce776954172c7b7d7ce",
+    "tests/a7_baseline_battle_v3.gd": "17120006494883d57283c5bd7e323b5402fffe9192d2329081d49017640c8770",
+    "tests/a7_baseline_dungeon_enemy_r21.gd": "a56dce32252b815f7aba46f6a8f6e6f456f21b51ae60fd4116cc948b4df34903",
+    "tests/a7_baseline_fixture.gd": "2a345f8f7502283f83b52684a14ff02790808c4d6da9ca696fd11792c50fed81",
+    "tests/a7_baseline_helper.gd": "cc9fd2aa562f3f88ee013849793050426890d50c6b247df2803a376158f89bbc",
+    "tests/a7_baseline_personal_rules_r22.gd": "5641bd2cde38455a1f406a24697f71b9876575fa37f603caf82f02a8fc365254",
+    "tests/a7_baseline_trace.gd": "9c5fedfa0f8878cc79d4cf8982da5320c62915029db752ee8ab5dc0b576d086f",
+    "tests/a7_baseline_trait_rules_r22.gd": "9969f39acd1acbf87eb572d30e5bfa1e6cef47eaac0c9aa47dbec7c9c58d69e0",
+    "tests/affection_r21_test.gd": "42d68f28af5b8f8ca265f87edc8500c84d28d4db89f79093e1dddc1a5e18162a",
+    "tests/art_test.gd": "5bcc079b604a9f776d1c5f3c6d21c18b3b9d9aa522f45f2145260d3a68529580",
+    "tests/balance_probe.gd": "1d3582f26db5787613cee0c3deeced98862972475b6f5f92342550132e103d03",
+    "tests/battle_r23_batch_test.gd": "3ff0d0ae19623898bb14d204f641a9e4fe1a517608c119ad00530e04d5a9a80e",
+    "tests/battle_r23_clock_test.gd": "cfead801fb21716a17c43e32467f44faa463858edf3a5597cdee60975c248f3a",
+    "tests/battle_r23_compose_test.gd": "313e71d27259fa9efb72e96f2536b4e4a23e77431c89316348856b0d8a17dbb8",
+    "tests/battle_r23_display_test.gd": "6386cf1b112f632fa3e58475a3269b06010486a2464ef4567ceeb291005d0a61",
+    "tests/battle_r23_enemy_test.gd": "d9f277b1dc0df0327d688af7167ff4f82a61b28756554d6573b1c60cf7a58da0",
+    "tests/battle_r23_random_fixture.gd": "f0f7f88fa66d1a00e338970557923aad0b6d1224896e7aa4d328b0b799098398",
+    "tests/battle_r23_round3_test.gd": "029d4670d9df264f89d6328fb08d677f1b7777cf959f4c49be037fcc96ac13e9",
+    "tests/battle_r23_round4_test.gd": "5d9e238ae1039710d747effb27679a86be46cd1f27d31b7258b49344649d5d67",
+    "tests/battle_r23_state_fixture.gd": "c90bf7a0866bf7ad150a244d8acb90031d0bc753bd620db0faf9e3d2c61342cb",
+    "tests/battle_r23_state_test.gd": "f68e92c21be2ed3544f0334277d346afae65085469ca51e0df1dd79500d55575",
+    "tests/battle_r23_test.gd": "42dbf3caef8bc489eb37d09ce0725ce9d6910909937d1a15b97bd43eb33f76bf",
+    "tests/build_ink_r20b.gd": "8c02f0c70d721e5325c670d2c019c7dabce458496799096503e2de3b70596eea",
+    "tests/chronicle_r22_test.gd": "27d8f2ae1705dbb0f7ddce850d3c3dad90dbe3f63e9133deb6d6590b9abed55e",
+    "tests/cloud_archive_r22_test.gd": "5d645e94e2ba2bb0e34f0360ee83ae46e755be0945cefb0ae4651784d9f4da03",
+    "tests/cloud_compat_r23_test.gd": "9c3c9ed6de2245abbe89fbe1cc2c83bf9f661a56221a9b3d6d1615ada19403a0",
+    "tests/cloud_fixture_r22.gd": "6eff0798ae6bdb7bc864972d55be4fb980ccf922b414cdafb90f0fa2c2a3266c",
+    "tests/cloud_journey_r23_test.gd": "6408fc4f2d76a3b834755c7bbaa019f2a5163ebf189500749ce3bed397b5e97d",
+    "tests/cloud_r22_test.gd": "32c08541069f0c3b05f0e82aca03f486dc407d99605517460528a6098dfa9093",
+    "tests/cloud_security_fixture_r22.gd": "fa68563a8c5d5124e8a6f495a97bafaade4d56f1d3b5ea4bc214d39ab6ea3f6b",
+    "tests/combat_a6_legacy_fixture.gd": "b608a25b65c6d3385fa846779829958731797e9e4e90eccd91fa97f4ccaa1cf9",
+    "tests/combat_a6_mixed_audit.gd": "c900c868838e7f847fbbf735b061a4d7c70c08059f7322b2158cf49e43345560",
+    "tests/combat_a6_r22_fixture.gd": "c4a8b65c8102708a2b621a2a5e3cc53ecaa1f434ff4b15c707a8a8bab5845da6",
+    "tests/combat_a6_r22_test.gd": "a73a9563f5fa4b6cb0055e022abbcf324bb25dcb148586d8c4cd2f260012a592",
+    "tests/combat_a7_baseline.gd": "e2dce0ce7c7c081c08ff35399c110701c586bd95bd32e676f93f712f596a4c07",
+    "tests/combat_a7_flow_test.gd": "77d4e8dbcce0d1123d76cfad4ad6917becd3ed8d23cc2a231a50714bda6f1fe5",
+    "tests/combat_a7_gear_audit.gd": "83ccd0b221aa1a8e7f68682f5fbb7dbaab055e260cdbd3ddc0dd26764475bb8a",
+    "tests/combat_a7_gear_balanced.gd": "3002578f6057563edc6cc3694dab6fefa01818f39a0194bbcb1d18bd3f061600",
+    "tests/combat_a7_gear_baseline.gd": "47ad9279bfb7a16ab6a1408c55725c2475df632d93f3d26358e0cff95d12dd4a",
+    "tests/combat_a7_r22_test.gd": "8c21eecb2d0ebd724e3e027fa1f952db3d40da9c42c58ef6a7c9305476321dc4",
+    "tests/combat_a8_audit.gd": "bd4af6ecff1cb76a6bff47ea515748dec653a6da1fffefbd82b48b94e0af4941",
+    "tests/combat_a8_r23_tail.gd": "b1aa01d5abb4fc3e6f500ac082801923d9ff44b36769a2c8367b80837853c5ce",
+    "tests/combat_a9_native_10_audit.gd": "f184117190ab9552d533d1e4995c1ae6af16b53babf0b6582d9cfba5d3aff943",
+    "tests/combat_a9_native_40_audit.gd": "78bbc2914a04b909b19da852e5de05b0e335d0c6f5b43036a05ade80f8121370",
+    "tests/combat_a9_r22_test.gd": "45f62a57e804dfe982e6cad9e0d3c81e6b60a233abba483f864efec6b4931e67",
+    "tests/combat_p2_r22_test.gd": "7935d12d1710625329ad7849de1c13972a212cc9243ad19fd3e415fb0315f611",
+    "tests/combat_p2_r22_trace.gd": "6bc1214405abf5e5f35591493c065283d9d8dffd6e1d4f958bf858456542441c",
+    "tests/combat_p2_r22_trace_fixture.gd": "065835162d0e2e859dab834740f44e19264ca55b6ba0ef6a5c14162e551c6c74",
+    "tests/combat_p3_mixed_audit.gd": "6a57f425b0c9f13a696387990ea0658a5cf2068443435386781bec8294a16101",
+    "tests/combat_p3_r22_fixture.gd": "c90bf7a0866bf7ad150a244d8acb90031d0bc753bd620db0faf9e3d2c61342cb",
+    "tests/combat_p3_r22_test.gd": "61001e6c42bffb3697605537cfdbd14b2cc5458ff63c18e10d25b6c1ce6783ea",
+    "tests/data_r21_test.gd": "5c943fc0e9e626535696afdf92636471f2e9f26277cc301c59c9297fd7929ac7",
+    "tests/dialogue_player_r21_test.gd": "a56fe77ef7a3029dce7917776aedd3fcdb2c915416f60c89ce8c4b1a6468e55f",
+    "tests/dialogue_roster_r21_test.gd": "17d9ca6428d8981533124394fd79c383bcfa6de6c524b8aec83f8752a52a9213",
+    "tests/dungeon_r21_test.gd": "5003a5f5f9cf58b3b7ef4723fb5eb54842044185e0deba22d89e54be125aecc3",
+    "tests/enemy_action_fixture_r21.gd": "804f91e0bc58651d86016d32a4edab56354c40069e27192573f02011aacffe87",
+    "tests/enemy_action_r21_test.gd": "45aba7d683e3032b025a4a5191852eb0415d50b7fa6e864be7f758a164c74ece",
+    "tests/enemy_regression_r21_test.gd": "3f18262f1a8a25abd1c302efa5433de9be2c19e3cc7eb490dc71442f32b8ee3a",
+    "tests/enemy_review_r21_test.gd": "4fcf2b37e29c96bee84fa6aac5c36c644a45bb4468a6b94d57d4b88ae85263de",
+    "tests/expansion_test.gd": "ecfd5370c1acd2d28e4196c11a0434602e14dc5f86a63abd50e78e1b6928111f",
+    "tests/expedition_r22_test.gd": "956607086c859f6153e2a8a5d4728336bc3c50f6817f715a0c8ee05a573c007b",
+    "tests/expe_format_r23_test.gd": "de53c60c3b13f5805d6cde594c28ea681350df6812ecc984dfc05dc65e7ba949",
+    "tests/expe_level_r23_test.gd": "c446e92c36607fa1a9f3d29dfa24531a780b9dd41b55f6f6d0ef6a883f91b0ee",
+    "tests/expe_pass2_r23_test.gd": "3f779918ea2b852960dcabd7a3b44342e56d2191238ed7be8c60633d47d9ada4",
+    "tests/expe_pass3_r23_test.gd": "4454025bfab4caaee32ef0112d571463c5ed5de104cee6156ac28993c856beeb",
+    "tests/expe_r23_test.gd": "7b1af2863c2ef29693b27ffbf152d53be1d4ac7141e4cc935459bf4f8a0a6ba7",
+    "tests/expe_supply_r23_test.gd": "88f5bf039bb797d26f8dddfad99ca8efde491c71e5e79adaf6849cdb8c3ab5d1",
+    "tests/export_licenses.gd": "061763b85f774d762b247241c1b38eb6e705eb64f85b29764c6d3a4759be143a",
+    "tests/facilities_r22_test.gd": "3f909b1346964d2ce215ab00660541de4b7e457c2254d448b8f33e509b625e06",
+    "tests/gear_boundary_r22_test.gd": "8c2a4e4c9068d92557bdd32a788a447dfa7d6bb48aa8ab3a3f5de9580ebc9ed9",
+    "tests/gear_hooks_r22_test.gd": "905ac540fe18ff520d04915b0ea47678de4fa28250668acdfc8ac7e37df921c4",
+    "tests/gear_r22_test.gd": "64d55b6c3fc581cee94b3eb06349836dbded79ee930b9518335bb762550420cc",
+    "tests/gear_r23_bonus_resume_test.gd": "9b5b2d23cf46e5f1efabdf82277ab1d3cf7c0c31bdfe8796e917ff16dc184753",
+    "tests/gear_r23_facilities_test.gd": "d87210d7477db9c9e9cb2fb5efc17900e95a6a001a018a2d788937d64592f289",
+    "tests/gear_r23_hooks_test.gd": "db49bfd5f9af15cf98e07546151aade2d27ee38cb9b4fc93e5b4cdd05b900d9c",
+    "tests/gear_r23_predecessors_test.gd": "5f9279204e5789b97bee0848020955b9ebbcc6f1dd8a2187bebb6d606a0c51d2",
+    "tests/gear_r23_round2_test.gd": "11cf37ffab5c4dcb6a1a3f99847cfc8a1e2ae76c0371c69a01ef49b2d50787b1",
+    "tests/gear_r23_test.gd": "a5507284a3d32ae3c371fc74327a106e0b5cda9c92863c6145d3fc6021610156",
+    "tests/motion_asset_test.gd": "5b7eaad9c932488585ad96901239416b5456ae4aeac694a69a04b848104d270e",
+    "tests/motion_r18_integration.gd": "073f778b8992c128e5252a2e698108f97090ec01fa3a190326a5ae7c5bb4a517",
+    "tests/motion_r9_integration.gd": "323313ef979e2d7cef87f549b271c55bf94e67d1be676647512b418547c57f72",
+    "tests/motion_test.gd": "7610657dd3a9c09939ed075d917f6c8dcbf27cd285e6a96c9dba7370bbfcb5a2",
+    "tests/panels_r22_test.gd": "dfdc754e2cf37ed9c3a82a95df1856b519096b1b83513d66950ce583b0b1b92a",
+    "tests/panel_messages_r23_test.gd": "ad0f97f0e30185968a8cc862577a0e2c173282e1e92fbd36a264ce11ff1fb67b",
+    "tests/persona_combat_a8_test.gd": "13e5b10996067a7674eb28774b9af616476ba7ca723737505ea42b1f767a28cb",
+    "tests/persona_r22_test.gd": "41fb1a158acef0be97cb6e8e84211b10ed38d0f7a509097456efb3be91f7cf4e",
+    "tests/persona_research_r21_test.gd": "75a6ff8f7a2b111165f5a5f70c1d39f712fea99869bb0fb06a158144aad758f6",
+    "tests/persona_save_a8_test.gd": "de867e6176239ab5f7a49683f4f675bcafaeeb7d6b0428724fe00fc5e662e922",
+    "tests/persona_town_r21_round8_test.gd": "c5fe559da63fe78067d280120145d053920a6af1f8be4c7d0c010815b8beb25c",
+    "tests/recruit_r21_test.gd": "6133fa60e9532931c42196d9d74319e6bd621dabd4d2c5461b16ee1d5cdb24e0",
+    "tests/route_test.gd": "79a3c4d9134d5e014f8ca54cac4d166cf513c1ed8e983cfbc85be564f1242df8",
+    "tests/settings_r22_test.gd": "685a12fd5cb8dbdf5752663e15a968b4237b87efa389e87c198509d25b44a786",
+    "tests/state_test.gd": "158569fb5ddd5e7cea4ea17ec0fa2413b47d4a580be5973d18a584ed5ee077bf",
+    "tests/town_combat_r21_round14_test.gd": "a5d0da08d74f436e167da83691cf3ed7c8c31c948e541d61ee63f00649a55e21",
+    "tests/town_commerce_r21_test.gd": "4090da8d40c700c9722d297b779cbfb359e88a1cb331fbc5162a51d95a99f361",
+    "tests/town_r21_round10_test.gd": "d39c2e174a1d9d54323aca716f16e0fa95ca5be577bee9f92c8760e6bf5b78c8",
+    "tests/town_r21_round11_test.gd": "0552857b56a15355cadc946abe1d478b714a5148e588f11cae212abda2e88685",
+    "tests/town_r21_round9_test.gd": "2ede14967c230ced89466da5359743bbcbc0a2a1f19f1a764878ba1327b6c863",
+    "tests/town_r21_test.gd": "64ed459b9f8e5f7232f7d66e3af9595d8408d0dab1e82fb43dfb3e720fcb54ca",
+    "tests/ui_battle_r17_test.gd": "fc6bfb7ec538c02419516b1c91a544bfd57119981473a7fd347f009641f15116",
+    "tests/ui_battle_r18_test.gd": "57d96cb1703c197dc48ac9a5bb88e8aab88cfa81b26b8b029be5621b393b0f52",
+    "tests/ui_battle_r19_test.gd": "5ce81792ac455ef12ab1fce061d4678a8d6be8a60b5f707416b94fec0b9f0a9f",
+    "tests/ui_battle_r20_test.gd": "74006423044077ae2a1d8a6271b7754fbc97c2d9b4a88d952aaca6a8ac127c8e",
+    "tests/ui_chronicle_r22_test.gd": "5d33886e8cd84f17a0547d081a090bcb795135cebf739acee6856f9aef637811",
+    "tests/ui_cloud_r22_test.gd": "1048032ba259b13f664a6a0dd2ea03279588b49e8705521c327da7f04d910f28",
+    "tests/ui_combat_a8_test.gd": "931866b6703eeedc7faea69550c41b377240c225f63d9e78fbe847d589eb716f",
+    "tests/ui_data_r21_test.gd": "d0dfcde668b2558bcd0eba29fe1ef4bd7d171f27b7cbe055dd5686d11f1e460e",
+    "tests/ui_dialogue_journey_roster_r21_test.gd": "6d78f34ad624183855865b405555a2d8ccf1b86f1d64b7797585e444ffdd8a60",
+    "tests/ui_dialogue_r21_test.gd": "e644f5143bc547dd3807656d207b610bb7e8002f4f3359091736214472764b65",
+    "tests/ui_dialogue_roster_r21_test.gd": "f1eefc1a08dd82a81addf40b865d026ae17eb0c7ac8a6d1bd5766cbbb525e6ff",
+    "tests/ui_expedition_r22_test.gd": "25eb00cb06d89860d868a9f8fc35243cb247ec75ae2c94858ae7b641c65659a4",
+    "tests/ui_expe_pass2_r23_test.gd": "113cb4417c03dc81b924a90c281f9dc5a217a2696c38f358c4ab56d6c88e3759",
+    "tests/ui_facilities_r22_test.gd": "ba429868242028263f96a18462f3ab07dec7ad25792a1aa38390e59d8e89f9e2",
+    "tests/ui_gear_r23_test.gd": "5485a465d5606f689d4cc84dc8a69e0914febc964adbbcf38ce14f59d80fac89",
+    "tests/ui_panels_r22_test.gd": "397e593c170221b6cf95bc8ae92449a1077edcccdc52d6c9970f2169d022c4e0",
+    "tests/ui_parity_r23_test.gd": "f121892c70c522920ae017eb5ccc078c5320572e1fda3de716c72a6a06c502b2",
+    "tests/ui_persona_r22_test.gd": "6a9eff2d06f2a67158d3bcafa380f68d23b26415dae2c329d87abb90ef8dbfd7",
+    "tests/ui_persona_town_round8_test.gd": "cebe416db415a06c8a7960e89f2ee70ce09e62d0734226f331455f43fc544d29",
+    "tests/ui_remaining_native_r23_test.gd": "55957e78ce496cb857d08b30a1e9e3d510925c478e798f867dfebe789a4a5d44",
+    "tests/ui_remaining_r23_test.gd": "9c7c0fc46256ec7d2a663b16466acbdcfa206f35c112048c68d10e8b6074506b",
+    "tests/ui_rules_r23_test.gd": "21ba2ce0ff8dd9f5407efbddd80d3da03787df5d76be1ed40c00e4c3f1fb0e16",
+    "tests/ui_settings_r22_test.gd": "9da3735613bf771dad5aa4834122fdf89ec9453941e7f2eebfa68e30aa5b26ff",
+    "tests/ui_town_r21_round10_test.gd": "12685dedb73fa045905dbf3ba74d89aa8c8a0c2c1465b80f7650e42ffbbff346",
+    "tests/ui_town_r21_round11_test.gd": "6e1144ced9610f0cf4a7371249563f1ad5738050774f6c83a2175672e4c91661",
+    "tests/ui_town_r21_round2_test.gd": "bb4583041bcfea74bef422256a9e8090fb21cea8b4f935bb45f48b7eecfe96da",
+    "tests/ui_town_r21_round3_test.gd": "265403329ab042d2d16c439dd7e4a24645eab5fcef50ee5f288411c58897f7f4",
+    "tests/ui_town_r21_round4_test.gd": "45792f699fc89e7a454e02ea0b57c9b02e92cb8a4f816caaf08109ecd024b13a",
+    "tests/ui_town_r21_round5_test.gd": "4e331fe7affee4e8757795eb93eadbd4f824c5644fea5d6b0d506b30ccd53fd6",
+    "tests/ui_town_r21_round9_test.gd": "1cb07d813f26d6b211b1733257baff72316414a6b72f6797ca8816fc3a172aa9",
+    "tests/ui_town_r21_test.gd": "4fce294fa943208e9fbd3572d20e37630a0ecffc709697b2ce5854a9e96990cf",
+    "tests/ui_town_result_r21_test.gd": "975e8234e20a441c692da6d96eaa92152887a1d49c0eaa930a63d792fab0a2ff",
+    "tests/world_test.gd": "b8809b9f085ff8d3aec82ee979626b0f928c8b66487ca916cb491ae9b32f9182",
+    "tools/build_menu_portraits.gd": "e1b6c83394cff1015408837585cab2306495f7728187777a7e07312591b40d04",
+    "tools/check_ui_input.gd": "7b0447804e3b9348d41cf5d076af8d43a08fe45ced11f59e7b95bdefd70a3623",
+    "tools/export_face_portraits.gd": "1d64871e9a9202f487ec4cbb9088923140983774e7d08ec60c4c1c10f6eb6683",
+    "tools/review_faces.gd": "c0fe6efd64732d97350070c78b42103c829267a698ae782e58c49591692dc0e9",
+    "tools/review_faces_r17.gd": "4ad3cf2b3ae86b0d35d10ff2fcf8ffd8d91dc9113202baecc8d5d3f5d6e6fb8d",
+    "tools/review_portraits.gd": "ef09ff4cfc5d414eb95ac1210c112e31d4e50dd7ab9e67d7f6ad61272a1e0811",
+    "tools/review_ui.gd": "4910909f7fb69460ab9cbc34744480f03ee06949733f471f048946fac746c667",
+    "tools/review_ui_r17.gd": "5e45fd7eaa02527f5860924726e661444bbaafd52ff13a83969cc884213d97fc",
+    "ui/battle_body_r18.gd": "4cfba25fc9ffc4ca30e40d4f076fec142e2830e5ae3ac341fb32438f10ee964e",
+    "ui/battle_face_r17.gd": "88204e725a6071ed23e654af7bf1e90ae5a386d7cd4ec24a27dee139a37c74c4",
+    "ui/battle_image_r19.gd": "be2d327508c55d23c3032494a7eed4802349f6e952d4a32180db0445d86d7da5",
+    "ui/battle_ink_r17.gd": "f96c921a996171560769af582145e3e5f7c230b52af4a4d16307c9120358ec87",
+    "ui/battle_screen.gd": "b157a9a9829faa04a0a8640d9e86206f4f91d42109083dfaa70d08b84b17ea84",
+    "ui/character_portrait.gd": "508a52e4dcfea42804b94f81c8e2308ee76789a9fdcb261e3211d69c528519fa",
+    "ui/character_sprite.gd": "b9b7d568d3fe9b73cf4edc6e99e99ff97da6077a4bf1c4b6265aa219a65d9ab4",
+    "ui/cloud_screen_r22.gd": "bdb708661c08ed2d938608733e3a38ec9883c9156ace3ea258f505589e51ecae",
+    "ui/codex_screen_r22.gd": "832523ac6bf7c004c398d11fe30d2311621b4b4405a5106b222723ec2cf0e6ce",
+    "ui/combat_fx.gd": "102a34a80c94f401d0fc6111410f1ee333f295fa36d04fd8b3402754cf882ab0",
+    "ui/combat_presentation.gd": "085ea3fe6627f3b8b56a717ba9fe6a25553ddae7e8fa52cc40b4ab49e0fa482a",
+    "ui/combat_timeline.gd": "a1747df9fe53e6c037df15053fe8db452a4cb33868446ba48dc4896784317aaf",
+    "ui/create_screen.gd": "66c36e13367cba6e6e07a69026bd804e07a332fa5c0e24f582ad624165581523",
+    "ui/expedition_floor_picker_r22.gd": "d01e7b711ba6e0dcdb68cc5d19cca5ff84fda5c400c475c593df0d6aca8b42b9",
+    "ui/expedition_screen_r22.gd": "b89c281700f3580894b8c2f0af143121a579f6fa14b1a7d05604294e37659add",
+    "ui/expedition_supply_screen_r22.gd": "ae8f1c55b08587a71d11c38f4d2ec4cdbf5f5552d82883560c66ec9b5f5993f6",
+    "ui/facilities_screen_r22.gd": "37507fc617d6b94883440e02dea4a146334ea8944ae7a8ed506f422dd7512aeb",
+    "ui/facility_button.gd": "088ad533d5f4ddb4aaaa88a1b12532d2e68b807548d17a6385dc4d69e90eef72",
+    "ui/fantasy_theme.gd": "ea6f3b777ce41ef4ab76870fe4c19111660caee7ba872c165a39328e2b9234c8",
+    "ui/forged_button.gd": "1558dcd196f24b802d606ad12e128903419c406c734aa0da429875cb61bbfb74",
+    "ui/inventory_screen_r22.gd": "ea665baf2e5a63cc1c12690b2bb03c00d61191eaa3f77224d40c9e9d3b518829",
+    "ui/journal_screen_r22.gd": "94eb1d8b1700f90c7a6bdf3c164175f33f7990341220ee43e6851ae329af714e",
+    "ui/motion_library.gd": "43a4ce3b1ce19bb0ceb169f7bed6846f932454faeb66551538170c6dbbbe1162",
+    "ui/navigation_button.gd": "1acb7b6906562e39d81d85b2e977933b9d18255083d75c9985ac3ee7c2d2b699",
+    "ui/panel_screen_r22.gd": "0989faa99814a9596744e3b5621a35d44da67cb5b638a7fdde42bdb436aba686",
+    "ui/persona_sortie_screen.gd": "a23e4808fca3bc23bffa0aaf6e1dec20dc14d4666de4ab7d33438ac76906e749",
+    "ui/persona_visual_adapter.gd": "1da34c3eb8be551610cae78abb309dfb35ae9310a202f4552724da57eaa7f69a",
+    "ui/pixel_brush_r18.gd": "0a8346d7b14bc4ccb5801ec88963706a3bd831147355ec16ca9aa845cab66458",
+    "ui/portrait_card.gd": "da44e36b83fc3e74d2121558cf99d881798897c86860e46d0472d1674b73379d",
+    "ui/portrait_rules_r22.gd": "7159f96dd310b4872c62e80dab1943fd19ddcdc0b9e47dc83f79a5f24a33e36d",
+    "ui/route_map.gd": "42335b6a68064a5bda1e9d3fccfe585c4e171bf8e3d849f37605932ec84c0e43",
+    "ui/settings_screen_r22.gd": "3ea69e21973b6940de8246aafbf9e3bce863f9176075d0db87377f11645b8367",
+    "ui/signature_fx_r18.gd": "bc34af8445f5f7e653a9e6e0c7744cc9a6fcb17c800d39820cea0ab802750039",
+    "ui/signature_sequence.gd": "2348c7e0dbc9aa78aea73de630b302679d4a8fc4af6c1a63126f348512db9f98",
+    "ui/status_screen_r22.gd": "7378888945708cd901869aa72a3d788e35de4fa35e84a5a43cd3fb96bd8cf0d6",
+    "ui/town_art_r21.gd": "fcd67f4f6e3ca334f2562d4550ea1dc8e7231f5efbe04c2a4b88d3124016336d",
+    "ui/town_diagonal_r21.gd": "66b9e140ac9e4927f8e00a32bca3f42982b22e42bf6f0d0eb1fa28140ea9d775",
+    "ui/town_map_r21.gd": "303235776b1f5b2af2aba6e094f3edd697bd2c0354add590e961fed0e8af4530",
+    "ui/town_portrait_r21.gd": "8adcb12f76b8c9d5b16bd79bc6fe02eb278586677f482508af90a31f0616da80",
+    "ui/town_result_r21.gd": "53d9b3c7866e1079afac3f848afe9f99a71401c1d8f6e229bedcaf18fdf868c5",
+    "ui/town_screen_r21.gd": "4f2540d6791128cfd3c82ab30bdc4b178aa92e76957c65368e909251f2d1622c",
+    "ui/town_theme_r21.gd": "d26b9b4a3e0d22c9044b60eb57cc03bc5b020206f328d5f9e4c4b7600a158283",
+    "ui/world_screen.gd": "344db589ff429b55f20eaad41d1eba0c5735654c3a47831d12817d24aa394b50"
+  },
+  "method": "Conservative transitive literal .gd resource references. Start lower bound = preserved completion-row mtime minus measured duration minus 5s, compared with fix mtime plus 2s grace. New engines per test; affected early/running tests and new test rerun; import rerun. Main code-lock rejection is expected, not suppressed."
+}

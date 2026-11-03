@@ -7,37 +7,54 @@
       {
         "cmp": true,
         "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "중간",
+        "difficulty": "높음",
         "elite": false,
         "gold": 100.0,
         "id": 1.0,
+        "kind": "회수",
+        "level": 4.0,
+        "lv": 4.0,
+        "name": "잃어버린 유품 회수",
+        "reward_v": 2.0,
+        "rift": "남동 숲 균열",
+        "source_id": "q1",
+        "stars": 2.0,
+        "title": "남동 숲 균열, 잃어버린 유품 회수"
+      },
+      {
+        "cmp": true,
+        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
+        "difficulty": "중간",
+        "elite": false,
+        "gold": 100.0,
+        "id": 2.0,
         "kind": "회수",
         "level": 1.0,
         "lv": 1.0,
         "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
         "rift": "남서 설산 균열",
-        "source_id": "q1",
+        "source_id": "q2",
         "stars": 2.0,
         "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
         "difficulty": "엘리트",
         "elite": true,
         "gold": 100.0,
-        "id": 2.0,
-        "kind": "구조",
+        "id": 3.0,
+        "kind": "토벌",
         "level": 1.0,
         "lv": 1.0,
-        "name": "고립된 탐사대 구조",
+        "name": "균열 핵 토벌",
         "reward_v": 2.0,
-        "rift": "남서 설산 균열",
-        "source_id": "q2",
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
         "stars": 2.0,
-        "strength": 1.9,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
+        "strength": 1.6,
+        "title": "남동 숲 균열, 균열 핵 토벌"
       },
       {
         "cmp": true,
@@ -45,40 +62,23 @@
         "difficulty": "낮음",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 4.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
-        "source_id": "q3",
-        "stars": 2.0,
-        "title": "남동 숲 균열, 고립된 탐사대 구조"
-      },
-      {
-        "cmp": true,
-        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "높음",
-        "elite": false,
-        "gold": 100.0,
-        "id": 4.0,
-        "kind": "회수",
-        "level": 4.0,
-        "lv": 4.0,
-        "name": "잃어버린 유품 회수",
-        "reward_v": 2.0,
-        "rift": "남동 숲 균열",
         "source_id": "q4",
         "stars": 2.0,
-        "title": "남동 숲 균열, 잃어버린 유품 회수"
+        "title": "남동 숲 균열, 고립된 탐사대 구조"
       }
     ],
     "chronicle_r22": {
       "list": [],
       "queue": [
         "Day 1: First met Teiris, who joined as a companion.",
-        "Day 1: Marceline joined as a companion through a guild introduction."
+        "Day 1: Haldric joined as a companion through a guild introduction."
       ]
     },
     "commerce_r21": {
@@ -165,8 +165,8 @@
     },
     "log": [
       "테이리스 · 대화하기",
-      "페넬라의 소개 · 마르셀린 합류",
-      "학술원 폐허 상층 · 1층 출발"
+      "페넬라의 소개 · 할드리크 합류",
+      "Academy Ruins: Upper Halls · 1층 출발"
     ],
     "members": {
       "adeline": {
@@ -355,7 +355,7 @@
         "aff": 2.0,
         "hp": 77.0,
         "level": 1.0,
-        "mp": 92.0,
+        "mp": 86.0,
         "xp": 0.0
       },
       "tika": {
@@ -392,7 +392,7 @@
     },
     "owned": [
       "teiris",
-      "marceline"
+      "haldric"
     ],
     "panels_r22": {
       "bg": {
@@ -642,7 +642,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 1318829225.0,
+    "rng": 895864677.0,
     "run": {
       "ask": false,
       "battle": {
@@ -770,7 +770,7 @@
         },
         "teiris": {
           "hp": 77.0,
-          "mp": 92.0
+          "mp": 86.0
         }
       },
       "next_available": false,
@@ -846,9 +846,9 @@
     "summary": {},
     "town_r21": {
       "counter": 5.0,
-      "meet": "marceline",
+      "meet": "haldric",
       "qn": 4.0,
-      "seed": 1318829225.0
+      "seed": 895864677.0
     },
     "ui": {
       "msg": "",
@@ -865,37 +865,54 @@
       {
         "cmp": true,
         "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "중간",
+        "difficulty": "높음",
         "elite": false,
         "gold": 100.0,
         "id": 1.0,
+        "kind": "회수",
+        "level": 4.0,
+        "lv": 4.0,
+        "name": "잃어버린 유품 회수",
+        "reward_v": 2.0,
+        "rift": "남동 숲 균열",
+        "source_id": "q1",
+        "stars": 2.0,
+        "title": "남동 숲 균열, 잃어버린 유품 회수"
+      },
+      {
+        "cmp": true,
+        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
+        "difficulty": "중간",
+        "elite": false,
+        "gold": 100.0,
+        "id": 2.0,
         "kind": "회수",
         "level": 1.0,
         "lv": 1.0,
         "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
         "rift": "남서 설산 균열",
-        "source_id": "q1",
+        "source_id": "q2",
         "stars": 2.0,
         "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
         "difficulty": "엘리트",
         "elite": true,
         "gold": 100.0,
-        "id": 2.0,
-        "kind": "구조",
+        "id": 3.0,
+        "kind": "토벌",
         "level": 1.0,
         "lv": 1.0,
-        "name": "고립된 탐사대 구조",
+        "name": "균열 핵 토벌",
         "reward_v": 2.0,
-        "rift": "남서 설산 균열",
-        "source_id": "q2",
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
         "stars": 2.0,
-        "strength": 1.9,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
+        "strength": 1.6,
+        "title": "남동 숲 균열, 균열 핵 토벌"
       },
       {
         "cmp": true,
@@ -903,40 +920,23 @@
         "difficulty": "낮음",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 4.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
-        "source_id": "q3",
-        "stars": 2.0,
-        "title": "남동 숲 균열, 고립된 탐사대 구조"
-      },
-      {
-        "cmp": true,
-        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "높음",
-        "elite": false,
-        "gold": 100.0,
-        "id": 4.0,
-        "kind": "회수",
-        "level": 4.0,
-        "lv": 4.0,
-        "name": "잃어버린 유품 회수",
-        "reward_v": 2.0,
-        "rift": "남동 숲 균열",
         "source_id": "q4",
         "stars": 2.0,
-        "title": "남동 숲 균열, 잃어버린 유품 회수"
+        "title": "남동 숲 균열, 고립된 탐사대 구조"
       }
     ],
     "chronicle_r22": {
       "list": [],
       "queue": [
         "Day 1: First met Teiris, who joined as a companion.",
-        "Day 1: Marceline joined as a companion through a guild introduction."
+        "Day 1: Haldric joined as a companion through a guild introduction."
       ]
     },
     "commerce_r21": {
@@ -1024,8 +1024,8 @@
     },
     "log": [
       "테이리스 · 대화하기",
-      "페넬라의 소개 · 마르셀린 합류",
-      "학술원 폐허 상층 · 1층 출발",
+      "페넬라의 소개 · 할드리크 합류",
+      "Academy Ruins: Upper Halls · 1층 출발",
       "탐색 1: 전투 승리 · 금화 24 · 경험치 26"
     ],
     "members": {
@@ -1252,7 +1252,7 @@
     },
     "owned": [
       "teiris",
-      "marceline"
+      "haldric"
     ],
     "panels_r22": {
       "bg": {
@@ -1502,7 +1502,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 1318829225.0,
+    "rng": 895864677.0,
     "run": {
       "ask": false,
       "battle": {
@@ -1708,9 +1708,9 @@
     "summary": {},
     "town_r21": {
       "counter": 5.0,
-      "meet": "marceline",
+      "meet": "haldric",
       "qn": 4.0,
-      "seed": 1318829225.0
+      "seed": 895864677.0
     },
     "ui": {
       "msg": "",
@@ -1727,37 +1727,54 @@
       {
         "cmp": true,
         "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "중간",
+        "difficulty": "높음",
         "elite": false,
         "gold": 100.0,
         "id": 1.0,
+        "kind": "회수",
+        "level": 4.0,
+        "lv": 4.0,
+        "name": "잃어버린 유품 회수",
+        "reward_v": 2.0,
+        "rift": "남동 숲 균열",
+        "source_id": "q1",
+        "stars": 2.0,
+        "title": "남동 숲 균열, 잃어버린 유품 회수"
+      },
+      {
+        "cmp": true,
+        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
+        "difficulty": "중간",
+        "elite": false,
+        "gold": 100.0,
+        "id": 2.0,
         "kind": "회수",
         "level": 1.0,
         "lv": 1.0,
         "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
         "rift": "남서 설산 균열",
-        "source_id": "q1",
+        "source_id": "q2",
         "stars": 2.0,
         "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
         "difficulty": "엘리트",
         "elite": true,
         "gold": 100.0,
-        "id": 2.0,
-        "kind": "구조",
+        "id": 3.0,
+        "kind": "토벌",
         "level": 1.0,
         "lv": 1.0,
-        "name": "고립된 탐사대 구조",
+        "name": "균열 핵 토벌",
         "reward_v": 2.0,
-        "rift": "남서 설산 균열",
-        "source_id": "q2",
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
         "stars": 2.0,
-        "strength": 1.9,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
+        "strength": 1.6,
+        "title": "남동 숲 균열, 균열 핵 토벌"
       },
       {
         "cmp": true,
@@ -1765,40 +1782,23 @@
         "difficulty": "낮음",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 4.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
-        "source_id": "q3",
-        "stars": 2.0,
-        "title": "남동 숲 균열, 고립된 탐사대 구조"
-      },
-      {
-        "cmp": true,
-        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "높음",
-        "elite": false,
-        "gold": 100.0,
-        "id": 4.0,
-        "kind": "회수",
-        "level": 4.0,
-        "lv": 4.0,
-        "name": "잃어버린 유품 회수",
-        "reward_v": 2.0,
-        "rift": "남동 숲 균열",
         "source_id": "q4",
         "stars": 2.0,
-        "title": "남동 숲 균열, 잃어버린 유품 회수"
+        "title": "남동 숲 균열, 고립된 탐사대 구조"
       }
     ],
     "chronicle_r22": {
       "list": [],
       "queue": [
         "Day 1: First met Teiris, who joined as a companion.",
-        "Day 1: Marceline joined as a companion through a guild introduction."
+        "Day 1: Haldric joined as a companion through a guild introduction."
       ]
     },
     "commerce_r21": {
@@ -1886,8 +1886,8 @@
     },
     "log": [
       "테이리스 · 대화하기",
-      "페넬라의 소개 · 마르셀린 합류",
-      "학술원 폐허 상층 · 1층 출발",
+      "페넬라의 소개 · 할드리크 합류",
+      "Academy Ruins: Upper Halls · 1층 출발",
       "탐색 1: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 2: 전투 승리 · 금화 24 · 경험치 26"
     ],
@@ -2115,7 +2115,7 @@
     },
     "owned": [
       "teiris",
-      "marceline"
+      "haldric"
     ],
     "panels_r22": {
       "bg": {
@@ -2365,7 +2365,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 1318829225.0,
+    "rng": 895864677.0,
     "run": {
       "ask": false,
       "battle": {
@@ -2572,9 +2572,9 @@
     "summary": {},
     "town_r21": {
       "counter": 5.0,
-      "meet": "marceline",
+      "meet": "haldric",
       "qn": 4.0,
-      "seed": 1318829225.0
+      "seed": 895864677.0
     },
     "ui": {
       "msg": "",
@@ -2591,37 +2591,54 @@
       {
         "cmp": true,
         "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "중간",
+        "difficulty": "높음",
         "elite": false,
         "gold": 100.0,
         "id": 1.0,
+        "kind": "회수",
+        "level": 4.0,
+        "lv": 4.0,
+        "name": "잃어버린 유품 회수",
+        "reward_v": 2.0,
+        "rift": "남동 숲 균열",
+        "source_id": "q1",
+        "stars": 2.0,
+        "title": "남동 숲 균열, 잃어버린 유품 회수"
+      },
+      {
+        "cmp": true,
+        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
+        "difficulty": "중간",
+        "elite": false,
+        "gold": 100.0,
+        "id": 2.0,
         "kind": "회수",
         "level": 1.0,
         "lv": 1.0,
         "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
         "rift": "남서 설산 균열",
-        "source_id": "q1",
+        "source_id": "q2",
         "stars": 2.0,
         "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
         "difficulty": "엘리트",
         "elite": true,
         "gold": 100.0,
-        "id": 2.0,
-        "kind": "구조",
+        "id": 3.0,
+        "kind": "토벌",
         "level": 1.0,
         "lv": 1.0,
-        "name": "고립된 탐사대 구조",
+        "name": "균열 핵 토벌",
         "reward_v": 2.0,
-        "rift": "남서 설산 균열",
-        "source_id": "q2",
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
         "stars": 2.0,
-        "strength": 1.9,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
+        "strength": 1.6,
+        "title": "남동 숲 균열, 균열 핵 토벌"
       },
       {
         "cmp": true,
@@ -2629,40 +2646,23 @@
         "difficulty": "낮음",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 4.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
-        "source_id": "q3",
-        "stars": 2.0,
-        "title": "남동 숲 균열, 고립된 탐사대 구조"
-      },
-      {
-        "cmp": true,
-        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "높음",
-        "elite": false,
-        "gold": 100.0,
-        "id": 4.0,
-        "kind": "회수",
-        "level": 4.0,
-        "lv": 4.0,
-        "name": "잃어버린 유품 회수",
-        "reward_v": 2.0,
-        "rift": "남동 숲 균열",
         "source_id": "q4",
         "stars": 2.0,
-        "title": "남동 숲 균열, 잃어버린 유품 회수"
+        "title": "남동 숲 균열, 고립된 탐사대 구조"
       }
     ],
     "chronicle_r22": {
       "list": [],
       "queue": [
         "Day 1: First met Teiris, who joined as a companion.",
-        "Day 1: Marceline joined as a companion through a guild introduction."
+        "Day 1: Haldric joined as a companion through a guild introduction."
       ]
     },
     "commerce_r21": {
@@ -2750,8 +2750,8 @@
     },
     "log": [
       "테이리스 · 대화하기",
-      "페넬라의 소개 · 마르셀린 합류",
-      "학술원 폐허 상층 · 1층 출발",
+      "페넬라의 소개 · 할드리크 합류",
+      "Academy Ruins: Upper Halls · 1층 출발",
       "탐색 1: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 2: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 3: 전투 승리 · 금화 24 · 경험치 26"
@@ -2980,7 +2980,7 @@
     },
     "owned": [
       "teiris",
-      "marceline"
+      "haldric"
     ],
     "panels_r22": {
       "bg": {
@@ -3230,7 +3230,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 1318829225.0,
+    "rng": 895864677.0,
     "run": {
       "ask": false,
       "battle": {
@@ -3438,9 +3438,9 @@
     "summary": {},
     "town_r21": {
       "counter": 5.0,
-      "meet": "marceline",
+      "meet": "haldric",
       "qn": 4.0,
-      "seed": 1318829225.0
+      "seed": 895864677.0
     },
     "ui": {
       "msg": "",
@@ -3457,37 +3457,54 @@
       {
         "cmp": true,
         "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "중간",
+        "difficulty": "높음",
         "elite": false,
         "gold": 100.0,
         "id": 1.0,
+        "kind": "회수",
+        "level": 4.0,
+        "lv": 4.0,
+        "name": "잃어버린 유품 회수",
+        "reward_v": 2.0,
+        "rift": "남동 숲 균열",
+        "source_id": "q1",
+        "stars": 2.0,
+        "title": "남동 숲 균열, 잃어버린 유품 회수"
+      },
+      {
+        "cmp": true,
+        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
+        "difficulty": "중간",
+        "elite": false,
+        "gold": 100.0,
+        "id": 2.0,
         "kind": "회수",
         "level": 1.0,
         "lv": 1.0,
         "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
         "rift": "남서 설산 균열",
-        "source_id": "q1",
+        "source_id": "q2",
         "stars": 2.0,
         "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
         "difficulty": "엘리트",
         "elite": true,
         "gold": 100.0,
-        "id": 2.0,
-        "kind": "구조",
+        "id": 3.0,
+        "kind": "토벌",
         "level": 1.0,
         "lv": 1.0,
-        "name": "고립된 탐사대 구조",
+        "name": "균열 핵 토벌",
         "reward_v": 2.0,
-        "rift": "남서 설산 균열",
-        "source_id": "q2",
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
         "stars": 2.0,
-        "strength": 1.9,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
+        "strength": 1.6,
+        "title": "남동 숲 균열, 균열 핵 토벌"
       },
       {
         "cmp": true,
@@ -3495,40 +3512,23 @@
         "difficulty": "낮음",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 4.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
-        "source_id": "q3",
-        "stars": 2.0,
-        "title": "남동 숲 균열, 고립된 탐사대 구조"
-      },
-      {
-        "cmp": true,
-        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "높음",
-        "elite": false,
-        "gold": 100.0,
-        "id": 4.0,
-        "kind": "회수",
-        "level": 4.0,
-        "lv": 4.0,
-        "name": "잃어버린 유품 회수",
-        "reward_v": 2.0,
-        "rift": "남동 숲 균열",
         "source_id": "q4",
         "stars": 2.0,
-        "title": "남동 숲 균열, 잃어버린 유품 회수"
+        "title": "남동 숲 균열, 고립된 탐사대 구조"
       }
     ],
     "chronicle_r22": {
       "list": [],
       "queue": [
         "Day 1: First met Teiris, who joined as a companion.",
-        "Day 1: Marceline joined as a companion through a guild introduction.",
+        "Day 1: Haldric joined as a companion through a guild introduction.",
         "Day 1: Cleared Great Dungeon floor 1; boss: Head Tutor's Remains",
         "Day 1: Leveled up: {{user}} Lv 1 → 3, Teiris Lv 1 → 3"
       ]
@@ -3545,9 +3545,7 @@
     "day": 2.0,
     "dialogue_r21": {
       "bark_counts": {
-        "battle_start": 1.0,
         "departure": 1.0,
-        "elite_boss_before": 1.0,
         "floor_entry": 1.0,
         "return": 1.0,
         "victory": 4.0
@@ -3658,14 +3656,14 @@
     },
     "log": [
       "테이리스 · 대화하기",
-      "페넬라의 소개 · 마르셀린 합류",
-      "학술원 폐허 상층 · 1층 출발",
+      "페넬라의 소개 · 할드리크 합류",
+      "Academy Ruins: Upper Halls · 1층 출발",
       "탐색 1: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 2: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 3: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 4: 전투 승리 · 금화 24 · 경험치 19",
-      "탐색 5: 주화 48닢 발견",
-      "휴식: 당신 HP +0 · MP +0 / 테이리스 HP +0 · MP +0",
+      "낡은 주머니에서 주화 48닢을 찾았다.",
+      "휴식. 파티 전원이 숨을 돌렸다({{user}} HP +0, MP +0 / 테이리스 HP +0, MP +0)",
       "1층 돌파 · 금화 244 · 경험치 196"
     ],
     "members": {
@@ -3892,7 +3890,7 @@
     },
     "owned": [
       "teiris",
-      "marceline"
+      "haldric"
     ],
     "panels_r22": {
       "bg": {
@@ -4142,7 +4140,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 1318829225.0,
+    "rng": 895864677.0,
     "run": {
       "ask": false,
       "battle": {},
@@ -4162,8 +4160,8 @@
         "탐색 2: 전투 승리 · 금화 24 · 경험치 26",
         "탐색 3: 전투 승리 · 금화 24 · 경험치 26",
         "탐색 4: 전투 승리 · 금화 24 · 경험치 19",
-        "탐색 5: 주화 48닢 발견",
-        "휴식: 당신 HP +0 · MP +0 / 테이리스 HP +0 · MP +0",
+        "탐색 5: 낡은 주머니에서 주화 48닢을 찾았다.",
+        "휴식: 파티 HP +30%",
         "1층 돌파 · 금화 244 · 경험치 196"
       ],
       "loot_gear": [],
@@ -4286,9 +4284,9 @@
     },
     "town_r21": {
       "counter": 5.0,
-      "meet": "marceline",
+      "meet": "haldric",
       "qn": 4.0,
-      "seed": 1318829225.0
+      "seed": 895864677.0
     },
     "ui": {
       "msg": "",
@@ -4307,37 +4305,54 @@
       {
         "cmp": true,
         "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "중간",
+        "difficulty": "높음",
         "elite": false,
         "gold": 100.0,
         "id": 1.0,
+        "kind": "회수",
+        "level": 4.0,
+        "lv": 4.0,
+        "name": "잃어버린 유품 회수",
+        "reward_v": 2.0,
+        "rift": "남동 숲 균열",
+        "source_id": "q1",
+        "stars": 2.0,
+        "title": "남동 숲 균열, 잃어버린 유품 회수"
+      },
+      {
+        "cmp": true,
+        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
+        "difficulty": "중간",
+        "elite": false,
+        "gold": 100.0,
+        "id": 2.0,
         "kind": "회수",
         "level": 1.0,
         "lv": 1.0,
         "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
         "rift": "남서 설산 균열",
-        "source_id": "q1",
+        "source_id": "q2",
         "stars": 2.0,
         "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
         "difficulty": "엘리트",
         "elite": true,
         "gold": 100.0,
-        "id": 2.0,
-        "kind": "구조",
+        "id": 3.0,
+        "kind": "토벌",
         "level": 1.0,
         "lv": 1.0,
-        "name": "고립된 탐사대 구조",
+        "name": "균열 핵 토벌",
         "reward_v": 2.0,
-        "rift": "남서 설산 균열",
-        "source_id": "q2",
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
         "stars": 2.0,
-        "strength": 1.9,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
+        "strength": 1.6,
+        "title": "남동 숲 균열, 균열 핵 토벌"
       },
       {
         "cmp": true,
@@ -4345,33 +4360,16 @@
         "difficulty": "낮음",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 4.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
-        "source_id": "q3",
-        "stars": 2.0,
-        "title": "남동 숲 균열, 고립된 탐사대 구조"
-      },
-      {
-        "cmp": true,
-        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "높음",
-        "elite": false,
-        "gold": 100.0,
-        "id": 4.0,
-        "kind": "회수",
-        "level": 4.0,
-        "lv": 4.0,
-        "name": "잃어버린 유품 회수",
-        "reward_v": 2.0,
-        "rift": "남동 숲 균열",
         "source_id": "q4",
         "stars": 2.0,
-        "title": "남동 숲 균열, 잃어버린 유품 회수"
+        "title": "남동 숲 균열, 고립된 탐사대 구조"
       }
     ],
     "chronicle_r22": {
@@ -4926,7 +4924,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 1318829225.0,
+    "rng": 895864677.0,
     "run": {},
     "runs": 0.0,
     "scenario": "teiris",
@@ -4942,7 +4940,7 @@
     "town_r21": {
       "counter": 4.0,
       "qn": 4.0,
-      "seed": 1318829225.0
+      "seed": 895864677.0
     },
     "ui": {
       "msg": "",
@@ -4959,37 +4957,54 @@
       {
         "cmp": true,
         "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "중간",
+        "difficulty": "높음",
         "elite": false,
         "gold": 100.0,
         "id": 1.0,
+        "kind": "회수",
+        "level": 4.0,
+        "lv": 4.0,
+        "name": "잃어버린 유품 회수",
+        "reward_v": 2.0,
+        "rift": "남동 숲 균열",
+        "source_id": "q1",
+        "stars": 2.0,
+        "title": "남동 숲 균열, 잃어버린 유품 회수"
+      },
+      {
+        "cmp": true,
+        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
+        "difficulty": "중간",
+        "elite": false,
+        "gold": 100.0,
+        "id": 2.0,
         "kind": "회수",
         "level": 1.0,
         "lv": 1.0,
         "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
         "rift": "남서 설산 균열",
-        "source_id": "q1",
+        "source_id": "q2",
         "stars": 2.0,
         "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
         "difficulty": "엘리트",
         "elite": true,
         "gold": 100.0,
-        "id": 2.0,
-        "kind": "구조",
+        "id": 3.0,
+        "kind": "토벌",
         "level": 1.0,
         "lv": 1.0,
-        "name": "고립된 탐사대 구조",
+        "name": "균열 핵 토벌",
         "reward_v": 2.0,
-        "rift": "남서 설산 균열",
-        "source_id": "q2",
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
         "stars": 2.0,
-        "strength": 1.9,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
+        "strength": 1.6,
+        "title": "남동 숲 균열, 균열 핵 토벌"
       },
       {
         "cmp": true,
@@ -4997,40 +5012,23 @@
         "difficulty": "낮음",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 4.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
-        "source_id": "q3",
-        "stars": 2.0,
-        "title": "남동 숲 균열, 고립된 탐사대 구조"
-      },
-      {
-        "cmp": true,
-        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "높음",
-        "elite": false,
-        "gold": 100.0,
-        "id": 4.0,
-        "kind": "회수",
-        "level": 4.0,
-        "lv": 4.0,
-        "name": "잃어버린 유품 회수",
-        "reward_v": 2.0,
-        "rift": "남동 숲 균열",
         "source_id": "q4",
         "stars": 2.0,
-        "title": "남동 숲 균열, 잃어버린 유품 회수"
+        "title": "남동 숲 균열, 고립된 탐사대 구조"
       }
     ],
     "chronicle_r22": {
       "list": [],
       "queue": [
         "Day 1: First met Teiris, who joined as a companion.",
-        "Day 1: Marceline joined as a companion through a guild introduction."
+        "Day 1: Haldric joined as a companion through a guild introduction."
       ]
     },
     "commerce_r21": {
@@ -5134,8 +5132,8 @@
     },
     "log": [
       "테이리스 · 대화하기",
-      "페넬라의 소개 · 마르셀린 합류",
-      "학술원 폐허 상층 · 1층 출발"
+      "페넬라의 소개 · 할드리크 합류",
+      "Academy Ruins: Upper Halls · 1층 출발"
     ],
     "members": {
       "adeline": {
@@ -5324,7 +5322,7 @@
         "aff": 2.0,
         "hp": 77.0,
         "level": 1.0,
-        "mp": 92.0,
+        "mp": 86.0,
         "xp": 0.0
       },
       "tika": {
@@ -5361,7 +5359,7 @@
     },
     "owned": [
       "teiris",
-      "marceline"
+      "haldric"
     ],
     "panels_r22": {
       "bg": {
@@ -5611,7 +5609,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 1318829225.0,
+    "rng": 895864677.0,
     "run": {
       "ask": false,
       "battle": {},
@@ -5636,7 +5634,7 @@
         },
         "teiris": {
           "hp": 77.0,
-          "mp": 92.0
+          "mp": 86.0
         }
       },
       "next_available": false,
@@ -5708,9 +5706,9 @@
     "summary": {},
     "town_r21": {
       "counter": 5.0,
-      "meet": "marceline",
+      "meet": "haldric",
       "qn": 4.0,
-      "seed": 1318829225.0
+      "seed": 895864677.0
     },
     "ui": {
       "msg": "",
@@ -5727,37 +5725,54 @@
       {
         "cmp": true,
         "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "중간",
+        "difficulty": "높음",
         "elite": false,
         "gold": 100.0,
         "id": 1.0,
+        "kind": "회수",
+        "level": 4.0,
+        "lv": 4.0,
+        "name": "잃어버린 유품 회수",
+        "reward_v": 2.0,
+        "rift": "남동 숲 균열",
+        "source_id": "q1",
+        "stars": 2.0,
+        "title": "남동 숲 균열, 잃어버린 유품 회수"
+      },
+      {
+        "cmp": true,
+        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
+        "difficulty": "중간",
+        "elite": false,
+        "gold": 100.0,
+        "id": 2.0,
         "kind": "회수",
         "level": 1.0,
         "lv": 1.0,
         "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
         "rift": "남서 설산 균열",
-        "source_id": "q1",
+        "source_id": "q2",
         "stars": 2.0,
         "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
         "difficulty": "엘리트",
         "elite": true,
         "gold": 100.0,
-        "id": 2.0,
-        "kind": "구조",
+        "id": 3.0,
+        "kind": "토벌",
         "level": 1.0,
         "lv": 1.0,
-        "name": "고립된 탐사대 구조",
+        "name": "균열 핵 토벌",
         "reward_v": 2.0,
-        "rift": "남서 설산 균열",
-        "source_id": "q2",
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
         "stars": 2.0,
-        "strength": 1.9,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
+        "strength": 1.6,
+        "title": "남동 숲 균열, 균열 핵 토벌"
       },
       {
         "cmp": true,
@@ -5765,40 +5780,23 @@
         "difficulty": "낮음",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 4.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
-        "source_id": "q3",
-        "stars": 2.0,
-        "title": "남동 숲 균열, 고립된 탐사대 구조"
-      },
-      {
-        "cmp": true,
-        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "높음",
-        "elite": false,
-        "gold": 100.0,
-        "id": 4.0,
-        "kind": "회수",
-        "level": 4.0,
-        "lv": 4.0,
-        "name": "잃어버린 유품 회수",
-        "reward_v": 2.0,
-        "rift": "남동 숲 균열",
         "source_id": "q4",
         "stars": 2.0,
-        "title": "남동 숲 균열, 잃어버린 유품 회수"
+        "title": "남동 숲 균열, 고립된 탐사대 구조"
       }
     ],
     "chronicle_r22": {
       "list": [],
       "queue": [
         "Day 1: First met Teiris, who joined as a companion.",
-        "Day 1: Marceline joined as a companion through a guild introduction.",
+        "Day 1: Haldric joined as a companion through a guild introduction.",
         "Day 1: Cleared Great Dungeon floor 1; boss: Head Tutor's Remains",
         "Day 1: Leveled up: {{user}} Lv 1 → 3, Teiris Lv 1 → 3",
         "Day 2: After clearing floor 1, descended directly to floor 2",
@@ -5808,11 +5806,12 @@
     "commerce_r21": {
       "bought": {},
       "forge_codes_r22": {
-        "sa82.9b5hn05h.1": {
+        "wa40.bx1a5bge.1": {
           "forge": 1.0,
           "tries": 1.0
         }
       },
+      "pietro_buys": 1.0,
       "process_n": 1.0,
       "sold_day": 1.0
     },
@@ -5823,9 +5822,7 @@
     "day": 3.0,
     "dialogue_r21": {
       "bark_counts": {
-        "battle_start": 1.0,
         "departure": 2.0,
-        "elite_boss_before": 1.0,
         "floor_entry": 2.0,
         "return": 2.0,
         "victory": 4.0
@@ -5916,16 +5913,16 @@
     ],
     "gear": [
       {
-        "code": "sa82.9b5hn05h.1",
+        "code": "wa40.bx1a5bge.1",
         "forge": 1.0,
-        "id": "sa82",
-        "seed": 729554040197.0,
+        "id": "wa40",
+        "seed": 933917132606.0,
         "source_r21": true,
         "tries": 1.0,
         "uid": 1.0
       }
     ],
-    "gold": 99880.0,
+    "gold": 99940.0,
     "hand": [],
     "items": {
       "antidote": 0.0,
@@ -5944,20 +5941,20 @@
     },
     "log": [
       "테이리스 · 대화하기",
-      "페넬라의 소개 · 마르셀린 합류",
-      "학술원 폐허 상층 · 1층 출발",
+      "페넬라의 소개 · 할드리크 합류",
+      "Academy Ruins: Upper Halls · 1층 출발",
       "탐색 1: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 2: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 3: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 4: 전투 승리 · 금화 24 · 경험치 19",
-      "탐색 5: 주화 48닢 발견",
-      "휴식: 당신 HP +0 · MP +0 / 테이리스 HP +0 · MP +0",
+      "낡은 주머니에서 주화 48닢을 찾았다.",
+      "휴식. 파티 전원이 숨을 돌렸다({{user}} HP +0, MP +0 / 테이리스 HP +0, MP +0)",
       "1층 돌파 · 금화 244 · 경험치 196",
-      "학술원 폐허 상층 · 2층 출발",
+      "Academy Ruins: Upper Halls · 2층 출발",
       "2층 퇴각 · 금화 0 · 경험치 0",
       "회복약 · 소 하나를 샀습니다. (보유 1, 남은 금화 10104)",
-      "한나의 가공 · 말끔한 별무늬 반지",
-      "말끔한 별무늬 반지 제련 성공 +1",
+      "한나의 가공 · 묵직한 사슬 갑옷",
+      "묵직한 사슬 갑옷 제련 성공 +1",
       "레벨이 올랐습니다. Lv 4."
     ],
     "members": {
@@ -6147,7 +6144,7 @@
         "aff": 9.0,
         "hp": 89.0,
         "level": 3.0,
-        "mp": 97.0,
+        "mp": 91.0,
         "xp": 104.0
       },
       "tika": {
@@ -6186,7 +6183,7 @@
     },
     "owned": [
       "teiris",
-      "marceline"
+      "haldric"
     ],
     "panels_r22": {
       "bg": {
@@ -6436,7 +6433,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 1200288307.0,
+    "rng": 405623828.0,
     "run": {
       "ask": false,
       "battle": {},
@@ -6463,7 +6460,7 @@
         },
         "teiris": {
           "hp": 89.0,
-          "mp": 97.0
+          "mp": 91.0
         }
       },
       "next_available": false,
@@ -6516,7 +6513,7 @@
       "rested": false,
       "rift_id": "",
       "rules_version": 3.0,
-      "seed": 1200288307.0,
+      "seed": 405623828.0,
       "stars": 1.0,
       "step": 0.0,
       "wins": 0.0,
@@ -6568,12 +6565,12 @@
     },
     "town_r21": {
       "counter": 5.0,
-      "meet": "marceline",
+      "meet": "haldric",
       "qn": 4.0,
-      "seed": 1318829225.0
+      "seed": 895864677.0
     },
     "ui": {
-      "msg": "",
+      "msg": "회복약 · 소 하나를 샀습니다. (보유 1, 남은 금화 10104)",
       "page": 1.0,
       "sel": ""
     },
@@ -14475,7 +14472,7 @@
       "원정 정산: 금화 100, 경험치 28",
       "한나의 가공 · 수선한 경비 투구",
       "수선한 경비 투구 제련 성공 +1",
-      "학술원 폐허 상층 · 1층 출발"
+      "Academy Ruins: Upper Halls · 1층 출발"
     ],
     "members": {
       "adeline": {
@@ -14664,7 +14661,7 @@
         "aff": 2.0,
         "hp": 83.0,
         "level": 2.0,
-        "mp": 95.0,
+        "mp": 89.0,
         "xp": 0.0
       },
       "tika": {
@@ -14987,7 +14984,7 @@
         },
         "teiris": {
           "hp": 83.0,
-          "mp": 95.0
+          "mp": 89.0
         }
       },
       "next_available": false,
@@ -15676,37 +15673,54 @@
       {
         "cmp": true,
         "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "중간",
+        "difficulty": "높음",
         "elite": false,
         "gold": 100.0,
         "id": 1.0,
+        "kind": "회수",
+        "level": 4.0,
+        "lv": 4.0,
+        "name": "잃어버린 유품 회수",
+        "reward_v": 2.0,
+        "rift": "남동 숲 균열",
+        "source_id": "q1",
+        "stars": 2.0,
+        "title": "남동 숲 균열, 잃어버린 유품 회수"
+      },
+      {
+        "cmp": true,
+        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
+        "difficulty": "중간",
+        "elite": false,
+        "gold": 100.0,
+        "id": 2.0,
         "kind": "회수",
         "level": 1.0,
         "lv": 1.0,
         "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
         "rift": "남서 설산 균열",
-        "source_id": "q1",
+        "source_id": "q2",
         "stars": 2.0,
         "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
         "difficulty": "엘리트",
         "elite": true,
         "gold": 100.0,
-        "id": 2.0,
-        "kind": "구조",
+        "id": 3.0,
+        "kind": "토벌",
         "level": 1.0,
         "lv": 1.0,
-        "name": "고립된 탐사대 구조",
+        "name": "균열 핵 토벌",
         "reward_v": 2.0,
-        "rift": "남서 설산 균열",
-        "source_id": "q2",
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
         "stars": 2.0,
-        "strength": 1.9,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
+        "strength": 1.6,
+        "title": "남동 숲 균열, 균열 핵 토벌"
       },
       {
         "cmp": true,
@@ -15714,40 +15728,23 @@
         "difficulty": "낮음",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 4.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
-        "source_id": "q3",
-        "stars": 2.0,
-        "title": "남동 숲 균열, 고립된 탐사대 구조"
-      },
-      {
-        "cmp": true,
-        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "높음",
-        "elite": false,
-        "gold": 100.0,
-        "id": 4.0,
-        "kind": "회수",
-        "level": 4.0,
-        "lv": 4.0,
-        "name": "잃어버린 유품 회수",
-        "reward_v": 2.0,
-        "rift": "남동 숲 균열",
         "source_id": "q4",
         "stars": 2.0,
-        "title": "남동 숲 균열, 잃어버린 유품 회수"
+        "title": "남동 숲 균열, 고립된 탐사대 구조"
       }
     ],
     "chronicle_r22": {
       "list": [],
       "queue": [
         "Day 1: First met Teiris, who joined as a companion.",
-        "Day 1: Marceline joined as a companion through a guild introduction.",
+        "Day 1: Haldric joined as a companion through a guild introduction.",
         "Day 1: Cleared Great Dungeon floor 1; boss: Head Tutor's Remains",
         "Day 1: Leveled up: {{user}} Lv 1 → 3, Teiris Lv 1 → 3",
         "Day 2: After clearing floor 1, descended directly to floor 2"
@@ -15765,9 +15762,7 @@
     "day": 2.0,
     "dialogue_r21": {
       "bark_counts": {
-        "battle_start": 1.0,
         "departure": 2.0,
-        "elite_boss_before": 1.0,
         "floor_entry": 2.0,
         "return": 1.0,
         "victory": 4.0
@@ -15895,16 +15890,16 @@
     },
     "log": [
       "테이리스 · 대화하기",
-      "페넬라의 소개 · 마르셀린 합류",
-      "학술원 폐허 상층 · 1층 출발",
+      "페넬라의 소개 · 할드리크 합류",
+      "Academy Ruins: Upper Halls · 1층 출발",
       "탐색 1: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 2: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 3: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 4: 전투 승리 · 금화 24 · 경험치 19",
-      "탐색 5: 주화 48닢 발견",
-      "휴식: 당신 HP +0 · MP +0 / 테이리스 HP +0 · MP +0",
+      "낡은 주머니에서 주화 48닢을 찾았다.",
+      "휴식. 파티 전원이 숨을 돌렸다({{user}} HP +0, MP +0 / 테이리스 HP +0, MP +0)",
       "1층 돌파 · 금화 244 · 경험치 196",
-      "학술원 폐허 상층 · 2층 출발"
+      "Academy Ruins: Upper Halls · 2층 출발"
     ],
     "members": {
       "adeline": {
@@ -16093,7 +16088,7 @@
         "aff": 9.0,
         "hp": 89.0,
         "level": 3.0,
-        "mp": 97.0,
+        "mp": 91.0,
         "xp": 104.0
       },
       "tika": {
@@ -16130,7 +16125,7 @@
     },
     "owned": [
       "teiris",
-      "marceline"
+      "haldric"
     ],
     "panels_r22": {
       "bg": {
@@ -16380,7 +16375,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 1200288307.0,
+    "rng": 405623828.0,
     "run": {
       "ask": false,
       "battle": {},
@@ -16405,7 +16400,7 @@
         },
         "teiris": {
           "hp": 89.0,
-          "mp": 97.0
+          "mp": 91.0
         }
       },
       "next_available": false,
@@ -16458,7 +16453,7 @@
       "rested": false,
       "rift_id": "",
       "rules_version": 3.0,
-      "seed": 1200288307.0,
+      "seed": 405623828.0,
       "stars": 1.0,
       "step": 0.0,
       "wins": 0.0,
@@ -16477,9 +16472,9 @@
     "summary": {},
     "town_r21": {
       "counter": 5.0,
-      "meet": "marceline",
+      "meet": "haldric",
       "qn": 4.0,
-      "seed": 1318829225.0
+      "seed": 895864677.0
     },
     "ui": {
       "msg": "",
@@ -16498,37 +16493,54 @@
       {
         "cmp": true,
         "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "중간",
+        "difficulty": "높음",
         "elite": false,
         "gold": 100.0,
         "id": 1.0,
+        "kind": "회수",
+        "level": 4.0,
+        "lv": 4.0,
+        "name": "잃어버린 유품 회수",
+        "reward_v": 2.0,
+        "rift": "남동 숲 균열",
+        "source_id": "q1",
+        "stars": 2.0,
+        "title": "남동 숲 균열, 잃어버린 유품 회수"
+      },
+      {
+        "cmp": true,
+        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
+        "difficulty": "중간",
+        "elite": false,
+        "gold": 100.0,
+        "id": 2.0,
         "kind": "회수",
         "level": 1.0,
         "lv": 1.0,
         "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
         "rift": "남서 설산 균열",
-        "source_id": "q1",
+        "source_id": "q2",
         "stars": 2.0,
         "title": "남서 설산 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
         "difficulty": "엘리트",
         "elite": true,
         "gold": 100.0,
-        "id": 2.0,
-        "kind": "구조",
+        "id": 3.0,
+        "kind": "토벌",
         "level": 1.0,
         "lv": 1.0,
-        "name": "고립된 탐사대 구조",
+        "name": "균열 핵 토벌",
         "reward_v": 2.0,
-        "rift": "남서 설산 균열",
-        "source_id": "q2",
+        "rift": "남동 숲 균열",
+        "source_id": "q3",
         "stars": 2.0,
-        "strength": 1.9,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
+        "strength": 1.6,
+        "title": "남동 숲 균열, 균열 핵 토벌"
       },
       {
         "cmp": true,
@@ -16536,40 +16548,23 @@
         "difficulty": "낮음",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 4.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
-        "source_id": "q3",
-        "stars": 2.0,
-        "title": "남동 숲 균열, 고립된 탐사대 구조"
-      },
-      {
-        "cmp": true,
-        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "높음",
-        "elite": false,
-        "gold": 100.0,
-        "id": 4.0,
-        "kind": "회수",
-        "level": 4.0,
-        "lv": 4.0,
-        "name": "잃어버린 유품 회수",
-        "reward_v": 2.0,
-        "rift": "남동 숲 균열",
         "source_id": "q4",
         "stars": 2.0,
-        "title": "남동 숲 균열, 잃어버린 유품 회수"
+        "title": "남동 숲 균열, 고립된 탐사대 구조"
       }
     ],
     "chronicle_r22": {
       "list": [],
       "queue": [
         "Day 1: First met Teiris, who joined as a companion.",
-        "Day 1: Marceline joined as a companion through a guild introduction."
+        "Day 1: Haldric joined as a companion through a guild introduction."
       ]
     },
     "commerce_r21": {
@@ -16657,14 +16652,14 @@
     },
     "log": [
       "테이리스 · 대화하기",
-      "페넬라의 소개 · 마르셀린 합류",
-      "학술원 폐허 상층 · 1층 출발",
+      "페넬라의 소개 · 할드리크 합류",
+      "Academy Ruins: Upper Halls · 1층 출발",
       "탐색 1: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 2: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 3: 전투 승리 · 금화 24 · 경험치 26",
       "탐색 4: 전투 승리 · 금화 24 · 경험치 19",
-      "탐색 5: 주화 48닢 발견",
-      "휴식: 당신 HP +0 · MP +0 / 테이리스 HP +0 · MP +0"
+      "낡은 주머니에서 주화 48닢을 찾았다.",
+      "휴식. 파티 전원이 숨을 돌렸다({{user}} HP +0, MP +0 / 테이리스 HP +0, MP +0)"
     ],
     "members": {
       "adeline": {
@@ -16890,7 +16885,7 @@
     },
     "owned": [
       "teiris",
-      "marceline"
+      "haldric"
     ],
     "panels_r22": {
       "bg": {
@@ -17140,7 +17135,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 1318829225.0,
+    "rng": 895864677.0,
     "run": {
       "ask": false,
       "battle": {},
@@ -17154,14 +17149,14 @@
       "gold": 144.0,
       "id": 1.0,
       "kind": "battle",
-      "last": "휴식: 당신 HP +0 · MP +0 / 테이리스 HP +0 · MP +0",
+      "last": "휴식. 파티 전원이 숨을 돌렸다({{user}} HP +0, MP +0 / 테이리스 HP +0, MP +0)",
       "log": [
         "탐색 1: 전투 승리 · 금화 24 · 경험치 26",
         "탐색 2: 전투 승리 · 금화 24 · 경험치 26",
         "탐색 3: 전투 승리 · 금화 24 · 경험치 26",
         "탐색 4: 전투 승리 · 금화 24 · 경험치 19",
-        "탐색 5: 주화 48닢 발견",
-        "휴식: 당신 HP +0 · MP +0 / 테이리스 HP +0 · MP +0"
+        "탐색 5: 낡은 주머니에서 주화 48닢을 찾았다.",
+        "휴식: 파티 HP +30%"
       ],
       "loot_gear": [],
       "loot_items": {},
@@ -17248,9 +17243,9 @@
     "summary": {},
     "town_r21": {
       "counter": 5.0,
-      "meet": "marceline",
+      "meet": "haldric",
       "qn": 4.0,
-      "seed": 1318829225.0
+      "seed": 895864677.0
     },
     "ui": {
       "msg": "",

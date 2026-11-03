@@ -27,6 +27,46 @@ func expedition_gear_label(code: String,english_scene: bool=false) -> String:
 	return ExpeditionText.u("{item} ({rarity}, Lv {lv})",{"item":roll.item.name,"rarity":rarity,"lv":roll.lv},lang)
 
 func expedition() -> bool:return r21() and s.run.get("expedition_version",0)==22
+func expedition_source_pm() -> Array:
+	# Complete 26-start snapshot, including equipment/forge and optional skill.
+	# No clean here: dn_party itself preserves duplicate valid source slots.
+	var out=[];var ids=[]
+	if s.persona.get("fight",1)==1:ids.append("persona")
+	ids.append_array(s.party)
+	var forge={}
+	for entry in s.gear:
+		if entry.get("source_r21",false) and (entry.get("forge",0)>0 or entry.get("tries",0)>0):
+			forge[combat_gear_rules.code(entry)]={"lv":entry.get("forge",0),"tries":entry.get("tries",0)}
+	for id in ids:
+		if out.size()>=4:break
+		if id!="persona" and (id not in s.owned or not config.companions.any(func(c):return c.id==id)):continue
+		var c=persona_rules.cls(s.persona.get("cls","")) if id=="persona" else class_def(id)
+		var m={"id":id,"cls":c.get("id","warrior"),"L":expedition_level(id),"forge":forge}
+		if id=="persona":
+			m.merge({"race":s.persona.get("race",""),"lin":s.persona.get("lineage",""),"nat":s.persona.get("nation","")})
+			if s.persona.get("stats") is Dictionary:m.ps=s.persona.stats.duplicate(true)
+			if PersonaResearch.ready(s.persona.get("skill")):m.skill=PersonaResearch.clean(s.persona.skill)
+		var eq={}
+		for slot in ["weapon","armor","acc"]:
+			var e=gear_entry(int(s.equipment.get(id,{}).get(slot,0)))
+			if not e.is_empty() and e.get("source_r21",false):eq[slot]=combat_gear_rules.code(e)
+		if not eq.is_empty():m.eq=eq
+		out.append(m)
+	while out.size()<4:out.append({"id":"","cls":"","L":1})
+	return out
+func expedition_party() -> Dictionary:
+	var pm=expedition_source_pm();var n=0;var total=0.0
+	for m in pm:
+		if m.id!="":n+=1;total+=m.get("L",1)
+	return {"pm":pm,"n":n,"avg":total/n if n>0 else 1.0}
+func expedition_zero4() -> Array:return [0,0,0,0]
+func expedition_label() -> String:
+	var lang=ExpeditionText.language(s);var f=s.run.get("floor")
+	var suffix=ExpeditionText.u(" {n}층",{"n":f},lang) if f!=null and not (f is bool and not f) else ""
+	return ExpeditionText.u("대던전{floor}",{"floor":suffix},lang)
+func expedition_floor_context(f: int) -> String:
+	var info=dungeon_rules.floor_info(f)
+	return "floor %d (%s%s)"%[f,ExpeditionText.t(dungeon_rules.zones[info.zone].name,"en"),", depth %d"%info.dc if info.dk>0 else ""]
 func expedition_ids() -> Array:
 	return expedition_members().map(func(e):return e.m.id) if active() and s.run.has("persona_pm") else sortie_ids()
 func expedition_members() -> Array:
@@ -140,7 +180,9 @@ func depart_dungeon(f: int,seed: int=0,rift_id: String="",stars: int=1) -> bool:
 	if not super(f,seed,rift_id,stars):return false
 	if rift_id.is_empty():
 		s.run.merge({"expedition_version":22,"log":[],"fell":false,"ask":false,"next_available":false,"maxima":{}})
-		for id in expedition_ids():
+		for member in expedition_party().pm:
+			var id=member.id
+			if id=="":continue
 			# ex_new uses party_stats before race, persona allocation, equipment,
 			# and party synergies; the first battle builds its full stats afresh.
 			var b=initial_expedition_vitals(id,int(s.members[id].level))
@@ -163,12 +205,26 @@ func append_expedition_log(line: String) -> void:
 	s.run.log.append(line)
 	while s.run.log.size()>8:s.run.log.pop_front()
 
+func expedition_item_weight(iid: String,f: int) -> float:
+	var x=dungeon_rules.config.explore
+	return float(x.ITEM_W.get(iid,0)) if f>=x.ITEM_FROM.get(iid,0) else 0.0
+func expedition_roll(seed: int,f: int,step: int,elites: int,classes: Array) -> Dictionary:
+	var out=dungeon_rules.ex_roll(seed,f,step,elites,classes)
+	if out.kind!="item":return out
+	var total=0.0
+	for iid in dungeon_rules.config.item_order:total+=expedition_item_weight(iid,f)
+	var x=RulesR21.mix(seed,f,step,3)*total;var pick=dungeon_rules.config.item_order[0]
+	for iid in dungeon_rules.config.item_order:
+		x-=expedition_item_weight(iid,f)
+		if x<0:pick=iid;break
+	return {"kind":"item","item":pick}
+
 func advance() -> bool:
 	if not expedition():return super()
 	var r=s.run
 	if not active() or r.phase!="explore" or r.step>=5 or r.ask:return false
 	r.step+=1
-	var out=expedition_rules.discovery(dungeon_rules.ex_roll(int(r.seed),int(r.floor),int(r.step),int(r.elites),party_classes()),int(r.seed),int(r.floor),int(r.step),expedition_mods())
+	var out=expedition_rules.discovery(expedition_roll(int(r.seed),int(r.floor),int(r.step),int(r.elites),party_classes()),int(r.seed),int(r.floor),int(r.step),expedition_mods())
 	r.event=out.kind
 	if out.kind in ["battle","elite"]:
 		if out.kind=="elite":r.elites+=1
@@ -268,12 +324,76 @@ func finish_battle() -> bool:
 	return true
 
 func snapshot_expedition_party(b) -> void:
-	for id in expedition_ids():
-		var a=b.ally(id);var m=s.members[id]
-		s.run.maxima[id]={"hp":int(floor(a.mhp)),"mp":int(floor(a.mmp))}
-		m.hp=maxi(1,int(floor(a.hp))) if a.hp>0 else (maxi(1,int(floor(a.mhp*dungeon_rules.config.explore.DOWN_HP))) if dungeon_rules.config.explore.DOWN_HP>0 else 0)
-		m.mp=maxi(0,int(floor(a.mp)))
-		if a.hp<=0:s.run.fell=true
+	var record={"hp":expedition_zero4(),"mp":expedition_zero4(),"mhp":expedition_zero4(),"mmp":expedition_zero4(),"fell":s.run.get("fell",false)};var units=[]
+	for i in range(4):
+		var id=s.run.persona_pm[i].id
+		if id=="":units.append({"empty":1});continue
+		var a=b.ally(id)
+		units.append({"empty":0,"al":1 if a.hp>0 else 0,"hp":a.hp,"mp":a.mp,"mhp":a.mhp,"mmp":a.mmp})
+	snapshot_expedition_record(record,units,dungeon_rules.config.explore.DOWN_HP)
+	for e in expedition_members():
+		var i=e.slot-1;var id=e.m.id
+		s.run.maxima[id]={"hp":record.mhp[i],"mp":record.mmp[i]};s.members[id].hp=record.hp[i];s.members[id].mp=record.mp[i]
+	s.run.fell=record.get("fell",false)
+func snapshot_expedition_record(r: Dictionary,units: Array,down: float) -> void:
+	for i in range(mini(4,units.size())):
+		var u=units[i]
+		if not u is Dictionary or u.get("empty",0)==1:continue
+		r.mhp[i]=int(floor(u.mhp));r.mmp[i]=int(floor(u.mmp))
+		r.hp[i]=maxi(1,int(floor(u.hp))) if u.get("al")==1 else (maxi(1,int(floor(u.mhp*down))) if down>0 else 0)
+		r.mp[i]=maxi(0,int(floor(u.mp)))
+		if u.get("al")!=1:r.fell=true
+	r.real=true
+
+func expedition_exp_note(r: Dictionary,amount: float,summary: Dictionary,provider: Callable=Callable(),available: bool=true) -> void:
+	summary.exp=0;summary.lv=[]
+	if amount<=0 or not available:return
+	var st={"exp":amount,"pm":r.pm,"sid":r.sid}
+	# Godot has no pcall. Providers return an explicit success/value envelope;
+	# normal gameplay calls the already validated native award method.
+	var result=provider.call(st) if provider.is_valid() else {"ok":true,"value":expedition_award_lines(st)}
+	if result.get("ok",false) and (result.get("value") is Array or result.get("value") is Dictionary):summary.exp=amount;summary.lv=result.value
+func expedition_award_lines(st: Dictionary) -> Array:
+	var before={"persona":expedition_level("persona")};var order=["persona"]
+	for m in st.pm:
+		var id=m.id if m is Dictionary else m
+		if id!="" and id!="persona" and id not in order:order.append(id);before[id]=expedition_level(id)
+	var gains=award_persona_exp(st);var lines=[];var lang=ExpeditionText.language(s)
+	for id in order:
+		if gains.has(id) and expedition_level(id)>before[id]:lines.append(ExpeditionText.u("{name} Lv {before} → {after}",{"name":expedition_member_name(id),"before":before[id],"after":expedition_level(id)},lang))
+	return lines
+func expedition_aff_note(r: Dictionary,result: String,summary: Dictionary,provider: Callable=Callable(),available: bool=true) -> Dictionary:
+	summary.aff=[]
+	if not available:return {}
+	var amount=r.get("wins",0)*dungeon_rules.config.affection.BATTLE+(dungeon_rules.config.affection.BOSS if result=="clear" else 0)
+	if amount<=0:return {}
+	var response=provider.call(r.pm,amount) if provider.is_valid() else {"ok":true,"value":expedition_aff_party(r.pm,amount)}
+	if not response.get("ok",false) or not response.get("value") is Dictionary:return {}
+	var got=response.value;var lang=ExpeditionText.language(s)
+	for m in r.pm.slice(0,4):
+		if m is Dictionary and m.get("id","")!="" and got.has(m.id):summary.aff.append(str(ExpeditionText.t(expedition_member_name(m.id),lang))+" +"+expedition_aff_format(got[m.id]))
+	return got
+func expedition_aff_format(value: float) -> String:
+	value=floor(value*100+.5)/100
+	if value==floor(value):return str(int(value))
+	# Lua printf rounds the actual binary double, including values such as
+	# 1.45 lying just below a decimal half. Native deltas are within [-300,300],
+	# so the significand * 10 and the power-of-two denominator fit int64.
+	var bytes=PackedByteArray();bytes.resize(8);bytes.encode_double(0,absf(value))
+	var bits=bytes.decode_u64(0);var exponent=int((bits>>52)&2047)-1023
+	var numerator=((bits&4503599627370495)|4503599627370496)*10
+	var shift=52-exponent;var lower=numerator>>shift
+	var remainder=numerator&((1<<shift)-1);var half=1<<(shift-1)
+	var rounded=lower+(1 if remainder>half or (remainder==half and lower%2==1) else 0)
+	return ("-" if value<0 else "")+str(int(rounded/10))+"."+str(rounded%10)
+func expedition_aff_party(pm: Array,amount: float) -> Dictionary:
+	var got={};var mods=expedition_rules.modifiers(pm,config.companions)
+	for m in pm:
+		var id=m.id if m is Dictionary else m
+		if id=="" or id=="persona" or got.has(id) or id not in s.owned:continue
+		var old=s.members[id].aff;s.members[id].aff=TOWN_RULES.aff_next(old,amount*mods.aff)
+		got[id]=floor((s.members[id].aff-old)*100+.5)/100
+	return got
 
 func roll_expedition_gear(kind: String,seed: float) -> String:
 	# ex_gear_roll passes its input through mix, which floors fractional seeds.
@@ -342,15 +462,14 @@ func settle(result: String) -> bool:
 	s.gold+=amount-penalty
 	var before={};var gains=[];var affection={}
 	for id in expedition_ids():before[id]=expedition_level(id)
-	if xp>0:
-		# P5 source pays on settlement. Never replay XP already paid by a pre-P5 run.
-		award_persona_exp({"exp":xp,"sid":int(r.id)*32+31,"pm":r.persona_pm})
-	var aff=(r.wins*dungeon_rules.config.affection.BATTLE+(dungeon_rules.config.affection.BOSS if result=="clear" else 0))*mods.aff
+	var source_summary={}
+	# P5 source pays on settlement. Never replay XP paid by a pre-P5 run.
+	expedition_exp_note({"sid":int(r.id)*32+31,"pm":r.persona_pm},xp,source_summary)
+	if result!="defeat":affection=expedition_aff_note({"pm":r.persona_pm,"wins":r.wins},result,source_summary)
+	else:source_summary.aff=[]
 	for id in expedition_ids():
 		var m=s.members[id]
 		gains.append({"id":id,"before":before[id],"level":expedition_level(id),"xp":expedition_experience(id)})
-		if id!="persona" and result!="defeat" and aff>0:
-			var old=m.aff;m.aff=TOWN_RULES.aff_next(m.aff,aff);affection[id]=snappedf(m.aff-old,.01)
 	var first=false
 	if result!="defeat":s.dungeon_r21.runs+=1
 	if result=="clear":
@@ -364,6 +483,12 @@ func settle(result: String) -> bool:
 	log_expedition("%d층 %s · 금화 %d · 경험치 %d"%[r.floor,{"clear":"돌파","retreat":"퇴각","defeat":"도전 실패"}[result],amount,xp])
 	emit_bark("defeat" if result=="defeat" else "return")
 	return true
+
+func expedition_summary_aff_lines() -> Array:
+	var out=[];var lang=ExpeditionText.language(s);var got=s.summary.get("aff",{})
+	for m in s.run.get("persona_pm",[]).slice(0,4):
+		if m.get("id","")!="" and got.has(m.id):out.append(str(ExpeditionText.t(expedition_member_name(m.id),lang))+" +"+expedition_aff_format(got[m.id]))
+	return out
 
 func next_dungeon_floor() -> bool:
 	if not expedition() or active() or not s.run.next_available or s.summary.get("result")!="clear":return false

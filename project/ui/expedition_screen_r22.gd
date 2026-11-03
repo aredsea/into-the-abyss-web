@@ -48,12 +48,13 @@ func build_page() -> void:
 	if host.screen=="explore" and host.model.expedition() and host.model.active() and host.model.s.run.ask and host.confirm.is_empty():
 		host.confirm={"prompt":"모은 보상을 정산하고 귀환할까요?","callback":host.model.expedition_retreat.bind("retreat_yes")}
 	if host.screen=="expedition_log":
-		page_background();header("탐색 기록 · 주머니","explore")
+		page_background();header(host.model.expedition_label(),"explore")
 		var w=host.model;var r=w.s.run;var lines=[]
 		for line in r.log:lines.append(line)
 		lines.append("미정산 금화 %d · 경험치 %d"%[r.gold,r.xp])
 		for key in r.loot_items:lines.append(w.expedition_item_name(key)+" ×%d"%r.loot_items[key])
 		for code in r.loot_gear:lines.append(w.expedition_gear_label(code,L.language(w.s)=="en"))
+		if L.language(w.s)=="en":lines.push_front(w.expedition_floor_context(int(r.floor)))
 		var prev=stage;stage=scroll_page(70,613,maxi(613,lines.size()*75))
 		for i in range(lines.size()):paragraph(lines[i],Rect2(0,i*75,342,70),14)
 		stage=prev;action("log_back","원정으로",Rect2(18,705,354,44),host.go.bind("explore"),true);navigation();return
@@ -133,7 +134,7 @@ func summary() -> void:
 	if r.gear_lost>0:lines.append("가방이 가득 차 장비 %d개 폐기"%r.gear_lost)
 	if r.lost_gear>0:lines.append("장비 %d개 분실"%r.lost_gear)
 	for g in r.gains:lines.append("%s · Lv.%d → %d"%[w.person(g.id).name,g.before,g.level])
-	for id in r.aff:lines.append("%s · 호감 +%s"%[w.person(id).name,str(r.aff[id])])
+	for line in w.expedition_summary_aff_lines():lines.append("호감 · "+line)
 	if r.fell:lines.append("전투 중 쓰러진 동료가 있었습니다.")
 	lines.append("보상은 지급되었습니다. 같은 정산은 다시 지급되지 않습니다.")
 	var prev=stage;stage=scroll_page(230,390,maxi(390,lines.size()*57))
