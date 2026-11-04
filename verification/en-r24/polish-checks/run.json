@@ -1,0 +1,21 @@
+{
+  "started": 1793752741.2640724,
+  "freshness_boundary": "first completed trio language scan; all full-suite logs must be newer",
+  "finished": 1793753405.73222,
+  "trio_checks": 20,
+  "trio_failures": 0,
+  "full_regressions": 20,
+  "full_failures": 0,
+  "all_final_logs_fresh": true,
+  "initial_ui_engine_errors": 14,
+  "initial_ui_assertion_failures": 0,
+  "scroll_oracle_boundary_checks": 10,
+  "scroll_oracle_failures": 0,
+  "targeted_retests": [
+    "en_r24_test",
+    "finish_locale_data_audit",
+    "ui_en_r24_test"
+  ],
+  "test_helper": "project/tests/ui_scroll_r24.gd",
+  "threshold_unchanged": "same one-pixel inset; only positive-area inset rectangles are intersected"
+}

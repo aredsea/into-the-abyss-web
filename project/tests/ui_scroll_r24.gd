@@ -19,4 +19,8 @@ static func reachable(node: Control,viewport: Rect2) -> bool:
 	var content=sc.get_child(0).get_global_rect()
 	return content.grow(1).encloses(rect) and rect.size.x<=sc.get_global_rect().size.x+1 and rect.size.y<=sc.get_global_rect().size.y+1 and viewport.grow(1).encloses(sc.get_global_rect())
 static func overlaps(a: Rect2,b: Rect2) -> bool:
-	return a.has_area() and b.has_area() and a.grow(-1).intersects(b.grow(-1))
+	# A clipped sliver can be narrower than the existing one-pixel inset.
+	# Such an inset is empty, rather than a negative rectangle to intersect.
+	var inset_a=a.grow(-1)
+	var inset_b=b.grow(-1)
+	return inset_a.has_area() and inset_b.has_area() and inset_a.intersects(inset_b)
