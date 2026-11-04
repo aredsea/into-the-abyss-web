@@ -2,23 +2,23 @@ extends "res://ui/panel_screen_r22.gd"
 ## Read surface in the existing town paper / brush / vermilion grammar.
 const Places=preload("res://game/town_places_r22.gd")
 const Chronicle=preload("res://game/chronicle_store_r22.gd")
-const ACTION_RED=Color("#c62b15")
+const ACTION_RED=T.RED
 var view
 func button(id: String,value: String,fn: Callable,selected=false,disabled=false,parent: Node=null) -> Button:
 	var b=super(id,value,fn,selected,disabled,parent)
 	return b
 func build(owner_screen) -> void:
 	host=owner_screen;view=host.journal_r22;theme=T.make_theme();set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	var paper=ColorRect.new();add_child(paper);paper.color=T.PAPER;paper.mouse_filter=MOUSE_FILTER_IGNORE;paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	var paper=ColorRect.new();add_child(paper);paper.color=T.PAPER;paper.mouse_filter=MOUSE_FILTER_IGNORE;paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);T.paper(self)
 	frame=Control.new();add_child(frame);frame.size=Vector2(minf(900 if host.size.x>=900 else 430,host.size.x),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
 	var title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-112,58);title.text=L.render({"journal":"모험 기록","places":"토르바 산책","people":"토르바 인물"}[host.screen],L.language(host.model.s));title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",34);L.fit_title(title,34)
 	var back=button("p10_back","뒤로",host.go.bind(host.journal_return,false),false,false,frame);back.position=Vector2(frame.size.x-88,20);back.size=Vector2(70,44)
 	T.heading_rule(frame);frame.get_child(-1).position=Vector2(18,72)
 	var tabs=HBoxContainer.new();frame.add_child(tabs);tabs.position=Vector2(18,82);tabs.size=Vector2(frame.size.x-36,48);tabs.add_theme_constant_override("separation",6)
 	for e in [["journal","연대기"],["places","마을 장소"],["people","인물 소개"]]:button("p10_tab_"+e[0],e[1],host.go.bind(e[0]),host.screen==e[0],false,tabs)
-	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,148);scroll.size=Vector2(frame.size.x-36,frame.size.y-242);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,148);scroll.size=Vector2(frame.size.x-36,frame.size.y-242);T.scroll_region(scroll)
 	body=VBoxContainer.new();scroll.add_child(body);body.size_flags_horizontal=SIZE_EXPAND_FILL;body.add_theme_constant_override("separation",12)
-	var nav=HBoxContainer.new();frame.add_child(nav);nav.position=Vector2(12,frame.size.y-62);nav.size=Vector2(frame.size.x-24,50);nav.add_theme_constant_override("separation",4)
+	var nav=HBoxContainer.new();frame.add_child(nav);nav.position=Vector2(0,frame.size.y-66);nav.size=Vector2(frame.size.x,66);nav.add_theme_constant_override("separation",0)
 	T.rule(frame,frame.size.y-78,frame.size.x-36)
 	for e in [["town","마을"],["party","동료"],["depart","원정"],["bag","가방"],["journal","기록"]]:
 		var b=button("nav:"+e[0],e[1],host.go.bind("explore" if e[0]=="depart" and host.model.active() else e[0]),e[0]=="journal",false,nav);b.add_theme_font_size_override("font_size",13)

@@ -15,7 +15,14 @@ func _initialize():call_deferred("run")
 func click(s,id):
 	check(s.controls.has(id),"pointer control "+id)
 	if not s.controls.has(id):return
-	var b=s.controls[id];var p=b.get_global_rect().get_center()
+	var b=s.controls[id]
+	# r24: the same control may now live below the first viewport.
+	if b is Control:
+		var viewport=b.get_parent()
+		while viewport!=null and not viewport is ScrollContainer:viewport=viewport.get_parent()
+		if viewport is ScrollContainer:
+			viewport.ensure_control_visible(b);await process_frame;await process_frame
+	var p=b.get_global_rect().get_center()
 	for down in [true,false]:
 		var e=InputEventMouseButton.new();e.position=p;e.button_index=MOUSE_BUTTON_LEFT;e.pressed=down;root.push_input(e)
 	await process_frame;await process_frame

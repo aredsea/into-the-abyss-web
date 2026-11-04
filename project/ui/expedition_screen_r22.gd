@@ -2,11 +2,7 @@ extends "res://ui/town_screen_r21.gd"
 ## P5 additions reuse the approved r21 canvas, map, portraits and action grammar.
 
 func picture(id: String,r: Rect2,slot="bust") -> Control:
-	if id!="persona":return super(id,r,slot)
-	var p=fill("persona_portrait",r,T.PALE)
-	var name=label("당신",Rect2(r.position+Vector2(4,4),r.size-Vector2(8,8)),16,T.INK,T.BOLD)
-	name.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-	return p
+	return super(id,r,slot)
 
 func small_party(y: float,tall=false) -> void:
 	var w=host.model;var ids=w.expedition_ids() if w.active() else w.s.summary.get("gains",[]).map(func(g):return g.id)

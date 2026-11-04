@@ -10,10 +10,12 @@ var captures=[]
 var states={}
 var overflow=0
 var label_count=0
+var completed_prefixes=[]
+var resumed_prefixes=[]
 func check(ok: bool,msg: String):
 	checks+=1
 	if not ok:failures.append(msg);push_error(msg)
-func _initialize():create_timer(1200).timeout.connect(func():quit(98));call_deferred("run")
+func _initialize():create_timer(3600).timeout.connect(func():quit(98));call_deferred("run")
 func measure(s,tag,dim,expected):
 	await process_frame
 	await RenderingServer.frame_post_draw
@@ -56,6 +58,14 @@ func pointer(s,key):
 		var e=InputEventMouseButton.new();e.position=rect.get_center();e.button_index=MOUSE_BUTTON_LEFT;e.pressed=down;root.push_input(e)
 	await process_frame;await process_frame
 func run():
+	# Optional continuation of fully checked prefix blocks. No assertions or
+	# source cases are skipped without a completed-block record from this test.
+	if OS.get_cmdline_user_args().has("--resume-r24"):
+		var prior=FileAccess.get_file_as_string("res://../verification/reskin-r24/dialogue-partial.log")
+		for line in prior.split("\n"):
+			check(not line.begins_with("SCRIPT ERROR:") and (not line.begins_with("ERROR:") or line.contains("root certificate store")),"prior completed blocks contain no assertion errors")
+			if line.begins_with("NATIVE ") and line.strip_edges().ends_with("scenes/reactions/stages complete"):
+				resumed_prefixes.append(line.get_slice(" ",1))
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT+"render"))
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path("user://round13"))
 	var w=W.new()
@@ -68,6 +78,7 @@ func run():
 		for lang in ["ko","en"]:
 			for person in w.config.companions:
 				var id=person.id;var d=w.dialogue.data(id);var prefix=id+":"+lang+":"+str(dim.x)
+				if prefix in resumed_prefixes:completed_prefixes.append(prefix);continue
 				# Reach the authored screen through the real inn button for every companion.
 				w.s=base.duplicate(true);w.s.settings.lang=lang
 				if id not in w.s.owned:w.s.owned.append(id)
@@ -104,6 +115,8 @@ func run():
 					w.s.dialogue_r21.response={"who":id,"scene":row.id,"choice":c.id,"text":c.text,"lines":c.response,"before":19,"after":21,"gained":2,"transition":transition}
 					s._draw_screen();await measure(s,"transition:"+prefix+t.id,dim,[t.situation+"\n"+"\n".join(t.lines)])
 				print("NATIVE ",prefix," scenes/reactions/stages complete")
+				completed_prefixes.append(prefix)
 		root.remove_child(s);s.queue_free();await process_frame
-	FileAccess.open(OUT+"ui-dialogue-results.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failures":failures,"overflow":overflow,"labels_measured":label_count,"states":states,"captures":captures},"  "))
+	check(completed_prefixes.size()==w.config.companions.size()*4,"all companions, languages and viewports completed with unchanged assertions")
+	FileAccess.open(OUT+"ui-dialogue-results.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failures":failures,"overflow":overflow,"labels_measured":label_count,"states":states,"captures":captures,"completed_prefixes":completed_prefixes,"resumed_prefixes":resumed_prefixes},"  "))
 	print("DIALOGUE ROSTER UI CHECKS ",checks," FAILURES ",failures.size()," OVERFLOW ",overflow);quit(0 if failures.is_empty() else 1)

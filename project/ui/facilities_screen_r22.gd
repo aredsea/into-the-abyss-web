@@ -182,10 +182,7 @@ func guild_board() -> void:
 	stage.custom_minimum_size.y=y
 
 func picture(id: String,r: Rect2,slot="bust") -> Control:
-	if id!="persona":return super(id,r,slot)
-	var p=fill("persona_portrait",r,T.PALE)
-	label(host.model.person(id).name,Rect2(r.position+Vector2(8,8),r.size-Vector2(16,16)),18,T.INK,T.BOLD)
-	return p
+	return super(id,r,slot)
 
 func equipment_people() -> Array:
 	var ids=host.model.s.owned.duplicate()

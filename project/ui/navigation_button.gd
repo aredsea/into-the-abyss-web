@@ -3,7 +3,7 @@ var caption=""
 var emblem: Texture2D
 func configure(label: String, id: String) -> void:
 	caption=label; navigation=true
-	emblem=load("res://assets/ui-r11/"+id+".svg")
+	emblem=load(UI.icon_path(id))
 	tooltip_text=label
 func _draw() -> void:
 	super._draw()

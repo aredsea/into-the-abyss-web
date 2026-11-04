@@ -1,15 +1,15 @@
 extends "res://ui/panel_screen_r22.gd"
 ## Operate: original controls in the existing parchment shell, no host-only controls.
 const Settings=preload("res://game/settings_rules_r22.gd")
-const ACTION=Color("#c62b15")
+const ACTION=T.RED
 func build(owner_screen) -> void:
 	host=owner_screen;theme=T.make_theme();set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	var paper=ColorRect.new();add_child(paper);paper.color=T.PAPER;paper.mouse_filter=MOUSE_FILTER_IGNORE;paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	var paper=ColorRect.new();add_child(paper);paper.color=T.PAPER;paper.mouse_filter=MOUSE_FILTER_IGNORE;paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);T.paper(self)
 	frame=Control.new();add_child(frame);frame.size=Vector2(minf(900 if host.size.x>=900 else 430,host.size.x),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
 	var title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-112,58);title.text=L.render("설정",L.language(host.model.s));title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",36)
 	var back=button("p8_back","뒤로",func():host.reset_r22=false;host.go(host.settings_return_r22),false,false,frame);back.position=Vector2(frame.size.x-88,20);back.size=Vector2(70,44)
 	T.heading_rule(frame);frame.get_child(-1).position=Vector2(18,72)
-	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,88);scroll.size=Vector2(frame.size.x-36,frame.size.y-112);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,88);scroll.size=Vector2(frame.size.x-36,frame.size.y-112);T.scroll_region(scroll)
 	body=VBoxContainer.new();scroll.add_child(body);body.size_flags_horizontal=SIZE_EXPAND_FILL;body.add_theme_constant_override("separation",12)
 	if host.save_error!=OK:
 		text("저장하지 못했습니다. 다시 시도해 주세요.",14,ACTION);button("save_retry","저장 다시 시도",func():host._save();host._draw_screen())

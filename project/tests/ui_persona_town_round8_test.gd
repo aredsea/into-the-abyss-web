@@ -15,6 +15,12 @@ func click(s,id):
 	check(s.controls.has(id),"pointer target "+id)
 	if not s.controls.has(id):return
 	var b=s.controls[id]
+	# r24: the same control may now live below the first viewport.
+	if b is Control:
+		var viewport=b.get_parent()
+		while viewport!=null and not viewport is ScrollContainer:viewport=viewport.get_parent()
+		if viewport is ScrollContainer:
+			viewport.ensure_control_visible(b);await process_frame;await process_frame
 	var parent=b.get_parent()
 	while parent!=s and parent!=null:
 		if parent is ScrollContainer:parent.ensure_control_visible(b);await process_frame;await process_frame;break

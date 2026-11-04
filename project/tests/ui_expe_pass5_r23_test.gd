@@ -6,7 +6,9 @@ func collect(node: Node,out: Array) -> void:
 	if node.has_meta("expe_entry"):
 		var e=node.get_meta("expe_entry").duplicate(true)
 		if node is Label or node is Button:
-			check(node.text==e.text,"rendered source text is intact")
+			check(node.get_meta("source_copy_r24",node.text)==e.text,"rendered source text is intact")
+			if node.has_meta("source_copy_r24"):
+				check(node.get_children().filter(func(c):return c is TextureRect and c.texture.resource_path.ends_with("/star.svg")).size()==e.text.count("★"),"each source star is rendered by the approved vector icon")
 			if node is Button:check(node.disabled==not e.enabled,"source button activation rendered")
 		out.append(e)
 	for child in node.get_children():collect(child,out)

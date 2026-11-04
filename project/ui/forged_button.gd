@@ -33,14 +33,14 @@ func _draw() -> void:
 func _draw_surface() -> void:
 	var down=is_pressed() and not disabled
 	var bg=UI.BLUE if emphasis else UI.PALE if active else UI.PAPER
-	if disabled: bg=Color("e3e8eb")
+	if disabled: bg=UI.PALE
 	elif down: bg=bg.darkened(.06)
-	elif not emphasis: bg=bg.lerp(Color("e9f1f7"),hover_amount*.65)
+	elif not emphasis: bg=bg.lerp(UI.PALE,hover_amount*.65)
 	if navigation:
 		if active: surface.draw_style_box(UI.panel(UI.PALE,UI.PALE,8),Rect2(2,2,size.x-4,size.y-4))
 		if active: surface.draw_line(Vector2(size.x*.28,size.y-3),Vector2(size.x*.72,size.y-3),UI.BLUE,2,true)
 	else:
 		var rect=Rect2(1,2 if down else 1,size.x-2,size.y-3)
-		surface.draw_style_box(UI.panel(bg,UI.GOLD if emphasis else UI.LINE,7),rect)
-		if emphasis: surface.draw_style_box(UI.panel(Color.TRANSPARENT,Color("bda778"),4),rect.grow(-4))
+		surface.draw_style_box(UI.panel(bg,UI.RED if emphasis else UI.LINE),rect)
+		
 	if has_focus(): surface.draw_style_box(UI.panel(Color.TRANSPARENT,UI.BLUE,5),Rect2(4,4,size.x-8,size.y-8))

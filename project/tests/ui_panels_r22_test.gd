@@ -18,6 +18,12 @@ func click(s,id):
 	check(s.controls.has(id),"control "+id)
 	if not s.controls.has(id):return
 	var b=s.controls[id]
+	# r24: the same control may now live below the first viewport.
+	if b is Control:
+		var viewport=b.get_parent()
+		while viewport!=null and not viewport is ScrollContainer:viewport=viewport.get_parent()
+		if viewport is ScrollContainer:
+			viewport.ensure_control_visible(b);await process_frame;await process_frame
 	if s.town_view is Shell and s.town_view.body.is_ancestor_of(b):s.town_view.scroll.ensure_control_visible(b);await settle()
 	var point=b.get_global_rect().get_center()
 	for down in [true,false]:

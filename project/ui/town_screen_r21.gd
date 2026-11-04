@@ -4,7 +4,7 @@ extends Control
 const ResourceGauge=preload("res://ui/resource_gauge_r24.gd")
 const T=preload("res://ui/town_theme_r21.gd")
 const L=preload("res://game/localization_r22.gd")
-const Portrait=preload("res://ui/town_portrait_r21.gd")
+const Portrait=preload("res://ui/portrait_slot_r24.gd")
 const Ink=preload("res://ui/battle_ink_r17.gd")
 var host
 var stage: Control
@@ -12,6 +12,7 @@ var boxes={}
 var metrics=[]
 var nav_top=763.0
 var background_scene=""
+var primary_used=false
 
 func build(owner_screen) -> void:
 	build_frame(owner_screen)
@@ -42,6 +43,7 @@ func build_frame(owner_screen) -> void:
 	stage=Control.new(); add_child(stage); stage.size=Vector2(390,844)
 	var k=minf(host.size.x/390.0,host.size.y/844.0)
 	stage.scale=Vector2(k,k); stage.position=(host.size-stage.size*k)/2; stage.clip_contents=true
+	T.paper(stage)
 
 func build_page() -> void:
 	page_background()
@@ -52,7 +54,7 @@ func build_page() -> void:
 		journey_dialogue();return
 	if not host.confirm.is_empty() and host.screen=="explore": retreat()
 	elif host.screen=="town":
-		nav_top=788; home()
+		nav_top=778; home()
 	elif host.screen=="party": roster()
 	elif host.screen=="member": overview()
 	elif host.screen=="skills": skills()
@@ -72,13 +74,34 @@ func build_page() -> void:
 	elif host.screen=="equipment": equipment()
 	elif host.screen=="smithy": smithy()
 	elif host.screen=="research": research()
-	if host.screen=="town":action("town_settings","설정",Rect2(300,68,70,44),host.open_settings_r22)
+	
 	navigation()
-	if not host.message.is_empty() and host.screen in ["town","party","member","skills","cards","explore"]:
+	if host.save_error==OK and not host.message.is_empty() and host.screen in ["town","party","member","skills","cards","explore"]:
 		fill("notice_bg",Rect2(14,nav_top-44,362,40),T.INK)
 		label(host.message,Rect2(22,nav_top-43,346,38),12,T.PAPER)
 	if host.save_error!=OK:
-		action("save_retry","저장 다시 시도",Rect2(20,nav_top-90,350,44),func():host._save();host._draw_screen(),true)
+		save_failure()
+
+func save_failure() -> void:
+	# Reserve a recovery strip rather than painting over the existing action.
+	# Existing controls keep their callbacks and remain reachable by scrolling.
+	var inset=70.0 if host.message.is_empty() else 100.0
+	var full: ScrollContainer
+	for child in stage.get_children():
+		if child is ScrollContainer and child.position.y==0 and child.size.y>=nav_top-2:full=child;break
+	if full!=null:
+		full.position.y=inset;full.size.y=nav_top-inset
+	else:
+		var content_nodes=stage.get_children().duplicate()
+		full=ScrollContainer.new();stage.add_child(full);full.position=Vector2(0,inset);full.size=Vector2(390,nav_top-inset);T.scroll_region(full)
+		var page=Control.new();full.add_child(page);page.custom_minimum_size=Vector2(378,nav_top)
+		for node in content_nodes:
+			var key=str(node.get_meta("town_r21_box",""))
+			if key.begins_with("nav") or node.z_index==60:continue
+			node.reparent(page,false)
+	if not host.message.is_empty():paragraph(host.message,Rect2(18,2,354,30),11,T.DANGER)
+	var retry=action("save_retry","저장 다시 시도",Rect2(18,inset-62,354,54),func():host._save();host._draw_screen())
+	T.primary(retry);retry.set_meta("r24_warning",true)
 
 func mark(id: String,node: Control) -> void:
 	node.set_meta("town_r21_box",id); boxes[id]=node
@@ -105,21 +128,21 @@ func label(value: String,r: Rect2,fs=14,color=T.INK,font: Font=T.BODY,translate=
 
 func display(value: String,r: Rect2,color=T.INK,fs=64,stretch=false) -> Label:
 	var l=label(value,r,fs,color,T.DISPLAY)
-	var w=T.DISPLAY.get_string_size(l.text,HORIZONTAL_ALIGNMENT_LEFT,-1,fs).x
-	if w>r.size.x or stretch:
-		l.size.x=w; l.scale.x=r.size.x/w
-		metrics[-1].available=w
-	if fs>=29 and color==T.INK:
-		var grain=TextureRect.new();l.add_child(grain);grain.texture=load("res://assets/ui-r21/type-drybrush.svg");grain.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;grain.stretch_mode=TextureRect.STRETCH_SCALE;grain.size=l.size;grain.mouse_filter=MOUSE_FILTER_IGNORE
+	var width=T.DISPLAY.get_string_size(l.text,HORIZONTAL_ALIGNMENT_LEFT,-1,fs).x
+	if width>r.size.x or stretch:
+		l.size.x=width;l.scale.x=r.size.x/maxf(1,width);metrics[-1].available=width
 	return l
 
 func background(name: String,r: Rect2) -> void:
 	var p=TextureRect.new(); stage.add_child(p);p.position=r.position;p.size=r.size
 	p.texture=load("res://assets/ui-r21/bg-"+name+".webp");p.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;p.stretch_mode=TextureRect.STRETCH_SCALE;p.mouse_filter=MOUSE_FILTER_IGNORE
+	var material=ShaderMaterial.new();material.shader=preload("res://ui/reskin_place_r24.gdshader");p.material=material
 	mark("background:"+name,p); background_scene=name
+	if name in ["inn","guild","shop","smithy","research","recruit","equipment"]:p.modulate.a=.18
 
 func page_background() -> void:
 	var name=host.screen;var r=Rect2(0,0,390,447)
+	if name in ["town","party","member"]:return
 	if name=="explore":
 		if not host.confirm.is_empty():name="retreat";r=Rect2(0,0,390,391)
 		elif not host.model.r21():name="cache";r=Rect2(0,94,390,388)
@@ -138,18 +161,12 @@ func page_background() -> void:
 	elif name=="shop":r=Rect2(0,0,390,373)
 	elif name not in ["guild","research"]:return
 	background(name,r)
-	if ResourceLoader.exists("res://assets/ui-r21/accent-"+name+".svg"):plate("accent-"+name,r)
+	
 
 func traced_title(name: String,r: Rect2) -> void:
-	var path="res://assets/ui-r21/title-"+name+".svg"
-	if L.language(host.model.s)=="en":
-		if ResourceLoader.exists("res://assets/ui-r21/title-"+name+"-en.svg"):path="res://assets/ui-r21/title-"+name+"-en.svg"
-		else:
-			var titles={"home":"Torva","formation":"Formation","rest":"Rest","explore":"Explore","retreat":"Retreat","guild":"Quests","inn":"Inn","research":"Research","equipment":"Equipment","journal":"Journal","summary":"Summary","victory":"Victory","defeat":"Defeat","art":"Skill preview","cache":"Sealed cache"}
-			var label=display(titles.get(name,name.capitalize()),r,T.INK,64);mark("title:"+name,label);return
-	var t=TextureRect.new();stage.add_child(t);t.texture=load(path)
-	t.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;t.stretch_mode=TextureRect.STRETCH_SCALE;t.position=r.position;t.size=r.size;t.mouse_filter=MOUSE_FILTER_IGNORE
-	mark("title:"+name,t)
+	var titles={"home":"토르바","formation":"편성","rest":"휴식","explore":"탐험","retreat":"후퇴","guild":"의뢰","inn":"여관","research":"전술 연구","equipment":"장비","journal":"기록","summary":"원정 정산","victory":"승리","defeat":"패배","art":"기술 연출","cache":"봉인된 보관함","recruit":"동료 소개","shop":"마렌토 상회","smithy":"한나의 대장간"}
+	var title=display(titles.get(name,name),r,T.INK,mini(54,int(r.size.y*.65)))
+	mark("title:"+name,title)
 
 func action(id: String,value: String,r: Rect2,callback: Callable,primary=false,disabled=false,translate=true) -> Button:
 	# Reuse the bot's exact English action terms; authored choice text stays Korean.
@@ -157,10 +174,10 @@ func action(id: String,value: String,r: Rect2,callback: Callable,primary=false,d
 		value={"계속":"Continue","여관으로":"Lower Town Inn","나중에 이야기하기":"Cancel"}.get(value,value)
 	var b=Button.new(); stage.add_child(b); b.position=r.position; b.size=r.size; b.text=localized(value) if translate else value; b.disabled=disabled
 	b.add_theme_font_override("font",T.BOLD); b.add_theme_font_size_override("font_size",16)
-	if primary:
-		for state in ["normal","hover","pressed"]:
-			var brush=StyleBoxTexture.new();brush.texture=load("res://assets/ui-r21/button-ink.svg");b.add_theme_stylebox_override(state,brush)
-		for state in ["font_color","font_hover_color","font_pressed_color"]: b.add_theme_color_override(state,T.PAPER)
+	T.dress_button(b,primary)
+	var selection=id.contains("tab") or id.begins_with("guild:") or id.begins_with("shop_slot:") or id.begins_with("so_") or id in ["shop_items","shop_equipment"]
+	if primary and not selection and not primary_used:
+		T.primary(b);primary_used=true
 	b.pressed.connect(callback); host.controls[id]=b; mark(id,b)
 	return b
 
@@ -170,19 +187,12 @@ func hit(id: String,r: Rect2,callback: Callable) -> Button:
 	return b
 
 func picture(id: String,r: Rect2,slot="bust") -> Control:
-	if host.model.has_method("source_portrait_record") and Portrait.preferred_path(id,slot).is_empty():
-		var face=host.model.source_portrait_record(id)
-		var box=fill("portrait_fallback:"+id,r,T.PALE)
-		var initial=L.persona_name(host.model.s).left(1) if id=="persona" else face.fallback
-		var glyph=label(initial,r,22,T.INK,T.BOLD,false);glyph.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-		return box
-	var p=Portrait.new(); stage.add_child(p); p.position=r.position; p.size=r.size; p.configure(id,slot)
-	mark("portrait:"+id+":"+slot,p); return p
+	var p=Portrait.make(id,slot,r.size);stage.add_child(p);p.position=r.position
+	if id=="persona":boxes.persona_portrait=p
+	mark("portrait:"+id+":"+slot,p);return p
 
-func ink(r: Rect2,kind="base") -> void:
-	var c=TextureRect.new(); c.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
-	c.texture=load("res://assets/ui-r21/town-vermilion.svg"); c.stretch_mode=TextureRect.STRETCH_SCALE
-	stage.add_child(c); c.position=r.position; c.size=r.size; c.mouse_filter=MOUSE_FILTER_IGNORE
+func ink(r: Rect2,_kind="base") -> void:
+	var c=TextureRect.new();stage.add_child(c);c.texture=T.BRUSH;c.position=r.position;c.size=r.size;c.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;c.stretch_mode=TextureRect.STRETCH_SCALE;c.mouse_filter=MOUSE_FILTER_IGNORE
 
 func header(title: String,back="town") -> void:
 	hit("back",Rect2(10,10,44,44),host.go.bind(back))
@@ -190,13 +200,7 @@ func header(title: String,back="town") -> void:
 	label(title,Rect2(56,11,225,38),20,T.INK,T.BOLD)
 
 func icon(name: String,r: Rect2,color=T.INK) -> void:
-	var path="res://assets/ui-r21/"+name+".svg"
-	if not ResourceLoader.exists(path): path="res://assets/ui-r17/"+name+".svg"
-	if not ResourceLoader.exists(path): path="res://assets/ui-r11/"+name+".svg"
-	var t=TextureRect.new(); t.expand_mode=TextureRect.EXPAND_IGNORE_SIZE; t.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	stage.add_child(t); t.texture=load(path); t.position=r.position; t.size=r.size; t.mouse_filter=MOUSE_FILTER_IGNORE
-	var shader=Shader.new();shader.code="shader_type canvas_item; uniform vec4 tint : source_color; void fragment(){COLOR=vec4(tint.rgb,texture(TEXTURE,UV).a*tint.a);}"
-	var material=ShaderMaterial.new();material.shader=shader;material.set_shader_parameter("tint",color);t.material=material
+	T.icon(stage,name,r,color)
 
 func plate(name: String,r: Rect2) -> void:
 	if not background_scene.is_empty() and name in ["preparation-ruins","town-city-left","town-city-right","detail-city"]:return
@@ -204,68 +208,59 @@ func plate(name: String,r: Rect2) -> void:
 	stage.add_child(t); t.texture=load("res://assets/ui-r21/"+name+".svg"); t.position=r.position; t.size=r.size; t.mouse_filter=MOUSE_FILTER_IGNORE
 
 func navigation() -> void:
-	fill("navigation_rule",Rect2(18,nav_top,354,1),T.INK)
+	nav_top=778 if host.screen in ["town","member","party"] else nav_top
+	fill("navigation_rule",Rect2(0,nav_top,390,844-nav_top),T.INK)
 	var selected="party" if host.screen in ["member","skills","party","formation"] else "depart" if host.screen in ["depart","explore","cards"] else "bag" if host.screen=="bag" else "journal" if host.screen=="journal" else "town"
-	var entries=[["town","마을","home"],["party","동료","party"],["depart","원정","gate"],["bag","가방","bag"],["journal","기록","journal"]]
-	for i in range(5):
-		var e=entries[i]; var x=i*78.0; var color=T.RED if selected==e[0] else T.INK
+	for i in 5:
+		var e=[["town","마을"],["party","동료"],["depart","원정"],["bag","가방"],["journal","기록"]][i]
 		var destination="explore" if e[0]=="depart" and host.model.active() else e[0]
-		hit("nav:"+e[0],Rect2(x,nav_top+2,78,844-nav_top-2),host.go.bind(destination))
-		icon("nav-"+e[2],Rect2(x+28,minf(nav_top+11,795),28,24),color)
-		var l=label(e[1],Rect2(x,minf(nav_top+39,822),78,18),11,color,T.BOLD); l.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-		if selected==e[0]: fill("nav_active",Rect2(x+20,842,39,2),T.RED)
-		if i<4: fill("nav_divider"+str(i),Rect2(x+78,nav_top+13,1,25),T.LINE)
+		var b=action("nav:"+e[0],e[1],Rect2(i*78,nav_top,78,844-nav_top),host.go.bind(destination))
+		var active=T.dress_navigation(b,e[0],selected==e[0])
+		if active!=null:mark("nav_active",active)
 
 func home() -> void:
-	traced_title("home",Rect2(0,0,390,233))
-	action("panels","도감 · 상태",Rect2(255,16,120,44),host.go.bind("codex"))
-	action("town_places","마을 장소",Rect2(14,183,110,44),host.go.bind("places"))
-	plate("town-city-left",Rect2(0,330,103,128)); plate("town-city-right",Rect2(335,254,55,201))
-	ink(Rect2(-24,286,450,246))
-	label("현재 위치",Rect2(14,232,82,16),9,T.INK,T.BOLD)
-	display("토르바",Rect2(14,246,74,39),T.INK,29,true)
-	fill("location_rule",Rect2(14,286,73,2),T.INK)
-	label("%d일째" % host.model.s.day,Rect2(14,293,78,22),13,T.INK,T.BOLD)
-	label("금화",Rect2(14,315,38,22),14,T.INK,T.BOLD)
-	display(str(int(host.model.s.gold)),Rect2(48,308,77,35),T.RED,30)
-	var zone=host.model.dungeon_rules.floor_info(host.model.selected_floor)
-	label(host.model.dungeon_rules.zones[zone.zone].name+"\n%d층"%host.model.selected_floor,Rect2(298,211,92,64) if L.language(host.model.s)=="en" else Rect2(332,211,58,40),9).autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	metrics[-1].available=1000
-	var lead=host.model.s.party[0] if not host.model.s.party.is_empty() else host.model.s.owned[0] if not host.model.s.owned.is_empty() else "persona"
-	picture(lead,Rect2(50,103,340,428),"town-main")
-	fill("hero_caption",Rect2(14,460,277,71),Color(0.067,.09,.08,.85))
-	label("주요 동료",Rect2(22,460,160,17),9,T.PAPER)
-	display(host.model.person(lead).name,Rect2(22,473,255,36),T.PAPER,37)
-	label(host.model.person(lead)["class"],Rect2(22,509,255,22),12,T.PAPER,T.BOLD)
-	label("출전 파티",Rect2(14,532,150,16),9,T.INK,T.BOLD)
-	var source_party=host.model.town_source_party() if host.model.has_method("town_source_party") else host.model.s.party.map(func(id):return host.model.person(id).name)
-	var source_ids=host.model.s.party.duplicate()
-	if host.model.s.get("persona",{}).get("fight",0)==1:source_ids.push_front("persona")
-	for i in range(mini(4,source_ids.size())):
-		var id=source_ids[i]; var x=14+i*92
-		fill("party_frame"+str(i),Rect2(x+2,548,84,62),T.INK)
-		if id=="persona":
-			fill("town_persona_face",Rect2(x+2,550,83,58),T.PALE)
-			label(localized(source_party[i]).left(1),Rect2(x+2,550,83,58),22,T.INK,T.BOLD)
-		else:picture(id,Rect2(x+2,550,83,58),"town-party-face")
-		var l=label(source_party[i],Rect2(x,610,87,16),9); l.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-		hit("town_member:"+id,Rect2(x,548,87,78),func():host.who=id;host.go("member"))
-	var b=action("depart","원정 준비",Rect2(14,631,362,67),host.go.bind("depart"),true)
-	plate("town-depart",Rect2(135,631,241,67))
-	b.alignment=HORIZONTAL_ALIGNMENT_LEFT; b.add_theme_font_size_override("font_size",23)
 	var original_stage=stage
-	var town_sc=ScrollContainer.new();stage.add_child(town_sc);town_sc.position=Vector2(0,702);town_sc.size=Vector2(390,86);town_sc.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
-	var town_page=Control.new();town_sc.add_child(town_page);town_page.custom_minimum_size=Vector2(378,720)
-	var town_details=Control.new();town_page.add_child(town_details);town_details.position=Vector2(0,-702);stage=town_details
-	label("마을에서 할 일",Rect2(14,702,280,17),9,T.INK,T.BOLD)
-	for i in range(4):
-		var e=[["guild","길드"],["shop","상회"],["inn","여관"],["smithy","대장간"]][i]; var x=14+i*92
-		action(e[0],e[1],Rect2(x,722,87,54),host.go.bind(e[0]))
-		plate("facility-"+e[0],Rect2(x,722,87,37))
-		# Keep facility text below its symbol, within one coherent hit target.
-		host.controls[e[0]].text=""; label(e[1],Rect2(x+5,752,77,21),11,T.INK,T.BOLD)
+	var sc=ScrollContainer.new();stage.add_child(sc);sc.position=Vector2.ZERO;sc.size=Vector2(390,778);T.scroll_region(sc)
+	# The contract's 390px art remains full width; reserved rail is outside ink.
+	sc.vertical_scroll_mode=ScrollContainer.SCROLL_MODE_AUTO
+	var town_page=Control.new();sc.add_child(town_page);town_page.custom_minimum_size=Vector2(378,1420);stage=town_page
+	var map=Control.new();stage.add_child(map);map.size=Vector2(390,520);map.clip_contents=true;map.mouse_filter=MOUSE_FILTER_IGNORE
+	var previous_stage=stage;stage=map;background("town",Rect2(-60,-150,520,693));stage=previous_stage;T.torn(stage,495)
+	display("토르바",Rect2(18,16,238,65),T.INK,50)
+	label("%d일째"%host.model.s.day,Rect2(18,79,70,22),13,T.MUTED,T.BOLD)
+	icon("coin",Rect2(92,82,15,15),T.GOLD);label("금화 %d"%host.model.s.gold,Rect2(111,79,160,22),13,T.INK,T.BOLD)
+	var settings=hit("town_settings",Rect2(332,14,44,44),host.open_settings_r22);settings.text=localized("설정")
+	for key in ["font_color","font_hover_color","font_pressed_color","font_focus_color","font_disabled_color"]:settings.add_theme_color_override(key,Color.TRANSPARENT)
+	icon("gear",Rect2(343,25,22,22))
+	var specs=[["guild","연합 길드","의뢰판 · 동료 소개",118,196,176],["shop","마렌토 상회","물약 · 해독약 · 두루마리",150,396,166],["inn","여관","휴식 · 동료와 대화",30,316,150],["smithy","한나의 대장간","제련 · 가공",226,282,158]]
+	for e in specs:
+		var x=float(e[3]);var y=float(e[4]);var width=minf(e[5],388-x);var color=T.RED if facility_has_news(e[0]) else T.INK
+		var b=hit(e[0],Rect2(x,y,width,44),host.go.bind(e[0]));b.tooltip_text=localized(e[1]+" · "+e[2])
+		fill("facility_label:"+e[0],Rect2(x+36,y+2,width-36,40),color)
+		var circle=Panel.new();stage.add_child(circle);circle.position=Vector2(x,y);circle.size=Vector2(40,40);circle.mouse_filter=MOUSE_FILTER_IGNORE
+		var style=T.panel(T.PAPER,color);style.set_border_width_all(2);style.set_corner_radius_all(20);circle.add_theme_stylebox_override("panel",style)
+		icon(e[0],Rect2(x+9,y+9,22,22),color);label(e[1],Rect2(x+45,y+3,width-48,19),12,T.PAPER,T.BOLD)
+		var description=e[2] if L.language(host.model.s)!="en" else {"guild":"Quests · Companions","shop":"Potions · Antidotes · Scrolls","inn":"Rest · Talk to companions","smithy":"Forge · Process"}[e[0]]
+		paragraph(description,Rect2(x+45,y+21,width-48,22),9,Color("c9bfae"),L.language(host.model.s)!="en")
+	var ids=host.model.s.party.duplicate()
+	if host.model.s.get("persona",{}).get("fight",0)==1:ids.push_front("persona")
+	for i in 4:
+		var x=14+i*92.0
+		if i>=ids.size():
+			icon("party",Rect2(x+29,552,28,28),T.QUIET);label("빈 자리",Rect2(x+6,609,80,23),12,T.MUTED);rule(683,x,84);continue
+		var id=ids[i];var person=host.model.person(id);var m=host.model.s.members[id];var stats=host.model.stats(id,m.level)
+		picture(id,Rect2(x-3,493,94,112),"town-party")
+		label(person.name,Rect2(x+6,606,82,22),12,T.INK,T.BOLD);paragraph(person.row+" · "+person["class"],Rect2(x+6,628,82,22),9 if L.language(host.model.s)=="en" else 10,T.MUTED)
+		resource_numbers(Rect2(x+6,650,78,20),m.hp,stats.hp,true,18);resource("party_hp:"+id,Rect2(x+6,672,78,7),m.hp,stats.hp);resource("party_mp:"+id,Rect2(x+6,682,78,3),m.mp,stats.mp,false)
+		rule(690,x,84);hit("town_member:"+id,Rect2(x,493,88,195),func():host.who=id;host.go("status" if id=="persona" else "member"))
+	var b=action("depart","원정 준비",Rect2(14,704,362,62),host.go.bind("depart"),true);b.add_theme_color_override("font_color",Color.TRANSPARENT)
+	for key in ["font_hover_color","font_pressed_color","font_focus_color","font_disabled_color"]:b.add_theme_color_override(key,Color.TRANSPARENT)
+	var info=host.model.dungeon_rules.floor_info(host.model.selected_floor)
+	label("원정 준비 · %d층"%host.model.selected_floor,Rect2(30,709,280,20),12,T.PAPER,T.BOLD)
+	display(host.model.dungeon_rules.zones[info.zone].name,Rect2(30,733,290,30),T.PAPER,25);icon("arrow",Rect2(336,725,25,25),T.PAPER)
+	action("panels","도감 · 상태",Rect2(14,804,174,48),host.go.bind("codex"));action("town_places","마을 장소",Rect2(202,804,174,48),host.go.bind("places"))
 	if host.model.has_method("source_preparation_view"):
-		var w=host.model;var y=792.0
+		var w=host.model;var y=904.0
 		var ui=w.ExpeditionUI.new();ui.lang=L.language(w.s)
 		if w.has_method("expedition_defeat_home") and w.expedition_defeat_home() and not w.s.ui.get("msg","").is_empty():
 			var message_height=T.BODY.get_multiline_string_size(w.s.ui.msg,HORIZONTAL_ALIGNMENT_LEFT,342,14).y+20
@@ -285,9 +280,18 @@ func home() -> void:
 			sub=ui.u("{title} {stars}, 보상 금화 {gold}",{"title":preload("res://game/guild_rules_r22.gd").title(q,L.language(w.s)),"stars":"★".repeat(int(q.stars)),"gold":w.dungeon_rules.quest_gold(q,w.sortie_quest_summary(q).elv)})+" · "+ui.u("난이도 {difficulty}",{"difficulty":ui.u(w.dungeon_rules.quest_difficulty(q))})
 		y=town_detail_button({"text":ui.u("출정"),"sub":sub,"action":"tw_sortie","enabled":not q.is_empty()},y,func():w.set_sortie_mode(0);host._save();host.go("depart"))
 		y=town_detail_button({"text":ui.u("대던전 도전"),"sub":ui.u("{best}층까지 도달",{"best":w.s.dungeon_r21.best}),"action":"tw_dungeon","enabled":true},y,func():w.set_sortie_mode(1);host._save();host.go("depart"))
-		town_page.custom_minimum_size.y=y-702+16
-		if w.has_method("expedition_defeat_home") and w.expedition_defeat_home():town_sc.set_deferred("scroll_vertical",90)
+		town_page.custom_minimum_size.y=y+16
+		if w.has_method("expedition_defeat_home") and w.expedition_defeat_home():sc.set_deferred("scroll_vertical",90)
 	stage=original_stage
+
+func facility_has_news(key: String) -> bool:
+	if key!="inn":return false
+	var w=host.model
+	for id in w.s.owned:
+		if not w.TOWN_RULES.inn_act_visible(w.s,"talk",id) or w.s.acts.get(id+"_talk",0)==w.s.day:continue
+		var scene=w.dialogue.select_scene(id,w.s.members[id].aff,w.s.dialogue_r21.seen)
+		if not scene.is_empty() and w.s.dialogue_r21.seen.get(scene.id,0)==0:return true
+	return false
 
 func town_detail_button(e: Dictionary,y: float,callback: Callable) -> float:
 	var height=maxf(32,T.BODY.get_multiline_string_size(e.sub,HORIZONTAL_ALIGNMENT_LEFT,326,12).y+12)
@@ -299,39 +303,20 @@ func town_detail_button(e: Dictionary,y: float,callback: Callable) -> float:
 
 func roster() -> void:
 	header("동료")
-	label("보유 %d명 / 전체 30명" % host.model.s.owned.size(),Rect2(194,20,140,24),11,T.INK,T.BOLD)
-	action("roster_all","도감",Rect2(337,13,44,38),host.go.bind("codex"))
+	label("보유 %d명 / 전체 30명"%host.model.s.owned.size(),Rect2(18,66,270,25),13,T.MUTED)
+	action("roster_all","도감",Rect2(300,58,72,44),host.go.bind("codex"))
 	var ids=host.model.IDS.duplicate()
 	if host.model.s.has("persona"):ids=host.model.s.owned.duplicate()
 	for p in host.model.config.companions:
-		if p.id not in ids and (host.catalog_all or p.id in host.model.s.owned): ids.append(p.id)
-	# More than four companions get a scrolling spread. No new geometry is
-	# connected until all four cards in that spread have complete labels/hits.
-	var sc=ScrollContainer.new(); stage.add_child(sc); sc.position=Vector2(0,53); sc.size=Vector2(390,704)
-	sc.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
-	var page=Control.new(); sc.add_child(page); page.custom_minimum_size=Vector2(380,ceil(ids.size()/4.0)*704); page.size=page.custom_minimum_size
-	var previous=stage; stage=page
-	for i in range(ids.size()):
-		var id=ids[i]; var col=i%2; var x=0 if col==0 else 234 if i%4==1 else 193
-		var y=int(i/4)*704+[0,69,331,350][i%4]
-		var rect=Rect2(x,y,[239,156,233,197][i%4],[379,297,357,350][i%4])
-		ink(Rect2(x-25,y+20,240,315))
-		var portrait=picture(id,rect,["cast-feature","cast-secondary","cast-lower-left","cast-lower-left"][i%4])
-		# The spread follows the reference's diagonal card edges, without changing art.
-		var mask=preload("res://ui/town_diagonal_r21.gd").new();stage.add_child(mask);mask.position=rect.position;mask.size=rect.size
-		portrait.reparent(mask);portrait.position=Vector2.ZERO
-		var pw=minf(178,rect.size.x-12)
-		var previous_plate=stage
-		var group=Control.new();stage.add_child(group);group.position=Vector2(x+10,y+rect.size.y-97);group.rotation=-.07 if col==0 else -.12;group.mouse_filter=MOUSE_FILTER_IGNORE
-		stage=group
-		fill("nameplate:"+id,Rect2(0,0,pw,70),T.INK)
-		display(host.model.person(id).name,Rect2(7,3,pw-10,33),T.PAPER,29)
-		label(host.model.person(id)["class"],Rect2(9,34,pw-12,25),15,T.PAPER,T.BOLD)
-		stage=previous_plate
-		if id in host.model.s.party and (i==0 or i>=4):
-			fill("party_badge:"+id,Rect2(x+12,y+rect.size.y-30,117,26),T.RED)
-			label("파티 중",Rect2(x+23,y+rect.size.y-30,96,26),13,T.PAPER,T.BOLD)
-		hit("member:"+id,rect,func():host.who=id;host.go("member"))
+		if p.id not in ids and (host.catalog_all or p.id in host.model.s.owned):ids.append(p.id)
+	var previous=stage;stage=scroll_page(114,650,maxi(240,ids.size()*112))
+	for i in ids.size():
+		var id=ids[i];var p=host.model.person(id);var m=host.model.s.members[id];var y=i*112
+		picture(id,Rect2(0,y,82,108),"roster")
+		label(p.name,Rect2(94,y+12,221,27),20,T.INK,T.BOLD);label(p.row+" · "+p["class"],Rect2(94,y+43,221,23),13,T.MUTED)
+		label("Lv.%d"%m.level+(" · 파티 중" if id in host.model.s.party else ""),Rect2(94,y+72,221,21),12,T.MUTED)
+		icon("chev",Rect2(318,y+46,18,18),T.QUIET);rule(y+111,0,338)
+		hit("member:"+id,Rect2(0,y,338,111),func():host.who=id;host.go("member"))
 	stage=previous
 
 func paragraph(value: String,r: Rect2,fs=13,color=T.INK,translate=true) -> Label:
@@ -347,7 +332,7 @@ func asset(path: String,r: Rect2) -> void:
 
 func scroll_page(y: float,height: float,minimum: float) -> Control:
 	var sc=ScrollContainer.new(); stage.add_child(sc); sc.position=Vector2(18,y); sc.size=Vector2(354,height)
-	sc.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+	T.scroll_region(sc)
 	var page=Control.new(); sc.add_child(page); page.custom_minimum_size=Vector2(342,minimum); page.size=page.custom_minimum_size
 	return page
 
@@ -649,31 +634,28 @@ func member_choice(r: Rect2) -> void:
 	host.controls.member_choice=pick
 
 func inn() -> void:
-	header("아랫마을 여관")
-	npc_hero("dorothea","여관","도로테아\n여관 주인",430)
-	label("함께하는 동료",Rect2(18,436,190,24),13,T.INK,T.BOLD)
-	member_choice(Rect2(208,437,164,36))
-	picture(host.who,Rect2(18,480,139,127),"detail-skills")
-	plate("detail-city",Rect2(157,480,215,127))
-	fill("inn_member_paper",Rect2(174,514,198,93),T.PAPER)
-	display(host.model.person(host.who).name,Rect2(183,518,180,29),T.INK,24)
-	label(host.model.person(host.who)["class"],Rect2(183,547,180,18),12)
+	header("아랫마을 여관");npc_hero("dorothea","여관","도로테아\n여관 주인",310)
+	label("함께하는 동료",Rect2(18,320,180,30),13,T.INK,T.BOLD);member_choice(Rect2(208,320,164,44))
+	picture(host.who,Rect2(18,369,106,106),"inn-companion")
+	display(host.model.person(host.who).name,Rect2(142,373,222,31),T.INK,24)
+	label(host.model.person(host.who)["class"],Rect2(142,408,222,23),12)
 	var aff=host.model.s.members[host.who].aff
-	label("%s · 호감 %s / 200"%[host.model.TOWN_RULES.guild_tier(aff),host.model.TOWN_RULES.aff_fmt(floor(aff))],Rect2(183,567,180,20),12,T.INK,T.BOLD)
-	fill("aff_track",Rect2(183,591,177,8),T.LINE);fill("aff_value",Rect2(183,591,177*maxf(0,aff)/200,8),T.RED)
-	label("함께, 더 깊은 곳으로.",Rect2(18,614,354,25),15,T.INK,T.BOLD)
+	label("%s · 호감 %s / 200"%[host.model.TOWN_RULES.guild_tier(aff),host.model.TOWN_RULES.aff_fmt(floor(aff))],Rect2(142,437,222,24),12,T.MUTED,T.BOLD)
+	fill("aff_track",Rect2(142,469,222,4),T.LINE);fill("aff_value",Rect2(142,469,222*maxf(0,aff)/200,4),T.MUTED)
+	label("함께, 더 깊은 곳으로.",Rect2(18,481,354,24),15,T.INK,T.BOLD)
 	var acts=host.model.TOWN_RULES.DATA.inn
-	for i in range(4):
-		var key=["talk","meal","gift","rest"][i];var e=acts[key];var x=18+i*91
+	for i in 4:
+		var key=["talk","meal","gift","rest"][i];var e=acts[key];var y=512+i*54
 		if not host.model.TOWN_RULES.inn_act_visible(host.model.s,key,host.who):continue
 		var used=not e.day and host.model.s.acts.get(host.who+"_"+key,0)==host.model.s.day
 		var callback=func():host._act(host.model.begin_dialogue.bind(host.who),"") if key=="talk" else host._ask(e.name+" · 금화 %d\n호감이 변합니다."%e.cost,host.model.inn.bind(host.who,key))
-		action("inn:"+key,"",Rect2(x,645,81,91),callback,i==0,used or host.model.s.gold<e.cost)
-		icon(["journal","shop","bag","inn"][i],Rect2(x+26,651,28,28),T.PAPER if i==0 else T.INK)
-		label(e.name,Rect2(x+2,684,77,20),11,T.PAPER if i==0 else T.INK,T.BOLD).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-		label("오늘 완료" if used else "무료" if e.cost==0 else "금화 %d"%e.cost,Rect2(x+2,710,77,19),11,T.PAPER if i==0 else T.RED,T.BOLD).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-	paragraph("대화·식사·선물은 동료마다 하루 한 번.\n곁에서 쉬면 하루가 지납니다.",Rect2(18,738,354,22),9)
-	feedback(590)
+		var b=action("inn:"+key,"",Rect2(18,y,354,50),callback,i==0,used or host.model.s.gold<e.cost)
+		var color=T.PAPER if i==0 else T.INK
+		icon(["book","shop","bag","inn"][i],Rect2(28,y+14,22,22),color)
+		label(e.name,Rect2(66,y+7,190,36),15,color,T.BOLD)
+		label("오늘 완료" if used else "무료" if e.cost==0 else "금화 %d"%e.cost,Rect2(267,y+7,92,36),12,color if i==0 else T.MUTED,T.BOLD)
+	paragraph("대화·식사·선물은 동료마다 하루 한 번.\n곁에서 쉬면 하루가 지납니다.",Rect2(18,731,354,28),10)
+	feedback(306)
 
 func shop() -> void:
 	header("상회")
@@ -703,24 +685,27 @@ func shop() -> void:
 	stage=prev;feedback();action("shop_bag","가방과 장비 확인",Rect2(18,705,354,43),host.go.bind("equipment"))
 
 func dialogue_frame(who: String,title: String) -> void:
-	fill("dialogue_paper",Rect2(0,0,390,844),T.PAPER)
-	background("inn",Rect2(0,0,390,322))
-	ink(Rect2(-20,194,430,133))
-	picture(who,Rect2(173,22,207,297),"detail-overview")
-	fill("dialogue_identity_paper",Rect2(10,112,164,91),T.PAPER)
-	display(title,Rect2(18,38,194,53),T.INK,36)
-	fill("dialogue_heading_rule",Rect2(18,98,54,4),T.RED)
-	display(host.model.person(who).name,Rect2(18,121,148,38),T.INK,28)
+	fill("dialogue_paper",Rect2(0,0,390,844),T.PAPER);background("inn",Rect2(0,0,390,470));boxes["background:inn"].modulate.a=.38
+	picture(who,Rect2(91,33,300,432),"dialogue-main")
+	display(title,Rect2(18,20,255,58),T.INK,44)
+	label("%d일째 · 금화 %d"%[host.model.s.day,host.model.s.gold],Rect2(18,83,280,24),13,T.MUTED,T.BOLD)
+	var ids=host.model.s.party.duplicate()
+	if who not in ids:ids.push_front(who)
+	for i in mini(4,ids.size()):
+		picture(ids[i],Rect2(14,120+i*64,54,59),"dialogue-chip")
+		if ids[i]==who:fill("dialogue_chip_active",Rect2(22,178+i*64,38,3),T.RED)
+	fill("dialogue_identity_paper",Rect2(14,384,362,68),T.INK)
+	display(host.model.person(who).name,Rect2(30,393,300,30),T.PAPER,25)
 	var a=host.model.s.members[who].aff
-	label(host.model.TOWN_RULES.aff_stage(a)+" · 호감 "+host.model.TOWN_RULES.aff_fmt(a),Rect2(18,165,148,25),13,T.INK,T.BOLD)
-	fill("dialogue_body",Rect2(0,322,390,522),T.PAPER)
+	label(host.model.TOWN_RULES.aff_stage(a)+" · 호감 "+host.model.TOWN_RULES.aff_fmt(a),Rect2(30,426,300,22),12,Color("c9bfae"),T.BOLD)
+	fill("dialogue_body",Rect2(0,452,390,392),T.PAPER)
 
 func inn_dialogue() -> void:
 	var state=host.model.s.dialogue_r21;var responding=not state.response.is_empty()
 	var p=state.response if responding else state.pending
 	var row=host.model.dialogue.scene(p.who,p.scene)
 	dialogue_frame(p.who,"대화")
-	var previous=stage;stage=scroll_page(336,351,351);var content=stage;var y=0.0
+	var previous=stage;stage=scroll_page(466,221,221);var content=stage;var y=0.0
 	if row.is_empty() and not responding:
 		y=reading_line("이 대화의 기록을 찾을 수 없습니다.",y,16)
 		stage=previous;action("dialogue_cancel","여관으로",Rect2(18,699,354,56),func():state.pending={};host._save();host.go("inn"),true);navigation();return
@@ -941,32 +926,38 @@ func tabs(y: float,selected: int) -> void:
 	fill("tab_active_rule",Rect2(18+selected*118+(2 if selected==1 else 0),y+(33 if selected==1 else 37),112 if selected==1 else 118,2),T.RED)
 
 func overview() -> void:
-	ink(Rect2(0,170,440,315))
-	plate("detail-city",Rect2(286,0,104,141))
-	var name=display(host.model.person(host.who).name,Rect2(16,42,329,91),T.INK,78,true); name.scale.y=1.04
-	picture(host.who,Rect2(0,123,390,360),"detail-overview")
-	label("Lv.%d · %s · %s" % [host.model.s.members[host.who].level,host.model.person(host.who)["class"],host.model.person(host.who).row],Rect2(19,137,350,27),16,T.INK,T.BOLD)
-	header("동료 상세","party")
-	tabs(490,0)
-	var m=host.model.s.members[host.who]; var s=host.model.stats(host.who,m.level)
-	for i in range(2):
-		var k="hp" if i==0 else "mp"; var x=28+i*182
-		resource_numbers(Rect2(x,547,158,26),m[k],s[k],i==0,24)
-		resource(k+"_fill",Rect2(x+1,576,151,9 if i==0 else 3),m[k],s[k],i==0)
-	for i in range(5):
-		var key=["str","agi","int","def","spd"][i]; var x=28+i*70
-		var l=label(["힘","민첩","지능","방어","속도"][i],Rect2(x,610,60,19),10); l.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-		l=label(str(int(floor(float(s[key])+.5))),Rect2(x,630,60,26),20,T.INK,T.BOLD); l.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-	fill("trait_rule",Rect2(18,675,354,1),T.LINE)
-	var p=host.model.person(host.who)
-	label("특성",Rect2(20,675,42,20),10,T.INK,T.BOLD)
-	if host.who=="hildegard": plate("trait-penguin",Rect2(24,690,99,64))
-	else: icon("shield",Rect2(34,701,54,46))
-	display(p.trait.name,Rect2(137,690,233,29),T.INK,21)
-	var note=localized(p.trait.note);var teaser=note.left(32)+("…" if note.length()>32 else "")
-	var l=label(teaser,Rect2(137,719,233,38),11); l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	metrics[-1].available=1000 # measured as wrapped text by the UI test
-	hit("member_details",Rect2(18,681,354,78),host.go.bind("member_details")).tooltip_text="특성·경험치·기술 상세 보기"
+	var w=host.model
+	if not w.s.members.has(host.who):host.who=w.s.owned[0] if not w.s.owned.is_empty() else "persona"
+	var id=host.who;var p=w.person(id);var m=w.s.members[id];var stats=w.stats(id,m.level)
+	var original=stage;var sc=ScrollContainer.new();stage.add_child(sc);sc.size=Vector2(390,778);T.scroll_region(sc)
+	var page=Control.new();sc.add_child(page);page.custom_minimum_size=Vector2(378,1270);stage=page
+	background("inn",Rect2(0,0,390,470));boxes["background:inn"].modulate=Color(1,1,1,.38)
+	picture(id,Rect2(93,38,300,432),"companion-main")
+	display("토르바",Rect2(18,16,245,61),T.INK,44);label("%d일째 · 금화 %d"%[w.s.day,w.s.gold],Rect2(18,79,300,23),13,T.MUTED,T.BOLD)
+	var chips=w.s.party.duplicate()
+	if id not in chips:chips.push_front(id)
+	for i in mini(4,chips.size()):
+		var cid=chips[i];var y=120+i*64;picture(cid,Rect2(14,y,54,59),"companion-chip");hit("companion_chip:"+cid,Rect2(12,y,58,62),func():host.who=cid;host._draw_screen())
+		if cid==id:fill("chip_active",Rect2(22,y+58,38,3),T.RED)
+	fill("companion_say",Rect2(14,384,362,148),T.INK)
+	display(p.name,Rect2(30,391,180,35),T.PAPER,25);paragraph(p.row+" · "+p["class"]+" · Lv.%d"%m.level,Rect2(218,398,142,30),9,Color("c9bfae"))
+	var row=w.dialogue.select_scene(id,m.aff,w.s.dialogue_r21.seen);var line=""
+	if not row.is_empty():line=row.seen if w.s.dialogue_r21.seen.get(row.id,0)>0 else " ".join(row.lines)
+	var say=paragraph(line,Rect2(30,436,330,59),13,T.PAPER,false);say.set_meta("authored_copy",true);say.set_meta("dialogue_scene",row.get("id",""))
+	label("HP",Rect2(30,503,25,18),11,Color("c9bfae"),T.BOLD);resource("hp_fill",Rect2(60,510,224,9),m.hp,stats.hp);label("%d/%d"%[m.hp,stats.hp],Rect2(291,500,69,24),13,T.PAPER,T.BOLD)
+	action("companion_depart","원정 준비",Rect2(14,552,362,54),host.go.bind("depart"),true)
+	var facilities=[["guild","연합 길드","의뢰판 · 동료 소개"],["shop","마렌토 상회","물약 · 해독약 · 두루마리"],["inn","여관","휴식 · 동료와 대화"],["smithy","한나의 대장간","제련 · 가공"]]
+	for i in 4:
+		var e=facilities[i];var y=612+i*40;var b=hit("companion:"+e[0],Rect2(14,y,362,40),host.go.bind(e[0]));b.tooltip_text=localized(e[1]);icon(e[0],Rect2(20,y+9,22,22));label(e[1],Rect2(54,y+2,142,36),15,T.INK,T.BOLD)
+		var description=e[2] if L.language(w.s)!="en" else {"guild":"Quests · Companions","shop":"Potions · Antidotes · Scrolls","inn":"Rest · Talk to companions","smithy":"Forge · Process"}[e[0]]
+		paragraph(description,Rect2(196,y+2,150,36),10,T.MUTED,L.language(w.s)!="en");icon("chev",Rect2(356,y+12,14,14),T.QUIET);rule(y+39,14,362)
+	hit("back",Rect2(332,14,44,44),host.go.bind("party"));icon("back",Rect2(343,25,22,22));tabs(800,0)
+	resource_numbers(Rect2(22,858,158,26),m.hp,stats.hp,true,24);resource_numbers(Rect2(208,858,158,26),m.mp,stats.mp,false,24);resource("mp_fill",Rect2(208,890,150,3),m.mp,stats.mp,false)
+	for i in 5:
+		var key=["str","agi","int","def","spd"][i];var x=22+i*70;label(["힘","민첩","지능","방어","속도"][i],Rect2(x,920,60,20),11,T.MUTED);label(str(int(floor(float(stats[key])+.5))),Rect2(x,943,60,28),22,T.INK,T.BOLD)
+	rule(989);label("특성",Rect2(22,1000,334,23),12,T.MUTED,T.BOLD);display(p.trait.name,Rect2(22,1030,334,32),T.INK,25);paragraph(p.trait.note,Rect2(22,1073,334,95),13)
+	hit("member_details",Rect2(18,996,354,180),host.go.bind("member_details")).tooltip_text="특성·경험치·기술 상세 보기"
+	stage=original
 
 func skills() -> void:
 	ink(Rect2(-10,30,430,255)); plate("detail-city",Rect2(286,0,104,141)); picture(host.who,Rect2(83,27,307,257),"town-main")
@@ -975,7 +966,7 @@ func skills() -> void:
 	var p=host.model.person(host.who); var sk=p.skill
 	if host.who=="hildegard": plate("signature-guard",Rect2(23,340,129,165))
 	else:
-		fill("signature_plate",Rect2(23,340,129,165),T.RED)
+		fill("signature_plate",Rect2(23,340,129,165),Color.TRANSPARENT);ink(Rect2(23,340,129,165))
 		icon("shield",Rect2(58,389,60,69),T.INK)
 	var title=display(sk.name,Rect2(169,333,134,34),T.INK,25,true); mark("skill_title",title)
 	label("MP %d · %s" % [sk.mp,sk.target],Rect2(170,370,203,25),13,T.INK,T.BOLD)
@@ -986,7 +977,7 @@ func skills() -> void:
 	action("signature_preview","연출 보기",Rect2(170,469,200,36),host._show_art.bind(host.who),true)
 	fill("skills_rule",Rect2(20,522,350,1),T.INK)
 	var sc=ScrollContainer.new(); stage.add_child(sc); sc.position=Vector2(18,535); sc.size=Vector2(354,222)
-	sc.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+	T.scroll_region(sc)
 	var list=Control.new(); sc.add_child(list)
 	var entries=host.model.class_def(host.who).skills.filter(func(e):return e.kind in ["기본","능동"])
 	list.custom_minimum_size=Vector2(344,entries.size()*80); list.size=list.custom_minimum_size

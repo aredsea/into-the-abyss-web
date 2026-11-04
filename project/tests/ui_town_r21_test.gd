@@ -11,7 +11,14 @@ func check(ok: bool,label: String) -> void:
 	if not ok: failures.append(label); push_error(label)
 func _initialize() -> void: call_deferred("run")
 func click(s,id: String) -> void:
-	var b=s.controls[id]; var point=b.global_position+b.size*b.get_global_transform().get_scale()/2
+	var b=s.controls[id]
+	# r24: the same control may now live below the first viewport.
+	if b is Control:
+		var viewport=b.get_parent()
+		while viewport!=null and not viewport is ScrollContainer:viewport=viewport.get_parent()
+		if viewport is ScrollContainer:
+			viewport.ensure_control_visible(b);await process_frame;await process_frame
+	var point=b.global_position+b.size*b.get_global_transform().get_scale()/2
 	for pressed in [true,false]:
 		var ev=InputEventMouseButton.new(); ev.position=point; ev.button_index=MOUSE_BUTTON_LEFT; ev.pressed=pressed; root.push_input(ev)
 	await process_frame; await process_frame
@@ -49,7 +56,13 @@ func run() -> void:
 			var visible_buttons=[]
 			for id in s.controls:
 				var b=s.controls[id]; var r=b.get_global_rect()
-				if id.begins_with("member:") or id.begins_with("skill_detail:"): continue # scroll content
+				var ancestor=b.get_parent()
+				while ancestor!=null and not ancestor is ScrollContainer:ancestor=ancestor.get_parent()
+				if ancestor is ScrollContainer:
+					var offset=ancestor.scroll_vertical;ancestor.ensure_control_visible(b);await process_frame;await process_frame
+					check(ancestor.get_global_rect().grow(1).encloses(b.get_global_rect()),"whole scrolled control reachable "+mode+id)
+					ancestor.scroll_vertical=offset;await process_frame;await process_frame
+					continue
 				var fits=Rect2(Vector2.ZERO,Vector2(dim)).grow(1).encloses(r)
 				check(fits,"visible control bounds "+mode+id)
 				visible_buttons.append([id,r])

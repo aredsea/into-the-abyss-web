@@ -1,0 +1,529 @@
+[
+  {
+    "file": "project\\ui\\battle_screen.gd",
+    "functions": [
+      "_language",
+      "_tr",
+      "_sync_battle_viewport",
+      "_exit_tree",
+      "_mark",
+      "_outline",
+      "_location",
+      "_journal",
+      "_ready",
+      "_texture",
+      "_put",
+      "_color",
+      "_picture",
+      "_companion_picture",
+      "_label",
+      "_strong",
+      "_style",
+      "_button",
+      "_panel",
+      "_resource",
+      "_phase_thresholds",
+      "_resource_shield",
+      "_resource_numbers",
+      "_knockout",
+      "_rebuild",
+      "_queue",
+      "_battlefield",
+      "_actor_texture",
+      "_party",
+      "_detail",
+      "_commands",
+      "_skill_ids",
+      "_skills",
+      "_summary",
+      "_wrap",
+      "_confirm_sheet",
+      "_toggle_log",
+      "_log_sheet",
+      "_result_sheet",
+      "_close_button",
+      "_ally_sheet",
+      "_enemy_pressed",
+      "_ally_pressed",
+      "_action_pressed",
+      "_close_sheets",
+      "_capture_visual_before",
+      "_commit",
+      "_present_action",
+      "_motion_impact",
+      "_motion_visuals",
+      "_skip_motion",
+      "_resume_automatic",
+      "_retry",
+      "_preview",
+      "_persist",
+      "_publish_metrics",
+      "_unhandled_key_input",
+      "_effect_feedback",
+      "_supplies",
+      "_type",
+      "_display",
+      "ink_mode",
+      "_ink",
+      "_refresh_ink",
+      "text_regions",
+      "field_text_regions",
+      "_enemy_art",
+      "_enemy_name",
+      "_enemy_hp",
+      "_reason",
+      "_toggle_skills",
+      "_toggle_supplies",
+      "_sheet",
+      "_select_supply",
+      "_supply_reason"
+    ],
+    "branches": [],
+    "states": [
+      "is_empty",
+      "disabled",
+      "confirm",
+      "pending",
+      "busy",
+      "empty"
+    ]
+  },
+  {
+    "file": "project\\ui\\cloud_screen_r22.gd",
+    "functions": [
+      "build",
+      "label",
+      "button",
+      "input",
+      "connect_values",
+      "ask",
+      "local_summary",
+      "describe",
+      "rank_page",
+      "input_rects"
+    ],
+    "branches": [
+      "rank"
+    ],
+    "states": [
+      "is_empty",
+      "disabled",
+      "confirm",
+      "conflict",
+      "busy",
+      "empty"
+    ]
+  },
+  {
+    "file": "project\\ui\\codex_screen_r22.gd",
+    "functions": [
+      "build",
+      "detail"
+    ],
+    "branches": [],
+    "states": [
+      "is_empty",
+      "empty"
+    ]
+  },
+  {
+    "file": "project\\ui\\create_screen.gd",
+    "functions": [
+      "setup",
+      "text",
+      "button",
+      "row",
+      "choices",
+      "choice",
+      "step_heading",
+      "act",
+      "restore_scroll",
+      "traits",
+      "build",
+      "points",
+      "scenario"
+    ],
+    "branches": [
+      "scenario",
+      "town"
+    ],
+    "states": [
+      "is_empty",
+      "disabled",
+      "confirm",
+      "save_error",
+      "locked",
+      "empty"
+    ]
+  },
+  {
+    "file": "project\\ui\\expedition_screen_r22.gd",
+    "functions": [
+      "picture",
+      "small_party",
+      "exploration",
+      "source_entries",
+      "source_action",
+      "build_page",
+      "retreat",
+      "bag",
+      "target_item",
+      "remove_text_at",
+      "equipment",
+      "summary"
+    ],
+    "branches": [
+      "expedition_log",
+      "explore",
+      "rest"
+    ],
+    "states": [
+      "is_empty",
+      "confirm",
+      "empty"
+    ]
+  },
+  {
+    "file": "project\\ui\\expedition_supply_screen_r22.gd",
+    "functions": [
+      "_ready",
+      "_supply_reason"
+    ],
+    "branches": [],
+    "states": [
+      "is_empty",
+      "pending",
+      "empty"
+    ]
+  },
+  {
+    "file": "project\\ui\\facilities_screen_r22.gd",
+    "functions": [
+      "source_u",
+      "source_t",
+      "guild_tabs",
+      "smithy_tabs",
+      "smithy_forge",
+      "smithy_effect",
+      "smithy_result_card",
+      "smithy_process",
+      "recruit_cell",
+      "recruit_roster",
+      "recruit_result",
+      "recruit",
+      "guild_quest_card",
+      "guild_board",
+      "picture",
+      "equipment_people",
+      "equipment",
+      "member_choice",
+      "build_page",
+      "shop",
+      "inn",
+      "shop_gear",
+      "guild",
+      "smithy",
+      "scroll_page_targets",
+      "receipt_page"
+    ],
+    "branches": [
+      "facility_scroll",
+      "gear",
+      "process"
+    ],
+    "states": [
+      "is_empty",
+      "pending",
+      "response",
+      "busy",
+      "empty"
+    ]
+  },
+  {
+    "file": "project\\ui\\inventory_screen_r22.gd",
+    "functions": [
+      "build",
+      "detail",
+      "member_name"
+    ],
+    "branches": [],
+    "states": [
+      "is_empty",
+      "empty"
+    ]
+  },
+  {
+    "file": "project\\ui\\journal_screen_r22.gd",
+    "functions": [
+      "button",
+      "build",
+      "redraw",
+      "journal",
+      "places",
+      "visit",
+      "open_person",
+      "people"
+    ],
+    "branches": [],
+    "states": [
+      "is_empty",
+      "disabled",
+      "save_error",
+      "empty"
+    ]
+  },
+  {
+    "file": "project\\ui\\panel_screen_r22.gd",
+    "functions": [
+      "setup",
+      "text",
+      "button",
+      "row",
+      "section",
+      "choose",
+      "cx",
+      "switch_panel",
+      "bg",
+      "pager",
+      "portrait",
+      "stats",
+      "affection",
+      "favorite_card",
+      "passives",
+      "persona",
+      "gear_card",
+      "gear_icon",
+      "gear_tile",
+      "fx_name",
+      "fx_value"
+    ],
+    "branches": [
+      "bag",
+      "inventory"
+    ],
+    "states": [
+      "is_empty",
+      "disabled",
+      "save_error",
+      "empty"
+    ]
+  },
+  {
+    "file": "project\\ui\\persona_sortie_screen.gd",
+    "functions": [
+      "build",
+      "source_action",
+      "preparation_entries",
+      "formation_slots",
+      "formation_row"
+    ],
+    "branches": [],
+    "states": [
+      "is_empty",
+      "disabled",
+      "save_error",
+      "empty"
+    ]
+  },
+  {
+    "file": "project\\ui\\settings_screen_r22.gd",
+    "functions": [
+      "build",
+      "button",
+      "apply",
+      "reset_now"
+    ],
+    "branches": [],
+    "states": [
+      "disabled",
+      "save_error"
+    ]
+  },
+  {
+    "file": "project\\ui\\status_screen_r22.gd",
+    "functions": [
+      "build"
+    ],
+    "branches": [],
+    "states": [
+      "is_empty",
+      "empty"
+    ]
+  },
+  {
+    "file": "project\\ui\\town_screen_r21.gd",
+    "functions": [
+      "build",
+      "localized",
+      "finish_localization",
+      "build_frame",
+      "build_page",
+      "mark",
+      "fill",
+      "resource",
+      "resource_numbers",
+      "label",
+      "display",
+      "background",
+      "page_background",
+      "traced_title",
+      "action",
+      "hit",
+      "picture",
+      "ink",
+      "header",
+      "icon",
+      "plate",
+      "navigation",
+      "home",
+      "town_detail_button",
+      "roster",
+      "paragraph",
+      "rule",
+      "asset",
+      "scroll_page",
+      "small_party",
+      "departure",
+      "bag",
+      "target_item",
+      "formation",
+      "exploration",
+      "cards",
+      "retreat",
+      "npc_hero",
+      "research",
+      "research_editor",
+      "_research_action",
+      "cache",
+      "feedback",
+      "member_choice",
+      "inn",
+      "shop",
+      "dialogue_frame",
+      "inn_dialogue",
+      "reading_line",
+      "journey_dialogue",
+      "shop_gear",
+      "guild_tabs",
+      "guild",
+      "recruit",
+      "equipment",
+      "smithy",
+      "journal",
+      "summary",
+      "tabs",
+      "overview",
+      "skills"
+    ],
+    "branches": [
+      "bag",
+      "cards",
+      "depart",
+      "equipment",
+      "explore",
+      "formation",
+      "gear",
+      "guild",
+      "inn",
+      "items",
+      "journal",
+      "member",
+      "party",
+      "recruit",
+      "research",
+      "rest",
+      "shop",
+      "skills",
+      "smithy",
+      "summary",
+      "town"
+    ],
+    "states": [
+      "is_empty",
+      "disabled",
+      "confirm",
+      "save_error",
+      "pending",
+      "response",
+      "empty"
+    ]
+  },
+  {
+    "file": "project\\ui\\world_screen.gd",
+    "functions": [
+      "open_settings_r22",
+      "_ready",
+      "_save",
+      "go",
+      "_draw_screen",
+      "_title",
+      "_finish_display_r24",
+      "_fit_display_r24",
+      "number",
+      "text",
+      "box",
+      "button",
+      "image",
+      "bar",
+      "companion_image",
+      "_portrait",
+      "_town",
+      "_party",
+      "_member",
+      "_departure",
+      "_legacy_departure",
+      "_formation",
+      "_explore",
+      "_route_explore",
+      "_cards",
+      "_bag",
+      "_item_text",
+      "_shop",
+      "_inn",
+      "_summary",
+      "_journal",
+      "_ask",
+      "_confirmation",
+      "_accept",
+      "_act",
+      "_save_battle",
+      "_leave_battle",
+      "_publish",
+      "_process",
+      "_npc",
+      "_member_picker",
+      "_guild",
+      "_gear_caption",
+      "_gear_values",
+      "_equipment",
+      "_smithy",
+      "_research",
+      "_show_art",
+      "_close_art"
+    ],
+    "branches": [
+      "battle",
+      "equipment",
+      "explore",
+      "formation",
+      "items",
+      "member_details",
+      "research",
+      "rest",
+      "settings",
+      "summary",
+      "town"
+    ],
+    "states": [
+      "is_empty",
+      "disabled",
+      "confirm",
+      "save_error",
+      "pending",
+      "response",
+      "conflict",
+      "busy",
+      "empty"
+    ]
+  }
+]

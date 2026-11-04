@@ -146,6 +146,7 @@ func _draw_screen() -> void:
 		town_view=ExpeditionScreen.new() if p5 else TownScreen.new(); add_child(town_view); town_view.build(self)
 		last_drawn_screen=screen; call_deferred("_publish"); return
 	var width=minf(size.x,440); var height=size.y
+	var paper_ground=ColorRect.new();add_child(paper_ground);paper_ground.color=UI.PAPER;paper_ground.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);paper_ground.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	var base=Control.new(); add_child(base); base.position=Vector2((size.x-width)/2,0); base.size=Vector2(width,height)
 	var back=ColorRect.new(); base.add_child(back); back.size=base.size; back.color=UI.GROUND; back.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	UI.rule(base,88,width-36)
@@ -153,7 +154,7 @@ func _draw_screen() -> void:
 	preload("res://game/localization_r22.gd").fit_title(heading,30)
 	var status=Label.new(); base.add_child(status); status.position=Vector2(18,56); status.text="%d일째     금화 %d" % [model.s.day,model.s.gold]; status.add_theme_font_size_override("font_size",12)
 	scroll=ScrollContainer.new(); base.add_child(scroll); scroll.position=Vector2(18,104); scroll.size=Vector2(width-36,height-180)
-	scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+	UI.scroll_region(scroll)
 	content=VBoxContainer.new(); scroll.add_child(content); content.size_flags_horizontal=Control.SIZE_EXPAND_FILL; content.add_theme_constant_override("separation",8 if screen=="town" else 12)
 	if not message.is_empty(): text(message,14,GOLD)
 	if save_error!=OK: button("save_retry","저장 다시 시도",func(): _save(); _draw_screen())
@@ -177,11 +178,11 @@ func _draw_screen() -> void:
 			"smithy": _smithy()
 			"equipment": _equipment()
 			"research": _research()
-	var nav=HBoxContainer.new(); base.add_child(nav); nav.position=Vector2(12,height-66); nav.size=Vector2(width-24,54); nav.add_theme_constant_override("separation",6)
+	var nav=HBoxContainer.new(); base.add_child(nav); nav.position=Vector2(0,height-66); nav.size=Vector2(width,66); nav.add_theme_constant_override("separation",0)
 	for item in [["town","마을"],["party","동료"],["explore" if model.active() else "depart","원정"],["bag","가방"],["journal","기록"]]:
-		var b=Button.new(); b.text=item[1]; nav.add_child(b); b.custom_minimum_size=Vector2(0,52); b.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+		var b=Button.new(); b.text=item[1]; nav.add_child(b); b.custom_minimum_size=Vector2(0,66); b.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 		b.add_theme_font_size_override("font_size",12)
-		UI.dress_button(b,item[0]==screen or (screen=="member_details" and item[0]=="party"))
+		UI.dress_navigation(b,"depart" if item[0]=="explore" else item[0],item[0]==screen or (screen=="member_details" and item[0]=="party"))
 		b.pressed.connect(go.bind(item[0])); controls["nav:"+item[0]]=b
 	UI.rule(base,height-76,width-36)
 	var back_button=Button.new(); base.add_child(back_button); back_button.position=Vector2(width-88,20); back_button.size=Vector2(70,44); back_button.text="뒤로";UI.dress_button(back_button)
@@ -212,9 +213,11 @@ func _finish_display_r24() -> void:
 	call_deferred("_fit_display_r24")
 
 func _fit_display_r24() -> void:
+	_reskin_primary()
 	var locale=preload("res://game/localization_r22.gd")
 	for node in find_children("*","Control",true,false):
 		if not (node is Label or node is Button):continue
+		UI.inline_icons(node)
 		if node is Button or node.has_meta("metric_index"):locale.fit_box(node)
 		if node.has_meta("metric_index") and is_instance_valid(town_view):
 			var metrics=town_view.get("metrics");var index=int(node.get_meta("metric_index"))
@@ -222,13 +225,26 @@ func _fit_display_r24() -> void:
 				var fs=node.get_theme_font_size("font_size");metrics[index].text=node.text;metrics[index].font_size=fs
 				metrics[index].needed=node.get_theme_font("font").get_multiline_string_size(node.text,HORIZONTAL_ALIGNMENT_LEFT,node.size.x if node.autowrap_mode!=TextServer.AUTOWRAP_OFF else -1,fs).x
 
+func _reskin_primary() -> void:
+	if is_instance_valid(battle):return
+	var candidates={"cloud":["cloud_confirm","cloud_create","cloud_save","cloud_connect"],"rank":["rank_refresh"],"settings":["p8_reset_yes","p8_cloud"],"inventory":["p7_bg_equip","p7_bg_sell"],"codex":["p7_cx_join"],"member_details":["gear_for_member","signature_preview"],"journal":["cloud_open"],"places":["p10_visit","p10_facility"],"people":["p10_visit"]}.get(screen,[])
+	for id in candidates:
+		if controls.has(id) and controls[id] is Button and not controls[id].disabled:
+			var b=controls[id];UI.primary(b)
+			if b.has_node("RowCopy"):
+				for color in ["font_color","font_hover_color","font_pressed_color","font_focus_color","font_disabled_color"]:b.add_theme_color_override(color,Color.TRANSPARENT)
+				for l in b.get_node("RowCopy").find_children("*","Label",true,false):l.add_theme_color_override("font_color",UI.PAPER)
+				for child in b.get_children():
+					if child is TextureRect and child.material is ShaderMaterial:child.material.set_shader_parameter("tint",UI.PAPER)
+			break
+
 func number(value: float) -> String:
 	return str(int(value)) if value==int(value) else str(snappedf(value,0.01))
 
 func text(value: String, fs=14, color=INK, parent: Node=null) -> Label:
 	var label=Label.new(); (parent if parent else content).add_child(label)
 	if fs>=17: label.add_theme_font_override("font",UI.TITLE)
-	label.text=preload("res://game/localization_r22.gd").display(value,model.s).replace("−","-"); label.add_theme_font_size_override("font_size",fs); label.add_theme_color_override("font_color",UI.ACTION_RED if color==GOLD else color)
+	label.text=preload("res://game/localization_r22.gd").display(value,model.s).replace("−","-"); label.add_theme_font_size_override("font_size",fs); label.add_theme_color_override("font_color",UI.INK if color==GOLD else color)
 	label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART; label.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	label.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	return label
@@ -270,8 +286,8 @@ func bar(label: String, value: float, maximum: float, parent: Node, hp=true) -> 
 		var fill=StyleBoxFlat.new(); fill.bg_color=UI.HP if hp else UI.MP; p.add_theme_stylebox_override("fill",fill)
 
 func companion_image(id: String, target: Node, dims: Vector2) -> Control:
-	var pic=preload("res://ui/town_portrait_r21.gd").new(); pic.custom_minimum_size=dims
-	target.add_child(pic); pic.configure(id); pic.size_flags_horizontal=SIZE_EXPAND_FILL
+	var pic=preload("res://ui/portrait_slot_r24.gd").make(id,"detail",dims)
+	target.add_child(pic);pic.size_flags_horizontal=SIZE_EXPAND_FILL
 	return pic
 
 func _portrait(id: String, parent: Node, large=false) -> void:

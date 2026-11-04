@@ -16,13 +16,10 @@ var metrics=[]
 func setup(owner_screen,heading: String) -> void:
 	host=owner_screen;rules=host.model.persona_rules;theme=T.make_theme()
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	var bg=ColorRect.new();add_child(bg);bg.color=T.PAPER;bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);bg.mouse_filter=MOUSE_FILTER_IGNORE
+	var bg=ColorRect.new();add_child(bg);bg.color=T.PAPER;bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);bg.mouse_filter=MOUSE_FILTER_IGNORE;T.paper(self)
 	frame=Control.new();add_child(frame);frame.size=Vector2(minf(host.size.x,900 if host.size.x>=900 else 430),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
-	if L.language(host.model.s)=="ko":
-		title=TextureRect.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x*.72,58);title.texture=load("res://assets/ui-r21/title-"+("meeting" if heading=="첫 만남" else "create")+".svg");title.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;title.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;title.mouse_filter=MOUSE_FILTER_IGNORE
-	else:
-		title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-36,58);title.text=L.render(heading,L.language(host.model.s));title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",38)
-	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,132);scroll.size=Vector2(frame.size.x-36,frame.size.y-228);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+	title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-36,58);title.text=L.render(heading,L.language(host.model.s));title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",38)
+	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,132);scroll.size=Vector2(frame.size.x-36,frame.size.y-228);T.scroll_region(scroll)
 	body=VBoxContainer.new();scroll.add_child(body);body.size_flags_horizontal=SIZE_EXPAND_FILL;body.add_theme_constant_override("separation",12)
 	footer=HBoxContainer.new();frame.add_child(footer);footer.position=Vector2(18,frame.size.y-68);footer.size=Vector2(frame.size.x-36,50);footer.add_theme_constant_override("separation",12)
 	T.rule(frame,frame.size.y-80,frame.size.x-36)
@@ -34,6 +31,9 @@ func text(value: String,fs=15,color=T.INK,parent: Node=null) -> Label:
 func button(id: String,value: String,fn: Callable,selected=false,disabled=false,parent: Node=null) -> Button:
 	var b=Button.new();(parent if parent else body).add_child(b);b.text=L.render(value,L.language(host.model.s));b.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;b.custom_minimum_size=Vector2(44,48);b.size_flags_horizontal=SIZE_EXPAND_FILL;b.disabled=disabled;b.add_theme_font_size_override("font_size",15)
 	T.dress_button(b,selected)
+	if id in ["cr_next","cr_done","sc_go"]:T.primary(b)
+	if b.text.contains("→") or b.text.contains("←"):
+		var back=b.text.contains("←");b.text=b.text.replace("→","").replace("←","").strip_edges();b.icon=load(T.icon_path("back" if back else "arrow"));b.icon_alignment=HORIZONTAL_ALIGNMENT_LEFT if back else HORIZONTAL_ALIGNMENT_RIGHT;b.expand_icon=true;b.add_theme_constant_override("icon_max_width",19)
 	b.pressed.connect(fn);host.controls[id]=b;return b
 func row() -> HBoxContainer:
 	var h=HBoxContainer.new();body.add_child(h);h.add_theme_constant_override("separation",8);return h
@@ -50,9 +50,9 @@ func choice(id: String,name_text: String,description: String,fn: Callable,select
 	var margin=MarginContainer.new();b.add_child(margin);margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);margin.offset_left=12;margin.offset_right=-12;margin.offset_top=10;margin.offset_bottom=-10;margin.mouse_filter=MOUSE_FILTER_IGNORE
 	var h=HBoxContainer.new();margin.add_child(h);h.add_theme_constant_override("separation",12);h.mouse_filter=MOUSE_FILTER_IGNORE
 	var stack=VBoxContainer.new();h.add_child(stack);stack.size_flags_horizontal=SIZE_EXPAND_FILL;stack.add_theme_constant_override("separation",4);stack.mouse_filter=MOUSE_FILTER_IGNORE
-	var name_label=text(name_text,20,T.PAPER if selected else T.INK,stack);name_label.mouse_filter=MOUSE_FILTER_IGNORE
-	var desc=text(description,13,T.PAPER if selected else T.MUTED,stack);desc.mouse_filter=MOUSE_FILTER_IGNORE
-	var arrow=text("→",28,T.PAPER if selected else T.INK,h);arrow.autowrap_mode=TextServer.AUTOWRAP_OFF;arrow.custom_minimum_size.x=32;arrow.size_flags_horizontal=SIZE_SHRINK_END;arrow.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;arrow.mouse_filter=MOUSE_FILTER_IGNORE
+	var name_label=text(name_text,20,T.INK,stack);name_label.mouse_filter=MOUSE_FILTER_IGNORE
+	var desc=text(description,13,T.MUTED,stack);desc.mouse_filter=MOUSE_FILTER_IGNORE
+	var arrow=TextureRect.new();h.add_child(arrow);arrow.texture=load(T.icon_path("chev"));arrow.custom_minimum_size=Vector2(22,22);arrow.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;arrow.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;arrow.mouse_filter=MOUSE_FILTER_IGNORE
 	var fit=func():b.custom_minimum_size.y=maxf(78,margin.get_combined_minimum_size().y+20)
 	margin.minimum_size_changed.connect(fit);fit.call()
 	return b
@@ -76,7 +76,9 @@ func restore_scroll(offset: int,focus_id: String) -> void:
 	scroll.scroll_vertical=offset
 	if host.controls.has(focus_id) and body.is_ancestor_of(host.controls[focus_id]):
 		var target=host.controls[focus_id]
-		scroll.ensure_control_visible(target.get_parent() if target.get_parent() is HBoxContainer else target)
+		target.grab_focus()
+		# Preserve the exact viewport offset; Godot focus must not jump the selected row.
+		scroll.set_deferred("scroll_vertical",offset)
 func traits(entry: Dictionary,kind="종족",syn_entry: Dictionary={}) -> void:
 	if entry.is_empty():return
 	text(entry.name,23)
@@ -164,7 +166,7 @@ func scenario() -> void:
 	var selected=rules.by(rules.data.scenarios,"id",host.model.s.ui.sel)
 	if not selected.is_empty():
 		var portrait_frame=CenterContainer.new();body.add_child(portrait_frame);portrait_frame.custom_minimum_size.y=280
-		var portrait=preload("res://ui/town_portrait_r21.gd").new();portrait_frame.add_child(portrait);portrait.custom_minimum_size=Vector2(minf(frame.size.x-36,340),280);portrait.configure(selected.companion,"detail-overview")
+		var portrait=preload("res://ui/portrait_slot_r24.gd").make(selected.companion,"meeting",Vector2(minf(frame.size.x-36,340),280));portrait_frame.add_child(portrait)
 		text(host.model.person(selected.companion).name,27)
 		text(selected.title,20,T.RED);text(selected.place,14,T.MUTED);text(selected.text,16)
 	else:text("만남을 고르면 장면이 미리 보입니다. 시작하면 이 동료와 함께 토르바에서 출발합니다.",15,T.MUTED)

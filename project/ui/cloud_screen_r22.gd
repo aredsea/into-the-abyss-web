@@ -9,12 +9,12 @@ var fields={}
 func build(owner_screen) -> void:
 	host=owner_screen;service=host.cloud
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);theme=T.make_theme()
-	var ground=ColorRect.new();add_child(ground);ground.color=T.PAPER;ground.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);ground.mouse_filter=MOUSE_FILTER_IGNORE
+	var ground=ColorRect.new();add_child(ground);ground.color=T.PAPER;ground.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);ground.mouse_filter=MOUSE_FILTER_IGNORE;T.paper(self)
 	var frame=Control.new();add_child(frame);var w=minf(host.size.x,430);frame.position=Vector2((host.size.x-w)/2,0);frame.size=Vector2(w,host.size.y)
 	var title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(w-112,58);title.text="토르바 · "+("순위" if host.screen=="rank" else "기록");title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",32)
 	var back=Button.new();frame.add_child(back);back.position=Vector2(w-88,20);back.size=Vector2(70,44);back.text="뒤로";T.dress_button(back);back.pressed.connect(host.go.bind("cloud" if host.screen=="rank" else "journal"));host.controls.back=back
 	T.rule(frame,80,w-36)
-	var scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,96);scroll.size=Vector2(w-36,host.size.y-114);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+	var scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,96);scroll.size=Vector2(w-36,host.size.y-114);T.scroll_region(scroll)
 	body=VBoxContainer.new();scroll.add_child(body);body.size_flags_horizontal=Control.SIZE_EXPAND_FILL;body.add_theme_constant_override("separation",12)
 	label("대던전 순위" if host.screen=="rank" else "클라우드 저장",24)
 	label(service.notice,14)

@@ -237,6 +237,7 @@ func _resource_numbers(unit: Dictionary,rect: Rect2,parent: Control,hp=true,larg
 
 func _knockout(face: Control,parent: Control,rect: Rect2) -> void:
 	var material=ShaderMaterial.new();material.shader=preload("res://ui/resource_ko_r24.gdshader");face.material=material
+	if face.has_method("knockout"):face.knockout()
 	var stamp=Control.new();_put(stamp,rect,parent);stamp.pivot_offset=rect.size/2;stamp.rotation=deg_to_rad(-8)
 	var panel=_panel(Rect2(Vector2.ZERO,rect.size),stamp);var sb=_style(Color(.96,.94,.89,.9),ResourceGauge.RED);sb.set_border_width_all(2);panel.add_theme_stylebox_override("panel",sb)
 	_strong("전투 불능",Rect2(2,0,rect.size.x-4,rect.size.y),12,ResourceGauge.RED,stamp,HORIZONTAL_ALIGNMENT_CENTER,DISPLAY_PLAIN)
@@ -415,8 +416,8 @@ func _party(rect: Rect2) -> void:
 	for i in range(state.data.allies.size()):
 		var a=state.data.allies[i]; shown_hp[a.id]=a.hp
 		var b=_button("ally:"+a.id,Rect2(rect.position+Vector2(i*(col+6),9),Vector2(col,141)),_ally_pressed.bind(a.id),false,self,true); _mark("party-card:"+a.id,b)
-		var face=FaceR17.new(); face.reference_party=true; face.configure(a.id); _put(face,Rect2(0,0,col,51),b); _mark("face:"+a.id,face)
-		var face_border=_panel(Rect2(0,0,col,51),b); face_border.add_theme_stylebox_override("panel",_style(Color.TRANSPARENT,Color("9fa394")))
+		var face=preload("res://ui/portrait_slot_r24.gd").make(a.id,"battle-party",Vector2(col,51)); _put(face,Rect2(0,0,col,51),b); _mark("face:"+a.id,face)
+		
 		if a.id==state.current_id or a.id==ally_open or (items_open and supply_target_set and a.id==state.selected_ally):
 			var border=_panel(Rect2(0,0,col,51),b); var sb=_style(Color.TRANSPARENT,RED); sb.set_border_width_all(2); border.add_theme_stylebox_override("panel",sb)
 		_strong(a.name,Rect2(0,51,col-(22 if a.id==state.current_id else 0),17),12,INK,b,HORIZONTAL_ALIGNMENT_LEFT,TIGHT)
@@ -573,7 +574,7 @@ func _log_sheet(rect: Rect2) -> void:
 		_label("턴 "+str(entry.turn),Rect2(0,0,35,60),12,INK,row)
 		_color(Rect2(44,8,39,45),Color("e4dfd1"),row)
 		if not state.ally(entry.actor).is_empty():
-			var face=preload("res://ui/battle_image_r19.gd").new(); face.picture=_texture("res://assets/portraits-r10/"+entry.actor+"-face.png") if entry.actor in ["hildegard","bargut","teiris","berenga"] else _texture("res://assets/"+entry.actor+".webp"); face.alignment=Vector2(.5,.7); _put(face,Rect2(44,8,39,45),row)
+			var face=preload("res://ui/portrait_slot_r24.gd").make(entry.actor,"battle-log",Vector2(39,45)); _put(face,Rect2(44,8,39,45),row)
 		elif not state.enemy(entry.actor).is_empty(): _enemy_art(state.enemy(entry.actor),Rect2(44,8,39,45),row)
 		_strong(_tr(entry.name),Rect2(94,10,width-100,18),12,INK,row,HORIZONTAL_ALIGNMENT_LEFT,W850)
 		_label(_tr(entry.action),Rect2(94,28,width-100,22),14,INK,row)
@@ -597,11 +598,8 @@ func _close_button(rect: Rect2, parent: Control) -> void:
 
 func _ally_sheet(rect: Rect2) -> void:
 	var a=state.ally(ally_open); var p=_sheet(rect,a.name,"status")
-	var status_portrait: Control
-	if a.id in ["hildegard","bargut","teiris","berenga"]:
-		status_portrait=preload("res://ui/battle_image_r19.gd").new();status_portrait.picture=_texture("res://assets/portraits-r10/"+a.id+"-cutout.png");_put(status_portrait,Rect2(7,52,153,192),p);_mark("status-portrait",status_portrait)
-	else:
-		status_portrait=preload("res://ui/character_portrait.gd").new();status_portrait.configure(a.id);_put(status_portrait,Rect2(7,52,153,192),p)
+	var status_portrait=preload("res://ui/portrait_slot_r24.gd").make(a.id,"battle-status",Vector2(153,192))
+	_put(status_portrait,Rect2(7,52,153,192),p);_mark("status-portrait",status_portrait)
 	if a.hp<=0:_knockout(status_portrait,p,Rect2(24,119,117,27))
 
 	var x=174.0; var width=rect.size.x-x-12

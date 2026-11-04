@@ -2,7 +2,7 @@ extends Control
 ## Shared fluid shell: paper, brush titles, red actions; fixed navigation.
 const L=preload("res://game/localization_r22.gd")
 const T=preload("res://ui/town_theme_r21.gd")
-const READABLE_RED=Color("#c62b15")
+const READABLE_RED=T.RED
 const R=preload("res://game/panels_rules_r22.gd")
 const Portrait=preload("res://ui/portrait_rules_r22.gd")
 const Research=preload("res://game/persona_research_r21.gd")
@@ -15,7 +15,7 @@ var frame: Control
 var metrics=[]
 func setup(owner_screen,heading: String) -> void:
 	host=owner_screen;state=host.panels_r22;theme=T.make_theme();set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	var paper=ColorRect.new();add_child(paper);paper.color=T.PAPER;paper.mouse_filter=MOUSE_FILTER_IGNORE;paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	var paper=ColorRect.new();add_child(paper);paper.color=T.PAPER;paper.mouse_filter=MOUSE_FILTER_IGNORE;paper.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);T.paper(self)
 	frame=Control.new();add_child(frame);frame.size=Vector2(minf(900 if host.size.x>=900 else 430,host.size.x),host.size.y);frame.position.x=(host.size.x-frame.size.x)/2
 	var title=Label.new();frame.add_child(title);title.position=Vector2(18,12);title.size=Vector2(frame.size.x-112,58);title.text=L.render(heading,L.language(host.model.s));title.add_theme_font_override("font",T.DISPLAY);title.add_theme_font_size_override("font_size",38);title.clip_text=true;title.size.x=frame.size.x-112;L.fit_title(title,38)
 	var back=button("p7_back","뒤로",host.go.bind(host.panels_return,false),false,false,frame);back.position=Vector2(frame.size.x-88,20);back.size=Vector2(70,44);back.size_flags_horizontal=0
@@ -24,9 +24,9 @@ func setup(owner_screen,heading: String) -> void:
 	for e in [["codex","도감"],["status","상태"],["inventory","장비 가방"]]:
 		if e[0]=="inventory" and state.in_battle():continue
 		button("p7_tab_"+e[0],e[1],switch_panel.bind(e[0]),host.screen==e[0],false,tabs)
-	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,148);scroll.size=Vector2(frame.size.x-36,frame.size.y-242);scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+	scroll=ScrollContainer.new();frame.add_child(scroll);scroll.position=Vector2(18,148);scroll.size=Vector2(frame.size.x-36,frame.size.y-242);T.scroll_region(scroll)
 	body=VBoxContainer.new();scroll.add_child(body);body.size_flags_horizontal=SIZE_EXPAND_FILL;body.add_theme_constant_override("separation",12)
-	var nav=HBoxContainer.new();frame.add_child(nav);nav.position=Vector2(12,frame.size.y-62);nav.size=Vector2(frame.size.x-24,50);nav.add_theme_constant_override("separation",4)
+	var nav=HBoxContainer.new();frame.add_child(nav);nav.position=Vector2(0,frame.size.y-66);nav.size=Vector2(frame.size.x,66);nav.add_theme_constant_override("separation",0)
 	T.rule(frame,frame.size.y-78,frame.size.x-36)
 	for e in [["town","마을"],["party","동료"],["depart","원정"],["bag","가방"],["journal","기록"]]:
 		if e[0]=="bag" and state.in_battle():continue
@@ -92,8 +92,9 @@ func pager(items: Array,pg: int,count: int,kind: String) -> void:
 	button("p7_prev","이전",cx.bind("pg_"+str(p.page-1)) if kind=="cx" else bg.bind("pg_"+str(p.page-1)),false,p.page<=1,h)
 	var label=text("%d / %d"%[p.page,p.pages],14,T.MUTED,h);label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;label.size_flags_vertical=SIZE_SHRINK_CENTER
 	button("p7_next","다음",cx.bind("pg_"+str(p.page+1)) if kind=="cx" else bg.bind("pg_"+str(p.page+1)),false,p.page>=p.pages,h)
-func portrait(id: String,parent: Node,dims: Vector2,name: Variant=null) -> Control:
-	var p=Portrait.new();parent.add_child(p);p.custom_minimum_size=dims;p.configure(id,"default",name,L.language(host.model.s));return p
+func portrait(id: String,parent: Node,dims: Vector2,_name: Variant=null) -> Control:
+	var p=preload("res://ui/portrait_slot_r24.gd").make(id,"panel",dims);parent.add_child(p);return p
+
 func stats(values: Dictionary,level: int,xp: int,job="") -> void:
 	section(L.u("능력치",{},L.language(host.model.s))+" Lv %d"%level+(" · "+L.t(job,L.language(host.model.s)) if job!="" else ""))
 	var exp_view=View.experience(level,xp,L.language(host.model.s));text(exp_view.text,14,T.MUTED)

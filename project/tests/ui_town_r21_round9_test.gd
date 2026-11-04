@@ -1,6 +1,6 @@
 extends "res://tests/ui_persona_town_round8_test.gd"
 const M=preload("res://game/chronicle_world_r22.gd")
-const Portrait=preload("res://ui/town_portrait_r21.gd")
+const Portrait=preload("res://ui/portrait_slot_r24.gd")
 func fresh():
 	var w=M.new()
 	for arg in ["race_human","nat_border","cls_warrior","auto","done"]:w.create_action(arg)
@@ -16,7 +16,7 @@ func preparation(s):
 	for i in range(3):check(s.town_view.boxes.has("route_picture:"+str(i)),"illustrated source route "+str(i))
 	var underline=s.town_view.boxes.nav_active.get_global_rect()
 	for l in s.town_view.find_children("*","Label",true,false):
-		if l.text=="원정":check(l.get_global_rect().end.y<underline.position.y,"active underline below expedition glyphs")
+		if l.text=="원정":check(underline.end.y<l.get_global_rect().position.y,"approved active rule above expedition glyphs")
 func run():
 	folder="res://../verification/town-r21/round9/render";DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
 	create_timer(180).timeout.connect(func():push_error("round9 UI watchdog");quit(98))

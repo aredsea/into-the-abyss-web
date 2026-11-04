@@ -30,7 +30,8 @@ func capture(s,tag,dim):
 			check(decimal.search(n.text)==null,"source-rounded stat: "+n.text)
 	if tag in ["shop-en","smithy-en","recruit-en"]:
 		var id=tag.trim_suffix("-en");var node=view.boxes.get("title:"+id)
-		check(node!=null and node.texture.resource_path.ends_with("-en.svg"),"source English SVG "+id)
+		var title_source={"shop":"마렌토 상회","smithy":"한나의 대장간","recruit":"동료 소개"}[id]
+		check(node is Label and node.text==L.display(title_source,s.model.s),"source English title uses the approved display font "+id)
 	var ko=RegEx.new();ko.compile("[가-힣]")
 	for node in view.find_children("*","Control",true,false):
 		if not (node is Label or node is Button):continue

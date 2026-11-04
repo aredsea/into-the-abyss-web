@@ -18,7 +18,8 @@ func run():
 			for i in combo.item_count:check(combo.get_item_text(i)==preload("res://tests/source_locale_r24.gd").text(specs[i+4].text,lang),"source element choice text/order with selected-language dictionary")
 			combo.select(1);combo.item_selected.emit(1);await settle()
 			check(s.panels_r22.ui.tab=="el_fire","element filter changes native state")
-			check(s.controls.p7_filter_el.get_theme_color("font_color")==preload("res://ui/town_theme_r21.gd").PAPER,"group remains selected for child filter")
+			var selected_group=s.controls.p7_filter_el
+			check(selected_group.get_meta("r24_selected",false) and selected_group.get_theme_stylebox("normal") is StyleBoxTexture and selected_group.get_theme_stylebox("normal").texture.resource_path.ends_with("/selection.svg"),"group remains visibly selected for child filter")
 			var resumed=World.new();check(s.storage.read_into(resumed) and resumed.s.panels_r22.tab=="el_fire","source filter survives save/reload")
 			await capture(s,"ui-filter-"+lang,dim)
 			await click(s,"p7_filter_rec");await click(s,"p7_select_levia")
