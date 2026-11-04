@@ -22,6 +22,7 @@ if '--cloud' in sys.argv:
     raise SystemExit()
 rows=json.loads((O/'regression.json').read_text(encoding='utf-8')) if (O/'regression.json').exists() else []
 names=[n for n in names if n in selected] if selected else ['import']+[n for n in names if n not in cloud]
+if selected and 'import' in selected:names.insert(0,'import')
 if '--affected' in sys.argv:names=[n for n in names if n not in cloud and (n.startswith('ui_') or n in ['finish_r24_test','expe_pass2_r23_test','expe_pass6_r23_test','town_r21_round10_test','town_r21_round11_test'])]
 slot_ids={};lock=threading.Lock()
 def run(name):

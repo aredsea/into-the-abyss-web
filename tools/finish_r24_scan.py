@@ -34,6 +34,8 @@ if '--self-test' in sys.argv:
     assert defects({'lang':'ko','text':'{'})
     print('scan detector: 8 assertions passed')
 rows=json.loads((O/'screen-strings.json').read_text(encoding='utf-8'))
+extra=O/'round4/screen-strings.json'
+if extra.exists():rows+=json.loads(extra.read_text(encoding='utf-8'))
 bad=[{**row,'reasons':why} for row in rows if (why:=defects(row))]
 inventory=[];data_values=0;raw_macros=[]
 for p in sorted((R/'project/data').rglob('*.json')):

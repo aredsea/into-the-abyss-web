@@ -4,26 +4,27 @@
     "board": [
       {
         "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
-        "difficulty": "중간",
-        "elite": false,
+        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
+        "difficulty": "엘리트",
+        "elite": true,
         "gold": 100,
         "id": 1,
-        "kind": "구조",
+        "kind": "회수",
         "level": 1,
         "lv": 1,
-        "name": "고립된 탐사대 구조",
+        "name": "잃어버린 유품 회수",
         "reward_v": 2,
         "rift": "남동 숲 균열",
         "source_id": "q1",
         "stars": 2,
-        "title": "남동 숲 균열, 고립된 탐사대 구조"
+        "strength": 1.5,
+        "title": "남동 숲 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
         "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "엘리트",
-        "elite": true,
+        "difficulty": "중간",
+        "elite": false,
         "gold": 100,
         "id": 2,
         "kind": "회수",
@@ -34,8 +35,24 @@
         "rift": "남서 설산 균열",
         "source_id": "q2",
         "stars": 2,
-        "strength": 1.8,
         "title": "남서 설산 균열, 잃어버린 유품 회수"
+      },
+      {
+        "cmp": true,
+        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "difficulty": "높음",
+        "elite": false,
+        "gold": 100,
+        "id": 3,
+        "kind": "구조",
+        "level": 4,
+        "lv": 4,
+        "name": "고립된 탐사대 구조",
+        "reward_v": 2,
+        "rift": "남서 설산 균열",
+        "source_id": "q3",
+        "stars": 2,
+        "title": "남서 설산 균열, 고립된 탐사대 구조"
       },
       {
         "cmp": true,
@@ -43,33 +60,16 @@
         "difficulty": "낮음",
         "elite": false,
         "gold": 100,
-        "id": 3,
+        "id": 4,
         "kind": "구조",
         "level": 1,
         "lv": 1,
         "name": "고립된 탐사대 구조",
         "reward_v": 2,
-        "rift": "남서 설산 균열",
-        "source_id": "q3",
-        "stars": 1,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
-      },
-      {
-        "cmp": true,
-        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
-        "difficulty": "높음",
-        "elite": false,
-        "gold": 100,
-        "id": 4,
-        "kind": "토벌",
-        "level": 4,
-        "lv": 4,
-        "name": "균열 핵 토벌",
-        "reward_v": 2,
         "rift": "남동 숲 균열",
         "source_id": "q4",
         "stars": 2,
-        "title": "남동 숲 균열, 균열 핵 토벌"
+        "title": "남동 숲 균열, 고립된 탐사대 구조"
       }
     ],
     "commerce_r21": {
@@ -624,7 +624,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 888257839,
+    "rng": 430787754,
     "run": {
       "ask": false,
       "battle": {
@@ -634,6 +634,7 @@
           "tick": 96
         },
         "current_id": "executor",
+        "depletions": 0,
         "events": [],
         "extra_state": {
           "apprentice": {
@@ -667,6 +668,7 @@
           "shield_s": 0
         },
         "last_ally": "persona",
+        "last_kill": "",
         "r21_roster": [
           {
             "foe_id": "apprentice_doll",
@@ -820,7 +822,7 @@
     "town_r21": {
       "counter": 4,
       "qn": 4,
-      "seed": 888257839
+      "seed": 430787754
     },
     "ui": {
       "msg": "",
@@ -834,26 +836,27 @@
     "board": [
       {
         "cmp": true,
-        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
-        "difficulty": "중간",
-        "elite": false,
+        "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
+        "difficulty": "엘리트",
+        "elite": true,
         "gold": 100.0,
         "id": 1.0,
-        "kind": "구조",
+        "kind": "회수",
         "level": 1.0,
         "lv": 1.0,
-        "name": "고립된 탐사대 구조",
+        "name": "잃어버린 유품 회수",
         "reward_v": 2.0,
         "rift": "남동 숲 균열",
         "source_id": "q1",
         "stars": 2.0,
-        "title": "남동 숲 균열, 고립된 탐사대 구조"
+        "strength": 1.5,
+        "title": "남동 숲 균열, 잃어버린 유품 회수"
       },
       {
         "cmp": true,
         "d": "숨진 모험가의 유품이 놓인 자리를 지키는 균열의 적을 물리친다.",
-        "difficulty": "엘리트",
-        "elite": true,
+        "difficulty": "중간",
+        "elite": false,
         "gold": 100.0,
         "id": 2.0,
         "kind": "회수",
@@ -864,8 +867,24 @@
         "rift": "남서 설산 균열",
         "source_id": "q2",
         "stars": 2.0,
-        "strength": 1.8,
         "title": "남서 설산 균열, 잃어버린 유품 회수"
+      },
+      {
+        "cmp": true,
+        "d": "갇힌 길드 탐사대에게 닿는 길을 막은 균열의 적을 물리친다.",
+        "difficulty": "높음",
+        "elite": false,
+        "gold": 100.0,
+        "id": 3.0,
+        "kind": "구조",
+        "level": 4.0,
+        "lv": 4.0,
+        "name": "고립된 탐사대 구조",
+        "reward_v": 2.0,
+        "rift": "남서 설산 균열",
+        "source_id": "q3",
+        "stars": 2.0,
+        "title": "남서 설산 균열, 고립된 탐사대 구조"
       },
       {
         "cmp": true,
@@ -873,33 +892,16 @@
         "difficulty": "낮음",
         "elite": false,
         "gold": 100.0,
-        "id": 3.0,
+        "id": 4.0,
         "kind": "구조",
         "level": 1.0,
         "lv": 1.0,
         "name": "고립된 탐사대 구조",
         "reward_v": 2.0,
-        "rift": "남서 설산 균열",
-        "source_id": "q3",
-        "stars": 1.0,
-        "title": "남서 설산 균열, 고립된 탐사대 구조"
-      },
-      {
-        "cmp": true,
-        "d": "균열 안쪽에 자리 잡은 핵을 부순다.",
-        "difficulty": "높음",
-        "elite": false,
-        "gold": 100.0,
-        "id": 4.0,
-        "kind": "토벌",
-        "level": 4.0,
-        "lv": 4.0,
-        "name": "균열 핵 토벌",
-        "reward_v": 2.0,
         "rift": "남동 숲 균열",
         "source_id": "q4",
         "stars": 2.0,
-        "title": "남동 숲 균열, 균열 핵 토벌"
+        "title": "남동 숲 균열, 고립된 탐사대 구조"
       }
     ],
     "commerce_r21": {
@@ -1454,7 +1456,7 @@
       }
     },
     "research_editor_r21": {},
-    "rng": 888257839.0,
+    "rng": 430787754.0,
     "run": {
       "ask": false,
       "battle": {
@@ -1464,6 +1466,7 @@
           "tick": 96
         },
         "current_id": "executor",
+        "depletions": 0,
         "events": [],
         "extra_state": {
           "apprentice": {
@@ -1497,6 +1500,7 @@
           "shield_s": 0.0
         },
         "last_ally": "persona",
+        "last_kill": "",
         "r21_roster": [
           {
             "foe_id": "apprentice_doll",
@@ -1650,7 +1654,7 @@
     "town_r21": {
       "counter": 4.0,
       "qn": 4.0,
-      "seed": 888257839.0
+      "seed": 430787754.0
     },
     "ui": {
       "msg": "",

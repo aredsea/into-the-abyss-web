@@ -85,8 +85,12 @@ function boundedTree(v,p,depth=0){
 }
 function battle(v,p,party=[]){
  const base=['schema_version','build','units','current_id','last_ally','selected_enemy','selected_action','result','rng','turn_count','history','events'];
- keys(v,[...base,'extra_state','selected_ally','inventory','r21_roster','ctb'],p);if(!Object.keys(v).length)return;
- keys(v,[...base,'extra_state','selected_ally','inventory','r21_roster','ctb'],p,base);
+ keys(v,[...base,'extra_state','selected_ally','inventory','r21_roster','ctb','depletions','last_kill'],p);if(!Object.keys(v).length)return;
+ keys(v,[...base,'extra_state','selected_ally','inventory','r21_roster','ctb','depletions','last_kill'],p,base);
+ // Canonical 10-data MAX_ACTIONS=400; at most 28 roster entries can break
+ // once per action (30-engine abyss ignores dr=1 until its lost turn).
+ if('depletions'in v){if(v.schema_version!==3)fail(p+'.depletions');num(v.depletions,0,400*28,p+'.depletions');}
+ if('last_kill'in v){if(v.schema_version!==3)fail(p+'.last_kill');text(v.last_kill,p+'.last_kill',40);if(v.last_kill!==''&&!owners.includes(v.last_kill))fail(p+'.last_kill');}
  if(![2,3].includes(v.schema_version))fail(p+'.schema_version');if(v.schema_version!==3)for(const k of ['extra_state','inventory','selected_ally'])if(Object.hasOwn(v,k))fail(p+'.'+k);text(v.build,p+'.build',100);
  const unitId=id=>owners.includes(id)||K.battleIds.includes(id)||/^enemy_[0-9]{1,2}$/.test(id);
  const unitText=(id,path,empty=false)=>{if(!(empty&&id==='')&&!unitId(id))fail(path);};

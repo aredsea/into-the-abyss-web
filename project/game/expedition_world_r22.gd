@@ -6,6 +6,7 @@ const ExpeditionUI=preload("res://game/expedition_ui_r23.gd")
 
 func source_expedition_state() -> Dictionary:
 	var r=s.run;var record={"floor":r.get("floor",1),"step":r.get("step",0),"phase":r.get("phase","explore"),"avg":expedition_party().avg,"pm":r.get("persona_pm",[]),"hp":[],"mp":[],"mhp":[],"mmp":[],"loot":{"gold":r.get("gold",0),"items":r.get("loot_items",{}),"gear":r.get("loot_gear",[])},"exp":r.get("xp",0),"real":r.get("wins",0)>0,"last":r.get("last", ""),"ask":r.get("ask",false)}
+	record.sel=expedition_equipment_slot()
 	var count=0;var levels=0.0
 	for m in record.pm:
 		if m.get("id","")!="":count+=1;levels+=m.L
@@ -19,7 +20,7 @@ func source_expedition_state() -> Dictionary:
 		var q=s.summary
 		record.summary={"result":q.result,"floor":q.floor,"gold":q.gold,"exp":q.xp,"items":q.items,"lv":[],"aff":expedition_summary_aff_lines(),"gear":q.gear,"gear_lost":q.gear_lost,"kept_gear":q.gear,"lost_gear":q.lost_gear,"lost_gold":q.lost,"penalty":q.penalty,"first":q.first,"steps":q.steps,"wins":q.wins}
 		for gain in q.gains:
-			if gain.level>gain.before:record.summary.lv.append(ExpeditionText.u("{name} Lv {before} → {after}",{"name":expedition_member_name(gain.id),"before":gain.before,"after":gain.level},ExpeditionText.language(s)))
+			if gain.level>gain.before:record.summary.lv.append(ExpeditionText.u("{name} Lv {before} → {after}",{"name":ExpeditionText.persona_name(s) if gain.id=="persona" else expedition_member_name(gain.id),"before":gain.before,"after":gain.level},ExpeditionText.language(s)))
 		if r.get("next_available",false):record.note=true
 	return record
 
@@ -42,7 +43,7 @@ func source_portrait_record(id: String,provided: Variant=null) -> Dictionary:
 	if provided is Texture2D:return {"texture":provided,"fallback":""}
 	var ui=ExpeditionUI.new();ui.lang=ExpeditionText.language(s)
 	return {"texture":null,"fallback":ui.t(town_source_name(id)).left(1)}
-func sortie_mode() -> int:return 0 if s.ui.get("sel","")=="sortie:quest" else 1
+func sortie_mode() -> int:return 1 if s.ui.get("sel","")=="sortie:dungeon" else 0
 func set_sortie_mode(mode: int) -> bool:
 	if active() or mode not in [0,1]:return false
 	# ui.sel is an existing free-text native/cloud field; D.mode is source-only.
@@ -453,7 +454,7 @@ func expedition_award_lines(st: Dictionary) -> Array:
 		if id!="" and id!="persona" and id not in order:order.append(id);before[id]=expedition_level(id)
 	var gains=award_persona_exp(st);var lines=[];var lang=ExpeditionText.language(s)
 	for id in order:
-		if gains.has(id) and expedition_level(id)>before[id]:lines.append(ExpeditionText.u("{name} Lv {before} → {after}",{"name":expedition_member_name(id),"before":before[id],"after":expedition_level(id)},lang))
+		if gains.has(id) and expedition_level(id)>before[id]:lines.append(ExpeditionText.u("{name} Lv {before} → {after}",{"name":ExpeditionText.persona_name(s) if id=="persona" else expedition_member_name(id),"before":before[id],"after":expedition_level(id)},lang))
 	return lines
 func expedition_aff_note(r: Dictionary,result: String,summary: Dictionary,provider: Callable=Callable(),available: bool=true) -> Dictionary:
 	summary.aff=[]
@@ -586,6 +587,16 @@ func settle(result: String) -> bool:
 	s.day+=1;s.refreshes=0;s.dungeon_r21.last=s.summary.duplicate(true)
 	log_expedition("%d층 %s · 금화 %d · 경험치 %d"%[r.floor,{"clear":"돌파","retreat":"퇴각","defeat":"도전 실패"}[result],amount,xp])
 	emit_bark("defeat" if result=="defeat" else "return")
+	if result!="defeat":
+		s.ui.msg=expedition_ui_text("대던전 {floor}층 돌파{first}: 금화 {gold:을를} 받았다.",{"floor":r.floor,"first":expedition_ui_text(" (구역 보스 첫 처치)") if first else "","gold":amount}) if result=="clear" else expedition_ui_text("대던전 {floor}층에서 퇴각했다. 모은 것만 가져왔다(금화 {gold}).",{"floor":r.floor,"gold":amount})
+		if not bank.gear.is_empty():
+			var names=[]
+			for code in bank.gear:names.append(expedition_gear_label(code))
+			s.ui.msg+=expedition_ui_text(" 장비: {gear}",{"gear":", ".join(names)})
+		if bank.lost>0:s.ui.msg+=expedition_ui_text(" 가방이 가득 찼습니다. 장비 {n}개는 버려졌습니다.",{"n":bank.lost})
+		if source_summary.get("exp",0)>0:s.ui.msg+=expedition_ui_text(" 경험치 {exp}.",{"exp":source_summary.exp})
+		if not source_summary.get("lv",[]).is_empty():s.ui.msg+=" "+", ".join(source_summary.lv)
+		if not source_summary.get("aff",[]).is_empty():s.ui.msg+=expedition_ui_text(" 호감 ▲ {list}",{"list":", ".join(source_summary.aff)})
 	if result=="defeat":
 		var carry=mini(s.gold-amount+penalty,100*clampi(int(encounter_plan().star),1,4))
 		var kept_ui=""
@@ -668,6 +679,46 @@ func can_expedition_equip(who: String) -> bool:
 	for e in expedition_members():
 		if expedition_equip_key(e.slot)==who:return true
 	return false
+
+# The source keeps its rest selection in R.sel. The existing native UI selection
+# field carries the same observation through local/cloud saves without a new key.
+func expedition_equipment_slot() -> int:
+	var selected=s.ui.get("sel","")
+	return int(selected.trim_prefix("ex:")) if selected.begins_with("ex:") else 1
+func expedition_select_equipment(slot: int) -> bool:
+	if not expedition() or not active() or s.run.phase!="rest" or expedition_equip_key(slot)=="":return false
+	s.ui.sel="ex:"+str(slot);return true
+func expedition_equipment_candidates(who: String,slot: String) -> Array:
+	return preload("res://game/panels_state_r22.gd").new(self).candidates(who,slot)
+func expedition_equipment_action(arg: String) -> bool:
+	if not expedition() or not active() or s.run.phase!="rest":return false
+	var re=RegEx.new();re.compile("^who_([1-4])$");var selected=re.search(arg)
+	if selected:return expedition_select_equipment(int(selected.get_string(1)))
+	var who=expedition_equip_key(expedition_equipment_slot())
+	if who=="":return false
+	var slot="";var code="";var un=false
+	re.compile("^un_([A-Za-z]+)$");var m=re.search(arg)
+	if m:slot=m.get_string(1);un=true
+	else:
+		re.compile("^eq_([A-Za-z]+)_([a-z0-9_]+)$");m=re.search(arg)
+		if not m:return false
+		slot=m.get_string(1);code=str(combat_gear_rules.gear_unbtn(m.get_string(2)))
+	if slot not in ["weapon","armor","acc"]:return false
+	if un:
+		if not s.equipment.get(who,{}).has(slot):s.run.last="끼고 있는 장비가 없습니다.";return false
+		var worn=[]
+		for eq in s.equipment.values():worn.append_array(eq.values())
+		if s.gear.filter(func(e):return e.uid not in worn).size()>=2000:s.run.last="가방이 가득 찼습니다.";return false
+		return unequip(who,slot)
+	var roll=combat_gear_rules.gear_roll(code)
+	if roll.is_empty() or roll.slot!=slot:return false
+	var levels={}
+	for id in s.members:levels[id]=s.members[id].level
+	var allowed=combat_gear_rules.gear_can_equip({"persona":s.persona,"lvl":levels},who,code)
+	if not allowed[0]:s.run.last=allowed[1];return false
+	for entry in s.gear:
+		if combat_gear_rules.code(entry)==code and wearer(int(entry.uid))=="":return equip(who,int(entry.uid))
+	s.run.last="가방에 없는 장비입니다.";return false
 func equip(who: String,uid: int) -> bool:
 	if not can_expedition_equip(who):return super(who,uid)
 	var e=gear_entry(uid)

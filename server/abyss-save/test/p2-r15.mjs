@@ -15,7 +15,7 @@ const dot={turns:3,amount:20,stacks:[10,10],lifetimes:[2,3],owners:[first,first]
 const regen={turns:2,amount:1,heals:Array.from({length:400},()=>({amount:1,turns:1,action:1}))};
 function v2(s){
  const b=B(s);b.schema_version=2;
- for(const k of ['extra_state','inventory','selected_ally','ctb'])delete b[k];
+ for(const k of ['extra_state','inventory','selected_ally','ctb','depletions','last_kill'])delete b[k];
  for(const u of Object.values(b.units)){u.remaining=Math.max(0,u.remaining);u.effects={};}
 }
 const cases=[];

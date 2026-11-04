@@ -12,6 +12,7 @@ var frame: Control
 var footer: HBoxContainer
 var title: Control
 var metrics=[]
+var content_entries=[]
 
 func setup(owner_screen,heading: String) -> void:
 	host=owner_screen;rules=host.model.persona_rules;theme=T.make_theme()
@@ -40,19 +41,20 @@ func row() -> HBoxContainer:
 func choices() -> GridContainer:
 	var grid=GridContainer.new();body.add_child(grid);grid.columns=2 if frame.size.x>=900 else 1;grid.add_theme_constant_override("h_separation",20);grid.add_theme_constant_override("v_separation",8);return grid
 
-func choice(id: String,name_text: String,description: String,fn: Callable,selected=false,parent: Node=null) -> Button:
+func choice(id: String,name_text: String,description: String,fn: Callable,selected=false,parent: Node=null,compact=false) -> Button:
 	var option=Display.new().option(name_text,description,selected,L.language(host.model.s));name_text=option.name;description=option.sub
 	var b=button(id,"",fn,selected,false,parent)
 	# Keep the native button's accessible name; authored child labels carry its ink.
 	b.text=L.render(name_text,L.language(host.model.s))
 	for state in ["font_color","font_hover_color","font_pressed_color","font_disabled_color","font_focus_color"]:b.add_theme_color_override(state,Color.TRANSPARENT)
 	b.tooltip_text=L.render(name_text+"\n"+description,L.language(host.model.s))
-	var margin=MarginContainer.new();b.add_child(margin);margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);margin.offset_left=12;margin.offset_right=-12;margin.offset_top=10;margin.offset_bottom=-10;margin.mouse_filter=MOUSE_FILTER_IGNORE
+	var margin=MarginContainer.new();b.add_child(margin);margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);margin.offset_left=8 if compact else 12;margin.offset_right=-8 if compact else -12;margin.offset_top=10;margin.offset_bottom=-10;margin.mouse_filter=MOUSE_FILTER_IGNORE
 	var h=HBoxContainer.new();margin.add_child(h);h.add_theme_constant_override("separation",12);h.mouse_filter=MOUSE_FILTER_IGNORE
 	var stack=VBoxContainer.new();h.add_child(stack);stack.size_flags_horizontal=SIZE_EXPAND_FILL;stack.add_theme_constant_override("separation",4);stack.mouse_filter=MOUSE_FILTER_IGNORE
-	var name_label=text(name_text,20,T.PAPER if selected else T.INK,stack);name_label.mouse_filter=MOUSE_FILTER_IGNORE
+	var name_label=text(name_text,15 if compact else 20,T.PAPER if selected else T.INK,stack);name_label.mouse_filter=MOUSE_FILTER_IGNORE
 	var desc=text(description,13,T.PAPER if selected else T.MUTED,stack);desc.mouse_filter=MOUSE_FILTER_IGNORE
-	var arrow=text("→",28,T.PAPER if selected else T.INK,h);arrow.autowrap_mode=TextServer.AUTOWRAP_OFF;arrow.custom_minimum_size.x=32;arrow.size_flags_horizontal=SIZE_SHRINK_END;arrow.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;arrow.mouse_filter=MOUSE_FILTER_IGNORE
+	if not compact:
+		var arrow=text("→",28,T.PAPER if selected else T.INK,h);arrow.autowrap_mode=TextServer.AUTOWRAP_OFF;arrow.custom_minimum_size.x=32;arrow.size_flags_horizontal=SIZE_SHRINK_END;arrow.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;arrow.mouse_filter=MOUSE_FILTER_IGNORE
 	var fit=func():b.custom_minimum_size.y=maxf(78,margin.get_combined_minimum_size().y+20)
 	margin.minimum_size_changed.connect(fit);fit.call()
 	return b
@@ -104,37 +106,11 @@ func build(owner_screen) -> void:
 	text(L.u(heading[2],{"n":rules.total(p)},L.language(s)),15,T.MUTED)
 	match page:
 		1:
-			var grid=choices()
-			for r in rules.data.races:
-				choice("cr_race_"+r.id,r.name,r.tag,act.bind("race_"+r.id),p.race==r.name,grid)
-			if p.race=="수인":
-				text("계통",19);var h=choices()
-				for l in rules.data.lineages:choice("cr_lin_"+l.id,l.name,l.tag,act.bind("lin_"+l.id),p.lineage==l.name,h)
-				var race=rules.by(rules.data.races,"name",p.race)
-				text(race.name,23);text(race.d)
-				traits(rules.by(rules.data.lineages,"name",p.lineage),"종족",race)
-			else:traits(rules.by(rules.data.races,"name",p.race))
-			if p.race=="":text("종족을 고르면 특성이 보입니다.",14,T.MUTED)
+			render_entries(Display.new().page("race",p,L.language(s)))
 		2:
-			var grid=choices()
-			for n in rules.data.nations:
-				var bl=rules.blocked(p.race,n.id)
-				var note=rules.note(p,n.id)
-				var b=choice("cr_nat_"+n.id,n.name,bl.s if not bl.is_empty() else note if note!="" else n.tag,act.bind("nat_"+n.id),p.nation==n.name,grid)
-				if not bl.is_empty():
-					b.tooltip_text=bl.m
-					for label in b.find_children("*","Label",true,false):label.add_theme_color_override("font_color",T.MUTED)
-			traits(rules.by(rules.data.nations,"name",p.nation),"출신");text(rules.note(p,rules.nation_id(p.nation)),14,T.MUTED)
-			if p.nation=="":text("출신을 고르면 특성이 보입니다.",14,T.MUTED)
+			render_entries(Display.new().page("nation",p,L.language(s)))
 		3:
-			var grid=choices()
-			for c in rules.data.classes:choice("cr_cls_"+c.id,c.name,c.line+" / "+c.row,act.bind("cls_"+c.id),p.cls==c.name,grid)
-			var c=rules.cls(p.cls)
-			if not c.is_empty():
-				text(c.name,23);text(rules.data.descriptions[c.id]);text(" · ".join(c.skills),14)
-				text("체력 %d · 마력 %d\n힘 %d · 민첩 %d · 지능 %d · 방어 %d · 속도 %d"%[c.hp,c.mp,c.str,c.agi,c.int,c.def,c.spd],14)
-				for line in Display.new().entry_trait(L.u("계열 {line}",{"line":c.line},L.language(s)),rules.data.lines[c.line],L.language(s)):text(line,14)
-				text(rules.data.class_notes.get(rules.nation_id(p.nation),{}).get(c.id,""),14,T.MUTED)
+			render_entries(Display.new().page("class",p,L.language(s)))
 		4:points(p)
 		5:
 			for line in Display.new().confirmation(p,L.language(s)):text(line,15)
@@ -142,21 +118,32 @@ func build(owner_screen) -> void:
 	if host.save_error!=OK:text("저장하지 못했습니다. 다시 시도해 주세요.",14,T.RED);button("save_retry","저장 다시 시도",func():host._save();host._draw_screen())
 
 func points(p: Dictionary) -> void:
-	step_heading("보너스 총량");var h=row()
-	for n in [5,10,20]:button("cr_tot_"+str(n),L.u("{n}점",{"n":n},L.language(host.model.s)),act.bind("tot_"+str(n)),p.bonus_custom!=1 and rules.total(p)==n,false,h)
-	button("cr_tot_free","직접 정하기",act.bind("tot_free"),p.bonus_custom==1)
-	if p.bonus_custom==1:
-		h=row()
-		for value in [["m5","−5"],["m1","−1"],["p1","+1"],["p5","+5"]]:button("cr_tot_"+value[0],value[1],act.bind("tot_"+value[0]),false,false,h)
-	text("남은 점수 %d / %d"%[rules.left(p),rules.total(p)],22,T.RED)
-	text("한 능력치 최대 %d점 · 속도는 1점에 +2"%rules.cap(rules.total(p)),14,T.MUTED)
-	var c=rules.cls(p.cls)
-	for stat in rules.data.stats:
-		h=row();var k=stat[0];var b=int(p.bonus.get(k,0));var l=text("%s  %d  (+%d)"%[L.render(stat[1],L.language(host.model.s)),c[k]+b*stat[2],b*stat[2]],17,T.INK,h);l.size_flags_horizontal=SIZE_EXPAND_FILL
-		button("cr_dn_"+k,"−",act.bind("dn_"+k),false,b==0,h).size_flags_horizontal=0
-		button("cr_up_"+k,"+",act.bind("up_"+k),false,rules.left(p)<=0 or b>=rules.cap(rules.total(p)),h).size_flags_horizontal=0
-	h=row();button("cr_auto","직업 추천대로",act.bind("auto"),false,false,h);button("cr_clear","점수 비우기",act.bind("clear"),false,false,h)
-	text("체력 %d · 마력 %d"%[c.hp,c.mp],15)
+	render_entries(Display.new().page("stats",p,L.language(host.model.s)))
+
+func render_entries(entries: Array) -> void:
+	content_entries=entries
+	var group="";var parent: Node=null
+	for e in entries:
+		if e.role=="choice":
+			var next_group=e.group+("_free" if e.id=="cr_tot_free" else "")
+			if group!=next_group:
+				parent=row() if e.group=="totals" and e.id!="cr_tot_free" else choices();group=next_group
+			var b=choice(e.id,e.text,e.sub,act.bind(e.id.trim_prefix("cr_")),e.selected,parent,e.group=="totals")
+			if e.get("blocked",false):
+				b.tooltip_text=e.reason
+				for label in b.find_children("*","Label",true,false):label.add_theme_color_override("font_color",T.MUTED)
+		elif e.role in ["adjust","total_value"]:
+			var next_group=e.get("group","total_adjust")
+			if group!=next_group:parent=row();group=next_group
+			if e.role=="total_value":text(e.text,15,T.INK,parent)
+			else:button(e.id,e.text,act.bind(e.id.trim_prefix("cr_")),e.selected,e.disabled,parent)
+		elif e.role=="stat":
+			group="";var h=row();var value=text(e.text,17,T.INK,h)
+			var meter=preload("res://ui/create_stat_meter_r24.gd").new();value.add_child(meter);meter.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE);meter.offset_top=-3;meter.mouse_filter=MOUSE_FILTER_IGNORE;meter.base_ratio=e.base_ratio;meter.total_ratio=e.total_ratio;meter.set_meta("source_stat",e.key)
+			button("cr_dn_"+e.key,"-",act.bind("dn_"+e.key),false,e.minus,h).size_flags_horizontal=0
+			button("cr_up_"+e.key,"+",act.bind("up_"+e.key),false,e.plus,h).size_flags_horizontal=0
+		else:
+			group="";text(e.text,23 if e.role=="heading" else 14 if e.role=="note" else 15,T.MUTED if e.role=="note" else T.INK)
 
 func scenario() -> void:
 	var ribbon=TextureRect.new();frame.add_child(ribbon);ribbon.position=Vector2(0,81);ribbon.size=Vector2(frame.size.x,38);ribbon.texture=load("res://assets/ui-r21/button-ink.svg");ribbon.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;ribbon.mouse_filter=MOUSE_FILTER_IGNORE

@@ -14,6 +14,11 @@ var bridge: Object:
 var act=0
 var skill: Variant=null
 var defs=[]
+var predecessors={}
+
+func _predecessor(method: String,st: Dictionary,args: Array):
+	# 81-gear wraps the already installed GH slot and ignores its return value.
+	if predecessors.get(method) is Callable: predecessors[method].callv([st]+args)
 
 func _init(engine: Object=null,shared_rules=null,weak_bridge=false):
 	if weak_bridge: bridge_ref=weakref(engine) if engine!=null else null
@@ -339,6 +344,7 @@ func hit_after(st: Dictionary,a: int,_t: int,res: Dictionary,_opt: Dictionary,at
 		if h>0:line(st,a,"굶주린 칼: HP +"+str(int(h)),at+.3)
 
 func damaged(st: Dictionary,t: int,dmg: float,_src: Variant,at: float):
+	_predecessor("damaged",st,[t,dmg,_src,at])
 	var w=u(st,t);var e=uq(w,"wa_scar")
 	if not e.is_empty():w.x.scr=minf(w.mhp*e.v[1]/100.0,w.x.get("scr",0)+dmg*e.v[0]/100.0)
 	if w.al==1 and not w.x.has("lsd"):
@@ -346,6 +352,7 @@ func damaged(st: Dictionary,t: int,dmg: float,_src: Variant,at: float):
 		if not e.is_empty() and w.hp<w.mhp*e.x/100.0:w.x.lsd=1;w.x.lsn=e.get("n",1);line(st,t,"최후의 저항: "+num(e.get("n",1))+"턴 동안 받는 피해 −30%",at+.2)
 
 func attacked(st: Dictionary,t: int,enemy: int,res: Dictionary,at: float):
+	_predecessor("attacked",st,[t,enemy,res,at])
 	if enemy<5:return
 	var w=u(st,t)
 	if w.get("gq",{}).has("reflect") and u(st,enemy).al==1:
@@ -363,6 +370,7 @@ func attacked(st: Dictionary,t: int,enemy: int,res: Dictionary,at: float):
 			if rr.kill==1:call_engine(st,"kill_credit",[t,at+.3])
 
 func turn_end(st: Dictionary,i: int):
+	_predecessor("turn_end",st,[i])
 	if i>4:return
 	var w=u(st,i);var x=w.x
 	for k in ["fzn","lsn","wwn"]:
@@ -386,6 +394,7 @@ func round_end(st: Dictionary):
 		if st.gw.n<=0:st.erase("gw")
 
 func abyss_after(st: Dictionary,a: int,t: int,_amt: float,at: float,_list: Array):
+	_predecessor("abyss_after",st,[a,t,_amt,at,_list])
 	var w=u(st,a);var e=uq(w,"ch_void")
 	if not e.is_empty() and u(st,t).dr==1:
 		var n=bf(w.mmp*e.v[0]/100.0+.5)

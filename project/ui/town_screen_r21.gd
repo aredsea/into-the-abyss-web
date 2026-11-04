@@ -170,7 +170,7 @@ func hit(id: String,r: Rect2,callback: Callable) -> Button:
 	return b
 
 func picture(id: String,r: Rect2,slot="bust") -> Control:
-	if host.model.has_method("source_portrait_record") and Portrait.preferred_path(id,slot).is_empty():
+	if host.model.has_method("source_portrait_record") and Portrait.preferred_path(id,slot).is_empty() and not ResourceLoader.exists("res://assets/"+id+".webp"):
 		var face=host.model.source_portrait_record(id)
 		var box=fill("portrait_fallback:"+id,r,T.PALE)
 		var initial=L.persona_name(host.model.s).left(1) if id=="persona" else face.fallback
@@ -528,13 +528,20 @@ func retreat() -> void:
 func npc_hero(id: String,title: String,subtitle: String,height=365.0) -> void:
 	var title_name=host.screen
 	var shapes={"guild":Rect2(18,53,141,119),"recruit":Rect2(18,53,140,194),"research":Rect2(18,53,129,189),"shop":Rect2(18,53,166,145),"smithy":Rect2(18,53,196,145),"inn":Rect2(14,61,167,127)}
-	picture(id,Rect2(99,43,291,height-3),"town-main")
+	var parts=subtitle.split("\n",true,1)
+	var rows=host.model.source_npc_rows([[id,parts[0] if not subtitle.is_empty() else id,parts[1] if parts.size()>1 else ""]])
+	if not rows.is_empty():picture(id,Rect2(99,43,291,height-3),"town-main")
 	if shapes.has(title_name):traced_title(title_name,shapes[title_name])
 	else:display(title,Rect2(15,54,210,130),T.INK,68)
 	if not subtitle.is_empty():
+		if rows.is_empty():return
+		subtitle=rows[0].name+"\n"+rows[0].role
 		fill("npc_caption",Rect2(18,height-64,175,63),T.PAPER)
-		label(subtitle,Rect2(28,height-61,154,58),15,T.INK,T.BOLD).autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-		metrics[-1].available=1000
+		var caption=label(subtitle,Rect2(28,height-61,154,58),15,T.INK,T.BOLD)
+		caption.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+		caption.add_theme_constant_override("line_spacing",0)
+		caption.set_meta("source_npc_caption",true)
+		L.fit_box(caption)
 
 func research() -> void:
 	if host.research_edit:research_editor();return
@@ -645,7 +652,10 @@ func member_choice(r: Rect2) -> void:
 	var pick=OptionButton.new();stage.add_child(pick);pick.position=r.position;pick.size=r.size
 	pick.fit_to_longest_item=false;pick.clip_text=true
 	for id in host.model.s.owned:pick.add_item(localized(host.model.person(id).name+" · "+host.model.person(id)["class"]))
-	pick.select(host.model.s.owned.find(host.who));pick.item_selected.connect(func(i):host.who=host.model.s.owned[i];host._draw_screen())
+	pick.select(host.model.s.owned.find(host.who));pick.item_selected.connect(func(i):
+		host.who=host.model.s.owned[i]
+		if host.screen=="inn" and host.model.has_method("inn_action"):host.model.inn_action("pick_"+host.who,host.screen);host._save()
+		host._draw_screen())
 	host.controls.member_choice=pick
 
 func inn() -> void:
@@ -661,19 +671,25 @@ func inn() -> void:
 	var aff=host.model.s.members[host.who].aff
 	label("%s · 호감 %s / 200"%[host.model.TOWN_RULES.guild_tier(aff),host.model.TOWN_RULES.aff_fmt(floor(aff))],Rect2(183,567,180,20),12,T.INK,T.BOLD)
 	fill("aff_track",Rect2(183,591,177,8),T.LINE);fill("aff_value",Rect2(183,591,177*maxf(0,aff)/200,8),T.RED)
-	label("함께, 더 깊은 곳으로.",Rect2(18,614,354,25),15,T.INK,T.BOLD)
+	label(host.message if not host.message.is_empty() else "함께, 더 깊은 곳으로.",Rect2(18,614,354,25),15,T.INK,T.BOLD)
 	var acts=host.model.TOWN_RULES.DATA.inn
 	for i in range(4):
 		var key=["talk","meal","gift","rest"][i];var e=acts[key];var x=18+i*91
 		if not host.model.TOWN_RULES.inn_act_visible(host.model.s,key,host.who):continue
 		var used=not e.day and host.model.s.acts.get(host.who+"_"+key,0)==host.model.s.day
-		var callback=func():host._act(host.model.begin_dialogue.bind(host.who),"") if key=="talk" else host._ask(e.name+" · 금화 %d\n호감이 변합니다."%e.cost,host.model.inn.bind(host.who,key))
+		var ink_color=T.PAPER if i==0 and not used else T.INK
+		var callback=func():
+			if not host.model.has_method("inn_action"):
+				host._act(host.model.begin_inn_talk.bind(host.who) if key=="talk" else host.model.inn.bind(host.who,key),"");return
+			if host.model.inn_action(key+"_"+host.who,host.screen):host._save()
+			host.message=host.model.s.ui.msg;host._draw_screen()
 		action("inn:"+key,"",Rect2(x,645,81,91),callback,i==0,used or host.model.s.gold<e.cost)
-		icon(["journal","shop","bag","inn"][i],Rect2(x+26,651,28,28),T.PAPER if i==0 else T.INK)
-		label(e.name,Rect2(x+2,684,77,20),11,T.PAPER if i==0 else T.INK,T.BOLD).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
-		label("오늘 완료" if used else "무료" if e.cost==0 else "금화 %d"%e.cost,Rect2(x+2,710,77,19),11,T.PAPER if i==0 else T.RED,T.BOLD).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+		icon(["journal","shop","bag","inn"][i],Rect2(x+26,651,28,28),ink_color)
+		label(e.name,Rect2(x+2,684,77,20),11,ink_color,T.BOLD).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
+		var status=label("오늘은 이미 했다" if used else "무료" if e.cost==0 else "금화 %d"%e.cost,Rect2(x+2,704,77,30),11,ink_color if i==0 else T.RED,T.BOLD)
+		status.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;status.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+		status.add_theme_constant_override("line_spacing",0);status.set_meta("inn_status",true)
 	paragraph("대화·식사·선물은 동료마다 하루 한 번.\n곁에서 쉬면 하루가 지납니다.",Rect2(18,738,354,22),9)
-	feedback(590)
 
 func shop() -> void:
 	header("상회")
@@ -697,7 +713,10 @@ func shop() -> void:
 		label(item.name,Rect2(100,y+4,155,24),14,T.INK,T.BOLD)
 		paragraph(host._item_text(item),Rect2(100,y+30,150,52),11)
 		label("금화 %d"%host.model.price(item),Rect2(261,y+5,80,24),14,T.RED,T.BOLD)
-		action("buy:"+item.id,"구입",Rect2(261,y+43,80,39),func():host._act(host.model.buy.bind(item.id),"구입했습니다."),true,host.model.s.gold<host.model.price(item))
+		action("buy:"+item.id,"구입",Rect2(261,y+43,80,39),func():
+			if host.model.has_method("shop_action"):
+				host._act(host.model.shop_action.bind("buy_"+host.model.source_item_id(item.id),"shop"),"구입했습니다.")
+			else:host._act(host.model.buy.bind(item.id),"구입했습니다."),true,host.model.s.gold<host.model.price(item))
 		label("보유 %d"%host.model.s.items[item.id],Rect2(100,y+82,150,19),10)
 		rule(y+103,0,342)
 	stage=prev;feedback();action("shop_bag","가방과 장비 확인",Rect2(18,705,354,43),host.go.bind("equipment"))

@@ -194,7 +194,39 @@
           "제외": 3,
           "미확인": 4
         }
+      },
+      "round3": {
+        "ledger": "battle",
+        "initial_remaining": 16,
+        "promoted_same": 0,
+        "modified": 3,
+        "remaining": 16,
+        "statuses": {
+          "같음": 199,
+          "일부": 12,
+          "제외": 3,
+          "미확인": 4
+        }
+      },
+      "round4": {
+        "ledger": "battle",
+        "initial_remaining": 16,
+        "promoted_same": 0,
+        "modified": 0,
+        "remaining": 16,
+        "statuses": {
+          "같음": 199,
+          "일부": 12,
+          "제외": 3,
+          "미확인": 4
+        }
       }
+    },
+    "latest_status_counts": {
+      "같음": 199,
+      "일부": 12,
+      "제외": 3,
+      "미확인": 4
     }
   },
   "proof_policy": "진입 계측만으로 같음 승격하지 않음. 같음은 해당 행의 정규화된 native 반환 계약과 명시된 유효 입력에 한함. 상위/하위 행으로 판정을 전파하지 않음.",
@@ -1586,6 +1618,27 @@
           "source_excerpt_sha256": "75962285cbc3407f249991d572b8fa51bb1b642fea795d833f4c170b1bdf94ff",
           "disposition": "중단·남음",
           "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "초기화 48편성과 carry 소생 조건은 비교. 기본/옛 편성·dm·로그·q·first를 포함한 fresh 전체 반환은 남음.",
+          "source_sha256": "67e9a51aaca2f8bf2f299f9b14a6c5a4cc080bb42a6557aec003ed3d67224167",
+          "source_excerpt_sha256": "75962285cbc3407f249991d572b8fa51bb1b642fea795d833f4c170b1bdf94ff",
+          "modified": false,
+          "disposition": "남음",
+          "detail": "초기화 48편성과 carry 소생 조건은 비교. 기본/옛 편성·dm·로그·q·first를 포함한 fresh 전체 반환은 남음.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음."
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "초기화 48편성과 carry 소생 조건은 비교. 기본/옛 편성·dm·로그·q·first를 포함한 fresh 전체 반환은 남음.",
+          "source_sha256": "67e9a51aaca2f8bf2f299f9b14a6c5a4cc080bb42a6557aec003ed3d67224167",
+          "source_excerpt_sha256": "75962285cbc3407f249991d572b8fa51bb1b642fea795d833f4c170b1bdf94ff",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "초기화 48편성과 carry 소생 조건은 비교. 기본/옛 편성·dm·로그·q·first를 포함한 fresh 전체 반환은 남음."
         }
       }
     },
@@ -1665,6 +1718,27 @@
           "source_excerpt_sha256": "f990934e720f7e26e1c60a520e87b8e15d6861f0a0227557366dccf1a7d6e1ef",
           "disposition": "중단·남음",
           "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "동일 편성 재시도의 bn 증가와 rg/qid/place/sid 이전 계약을 새 원본 fixture로 비교하지 않음.",
+          "source_sha256": "67e9a51aaca2f8bf2f299f9b14a6c5a4cc080bb42a6557aec003ed3d67224167",
+          "source_excerpt_sha256": "f990934e720f7e26e1c60a520e87b8e15d6861f0a0227557366dccf1a7d6e1ef",
+          "modified": false,
+          "disposition": "남음",
+          "detail": "동일 편성 재시도의 bn 증가와 rg/qid/place/sid 이전 계약을 새 원본 fixture로 비교하지 않음.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음."
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "동일 편성 재시도의 bn 증가와 rg/qid/place/sid 이전 계약을 새 원본 fixture로 비교하지 않음.",
+          "source_sha256": "67e9a51aaca2f8bf2f299f9b14a6c5a4cc080bb42a6557aec003ed3d67224167",
+          "source_excerpt_sha256": "f990934e720f7e26e1c60a520e87b8e15d6861f0a0227557366dccf1a7d6e1ef",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "동일 편성 재시도의 bn 증가와 rg/qid/place/sid 이전 계약을 새 원본 fixture로 비교하지 않음."
         }
       }
     },
@@ -1744,6 +1818,27 @@
           "source_excerpt_sha256": "4a4762d0bcd7bd566fe2062cabc0f9623bd666445c8e0bfb46ea5e83ccfbb41d",
           "disposition": "중단·남음",
           "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "같은 bn으로 재시작하며 난이도·편성·출처를 유지하는 전체 반환을 새 대조하지 않음.",
+          "source_sha256": "67e9a51aaca2f8bf2f299f9b14a6c5a4cc080bb42a6557aec003ed3d67224167",
+          "source_excerpt_sha256": "4a4762d0bcd7bd566fe2062cabc0f9623bd666445c8e0bfb46ea5e83ccfbb41d",
+          "modified": false,
+          "disposition": "남음",
+          "detail": "같은 bn으로 재시작하며 난이도·편성·출처를 유지하는 전체 반환을 새 대조하지 않음.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음."
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "같은 bn으로 재시작하며 난이도·편성·출처를 유지하는 전체 반환을 새 대조하지 않음.",
+          "source_sha256": "67e9a51aaca2f8bf2f299f9b14a6c5a4cc080bb42a6557aec003ed3d67224167",
+          "source_excerpt_sha256": "4a4762d0bcd7bd566fe2062cabc0f9623bd666445c8e0bfb46ea5e83ccfbb41d",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "같은 bn으로 재시작하며 난이도·편성·출처를 유지하는 전체 반환을 새 대조하지 않음."
         }
       }
     },
@@ -1842,7 +1937,7 @@
       "unverified_branches": [],
       "feature_group": "전투 상태·능력치·편성",
       "prior_status": "일부",
-      "fixed": false,
+      "fixed": true,
       "fix": null,
       "native_evidence": null,
       "new_evidence": [
@@ -1862,7 +1957,7 @@
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
         }
       ],
-      "remaining_reason": "저장 재개에서 심연 고갈 횟수와 마지막 일격 이름이 사라진다. 보존 필드는 현재 서버 battle 허용 목록에서 거절된다. server/ 수정 금지 및 허용 목록 변경 필요 시 중단 지시에 따라 미수정. 재현: verification/finish-r24/round2/server-boundary.json.",
+      "remaining_reason": "고갈 횟수·마지막 일격 id·옛 필드 없음의 기본값은 재개 및 실제 D1 왕복 통과. 원본 VER2 전체 상태를 native로 읽는 통합 이관은 여전히 없음. 지시된 id 전용 last_kill로 원본 이름+기술 문구를 보존할 수 없어 이 차이도 남는다.",
       "branch_coverage": {
         "id": "P1594",
         "called": true,
@@ -1908,6 +2003,32 @@
             "verification/finish-r24/round2/resume-probe.json",
             "verification/finish-r24/round2/server-boundary.json"
           ]
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "저장 재개에서 심연 고갈 횟수와 마지막 일격 이름이 사라진다. 보존 필드는 현재 서버 battle 허용 목록에서 거절된다. server/ 수정 금지 및 허용 목록 변경 필요 시 중단 지시에 따라 미수정. 재현: verification/finish-r24/round2/server-boundary.json.",
+          "source_sha256": "67e9a51aaca2f8bf2f299f9b14a6c5a4cc080bb42a6557aec003ed3d67224167",
+          "source_excerpt_sha256": "b2c4a669cf90f7b8bb8c3347cffa3e45fa324af40618eff2ec25b81bddd895a5",
+          "modified": true,
+          "disposition": "수정 후 일부 유지",
+          "detail": "고갈 횟수·마지막 일격 id·옛 필드 없음의 기본값은 재개 및 실제 D1 왕복 통과. 원본 VER2 전체 상태를 native로 읽는 통합 이관은 여전히 없음. 지시된 id 전용 last_kill로 원본 이름+기술 문구를 보존할 수 없어 이 차이도 남는다.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음.",
+          "results": [
+            "verification/finish-r24/round3/resume-results.json",
+            "verification/finish-r24/round3/cloud-fields.json",
+            "verification/finish-r24/round3/server-fields.json"
+          ]
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "고갈 횟수·마지막 일격 id·옛 필드 없음의 기본값은 재개 및 실제 D1 왕복 통과. 원본 VER2 전체 상태를 native로 읽는 통합 이관은 여전히 없음. 지시된 id 전용 last_kill로 원본 이름+기술 문구를 보존할 수 없어 이 차이도 남는다.",
+          "source_sha256": "67e9a51aaca2f8bf2f299f9b14a6c5a4cc080bb42a6557aec003ed3d67224167",
+          "source_excerpt_sha256": "b2c4a669cf90f7b8bb8c3347cffa3e45fa324af40618eff2ec25b81bddd895a5",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "고갈 횟수·마지막 일격 id·옛 필드 없음의 기본값은 재개 및 실제 D1 왕복 통과. 원본 VER2 전체 상태를 native로 읽는 통합 이관은 여전히 없음. 지시된 id 전용 last_kill로 원본 이름+기술 문구를 보존할 수 없어 이 차이도 남는다."
         }
       }
     },
@@ -1925,7 +2046,7 @@
       "unverified_branches": [],
       "feature_group": "전투 상태·능력치·편성",
       "prior_status": "일부",
-      "fixed": false,
+      "fixed": true,
       "fix": null,
       "native_evidence": null,
       "new_evidence": [
@@ -1945,7 +2066,7 @@
           "scope": "묶음의 수치/상태 회귀. 이 함수 전체나 미도달 분기의 같음 근거로 전파하지 않음."
         }
       ],
-      "remaining_reason": "저장 재개에서 심연 고갈 횟수와 마지막 일격 이름이 사라진다. 보존 필드는 현재 서버 battle 허용 목록에서 거절된다. server/ 수정 금지 및 허용 목록 변경 필요 시 중단 지시에 따라 미수정. 재현: verification/finish-r24/round2/server-boundary.json.",
+      "remaining_reason": "native 저장에 고갈 횟수와 알려진 마지막 일격 id를 넣고 서버/D1/다른 기기/파일 재개를 검증했다. 원본 VER2 전체 왕복과 기술명 문구의 id 전용 표현 차이는 남는다.",
       "branch_coverage": {
         "id": "P1595",
         "called": true,
@@ -1991,6 +2112,32 @@
             "verification/finish-r24/round2/resume-probe.json",
             "verification/finish-r24/round2/server-boundary.json"
           ]
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "저장 재개에서 심연 고갈 횟수와 마지막 일격 이름이 사라진다. 보존 필드는 현재 서버 battle 허용 목록에서 거절된다. server/ 수정 금지 및 허용 목록 변경 필요 시 중단 지시에 따라 미수정. 재현: verification/finish-r24/round2/server-boundary.json.",
+          "source_sha256": "67e9a51aaca2f8bf2f299f9b14a6c5a4cc080bb42a6557aec003ed3d67224167",
+          "source_excerpt_sha256": "e41252f1e46aea118199f33c07ac2bd20890317435958f20d6473ce4444ca4c5",
+          "modified": true,
+          "disposition": "수정 후 일부 유지",
+          "detail": "native 저장에 고갈 횟수와 알려진 마지막 일격 id를 넣고 서버/D1/다른 기기/파일 재개를 검증했다. 원본 VER2 전체 왕복과 기술명 문구의 id 전용 표현 차이는 남는다.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음.",
+          "results": [
+            "verification/finish-r24/round3/resume-results.json",
+            "verification/finish-r24/round3/cloud-fields.json",
+            "verification/finish-r24/round3/server-fields.json"
+          ]
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "native 저장에 고갈 횟수와 알려진 마지막 일격 id를 넣고 서버/D1/다른 기기/파일 재개를 검증했다. 원본 VER2 전체 왕복과 기술명 문구의 id 전용 표현 차이는 남는다.",
+          "source_sha256": "67e9a51aaca2f8bf2f299f9b14a6c5a4cc080bb42a6557aec003ed3d67224167",
+          "source_excerpt_sha256": "e41252f1e46aea118199f33c07ac2bd20890317435958f20d6473ce4444ca4c5",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "native 저장에 고갈 횟수와 알려진 마지막 일격 id를 넣고 서버/D1/다른 기기/파일 재개를 검증했다. 원본 VER2 전체 왕복과 기술명 문구의 id 전용 표현 차이는 남는다."
         }
       }
     },
@@ -2931,6 +3078,27 @@
           "source_excerpt_sha256": "0ab980469e3a7a6346460045f830a171cba863e71339f2305fc5e91315d2a04b",
           "disposition": "중단·남음",
           "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "편성→전투 시작→scene/보상/식별자 저장까지의 G 변경 전체를 새 대조하지 않음.",
+          "source_sha256": "6aa41d4d86eeaa627f582b3c6ec56e3b8183366f73a3c80fc37f3421c954bf7f",
+          "source_excerpt_sha256": "0ab980469e3a7a6346460045f830a171cba863e71339f2305fc5e91315d2a04b",
+          "modified": false,
+          "disposition": "남음",
+          "detail": "편성→전투 시작→scene/보상/식별자 저장까지의 G 변경 전체를 새 대조하지 않음.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음."
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "편성→전투 시작→scene/보상/식별자 저장까지의 G 변경 전체를 새 대조하지 않음.",
+          "source_sha256": "6aa41d4d86eeaa627f582b3c6ec56e3b8183366f73a3c80fc37f3421c954bf7f",
+          "source_excerpt_sha256": "0ab980469e3a7a6346460045f830a171cba863e71339f2305fc5e91315d2a04b",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "편성→전투 시작→scene/보상/식별자 저장까지의 G 변경 전체를 새 대조하지 않음."
         }
       }
     },
@@ -5239,6 +5407,27 @@
           "source_excerpt_sha256": "b718862ea77a7183cc339126559e9fbec458f8b052e96ca7077fa70999ab3c35",
           "disposition": "중단·남음",
           "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "72가지 직접 strike와 기존 장비/사제/생존 회귀는 통과. 반환 ls/tags, 모든 구원 소유자 순서 및 필드 시간 이력은 남음.",
+          "source_sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4",
+          "source_excerpt_sha256": "b718862ea77a7183cc339126559e9fbec458f8b052e96ca7077fa70999ab3c35",
+          "modified": false,
+          "disposition": "남음",
+          "detail": "72가지 직접 strike와 기존 장비/사제/생존 회귀는 통과. 반환 ls/tags, 모든 구원 소유자 순서 및 필드 시간 이력은 남음.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음."
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "72가지 직접 strike와 기존 장비/사제/생존 회귀는 통과. 반환 ls/tags, 모든 구원 소유자 순서 및 필드 시간 이력은 남음.",
+          "source_sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4",
+          "source_excerpt_sha256": "b718862ea77a7183cc339126559e9fbec458f8b052e96ca7077fa70999ab3c35",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "72가지 직접 strike와 기존 장비/사제/생존 회귀는 통과. 반환 ls/tags, 모든 구원 소유자 순서 및 필드 시간 이력은 남음."
         }
       }
     },
@@ -5926,6 +6115,27 @@
           "source_excerpt_sha256": "2349710020510eaa06f49ec8a828d152ea5d1e351894fd3048a09e8388039ddc",
           "disposition": "중단·남음",
           "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "기존256+추가16개 단일/전체 공격 기록에서 치명 taunt 원문/시간을 수정. 여러 개인/장비 반격 훅을 섞은 모든 사건·반환·시간 순서 직접 대조는 남음.",
+          "source_sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4",
+          "source_excerpt_sha256": "2349710020510eaa06f49ec8a828d152ea5d1e351894fd3048a09e8388039ddc",
+          "modified": false,
+          "disposition": "남음",
+          "detail": "기존256+추가16개 단일/전체 공격 기록에서 치명 taunt 원문/시간을 수정. 여러 개인/장비 반격 훅을 섞은 모든 사건·반환·시간 순서 직접 대조는 남음.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음."
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "기존256+추가16개 단일/전체 공격 기록에서 치명 taunt 원문/시간을 수정. 여러 개인/장비 반격 훅을 섞은 모든 사건·반환·시간 순서 직접 대조는 남음.",
+          "source_sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4",
+          "source_excerpt_sha256": "2349710020510eaa06f49ec8a828d152ea5d1e351894fd3048a09e8388039ddc",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "기존256+추가16개 단일/전체 공격 기록에서 치명 taunt 원문/시간을 수정. 여러 개인/장비 반격 훅을 섞은 모든 사건·반환·시간 순서 직접 대조는 남음."
         }
       }
     },
@@ -6031,6 +6241,27 @@
           "source_excerpt_sha256": "07858969525e8a1a72b27a0a16de707ca396ea614c07144e2c959ee03ab09e6d",
           "disposition": "중단·남음",
           "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "단일/전체 256입력의 대상별 시각·사망·보호자 상태·tags·피격 후 효과 비교. 다중 반격/장비 훅 혼합의 전체 사건/로그 대조는 남음.",
+          "source_sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4",
+          "source_excerpt_sha256": "07858969525e8a1a72b27a0a16de707ca396ea614c07144e2c959ee03ab09e6d",
+          "modified": false,
+          "disposition": "남음",
+          "detail": "단일/전체 256입력의 대상별 시각·사망·보호자 상태·tags·피격 후 효과 비교. 다중 반격/장비 훅 혼합의 전체 사건/로그 대조는 남음.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음."
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "단일/전체 256입력의 대상별 시각·사망·보호자 상태·tags·피격 후 효과 비교. 다중 반격/장비 훅 혼합의 전체 사건/로그 대조는 남음.",
+          "source_sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4",
+          "source_excerpt_sha256": "07858969525e8a1a72b27a0a16de707ca396ea614c07144e2c959ee03ab09e6d",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "단일/전체 256입력의 대상별 시각·사망·보호자 상태·tags·피격 후 효과 비교. 다중 반격/장비 훅 혼합의 전체 사건/로그 대조는 남음."
         }
       }
     },
@@ -6137,6 +6368,27 @@
           "source_excerpt_sha256": "3b50ba7874eaa023a174e1f7506c3ab0a577fd5f4aacb688945b65a5bebdd5b3",
           "disposition": "중단·남음",
           "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "100종 각 행동·건강/손상652개 조합 편성의 차례 전체 상태·사건·로그·다음 RNG 직접 일치. fl 없는 옛 고정 적 차례 전체와 다중 개인/장비 훅 혼합 직접 대조는 남음.",
+          "source_sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4",
+          "source_excerpt_sha256": "3b50ba7874eaa023a174e1f7506c3ab0a577fd5f4aacb688945b65a5bebdd5b3",
+          "modified": false,
+          "disposition": "남음",
+          "detail": "100종 각 행동·건강/손상652개 조합 편성의 차례 전체 상태·사건·로그·다음 RNG 직접 일치. fl 없는 옛 고정 적 차례 전체와 다중 개인/장비 훅 혼합 직접 대조는 남음.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음."
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "100종 각 행동·건강/손상652개 조합 편성의 차례 전체 상태·사건·로그·다음 RNG 직접 일치. fl 없는 옛 고정 적 차례 전체와 다중 개인/장비 훅 혼합 직접 대조는 남음.",
+          "source_sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4",
+          "source_excerpt_sha256": "3b50ba7874eaa023a174e1f7506c3ab0a577fd5f4aacb688945b65a5bebdd5b3",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "100종 각 행동·건강/손상652개 조합 편성의 차례 전체 상태·사건·로그·다음 RNG 직접 일치. fl 없는 옛 고정 적 차례 전체와 다중 개인/장비 훅 혼합 직접 대조는 남음."
         }
       }
     },
@@ -6280,7 +6532,7 @@
           "log": "verification/parity-r23/suite-round8-final-v7/battle_r23_round8_outcome_test.log"
         }
       ],
-      "remaining_reason": "저장 재개에서 심연 고갈 횟수와 마지막 일격 이름이 사라진다. 보존 필드는 현재 서버 battle 허용 목록에서 거절된다. server/ 수정 금지 및 허용 목록 변경 필요 시 중단 지시에 따라 미수정. 재현: verification/finish-r24/round2/server-boundary.json.",
+      "remaining_reason": "고갈 횟수는 저장 재개 뒤 유지한다. last_kill을 id만 저장하라는 지시 때문에 원본의 이름+기술 문구는 이름으로 복원되어 일부 정보가 빠진다. 실제 의뢰 출처/rg/qmult의 모든 정산 연결도 전체 직접 대조 미완료.",
       "branch_coverage": {
         "id": "P1825",
         "called": true,
@@ -6344,6 +6596,32 @@
             "verification/finish-r24/round2/resume-probe.json",
             "verification/finish-r24/round2/server-boundary.json"
           ]
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "저장 재개에서 심연 고갈 횟수와 마지막 일격 이름이 사라진다. 보존 필드는 현재 서버 battle 허용 목록에서 거절된다. server/ 수정 금지 및 허용 목록 변경 필요 시 중단 지시에 따라 미수정. 재현: verification/finish-r24/round2/server-boundary.json.",
+          "source_sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4",
+          "source_excerpt_sha256": "0ad212e43a95f5eaec6fd20c8c31ab3e1ede7e70ee53ac4b8fdb7c64e8c3eabe",
+          "modified": true,
+          "disposition": "수정 후 일부 유지",
+          "detail": "고갈 횟수는 저장 재개 뒤 유지한다. last_kill을 id만 저장하라는 지시 때문에 원본의 이름+기술 문구는 이름으로 복원되어 일부 정보가 빠진다. 실제 의뢰 출처/rg/qmult의 모든 정산 연결도 전체 직접 대조 미완료.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음.",
+          "results": [
+            "verification/finish-r24/round3/resume-results.json",
+            "verification/finish-r24/round3/cloud-fields.json",
+            "verification/finish-r24/round3/server-fields.json"
+          ]
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "고갈 횟수는 저장 재개 뒤 유지한다. last_kill을 id만 저장하라는 지시 때문에 원본의 이름+기술 문구는 이름으로 복원되어 일부 정보가 빠진다. 실제 의뢰 출처/rg/qmult의 모든 정산 연결도 전체 직접 대조 미완료.",
+          "source_sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4",
+          "source_excerpt_sha256": "0ad212e43a95f5eaec6fd20c8c31ab3e1ede7e70ee53ac4b8fdb7c64e8c3eabe",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "고갈 횟수는 저장 재개 뒤 유지한다. last_kill을 id만 저장하라는 지시 때문에 원본의 이름+기술 문구는 이름으로 복원되어 일부 정보가 빠진다. 실제 의뢰 출처/rg/qmult의 모든 정산 연결도 전체 직접 대조 미완료."
         }
       }
     },
@@ -6529,6 +6807,27 @@
           "source_excerpt_sha256": "ca326c08391db78d3bbe7ea1e9a104e7ff46e08c083c53cee3b01ec4503c79f3",
           "disposition": "중단·남음",
           "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "미확인",
+          "previous_remaining_reason": "6320판 진행 결과는 비교. guard 80·모든 시작/라운드/사망·자동 방출의 전체 상태 경계는 남음.",
+          "source_sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4",
+          "source_excerpt_sha256": "ca326c08391db78d3bbe7ea1e9a104e7ff46e08c083c53cee3b01ec4503c79f3",
+          "modified": false,
+          "disposition": "남음",
+          "detail": "6320판 진행 결과는 비교. guard 80·모든 시작/라운드/사망·자동 방출의 전체 상태 경계는 남음.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음."
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "미확인",
+          "previous_remaining_reason": "6320판 진행 결과는 비교. guard 80·모든 시작/라운드/사망·자동 방출의 전체 상태 경계는 남음.",
+          "source_sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4",
+          "source_excerpt_sha256": "ca326c08391db78d3bbe7ea1e9a104e7ff46e08c083c53cee3b01ec4503c79f3",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "6320판 진행 결과는 비교. guard 80·모든 시작/라운드/사망·자동 방출의 전체 상태 경계는 남음."
         }
       }
     },
@@ -14324,6 +14623,27 @@
           "source_excerpt_sha256": "367a240fc961916f2d14c5e3ba8a9221f7ed5a6ee2dbd9fc77c2a3d586ae5dd2",
           "disposition": "중단·남음",
           "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "기존 길드 UI는 유지. 모든 prefix/suffix·dirty/ready·강화 상한/부족 금화 표시의 의미상 출력 전체는 새 대조하지 않음.",
+          "source_sha256": "de2ac53a882b26c8e298fa6e4519f2b1f4f4f8b979f670fc6eb1e9823d186072",
+          "source_excerpt_sha256": "367a240fc961916f2d14c5e3ba8a9221f7ed5a6ee2dbd9fc77c2a3d586ae5dd2",
+          "modified": false,
+          "disposition": "남음",
+          "detail": "기존 길드 UI는 유지. 모든 prefix/suffix·dirty/ready·강화 상한/부족 금화 표시의 의미상 출력 전체는 새 대조하지 않음.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음."
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "기존 길드 UI는 유지. 모든 prefix/suffix·dirty/ready·강화 상한/부족 금화 표시의 의미상 출력 전체는 새 대조하지 않음.",
+          "source_sha256": "de2ac53a882b26c8e298fa6e4519f2b1f4f4f8b979f670fc6eb1e9823d186072",
+          "source_excerpt_sha256": "367a240fc961916f2d14c5e3ba8a9221f7ed5a6ee2dbd9fc77c2a3d586ae5dd2",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "기존 길드 UI는 유지. 모든 prefix/suffix·dirty/ready·강화 상한/부족 금화 표시의 의미상 출력 전체는 새 대조하지 않음."
         }
       }
     },
@@ -18385,6 +18705,27 @@
           "source_excerpt_sha256": "54ef8e0408b7fecc27857f22910429babdb74f035b9ba0fa0bc220dd9b22d29c",
           "disposition": "중단·남음",
           "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "미확인",
+          "previous_remaining_reason": "버튼 MP/설명·disabled·선택 상태의 의미상 출력 전체를 새 직접 대조하지 않음.",
+          "source_sha256": "712dafd8fc34163daf294a0a0266c0f20119341ee49cbf6f0901055e151b95e3",
+          "source_excerpt_sha256": "54ef8e0408b7fecc27857f22910429babdb74f035b9ba0fa0bc220dd9b22d29c",
+          "modified": false,
+          "disposition": "남음",
+          "detail": "버튼 MP/설명·disabled·선택 상태의 의미상 출력 전체를 새 직접 대조하지 않음.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음."
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "미확인",
+          "previous_remaining_reason": "버튼 MP/설명·disabled·선택 상태의 의미상 출력 전체를 새 직접 대조하지 않음.",
+          "source_sha256": "712dafd8fc34163daf294a0a0266c0f20119341ee49cbf6f0901055e151b95e3",
+          "source_excerpt_sha256": "54ef8e0408b7fecc27857f22910429babdb74f035b9ba0fa0bc220dd9b22d29c",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "버튼 MP/설명·disabled·선택 상태의 의미상 출력 전체를 새 직접 대조하지 않음."
         }
       }
     },
@@ -18591,6 +18932,27 @@
           "source_excerpt_sha256": "5d25b371248c97007750eef1f8f69dc4e02d7870904639515b5aad61bb7df9fd",
           "disposition": "중단·남음",
           "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "미확인",
+          "previous_remaining_reason": "기술 조건 회귀는 통과. 행동/아이템/대상 선택·취소·버튼 배열의 전체 새 대조는 남음.",
+          "source_sha256": "712dafd8fc34163daf294a0a0266c0f20119341ee49cbf6f0901055e151b95e3",
+          "source_excerpt_sha256": "5d25b371248c97007750eef1f8f69dc4e02d7870904639515b5aad61bb7df9fd",
+          "modified": false,
+          "disposition": "남음",
+          "detail": "기술 조건 회귀는 통과. 행동/아이템/대상 선택·취소·버튼 배열의 전체 새 대조는 남음.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음."
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "미확인",
+          "previous_remaining_reason": "기술 조건 회귀는 통과. 행동/아이템/대상 선택·취소·버튼 배열의 전체 새 대조는 남음.",
+          "source_sha256": "712dafd8fc34163daf294a0a0266c0f20119341ee49cbf6f0901055e151b95e3",
+          "source_excerpt_sha256": "5d25b371248c97007750eef1f8f69dc4e02d7870904639515b5aad61bb7df9fd",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "기술 조건 회귀는 통과. 행동/아이템/대상 선택·취소·버튼 배열의 전체 새 대조는 남음."
         }
       }
     },
@@ -18868,6 +19230,27 @@
           "source_excerpt_sha256": "a096b4b966327a82f1dae3aafb8c6e8eafaacf5850ed90345aa1b7a9fdb9f827",
           "disposition": "중단·남음",
           "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "미확인",
+          "previous_remaining_reason": "기존 native 화면/오버플로 회귀는 유지. 모든 원본 상태에서 HUD·대상·로그·카메라의 의미상 전체 출력 대조는 남음.",
+          "source_sha256": "712dafd8fc34163daf294a0a0266c0f20119341ee49cbf6f0901055e151b95e3",
+          "source_excerpt_sha256": "a096b4b966327a82f1dae3aafb8c6e8eafaacf5850ed90345aa1b7a9fdb9f827",
+          "modified": false,
+          "disposition": "남음",
+          "detail": "기존 native 화면/오버플로 회귀는 유지. 모든 원본 상태에서 HUD·대상·로그·카메라의 의미상 전체 출력 대조는 남음.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음."
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "미확인",
+          "previous_remaining_reason": "기존 native 화면/오버플로 회귀는 유지. 모든 원본 상태에서 HUD·대상·로그·카메라의 의미상 전체 출력 대조는 남음.",
+          "source_sha256": "712dafd8fc34163daf294a0a0266c0f20119341ee49cbf6f0901055e151b95e3",
+          "source_excerpt_sha256": "a096b4b966327a82f1dae3aafb8c6e8eafaacf5850ed90345aa1b7a9fdb9f827",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "기존 native 화면/오버플로 회귀는 유지. 모든 원본 상태에서 HUD·대상·로그·카메라의 의미상 전체 출력 대조는 남음."
         }
       }
     },
@@ -21350,6 +21733,32 @@
       },
       "stopped_for_server_allowlist": true,
       "evidence": "verification/finish-r24/round2/row-audit.json"
+    },
+    "round3": {
+      "ledger": "battle",
+      "initial_remaining": 16,
+      "promoted_same": 0,
+      "modified": 3,
+      "remaining": 16,
+      "statuses": {
+        "같음": 199,
+        "일부": 12,
+        "제외": 3,
+        "미확인": 4
+      }
+    },
+    "round4": {
+      "ledger": "battle",
+      "initial_remaining": 16,
+      "promoted_same": 0,
+      "modified": 0,
+      "remaining": 16,
+      "statuses": {
+        "같음": 199,
+        "일부": 12,
+        "제외": 3,
+        "미확인": 4
+      }
     }
   }
 }

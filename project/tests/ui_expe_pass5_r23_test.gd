@@ -24,6 +24,7 @@ func observe(s,kind: String):
 		g.dungeon.sel=s.model.selected_floor
 	else:
 		for section in (["head","last","party"] if kind=="explore" else [kind]):expected.append_array(s.model.source_expedition_view(section))
+		if kind=="explore" and r.phase=="rest":expected.append_array(s.model.source_expedition_view("gear_card"))
 	check(core.helper.same(observed,expected),"actual painted source entries in order "+kind+" "+Llang(s))
 	observations.append({"kind":kind,"lang":Llang(s),"G":g,"R":r.duplicate(true),"visible":core.project(observed)})
 func Llang(s) -> String:return s.model.ExpeditionText.language(s.model.s)
@@ -36,6 +37,7 @@ func run():
 			var s=Screen.new();s.size=dim;s.storage.path="user://expe-pass5-%s-%dx%d-%d.json"%[lang,dim.x,dim.y,OS.get_process_id()]
 			root.add_child(s);s.model=ready_world();s.motion_reduced=true
 			var w=s.model;w.s.settings={"lang":lang};w.s.persona.name="가온"
+			w.s.ui.sel="sortie:dungeon" # The oracle's selected-floor plan is dungeon mode.
 			await show(s,"depart");observe(s,"sortie");await capture(s,"sortie-"+lang,dim)
 			w.depart_dungeon(1,6);w.s.run.gold=21;w.s.run.xp=55;w.s.run.loot_items.hp_s=2;w.s.items.mp_s=1;w.s.items.hp_l=1;w.s.members.persona.hp=1;w.s.members.persona.mp=0
 			w.s.run.last="A&B <tag> \"quotes\""
