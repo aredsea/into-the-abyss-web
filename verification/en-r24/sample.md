@@ -1,306 +1,306 @@
 # EN-R24 bilingual sample (300 lines)
 
-Scope: the 5,636 translated fields only (adeline, altan, bargut, berenga, bianca, colette, erdene, felice, gerda, gunhild, haldric, hedwig). Other characters remain untranslated. This is not a 30-character completion sample. Seed: 20261104; sampling without replacement.
+Scope: All 30 characters and all 14,216 display fields. Seed: 20261104; sampling without replacement.
 
 | # | Character / field | Korean (unchanged) | English |
 | --- | --- | --- | --- |
-| 1 | hedwig / inn/0/choices/1/response/0 | 빨리 읽으셔도 보여 드릴 수 없습니다. | However quickly you read, I cannot show you. |
-| 2 | berenga / inn/25/choices/2/text | 새 책으로 옮기면 일이 빨라지겠어요. | Copying it into a new book would make things quicker. |
-| 3 | colette / inn/25/choices/0/text | 저도 배고파요. 먼저 내려가요. | I'm hungry too. Let's go down first. |
-| 4 | erdene / inn/18/choices/0/response/1 | 지쳤다고 숨기면 누가 교대하자고 불러? | If I hide being tired, who's going to offer to take over? |
-| 5 | gerda / inn/27/lines/0 | 아직 놀라요. | It still startles me. |
-| 6 | haldric / inn/12/lines/2 | 돌아갈 이름까지 쓴 줄은 뒤에 알았소. | Later I learned I had written the name I must return with, too. |
-| 7 | adeline / inn/13/choices/2/text | 어릴 때부터 잘 뛰셨네요. | You have been a good runner since you were little. |
-| 8 | bianca / inn/0/lines/1 | 오늘은 여쭐 일이 없네요. | I have no questions today. |
-| 9 | erdene / dungeon/7/variants/1 | 누가 봤는지 같이 남겨 두자. | Let's keep a record of who saw it, too. |
-| 10 | adeline / inn/4/choices/0/response/0 | 감사한 마음은 있어요. | I am grateful. |
-| 11 | hedwig / inn/12/choices/0/response/0 | 마를 때까지만 펴 두겠습니다. | I will leave it open until it dries. |
-| 12 | gunhild / inn/17/choices/0/response/1 | 내가 가리지 않는다고 네가 평할 필요는 없어. | Leaving it uncovered does not require your judgment. |
-| 13 | haldric / inn/8/choices/2/response/0 | 적히지 않은 채 해 둬도 괜찮은 일이오. | It is all right to do this without recording it. |
-| 14 | haldric / dungeon/15/variants/0 | 계약 제3조를 다시 읽겠소. | I will read Article Three of the contract again. |
-| 15 | altan / inn/11/choices/1/response/0 | 교환할 조건이면 시작 전에 정하십시오. | If this is an exchange, settle the terms before starting. |
-| 16 | felice / transitions/12/lines/0 | 도시 안내는 나중에도 할 수 있죠. | I can show you the city later. |
-| 17 | erdene / inn/21/choices/1/response/0 | 그 말은 좀 웃기다. | That's a funny way to put it. |
-| 18 | adeline / inn/19/choices/0/text | 그분을 설득하면 마음 편히 친해질 수 있겠네요. | If you persuaded Urda, you could become friends without any worries. |
-| 19 | felice / dungeon/23/variants/0 | 제 목소리 쪽을 한 번 봐 줘요! | Look toward my voice a moment! |
-| 20 | hedwig / transitions/0/lines/1 | 다른 용건은 짧게 듣겠습니다. | I will hear other business briefly. |
-| 21 | bargut / dungeon/20/variants/0 | 이제는 옆에 와도 되나? | Can I come beside you now? |
-| 22 | gunhild / inn/21/choices/0/text | 그다음 판단은 같이 해 봐요. | Let's make the next decision together. |
-| 23 | gerda / inn/8/choices/2/response/1 | 곁에만 있어요. | Just stay nearby. |
-| 24 | bianca / inn/7/choices/1/text | 얼마짜린지 알면 더 맛있을 것 같아요. | Knowing the price might make it taste better. |
-| 25 | bargut / inn/1/lines/1 | 무겁다고 한 적 없다. | I never said it was heavy. |
-| 26 | bianca / transitions/13/lines/1 | 제가 고를 표정도 남겨 주세요. | Please leave me expressions of my own to choose. |
-| 27 | colette / inn/3/choices/1/response/0 | 그러면 이 정도로 보여 드리겠습니다. | Then I will hold it up like this. |
-| 28 | berenga / dungeon/1/variants/0 | 가방이 걸리면 말해 줘요. | Tell me if my bag gets in the way. |
-| 29 | altan / transitions/7/lines/0 | 그 뒤가 좋았다는 기록은 없습니다. | There is no record saying that things went well afterward. |
-| 30 | hedwig / dungeon/40/variants/0 | 계획이 틀린 곳은 제가 설명하겠습니다. | I will explain where the plan was wrong. |
-| 31 | colette / inn/23/situation | 콜레트가 게르다의 말이 끝나자 돌아본다. | Colette turns as Gerda finishes speaking. |
-| 32 | gunhild / inn/23/choices/0/response/1 | 얼굴 아는데 다시 소개할 필요 있나? | You know my face. Must I introduce myself again? |
-| 33 | gerda / dungeon/15/variants/1 | 이 앞은 좀 마음에 걸리네요. | What's ahead bothers me a little. |
-| 34 | gerda / inn/26/choices/1/response/0 | 그냥 보고 싶어서 왔어요. | I came simply because I wanted to see you. |
-| 35 | gunhild / inn/7/situation | 같은 투기장 사람 얘기에 턱을 든다. | She lifts her chin at mention of another arena fighter. |
-| 36 | gerda / inn/23/choices/1/response/0 | 내가 말 없다고 늘 혼자인 건 아니에요. | Being quiet doesn't always mean wanting to be alone. |
-| 37 | erdene / dungeon/0/variants/0 | 앞 설 사람부터 정하자. | Let's decide who's leading first. |
-| 38 | gunhild / inn/11/situation | 잘못 내린 호령을 고치고 다시 말한다. | She corrects a mistaken order and speaks again. |
-| 39 | felice / dungeon/37/variants/1 | 오늘 저녁은 혼자 먹기 싫네요. | I don't want to eat alone tonight. |
-| 40 | colette / inn/18/choices/1/text | 저도 여기서 저녁 먹을게요. | I'll eat here too. |
-| 41 | berenga / inn/7/lines/2 | 옷만 보면 짐이 없는 사람 같을까요? | Do my clothes make me look as though I carry nothing? |
-| 42 | felice / inn/10/lines/2 | 저랑 먹자고 부른 거예요. | I asked you here to eat with me. |
-| 43 | berenga / inn/27/lines/0 | 오늘 와 주셔서 좋았어요. | I'm glad you came today. |
-| 44 | bargut / inn/26/choices/2/text | 떠나기 싫다는 말을 길게 해 봐요. | Try saying at length that you don't want to leave. |
-| 45 | haldric / inn/20/choices/0/response/1 | 먼저 묻는 수고는 빼지 않겠소. | I will not skip the effort of asking first. |
-| 46 | berenga / dungeon/32/variants/1 | 저도 더 앉아 있고 싶네요. | I'd like to sit a little longer, too. |
-| 47 | hedwig / dungeon/27/variants/0 | 제게도 부상이 있습니다. | I am injured as well. |
-| 48 | adeline / inn/24/choices/2/text | 저도 같이 먹으러 왔어요. | I came to eat with you, too. |
-| 49 | gunhild / inn/11/choices/1/text | 아까 멈춘 데부터 말할게요. | I'll continue where I stopped. |
-| 50 | colette / inn/20/lines/2 | 함께 움직일 때는 알려 드리겠습니다. | I will keep you informed when we move together. |
-| 51 | gerda / inn/22/choices/2/response/1 | 아직 안심할 얼굴까지 만들진 못하겠네요. | I can't put on a reassured face yet. |
-| 52 | gunhild / inn/1/lines/2 | 모르면 그냥 인사만 해라. | If not, simply say hello. |
-| 53 | adeline / inn/8/lines/0 | 기도하러 가려던 중이에요. | I was just going to pray. |
-| 54 | gerda / transitions/3/lines/0 | 묻는 줄 알았는데 이미 정했네. | Thought you were asking. You'd already decided. |
-| 55 | erdene / inn/6/lines/1 | 길 열리면 불러 줄게. | I'll call when the way's clear. |
-| 56 | gerda / inn/23/seen | 아무 말 없이 잔을 두 개 놓을게요. | I'll set down two glasses without a word. |
-| 57 | erdene / inn/25/lines/0 | 또 혼자 들었네. | Picked it up alone again. |
-| 58 | felice / inn/24/choices/1/text | 가는 길에 단골들한테 인사시켜 줘요. | Introduce me to your regulars on the way. |
-| 59 | berenga / inn/15/choices/1/text | 어떤 대답이 온다고 기대하진 않을게요. | I won't expect any particular answer. |
-| 60 | bianca / inn/12/choices/1/response/0 | 황금 명부에 오르는 자리였어요. | A place on the Golden Register. |
-| 61 | hedwig / inn/19/lines/2 | 혹시 바뀌면 말씀만 해 주십시오. | If it changes, simply tell me. |
-| 62 | gunhild / inn/3/situation | 훈련 이야기를 하다 잔을 내려놓는다. | She sets down her cup while discussing training. |
-| 63 | adeline / inn/8/choices/0/response/0 | 그럼 끝나고 같이 내려가요. | Then let us go down together afterward. |
-| 64 | gunhild / inn/7/choices/2/response/0 | 나는 상금을 받으려고 싸웠다. | I fought to win prize money. |
-| 65 | gerda / inn/1/lines/2 | 내가 먼저 볼 테니 비켜 줘요. | Let me look first. Move aside. |
-| 66 | gunhild / inn/12/choices/0/response/1 | 돌아온 뒤의 일부터 차례로 말하겠다. | I will begin with what followed our return. |
-| 67 | berenga / dungeon/41/variants/1 | 오늘 얘기는 돌아가서 이어 가요. | Let's continue today's conversation when we're back. |
-| 68 | gunhild / inn/24/lines/2 | 그렇게 고치니 말이 더 길어지는군. | Correcting it makes it longer. |
-| 69 | colette / inn/16/choices/1/text | 지금은 쉬고 계세요. | Rest for now. |
-| 70 | hedwig / inn/22/lines/0 | 말을 잘못 전했습니다. | I conveyed that incorrectly. |
-| 71 | hedwig / inn/4/choices/0/response/0 | 모든 말을 문서로 만들 필요는 없습니다. | Not every word needs to become a document. |
-| 72 | adeline / inn/27/lines/2 | 아직 졸리지는 않으세요? | Are you sleepy yet? |
-| 73 | altan / dungeon/26/variants/1 | 확인도 없이 기록을 닫진 않겠습니다. | I will not close the record without even checking. |
-| 74 | gerda / dungeon/31/variants/1 | 별말 없어도 옆에 앉을 수 있죠? | I can sit beside you without much to say, can't I? |
-| 75 | altan / dungeon/39/variants/0 | 패배입니다. 추가 손실을 막겠습니다. | We are defeated. I will prevent further losses. |
-| 76 | erdene / inn/0/choices/1/response/0 | 그래. 내 입은 아직 있어. | Good. I've still got a mouth. |
-| 77 | felice / inn/22/lines/1 | 어느 도시 사람이냐는 이름이에요. | It's a name that says which city I'm from. |
-| 78 | bargut / inn/17/choices/2/response/1 | 그 정도는 들고 옆에서 걸을 수 있다. | I can carry that much and still walk beside you. |
-| 79 | gunhild / inn/14/lines/2 | 상을 받는 것만으로 됐는지는 모르겠지만. | Whether prizes alone were enough, I do not know. |
-| 80 | adeline / inn/3/choices/0/text | 저는 밥부터 먹을게요. | I will eat first. |
-| 81 | bianca / inn/19/choices/1/response/1 | 지금 제 말을 하기는 더 어렵겠죠. | And make it harder to say what I actually mean. |
-| 82 | haldric / inn/26/lines/2 | 오늘 돌아와 줘서 고맙소. | Thank you for returning today. |
-| 83 | erdene / inn/18/choices/2/text | 물부터 드세요. | Have some water first. |
-| 84 | altan / inn/4/choices/2/text | 한 장을 같이 돌려 보면 종이가 절약돼요. | Passing one copy between us would save paper. |
-| 85 | bargut / transitions/1/lines/0 | 붙어 앉겠다고 한 적 없다. | Never said I'd sit right beside you. |
-| 86 | altan / inn/15/choices/0/response/0 | 다른 분들께 전하지는 마십시오. | Do not tell the others. |
-| 87 | erdene / inn/16/choices/0/text | 그럼 오늘은 기다리는 쪽에 같이 서요. | Then let's both be on the side that waits today. |
-| 88 | colette / inn/17/choices/0/response/0 | 그릇은 엎지르지 않겠습니다. | I will not knock over the bowl. |
-| 89 | haldric / transitions/7/lines/1 | 같은 줄을 읽으면 잠깐 기다리시오. | If I read the same line, wait a moment. |
-| 90 | felice / inn/8/choices/1/text | 약방은 많이 바빴어요? | Was the apothecary busy? |
-| 91 | bianca / inn/8/choices/0/text | 질문 드릴 테니 평소처럼 답해 보세요. | I'll ask you questions. Try answering as you usually would. |
-| 92 | felice / dungeon/13/variants/0 | 제 병도 안 깨졌나 볼게요. | I'll check that my bottles haven't broken, too. |
-| 93 | berenga / transitions/0/situation | 닫은 이름책을 가방 안에 넣는다. | She puts the closed book of names in her bag. |
-| 94 | bargut / dungeon/41/variants/1 | 지금은 혼자 앞서가지 않겠다. | For now, I won't go ahead alone. |
-| 95 | altan / dungeon/15/variants/1 | 예상 손실을 가볍게 말하지 마십시오. | Do not speak lightly of the expected losses. |
-| 96 | colette / inn/4/choices/1/response/0 | 그때까지 제 것은 갖춰 두겠습니다. | I will have my things ready by then. |
-| 97 | hedwig / transitions/2/situation | 맞은편 의자를 직접 당긴다. | She draws out the opposite chair herself. |
-| 98 | berenga / dungeon/34/variants/1 | 제 신앙이 열쇠인 건 아니에요. | My faith isn't a key. |
-| 99 | hedwig / inn/0/lines/0 | 오늘은 열람을 허락하지 않았습니다. | I have not permitted you to read it today. |
-| 100 | erdene / inn/24/seen | 오늘은 앞자리보다 맞은편 자리가 좋아. | Today I'd rather sit across from you than out front. |
-| 101 | altan / inn/23/lines/1 | 저는 조금 더 있을 수 있습니다. | I can stay a little longer. |
-| 102 | haldric / inn/14/choices/1/text | 오래 아셨나요? | Have you known each other long? |
-| 103 | haldric / inn/11/choices/2/response/0 | 여기서 쉬어도 되는지 물은 것이오. | I was asking whether I might rest here. |
-| 104 | gunhild / inn/9/lines/1 | 보고 칭찬했다면 받겠다. | If your praise comes from seeing it, I accept. |
-| 105 | bargut / inn/7/choices/0/response/0 | 잔만 따뜻하면 된다는 말은 아니다. | I didn't say a warm cup was all I needed. |
-| 106 | haldric / inn/25/choices/1/response/0 | 두려움만 듣고 온 것처럼 여기진 않겠소. | I will not think you came only because you heard my fear. |
-| 107 | gunhild / inn/16/choices/1/response/0 | 그건 쓸 때마다 내게 물어라. | Ask me each time you write it. |
-| 108 | erdene / dungeon/2/variants/0 | 오늘 내 상태도 먼저 셀게. | I'll check my own condition first today, too. |
-| 109 | altan / inn/25/lines/1 | 뒤에 직책이 없어도 괜찮습니다. | There need not be a title after it. |
-| 110 | gunhild / dungeon/22/variants/0 | 그 상처를 혼자 감추지 마라! | Do not hide that wound alone! |
-| 111 | hedwig / inn/0/choices/0/text | 의자를 옮겨도 될까요? | May I move the chair? |
-| 112 | gunhild / dungeon/0/variants/0 | 출발할 준비가 됐으면 말해라. | Say when you are ready to leave. |
-| 113 | haldric / dungeon/7/variants/0 | 그쪽 손도 함께 본 것으로 남기겠소. | I will record that you were there to see it too. |
-| 114 | haldric / inn/3/choices/1/response/1 | 펼칠 문서까지 아직 맡긴 적은 없소. | I have not entrusted you with the documents I intend to open, either. |
-| 115 | bianca / inn/16/seen | 무엇을 쓰지 않을지도 제가 정했어요. | I also chose what I wouldn't write. |
-| 116 | altan / dungeon/37/variants/0 | 오늘 실적은 각자 이름으로 남깁니다. | Today's achievements will be recorded under each person's own name. |
-| 117 | felice / inn/4/choices/2/text | 생각보다 길이 많네요. | There are more roads than I expected. |
-| 118 | berenga / inn/20/choices/1/response/1 | 길 떠날 뜻까지 없애 달라고 하진 말아요. | Don't ask me to give up wanting to travel, too. |
-| 119 | haldric / inn/15/choices/1/response/1 | 지금 곁에 있어 달라는 말은 늦었구려. | I was late in asking you to stay beside me now. |
-| 120 | colette / inn/17/choices/1/response/1 | 지금 웃는 것으로 충분히 해 주셨으면 합니다. | I would like my laughing now to be enough. |
-| 121 | haldric / inn/22/lines/2 | 숨기느라 더 오래 읽었소. | I read longer to hide it. |
-| 122 | hedwig / transitions/1/situation | 기록 위에 새로 쓴 글자를 가리킨다. | She points to new writing on the record. |
-| 123 | hedwig / inn/12/seen | 첫머리를 썼다고 답까지 얻는 건 아닙니다. | Writing the opening does not give me the answer as well. |
-| 124 | bianca / inn/5/choices/1/text | 누구 몫인지까지 맞춰 봐요. | Let's make sure whose share it is, too. |
-| 125 | colette / inn/11/choices/1/response/0 | 그 표정은 짓지 마십시오. | Do not make that face. |
-| 126 | hedwig / inn/17/lines/2 | 함께 갈 때 쓸 이름이라 보여 드립니다. | I am showing you because I will use it when we travel together. |
-| 127 | gunhild / inn/17/choices/1/response/0 | 말하고 옮겨 주면 괜찮다. | If you tell me before moving it, that is fine. |
-| 128 | berenga / inn/22/lines/1 | 언제 보고 싶은지도 말해 볼게요. | I'll try saying when I'd like to see you, too. |
-| 129 | colette / inn/19/seen | 오늘 웃은 것은 숨기지 않겠습니다. | I will not hide the fact that I laughed today. |
-| 130 | gerda / inn/6/choices/0/text | 안 보이게 새 옷을 입으면 안심되겠어요. | New clothes that hide it would make things easier. |
-| 131 | gunhild / inn/27/choices/1/response/0 | 내가 두고 다음에 다시 펴겠다. | I will keep it and open it next time. |
-| 132 | gunhild / inn/3/choices/0/text | 군힐트 씨 몫부터 함께 정해요. | Let's agree on your part first, Gunhild. |
-| 133 | adeline / inn/21/choices/1/response/0 | 밤새 할 생각은 없었어요. | I was not planning to play all night. |
-| 134 | hedwig / inn/1/choices/2/text | 물병은 종이에서 먼 쪽에 놓을게요. | I'll put the pitcher away from the paper. |
-| 135 | altan / inn/20/choices/0/response/0 | 원본과 같은지 본 뒤에 가져가십시오. | Check it against the original before taking it. |
-| 136 | bargut / transitions/2/lines/1 | 앉아도 되는지는 내가 물어보지. | I'll ask whether I can sit down. |
-| 137 | adeline / inn/0/seen | 오늘 카드는 여기서 그만둘게요. | That is enough cards for today. |
-| 138 | haldric / inn/27/choices/2/text | 할드리크 부대장, 오늘도 같이 앉아요. | Lieutenant Haldric, let's sit together again today. |
-| 139 | colette / inn/11/choices/1/text | 재미있었는데 제가 똑같이 해 볼게요. | It was funny. Let me do it just as she did. |
-| 140 | adeline / inn/13/situation | 아델린이 길을 걸으며 웃는다. | Adeline smiles as she walks along the road. |
-| 141 | gerda / inn/18/choices/2/response/0 | 잔 놓은 손은 덜 떨리네요. | My hand trembles less with the glass down. |
-| 142 | berenga / inn/1/choices/0/response/0 | 오늘 무슨 일이었는지부터 말해 봐요. | Tell me what happened today first. |
-| 143 | bargut / inn/3/choices/2/response/0 | 다음에는 안쪽에 놓아라. | Put it farther in next time. |
-| 144 | erdene / dungeon/37/variants/0 | 오늘은 같이 문을 나가자. | Today let's go through the door together. |
-| 145 | colette / inn/3/situation | 콜레트가 물잔을 식탁에 내려놓는다. | Colette sets her water glass on the table. |
-| 146 | hedwig / transitions/6/lines/1 | 오늘은 그때 생각도 말씀드리겠습니다. | Today I will also tell you what I thought then. |
-| 147 | colette / inn/14/lines/1 | 그때는 참을 수 있었습니다. | I could contain myself then. |
-| 148 | bargut / dungeon/36/variants/0 | 돌아왔다. 내 짐은 내가 든다. | We're back. I carry my own baggage. |
-| 149 | adeline / inn/7/situation | 아델린이 길 끝을 보다가 묻는다. | Adeline looks toward the end of the road, then asks a question. |
-| 150 | bargut / inn/15/lines/2 | 높은 곳에 서서 누가 불러 주길 기다리기도 했다. | Sometimes I stood somewhere high, waiting for someone to call. |
-| 151 | bianca / inn/23/choices/1/text | 나중에 떠날 얘기도 이 자리에서 해요. | We can talk here about leaving later, too. |
-| 152 | adeline / inn/3/choices/1/text | 겁나서 미루시는 거면 제가 져 드릴게요. | If you are putting it off out of fear, I will let you win. |
-| 153 | altan / inn/3/lines/0 | 여기는 무상 제공이라고 적혀 있습니다. | This entry says they will be provided free of charge. |
-| 154 | bianca / dungeon/10/variants/0 | 제 쪽 위험도 함께 봐 주세요. | Please watch the danger on my side, too. |
-| 155 | gunhild / inn/22/lines/1 | 그렇다고 사람들 앞에서 또 묻진 마라. | But do not ask again in front of everyone. |
-| 156 | felice / dungeon/26/variants/0 | 소리만 지르지 않고 움직일게요. | I'll do something instead of just shouting. |
-| 157 | gerda / inn/4/choices/1/response/0 | 그건 고맙네요. | Thank you for that. |
-| 158 | bianca / inn/23/lines/2 | 오늘은 의자를 그대로 둘래요. | Today I'll leave the chair where it is. |
-| 159 | gerda / inn/9/choices/1/response/0 | 반쯤 둘러대려다 그만뒀네. | I nearly tried to explain part of it away, then stopped. |
-| 160 | bargut / inn/21/choices/2/response/0 | 그 부분이 끝나면 손을 떼겠다. | Once that part is done, I'll let go. |
-| 161 | altan / inn/26/choices/1/text | 이제 좋은 일을 하면 셈이 맞겠죠. | Do some good now, and the accounts will balance. |
-| 162 | felice / dungeon/24/variants/0 | 넘어간 쪽을 먼저 봐요! | Check whoever fell first! |
-| 163 | erdene / transitions/3/lines/0 | 이름보다 쓸 곳부터 봤네. | You looked for a use before a name. |
-| 164 | bianca / dungeon/14/variants/0 | 오늘은 웃는 얼굴부터 알아보겠어요. | Today I'll recognize the smiles first. |
-| 165 | berenga / inn/0/seen | 오늘 이름책은 가방 안에 둘 거예요. | The book of names is staying in my bag today. |
-| 166 | colette / inn/3/lines/0 | 제 인장은 여기 있습니다. | My seal is here. |
-| 167 | felice / inn/12/lines/0 | 계약서가 늘면 골목도 시끄러워졌어요. | The more contracts there were, the noisier the lane became. |
-| 168 | altan / inn/6/choices/2/text | 이름 글씨는 잘 보입니까? | Is the name legible? |
-| 169 | hedwig / transitions/5/lines/1 | 다음 초고는 제 쪽에서 확인하겠습니다. | I will check the next draft myself. |
-| 170 | adeline / inn/17/choices/1/text | 정리는 같이 해도 되죠? | We can tidy up together, can we not? |
-| 171 | colette / inn/4/choices/2/response/0 | 이 말씨가 제게 익숙합니다. | This manner of speaking is familiar to me. |
-| 172 | berenga / inn/19/choices/0/response/0 | 제가 괜히 설명을 더 했네요. | I needn't have explained so much. |
-| 173 | erdene / inn/10/choices/0/response/1 | 내가 직접 물어볼게. | I'll ask them myself. |
-| 174 | berenga / inn/16/lines/0 | 오늘은 더 있고 싶어요. | I'd like to stay longer today. |
-| 175 | bianca / inn/22/choices/1/response/1 | 후회해도 제가 정한 일은 마저 해 볼게요. | Even with regrets, I'll try to finish what I decided. |
-| 176 | gerda / inn/1/choices/1/text | 문 안에서 기다릴게요. | I'll wait inside the door. |
-| 177 | erdene / inn/4/choices/2/response/0 | 싸우기 전에 부를 이름은 있어야지. | You need a name to call before a fight. |
-| 178 | berenga / inn/16/choices/2/response/0 | 오늘은 여기 더 있고 싶어요. | Today I'd like to stay a little longer. |
-| 179 | gunhild / transitions/4/lines/0 | 네 의견부터 들어 보겠다. | I will hear your opinion first. |
-| 180 | bianca / inn/2/lines/2 | 질문 하나만 고르시겠어요? | Would you choose just one? |
-| 181 | adeline / inn/6/lines/1 | 먼저 드셔도 돼요. | Please go ahead. |
-| 182 | adeline / inn/4/choices/1/text | 아델린 씨도 필요한 일이 있으면 말해요. | Tell me if you need anything too, Adeline. |
-| 183 | colette / inn/22/lines/1 | 말을 마치려다 잊었습니다. | I forgot while trying to finish speaking. |
-| 184 | colette / inn/22/choices/1/text | 물은 아직 충분해요. | There's still plenty of water. |
-| 185 | colette / inn/24/choices/1/text | 아직 졸려서 농담이 생각 안 나요. | I'm still too sleepy to think of a joke. |
-| 186 | adeline / inn/13/choices/1/response/0 | 끝나기 전에 양보하지는 마세요. | Do not concede before we finish. |
-| 187 | berenga / inn/13/situation | 소환장 이야기를 하며 잠깐 눈을 내린다. | She briefly lowers her eyes as she mentions a summons. |
-| 188 | berenga / inn/17/choices/1/text | 떠날 땐 다 치우셔야 편해요. | You'll be better off clearing everything away when you leave. |
-| 189 | altan / inn/26/choices/2/text | 다음에도 답할 수 있는 데까지 들어요. | Next time, I will listen to as much as you can answer. |
-| 190 | berenga / inn/15/lines/1 | 그래서 토르바에 왔어요. | That's why I came to Torva. |
-| 191 | colette / transitions/5/lines/1 | 필요한 때에 다시 확인하십시오. | Check again when necessary. |
-| 192 | bianca / inn/18/seen | 보수를 받고 나서도 여기 앉아 있고 싶어요. | I'd like to sit here even after being paid. |
-| 193 | felice / dungeon/39/variants/0 | 졌다고 웃을 일은 아니네요. | Losing isn't something to laugh about. |
-| 194 | bargut / dungeon/1/variants/1 | 내가 안 보이면 불러라. | Call if you can't see me. |
-| 195 | haldric / inn/16/choices/0/response/1 | 그 말을 꼭 종이로만 받아야 하겠소? | Must you receive those words only on paper? |
-| 196 | hedwig / inn/11/choices/1/response/0 | 섞이지 않아서 확인이 쉽겠습니다. | Keeping them separate will make checking easier. |
-| 197 | berenga / inn/22/choices/2/response/1 | 다른 날은 그때 가서 정해요. | We'll decide about other days when they come. |
-| 198 | altan / inn/11/situation | 예정에 없던 도움을 청할지 망설인다. | Altan hesitates over asking for unplanned help. |
-| 199 | gerda / inn/14/choices/1/response/0 | 미련 없는 척까지 해야 옳아지나요? | Must I pretend to have no regrets for it to be right? |
-| 200 | berenga / inn/0/choices/2/text | 가방을 놓을 자리는 여기예요. | Here's a place for your bag. |
-| 201 | erdene / inn/10/choices/2/text | 힘드실 테니 그런 일은 길드에 맡겨요. | It must be hard. Leave that sort of thing to the guild. |
-| 202 | felice / inn/26/choices/0/text | 갈 수 있는 시간을 각각 말해 봐요. | Tell each of them when you can come. |
-| 203 | felice / inn/8/choices/0/response/0 | 길어져도 들어 주실 거죠? | You'll listen even if it takes a while, won't you? |
-| 204 | hedwig / inn/20/choices/0/response/1 | 빠진 의견이 있으면 서명 전에 고치겠습니다. | If an opinion is missing, I will amend it before signing. |
-| 205 | altan / inn/24/choices/2/response/0 | 가방 안쪽에 넣겠습니다. | I will put it inside my bag. |
-| 206 | gunhild / inn/1/lines/0 | 그런 말로 넘어갈 생각 마라. | Do not think those words will smooth things over. |
-| 207 | hedwig / inn/14/lines/1 | 그분은 떠났고 저는 남았습니다. | She left, and I stayed. |
-| 208 | colette / transitions/3/situation | 콜레트가 설명하던 말을 줄인다. | Colette cuts her explanation short. |
-| 209 | bianca / inn/7/choices/2/response/0 | 알아맞히려 하지 않아서 좋네요. | It's nice that you aren't trying to guess them. |
-| 210 | erdene / transitions/13/lines/1 | 다시 물을게. 같이 앉을래? | I'll ask again. Want to sit with me? |
-| 211 | berenga / inn/15/choices/0/response/0 | 그걸 제가 확실하다고 말할 수는 없어요. | I can't tell you that for certain. |
-| 212 | gunhild / inn/26/lines/1 | 대답이 늦었다고 다시 말하지 마라. | Do not repeat it because my answer was slow. |
-| 213 | gunhild / transitions/6/lines/1 | 그래서 이름을 크게 댔던 거지. | That is why I proclaimed my name. |
-| 214 | altan / inn/7/choices/0/response/0 | 어떤 얘긴지 들어 보겠습니다. | I will hear what you have to say. |
-| 215 | berenga / inn/20/choices/1/response/0 | 장난이어도 짐은 그대로 두세요. | Even as a joke, please leave my things alone. |
-| 216 | gunhild / inn/24/situation | 빈 의자를 보며 먼저 자리를 권한다. | Seeing an empty chair, she offers it first. |
-| 217 | bargut / dungeon/0/variants/0 | 내 준비는 끝났다. | I'm ready. |
-| 218 | haldric / inn/7/lines/0 | 손해가 나는 줄도 있소. | Some lines cost me. |
-| 219 | bianca / inn/12/choices/0/response/0 | 돌아서면 편하다는 말은 안 하시네요. | You aren't telling me how easy it would be to turn away. |
-| 220 | hedwig / inn/17/lines/0 | 이건 새 주문이 아닙니다. | This is not a new spell. |
-| 221 | altan / inn/2/lines/2 | 말씀 전에 제 기록부터 다시 보겠습니다. | I will review my records before saying anything. |
-| 222 | gerda / inn/26/lines/2 | 그 말이면 됐는데. | That would've been enough to say. |
-| 223 | adeline / inn/5/lines/1 | 아, 저는 잠깐 본 것뿐이에요. | Oh, I was only looking for a moment. |
-| 224 | bargut / inn/24/seen | 같이 앉을지는 물어보고 기다릴 수 있다. | I can ask whether you want to sit together, then wait. |
-| 225 | adeline / inn/19/situation | 아델린이 기도 뒤 문밖을 살핀다. | Adeline looks outside the door after prayers. |
-| 226 | berenga / inn/8/choices/2/response/0 | 발이 아프다고 제가 앉았어요. | I sat down, saying my feet hurt. |
-| 227 | bianca / inn/15/choices/1/response/0 | 대단한 일보다 작은 그릇 하나였어요. | It was a little bowl, rather than anything grand. |
-| 228 | colette / inn/21/choices/0/response/1 | 그래도 일부러 지켜보진 말아 주십시오. | Still, please do not watch me deliberately. |
-| 229 | hedwig / inn/4/choices/2/response/0 | 아직 주문하지 않았습니다. | I have not ordered yet. |
-| 230 | colette / inn/2/choices/0/text | 저는 맞은편에서 기다릴게요. | I'll wait across from you. |
-| 231 | erdene / dungeon/6/variants/0 | 봐, 이쪽이 먼저 보였어. | Look, I spotted this side first. |
-| 232 | adeline / inn/7/lines/0 | 저기까지는 얼마나 걸릴까요? | How long would it take to get there? |
-| 233 | erdene / inn/2/choices/0/response/0 | 위에서부터 하나씩 불러. | Call them one by one from the top. |
-| 234 | berenga / inn/1/choices/2/response/0 | 저를 추천해 줄 신전은 없어요. | There's no temple to recommend me. |
-| 235 | adeline / inn/18/choices/1/response/0 | 오늘은 제가 먼저 고르고 싶었어요. | Today, I wanted to choose first. |
-| 236 | gerda / dungeon/19/variants/1 | 부적이 대신한 일이라고 안 할게요. | I won't say the charm did it for us. |
-| 237 | berenga / inn/3/seen | 앉을지는 그분께 먼저 물어봐요. | Let's ask them first whether they'd like to sit. |
-| 238 | hedwig / inn/12/choices/1/text | 매번 쓰면 언젠가 돌아가겠죠. | Write it every time, and someday you'll return. |
-| 239 | adeline / inn/11/choices/2/text | 기분 좋아서 꼬리가 움직였군요. 귀여워요. | Your tail was wagging because you were happy. How cute. |
-| 240 | bargut / inn/24/choices/1/response/0 | 항상 그럴 필요는 없다고 말하는 거다. | I'm saying you don't always need to. |
-| 241 | erdene / inn/19/choices/1/text | 종이는 잘 말려 둬요. | Keep the paper dry. |
-| 242 | haldric / inn/1/choices/0/response/1 | 내가 읽은 문장도 그 결정에 들어가야 하오. | The words I read must be part of that decision, too. |
-| 243 | bianca / inn/22/choices/2/response/0 | 가벼워져야만 돌아오는 건 아니군요. | I needn't wait until I feel lighter to return. |
-| 244 | felice / dungeon/37/variants/0 | 토르바 바람은 알아보겠어요. | I recognize Torva's breeze. |
-| 245 | hedwig / inn/21/lines/2 | 인사가 늦었습니다. | My thanks are late. |
-| 246 | adeline / transitions/12/lines/1 | 같이 드실 것도 남아 있으니 오세요. | There is some left for you, too. Please come over. |
-| 247 | altan / inn/0/choices/0/response/0 | 기억을 담보로 재료를 내주진 않습니다. | I do not issue materials against a promise to remember. |
-| 248 | bargut / transitions/0/lines/0 | 부르기 전에는 손대지 않았군. | You left it alone until I called. |
-| 249 | bianca / inn/13/choices/1/response/1 | 보고하라고 한 손과 실제 적은 손은 달라요. | The hand that ordered them wasn't the hand that wrote them. |
-| 250 | berenga / inn/4/choices/1/text | 먼 길을 걸으셨어요? | Have you come a long way? |
-| 251 | gerda / inn/5/lines/2 | 무슨 말을 했는진 안 들었죠? | You didn't hear what I said, did you? |
-| 252 | hedwig / inn/13/choices/0/response/0 | 지금도 도움이 되는 버릇입니다. | The habit still helps me. |
-| 253 | adeline / dungeon/25/variants/0 | 제 목소리가 들리세요? | Can you hear my voice? |
-| 254 | haldric / dungeon/3/variants/1 | 아래로 내려갈 순서는 유지하오. | Keep the agreed order for descending. |
-| 255 | colette / transitions/9/situation | 콜레트가 시선을 내리고 말을 멈춘다. | Colette lowers her eyes and stops speaking. |
-| 256 | erdene / transitions/2/lines/0 | 이름 다시 들을게. | I'll hear your name again. |
-| 257 | adeline / inn/0/lines/1 | 지금 제게 웃으라고 하지는 마세요. | Please do not ask me to smile right now. |
-| 258 | altan / inn/10/choices/0/response/0 | 지출만큼 남은 몫도 보여야 합니다. | The reserve must be as visible as the expenditure. |
-| 259 | berenga / transitions/8/situation | 묶었던 짐을 풀고 천을 식탁에 놓는다. | She unties her things and puts a cloth on the table. |
-| 260 | gerda / inn/12/choices/0/response/1 | 기억하는 사람까지 잊으라고 하진 말아요. | Don't tell even the people who remember to forget. |
-| 261 | bianca / inn/14/situation | 비앙카가 보증 얘기에서 손을 멈춘다. | Bianca stills her hands as she mentions sponsorship. |
-| 262 | colette / inn/3/seen | 제가 들고 있으니 이쪽에서 보십시오. | I am holding it. Look from this side. |
-| 263 | hedwig / inn/26/lines/0 | 이름을 길게 불러도 놀라지 마십시오. | Do not be startled if I call a long name. |
-| 264 | gerda / inn/4/choices/2/response/0 | 누구나와 내가 지금은 좀 달라서요. | That may be true for everyone else. It feels different to me right now. |
-| 265 | adeline / dungeon/14/variants/1 | 이번에는 제 잔도 먼저 채우겠습니다. | This time, I will fill my own cup first, too. |
-| 266 | hedwig / inn/2/lines/2 | 읽으시기 전에는 서명하지 마십시오. | Do not sign before reading. |
-| 267 | gerda / inn/17/choices/1/text | 안전하게 제가 대신 나가 볼게요. | I'll go out in your place to keep you safe. |
-| 268 | erdene / inn/20/choices/1/response/0 | 괜찮다는 사람도 내 무리인데. | The person saying they're fine is part of my group too. |
-| 269 | bianca / inn/12/seen | 기각됐을 때 이야기를 좀 더 해도 될까요? | May I tell you more about the rejection? |
-| 270 | haldric / inn/14/lines/0 | 저 사람은 다 아오. | She knows everything. |
-| 271 | erdene / inn/17/choices/0/text | 옆으로 올게요. | I'll come beside you. |
-| 272 | hedwig / dungeon/18/variants/0 | 큰 전투가 끝났습니다. | The major battle has ended. |
-| 273 | felice / inn/25/choices/1/response/0 | 중간에 안 끼어도 자리가 있겠네요. | There's a place for me even without breaking in. |
-| 274 | erdene / transitions/5/lines/1 | 같이 갈 건지 다시 보자. | Let's see again whether we're going together. |
-| 275 | gerda / inn/8/choices/1/response/0 | 믿는 것과 지금 나가는 건 달라요. | Trusting you and going out now are different things. |
-| 276 | adeline / inn/23/choices/0/text | 네, 제가 놓쳤으면 그때 알려 주세요. | Yes. If I miss something, tell me then. |
-| 277 | bianca / inn/21/choices/2/text | 기억에 남게 요점만 짚어 드릴게요. | I'll give you just the main points to remember. |
-| 278 | berenga / inn/25/lines/0 | 책을 아끼는 것처럼 저도 쉬라 하셨죠? | You told me to look after myself as well as the book, didn't you? |
-| 279 | bianca / inn/6/choices/2/text | 보고할 내용까지 정리해 드릴까요? | Shall I organize what you'll report as well? |
-| 280 | adeline / inn/3/lines/0 | 지금은 안 던질 거예요. | I am not rolling them now. |
-| 281 | haldric / transitions/11/situation | 할드리크가 서명 옆에서 손을 멈춘다. | Haldric pauses beside the signature. |
-| 282 | adeline / transitions/4/situation | 아델린이 길 끝을 보고 묻는다. | Adeline looks toward the end of the road and asks a question. |
-| 283 | berenga / inn/20/choices/2/response/0 | 제 이유를 말할 시간은 주실 거죠? | You'll give me time to explain my reasons, won't you? |
-| 284 | adeline / transitions/11/lines/0 | 오늘은 제 얘기를 조금 들어 주세요. | Please listen to me for a little while today. |
-| 285 | altan / dungeon/29/variants/0 | 제 손을 지금 살펴봐 주실 수 있겠습니까? | Could you examine my hand now? |
-| 286 | bargut / transitions/11/lines/0 | 소매는 놓아라. 가려는 게 아니다. | Let go of my sleeve. I'm not leaving. |
-| 287 | altan / transitions/7/lines/1 | 모르는 결과로 제 선택을 덮진 마십시오. | Do not use an unknown outcome to conceal my choice. |
-| 288 | felice / inn/6/choices/0/response/0 | 넘어지지 않게 벽 쪽으로 놓아 주세요. | By the wall, please, so it won't fall over. |
-| 289 | felice / inn/21/choices/0/text | 그러면 아까 얘기를 다시 해요. | Then let's revisit what we said earlier. |
-| 290 | gunhild / inn/20/choices/0/response/0 | 힘들면 내게 알려라. | Tell me if it is hard. |
-| 291 | bianca / inn/10/choices/1/text | 웃고 계시니 아직 힘이 있으신가 봐요. | You're smiling, so you must still have energy. |
-| 292 | adeline / inn/2/choices/0/response/0 | 저도 필요하면 바로 말해 볼게요. | I will try to speak up as soon as I need something, too. |
-| 293 | gerda / inn/17/choices/0/text | 문 옆에 있을게요. | I'll stay by the door. |
-| 294 | bianca / inn/25/seen | 설명하고 싶은 웃음도 아직 제게 남겨 주세요. | Please leave me room for smiles I still want to explain. |
-| 295 | hedwig / inn/5/choices/2/response/0 | 저는 재미있어서 읽습니다. | I read it because I enjoy it. |
-| 296 | hedwig / dungeon/28/variants/0 | 손이 떨립니다. 잠시 확인하겠습니다. | My hand is trembling. I will check it a moment. |
-| 297 | altan / inn/25/seen | 안부를 물으시면 장부를 덮고 듣겠습니다. | If you ask how I am, I will close the ledger and listen. |
-| 298 | bargut / inn/26/seen | 나도 더 앉아 있겠다고 했다. | I said I'd stay longer, too. |
-| 299 | adeline / inn/22/choices/2/text | 제 잔은 아직 남았어요. | I still have some in my cup. |
-| 300 | berenga / inn/14/lines/1 | 서로 아는 이름이 있는지 봤죠. | We looked for names we both knew. |
+| 1 | teiris / inn/21/choices/1/text | 처음 기록도 두고 바뀐 까닭을 옆에 적어요. | Keep the original. Explain the change beside it. |
+| 2 | ornel / dungeon/25/variants/1 | 손이 움직이면 조금만 보여 줘요. | If you can move your hand, let me see. |
+| 3 | felice / inn/11/choices/1/response/0 | 오늘 먹을 것부터 정할까요? | Shall we decide what to eat today first? |
+| 4 | hedwig / inn/10/lines/0 | 소리를 내야 어색한지 압니다. | I must say it aloud to know whether it sounds awkward. |
+| 5 | hildegard / dungeon/23/variants/1 | 짐은 이쪽으로 넘기십시오. 함께 물러나겠습니다. | Pass your pack here. We will withdraw together. |
+| 6 | lynette / inn/11/seen | 오늘은 접시 세는 걸 여기서 그칠게요. | I'll stop counting plates here today. |
+| 7 | naran / inn/16/choices/1/text | 그럼 이제 안 떠나실 거라고 믿어도 되죠? | Then I can trust you never to leave now? |
+| 8 | adeline / inn/27/choices/1/response/0 | 오늘은 제 이야기를 하고 싶어요. | Today, I would like to tell my own story. |
+| 9 | felice / transitions/8/lines/1 | 재밌는 얘기 없이도 같이 있고 싶네요. | I'd like your company even without an amusing story. |
+| 10 | jorund / inn/16/situation | 요르드가 길을 보다가 말을 건다. | Jorund speaks while surveying the road. |
+| 11 | adeline / inn/8/choices/2/response/1 | 기다리기 어려우시면 먼저 가셔도 돼요. | If you cannot wait, please go ahead. |
+| 12 | saya / inn/16/seen | 놓고 가는 대신 오늘은 받는 얼굴을 볼게요. | Today I'll stay to see your face when you receive it. |
+| 13 | zahar / dungeon/11/variants/1 | 다 막으려고 무리할 필요는 없어. | Don't wear yourself out trying to block everything. |
+| 14 | marceline / inn/27/situation | 마르셀린이 문가에서 돌아와 잠깐 말을 고른다. | Marceline returns from the door, choosing her words. |
+| 15 | naran / inn/9/choices/2/response/0 | 오늘은 못 맞힐까 봐 물은 건데요. | I asked because I feared being wrong today. |
+| 16 | urda / inn/6/lines/1 | 요즘은 칭찬으로 듣소. | These days, I take it as praise. |
+| 17 | ornel / inn/15/lines/0 | 숲에서는 나무를 볼 때 먼저 규약을 떠올렸어요. | In the forest, trees first brought the code to mind. |
+| 18 | selva / transitions/10/lines/0 | 돌아와서 푸는 것까지 제가 보겠습니다. | I will see the work through to unpacking when we return. |
+| 19 | bargut / inn/22/choices/1/text | 그냥 같이 있고 싶어서 불렀어요. | I just wanted to be with you. |
+| 20 | lavinia / dungeon/32/variants/1 | 일어날 때까지 그냥 얘기해요. | Let us just talk until it is time to rise. |
+| 21 | jorund / inn/0/situation | 요르드가 종이의 모서리를 맞춘다. | Jorund aligns the corners of the paper. |
+| 22 | altan / inn/0/lines/1 | 말씀만 하시면 받지 않겠습니다. | I will not accept a verbal account alone. |
+| 23 | lavinia / inn/20/seen | 바뀐 내용은 출발 전에 꼭 전하겠습니다. | I will tell you the changes before departure. |
+| 24 | selva / inn/24/lines/0 | 계속 같은 시각에 내려오시네요. | You keep coming down at this hour. |
+| 25 | colette / inn/23/choices/1/response/1 | 다음 이야기는 나중에 듣겠습니다. | I will hear the next story later. |
+| 26 | zahar / dungeon/17/variants/1 | 같이 갈 수 있는지 보고 움직이자. | Make sure we can go together before moving. |
+| 27 | marceline / dungeon/40/variants/0 | 누가 잘못했는지는 돌아가서 함께 묻겠습니다. | We will ask who erred together after returning. |
+| 28 | levia / inn/13/choices/0/response/1 | 지켜본 눈이 많아도 혼자인 밤이 있었어요. | Even with so many watching eyes, some nights were lonely. |
+| 29 | sorel / inn/16/lines/1 | 이 말을 하면 돌아가자고 하실까 봐 피했어요. | I avoided saying it because you might tell me to go back. |
+| 30 | gerda / inn/13/choices/2/text | 그 부적은 잠깐 치워 두고 다른 얘기 해요. | Put the charm away a moment. Let's talk about something else. |
+| 31 | urda / dungeon/29/variants/1 | 오늘은 고맙다고 말하고 먼저 앉을게요. | Today I'll thank you and sit first. |
+| 32 | zahar / inn/1/choices/2/response/0 | 숟가락 내려놓을 때까지 말 안 할래. | No words until my spoon's down. |
+| 33 | urda / inn/3/choices/0/response/1 | 도와줘도 좋은지 물어보겠소. | I'll ask whether help is welcome. |
+| 34 | zahar / inn/23/choices/2/response/0 | 먼저 무슨 일인지 보자. | First, what's happening? |
+| 35 | bianca / inn/1/seen | 계산은 맞아요. 받으실지는 여쭤봐야겠어요. | The calculation is correct. I still need to ask whether you'll accept. |
+| 36 | tika / dungeon/25/variants/0 | 지금은 크게 웃을 수 없어요. | I can't laugh loudly right now. |
+| 37 | gunhild / transitions/11/situation | 먼저 내민 손 앞에서 한 걸음 멈춘다. | She stops a step before the offered hand. |
+| 38 | selva / dungeon/23/variants/1 | 같이 멈추면 되니 조급해 마시죠. | We can stop together. No hurry. |
+| 39 | haldric / inn/6/choices/0/response/0 | 확인 전에는 이름 붙이지 않겠소. | I will not name it before checking. |
+| 40 | felice / inn/16/choices/0/response/1 | 만날 때마다 한 가지씩 가져와야 할 것 같아요. | It feels as though I have to bring something every time. |
+| 41 | berenga / dungeon/40/variants/0 | 누구 잘못인지부터 나누진 말아요. | Let's not begin by assigning blame. |
+| 42 | tika / inn/21/choices/1/response/0 | 오늘은 고개를 숙이기 전에 고맙다고 했어요. | Today I thanked you before lowering my head. |
+| 43 | selva / inn/23/lines/0 | 바람이 세졌습니다. | The wind has picked up. |
+| 44 | hedwig / inn/5/choices/1/text | 책갈피가 빠졌어요. | Your bookmark fell out. |
+| 45 | miko / inn/0/choices/1/text | 내일 아침에 출발해요. | We leave tomorrow morning. |
+| 46 | lynette / inn/18/choices/2/text | 그곳을 떠난 건 이제 잊어도 돼요. | You can forget leaving that place now. |
+| 47 | lynette / inn/10/choices/2/response/0 | 거절하셔도 돼요. 억지로 맡진 마세요. | You may refuse. Don't force yourself. |
+| 48 | urda / inn/14/choices/0/response/0 | 그럼 말없이 기도하겠소. | Then I shall pray silently. |
+| 49 | marceline / inn/8/choices/1/response/1 | 함께 가 주시면 제가 설명을 시작하겠습니다. | If you come with me, I will begin explaining. |
+| 50 | tika / transitions/7/situation | 문을 보다가 다시 의자에 앉는다. | She looks at the door, then sits again. |
+| 51 | lynette / inn/4/choices/2/text | 자루 옆에 쌀이라고 적으면 어때요? | Why not write 'rice' beside the sack? |
+| 52 | jorund / inn/13/choices/1/response/0 | 저를 통해 들으시면 됩니다. | You can hear it from me. |
+| 53 | marceline / inn/15/choices/1/response/0 | 물이 나쁘다는 말은 아니었습니다. | I did not mean the water was bad. |
+| 54 | lavinia / inn/25/choices/2/response/0 | 식당에서 마주치면 같이 먹어요. | If we meet in the dining room, let us eat together. |
+| 55 | haldric / transitions/0/lines/1 | 들은 뒤에 고르겠소. 아직 서명할 뜻은 아니오. | I will choose afterward. This is not yet an intention to sign. |
+| 56 | erdene / inn/13/choices/0/response/0 | 그럼 먼저 물을게. | Then I'll ask first. |
+| 57 | teiris / inn/19/choices/2/response/1 | 묻지 않는 게 관심이 없어서인 줄로 들렸을까 봐 조금 걱정됐어요. | I worried that not asking sounded like not caring. |
+| 58 | judith / inn/16/lines/2 | 한 사람 더 보내기 싫어서요. | I didn't want to send anyone else away. |
+| 59 | teiris / dungeon/13/variants/1 | 어떻게 보셨나요? 숨을 돌린 뒤에 듣고 싶어요. | What did you see? I'd like to hear once we've caught our breath. |
+| 60 | felice / inn/14/lines/2 | 처음엔 어디에 둬야 할지 몰랐어요. | At first I didn't know where to put it. |
+| 61 | colette / inn/14/lines/2 | 지금은 잔을 내려놓는 편이 낫겠습니다. | Now I had better put the glass down. |
+| 62 | naran / dungeon/29/variants/1 | 제가 늦으면 기다려 줄 건지 바로 물을래요. | I'll ask directly whether you'll wait if I'm slow. |
+| 63 | felice / inn/26/choices/2/text | 더 이익이 되는 쪽을 고르면 편하죠. | Choosing the more profitable one would be easier. |
+| 64 | selva / inn/18/choices/2/response/0 | 그건 내일 하겠습니다. | I will do that tomorrow. |
+| 65 | altan / inn/10/choices/2/response/1 | 남겨 둘 몫까지 쓰려면 이유가 달라야 합니다. | Using the reserve as well would require a different justification. |
+| 66 | marceline / inn/16/choices/1/response/0 | 중간에 멈추면 다음 문장을 기다려 주십시오. | If I stop, wait for the next sentence. |
+| 67 | hedwig / inn/0/lines/0 | 오늘은 열람을 허락하지 않았습니다. | I have not permitted you to read it today. |
+| 68 | teiris / inn/0/choices/0/text | 적기 편하시게 할 말을 정리해서 드릴게요. | I'll put it in order so it's easy to write down. |
+| 69 | lynette / inn/3/lines/1 | 제 잔은 나중에 채워도 돼요. | Mine can wait. |
+| 70 | lynette / transitions/7/lines/1 | 오늘 있었던 일부터 말하면 안 될까요? | Could I start with what happened today? |
+| 71 | adeline / inn/16/lines/2 | 같이 앉아 있어도 그 말을 들으면 멀어져요. | Even sitting together, I feel farther away when I hear it. |
+| 72 | urda / inn/4/lines/2 | 국은 논쟁 기다리다 식거든요. | Soup cools while waiting for debate. |
+| 73 | lynette / dungeon/6/variants/0 | 찾았어도 바로 만지진 말아요. | Finding it doesn't mean touching it immediately. |
+| 74 | hildegard / inn/8/choices/2/text | 지난번 순서를 다시 볼까요? | Shall we review the previous order? |
+| 75 | lynette / inn/5/choices/0/text | 좋은 일이라면 원가로 달라고 하죠. | It's for a good cause. Ask them to sell at cost. |
+| 76 | jorund / inn/7/lines/2 | 잠깐만 뒤로 물러나겠습니다. | I will move back a moment. |
+| 77 | lavinia / inn/6/lines/0 | 이쪽은 빛이 고르게 들어오네요. | The light falls evenly here. |
+| 78 | erdene / dungeon/9/variants/0 | 뒤는 내가 볼게. 이름 부르면 답해. | I'll watch behind. Answer when I call your name. |
+| 79 | gerda / inn/24/lines/0 | 들었어요? | Did you hear? |
+| 80 | urda / inn/22/choices/1/response/0 | 기도 끝날 때까지 식어도 두시오. | Leave it there until the prayer ends, even if it cools. |
+| 81 | saya / dungeon/14/variants/0 | 오늘은 이긴 얘기부터 같이 해요. | Today let's share the victory story first. |
+| 82 | zahar / inn/12/choices/1/response/0 | 응. 이번에는 반만 줘. | Yes. Half this time. |
+| 83 | tove / dungeon/37/variants/1 | 짐은 내일 천천히 보자. | We can take our time with the packs tomorrow. |
+| 84 | marceline / inn/1/choices/1/response/1 | 그 일마저 피하려는 뜻으로 들리지 않았으면 합니다. | I hope it does not sound as though I wish to avoid even that. |
+| 85 | tove / inn/9/lines/0 | 베렌가가 저기 있을 거야. | Berenga should be there. |
+| 86 | tika / dungeon/33/variants/1 | 힘으로 열 수 있는 건 아니겠죠? | Strength alone won't open it, right? |
+| 87 | adeline / inn/16/seen | 오늘은 예외 얘기보다 밥 얘기를 하고 싶어요. | Today, I would rather talk about food than being an exception. |
+| 88 | marceline / inn/10/situation | 마르셀린이 식탁에 따뜻한 그릇을 놓고 서 있다. | Marceline stands beside a warm bowl on the table. |
+| 89 | teiris / dungeon/17/variants/0 | 보고할 성과 때문에 서두르지는 않을 거예요. | I won't rush just to have an achievement for my report. |
+| 90 | lavinia / transitions/7/situation | 라비니아가 배지를 옷에 다시 단다. | Lavinia pins the badge back on her clothes. |
+| 91 | marceline / inn/18/lines/1 | 오늘은 제가 먼저 쉬고 싶습니다. | Today I want to rest first. |
+| 92 | felice / dungeon/10/variants/0 | 제 말은 들릴 만큼만 할게요! | I'll say just enough for you to hear! |
+| 93 | miko / inn/2/lines/0 | 이건 다 쓸 거예요. | I'll use all of this. |
+| 94 | haldric / dungeon/18/variants/0 | 확인 없이 끝났다고 적지는 않소. | I will not record it as over without checking. |
+| 95 | tika / inn/15/lines/2 | 그렇게 웃으면 속은 잘 안 보이죠. | Laughing like that makes it hard to see how I really feel. |
+| 96 | saya / transitions/5/situation | 사야가 꾸러미 끈을 매만진다. | Saya fingers the parcel cord. |
+| 97 | tika / dungeon/28/variants/1 | 웃는 얼굴로 참으면 안 되겠네요. | I shouldn't hide the pain behind a smile. |
+| 98 | lavinia / inn/6/lines/1 | 밥 먹기에도 덜 어둡겠어요. | Less gloomy for eating too. |
+| 99 | saya / inn/1/choices/0/response/0 | 남은 빚을 저 혼자 들고 가네요. | Then I'm left carrying that debt away alone. |
+| 100 | altan / inn/15/choices/2/text | 차는 아직 따뜻합니다. | The tea is still warm. |
+| 101 | berenga / inn/25/seen | 덮개를 고친 다음에는 정말 손을 쉴게요. | Once I've mended the cover, I'll really rest my hands. |
+| 102 | lynette / inn/24/situation | 이름책을 챙긴 뒤 빈손을 보여 준다. | With the name book packed, she shows empty hands. |
+| 103 | berenga / dungeon/12/variants/0 | 끝났네요! 다친 데 말해 봐요. | It's over! Tell me where you're hurt. |
+| 104 | hedwig / transitions/9/lines/0 | 이름이 달라도 주문의 효과는 같습니다. | Even with a different name, the spell's effect is unchanged. |
+| 105 | lavinia / inn/1/choices/0/response/1 | 제 허가증이니까요. | It is my permit. |
+| 106 | bianca / dungeon/40/variants/1 | 제가 고른 부분도 같이 읽겠어요. | I'll read through my own choices, too. |
+| 107 | teiris / inn/24/lines/2 | 이상하네요. 무엇을 물을지 생각하지 않아도 발이 여기로 왔어요. | Strange. I found myself coming here without even thinking of a question. |
+| 108 | sorel / transitions/2/lines/0 | 이게 지금 정한 값이에요. | This is the price I've set now. |
+| 109 | marceline / inn/21/choices/0/text | 먼저 읽으셔도 괜찮아요. | You may read ahead. |
+| 110 | adeline / inn/6/choices/1/response/1 | 조금 뒤에 먹겠다는 말이었어요. | I only meant I would eat a little later. |
+| 111 | zahar / inn/13/situation | 자하르가 젖은 천을 짠다. | Zahar wrings a wet cloth. |
+| 112 | tika / dungeon/10/variants/1 | 제가 움직이면 뒤도 봐 주세요! | Watch behind when I move! |
+| 113 | gunhild / inn/0/lines/1 | 내 짐에는 손대지 말고. | Keep your hands off my things. |
+| 114 | ornel / inn/6/choices/0/response/0 | 넘치기 전에 내려놓을 수 있겠어요. | I can put it down before spilling. |
+| 115 | hildegard / dungeon/27/variants/1 | 힘이 빠집니다. 자리를 바꾸겠습니다. | My strength is failing. I will switch positions. |
+| 116 | bargut / inn/8/seen | 오늘은 문에서 먼 쪽으로 한 자리 왔다. | Today, I moved one seat farther from the door. |
+| 117 | colette / dungeon/22/variants/0 | 기댈 곳을 같이 보겠습니다. | I will help find somewhere to lean. |
+| 118 | bargut / dungeon/14/variants/1 | 고맙다는 말은 빼지 않겠다. | I won't leave out the thanks. |
+| 119 | zahar / inn/0/lines/2 | 다른 용건이면 내일 해. | Anything else can wait until tomorrow. |
+| 120 | sorel / inn/11/choices/1/response/0 | 오해였다는 말부터 아직 못 하겠어요. | I can't even say it was a misunderstanding yet. |
+| 121 | hildegard / inn/27/choices/0/response/1 | 위험한 곳에서는 제가 앞에 서겠습니다. 오늘 이 문만은 같이 나가고 싶습니다. | In danger, I will lead. Through this door today, I want to walk beside you. |
+| 122 | haldric / dungeon/29/variants/0 | 내 차례에도 기다린다 하지 않았소? | Did you not say you would wait when it was my turn, too? |
+| 123 | ornel / inn/27/choices/2/response/0 | 그러면 잠들기 전에 부를게요. | Then I'll call you before I go to sleep. |
+| 124 | judith / inn/12/choices/2/response/1 | 잊고 나면 그때 제가 한 일까지 모른 척하게 돼요. | Forgetting would mean pretending not to know my own work then. |
+| 125 | gerda / inn/15/choices/0/response/0 | 없던 일로 하면 서로 뭐가 남죠? | Erase them, and what do either of us have left? |
+| 126 | tika / inn/11/lines/2 | 아, 제 귀는 보지 말고요. | Oh, don't watch my ears. |
+| 127 | lavinia / inn/17/choices/2/text | 마지막으로 한 장만 확인해 주실래요? | Could you check just one last sheet? |
+| 128 | felice / dungeon/11/variants/1 | 끝나고도 볼 수 있게 조심해요! | Take care so we'll see each other afterward, too! |
+| 129 | colette / dungeon/17/variants/0 | 떨리고 있다는 건 숨기지 않겠습니다. | I will not hide that I am trembling. |
+| 130 | berenga / inn/22/lines/2 | 내일 식사할 때 같이 앉아요. | Let's sit together at tomorrow's meal. |
+| 131 | haldric / inn/8/lines/0 | 문서에는 없는 일이오. | This is not in the document. |
+| 132 | selva / inn/24/choices/2/text | 만나는 시간을 정식으로 정해 둘까요? | Shall we set a regular time to meet? |
+| 133 | tove / inn/25/lines/0 | 오늘은 안 입어도 되겠네. | I won't need it today. |
+| 134 | tika / inn/10/choices/1/response/1 | 아무것도 안 정한 채 앉는 것도 해 보고 싶어요. | I'd like to try sitting here without making any plans too. |
+| 135 | felice / inn/27/choices/0/text | 남은 건 제가 치울게요. | I'll clear what's left. |
+| 136 | ornel / dungeon/19/variants/0 | 활을 내리니 팔이 뻐근하네요. | My arm aches now I've lowered my bow. |
+| 137 | jorund / inn/6/seen | 저 모서리에서는 소매를 조심하십시오. | Mind your sleeves at that corner. |
+| 138 | berenga / inn/7/choices/2/text | 사제라면 눈에 띄는 장식도 있어야죠. | A priest ought to wear something people can recognize. |
+| 139 | selva / dungeon/31/variants/0 | 짧아도 앉으니 낫네요. | Even a short sit helps. |
+| 140 | naran / inn/20/seen | 서로 묻겠다는 약속 하나는 지키고 싶어요. | I want to keep one promise: to ask each other. |
+| 141 | naran / inn/15/choices/1/response/0 | 이쪽부터 읽으면 돼요. | Start reading here. |
+| 142 | marceline / inn/12/choices/0/response/1 | 그날 이야기라 오래 걸릴 수 있습니다. 괜찮으시겠습니까? | That day's story may take time. Is that all right? |
+| 143 | bianca / inn/14/situation | 비앙카가 보증 얘기에서 손을 멈춘다. | Bianca stills her hands as she mentions sponsorship. |
+| 144 | teiris / inn/0/choices/2/response/0 | 확인하면 짐을 챙겨 놓을게요. | Once I've confirmed it, I'll have my things packed. |
+| 145 | ornel / inn/5/lines/2 | 도시에서는 뭘 보고 길을 외우세요? | What do you use to remember city roads? |
+| 146 | marceline / inn/25/choices/0/text | 다 읽으셨으면 제가 책을 치워 둘게요. | If you're finished, I'll put the book away. |
+| 147 | jorund / inn/14/lines/2 | 그 이유는 지금도 같습니다. | Those reasons still stand. |
+| 148 | tove / dungeon/2/variants/1 | 내가 빨라지면 말해 줘. | Tell me if I speed up. |
+| 149 | berenga / inn/11/choices/1/response/1 | 제가 자리 양보할 때도 이런 기분이었을까요? | Is this how people feel when I offer them my seat? |
+| 150 | miko / inn/17/situation | 미코가 비어 있는 잔을 보여 준다. | Miko shows her empty cup. |
+| 151 | ornel / dungeon/22/variants/0 | 등에 멘 걸 조금 내려놔요. | Set down some of the weight on your back. |
+| 152 | miko / inn/9/choices/2/response/0 | 들으면 어디 있는지 알 수 있었어요. | Hearing it told me where they were. |
+| 153 | ornel / inn/12/choices/0/text | 가벼워 보이네요. | Looks light. |
+| 154 | miko / transitions/13/lines/1 | 다음에 내려오면 이어서 들을게요. | I'll hear the rest next time I come down. |
+| 155 | gerda / dungeon/30/variants/0 | 오른쪽 자리는 내가 고를게요. | I'll choose the place on the right. |
+| 156 | tika / inn/18/situation | 먼저 웃다가 얼굴을 가리지 않는다. | She laughs first without covering her face. |
+| 157 | berenga / dungeon/8/variants/1 | 찾았다고 성급히 부르진 않을게요. | I won't rush to say we've found it. |
+| 158 | tika / dungeon/28/variants/0 | 저, 제 쪽도 좀 봐 주세요. | Um, check me too, please. |
+| 159 | judith / inn/5/choices/1/text | 제가 본 데까지 말할게요. 원인은 아직 몰라요. | I'll tell you what I saw. I don't know the cause yet. |
+| 160 | teiris / inn/13/choices/1/text | 밖에 나오니 생각이 많아지셨겠어요. | Being outside must have given you a lot to think about. |
+| 161 | felice / inn/1/choices/0/text | 기분 풀리게 재밌는 소문 들려줘요. | Tell me some amusing gossip to cheer me up. |
+| 162 | naran / inn/23/lines/0 | 값을 두 번 받는 건 쉽죠. | Collecting twice is easy. |
+| 163 | haldric / dungeon/32/variants/0 | 내 이름을 들으면 좀 편하오. | Hearing my name eases me a little. |
+| 164 | naran / transitions/6/situation | 나란이 집안 얘기를 꺼내다 멈춘다. | Naran stops while raising her family history. |
+| 165 | selva / inn/24/lines/2 | 기다리는 동안 마시려고 떠 왔습니다. | I fetched water for the wait. |
+| 166 | saya / inn/18/situation | 사야가 레비아의 빈자리에 잔을 놓는다. | Saya sets a cup at Levia's empty place. |
+| 167 | gerda / inn/9/choices/1/response/0 | 반쯤 둘러대려다 그만뒀네. | I nearly tried to explain part of it away, then stopped. |
+| 168 | haldric / inn/21/choices/0/response/0 | 발맞출 수 있겠소. | We can match our steps. |
+| 169 | saya / inn/26/choices/1/text | 이쪽도 봐 주세요. | Check here too. |
+| 170 | marceline / inn/27/choices/0/text | 오늘은 조용히 보냈어요. | A quiet day today. |
+| 171 | felice / inn/4/choices/0/response/1 | 간판만 보고 가면 반대쪽으로 돌아오기도 해요. | Follow only the signs and you might come back from the wrong side. |
+| 172 | teiris / dungeon/2/variants/0 | 지난번에 못 본 곳을 같이 볼 수 있겠네요. | We can see what we missed last time together. |
+| 173 | haldric / transitions/11/lines/0 | 고치자는 말을 늦게 들었소. | I heard about the amendment late. |
+| 174 | teiris / inn/1/seen | 뒤집어 둔 종이에는 아직 결론을 쓰지 않았어요. | I still haven't written a conclusion on that sheet. |
+| 175 | sorel / transitions/6/lines/1 | 그걸 지우지 않는 이유도 얘기해 볼게요. | I'll tell you why I haven't erased it too. |
+| 176 | levia / inn/8/choices/0/response/1 | 이번엔 제가 고른 걸로요. | My choice this time. |
+| 177 | miko / inn/8/choices/2/response/0 | 그럼 보고 나서 닫으면 되겠어요. | Then close it after checking. |
+| 178 | marceline / inn/2/lines/1 | 식사는 조금 뒤에 하겠습니다. | I will eat a little later. |
+| 179 | altan / inn/4/choices/2/text | 한 장을 같이 돌려 보면 종이가 절약돼요. | Passing one copy between us would save paper. |
+| 180 | ornel / dungeon/39/variants/1 | 지금은 활보다 발밑을 봐야겠어요. | Right now I should watch my footing, rather than my bow. |
+| 181 | berenga / inn/2/lines/0 | 오래 있지는 않을 거예요. | I won't stay long. |
+| 182 | sorel / inn/7/choices/2/response/1 | 다 적으면 그때 보여 드릴게요. | I'll show it when finished. |
+| 183 | colette / dungeon/25/variants/1 | 반응을 조금 더 살피겠습니다. | I will watch for a response a little longer. |
+| 184 | adeline / inn/1/seen | 이 의자는 조금 더 쓰고 일어날게요. | I will use this chair a little longer before I go. |
+| 185 | ornel / inn/9/choices/0/text | 여기서도 바람은 들어와요. | There's a breeze even here. |
+| 186 | haldric / inn/21/choices/0/text | 이제 준비됐어요. | I'm ready now. |
+| 187 | adeline / inn/26/situation | 아델린이 자기 이름을 말하다 웃는다. | Adeline smiles as she says her name. |
+| 188 | levia / dungeon/34/variants/0 | 표시부터 같이 읽어도 될까요? | May we read the marks together first? |
+| 189 | erdene / inn/2/lines/2 | 강해 보이는 사람부터 앞에 세운 건 아니지? | You didn't just put the strongest-looking people first, did you? |
+| 190 | bianca / inn/6/seen | 질문만 하지 말고 제 얘기도 하나 해 볼게요. | Instead of only asking, I'll share a story of my own. |
+| 191 | jorund / inn/25/choices/2/response/0 | 그럼 이쪽을 잘라 쓰십시오. | Cut this side, then. |
+| 192 | haldric / inn/5/lines/0 | 글씨가 잘 보이는 자리요. | The writing is clear here. |
+| 193 | selva / inn/27/situation | 셀바가 귀환 후 가방을 내려놓는다. | Selva lowers her bag after returning. |
+| 194 | haldric / inn/26/choices/0/response/0 | 기다린 쪽도 약속을 지켰구려. | The one waiting kept a promise as well. |
+| 195 | colette / dungeon/5/variants/1 | 함께 움직일 수 있게 기다리겠습니다. | I will wait so we can move together. |
+| 196 | adeline / inn/14/situation | 아델린이 자기 성을 적은 부분을 본다. | Adeline looks at her surname on the page. |
+| 197 | bianca / dungeon/9/variants/0 | 필요한 자리를 골라 볼게요. | I'll choose where I'm needed. |
+| 198 | gunhild / inn/8/lines/0 | 이번엔 네 생각부터 듣겠다. | This time I will hear your thoughts first. |
+| 199 | adeline / inn/7/situation | 아델린이 길 끝을 보다가 묻는다. | Adeline looks toward the end of the road, then asks a question. |
+| 200 | bargut / inn/5/choices/1/response/0 | 봤다. 먼저 이쪽을 묶겠다. | Saw it. I'll tie this side first. |
+| 201 | gunhild / inn/20/choices/0/response/0 | 힘들면 내게 알려라. | Tell me if it is hard. |
+| 202 | marceline / transitions/5/lines/0 | 제 몫을 뒤로 미루지 않겠다는 말도 지키겠습니다. | I will keep my promise not to defer my own share too. |
+| 203 | lavinia / inn/22/situation | 라비니아가 식탁 끝에 종이를 둔다. | Lavinia places paper at the table's end. |
+| 204 | levia / inn/5/lines/0 | 아직 따뜻하네요. | Still warm. |
+| 205 | zahar / dungeon/8/variants/0 | 궁금하면 더 봐도 돼. | Curious? Look longer. |
+| 206 | gunhild / inn/7/choices/1/text | 투기장 출신은 다 힘들었겠네요. | Everyone from the arena must have had it hard. |
+| 207 | urda / inn/3/choices/2/text | 잠시 같이 기다려요. | Wait with me briefly. |
+| 208 | levia / inn/15/lines/0 | 성은 없어요. | I have no surname. |
+| 209 | colette / inn/4/choices/1/text | 내일 아침에 뵐게요. | I'll see you tomorrow morning. |
+| 210 | sorel / inn/18/lines/2 | 안 사셔도 오셔도 돼요. | You're welcome even if you aren't buying. |
+| 211 | berenga / inn/14/choices/0/text | 책은 많이 달랐어요? | Were the books very different? |
+| 212 | lavinia / inn/21/lines/2 | 저녁은 드셨어요? | Have you had dinner? |
+| 213 | jorund / dungeon/7/variants/1 | 제 쪽은 아직 잘 안 보입니다. | I cannot see clearly from here yet. |
+| 214 | gunhild / inn/21/choices/2/text | 가문 생각해서 잘못은 덮어 두죠. | Let's cover the mistake for your family's sake. |
+| 215 | erdene / inn/1/choices/0/text | 들기 전에 나눌지 물을게요. | I'll ask whether to split the load before lifting it. |
+| 216 | urda / dungeon/33/variants/1 | 조건을 읽기 전에 손부터 대진 맙시다. | Let us read the conditions before touching it. |
+| 217 | haldric / inn/5/choices/0/text | 문서는 이쪽에 두고 저는 옆에 앉죠. | I'll leave the document here and sit beside you. |
+| 218 | urda / dungeon/19/variants/0 | 내가 한 일도 빼지 말고 세어 주시오. | Do not leave my work out of the count either. |
+| 219 | tika / inn/10/choices/0/text | 밖은 아직 밝아요. | Still light outside. |
+| 220 | judith / inn/19/choices/2/text | 오늘은 계산 못 도와도 앉아 있을게요. | I'll stay today even if I can't help calculate. |
+| 221 | bargut / inn/12/seen | 산에서 하던 대로만 움직일 수는 없더군. | Turns out I can't move exactly as I did in the mountains. |
+| 222 | selva / inn/26/choices/0/response/1 | 그릇이나 이쪽으로 주시죠. | Just pass the bowl here. |
+| 223 | adeline / transitions/0/situation | 아델린이 모은 카드를 내려놓는다. | Adeline sets down the cards she gathered. |
+| 224 | haldric / inn/8/choices/0/response/0 | 빚으로 적을 필요도 없소. | Nor need it be written as a debt. |
+| 225 | erdene / transitions/9/lines/1 | 어디까지였는지부터 다시 듣자. | Let's hear again how far you meant to go. |
+| 226 | hildegard / inn/16/choices/1/response/1 | 그 말이 쉬워서 늘 빌렸습니다. 오늘은 좀 어렵게 써 보겠습니다. | I always borrowed that word because it was easy. Today I will try the harder words. |
+| 227 | erdene / dungeon/15/variants/0 | 센 게 먼저 가라는 뜻은 아니야. | Being strong doesn't mean you have to go first. |
+| 228 | tove / inn/22/choices/1/text | 오늘 음식이 천천히 나왔어요. | The food took a while today. |
+| 229 | gunhild / inn/6/lines/2 | 뒤쪽 의자는 그냥 둬라. 내가 조금 옮기겠다. | Leave the chair behind me. I will shift a little. |
+| 230 | selva / dungeon/38/variants/1 | 오늘은 식당에서 조금 기다리겠습니다. | Today I will wait briefly in the dining room. |
+| 231 | zahar / inn/13/choices/1/response/0 | 초여름에 쫓겨났어. | They drove me out in early summer. |
+| 232 | lavinia / transitions/9/lines/0 | 오늘은 혼자 생각할 시간이 필요해요. | Today I need time to think alone. |
+| 233 | hildegard / inn/6/lines/2 | 권해 드리려던 겁니다. 목이 마르지 않습니까? | I meant to offer. Are you thirsty? |
+| 234 | teiris / inn/22/choices/1/response/0 | 뜻을 아는 속도도 다를 수 있겠어요. | We can take different amounts of time to understand too. |
+| 235 | erdene / dungeon/24/variants/0 | 쓰러졌다고 끝난 건 아니잖아. | Falling doesn't mean it's over. |
+| 236 | miko / inn/25/choices/2/response/0 | 그러면 햇빛 가는 동안만 눈 감을게요. | Then I'll close my eyes while the sunlight lasts. |
+| 237 | gerda / inn/2/choices/2/response/0 | 그럼 내 질문도 가져가요. | Take my question along, then. |
+| 238 | adeline / inn/12/choices/0/text | 사제 서품은 나중이었죠? | You were ordained later, were you not? |
+| 239 | adeline / inn/9/lines/1 | 저 모퉁이까지 누가 먼저 가나 겨뤄요. | Let us see who reaches that corner first. |
+| 240 | hedwig / inn/3/seen | 이 문서 첫 줄은 제가 적겠습니다. | I will write this document's first line. |
+| 241 | hedwig / inn/4/choices/0/response/1 | 밥 먹은 일까지 적으면 쉬지 못하겠습니다. | Recording even a meal would leave me no rest. |
+| 242 | hedwig / inn/8/choices/1/text | 책이 꽤 두껍네요. | It's quite a thick book. |
+| 243 | tove / inn/27/choices/0/response/1 | 잠깐 바람 쐬고 올게. | I'll just get some fresh air and come back. |
+| 244 | adeline / inn/27/choices/0/response/0 | 그럼 처음부터 너무 길게 말하진 않을게요. | Then I will try not to make it too long from the start. |
+| 245 | erdene / inn/24/choices/1/response/1 | 오늘은 이름 확인도 안 해도 되네. | No need even to check names today. |
+| 246 | erdene / dungeon/33/variants/1 | 잠깐, 손보다 표시부터 보자. | Wait. Look at the markings before using your hands. |
+| 247 | berenga / inn/14/choices/2/response/0 | 떠나라고 쉽게 말하지는 못했어요. | I couldn't easily tell her to leave. |
+| 248 | erdene / dungeon/4/variants/1 | 한 번 멈추는 게 지는 건 아니야. | Stopping once doesn't mean losing. |
+| 249 | hedwig / dungeon/23/variants/0 | 지금은 기록을 내려놓겠습니다. | I will put the record down now. |
+| 250 | gerda / transitions/9/situation | 게르다가 빈 옷깃을 만진다. | Gerda touches her empty collar. |
+| 251 | lavinia / inn/26/choices/0/text | 제가 자주 쓰는 걸 기억하셨네요. | You remembered which one I use. |
+| 252 | colette / inn/17/choices/1/text | 이 모습을 꼭 남겨 두고 싶어요. | I must preserve this moment. |
+| 253 | naran / inn/24/choices/2/response/0 | 심심해도 여기 오고 싶었어요. | Even bored, I wanted to come here. |
+| 254 | saya / inn/15/choices/0/response/0 | 아직은 아니에요. 조금 뒤예요. | Not yet. A little later. |
+| 255 | felice / inn/5/choices/2/response/1 | 친분으로 양을 더 받겠다고 오시면 곤란해요. | Please don't come expecting extra portions because you know me. |
+| 256 | bargut / inn/21/choices/0/response/0 | 그럼 서둘러 끝낼 필요는 없다. | Then no need to rush the end. |
+| 257 | levia / inn/24/seen | 오늘도 묻고 오늘 대답을 듣는 게 좋네요. | It feels good to ask today and hear today's answer. |
+| 258 | erdene / inn/0/seen | 앞에 서겠다는 말은 내가 직접 할 거야. | I'll say for myself whether I'm taking the lead. |
+| 259 | hildegard / inn/17/situation | 힐데가가 선두를 표시하던 돌을 가운데 놓는다. | Hildegard places the stone marking the vanguard in the middle. |
+| 260 | tika / inn/18/choices/2/response/1 | 여기서 웃는 것까지 무대에 가져가진 않을래요. | I don't want even our laughter here to become part of my act. |
+| 261 | lavinia / inn/10/situation | 라비니아가 탁자 아래 떨어진 끈을 줍는다. | Lavinia picks up a cord beneath the table. |
+| 262 | judith / inn/12/choices/1/text | 말할 수 있는 데까지요. | Tell me what you can. |
+| 263 | saya / dungeon/29/variants/0 | 오늘 도움은 바로 갚진 못해요. | Can't repay today's help immediately. |
+| 264 | berenga / inn/11/lines/0 | 여기 앉으시려던 거예요? | Were you about to sit here? |
+| 265 | lynette / transitions/6/situation | 이름책 덮개를 무릎 위에서 편다. | She unfolds the name book's cover on her lap. |
+| 266 | saya / inn/20/choices/0/response/0 | 늦어도 말은 남기면 되죠? | Even if I'm late, I can still leave word, right? |
+| 267 | zahar / dungeon/12/variants/0 | 주변은 내가 더 볼게. | I'll keep checking around us. |
+| 268 | hedwig / dungeon/15/variants/1 | 불확실한 내용은 확정해 적지 마십시오. | Do not record uncertainties as settled facts. |
+| 269 | gerda / inn/14/choices/0/response/0 | 명령을 들은 때부터요. | When I heard the order. |
+| 270 | jorund / dungeon/38/variants/0 | 먼저 도착했지만 시각은 안 봤습니다. | I arrived first, but did not check the time. |
+| 271 | erdene / dungeon/7/variants/1 | 누가 봤는지 같이 남겨 두자. | Let's keep a record of who saw it, too. |
+| 272 | miko / inn/6/lines/0 | 약초 냄새가 손에 남았어요. | Herbs still scent my hands. |
+| 273 | miko / inn/27/situation | 미코가 귀환 뒤 일행을 먼저 보낸다. | Back home, Miko sends the others ahead. |
+| 274 | bargut / inn/14/lines/2 | 여기선 발소리가 끊겨도 누군가 있다. | Here, someone is still around after the footsteps stop. |
+| 275 | felice / inn/1/lines/2 | 지금은 말할 기운이 없어요. | I haven't the energy to talk right now. |
+| 276 | miko / inn/1/choices/1/text | 깔끔해 보이는데 그냥 써도 되겠어요. | Looks clean. Surely it's usable. |
+| 277 | colette / inn/17/situation | 콜레트가 웃다가 눈가를 누른다. | Colette presses the corner of her eye as she laughs. |
+| 278 | naran / inn/6/choices/1/text | 저도 조용한 날이 좋아요. | I like quiet days too. |
+| 279 | selva / dungeon/37/variants/1 | 밥 먹기 전에는 좀 씻어야겠네요. | I should wash before dinner. |
+| 280 | gerda / inn/23/choices/1/text | 혼자 있고 싶은 날은 찾아가지 않을게요. | I won't visit on days you want to be alone. |
+| 281 | saya / inn/26/lines/2 | 새로 뜨자는 말은 안 할게요. | I won't suggest a new one. |
+| 282 | bargut / inn/4/situation | 식탁에서 한 자리를 건너뛰고 앉는다. | Bargut sits at the table, leaving a seat between you. |
+| 283 | lynette / inn/10/lines/1 | 이제 제 얼굴만 봐도 주머니부터 닫을까요? | Will people close their purses as soon as they see my face now? |
+| 284 | adeline / inn/10/choices/0/text | 이번 패는 없던 걸로 하고 바로 다시 해요. | Let us forget that hand and start again right now. |
+| 285 | colette / inn/10/choices/2/response/0 | 오늘은 배가 고픕니다. | I am hungry today. |
+| 286 | teiris / inn/19/choices/0/text | 저도 테이리스 씨에게 묻고 싶던 게 있었어요. | I had questions for you too, Teiris. |
+| 287 | tika / inn/23/lines/0 | 아까는 아무렇지 않다고 했는데요. | Earlier I said it was nothing. |
+| 288 | adeline / transitions/12/lines/0 | 오늘은 제가 먹고 싶은 걸 골랐어요. | Today, I chose what I wanted to eat. |
+| 289 | erdene / inn/16/choices/0/text | 그럼 오늘은 기다리는 쪽에 같이 서요. | Then let's both be on the side that waits today. |
+| 290 | gerda / dungeon/13/variants/0 | 내가 본 얼굴은 나중에 말할게요. | I'll mention the face I saw later. |
+| 291 | zahar / inn/8/lines/1 | 오늘은 이걸 나한테 줘. | Give me this today. |
+| 292 | hedwig / inn/2/choices/1/text | 펜은 이걸 쓰면 되나요? | Should I use this pen? |
+| 293 | saya / inn/2/choices/0/response/0 | 그럼 먼저 길 볼게요. | Then I'll check the route first. |
+| 294 | tove / inn/18/seen | 오늘은 문밖을 봐도 다시 앉을 수 있네. | Today I can look outside and still choose to sit back down. |
+| 295 | haldric / inn/3/choices/2/response/0 | 종이 놓을 자리만 비워 주면 되오. | Only clear room for the paper. |
+| 296 | jorund / inn/15/choices/1/text | 열여덟 살 때였죠? | You were eighteen, right? |
+| 297 | tove / inn/24/choices/0/response/0 | 오늘 여기 앉고 싶었던 거야. | I wanted to sit here today. |
+| 298 | adeline / inn/14/lines/1 | 집안이 같아서 그런 건 아니에요. | It is not because we come from the same family. |
+| 299 | hildegard / inn/2/situation | 힐데가가 원정 준비물을 식탁 위에 나눠 놓는다. | Hildegard sorts expedition supplies on the table. |
+| 300 | erdene / inn/2/seen | 맨 뒤에서 걷는 사람 이름도 잘 보이게 적어. | Make the name of whoever walks last easy to see, too. |

@@ -74,10 +74,11 @@ def sample():
             english = data.get('en', {}).get('display', {}).get(key)
             if english: rows.append((path.stem, key, source, english))
     chosen = random.Random(20261104).sample(rows, 300)
+    complete = len({r[0] for r in rows}) == 30 and len(rows) == 14216
+    scope = ('All 30 characters and all 14,216 display fields.' if complete else
+             f'The {len(rows):,} translated fields only. Other fields may remain untranslated.')
     lines = ['# EN-R24 bilingual sample (300 lines)', '',
-             f'Scope: the {len(rows):,} translated fields only ({", ".join(sorted({r[0] for r in rows}))}). '
-             'Other characters remain untranslated. This is not a 30-character completion sample. '
-             'Seed: 20261104; sampling without replacement.', '',
+             f'Scope: {scope} Seed: 20261104; sampling without replacement.', '',
              '| # | Character / field | Korean (unchanged) | English |', '| --- | --- | --- | --- |']
     def escape(s): return s.replace('|', '\\|').replace('\n', '<br>')
     for i, (cid, key, ko, en) in enumerate(chosen, 1):

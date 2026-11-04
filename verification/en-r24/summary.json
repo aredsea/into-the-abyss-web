@@ -1,20 +1,16 @@
 {
-  "status": "incomplete",
-  "characters_complete": 12,
+  "status": "complete",
+  "characters_complete": 30,
   "characters_total": 30,
   "fields": 14216,
-  "translated": 5636,
-  "untranslated": 8580,
-  "round2_characters_added": 9,
-  "round2_fields_added": 4238,
+  "translated": 14216,
+  "untranslated": 0,
+  "round3_characters_added": 18,
+  "round3_fields_added": 8580,
   "regression_runs": 20,
   "regression_failed": 0,
-  "counted_checks": 160221,
+  "counted_checks": 291453,
   "checks_by_test": [
-    {
-      "test": "en_r24_test",
-      "checks": 22666
-    },
     {
       "test": "dialogue_player_r21_test",
       "checks": 34229
@@ -64,36 +60,104 @@
       "checks": 3540
     },
     {
+      "test": "en_r24_test",
+      "checks": 57166
+    },
+    {
       "test": "ui_en_r24_test",
-      "checks": 64488
+      "checks": 161220
     }
   ],
-  "ui_scenes": 672,
-  "ui_checks": 64488,
+  "ui_scenes": 1680,
+  "ui_checks": 161220,
   "ui_failures": 0,
   "sample_rows": 300,
-  "sample_scope": [
-    "adeline",
-    "altan",
-    "bargut",
-    "berenga",
-    "bianca",
-    "colette",
-    "erdene",
-    "felice",
-    "gerda",
-    "gunhild",
-    "haldric",
-    "hedwig"
-  ],
+  "sample_scope": "All 30 characters; all 14,216 fields",
   "sample_seed": 20261104,
   "protected_files": 2481,
   "protected_changes": [],
   "asset_hash_entries": 96,
   "asset_hash_changes": [],
+  "original_bytes_reconstruct_exactly": true,
   "save_format_changed": false,
-  "release_language_gate_passed": false,
+  "release_language_gate_passed": true,
   "external_translation_services_used": false,
   "runtime_slots_cleaned": true,
-  "visual_captures_reviewed": 60
+  "visual_captures_reviewed": 150,
+  "batches": [
+    {
+      "characters": [
+        "hildegard",
+        "jorund",
+        "judith"
+      ],
+      "fields": 1457,
+      "untranslated": 0,
+      "tests": 4,
+      "failed": 0
+    },
+    {
+      "characters": [
+        "lavinia",
+        "levia",
+        "lynette"
+      ],
+      "fields": 1401,
+      "untranslated": 0,
+      "tests": 4,
+      "failed": 0
+    },
+    {
+      "characters": [
+        "marceline",
+        "miko",
+        "naran"
+      ],
+      "fields": 1470,
+      "untranslated": 0,
+      "tests": 4,
+      "failed": 0
+    },
+    {
+      "characters": [
+        "ornel",
+        "saya",
+        "selva"
+      ],
+      "fields": 1402,
+      "untranslated": 0,
+      "tests": 4,
+      "failed": 0
+    },
+    {
+      "characters": [
+        "sorel",
+        "teiris",
+        "tika"
+      ],
+      "fields": 1454,
+      "untranslated": 0,
+      "tests": 4,
+      "failed": 0
+    },
+    {
+      "characters": [
+        "tove",
+        "urda",
+        "zahar"
+      ],
+      "fields": 1396,
+      "untranslated": 0,
+      "tests": 4,
+      "failed": 0
+    }
+  ],
+  "full_run": {
+    "started_at": "2026-11-03T23:59:38.030906+00:00",
+    "finished_at": "2026-11-04T00:06:46.167504+00:00",
+    "exit": 0
+  },
+  "regression_kinds": 20,
+  "post_screen_copy_retests": 3,
+  "editorial_revisions": 117
 }
