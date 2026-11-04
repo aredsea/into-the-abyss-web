@@ -40,8 +40,7 @@ func build(owner_screen) -> void:
 		icon("floor-star",Rect2(339,66,10,10))
 		label(str(int(w.dungeon_rules.floor_star(info))),Rect2(351,59,15,25),11)
 		label("권장 Lv.%d · 적 Lv.%d"%[w.expedition_rules.rec_level(w.selected_floor),w.dungeon_rules.floor_level(w.average_level(),info)],Rect2(244,87,122,52),11).autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	var self_button=action("so_fight_1","자기 참전 · 동료 3명",Rect2(18,277,174,56),func():w.set_fight(1);host._save();host._draw_screen(),s.persona.fight==1,w.active() or not w.can_persona_fight());self_button.add_theme_font_size_override("font_size",13)
-	if not w.can_persona_fight():self_button.tooltip_text="모험가 생성 정보가 없는 옛 저장입니다. 기존 동료 편성을 유지하고 지휘로 출발합니다."
+	var self_button=action("so_fight_1","자기 참전 · 동료 3명",Rect2(18,277,174,56),func():w.set_fight(1);host._save();host._draw_screen(),s.persona.fight==1,w.active());self_button.add_theme_font_size_override("font_size",13)
 	action("so_fight_0","지휘 · 동료 4명",Rect2(198,277,174,56),func():w.set_fight(0);host._save();host._draw_screen(),s.persona.fight==0,w.active()).add_theme_font_size_override("font_size",13)
 	var ids=w.sortie_members().map(func(m):return m.id) if w.has_method("sortie_members") else w.sortie_ids()
 	for i in range(2):

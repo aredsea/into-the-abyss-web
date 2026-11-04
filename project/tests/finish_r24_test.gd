@@ -6,6 +6,7 @@ func plain24(s: String) -> String:
 	var re=RegEx.new();re.compile("\\s+");return re.sub(s," ",true).strip_edges()
 func run():
 	var o=JSON.parse_string(FileAccess.get_file_as_string("res://../verification/finish-r24/oracle.json"));var display=Display24.new()
+	var adapter=Save.new()
 	for f in o.traits:
 		var e=f.entry;var actual=display.trait_row("종족",e.get("tr",""),e.get("te",""),e.get("syn",""),e,f.lang)
 		eqcheck("P2416.trait",plain24(" ".join(actual)),f.text)
@@ -29,7 +30,7 @@ func run():
 	seeded.seed_source=Callable()
 	for f in o.bank:
 		var w=ready_world();w.s.gear=[];w.s.equipment.persona={};w.s.serial=0
-		for i in int(f.size):w.s.serial+=1;w.s.gear.append(Save.new().entry("wa01.1.1",w.s.serial))
+		for i in int(f.size):w.s.serial+=1;w.s.gear.append(adapter.entry("wa01.1.1",w.s.serial))
 		w.s.gear_r22={"overflow":[{"code":"wa01.9.1","forge":{"lv":2,"tries":3}}]}
 		var old=w.s.gear_r22.duplicate(true);var bank=w.bank_expedition_gear(["wa01.2.1","wa01.3.1"])
 		eqcheck("P3195.bank",[bank.gear,bank.lost,w.s.gear.size()],[f.got,f.lost,f.after])

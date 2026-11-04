@@ -55,7 +55,9 @@ func run():
 	w=fixture();check(w.depart_dungeon(1,88),"failed run depart");w.s.run.phase="battle";check(w.settle("defeat"),"defeat integration");check(C.entries(w.s).any(func(x):return x.contains("Failed the Great Dungeon floor 1 run")),"failure fact")
 	w.s.dungeon_r21.best=1;check(w.depart_dungeon(2,77),"retry after failure accepted");check(not C.entries(w.s).any(func(x):return x.contains("descended directly")),"failure cannot fabricate a clear/descent fact")
 	for result in ["clear","defeat"]:
-		w=fixture();var q=w.s.board.filter(func(v):return v.get("cmp",false))[0];check(w.depart_rift_quest(q,77),"accepted quest depart "+result);check(w.settle(result),"accepted quest settle "+result)
+		# G_new deliberately has no offers. This legacy completed-game fixture
+		# must visit/fill the guild before selecting an accepted source quest.
+		w=fixture();w.fill_source_board();var q=w.s.board.filter(func(v):return v.get("cmp",false))[0];check(w.depart_rift_quest(q,77),"accepted quest depart "+result);check(w.settle(result),"accepted quest settle "+result)
 		check(C.entries(w.s).any(func(x):return x.contains(("Completed" if result=="clear" else "Failed")+" the quest '")),"actual quest result fact "+result)
 		var facts=C.entries(w.s);check(not w.settle(result) and C.entries(w.s)==facts,"quest repeated settlement "+result)
 	# Save is atomic with facts. Old logs survive; loading never invents history.

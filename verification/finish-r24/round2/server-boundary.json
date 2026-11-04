@@ -1,0 +1,34 @@
+{
+  "native_resume": {
+    "before": {
+      "depletions": 3,
+      "last_kill": "테이리스"
+    },
+    "after": {
+      "depletions": 0,
+      "last_kill": ""
+    },
+    "equal": false
+  },
+  "server": [
+    {
+      "case": "existing snapshot",
+      "accepted": true
+    },
+    {
+      "case": "persist battle.depletions",
+      "accepted": false,
+      "error": "invalid_save",
+      "path": "run.battle.depletions"
+    },
+    {
+      "case": "persist battle.last_kill",
+      "accepted": false,
+      "error": "invalid_save",
+      "path": "run.battle.last_kill"
+    }
+  ],
+  "blocked": true,
+  "required_change": "Add bounded battle outcome metadata to both native snapshots and the server battle allowlist; preserve missing fields in old saves with explicit defaults.",
+  "server_modified": false
+}

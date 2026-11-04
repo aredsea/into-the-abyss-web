@@ -37,8 +37,9 @@ local out={}
 for _,method in ipairs({'damaged','attacked','turn_end','abyss_after'})do for mode=0,2 do for _,side in ipairs({1,5})do
  local st=state(1);st.u[1].gu={{key='wa_scar',v={30,50}},{key='last_stand',x=30,n=2},{key='ch_void',v={20,10}}};st.u[1].gq={reflect=50};st.u[1].x={fzn=1,lsn=1,wwn=1};st.gt={t=1,e=5,d=40,x=50,n=7}
  local args=method=='damaged' and {1,30,5,3} or method=='attacked' and {1,side,{d=20},3} or method=='turn_end' and {side} or {1,5,20,3,{}}
+ local entry=json.decode(json.encode(st));local entry_args=json.decode(json.encode(args))
  B.R23_MODE(mode);local result=B.GH[method](st,table.unpack(args));local cp=B.R23_CHECKPOINT()
- out[#out+1]={method=method,args=cp.args,before=cp.state,value=json.decode(json.encode(st)),result=result==nil and 'nil' or result,act=0,skill=false,defs=B.DEF,meta='predecessor:'..mode..':side:'..side}
+ out[#out+1]={method=method,args=cp.args,before=cp.state,entry=entry,entry_args=entry_args,mode=mode,value=json.decode(json.encode(st)),result=result==nil and 'nil' or result,act=0,skill=false,defs=B.DEF,meta='predecessor:'..mode..':side:'..side}
 end end end
 return out`);
 fs.writeFileSync(root+'/verification/parity-r23/predecessors.json',JSON.stringify(out)+'\n');

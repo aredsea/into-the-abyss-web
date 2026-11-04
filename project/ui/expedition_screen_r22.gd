@@ -27,6 +27,7 @@ func exploration() -> void:
 		var map=preload("res://ui/town_map_r21.gd").new();stage.add_child(map);map.position=Vector2(0,y);map.size=Vector2(342,338);map.configure(r,5);mark("source_progress_map",map);y+=350
 	y=source_entries(w.source_expedition_view("last"),y)
 	y=source_entries(w.source_expedition_view("party"),y+8)
+	if r.phase=="rest":y=source_entries(w.source_expedition_view("gear_card"),y+8)
 	stage.custom_minimum_size.y=y+12;sheet.size.y=y+12;stage=previous
 	var go=w.ExpeditionUI.new();go.lang=L.language(w.s)
 	action("final_battle" if r.phase=="rest" else "advance",go.u("층 보스에게 도전" if r.phase=="rest" else "탐색한다"),Rect2(18,650,354,44),func():host._act(w.final_battle if r.phase=="rest" else w.advance,""),true,false,false)
@@ -80,6 +81,8 @@ func source_entries(entries: Array,y: float) -> float:
 
 func source_action(id: String) -> void:
 	var w=host.model
+	if id.begins_with("ex_eq_") or id.begins_with("ex_un_") or id.begins_with("ex_who_"):
+		w.expedition_equipment_action(id.trim_prefix("ex_"));host._save();host._draw_screen();return
 	if id.begins_with("ex_u_"):
 		var parts=id.trim_prefix("ex_u_").rsplit("_",true,1);var who=w.expedition_equip_key(int(parts[1]))
 		host._act(w.use_expedition_item.bind(w.web_item_id(parts[0]),who),"")

@@ -78,6 +78,9 @@ func run():
 			check(w.start_selected_dungeon() and w.s.run.floor==r.floor and w.s.run.phase==r.phase and w.s.run.last==r.last,"selected departure normalize "+str(r),"start")
 		for r in o.sortie:
 			w=helper.setup();w.s.members.persona.level=10;w.s.settings={"lang":r.lang};w.s.persona.fight=int(r.fight);w.s.party=r.party.duplicate();w.s.ui.tab=r.filter;w.selected_floor=28;w.s.dungeon_r21.best=27
+			# The canonical fixture passes dn_floor_view(28).el as q.lv to summary.
+			# Select that dungeon explicitly; a fresh game's default is quest mode.
+			w.set_sortie_mode(1)
 			for id in w.s.owned:w.s.members[id].aff=r.aff
 			var actual=project(w.source_sortie_view(r.kind))
 			check(helper.same(actual,r.visible),"sortie "+str([r.kind,r.lang,r.fight,r.party,r.filter,r.aff,actual,r.visible]),"sortie_"+r.kind)

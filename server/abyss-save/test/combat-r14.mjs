@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {runtime,root} from './runtime.mjs';
 import {validate} from '../src/validate.js';
+import './finish-r24.mjs';
 const out=path.join(root,'verification/town-r21/round14');
 const samples=JSON.parse(fs.readFileSync(path.join(out,'save-specimens.json'),'utf8'));
 const {mf,db}=await runtime();let checks=0;let mutated=0;

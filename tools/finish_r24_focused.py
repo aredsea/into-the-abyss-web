@@ -1,7 +1,7 @@
 """Sequential rechecks in the retained default home, independent of suite slots."""
 from pathlib import Path
 import sys,subprocess,os,time,json,re
-R=Path(__file__).resolve().parents[1];O=R/'verification/finish-r24'
+R=Path(__file__).resolve().parents[1];O=R/os.environ.get('R24_FINISH_OUTPUT','verification/finish-r24');O.mkdir(exist_ok=True)
 rows=json.loads((O/'focused-results.json').read_text(encoding='utf-8')) if (O/'focused-results.json').exists() else []
 for name in sys.argv[1:]:
     start=time.monotonic();args=['--position','-10000,-10000'] if name.startswith('ui_') else ['--headless']

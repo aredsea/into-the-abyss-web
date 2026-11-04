@@ -6,10 +6,10 @@
     "round4_excluded": 2,
     "round4_fixed_rows": 10,
     "round4_new_fixed_rows": 9,
-    "same": 61,
+    "same": 69,
     "fixed_rows": 38,
     "excluded": 2,
-    "remaining": 14,
+    "remaining": 6,
     "suite_groups": 121,
     "suite_failed": 0,
     "round4_direct_checks": 1056,
@@ -90,7 +90,7 @@
     "code_lock_unchanged": false,
     "full_original_parity_complete": false,
     "final_delta_verified": true,
-    "remaining_rows": 14,
+    "remaining_rows": 6,
     "finish": {
       "ledger": "gear",
       "reviewed": 14,
@@ -102,7 +102,48 @@
         "같음": 61,
         "일부": 14,
         "제외": 2
+      },
+      "round2": {
+        "ledger": "gear",
+        "initial_remaining": 14,
+        "promoted_same": 0,
+        "modified": 0,
+        "remaining": 14,
+        "statuses": {
+          "같음": 61,
+          "일부": 14,
+          "제외": 2
+        }
+      },
+      "round3": {
+        "ledger": "gear",
+        "initial_remaining": 14,
+        "promoted_same": 5,
+        "modified": 7,
+        "remaining": 9,
+        "statuses": {
+          "같음": 66,
+          "일부": 9,
+          "제외": 2
+        }
+      },
+      "round4": {
+        "ledger": "gear",
+        "initial_remaining": 9,
+        "promoted_same": 3,
+        "modified": 3,
+        "remaining": 6,
+        "statuses": {
+          "같음": 69,
+          "일부": 6,
+          "제외": 2
+        }
       }
+    },
+    "latest_status_counts": {
+      "같음": 69,
+      "일부": 6,
+      "제외": 2
     }
   },
   "baseline": {
@@ -700,7 +741,7 @@
       },
       "previous_status": "일부",
       "previous_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "new_status": "일부",
+      "new_status": "같음",
       "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::transaction_result / transaction_state / transaction_bag",
@@ -716,7 +757,7 @@
         "project/tests/gear_r23_round4_test.gd::restriction probe"
       ],
       "source_observation": "verification/parity-r23/gear-round3-oracle.json",
-      "remaining_reason": "정본 6개 0/1999/2000칸 제한·재개 probe는 수정 후 일치한다. 그러나 원본은 invalid 같은 잘못된 옛 장착 문자열을 유지하고 native는 충돌 보관본으로 옮기므로 전체 관찰 차이가 남는다(known-code-gaps.json). 원문 자체는 보존한다.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -779,7 +820,40 @@
         "results": [
           "verification/finish-r24/unit-results.json",
           "verification/finish-r24/known-code-gaps.json"
-        ]
+        ],
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "정본 6개 0/1999/2000칸 제한·재개 probe는 수정 후 일치한다. 그러나 원본은 invalid 같은 잘못된 옛 장착 문자열을 유지하고 native는 충돌 보관본으로 옮기므로 전체 관찰 차이가 남는다(known-code-gaps.json). 원문 자체는 보존한다.",
+          "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+          "source_excerpt_sha256": "05292d7521b4adef1773f488f771b787e1e33e0f55a33f7348b74937b3a4de2b",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "정본 6개 0/1999/2000칸 제한·재개 probe는 수정 후 일치한다. 그러나 원본은 invalid 같은 잘못된 옛 장착 문자열을 유지하고 native는 충돌 보관본으로 옮기므로 전체 관찰 차이가 남는다(known-code-gaps.json). 원문 자체는 보존한다.",
+          "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+          "source_excerpt_sha256": "05292d7521b4adef1773f488f771b787e1e33e0f55a33f7348b74937b3a4de2b",
+          "modified": false,
+          "disposition": "남음",
+          "detail": "2,000개 가방에서 부적합한 유효 장비를 착용 중인 손상·옛 입력: 원본 gear_restrict는 가방 반환에 실패해 장착을 유지하지만 native 가져오기는 장착을 해제하고 overflow에 보존한다. 6개 실제 source/native probe 중 4개 일치·2개 차이. 정상·1,999개는 일치. 단순 저장 매체 차이가 아니다. native 복구/전투 적용 경계는 별도 검토가 필요하다.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음."
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "2,000개 가방에서 부적합한 유효 장비를 착용 중인 손상·옛 입력: 원본 gear_restrict는 가방 반환에 실패해 장착을 유지하지만 native 가져오기는 장착을 해제하고 overflow에 보존한다. 6개 실제 source/native probe 중 4개 일치·2개 차이. 정상·1,999개는 일치. 단순 저장 매체 차이가 아니다. native 복구/전투 적용 경계는 별도 검토가 필요하다.",
+          "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+          "source_excerpt_sha256": "05292d7521b4adef1773f488f771b787e1e33e0f55a33f7348b74937b3a4de2b",
+          "modified_this_round": false,
+          "disposition": "같음 승격",
+          "detail": "기존 미커밋 수정의 실제 현재 동작을 재검사: 가방 0/1999/2000 × 부적합 레벨/직업 장비 6개 원본/native 모두 일치. 가방 포화 시 장착 유지, 기존 overflow 보존. 이번 차수 새 제품 수정은 아님.",
+          "results": [
+            "verification/parity-r23/gear-round4-restriction-gaps.json"
+          ]
+        }
       }
     },
     {
@@ -1554,8 +1628,8 @@
       },
       "previous_status": "미확인",
       "previous_reason": "직접 원본 fixture의 반환·상태·콜백·RNG 비교를 현재 native 규칙/훅 시험에서 재실행. A7/A9 실제 전투 연결도 확인. 함수 호출 확인, 명시적 분기 진입 3/4. 전체 계약은 같음으로 세지 않음. 미도달 분기는 audit-r22b.json의 해당 행에 미확인으로 기록.",
-      "new_status": "일부",
-      "fixed": false,
+      "new_status": "같음",
+      "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_hooks_test.gd::damaged",
         "project/tests/gear_hooks_r22_test.gd",
@@ -1576,7 +1650,7 @@
         "project/tests/gear_r23_predecessors_test.gd"
       ],
       "source_observation": "verification/parity-r23/hooks.json",
-      "remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [
         {
@@ -1647,7 +1721,32 @@
         "excerpt_sha256": "bdcce6a3fd0d5cc5fb9830bf0ca6d052211a03d2f2999b579ab073aa77a258f7",
         "fixed": false,
         "disposition": "battle 이관",
-        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+          "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+          "source_excerpt_sha256": "bdcce6a3fd0d5cc5fb9830bf0ca6d052211a03d2f2999b579ab073aa77a258f7",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+          "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+          "source_excerpt_sha256": "bdcce6a3fd0d5cc5fb9830bf0ca6d052211a03d2f2999b579ab073aa77a258f7",
+          "modified": true,
+          "disposition": "같음 승격",
+          "tests": [
+            "finish_gear_hooks_r24_test"
+          ],
+          "results": [
+            "verification/finish-r24/round3/gear-hooks-results.json"
+          ],
+          "detail": "선행 damaged 콜백 → 장비 훅의 전체 상태·호출 순서·반환을 원본과 직접 비교."
+        }
       }
     },
     {
@@ -1661,8 +1760,8 @@
       },
       "previous_status": "미확인",
       "previous_reason": "직접 원본 fixture의 반환·상태·콜백·RNG 비교를 현재 native 규칙/훅 시험에서 재실행. A7/A9 실제 전투 연결도 확인. 함수 호출 확인, 명시적 분기 진입 8/9. 전체 계약은 같음으로 세지 않음. 미도달 분기는 audit-r22b.json의 해당 행에 미확인으로 기록.",
-      "new_status": "일부",
-      "fixed": false,
+      "new_status": "같음",
+      "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_hooks_test.gd::attacked",
         "project/tests/gear_hooks_r22_test.gd",
@@ -1683,7 +1782,7 @@
         "project/tests/gear_r23_predecessors_test.gd"
       ],
       "source_observation": "verification/parity-r23/hooks.json",
-      "remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [
         {
@@ -1754,7 +1853,32 @@
         "excerpt_sha256": "d3ad8f797d79150588ce715791e224ad20484c4f16a6c307e5705576bda18e22",
         "fixed": false,
         "disposition": "battle 이관",
-        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+          "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+          "source_excerpt_sha256": "d3ad8f797d79150588ce715791e224ad20484c4f16a6c307e5705576bda18e22",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+          "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+          "source_excerpt_sha256": "d3ad8f797d79150588ce715791e224ad20484c4f16a6c307e5705576bda18e22",
+          "modified": true,
+          "disposition": "같음 승격",
+          "tests": [
+            "finish_gear_hooks_r24_test"
+          ],
+          "results": [
+            "verification/finish-r24/round3/gear-hooks-results.json"
+          ],
+          "detail": "선행 attacked 콜백 → 반사/가시 훅의 전체 상태·호출 순서·반환을 원본과 직접 비교."
+        }
       }
     },
     {
@@ -1768,8 +1892,8 @@
       },
       "previous_status": "미확인",
       "previous_reason": "직접 원본 fixture의 반환·상태·콜백·RNG 비교를 현재 native 규칙/훅 시험에서 재실행. A7/A9 실제 전투 연결도 확인. 함수 호출 확인, 명시적 분기 진입 8/9. 전체 계약은 같음으로 세지 않음. 미도달 분기는 audit-r22b.json의 해당 행에 미확인으로 기록.",
-      "new_status": "일부",
-      "fixed": false,
+      "new_status": "같음",
+      "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_hooks_test.gd::turn_end",
         "project/tests/gear_hooks_r22_test.gd",
@@ -1790,7 +1914,7 @@
         "project/tests/gear_r23_predecessors_test.gd"
       ],
       "source_observation": "verification/parity-r23/hooks.json",
-      "remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [
         {
@@ -1861,7 +1985,32 @@
         "excerpt_sha256": "20e398bee4908306b04ac29b8a6a16f8ce663f0f906381a7f8366b7b5c781bd4",
         "fixed": false,
         "disposition": "battle 이관",
-        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+          "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+          "source_excerpt_sha256": "20e398bee4908306b04ac29b8a6a16f8ce663f0f906381a7f8366b7b5c781bd4",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+          "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+          "source_excerpt_sha256": "20e398bee4908306b04ac29b8a6a16f8ce663f0f906381a7f8366b7b5c781bd4",
+          "modified": true,
+          "disposition": "같음 승격",
+          "tests": [
+            "finish_gear_hooks_r24_test"
+          ],
+          "results": [
+            "verification/finish-r24/round3/gear-hooks-results.json"
+          ],
+          "detail": "선행 turn_end 콜백의 상태 변경 뒤 장비 차례 종료 훅을 원본과 직접 비교."
+        }
       }
     },
     {
@@ -1875,8 +2024,8 @@
       },
       "previous_status": "미확인",
       "previous_reason": "직접 원본 fixture의 반환·상태·콜백·RNG 비교를 현재 native 규칙/훅 시험에서 재실행. A7/A9 실제 전투 연결도 확인. 함수 호출 확인, 명시적 분기 진입 3/4. 전체 계약은 같음으로 세지 않음. 미도달 분기는 audit-r22b.json의 해당 행에 미확인으로 기록.",
-      "new_status": "일부",
-      "fixed": false,
+      "new_status": "같음",
+      "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_hooks_test.gd::abyss_after",
         "project/tests/gear_hooks_r22_test.gd",
@@ -1897,7 +2046,7 @@
         "project/tests/gear_r23_predecessors_test.gd"
       ],
       "source_observation": "verification/parity-r23/hooks.json",
-      "remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [
         {
@@ -1968,7 +2117,32 @@
         "excerpt_sha256": "c3c2ce04197cb4f45140d18844514b11e360caf406356c5c11fa3d912783ee44",
         "fixed": false,
         "disposition": "battle 이관",
-        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+          "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+          "source_excerpt_sha256": "c3c2ce04197cb4f45140d18844514b11e360caf406356c5c11fa3d912783ee44",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+          "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+          "source_excerpt_sha256": "c3c2ce04197cb4f45140d18844514b11e360caf406356c5c11fa3d912783ee44",
+          "modified": true,
+          "disposition": "같음 승격",
+          "tests": [
+            "finish_gear_hooks_r24_test"
+          ],
+          "results": [
+            "verification/finish-r24/round3/gear-hooks-results.json"
+          ],
+          "detail": "선행 abyss_after 콜백 뒤 MP/고갈/당김·반환·호출 순서를 원본과 직접 비교."
+        }
       }
     },
     {
@@ -2772,7 +2946,7 @@
         "project/tests/ui_gear_r23_test.gd"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "제련/가공 본문은 기존 직접 비교 통과. 장소 설명·NPC 역할·완료/귀환 보조 문구와 추가 장착 선택지가 전체 화면에서 다르다.",
+      "remaining_reason": "제련·가공 본문/탭/실행은 직접 일치. 전체 화면에는 원본 장소 설명·NPC 역할·완료/귀환 버튼의 보조 문구가 빠져 있고, native의 장비 장착하기 선택지가 추가된다. AI 장면 자체는 제외하며 이 표시/선택 차이만 남긴다.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -2836,7 +3010,37 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "제련/가공 본문은 기존 직접 비교 통과. 장소 설명·NPC 역할·완료/귀환 보조 문구와 추가 장착 선택지가 전체 화면에서 다르다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "제련/가공 본문은 기존 직접 비교 통과. 장소 설명·NPC 역할·완료/귀환 보조 문구와 추가 장착 선택지가 전체 화면에서 다르다.",
+          "source_sha256": "4298d9d7b9cc5cdd6f1a832871c6eaff6a74385a8a4ae7952d99df3d9beafe72",
+          "source_excerpt_sha256": "50de77dd69cb7c4cd545b5c955979d7aa7a2d750be64d7b58186f487b1b49d3b",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "제련/가공 본문은 기존 직접 비교 통과. 장소 설명·NPC 역할·완료/귀환 보조 문구와 추가 장착 선택지가 전체 화면에서 다르다.",
+          "source_sha256": "4298d9d7b9cc5cdd6f1a832871c6eaff6a74385a8a4ae7952d99df3d9beafe72",
+          "source_excerpt_sha256": "50de77dd69cb7c4cd545b5c955979d7aa7a2d750be64d7b58186f487b1b49d3b",
+          "modified": false,
+          "disposition": "남음",
+          "detail": "제련·가공 본문/탭/실행은 직접 일치. 전체 화면에는 원본 장소 설명·NPC 역할·완료/귀환 버튼의 보조 문구가 빠져 있고, native의 장비 장착하기 선택지가 추가된다. AI 장면 자체는 제외하며 이 표시/선택 차이만 남긴다.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음."
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "제련·가공 본문/탭/실행은 직접 일치. 전체 화면에는 원본 장소 설명·NPC 역할·완료/귀환 버튼의 보조 문구가 빠져 있고, native의 장비 장착하기 선택지가 추가된다. AI 장면 자체는 제외하며 이 표시/선택 차이만 남긴다.",
+          "source_sha256": "4298d9d7b9cc5cdd6f1a832871c6eaff6a74385a8a4ae7952d99df3d9beafe72",
+          "source_excerpt_sha256": "50de77dd69cb7c4cd545b5c955979d7aa7a2d750be64d7b58186f487b1b49d3b",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "제련·가공 본문/탭/실행은 직접 일치. 전체 화면에는 원본 장소 설명·NPC 역할·완료/귀환 버튼의 보조 문구가 빠져 있고, native의 장비 장착하기 선택지가 추가된다. AI 장면 자체는 제외하며 이 표시/선택 차이만 남긴다."
+        }
       }
     },
     {
@@ -3216,8 +3420,8 @@
       },
       "previous_status": "미확인",
       "previous_reason": "통합판 대응 후보를 확인했으나 이 함수/선언/필드 전체를 덮는 원본 대조 증거를 확정하지 못함. 기능이 없다는 판정은 아님.",
-      "new_status": "일부",
-      "fixed": false,
+      "new_status": "같음",
+      "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
@@ -3244,7 +3448,7 @@
         "project/tests/ui_gear_r23_test.gd"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "그림 없음/잘못된 그림의 NPC 행 생략과 NPC_G 역할 끝 호감 표시를 같은 제품 helper로 연결한 전체 대조가 없다.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -3308,7 +3512,32 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "그림 없음/잘못된 그림의 NPC 행 생략과 NPC_G 역할 끝 호감 표시를 같은 제품 helper로 연결한 전체 대조가 없다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "그림 없음/잘못된 그림의 NPC 행 생략과 NPC_G 역할 끝 호감 표시를 같은 제품 helper로 연결한 전체 대조가 없다.",
+          "source_sha256": "49d6d1a5959da53ad29e6787fef84b94a778d9eb147a0dacf440903af43cac2d",
+          "source_excerpt_sha256": "fd6af6314cc337e68709fe122823652bd30e510cdb3d9767290e102945117d73",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "그림 없음/잘못된 그림의 NPC 행 생략과 NPC_G 역할 끝 호감 표시를 같은 제품 helper로 연결한 전체 대조가 없다.",
+          "source_sha256": "49d6d1a5959da53ad29e6787fef84b94a778d9eb147a0dacf440903af43cac2d",
+          "source_excerpt_sha256": "fd6af6314cc337e68709fe122823652bd30e510cdb3d9767290e102945117d73",
+          "modified": true,
+          "disposition": "같음 승격",
+          "tests": [
+            "finish_facilities_r24_test"
+          ],
+          "results": [
+            "verification/finish-r24/round3/facilities-results.json"
+          ],
+          "detail": "한영·provider 없음/무효/성공·NPC_G 유무·호감 -1/0/19.99/200의 48입력. 생략·이름·역할 끝 호감·다중 NPC 순서를 비교. HTML과 Texture 매체는 관찰 결과로 대응. 실제 hero가 같은 helper를 사용하며 기존 원본 그림과 표시 항목을 보존."
+        }
       }
     },
     {
@@ -3351,7 +3580,7 @@
         "project/tests/ui_gear_r23_test.gd"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "Lv.40 대상 제외는 수정했다. 원본의 상품→장비 연속 순서·상품 상세와 native 분리 탭의 정보·순서는 남는다. 성인 사용 장면은 제외다.",
+      "remaining_reason": "원본처럼 Lv40 대상은 스크롤 목록에서 숨긴다. 구입/선택 handler는 직접 대조했으나 전체 화면의 상품 상세 설명·단일 상품→장비 순서와 native 분리 탭의 정보/선택 순서는 아직 다르다. 비매품의 성인 사용 장면은 제외한다.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -3415,7 +3644,37 @@
         "fixed": true,
         "disposition": "수정·남음",
         "detail": "Lv.40 대상 제외는 수정했다. 원본의 상품→장비 연속 순서·상품 상세와 native 분리 탭의 정보·순서는 남는다. 성인 사용 장면은 제외다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "Lv.40 대상 제외는 수정했다. 원본의 상품→장비 연속 순서·상품 상세와 native 분리 탭의 정보·순서는 남는다. 성인 사용 장면은 제외다.",
+          "source_sha256": "49d6d1a5959da53ad29e6787fef84b94a778d9eb147a0dacf440903af43cac2d",
+          "source_excerpt_sha256": "b5ea3f8e7f6f1f9a2360177d39ad82004cf5d8a25034c4c7ae584af667711f2f",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "Lv.40 대상 제외는 수정했다. 원본의 상품→장비 연속 순서·상품 상세와 native 분리 탭의 정보·순서는 남는다. 성인 사용 장면은 제외다.",
+          "source_sha256": "49d6d1a5959da53ad29e6787fef84b94a778d9eb147a0dacf440903af43cac2d",
+          "source_excerpt_sha256": "b5ea3f8e7f6f1f9a2360177d39ad82004cf5d8a25034c4c7ae584af667711f2f",
+          "modified": false,
+          "disposition": "남음",
+          "detail": "원본 스크롤 대상은 Lv.40 미만만 노출하지만 native 대상 화면은 Lv.40도 사용 불가로 노출한다. 상품 상세 문구·원본의 단일 상품→장비 순서와 native 분리 탭의 순서도 남아 있다. 비매품의 성인 사용 장면은 이식 범위에서 제외.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음."
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "원본 스크롤 대상은 Lv.40 미만만 노출하지만 native 대상 화면은 Lv.40도 사용 불가로 노출한다. 상품 상세 문구·원본의 단일 상품→장비 순서와 native 분리 탭의 순서도 남아 있다. 비매품의 성인 사용 장면은 이식 범위에서 제외.",
+          "source_sha256": "49d6d1a5959da53ad29e6787fef84b94a778d9eb147a0dacf440903af43cac2d",
+          "source_excerpt_sha256": "b5ea3f8e7f6f1f9a2360177d39ad82004cf5d8a25034c4c7ae584af667711f2f",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "원본처럼 Lv40 대상은 스크롤 목록에서 숨긴다. 구입/선택 handler는 직접 대조했으나 전체 화면의 상품 상세 설명·단일 상품→장비 순서와 native 분리 탭의 정보/선택 순서는 아직 다르다. 비매품의 성인 사용 장면은 제외한다."
+        }
       }
     },
     {
@@ -3521,7 +3780,7 @@
       },
       "previous_status": "일부",
       "previous_reason": "원본 Lua에 함수/then·else·do 진입 Boolean 기록만 추가해 실제 입력을 재실행. 함수 호출 미관측, 명시적 분기 진입 0/22. 전체 계약은 같음으로 세지 않음. 미도달 분기는 audit-r22b.json의 해당 행에 미확인으로 기록.",
-      "new_status": "일부",
+      "new_status": "같음",
       "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_test.gd::shop_purchase + facilities_r22 scroll / guild_flow",
@@ -3548,7 +3807,7 @@
         "project/tests/gear_r23_bonus_resume_test.gd"
       ],
       "source_observation": "verification/parity-r23/gear-oracle.json",
-      "remaining_reason": "구입/스크롤/장비의 정상·경제 경계는 기존 시험 유지. 전체 접두 버튼의 무효 선택/피드백 dispatcher 직접 대조는 남는다.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [
         {
@@ -3879,7 +4138,40 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "구입/스크롤/장비의 정상·경제 경계는 기존 시험 유지. 전체 접두 버튼의 무효 선택/피드백 dispatcher 직접 대조는 남는다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "구입/스크롤/장비의 정상·경제 경계는 기존 시험 유지. 전체 접두 버튼의 무효 선택/피드백 dispatcher 직접 대조는 남는다.",
+          "source_sha256": "49d6d1a5959da53ad29e6787fef84b94a778d9eb147a0dacf440903af43cac2d",
+          "source_excerpt_sha256": "bf38d4ce86e0765f400f3333b07f80666a67b4277bb5d23bc7816ffeed8a168b",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "구입/스크롤/장비의 정상·경제 경계는 기존 시험 유지. 전체 접두 버튼의 무효 선택/피드백 dispatcher 직접 대조는 남는다.",
+          "source_sha256": "49d6d1a5959da53ad29e6787fef84b94a778d9eb147a0dacf440903af43cac2d",
+          "source_excerpt_sha256": "bf38d4ce86e0765f400f3333b07f80666a67b4277bb5d23bc7816ffeed8a168b",
+          "modified": false,
+          "disposition": "남음",
+          "detail": "구입·스크롤·장비·할인·덤·영구 저장은 시험됨. 원본 접두 버튼의 전체 잘못된 선택/피드백을 native의 선택 위젯과 직접 같은 dispatcher로 대조하지 못했다. pend_hard/addChat와 저장 매체 차이는 남은 사유에서 제외.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음."
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "구입·스크롤·장비·할인·덤·영구 저장은 시험됨. 원본 접두 버튼의 전체 잘못된 선택/피드백을 native의 선택 위젯과 직접 같은 dispatcher로 대조하지 못했다. pend_hard/addChat와 저장 매체 차이는 남은 사유에서 제외.",
+          "source_sha256": "49d6d1a5959da53ad29e6787fef84b94a778d9eb147a0dacf440903af43cac2d",
+          "source_excerpt_sha256": "bf38d4ce86e0765f400f3333b07f80666a67b4277bb5d23bc7816ffeed8a168b",
+          "modified_this_round": true,
+          "disposition": "같음 승격",
+          "detail": "원본 cls/slot/scroll/target/gear/buy/back·잘못된 선택·수량·금화·Lv40·비매품 거절·피드백 336입력 직접 대조. 실제 UI가 dispatcher를 사용하며 선택 상태 JSON 및 D1 왕복.",
+          "results": [
+            "verification/finish-r24/round4/shop-routes-results.json"
+          ]
+        }
       }
     },
     {
@@ -4670,7 +4962,7 @@
         "project/tests/ui_gear_r23_test.gd"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "소개 탭의 설명→셀→최근 결과→소개 행동→명단과 진행 막대·부족/대기 보조 안내 전체 순서는 미일치다.",
+      "remaining_reason": "소개비 셀·최근 카드·명단·금화/RNG/합류는 직접 일치. 전체 소개 탭의 설명→셀→최근 결과→소개 행동→명단 표시 순서와 진행 막대, 부족/대기 보조 안내의 전체 화면 대조는 남음. AI 보내기 문구는 제외.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -4734,7 +5026,37 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "소개 탭의 설명→셀→최근 결과→소개 행동→명단과 진행 막대·부족/대기 보조 안내 전체 순서는 미일치다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "소개 탭의 설명→셀→최근 결과→소개 행동→명단과 진행 막대·부족/대기 보조 안내 전체 순서는 미일치다.",
+          "source_sha256": "3125fd872513eff4defb1b3db3490f5b5a8fa87c683d23d3d5169681b2472e5f",
+          "source_excerpt_sha256": "aa66782870e42d0153a586de8a3edfa9dd472a90f838c2788730a6b3568e21d8",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "소개 탭의 설명→셀→최근 결과→소개 행동→명단과 진행 막대·부족/대기 보조 안내 전체 순서는 미일치다.",
+          "source_sha256": "3125fd872513eff4defb1b3db3490f5b5a8fa87c683d23d3d5169681b2472e5f",
+          "source_excerpt_sha256": "aa66782870e42d0153a586de8a3edfa9dd472a90f838c2788730a6b3568e21d8",
+          "modified": false,
+          "disposition": "남음",
+          "detail": "소개비 셀·최근 카드·명단·금화/RNG/합류는 직접 일치. 전체 소개 탭의 설명→셀→최근 결과→소개 행동→명단 표시 순서와 진행 막대, 부족/대기 보조 안내의 전체 화면 대조는 남음. AI 보내기 문구는 제외.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음."
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "소개비 셀·최근 카드·명단·금화/RNG/합류는 직접 일치. 전체 소개 탭의 설명→셀→최근 결과→소개 행동→명단 표시 순서와 진행 막대, 부족/대기 보조 안내의 전체 화면 대조는 남음. AI 보내기 문구는 제외.",
+          "source_sha256": "3125fd872513eff4defb1b3db3490f5b5a8fa87c683d23d3d5169681b2472e5f",
+          "source_excerpt_sha256": "aa66782870e42d0153a586de8a3edfa9dd472a90f838c2788730a6b3568e21d8",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "소개비 셀·최근 카드·명단·금화/RNG/합류는 직접 일치. 전체 소개 탭의 설명→셀→최근 결과→소개 행동→명단 표시 순서와 진행 막대, 부족/대기 보조 안내의 전체 화면 대조는 남음. AI 보내기 문구는 제외."
+        }
       }
     },
     {
@@ -4776,7 +5098,7 @@
         "project/tests/ui_gear_r23_test.gd"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "길드 전체 장소 설명·두 NPC 역할·파티 안내 및 페이지별 헤더/귀환 동선이 다르다.",
+      "remaining_reason": "의뢰판·영입 하위 helper 및 탭은 직접 일치. 전체 길드의 장소 설명·접수/길드장 두 NPC 역할·파티 선택 안내가 누락되고 native 페이지 간 헤더/귀환 동선이 다르다. HTML 반환 형식은 사유에서 제외.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -4840,7 +5162,37 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "길드 전체 장소 설명·두 NPC 역할·파티 안내 및 페이지별 헤더/귀환 동선이 다르다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "길드 전체 장소 설명·두 NPC 역할·파티 안내 및 페이지별 헤더/귀환 동선이 다르다.",
+          "source_sha256": "3125fd872513eff4defb1b3db3490f5b5a8fa87c683d23d3d5169681b2472e5f",
+          "source_excerpt_sha256": "0d411d651808a84e3324bd80f69da092820b17ae0267dc59cb03371f535e7399",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "길드 전체 장소 설명·두 NPC 역할·파티 안내 및 페이지별 헤더/귀환 동선이 다르다.",
+          "source_sha256": "3125fd872513eff4defb1b3db3490f5b5a8fa87c683d23d3d5169681b2472e5f",
+          "source_excerpt_sha256": "0d411d651808a84e3324bd80f69da092820b17ae0267dc59cb03371f535e7399",
+          "modified": false,
+          "disposition": "남음",
+          "detail": "의뢰판·영입 하위 helper 및 탭은 직접 일치. 전체 길드의 장소 설명·접수/길드장 두 NPC 역할·파티 선택 안내가 누락되고 native 페이지 간 헤더/귀환 동선이 다르다. HTML 반환 형식은 사유에서 제외.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음."
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "의뢰판·영입 하위 helper 및 탭은 직접 일치. 전체 길드의 장소 설명·접수/길드장 두 NPC 역할·파티 선택 안내가 누락되고 native 페이지 간 헤더/귀환 동선이 다르다. HTML 반환 형식은 사유에서 제외.",
+          "source_sha256": "3125fd872513eff4defb1b3db3490f5b5a8fa87c683d23d3d5169681b2472e5f",
+          "source_excerpt_sha256": "0d411d651808a84e3324bd80f69da092820b17ae0267dc59cb03371f535e7399",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "의뢰판·영입 하위 helper 및 탭은 직접 일치. 전체 길드의 장소 설명·접수/길드장 두 NPC 역할·파티 선택 안내가 누락되고 native 페이지 간 헤더/귀환 동선이 다르다. HTML 반환 형식은 사유에서 제외."
+        }
       }
     },
     {
@@ -5134,7 +5486,7 @@
         "project/tests/ui_gear_r23_test.gd"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "길드 전체 접두 해석·ps_* 위임·저장하지 않은 편집 이탈 거절·전체 메시지 합성은 미대조다. AI 전송은 제외다.",
+      "remaining_reason": "의뢰 수락/거절/포기/갱신·영입 경제는 기존 대조 유지. 전체 버튼 해석 및 ps_* 연구 위임/저장 안 한 편집 이탈 거절의 합성, 거절 시 전체 안내 문구를 새 source/native 일괄 대조하지 못함. AI 호스트 전송은 제외.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -5198,7 +5550,37 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "길드 전체 접두 해석·ps_* 위임·저장하지 않은 편집 이탈 거절·전체 메시지 합성은 미대조다. AI 전송은 제외다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "길드 전체 접두 해석·ps_* 위임·저장하지 않은 편집 이탈 거절·전체 메시지 합성은 미대조다. AI 전송은 제외다.",
+          "source_sha256": "3125fd872513eff4defb1b3db3490f5b5a8fa87c683d23d3d5169681b2472e5f",
+          "source_excerpt_sha256": "eb8f457caada0656f86f443188183901bab6133c7692579a2a7cf206438bda85",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "길드 전체 접두 해석·ps_* 위임·저장하지 않은 편집 이탈 거절·전체 메시지 합성은 미대조다. AI 전송은 제외다.",
+          "source_sha256": "3125fd872513eff4defb1b3db3490f5b5a8fa87c683d23d3d5169681b2472e5f",
+          "source_excerpt_sha256": "eb8f457caada0656f86f443188183901bab6133c7692579a2a7cf206438bda85",
+          "modified": false,
+          "disposition": "남음",
+          "detail": "의뢰 수락/거절/포기/갱신·영입 경제는 기존 대조 유지. 전체 버튼 해석 및 ps_* 연구 위임/저장 안 한 편집 이탈 거절의 합성, 거절 시 전체 안내 문구를 새 source/native 일괄 대조하지 못함. 연구/마을 소유자 파일은 이번 수정 금지. AI 호스트 전송은 제외.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음."
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "의뢰 수락/거절/포기/갱신·영입 경제는 기존 대조 유지. 전체 버튼 해석 및 ps_* 연구 위임/저장 안 한 편집 이탈 거절의 합성, 거절 시 전체 안내 문구를 새 source/native 일괄 대조하지 못함. 연구/마을 소유자 파일은 이번 수정 금지. AI 호스트 전송은 제외.",
+          "source_sha256": "3125fd872513eff4defb1b3db3490f5b5a8fa87c683d23d3d5169681b2472e5f",
+          "source_excerpt_sha256": "eb8f457caada0656f86f443188183901bab6133c7692579a2a7cf206438bda85",
+          "modified_this_round": false,
+          "disposition": "남음",
+          "detail": "의뢰 수락/거절/포기/갱신·영입 경제는 기존 대조 유지. 전체 버튼 해석 및 ps_* 연구 위임/저장 안 한 편집 이탈 거절의 합성, 거절 시 전체 안내 문구를 새 source/native 일괄 대조하지 못함. AI 호스트 전송은 제외."
+        }
       }
     },
     {
@@ -5308,7 +5690,7 @@
         "project/tests/ui_gear_r23_test.gd"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "원본 동료 목록→선택과 native 자동 선택/드롭다운, 종족/행동 설명, 부족 자금 비활성 조건이 다르다.",
+      "remaining_reason": "행동의 즉시 확정·거절·성공 피드백은 원본 handler와 일치하고 화면에 표시한다. 전체 여관 화면의 동료 목록→선택과 native 자동 선택/드롭다운, 종족/행동 설명 및 정보·선택 순서는 아직 다르다.",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "fix_location": "project/ui/town_screen_r21.gd:587",
@@ -5373,7 +5755,42 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "원본 동료 목록→선택과 native 자동 선택/드롭다운, 종족/행동 설명, 부족 자금 비활성 조건이 다르다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "원본 동료 목록→선택과 native 자동 선택/드롭다운, 종족/행동 설명, 부족 자금 비활성 조건이 다르다.",
+          "source_sha256": "c4a7c97be4184a09ad54346b7c41cb7dc8b8d4cd2d5722ed13eab368444b8477",
+          "source_excerpt_sha256": "13e06ed7666059a72d9506e55fb85087b4b3f1dcfb3aa13ade07357cdd419de9",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "원본 동료 목록→선택과 native 자동 선택/드롭다운, 종족/행동 설명, 부족 자금 비활성 조건이 다르다.",
+          "source_sha256": "c4a7c97be4184a09ad54346b7c41cb7dc8b8d4cd2d5722ed13eab368444b8477",
+          "source_excerpt_sha256": "13e06ed7666059a72d9506e55fb85087b4b3f1dcfb3aa13ade07357cdd419de9",
+          "modified": true,
+          "disposition": "수정 후 일부 유지",
+          "detail": "원본 NPC 그림·역할 끝 호감·즉시 행동·완료 상태 가독성은 보완했다. 원본 동료 목록→선택과 native 자동 선택/드롭다운, 종족/행동 설명 및 전체 정보·선택 순서 차이는 남는다.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음.",
+          "results": [
+            "verification/finish-r24/round3/facilities-results.json",
+            "verification/finish-r24/round3/ui-results.json",
+            "verification/finish-r24/round3/cloud-fields.json"
+          ]
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "원본 NPC 그림·역할 끝 호감·즉시 행동·완료 상태 가독성은 보완했다. 원본 동료 목록→선택과 native 자동 선택/드롭다운, 종족/행동 설명 및 전체 정보·선택 순서 차이는 남는다.",
+          "source_sha256": "c4a7c97be4184a09ad54346b7c41cb7dc8b8d4cd2d5722ed13eab368444b8477",
+          "source_excerpt_sha256": "13e06ed7666059a72d9506e55fb85087b4b3f1dcfb3aa13ade07357cdd419de9",
+          "modified_this_round": true,
+          "disposition": "수정 후 일부 유지",
+          "detail": "행동의 즉시 확정·거절·성공 피드백은 원본 handler와 일치하고 화면에 표시한다. 전체 여관 화면의 동료 목록→선택과 native 자동 선택/드롭다운, 종족/행동 설명 및 정보·선택 순서는 아직 다르다."
+        }
       }
     },
     {
@@ -5387,8 +5804,8 @@
       },
       "previous_status": "일부",
       "previous_reason": "통합 native 대응은 존재하나 원본 전체 상태/반환·저장 매체/코드↔UID·HTML/호스트 계약의 전체 일치를 확정하지 못함. 통합 전 연결 누락을 현재 결함으로 재사용하지 않음.",
-      "new_status": "일부",
-      "fixed": false,
+      "new_status": "같음",
+      "fixed": true,
       "evidence_tests": [
         "project/tests/gear_r23_facilities_test.gd::original screen/host observations",
         "project/tests/ui_facilities_r22_test.gd",
@@ -5415,7 +5832,7 @@
         "project/tests/ui_gear_r23_test.gd"
       ],
       "source_observation": "verification/parity-r23/facility-contracts.json",
-      "remaining_reason": "원본 talk는 즉시 호감 +1, native는 고정 대화 선택을 먼저 연다. 확인 단계·상태 확정 시점의 실제 차이다.",
+      "remaining_reason": "",
       "scope": "명시된 함수의 직접 비교 범위만. 부모/자식 행에 판정을 전파하지 않음.",
       "previous_unverified_branches": [],
       "round2_previous_status": "일부",
@@ -5486,7 +5903,45 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "원본 talk는 즉시 호감 +1, native는 고정 대화 선택을 먼저 연다. 확인 단계·상태 확정 시점의 실제 차이다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "원본 talk는 즉시 호감 +1, native는 고정 대화 선택을 먼저 연다. 확인 단계·상태 확정 시점의 실제 차이다.",
+          "source_sha256": "c4a7c97be4184a09ad54346b7c41cb7dc8b8d4cd2d5722ed13eab368444b8477",
+          "source_excerpt_sha256": "2927011d252ea94678b86870eb3c078d515ff0426afcec24adea8696f24ff899",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        },
+        "round3": {
+          "stage": "finish round3",
+          "previous_status": "일부",
+          "previous_remaining_reason": "원본 talk는 즉시 호감 +1, native는 고정 대화 선택을 먼저 연다. 확인 단계·상태 확정 시점의 실제 차이다.",
+          "source_sha256": "c4a7c97be4184a09ad54346b7c41cb7dc8b8d4cd2d5722ed13eab368444b8477",
+          "source_excerpt_sha256": "2927011d252ea94678b86870eb3c078d515ff0426afcec24adea8696f24ff899",
+          "modified": true,
+          "disposition": "수정 후 일부 유지",
+          "detail": "대화·식사·선물·휴식은 원본처럼 즉시 확정한다. 320개 원본 행동의 금화·호감·날짜·일일 제한·거절 불변을 직접 비교했다. 대사는 그대로 유지하고 대화 선택에서 중복 지급하지 않는다. back/list/pick/무효 scene·접두 해석·전체 피드백을 같은 최상위 진입점으로 모두 비교한 것은 아니므로 남음.",
+          "scope": "함수 전체 직접 비교가 없는 행은 관련 회귀 통과만으로 승격하지 않음. 과거 서버 금지/전투 갈래 이관 자체를 현재 차이의 근거로 사용하지 않음.",
+          "results": [
+            "verification/finish-r24/round3/facilities-results.json",
+            "verification/finish-r24/round3/ui-results.json",
+            "verification/finish-r24/round3/cloud-fields.json"
+          ]
+        },
+        "round4": {
+          "stage": "finish round4",
+          "previous_status": "일부",
+          "previous_remaining_reason": "대화·식사·선물·휴식은 원본처럼 즉시 확정한다. 320개 원본 행동의 금화·호감·날짜·일일 제한·거절 불변을 직접 비교했다. 대사는 그대로 유지하고 대화 선택에서 중복 지급하지 않는다. back/list/pick/무효 scene·접두 해석·전체 피드백을 같은 최상위 진입점으로 모두 비교한 것은 아니므로 남음.",
+          "source_sha256": "c4a7c97be4184a09ad54346b7c41cb7dc8b8d4cd2d5722ed13eab368444b8477",
+          "source_excerpt_sha256": "2927011d252ea94678b86870eb3c078d515ff0426afcec24adea8696f24ff899",
+          "modified_this_round": true,
+          "disposition": "같음 승격",
+          "detail": "원본 최상위 비호스트 handler의 back/list/pick/무효 접두·대상·scene·일일/금화 제한과 성공 피드백 264입력 직접 대조. 대사 데이터는 보존하며 기존 경제 320입력도 재검사.",
+          "results": [
+            "verification/finish-r24/round4/inn-routes-results.json"
+          ]
+        }
       }
     },
     {
@@ -5790,6 +6245,44 @@
       "제외": 2
     },
     "evidence": "verification/finish-r24/row-audit.json",
-    "rule": "r21-common.md 기능 등가; 실제 차이는 남김, 호스트와 매체 형식만을 차이로 세지 않음"
+    "rule": "r21-common.md 기능 등가; 실제 차이는 남김, 호스트와 매체 형식만을 차이로 세지 않음",
+    "round2": {
+      "ledger": "gear",
+      "initial_remaining": 14,
+      "promoted_same": 0,
+      "modified": 0,
+      "remaining": 14,
+      "statuses": {
+        "같음": 61,
+        "일부": 14,
+        "제외": 2
+      },
+      "stopped_for_server_allowlist": true,
+      "evidence": "verification/finish-r24/round2/row-audit.json"
+    },
+    "round3": {
+      "ledger": "gear",
+      "initial_remaining": 14,
+      "promoted_same": 5,
+      "modified": 7,
+      "remaining": 9,
+      "statuses": {
+        "같음": 66,
+        "일부": 9,
+        "제외": 2
+      }
+    },
+    "round4": {
+      "ledger": "gear",
+      "initial_remaining": 9,
+      "promoted_same": 3,
+      "modified": 3,
+      "remaining": 6,
+      "statuses": {
+        "같음": 69,
+        "일부": 6,
+        "제외": 2
+      }
+    }
   }
 }

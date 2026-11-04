@@ -217,7 +217,7 @@ func shop() -> void:
 	if not host.model.has_method("scroll_targets") or host.shop_tab=="gear":return
 	var old=host.controls.get("shop_bag")
 	if is_instance_valid(old):old.get_parent().remove_child(old);old.queue_free()
-	action("shop_scroll","스크롤 사용 · 보유 %d"%host.model.s.items.level_scroll,Rect2(18,705,190,43),host.go.bind("facility_scroll"),true,host.model.s.items.level_scroll<1)
+	action("shop_scroll","스크롤 사용 · 보유 %d"%host.model.s.items.level_scroll,Rect2(18,705,190,43),func():host.model.shop_action("scroll","shop");host._save();host.go("facility_scroll"),true,host.model.s.items.level_scroll<1)
 	action("shop_bag","보유 장비",Rect2(220,705,152,43),host.go.bind("equipment"))
 
 func inn() -> void:
@@ -229,17 +229,18 @@ func inn() -> void:
 func shop_gear() -> void:
 	if not host.model.has_method("shop_classes"):super();return
 	var w=host.model;var classes=w.shop_classes()
-	selected_class=host.get_meta("shop_class_r22",w.class_def("persona").get("id","warrior"))
+	selected_class=w.shop_class()
+	host.gear_filter=w.shop_selection().slot
 	if selected_class not in classes:selected_class=classes[0]
 	var pick=OptionButton.new();stage.add_child(pick);pick.position=Vector2(18,427);pick.size=Vector2(354,38);pick.fit_to_longest_item=false;pick.clip_text=true
 	for cls in classes:
 		var names=w.config.classes.filter(func(c):return c.id==cls)
 		pick.add_item(names[0].name if names else cls)
-	pick.select(classes.find(selected_class));pick.item_selected.connect(func(i):host.set_meta("shop_class_r22",classes[i]);host._draw_screen())
+	pick.select(classes.find(selected_class));pick.item_selected.connect(func(i):w.shop_action("cls_"+classes[i],"shop");host._save();host._draw_screen())
 	host.controls.shop_class=pick
 	for i in range(3):
 		var slot=["weapon","armor","acc"][i]
-		action("shop_slot:"+slot,w.Gear.SLOT[slot],Rect2(18+i*118,471,118,38),func():host.gear_filter=slot;host._draw_screen(),host.gear_filter==slot)
+		action("shop_slot:"+slot,w.Gear.SLOT[slot],Rect2(18+i*118,471,118,38),func():w.shop_action("slot_"+slot,"shop");host.gear_filter=slot;host._save();host._draw_screen(),host.gear_filter==slot)
 	var rows=w.shop_stock(selected_class,host.gear_filter)
 	var previous=stage;stage=scroll_page(521,175,maxi(130,rows.size()*118))
 	for i in range(rows.size()):
@@ -248,7 +249,8 @@ func shop_gear() -> void:
 		label(item.name,Rect2(78,y+3,260,25),15,T.INK,T.BOLD)
 		paragraph(host._gear_caption(item),Rect2(78,y+31,260,32),11)
 		var cost=w.price({"price":row.price});var sold=w.stock_sold(row.code)
-		action("buygear:"+row.id,"품절" if sold else "구입 · 금화 %d"%cost,Rect2(78,y+68,260,39),func():host._act(w.buy_gear.bind(row.code,selected_class),"장비를 구입했습니다."),true,sold or w.s.gold<cost)
+		var original=w.source_shop_stock(selected_class,host.gear_filter);var source_index=original.map(func(v):return v.code).find(row.code)+1
+		action("buygear:"+row.id,"품절" if sold else "구입 · 금화 %d"%cost,Rect2(78,y+68,260,39),func():host._act(w.shop_action.bind("gear_"+str(source_index),"shop"),"장비를 구입했습니다."),true,sold or w.s.gold<cost)
 		rule(y+115,0,342)
 	stage=previous;action("shop_bag","보유 장비 확인",Rect2(18,705,354,43),host.go.bind("equipment"))
 
@@ -286,7 +288,8 @@ func scroll_page_targets() -> void:
 		var id=ids[i];var p=w.item_preview("level_scroll",id);var y=i*103
 		label(w.person(id).name+(" · 페르소나" if id=="persona" else ""),Rect2(0,y,342,27),20,T.INK,T.BOLD)
 		label("Lv.%d → %d · 경험치 초기화"%[p.before,p.after],Rect2(0,y+32,342,24),13)
-		var use=action("scroll_target:"+id,"사용" if p.usable else "사용 불가",Rect2(208,y+56,134,39),func():host._act(w.use_item.bind("level_scroll",id),"레벨이 올랐습니다."),true,not p.usable)
+		var use=action("scroll_target:"+id,"사용" if p.usable else "사용 불가",Rect2(208,y+56,134,39),func():
+			w.shop_action("scroll","shop");host._act(w.shop_action.bind("target_"+id,"shop"),"레벨이 올랐습니다."),true,not p.usable)
 		T.dress_button(use,p.usable);use.alignment=HORIZONTAL_ALIGNMENT_LEFT;T.row_arrow(use,p.usable)
 		fill("scroll_row_rule:"+id,Rect2(0,y+100,342,3),T.INK)
 	stage=previous;action("scroll_back","상회로",Rect2(18,712,354,44),host.go.bind("shop"));navigation()

@@ -323,6 +323,23 @@ func gear_comparison(id: String,uid: int) -> Dictionary:
 	for key in after: delta[key]=after[key]-before.get(key,0)
 	return {"before":before,"after":after,"delta":delta,"slot":item.slot,"can_equip":level>=gear.rules.equip_lv[item.rarity] and not active(),"roll_authority":"legacy-web-rng"}
 
+func source_npc_rows(entries: Array,provided: Variant=null,show_aff=true) -> Array:
+	var rows=[];var lang=s.get("settings",{}).get("lang","ko")
+	var locale=preload("res://game/localization_r22.gd")
+	for entry in entries:
+		var texture=null
+		if provided is Dictionary:texture=provided.get(entry[0])
+		else:
+			var path="res://assets/"+str(entry[0])+".webp"
+			if ResourceLoader.exists(path):texture=load(path)
+		if not texture is Texture2D:continue
+		var role=locale.t(entry[2],lang)
+		if show_aff:role+=" · "+locale.u("호감 {n}",{"n":maxi(0,int(floor(float(s.npc_aff_r21.get(entry[0],0)))))},lang)
+		# NPC names use the existing complete native name presentation layer;
+		# the isolated public B.T dictionary retains its exact source membership.
+		rows.append({"id":entry[0],"name":locale.render(entry[1],lang),"role":role,"texture":texture})
+	return rows
+
 func npc_like(id: String) -> void:
 	if id not in ["fenella","loredana","oswald","pietro","dorothea","knut","hanna","isolde","sven","agnes","noel","muriel","vittoria"]:return
 	var a=float(s.npc_aff_r21.get(id,0))
@@ -357,18 +374,38 @@ func begin_dialogue(id: String) -> bool:
 	state.response={};state.pending={"who":id,"scene":row.id,"day":s.day}
 	return true
 
+func begin_inn_talk(id: String) -> bool:
+	# Commit 73-inn's daily +1 immediately, then retain the existing authored
+	# story as presentation. The daily action marker also survives save/resume.
+	var queued=s.dialogue_r21.queue.size()
+	if not inn(id,"talk"):return false
+	s.acts.erase(id+"_talk_transition")
+	var row=dialogue.select_scene(id,s.members[id].aff,s.dialogue_r21.seen)
+	if not row.is_empty():
+		s.dialogue_r21.response={}
+		s.dialogue_r21.pending={"who":id,"scene":row.id,"day":s.day}
+		s.acts[id+"_talk_story"]=s.day
+		if s.dialogue_r21.queue.size()>queued:s.acts[id+"_talk_transition"]=s.day
+	return true
+
 func choose_dialogue(choice_id: String) -> bool:
 	var state=s.dialogue_r21;var p=state.pending
-	if active() or p.is_empty() or p.who not in s.owned or p.day!=s.day or s.acts.get(p.who+"_talk",0)==s.day:return false
+	if active() or p.is_empty() or p.who not in s.owned or p.day!=s.day:return false
+	var prepaid=s.acts.get(p.who+"_talk",0)==s.day and s.acts.get(p.who+"_talk_story",0)==s.day
+	if s.acts.get(p.who+"_talk",0)==s.day and not prepaid:return false
 	var row=dialogue.scene(p.who,p.scene);var choice={}
 	for c in row.get("choices",[]):
 		if c.id==choice_id:choice=c;break
 	if choice.is_empty():return false
 	var before=float(s.members[p.who].aff)
-	var qsize=state.queue.size();var gained=aff_add(p.who,float(choice.aff))
+	var qsize=state.queue.size();var gained=0.0 if prepaid else aff_add(p.who,float(choice.aff))
 	var transition={}
 	if state.queue.size()>qsize:transition=state.queue.pop_back()
+	elif prepaid and s.acts.get(p.who+"_talk_transition",0)==s.day and not state.queue.is_empty():
+		var last=state.queue[-1]
+		if last.get("kind")=="transition" and last.get("who")==p.who:transition=state.queue.pop_back()
 	s.acts[p.who+"_talk"]=s.day;state.seen[p.scene]=int(state.seen.get(p.scene,0))+1
+	if prepaid:s.acts.erase(p.who+"_talk_story");s.acts.erase(p.who+"_talk_transition")
 	state.response={"who":p.who,"scene":p.scene,"choice":choice_id,"text":choice.text,"lines":choice.response.duplicate(),"gained":gained,"before":before,"after":s.members[p.who].aff,"transition":transition}
 	state.pending={};note(person(p.who).name+" · 대화하기")
 	return true
@@ -469,7 +506,9 @@ func valid_dialogue_save(value: Dictionary) -> bool:
 	if not d.pending.is_empty():
 		var p=d.pending
 		if not _shape(p,{"who":"","scene":"","day":0}) or p.who not in value.get("owned",[]) or p.day!=value.day:return false
-		if value.acts.get(p.who+"_talk",0)==value.day:return false
+		# A committed inn talk can still have its narrative choice pending. The
+		# existing daily marker prevents that choice from paying affection twice.
+		if value.acts.get(p.who+"_talk",0)==value.day and value.acts.get(p.who+"_talk_story",0)!=value.day:return false
 		# Missing future content cancels presentation during migration, not the save.
 	if not d.response.is_empty():
 		var p=d.response

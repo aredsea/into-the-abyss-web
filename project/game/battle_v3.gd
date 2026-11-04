@@ -802,7 +802,9 @@ func _damage(a: Dictionary,e: Dictionary,power: float,brk: float,extra=false,sou
 			if critical:tags.append('치명 ×1.5')
 			proc_event.result={"i":combat_events.slot(self,e),"d":dealt,"sh":mini(dealt,int(shield_before)),"kill":1 if e.hp<=0 else 0,"c":1 if critical else 0,"ls":0,"tags":tags,"ab":abyss_result.n}
 			if abyss_result.list is Array:proc_event.result.list=abyss_result.list
-			if e.hp<=0:data.last_kill=CombatDisplay.Locale.u('{name}의 {skill}',{"name":a.name,"skill":opt.get('name','')})
+			if e.hp<=0:
+				data.last_kill=CombatDisplay.Locale.u('{name}의 {skill}',{"name":a.name,"skill":opt.get('name','')})
+				data.last_kill_id=a.id
 	else:
 		var abyss=brk*(1.5 if weak else 1.0)*(1+gear.get("abyss",0)/100.0)
 		if gear_bridge==null and not sig(a,"ch_rift").is_empty(): abyss*=1+sig(a,"ch_rift")[0]/100.0
@@ -1498,10 +1500,24 @@ func effects_text(a: Dictionary) -> String:
 func snapshot() -> Dictionary:
 	var v=super(); v.schema_version=3; v.extra_state=extra_state.duplicate(true); v.selected_ally=selected_ally
 	v.inventory=inventory.duplicate(true)
+	v.depletions=data.get("depletions",0)
+	v.last_kill=_last_kill_id()
 	if dungeon_enemy_r21!=null:
 		v.r21_roster=dungeon_enemy_r21.roster()
 		v.ctb={"tick":ctb_tick,"round":ctb_round}
 	return v
+
+func _last_kill_id() -> String:
+	var label=data.get("last_kill","")
+	if label=="": return ""
+	# Names can collide with a user-named persona; keep the actual actor's id.
+	var known=data.get("last_kill_id","")
+	if known!="" and not ally(known).is_empty():return known
+	for a in data.allies:
+		if label==a.id:return a.id
+		for name in [a.name,CombatDisplay.unit_name(a,"en")]:
+			if label==name or label.begins_with(name+"의 ") or label.begins_with(name+"'s "):return a.id
+	return ""
 
 func restore(value: Variant) -> bool:
 	if dungeon_enemy_r21==null: return _restore_v3(value)
@@ -1517,6 +1533,18 @@ func intent(e: Dictionary) -> String:
 func _restore_v3(value: Variant) -> bool:
 	if not value is Dictionary or value.get("schema_version")!=3 or value.get("build")!=data.build: return false
 	var shape=snapshot()
+	# Missing outcome metadata is the pre-r24 save format, with explicit defaults.
+	for key in ["depletions","last_kill"]:
+		if not value.has(key): shape.erase(key)
+	var depletion_count=value.get("depletions",0)
+	if not _number(depletion_count) or depletion_count<0 or depletion_count>400*28 or depletion_count!=floor(depletion_count): return false
+	var killer=value.get("last_kill","")
+	if not killer is String or killer.length()>40: return false
+	var killer_name=""
+	if killer!="":
+		var member=ally(killer)
+		if member.is_empty(): return false
+		killer_name=member.name
 	if not value.has("ctb"): shape.erase("ctb")
 	elif not value.ctb is Dictionary or value.ctb.size()!=2 or not _number(value.ctb.get("tick")) or not _number(value.ctb.get("round")): return false
 	elif value.ctb.tick<0 or value.ctb.tick>100000000 or value.ctb.tick!=floor(value.ctb.tick) or value.ctb.round!=floor(value.ctb.tick/100): return false
@@ -1596,7 +1624,8 @@ func _restore_v3(value: Variant) -> bool:
 		if x(e).has("judith_sp0"): e.speed=floor(x(e).judith_sp0*.85+.5)
 	inventory=value.inventory.duplicate(true)
 	ctb_tick=int(value.get("ctb",{}).get("tick",0)); ctb_round=int(value.get("ctb",{}).get("round",0))
-	data.depletions=0;data.last_kill='';data.erase('combat_outcome')
+	data.depletions=int(depletion_count);data.last_kill=killer_name;data.erase('combat_outcome')
+	data.last_kill_id=killer
 	if dungeon_enemy_r21!=null: TraitRules.refresh(self)
 	refresh_forecast(); return true
 

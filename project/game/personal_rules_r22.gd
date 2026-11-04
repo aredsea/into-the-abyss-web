@@ -436,7 +436,7 @@ static func hit_after(b,h: Dictionary) -> void:
 					b.combat_events.field(b,e,'hp',e.hp,at+.3)
 					b.combat_events.trait_payload(slot,'티핑 포인트: 출혈 3중첩 폭발 '+str(damage),at+.3)
 					b.combat_events.say('<b>'+a.name+'</b>의 <b>티핑 포인트</b>. '+e.name+'의 출혈이 한꺼번에 터졌다. <em>'+str(damage)+'</em> 피해를 입혔다'+('. 쓰러졌다' if e.hp<=0 else ''),at+.4)
-					if e.hp<=0:b.data.last_kill=a.name+'의 티핑 포인트';b.TraitRules.kill_credit(b,a,at+.3)
+					if e.hp<=0:b.data.last_kill=a.name+'의 티핑 포인트';b.data.last_kill_id=a.id;b.TraitRules.kill_credit(b,a,at+.3)
 				else:
 					b.x(e).bleed_stacks=stacks; b._effect(e,"bleed",3,maxf(1,floor(stacks*per))); e.effects.bleed.by=a.id; e.effects.bleed.order=b._next_dot_order()
 					b.combat_events.trait_payload(slot,'티핑 포인트: 출혈 '+str(stacks)+'중첩',at+.3)

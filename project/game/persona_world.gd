@@ -12,6 +12,10 @@ func _init() -> void:
 	for id in s.items:s.items[id]=0
 	s.persona={"name":"","race":"","lineage":"","nation":"","cls":"","stats":{},"fight":1,"lv":1,"exp":0,"bonus_total":5,"bonus_custom":0,"skill":{"prefix":"","suffix":"","prefix_lv":{},"suffix_lv":{}}}
 	s.creation_r22={"complete":false,"legacy":false};s.scene="create";s.ui={"page":1,"sel":"","msg":""};s.scenario="";s.xp_r22={}
+	# G_new has no generated guild offers and consumes no town RNG. Generate
+	# offers only after the first meeting has established the game's seed.
+	s.board=[];s.quest={};s.rng=20261008
+	s.town_r21={"seed":20261008,"counter":0,"qn":0}
 	persona_rules.prepare(s.persona)
 	s.erase("persona_progress_r21")
 	ensure_persona_member()
@@ -101,7 +105,6 @@ func can_persona_fight() -> bool:
 	return not class_def("persona").is_empty()
 func set_fight(fight: int) -> bool:
 	if active() or fight not in [0,1]:return false
-	if fight==1 and not can_persona_fight():return false
 	s.party=persona_rules.clean(s.party,s.owned,int(s.persona.fight),config.companions.map(func(c):return c.id))
 	s.persona.fight=fight
 	if fight==1 and s.party.size()>3:

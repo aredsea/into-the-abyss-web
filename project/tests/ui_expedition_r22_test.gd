@@ -70,12 +70,14 @@ func run():
 		root.content_scale_size=dim;root.size=dim
 		var s=Screen.new();s.size=dim;s.storage.path="user://p5-ui-%dx%d-%d.json"%[dim.x,dim.y,OS.get_process_id()];root.add_child(s);s.model=ready_world();s.motion_reduced=true
 		s.model.s.dungeon_r21.best=27;s.model.selected_floor=28;s.model.s.persona.fight=0;s.model.s.party=["teiris"]
+		s.model.set_sortie_mode(1) # This fixture checks dungeon floor 28, not the fresh quest default.
 		await show(s,"depart")
 		check(not s.controls.start_run.disabled and s.controls.start_run.tooltip_text.contains("위험합니다") and s.controls.start_run.tooltip_text.contains("전열"),"source soft warnings explain risk without blocking departure")
 		check(s.controls.dungeon_floor.selected==-1 or s.controls.dungeon_floor.get_selected_id()==28,"paged picker never displays a different floor as the active selection")
 		await capture(s,"source-warning",dim)
 		s.model=ready_world()
 		s.model.s.dungeon_r21.best=8
+		s.model.set_sortie_mode(1)
 		await show(s,"depart");await capture(s,"floors",dim)
 		await click(s,"floor_next");await capture(s,"floor-page",dim);await click(s,"dungeon_floor")
 		# Native PopupMenu is a separate OS window; the root viewport injector does

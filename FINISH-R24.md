@@ -1,150 +1,106 @@
-# FINISH-R24
+# FINISH-R24 · 4차
 
-화면 신고 2건 수정. 전체 144그룹 통과·실패 0. 원본 전투 6,320/6,320판·219,785기록 일치. 메뉴 스모크의 언어·자리표시자 0건. **고정 대사 영어 미지원 14,216개 때문에 전체 언어 0건 완료 기준은 미달이다.**
+**전체 완료 아님. 이어받은 잔여 74행에서 같음 11행 승격, 14행 수정(승격 포함), 63행이 남았다.** 3차 시작 80행 기준 누적 승격은 17행이다. 전 화면·전 데이터 언어 검사는 보호된 대사 미번역 14,216필드 때문에 완료 기준을 충족하지 못한다. 금지된 데이터/영어 대사 표시 함수를 수정하지 않았다.
 
-잔여 80행 재검토: 같음 승격 8행, 이번 수정 근거 17행(승격과 중복), 남음 72행(전투 이관 15 포함). **원본 기능 전체 일치까지 완료한 것은 아니다.** 남은 실제 화면/입력/저장 차이는 아래와 각 JSON의 `finish`에 기록했다.
+프로젝트 **175/175그룹 최종 통과·실패 0**, 실제 `serve.mjs` Worker/D1 클라우드 **11그룹** 포함. `npm test` 종료 0, 정상 표본 **393/393**, 두 필드 서버 **64사례·449검사**. 전투 **6,320/6,320판·219,785기록 일치**.
 
-| 대조표 | 처리 | 같음 승격 | 수정 근거 | 남음 | 전투 이관(남음에 포함) |
-|---|---:|---:|---:|---:|---:|
-| expe | 31 | 0 | 2 | 31 | 8 |
-| gear | 14 | 0 | 2 | 14 | 4 |
-| ui | 35 | 8 | 13 | 27 | 3 |
+일반 화면 언어 **0건**, 자리표시자 **0건**: 222개 화면·언어 상태, 20,650개 표시 문자열, 데이터 63파일·75,763문자열. 별도 보호 대사 **14,216필드 미번역**, `all_language_complete=false`, 전체 스캐너 종료 1. 전체 언어 0건으로 보고하지 않는다.
 
-연대기는 원본처럼 영어 사실을 저장하되, 옛 list/queue를 삭제·재작성하지 않고 표시 때 한국어/영어를 고른다. 첫 만남·길드 영입·의뢰·레벨·층/구역 보스·퇴각/실패·호감·전설 장비 사건을 처리한다. 페르소나 이름은 표시 경로에서 실제 이름으로 치환하며 빈 이름/옛 `{{user}}`는 당신/You로 표시한다. 내부 원본 호환 helper와 저장 문자열은 유지했다.
+| 대조표 | 시작 잔여 | 같음 승격 | 수정 | 남음 |
+|---|---:|---:|---:|---:|
+| expe | 23 | 3 | 6 | 20 |
+| gear | 9 | 3 | 3 | 6 |
+| ui | 26 | 5 | 5 | 21 |
+| battle | 16 | 0 | 0 | 16 |
 
-메뉴/패널 스모크의 한영 206개 상태·19,258개 문자열, 데이터 63개 파일·75,762개 문자열과 UI 스크립트를 스캔했다. 데이터 안 원본 `{{user}}` 계약은 보존하고 표시에서 치환한다. 계정 코드·PIN·사용자 자유 입력은 번역하지 않는다. 스모크 스캔은 명시된 fixture 상태를 덮는다. 별도 authored-language-audit.json에서 기존 여관/응답/탐색/관계 고정 대사 14,216개 표시 필드를 실제 English 표시 함수로 검사했고 14,216개에 한국어가 남았다. 이 문구의 영어 정본/번역 묶음은 없으며, 원문을 지우거나 임의의 영어 요약으로 바꾸지 않았다. 따라서 전 데이터 언어 결함 0건으로 보고하지 않는다.
+수정 수는 이번 제품 동작을 바꾼 행이며 승격과 중복된다. P3540은 이어받은 기존 수정의 재검사로 승격했으므로 이번 수정 수에는 넣지 않았다. 전체 화면/handler의 일부만 확인한 행은 승격하지 않았다. 원본 HTML·저장 매체 자체나 과거 갈래 금지는 잔여 이유로 쓰지 않는다.
 
-새 보상은 가방이 차면 원본대로 버린다. 기존 overflow·수량 초과 장비는 보존하고 재개 시험을 넣었다. 원본 gear_restrict처럼 만석일 때 옛 부적합 장착을 무조건 해제하지 않는다. 코드/UID 두 저장 매체 자체는 차이로 세지 않았다.
+주요 변경과 직접 대조:
 
-검사 기대값 변경: expedition_r22_test·expe_pass4_r23_test·town_combat_r21_round14_test의 신규 만석 보존 기대를 정본의 버림으로 교체하고 옛 overflow 보존 검사는 유지/추가했다. town_r21_round10_test·round11_test의 한국어 fallback 기대는 명시적 native 영어 번역으로 바꿨으며, 미등록 단어가 변수 전용 틀에 잘못 잡히지 않는 검사는 유지했다. 도감 원본 영어 화면의 고정 한국어 필터/무속성 표시는 원본 U/T 사전을 적용한 표시 기대값으로 따로 비교한다(source_locale_r24.gd). 고정 대사는 원문 유지 검사를 그대로 유지하며, 일반 UI 틀로 부분 번역하지 않는다. 영어 미지원은 별도 전수 목록으로 남겼다. UI 글자 검사는 고정 16px 대신 실제 스타일 여백과 줄바꿈 크기로 고쳤고 터치 높이/영역 검사는 유지했다. 전투 기대값은 바꾸지 않았다.
+- 생성: 원본 순서의 종족/출신/직업/능력치 설명·주의·선택·활성·추천/초기화를 실제 화면에 연결했다. 1,008페이지+28총량 입력, 2,636검사. 기본/보너스 막대 비율 564조합을 포함한다. 원본 C printf와 Godot 소수 셋째 자리 tie 16건을 고쳤으며 기존 0~2자리 전투 표시 회귀도 통과했다.
+- 휴식 장비: 같은 화면에 원본 슬롯별 후보·해제/장착을 표시하고 선택을 기존 ui.sel에 저장한다. 72표시+252행동, 1,872검사. 잘못된 코드·소유자·직업/레벨·가득 찬 가방과 JSON 재개를 비교했다.
+- 정산: 금화·경험치·레벨·호감·장비 획득/버림 메시지를 복원했다. 48입력·560검사, 2,001개 기존 가방도 보존한다. 이 비교의 보스 드롭은 no-drop으로 격리했다. 다층/첫 보스/복합 드롭의 전체 계약은 P3202에 남는다.
+- 여관/상회: 실제 UI에서 최상위 원본 버튼 dispatcher를 사용한다. 여관 264입력·266검사, 상회 336입력·384검사. back/list/pick/분류/슬롯/대상/구입·거절 문구와 상태를 직접 비교했다. 기존 여관 경제 320입력·1,281검사도 통과한다. 호스트 채팅 전송 문구만 제외했다. NPC 접근자는 79-sex.lua의 sx_npcst/npc_like만 추출했으며 성인 장면은 실행/이식하지 않았다.
+- 실제 D1: 장비 선택/장착, 상회 분류/슬롯/스크롤 선택을 업로드→다른 기기→후속 행동→역방향 저장/파일 재개까지 25검사했다. 외부 소유 장비 거절을 포함하고 서버 키를 추가하지 않았다.
+- 언어: 실제 영어 정산 화면의 한국어 제목 1건을 locale 사전에 추가했다. 예전 연대기/스크롤 사용자 이름 결함의 1차 수정은 유지하며 두 크기의 화면을 다시 열었다.
 
-실제 `server/abyss-save/test/serve.mjs`/D1로 클라우드 8그룹을 실행했다. 실행 시에만 빈 포트·dev registry 비활성화를 적용하며 서버 파일은 바꾸지 않았다. UI 검사는 native 렌더링으로 돌리도록 실행기를 바로잡아 재실행했다. 종료 130은 기존 private stdin SIGINT 종료 경로다. Windows 인증서 저장소 진단만 환경 메시지로 분리했고 다른 ERROR/Script error는 실패로 처리했다.
+시각 확인: 최신 한영 생성·휴식·정산·여관 48장과 기존 연대기/스크롤 결함 4장, **총 52장**을 `390×844`·`1280×800`에서 직접 열었다. 관련 실제 UI **3,092검사**, 소스 표시 조각/컨트롤/미터와 콜백을 확인했다. 긴 설명은 기존 스크롤 영역을 사용한다. 원본 그림·팔레트·서체·공용 게이지는 유지했다. 전체 화면 순서의 남은 차이는 행별 기록을 따른다.
 
-390×844·1280×800 after와 직접 열어 본 검토표는 [visual-review.json](verification/finish-r24/visual-review.json), 원본 이미지는 96/96 해시 일치다. 시안의 배치·색·서체 및 초상/적 도트 바이트를 유지했다. 새 그림·Web export·docs/server 수정·git 명령 없음.
+검증 근거:
 
-검증 파일: [전체 검사](verification/finish-r24/all-tests.json) · [신규 직접 대조](verification/finish-r24/unit-results.json) · [원본 oracle](verification/finish-r24/oracle.json) · [언어 스캔](verification/finish-r24/locale-scan.json) · [행별 근거](verification/finish-r24/row-audit.json) · [보호 경계](verification/finish-r24/boundaries.json).
+- [최종 전체 검사](verification/finish-r24/round4/all-tests.json), [최초 실패와 재검사](verification/finish-r24/round4/recheck-history.json), [npm test](verification/finish-r24/round4/npm-test.log), [실제 클라우드](verification/finish-r24/round4/cloud/results.json)
+- [생성](verification/finish-r24/round4/create-results.json), [휴식 장비](verification/finish-r24/round4/rest-gear-results.json), [정산](verification/finish-r24/round4/settle-results.json), [여관](verification/finish-r24/round4/inn-routes-results.json), [상회](verification/finish-r24/round4/shop-routes-results.json), [새 D1 재개](verification/finish-r24/round4/cloud-rest.json)
+- [행별 원본 hash·판정·남은 이유](verification/finish-r24/round4/row-audit.json), [전투](verification/finish-r24/round4/battle-regression.json), [시각 검토와 PNG hash](verification/finish-r24/round4/visual-review.json), [변경 파일/보호 경계](verification/finish-r24/round4/boundaries.json)
+- [전체 언어 스캔](verification/finish-r24/locale-scan.json), [보호 대사 검출](verification/finish-r24/authored-language-audit.json), [이전 보고](verification/finish-r24/round4/round3-report.md)
 
-남은 항목:
+재검사 해석: 최초 전체 실행의 chronicle fixture는 초기 의뢰가 없다는 원본 G_new 복원 뒤 비어 있는 배열을 참조했다. 완료된 게임용 fixture에 의뢰판 생성을 명시했다. pass5 화면 fixture는 새 gear_card 포함 및 원본이 가정한 dungeon 모드를 명시했다. 둘 다 관련 재검사 통과, 원본 수치 기대값은 바꾸지 않았다. 전체 대사 UI 검사도 1,489,324검사·실패/overflow 0을 유지했다. npm의 시간 경계 실패와 사라진 외부 의존성 경로는 재실행으로 확인했으며 최종 실행은 성공했다.
 
-- P2757 · 장소별 제목/본문, 출전자 없음, 원본 전체 시설 버튼 순서와 고정 마을 바로가기의 정보·순서가 아직 다르다.
-- P2758 · 시설 이동·영수증·없는 의뢰·무효 scene을 함께 처리하는 최상위 handler의 전체 직접 대조가 남는다.
-- P2784 · 의뢰 정산의 st.rg 우선/의뢰 fallback·미종료 전투·엘리트 입고·재정산을 실제 단일 진입점으로 모두 대조하지 못했다.
-- P2792 · battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.
-- P3016 · SO.face의 사용자 아바타는 호스트 제외. 일반 문자열 provider의 표시와 native Texture provider의 fallback 전체는 미대조다.
-- P3020 · 클래스 정보 없는 옛 저장에서 native는 참전 버튼을 막는다. 원본의 활성 버튼과 실제 차이가 남는다.
-- P3032 · 출정 전체의 picker/고정 슬롯/별도 스크롤과 보조 출발 버튼이 원본의 전체 정보·버튼 순서와 다르다.
-- P3037 · 원본의 새 전투 엔진 부재 fresh(T.bn) fallback 입력을 native에서 만드는 경로가 없다.
-- P3041 · go/back의 모든 scene·무효 입력·engine 부재를 합친 handler의 전체 관찰 대조가 남는다.
-- P3079 · 원본 카드 안 cached percentile 표시와 native 별도 순위 화면 진입의 정보 위치·상태가 다르다.
-- P3145 · battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.
-- P3182 · 연속 전투의 적 이름 중복 제거 last/log·정예 장비 log 및 sid/bn/over/dn 불일치 전체 입력은 미대조다.
-- P3195 · 정상 장비의 0/1999/2000/2001칸 삽입·버림·옛 overflow 재개는 수정·직접 일치. 추가 probe에서 원본은 구문 유효한 미등록 코드 zz99.1.1을 성공 목록으로 반환하지만 native는 거절하므로 전체 승격하지 않는다(known-code-gaps.json).
-- P3202 · 만석 신규 장비 버림은 수정·대조했다. 전체 승리/퇴각/패배 보상 조합과 원본 canonical stage 저장 입력까지의 함수 전체 대조는 남는다.
-- P3223 · sid/bn 불일치·legacy stage·snapshot 검증을 합친 정산 경계 전체는 미대조다.
-- P3225 · 원본 st.dn.stage 1/2 저장을 직접 읽는 ABI가 없다. native 옛 저장 재개와 별개의 미지원 입력이다.
-- P3249 · 휴식 장착은 동작하지만 code 버튼 해독·잘못된 슬롯·다른 소유자·거절 문구를 한 진입점으로 모두 대조하지 못했다.
-- P3251 · 탐색 handler의 cont/next/home 무효 전투 상태 및 모든 장비 접두 요청을 합친 전체 대조가 남는다.
-- P3287 · 원본 전체 explore의 버튼 순서와 native 지도·기록·보급품 별도 이동이 다르다.
-- P3290 · 원본 휴식 안 슬롯별 후보/해제/장착 줄 대신 native는 별도 정비 화면을 쓴다. 후보·소유자·레벨 전체 대조가 남는다.
-- P3293 · R.sel 무효 슬롯 정규화·슬롯별 후보 카드 전체가 별도 정비 대상 선택과 다르다.
-- P3296 · 파티/귀환 확인은 유지하나 원본 inline gear_card와 native 별도 정비의 정보·선택 순서가 다르다. 성인 카드는 제외다.
-- P3305 · run 없음 안내/귀환·inline gear_card·phase별 전체 버튼 구성을 직접 같게 확인하지 못했다.
-- P3309 · 원본은 음수·소수 옛 물약 수도 합산한다. native 저장은 이를 원자적으로 거부한다. 이 손상 입력 차이는 남는다.
-- P3311 · 원본 canonical G 전체 및 stage 저장을 native로 읽는 범용 이관 ABI가 없다.
-- P3331 · battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.
-- P3332 · battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.
-- P3337 · battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.
-- P3338 · battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.
-- P3340 · battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.
-- P3344 · battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.
-- P3540 · 정본 6개 0/1999/2000칸 제한·재개 probe는 수정 후 일치한다. 그러나 원본은 invalid 같은 잘못된 옛 장착 문자열을 유지하고 native는 충돌 보관본으로 옮기므로 전체 관찰 차이가 남는다(known-code-gaps.json). 원문 자체는 보존한다.
-- P3639 · battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.
-- P3644 · battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.
-- P3647 · battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.
-- P3659 · battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.
-- P3691 · 제련/가공 본문은 기존 직접 비교 통과. 장소 설명·NPC 역할·완료/귀환 보조 문구와 추가 장착 선택지가 전체 화면에서 다르다.
-- P2826 · 그림 없음/잘못된 그림의 NPC 행 생략과 NPC_G 역할 끝 호감 표시를 같은 제품 helper로 연결한 전체 대조가 없다.
-- P2828 · Lv.40 대상 제외는 수정했다. 원본의 상품→장비 연속 순서·상품 상세와 native 분리 탭의 정보·순서는 남는다. 성인 사용 장면은 제외다.
-- P2841 · 구입/스크롤/장비의 정상·경제 경계는 기존 시험 유지. 전체 접두 버튼의 무효 선택/피드백 dispatcher 직접 대조는 남는다.
-- P2904 · 소개 탭의 설명→셀→최근 결과→소개 행동→명단과 진행 막대·부족/대기 보조 안내 전체 순서는 미일치다.
-- P2907 · 길드 전체 장소 설명·두 NPC 역할·파티 안내 및 페이지별 헤더/귀환 동선이 다르다.
-- P2922 · 길드 전체 접두 해석·ps_* 위임·저장하지 않은 편집 이탈 거절·전체 메시지 합성은 미대조다. AI 전송은 제외다.
-- P2954 · 원본 동료 목록→선택과 native 자동 선택/드롭다운, 종족/행동 설명, 부족 자금 비활성 조건이 다르다.
-- P2961 · 원본 talk는 즉시 호감 +1, native는 고정 대화 선택을 먼저 연다. 확인 단계·상태 확정 시점의 실제 차이다.
-- P0017 · native 초기 생성에는 선생성 의뢰·다른 초기 RNG와 출정 기본 모드가 남아 있다. 빈 원본 G_new 전체 관찰 투영은 같지 않다.
-- P0084 · native schema 1/2는 보존하지만 schema 없는 원본 v1 G 전체와 잘못된 타입을 원본처럼 보충해 읽는 경로가 없다.
-- P0085 · 원본 v1 load의 초과 경험치 정산·코드 장착 환원·전체 진행을 native restore로 읽는 통합 입력 경로는 없다.
-- P0097 · native 파일 왕복은 통과. 원본 v1 코드 장비·상태·진행 전체를 UID로 투영하는 저장/재개 대조는 남는다.
-- P0105 · 원본 HUD 장소·금화·최대 3명 즐겨찾기 얼굴·메뉴 버튼 순서와 native 분산된 상/하단 진입은 전체 대조하지 못했다.
-- P0131 · 알 수 없는 scene·화면 함수 오류·공개 override의 최상위 native 표시 전체를 원본과 직접 비교하지 못했다. 성인 override는 제외다.
-- P0133 · 무효 접두·중복 버튼·저장 실패 뒤 부수효과를 포함한 world_screen 최상위 라우터 전체 대조가 남는다.
-- P2425 · 개인/시너지 표시는 보강했다. 종족/계통 미선택 안내와 원본 pg_race 전체 정보·순서의 직접 대조는 남는다.
-- P2426 · 차단 이름 덧붙임을 제거하고 원본 bl.s/note/tag로 수정했다. 전체 pg_nation의 설명·순서·선택 유지 합성은 미대조다.
-- P2427 · 계열 개인/시너지를 추가했다. 모든 직업의 기본 수치·스킬·출신 주의문을 포함한 전체 순서 직접 대조는 남는다.
-- P2428 · 총량 프리셋의 설명·직접 모드 보조 문구 전체는 아직 원본과 다르다.
-- P2434 · 원본 능력치 막대·HP/MP·추천/초기화·상한 설명의 전체 화면 정보와 순서를 직접 모두 맞추지 못했다.
-- P2442 · 단계 머리/특성/확정/내비게이션 helper는 승격했다. 첫 단계의 원본 언어 선택 버튼·클라우드 설명 및 페이지 전체 합성 순서 차이는 남는다.
-- P2462 · 호스트 아바타는 제외. 첫 만남에서 그림 provider 없음·실패 시 초상/이니셜 전체를 CR.face와 별도로 직접 비교하지 못했다.
-- P2463 · 원본 각 선택지의 직업/종족/속성·장소/teaser와 목록→미리보기 순서가 native와 다르다.
-- P2467 · seed 산식·1회 생성 진입은 수정·대조했다. 첫 만남의 전체 초기 상태·아이템·난수 소비와 생성 의뢰를 합친 관찰은 아직 미일치다. AI 지시는 제외다.
-- P2528 · 원본 코드 장착 저장의 전체 UID 이관과 실제 전투 중 패널 진입의 통합 경계가 남는다. 평시 0/1999/2000칸 직접 대조는 기존 통과다.
-- P2534 · 30명 한영 상세는 기존 직접 비교 통과. P2528의 원본 옛 장착 저장·전투 연결을 상속하므로 전체 함수 승격은 보류한다.
-- P2537 · 도감 전체는 P2528/P2534의 원본 장착 이관·전투 연결 경계가 남는다.
-- P2539 · 무효 코드·원본 옛 장착 입력→UID·실제 전투 라우터까지의 handler 전체 관찰은 미대조다.
-- P2567 · battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.
-- P2568 · battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.
-- P2593 · 평시 판매/장착/교환/재개는 기존 직접 일치. 전투 중 잔여 버튼 거절과 원본 옛 장착 입력을 합친 전체 경계가 남는다.
-- P2606 · battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.
-- P2617 · 즐겨찾기 최대 3명 얼굴·선택 버튼을 실제 HUD 진입/순서와 연결한 직접 대조가 없다.
-- P2629 · 선택지/설명 및 클라우드 대체 기능은 기존 시험 통과. 전체 초기화 뒤 G_new 차이와 계정 화면 복귀/전체 합성은 남는다.
-- P2637 · 설정 선택/저장/재개는 기존 통과. 초기화 뒤 원본 G_new의 난수·의뢰·진행 전체 투영 차이가 남는다.
+경계: 원본 이미지 **96/96 불변**. 대사 데이터·영어 표시 함수·공용 게이지·docs 불변, 새 그림/Web export 없음. 기존 미커밋 3차 변경을 보존했다. 이번 서버 파일 변경은 0건이며 기존 depletions/last_kill strict allowlist만 유지·재검사했다. 보안/속도 제한은 바꾸지 않았다. 다른 갈래 node_modules는 읽기만 했고 launcher는 개발 registry 공유만 끈 실제 Worker/D1을 사용한다. 만든 runtime 슬롯은 모두 정리했고 기본 runtime은 보존했다.
 
-바꾼 기존 파일:
+남은 이유: 보호 대사 외에도 원본 G/VER2 전체·옛 stage 입력 이관, 전체 화면 정보/선택 순서, 전투 복합 훅의 반환·로그·시간 이력 및 일부 최상위 dispatcher 합성의 직접 대조가 미완료다. id 전용 last_kill은 원본 이름+기술 문구를 완전히 보존할 수 없다. 세부 63행은 다음과 같다.
 
-- project/game/dungeon_world_r21.gd
-- project/game/expedition_world_r22.gd
-- project/game/facilities_world_r22.gd
-- project/game/gear_save_r22.gd
-- project/game/localization_r22.gd
-- project/game/persona_rules.gd
-- project/game/persona_world.gd
-- project/tests/expedition_r22_test.gd
-- project/tests/expe_pass4_r23_test.gd
-- project/tests/town_combat_r21_round14_test.gd
-- project/tests/town_r21_round10_test.gd
-- project/tests/town_r21_round11_test.gd
-- project/tests/ui_expedition_r22_test.gd
-- project/tests/ui_panels_r22_test.gd
-- project/tests/ui_persona_r22_test.gd
-- project/tests/ui_phase4_codex_r23_test.gd
-- project/tests/ui_phase4_native_r23_test.gd
-- project/tests/ui_semantics_native_r23_test.gd
-- project/ui/create_screen.gd
-- project/ui/journal_screen_r22.gd
-- project/ui/panel_screen_r22.gd
-- project/ui/town_screen_r21.gd
-- project/ui/world_screen.gd
+- expe P2757 `B.SCREENS.town`: 마을 본문·전체 시설 설명·수락 의뢰/최고층 안내를 기존 하단 영역의 스크롤에 추가했다. 출전자 없음 안내, place_id에 따른 장소별 hero 제목/본문, 원본 전체 버튼 순서는 아직 직접 일치하지 않는다. 고정 시안의 기존 바로가기도 유지했으므로 전체 화면은 승격하지 않는다.
+- expe P2758 `B.H.tw`: 마을의 새 의뢰/대던전 버튼은 실제 모드 선택으로 연결했다. 전체 이동의 ui.tab 초기화·잘못된 scene·의뢰 없음 메시지 및 거래 영수증 경계는 facilities_world_r22.facility_route와 world_screen.go에 걸친다. 전체 handler 직접 대조는 남는다.
+- expe P2784 `B.tw_settle`: 실제품 의뢰 정산은 facilities_world_r22.settle이 override한다. st.rg 우선/의뢰 fallback, 미종료 전투, 엘리트 입고, 재정산, 원문 메시지의 단일 진입점 직접 대조가 남는다.
+- expe P2792 `B.HUD_EXTRA[#B.HUD_EXTRA + 1]`: 원본 battle HUD의 id/load/bn 실패·탐색 승리 제외와 귀환/층 정산 label/subtitle은 현재 battle 화면 파일에 있다. 이번에 고친 패배 후 마을 경로만으로 전체 HUD의 같음을 주장하지 않는다.
+- expe P3016 `face`: 동료의 원본 초상과 새 번역 첫 글자 fallback은 유지·보강했다. SO.face의 persona pimg(호스트 사용자 아바타/실루엣)와 PX.face의 nonempty plain-string provider 반환 경계는 town tw_face와 다른 계약이다. native persona 표시는 이 전체 분기와 아직 같지 않다. 호스트 아바타 부분은 호스트 전용 범위로 별도 기록한다.
+- expe P3032 `B.SCREENS.sortie`: 미지정 출정 기본 모드를 원본 의뢰 모드로 복원했다. picker/고정 슬롯/별도 스크롤·보조 출발 버튼의 전체 정보·버튼 순서 차이는 남는다.
+- expe P3037 `legacy_start`: 현재 전투 엔진이 없는 원본 환경의 fresh(T.bn) 옛 전투 생성 fallback은 native의 옛 저장 재개와 별개의 기능이다. canonical legacy 출정 상태 생성/이관 ABI가 아직 없으며 이번 화면 fixture로 대체하지 않았다.
+- expe P3041 `B.H.so`: 실제 슬롯 제거·persona 지휘 전환·mode/filter/floor/page를 연결했고 중복 rm이 재등록하지 않도록 했다. 참전 전환의 마지막 동료 대기/만석 메시지를 보강했다. source go/back의 모든 scene·무효 입력과 legacy engine-absent 분기를 하나의 handler로 직접 대조하는 것은 남는다.
+- expe P3079 `B.dn_card`: 0/2/8/27/54/419 최고층과 1/2/99쪽의 목록·잠김·돌파/추천·보스/일반 금화·적 레벨·4인 안내 36건의 직접 대조를 추가했다. rank_head의 cached percentile은 원본처럼 카드 안에 표시하지 않고 별도 native 순위 화면으로 연결한다. 명시적 클라우드 대체의 순위 기능은 기존 시험으로 유지하지만 전체 카드의 cached 상태 표시까지 같음으로 올리지는 않는다.
+- expe P3145 `B.ex_battle`: 전투 진입 자원·탐색 투영은 기존 대조를 유지한다. 원본 sid/bn/dn/carry 전부와 native battle snapshot의 전체 경계 동등성은 아직 직접 확정하지 못했다.
+- expe P3182 `do_cont`: 수치 투영·스냅샷 회귀는 유지했다. native continuation의 적 이름 중복 제거 last/log·정예 장비 log와 source sid/bn/over/dn 불일치 분기 전체는 아직 직접 비교/수정하지 않았다.
+- expe P3202 `finish_run`: 정산 금화·경험치·레벨·동료 호감·장비/손실/원문 메시지를 48개 원본 입력으로 비교했다(한영×성공/퇴각/패배×케른×가방 0/1999/2000/2001). 기존 넘친 장비는 보존한다. 이 fixture는 1층, 보스 장비 드롭은 no-drop으로 격리하므로 다층/첫 보스/보스 드롭과 탐색 보상의 합성 전체는 아직 직접 대조하지 않았다.
+- expe P3223 `B.dn_settle`: 원본 sid/bn 불일치 시 거점 복귀와 legacy stage 분기, native snapshot 검증을 통합한 정산 경계의 직접 대조가 미완료다. 패배의 정상 경로 수정만으로 무효 입력까지 승격하지 않는다.
+- expe P3225 `B.dn_settle_legacy`: 옛 native 저장 재개 회귀는 유지했다. canonical 원본 st.dn.stage 1/2 저장을 읽어 정산하는 입력 ABI가 아직 없다. 매체 차이가 아니라 미지원 구체 입력 경로로 남긴다.
+- expe P3251 `B.H.ex`: 탐색·물약·퇴각 요청/취소/확정의 기존 대조와 새 확인 화면 정보를 유지했다. cont/next/home의 무효 전투 상태 및 모든 장비 버튼을 합친 전체 handler 직접 대조는 남는다.
+- expe P3287 `explore_screen`: ask에도 head/last/party/물약 정보를 함께 남기도록 수정하고 실제 UI에서 확인했다. 원본 전체 explore 화면의 버튼 종류/순서와 시안의 지도·기록·카드·보급품 이동 차이는 남아 전체 승격하지 않는다.
+- expe P3296 `rest_screen`: 원본 gear_card를 실제 휴식 화면 안에 추가하고 선택·장착·해제를 연결했다. 파티/물약/장비 조각은 통과하지만 휴식 화면 전체의 정보·버튼 순서와 별도 보급품/정비 이동 구성이 아직 다르다. 성적 휴식 카드는 제외한다.
+- expe P3305 `B.SCREENS.dungeon`: 실제 휴식의 inline gear_card·선택/장착과 정산 보상 문구를 보완했다. run 없음 안내/귀환 및 전체 phase별 정보·버튼 구성의 원본 직접 대조는 미완료다.
+- expe P3309 `move_old`: potion/mana의 유효 옛 저장 합산은 유지했다. 원본 음수/소수 합산과 native 원자적 거부는 실제 허용 입력 차이로 남는다. 저장 검증을 약화하거나 손상 데이터를 조용히 버리지 않았다.
+- expe P3311 `B.G_migrate`: 이번 local mode 필드의 손실 없는 이관·왕복 시험은 추가했다. 원본 canonical G 전체/옛 stage 저장을 native로 읽는 범용 이관은 아직 없다. 이 추가 이관을 전체 G_migrate 근거로 쓰지 않는다.
+- gear P3691 `B.SCREENS.smithy`: 제련·가공 본문/탭/실행은 직접 일치. 전체 화면에는 원본 장소 설명·NPC 역할·완료/귀환 버튼의 보조 문구가 빠져 있고, native의 장비 장착하기 선택지가 추가된다. AI 장면 자체는 제외하며 이 표시/선택 차이만 남긴다.
+- gear P2828 `B.SCREENS.shop`: 원본처럼 Lv40 대상은 스크롤 목록에서 숨긴다. 구입/선택 handler는 직접 대조했으나 전체 화면의 상품 상세 설명·단일 상품→장비 순서와 native 분리 탭의 정보/선택 순서는 아직 다르다. 비매품의 성인 사용 장면은 제외한다.
+- gear P2904 `B.gd_recruit_tab`: 소개비 셀·최근 카드·명단·금화/RNG/합류는 직접 일치. 전체 소개 탭의 설명→셀→최근 결과→소개 행동→명단 표시 순서와 진행 막대, 부족/대기 보조 안내의 전체 화면 대조는 남음. AI 보내기 문구는 제외.
+- gear P2907 `B.SCREENS.guild`: 의뢰판·영입 하위 helper 및 탭은 직접 일치. 전체 길드의 장소 설명·접수/길드장 두 NPC 역할·파티 선택 안내가 누락되고 native 페이지 간 헤더/귀환 동선이 다르다. HTML 반환 형식은 사유에서 제외.
+- gear P2922 `B.H.gd`: 의뢰 수락/거절/포기/갱신·영입 경제는 기존 대조 유지. 전체 버튼 해석 및 ps_* 연구 위임/저장 안 한 편집 이탈 거절의 합성, 거절 시 전체 안내 문구를 새 source/native 일괄 대조하지 못함. AI 호스트 전송은 제외.
+- gear P2954 `B.SCREENS.inn`: 행동의 즉시 확정·거절·성공 피드백은 원본 handler와 일치하고 화면에 표시한다. 전체 여관 화면의 동료 목록→선택과 native 자동 선택/드롭다운, 종족/행동 설명 및 정보·선택 순서는 아직 다르다.
+- ui P0084 `B.G_migrate`: 원본 G_migrate는 누락 필드를 채우지만 native는 schema 없는 원본 G와 잘못된 타입을 전체 거절한다. 기존 native schema 1/2 보존 시험만으로 원본 v1 전체 이관을 같음으로 판정하지 않는다.
+- ui P0085 `B.G_load`: 원본 load의 초과 경험치 정산·잘못된 장착 환원과 native restore의 전체 관찰 투영 대조가 남았다. 기존 native 저장 보존은 통과한다.
+- ui P0097 `B.G_save`: 로컬 atomic write/백업/재개와 연대기 flush는 기존 회귀 통과. 원본 v1에서 저장 뒤 관찰할 전체 값(코드 장비·상태·진행)을 native UID에 투영하는 대조가 남았다. 저장 매체 차이만을 사유로 남기지 않는다.
+- ui P0105 `B.hud`: 원본 HUD의 장소·금화·즐겨찾기 얼굴·상태/도감/저장/설정 순서와 native 상단/하단에 분산된 동작의 전수 직접 대조가 남았다.
+- ui P0131 `B.view`: 생성/첫 만남/패널 조립은 회귀 통과. 알 수 없는 scene과 화면 함수 오류의 사용자 표시 및 override 분기의 native 대응을 아직 원본과 직접 비교하지 않았다. 호스트 잠금/성인 override 자체는 제외 범위.
+- ui P0133 `B.route`: 원본 route의 무효 접두/중복 버튼/저장 실패 뒤 부수효과 경계와 native world_screen 전체 경로의 직접 대조가 남았다. 상태 탭 등 개별 handler 같음은 유지.
+- ui P2442 `B.SCREENS.create`: 종족/출신/직업/능력치 단계의 본문·선택·버튼은 직접 대조했다. 전체 생성 합성의 단계 머리·특성/확정·별도 설정/클라우드 진입을 포함한 전체 정보와 동작 순서는 아직 직접 대조하지 않았다.
+- ui P2462 `B.CR.face`: 원본 CR.face는 페르소나 호스트 아바타와 동료 초상/이니셜을 고른다. 호스트 부분은 제외하지만 첫 만남의 없는 초상 fallback은 아직 직접 대조하지 않았다.
+- ui P2463 `B.SCREENS.scenario`: 원본 첫 만남 선택지의 장소/상황 설명과 native 선택 버튼은 companion 이름 위주로 다르다. 선택한 동료의 미리보기 외 모든 선택지 정보/순서를 비교해야 한다.
+- ui P2467 `B.H.sc`: 원본 첫 만남 시작은 seed 설정·동료/호감/아이템·서술 지시를 함께 바꾼다. AI 지시는 제외하지만 native seed 소비 및 출발 상태의 직접 관찰 대조는 미완료다.
+- ui P2528 `PX.cx_equip`: 표시 순서·장비 해제의 빈 칸/1999/2000칸·중복 코드 장착·저장 재개는 직접 대조 통과. 실제 전투에서 도감 패널을 여는 전체 경로와 원본의 옛 아이템 문자열 장착 저장을 UID 모델로 옮기는 입력 경로는 아직 지원/대조하지 않았다.
+- ui P2534 `PX.cx_detail`: 30명×한영의 전체 공개 상세 정보/문구/순서/막대, 실제 원본 특성 아이콘 4개와 여우/늑대/표범 계통 패시브까지 직접 대조 통과. 장착·해제와 옛 장착 저장 및 실제 전투 진입의 복합 경계 P2528이 남아 전체 승격은 보류.
+- ui P2537 `B.PANELS.codex`: 목록·미영입·전체 동료 상세와 페르소나의 불필요한 패시브 표시는 보완했다. 전체 패널은 P2528/P2534의 옛 장착 저장·실제 전투 연결 경계가 미완료다.
+- ui P2539 `B.H.cx`: 8개 실제 상태 대조에서 2000칸 교환, 1999/2000칸 해제, 중복 코드·장착 UID·저장 재개·오류 알림은 일치. 원본 버튼 코드→native UID의 잘못된 코드/옛 장착 입력 및 실제 전투 라우터를 합친 관찰은 미완료다.
+- ui P2567 `PX.st_unit`: 전투 상태창 단위의 아군 MP/적 심연/상태칩/사망 표시와 native 전투 inspector의 전체 의미상 출력을 직접 대조하지 않았다.
+- ui P2568 `PX.st_battle`: 전투 승리/패배 표지·아군→적 순서·redo 초기화와 native 상태 패널의 직접 대조가 남았다.
+- ui P2593 `B.H.bg`: 판매된 선택의 판매/장착, 중복 장비, 2000칸 교환과 저장 재개는 실제 native 어댑터와 일치. 전투 중 버튼 요청을 공통 라우터에서 거절하는 전체 경로 및 옛 장착 저장 입력은 미완료다.
+- ui P2606 `B.PANELS.status`: 평시 persona/즐겨찾기·가방 표시와 전투 상태가 있는 패널 구성요소의 가방 진입 숨김은 검사했다. 실제 전투 진입은 먼저 전투 화면으로 강제 전환되어 원본 st_unit/st_battle의 동작·탭·복귀를 합친 전체 대응이 미완료다.
+- ui P2617 `B.HUD_EXTRA[#B.HUD_EXTRA + 1]`: 원본 HUD 즐겨찾기 최대 3명의 얼굴·선택 버튼과 native HUD의 실제 진입/표시 순서를 직접 대조하지 않았다.
+- ui P2629 `B.PANELS.settings`: 공개 설정 32상태의 레이블/선택·설명, 초기화 확인 중 다른 설정 유지 및 클라우드 대체 화면 진입은 검사했다. G_new 초기 상태는 일치하지만 P2637의 reset 알림/복귀/무효 입력과 별도 계정 화면 복귀를 포함한 전체 합성 대조는 남았다.
+- ui P2637 `B.H.op`: 초기화 뒤 초기 의뢰·난수·출정 기본값 차이는 G_new 직접 비교와 실제 파일 초기화/보관 사본 검사로 해소했다. 최상위 op handler 전체의 reset 알림·복귀·무효 접두를 원본과 직접 모두 비교한 것은 아니므로 남음.
+- battle P1553 `B.fresh`: 초기화 48편성과 carry 소생 조건은 비교. 기본/옛 편성·dm·로그·q·first를 포함한 fresh 전체 반환은 남음.
+- battle P1587 `B.again`: 동일 편성 재시도의 bn 증가와 rg/qid/place/sid 이전 계약을 새 원본 fixture로 비교하지 않음.
+- battle P1589 `B.redo`: 같은 bn으로 재시작하며 난이도·편성·출처를 유지하는 전체 반환을 새 대조하지 않음.
+- battle P1594 `B.load`: 고갈 횟수·마지막 일격 id·옛 필드 없음의 기본값은 재개 및 실제 D1 왕복 통과. 원본 VER2 전체 상태를 native로 읽는 통합 이관은 여전히 없음. 지시된 id 전용 last_kill로 원본 이름+기술 문구를 보존할 수 없어 이 차이도 남는다.
+- battle P1595 `B.save`: native 저장에 고갈 횟수와 알려진 마지막 일격 id를 넣고 서버/D1/다른 기기/파일 재개를 검증했다. 원본 VER2 전체 왕복과 기술명 문구의 id 전용 표현 차이는 남는다.
+- battle P1620 `B.battle_start`: 편성→전투 시작→scene/보상/식별자 저장까지의 G 변경 전체를 새 대조하지 않음.
+- battle P1746 `B.strike`: 72가지 직접 strike와 기존 장비/사제/생존 회귀는 통과. 반환 ls/tags, 모든 구원 소유자 순서 및 필드 시간 이력은 남음.
+- battle P1811 `B.e_attack`: 기존256+추가16개 단일/전체 공격 기록에서 치명 taunt 원문/시간을 수정. 여러 개인/장비 반격 훅을 섞은 모든 사건·반환·시간 순서 직접 대조는 남음.
+- battle P1812 `B.e_attack_all`: 단일/전체 256입력의 대상별 시각·사망·보호자 상태·tags·피격 후 효과 비교. 다중 반격/장비 훅 혼합의 전체 사건/로그 대조는 남음.
+- battle P1813 `B.enemy_turn`: 100종 각 행동·건강/손상652개 조합 편성의 차례 전체 상태·사건·로그·다음 RNG 직접 일치. fl 없는 옛 고정 적 차례 전체와 다중 개인/장비 훅 혼합 직접 대조는 남음.
+- battle P1825 `B.finish`: 고갈 횟수는 저장 재개 뒤 유지한다. last_kill을 id만 저장하라는 지시 때문에 원본의 이름+기술 문구는 이름으로 복원되어 일부 정보가 빠진다. 실제 의뢰 출처/rg/qmult의 모든 정산 연결도 전체 직접 대조 미완료.
+- battle P1831 `B.run`: 6320판 진행 결과는 비교. guard 80·모든 시작/라운드/사망·자동 방출의 전체 상태 경계는 남음.
+- battle P1682 `B.ps_guild_tab`: 기존 길드 UI는 유지. 모든 prefix/suffix·dirty/ready·강화 상한/부족 금화 표시의 의미상 출력 전체는 새 대조하지 않음.
+- battle P2351 `sbtn`: 버튼 MP/설명·disabled·선택 상태의 의미상 출력 전체를 새 직접 대조하지 않음.
+- battle P2353 `B.r_act`: 기술 조건 회귀는 통과. 행동/아이템/대상 선택·취소·버튼 배열의 전체 새 대조는 남음.
+- battle P2359 `B.render`: 기존 native 화면/오버플로 회귀는 유지. 모든 원본 상태에서 HUD·대상·로그·카메라의 의미상 전체 출력 대조는 남음.
 
-추가 파일:
-
-- project/data/native-locale-r24.json
-- project/game/chronicle_display_r24.gd
-- project/game/chronicle_display_r24.gd.uid
-- project/game/create_display_r24.gd
-- project/game/create_display_r24.gd.uid
-- project/tests/finish_known_gaps_r24.gd
-- project/tests/finish_locale_data_audit.gd
-- project/tests/finish_r24_test.gd
-- project/tests/finish_r24_test.gd.uid
-- project/tests/source_locale_r24.gd
-- project/tests/ui_finish_r24_test.gd
-- project/tests/ui_finish_r24_test.gd.uid
-- project/tests/ui_phase4_visual_r23_test.gd.uid
-- tools/finish_r24_focused.py
-- tools/finish_r24_oracle.mjs
-- tools/finish_r24_report.py
-- tools/finish_r24_review.py
-- tools/finish_r24_scan.py
-- tools/finish_r24_verify.py
-
-재실행: `node tools/finish_r24_oracle.mjs` → `python tools/finish_r24_verify.py` → `python tools/finish_r24_verify.py --cloud` → `python tools/godot_r17.py --headless --script res://tests/finish_locale_data_audit.gd` → `python tools/finish_r24_scan.py --self-test` → `python tools/finish_r24_report.py`. 스캔은 현재 고정 대사 잔여 때문에 종료 1을 반환한다.
+재실행: `node tools/finish_r24_round4_oracle.mjs` 및 같은 접두사의 expe/settle/inn/shop oracle, `R24_FINISH_OUTPUT=verification/finish-r24/round4` 환경에서 `python tools/finish_r24_verify.py`와 `--cloud`. `npm test`는 기존 설치 경로를 ABYSS_NODE_MODULES로 지정하고 finish_r24_node_launcher.mjs를 NODE_OPTIONS --import로 사용한다. 전체 스캔은 `python tools/finish_r24_scan.py`이며 보호 대사가 남으면 종료 1이 정상 검출 결과다. 보고/표는 `python tools/finish_r24_round4_report.py`로 재생성한다.

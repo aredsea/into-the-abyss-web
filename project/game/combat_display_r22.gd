@@ -5,19 +5,19 @@ static func fixed_decimal(value: float,digits: int) -> String:
 	# C printf rounds the stored binary64 value, not value*100 (which may
 	# round a nearby binary value onto a decimal half). Keep the significand
 	# exact through integer arithmetic, including signed zero and ties to even.
-	if digits<0 or digits>2 or not is_finite(value) or absf(value)>=1e14:return ("%."+str(digits)+"f")%value
+	if digits<0 or digits>3 or not is_finite(value) or absf(value)>=1e14:return ("%."+str(digits)+"f")%value
 	var bytes=PackedFloat64Array([value]).to_byte_array();var negative=(bytes[7]&128)!=0
 	var bits=PackedFloat64Array([absf(value)]).to_byte_array().decode_s64(0)
 	var exponent=(bits>>52)&2047;var mantissa=bits&0xfffffffffffff
 	if exponent!=0:mantissa|=1<<52
 	var power=(int(exponent)-1023-52 if exponent!=0 else -1074)+digits
-	var numerator=mantissa*([1,5,25][digits]);var rounded=0
+	var numerator=mantissa*([1,5,25,125][digits]);var rounded=0
 	if power>=0:rounded=numerator<<power
 	elif -power<63:
 		var shift=-power;rounded=numerator>>shift
 		var remainder=numerator-(rounded<<shift);var half=1<<(shift-1)
 		if remainder>half or (remainder==half and rounded%2==1):rounded+=1
-	var scale=[1,10,100][digits]
+	var scale=[1,10,100,1000][digits]
 	@warning_ignore("integer_division")
 	var whole=rounded/scale
 	return ('-' if negative else '')+str(whole)+('.'+str(rounded%scale).pad_zeros(digits) if digits>0 else '')

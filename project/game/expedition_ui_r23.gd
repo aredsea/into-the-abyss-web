@@ -27,10 +27,29 @@ func build(world,kind: String,g: Dictionary,r: Dictionary,extra: Dictionary={}) 
 		"use_row":use_row(g,r,int(extra.slot))
 		"use_btn":use_button(g,r,extra.id,int(extra.slot),extra.can,extra.get("why",""))
 		"party":party(g,r)
+		"slot_row":slot_row(extra.get("who",w.expedition_equip_key(int(r.get("sel",1)))))
+		"gear_card":gear_card(r)
 		"retreat":retreat(r)
 		"done_act":done_act(g,r,r.get("summary",{}))
 		"done":done(g,r)
 	return entries
+
+func slot_row(who: String) -> void:
+	for pair in [["weapon","무기"],["armor","방어구"],["acc","장신구"]]:
+		var slot=pair[0];var worn=w.gear_entry(int(w.s.equipment.get(who,{}).get(slot,0)))
+		text(u(pair[1]),"title");text(t(w.gear.by_id[worn.id].name) if not worn.is_empty() else u("비어 있음"))
+		if not worn.is_empty():button("ex_un_"+slot,u("해제"))
+		for entry in w.expedition_equipment_candidates(who,slot):button("ex_eq_"+slot+"_"+w.combat_gear_rules.gear_btn(entry.code),t(w.gear.by_id[entry.id].name),u("장착"))
+func gear_card(r: Dictionary) -> void:
+	text(u("정비"),"title");text(u("장비 능력치는 능력치 검수 뒤에 확정한다. 지금은 자리만 바꾼다"))
+	var selected=int(r.get("sel",1));var members=w.expedition_members()
+	for member in members:
+		button("ex_who_"+str(member.slot),t(w.expedition_member_name(member.m.id)));entries[-1].selected=selected==member.slot
+	var who=w.expedition_equip_key(selected)
+	if who=="":
+		selected=members[0].slot if not members.is_empty() else 1
+		w.s.ui.sel="ex:"+str(selected);r.sel=selected;who=w.expedition_equip_key(selected)
+	if who!="":slot_row(who)
 
 func preparation(world,kind: String,extra: Dictionary={}) -> Array:
 	w=world;lang=L.language(w.s);entries=[]

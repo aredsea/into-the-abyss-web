@@ -1,0 +1,1262 @@
+{
+  "counts": [
+    {
+      "ledger": "expe",
+      "initial_remaining": 31,
+      "promoted_same": 8,
+      "modified": 2,
+      "remaining": 23,
+      "statuses": {
+        "같음": 85,
+        "일부": 18,
+        "미확인": 5,
+        "제외": 1
+      }
+    },
+    {
+      "ledger": "gear",
+      "initial_remaining": 14,
+      "promoted_same": 0,
+      "modified": 0,
+      "remaining": 14,
+      "statuses": {
+        "같음": 61,
+        "일부": 14,
+        "제외": 2
+      }
+    },
+    {
+      "ledger": "ui",
+      "initial_remaining": 27,
+      "promoted_same": 0,
+      "modified": 0,
+      "remaining": 27,
+      "statuses": {
+        "같음": 92,
+        "대체": 21,
+        "일부": 27,
+        "제외": 4
+      }
+    },
+    {
+      "ledger": "battle",
+      "initial_remaining": 16,
+      "promoted_same": 0,
+      "modified": 0,
+      "remaining": 16,
+      "statuses": {
+        "같음": 199,
+        "일부": 12,
+        "제외": 3,
+        "미확인": 4
+      }
+    }
+  ],
+  "rows": [
+    {
+      "ledger": "expe",
+      "id": "P2757",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "장소별 제목/본문, 출전자 없음, 원본 전체 시설 버튼 순서와 고정 마을 바로가기의 정보·순서가 아직 다르다.",
+      "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+      "source_excerpt_sha256": "e304676d26a78360052ef1150665531feb05c8747d38b2b81a9952a187c9e285",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P2758",
+      "status": "미확인",
+      "stage": "finish round2",
+      "previous_status": "미확인",
+      "previous_remaining_reason": "시설 이동·영수증·없는 의뢰·무효 scene을 함께 처리하는 최상위 handler의 전체 직접 대조가 남는다.",
+      "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+      "source_excerpt_sha256": "8362a7f299bb16c8f45769c5b9ddde0a4a522ecf5bcbd976aaa084dd530d4fc4",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P2784",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "의뢰 정산의 st.rg 우선/의뢰 fallback·미종료 전투·엘리트 입고·재정산을 실제 단일 진입점으로 모두 대조하지 못했다.",
+      "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+      "source_excerpt_sha256": "b14e0cc47f8ababae99ddc9bb47317caed55e617e5ac851282edc5717ce83c54",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P2792",
+      "status": "미확인",
+      "stage": "finish round2",
+      "previous_status": "미확인",
+      "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+      "source_sha256": "133a6594208bdfc56bbec6b4a0c224d58f3c43a78ae673271e2f67580cfa05e2",
+      "source_excerpt_sha256": "9a116a4e22556ab177dfb231730ab7d87494fd4b2c1770373999947d4307909c",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3016",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "SO.face의 사용자 아바타는 호스트 제외. 일반 문자열 provider의 표시와 native Texture provider의 fallback 전체는 미대조다.",
+      "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+      "source_excerpt_sha256": "1bba0936ae056eeecf5a56c7da26bbe92a0ae0e54fe2bcd1f5c5e01970578e75",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3020",
+      "status": "같음",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "클래스 정보 없는 옛 저장에서 native는 참전 버튼을 막는다. 원본의 활성 버튼과 실제 차이가 남는다.",
+      "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+      "source_excerpt_sha256": "60229c5ae954ed797a37ffc55bf48d296217045db605c8faba1db9df30b4f65c",
+      "disposition": "같음 승격",
+      "modified": true,
+      "tests": [
+        "finish_round2_r24_test",
+        "ui_finish_round2_r24_test"
+      ],
+      "results": [
+        "verification/finish-r24/round2/unit-results.json",
+        "verification/finish-r24/round2/ui-results.json"
+      ],
+      "detail": "원본 fight_row 한영·3직업(빈 직업 포함)·두 참전 모드·3편성의 36개 입력을 문구·버튼 순서·활성·선택으로 직접 대조. 실제 화면에서도 직업 없는 옛 저장의 버튼을 누르고 참전 상태 변경을 검사했다. 출발 handler 행의 판정은 전파하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3032",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "출정 전체의 picker/고정 슬롯/별도 스크롤과 보조 출발 버튼이 원본의 전체 정보·버튼 순서와 다르다.",
+      "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+      "source_excerpt_sha256": "5f772ac3ddc16ed9d260a93e058bcb2792ea1b1f65ac7b4fa35d107d362fc1ed",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3037",
+      "status": "미확인",
+      "stage": "finish round2",
+      "previous_status": "미확인",
+      "previous_remaining_reason": "원본의 새 전투 엔진 부재 fresh(T.bn) fallback 입력을 native에서 만드는 경로가 없다.",
+      "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+      "source_excerpt_sha256": "c451dfb50f27b725091c75f9802b1213163847429a14ee94f43fa17c159c13f3",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3041",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "go/back의 모든 scene·무효 입력·engine 부재를 합친 handler의 전체 관찰 대조가 남는다.",
+      "source_sha256": "944b4d3a4d4cc7acdaf034d82d240bdb904d7a0eb491cd6feb0a9c9be3f53781",
+      "source_excerpt_sha256": "7c59434c539fa77cac20a234ae1c5df420b292c5606a8e0b89f3acbb444a7e10",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3079",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "원본 카드 안 cached percentile 표시와 native 별도 순위 화면 진입의 정보 위치·상태가 다르다.",
+      "source_sha256": "dd8363226766b6701f6df95fa89ac57ee412dc89082aaddc64fa52e9e511b19e",
+      "source_excerpt_sha256": "1eb34289ef67eb7e1fe863db326941a7364af983d0e8f0b600e10c87e8cb6d7c",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3145",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+      "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+      "source_excerpt_sha256": "a28c85a8b9ab0ae3a75de93f9b6f91ce1ed7290bd822a8f8136bd859a336a4ea",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3182",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "연속 전투의 적 이름 중복 제거 last/log·정예 장비 log 및 sid/bn/over/dn 불일치 전체 입력은 미대조다.",
+      "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+      "source_excerpt_sha256": "8d192674a8a152a3f9879ef49d1fb9865dbdb80dd3dd11db12cf3ec808109bf2",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3195",
+      "status": "같음",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "정상 장비의 0/1999/2000/2001칸 삽입·버림·옛 overflow 재개는 수정·직접 일치. 추가 probe에서 원본은 구문 유효한 미등록 코드 zz99.1.1을 성공 목록으로 반환하지만 native는 거절하므로 전체 승격하지 않는다(known-code-gaps.json).",
+      "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+      "source_excerpt_sha256": "81b01cd65b774d2629f91be31667c6b4e2d79678e408edebb46a51cef8c10d15",
+      "disposition": "같음 승격",
+      "modified": true,
+      "tests": [
+        "finish_round2_r24_test"
+      ],
+      "results": [
+        "verification/finish-r24/round2/unit-results.json"
+      ],
+      "detail": "원본 ex_gear_bank를 실행한 24개 입력에서 성공 코드 배열·버림 수·재조회 가방 수와 저장 재개를 직접 비교. 0/1999/2000/2001칸, 구문 유효 미등록 코드, 무효 코드·버전·타입, seed 0·선행 0, 혼합 입고를 포함한다. 새 unknown id는 원본의 다음 bag_load처럼 걸러지고 기존 넘친 장비는 보존한다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3202",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "만석 신규 장비 버림은 수정·대조했다. 전체 승리/퇴각/패배 보상 조합과 원본 canonical stage 저장 입력까지의 함수 전체 대조는 남는다.",
+      "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+      "source_excerpt_sha256": "3fc1c905c38b1d9c64ddeb945308c75eca8f1157f45b9459f6146f5b74e42127",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3223",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "sid/bn 불일치·legacy stage·snapshot 검증을 합친 정산 경계 전체는 미대조다.",
+      "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+      "source_excerpt_sha256": "824e6cfd7cf4f0a1a2aba92021c748968814846ee123ce26ba45ecf64f3c5d00",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3225",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "원본 st.dn.stage 1/2 저장을 직접 읽는 ABI가 없다. native 옛 저장 재개와 별개의 미지원 입력이다.",
+      "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+      "source_excerpt_sha256": "bbae303a0b40e3e3ec370100dfb2334b414a170601842dc965acf51c50c0cc8e",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3249",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "휴식 장착은 동작하지만 code 버튼 해독·잘못된 슬롯·다른 소유자·거절 문구를 한 진입점으로 모두 대조하지 못했다.",
+      "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+      "source_excerpt_sha256": "495460e95f3c6af3e690ac13f247fa4449a785dce71f017e627e2984229126c2",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3251",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "탐색 handler의 cont/next/home 무효 전투 상태 및 모든 장비 접두 요청을 합친 전체 대조가 남는다.",
+      "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+      "source_excerpt_sha256": "fa8ba23fac4bc70250a31f2013ebf3e68ba7ca9207a7c8f805ae26412fa8ecc1",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3287",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "원본 전체 explore의 버튼 순서와 native 지도·기록·보급품 별도 이동이 다르다.",
+      "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+      "source_excerpt_sha256": "01aa1a6fce878a21d8ed5fba9f5d877fe380dd21d5049b3ec6f631bfa7858e15",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3290",
+      "status": "미확인",
+      "stage": "finish round2",
+      "previous_status": "미확인",
+      "previous_remaining_reason": "원본 휴식 안 슬롯별 후보/해제/장착 줄 대신 native는 별도 정비 화면을 쓴다. 후보·소유자·레벨 전체 대조가 남는다.",
+      "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+      "source_excerpt_sha256": "c2e943b51141a95675fd94d6401cb0d231d87ebdffe12ab8ca1a3fda82c45ed2",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3293",
+      "status": "미확인",
+      "stage": "finish round2",
+      "previous_status": "미확인",
+      "previous_remaining_reason": "R.sel 무효 슬롯 정규화·슬롯별 후보 카드 전체가 별도 정비 대상 선택과 다르다.",
+      "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+      "source_excerpt_sha256": "aca4b451227ad26e7a3939f5df4829f807c0d6dd63f34ebe52d36b11207167ce",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3296",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "파티/귀환 확인은 유지하나 원본 inline gear_card와 native 별도 정비의 정보·선택 순서가 다르다. 성인 카드는 제외다.",
+      "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+      "source_excerpt_sha256": "eb440124bc437980758b077aa11ce07b6e8b7ace9849813d55484f89afc0432b",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3305",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "run 없음 안내/귀환·inline gear_card·phase별 전체 버튼 구성을 직접 같게 확인하지 못했다.",
+      "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+      "source_excerpt_sha256": "8fdc9ead919e2097e3560417a584fffc023c1157b3e5d023bc92d79dbea0a18d",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3309",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "원본은 음수·소수 옛 물약 수도 합산한다. native 저장은 이를 원자적으로 거부한다. 이 손상 입력 차이는 남는다.",
+      "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+      "source_excerpt_sha256": "20bbdcbab60bd8ebc1f8ee03bcb89986c8ae2c80009851cdb98df00d134502d5",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3311",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "원본 canonical G 전체 및 stage 저장을 native로 읽는 범용 이관 ABI가 없다.",
+      "source_sha256": "5c959567f6f1cf31c723f27d8d1ad79e0078be7d7bc89167701096867147e2f3",
+      "source_excerpt_sha256": "8a12e18a52c874343f3f66c4ee575f4cf0322f9c90fea0de95abc10713c378cb",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "expe",
+      "id": "P3331",
+      "status": "같음",
+      "stage": "finish round2",
+      "previous_status": "미확인",
+      "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+      "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+      "source_excerpt_sha256": "4ee30c0eda66cf5f1e4a202d240c6721c5796604c33b447b17fc4602775ba9ca",
+      "disposition": "같음 승격",
+      "modified": false,
+      "tests": [
+        "battle_r23_round9_items_test"
+      ],
+      "results": [
+        "verification/parity-r23/battle-round9-items-latest.json"
+      ],
+      "detail": "전투 표와 정확히 같은 원본 함수 행. 기존 통합된 직접 대조 시험을 이번 전체 검사에서 재실행해 일치를 확인했다. 전투 수정 금지가 해제되어 expe 표의 이관 표기를 해소한다. 다른 전투 함수의 판정은 전파하지 않는다.",
+      "battle_evidence": [
+        {
+          "test": "battle_r23_round9_items_test",
+          "labels": [
+            "round9/cur_i"
+          ],
+          "checks": 7,
+          "contract": "7개 현재 행동자: 1~4, 없음·적 슬롯·0. native current_id와 원본 cur 슬롯의 관찰 대응.",
+          "oracle": "verification/parity-r23/battle-round9-items-oracle.json",
+          "observations": "verification/parity-r23/battle-round9-items-latest.json",
+          "log": "verification/parity-r23/suite-round9-final-v4/battle_r23_round9_items_test.log"
+        }
+      ]
+    },
+    {
+      "ledger": "expe",
+      "id": "P3332",
+      "status": "같음",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+      "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+      "source_excerpt_sha256": "2937ba311fbfb45642aa4a1923f7ab75c374a317eb35742d0b9d873ea42d47dc",
+      "disposition": "같음 승격",
+      "modified": false,
+      "tests": [
+        "battle_r23_round9_items_test"
+      ],
+      "results": [
+        "verification/parity-r23/battle-round9-items-latest.json"
+      ],
+      "detail": "전투 표와 정확히 같은 원본 함수 행. 기존 통합된 직접 대조 시험을 이번 전체 검사에서 재실행해 일치를 확인했다. 전투 수정 금지가 해제되어 expe 표의 이관 표기를 해소한다. 다른 전투 함수의 판정은 전파하지 않는다.",
+      "battle_evidence": [
+        {
+          "test": "battle_r23_round9_items_test",
+          "labels": [
+            "round9/item_apply"
+          ],
+          "checks": 2220,
+          "contract": "2220개 실제 native 효과와 actor 장비 보호막 배율·HP/MP/부활/붕대·로그/사건/필드 시각·T. 유효/무효 대상 1540개도 함께 비교. 붕대가 source regen/침묵/x 효과를 보존하도록 수정.",
+          "oracle": "verification/parity-r23/battle-round9-items-oracle.json",
+          "observations": "verification/parity-r23/battle-round9-items-latest.json",
+          "log": "verification/parity-r23/suite-round9-final-v4/battle_r23_round9_items_test.log"
+        }
+      ]
+    },
+    {
+      "ledger": "expe",
+      "id": "P3337",
+      "status": "같음",
+      "stage": "finish round2",
+      "previous_status": "미확인",
+      "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+      "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+      "source_excerpt_sha256": "7242e313735167c6253317f152054be06f70723e054af35302997e152196986d",
+      "disposition": "같음 승격",
+      "modified": false,
+      "tests": [
+        "battle_r23_round9_items_test"
+      ],
+      "results": [
+        "verification/parity-r23/battle-round9-items-latest.json"
+      ],
+      "detail": "전투 표와 정확히 같은 원본 함수 행. 기존 통합된 직접 대조 시험을 이번 전체 검사에서 재실행해 일치를 확인했다. 전투 수정 금지가 해제되어 expe 표의 이관 표기를 해소한다. 다른 전투 함수의 판정은 전파하지 않는다.",
+      "battle_evidence": [
+        {
+          "test": "battle_r23_round9_items_test",
+          "labels": [
+            "round9/item_name"
+          ],
+          "checks": 17,
+          "contract": "17개 이름/fallback 직접 반환. 성적 아이템을 제외한 원본 목록·알 수 없는 id·누락 이름 처리.",
+          "oracle": "verification/parity-r23/battle-round9-items-oracle.json",
+          "observations": "verification/parity-r23/battle-round9-items-latest.json",
+          "log": "verification/parity-r23/suite-round9-final-v4/battle_r23_round9_items_test.log"
+        }
+      ]
+    },
+    {
+      "ledger": "expe",
+      "id": "P3338",
+      "status": "같음",
+      "stage": "finish round2",
+      "previous_status": "미확인",
+      "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+      "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+      "source_excerpt_sha256": "e5e8a40137e5042f4a948f35f226dbc993f777ea27ac6f0378b4a100d829d16c",
+      "disposition": "같음 승격",
+      "modified": false,
+      "tests": [
+        "battle_r23_round9_items_test"
+      ],
+      "results": [
+        "verification/parity-r23/battle-round9-items-latest.json"
+      ],
+      "detail": "전투 표와 정확히 같은 원본 함수 행. 기존 통합된 직접 대조 시험을 이번 전체 검사에서 재실행해 일치를 확인했다. 전투 수정 금지가 해제되어 expe 표의 이관 표기를 해소한다. 다른 전투 함수의 판정은 전파하지 않는다.",
+      "battle_evidence": [
+        {
+          "test": "battle_r23_round9_items_test",
+          "labels": [
+            "round9/item_button"
+          ],
+          "checks": 14,
+          "contract": "14개 원본 버튼의 의미상 정보·무재고/활성 조건·행동과 한영 문구. native root control의 disabled 및 실제 메뉴 진입 회귀 포함.",
+          "oracle": "verification/parity-r23/battle-round9-items-oracle.json",
+          "observations": "verification/parity-r23/battle-round9-items-latest.json",
+          "log": "verification/parity-r23/suite-round9-final-v4/battle_r23_round9_items_test.log"
+        }
+      ]
+    },
+    {
+      "ledger": "expe",
+      "id": "P3340",
+      "status": "같음",
+      "stage": "finish round2",
+      "previous_status": "미확인",
+      "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+      "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+      "source_excerpt_sha256": "6321795d09909c70dfc0891ed75bbc7fc88607438088ec2720dc3cdc44db9750",
+      "disposition": "같음 승격",
+      "modified": false,
+      "tests": [
+        "battle_r23_round9_items_test"
+      ],
+      "results": [
+        "verification/parity-r23/battle-round9-items-latest.json"
+      ],
+      "detail": "전투 표와 정확히 같은 원본 함수 행. 기존 통합된 직접 대조 시험을 이번 전체 검사에서 재실행해 일치를 확인했다. 전투 수정 금지가 해제되어 expe 표의 이관 표기를 해소한다. 다른 전투 함수의 판정은 전파하지 않는다.",
+      "battle_evidence": [
+        {
+          "test": "battle_r23_round9_items_test",
+          "labels": [
+            "round9/item_menu"
+          ],
+          "checks": 1452,
+          "contract": "1452개 한영 원본 HTML의 의미상 제목/힌트·버튼 순서·선택/비활성·수량·이름·설명·대상 불가 이유 직접 대조. native 실제 item rows는 동일 API 사용; 20화면 검사.",
+          "oracle": "verification/parity-r23/battle-round9-items-oracle.json",
+          "observations": "verification/parity-r23/battle-round9-items-latest.json",
+          "log": "verification/parity-r23/suite-round9-final-v4/battle_r23_round9_items_test.log"
+        }
+      ]
+    },
+    {
+      "ledger": "expe",
+      "id": "P3344",
+      "status": "같음",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+      "source_sha256": "9230ada8dee8b9d78782d2bf3dd912564320350de425953a5c440e8e30330b78",
+      "source_excerpt_sha256": "7615e05c476b018997e79ea7c06991808bb2f6743ba4409145837b850b3cb19b",
+      "disposition": "같음 승격",
+      "modified": false,
+      "tests": [
+        "battle_r23_round9_handlers_test"
+      ],
+      "results": [
+        "verification/parity-r23/battle-round9-handlers-latest.json"
+      ],
+      "detail": "전투 표와 정확히 같은 원본 함수 행. 기존 통합된 직접 대조 시험을 이번 전체 검사에서 재실행해 일치를 확인했다. 전투 수정 금지가 해제되어 expe 표의 이관 표기를 해소한다. 다른 전투 함수의 판정은 전파하지 않는다.",
+      "battle_evidence": [
+        {
+          "test": "battle_r23_round9_handlers_test",
+          "labels": [
+            "round9/item_handler"
+          ],
+          "checks": 960,
+          "contract": "960개 원본 H.it 프로토콜 상태·소지품·actor/skill·begin/apply/end/run/send/save 호출 순서. 실제 eligibility API와 callback spy 경계, 효과는 별도2220개. native menu/pick/cancel 저장 재개와 실제 cloud 왕복10개를 함께 확인. RisuAI send는 호스트 경계.",
+          "oracle": "verification/parity-r23/battle-round9-handlers-oracle.json",
+          "observations": "verification/parity-r23/battle-round9-handlers-latest.json",
+          "log": "verification/parity-r23/suite-round9-final-v4/battle_r23_round9_handlers_test.log"
+        }
+      ]
+    },
+    {
+      "ledger": "gear",
+      "id": "P3540",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "정본 6개 0/1999/2000칸 제한·재개 probe는 수정 후 일치한다. 그러나 원본은 invalid 같은 잘못된 옛 장착 문자열을 유지하고 native는 충돌 보관본으로 옮기므로 전체 관찰 차이가 남는다(known-code-gaps.json). 원문 자체는 보존한다.",
+      "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+      "source_excerpt_sha256": "05292d7521b4adef1773f488f771b787e1e33e0f55a33f7348b74937b3a4de2b",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "gear",
+      "id": "P3639",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+      "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+      "source_excerpt_sha256": "bdcce6a3fd0d5cc5fb9830bf0ca6d052211a03d2f2999b579ab073aa77a258f7",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "gear",
+      "id": "P3644",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+      "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+      "source_excerpt_sha256": "d3ad8f797d79150588ce715791e224ad20484c4f16a6c307e5705576bda18e22",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "gear",
+      "id": "P3647",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+      "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+      "source_excerpt_sha256": "20e398bee4908306b04ac29b8a6a16f8ce663f0f906381a7f8366b7b5c781bd4",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "gear",
+      "id": "P3659",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+      "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+      "source_excerpt_sha256": "c3c2ce04197cb4f45140d18844514b11e360caf406356c5c11fa3d912783ee44",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "gear",
+      "id": "P3691",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "제련/가공 본문은 기존 직접 비교 통과. 장소 설명·NPC 역할·완료/귀환 보조 문구와 추가 장착 선택지가 전체 화면에서 다르다.",
+      "source_sha256": "4298d9d7b9cc5cdd6f1a832871c6eaff6a74385a8a4ae7952d99df3d9beafe72",
+      "source_excerpt_sha256": "50de77dd69cb7c4cd545b5c955979d7aa7a2d750be64d7b58186f487b1b49d3b",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "gear",
+      "id": "P2826",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "그림 없음/잘못된 그림의 NPC 행 생략과 NPC_G 역할 끝 호감 표시를 같은 제품 helper로 연결한 전체 대조가 없다.",
+      "source_sha256": "49d6d1a5959da53ad29e6787fef84b94a778d9eb147a0dacf440903af43cac2d",
+      "source_excerpt_sha256": "fd6af6314cc337e68709fe122823652bd30e510cdb3d9767290e102945117d73",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "gear",
+      "id": "P2828",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "Lv.40 대상 제외는 수정했다. 원본의 상품→장비 연속 순서·상품 상세와 native 분리 탭의 정보·순서는 남는다. 성인 사용 장면은 제외다.",
+      "source_sha256": "49d6d1a5959da53ad29e6787fef84b94a778d9eb147a0dacf440903af43cac2d",
+      "source_excerpt_sha256": "b5ea3f8e7f6f1f9a2360177d39ad82004cf5d8a25034c4c7ae584af667711f2f",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "gear",
+      "id": "P2841",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "구입/스크롤/장비의 정상·경제 경계는 기존 시험 유지. 전체 접두 버튼의 무효 선택/피드백 dispatcher 직접 대조는 남는다.",
+      "source_sha256": "49d6d1a5959da53ad29e6787fef84b94a778d9eb147a0dacf440903af43cac2d",
+      "source_excerpt_sha256": "bf38d4ce86e0765f400f3333b07f80666a67b4277bb5d23bc7816ffeed8a168b",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "gear",
+      "id": "P2904",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "소개 탭의 설명→셀→최근 결과→소개 행동→명단과 진행 막대·부족/대기 보조 안내 전체 순서는 미일치다.",
+      "source_sha256": "3125fd872513eff4defb1b3db3490f5b5a8fa87c683d23d3d5169681b2472e5f",
+      "source_excerpt_sha256": "aa66782870e42d0153a586de8a3edfa9dd472a90f838c2788730a6b3568e21d8",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "gear",
+      "id": "P2907",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "길드 전체 장소 설명·두 NPC 역할·파티 안내 및 페이지별 헤더/귀환 동선이 다르다.",
+      "source_sha256": "3125fd872513eff4defb1b3db3490f5b5a8fa87c683d23d3d5169681b2472e5f",
+      "source_excerpt_sha256": "0d411d651808a84e3324bd80f69da092820b17ae0267dc59cb03371f535e7399",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "gear",
+      "id": "P2922",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "길드 전체 접두 해석·ps_* 위임·저장하지 않은 편집 이탈 거절·전체 메시지 합성은 미대조다. AI 전송은 제외다.",
+      "source_sha256": "3125fd872513eff4defb1b3db3490f5b5a8fa87c683d23d3d5169681b2472e5f",
+      "source_excerpt_sha256": "eb8f457caada0656f86f443188183901bab6133c7692579a2a7cf206438bda85",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "gear",
+      "id": "P2954",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "원본 동료 목록→선택과 native 자동 선택/드롭다운, 종족/행동 설명, 부족 자금 비활성 조건이 다르다.",
+      "source_sha256": "c4a7c97be4184a09ad54346b7c41cb7dc8b8d4cd2d5722ed13eab368444b8477",
+      "source_excerpt_sha256": "13e06ed7666059a72d9506e55fb85087b4b3f1dcfb3aa13ade07357cdd419de9",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "gear",
+      "id": "P2961",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "원본 talk는 즉시 호감 +1, native는 고정 대화 선택을 먼저 연다. 확인 단계·상태 확정 시점의 실제 차이다.",
+      "source_sha256": "c4a7c97be4184a09ad54346b7c41cb7dc8b8d4cd2d5722ed13eab368444b8477",
+      "source_excerpt_sha256": "2927011d252ea94678b86870eb3c078d515ff0426afcec24adea8696f24ff899",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P0017",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "native 초기 생성에는 선생성 의뢰·다른 초기 RNG와 출정 기본 모드가 남아 있다. 빈 원본 G_new 전체 관찰 투영은 같지 않다.",
+      "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+      "source_excerpt_sha256": "82df4dbf723fa2f4f620f623a20eff8747bd67cbd9079a3ec2141fea45425b94",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P0084",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "native schema 1/2는 보존하지만 schema 없는 원본 v1 G 전체와 잘못된 타입을 원본처럼 보충해 읽는 경로가 없다.",
+      "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+      "source_excerpt_sha256": "ca01fd19cf442557ef400309b4f282d6f14401e6cc9292d2dc2a4d0fce9d3a6b",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P0085",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "원본 v1 load의 초과 경험치 정산·코드 장착 환원·전체 진행을 native restore로 읽는 통합 입력 경로는 없다.",
+      "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+      "source_excerpt_sha256": "3078944e2957a4765d941d934905f4a3abf234cc9c0e62c1d999dec8ace049ad",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P0097",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "native 파일 왕복은 통과. 원본 v1 코드 장비·상태·진행 전체를 UID로 투영하는 저장/재개 대조는 남는다.",
+      "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+      "source_excerpt_sha256": "550c2b01809fa5c626f3c4fe4a6c95bd10f7ed1a3ce51d106b656a1414d83a6c",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P0105",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "원본 HUD 장소·금화·최대 3명 즐겨찾기 얼굴·메뉴 버튼 순서와 native 분산된 상/하단 진입은 전체 대조하지 못했다.",
+      "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+      "source_excerpt_sha256": "21d97b72bc7585127514114e28bc3f7ce682e4d4e8e0c0c4544d0b137896ad4d",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P0131",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "알 수 없는 scene·화면 함수 오류·공개 override의 최상위 native 표시 전체를 원본과 직접 비교하지 못했다. 성인 override는 제외다.",
+      "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+      "source_excerpt_sha256": "a18eeff5ba5e55fc8a21bc3abda3736551ed0ffc9a79f239d2fa73245215f7fa",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P0133",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "무효 접두·중복 버튼·저장 실패 뒤 부수효과를 포함한 world_screen 최상위 라우터 전체 대조가 남는다.",
+      "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+      "source_excerpt_sha256": "bf7fec4e1a1fc81ecfb7f3199d6e11e1b078ace2ff4776fe2cc56f445ce446dc",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P2425",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "개인/시너지 표시는 보강했다. 종족/계통 미선택 안내와 원본 pg_race 전체 정보·순서의 직접 대조는 남는다.",
+      "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+      "source_excerpt_sha256": "54d01a2c61aa43f28f034b3963b6cb48d21e04fe35bc3824d5bd1220be5d7fc3",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P2426",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "차단 이름 덧붙임을 제거하고 원본 bl.s/note/tag로 수정했다. 전체 pg_nation의 설명·순서·선택 유지 합성은 미대조다.",
+      "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+      "source_excerpt_sha256": "8baaec21dee4305feb67bc46ed455437ce71e201893f775e64b9238d7a98efeb",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P2427",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "계열 개인/시너지를 추가했다. 모든 직업의 기본 수치·스킬·출신 주의문을 포함한 전체 순서 직접 대조는 남는다.",
+      "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+      "source_excerpt_sha256": "8514d10daae4b94bb7a778db80210d6d96487bc512f8b92a2b7e96b1e218e512",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P2428",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "총량 프리셋의 설명·직접 모드 보조 문구 전체는 아직 원본과 다르다.",
+      "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+      "source_excerpt_sha256": "772797594391b8e5a1677c4e3c64edd1c206c5b69d10b51e6a620f7acc36b162",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P2434",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "원본 능력치 막대·HP/MP·추천/초기화·상한 설명의 전체 화면 정보와 순서를 직접 모두 맞추지 못했다.",
+      "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+      "source_excerpt_sha256": "1ba69bf71e8f083541aecd198e32dd24f2bd9fe91f1b1a5775d3aacebc594efa",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P2442",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "단계 머리/특성/확정/내비게이션 helper는 승격했다. 첫 단계의 원본 언어 선택 버튼·클라우드 설명 및 페이지 전체 합성 순서 차이는 남는다.",
+      "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+      "source_excerpt_sha256": "ca81ad3fb407e84b2c512b5743c32dbc6896235a62cc9443715cec661f43eb5c",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P2462",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "호스트 아바타는 제외. 첫 만남에서 그림 provider 없음·실패 시 초상/이니셜 전체를 CR.face와 별도로 직접 비교하지 못했다.",
+      "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+      "source_excerpt_sha256": "0c5c51507daad7087e7b9a891938eab6d4b114ae274ec4f1bcf3308873b53283",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P2463",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "원본 각 선택지의 직업/종족/속성·장소/teaser와 목록→미리보기 순서가 native와 다르다.",
+      "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+      "source_excerpt_sha256": "eec5e848bd61932a4007684921003a7f0e6f4186d9023494aaea1f18570fa7e2",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P2467",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "seed 산식·1회 생성 진입은 수정·대조했다. 첫 만남의 전체 초기 상태·아이템·난수 소비와 생성 의뢰를 합친 관찰은 아직 미일치다. AI 지시는 제외다.",
+      "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+      "source_excerpt_sha256": "ae3abbc7ea6db5d6d9bbb0b60fb9a53f68e2cf0795a750d6163ef24db3339ccc",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P2528",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "원본 코드 장착 저장의 전체 UID 이관과 실제 전투 중 패널 진입의 통합 경계가 남는다. 평시 0/1999/2000칸 직접 대조는 기존 통과다.",
+      "source_sha256": "19c193f893db0816afa559982c43d059ea8ba14145f66e29ca2fdca7e5f9f743",
+      "source_excerpt_sha256": "a9c95bd0eda1be04dbf0baee03ef9bd83fada5617b1eb992467ba02efd832a3d",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P2534",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "30명 한영 상세는 기존 직접 비교 통과. P2528의 원본 옛 장착 저장·전투 연결을 상속하므로 전체 함수 승격은 보류한다.",
+      "source_sha256": "19c193f893db0816afa559982c43d059ea8ba14145f66e29ca2fdca7e5f9f743",
+      "source_excerpt_sha256": "290a5e64ec461c4afd0b2c91e037af91c09bfb3e9ddf5f8b4da0ae99c8a31e54",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P2537",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "도감 전체는 P2528/P2534의 원본 장착 이관·전투 연결 경계가 남는다.",
+      "source_sha256": "19c193f893db0816afa559982c43d059ea8ba14145f66e29ca2fdca7e5f9f743",
+      "source_excerpt_sha256": "e185c7cf876c62ab4e8b16c2e6993ab4a4e32413b7a3758991159f10dc92acad",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P2539",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "무효 코드·원본 옛 장착 입력→UID·실제 전투 라우터까지의 handler 전체 관찰은 미대조다.",
+      "source_sha256": "19c193f893db0816afa559982c43d059ea8ba14145f66e29ca2fdca7e5f9f743",
+      "source_excerpt_sha256": "60d28a8d731839d460cfb11e279c61883e2c106a037a48dad6d0fb1ddc8f6391",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P2567",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+      "source_sha256": "7003999b4765a0c84255b31361f82ccb88dd7c235267f410da1beec881505f5e",
+      "source_excerpt_sha256": "c2e11409be2d5fe49dc8adf9a8a7a3f27e594ba64ea3b8c196979d7ad0693227",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P2568",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+      "source_sha256": "7003999b4765a0c84255b31361f82ccb88dd7c235267f410da1beec881505f5e",
+      "source_excerpt_sha256": "b1d975cdb1f9b72f039fd9caf1f7e00beca3c82d90a4ae4abd1e0d87ba416f69",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P2593",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "평시 판매/장착/교환/재개는 기존 직접 일치. 전투 중 잔여 버튼 거절과 원본 옛 장착 입력을 합친 전체 경계가 남는다.",
+      "source_sha256": "7003999b4765a0c84255b31361f82ccb88dd7c235267f410da1beec881505f5e",
+      "source_excerpt_sha256": "eb4feb8f0f9e7d40b9072f214c5da9f6ef13e6acf97bd49e1fd398dcda395b8a",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P2606",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+      "source_sha256": "7003999b4765a0c84255b31361f82ccb88dd7c235267f410da1beec881505f5e",
+      "source_excerpt_sha256": "6c4c198f097a62cad78c7e6b074cbe649fd90b6fb79c69c27fd5d0e1e6b05009",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P2617",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "즐겨찾기 최대 3명 얼굴·선택 버튼을 실제 HUD 진입/순서와 연결한 직접 대조가 없다.",
+      "source_sha256": "7003999b4765a0c84255b31361f82ccb88dd7c235267f410da1beec881505f5e",
+      "source_excerpt_sha256": "956716183e69f5117b1db27da1b580f39659773b30770b750fc8f0811e070512",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P2629",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "선택지/설명 및 클라우드 대체 기능은 기존 시험 통과. 전체 초기화 뒤 G_new 차이와 계정 화면 복귀/전체 합성은 남는다.",
+      "source_sha256": "ff7887a4f0bdfa53273bc10942052c9bb4faddd07b8cf8ee5ebaa64ba8874d6e",
+      "source_excerpt_sha256": "2e3e5273dbc5ff1a842e0ed58cc752dc29521a17d72a9b5eee740bb789491df5",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "ui",
+      "id": "P2637",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "설정 선택/저장/재개는 기존 통과. 초기화 뒤 원본 G_new의 난수·의뢰·진행 전체 투영 차이가 남는다.",
+      "source_sha256": "ff7887a4f0bdfa53273bc10942052c9bb4faddd07b8cf8ee5ebaa64ba8874d6e",
+      "source_excerpt_sha256": "d073913c3065bed072c067d900285de9a29613c3208b0a8f84fa5cda92d42e2e",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "battle",
+      "id": "P1553",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "초기화 48편성과 carry 소생 조건은 비교. 기본/옛 편성·dm·로그·q·first를 포함한 fresh 전체 반환은 남음.",
+      "source_sha256": "67e9a51aaca2f8bf2f299f9b14a6c5a4cc080bb42a6557aec003ed3d67224167",
+      "source_excerpt_sha256": "75962285cbc3407f249991d572b8fa51bb1b642fea795d833f4c170b1bdf94ff",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "battle",
+      "id": "P1587",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "동일 편성 재시도의 bn 증가와 rg/qid/place/sid 이전 계약을 새 원본 fixture로 비교하지 않음.",
+      "source_sha256": "67e9a51aaca2f8bf2f299f9b14a6c5a4cc080bb42a6557aec003ed3d67224167",
+      "source_excerpt_sha256": "f990934e720f7e26e1c60a520e87b8e15d6861f0a0227557366dccf1a7d6e1ef",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "battle",
+      "id": "P1589",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "같은 bn으로 재시작하며 난이도·편성·출처를 유지하는 전체 반환을 새 대조하지 않음.",
+      "source_sha256": "67e9a51aaca2f8bf2f299f9b14a6c5a4cc080bb42a6557aec003ed3d67224167",
+      "source_excerpt_sha256": "4a4762d0bcd7bd566fe2062cabc0f9623bd666445c8e0bfb46ea5e83ccfbb41d",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "battle",
+      "id": "P1594",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "저장 매체 차이는 사유에서 제거. 원본 VER2 기록을 native에서 불러와 같은 다음 행동/소지·장착·진행으로 재개하는 직접 왕복 대조와 손상 입력 결과 비교가 아직 없음. 원본 migrate 대조 및 native 자체 restore 통과만으로 전체 load/save 행을 승격하지 않음.",
+      "source_sha256": "67e9a51aaca2f8bf2f299f9b14a6c5a4cc080bb42a6557aec003ed3d67224167",
+      "source_excerpt_sha256": "b2c4a669cf90f7b8bb8c3347cffa3e45fa324af40618eff2ec25b81bddd895a5",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다.",
+      "results": [
+        "verification/finish-r24/round2/resume-probe.json",
+        "verification/finish-r24/round2/server-boundary.json"
+      ]
+    },
+    {
+      "ledger": "battle",
+      "id": "P1595",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "저장 매체 차이는 사유에서 제거. 원본 VER2 기록을 native에서 불러와 같은 다음 행동/소지·장착·진행으로 재개하는 직접 왕복 대조와 손상 입력 결과 비교가 아직 없음. 원본 migrate 대조 및 native 자체 restore 통과만으로 전체 load/save 행을 승격하지 않음.",
+      "source_sha256": "67e9a51aaca2f8bf2f299f9b14a6c5a4cc080bb42a6557aec003ed3d67224167",
+      "source_excerpt_sha256": "e41252f1e46aea118199f33c07ac2bd20890317435958f20d6473ce4444ca4c5",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다.",
+      "results": [
+        "verification/finish-r24/round2/resume-probe.json",
+        "verification/finish-r24/round2/server-boundary.json"
+      ]
+    },
+    {
+      "ledger": "battle",
+      "id": "P1620",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "편성→전투 시작→scene/보상/식별자 저장까지의 G 변경 전체를 새 대조하지 않음.",
+      "source_sha256": "6aa41d4d86eeaa627f582b3c6ec56e3b8183366f73a3c80fc37f3421c954bf7f",
+      "source_excerpt_sha256": "0ab980469e3a7a6346460045f830a171cba863e71339f2305fc5e91315d2a04b",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "battle",
+      "id": "P1746",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "72가지 직접 strike와 기존 장비/사제/생존 회귀는 통과. 반환 ls/tags, 모든 구원 소유자 순서 및 필드 시간 이력은 남음.",
+      "source_sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4",
+      "source_excerpt_sha256": "b718862ea77a7183cc339126559e9fbec458f8b052e96ca7077fa70999ab3c35",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "battle",
+      "id": "P1811",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "기존256+추가16개 단일/전체 공격 기록에서 치명 taunt 원문/시간을 수정. 여러 개인/장비 반격 훅을 섞은 모든 사건·반환·시간 순서 직접 대조는 남음.",
+      "source_sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4",
+      "source_excerpt_sha256": "2349710020510eaa06f49ec8a828d152ea5d1e351894fd3048a09e8388039ddc",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "battle",
+      "id": "P1812",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "단일/전체 256입력의 대상별 시각·사망·보호자 상태·tags·피격 후 효과 비교. 다중 반격/장비 훅 혼합의 전체 사건/로그 대조는 남음.",
+      "source_sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4",
+      "source_excerpt_sha256": "07858969525e8a1a72b27a0a16de707ca396ea614c07144e2c959ee03ab09e6d",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "battle",
+      "id": "P1813",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "100종 각 행동·건강/손상652개 조합 편성의 차례 전체 상태·사건·로그·다음 RNG 직접 일치. fl 없는 옛 고정 적 차례 전체와 다중 개인/장비 훅 혼합 직접 대조는 남음.",
+      "source_sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4",
+      "source_excerpt_sha256": "3b50ba7874eaa023a174e1f7506c3ab0a577fd5f4aacb688945b65a5bebdd5b3",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "battle",
+      "id": "P1825",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "256개 직접 원본 모양 정산에서 결과문·부상자·EXP·로그·종료 이벤트·cur/q·재호출 일치. 실제 native world의 모든 의뢰 rg/qmult·출처 연결과 저장 재개 뒤 nd/마지막 일격 기록 복구는 남음.",
+      "source_sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4",
+      "source_excerpt_sha256": "0ad212e43a95f5eaec6fd20c8c31ab3e1ede7e70ee53ac4b8fdb7c64e8c3eabe",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다.",
+      "results": [
+        "verification/finish-r24/round2/resume-probe.json",
+        "verification/finish-r24/round2/server-boundary.json"
+      ]
+    },
+    {
+      "ledger": "battle",
+      "id": "P1831",
+      "status": "미확인",
+      "stage": "finish round2",
+      "previous_status": "미확인",
+      "previous_remaining_reason": "6320판 진행 결과는 비교. guard 80·모든 시작/라운드/사망·자동 방출의 전체 상태 경계는 남음.",
+      "source_sha256": "49645dd61ba18b648cdb65361601334ff976cde561f0d62d3a0bce4abf96f0b4",
+      "source_excerpt_sha256": "ca326c08391db78d3bbe7ea1e9a104e7ff46e08c083c53cee3b01ec4503c79f3",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "battle",
+      "id": "P1682",
+      "status": "일부",
+      "stage": "finish round2",
+      "previous_status": "일부",
+      "previous_remaining_reason": "기존 길드 UI는 유지. 모든 prefix/suffix·dirty/ready·강화 상한/부족 금화 표시의 의미상 출력 전체는 새 대조하지 않음.",
+      "source_sha256": "de2ac53a882b26c8e298fa6e4519f2b1f4f4f8b979f670fc6eb1e9823d186072",
+      "source_excerpt_sha256": "367a240fc961916f2d14c5e3ba8a9221f7ed5a6ee2dbd9fc77c2a3d586ae5dd2",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "battle",
+      "id": "P2351",
+      "status": "미확인",
+      "stage": "finish round2",
+      "previous_status": "미확인",
+      "previous_remaining_reason": "버튼 MP/설명·disabled·선택 상태의 의미상 출력 전체를 새 직접 대조하지 않음.",
+      "source_sha256": "712dafd8fc34163daf294a0a0266c0f20119341ee49cbf6f0901055e151b95e3",
+      "source_excerpt_sha256": "54ef8e0408b7fecc27857f22910429babdb74f035b9ba0fa0bc220dd9b22d29c",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "battle",
+      "id": "P2353",
+      "status": "미확인",
+      "stage": "finish round2",
+      "previous_status": "미확인",
+      "previous_remaining_reason": "기술 조건 회귀는 통과. 행동/아이템/대상 선택·취소·버튼 배열의 전체 새 대조는 남음.",
+      "source_sha256": "712dafd8fc34163daf294a0a0266c0f20119341ee49cbf6f0901055e151b95e3",
+      "source_excerpt_sha256": "5d25b371248c97007750eef1f8f69dc4e02d7870904639515b5aad61bb7df9fd",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    },
+    {
+      "ledger": "battle",
+      "id": "P2359",
+      "status": "미확인",
+      "stage": "finish round2",
+      "previous_status": "미확인",
+      "previous_remaining_reason": "기존 native 화면/오버플로 회귀는 유지. 모든 원본 상태에서 HUD·대상·로그·카메라의 의미상 전체 출력 대조는 남음.",
+      "source_sha256": "712dafd8fc34163daf294a0a0266c0f20119341ee49cbf6f0901055e151b95e3",
+      "source_excerpt_sha256": "a096b4b966327a82f1dae3aafb8c6e8eafaacf5850ed90345aa1b7a9fdb9f827",
+      "disposition": "중단·남음",
+      "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+    }
+  ],
+  "stopped_for_server_allowlist": true
+}

@@ -179,12 +179,12 @@ func smithy_action(arg: String) -> bool:
 func bank_expedition_gear(codes: Array) -> Dictionary:
 	var out=[];var lost=[]
 	for code in codes:
-		if not valid_gear_code(code):lost.append(code);continue
+		var previous_serial=int(s.serial)
+		if not bank_expedition_code(code):lost.append(code);continue
 		var state=s.commerce_r21.get("forge_codes_r22",{}).get(code,{"forge":0,"tries":0})
-		var entry=combat_gear_adapter.entry(code,int(s.serial)+1,{"lv":state.forge,"tries":state.tries})
-		if bag_count()>=2000:
-			lost.append(code);continue
-		s.serial+=1;s.gear.append(entry);out.append(code)
+		if int(s.serial)>previous_serial:
+			s.gear[-1].forge=state.forge;s.gear[-1].tries=state.tries
+		out.append(code)
 	return {"gear":out,"lost":lost.size()}
 
 func smithy_list() -> Array:
@@ -201,6 +201,61 @@ func smithy_select(tab: String) -> bool:
 
 func scroll_targets() -> Array:
 	return (["persona"]+s.owned).filter(func(id):return s.members.get(id,{}).get("level",40)<40)
+
+func shop_selection() -> Dictionary:
+	var out={"cls":"","slot":"weapon","target":""};var raw=s.ui.get("sel","")
+	if raw.begins_with("shop:"):
+		var saved=JSON.parse_string(raw.trim_prefix("shop:"))
+		if saved is Dictionary:
+			if saved.get("cls","") in [""]+shop_classes():out.cls=saved.get("cls","")
+			if saved.get("slot") in ["weapon","armor","acc"]:out.slot=saved.slot
+			if saved.get("target")=="level_scroll":out.target="level_scroll"
+	return out
+func remember_shop(value: Dictionary) -> void:s.ui.sel="shop:"+JSON.stringify(value)
+func shop_class() -> String:
+	var selected=shop_selection().cls
+	return selected if selected!="" else class_def("persona").get("id","warrior")
+func source_shop_stock(cls: String,slot: String) -> Array:return gear.stock_source(s.town_r21.seed,int(s.day),cls,slot)
+func shop_action(arg: String,page: String) -> bool:
+	if page!="shop" or active():return false
+	var selected=shop_selection()
+	if arg.begins_with("cls_"):
+		var cls=arg.trim_prefix("cls_")
+		if cls not in shop_classes():return false
+		selected.cls=cls;remember_shop(selected);return true
+	if arg.begins_with("slot_"):
+		var slot=arg.trim_prefix("slot_")
+		if slot not in ["weapon","armor","acc"]:return false
+		selected.slot=slot;remember_shop(selected);return true
+	if arg=="scroll":selected.target="level_scroll";remember_shop(selected);return true
+	if arg.begins_with("target_"):
+		var who=arg.trim_prefix("target_")
+		if s.items.get("level_scroll",0)<1:s.ui.msg=facility_text("레벨업 스크롤이 없습니다. 먼저 구입하세요.");return false
+		if selected.target!="level_scroll" or who not in ["persona"]+s.owned or s.members[who].level>=40:return false
+		if not use_item("level_scroll",who):return false
+		selected.target="";remember_shop(selected);s.ui.msg=facility_text("레벨이 올랐습니다. Lv {lv}.",{"lv":s.members[who].level});return true
+	if arg=="back":
+		facility="shop";return facility_route("town")
+	var re=RegEx.new();re.compile("^gear_([0-9]+)$");var m=re.search(arg)
+	if m:
+		var stock=source_shop_stock(shop_class(),selected.slot);var index=int(m.get_string(1))-1
+		if index<0 or index>=stock.size():return false
+		var row=stock[index]
+		var old_gift=int(s.items.get("charm_potion",0))
+		if not buy_gear(row.code,shop_class()):return false
+		s.ui.msg=facility_text("장비를 샀습니다: {item}",{"item":gear.by_id[row.id].name});shop_gift_message(old_gift);return true
+	if not arg.begins_with("buy_"):return false
+	var id=web_item_id(arg.trim_prefix("buy_"));var item=item_def(id)
+	if item.is_empty() or item.get("nosale",false) or item.has("slot"):return false
+	var amount=price(item)
+	var name=expedition_item_name(source_item_id(id))
+	if s.gold<amount:
+		s.ui.msg=facility_text("금화가 모자랍니다. {item} 값은 {price}, 가진 금화는 {gold}.",{"item":name,"price":amount,"gold":s.gold});return false
+	var old_gift=int(s.items.get("charm_potion",0))
+	if not buy(id):return false
+	s.ui.msg=facility_text("{item} 하나를 샀습니다. (보유 {n}, 남은 금화 {gold})",{"item":name,"n":s.items[id],"gold":s.gold});shop_gift_message(old_gift);return true
+func shop_gift_message(before: int) -> void:
+	if s.items.get("charm_potion",0)>before:s.ui.msg+=" "+facility_text("피에트로가 덤으로 「{item}」 하나를 슬쩍 얹어 주었다. (보유 {n})",{"item":"매혹의 비약","n":s.items.charm_potion})
 
 func use_item(id: String,who: String) -> bool:
 	if id!="level_scroll":return super(id,who)
@@ -221,6 +276,32 @@ func reject_quest(id: int) -> bool:
 	if active() or s.quest.get("id",-1)==id:return false
 	if GuildR22.find_quest(s.board,id)==null:return false
 	GuildR22.remove_quest(s.board,id);fill_source_board();return true
+
+func inn_action(arg: String,page: String) -> bool:
+	# 73-inn's dispatcher. Host send/AI work is replaced by the existing native
+	# narrative; confirmed economic effects still happen once before it opens.
+	if page!="inn" or active():return false
+	if arg=="back":facility="town";s.ui.sel="";return true
+	if arg=="list":s.ui.sel="";return true
+	var re=RegEx.new();re.compile("^([A-Za-z]+)_(.+)$");var m=re.search(arg)
+	if not m:return false
+	var verb=m.get_string(1);var who=m.get_string(2)
+	if who not in s.owned or not config.companions.any(func(c):return c.id==who):return false
+	if verb=="pick":s.ui.sel=who;return true
+	var definition=TOWN_RULES.DATA.inn.get(verb,{})
+	if definition.is_empty():return false
+	if not TOWN_RULES.inn_act_visible(s,verb,who):s.ui.msg=facility_text("지금은 할 수 없는 행동입니다.");return false
+	if not s.dialogue_r21.pending.is_empty():s.ui.msg=facility_text("앞의 대화를 먼저 마쳐 주세요.");return false
+	if not definition.day and s.acts.get(who+"_"+verb,0)==s.day:
+		s.ui.msg=facility_text("오늘은 이미 했습니다. 하룻밤 쉬고 나면 다시 할 수 있습니다.");return false
+	if s.gold<definition.cost:
+		s.ui.msg=facility_text("금화가 모자랍니다. {action} 값 {cost}, 가진 금화 {gold}",{"action":definition.name,"cost":definition.cost,"gold":s.gold});return false
+	var before=s.members[who].aff
+	var accepted=begin_inn_talk(who) if verb=="talk" else inn(who,verb)
+	if not accepted:return false
+	var gained=s.members[who].aff-before
+	s.ui.msg=facility_text("{name} ▲ 호감 +{a}. {next}",{"name":person(who).name,"a":TOWN_RULES.aff_fmt(gained),"next":""}).strip_edges()
+	return true
 
 func settle(result: String) -> bool:
 	if not r21() or not s.run.has("source_quest"):return super(result)
