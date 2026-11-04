@@ -1,0 +1,39 @@
+[
+  {
+    "test": "ui_look_r24_bottom_test",
+    "exit": 0,
+    "seconds": 23.78,
+    "passed": true,
+    "errors": [],
+    "summary": [
+      "LOOK R24 BOTTOM CHECKS 4344 FAILURES 0 CAPTURES 90"
+    ]
+  },
+  {
+    "test": "ui_town_r21_round2_test",
+    "exit": 0,
+    "seconds": 15.73,
+    "passed": true,
+    "errors": [],
+    "summary": [
+      "TOWN ROUND2 UI CHECKS 4784 FAILURES 0"
+    ]
+  },
+  {
+    "test": "ui_dialogue_roster_r21_test",
+    "exit": 124,
+    "passed": true,
+    "launcher_passed": false,
+    "errors": [],
+    "summary": [
+      "DIALOGUE ROSTER UI CHECKS 1489324 FAILURES 0 OVERFLOW 0"
+    ],
+    "native_completion_verified": true,
+    "result": "native-dialogue-results.json",
+    "result_sha256": "7d1a4144e15ffa96770519161451206396a20a20760556cbca2bac57a9563b5c",
+    "completed_groups": 120,
+    "result_after_launch_seconds": 919.85,
+    "note": "Launcher stopped waiting at 900 seconds; the unmodified test has its own 1200-second watchdog and completed all 120 groups afterward. Exit 124 is retained; functional pass is verified from the completed test JSON and full log, not a measured native exit code.",
+    "result_source": "test-workspace/verification/town-r21/round13/ui-dialogue-results.json"
+  }
+]

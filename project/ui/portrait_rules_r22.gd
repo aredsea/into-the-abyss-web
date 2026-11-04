@@ -3,6 +3,9 @@ extends Control
 const R=preload("res://game/panels_rules_r22.gd")
 const T=preload("res://ui/town_theme_r21.gd")
 const L=preload("res://game/localization_r22.gd")
+const Layout24=preload("res://ui/portrait_layout_r24.gd")
+var character_id=""
+var normalized24=false
 var texture: Texture2D
 var initial=""
 var selection={}
@@ -36,12 +39,19 @@ static func face_observation(id: String,name: String,lang="ko") -> Dictionary:
 	return {"asset":asset,"initial":R.first(L.t(name,lang)) if asset=="" and id not in ["","persona"] else "","persona":asset=="" and id in ["","persona"]}
 func configure(id: String,variant="default",name: Variant=null,lang="ko") -> void:
 	selection=resolve(id,variant);texture=load(selection.path) if selection.path!="" else null
+	character_id=id
+	var revised=Layout24.path(id);normalized24=not revised.is_empty() and selection.name!="" and (selection.name==id+"_portrait_default" or selection.fallback)
+	if normalized24:
+		selection.render_path=revised;texture=load(revised)
 	var display=R.DATA.cast.get(id,{}).get("name",id) if name==null else name
 	initial=face_observation(id,display,lang).initial
 	if texture==null and selection.name!="":initial=R.first(L.t(display,lang))
 	mouse_filter=MOUSE_FILTER_IGNORE;clip_contents=true;texture_filter=TEXTURE_FILTER_LINEAR;queue_redraw()
 func _draw() -> void:
 	if texture:
+		if normalized24:
+			Layout24.paint(self,character_id,size,texture)
+			return
 		var k=maxf(size.x/texture.get_width(),size.y/texture.get_height());var dims=texture.get_size()*k
 		draw_texture_rect(texture,Rect2(Vector2((size.x-dims.x)/2,0),dims),false)
 	elif initial!="":draw_string(T.DISPLAY,Vector2(14,size.y*.65),initial,HORIZONTAL_ALIGNMENT_LEFT,-1,48,T.MUTED)

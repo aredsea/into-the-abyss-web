@@ -3,8 +3,13 @@ extends Control
 var id=""
 var picture: Texture2D
 var reference_party=false
+const Layout24=preload("res://ui/portrait_layout_r24.gd")
+var normalized24=false
 func configure(who: String) -> void:
 	id=who
+	var revised=Layout24.path(id);normalized24=not revised.is_empty()
+	if normalized24:
+		picture=load(revised);queue_redraw();return
 	picture=load("res://assets/portraits-r10/"+id+"-face.png") if id in ["hildegard","bargut","teiris","berenga"] else load("res://assets/"+id+".webp")
 	queue_redraw()
 func _ready() -> void:
@@ -12,6 +17,9 @@ func _ready() -> void:
 	texture_filter=CanvasItem.TEXTURE_FILTER_LINEAR
 func _draw() -> void:
 	if picture==null: return
+	if normalized24:
+		Layout24.paint(self,id,size,picture)
+		return
 	var width=84.0 if reference_party and id in ["hildegard","bargut","teiris","berenga"] else size.x
 	var ratio=width/picture.get_width()
 	var top={"hildegard":-33.0,"bargut":-37.0,"teiris":-30.0,"berenga":-31.0}.get(id,-size.x*.27)
