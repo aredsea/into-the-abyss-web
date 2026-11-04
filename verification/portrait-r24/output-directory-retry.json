@@ -1,0 +1,67 @@
+{
+  "reason": "Inherited capture tests omitted mkdir for empty clone output folders",
+  "initial": [
+    {
+      "test": "ui_look_r24_bottom_test",
+      "exit": 1,
+      "seconds": 22.48,
+      "passed": false,
+      "errors": [
+        "ERROR: Can't save PNG at path: 'res://../verification/look-r24/after/create-step1-end-360x780.png'.",
+        "ERROR: capture create-step1-end-360x780.png",
+        "ERROR: Can't save PNG at path: 'res://../verification/look-r24/after/create-step2-end-360x780.png'.",
+        "ERROR: capture create-step2-end-360x780.png",
+        "ERROR: Can't save PNG at path: 'res://../verification/look-r24/after/create-step3-end-360x780.png'.",
+        "ERROR: capture create-step3-end-360x780.png",
+        "ERROR: Can't save PNG at path: 'res://../verification/look-r24/after/create-step4-end-360x780.png'.",
+        "ERROR: capture create-step4-end-360x780.png",
+        "ERROR: Can't save PNG at path: 'res://../verification/look-r24/after/create-points-action-360x780.png'.",
+        "ERROR: capture create-points-action-360x780.png",
+        "ERROR: Can't save PNG at path: 'res://../verification/look-r24/after/create-custom-end-360x780.png'.",
+        "ERROR: capture create-custom-end-360x780.png",
+        "ERROR: Can't save PNG at path: 'res://../verification/look-r24/after/create-step5-end-360x780.png'.",
+        "ERROR: capture create-step5-end-360x780.png",
+        "ERROR: Can't save PNG at path: 'res://../verification/look-r24/after/meeting-empty-end-360x780.png'.",
+        "ERROR: capture meeting-empty-end-360x780.png",
+        "ERROR: Can't save PNG at path: 'res://../verification/look-r24/after/meeting-end-360x780.png'.",
+        "ERROR: capture meeting-end-360x780.png",
+        "ERROR: Can't save PNG at path: 'res://../verification/look-r24/after/cloud-end-360x780.png'.",
+        "ERROR: capture cloud-end-360x780.png"
+      ],
+      "summary": [
+        "LOOK R24 BOTTOM CHECKS 4344 FAILURES 90 CAPTURES 90"
+      ]
+    },
+    {
+      "test": "ui_town_r21_round2_test",
+      "exit": 1,
+      "seconds": 17.1,
+      "passed": false,
+      "errors": [
+        "ERROR: Can't save PNG at path: 'C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-portrait/verification/portrait-r24/test-workspace/project/../verification/town-r21/render/depart-390.png'.",
+        "ERROR: capture depart",
+        "ERROR: Can't save PNG at path: 'C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-portrait/verification/portrait-r24/test-workspace/project/../verification/town-r21/render/formation-390.png'.",
+        "ERROR: capture formation",
+        "ERROR: Can't save PNG at path: 'C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-portrait/verification/portrait-r24/test-workspace/project/../verification/town-r21/render/bag-390.png'.",
+        "ERROR: capture bag",
+        "ERROR: Can't save PNG at path: 'C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-portrait/verification/portrait-r24/test-workspace/project/../verification/town-r21/render/journal-390.png'.",
+        "ERROR: capture journal",
+        "ERROR: Can't save PNG at path: 'C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-portrait/verification/portrait-r24/test-workspace/project/../verification/town-r21/render/target-390.png'.",
+        "ERROR: capture target",
+        "ERROR: Can't save PNG at path: 'C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-portrait/verification/portrait-r24/test-workspace/project/../verification/town-r21/render/target-selected-390.png'.",
+        "ERROR: capture target-selected",
+        "ERROR: Can't save PNG at path: 'C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-portrait/verification/portrait-r24/test-workspace/project/../verification/town-r21/render/explore-390.png'.",
+        "ERROR: capture explore",
+        "ERROR: Can't save PNG at path: 'C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-portrait/verification/portrait-r24/test-workspace/project/../verification/town-r21/render/rest-390.png'.",
+        "ERROR: capture rest",
+        "ERROR: Can't save PNG at path: 'C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-portrait/verification/portrait-r24/test-workspace/project/../verification/town-r21/render/cards-empty-390.png'.",
+        "ERROR: capture cards-empty",
+        "ERROR: Can't save PNG at path: 'C:/Users/asone/Documents/Codex/2026-10-30/into-the-abyss-handoff/work/r21-portrait/verification/portrait-r24/test-workspace/project/../verification/town-r21/render/cards-390.png'.",
+        "ERROR: capture cards"
+      ],
+      "summary": [
+        "TOWN ROUND2 UI CHECKS 4784 FAILURES 48"
+      ]
+    }
+  ]
+}

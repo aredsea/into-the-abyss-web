@@ -1,12 +1,14 @@
 extends Control
 ## Slot contract for branch C. Missing slots fall back to original source art.
 const Original=preload("res://ui/character_portrait.gd")
+const Layout24=preload("res://ui/portrait_layout_r24.gd")
 var character_id=""
 var kind="bust"
 var source_path=""
 var texture: Texture2D
 var shift=Vector2.ZERO
 var source_crop=Rect2()
+var normalized24=false
 const SLOTS=["cast-feature","cast-secondary","cast-lower-left","detail-overview","detail-skills","party-tall","formation-face","target-face","town-main","town-party-face"]
 static var PLACEMENTS=JSON.parse_string(FileAccess.get_file_as_string("res://data/portrait-slots-r21.json"))
 
@@ -21,11 +23,14 @@ static func preferred_path(id: String,slot: String) -> String:
 
 func configure(id: String,slot="bust") -> void:
 	character_id=id; kind=slot; source_path=preferred_path(id,slot)
+	# Preserve the legacy atlas lookup contract; rendering uses the new source matte.
+	var revised=Layout24.path(id);normalized24=not revised.is_empty()
+	if normalized24:source_path=revised
 	for c in get_children(): remove_child(c); c.queue_free()
 	if not source_path.is_empty():
 		texture=load(source_path)
 		source_crop=Rect2(Vector2.ZERO,texture.get_size())
-		if slot in SLOTS and not source_path.contains("/slots/"):
+		if not normalized24 and slot in SLOTS and not source_path.contains("/slots/"):
 			for entry in PLACEMENTS:
 				if entry.id==id and entry.slot==slot:
 					var c=entry.source_crop_xyxy
@@ -44,6 +49,9 @@ func configure(id: String,slot="bust") -> void:
 
 func _draw() -> void:
 	if texture:
+		if normalized24:
+			Layout24.paint(self,character_id,size,texture)
+			return
 		var k=maxf(size.x/source_crop.size.x,size.y/source_crop.size.y)
 		var scaled=source_crop.size*k
 		var y=(size.y-scaled.y)*.65 if kind=="face" else 0.0

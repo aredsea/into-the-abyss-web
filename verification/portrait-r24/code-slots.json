@@ -1,0 +1,254 @@
+[
+  {
+    "file": "project\\ui\\battle_screen.gd",
+    "line": 257,
+    "function": "_rebuild",
+    "code": "var arrow=_picture(\"res://assets/ui-r17/back.svg\",Rect2(12,8.5,24,24),back); arrow.modulate=Color(1,1,1,.45); _mark(\"back\",arrow)"
+  },
+  {
+    "file": "project\\ui\\battle_screen.gd",
+    "line": 319,
+    "function": "_battlefield",
+    "code": "var back=_picture(\"res://assets/src/academy.png\",Rect2(Vector2.ZERO,rect.size),field); field_back=back"
+  },
+  {
+    "file": "project\\ui\\battle_screen.gd",
+    "line": 367,
+    "function": "_battlefield",
+    "code": "var outline=_picture(\"res://assets/ui-r20/target-outline.svg\",Rect2(253*sx-left,141*sy-hit_top,126,110) if big else target_rect,hit)"
+  },
+  {
+    "file": "project\\ui\\battle_screen.gd",
+    "line": 418,
+    "function": "_party",
+    "code": "var face=FaceR17.new(); face.reference_party=true; face.configure(a.id); _put(face,Rect2(0,0,col,51),b); _mark(\"face:\"+a.id,face)"
+  },
+  {
+    "file": "project\\ui\\battle_screen.gd",
+    "line": 470,
+    "function": "_commands",
+    "code": "var pic=_picture(\"res://assets/ui-r17/\"+icon+\".svg\",Rect2(9,15,22,25),b); pic.modulate=color"
+  },
+  {
+    "file": "project\\ui\\battle_screen.gd",
+    "line": 500,
+    "function": "_commands",
+    "code": "_picture(\"res://assets/ui-r17/\"+(\"bag\" if i==0 else \"log\")+\".svg\",Rect2(left,11,19,22),b)"
+  },
+  {
+    "file": "project\\ui\\battle_screen.gd",
+    "line": 596,
+    "function": "_close_button",
+    "code": "_picture(\"res://assets/ui-r17/close.svg\",Rect2(40,14,16,16),b)"
+  },
+  {
+    "file": "project\\ui\\battle_screen.gd",
+    "line": 600,
+    "function": "_ally_sheet",
+    "code": "var status_portrait=preload(\"res://ui/town_portrait_r21.gd\").new();status_portrait.configure(a.id,\"bust\");_put(status_portrait,Rect2(7,52,153,192),p);_mark(\"status-portrait\",status_portrait)"
+  },
+  {
+    "file": "project\\ui\\battle_screen.gd",
+    "line": 824,
+    "function": "_effect_feedback",
+    "code": "_companion_picture(a.id,Rect2(3,3,48,52),banner)"
+  },
+  {
+    "file": "project\\ui\\battle_screen.gd",
+    "line": 875,
+    "function": "_supplies",
+    "code": "var icon=_picture(\"res://assets/ic_it_\"+icon_id+\".webp\",Rect2(6,7.5,24,29),b,true); icon.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED"
+  },
+  {
+    "file": "project\\ui\\codex_screen_r22.gd",
+    "line": 32,
+    "function": "build",
+    "code": "var p=portrait(cid,tile,Vector2(0,138));p.size_flags_horizontal=SIZE_EXPAND_FILL"
+  },
+  {
+    "file": "project\\ui\\codex_screen_r22.gd",
+    "line": 45,
+    "function": "detail",
+    "code": "h=row();portrait(id,h,Vector2(130,190));var copy=VBoxContainer.new();h.add_child(copy);copy.size_flags_horizontal=SIZE_EXPAND_FILL"
+  },
+  {
+    "file": "project\\ui\\create_screen.gd",
+    "line": 167,
+    "function": "scenario",
+    "code": "var portrait=preload(\"res://ui/town_portrait_r21.gd\").new();portrait_frame.add_child(portrait);portrait.custom_minimum_size=Vector2(minf(frame.size.x-36,340),280);portrait.configure(selected.companion,\"detail-overview\")"
+  },
+  {
+    "file": "project\\ui\\expedition_screen_r22.gd",
+    "line": 15,
+    "function": "small_party",
+    "code": "picture(id,Rect2(x,y,86,64),\"town-party-face\")"
+  },
+  {
+    "file": "project\\ui\\expedition_screen_r22.gd",
+    "line": 63,
+    "function": "source_entries",
+    "code": "picture(e.id,Rect2(0,y,72,64),\"town-party-face\").set_meta(\"expe_entry\",e);y+=68"
+  },
+  {
+    "file": "project\\ui\\expe_sortie_legacy_r23.gd",
+    "line": 61,
+    "function": "build",
+    "code": "picture(id,Rect2(x,y,48,66),\"formation-face\")"
+  },
+  {
+    "file": "project\\ui\\expe_sortie_legacy_r23.gd",
+    "line": 103,
+    "function": "formation_row",
+    "code": "picture(id,Rect2(px,0,83,78),\"formation-face\")"
+  },
+  {
+    "file": "project\\ui\\facilities_screen_r22.gd",
+    "line": 106,
+    "function": "recruit_roster",
+    "code": "picture(id,Rect2(0,y,48,59),\"target-face\")"
+  },
+  {
+    "file": "project\\ui\\facilities_screen_r22.gd",
+    "line": 120,
+    "function": "recruit_result",
+    "code": "picture(id,Rect2(0,y,82,98),\"target-face\")"
+  },
+  {
+    "file": "project\\ui\\panel_screen_r22.gd",
+    "line": 112,
+    "function": "favorite_card",
+    "code": "var h=row(card);portrait(id,h,Vector2(76,108),c.name);var copy=VBoxContainer.new();h.add_child(copy);copy.size_flags_horizontal=SIZE_EXPAND_FILL"
+  },
+  {
+    "file": "project\\ui\\panel_screen_r22.gd",
+    "line": 133,
+    "function": "persona",
+    "code": "var p=host.model.s.get(\"persona\",{});var name=p.get(\"name\",\"\");var h=row();portrait(\"persona\",h,Vector2(72,110));var b=VBoxContainer.new();h.add_child(b);b.size_flags_horizontal=SIZE_EXPAND_FILL"
+  },
+  {
+    "file": "project\\ui\\persona_sortie_screen.gd",
+    "line": 112,
+    "function": "formation_slots",
+    "code": "var m=members[i];picture(m.id,Rect2(x,359,84,64),\"town-party-face\")"
+  },
+  {
+    "file": "project\\ui\\persona_sortie_screen.gd",
+    "line": 131,
+    "function": "formation_row",
+    "code": "picture(id,Rect2(px,0,83,78),\"formation-face\")"
+  },
+  {
+    "file": "project\\ui\\town_art_r21.gd",
+    "line": 8,
+    "function": "build_art",
+    "code": "ink(Rect2(-10,130,430,200));picture(id,Rect2(0,130,390,190),\"detail-skills\")"
+  },
+  {
+    "file": "project\\ui\\town_result_r21.gd",
+    "line": 27,
+    "function": "build_result",
+    "code": "picture(id,Rect2(x,597,86,43),\"town-party-face\")"
+  },
+  {
+    "file": "project\\ui\\town_screen_r21.gd",
+    "line": 235,
+    "function": "home",
+    "code": "picture(lead,Rect2(50,103,340,428),\"town-main\")"
+  },
+  {
+    "file": "project\\ui\\town_screen_r21.gd",
+    "line": 250,
+    "function": "home",
+    "code": "else:picture(id,Rect2(x+2,550,83,58),\"town-party-face\")"
+  },
+  {
+    "file": "project\\ui\\town_screen_r21.gd",
+    "line": 357,
+    "function": "small_party",
+    "code": "picture(id,Rect2(x,y,86,181 if tall else 64),\"party-tall\" if tall else \"town-party-face\")"
+  },
+  {
+    "file": "project\\ui\\town_screen_r21.gd",
+    "line": 389,
+    "function": "departure",
+    "code": "picture(id,Rect2(x,520,71,67),\"formation-face\")"
+  },
+  {
+    "file": "project\\ui\\town_screen_r21.gd",
+    "line": 435,
+    "function": "target_item",
+    "code": "picture(id,Rect2(42,y+3,88,93),\"target-face\")"
+  },
+  {
+    "file": "project\\ui\\town_screen_r21.gd",
+    "line": 465,
+    "function": "formation",
+    "code": "picture(id,Rect2(x,y,79,72),\"formation-face\"); label(host.model.person(id).name,Rect2(x,y+73,79,21),10)"
+  },
+  {
+    "file": "project\\ui\\town_screen_r21.gd",
+    "line": 475,
+    "function": "exploration",
+    "code": "for i in range(w.s.party.size()):picture(w.s.party[i],Rect2(12+i*94,273,94,171),\"party-tall\")"
+  },
+  {
+    "file": "project\\ui\\town_screen_r21.gd",
+    "line": 495,
+    "function": "cards",
+    "code": "picture(host.model.s.party[0] if not host.model.s.party.is_empty() else host.model.s.owned[0],Rect2(160,53,230,275 if not host.model.s.hand.is_empty() else 382),\"town-main\")"
+  },
+  {
+    "file": "project\\ui\\town_screen_r21.gd",
+    "line": 531,
+    "function": "npc_hero",
+    "code": "picture(id,Rect2(99,43,291,height-3),\"town-main\")"
+  },
+  {
+    "file": "project\\ui\\town_screen_r21.gd",
+    "line": 656,
+    "function": "inn",
+    "code": "picture(host.who,Rect2(18,480,139,127),\"detail-skills\")"
+  },
+  {
+    "file": "project\\ui\\town_screen_r21.gd",
+    "line": 709,
+    "function": "dialogue_frame",
+    "code": "picture(who,Rect2(173,22,207,297),\"detail-overview\")"
+  },
+  {
+    "file": "project\\ui\\town_screen_r21.gd",
+    "line": 768,
+    "function": "journey_dialogue",
+    "code": "picture(row.who,Rect2(0,y,77,104),\"target-face\")"
+  },
+  {
+    "file": "project\\ui\\town_screen_r21.gd",
+    "line": 834,
+    "function": "equipment",
+    "code": "picture(host.who,Rect2(0,128,163,300),\"detail-overview\")"
+  },
+  {
+    "file": "project\\ui\\town_screen_r21.gd",
+    "line": 947,
+    "function": "overview",
+    "code": "picture(host.who,Rect2(0,123,390,360),\"detail-overview\")"
+  },
+  {
+    "file": "project\\ui\\town_screen_r21.gd",
+    "line": 972,
+    "function": "skills",
+    "code": "ink(Rect2(-10,30,430,255)); plate(\"detail-city\",Rect2(286,0,104,141)); picture(host.who,Rect2(83,27,307,257),\"town-main\")"
+  },
+  {
+    "file": "project\\ui\\world_screen.gd",
+    "line": 279,
+    "function": "_portrait",
+    "code": "companion_image(id,row,Vector2(128,170) if large else Vector2(76,104))"
+  },
+  {
+    "file": "project\\ui\\world_screen.gd",
+    "line": 598,
+    "function": "_npc",
+    "code": "companion_image(id,row,Vector2(86,112))"
+  }
+]

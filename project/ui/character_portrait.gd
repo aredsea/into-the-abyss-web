@@ -3,6 +3,8 @@ extends Control
 ## paper; source texture pixels and files are never repainted or replaced.
 static var cache: Dictionary = {}
 static var framing: Dictionary = {}
+const Layout24=preload("res://ui/portrait_layout_r24.gd")
+var normalized24=false
 var character_id = ""
 var portrait: Dictionary = {}
 var face_texture: Texture2D
@@ -109,6 +111,9 @@ static func prepare(id: String, rebuild=false) -> Dictionary:
 
 func configure(id: String) -> void:
 	character_id = id
+	var revised=Layout24.path(id);normalized24=not revised.is_empty()
+	if normalized24:
+		face_texture=load(revised);portrait={};queue_redraw();return
 	face_texture = load("res://assets/portraits-r10/" + id + "-face.png") if id in FACE_IDS else null
 	portrait = {} if face_texture else prepare(id)
 	queue_redraw()
@@ -120,6 +125,9 @@ func _ready() -> void:
 	resized.connect(queue_redraw)
 
 func _draw() -> void:
+	if normalized24 and face_texture:
+		Layout24.paint(self,character_id,size,face_texture)
+		return
 	if face_texture:
 		# Dedicated alpha PNG: face fills the slot, preserving image proportions.
 		var ratio = maxf(size.x / face_texture.get_width(), size.y / face_texture.get_height())

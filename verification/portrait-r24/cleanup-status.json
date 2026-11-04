@@ -1,0 +1,55 @@
+{
+  "status": "blocked_by_tool_policy",
+  "attempt": "Native PowerShell Remove-Item -LiteralPath with resolved absolute paths; no elevation available",
+  "paths": [
+    {
+      "path": "tools/portrait-tmp",
+      "bytes": 2033128,
+      "files": 78,
+      "deletion_attempt": "rejected_by_tool_policy"
+    },
+    {
+      "path": "verification/portrait-r24/cache/probe-db",
+      "bytes": 143648,
+      "files": 9,
+      "deletion_attempt": "rejected_by_tool_policy"
+    },
+    {
+      "path": "verification/portrait-r24/cache/probe-registry",
+      "bytes": 0,
+      "files": 0,
+      "deletion_attempt": "rejected_by_tool_policy"
+    },
+    {
+      "path": "verification/portrait-r24/test-workspace/verification/ui-r17/runtime-portrait-r24-0",
+      "bytes": 182140718,
+      "files": 21,
+      "deletion_attempt": "not_attempted_after_cache_policy_rejection"
+    },
+    {
+      "path": "verification/portrait-r24/test-workspace/verification/ui-r17/runtime-portrait-r24-1",
+      "bytes": 182063182,
+      "files": 15,
+      "deletion_attempt": "not_attempted_after_cache_policy_rejection"
+    },
+    {
+      "path": "verification/portrait-r24/test-workspace/verification/ui-r17/runtime-portrait-r24-2",
+      "bytes": 184409118,
+      "files": 50,
+      "deletion_attempt": "not_attempted_after_cache_policy_rejection"
+    },
+    {
+      "path": "verification/portrait-r24/test-workspace/verification/ui-r17/runtime-portrait-r24-MainThread",
+      "bytes": 184344954,
+      "files": 5,
+      "deletion_attempt": "not_attempted_after_cache_policy_rejection"
+    },
+    {
+      "path": "verification/portrait-r24/test-workspace/verification/ui-r17/runtime-portrait-r24-review",
+      "bytes": 182212170,
+      "files": 28,
+      "deletion_attempt": "not_attempted_after_cache_policy_rejection"
+    }
+  ],
+  "runtime_engine_directories": 5
+}
