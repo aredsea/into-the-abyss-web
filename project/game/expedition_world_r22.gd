@@ -527,13 +527,18 @@ func bank_expedition_record(codes: Array,provider: Callable=Callable(),request_i
 		else:lost+=1
 	return {"gear":out,"lost":lost}
 
-func bank_expedition_code(code: String) -> bool:
-	var entry=combat_gear_adapter.source_drop({"code":code},int(s.serial)+1)
-	if entry.is_empty():return false
+func bank_expedition_code(code: Variant) -> bool:
+	if not code is String:return false
+	var parsed=combat_gear_rules.gear_parse(code)
+	if parsed.is_empty():return false
 	var worn=[]
 	for eq in s.equipment.values():worn.append_array(eq.values())
 	if s.gear.filter(func(e):return e.uid not in worn).size()>=2000:
 		return false
+	# bag_add accepts a syntactically valid unknown id, while the next bag_load
+	# filters it. Report that success without creating an unusable native item.
+	if not combat_gear_rules.source.items.has(parsed.id):return true
+	var entry=combat_gear_adapter.source_drop({"code":code},int(s.serial)+1)
 	s.serial+=1;s.gear.append(entry)
 	return true
 

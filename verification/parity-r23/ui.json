@@ -80,6 +80,19 @@
         "대체": 21,
         "일부": 27,
         "제외": 4
+      },
+      "round2": {
+        "ledger": "ui",
+        "initial_remaining": 27,
+        "promoted_same": 0,
+        "modified": 0,
+        "remaining": 27,
+        "statuses": {
+          "같음": 92,
+          "대체": 21,
+          "일부": 27,
+          "제외": 4
+        }
       }
     }
   },
@@ -1797,7 +1810,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "native 초기 생성에는 선생성 의뢰·다른 초기 RNG와 출정 기본 모드가 남아 있다. 빈 원본 G_new 전체 관찰 투영은 같지 않다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "native 초기 생성에는 선생성 의뢰·다른 초기 RNG와 출정 기본 모드가 남아 있다. 빈 원본 G_new 전체 관찰 투영은 같지 않다.",
+          "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+          "source_excerpt_sha256": "82df4dbf723fa2f4f620f623a20eff8747bd67cbd9079a3ec2141fea45425b94",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -1855,7 +1877,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "native schema 1/2는 보존하지만 schema 없는 원본 v1 G 전체와 잘못된 타입을 원본처럼 보충해 읽는 경로가 없다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "native schema 1/2는 보존하지만 schema 없는 원본 v1 G 전체와 잘못된 타입을 원본처럼 보충해 읽는 경로가 없다.",
+          "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+          "source_excerpt_sha256": "ca01fd19cf442557ef400309b4f282d6f14401e6cc9292d2dc2a4d0fce9d3a6b",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -1913,7 +1944,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "원본 v1 load의 초과 경험치 정산·코드 장착 환원·전체 진행을 native restore로 읽는 통합 입력 경로는 없다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "원본 v1 load의 초과 경험치 정산·코드 장착 환원·전체 진행을 native restore로 읽는 통합 입력 경로는 없다.",
+          "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+          "source_excerpt_sha256": "3078944e2957a4765d941d934905f4a3abf234cc9c0e62c1d999dec8ace049ad",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -2366,7 +2406,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "native 파일 왕복은 통과. 원본 v1 코드 장비·상태·진행 전체를 UID로 투영하는 저장/재개 대조는 남는다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "native 파일 왕복은 통과. 원본 v1 코드 장비·상태·진행 전체를 UID로 투영하는 저장/재개 대조는 남는다.",
+          "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+          "source_excerpt_sha256": "550c2b01809fa5c626f3c4fe4a6c95bd10f7ed1a3ce51d106b656a1414d83a6c",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -2630,7 +2679,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "원본 HUD 장소·금화·최대 3명 즐겨찾기 얼굴·메뉴 버튼 순서와 native 분산된 상/하단 진입은 전체 대조하지 못했다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "원본 HUD 장소·금화·최대 3명 즐겨찾기 얼굴·메뉴 버튼 순서와 native 분산된 상/하단 진입은 전체 대조하지 못했다.",
+          "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+          "source_excerpt_sha256": "21d97b72bc7585127514114e28bc3f7ce682e4d4e8e0c0c4544d0b137896ad4d",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -2939,7 +2997,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "알 수 없는 scene·화면 함수 오류·공개 override의 최상위 native 표시 전체를 원본과 직접 비교하지 못했다. 성인 override는 제외다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "알 수 없는 scene·화면 함수 오류·공개 override의 최상위 native 표시 전체를 원본과 직접 비교하지 못했다. 성인 override는 제외다.",
+          "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+          "source_excerpt_sha256": "a18eeff5ba5e55fc8a21bc3abda3736551ed0ffc9a79f239d2fa73245215f7fa",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -2994,7 +3061,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "무효 접두·중복 버튼·저장 실패 뒤 부수효과를 포함한 world_screen 최상위 라우터 전체 대조가 남는다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "무효 접두·중복 버튼·저장 실패 뒤 부수효과를 포함한 world_screen 최상위 라우터 전체 대조가 남는다.",
+          "source_sha256": "b0e99b8441138cba334b45317b783ba8a36f98dd81c82faceadf76187810994c",
+          "source_excerpt_sha256": "bf7fec4e1a1fc81ecfb7f3199d6e11e1b078ace2ff4776fe2cc56f445ce446dc",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -3644,7 +3720,16 @@
         "fixed": true,
         "disposition": "수정·남음",
         "detail": "개인/시너지 표시는 보강했다. 종족/계통 미선택 안내와 원본 pg_race 전체 정보·순서의 직접 대조는 남는다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "개인/시너지 표시는 보강했다. 종족/계통 미선택 안내와 원본 pg_race 전체 정보·순서의 직접 대조는 남는다.",
+          "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+          "source_excerpt_sha256": "54d01a2c61aa43f28f034b3963b6cb48d21e04fe35bc3824d5bd1220be5d7fc3",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -3701,7 +3786,16 @@
         "fixed": true,
         "disposition": "수정·남음",
         "detail": "차단 이름 덧붙임을 제거하고 원본 bl.s/note/tag로 수정했다. 전체 pg_nation의 설명·순서·선택 유지 합성은 미대조다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "차단 이름 덧붙임을 제거하고 원본 bl.s/note/tag로 수정했다. 전체 pg_nation의 설명·순서·선택 유지 합성은 미대조다.",
+          "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+          "source_excerpt_sha256": "8baaec21dee4305feb67bc46ed455437ce71e201893f775e64b9238d7a98efeb",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -3758,7 +3852,16 @@
         "fixed": true,
         "disposition": "수정·남음",
         "detail": "계열 개인/시너지를 추가했다. 모든 직업의 기본 수치·스킬·출신 주의문을 포함한 전체 순서 직접 대조는 남는다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "계열 개인/시너지를 추가했다. 모든 직업의 기본 수치·스킬·출신 주의문을 포함한 전체 순서 직접 대조는 남는다.",
+          "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+          "source_excerpt_sha256": "8514d10daae4b94bb7a778db80210d6d96487bc512f8b92a2b7e96b1e218e512",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -3815,7 +3918,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "총량 프리셋의 설명·직접 모드 보조 문구 전체는 아직 원본과 다르다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "총량 프리셋의 설명·직접 모드 보조 문구 전체는 아직 원본과 다르다.",
+          "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+          "source_excerpt_sha256": "772797594391b8e5a1677c4e3c64edd1c206c5b69d10b51e6a620f7acc36b162",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -3872,7 +3984,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "원본 능력치 막대·HP/MP·추천/초기화·상한 설명의 전체 화면 정보와 순서를 직접 모두 맞추지 못했다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "원본 능력치 막대·HP/MP·추천/초기화·상한 설명의 전체 화면 정보와 순서를 직접 모두 맞추지 못했다.",
+          "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+          "source_excerpt_sha256": "1ba69bf71e8f083541aecd198e32dd24f2bd9fe91f1b1a5775d3aacebc594efa",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -4065,7 +4186,16 @@
         "fixed": true,
         "disposition": "수정·남음",
         "detail": "단계 머리/특성/확정/내비게이션 helper는 승격했다. 첫 단계의 원본 언어 선택 버튼·클라우드 설명 및 페이지 전체 합성 순서 차이는 남는다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "단계 머리/특성/확정/내비게이션 helper는 승격했다. 첫 단계의 원본 언어 선택 버튼·클라우드 설명 및 페이지 전체 합성 순서 차이는 남는다.",
+          "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+          "source_excerpt_sha256": "ca81ad3fb407e84b2c512b5743c32dbc6896235a62cc9443715cec661f43eb5c",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -4190,7 +4320,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "호스트 아바타는 제외. 첫 만남에서 그림 provider 없음·실패 시 초상/이니셜 전체를 CR.face와 별도로 직접 비교하지 못했다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "호스트 아바타는 제외. 첫 만남에서 그림 provider 없음·실패 시 초상/이니셜 전체를 CR.face와 별도로 직접 비교하지 못했다.",
+          "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+          "source_excerpt_sha256": "0c5c51507daad7087e7b9a891938eab6d4b114ae274ec4f1bcf3308873b53283",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -4247,7 +4386,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "원본 각 선택지의 직업/종족/속성·장소/teaser와 목록→미리보기 순서가 native와 다르다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "원본 각 선택지의 직업/종족/속성·장소/teaser와 목록→미리보기 순서가 native와 다르다.",
+          "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+          "source_excerpt_sha256": "eec5e848bd61932a4007684921003a7f0e6f4186d9023494aaea1f18570fa7e2",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -4304,7 +4452,16 @@
         "fixed": true,
         "disposition": "수정·남음",
         "detail": "seed 산식·1회 생성 진입은 수정·대조했다. 첫 만남의 전체 초기 상태·아이템·난수 소비와 생성 의뢰를 합친 관찰은 아직 미일치다. AI 지시는 제외다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "seed 산식·1회 생성 진입은 수정·대조했다. 첫 만남의 전체 초기 상태·아이템·난수 소비와 생성 의뢰를 합친 관찰은 아직 미일치다. AI 지시는 제외다.",
+          "source_sha256": "191f5e53d5bedc2e6d0e959e372fc7c21a290f91e6dd0db6ae9540bb2a2e843c",
+          "source_excerpt_sha256": "ae3abbc7ea6db5d6d9bbb0b60fb9a53f68e2cf0795a750d6163ef24db3339ccc",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -5908,7 +6065,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "원본 코드 장착 저장의 전체 UID 이관과 실제 전투 중 패널 진입의 통합 경계가 남는다. 평시 0/1999/2000칸 직접 대조는 기존 통과다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "원본 코드 장착 저장의 전체 UID 이관과 실제 전투 중 패널 진입의 통합 경계가 남는다. 평시 0/1999/2000칸 직접 대조는 기존 통과다.",
+          "source_sha256": "19c193f893db0816afa559982c43d059ea8ba14145f66e29ca2fdca7e5f9f743",
+          "source_excerpt_sha256": "a9c95bd0eda1be04dbf0baee03ef9bd83fada5617b1eb992467ba02efd832a3d",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -6177,7 +6343,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "30명 한영 상세는 기존 직접 비교 통과. P2528의 원본 옛 장착 저장·전투 연결을 상속하므로 전체 함수 승격은 보류한다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "30명 한영 상세는 기존 직접 비교 통과. P2528의 원본 옛 장착 저장·전투 연결을 상속하므로 전체 함수 승격은 보류한다.",
+          "source_sha256": "19c193f893db0816afa559982c43d059ea8ba14145f66e29ca2fdca7e5f9f743",
+          "source_excerpt_sha256": "290a5e64ec461c4afd0b2c91e037af91c09bfb3e9ddf5f8b4da0ae99c8a31e54",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -6251,7 +6426,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "도감 전체는 P2528/P2534의 원본 장착 이관·전투 연결 경계가 남는다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "도감 전체는 P2528/P2534의 원본 장착 이관·전투 연결 경계가 남는다.",
+          "source_sha256": "19c193f893db0816afa559982c43d059ea8ba14145f66e29ca2fdca7e5f9f743",
+          "source_excerpt_sha256": "e185c7cf876c62ab4e8b16c2e6993ab4a4e32413b7a3758991159f10dc92acad",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -6344,7 +6528,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "무효 코드·원본 옛 장착 입력→UID·실제 전투 라우터까지의 handler 전체 관찰은 미대조다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "무효 코드·원본 옛 장착 입력→UID·실제 전투 라우터까지의 handler 전체 관찰은 미대조다.",
+          "source_sha256": "19c193f893db0816afa559982c43d059ea8ba14145f66e29ca2fdca7e5f9f743",
+          "source_excerpt_sha256": "60d28a8d731839d460cfb11e279c61883e2c106a037a48dad6d0fb1ddc8f6391",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -6525,7 +6718,16 @@
         "excerpt_sha256": "c2e11409be2d5fe49dc8adf9a8a7a3f27e594ba64ea3b8c196979d7ad0693227",
         "fixed": false,
         "disposition": "battle 이관",
-        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+          "source_sha256": "7003999b4765a0c84255b31361f82ccb88dd7c235267f410da1beec881505f5e",
+          "source_excerpt_sha256": "c2e11409be2d5fe49dc8adf9a8a7a3f27e594ba64ea3b8c196979d7ad0693227",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -6581,7 +6783,16 @@
         "excerpt_sha256": "b1d975cdb1f9b72f039fd9caf1f7e00beca3c82d90a4ae4abd1e0d87ba416f69",
         "fixed": false,
         "disposition": "battle 이관",
-        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+          "source_sha256": "7003999b4765a0c84255b31361f82ccb88dd7c235267f410da1beec881505f5e",
+          "source_excerpt_sha256": "b1d975cdb1f9b72f039fd9caf1f7e00beca3c82d90a4ae4abd1e0d87ba416f69",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -7121,7 +7332,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "평시 판매/장착/교환/재개는 기존 직접 일치. 전투 중 잔여 버튼 거절과 원본 옛 장착 입력을 합친 전체 경계가 남는다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "평시 판매/장착/교환/재개는 기존 직접 일치. 전투 중 잔여 버튼 거절과 원본 옛 장착 입력을 합친 전체 경계가 남는다.",
+          "source_sha256": "7003999b4765a0c84255b31361f82ccb88dd7c235267f410da1beec881505f5e",
+          "source_excerpt_sha256": "eb4feb8f0f9e7d40b9072f214c5da9f6ef13e6acf97bd49e1fd398dcda395b8a",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -7194,7 +7414,16 @@
         "excerpt_sha256": "6c4c198f097a62cad78c7e6b074cbe649fd90b6fb79c69c27fd5d0e1e6b05009",
         "fixed": false,
         "disposition": "battle 이관",
-        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+          "source_sha256": "7003999b4765a0c84255b31361f82ccb88dd7c235267f410da1beec881505f5e",
+          "source_excerpt_sha256": "6c4c198f097a62cad78c7e6b074cbe649fd90b6fb79c69c27fd5d0e1e6b05009",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -7311,7 +7540,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "즐겨찾기 최대 3명 얼굴·선택 버튼을 실제 HUD 진입/순서와 연결한 직접 대조가 없다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "즐겨찾기 최대 3명 얼굴·선택 버튼을 실제 HUD 진입/순서와 연결한 직접 대조가 없다.",
+          "source_sha256": "7003999b4765a0c84255b31361f82ccb88dd7c235267f410da1beec881505f5e",
+          "source_excerpt_sha256": "956716183e69f5117b1db27da1b580f39659773b30770b750fc8f0811e070512",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -7510,7 +7748,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "선택지/설명 및 클라우드 대체 기능은 기존 시험 통과. 전체 초기화 뒤 G_new 차이와 계정 화면 복귀/전체 합성은 남는다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "선택지/설명 및 클라우드 대체 기능은 기존 시험 통과. 전체 초기화 뒤 G_new 차이와 계정 화면 복귀/전체 합성은 남는다.",
+          "source_sha256": "ff7887a4f0bdfa53273bc10942052c9bb4faddd07b8cf8ee5ebaa64ba8874d6e",
+          "source_excerpt_sha256": "2e3e5273dbc5ff1a842e0ed58cc752dc29521a17d72a9b5eee740bb789491df5",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -7710,7 +7957,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "설정 선택/저장/재개는 기존 통과. 초기화 뒤 원본 G_new의 난수·의뢰·진행 전체 투영 차이가 남는다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "설정 선택/저장/재개는 기존 통과. 초기화 뒤 원본 G_new의 난수·의뢰·진행 전체 투영 차이가 남는다.",
+          "source_sha256": "ff7887a4f0bdfa53273bc10942052c9bb4faddd07b8cf8ee5ebaa64ba8874d6e",
+          "source_excerpt_sha256": "d073913c3065bed072c067d900285de9a29613c3208b0a8f84fa5cda92d42e2e",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -8150,6 +8406,21 @@
       "제외": 4
     },
     "evidence": "verification/finish-r24/row-audit.json",
-    "rule": "r21-common.md 기능 등가; 실제 차이는 남김, 호스트와 매체 형식만을 차이로 세지 않음"
+    "rule": "r21-common.md 기능 등가; 실제 차이는 남김, 호스트와 매체 형식만을 차이로 세지 않음",
+    "round2": {
+      "ledger": "ui",
+      "initial_remaining": 27,
+      "promoted_same": 0,
+      "modified": 0,
+      "remaining": 27,
+      "statuses": {
+        "같음": 92,
+        "대체": 21,
+        "일부": 27,
+        "제외": 4
+      },
+      "stopped_for_server_allowlist": true,
+      "evidence": "verification/finish-r24/round2/row-audit.json"
+    }
   }
 }

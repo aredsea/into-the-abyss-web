@@ -75,7 +75,8 @@ func run():
 		check(s.model.active() and s.model.s.run.persona_party.size()==4,"reference UI starts P1 expedition")
 		s.model=World.new();check(s.model.restore(preload("res://game/town_world_r21.gd").new().s),"old commander UI fixture")
 		s.screen="depart";s._draw_screen();await capture(s,"legacy-command",dim)
-		check(s.controls.so_fight_1.disabled and not s.controls.start_run.disabled,"old classless save remains playable as commander")
+		# 75-sortie.fight_row keeps both mode buttons enabled for old saves too.
+		check(not s.controls.so_fight_1.disabled and not s.controls.start_run.disabled,"old classless save permits source fight selection and commander departure")
 		root.remove_child(s);s.queue_free();await process_frame
 	FileAccess.open("res://../verification/town-r21/round8/ui-results.json",FileAccess.WRITE).store_string(JSON.stringify({"checks":checks,"failures":failures,"captures":captures},"  "))
 	print("PERSONA TOWN UI ROUND8 CHECKS ",checks," FAILURES ",failures.size()," CAPTURES ",captures.size());quit(0 if failures.is_empty() else 1)

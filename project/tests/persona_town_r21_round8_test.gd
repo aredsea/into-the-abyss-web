@@ -70,7 +70,9 @@ func run():
 	check(copy.restore(JSON.parse_string(JSON.stringify(w.s))),"completed full flow roundtrip")
 	for xp in [1,27,28,55,56,101,1000]:
 		var legacy=old.s.duplicate(true);check(copy.restore(legacy),"legacy commander restore")
-		var retained=copy.s.duplicate(true);check(not copy.set_fight(1) and copy.s==retained,"legacy without class cannot create invalid combat input")
+		var retained=copy.s.duplicate(true)
+		check(copy.set_fight(1) and copy.s.persona.fight==1,"legacy permits source fight selection without a class")
+		check(copy.restore(retained),"restore commander fixture after independent mode selection")
 		check(copy.depart_dungeon(1,11),"commander departure")
 		copy.s.run.xp=xp;var expected=copy.persona_rules.give(1,0,int(xp/2))
 		check(copy.settle("retreat") and copy.s.persona.lv==expected.level and copy.s.persona.exp==expected.xp,"commander floor half XP %d"%xp)

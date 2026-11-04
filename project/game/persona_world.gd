@@ -101,7 +101,6 @@ func can_persona_fight() -> bool:
 	return not class_def("persona").is_empty()
 func set_fight(fight: int) -> bool:
 	if active() or fight not in [0,1]:return false
-	if fight==1 and not can_persona_fight():return false
 	s.party=persona_rules.clean(s.party,s.owned,int(s.persona.fight),config.companions.map(func(c):return c.id))
 	s.persona.fight=fight
 	if fight==1 and s.party.size()>3:

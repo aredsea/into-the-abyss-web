@@ -1,15 +1,21 @@
-"""Full project regression, <=3 temporary engine slots, actual local cloud service."""
+"""Full project regression, <=4 temporary engine slots (import + 3 workers), actual local cloud service."""
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor,as_completed
 import subprocess,os,sys,json,re,time,threading,shutil
-R=Path(__file__).resolve().parents[1];O=R/'verification/finish-r24';O.mkdir(exist_ok=True)
+R=Path(__file__).resolve().parents[1];O=R/os.environ.get('R24_FINISH_OUTPUT','verification/finish-r24');O.mkdir(exist_ok=True)
 sys.stdout.reconfigure(encoding='utf-8')
 extras={'export_licenses','motion_r9_integration','motion_r18_integration','balance_probe','combat_p2_r22_trace','combat_a6_mixed_audit','combat_p3_mixed_audit','combat_a7_gear_audit','combat_a7_gear_balanced','combat_a8_audit','combat_a9_native_10_audit','combat_a9_native_40_audit'}
 names=sorted(p.stem for p in (R/'project/tests').glob('*.gd') if p.stem.endswith('_test') or p.stem in extras)
 cloud=[n for n in names if 'cloud' in n or n in ['town_combat_r21_round14_test','town_r21_round11_test']]
 selected=[n for n in sys.argv[1:] if not n.startswith('--')]
 if '--cloud' in sys.argv:
-    source=(R/'tools/look_r24_cloud.py').read_text(encoding='utf-8').replace('verification/look-r24/cloud','verification/finish-r24/cloud').replace('verification/look-r24/tmp','.p6tmp')
+    # Each group owns a fresh D1 service. Sharing the same account-creation
+    # rate bucket across unrelated groups makes a larger suite fail with 429.
+    cloud_names=selected or cloud
+    if len(cloud_names)>1:
+        codes=[subprocess.call([sys.executable,__file__,'--cloud',name],cwd=R) for name in cloud_names]
+        raise SystemExit(any(codes))
+    source=(R/'tools/look_r24_cloud.py').read_text(encoding='utf-8').replace('verification/look-r24/cloud',O.relative_to(R).as_posix()+'/cloud').replace('verification/look-r24/tmp','.p6tmp')
     source=source.replace("'tools/godot_r17.py','--headless','--script'","'tools/godot_r17.py',*(['--position','-10000,-10000'] if name.startswith('ui_') else ['--headless']),'--script'")
     sys.argv=[sys.argv[0],*(selected or cloud)]
     exec(compile(source,str(R/'tools/look_r24_cloud.py'),'exec'),{'__file__':str(R/'tools/look_r24_cloud.py'),'__name__':'__main__'})

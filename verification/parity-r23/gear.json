@@ -102,6 +102,18 @@
         "같음": 61,
         "일부": 14,
         "제외": 2
+      },
+      "round2": {
+        "ledger": "gear",
+        "initial_remaining": 14,
+        "promoted_same": 0,
+        "modified": 0,
+        "remaining": 14,
+        "statuses": {
+          "같음": 61,
+          "일부": 14,
+          "제외": 2
+        }
       }
     }
   },
@@ -779,7 +791,16 @@
         "results": [
           "verification/finish-r24/unit-results.json",
           "verification/finish-r24/known-code-gaps.json"
-        ]
+        ],
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "정본 6개 0/1999/2000칸 제한·재개 probe는 수정 후 일치한다. 그러나 원본은 invalid 같은 잘못된 옛 장착 문자열을 유지하고 native는 충돌 보관본으로 옮기므로 전체 관찰 차이가 남는다(known-code-gaps.json). 원문 자체는 보존한다.",
+          "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+          "source_excerpt_sha256": "05292d7521b4adef1773f488f771b787e1e33e0f55a33f7348b74937b3a4de2b",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -1647,7 +1668,16 @@
         "excerpt_sha256": "bdcce6a3fd0d5cc5fb9830bf0ca6d052211a03d2f2999b579ab073aa77a258f7",
         "fixed": false,
         "disposition": "battle 이관",
-        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+          "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+          "source_excerpt_sha256": "bdcce6a3fd0d5cc5fb9830bf0ca6d052211a03d2f2999b579ab073aa77a258f7",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -1754,7 +1784,16 @@
         "excerpt_sha256": "d3ad8f797d79150588ce715791e224ad20484c4f16a6c307e5705576bda18e22",
         "fixed": false,
         "disposition": "battle 이관",
-        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+          "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+          "source_excerpt_sha256": "d3ad8f797d79150588ce715791e224ad20484c4f16a6c307e5705576bda18e22",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -1861,7 +1900,16 @@
         "excerpt_sha256": "20e398bee4908306b04ac29b8a6a16f8ce663f0f906381a7f8366b7b5c781bd4",
         "fixed": false,
         "disposition": "battle 이관",
-        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+          "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+          "source_excerpt_sha256": "20e398bee4908306b04ac29b8a6a16f8ce663f0f906381a7f8366b7b5c781bd4",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -1968,7 +2016,16 @@
         "excerpt_sha256": "c3c2ce04197cb4f45140d18844514b11e360caf406356c5c11fa3d912783ee44",
         "fixed": false,
         "disposition": "battle 이관",
-        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다."
+        "detail": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "battle 이관: 전투 소유 함수/화면의 전체 관찰 대조가 남는다. 전투 파일을 수정하거나 기능 전체 같음으로 승격하지 않았다.",
+          "source_sha256": "7d4da7ff3ab02d970f60d2a79b747a5b33735484121fa0a4b096d864075188f8",
+          "source_excerpt_sha256": "c3c2ce04197cb4f45140d18844514b11e360caf406356c5c11fa3d912783ee44",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -2836,7 +2893,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "제련/가공 본문은 기존 직접 비교 통과. 장소 설명·NPC 역할·완료/귀환 보조 문구와 추가 장착 선택지가 전체 화면에서 다르다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "제련/가공 본문은 기존 직접 비교 통과. 장소 설명·NPC 역할·완료/귀환 보조 문구와 추가 장착 선택지가 전체 화면에서 다르다.",
+          "source_sha256": "4298d9d7b9cc5cdd6f1a832871c6eaff6a74385a8a4ae7952d99df3d9beafe72",
+          "source_excerpt_sha256": "50de77dd69cb7c4cd545b5c955979d7aa7a2d750be64d7b58186f487b1b49d3b",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -3308,7 +3374,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "그림 없음/잘못된 그림의 NPC 행 생략과 NPC_G 역할 끝 호감 표시를 같은 제품 helper로 연결한 전체 대조가 없다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "그림 없음/잘못된 그림의 NPC 행 생략과 NPC_G 역할 끝 호감 표시를 같은 제품 helper로 연결한 전체 대조가 없다.",
+          "source_sha256": "49d6d1a5959da53ad29e6787fef84b94a778d9eb147a0dacf440903af43cac2d",
+          "source_excerpt_sha256": "fd6af6314cc337e68709fe122823652bd30e510cdb3d9767290e102945117d73",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -3415,7 +3490,16 @@
         "fixed": true,
         "disposition": "수정·남음",
         "detail": "Lv.40 대상 제외는 수정했다. 원본의 상품→장비 연속 순서·상품 상세와 native 분리 탭의 정보·순서는 남는다. 성인 사용 장면은 제외다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "Lv.40 대상 제외는 수정했다. 원본의 상품→장비 연속 순서·상품 상세와 native 분리 탭의 정보·순서는 남는다. 성인 사용 장면은 제외다.",
+          "source_sha256": "49d6d1a5959da53ad29e6787fef84b94a778d9eb147a0dacf440903af43cac2d",
+          "source_excerpt_sha256": "b5ea3f8e7f6f1f9a2360177d39ad82004cf5d8a25034c4c7ae584af667711f2f",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -3879,7 +3963,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "구입/스크롤/장비의 정상·경제 경계는 기존 시험 유지. 전체 접두 버튼의 무효 선택/피드백 dispatcher 직접 대조는 남는다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "구입/스크롤/장비의 정상·경제 경계는 기존 시험 유지. 전체 접두 버튼의 무효 선택/피드백 dispatcher 직접 대조는 남는다.",
+          "source_sha256": "49d6d1a5959da53ad29e6787fef84b94a778d9eb147a0dacf440903af43cac2d",
+          "source_excerpt_sha256": "bf38d4ce86e0765f400f3333b07f80666a67b4277bb5d23bc7816ffeed8a168b",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -4734,7 +4827,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "소개 탭의 설명→셀→최근 결과→소개 행동→명단과 진행 막대·부족/대기 보조 안내 전체 순서는 미일치다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "소개 탭의 설명→셀→최근 결과→소개 행동→명단과 진행 막대·부족/대기 보조 안내 전체 순서는 미일치다.",
+          "source_sha256": "3125fd872513eff4defb1b3db3490f5b5a8fa87c683d23d3d5169681b2472e5f",
+          "source_excerpt_sha256": "aa66782870e42d0153a586de8a3edfa9dd472a90f838c2788730a6b3568e21d8",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -4840,7 +4942,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "길드 전체 장소 설명·두 NPC 역할·파티 안내 및 페이지별 헤더/귀환 동선이 다르다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "길드 전체 장소 설명·두 NPC 역할·파티 안내 및 페이지별 헤더/귀환 동선이 다르다.",
+          "source_sha256": "3125fd872513eff4defb1b3db3490f5b5a8fa87c683d23d3d5169681b2472e5f",
+          "source_excerpt_sha256": "0d411d651808a84e3324bd80f69da092820b17ae0267dc59cb03371f535e7399",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -5198,7 +5309,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "길드 전체 접두 해석·ps_* 위임·저장하지 않은 편집 이탈 거절·전체 메시지 합성은 미대조다. AI 전송은 제외다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "길드 전체 접두 해석·ps_* 위임·저장하지 않은 편집 이탈 거절·전체 메시지 합성은 미대조다. AI 전송은 제외다.",
+          "source_sha256": "3125fd872513eff4defb1b3db3490f5b5a8fa87c683d23d3d5169681b2472e5f",
+          "source_excerpt_sha256": "eb8f457caada0656f86f443188183901bab6133c7692579a2a7cf206438bda85",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -5373,7 +5493,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "원본 동료 목록→선택과 native 자동 선택/드롭다운, 종족/행동 설명, 부족 자금 비활성 조건이 다르다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "원본 동료 목록→선택과 native 자동 선택/드롭다운, 종족/행동 설명, 부족 자금 비활성 조건이 다르다.",
+          "source_sha256": "c4a7c97be4184a09ad54346b7c41cb7dc8b8d4cd2d5722ed13eab368444b8477",
+          "source_excerpt_sha256": "13e06ed7666059a72d9506e55fb85087b4b3f1dcfb3aa13ade07357cdd419de9",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -5486,7 +5615,16 @@
         "fixed": false,
         "disposition": "남음",
         "detail": "원본 talk는 즉시 호감 +1, native는 고정 대화 선택을 먼저 연다. 확인 단계·상태 확정 시점의 실제 차이다.",
-        "comparison": "source boundary reviewed; whole-function parity is not established"
+        "comparison": "source boundary reviewed; whole-function parity is not established",
+        "round2": {
+          "stage": "finish round2",
+          "previous_status": "일부",
+          "previous_remaining_reason": "원본 talk는 즉시 호감 +1, native는 고정 대화 선택을 먼저 연다. 확인 단계·상태 확정 시점의 실제 차이다.",
+          "source_sha256": "c4a7c97be4184a09ad54346b7c41cb7dc8b8d4cd2d5722ed13eab368444b8477",
+          "source_excerpt_sha256": "2927011d252ea94678b86870eb3c078d515ff0426afcec24adea8696f24ff899",
+          "disposition": "중단·남음",
+          "detail": "전투 파일 수정은 허용되었다. 서버 허용 목록 변경이 필요한 저장 재개 결함을 재현하여 지시서의 중단 조건을 적용했다. 기존 실제 차이/미검증 근거는 previous_remaining_reason에 보존하며 같음으로 승격하지 않는다."
+        }
       }
     },
     {
@@ -5790,6 +5928,20 @@
       "제외": 2
     },
     "evidence": "verification/finish-r24/row-audit.json",
-    "rule": "r21-common.md 기능 등가; 실제 차이는 남김, 호스트와 매체 형식만을 차이로 세지 않음"
+    "rule": "r21-common.md 기능 등가; 실제 차이는 남김, 호스트와 매체 형식만을 차이로 세지 않음",
+    "round2": {
+      "ledger": "gear",
+      "initial_remaining": 14,
+      "promoted_same": 0,
+      "modified": 0,
+      "remaining": 14,
+      "statuses": {
+        "같음": 61,
+        "일부": 14,
+        "제외": 2
+      },
+      "stopped_for_server_allowlist": true,
+      "evidence": "verification/finish-r24/round2/row-audit.json"
+    }
   }
 }

@@ -179,12 +179,12 @@ func smithy_action(arg: String) -> bool:
 func bank_expedition_gear(codes: Array) -> Dictionary:
 	var out=[];var lost=[]
 	for code in codes:
-		if not valid_gear_code(code):lost.append(code);continue
+		var previous_serial=int(s.serial)
+		if not bank_expedition_code(code):lost.append(code);continue
 		var state=s.commerce_r21.get("forge_codes_r22",{}).get(code,{"forge":0,"tries":0})
-		var entry=combat_gear_adapter.entry(code,int(s.serial)+1,{"lv":state.forge,"tries":state.tries})
-		if bag_count()>=2000:
-			lost.append(code);continue
-		s.serial+=1;s.gear.append(entry);out.append(code)
+		if int(s.serial)>previous_serial:
+			s.gear[-1].forge=state.forge;s.gear[-1].tries=state.tries
+		out.append(code)
 	return {"gear":out,"lost":lost.size()}
 
 func smithy_list() -> Array:
