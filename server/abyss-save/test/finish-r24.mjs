@@ -14,7 +14,13 @@ for(const id of ['',...K.world.companions.map(c=>c.id),'persona'])add('last_kill
 add('both present',s=>Object.assign(s.run.battle,{depletions:3,last_kill:'teiris'}),true);
 for(const [i,n]of [-1,.5,400*28+1,Number.MAX_SAFE_INTEGER,'3',true,null,[],{},NaN,Infinity,-Infinity].entries())add('invalid depletion '+i,s=>s.run.battle.depletions=n);
 for(const [i,id]of ['fake','enemy_1','테이리스','teiris'.repeat(8),'teiris\u0000',1,true,null,[],{}].entries())add('invalid killer '+i,s=>s.run.battle.last_kill=id);
-for(const key of ['depletions','last_kill'])add('schema2 '+key,s=>{const b=s.run.battle;b.schema_version=2;for(const k of ['extra_state','inventory','selected_ally','ctb','depletions','last_kill'])delete b[k];b[key]=key==='depletions'?0:'';});
+for(const key of ['depletions','last_kill'])add('schema2 '+key,s=>{const b=s.run.battle;b.schema_version=2;for(const k of ['extra_state','inventory','selected_ally','ctb','depletions','last_kill'])delete b[k];for(const u of Object.values(b.units)){u.remaining=Math.max(0,u.remaining);u.effects={};}b[key]=key==='depletions'?0:'';});
+// Real Godot snapshot from project/tests/battle_slot_snapshot_r24_test.gd: a fight with a fifth enemy slot.
+const slotSave=JSON.parse(fs.readFileSync(new URL('./battle-slot-r24.json',import.meta.url),'utf8'));
+assert.ok(Object.hasOwn(slotSave.run.battle.units,'r21_slot_5'));
+add('real fifth enemy slot',s=>{for(const k of Object.keys(s))delete s[k];Object.assign(s,structuredClone(slotSave));},true);
+for(const n of ['5','28'])add('enemy slot '+n,s=>{const u=s.run.battle.units;u['r21_slot_'+n]=structuredClone(u.executor);},true);
+for(const id of ['r21_slot_4','r21_slot_29','r21_slot_05','r21_slot_x','r21_slot_','R21_SLOT_5','r21_slot_5 '])add('invalid enemy slot '+id,s=>{const u=s.run.battle.units;u[id]=structuredClone(u.executor);});
 add('unknown field still rejected',s=>s.run.battle.depletion_counter=0);
 const {mf,db}=await runtime();let checks=0;const rows=[];
 const eq=(a,b)=>{assert.deepEqual(a,b);checks++;};

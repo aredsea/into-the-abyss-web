@@ -92,7 +92,7 @@ function battle(v,p,party=[]){
  if('depletions'in v){if(v.schema_version!==3)fail(p+'.depletions');num(v.depletions,0,400*28,p+'.depletions');}
  if('last_kill'in v){if(v.schema_version!==3)fail(p+'.last_kill');text(v.last_kill,p+'.last_kill',40);if(v.last_kill!==''&&!owners.includes(v.last_kill))fail(p+'.last_kill');}
  if(![2,3].includes(v.schema_version))fail(p+'.schema_version');if(v.schema_version!==3)for(const k of ['extra_state','inventory','selected_ally'])if(Object.hasOwn(v,k))fail(p+'.'+k);text(v.build,p+'.build',100);
- const unitId=id=>owners.includes(id)||K.battleIds.includes(id)||/^enemy_[0-9]{1,2}$/.test(id);
+ const unitId=id=>owners.includes(id)||K.battleIds.includes(id)||/^enemy_[0-9]{1,2}$/.test(id)||/^r21_slot_(?:[5-9]|1[0-9]|2[0-8])$/.test(id);
  const unitText=(id,path,empty=false)=>{if(!(empty&&id==='')&&!unitId(id))fail(path);};
  const savedUnit=(id,path,empty=false)=>{unitText(id,path,empty);if(!(empty&&id==='')&&!Object.hasOwn(v.units,id))fail(path);};
  if('ctb'in v){if(v.schema_version!==3||!('r21_roster'in v))fail(p+'.ctb');keys(v.ctb,['tick','round'],p+'.ctb',['tick','round']);num(v.ctb.tick,0,1e8,p+'.ctb.tick');num(v.ctb.round,0,1e6,p+'.ctb.round');if(v.ctb.round!==Math.floor(v.ctb.tick/100))fail(p+'.ctb.round');}
