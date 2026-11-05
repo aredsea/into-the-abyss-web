@@ -16,15 +16,18 @@ func small_party(y: float,tall=false) -> void:
 		resource_numbers(Rect2(x,y+120,86,17),m.mp,b.mp,false,15)
 
 func exploration() -> void:
+	nav_top=780
 	var w=host.model;var r=w.s.run
 	traced_title("rest" if r.phase=="rest" else "explore",Rect2(18,0,216,66))
-	display(w.dungeon_title(),Rect2(18,69,354,26),T.INK,21)
-	action("expedition_log","탐색 기록 · 주머니",Rect2(18,97,354,44),host.go.bind("expedition_log"))
-	var previous=stage;stage=scroll_page(151,474,474)
-	var sheet=fill("source_exploration_sheet",Rect2(0,0,342,474),T.PAPER)
-	var y=source_entries(w.source_expedition_view("head"),0)
-	if r.phase=="explore":
-		var map=preload("res://ui/town_map_r21.gd").new();stage.add_child(map);map.position=Vector2(0,y);map.size=Vector2(342,338);map.configure(r,5);mark("source_progress_map",map);y+=350
+	T.torn(stage,208)
+	action("expedition_log","탐색 기록 · 주머니",Rect2(18,226,354,44),host.go.bind("expedition_log"))
+	var previous=stage;stage=scroll_page(282,334,334)
+	var sheet=fill("source_exploration_sheet",Rect2(0,0,342,334),Color.TRANSPARENT)
+	var head=w.source_expedition_view("head")
+	var y=source_entries(head.slice(0,head.size()-3),0)
+	for j in range(3):
+		var entry=head[head.size()-3+j];var number=paragraph(entry.text,Rect2(j*114,y,108,62),14,T.INK,false);number.set_meta("expe_entry",entry)
+	y+=80
 	y=source_entries(w.source_expedition_view("last"),y)
 	y=source_entries(w.source_expedition_view("party"),y+8)
 	if r.phase=="rest":y=source_entries(w.source_expedition_view("gear_card"),y+8)
@@ -41,7 +44,7 @@ func exploration() -> void:
 	action("retreat",entry.text,Rect2(254,705,118,41),func():
 		if w.expedition_retreat("retreat"):host._save();host._ask("",w.expedition_retreat.bind("retreat_yes")),false,false,false)
 	host.controls.ex_retreat=host.controls.retreat
-	var retreat_sub=paragraph(entry.get("sub",""),Rect2(18,747,354,16),9,T.MUTED,false)
+	var retreat_sub=label(entry.get("sub",""),Rect2(18,750,354,24),12,T.MUTED,T.BODY,false)
 	retreat_sub.horizontal_alignment=HORIZONTAL_ALIGNMENT_RIGHT
 
 func source_entries(entries: Array,y: float) -> float:
@@ -49,13 +52,21 @@ func source_entries(entries: Array,y: float) -> float:
 	while i<entries.size():
 		var e=entries[i]
 		if e.role=="pip":
-			var x=0.0
+			var x=4.0
+			fill("progress_path",Rect2(6,y+13,326,2),T.LINE)
+			var entrance=Panel.new();stage.add_child(entrance);entrance.position=Vector2(x+8,y+5);entrance.size=Vector2(18,18);entrance.mouse_filter=MOUSE_FILTER_IGNORE
+			var entrance_style=T.panel(T.PAPER,T.INK);entrance_style.set_border_width_all(2);entrance_style.set_corner_radius_all(9);entrance.add_theme_stylebox_override("panel",entrance_style)
+			var entrance_name=label("입구",Rect2(x-4,y+29,40,29),12,T.INK,T.BOLD);entrance_name.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;x+=40
 			while i<entries.size() and entries[i].role=="pip":
-				var p=entries[i];var width=34.0 if i+2<entries.size() and p.text.is_valid_int() else 63.0
-				fill("source_pip:"+str(i),Rect2(x,y,width-4,30),T.PALE if p.state=="" else T.INK if p.state=="done" else T.RED)
-				var node=label(p.text,Rect2(x,y,width-4,30),12,T.INK if p.state=="" else T.PAPER,T.BOLD,false);node.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;node.set_meta("expe_entry",p)
+				var p=entries[i];var width=40.0
+				var dot=Panel.new();stage.add_child(dot);dot.position=Vector2(x+8,y+5);dot.size=Vector2(18,18);dot.mouse_filter=MOUSE_FILTER_IGNORE
+				var style=T.panel(T.PAPER,T.INK if p.state!="" else T.LINE);style.set_border_width_all(2);style.set_corner_radius_all(9)
+				if p.state=="done":style.bg_color=T.INK
+				if p.state=="cur":style.border_color=T.RED
+				dot.add_theme_stylebox_override("panel",style)
+				var node=label(p.text,Rect2(x-4,y+29,width,29),12,T.INK,T.BOLD,false);node.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;node.set_meta("expe_entry",p)
 				x+=width;i+=1
-			y+=40;continue
+			y+=74;continue
 		if e.role=="face":
 			picture(e.id,Rect2(0,y,72,64),"town-party-face").set_meta("expe_entry",e);y+=68
 		elif e.has("action"):
@@ -108,22 +119,21 @@ func build_page() -> void:
 	super()
 
 func retreat() -> void:
+	nav_top=780
 	if not host.model.expedition():super();return
-	header("대던전","explore")
-	# Confirmation keeps the same live floor/party/potion information above it.
-	var previous=stage;stage=scroll_page(64,319,319)
-	var sheet=fill("retreat_party_sheet",Rect2(0,0,342,319),T.PAPER)
+	header("대던전","explore");T.torn(stage,208)
+	var previous=stage;stage=scroll_page(245,315,315)
 	var y=0.0
 	for section in ["head","last","party"]:
 		var before=stage.get_child_count();y=source_entries(host.model.source_expedition_view(section),y)
 		for node in stage.get_children().slice(before):
 			if node.has_meta("expe_entry"):node.set_meta("expe6_entry",node.get_meta("expe_entry"));node.remove_meta("expe_entry")
-	stage.custom_minimum_size.y=maxf(319,y+12);sheet.size.y=stage.custom_minimum_size.y;stage=previous
-	fill("return_sheet",Rect2(0,389,390,371),T.PAPER);traced_title("retreat",Rect2(18,391,298,42))
+	stage.custom_minimum_size.y=y+12;stage=previous
+	traced_title("retreat",Rect2(18,575,354,42))
 	var entries=host.model.source_expedition_view("retreat")
-	paragraph(entries[0].text,Rect2(18,445,354,190),16,T.INK,false).set_meta("expe_entry",entries[0])
-	action("accept",entries[1].text,Rect2(18,676,170,48),host._accept,true,false,false).set_meta("expe_entry",entries[1])
-	action("cancel",entries[2].text,Rect2(200,676,172,48),func():host.model.expedition_retreat("retreat_no");host.confirm={};host._save();host._draw_screen(),false,false,false).set_meta("expe_entry",entries[2])
+	paragraph(entries[0].text,Rect2(18,627,354,66),14,T.INK,false).set_meta("expe_entry",entries[0])
+	action("accept",entries[1].text,Rect2(18,705,170,48),host._accept,true,false,false).set_meta("expe_entry",entries[1])
+	action("cancel",entries[2].text,Rect2(200,705,172,48),func():host.model.expedition_retreat("retreat_no");host.confirm={};host._save();host._draw_screen(),false,false,false).set_meta("expe_entry",entries[2])
 	host.controls.ex_retreat_yes=host.controls.accept;host.controls.ex_retreat_no=host.controls.cancel
 
 func bag() -> void:
@@ -176,21 +186,26 @@ func equipment() -> void:
 	stage=prev;action("equipment_back","원정으로",Rect2(18,705,354,44),host.go.bind("explore"),true)
 
 func summary() -> void:
+	nav_top=780
 	var w=host.model;var r=w.s.summary
 	header("원정 정산")
-	plate("preparation-ruins",Rect2(0,52,390,219))
+	if r.is_empty():
+		fill("empty_summary_paper",Rect2(0,60,390,703),T.PAPER)
+		icon("gate",Rect2(159,210,72,72),T.MUTED)
+		paragraph("아직 정산한 원정이 없습니다.",Rect2(28,318,334,84),22)
+		action("summary_home","토르바로",Rect2(28,435,334,52),host.go.bind("town"),true);return
+	T.torn(stage,222)
 	var entries=w.source_expedition_view("done");var lines=entries.filter(func(e):return not e.has("action"))
-	paragraph(lines[0].text,Rect2(18,68,354,60),28,T.RED,false).set_meta("expe_entry",lines[0])
-	fill("source_summary_caption",Rect2(12,134,366,90),T.PAPER)
-	paragraph(lines[1].text,Rect2(18,140,354,78),16,T.INK,false).set_meta("expe_entry",lines[1])
-	var prev=stage;stage=scroll_page(230,390,390)
-	var sheet=fill("source_summary_sheet",Rect2(0,0,342,390),T.PAPER)
-	stage.custom_minimum_size.y=maxf(390,source_entries(lines.slice(2),0)+12);sheet.size.y=stage.custom_minimum_size.y;stage=prev
+	paragraph(lines[0].text,Rect2(18,260,354,44),28,T.INK,false).set_meta("expe_entry",lines[0])
+	paragraph(lines[1].text,Rect2(18,314,354,60),14,T.INK,false).set_meta("expe_entry",lines[1])
+	var prev=stage;stage=scroll_page(392,224,224)
+	stage.custom_minimum_size.y=maxf(224,source_entries(lines.slice(2),0)+12);stage=prev
 	for entry in entries:
 		if not entry.has("action"):continue
 		if entry.action=="ex_next":
-			action("summary_next",entry.text,Rect2(18,640,354,48),func():host._act(w.next_dungeon_floor,"");host.go("explore"),true,false,false).set_meta("expe_entry",entry)
-			paragraph(entry.sub,Rect2(18,688,354,16),10,T.MUTED,false);host.controls.ex_next=host.controls.summary_next
+			action("summary_next",entry.text,Rect2(18,636,354,48),func():host._act(w.next_dungeon_floor,"");host.go("explore"),true,false,false).set_meta("expe_entry",entry)
+			paragraph(entry.sub,Rect2(18,686,354,23),12,T.MUTED,false);host.controls.ex_next=host.controls.summary_next
 		else:
-			action("summary_home",entry.text,Rect2(18,705,354,44),func():w.expedition_home();host._save();host.go("town"),r.result!="clear",false,false).set_meta("expe_entry",entry)
-			paragraph(entry.sub,Rect2(18,750,354,16),10,T.MUTED,false);host.controls.ex_home=host.controls.summary_home
+			action("summary_home",entry.text,Rect2(18,713,354,44),func():w.expedition_home();host._save();host.go("town"),r.result!="clear",false,false).set_meta("expe_entry",entry)
+			paragraph(entry.sub,Rect2(18,758,354,22),12,T.MUTED,false);host.controls.ex_home=host.controls.summary_home
+

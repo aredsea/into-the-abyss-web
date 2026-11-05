@@ -19,6 +19,22 @@ const BOLD=preload("res://assets/fonts/AbyssNotoText800.ttf")
 const DISPLAY=preload("res://assets/fonts/AbyssNotoBlackCondensed.ttf")
 const TITLE=DISPLAY
 const BRUSH=preload("res://assets/ui-r24/wash.png")
+static func readable_resource(row: Control) -> Control:
+	# Keep the brush gauge itself untouched. Only its external numeric labels
+	# adopt the phone's 12px secondary type and recalculate their line widths.
+	var labels=row.get_children();var widths=[]
+	for label in labels:
+		var fs=maxi(12,label.get_theme_font_size("font_size"));label.add_theme_font_size_override("font_size",fs)
+		var face=label.get_theme_font("font")
+		if face.get_height(fs)>row.size.y:
+			var tight=FontVariation.new();tight.base_font=face;var excess=ceili(face.get_height(fs)-row.size.y);tight.spacing_top=-ceili(excess/2.0);tight.spacing_bottom=-floori(excess/2.0);label.add_theme_font_override("font",tight)
+		widths.append(face.get_string_size(label.text,HORIZONTAL_ALIGNMENT_LEFT,-1,fs).x+1)
+	if labels.size()!=3:return row
+	var available=maxf(1,row.size.x-widths[0]-3);var total=widths[1]+widths[2]+2;var k=minf(1,available/total);var x=maxf(widths[0]+3,row.size.x-total*k)
+	for i in 3:
+		labels[i].size=Vector2(widths[i],row.size.y);labels[i].position=Vector2(0 if i==0 else x,0);labels[i].scale.x=1 if i==0 else k
+		if i>0:x+=widths[i]*k+1
+	return row
 static func panel(bg=PAPER,border=LINE,_radius=0) -> StyleBoxFlat:
 	var p=StyleBoxFlat.new();p.bg_color=bg;p.border_color=border;p.border_width_bottom=1;return p
 static func brush_style() -> StyleBoxFlat:
@@ -65,7 +81,7 @@ static func row_copy(b: Button,title: String,description="",_selected=false,left
 		var old=b.get_node("RowCopy");b.remove_child(old);old.queue_free()
 	for key in ["font_color","font_hover_color","font_pressed_color","font_disabled_color","font_focus_color"]:b.add_theme_color_override(key,Color.TRANSPARENT)
 	var margin=MarginContainer.new();margin.name="RowCopy";b.add_child(margin);margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);margin.offset_left=left;margin.offset_right=-38;margin.offset_top=9;margin.offset_bottom=-9;margin.mouse_filter=Control.MOUSE_FILTER_IGNORE
-	var stack=VBoxContainer.new();margin.add_child(stack);stack.add_theme_constant_override("separation",3);stack.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	var stack=VBoxContainer.new();margin.add_child(stack);stack.add_theme_constant_override("separation",3);stack.mouse_filter=Control.MOUSE_FILTER_IGNORE;stack.alignment=BoxContainer.ALIGNMENT_CENTER
 	for i in (1 if description.is_empty() else 2):
 		var l=Label.new();stack.add_child(l);l.text=title if i==0 else description;l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;l.add_theme_font_override("font",BOLD if i==0 else BODY);l.add_theme_font_size_override("font_size",16 if i==0 else 13);l.add_theme_color_override("font_color",QUIET if b.disabled else INK if i==0 else MUTED);l.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	var fit=func():b.custom_minimum_size.y=maxf(48,margin.get_combined_minimum_size().y+18)
@@ -78,18 +94,18 @@ static func dress_navigation(b: Button,key: String,selected=false) -> Control:
 	for state in ["font_color","font_hover_color","font_pressed_color","font_focus_color"]:b.add_theme_color_override(state,Color.TRANSPARENT)
 	var color=PAPER if selected else Color("bdb3a2");var t=icon(b,{"town":"home","party":"party","depart":"gate","bag":"bag","journal":"book"}.get(key,key),Rect2(0,0,22,22),color)
 	t.set_anchors_and_offsets_preset(Control.PRESET_CENTER_TOP);t.offset_left=-11;t.offset_right=11;t.offset_top=8;t.offset_bottom=30
-	var l=Label.new();b.add_child(l);l.text=b.text;l.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;l.add_theme_font_override("font",BOLD);l.add_theme_font_size_override("font_size",11);l.add_theme_color_override("font_color",color);l.mouse_filter=Control.MOUSE_FILTER_IGNORE;l.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE);l.offset_top=-24;l.offset_bottom=-3
+	var l=Label.new();b.add_child(l);l.text=b.text;l.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;l.add_theme_font_override("font",BOLD);l.add_theme_font_size_override("font_size",12);l.add_theme_color_override("font_color",color);l.mouse_filter=Control.MOUSE_FILTER_IGNORE;l.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE);l.offset_top=-24;l.offset_bottom=-3
 	if selected:
 		var bar=ColorRect.new();b.add_child(bar);bar.color=RED;bar.mouse_filter=Control.MOUSE_FILTER_IGNORE;bar.anchor_left=.22;bar.anchor_right=.78;bar.offset_top=0;bar.offset_bottom=3;return bar
 	return null
 static func paper(parent: Control) -> void:
 	var grain=TextureRect.new();parent.add_child(grain);grain.texture=preload("res://assets/ui-r24/paper-grain.png");grain.texture_repeat=CanvasItem.TEXTURE_REPEAT_ENABLED;grain.stretch_mode=TextureRect.STRETCH_TILE;grain.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);grain.mouse_filter=Control.MOUSE_FILTER_IGNORE;grain.z_index=60
 static func torn(parent: Control,y: float,width=390.0) -> void:
-	var p=Polygon2D.new();parent.add_child(p);p.color=PAPER;p.position.y=y;var points=PackedVector2Array();points.append(Vector2(0,24))
+	var p=Polygon2D.new();parent.add_child(p);p.color=PAPER;p.position.y=y;var points=PackedVector2Array();points.append(Vector2(0,40))
 	for i in 31:points.append(Vector2(width*i/30.0,[9,6,11,7,12,5,9][i%7]))
-	points.append(Vector2(width,24));p.polygon=points
+	points.append(Vector2(width,40));p.polygon=points
 static func scroll_region(sc: ScrollContainer) -> void:
-	sc.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;sc.vertical_scroll_mode=ScrollContainer.SCROLL_MODE_RESERVE;sc.follow_focus=false;sc.add_theme_constant_override("separation",8)
+	sc.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;sc.vertical_scroll_mode=ScrollContainer.SCROLL_MODE_AUTO;sc.follow_focus=false;sc.add_theme_constant_override("separation",8)
 static func inline_icons(node: Control) -> void:
 	if not node is Label or not node.text.contains("★"):return
 	var font=node.get_theme_font("font");var fs=node.get_theme_font_size("font_size");var copy=node.text;var rendered=""
@@ -111,6 +127,6 @@ static func make_theme() -> Theme:
 		t.set_color("font_disabled_color",kind,QUIET);t.set_color("font_placeholder_color",kind,MUTED);t.set_color("caret_color",kind,RED);t.set_color("selection_color",kind,PALE)
 	t.set_stylebox("panel","PopupMenu",panel());t.set_stylebox("hover","PopupMenu",panel(PALE));t.set_color("font_color","PopupMenu",INK)
 	for state in ["grabber","grabber_highlight","grabber_pressed"]:
-		var p=panel(QUIET,QUIET);p.content_margin_left=3;p.content_margin_right=3;t.set_stylebox(state,"VScrollBar",p)
-	var track=panel(Color.TRANSPARENT,Color.TRANSPARENT);track.content_margin_left=4;track.content_margin_right=4;t.set_stylebox("scroll","VScrollBar",track)
+		var p=panel(Color(.086,.075,.059,.25),Color.TRANSPARENT);p.set_border_width_all(0);p.content_margin_left=1.5;p.content_margin_right=1.5;t.set_stylebox(state,"VScrollBar",p)
+	var track=panel(Color.TRANSPARENT,Color.TRANSPARENT);track.set_border_width_all(0);track.content_margin_left=1.5;track.content_margin_right=1.5;t.set_stylebox("scroll","VScrollBar",track)
 	t.set_stylebox("background","ProgressBar",panel(PALE,PALE));t.set_stylebox("fill","ProgressBar",panel(MUTED,MUTED));return t

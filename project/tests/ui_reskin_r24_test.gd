@@ -5,7 +5,7 @@ var glyphs=[]
 func _initialize():
 	create_timer(600).timeout.connect(func():push_error("reskin watchdog");quit(98));call_deferred("run")
 func scan(s,tag,dim):
-	var missing=[];var clipped=[];var rails=[]
+	var missing=[];var clipped=[];var rails=[];var small=[]
 	for n in s.find_children("*","Control",true,false):
 		if not n.is_visible_in_tree():continue
 		if n is Button and n.has_node("RowCopy"):
@@ -17,14 +17,16 @@ func scan(s,tag,dim):
 				if cp>32 and not font.has_char(cp):missing.append({"text":n.text,"codepoint":cp,"node":str(n.get_path())})
 		if n is Label and n.get_theme_color("font_color").a>0 and n.text!="":
 			var font=n.get_theme_font("font");var fs=n.get_theme_font_size("font_size")
+			if fs<12:small.append({"text":n.text,"font_size":fs,"node":str(n.get_path())})
 			var need=font.get_multiline_string_size(n.text,n.horizontal_alignment,n.size.x if n.autowrap_mode!=TextServer.AUTOWRAP_OFF else -1,fs)
 			if need.x>n.size.x+1 or need.y>n.size.y+2:clipped.append({"text":n.text,"need":[need.x,need.y],"size":[n.size.x,n.size.y],"node":str(n.get_path())})
+			elif n.get_visible_line_count()<n.get_line_count():clipped.append({"text":n.text,"lines":n.get_line_count(),"visible":n.get_visible_line_count(),"size":[n.size.x,n.size.y],"node":str(n.get_path())})
 		if n is ScrollContainer and n.get_child_count()>0:
 			var bar=n.get_v_scroll_bar()
 			if bar.visible and n.get_child(0) is Control and n.get_child(0)!=bar:
 				var body=n.get_child(0)
 				if body.get_global_rect().end.x>bar.get_global_rect().position.x+.5:rails.append(str(n.get_path()))
-	audit.append({"screen":tag,"size":[dim.x,dim.y],"missing":missing,"rails":rails,"clipped":clipped})
+	audit.append({"screen":tag,"size":[dim.x,dim.y],"missing":missing,"rails":rails,"clipped":clipped,"small_type":small})
 func shot(s,tag,dim):
 	await settle();await settle();await RenderingServer.frame_post_draw
 	var name=tag+"-%dx%d.png"%[dim.x,dim.y]

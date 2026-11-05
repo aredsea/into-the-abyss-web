@@ -223,8 +223,8 @@ func shop() -> void:
 func inn() -> void:
 	if not host.model.s.owned.is_empty():super();return
 	header("아랫마을 여관");npc_hero("dorothea","여관","도로테아\n여관 주인",430)
-	paragraph("함께할 동료가 아직 없다. 길드 본관의 동료 소개 창구에서 사람을 이어 받자.",Rect2(18,486,354,100),17)
-	action("inn_recruit","동료 소개 창구",Rect2(18,705,354,44),host.go.bind("recruit"),true)
+	paragraph("함께할 동료가 아직 없다. 길드 본관의 동료 소개 창구에서 사람을 이어 받자.",Rect2(28,460,334,120),17)
+	action("inn_recruit","동료 소개 창구",Rect2(28,612,334,54),host.go.bind("recruit"),true)
 
 func shop_gear() -> void:
 	if not host.model.has_method("shop_classes"):super();return
@@ -308,7 +308,8 @@ func receipt_page() -> void:
 			lines.append(name+" ×%d"%r.items[id])
 	else:
 		for row in r.work:lines.append(row.name+(" · 가공" if row.kind=="process" else " · 제련 성공 +%d"%row.level if row.success else " · 제련 실패 +%d 유지"%row.level))
-	var previous=stage;stage=scroll_page(188,427,maxi(90,lines.size()*65))
+	var content_height=clampi(lines.size()*65,90,240)
+	var previous=stage;stage=scroll_page(188,content_height,maxi(90,lines.size()*65))
 	for i in range(lines.size()):paragraph(lines[i],Rect2(0,i*65,342,58),16)
-	stage=previous;label("남은 금화 %d"%r.gold,Rect2(18,649,354,29),17,T.RED,T.BOLD)
-	action("receipt_done","확인",Rect2(18,715,354,49),func():w.acknowledge_receipt();host._draw_screen(),true)
+	stage=previous;label("남은 금화 %d"%r.gold,Rect2(18,212+content_height,354,36),17,T.RED,T.BOLD)
+	action("receipt_done","확인",Rect2(18,278+content_height,354,54),func():w.acknowledge_receipt();host._draw_screen(),true)

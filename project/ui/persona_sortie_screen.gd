@@ -6,8 +6,8 @@ func build(owner_screen) -> void:
 		var legacy=LegacySortie.new();add_child(legacy);legacy.build(owner_screen);metrics=legacy.metrics;boxes=legacy.boxes;return
 	build_frame(owner_screen)
 	nav_top=792
-	background("departure",Rect2(0,48,390,219))
-	plate("accent-departure",Rect2(0,48,390,219))
+	background("departure",Rect2(0,48,390,168));boxes["background:departure"].modulate.a=.14
+	T.torn(stage,192)
 	header("원정 준비")
 	host.controls.back.position.y=4;host.controls.back.size.y=56
 	var w=host.model;var s=w.s
@@ -36,10 +36,10 @@ func build(owner_screen) -> void:
 		elif L.language(s)=="en":pick.text="Floor %d"%pick.get_selected_id()
 		for connection in pick.item_selected.get_connections():pick.item_selected.disconnect(connection.callable)
 		pick.item_selected.connect(func(i):w.select_dungeon_floor(pick.get_item_id(i));host._save();host._draw_screen())
-		action("floor_prev","이전",Rect2(218,212,72,56),func():w.floor_page(pg-1);host._save();host._draw_screen(),false,pg<=1).add_theme_font_size_override("font_size",11)
-		action("floor_next","다음",Rect2(298,212,72,56),func():w.floor_page(pg+1);host._save();host._draw_screen(),false,pg>=int(ceil((mx+1)/6.0))).add_theme_font_size_override("font_size",11)
+		action("floor_prev","이전",Rect2(218,212,72,56),func():w.floor_page(pg-1);host._save();host._draw_screen(),false,pg<=1).add_theme_font_size_override("font_size",12)
+		action("floor_next","다음",Rect2(298,212,72,56),func():w.floor_page(pg+1);host._save();host._draw_screen(),false,pg>=int(ceil((mx+1)/6.0))).add_theme_font_size_override("font_size",12)
 		var rec=w.expedition_rules.recommended(w.average_level(),mx)
-		fill("floor_details_paper",Rect2(238,54,134,98),Color(T.PAPER,0.94))
+		
 		label("추천 %d층"%rec,Rect2(244,59,88,25),11)
 		icon("floor-star",Rect2(339,66,10,10))
 		label(str(int(w.dungeon_rules.floor_star(info))),Rect2(351,59,15,25),11)
@@ -50,8 +50,8 @@ func build(owner_screen) -> void:
 	var ids=w.sortie_members().map(func(m):return m.id) if w.has_method("sortie_members") else w.sortie_ids()
 	label(ui.u("출전 인원")+" · "+ui.u("{n} / 4 (칸을 누르면 뺀다)",{"n":ids.size()}),Rect2(18,335,354,24),12,T.INK,T.BOLD,false)
 	formation_slots(w.sortie_members())
-	var previous=stage;stage=scroll_page(485,243,243)
-	var sheet=fill("source_sortie_sheet",Rect2(0,0,342,243),T.PAPER)
+	var previous=stage;stage=scroll_page(501,227,227)
+	var sheet=fill("source_sortie_sheet",Rect2(0,0,342,243),Color.TRANSPARENT)
 	var y=preparation_entries(w.source_preparation_view("modes"),0)
 	y=preparation_entries(w.source_preparation_view("dungeon_card" if w.sortie_mode()==1 else "quest"),y+12)
 	# Preserve the illustrated formation above while keeping its full class,
@@ -104,14 +104,14 @@ func formation_slots(members: Array) -> void:
 	var w=host.model;var entries=w.source_preparation_view("slots");var ui=w.ExpeditionUI.new();ui.lang=L.language(w.s)
 	for i in range(4):
 		var x=18+i*90
-		fill("formation_slot:"+str(i),Rect2(x,359,84,122),T.PALE)
+		rule(494,x,84)
 		if i>=members.size():
 			label(str(i+1),Rect2(x,367,84,52),25).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER
 			label(ui.u("비어 있음"),Rect2(x+2,426,80,44),11,T.MUTED,T.BODY,false).horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;continue
 		var m=members[i];picture(m.id,Rect2(x,359,84,64),"town-party-face")
-		label(ui.t(m.name),Rect2(x+3,423,78,18),11,T.INK,T.BOLD,false)
-		paragraph(ui.u("{cls}, {row}, Lv {lv}",{"cls":m.cls,"row":m.row,"lv":m.lv}),Rect2(x+3,441,78,39),10,T.INK,false)
-		var b=hit("so_rm_"+m.id,Rect2(x,359,84,122),source_action.bind("so_rm_"+m.id));b.disabled=w.active();b.tooltip_text=ui.u("{cls}, {row}, Lv {lv}",{"cls":m.cls,"row":m.row,"lv":m.lv})
+		label(ui.t(m.name),Rect2(x,423,84,22),12,T.INK,T.BOLD,false)
+		paragraph(ui.u("{cls}, {row}, Lv {lv}",{"cls":m.cls,"row":m.row,"lv":m.lv}),Rect2(x,447,84,46),12,T.INK,false)
+		var b=hit("so_rm_"+m.id,Rect2(x,359,84,136),source_action.bind("so_rm_"+m.id));b.disabled=w.active();b.tooltip_text=ui.u("{cls}, {row}, Lv {lv}",{"cls":m.cls,"row":m.row,"lv":m.lv})
 
 func formation_row(ids: Array,x: float) -> void:
 	var sc=ScrollContainer.new();stage.add_child(sc);sc.position=Vector2(x,359);sc.size=Vector2(174,122)

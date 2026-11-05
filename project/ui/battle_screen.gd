@@ -233,7 +233,7 @@ func _resource_shield(unit: Dictionary) -> float:
 	return float(unit.get("shield",unit.get("effects",{}).get("shield",{}).get("amount",0)))
 
 func _resource_numbers(unit: Dictionary,rect: Rect2,parent: Control,hp=true,large=20) -> Control:
-	return ResourceGauge.numbers(parent,rect,unit.hp if hp else unit.mp,unit.mhp if hp else unit.mmp,hp,_resource_shield(unit) if hp else 0,large)
+	return preload("res://ui/reskin_components_r24.gd").readable_resource(ResourceGauge.numbers(parent,rect,unit.hp if hp else unit.mp,unit.mhp if hp else unit.mmp,hp,_resource_shield(unit) if hp else 0,large))
 
 func _knockout(face: Control,parent: Control,rect: Rect2) -> void:
 	var material=ShaderMaterial.new();material.shader=preload("res://ui/resource_ko_r24.gdshader");face.material=material
@@ -359,13 +359,34 @@ func _battlefield(rect: Rect2) -> void:
 		# Include a raised plate in the same enemy selection target.
 		if big:hit_top=minf(hit_top,hud_y)
 		var hit_h=rect.size.y-hit_top if big else maxf(44,hud_y+plate_h)
+		# Source encounters have up to seven distinct enemies, not the old
+		# three back-row roles. Keep every plate above its own visible sprite.
+		var source_grid=state.data.has("encounter_r21")
+		var source_body=Rect2()
+		if source_grid:
+			var count=enemies.size();var at=enemies.find(e);var top_count=mini(count,4 if count>=6 else 3)
+			var lower=at>=top_count;var row_count=count-top_count if lower else top_count
+			var j=at-top_count if lower else at
+			var area_x=180.0*sx if lower else 4.0*sx
+			var area_w=rect.size.x-area_x-4*sx
+			hud_w=minf(112*sx,area_w/row_count-5*sx);hit_w=hud_w
+			left=area_x+(j+.5)*area_w/row_count-hud_w/2
+			hud_y=maxf(124*sy,64+75*sy) if lower else 3.0
+			plate_h=48;hit_top=hud_y
+			var art_y=hud_y+plate_h+5
+			var art_h=minf(75*sy,rect.size.y-art_y-24)
+			source_body=Rect2(0,art_y-hit_top,hud_w,art_h)
+			hit_h=art_y+art_h-hit_top;hud_x=0
 		var hit=_button("enemy:"+e.id,Rect2(left,hit_top,hit_w,hit_h),_enemy_pressed.bind(e.id),false,field,true)
 		var body: Rect2=positions.get(e.id,Rect2(45,14,46,72))
 		body=Rect2(body.position*Vector2(sx,sy)-Vector2(left,hit_top),body.size*Vector2(sx,sy))
 		if not big and small.size()!=3: body.position.x=(hud_w-body.size.x)/2
+		if source_grid:body=source_body
 		if targeting and state.selected_enemy==e.id:
 			var target_rect=Rect2(-6,141*sy-hit_top,hit_w+12,111*sy) if big else Rect2(body.position-Vector2(6,0),body.size+Vector2(12,8))
-			var outline=_picture("res://assets/ui-r20/target-outline.svg",Rect2(253*sx-left,141*sy-hit_top,126,110) if big else target_rect,hit)
+			var outline_rect=Rect2(253*sx-left,141*sy-hit_top,126,110) if big else target_rect
+			if source_grid:outline_rect=Rect2(body.position-Vector2(3,3),body.size+Vector2(6,6))
+			var outline=_picture("res://assets/ui-r20/target-outline.svg",outline_rect,hit)
 			outline.z_as_relative=false; outline.z_index=4
 		var art=_enemy_art(e,body,hit,false); art.z_as_relative=false; art.z_index=3; _mark("enemy-art:"+e.id,art)
 		enemy_visuals[e.id]={"node":art,"home":art.position}; shown_hp[e.id]=e.hp
@@ -393,9 +414,11 @@ func _battlefield(rect: Rect2) -> void:
 				# Keep the whole marker 4px clear of the expanded HP plate.
 				# A plate at the field's top has no room above; use its left margin.
 				diamond.position=Vector2(hud_x+hud_w/2,hud_y-hit_top-9.66) if small.is_empty() and hud_y>=15.32 else Vector2(hud_x-9.66,hud_y-hit_top+plate_h/2)
+			if source_grid:diamond.position=Vector2(hud_w-8,plate_h+10)
 	if not pending_action.is_empty() and state.actions().has(pending_action) and state.actions()[pending_action].target=="적 1":
 		var caption_y=maxf(131*sy,92*sy+small_h+4)
 		if has_big and not small.is_empty():caption_y=maxf(141*sy,92*sy+small_h+4)+hud_h+4
+		if state.data.has("encounter_r21"):caption_y=rect.size.y-23
 		var caption=_color(Rect2(136*sx,minf(caption_y,rect.size.y-23),130,23),PAPER,field); caption.z_index=26
 		_mark("target-instruction",_label("공격할 적을 선택하세요",Rect2(6,3,118,17),12,INK,caption))
 	actor=CharacterSprite.new(); actor.battle_pixels=false; actor.idle_enabled=false; _actor_texture(false)
@@ -420,8 +443,8 @@ func _party(rect: Rect2) -> void:
 		
 		if a.id==state.current_id or a.id==ally_open or (items_open and supply_target_set and a.id==state.selected_ally):
 			var border=_panel(Rect2(0,0,col,51),b); var sb=_style(Color.TRANSPARENT,RED); sb.set_border_width_all(2); border.add_theme_stylebox_override("panel",sb)
-		_strong(a.name,Rect2(0,51,col-(22 if a.id==state.current_id else 0),17),12,INK,b,HORIZONTAL_ALIGNMENT_LEFT,TIGHT)
-		if a.id==state.current_id:_strong("차례",Rect2(col-22,51,22,17),10,ResourceGauge.RED,b,HORIZONTAL_ALIGNMENT_RIGHT,W850)
+		_strong(a.name,Rect2(0,51,col-(28 if a.id==state.current_id else 0),17),12,INK,b,HORIZONTAL_ALIGNMENT_LEFT,TIGHT)
+		if a.id==state.current_id:_strong("차례",Rect2(col-28,51,28,17),12,ResourceGauge.RED,b,HORIZONTAL_ALIGNMENT_RIGHT,W850)
 		_label(a.row,Rect2(0,68,col*.5,17),12,Color("575f55"),b)
 		_strong("선택" if a.id==ally_open or (items_open and supply_target_set and a.id==state.selected_ally) else "",Rect2(col*.5,68,col*.5,17),12,Color("b52816"),b,HORIZONTAL_ALIGNMENT_RIGHT,W850)
 		if a.hp<=0:_knockout(face,b,Rect2(4,17,col-8,22))
@@ -887,7 +910,7 @@ func _supplies(rect: Rect2) -> void:
 	if count==0: _label("사용할 보급품이 없습니다.",Rect2(12,80,rect.size.x-24,44),14,INK,p)
 	var a=state.ally(state.selected_ally)
 	if pending_action.is_empty() or not supply_target_set:
-		_label(menu.get('hint','아군 카드를 눌러 대상 선택'),Rect2(12,181,rect.size.x-24,22),11 if canonical else 12,INK,p)
+		_label(menu.get('hint','아군 카드를 눌러 대상 선택'),Rect2(12,181,rect.size.x-24,22),12,INK,p)
 	else:
 		_label("대상 "+a.name,Rect2(12,181,110,22),14,INK,p)
 		var width=(rect.size.x-140)/2

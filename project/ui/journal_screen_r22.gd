@@ -76,12 +76,23 @@ func visit(pid: String) -> void:
 func open_person(id: String) -> void:view.person=id;host.go("people")
 func people() -> void:
 	if view.person!="" and Places.DATA.profiles.has(view.person):
-		var p=L.profile(view.person,Places.profile(view.person),L.language(host.model.s));text(p.name,28)
+		var p=L.profile(view.person,Places.profile(view.person),L.language(host.model.s))
+		var source=preload("res://ui/portrait_layout_r24.gd").path(view.person)
+		if source!="":
+			var hero=preload("res://ui/portrait_slot_r24.gd").make(view.person,"hero",Vector2(0,250));body.add_child(hero);hero.size_flags_horizontal=SIZE_EXPAND_FILL
+		text(p.name,28)
 		button("p10_people_back","인물 목록",func():view.person="";redraw())
 		for raw in p.lines:
 			var line=str(raw)
 			if line.begins_with("## "):text(line.trim_prefix("## "),18,T.MUTED)
-			else:text(line.trim_prefix("- ").replace("**",""),16)
+			else:
+				var clean=line.trim_prefix("- ").replace("**","")
+				var split=clean.find(": ")
+				if line.begins_with("- **") and split>0:
+					section(clean.left(split+1));var copy=text(clean.substr(split+2),16);copy.add_theme_constant_override("line_spacing",7)
+				else:
+					var copy=text(clean,16);copy.add_theme_constant_override("line_spacing",7)
+			var gap=Control.new();body.add_child(gap);gap.custom_minimum_size.y=8
 		return
 	text("토르바의 사람들과 각국 지도자",15,T.MUTED)
 	for id in Places.DATA.profiles:

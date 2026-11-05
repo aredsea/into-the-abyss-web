@@ -1,32 +1,55 @@
-# RESKIN R24
+# RESKIN R24 · 2차 수정
 
-미완료·병합 전 사항: 초상 레인 결과는 아직 합치지 않았으며 기존 상반신을 얇은 어댑터로 표시한다. 공통 규칙의 git 명령 금지를 지켜 단계 커밋은 하지 않았다. 새 Web export·docs 배포와 실물 폰 검증은 하지 않았다. DESIGN.md는 교체했으나 수정 허용 범위 밖인 기존 .impeccable/design.json 캐시는 갱신하지 않았다. 필요하면 impeccable document로 별도 갱신할 수 있다.
+미실행: 실물 폰 터치·Web export·배포. 이 작업은 네이티브 Godot 화면에서 확인했으며 git 명령은 사용하지 않았다. 승인 PNG와 실제 데이터·대사 길이의 차이는 아래에 적었다. 품질 최종 승인은 사장님 확인이 필요하다.
 
-회귀 검사 통과 160/160, 실패 0, 미실행 0. 실패·미실행이 있으면 아래 목록에 그대로 남긴다.
+## A~M 수정과 직접 확인
 
-실제 게임 UI 코드에 종이·먹·버밀리언 체계를 적용했다. 게임 규칙·대사·저장 형식은 바꾸지 않았다. 코드에서 먼저 추출한 화면/함수/분기 목록은 [source-inventory.json](verification/reskin-r24/source-inventory.json), 실제 상태별 목록은 아래 표다.
+아래 전후 사진 13장과 묶음 사진 39장을 직접 열어 확인했다. 수정 전 390px 캡처를 보존했고, 마지막 소스 수정 뒤 세 해상도를 다시 촬영했다.
 
-- 캡처 423장, 세 해상도. 입력·캡처 검사 1446개, 실패 0.
-- 실제 렌더 글꼴 누락 0, 측정 텍스트 넘침 0, 스크롤바 겹침 0건.
-- 원본 이미지 96/96 해시 불변. 보호 파일 226/226 불변.
-- 기존 전투 대조 출력 집계 6,320/6,320판, 219,785행동 일치. 신규 실행 여부는 all-tests.json의 audit 그룹과 함께 확인한다.
-- 폰 검토용 sheet-1.jpg … sheet-36. 각 장 폭 1200, 최대 695,347바이트.
+| 항목 | 바꾼 것 | 전후 비교 |
+|---|---|---|
+| A | 새 공용 초상·전투 상세·로그 연결 | [사진](verification/reskin-r24/round2/fix-A.jpg) |
+| B | NPC 누끼와 일반 알파 합성 | [사진](verification/reskin-r24/round2/fix-B.jpg) |
+| C | 시설의 왼쪽 제목·오른쪽 인물·검은 이름표 | [사진](verification/reskin-r24/round2/fix-C.jpg) |
+| D | 원정 그림 띠·가로 진행·보상·준비·결과 | [사진](verification/reskin-r24/round2/fix-D.jpg) |
+| E | 적 이름표를 각 적 머리 위로 | [사진](verification/reskin-r24/round2/fix-E.jpg) |
+| F | 동료 상세의 능력치 격자와 실제 기술 아이콘 | [사진](verification/reskin-r24/round2/fix-F.jpg) |
+| G | 초상과 소제목으로 나눈 인물 소개 | [사진](verification/reskin-r24/round2/fix-G.jpg) |
+| H | 어깨 뒤에 작고 옅은 먹 번짐 | [사진](verification/reskin-r24/round2/fix-H.jpg) |
+| I | 3px·먹 25% 스크롤바와 마을 숨김 | [사진](verification/reskin-r24/round2/fix-I.jpg) |
+| J | 붉은 행의 세로 가운데 정렬 | [사진](verification/reskin-r24/round2/fix-J.jpg) |
+| K | 본문 14px·보조 12px 기준의 가독성 | [사진](verification/reskin-r24/round2/fix-K.jpg) |
+| L | 마을 종이 가장자리와 파티 한 줄 표기 | [사진](verification/reskin-r24/round2/fix-L.jpg) |
+| M | 빈 상태의 문구와 다음 행동 | [사진](verification/reskin-r24/round2/fix-M.jpg) |
 
-## 바뀐 것
+## 검증 수치
 
-1. 공용 부품: reskin_components_r24.gd에 종이·제목·선·행·주 행동·선택·선 아이콘·내비·찢긴 가장자리·스크롤을 통합. UI-r24의 wash는 승인 CSS SVG를 Chromium으로 구운 것이다. 그림 생성 없음.
-2. 마을 B: 시설 네 곳을 지도 표지로, 파티 네 자리를 상자 없는 상반신과 자원으로, 다음 원정을 큰 행동으로 교체. 원본의 설명과 추가 출정 선택은 아래 스크롤에 보존. 동료 C: 오른쪽 상반신·세로 선택·실제 단계 대사·시설 행. 생성 5단계: 본문과 선택 분리·화살표 선 아이콘·스크롤 복원. 목록·상세·시설·가방·장비·원정·기록·도감·설정·클라우드는 같은 공용 문법을 사용. 여관 행동은 네모 타일에서 행으로 변경.
-3. 전투: 하단 파티·상태·기록의 인물만 초상 어댑터로 연결. 전장 배치·규칙·효과·컷인은 유지. 원본 자원 게이지 보존. DESIGN.md를 새 체계로 재작성.
+- 프로젝트 검사 169/169 + 전투 대조 실행 8/8: 총 177/177 통과, 최종 실패 0.
+- 전투 6,320/6,320판, 219,785행동 일치. 이번 작업에서 여덟 대조를 모두 새로 실행했다.
+- 146개 화면·상태 × 3해상도 = 438장. 390×844·360×780·1280×800. 화면 검사 1,728개, 실패 0.
+- 글꼴 누락 0, 측정 넘침·실제 줄 잘림 0, 스크롤바 겹침 0, 12px 미만 보조 글자 0.
+- 원본 그림 96/96 해시 불변. 게임·대사·데이터 221/221 해시 불변. resource_gauge_r24.gd의 붓 게이지는 수정하지 않고 바깥 숫자 조판만 공용 래퍼에서 키웠다.
+- NPC 5/5: isnet-anime, 빨강·검정·종이 대조. 작은 조각 0, 흰 외곽선 0, 경계 5px 안쪽을 제외한 인물 내부 RGB 변경 0. 원본은 덮어쓰지 않았다.
+- 이번에 만든 격리 실행 슬롯 4개와 부속 임시 폴더를 정리했다. 기본 runtime은 보존했다. [정리 기록](verification/reskin-r24/round2/runtime-cleanup.json).
+- 새 sheet-1.jpg … sheet-39. 폭 1200px, 최대 678,943바이트. A~M 전후 사진도 폭 1200px 이하.
 
-## 기준 PNG와의 차이
+[전체 검사](verification/reskin-r24/round2/all-tests.json) · [화면 스캔](verification/reskin-r24/round2/visual-scan.json) · [전투 대조](verification/reskin-r24/round2/battle-parity.json) · [NPC 검사](verification/reskin-r24/round2/npc/validation.json) · [직접 검토](verification/reskin-r24/round2/visual-review.json) · [변경 목록](verification/reskin-r24/round2/source-handoff.json)
 
-[마을 대조](verification/reskin-r24/compare-town.png), [동료 대조](verification/reskin-r24/compare-companion.png). 시안의 2일째·가상 HP와 실제 저장의 날짜·금화·HP는 다르며 게임 데이터가 우선이다. 동료의 대사는 현재 단계 원문 전체를 사용하므로 시안의 한 줄보다 길다. 기존 상반신의 구도·먹 번짐 가장자리는 별도 초상 레인 결과를 기다린다. 원본의 개요·기술·편성·출정 설명은 첫 화면 아래에 남아 있어 시안보다 스크롤이 길다. 여관의 붉은 새 소식 표지는 실제 현재 단계의 미열람 대화가 있고 오늘 대화가 가능한 경우에만 표시한다. 읽기만으로 저장·난수를 바꾸지 않는 검사도 포함한다.
+## 기능과 검사 조건
+
+화면 표시만 바꿨다. 버튼 id·콜백·활성 조건·정본 숫자·전투 규칙·대사 데이터·저장 형식은 보존했다. 원정의 입구·1~5·휴식·보스는 가로 경로로 표시하고, 기존 source entry 메타데이터와 행동 순서를 유지했다. 기존 보상 반영과 결과 확인 경로를 그대로 사용하므로 결과를 보는 것만으로 보상이 지급되지 않는다.
+
+초기 검사 실패는 지우지 않고 tests/results.json에 남겼다. 합본에 없던 finish-r24 Lua 대조 파일은 기존 oracle 도구로 정본 봇을 실행해 다시 만들었다. 파일을 읽다가 멈춘 두 격리 검사 프로세스는 종료하고 같은 기대값으로 재실행했다. 클라우드 검사는 실제 로컬 Worker/D1을 시작해 11묶음을 재실행했다. 이름표 줄 잘림, 적 클릭 영역·표지 간격, 공용 초상 명부, 영문 제목은 코드에서 고쳤고 focused-results.json에 재검사 결과를 남겼다. 기존 검사의 기대값은 바꾸지 않았다. 신규 인물 소개 검사는 기존 {{user}} 치환을 거친 원문과 화면 글자를 비교한다.
+
+## 승인 시안과 다른 점·한계
+
+[마을 대조](verification/reskin-r24/compare-town.png) · [동료 대조](verification/reskin-r24/compare-companion.png). 실제 저장은 1일째이며 시안의 2일째·가상 HP를 넣지 않았다. 동료 대사는 현재 상황의 원문 전체라 시안보다 길고 대사판 높이도 다르다. 시설 설명은 12px 이상으로 두 줄까지 읽히도록 표지가 조금 높다. 기존 개요·기술·편성·출정 설명은 아래 스크롤에서 접근한다. 시설 의뢰는 정본 난수에 따라 전후 캡처의 이름·보상이 달라질 수 있다. 숫자 변경으로 통과시킨 것은 아니며 기능 대조와 보호 해시로 구분했다.
+
+그림이 없는 인물 소개에는 다른 사람의 초상을 대신 넣지 않았다. 페르소나는 기존 사람 선 아이콘을 사용한다. 실제 폰 브라우저 확인과 배포는 이번 범위에서 실행하지 않았다. Impeccable 정적 탐지는 []였으며 Godot 렌더 확인을 대체하지 않는다. 기존 .impeccable/design.json은 DESIGN.md보다 낡은 캐시라 갱신하지 않았다. 필요하면 별도 document 작업으로 갱신할 수 있다.
 
 ## 화면·상태 목록
 
-아래 각 행은 390×844·360×780·1280×800에서 캡처했다. 첫 화면과 끝 상태, 빈 상태·오류·확인·입력 상태를 별도로 표기한다. 데이터에 따른 수치 조합은 기존 기능 검사와 원본 대조 검사가 맡는다.
-
-| 화면 / 상태 | 390×844 | 360×780 | 1280×800 |
+| 화면·상태 | 390×844 | 360×780 | 1280×800 |
 |---|---|---|---|
 | bag | [캡처](verification/reskin-r24/render/bag-390x844.png) | [캡처](verification/reskin-r24/render/bag-360x780.png) | [캡처](verification/reskin-r24/render/bag-1280x800.png) |
 | battle | [캡처](verification/reskin-r24/render/battle-390x844.png) | [캡처](verification/reskin-r24/render/battle-360x780.png) | [캡처](verification/reskin-r24/render/battle-1280x800.png) |
@@ -100,19 +123,24 @@
 | person-anselme | [캡처](verification/reskin-r24/render/person-anselme-390x844.png) | [캡처](verification/reskin-r24/render/person-anselme-360x780.png) | [캡처](verification/reskin-r24/render/person-anselme-1280x800.png) |
 | person-cesare | [캡처](verification/reskin-r24/render/person-cesare-390x844.png) | [캡처](verification/reskin-r24/render/person-cesare-360x780.png) | [캡처](verification/reskin-r24/render/person-cesare-1280x800.png) |
 | person-dorothea | [캡처](verification/reskin-r24/render/person-dorothea-390x844.png) | [캡처](verification/reskin-r24/render/person-dorothea-360x780.png) | [캡처](verification/reskin-r24/render/person-dorothea-1280x800.png) |
+| person-dorothea-end | [캡처](verification/reskin-r24/render/person-dorothea-end-390x844.png) | [캡처](verification/reskin-r24/render/person-dorothea-end-360x780.png) | [캡처](verification/reskin-r24/render/person-dorothea-end-1280x800.png) |
 | person-eckhart | [캡처](verification/reskin-r24/render/person-eckhart-390x844.png) | [캡처](verification/reskin-r24/render/person-eckhart-360x780.png) | [캡처](verification/reskin-r24/render/person-eckhart-1280x800.png) |
 | person-elowen | [캡처](verification/reskin-r24/render/person-elowen-390x844.png) | [캡처](verification/reskin-r24/render/person-elowen-360x780.png) | [캡처](verification/reskin-r24/render/person-elowen-1280x800.png) |
 | person-fenella | [캡처](verification/reskin-r24/render/person-fenella-390x844.png) | [캡처](verification/reskin-r24/render/person-fenella-360x780.png) | [캡처](verification/reskin-r24/render/person-fenella-1280x800.png) |
+| person-fenella-end | [캡처](verification/reskin-r24/render/person-fenella-end-390x844.png) | [캡처](verification/reskin-r24/render/person-fenella-end-360x780.png) | [캡처](verification/reskin-r24/render/person-fenella-end-1280x800.png) |
 | person-godfroi | [캡처](verification/reskin-r24/render/person-godfroi-390x844.png) | [캡처](verification/reskin-r24/render/person-godfroi-360x780.png) | [캡처](verification/reskin-r24/render/person-godfroi-1280x800.png) |
 | person-hanna | [캡처](verification/reskin-r24/render/person-hanna-390x844.png) | [캡처](verification/reskin-r24/render/person-hanna-360x780.png) | [캡처](verification/reskin-r24/render/person-hanna-1280x800.png) |
+| person-hanna-end | [캡처](verification/reskin-r24/render/person-hanna-end-390x844.png) | [캡처](verification/reskin-r24/render/person-hanna-end-360x780.png) | [캡처](verification/reskin-r24/render/person-hanna-end-1280x800.png) |
 | person-isolde | [캡처](verification/reskin-r24/render/person-isolde-390x844.png) | [캡처](verification/reskin-r24/render/person-isolde-360x780.png) | [캡처](verification/reskin-r24/render/person-isolde-1280x800.png) |
 | person-knut | [캡처](verification/reskin-r24/render/person-knut-390x844.png) | [캡처](verification/reskin-r24/render/person-knut-360x780.png) | [캡처](verification/reskin-r24/render/person-knut-1280x800.png) |
 | person-loredana | [캡처](verification/reskin-r24/render/person-loredana-390x844.png) | [캡처](verification/reskin-r24/render/person-loredana-360x780.png) | [캡처](verification/reskin-r24/render/person-loredana-1280x800.png) |
+| person-loredana-end | [캡처](verification/reskin-r24/render/person-loredana-end-390x844.png) | [캡처](verification/reskin-r24/render/person-loredana-end-360x780.png) | [캡처](verification/reskin-r24/render/person-loredana-end-1280x800.png) |
 | person-maximilian | [캡처](verification/reskin-r24/render/person-maximilian-390x844.png) | [캡처](verification/reskin-r24/render/person-maximilian-360x780.png) | [캡처](verification/reskin-r24/render/person-maximilian-1280x800.png) |
 | person-muriel | [캡처](verification/reskin-r24/render/person-muriel-390x844.png) | [캡처](verification/reskin-r24/render/person-muriel-360x780.png) | [캡처](verification/reskin-r24/render/person-muriel-1280x800.png) |
 | person-noel | [캡처](verification/reskin-r24/render/person-noel-390x844.png) | [캡처](verification/reskin-r24/render/person-noel-360x780.png) | [캡처](verification/reskin-r24/render/person-noel-1280x800.png) |
 | person-oswald | [캡처](verification/reskin-r24/render/person-oswald-390x844.png) | [캡처](verification/reskin-r24/render/person-oswald-360x780.png) | [캡처](verification/reskin-r24/render/person-oswald-1280x800.png) |
 | person-pietro | [캡처](verification/reskin-r24/render/person-pietro-390x844.png) | [캡처](verification/reskin-r24/render/person-pietro-360x780.png) | [캡처](verification/reskin-r24/render/person-pietro-1280x800.png) |
+| person-pietro-end | [캡처](verification/reskin-r24/render/person-pietro-end-390x844.png) | [캡처](verification/reskin-r24/render/person-pietro-end-360x780.png) | [캡처](verification/reskin-r24/render/person-pietro-end-1280x800.png) |
 | person-sarkon | [캡처](verification/reskin-r24/render/person-sarkon-390x844.png) | [캡처](verification/reskin-r24/render/person-sarkon-360x780.png) | [캡처](verification/reskin-r24/render/person-sarkon-1280x800.png) |
 | person-shorgai | [캡처](verification/reskin-r24/render/person-shorgai-390x844.png) | [캡처](verification/reskin-r24/render/person-shorgai-360x780.png) | [캡처](verification/reskin-r24/render/person-shorgai-1280x800.png) |
 | person-sven | [캡처](verification/reskin-r24/render/person-sven-390x844.png) | [캡처](verification/reskin-r24/render/person-sven-360x780.png) | [캡처](verification/reskin-r24/render/person-sven-1280x800.png) |
@@ -168,22 +196,34 @@
 | town-no-news | [캡처](verification/reskin-r24/render/town-no-news-390x844.png) | [캡처](verification/reskin-r24/render/town-no-news-360x780.png) | [캡처](verification/reskin-r24/render/town-no-news-1280x800.png) |
 | town-persona | [캡처](verification/reskin-r24/render/town-persona-390x844.png) | [캡처](verification/reskin-r24/render/town-persona-360x780.png) | [캡처](verification/reskin-r24/render/town-persona-1280x800.png) |
 
-## 검사 결과와 변경한 시험
+## 수정 파일
 
-[전체 로그/결과](verification/reskin-r24/all-tests.json). Windows root certificate store 메시지는 환경 진단으로 별도 취급하며, 다른 ERROR·SCRIPT ERROR는 실패다. 초기 클라우드의 서버 부재 실패는 격리된 실제 Worker/D1로 재검사했다. 대사 전수 UI 검사는 최초 래퍼의 360초 제한과 네이티브의 1200초 감시 제한 때문에, 오류 없이 완료한 인물·언어·크기 블록을 보존하고 나머지를 같은 기대값으로 이어 검사했다. [연속 검사 근거](verification/reskin-r24/dialogue-continuation.json)는 120/120블록과 실제 재개 프로세스 종료 0을 기록한다. 반복 재구성 시 동일 셰이더를 공유해 다시 만드는 비용도 줄였다.
+- `project/ui/battle_screen.gd`
+- `project/ui/create_screen.gd`
+- `project/ui/expedition_screen_r22.gd`
+- `project/ui/facilities_screen_r22.gd`
+- `project/ui/journal_screen_r22.gd`
+- `project/ui/persona_sortie_screen.gd`
+- `project/ui/portrait_layout_r24.gd`
+- `project/ui/portrait_slot_r24.gd`
+- `project/ui/portrait_slot_r24.gdshader`
+- `project/ui/reskin_components_r24.gd`
+- `project/ui/town_result_r21.gd`
+- `project/ui/town_screen_r21.gd`
+- `project/ui/world_screen.gd`
+- `project/assets/portraits-r24/npc/dorothea.png`
+- `project/assets/portraits-r24/npc/dorothea.png.import`
+- `project/assets/portraits-r24/npc/fenella.png`
+- `project/assets/portraits-r24/npc/fenella.png.import`
+- `project/assets/portraits-r24/npc/hanna.png`
+- `project/assets/portraits-r24/npc/hanna.png.import`
+- `project/assets/portraits-r24/npc/landmarks.json`
+- `project/assets/portraits-r24/npc/loredana.png`
+- `project/assets/portraits-r24/npc/loredana.png.import`
+- `project/assets/portraits-r24/npc/pietro.png`
+- `project/assets/portraits-r24/npc/pietro.png.import`
+- `project/tests/ui_reskin_r24_test.gd`
+- `project/tests/ui_reskin_r24_round2_test.gd`
+- `DESIGN.md`
 
-실패: 없음
-
-미실행: 없음
-
-위치 보정: [목록](verification/reskin-r24/test-position-updates.json)의 11개 포인터 도우미는 기존 버튼을 스크롤 안으로 가져온 뒤 같은 마우스 입력을 보낸다. ui_town_r21_test는 스크롤 안 컨트롤도 실제로 끝까지 도달할 수 있는지 검사한다. 기능 기대값·활성 조건·순서·상태 변화는 바꾸지 않았다. 외형 보정: ui_town_r21_round9_test는 같은 인물 수를 새 어댑터에서 세고 승인 계약대로 활성 막대가 글자 위에 있는지 검사한다. ui_town_r21_round11_test는 SVG 파일명 대신 동일한 번역 제목과 실제 Label을 검사한다. ui_semantics_native_r23_test는 흰 글자 대신 선택 상태와 실제 밑줄 그림을 검사한다. ui_expe_pass5_r23_test는 원본 문구와 별표 개수를 그대로 비교하고 각 별이 실제 승인 SVG로 그려지는지도 확인한다. 대사 검사 감시 시간은 3600초로 늘리고 완료 블록의 재개 근거를 남긴다.
-
-[컨트롤 id 대조](verification/reskin-r24/control-id-audit.json): 변경한 주요 5개 화면의 기존 리터럴 컨트롤 id 누락 0. 승인 C 구성에 필요한 동료 칩·시설 행만 추가했다. [디자인 탐지](verification/reskin-r24/design-detector.json)는 지적 0이며 직접 렌더 검토를 대체하지 않는다.
-
-## 최종 검토와 인계
-
-네이티브 캡처 423장으로 구성한 시트 36장을 직접 검토했다. 최종 수정 후 시트 2·14·26·31~36을 다시 확인했다. [검토 기록](verification/reskin-r24/visual-review.json), [소스 인계 목록](verification/reskin-r24/source-handoff.json), [런타임 정리](verification/reskin-r24/cleanup.json)를 함께 남긴다. 임시 런타임 슬롯은 0개이며 공용 기본 런타임은 보존했다.
-
-저장 실패의 복구 안내는 본문 위에 별도 공간을 예약하고 원래 행동은 스크롤로 접근할 수 있게 했다. 페르소나 파티 자리는 동료 전용 대사·특성 데이터가 없으므로 기존 상태창을 연다. 실제 클릭으로 원본 능력치·스킬을 확인했다. 구형 상세창의 내비게이션도 연속된 검은 띠로 통일했다. 셰이더는 공유하여 화면 반복 구성 비용을 줄였다.
-
-소스 인계 목록은 읽기 전용 r21-portrait 사본과 다른 허용 UI·시험 파일, 이 작업의 UI 자산·도구·문서에 대한 경로와 SHA-256이다. 전체 작업공간의 git diff를 대신하는 목록은 아니며, 보호 파일 검사는 별도 protected-check.json을 기준으로 한다.
+검증 도구: `tools/portrait_r24_npc.py`, `tools/reskin_r24_round2_verify.py`, `tools/reskin_r24_round2_recheck.py`, `tools/reskin_r24_test_prerequisites.py`, `tools/reskin_r24_round2_report.py`, `tools/reskin_r24_round2_finalize.py`. 공용 cloud 도구에는 결과 폴더·격리 슬롯 선택만 추가했다.

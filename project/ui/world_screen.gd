@@ -287,15 +287,15 @@ func bar(label: String, value: float, maximum: float, parent: Node, hp=true) -> 
 
 func companion_image(id: String, target: Node, dims: Vector2) -> Control:
 	var pic=preload("res://ui/portrait_slot_r24.gd").make(id,"detail",dims)
-	target.add_child(pic);pic.size_flags_horizontal=SIZE_EXPAND_FILL
+	target.add_child(pic);pic.size_flags_horizontal=Control.SIZE_SHRINK_BEGIN
 	return pic
 
 func _portrait(id: String, parent: Node, large=false) -> void:
 	var row=HBoxContainer.new(); parent.add_child(row); row.add_theme_constant_override("separation",14)
-	companion_image(id,row,Vector2(128,170) if large else Vector2(76,104))
+	companion_image(id,row,Vector2(136,202) if large else Vector2(76,104))
 	var body=VBoxContainer.new(); row.add_child(body); body.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	var m=model.s.members[id]; var p=model.person(id); var b=model.stats(id,m.level)
-	text(p.name,18,GOLD,body); text("Lv.%d  %s\n%s" % [m.level,p["class"],p.row],13,MUTED,body)
+	text(p.name,23,GOLD,body); text("Lv.%d  %s\n%s" % [m.level,p["class"],p.row],14,MUTED,body)
 	bar("HP",m.hp,b.hp,body); bar("MP",m.mp,b.mp,body,false)
 
 func _town() -> void:
@@ -341,7 +341,10 @@ func _member() -> void:
 	button("signature_preview","전용 도트 · 고유 기술 연출",_show_art.bind(who),false,panel)
 	bar("경험치",m.xp,model.need(m.level),panel,false)
 	text("호감 %s / 200" % number(m.aff),14,GOLD,panel)
-	text("힘 %.1f   민첩 %.1f   지능 %.1f\n방어 %.1f   속도 %.1f" % [b.str,b.agi,b.int,b.def,b.spd],14,INK,panel)
+	var grid=GridContainer.new();panel.add_child(grid);grid.columns=3;grid.add_theme_constant_override("h_separation",18);grid.add_theme_constant_override("v_separation",12)
+	for entry in [["힘",b.str],["민첩",b.agi],["지능",b.int],["방어",b.def],["속도",b.spd]]:
+		var cell=VBoxContainer.new();grid.add_child(cell);cell.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+		text(entry[0],14,MUTED,cell);text("%.1f"%entry[1],23,INK,cell)
 	text("고유 특성 · "+p.trait.name,17,GOLD)
 	text(p.trait.note,14)
 	text("고유 스킬 · "+p.skill.name,17,GOLD)
