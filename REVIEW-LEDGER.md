@@ -18,6 +18,10 @@
 | openai/gpt-5.6-luna | P2 전장 경계·기본 붓이 390/264px 고정이라 360폭에서 잘리고 430폭에서 40px 비어 있음 | 채택·수정(103146d) | 430 렌더에서 오른쪽 직선 경계 확인 → 프레임 폭 비례, 웹 360/430 재확인 |
 | openai/gpt-5.6-luna | P2 대상 붓 원 크기가 폭·높이 비율을 안 따름 | 채택·수정(103146d) | 위치만 sx/sy 적용 → 크기도 적용 |
 | claude-opus-5-5 (자체 발견) | P2 짧은 전장(224px)에서 288px 마스크가 세로로 눌려 찢긴 윤곽이 납작해짐 | 채택·수정(103146d) | 마스크는 아래 ~23px 만 잘림 → 원래 높이로 전장 아래에 맞춤, 잉크-글자 검사는 even-odd 덮개로 계산 · R2 지적 0 |
+| claude-opus-5-5 | P2 옛 저장 시험 2건이 두 필드 가드를 검증하지 못함(remaining 음수로 먼저 거절) | 채택·수정(5d3f493c) | 변이 재실행: 가드 제거 시 시험 실패 확인 |
+| claude-opus-5-5 | P2 파티 밖 동료 id 도 last_kill 로 서버 통과 | 기각 | 쓰기 PIN 을 가진 주인이 자기 저장을 조작할 때만 생기고, 클라이언트가 재개를 거부. 같은 파일 selected_ally 와 같은 수준 |
+| claude-opus-5-5 | P1 후보 5번째 이후 적 슬롯 r21_slot_N 전투 저장을 서버가 거절 | 채택·수정(5d3f493c) | Godot 실제 5슬롯 저장으로 REJECT run.battle.unit 재현, 수정 후 통과. 사장님 허락(11-05) |
+| claude-opus-4-7 | Important 시험 고정자료 battle-slot-r24.json 이 미추적 | 채택·수정(5d3f493c) | git ls-files 로 추적 확인 |
 
 ## 회차
 
@@ -49,3 +53,10 @@
 - 구현: 로컬 Codex gpt-6.1-sol high(r20·r20b). 수정: Claude Opus 5.5(폭 비례·마스크 고정·검사 even-odd).
 - 외부: openai/gpt-5.6-luna (OpenRouter, high) R1 지적 2 / 채택 2 · R2 지적 0.
 - 결과: 채택 지적 잔여 0. 게이트 실패 0 (r17 6,085 · r18 4,592 · r18 상태 3,540 · r19 859 · r20 1,659 · 기존 전부) · 웹 5개 크기 통과. 잉크 IoU ≥0.992, 데이터 0.48MB.
+
+### 2026-11-05 · 서버 허용 목록(전투 저장 두 필드 + 적 슬롯)
+- 대상 diff: server/abyss-save/src/validate.js, test/finish-r24.mjs, test/combat-r14.mjs, test/p2-r15.mjs
+- 등급: **T2**(두 필드, Codex 구현) + **T1**(적 슬롯 정규식, Claude 구현).
+- Opus 자리: claude-opus-5-5(`opus-reviewer`, Codex 코드) 지적 3 / 채택 2 / 기각 1 · claude-opus-4-7(`opus47-reviewer`, Claude 코드, 자기 검수 회피) 지적 1 / 채택 1.
+- 외부 검수 생략: 대상이 수십 줄이고 Opus 자리로 충분하다고 판단(라운드당 1명).
+- 결과: 채택 지적 잔여 0. npm test 실패 0, 정상 표본 393, 변이 4종 모두 시험이 잡음.
