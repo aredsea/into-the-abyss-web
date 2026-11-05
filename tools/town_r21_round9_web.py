@@ -142,7 +142,7 @@ def run():
     click('p10_tab_journal');capture('p10-journal');click('p10_back');assert world()['screen']=='town'
     entries=world()['state']['chronicle_r22']['list']
     assert sum('First met' in x for x in entries)==1 and sum('guild introduction' in x for x in entries)==1
-    click('depart');capture('participate')
+    click('depart');click('so_mode_1');capture('participate')
     click('so_fight_0');assert world()['state']['persona']['fight']==0;capture('command')
     click('so_tg_teiris');assert world()['controls']['start_run']['disabled']
     click('so_fight_1');assert not world()['controls']['start_run']['disabled']
@@ -256,7 +256,7 @@ def run():
    page.reload();page.wait_for_function('window.__abyssWorld?.restored && window.__abyssWorld.controls["dialogue_choice:c1"]',timeout=90000)
    after=idb_files(page);assert all(x['text']==source for x in after if 'world_v1.json' in x['path'])
    assert all(page.evaluate('window.__abyssWorld.state')[k]==raw[k] for k in ['favs','panels_r22','chronicle_r22'])
-   for key in ['dialogue_cancel','nav:depart']:
+   for key in ['dialogue_cancel','nav:depart','so_mode_1']:
     report=page.evaluate('window.__abyssWorld');q=report['controls'][key]['rect'];c=page.locator('canvas').bounding_box();page.mouse.click(c['x']+(q[0]+q[2]/2)*c['width']/report['viewport'][0],c['y']+(q[1]+q[3]/2)*c['height']/report['viewport'][1]);page.wait_for_timeout(300)
    legacy_ui=page.evaluate('window.__abyssWorld');assert legacy_ui['controls']['so_fight_1']['disabled'] and not legacy_ui['controls']['start_run']['disabled']
    assert legacy_ui['state']['party']==raw['party']

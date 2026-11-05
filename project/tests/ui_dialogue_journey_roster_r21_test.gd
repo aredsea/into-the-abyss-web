@@ -24,7 +24,7 @@ func run():
 						check(s.controls.dialogue_continue.text==("계속" if lang=="ko" else "Continue"),"localized continue button "+id)
 				for t in d.transitions:
 					var row=t.duplicate(true);row.who=id;row.kind="transition";w.s.dialogue_r21.queue=[row];s._draw_screen()
-					await measure(s,"journey-stage:"+id+t.id+lang+str(dim.x),dim,[t.from+" → "+t.to+"\n"+t.situation+"\n"+"\n".join(t.lines)])
+					await measure(s,"journey-stage:"+id+t.id+lang+str(dim.x),dim,[(L.display(t.from,s.model.s)+" → "+L.display(t.to,s.model.s)+"\n"+L.authored_display(t.situation,s.model.s)+"\n"+"\n".join(t.lines.map(func(x):return L.authored_display(x,s.model.s)))) if lang=="en" else t.from+" → "+t.to+"\n"+t.situation+"\n"+"\n".join(t.lines)])
 				if id in ["bargut","berenga"] and dim.x==360:capture("journey-"+id+"-"+lang+"-360")
 				print("JOURNEY ",id," ",lang," ",dim.x," complete")
 		root.remove_child(s);s.queue_free();await process_frame

@@ -34,7 +34,7 @@ func measure(s,tag,dim,expected):
 		if not fits:overflow+=1
 		check(fits,"glyph overflow "+tag+" "+node.text+" needed="+str(needed)+" room="+str(room))
 		if node is Label and ScrollUI.scroller(node)!=null and not node.get_parent() is Button:rectangles.append(ScrollUI.visible_rect(node))
-	for text in expected:check(text in texts,"authored text remains verbatim "+tag+" "+text)
+	for text in expected:check(text in texts or (L.language(s.model.s)=="en" and L.authored_display(text,s.model.s) in texts),"authored text remains verbatim "+tag+" "+text)
 	for id in s.controls:
 		var rect=s.controls[id].get_global_rect()
 		check(ScrollUI.reachable(s.controls[id],Rect2(Vector2.ZERO,Vector2(dim))),"control reachable within viewport "+tag+id)

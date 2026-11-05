@@ -17,7 +17,7 @@ O=R/'verification/reskin-r24/round2/npc'
 A=R/'project/assets/portraits-r24/npc'
 IDS=['fenella','loredana','dorothea','pietro','hanna']
 # (x0,y0,x1,y1) source boxes reviewed against the original: paper seen through hair, never cloth.
-GAPS={'fenella':[(170,330,235,410),(300,360,345,412),(385,265,430,412)],'loredana':[],'dorothea':[],'pietro':[],'hanna':[]}
+GAPS={'fenella':[(170,330,235,410),(300,360,345,412),(385,100,440,412)],'loredana':[(125,270,165,312),(390,270,422,302),(190,330,235,375),(355,320,420,362),(385,225,420,265),(225,45,275,70)],'dorothea':[],'pietro':[(385,140,425,190),(290,40,340,70)],'hanna':[(270,35,320,55)]}
 
 def model_mask(session,im):
     arr=np.array(im.resize((1024,1024),Image.Resampling.LANCZOS)).astype('float32')
@@ -34,14 +34,20 @@ def cut(rgb,mask,gaps):
         fg&=~(paper&region)
     fg=ndi.binary_opening(fg,iterations=1)
     fg,_,_=pipeline.largest(fg);fg=ndi.binary_fill_holes(fg)&(fg|~paper)
+    # The model mask overshoots the outline by a few pixels of paper: peel only that rim.
+    rim=(rgb.min(2)>=232)&(np.ptp(rgb,axis=2)<24)
+    for _ in range(6):
+        fg&=~(rim&~ndi.binary_erosion(fg))
+    fg,_,_=pipeline.largest(fg)
     b=np.array([255.,255.,255.])
     dist=ndi.distance_transform_edt(fg);inside=dist>4
     _,indices=ndi.distance_transform_edt(~inside,return_indices=True)
     f=rgb[tuple(indices)].astype(float);v=f-b
     coverage=np.clip(np.sum((rgb-b)*v,axis=2)/np.maximum(np.sum(v*v,axis=2),1),0,1)
     recovered=np.minimum(np.clip((rgb-(1-coverage[...,None])*b)/np.maximum(coverage[...,None],.08),0,255),f+8)
-    corrected=rgb.copy();edge=fg&(dist<=4);corrected[edge]=np.rint(recovered[edge]).astype('uint8')
+    corrected=rgb.copy();edge=fg&(dist<=4);recovered=np.where((coverage>=.35)[...,None],recovered,f);corrected[edge]=np.rint(recovered[edge]).astype('uint8')
     alpha=np.rint(255*np.clip((dist-.75)/1.25,0,1)).astype('uint8')
+    feather=fg&(dist<=2.5);alpha[feather]=np.rint(alpha[feather]*coverage[feather]).astype('uint8')
     main,_,_=pipeline.largest(alpha>0);alpha[~main]=0;corrected[alpha==0]=0
     return np.dstack([corrected,alpha])
 

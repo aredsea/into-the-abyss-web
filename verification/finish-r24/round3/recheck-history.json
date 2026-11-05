@@ -1,0 +1,171 @@
+{
+  "initial_failures": [
+    {
+      "test": "expe_pass5_r23_test",
+      "exit": 1,
+      "passed": false,
+      "summary": [
+        "EXPE PASS5 CHECKS 2598 FAILURES 192"
+      ],
+      "seconds": 35.78
+    },
+    {
+      "test": "ui_dialogue_roster_r21_test",
+      "exit": 1,
+      "passed": false,
+      "summary": [],
+      "seconds": 3.16
+    },
+    {
+      "test": "ui_expedition_r22_test",
+      "exit": 1,
+      "passed": false,
+      "summary": [
+        "EXPEDITION UI R22 CHECKS 2720 FAILURES 5 CAPTURES 70"
+      ],
+      "seconds": 20.28
+    },
+    {
+      "test": "ui_look_r24_round4_test",
+      "exit": 0,
+      "passed": false,
+      "summary": [
+        "LOOK ROUND4 after CHECKS 6426 FAILURES 0 CAPTURES 204"
+      ],
+      "seconds": 27.52
+    },
+    {
+      "test": "ui_phase4_r23_test",
+      "exit": 1,
+      "passed": false,
+      "summary": [
+        "UI PHASE4 RULE CHECKS 10899 FAILURES 1"
+      ],
+      "seconds": 2.61
+    },
+    {
+      "test": "ui_town_r21_round3_test",
+      "exit": 1,
+      "passed": false,
+      "summary": [
+        "TOWN ROUND3 UI CHECKS 8535 FAILURES 10 PORTRAIT SLOTS 300 ENEMY FALLBACKS 0"
+      ],
+      "seconds": 19.33
+    },
+    {
+      "test": "ui_dialogue_r21_test",
+      "exit": 4294967295,
+      "passed": false,
+      "summary": [],
+      "seconds": 511.05
+    }
+  ],
+  "rechecks": [
+    {
+      "test": "ui_dialogue_roster_r21_test",
+      "exit": 0,
+      "errors": [],
+      "passed": true,
+      "summary": [
+        "DIALOGUE ROSTER UI CHECKS 1489324 FAILURES 0 OVERFLOW 0"
+      ],
+      "seconds": 638.47
+    },
+    {
+      "test": "ui_expedition_r22_test",
+      "exit": 0,
+      "errors": [],
+      "passed": true,
+      "summary": [
+        "EXPEDITION UI R22 CHECKS 3080 FAILURES 0 CAPTURES 70"
+      ],
+      "seconds": 16.25
+    },
+    {
+      "test": "ui_look_r24_round4_test",
+      "exit": 0,
+      "errors": [],
+      "passed": true,
+      "summary": [
+        "LOOK ROUND4 after CHECKS 6558 FAILURES 0 CAPTURES 216"
+      ],
+      "seconds": 26.3
+    },
+    {
+      "test": "ui_phase4_r23_test",
+      "exit": 0,
+      "errors": [],
+      "passed": true,
+      "summary": [
+        "UI PHASE4 RULE CHECKS 10899 FAILURES 0"
+      ],
+      "seconds": 2.14
+    },
+    {
+      "test": "ui_finish_round3_r24_test",
+      "exit": 0,
+      "errors": [],
+      "passed": true,
+      "summary": [
+        "UI FINISH ROUND3 CHECKS 252 FAILURES 0"
+      ],
+      "seconds": 9.25
+    },
+    {
+      "test": "finish_initial_r24_test",
+      "exit": 0,
+      "errors": [],
+      "passed": true,
+      "summary": [
+        "FINISH INITIAL R24 CHECKS 33 FAILURES 0"
+      ],
+      "seconds": 1.55
+    },
+    {
+      "test": "finish_facilities_r24_test",
+      "exit": 0,
+      "errors": [],
+      "passed": true,
+      "summary": [
+        "FINISH FACILITIES R24 CHECKS 1246 FAILURES 0"
+      ],
+      "seconds": 12.56
+    },
+    {
+      "test": "finish_resume_r24_test",
+      "exit": 0,
+      "errors": [],
+      "passed": true,
+      "summary": [
+        "FINISH RESUME R24 CHECKS 76 FAILURES 0"
+      ],
+      "seconds": 1.92
+    },
+    {
+      "test": "finish_gear_hooks_r24_test",
+      "exit": 0,
+      "errors": [],
+      "passed": true,
+      "summary": [
+        "FINISH GEAR HOOKS R24 CHECKS 48 FAILURES 0"
+      ],
+      "seconds": 1.09
+    },
+    {
+      "test": "expe_pass5_r23_test",
+      "exit": 0,
+      "errors": [],
+      "passed": true,
+      "summary": [
+        "EXPE PASS5 CHECKS 2598 FAILURES 0"
+      ],
+      "seconds": 27.38
+    }
+  ],
+  "fixture_input_changes": [
+    "expe_pass5_r23_test: explicit dungeon mode for the original floor-28 q.lv fixture",
+    "ui_expedition_r22_test: explicit dungeon mode for dungeon-picker fixtures",
+    "ui_town_r21_round3_test: source immediate meal charge/daily rejection replaces the former confirmation-cancel expectation"
+  ],
+  "numerical_oracle_expectations_changed": false
+}

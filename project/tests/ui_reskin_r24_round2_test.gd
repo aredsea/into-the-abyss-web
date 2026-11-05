@@ -11,7 +11,7 @@ func scan(s,tag,dim):
 			if n.get_parent().has_meta("resource_values"):continue
 			if n.get_theme_font_size("font_size")<12:readability.append({"screen":tag,"text":n.text,"size":n.get_theme_font_size("font_size"),"path":str(n.get_path())})
 func run():
-	folder="res://../verification/reskin-r24/render"
+	folder="res://../verification/reskin-r24/render";DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(folder))
 	for dim in [Vector2i(390,844),Vector2i(360,780),Vector2i(1280,800)]:
 		root.content_scale_size=dim;root.size=dim
 		var s=Screen.new();s.size=dim;s.storage.path="user://round2-ui-%d.json"%OS.get_process_id();root.add_child(s);s.motion_reduced=true;s.model=party_world()

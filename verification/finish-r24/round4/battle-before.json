@@ -1,0 +1,2622 @@
+{
+  "ledger": "battle",
+  "original_sha256": "f3f983bd04c2a78a21c2616486d2fa63bbceb7f1a61a36b63536a2883fe0f4e5",
+  "rows": [
+    {
+      "id": "P1473",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 21,
+        "end": 28,
+        "symbol": "B.syn"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1474",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 30,
+        "end": 33,
+        "symbol": "B.say"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1477",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 38,
+        "end": 47,
+        "symbol": "B.begin_ev"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1482",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 49,
+        "end": 55,
+        "symbol": "B.setf"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1485",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 57,
+        "end": 61,
+        "symbol": "B.push"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1488",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 72,
+        "end": 81,
+        "symbol": "B.member_def"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1489",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 84,
+        "end": 106,
+        "symbol": "B.member_skills"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1490",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 108,
+        "end": 111,
+        "symbol": "B.sk_slot"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1491",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 114,
+        "end": 131,
+        "symbol": "B.bind"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1498",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 136,
+        "end": 167,
+        "symbol": "B.foe_def"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1499",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 168,
+        "end": 184,
+        "symbol": "B.bind_foes"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1500",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 186,
+        "end": 191,
+        "symbol": "unit0"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1539",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 193,
+        "end": 254,
+        "symbol": "B.blank_u"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1542",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 207,
+        "end": 207,
+        "symbol": "r"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1550",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 258,
+        "end": 273,
+        "symbol": "B.apply_carry"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1553",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 277,
+        "end": 310,
+        "symbol": "B.fresh"
+      },
+      "status": "일부",
+      "fixed": true,
+      "remaining_reason": "초기화 48편성과 carry 소생 조건은 비교. 기본/옛 편성·dm·로그·q·first를 포함한 fresh 전체 반환은 남음."
+    },
+    {
+      "id": "P1587",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 313,
+        "end": 317,
+        "symbol": "B.again"
+      },
+      "status": "일부",
+      "fixed": false,
+      "remaining_reason": "동일 편성 재시도의 bn 증가와 rg/qid/place/sid 이전 계약을 새 원본 fixture로 비교하지 않음."
+    },
+    {
+      "id": "P1589",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 320,
+        "end": 324,
+        "symbol": "B.redo"
+      },
+      "status": "일부",
+      "fixed": false,
+      "remaining_reason": "같은 bn으로 재시작하며 난이도·편성·출처를 유지하는 전체 반환을 새 대조하지 않음."
+    },
+    {
+      "id": "P1590",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 328,
+        "end": 345,
+        "symbol": "B.migrate"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1594",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 347,
+        "end": 357,
+        "symbol": "B.load"
+      },
+      "status": "일부",
+      "fixed": true,
+      "remaining_reason": "고갈 횟수·마지막 일격 id·옛 필드 없음의 기본값은 재개 및 실제 D1 왕복 통과. 원본 VER2 전체 상태를 native로 읽는 통합 이관은 여전히 없음. 지시된 id 전용 last_kill로 원본 이름+기술 문구를 보존할 수 없어 이 차이도 남는다."
+    },
+    {
+      "id": "P1595",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 359,
+        "end": 361,
+        "symbol": "B.save"
+      },
+      "status": "일부",
+      "fixed": true,
+      "remaining_reason": "native 저장에 고갈 횟수와 알려진 마지막 일격 id를 넣고 서버/D1/다른 기기/파일 재개를 검증했다. 원본 VER2 전체 왕복과 기술명 문구의 id 전용 표현 차이는 남는다."
+    },
+    {
+      "id": "P1596",
+      "source": {
+        "file": "bot/src/20-state.lua",
+        "start": 364,
+        "end": 370,
+        "symbol": "B.last_char"
+      },
+      "status": "제외",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1599",
+      "source": {
+        "file": "bot/src/24-stats.lua",
+        "start": 13,
+        "end": 17,
+        "symbol": "B.cls_of"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1600",
+      "source": {
+        "file": "bot/src/24-stats.lua",
+        "start": 21,
+        "end": 39,
+        "symbol": "B.party_stats"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1601",
+      "source": {
+        "file": "bot/src/24-stats.lua",
+        "start": 27,
+        "end": 27,
+        "symbol": "st"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1602",
+      "source": {
+        "file": "bot/src/24-stats.lua",
+        "start": 42,
+        "end": 44,
+        "symbol": "B.K_of"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1604",
+      "source": {
+        "file": "bot/src/24-stats.lua",
+        "start": 48,
+        "end": 60,
+        "symbol": "B.enemy_stats"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1613",
+      "source": {
+        "file": "bot/src/24-stats.lua",
+        "start": 107,
+        "end": 107,
+        "symbol": "B.floor_final_reset"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1616",
+      "source": {
+        "file": "bot/src/26-start.lua",
+        "start": 4,
+        "end": 25,
+        "symbol": "B.battle_pm"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1617",
+      "source": {
+        "file": "bot/src/26-start.lua",
+        "start": 28,
+        "end": 33,
+        "symbol": "B.foes_for"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1618",
+      "source": {
+        "file": "bot/src/26-start.lua",
+        "start": 36,
+        "end": 43,
+        "symbol": "B.rift_id_of"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1619",
+      "source": {
+        "file": "bot/src/26-start.lua",
+        "start": 48,
+        "end": 58,
+        "symbol": "B.quest_compose"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1620",
+      "source": {
+        "file": "bot/src/26-start.lua",
+        "start": 60,
+        "end": 86,
+        "symbol": "B.battle_start"
+      },
+      "status": "일부",
+      "fixed": false,
+      "remaining_reason": "편성→전투 시작→scene/보상/식별자 저장까지의 G 변경 전체를 새 대조하지 않음."
+    },
+    {
+      "id": "P1630",
+      "source": {
+        "file": "bot/src/27-compose.lua",
+        "start": 11,
+        "end": 15,
+        "symbol": "mkrng"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1631",
+      "source": {
+        "file": "bot/src/27-compose.lua",
+        "start": 14,
+        "end": 14,
+        "symbol": "mkrng::익명 함수@14"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1640",
+      "source": {
+        "file": "bot/src/27-compose.lua",
+        "start": 51,
+        "end": 73,
+        "symbol": "pools"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1641",
+      "source": {
+        "file": "bot/src/27-compose.lua",
+        "start": 75,
+        "end": 82,
+        "symbol": "has_summon"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1642",
+      "source": {
+        "file": "bot/src/27-compose.lua",
+        "start": 83,
+        "end": 86,
+        "symbol": "has_charge"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1645",
+      "source": {
+        "file": "bot/src/27-compose.lua",
+        "start": 126,
+        "end": 130,
+        "symbol": "pickl"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1646",
+      "source": {
+        "file": "bot/src/27-compose.lua",
+        "start": 133,
+        "end": 163,
+        "symbol": "fits"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1647",
+      "source": {
+        "file": "bot/src/27-compose.lua",
+        "start": 165,
+        "end": 171,
+        "symbol": "party_target"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1650",
+      "source": {
+        "file": "bot/src/27-compose.lua",
+        "start": 209,
+        "end": 216,
+        "symbol": "result"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1651",
+      "source": {
+        "file": "bot/src/27-compose.lua",
+        "start": 267,
+        "end": 277,
+        "symbol": "build_slots"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1652",
+      "source": {
+        "file": "bot/src/27-compose.lua",
+        "start": 318,
+        "end": 324,
+        "symbol": "shuffle"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1653",
+      "source": {
+        "file": "bot/src/27-compose.lua",
+        "start": 326,
+        "end": 349,
+        "symbol": "dfs"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1654",
+      "source": {
+        "file": "bot/src/27-compose.lua",
+        "start": 373,
+        "end": 377,
+        "symbol": "B.compose::익명 함수@373"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1655",
+      "source": {
+        "file": "bot/src/27-compose.lua",
+        "start": 388,
+        "end": 394,
+        "symbol": "B.floor_plan"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1699",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 6,
+        "end": 6,
+        "symbol": "nm"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1702",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 9,
+        "end": 14,
+        "symbol": "isweak"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1705",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 17,
+        "end": 17,
+        "symbol": "B.cid"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1706",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 18,
+        "end": 21,
+        "symbol": "B.slot_of"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1713",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 37,
+        "end": 40,
+        "symbol": "B.boss_half"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1715",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 42,
+        "end": 52,
+        "symbol": "B.btick"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1717",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 53,
+        "end": 53,
+        "symbol": "B.has_debuff"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1720",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 77,
+        "end": 85,
+        "symbol": "B.fire"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1721",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 86,
+        "end": 104,
+        "symbol": "B.chain"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1722",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 106,
+        "end": 124,
+        "symbol": "B.chain_at"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1723",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 126,
+        "end": 141,
+        "symbol": "B.spd"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1724",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 142,
+        "end": 144,
+        "symbol": "B.trait_line"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1725",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 146,
+        "end": 165,
+        "symbol": "B.pick_target"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1726",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 168,
+        "end": 168,
+        "symbol": "B.enemy0"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1733",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 216,
+        "end": 246,
+        "symbol": "B.preview"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1737",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 262,
+        "end": 280,
+        "symbol": "B.end_turn"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1746",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 330,
+        "end": 408,
+        "symbol": "B.strike"
+      },
+      "status": "일부",
+      "fixed": false,
+      "remaining_reason": "72가지 직접 strike와 기존 장비/사제/생존 회귀는 통과. 반환 ls/tags, 모든 구원 소유자 순서 및 필드 시간 이력은 남음."
+    },
+    {
+      "id": "P1760",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 433,
+        "end": 448,
+        "symbol": "B.abyss"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1761",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 451,
+        "end": 463,
+        "symbol": "B.vconn"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1762",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 466,
+        "end": 489,
+        "symbol": "B.dmg_line"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1772",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 592,
+        "end": 597,
+        "symbol": "cutin"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1789",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 652,
+        "end": 666,
+        "symbol": "B.dot_push"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1806",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 766,
+        "end": 778,
+        "symbol": "B.can_use"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1811",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 828,
+        "end": 866,
+        "symbol": "B.e_attack"
+      },
+      "status": "일부",
+      "fixed": true,
+      "remaining_reason": "기존256+추가16개 단일/전체 공격 기록에서 치명 taunt 원문/시간을 수정. 여러 개인/장비 반격 훅을 섞은 모든 사건·반환·시간 순서 직접 대조는 남음."
+    },
+    {
+      "id": "P1812",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 869,
+        "end": 901,
+        "symbol": "B.e_attack_all"
+      },
+      "status": "일부",
+      "fixed": true,
+      "remaining_reason": "단일/전체 256입력의 대상별 시각·사망·보호자 상태·tags·피격 후 효과 비교. 다중 반격/장비 훅 혼합의 전체 사건/로그 대조는 남음."
+    },
+    {
+      "id": "P1813",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 903,
+        "end": 932,
+        "symbol": "B.enemy_turn"
+      },
+      "status": "일부",
+      "fixed": true,
+      "remaining_reason": "100종 각 행동·건강/손상652개 조합 편성의 차례 전체 상태·사건·로그·다음 RNG 직접 일치. fl 없는 옛 고정 적 차례 전체와 다중 개인/장비 훅 혼합 직접 대조는 남음."
+    },
+    {
+      "id": "P1824",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 981,
+        "end": 992,
+        "symbol": "B.exp_reward"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1825",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 994,
+        "end": 1042,
+        "symbol": "B.finish"
+      },
+      "status": "일부",
+      "fixed": true,
+      "remaining_reason": "고갈 횟수는 저장 재개 뒤 유지한다. last_kill을 id만 저장하라는 지시 때문에 원본의 이름+기술 문구는 이름으로 복원되어 일부 정보가 빠진다. 실제 의뢰 출처/rg/qmult의 모든 정산 연결도 전체 직접 대조 미완료."
+    },
+    {
+      "id": "P1830",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 1044,
+        "end": 1050,
+        "symbol": "B.check_end"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1831",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 1053,
+        "end": 1088,
+        "symbol": "B.run"
+      },
+      "status": "미확인",
+      "fixed": false,
+      "remaining_reason": "6320판 진행 결과는 비교. guard 80·모든 시작/라운드/사망·자동 방출의 전체 상태 경계는 남음."
+    },
+    {
+      "id": "P1842",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 1119,
+        "end": 1134,
+        "symbol": "B.TR.levia.abyss_after"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1847",
+      "source": {
+        "file": "bot/src/30-engine.lua",
+        "start": 1146,
+        "end": 1161,
+        "symbol": "B.TR.marceline.save"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P3492",
+      "source": {
+        "file": "bot/src/80-press.lua",
+        "start": 5,
+        "end": 48,
+        "symbol": "B.act"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P3502",
+      "source": {
+        "file": "bot/src/80-press.lua",
+        "start": 52,
+        "end": 61,
+        "symbol": "B.nudge::익명 함수@52"
+      },
+      "status": "제외",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P3505",
+      "source": {
+        "file": "bot/src/80-press.lua",
+        "start": 76,
+        "end": 84,
+        "symbol": "B.press"
+      },
+      "status": "제외",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1864",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 7,
+        "end": 7,
+        "symbol": "nm"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1870",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 24,
+        "end": 24,
+        "symbol": "pct"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1871",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 27,
+        "end": 36,
+        "symbol": "B.foe_line"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1872",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 39,
+        "end": 45,
+        "symbol": "B.foe_start"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1875",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 48,
+        "end": 72,
+        "symbol": "B.foe_defense"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1877",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 84,
+        "end": 97,
+        "symbol": "B.foe_hit_after"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1880",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 100,
+        "end": 111,
+        "symbol": "B.e_counter"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1881",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 114,
+        "end": 135,
+        "symbol": "B.foe_atk_mul"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1882",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 138,
+        "end": 143,
+        "symbol": "B.edot_add"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1885",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 145,
+        "end": 160,
+        "symbol": "B.edot_tick"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1892",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 201,
+        "end": 215,
+        "symbol": "B.foe_turn_start"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1897",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 216,
+        "end": 224,
+        "symbol": "B.foe_turn_end"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1901",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 237,
+        "end": 279,
+        "symbol": "B.e_buff"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1908",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 282,
+        "end": 303,
+        "symbol": "B.e_debuff"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1910",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 305,
+        "end": 319,
+        "symbol": "B.e_dot"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1911",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 321,
+        "end": 342,
+        "symbol": "B.e_heal"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1912",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 345,
+        "end": 369,
+        "symbol": "B.summon_one"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1919",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 370,
+        "end": 386,
+        "symbol": "B.e_summon"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1920",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 388,
+        "end": 397,
+        "symbol": "B.e_protect"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1926",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 407,
+        "end": 431,
+        "symbol": "B.e_special"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1930",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 434,
+        "end": 437,
+        "symbol": "B.e_act"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1931",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 440,
+        "end": 452,
+        "symbol": "B.charge_cancel"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1934",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 455,
+        "end": 481,
+        "symbol": "B.enter_phase2"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1942",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 486,
+        "end": 497,
+        "symbol": "B.phase_check"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1944",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 503,
+        "end": 518,
+        "symbol": "B.result_context"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1945",
+      "source": {
+        "file": "bot/src/31-foes.lua",
+        "start": 523,
+        "end": 545,
+        "symbol": "B.exp_reward_foes"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2363",
+      "source": {
+        "file": "bot/src/51-raid.lua",
+        "start": 7,
+        "end": 7,
+        "symbol": "f2"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2365",
+      "source": {
+        "file": "bot/src/51-raid.lua",
+        "start": 23,
+        "end": 29,
+        "symbol": "pips"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2366",
+      "source": {
+        "file": "bot/src/51-raid.lua",
+        "start": 31,
+        "end": 87,
+        "symbol": "B.r_boss"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2368",
+      "source": {
+        "file": "bot/src/51-raid.lua",
+        "start": 90,
+        "end": 99,
+        "symbol": "B.raid_field"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1948",
+      "source": {
+        "file": "bot/src/32-personal-a.lua",
+        "start": 25,
+        "end": 29,
+        "symbol": "xs"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1950",
+      "source": {
+        "file": "bot/src/32-personal-a.lua",
+        "start": 30,
+        "end": 34,
+        "symbol": "foes"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1951",
+      "source": {
+        "file": "bot/src/32-personal-a.lua",
+        "start": 36,
+        "end": 43,
+        "symbol": "behind"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1954",
+      "source": {
+        "file": "bot/src/32-personal-a.lua",
+        "start": 62,
+        "end": 62,
+        "symbol": "pct"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1955",
+      "source": {
+        "file": "bot/src/32-personal-a.lua",
+        "start": 64,
+        "end": 64,
+        "symbol": "sn"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1957",
+      "source": {
+        "file": "bot/src/32-personal-a.lua",
+        "start": 70,
+        "end": 94,
+        "symbol": "B.PRUN.haldric"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1994",
+      "source": {
+        "file": "bot/src/32-personal-a.lua",
+        "start": 264,
+        "end": 272,
+        "symbol": "cor_live"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1996",
+      "source": {
+        "file": "bot/src/32-personal-a.lua",
+        "start": 273,
+        "end": 287,
+        "symbol": "corrode"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2004",
+      "source": {
+        "file": "bot/src/32-personal-a.lua",
+        "start": 298,
+        "end": 317,
+        "symbol": "B.PRUN.judith"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2017",
+      "source": {
+        "file": "bot/src/32-personal-a.lua",
+        "start": 349,
+        "end": 365,
+        "symbol": "B.PRUN.urda"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2020",
+      "source": {
+        "file": "bot/src/32-personal-a.lua",
+        "start": 373,
+        "end": 387,
+        "symbol": "B.TR.urda.round"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2033",
+      "source": {
+        "file": "bot/src/32-personal-a.lua",
+        "start": 448,
+        "end": 473,
+        "symbol": "felice_scan"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2040",
+      "source": {
+        "file": "bot/src/32-personal-a.lua",
+        "start": 475,
+        "end": 482,
+        "symbol": "B.TR.felice.save"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2079",
+      "source": {
+        "file": "bot/src/32-personal-a.lua",
+        "start": 635,
+        "end": 656,
+        "symbol": "hg_scan"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2091",
+      "source": {
+        "file": "bot/src/32-personal-b.lua",
+        "start": 10,
+        "end": 10,
+        "symbol": "nm"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2092",
+      "source": {
+        "file": "bot/src/32-personal-b.lua",
+        "start": 11,
+        "end": 11,
+        "symbol": "sub"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2093",
+      "source": {
+        "file": "bot/src/32-personal-b.lua",
+        "start": 12,
+        "end": 12,
+        "symbol": "bp"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2094",
+      "source": {
+        "file": "bot/src/32-personal-b.lua",
+        "start": 13,
+        "end": 13,
+        "symbol": "short"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2095",
+      "source": {
+        "file": "bot/src/32-personal-b.lua",
+        "start": 14,
+        "end": 14,
+        "symbol": "pct"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2096",
+      "source": {
+        "file": "bot/src/32-personal-b.lua",
+        "start": 15,
+        "end": 15,
+        "symbol": "Kc"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2107",
+      "source": {
+        "file": "bot/src/32-personal-b.lua",
+        "start": 48,
+        "end": 61,
+        "symbol": "B.TR.gunhild.deal"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2115",
+      "source": {
+        "file": "bot/src/32-personal-b.lua",
+        "start": 72,
+        "end": 82,
+        "symbol": "B.PRUN.bargut"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2120",
+      "source": {
+        "file": "bot/src/32-personal-b.lua",
+        "start": 102,
+        "end": 110,
+        "symbol": "B.TR.bargut.turn_end"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2132",
+      "source": {
+        "file": "bot/src/32-personal-b.lua",
+        "start": 170,
+        "end": 175,
+        "symbol": "has_magic"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2171",
+      "source": {
+        "file": "bot/src/32-personal-b.lua",
+        "start": 368,
+        "end": 392,
+        "symbol": "B.TR.jorund.hit_after"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2181",
+      "source": {
+        "file": "bot/src/32-personal-b.lua",
+        "start": 407,
+        "end": 411,
+        "symbol": "casting"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2201",
+      "source": {
+        "file": "bot/src/32-personal-b.lua",
+        "start": 481,
+        "end": 496,
+        "symbol": "B.PRUN.miko"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2205",
+      "source": {
+        "file": "bot/src/32-personal-b.lua",
+        "start": 498,
+        "end": 510,
+        "symbol": "B.TR.miko.deal"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2207",
+      "source": {
+        "file": "bot/src/32-personal-b.lua",
+        "start": 511,
+        "end": 528,
+        "symbol": "B.TR.miko.round"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2218",
+      "source": {
+        "file": "bot/src/32-personal-b.lua",
+        "start": 581,
+        "end": 590,
+        "symbol": "drop_caster_buffs"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2220",
+      "source": {
+        "file": "bot/src/32-personal-b.lua",
+        "start": 595,
+        "end": 606,
+        "symbol": "tr.damaged"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2235",
+      "source": {
+        "file": "bot/src/34-traits.lua",
+        "start": 49,
+        "end": 58,
+        "symbol": "ptx"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2236",
+      "source": {
+        "file": "bot/src/34-traits.lua",
+        "start": 50,
+        "end": 57,
+        "symbol": "ptx::익명 함수@50"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2239",
+      "source": {
+        "file": "bot/src/34-traits.lua",
+        "start": 60,
+        "end": 60,
+        "symbol": "pnode"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2242",
+      "source": {
+        "file": "bot/src/34-traits.lua",
+        "start": 65,
+        "end": 68,
+        "symbol": "xs"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2245",
+      "source": {
+        "file": "bot/src/34-traits.lua",
+        "start": 83,
+        "end": 83,
+        "symbol": "lv"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2249",
+      "source": {
+        "file": "bot/src/34-traits.lua",
+        "start": 111,
+        "end": 111,
+        "symbol": "L"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2267",
+      "source": {
+        "file": "bot/src/34-traits.lua",
+        "start": 195,
+        "end": 195,
+        "symbol": "trait"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2268",
+      "source": {
+        "file": "bot/src/34-traits.lua",
+        "start": 197,
+        "end": 207,
+        "symbol": "refresh"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2280",
+      "source": {
+        "file": "bot/src/34-traits.lua",
+        "start": 290,
+        "end": 300,
+        "symbol": "G.extra_hit"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2287",
+      "source": {
+        "file": "bot/src/34-traits.lua",
+        "start": 346,
+        "end": 351,
+        "symbol": "G.exp"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2292",
+      "source": {
+        "file": "bot/src/34-traits.lua",
+        "start": 376,
+        "end": 393,
+        "symbol": "G.turn_end"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2300",
+      "source": {
+        "file": "bot/src/34-traits.lua",
+        "start": 415,
+        "end": 440,
+        "symbol": "B.kill_credit"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2301",
+      "source": {
+        "file": "bot/src/34-traits.lua",
+        "start": 443,
+        "end": 457,
+        "symbol": "B.dot_trim"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1660",
+      "source": {
+        "file": "bot/src/29-persona-skill.lua",
+        "start": 6,
+        "end": 10,
+        "symbol": "part"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1664",
+      "source": {
+        "file": "bot/src/29-persona-skill.lua",
+        "start": 14,
+        "end": 18,
+        "symbol": "lvl"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1666",
+      "source": {
+        "file": "bot/src/29-persona-skill.lua",
+        "start": 28,
+        "end": 31,
+        "symbol": "B.ps_parts"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1671",
+      "source": {
+        "file": "bot/src/29-persona-skill.lua",
+        "start": 36,
+        "end": 40,
+        "symbol": "B.ps_name"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1672",
+      "source": {
+        "file": "bot/src/29-persona-skill.lua",
+        "start": 41,
+        "end": 68,
+        "symbol": "B.ps_desc"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1673",
+      "source": {
+        "file": "bot/src/29-persona-skill.lua",
+        "start": 69,
+        "end": 74,
+        "symbol": "B.ps_skill"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1674",
+      "source": {
+        "file": "bot/src/29-persona-skill.lua",
+        "start": 75,
+        "end": 133,
+        "symbol": "B.PRUN.persona"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1678",
+      "source": {
+        "file": "bot/src/29-persona-skill.lua",
+        "start": 147,
+        "end": 147,
+        "symbol": "label"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1679",
+      "source": {
+        "file": "bot/src/29-persona-skill.lua",
+        "start": 149,
+        "end": 151,
+        "symbol": "work"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1680",
+      "source": {
+        "file": "bot/src/29-persona-skill.lua",
+        "start": 152,
+        "end": 159,
+        "symbol": "same"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1681",
+      "source": {
+        "file": "bot/src/29-persona-skill.lua",
+        "start": 160,
+        "end": 162,
+        "symbol": "B.ps_dirty"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1682",
+      "source": {
+        "file": "bot/src/29-persona-skill.lua",
+        "start": 163,
+        "end": 199,
+        "symbol": "B.ps_guild_tab"
+      },
+      "status": "일부",
+      "fixed": false,
+      "remaining_reason": "기존 길드 UI는 유지. 모든 prefix/suffix·dirty/ready·강화 상한/부족 금화 표시의 의미상 출력 전체는 새 대조하지 않음."
+    },
+    {
+      "id": "P1687",
+      "source": {
+        "file": "bot/src/29-persona-skill.lua",
+        "start": 201,
+        "end": 214,
+        "symbol": "changes"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1688",
+      "source": {
+        "file": "bot/src/29-persona-skill.lua",
+        "start": 215,
+        "end": 227,
+        "symbol": "save"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P1692",
+      "source": {
+        "file": "bot/src/29-persona-skill.lua",
+        "start": 228,
+        "end": 256,
+        "symbol": "B.ps_guild_action"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2307",
+      "source": {
+        "file": "bot/src/40-fx.lua",
+        "start": 5,
+        "end": 5,
+        "symbol": "f2"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2308",
+      "source": {
+        "file": "bot/src/40-fx.lua",
+        "start": 6,
+        "end": 6,
+        "symbol": "sv"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2309",
+      "source": {
+        "file": "bot/src/40-fx.lua",
+        "start": 7,
+        "end": 7,
+        "symbol": "put"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2310",
+      "source": {
+        "file": "bot/src/40-fx.lua",
+        "start": 9,
+        "end": 11,
+        "symbol": "B.fx_dn"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2311",
+      "source": {
+        "file": "bot/src/40-fx.lua",
+        "start": 13,
+        "end": 15,
+        "symbol": "B.fx_cn"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2312",
+      "source": {
+        "file": "bot/src/40-fx.lua",
+        "start": 17,
+        "end": 19,
+        "symbol": "B.fx_plaque"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2316",
+      "source": {
+        "file": "bot/src/40-fx.lua",
+        "start": 27,
+        "end": 27,
+        "symbol": "kx"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2317",
+      "source": {
+        "file": "bot/src/40-fx.lua",
+        "start": 30,
+        "end": 32,
+        "symbol": "B.bz_add"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2318",
+      "source": {
+        "file": "bot/src/40-fx.lua",
+        "start": 35,
+        "end": 52,
+        "symbol": "B.fx_hit"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2319",
+      "source": {
+        "file": "bot/src/40-fx.lua",
+        "start": 54,
+        "end": 59,
+        "symbol": "tagcls"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2320",
+      "source": {
+        "file": "bot/src/40-fx.lua",
+        "start": 62,
+        "end": 69,
+        "symbol": "B.fx_abyss"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2321",
+      "source": {
+        "file": "bot/src/40-fx.lua",
+        "start": 72,
+        "end": 99,
+        "symbol": "B.fx_result"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2322",
+      "source": {
+        "file": "bot/src/40-fx.lua",
+        "start": 101,
+        "end": 106,
+        "symbol": "B.fx_cutin"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2323",
+      "source": {
+        "file": "bot/src/40-fx.lua",
+        "start": 110,
+        "end": 126,
+        "symbol": "B.fx_pcutin"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2324",
+      "source": {
+        "file": "bot/src/40-fx.lua",
+        "start": 128,
+        "end": 271,
+        "symbol": "B.fx_event"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2326",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 5,
+        "end": 10,
+        "symbol": "B.sn"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2327",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 12,
+        "end": 18,
+        "symbol": "pct"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2328",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 20,
+        "end": 20,
+        "symbol": "f2"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2329",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 23,
+        "end": 92,
+        "symbol": "B.dyn"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2331",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 36,
+        "end": 36,
+        "symbol": "B.dyn::익명 함수@36"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2332",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 94,
+        "end": 97,
+        "symbol": "numspan"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2333",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 99,
+        "end": 99,
+        "symbol": "chip"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2334",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 102,
+        "end": 102,
+        "symbol": "B.chip_tn"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2335",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 103,
+        "end": 103,
+        "symbol": "B.chip_dotn"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2336",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 105,
+        "end": 136,
+        "symbol": "B.chips"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2337",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 138,
+        "end": 147,
+        "symbol": "B.hp_stat"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2339",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 151,
+        "end": 151,
+        "symbol": "B.icn"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2340",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 154,
+        "end": 175,
+        "symbol": "B.intent_text"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2341",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 177,
+        "end": 227,
+        "symbol": "B.r_enemy"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2343",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 230,
+        "end": 240,
+        "symbol": "B.pbadges"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2344",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 242,
+        "end": 270,
+        "symbol": "B.r_ally"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2347",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 273,
+        "end": 283,
+        "symbol": "tile"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2348",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 285,
+        "end": 306,
+        "symbol": "B.r_rail"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2349",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 308,
+        "end": 322,
+        "symbol": "B.r_head"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2350",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 325,
+        "end": 327,
+        "symbol": "B.kchip"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2351",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 329,
+        "end": 343,
+        "symbol": "sbtn"
+      },
+      "status": "미확인",
+      "fixed": false,
+      "remaining_reason": "버튼 MP/설명·disabled·선택 상태의 의미상 출력 전체를 새 직접 대조하지 않음."
+    },
+    {
+      "id": "P2353",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 345,
+        "end": 424,
+        "symbol": "B.r_act"
+      },
+      "status": "미확인",
+      "fixed": false,
+      "remaining_reason": "기술 조건 회귀는 통과. 행동/아이템/대상 선택·취소·버튼 배열의 전체 새 대조는 남음."
+    },
+    {
+      "id": "P2358",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 426,
+        "end": 437,
+        "symbol": "B.r_log"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2359",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 439,
+        "end": 516,
+        "symbol": "B.render"
+      },
+      "status": "미확인",
+      "fixed": false,
+      "remaining_reason": "기존 native 화면/오버플로 회귀는 유지. 모든 원본 상태에서 HUD·대상·로그·카메라의 의미상 전체 출력 대조는 남음."
+    },
+    {
+      "id": "P2361",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 488,
+        "end": 488,
+        "symbol": "B.render::익명 함수@488"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P2362",
+      "source": {
+        "file": "bot/src/50-render.lua",
+        "start": 493,
+        "end": 496,
+        "symbol": "bzo"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P3331",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 88,
+        "end": 88,
+        "symbol": "cur_i"
+      },
+      "status": "같음",
+      "fixed": false,
+      "remaining_reason": null
+    },
+    {
+      "id": "P3332",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 89,
+        "end": 132,
+        "symbol": "B.it_apply"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P3337",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 135,
+        "end": 135,
+        "symbol": "itname"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P3338",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 138,
+        "end": 150,
+        "symbol": "B.it_button"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P3340",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 153,
+        "end": 179,
+        "symbol": "B.r_items"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    },
+    {
+      "id": "P3344",
+      "source": {
+        "file": "bot/src/78-battle-item.lua",
+        "start": 182,
+        "end": 225,
+        "symbol": "B.H.it"
+      },
+      "status": "같음",
+      "fixed": true,
+      "remaining_reason": null
+    }
+  ]
+}

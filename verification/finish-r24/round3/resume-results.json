@@ -1,0 +1,74 @@
+{
+	"checks": 78,
+	"failures": [],
+	"known_difference": {
+		"phrases": [
+			{
+				"after": "{{user}}",
+				"before": "{{user}}의 기술",
+				"equal": false,
+				"wire": "persona"
+			},
+			{
+				"after": "{{user}}",
+				"before": "{{user}}의 기술",
+				"equal": false,
+				"wire": "persona"
+			}
+		],
+		"reason": "The required ID-only wire field cannot retain the canonical skill phrase."
+	},
+	"observations": [
+		{
+			"count": 0,
+			"id": "persona",
+			"restored": "{{user}}"
+		},
+		{
+			"count": 0,
+			"id": "teiris",
+			"restored": "테이리스"
+		},
+		{
+			"count": 1,
+			"id": "persona",
+			"restored": "{{user}}"
+		},
+		{
+			"count": 1,
+			"id": "teiris",
+			"restored": "테이리스"
+		},
+		{
+			"count": 3,
+			"id": "persona",
+			"restored": "{{user}}"
+		},
+		{
+			"count": 3,
+			"id": "teiris",
+			"restored": "테이리스"
+		},
+		{
+			"count": 400,
+			"id": "persona",
+			"restored": "{{user}}"
+		},
+		{
+			"count": 400,
+			"id": "teiris",
+			"restored": "테이리스"
+		},
+		{
+			"count": 11200,
+			"id": "persona",
+			"restored": "{{user}}"
+		},
+		{
+			"count": 11200,
+			"id": "teiris",
+			"restored": "테이리스"
+		}
+	],
+	"wire_last_kill": "known companion/persona id or empty"
+}

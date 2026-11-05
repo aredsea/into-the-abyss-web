@@ -242,7 +242,7 @@ func home() -> void:
 	var settings=hit("town_settings",Rect2(332,14,44,44),host.open_settings_r22);settings.text=localized("설정")
 	for key in ["font_color","font_hover_color","font_pressed_color","font_focus_color","font_disabled_color"]:settings.add_theme_color_override(key,Color.TRANSPARENT)
 	icon("gear",Rect2(343,25,22,22))
-	var specs=[["guild","연합 길드","의뢰판 · 동료 소개",118,196,176],["shop","마렌토 상회","물약 · 해독약 · 두루마리",150,396,206],["inn","여관","휴식 · 동료와 대화",30,316,150],["smithy","한나의 대장간","제련 · 가공",226,282,158]]
+	var specs=[["guild","연합 길드","의뢰판 · 동료 소개",118,196,176],["shop","마렌토 상회","물약 · 해독약 · 두루마리",150,396,206],["inn","여관","휴식 · 동료와 대화",30,316,176],["smithy","한나의 대장간","제련 · 가공",226,282,158]]
 	for e in specs:
 		var x=float(e[3]);var y=float(e[4]);var width=minf(e[5],388-x);var color=T.RED if facility_has_news(e[0]) else T.INK
 		var b=hit(e[0],Rect2(x,y,width,44),host.go.bind(e[0]));b.tooltip_text=localized(e[1]+" · "+e[2])
@@ -260,7 +260,7 @@ func home() -> void:
 			icon("party",Rect2(x+29,552,28,28),T.QUIET);label("빈 자리",Rect2(x+6,609,80,23),12,T.MUTED);rule(683,x,84);continue
 		var id=ids[i];var person=host.model.person(id);var m=host.model.s.members[id];var stats=host.model.stats(id,m.level)
 		picture(id,Rect2(x-3,493,94,112),"town-party")
-		label(person.name,Rect2(x+2,606,88,22),12,T.INK,T.BOLD);label(person.row+" · "+person["class"],Rect2(x+2,628,88,22),12,T.MUTED,T.DISPLAY)
+		label(person.name,Rect2(x+2,606,88,22),12,T.INK,T.BOLD);label(person["class"] if L.language(host.model.s)=="en" else person.row+" · "+person["class"],Rect2(x+2,628,88,22),12,T.MUTED,T.DISPLAY)
 		resource_numbers(Rect2(x+6,650,78,20),m.hp,stats.hp,true,18);resource("party_hp:"+id,Rect2(x+6,672,78,7),m.hp,stats.hp);resource("party_mp:"+id,Rect2(x+6,682,78,3),m.mp,stats.mp,false)
 		rule(690,x,84);hit("town_member:"+id,Rect2(x,493,88,195),func():host.who=id;host.go("status" if id=="persona" else "member"))
 	var b=action("depart","원정 준비",Rect2(14,704,362,62),host.go.bind("depart"),true);b.add_theme_color_override("font_color",Color.TRANSPARENT)
