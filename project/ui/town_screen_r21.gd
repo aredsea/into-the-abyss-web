@@ -744,7 +744,7 @@ func inn_dialogue() -> void:
 		y=reading_line("호감 %s → %s (%s%s)"%[host.number(p.before),host.number(p.after),"+" if p.gained>=0 else "",host.number(p.gained)],y,14,T.RED)
 		var t=p.transition
 		if not t.is_empty():
-			y=reading_line(t.from+" → "+t.to,y,16,T.RED)
+			y=reading_line(localized(t.from)+" → "+localized(t.to),y,16,T.RED)
 			y=reading_line(t.situation+"\n"+"\n".join(t.lines),y,15,T.INK,false)
 		content.custom_minimum_size.y=maxf(351,y+16);stage=previous
 		action("dialogue_done","여관으로",Rect2(18,699,354,56),func():host.model.close_dialogue();host._save();host.go("inn"),true)
@@ -755,7 +755,7 @@ func inn_dialogue() -> void:
 		y=reading_line("어떻게 답할까",y,14)
 		for i in range(row.choices.size()):
 			var c=row.choices[i]
-			var height=maxf(58,T.BOLD.get_multiline_string_size(c.text,HORIZONTAL_ALIGNMENT_LEFT,288,15).y+24)
+			var height=maxf(58,T.BOLD.get_multiline_string_size(L.authored_display(c.text,host.model.s),HORIZONTAL_ALIGNMENT_LEFT,288,15).y+24)
 			var b=action("dialogue_choice:"+c.id,c.text,Rect2(0,y,342,height),func():host._act(host.model.choose_dialogue.bind(c.id),""),false,false,false)
 			b.set_meta("authored_copy",true)
 			b.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;b.add_theme_font_size_override("font_size",15)
@@ -765,9 +765,15 @@ func inn_dialogue() -> void:
 	navigation()
 
 ## Measured reading rows for the remaining long town/expedition screens.
+func authored_english_height(copy: String,width: float,fs: int) -> float:
+	var measured=T.BODY.get_multiline_string_size(copy,HORIZONTAL_ALIGNMENT_LEFT,width,fs).y
+	var lines=maxi(1,ceili(measured/T.BODY.get_height(fs)))
+	return measured+(lines-1)*get_theme_constant("line_spacing","Label")+16
+
 func reading_line(value: String,y: float,fs=15,color=T.INK,translate=true) -> float:
-	var copy=localized(value) if translate else value
+	var copy=localized(value) if translate else L.authored_display(value,host.model.s)
 	var height=ceilf(T.BODY.get_multiline_string_size(copy,HORIZONTAL_ALIGNMENT_LEFT,342,fs).y*1.25)+24
+	if not translate and L.language(host.model.s)=="en":height=authored_english_height(copy,342,fs)
 	var line=paragraph(value,Rect2(0,y,342,height),fs,color,translate)
 	height=maxf(height,line.get_line_count()*line.get_line_height()+10);line.size.y=height
 	if not translate:line.set_meta("authored_copy",true)
@@ -778,13 +784,19 @@ func journey_dialogue() -> void:
 	fill("journey_paper",Rect2(0,0,390,844),T.PAPER)
 	display("함께 걷는 길",Rect2(18,35,354,57),T.INK,39)
 	var previous=stage;stage=scroll_page(118,581,rows.size()*172)
+	var content=stage;var y=0.0
+	var english=L.language(host.model.s)=="en"
 	for i in range(rows.size()):
-		var row=rows[i];var y=i*172
+		var row=rows[i]
 		picture(row.who,Rect2(0,y,77,104),"target-face")
 		label(host.model.person(row.who).name,Rect2(93,y,248,26),18,T.INK,T.BOLD)
 		var text="\n".join(row.lines)
-		if row.kind=="transition":text=row.from+" → "+row.to+"\n"+row.situation+"\n"+text
-		paragraph(text,Rect2(93,y+32,248,133),15,T.INK,false).set_meta("authored_copy",true)
+		if row.kind=="transition":text=localized(row.from)+" → "+localized(row.to)+"\n"+row.situation+"\n"+text
+		var copy=L.authored_display(text,host.model.s) if english else text
+		var height=maxf(133,authored_english_height(copy,248,15)) if english else 133.0
+		paragraph(copy,Rect2(93,y+32,248,height),15,T.INK,false).set_meta("authored_copy",true)
+		y+=maxf(172,32+height+8) if english else 172.0
+	if english:content.custom_minimum_size.y=maxf(rows.size()*172,y+8)
 	stage=previous
 	action("dialogue_continue","계속",Rect2(18,748,354,58),func():host.model.dismiss_dialogue_queue();host._save();host._draw_screen(),true)
 

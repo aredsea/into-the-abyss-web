@@ -1,0 +1,14 @@
+{
+  "reviewed_captures": 60,
+  "reviewed_characters": ["adeline", "altan", "bargut", "berenga", "bianca", "colette", "erdene", "felice", "gerda", "gunhild", "haldric", "hedwig"],
+  "widths": [360, 430],
+  "method": "Opened all 12 original-resolution character sheets, each containing five final screenshots: choices at both widths, bottom choice at 360px, response at 360px, and journey at 430px. Inspected an earlier set first, found clipping, fixed it and reopened the regenerated final sheets.",
+  "review_ko": "대화 제목과 초상화가 겹치지 않고, 긴 선택지는 줄바꿈된다. 처음 화면 아래에 놓인 선택지는 스크롤한 캡처에서 끝까지 보인다. 베렌가의 탐색 전환 마지막 문구와 펠리스의 응답 전환 마지막 단어가 잘리던 현상은 수정 후 끝까지 표시된다. 본문은 필요할 때 스크롤로 이어지며, 조작 버튼은 본문 영역과 분리되어 있다. 30명 전체의 화면 검토는 아니며 미번역 18명은 이 검토 대상에 포함하지 않았다.",
+  "issue_found": "Font multiline measurements excluded Label line spacing, and journey rows/content had fixed heights. The strengthened visible-line check initially found 148 failures; final run found zero.",
+  "final_ui_checks": 64488,
+  "final_ui_scenes": 672,
+  "final_ui_failures": 0,
+  "before_fix_evidence": ["ui_en_r24_test-before-line-spacing-fix.log", "ui-test-before-line-spacing-fix.json"],
+  "sheet_directory": "review-sheets-round2",
+  "capture_directory": "render"
+}
